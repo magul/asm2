@@ -1,11 +1,11 @@
 #. # bo.properties#=========================================================================
-#. extracted from po/t.properties, po/t_lt_LT.properties 
+#. extracted from po/t.properties, po/t_lt_LT.properties
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-05 11:46+0100\n"
+"POT-Creation-Date: 2009-10-06 09:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -463,7 +463,7 @@ msgstr ""
 #: lksmovementtype_8
 #: Retailer
 msgid "Retailer"
-msgstr "Retailer"
+msgstr "Tarpininkas"
 
 #: auto_removed_due_to_owner_contact
 msgid "Auto removed due to lack of owner contact."
@@ -584,7 +584,7 @@ msgstr ""
 
 #: monthly
 msgid "monthly"
-msgstr "Monthly"
+msgstr "Kas mėnesį"
 
 #: years
 msgid "years"
@@ -871,57 +871,46 @@ msgstr ""
 msgid "Graph Type"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Interpolation
 msgid "Interpolation"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Chart_-_
 msgid "Chart - "
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Plot_Chart
 msgid "Plot Chart"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Line_Chart
 msgid "Line Chart"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Line
 msgid "Line"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Bar_Chart
 msgid "Bar Chart"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Unknown_chart_type_'
 msgid "Unknown chart type '"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Pie
 msgid "Pie"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Bar
 msgid "Bar"
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Rendering_Graph...
 msgid "Rendering Graph..."
 msgstr ""
 
-#. #uk.co.rtds.asm.charts.Chart
 #: Plot
 msgid "Plot"
 msgstr ""
@@ -4422,11 +4411,11 @@ msgstr "Jūsų pasirinktos rūšies gyvūnų prieglaudoje nėra."
 
 #: All_animals_on_the_shelter_have_media_attached.
 msgid "All animals on the shelter have media attached."
-msgstr "Visi prieglaudos gyvūnai yra su vaizdine medžiaga."
+msgstr "Visi prieglaudos gyvūnai yra su prisegtais failais."
 
 #: Animals_on_the_shelter_with_no_media_attached_at_
 msgid "Animals on the shelter with no media attached at {0} "
-msgstr "Prieglaudos gyvūnai be vaizdinės medžiagos: {0} "
+msgstr "Prieglaudos gyvūnai be prisegtų failų: {0} "
 
 #: No_animals_on_the_shelter_have_never_been_vaccinated.
 msgid "No animals on the shelter have never been vaccinated."
@@ -5304,7 +5293,7 @@ msgstr "Žiūrėti gyvūnus šioje vadoje"
 
 #: Acceptance
 msgid "Acceptance"
-msgstr "Priimamumas"
+msgstr "Priėmimas"
 
 #: Adoption_No\:_
 msgid "Adoption No: "
@@ -5329,7 +5318,7 @@ msgstr "Įtraukti mirusius"
 
 #: tick_this_box_to_include_deceased_animals
 msgid "Tick this box to include deceased animals"
-msgstr "Tick this box to include deceased animals"
+msgstr "Pažymėkite šį laukelį, jei norite įtraukti mirusius gyvūnus."
 
 #: Type\:_
 #: Type\:
@@ -5342,7 +5331,7 @@ msgstr "Trumpas kodas"
 
 #: Acc._No\:_
 msgid "Acc. No: "
-msgstr "Acc. No: "
+msgstr "Priėmimo nr.: "
 
 #: Internal_Loc\:_
 msgid "Internal Loc: "
@@ -5354,7 +5343,7 @@ msgstr ""
 
 #: Hidden_Comments
 msgid "Hidden Comments"
-msgstr "Paslėpti komentarai"
+msgstr "Slepiami komentarai"
 
 #: Reserved\:_
 msgid "Reserved: "
@@ -5407,7 +5396,7 @@ msgstr "Požymiai: "
 
 #: LocationName
 msgid "LocationName"
-msgstr "Vietos pavadinimas"
+msgstr "VietosPavadinimas"
 
 #: (all)
 msgid "(all)"
@@ -5463,19 +5452,19 @@ msgstr "Sąrašas pildomas..."
 
 #: Open_the_animal_record_for_this_vaccination
 msgid "Open the animal record for this vaccination record"
-msgstr "Atidaryti šiam vakcinacijos įrašui gyvūno įrašą"
+msgstr "Atidaryti šiam įrašui apie vakcinaciją gyvūno įrašą"
 
 #: Could_not_read_media_entry_from_database\:_
 msgid "Could not read media entry from database: "
-msgstr "Could not read media entry from database: "
+msgstr "Nepavyko nuskaityti failo įrašo iš duomenų bazės.: "
 
 #: Edit_Media_Entry
 msgid "Edit Media Entry"
-msgstr "Redaguoti prieiga prie vaizdinės medžiagos"
+msgstr "Redaguoti prieigą prie failo"
 
 #: Unable_to_save_media_entry_to_database\:_
 msgid "Unable to save media entry to database: "
-msgstr "Unable to save media entry to database: "
+msgstr "Nepavyko išsaugoti failo įrašą duomenų bazėje.: "
 
 #: Notes_about_the_animal,_if_you_are_using_the_internet_plugin,_these_will_be_used_as_the_animal's_description
 msgid ""
@@ -5499,7 +5488,7 @@ msgstr "Redaguoti vadą"
 
 #: Acceptance\:
 msgid "Acceptance:"
-msgstr "Priimamumas:"
+msgstr "Priėmimas:"
 
 #: Select_a_mother_from_the_shelter_animals
 msgid "Select a mother from the shelter animals"
@@ -5515,7 +5504,7 @@ msgstr "Įvyko klaida nuskaitant įrašą:\n"
 
 #: Or_date\:
 msgid "Or date:"
-msgstr "Arba data:"
+msgstr "Arba iki:"
 
 #: Create_New_Litter
 msgid "Create New Litter"
@@ -5552,7 +5541,7 @@ msgstr ""
 
 #: SpeciesName
 msgid "SpeciesName"
-msgstr "SpeciesName"
+msgstr "RūšiesPavadinimas"
 
 #: The_number_of_animals_in_the_litter
 msgid "The number of animals in the litter"
@@ -5579,7 +5568,7 @@ msgid ""
 "The acceptance number for all the animals in this litter - the system can "
 "automatically remove litters"
 msgstr ""
-"Priimamumo skaičius visiems šios vados gyvūnams - sistema gali automatiškai "
+"Priėmimo numeris visiems šios vados gyvūnams - sistema gali automatiškai "
 "pašalinti vadas"
 
 #: The_type_of_vaccination
@@ -5594,7 +5583,7 @@ msgstr "Redaguoti vakcinaciją"
 #: Unable_to_create_new_vaccination\:_
 #, fuzzy
 msgid "Unable to create new vaccination record: "
-msgstr "Nepavyko pridėti naujo vakcinacijos įrašo: "
+msgstr "Nepavyko pridėti naujo įrašo apie vakcinaciją: "
 
 #: VaccinationType
 msgid "VaccinationType"
@@ -5610,11 +5599,11 @@ msgstr "Vakcinacijos data"
 
 #: An_error_occurred_saving_to_the_local_recordset\:_
 msgid "An error occurred saving to the local recordset: "
-msgstr "An error occurred saving to the local recordset: "
+msgstr "Įvyko klaida išsaugant vietinius įrašus: "
 
 #: Unable_to_read_vaccination_record_from_the_database\:_
 msgid "Unable to read vaccination record from the database: "
-msgstr "Nepavyko perskaityti vakcinacijos įrašo iš duomenų bazės: "
+msgstr "Nepavyko nuskaityti įrašo apie vakcinaciją iš duomenų bazės: "
 
 #: New_Vaccination
 msgid "New Vaccination"
@@ -5630,7 +5619,7 @@ msgstr ""
 
 #: The_date_the_animal_should_be_given_this_vaccination
 msgid "The date the animal should be given this vaccination treatment"
-msgstr "Data, kai gyvūnas turetų būti vakcinuojamas."
+msgstr "Data, kai gyvūnas turetų būti vakcinuojamas"
 
 #: Vaccination_Type\:
 msgid "Treatment Type:"
@@ -5642,7 +5631,7 @@ msgstr "Komentarai apie vakcinaciją"
 
 #: New_vaccination_record
 msgid "Create a new vaccination treatment"
-msgstr "Naujas vakcinacijos įrašas"
+msgstr "Naujas įrašas apie vakcinaciją"
 
 #: Location\:
 msgid "Location:"
@@ -5666,9 +5655,9 @@ msgid ""
 "it. Your changes must be discarded now to retain data integrity. Animal "
 "Shelter Manager will now reload the current record."
 msgstr ""
-"Another user has submitted changes to this record whilst you were editing "
-"it. Your changes must be discarded now to retain data integrity. Animal "
-"Shelter Manager will now reload the current record."
+"Jums redaguojant šį įrašą, kitas vartotojas patvirtino šio įrašo pakeitimus. "
+"Siekiant išsaugoti anksčiau pateiktą informaciją, jūsų duomenys turi būti "
+"atšaukti. Animal Shelter Manager dabar įkels naujausią įrašo versiją."
 
 #: The_address_of_the_person_who_brought_the_animal_in
 msgid "The address of the person who brought the animal in"
@@ -5680,9 +5669,9 @@ msgid ""
 "save the record anyway, but you should complete vaccination information for "
 "this animal. Are you sure you wish to close?"
 msgstr ""
-"WARNING: This animal has no pending vaccinations on file. The system will "
-"save the record anyway, but you should complete vaccination information for "
-"this animal. Are you sure you wish to close?"
+"ĮSPĖJIMAS: Šio gyvūno kortelėje nėra duomenų apie būsimas vakcinacijas. "
+"Sistema vis tiek išsaugos įrašą, bet jums reiktų užpildyti informaciją apie "
+"šio gyvūno vakcinaciją. Ar tikrai norite uždaryti?"
 
 #: Species\:
 msgid "Species:"
@@ -5694,7 +5683,7 @@ msgstr ""
 
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
-msgstr "Paslėptuose komentaruose yra:"
+msgstr "Slepiami komentarai:"
 
 #: Size\:
 msgid "Size:"
@@ -5714,7 +5703,7 @@ msgstr "Savininko nurodyto veterinaro pavardė ir adresas"
 
 #: Delete_the_highlighted_vaccination_record
 msgid "Delete the selected vaccination records"
-msgstr "Ištrinti pasirinktus vakcinacijos įrašus"
+msgstr "Ištrinti pasirinktus įrašus apie vakcinaciją"
 
 #: Neutered\:
 msgid "Neutered/Spayed:"
@@ -5726,7 +5715,7 @@ msgstr "FLV/FIV testas:"
 
 #: The_animal's_basic_colour
 msgid "The animal's basic colour"
-msgstr "Gyvūno pagrindinė spalva"
+msgstr "Gyvūno spalva"
 
 #: Sex\:
 msgid "Sex:"
@@ -5738,7 +5727,7 @@ msgstr "Priežastis, kodėl gyvūną pridavė ne savininkas"
 
 #: The_animal_acceptance_number_from_head_office
 msgid "The animal acceptance number from head office"
-msgstr "The animal acceptance number from head office"
+msgstr "Gyvūno priėmimo numeris iš pagrindinio ofiso"
 
 #: Phone\:
 msgid "Phone:"
@@ -5754,7 +5743,7 @@ msgstr "Pridavė:"
 
 #: Edit_the_highlighted_vaccination_record
 msgid "Edit the highlighted vaccination record"
-msgstr "Redaguoti pasirinktą vakcinacijos įrašą"
+msgstr "Redaguoti pasirinktą įrašą apie vakcinaciją"
 
 #: Save_this_record
 msgid "Save this record"
@@ -5816,7 +5805,7 @@ msgstr "Taikyti standartinę užduotį šiam gyvūnui"
 
 #: The_reason_the_animal_was_put_to_sleep
 msgid "The reason the animal was put to sleep"
-msgstr "Eutanazijos priežastis"
+msgstr "Mirties aplinkybės arba eutanazijos priežastis"
 
 #: Comments\:
 msgid "Comments:"
@@ -5876,7 +5865,7 @@ msgstr "FLV/FIV testo atlikimo data, jei žinoma"
 
 #: An_error_occurred_cloning_the_animal\:_
 msgid "An error occurred cloning the animal: "
-msgstr "An error occurred cloning the animal: "
+msgstr "Įvyko klaida kopijuojant gyvūno duomenis: "
 
 #: The_date_the_animal_died
 msgid "The date the animal died"
@@ -5908,7 +5897,7 @@ msgstr "Komentarai, kuriuos norite matyti dokumentuose"
 
 #: Base_Colour\:
 msgid "Base Colour:"
-msgstr "Pagrindinė spalva:"
+msgstr "Spalva:"
 
 #: Unable_to_create_new_animal_record\:_
 msgid "Unable to create new animal record: "
@@ -5966,7 +5955,7 @@ msgstr "Gyvūno veislė"
 
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
-msgstr "Nepavyko nuskaityti vakcinacijos įrašų: "
+msgstr "Nepavyko nuskaityti įrašų apie vakcinaciją: "
 
 #: Postcode\:
 msgid "Postcode:"
@@ -5994,7 +5983,7 @@ msgstr "Mikroschemos numeris"
 
 #: UseAutoCodes
 msgid "UseAutoCodes"
-msgstr "UseAutoCodes"
+msgstr "NaudotiAutomatiniusKodus"
 
 #: Code\:
 msgid "Code:"
@@ -6030,7 +6019,7 @@ msgstr "Pažymėkite šį laukelį, jei gyvūnas į prieglaudą atvyko miręs"
 
 #: A_database_error_ocurred_checking_record_locks\:_
 msgid "A database error ocurred checking record locks: "
-msgstr "A database error ocurred checking record locks: "
+msgstr "Įvyko duomenų bazės klaida tikrinant įrašų šliuzus: "
 
 #: Reason_for_Entry\:
 msgid "Reason for Entry:"
@@ -6083,11 +6072,11 @@ msgstr "Priežastis:"
 
 #: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
 msgid "An error occurred scaling and displaying the preview image:\n"
-msgstr "An error occurred scaling and displaying the preview image:\n"
+msgstr "Įvyko klaida nustatant mastelį ir rodant anonso atvaizdą:\n"
 
 #: Attach_new_media
 msgid "Attach new media"
-msgstr "Pridėti naują vaizdinę medžiagą"
+msgstr "Pridėti naują failą"
 
 #: Preview
 msgid "Preview"
@@ -6099,15 +6088,15 @@ msgstr ""
 
 #: Delete_this_media
 msgid "Delete this media"
-msgstr "Ištrinti šią vaizdinę medžiagą"
+msgstr "Ištrinti šį failą"
 
 #: Edit_this_media_entry
 msgid "Edit this media entry"
-msgstr "Redaguoti šį vaizdinės medžiagos įrašą"
+msgstr "Redaguoti šį failo įrašą"
 
 #: An_error_occurred_while_setting_the_web_preferred_option\:_
 msgid "An error occurred while setting the web preferred option: "
-msgstr "An error occurred while setting the web preferred option: "
+msgstr "Įvyko klaida nustatant pageidavimą naudojimui internete: "
 
 #: An_error_occurred_while_deleting_the_record\:_
 msgid "An error occurred while deleting the record: "
@@ -6115,19 +6104,19 @@ msgstr ""
 
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
-msgstr "Mark this media as preferred for use with the web"
+msgstr "Pažymėkite šį failą kaip pageidaujamą naudoti internete"
 
 #: An_error_ocurred_opening_the_media_entry_for_editing\:_
 msgid "An error ocurred opening the media entry for editing: "
-msgstr "An error ocurred opening the media entry for editing: "
+msgstr "Įvyko klaida atidarant failą redagavimui: "
 
 #: View_this_media
 msgid "View this media"
-msgstr "Žiūrėti šią vaizdinę medžiagą"
+msgstr "Žiūrėti šį failą"
 
 #: An_error_occurred_retrieving_the_media_file\:_
 msgid "An error occurred retrieving the media file: "
-msgstr "An error occurred retrieving the media file: "
+msgstr "Įvyko klaida gaunant failą: "
 
 #: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?
 msgid ""
@@ -6137,39 +6126,39 @@ msgstr ""
 
 #: Web_Preferred
 msgid "Web Preferred"
-msgstr "Web Preferred"
+msgstr "Naudojimui internete"
 
 #: Unable_to_remove_file_from_FTP_server\:_
 msgid "Unable to remove file from FTP server: "
-msgstr "Unable to remove file from FTP server: "
+msgstr "Nepavyko pašalinti failo iš FTP serverio: "
 
 #: Unable_to_read_media_records\:_
 msgid "Unable to read media records: "
-msgstr "Unable to read media records: "
+msgstr "Nepavyko nuskaityti failų įrašų: "
 
 #: Error_occurred_uploading_to_media_server\:_
 msgid "Error occurred uploading to media server: "
-msgstr "Error occurred uploading to media server: "
+msgstr "Įvyko klaida siunčiant į failų serverį: "
 
 #: Unable_to_create_media_database_entry\:_
 msgid "Unable to create media database entry: "
-msgstr "Unable to create media database entry: "
+msgstr "Nepavyko sukurti failų duomenų bazės įrašo: "
 
 #: Error_reading_configuration_information\:\n
 msgid "Error reading configuration information:\n"
-msgstr "Error reading configuration information:\n"
+msgstr "Įvyko klaida nuskaitant konfigūracijos informaciją:\n"
 
 #: The_path_to_the_local_file_you_want_to_attach
 msgid "The path to the local file you want to attach"
-msgstr "The path to the local file you want to attach"
+msgstr "Kelias į vietinį failą, kurį norite prisegti"
 
 #: Any_information_about_this_file._If_this_is_an_animal_photo,_please_write_website_details_here
 msgid ""
 "Any information about this file. If this is an animal photo, please write "
 "website details here"
 msgstr ""
-"Any information about this file. If this is an animal photo, please write "
-"website details here"
+"Bet kokio pobūdžio informacija apie šį failą. Jei tai gyvūno nuotrauka, "
+"prašome čia įrašyti interneto svetainės duomenis"
 
 #: Browse_for_the_file_to_add
 msgid "Browse for the file to add"
@@ -6177,7 +6166,7 @@ msgstr "Pasirinkite bylą"
 
 #: Local_File\:
 msgid "Local File:"
-msgstr "Local File:"
+msgstr "Vietinis failas:"
 
 #: Notes\:
 msgid "Notes:"
@@ -6185,11 +6174,11 @@ msgstr "Pastabos:"
 
 #: Add_New_Media
 msgid "Add New Media"
-msgstr "Pridėti naują vaizdinė medžiagą"
+msgstr "Pridėti naują failą"
 
 #: Hidden_Comments\:_
 msgid "Hidden Comments: "
-msgstr "Paslėpti komentarai: "
+msgstr "Slepiamuose komentaruose yra: "
 
 #: find_original_owner_name
 msgid "Original Owner Name:"
@@ -6201,11 +6190,11 @@ msgstr "Ieškoti galimų sutapimų dingusių gyvūnų duomenų bazėje"
 
 #: complete_selected_vaccinations
 msgid "Complete the selected vaccination treatments"
-msgstr "Tęsti pasirinktus vakcinacijos įrašus"
+msgstr "Tęsti pasirinktus įrašus apie vakcinaciją"
 
 #: an_error_occurred_completing_the_vaccination
 msgid "An error occurred completing the vaccination treatment:"
-msgstr "An error occurred completing the vaccination treatment:"
+msgstr "Įvyko klaida tęsiant įrašą apie vakcinaciją:"
 
 #: Rabies_Tag
 msgid "Rabies Tag: "
@@ -6241,7 +6230,7 @@ msgstr "Susiję su kt.prieglaudomis"
 
 #: media_notes_contain
 msgid "Media Notes Contain:"
-msgstr "Vaizdinės medžiagos pastabose yra:"
+msgstr "Failų pastabose yra:"
 
 #: litter_id
 msgid "Litter ID:"
@@ -6280,8 +6269,8 @@ msgid ""
 "You are about to permanently delete the selected vaccination records.\n"
 "Are you sure you wish to do this?"
 msgstr ""
-"You are about to permanently delete the selected vaccination records.\n"
-"Are you sure you wish to do this?"
+"Jūs ketinate negrįžtamai ištrinti pasirinktus įrašus apie vakcinaciją, ar "
+"tikrai pageidaujate tai atlikti?"
 
 #: find_this_animals_littermates
 msgid "Find this animal's littermates"
@@ -6305,7 +6294,7 @@ msgstr ""
 
 #: unable_to_read_diet_records\:
 msgid "Unable to read diet records:"
-msgstr "Unable to read diet records:"
+msgstr "Nepavyko nuskaityti dietos įrašų:"
 
 #: Create_new_diet
 msgid "Create new diet"
@@ -6333,7 +6322,7 @@ msgstr "Nauja dieta"
 
 #: unable_to_create_new_record\:
 msgid "Unable to create new record: "
-msgstr "Unable to create new record: "
+msgstr "Nepavyko sukurti naują įrašą: "
 
 #: Edit_Diet
 msgid "Edit Diet"
@@ -6393,7 +6382,7 @@ msgstr "Priminimas"
 
 #: Add_new_media_to_this_animal
 msgid "Add new media to this animal"
-msgstr "Pridėti naują vaizdinę medžiagą šiam gyvūnui"
+msgstr "Pridėti naują failą šiam gyvūnui"
 
 #: Move_this_animal
 msgid "Move this animal"
@@ -6409,7 +6398,7 @@ msgstr "Pažymėkite šį laukelį, jei gyvūnui pašalinti nagai"
 
 #: Save_this_media_file_to_disk
 msgid "Save this media file to disk"
-msgstr "Išsaugoti šį vaizdo failą į diską"
+msgstr "Išsaugoti šį failą į diską"
 
 #: view_the_current_owner_for_this_animal
 msgid "View the current owner for this animal"
@@ -6417,7 +6406,7 @@ msgstr "Žiūrėti dabartinį šio gyvūno savininką"
 
 #: are_you_sure_you_want_to_clone_this_animal
 msgid "Are you sure you want to clone this animal?"
-msgstr "Ar tikrai norite klonuoti šį gyvūną?"
+msgstr "Ar tikrai norite kopijuoti šio gyvūno duomenis?"
 
 #: sure
 msgid "Sure?"
@@ -6429,23 +6418,23 @@ msgstr "FLV/FIV testo rezultatas:"
 
 #: Capture_from_video_source
 msgid "Capture image from video camera/webcam"
-msgstr "Capture image from video camera/webcam"
+msgstr "Filmuotas atvaizdas iš video/internetinės kameros"
 
 #: video_capture_is_only_available_for_linux
 msgid "Video capture is currently only available for Linux platforms."
-msgstr "Video capture is currently only available for Linux platforms."
+msgstr "Video įrašas šiuo metu galimas tik Linux operacinėje sistemoje."
 
 #: could_not_locate_the_vgrabbj_utility
 msgid ""
 "ASM could not locate the vgrabbj utility. You will need to install it from "
 "XawTV to perform video capture."
 msgstr ""
-"ASM could not locate the vgrabbj utility. You will need to install it from "
-"XawTV to perform video capture."
+"ASM nepavyko aptikti vgrabbj paslaugų programos. Kad galėtumėte rodyti video "
+"įrašą, jums reikės ją įdiegti iš XawTV."
 
 #: an_error_occurred_capturing_the_image
 msgid "An error occurred capturing the image from the default video device."
-msgstr "An error occurred capturing the image from the default video device."
+msgstr "Įvyko klaida imant atvaizdą iš video įrenginio pagal nutylėjimą."
 
 #: Tattoo\:
 msgid "Tattoo:"
@@ -6532,7 +6521,7 @@ msgstr "Uždaryti"
 
 #: Video_Capture
 msgid "Video Capture"
-msgstr "Video filmas"
+msgstr "Video įrašas"
 
 #: Adoptable
 msgid "Adoptable"
@@ -6558,7 +6547,7 @@ msgstr "Informacija apie buvusį savininką ir kaip gyvūnas pateko į prieglaud
 #: Vet
 #, fuzzy
 msgid "Vet"
-msgstr "Vet"
+msgstr "Sveikata"
 
 #: about_vet
 msgid "Details of the animal's vet and any health problems"
@@ -6595,7 +6584,7 @@ msgstr ""
 
 #: media_for_this_animal
 msgid "Media associated with this animal"
-msgstr "Vaizdinė medžiaga, susijusi su šiuo gyvūnu"
+msgstr "Failai, susiję su šiuo gyvūnu"
 
 #: diary
 #: Diary
@@ -6660,13 +6649,12 @@ msgstr ""
 
 #: edit_media_in_application
 msgid "Edit this media in its associated application"
-msgstr "Edit this media in its associated application"
+msgstr "Redaguoti failą su juo susietoje programoje"
 
 #: upload_back_to_server
 msgid ""
 "Would you like to upload your changes to this media file back to the server?"
-msgstr ""
-"Would you like to upload your changes to this media file back to the server?"
+msgstr "Ar norėtumėte savo pakeitimus šiam failui nusiųsti atgal į serverį?"
 
 #: special_needs
 msgid "Special Needs?"
@@ -6678,7 +6666,8 @@ msgstr "Pažymėkite šį laukelį, jei gyvūnas turi ypatingų poreikių"
 
 #: Copy_animal_comments_to_web_media_notes
 msgid "Copy animal comments to the notes field of the animal's web media"
-msgstr "Copy animal comments to the notes field of the animal's web media"
+msgstr ""
+"Kopijuoti komentarus apie gyvūną į gyvūno failo pastabų laukelį internete"
 
 #: A_short_version_of_the_code
 msgid "A short version of the code"
@@ -6689,16 +6678,16 @@ msgid ""
 "You have changed the brought in date, making the animal''s current code of "
 "{0} invalid. ASM will generate a new one."
 msgstr ""
-"You have changed the brought in date, making the animal''s current code of "
-"{0} invalid. ASM will generate a new one."
+"Jūs pakeitėte priėmimo datą, todėl dabartinis gyvūno kodas {0} tapo "
+"neteisingas. ASM sugeneruos naują kodą."
 
 #: You_have_changed_this_animals_type_generate_a_new_one
 msgid ""
 "You have changed the type and the code previously generated no longer "
 "matches. ASM will generate a new code for animal type ({0}) instead."
 msgstr ""
-"You have changed the type and the code previously generated no longer "
-"matches. ASM will generate a new code for animal type ({0}) instead."
+"Jūs pakeitėte tipą, todėl anksčiau sugeneruotas kodas nebetinka. Vietoje jo "
+"ASM sugeneruos naują kodą pagal gyvūno tipą ({0})."
 
 #: include_deceased
 msgid "Include Deceased"
@@ -6718,15 +6707,15 @@ msgstr ""
 
 #: Crossbreed
 msgid "Crossbreed"
-msgstr ""
+msgstr "Maišytas su"
 
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
-msgstr ""
+msgstr "Pažymėkite šį laukelį, jei gyvūnas yra mišrūnas"
 
 #: If_the_animal_is_a_cross_the_second_breed
 msgid "If this animal is a crossbreed, the secondary breed"
-msgstr ""
+msgstr "Antra veislė, jei gyvūnas yra mišrūnas"
 
 #: search_term_bad
 msgid "Your search term must be at least 2 letters long."
@@ -8264,7 +8253,7 @@ msgstr "Finansai"
 
 #: _ShowAnimalToolbar
 msgid "_ShowAnimalToolbar"
-msgstr "_ShowAnimalToolbar"
+msgstr "_Gyvūno rodymo įrankių juosta"
 
 #: Add_a_new_animal_(CTRL+N)
 msgid "Add a new animal (CTRL+N)"
@@ -8400,7 +8389,7 @@ msgstr "Redaguoti visus priminimus"
 
 #: Configure_Media_Server
 msgid "Configure Media Server"
-msgstr "Konfigūruoti vaizdinės medžiagos serverį"
+msgstr "Konfigūruoti failų serverį"
 
 #: Add_Diary_Note
 msgid "Add Diary Note"
@@ -8552,7 +8541,7 @@ msgstr "dienos, pagal "
 
 #: retailer_records_with_a_cumulative_time_of
 msgid "retailer records, with a cumulative time of "
-msgstr "retailer records, with a cumulative time of "
+msgstr "tarpininkų įrašų, su bendru laiku "
 
 #: ConfigureFiletypes
 msgid "Configure File Types"
@@ -8605,7 +8594,7 @@ msgstr ""
 
 #: Retailer_Book_ctrlse
 msgid "Retailer Book (CTRL+SHIFT+E)"
-msgstr "Retailer Book (CTRL+SHIFT+E)"
+msgstr "Tarpininkų žurnalas (CTRL+SHIFT+E)"
 
 #: clear_my_personal_preferences
 msgid "Reset My Preferences"
@@ -8621,7 +8610,7 @@ msgstr ""
 
 #: really_reset
 msgid "Really Reset?"
-msgstr "Really Reset?"
+msgstr "Ar tikrai išvalyti?"
 
 #: Left
 msgid "Left"
@@ -8665,7 +8654,7 @@ msgstr "Gydymo nurodymai spausdinimui"
 
 #: Donate_to_ASM!
 msgid "Donate to ASM!"
-msgstr "Donate to ASM!"
+msgstr "Paremkite ASM!"
 
 #: Edit_Diary_Notes
 msgid "Edit Diary Notes"
@@ -8713,7 +8702,7 @@ msgstr "Export Custom Report Data"
 
 #: media_files
 msgid "Media Files"
-msgstr "Vaizdinės medžiagos failai"
+msgstr "Failai"
 
 #: Publish_adoptable_animals_to_FindMeAPet.com
 msgid "Publish Adoptable Animals to FindMeAPet.com"
@@ -8725,7 +8714,7 @@ msgstr "Publish Animals Available For Adoption to FindMeAPet.com"
 
 #: Auto_Archive_Animal_Records
 msgid "Auto Archive Animal Records"
-msgstr "Auto Archive Animal Records"
+msgstr "Gyvūnų įrašų automatinė archyvacija"
 
 #: Authentication
 msgid "Authentication"
@@ -8741,7 +8730,7 @@ msgstr "Publish Animals Available For Adoption To AdoptAPet.com"
 
 #: asm_locked
 msgid "ASM has been locked."
-msgstr "ASM has been locked."
+msgstr "ASM užrakinta."
 
 #: please_enter_password_for
 msgid "Please enter the password for:"
@@ -8774,7 +8763,7 @@ msgstr "Konfigūruoti duomenų bazę"
 
 #: SQL_Interface
 msgid "SQL Interface"
-msgstr "SQL Interface"
+msgstr "SQL sąsaja"
 
 #: Error_Log
 msgid "Error Log"
@@ -8951,7 +8940,7 @@ msgstr "Atliko:"
 
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
-msgstr "Skirti visus medikamentus iki datos"
+msgstr "Visus medikamentus pažymėti atliktais"
 
 #: No
 msgid "Sequence"
@@ -8971,7 +8960,7 @@ msgstr "Medikamentų vaizdas"
 
 #: Bring_selected_treatments_upto_date
 msgid "Bring selected treatments upto date"
-msgstr "Skirti pasirinktus medikamentus iki datos"
+msgstr "Pasirinktus medikamentus pažymėti atliktais"
 
 #: Finishes_After
 msgid "Finishes After"
@@ -9020,7 +9009,7 @@ msgstr "Žiūrėti rezervuotą gyvūną"
 
 #: An_error_occurred_validating_the_record\:_
 msgid "An error occurred validating the record: "
-msgstr "An error occurred validating the record: "
+msgstr "Įvyko klaida patvirtinant įrašą: "
 
 #: Cancelled\:
 msgid "Cancelled:"
@@ -9028,7 +9017,7 @@ msgstr "Atšaukta:"
 
 #: WARNING\:_This_owner_has_not_passed_a_home_check.
 msgid "WARNING: This owner has not passed a home check."
-msgstr "DĖMESIO: This owner has not passed a home check."
+msgstr "ĮSPĖJIMAS: Nepatikrintos šio asmens būsimos gyvūno laikymo sąlygos."
 
 #: Select_an_animal
 msgid "Select an animal"
@@ -9039,8 +9028,8 @@ msgid ""
 "This movement record already has an insurance number. Remove it if you wish "
 "to generate another."
 msgstr ""
-"This movement record already has an insurance number. Remove it if you wish "
-"to generate another."
+"Šiam veiksmo įrašui jau priskirtas draudimo numeris. Pašalinkite jį, jei "
+"norite sugeneruoti kitą."
 
 #: WARNING\:_This_owner_is_banned_from_adopting_animals.
 msgid "WARNING: This owner is banned from adopting animals."
@@ -9072,7 +9061,7 @@ msgstr "Pasirinkite asmenį"
 
 #: Unable_to_create_new_movement\:_
 msgid "Unable to create new movement: "
-msgstr "Unable to create new movement: "
+msgstr "Nepavyko sukurti naujo veiksmo: "
 
 #: WARNING\:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(
 msgid ""
@@ -9082,7 +9071,9 @@ msgstr ""
 
 #: Click_here_if_you_have_automatic_insurance_numbers_to_generate_one
 msgid "Click here if you have automatic insurance numbers to generate one"
-msgstr "Click here if you have automatic insurance numbers to generate one"
+msgstr ""
+"Spauskite čia, jei turite automatinius draudimo numerius ir norite "
+"sugeneruoti naują"
 
 #: Owner\:
 msgid "Owner:"
@@ -9090,11 +9081,11 @@ msgstr "Asmuo:"
 
 #: The_insurance_reference_number
 msgid "The insurance reference number"
-msgstr "The insurance reference number"
+msgstr "Draudimo informacijos numeris"
 
 #: Postcode_Warning
 msgid "Postcode Warning"
-msgstr "Postcode Warning"
+msgstr "Pašto kodo įspėjimas"
 
 #: This_animal_already_has_an_uncancelled_reservation,_are_you_sure_you_wish_to_continue_with_this_record?\nClicking_NO_will_close_this_screen_and_abandon_the_current_record.
 msgid ""
@@ -9126,12 +9117,12 @@ msgid ""
 "An error occurred cancelling the existing reservation(s). The records were "
 "not saved and you will have to remove these reservations manually."
 msgstr ""
-"An error occurred cancelling the existing reservation(s). The records were "
-"not saved and you will have to remove these reservations manually."
+"Įvyko klaida atšaukiant esančią(-ias) rezervaciją(-as). Įrašai nebuvo "
+"išsaugoti, todėl jums reikės pašalinti šias rezervacijas rankiniu būdu."
 
 #: Generate_a_document_for_this_movement
 msgid "Generate a document for this movement"
-msgstr "Generate a document for this movement"
+msgstr "Sugeneruoti dokumentą šiam veiksmui"
 
 #: Edit_Movement
 msgid "Edit Movement"
@@ -9139,7 +9130,7 @@ msgstr "Redaguoti veiksmą"
 
 #: Insurance\:
 msgid "Insurance:"
-msgstr "Insurance:"
+msgstr "Draudimas:"
 
 #: The_movement_date
 msgid "The movement date"
@@ -9151,11 +9142,11 @@ msgstr "Rezervacijos data"
 
 #: WarnBannedOwner
 msgid "WarnBannedOwner"
-msgstr "WarnBannedOwner"
+msgstr "Įspėjimas apie asmenį iš juodojo sąrašo"
 
 #: Already_Insured
 msgid "Already Insured"
-msgstr "Already Insured"
+msgstr "Jau apdraustas"
 
 #: (none)
 msgid "(none)"
@@ -9167,15 +9158,15 @@ msgstr "(Joks)"
 
 #: WarnMultipleReserves
 msgid "WarnMultipleReserves"
-msgstr "WarnMultipleReserves"
+msgstr "Įspėjimas apie pasikartojančią rezervaciją"
 
 #: This_animal_is_still_reserved_to_another_owner(s)._Would_you_like_to_cancel_these_reservations_now?
 msgid ""
 "This animal is still reserved to another owner(s). Would you like to cancel "
 "these reservations now?"
 msgstr ""
-"This animal is still reserved to another owner(s). Would you like to cancel "
-"these reservations now?"
+"Šis gyvūnas rezervuotas kitam(-iems) asmeniui(-ims). Ar norite dabar "
+"atšaukti šias rezervacijas?"
 
 #: Banned_Owner
 msgid "Banned Owner"
@@ -9207,7 +9198,7 @@ msgstr "Veiksmo nr."
 
 #: Unable_to_open_owner\:_
 msgid "Unable to open owner: "
-msgstr "Unable to open owner: "
+msgstr "Nepavyko atidaryti asmens kortelės: "
 
 #: Movement_Type
 msgid "Movement Type"
@@ -9215,7 +9206,7 @@ msgstr "Veiksmo tipas"
 
 #: Unable_to_read_movement_records\:_
 msgid "Unable to read movement records: "
-msgstr "Unable to read movement records: "
+msgstr "Nepavyko nuskaityti veiksmų įrašų: "
 
 #: (no_owner)
 msgid "(no owner)"
@@ -9231,7 +9222,7 @@ msgstr "Redaguoti šį veiksmą"
 
 #: Create_a_document_for_this_movement
 msgid "Create a document for this movement"
-msgstr "Create a document for this movement"
+msgstr "Sukurti dokumentą šiam veiksmui"
 
 #: View_the_owner
 msgid "View the owner"
@@ -9267,47 +9258,47 @@ msgstr "Žiūrėti laikinai globojantį namuose asmenį"
 
 #: Refresh_the_list_of_retailer_movements
 msgid "Refresh the list of retailer movements"
-msgstr "Refresh the list of retailer movements"
+msgstr "Atnaujinti tarpininkavimo veiksmų sąrašą"
 
 #: Create_a_new_retailer_movement
 msgid "Create a new retailer movement"
-msgstr "Create a new retailer movement"
+msgstr "Pridėti naują tarpininkavimo veiksmą"
 
 #: View_this_retailer_movement
 msgid "View this retailer movement"
-msgstr "View this retailer movement"
+msgstr "Žiūrėti šį tarpininkavimo veiksmą"
 
 #: View_the_animal_for_this_retailer_movement
 msgid "View the animal for this retailer movement"
-msgstr "View the animal for this retailer movement"
+msgstr "Žiūrėti gyvūną, susijusį su šiuo tarpininkavimo veiksmu"
 
 #: View_the_retailer_for_this_movement
 msgid "View the retailer for this movement"
-msgstr "View the retailer for this movement"
+msgstr "Žiūrėti šio veiksmo tarpininką"
 
 #: from_retailer
 msgid "From Retailer:"
-msgstr "From Retailer:"
+msgstr "Iš tarpininko:"
 
 #: If_this_is_an_adoption_from_a_retailer_select_the_retailer_here
 msgid "If this is an adoption from a retailer, select the retailer"
-msgstr "If this is an adoption from a retailer, select the retailer"
+msgstr "Jei gyvūną atidavė tarpininkas, pasirinkite tarpininką"
 
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
 msgid ""
 "This animal was previously at a retailer. Do you want to\n"
 "mark this movement as an adoption from that retailer?"
 msgstr ""
-"This animal was previously at a retailer. Do you want to\n"
-"mark this movement as an adoption from that retailer?"
+"Šis gyvūnas iki šiol buvo pas tarpininką. Ar norite pažymėti šį veiksmą kaip "
+"atidavimą per tarpininką?"
 
 #: retailer_adoption
 msgid "Retailer Adoption"
-msgstr "Retailer Adoption"
+msgstr "Atidavimas per tarpininką"
 
 #: return_this_movement_and_create_a_new_one
 msgid "Return the selected movement and create a new one for that animal"
-msgstr "Return the selected movement and create a new one for that animal"
+msgstr "Atšaukti pasirinktą veiksmą ir sukurti naują šiam gyvūnui"
 
 #: enter_the_return_date
 msgid "Enter the return date"
@@ -9319,7 +9310,7 @@ msgstr "Grąžinimas"
 
 #: this_movement_is_already_returned
 msgid "This movement has already been returned."
-msgstr "This movement has already been returned."
+msgstr "Šis veiksmas jau atšauktas."
 
 #: Movement_Details
 msgid "Movement Details"
@@ -9347,7 +9338,7 @@ msgstr "Nauja su veiksmu susijusi parama"
 
 #: unable_to_create_new_movement_donation
 msgid "Unable to create new movement donation: "
-msgstr "Unable to create new movement donation: "
+msgstr "Nepavyko pridėti naujos su veiksmu susijusios paramos: "
 
 #: Donations
 msgid "Donations"
@@ -9396,7 +9387,9 @@ msgstr "Varde yra:"
 
 #: Comments_contain._Use_spaces_to_separate_individual_words
 msgid "Comments contain. Use spaces to separate individual words"
-msgstr "Komentaruose yra ( naudokite tarpus skirtingiems žodžiams atskirti):"
+msgstr ""
+"Komentaruose esantys žodžiai (naudokite tarpus skirtingiems žodžiams "
+"atskirti)"
 
 #: Select
 msgid "Select"
@@ -9416,11 +9409,11 @@ msgstr "Namų tel."
 
 #: An_error_occurred_checking_the_owner_record_for_movements.
 msgid "An error occurred checking the owner record for movements."
-msgstr "An error occurred checking the owner record for movements."
+msgstr "Įvyko klaida tikrinant asmens įrašą dėl veiksmų."
 
 #: An_error_occurred_creating_the_owner_record\:_
 msgid "An error occurred creating the owner record: "
-msgstr "An error occurred creating the owner record: "
+msgstr "Įvyko klaida pridedant naujo asmens įrašą: "
 
 #: Create_New_Owner
 msgid "Create New Owner"
@@ -9436,7 +9429,7 @@ msgstr "Redaguoti asmenį"
 
 #: An_error_occurred_saving_the_record_to_the_database\:_
 msgid "An error occurred saving the record to the database: "
-msgstr "An error occurred saving the record to the database: "
+msgstr "Įvyko klaida išsaugant įrašą duomenų bazėje: "
 
 #: Home_Tel\:
 msgid "Home Tel:"
@@ -9448,7 +9441,7 @@ msgstr "Pažymėkite šį laukelį, jei asmuo yra organizacijos narys"
 
 #: An_error_occurred_checking_the_owner\:\n
 msgid "An error occurred checking the owner:\n"
-msgstr "An error occurred checking the owner:\n"
+msgstr "Įvyko klaida tikrinant asmenį:\n"
 
 #: Member
 msgid "Member"
@@ -9481,7 +9474,7 @@ msgstr "Pavardė:"
 
 #: An_error_occurred_deleting_the_record\:_
 msgid "An error occurred deleting the record: "
-msgstr "An error occurred deleting the record: "
+msgstr "Įvyko klaida trinant įrašą: "
 
 #: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
 msgid "Check this box if this owner is a volunteer or dog walker"
@@ -9493,7 +9486,7 @@ msgstr "Sukurti dokumentą šiam asmeniui"
 
 #: You_cannot_remove_this_record,_as_it_appears_on_animal_movements.
 msgid "You cannot remove this record, as it appears on animal movements."
-msgstr "You cannot remove this record, as it appears on animal movements."
+msgstr "Jūs negalite ištrinti šio įrašo, nes jis susietas su gyvūno veiksmu."
 
 #: Tick_this_box_if_this_owner_is_a_home_checker
 msgid "Tick this box if this owner is a home checker"
@@ -9516,7 +9509,7 @@ msgstr ""
 
 #: An_error_occurred_reading_owner_information\:_
 msgid "An error occurred reading owner information: "
-msgstr "An error occurred reading owner information: "
+msgstr "Įvyko klaida nuskaitant informaciją apie savininką: "
 
 #: Volunteer/Dog_Walker
 msgid "Volunteer/Dog Walker"
@@ -9532,7 +9525,7 @@ msgstr "Laikymo sąlygų tikrinimo vietos:"
 
 #: Error_reading_configuration\:\n
 msgid "Error reading configuration:\n"
-msgstr "Error reading configuration:\n"
+msgstr "Įvyko klaida nuskaitant konfigūraciją:\n"
 
 #: Email\:
 msgid "Email:"
@@ -9583,11 +9576,11 @@ msgstr "Pažymėkite šį laukelį, jei asmuo remia"
 
 #: unable_to_create_new_ownerdonation
 msgid "Unable to create new owner donation:"
-msgstr "Unable to create new owner donation:"
+msgstr "Nepavyko pridėti naujos asmens paramos:"
 
 #: an_error_occurred_saving_data
 msgid "An error occurred saving the data:"
-msgstr "An error occurred saving the data:"
+msgstr "Įvyko klaida išsaugant duomenis:"
 
 #: new_owner_donation
 msgid "New Donation"
@@ -9623,11 +9616,11 @@ msgstr "Prieglaudos personalas"
 
 #: is_animal_care_officer
 msgid "Animal Care Officer"
-msgstr "Animal Care Officer"
+msgstr "Gyvūnų apsaugos specialistas"
 
 #: create_mail_merge_source_from_results
 msgid "Create a mail merge source/bulk email from the search results"
-msgstr "Create a mail merge source/bulk email from the search results"
+msgstr "Sukurti jungtinį/masinį el. laišką pagal paieškos rezultatus"
 
 #: email
 msgid "Email"
@@ -9635,19 +9628,19 @@ msgstr "El.paštas"
 
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
-msgstr "There are no owners matching your criteria."
+msgstr "Asmenų, atitinkančių jūsų kriterijus, nėra."
 
 #: OwnerSearch.csv
 msgid "OwnerSearch.csv"
-msgstr "OwnerSearch.csv"
+msgstr "Asmens paieška.csv"
 
 #: check_if_owner_is_retailer
 msgid ""
 "Check this box if this owner is a retailer who adopts animals on your "
 "shelters behalf"
 msgstr ""
-"Check this box if this owner is a retailer who adopts animals on your "
-"shelters behalf"
+"Pažymėkite šį laukelį, jei asmuo yra tarpininkas, atiduodantis gyvūnus jūsų "
+"organizacijos vardu"
 
 #: _all_owners_
 msgid "(All Owners)"
@@ -9683,7 +9676,7 @@ msgstr "Prieglaudos"
 
 #: Animal_Care_Officers
 msgid "Animal Care Officers"
-msgstr "Animal Care Officers"
+msgstr "Gyvūnų apsaugos specialistai"
 
 #: Staff
 msgid "Staff"
@@ -9731,67 +9724,67 @@ msgstr "Gavimo data"
 
 #: date_due
 msgid "Date Due"
-msgstr "Mokėjimo data"
+msgstr "Mokėjimo terminas"
 
 #: create_instalment_donation
 msgid "Create Instalment Donation"
-msgstr "Create Instalment Donation"
+msgstr "Pridėti periodinę paramą"
 
 #: Start_date
 msgid "First instalment date:"
-msgstr "First instalment date:"
+msgstr "Pirmos įmokos data:"
 
 #: instalment_frequency
 msgid "Instalment Frequency:"
-msgstr "Instalment Frequency:"
+msgstr "Įmokų periodiškumas:"
 
 #: instalment_amount
 msgid "Instalment amount:"
-msgstr "Instalment amount:"
+msgstr "Įmokų dydis:"
 
 #: weekly
 msgid "Weekly"
-msgstr "Weekly"
+msgstr "Kas savaitę"
 
 #: monthly
 msgid "Monthly"
-msgstr "Monthly"
+msgstr "Kas mėnesį"
 
 #: annually
 msgid "Annually"
-msgstr "Annually"
+msgstr "Kasmet"
 
 #: quarterly
 msgid "Quarterly"
-msgstr "Quarterly"
+msgstr "Kas ketvirtį"
 
 #: half-yearly
 msgid "Half-Yearly"
-msgstr "Half-Yearly"
+msgstr "Kas pusę metų"
 
 #: number_of_instalments
 msgid "Number of Instalments:"
-msgstr "Number of Instalments:"
+msgstr "Įmokų kiekis:"
 
 #: you_must_enter_a_valid_number_for_the_number_of_instalments
 msgid "You must enter a valid number for the number of instalments."
-msgstr "You must enter a valid number for the number of instalments."
+msgstr "Įveskite teisingą įmokų kiekio skaičių."
 
 #: you_must_supply_a_start_date
 msgid "You must supply a start date."
-msgstr "You must supply a start date."
+msgstr "Įveskite pradžios datą."
 
 #: create_a_new_installment_donation
 msgid "Create a new instalment donation"
-msgstr "Create a new instalment donation"
+msgstr "Pridėti naują periodinę paramą"
 
 #: create_a_report_from_the_search_results
 msgid "Create a report from the search results"
-msgstr "Create a report from the search results"
+msgstr "Sukurti ataiskaitą pagal paieškos rezultatus"
 
 #: daily
 msgid "Daily"
-msgstr "Daily"
+msgstr "Kasdien"
 
 #: Telephone\:
 #: Organisation_Telephone\:
@@ -9816,11 +9809,13 @@ msgstr "Jūs negalite ištrinti šio asmens, nes į jį yra nuorodų iš kitų �
 
 #: Media_notes_contain\:
 msgid "Media notes contain:"
-msgstr "Media notes contain:"
+msgstr "Failų pastabose yra:"
 
 #: Media_notes_contain._Use_spaces_to_separate_individual_words
 msgid "Media notes contain. Use spaces to separate individual words"
-msgstr "Media notes contain. Use spaces to separate individual words"
+msgstr ""
+"Failų pastabose esantys žodžiai (naudokite tarpus skirtingiems žodžiams "
+"atskirti)"
 
 #: Ignore
 msgid "Ignore and Continue with new Owner"
@@ -9828,7 +9823,7 @@ msgstr "Ignoruoti ir tęsti su kitu asmeniu"
 
 #: Abandon
 msgid "Abandon new Owner"
-msgstr "Atsisakyti naujo asmens"
+msgstr "Atsisakyti naujo asmens pridėjimo"
 
 #: Create_new_voucher
 msgid "Create new voucher"
@@ -9856,7 +9851,7 @@ msgstr "Talono tipas"
 
 #: unable_to_read_voucher_records\:
 msgid "Unable to read voucher records: "
-msgstr "Unable to read voucher records: "
+msgstr "Nepavyko nuskaityti talonų įrašų: "
 
 #: Voucher_Type\:
 msgid "Voucher Type:"
@@ -11108,6 +11103,10 @@ msgstr ""
 
 #: untick_the_animal_groups_you_do_not_want_and_hit_ok
 msgid "Deselect the animal groups you want to remove from your database:"
+msgstr ""
+
+#: Dont_filter_the_list_of_breeds_to_mapped_species
+msgid "Don't filter the list of breeds according to selected species"
 msgstr ""
 
 #. # uiuisers.properties#=========================================================================
