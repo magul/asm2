@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-08 10:03+0100\n"
+"POT-Creation-Date: 2009-10-08 14:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -713,10 +713,6 @@ msgstr ""
 
 #: animaltype_13
 msgid "M (Miscellaneous)"
-msgstr ""
-
-#: animaltype_14
-msgid "C (Case Animal)"
 msgstr ""
 
 #: animaltype_40
@@ -4591,6 +4587,10 @@ msgstr ""
 msgid "March"
 msgstr ""
 
+#: Incoming
+msgid "Incoming"
+msgstr ""
+
 #: Unwanted
 msgid "Unwanted"
 msgstr ""
@@ -6240,6 +6240,14 @@ msgstr ""
 msgid "The animal's coat type"
 msgstr ""
 
+#: Cruelty_case
+msgid "Cruelty case"
+msgstr ""
+
+#: tick_this_box_if_this_animal_is_a_cruelty_case
+msgid "Tick this box if this animal is a cruelty case"
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -6756,7 +6764,7 @@ msgid "Animals Per Page:"
 msgstr ""
 
 #: Include_Case_Animals
-msgid "Include Case Animals"
+msgid "Include Cruelty Case Animals"
 msgstr ""
 
 #: An_error_occurred_connecting_to_the_internet_provider\:\n
@@ -6878,7 +6886,6 @@ msgstr ""
 msgid "Publish Available Animals To PetFinder.com"
 msgstr ""
 
-#. # Sample ResourceBundle properties file
 #: an_error_occurred_contacting_petfinder.org
 msgid "An error occurred contacting PetFinder.com: "
 msgstr ""
@@ -6986,10 +6993,6 @@ msgstr ""
 
 #: Include_Without_Image
 msgid "Include Animals with no image"
-msgstr ""
-
-#: No
-msgid "N: o"
 msgstr ""
 
 #: An_error_occurred_reading_the_save_a_pet_user
@@ -7600,8 +7603,8 @@ msgstr ""
 msgid "Add a new animal (CTRL+N)"
 msgstr ""
 
-#: Configure_Reports
-msgid "Configure Reporting and Defaults"
+#: Configure_Defaults
+msgid "Configure Defaults"
 msgstr ""
 
 #: Preferences
@@ -9449,6 +9452,10 @@ msgstr ""
 msgid "Case Type:"
 msgstr ""
 
+#: Configure_Reports
+msgid "Configure Reporting and Defaults"
+msgstr ""
+
 #: Start_At\:
 msgid "Start At:"
 msgstr ""
@@ -10024,6 +10031,14 @@ msgstr ""
 
 #: Tick_this_box_to_notify_me_of_asm_updates
 msgid "Tick this box to notify me of ASM updates"
+msgstr ""
+
+#: default_species
+msgid "Default Species:"
+msgstr ""
+
+#: default_type
+msgid "Default Type:"
 msgstr ""
 
 #. # uiuisers.properties#=========================================================================
