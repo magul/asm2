@@ -1087,7 +1087,7 @@ INSERT INTO internallocation VALUES (1,'No Locations','');
 
 
 CREATE MEMORY TABLE lkcoattype (
-  ID int(11) NOT NULL PRIMARY KEY,
+  ID INTEGER NOT NULL PRIMARY KEY,
   CoatType VARCHAR(40) NOT NULL
 );
 INSERT INTO lkcoattype VALUES (0, 'Short');
