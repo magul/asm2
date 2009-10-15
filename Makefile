@@ -94,12 +94,14 @@ source:	codeformat docs
 
 deb:	manual jar
 	@echo "[deb] ============================="
-	sh install/deb/makedeb.sh
+	sh install/deb/makedeb_i386.sh
+	sh install/deb/makedeb_amd64.sh
 	cp install/deb/sheltermanager*.deb build
 
 rpm:	deb
 	@echo "[rpm] ============================="
-	sh install/deb/makerpm.sh
+	sh install/deb/makerpm_i386.sh
+	sh install/deb/makerpm_amd64.sh
 	rm -f install/deb/sheltermanager*.deb
 	mv install/deb/sheltermanager*.rpm build
 

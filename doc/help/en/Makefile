@@ -7,7 +7,7 @@ all: clean build
 latex:
 	@echo "    [latex-$(LANG)]"
 	@echo "         asm.tex"
-	@lyx asm.lyx -e latex 2> /dev/null
+	@lyx asm.lyx -e pdflatex 2> /dev/null
 
 pdf:
 	@echo "    [pdf-$(LANG)]"
