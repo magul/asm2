@@ -1,0 +1,182 @@
+Find Adopters By Date
+###
+Movements
+###
+Any
+###
+Simple report that accepts a date range and produces a list of all owners who adopted an animal in that time period.
+###
+en_US
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT OwnerName, OwnerAddress, OwnerTown, OwnerCounty, OwnerPostcode, HomeTelephone, WorkTelephone, MobileTelephone, ShelterCode, AnimalName, MovementDate FROM owner INNER JOIN adoption ON adoption.OwnerID = owner.ID INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE MovementType = 1 AND MovementDate BETWEEN '$@from$' AND '$@to$' ORDER BY MovementDate
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Name</b></td>
+<td><b>Address</b></td>
+<td><b>Zipcode</b></td>
+<td><b>Home</b></td>
+<td><b>Work</b></td>
+<td><b>Cell</b></td>
+<td><b>Code</b></td>
+<td><b>Animal</b></td>
+<td><b>Date</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$ownername</td>
+<td>$owneraddress, $ownertown $ownercounty</td>
+<td>$ownerpostcode</td>
+<td>$hometelephone</td>
+<td>$worktelephone</td>
+<td>$mobiletelephone</td>
+<td>$sheltercode</td>
+<td>$animalname</td>
+<td>$movementdate</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
+&&&
+Find Adopters By Date
+###
+Movements
+###
+Any
+###
+Simple report that accepts a date range and produces a list of all owners who adopted an animal in that time period.
+###
+en_GB
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT OwnerName, OwnerAddress, OwnerTown, OwnerCounty, OwnerPostcode, HomeTelephone, WorkTelephone, MobileTelephone, ShelterCode, AnimalName, MovementDate FROM owner INNER JOIN adoption ON adoption.OwnerID = owner.ID INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE MovementType = 1 AND MovementDate BETWEEN '$@from$' AND '$@to$' ORDER BY MovementDate
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Name</b></td>
+<td><b>Address</b></td>
+<td><b>Postcode</b></td>
+<td><b>Home</b></td>
+<td><b>Work</b></td>
+<td><b>Mobile</b></td>
+<td><b>Code</b></td>
+<td><b>Animal</b></td>
+<td><b>Date</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$ownername</td>
+<td>$owneraddress, $ownertown $ownercounty</td>
+<td>$ownerpostcode</td>
+<td>$hometelephone</td>
+<td>$worktelephone</td>
+<td>$mobiletelephone</td>
+<td>$sheltercode</td>
+<td>$animalname</td>
+<td>$movementdate</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
+&&&
+Donation Breakdown By Date
+###
+Financial
+###
+Any
+###
+Produces a list of all donations by type for a given date period, with totals.
+###
+en
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT ownerdonation.Date, OwnerName, donationtype.DonationName, FLOOR(Donation) AS amt FROM owner INNER JOIN ownerdonation ON ownerdonation.OwnerID = owner.ID INNER JOIN donationtype ON donationtype.ID = ownerdonation.DonationTypeID WHERE ownerdonation.Date BETWEEN '$@from$' AND '$@to$' ORDER BY donationtype.DonationName, ownerdonation.Date
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_DonationName
+$$HEAD
+<h2>$DonationName</h2>
+<table border=1><tr>
+<td><b>Date</b></td>
+<td><b>Donor</b></td>
+<td><b>Amount</b></td>
+</tr>
+$$FOOT
+</table>
+<p><b>Total $DonationName: {SUM.amt.2}</b></p>
+GROUP$$ 
+GROUP$$
+
+$$BODY
+<tr>
+<td>$date</td>
+<td>$ownername</td>
+<td>$amt</td>
+</tr>
+BODY$$
+
+$$FOOTER
+FOOTER$$
+
+&&&
+Death Reasons by Species and Date
+###
+Statistics
+###
+Any
+###
+Produces a list of deceased reasons for animals, grouped by species and between two dates.
+###
+en
+###
+SELECT ReasonName, SpeciesName, COUNT(PTSReasonID) AS Total FROM animal 
+INNER JOIN deathreason ON deathreason.ID = PTSReasonID
+INNER JOIN species ON animal.SpeciesID = species.ID
+WHERE DeceasedDate BETWEEN '$ASK DATE Enter date from$' AND '$ASK DATE Enter date to$'
+GROUP BY SpeciesName, ReasonName
+ORDER BY SpeciesName, ReasonName
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_SpeciesName
+$$HEAD
+<h2>$SpeciesName</h2>
+
+<table border=1><tr>
+<td><b>Reason</b></td>
+<td><b></b></td>
+</tr>
+$$FOOT
+</table>
+
+<p><b>Total for $SpeciesName: {SUM.Total.0}</b></p>
+GROUP$$
+
+$$BODY<tr>
+<td>$ReasonName</td>
+<td>$Total</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+

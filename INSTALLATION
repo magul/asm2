@@ -1,0 +1,44 @@
+Compiling the application:
+===============================
+
+To build the ASM source you will need Apache Ant and GNU Make
+(run "make jar")
+
+The ant script's default target builds the program asm.jar and puts it in 
+build/
+
+If you already have an installation of ASM, copy this file to your ASM install
+directory to test it.
+
+Building the redistributable installers
+================================================
+
+There is a GNU Makefile in this directory that will build 
+absolutely everything, leaving you with a /build directory of redistributable
+installers/packages and the manual. 
+
+Various Makefile targets exist for different platforms (edit the Makefile for
+more info) and the Makefile will check that all needed build tools are installed
+before starting.
+
+Note that for win32 installer builds, you will need WINE installed, along with
+NSIS from http://nsis.sourceforge.net (a recent NSIS installer is supplied in 
+install/win32). You will also need the nsisunz.dll
+(supplied in install/win32 with the source code) in your Program
+Files/NSIS/Plugins directory. The Makefile will automatically copy it for 
+you, so all you need to do is "cd install/win32 && wine nsis*setup.exe"
+to install NSIS.
+
+Eg:
+
+make win32          [just build the win32 installer]
+make macosx linux   [just build the linux/macosx tarballs]
+make source deb     [just build a source tarball and a debian package]
+make cd             [build everything and an installer CD ISO image]
+make [all]          [build everything]
+
+If you are using a Debian-based system (eg: Ubuntu), then the following
+will install all the software you need for a complete build:
+
+apt-get install ant sun-java6-jdk lyx latex2html dpkg alien inkscape tar zip unzip wine doxygen mkisofs recode translate-toolkit
+

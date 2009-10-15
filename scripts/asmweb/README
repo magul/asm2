@@ -1,0 +1,10 @@
+ASM Web Component
+
+The ASM web component is a build of ASM that runs as a java applet. The
+user hits a webpage with their browser and ASM starts up, pointing
+to your database.
+
+To use, put the asm-applet.jar file and the sample index.html page on
+your webserver. Edit index.html and change the jdbcurl to match the
+location of your mysql or postgresql database. Note that the database
+*must* be accessible to the client machines.

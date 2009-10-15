@@ -1,0 +1,158 @@
+<project name="Animal Shelter Manager" default="build" basedir=".">
+	
+	<description>Animal Shelter Manager build script</description>
+
+	<!-- TARGET:   init
+	     Initialisation
+	-->
+	<target name="init">
+		<tstamp/>
+		
+		<!-- Create the built classes folder -->
+		<mkdir dir="bin"/>
+		<mkdir dir="bin/asmswingwt"/>
+		<mkdir dir="bin/asmswing"/>
+		<mkdir dir="build" />
+
+		<!-- Clean out temporary files left by NetBeans and 
+		     other editors - files ending in ~, and .class
+		     files -->
+		<delete>
+			<fileset dir="." defaultexcludes="no">
+				<include name="**/*~"/>
+				<include name="**/*.class"/>
+			</fileset>	
+		</delete>
+
+		<!-- Remove all jars -->
+		<delete>
+			<fileset dir="build">
+				<include name="**/*.jar"/>
+			</fileset>
+		</delete>
+
+	</target>
+
+
+
+
+
+	<!-- TARGET:    clean
+	     Removes temporary directories made during build.
+	-->
+	<target name="clean" description="clean up">
+		<!-- Delete the built classes folder -->
+		<delete dir="bin"/>
+	</target>
+	
+
+
+
+
+
+	<!-- TARGET:   compile
+	     Compiles ASM itself
+ 	-->     
+	<target name="compile" depends="init" description="compile ASM">
+		
+		<!-- Remove existing UI classes -->
+		<delete dir="src/net/sourceforge/sheltermanager/asm/ui/ui" />
+
+		<!-- Copy swingwt UI implementation -->
+		<copy todir="src/net/sourceforge/sheltermanager/asm/ui/">
+			<fileset dir="srcui/swingwt" />
+		</copy>
+
+		<!-- Compile from src to bin -->
+		<javac srcdir="src" 
+		       destdir="bin/asmswingwt"
+		       deprecation="on"
+		       nowarn="on"
+		       debug="on"
+		       source="1.4"
+		       target="1.4"
+		       verbose="off">
+		       <classpath>
+			       <path location="lib/charting-0.94.jar"/>
+			       <path location="lib/rowset.jar"/>
+			       <path location="lib/swingwt.jar"/>
+			       <path location="lib/swt_gtk2/swt.jar"/>
+			       <path location="lib/swt_gtk2/swt-pi.jar"/>
+			       <path location="lib/swt_gtk2/swt-mozilla.jar"/>
+		       </classpath>
+		</javac>
+
+		<!-- Remove existing UI classes -->
+		<delete dir="src/net/sourceforge/sheltermanager/asm/ui/ui" />
+
+		<!-- Copy swing UI implementation -->
+		<copy todir="src/net/sourceforge/sheltermanager/asm/ui/">
+			<fileset dir="srcui/swing" />
+		</copy>
+
+		<!-- Compile from src to bin -->
+		<javac srcdir="src" 
+		       destdir="bin/asmswing"
+		       deprecation="on"
+		       nowarn="on"
+		       debug="on"
+		       source="1.4"
+		       target="1.4"
+		       verbose="off">
+		       <classpath>
+			       <path location="lib/charting-0.94.jar"/>
+			       <path location="lib/rowset.jar"/>
+		       </classpath>
+		</javac>
+	</target>
+
+
+
+
+
+
+
+
+
+	<!-- TARGET:   build
+	     Generates the asm.jar file of compiled classes.
+	-->
+	<target name="build" depends="compile" description="Generate asm.jar">
+		
+		<!-- Copy the image resources across from the source -->
+		<copy todir="bin/asmswingwt/net/sourceforge/sheltermanager/asm/ui/res">
+			<fileset dir="src/net/sourceforge/sheltermanager/asm/ui/res"/>
+		</copy>
+		<copy todir="bin/asmswing/net/sourceforge/sheltermanager/asm/ui/res">
+			<fileset dir="src/net/sourceforge/sheltermanager/asm/ui/res"/>
+		</copy>
+
+
+		<!-- Copy the user locales across from the base -->
+		<copy todir="bin/asmswingwt/locale">
+			<fileset dir="src/locale"/>
+		</copy>
+		<copy todir="bin/asmswing/locale">
+			<fileset dir="src/locale"/>
+		</copy>
+
+		
+		<!-- Build the asm.jar file from asmswingwt -->
+		<jar jarfile="build/asm.jar" basedir="bin/asmswingwt">
+			<manifest>
+				<attribute name="Main-Class" 
+				 value="net.sourceforge.sheltermanager.asm.startup.Startup"/>
+			</manifest>
+		</jar>
+		<!-- Build the asm-swing.jar file from asmswing -->
+		<jar jarfile="build/asm-swing.jar" basedir="bin/asmswing">
+			<manifest>
+				<attribute name="Main-Class" 
+				 value="net.sourceforge.sheltermanager.asm.startup.Startup"/>
+			</manifest>
+		</jar>
+	</target>
+
+
+</project>
+

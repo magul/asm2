@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Animal Shelter Manager removal script.
+#echo "Removing Animal Shelter Manager server..."
+
+# Remove the database - don't do that any more
+#echo "Removing asm database..."
+#mysql -u root -e "DROP DATABASE asm;" > /dev/null
+
+#echo "ASM Server removal complete."
+
+# Delete files
+# rm /usr/local/asm/* -rf

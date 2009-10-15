@@ -1,0 +1,308 @@
+/*
+ Animal Shelter Manager
+ Copyright(c)2000-2009, R. Rawson-Tetley
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of
+ the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTIBILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston
+ MA 02111-1307, USA.
+
+ Contact me by electronic mail: bobintetley@users.sourceforge.net
+ */
+package net.sourceforge.sheltermanager.asm.ui.login;
+
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
+import net.sourceforge.sheltermanager.asm.bo.Users;
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.main.Main;
+import net.sourceforge.sheltermanager.asm.ui.main.ShutdownThread;
+import net.sourceforge.sheltermanager.asm.ui.ui.ASMWindow;
+import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.LDAP;
+import net.sourceforge.sheltermanager.asm.utility.MD5;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.Vector;
+
+
+/**
+ * This class contains all code surrounding system login.
+ *
+ * @see net.sourceforge.sheltermanager.asm.ui.splash.Splash
+ * @author Robin Rawson-Tetley
+ */
+public class Login extends ASMWindow {
+    /**
+     * If set, the application will be killed when this screen is closed.
+     */
+    private boolean killOnClose = true;
+    private UI.Button btnCancel;
+    private UI.Button btnOk;
+    private UI.PasswordField txtPassword;
+    private UI.TextField txtUsername;
+
+    /** Creates new form Loginn */
+    public Login() {
+        // Skip doing anything if auto login is on and we have 
+        // a valid user
+        if (autoLogUserIn()) {
+            return;
+        }
+
+        init(Global.i18n("uilogin", "Animal_Shelter_Manager_Login"),
+            IconManager.getIcon(IconManager.SCREEN_LOGIN), "uilogin", false);
+    }
+
+    public void windowOpened() {
+        UI.invokeIn(new Runnable() {
+                public void run() {
+                    txtUsername.grabFocus();
+                }
+            }, 250);
+
+        /*
+         * TODO: I don't think this is necessary
+        UI.invokeIn(new Runnable() {
+                public void run() {
+                    // make sure we get painted
+                    ((org.eclipse.swt.widgets.Shell) getSWTPeer()).layout();
+                }
+            }, 50);
+        */
+    }
+
+    public void setSecurity() {
+    }
+
+    public boolean windowCloseAttempt() {
+        dispose();
+        new ShutdownThread().start();
+
+        return false;
+    }
+
+    public void dispose() {
+        unregisterTabOrder();
+        super.dispose();
+    }
+
+    public void unregisterTabOrder() {
+        Global.focusManager.removeComponentSet(this);
+    }
+
+    public Vector getTabOrder() {
+        Vector ctl = new Vector();
+        ctl.add(txtUsername);
+        ctl.add(txtPassword);
+        ctl.add(btnOk);
+        ctl.add(btnCancel);
+
+        return ctl;
+    }
+
+    public Object getDefaultFocusedComponent() {
+        return txtUsername;
+    }
+
+    /**
+     * Opens the main screen
+     */
+    public void openMainForm(Users user) {
+        // Remember the current user
+        try {
+            net.sourceforge.sheltermanager.asm.globals.Global.currentUserName = user.getUserName();
+            net.sourceforge.sheltermanager.asm.globals.Global.currentUserObject = user;
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+        // Create a new main form
+        Main main = new Main();
+
+        // Set a handle to the main form
+        Global.mainForm = main;
+        Dialog.theParent = main;
+
+        // Close this screen
+        killOnClose = false;
+        this.dispose();
+
+        // Display the main screen
+        main.display();
+    }
+
+    /**
+     * If the option is on to automatically log OS users in, then check if the
+     * current user is a valid user on the system. If they are, log them in
+     * without ever showing the logon screen.
+     * If an applet user was given, use that instead.
+     */
+    public boolean autoLogUserIn() {
+        try {
+            if (Configuration.getBoolean("AutoLoginOSUsers")) {
+                Users u = new Users();
+                u.openRecordset("UserName Like '" +
+                    System.getProperty("user.name") + "'");
+
+                if (!u.getEOF()) {
+                    openMainForm(u);
+
+                    return true;
+                }
+            }
+
+            if (Global.appletUser != null) {
+                Users u = new Users();
+                u.openRecordset("UserName Like '" + Global.appletUser + "'");
+
+                if (!u.getEOF()) {
+                    openMainForm(u);
+
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+        return false;
+    }
+
+    public void initComponents() {
+        UI.Panel pnlUserAndPass = UI.getPanel(UI.getGridLayout(1));
+        UI.Panel pnlUser = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pnlPass = UI.getPanel(UI.getFlowLayout());
+
+        // Show the user/pass boxes
+        pnlUser.add(UI.getLabel(i18n("Username")));
+        txtUsername = UI.getTextField();
+        txtUsername.setWidth(220);
+        pnlUser.add(txtUsername);
+        pnlUserAndPass.add(pnlUser);
+
+        pnlPass.add(UI.getLabel(i18n("Password")));
+        txtPassword = UI.getPasswordField();
+        txtPassword.setWidth(220);
+        pnlPass.add(txtPassword);
+        pnlUserAndPass.add(pnlPass);
+
+        add(pnlUserAndPass, UI.BorderLayout.CENTER);
+
+        // Show the ASM splash centered at the top
+        UI.Label lblSplash = UI.getLabel(IconManager.getSplashScreen());
+        lblSplash.setHorizontalAlignment(UI.Label.CENTER);
+        add(lblSplash, UI.BorderLayout.NORTH);
+
+        // Buttons
+        UI.Panel pnlButtons = UI.getPanel(UI.getFlowLayout());
+        btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
+                UI.fp(this, "actionOk"));
+        pnlButtons.add(btnOk);
+        btnCancel = UI.getButton(i18n("Cancel"), null, 'c', null,
+                UI.fp(this, "actionCancel"));
+        pnlButtons.add(btnCancel);
+        add(pnlButtons, UI.BorderLayout.SOUTH);
+
+        // Set default button
+        this.getRootPane().setDefaultButton(btnOk);
+
+        // Size/Center window and display
+        this.setSize(UI.getDimension(436, 376));
+        UI.centerWindow(this);
+
+        setVisible(true);
+        Dialog.theParent = this;
+    }
+
+    public void actionCancel() {
+        windowCloseAttempt();
+    }
+
+    public void actionOk() {
+        boolean passOk = false;
+
+        // Some people have experienced problems with dropped connections
+        // at this point, so we might as well make sure it's fresh on
+        // the way in:
+        try {
+            DBConnection.con.close();
+            DBConnection.con = null;
+            DBConnection.getConnection();
+        } catch (Exception e) {
+        }
+
+        // Create a new users object to test against
+        Users users = new Users();
+        users.openRecordset("");
+
+        try {
+            // We scan the userlist, rather than doing a query to 1: Reduce SQL
+            // injection attacks and 2: Some database LIKE operators aren't case
+            // insensitive (which we want usernames to be).
+            while (!users.getEOF()) {
+                if (users.getUserName().equalsIgnoreCase(txtUsername.getText())) {
+                    // Found a matching user in the database, see if the password 
+                    // is correct.
+
+                    // Are we using LDAP for authentication?
+                    if (!LDAP.isConfigured()) {
+                        // No, verify the password against the database
+                        if (users.getPassword()
+                                     .equals(MD5.hash(
+                                        new String(txtPassword.getPassword())))) {
+                            passOk = true;
+                        }
+                    } else {
+                        // Use LDAP to authenticate the user/password
+                        if (LDAP.authenticate(txtUsername.getText(),
+                                    txtPassword.getText())) {
+                            passOk = true;
+                        }
+                    }
+
+                    // Whether the password was right or not, might as well stop
+                    // looking now since we found the user.
+                    break;
+                }
+
+                users.moveNext();
+            }
+
+            if (!passOk) {
+                // Tell the user it was bad.
+                Dialog.showError(Global.i18n("uilogin",
+                        "The_username_and/or_password_you_supplied_were_not_recognised."),
+                    Global.i18n("uilogin", "Invalid_Password"));
+                users = null;
+            } else {
+                // Login was successful - grab that single
+                // user object to conserve resources
+                Users user = new Users();
+                user.openRecordset("ID = " + users.getID());
+                openMainForm(user);
+                users = null;
+                user = null;
+            }
+        } catch (Exception ex) {
+            // Dump a stack trace to the log
+            Global.logException(ex, Login.class);
+
+            // Show the error to the user
+            Dialog.showError(Global.i18n("uilogin",
+                    "An_error_occurred_obtaining_a_connection_to_the_database_-_") +
+                ex.getMessage(), Global.i18n("uilogin", "Error"));
+        }
+    }
+}

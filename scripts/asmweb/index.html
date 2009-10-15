@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>ASM Online</title>
+</head>
+<body>
+
+<!--
+    Change databaseserver, user and password to match your
+    local setup.
+-->
+
+<applet 
+codebase = "."
+code = "net.sourceforge.sheltermanager.asm.ui.ui.ASMApplet.class"
+archive = "asm-applet.jar"
+width="100%" 
+height="100%">
+<param name="java_arguments" value="-Xmx256m" />
+<param name="jdbcurl" 
+value="jdbc:mysql://databaseserver/asm?user=%s&password=%s&zeroDateTimeBehaviour=convertToNull" />
+</applet>
+
+</body>
+</html>
+

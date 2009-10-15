@@ -1,0 +1,752 @@
+#LyX 1.6.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\end_preamble
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+FAQ
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Questions and Answers
+\end_layout
+
+\begin_layout Subsection
+What's the default username and password?
+\end_layout
+
+\begin_layout Standard
+A.
+ It's username 
+\begin_inset Quotes eld
+\end_inset
+
+user
+\begin_inset Quotes erd
+\end_inset
+
+ with the password 
+\begin_inset Quotes eld
+\end_inset
+
+letmein
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Can I have a demo of the software?
+\end_layout
+
+\begin_layout Standard
+A.
+ No.
+ This software is free - free as in gratis, free as in libre/freedom, you
+ can download it for free, you can give it your friends, you can install
+ it on as many computers as you like.
+\end_layout
+
+\begin_layout Subsection
+My shelter/site is very interested in your software! Can I have it please?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes, download it.
+ Just download, install and go.
+ If you like it, buy me a beer.
+\end_layout
+
+\begin_layout Subsection
+Can I phone you up and ask you some questions?
+\end_layout
+
+\begin_layout Standard
+A.
+ No.
+ I donate my time and effort for free in making this software - I don't
+ do phone support.
+ If you want to chat about ASM or ask specific questions, please direct
+ them to the forums or mailing list (or email me directly - db@sheltermanager.com
+).
+\end_layout
+
+\begin_layout Subsection*
+..
+ please, I can't understand your website.
+\end_layout
+
+\begin_layout Standard
+No offence, but if you're too lazy to help yourself, I'm too lazy to help
+ you.
+ Go find someone who knows a bit about computing and get them to help you
+ (and read this site).
+\end_layout
+
+\begin_layout Subsection
+This is really free? Are you mad?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes and no, I'm not mad.
+ I don't get anything for doing ASM and I devote my spare time to doing
+ it.
+ All I ask is that if you like and use the software you might consider donating
+ something or helping out.
+ I'll never make a living doing this, since by definition my userbase has
+ no money, but even if you just give me enough to a buy a beer or a pizza
+ by way of saying thank you, it would be much appreciated.
+\end_layout
+
+\begin_layout Subsection
+Help! How do I [something] (eg: change animal codes, create a diary note,
+ etc.)
+\end_layout
+
+\begin_layout Standard
+Consult the ASM user manual ( http://sheltermanager.sf.net/help )
+\end_layout
+
+\begin_layout Subsection
+How can I brand reports for my shelter?
+\end_layout
+
+\begin_layout Standard
+A.
+ Reports in Animal Shelter Manager are generated as HTML for viewing by
+ web browsers.
+ The internal report viewer in Animal Shelter Manager is actually an HTML
+ browser.
+ When constructing reports, it uses a header file and a footer file to surround
+ the report content.
+ These two files, header.dat and footer.dat are located in the reports directory
+ of the media files.
+ 
+\end_layout
+
+\begin_layout Standard
+They are both plain text HTML files which can be edited to change the style
+ and content of reports.
+ You may even use images and brand your reports with your company logo -
+ ASM will automatically retrieve the image from the media directory and
+ integrate it into resulting reports for you.
+\end_layout
+
+\begin_layout Standard
+You can access these files by going to System->Media Files, picking the
+ reports directory, highlighting these files in turn and hitting the 
+\begin_inset Quotes eld
+\end_inset
+
+download
+\begin_inset Quotes erd
+\end_inset
+
+ button to save them to your hard disk.
+ There, you can edit them and then use the 
+\begin_inset Quotes eld
+\end_inset
+
+upload
+\begin_inset Quotes erd
+\end_inset
+
+ button to reupload them back to the media server.
+\end_layout
+
+\begin_layout Standard
+Use this same technique to edit the files under the templates directory
+ accordingly for your shelter.
+\end_layout
+
+\begin_layout Subsection
+How do I back my data up?
+\end_layout
+
+\begin_layout Standard
+A.
+ If you are using ASM's local (HSQLDB) database, just copy all the files
+ starting with 
+\begin_inset Quotes eld
+\end_inset
+
+localdb
+\begin_inset Quotes erd
+\end_inset
+
+ in Documents and Settings/[your user name]/.asm/ to another disk/CD/whatever.
+ If you are using MySQL or PostgreSQL, see the manuals for those products.
+ To restore, or put the data on another machine, copy your backup back to
+ the same place you restored from.
+\end_layout
+
+\begin_layout Subsection
+How do I network my data?
+\end_layout
+
+\begin_layout Standard
+A.
+ If you're using the default, local database, you can do the following to
+ allow other ASM clients on your network to use your data:
+\end_layout
+
+\begin_layout Enumerate
+Make sure ASM is closed on your computer
+\end_layout
+
+\begin_layout Enumerate
+Run the 
+\begin_inset Quotes eld
+\end_inset
+
+Local Database Server
+\begin_inset Quotes erd
+\end_inset
+
+ shortcut from Programs->Animal Shelter Manager (for Windows, MacOSX and
+ Unix users can run the run_hsqlserver.sh script).
+ Note, you will have to run this each time you start up your computer -
+ you can copy this shortcut to Programs->Startup to have Windows do it for
+ you.
+ Once you've started the database server, you can open ASM on the computer
+ running the server if you want.
+\end_layout
+
+\begin_layout Enumerate
+Install ASM on your other computers.
+ When asked where the database is, hit the Scan button at the bottom right
+ - after a short wait, details of your server will be completed and you
+ can hit Ok to connect and continue (ASM will remember and use this database
+ in future).
+ If you already had ASM installed with a local database, use the 
+\begin_inset Quotes eld
+\end_inset
+
+Switch Database
+\begin_inset Quotes erd
+\end_inset
+
+ option under the Preferences menu to switch to your database server and
+ use the Scan button.
+\end_layout
+
+\begin_layout Subsection
+How can I brand my published internet sites?
+\end_layout
+
+\begin_layout Standard
+A.
+ Internet publishing is handled in almost the same way as reports, except
+ the files are located in the internet directory and called pih.dat (header)
+ and pif.dat (footer).
+ There is also an additional file located here called pib.dat.
+ This represents the body of each animal entry in the published web pages
+ and as well as changing the layout, you can also change the information
+ shown by using the standard substitution strings used by the document publisher.
+\end_layout
+
+\begin_layout Subsection
+How can I create my own document templates?
+\end_layout
+
+\begin_layout Standard
+A.
+ Document templates are stored in your database.
+ You can browse the tree of media files by going to the System menu, then
+ picking 
+\begin_inset Quotes eld
+\end_inset
+
+Media Files
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+You can then download an existing template (from the template directory),
+ change it and reupload or simply upload new templates.
+\end_layout
+
+\begin_layout Subsection
+Do I have to use the inbuilt report viewer?
+\end_layout
+
+\begin_layout Standard
+A.
+ As reports are generated as HTML, you are free to use an external browser
+ for viewing and printing them instead of Animal Shelter Manager's built
+ in report viewer.
+ To do this, go to the Preferences->Settings menu option and untick the
+ "Use internal browser" box.
+ ASM will open reports with whatever association it has for html files (see
+ System->Configure File Types)
+\end_layout
+
+\begin_layout Subsection
+How can I change a file association?
+\end_layout
+
+\begin_layout Standard
+A.
+ Filetypes are configurable from the System->Configure File Types option.
+\end_layout
+
+\begin_layout Subsection
+We want the numbering scheme to fit in with our existing data and use higher
+ numbers - can ASM do this?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes - every code ASM generates it looks at the existing data for the previous
+ highest so all you have to do is enter an animal and manually overwrite
+ it's code with the number you'd like to start at - ASM will carry on counting
+ thereafter.
+\end_layout
+
+\begin_layout Subsection
+Can I store other information in ASM?
+\end_layout
+
+\begin_layout Standard
+A.
+ The media tab allows you store any type of document with any type of record.
+ This could be used to attach weight charts, medical information, etc.
+ to animals.
+ ASM offers an edit button to allow you to edit these documents with their
+ appropriate package and will automatically store them on the server again
+ when you are finished.
+\end_layout
+
+\begin_layout Standard
+Note that there is a limit on size - you cannot store files larger than
+ 8Mb as a media attachment.
+\end_layout
+
+\begin_layout Standard
+You can also use the Additional Fields option under the System menu to add
+ your own fields to the animal and owner screens.
+\end_layout
+
+\begin_layout Standard
+The log tab allows ongoing addition of other types of information with dates
+ (this is good for recording things like complaints, bite reports, email
+ trails, etc).
+\end_layout
+
+\begin_layout Subsection
+What development environment do you use?
+\end_layout
+
+\begin_layout Standard
+A.
+ I develop under Debian Linux, using Sun JDK 1.6.x, Ant (http://ant.apache.org)
+ and GNU Make as the build tool and Vim (http://www.vim.org) for editing the
+ code.
+ If you want to help, or hack about with the code yourself, feel free to
+ use anything you like.
+ An Eclipse project is included if you'd prefer to use that.
+\end_layout
+
+\begin_layout Subsection
+How do you manage the project?
+\end_layout
+
+\begin_layout Standard
+A.
+ With great difficulty - I'm just one guy and I get some great help from
+ volunteers, but since ASM doesn't pay the bills, I fit it in around a full
+ time job.
+\end_layout
+
+\begin_layout Subsection
+We're not happy with the wording and terminology of some of the items in
+ ASM - can we change them?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes - see the translation HOWTO under the Documentation link above.
+ No, I won't incorporate them into the main program as most ASM users are
+ familiar with the existing terminology.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Can I pay you to make changes to ASM for our shelter?
+\end_layout
+
+\begin_layout Standard
+A.
+ Certainly! Contact me for a quote - db@sheltermanager.com
+\end_layout
+
+\begin_layout Subsection
+Can I use MySQL for my database?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes.
+ The procedure for Windows users is:
+\end_layout
+
+\begin_layout Enumerate
+Download and install MySQL from www.mysql.com.
+ It will set up Windows services for the databases, etc.
+ etc.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Copy the mysql.sql file from C:
+\backslash
+Program Files
+\backslash
+ASM
+\backslash
+data
+\backslash
+sql to C:
+\backslash
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Open a MySQL console.
+ If there's no start menu item for it, go to C:
+\backslash
+Program Files
+\backslash
+MySQL
+\backslash
+bin and double click "mysql"
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Enter the following SQL commands at the mysql> prompt: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+CREATE DATABASE asm; 
+\begin_inset Newline newline
+\end_inset
+
+USE asm; 
+\begin_inset Newline newline
+\end_inset
+
+SOURCE c:
+\backslash
+mysql.sql 
+\begin_inset Newline newline
+\end_inset
+
+(lots of output will be displayed) 
+\begin_inset Newline newline
+\end_inset
+
+GRANT ALL PRIVILEGES ON *.* TO root@'%'; 
+\begin_inset Newline newline
+\end_inset
+
+QUIT;
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Edit the file: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+C:
+\backslash
+Documents and Settings/YOURUSER/.asm/jdbc.properties
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Replace any existing contents of the file with this line:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+JDBCURL=jdbc:mysql://localhost/asm?user=root&zeroDateTimeBehaviour=convertToNull
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For each machine on your network, substitute 
+\emph on
+"localhost"
+\emph default
+ in the above line of that file for the IP address of the machine running
+ MySQL.
+\end_layout
+
+\begin_layout Standard
+For Linux/other platform users the procedure is the same, except you should
+ install MySQL from your distribution and 
+\begin_inset Quotes eld
+\end_inset
+
+cd
+\begin_inset Quotes erd
+\end_inset
+
+ to the asm/data/sql directory and just use 
+\begin_inset Quotes eld
+\end_inset
+
+SOURCE mysql.sql
+\begin_inset Quotes erd
+\end_inset
+
+ when executing the database commands.
+ Documents and Settings can be replaced with $HOME.
+\end_layout
+
+\begin_layout Subsection
+Can I use PostgreSQL for my database?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes.
+ In the ASM installation directory, under data/sql, you'll find a postgresql.sql
+ file containing the database schema for PostgreSQL.
+ I'm going to assume if you're wanting to use PostgreSQL that you know what
+ you're doing.
+\end_layout
+
+\begin_layout Subsection
+Can I use SSL with PostgreSQL?
+\end_layout
+
+\begin_layout Standard
+A.
+ Yes.
+ You'll need to modify the jdbc.properties file.
+ Add the following parameters to the end of the URL:
+\end_layout
+
+\begin_layout LyX-Code
+&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+\end_layout
+
+\begin_layout Standard
+This enables the encryption portion of SSL, but does not validate your server
+ certificate.
+ If your server certificate is signed by a trusted authority, then you can
+ remove the sslfactory parameter.
+\end_layout
+
+\begin_layout Standard
+If you want to validate the server certificate, or use client certificates
+ as well, read this page for further information:
+\end_layout
+
+\begin_layout Standard
+http://jdbc.postgresql.org/documentation/80/ssl-client.html
+\end_layout
+
+\begin_layout Section
+Troubleshooting
+\end_layout
+
+\begin_layout Subsection
+Help! I picked the wrong database option at the beginning and now I can't
+ change it!
+\end_layout
+
+\begin_layout Standard
+A.
+ If you open Windows Explorer and look at Documents and Settings/[your user
+ name]/, (or Users/[your user name]/ for Vista/Windows 7) you'll see a directory
+ called 
+\begin_inset Quotes eld
+\end_inset
+
+.asm
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Delete this directory and restart ASM - this effectively resets ASM to
+ be a brand new installation.
+\end_layout
+
+\begin_layout Standard
+If you are a unix user, remove $HOME/.asm
+\end_layout
+
+\begin_layout Subsection
+When I try to generate documentation, I can't see any templates?
+\end_layout
+
+\begin_layout Standard
+A.
+ Go to System->Options and make sure that you have chosen the correct word
+ processor - it's this that determines the file name extension ASM will
+ filter on when displaying templates.
+\end_layout
+
+\begin_layout Subsection
+When attempting to view the printable help, I get an error 
+\begin_inset Quotes eld
+\end_inset
+
+no file type for pdf
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+A.
+ You need Adobe Acrobat installed.
+ If you installed it after ASM, you will need to go to Preferences->Configure
+ File Types and hit the rescan button to discover it.
+\end_layout
+
+\begin_layout Subsection
+When attempting to create a document, I get an error 
+\begin_inset Quotes eld
+\end_inset
+
+no file type for odt
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+A.
+ You need OpenOffice.org installed to use the supplied templates (visit http://ww
+w.openoffice.org to download it).
+ Once you've done this, go to the Preferences->Configure File Types screen
+ and hit the rescan button on right of the toolbar.
+\end_layout
+
+\begin_layout Standard
+If you have Microsoft Office 97, 2000 or 2003 and would prefer to use that,
+ select 
+\begin_inset Quotes eld
+\end_inset
+
+Rich Text Compatible
+\begin_inset Quotes erd
+\end_inset
+
+ as your word processor under System->Options and go to Preferences->Configure
+ File Types and verify that the path to winword.exe is set against the rtf
+ entry (ASM should do this automatically when it is first run if Microsoft
+ Office is available).
+ You can also use Microsoft Office 2007 natively and templates are supplied.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,8 @@
+This directory contains scripts for building a Debian installation
+package for Animal Shelter Manager.
+
+Run the "makedeb.sh" shell script in this directory to build the
+deb file.
+
+An additional script, "makerpm.sh" will generate an RPM that should
+work on any RPM distro (Suse, Mandrake, Fedora, etc.)

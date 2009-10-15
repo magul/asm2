@@ -1,0 +1,710 @@
+/**
+ *
+ *  SQLRecordset Disconnected Recordset functionality
+ *  and client-side cursor engine.
+ *
+ *  Copyright (C) 2002  Robin Rawson-Tetley
+ *
+ *  www.rawsontetley.org
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2.1 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public
+ *  License along with this library; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ *  Bug fixes, suggestions and comments should be sent to:
+ *
+ *  <robin@rawsontetley.org>
+  */
+package net.sourceforge.sheltermanager.cursorengine;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import java.sql.*;
+
+
+/**
+ * Handles JDBC elements of the client-side RTDS cursor engine.
+ *
+ * @see net.sourceforge.sheltermanager.cursorengine.DBConnection
+ * @see net.sourceforge.sheltermanager.cursorengine.SQLRowData
+ * @see net.sourceforge.sheltermanager.cursorengine.SQLFieldDescriptor
+ *
+ * @author Robin Rawson-Tetley
+ * @version 1.0
+ */
+public abstract class DBConnection {
+    /**
+     * The connection member - this should only be set once on first use and
+     * then accessed subsequently
+     */
+    public static Connection con = null;
+
+    /** The last error we received trying to connect */
+    public static String lastError = "";
+
+    /**
+     * The JDBC URL for connecting to the database
+     */
+    public static String url = "";
+
+    /**
+     * Whether or not to print SQL debug info to console
+     */
+    public static boolean quiet = true;
+    public final static byte MYSQL = 0;
+    public final static byte POSTGRESQL = 1;
+    public final static byte HSQLDB = 2;
+
+    /** The database type (inferred from JDBC URL given) */
+    public static byte DBType = MYSQL;
+
+    public static void loadJDBCDrivers() {
+        loadJDBCDrivers(true, true, true);
+    }
+
+    public static void loadJDBCDrivers(boolean postgres, boolean mysql,
+        boolean hsql) {
+        if (mysql) {
+            Global.logInfo("MySQL driver...", "DBConnection.loadJDBCDrivers");
+
+            try {
+                // Load the JDBC drivers
+                // String url = "jdbc:mysql://localhost/asm?user=root"
+                Class.forName("org.gjt.mm.mysql.Driver");
+            } catch (Exception e) {
+                Global.logException(e, DBConnection.class);
+            }
+        }
+
+        if (postgres) {
+            Global.logInfo("PostgreSQL driver...",
+                "DBConnection.loadJDBCDrivers");
+
+            try {
+                // String url =
+                // "jdbc:postgresql://localhost/test?user=fred&password=secret";
+                Class.forName("org.postgresql.Driver");
+            } catch (Exception e) {
+                Global.logException(e, DBConnection.class);
+            }
+        }
+
+        if (hsql) {
+            Global.logInfo("HSQL driver...", "DBConnection.loadJDBCDrivers");
+
+            try {
+                // String url = "jdbc:hsqldb:file:asm"
+                Class.forName("org.hsqldb.jdbcDriver");
+            } catch (Exception e) {
+                Global.logException(e, DBConnection.class);
+            }
+        }
+    }
+
+    /** Returns type@host */
+    public static String getDBInfo() {
+        String type = "";
+
+        if (DBType == HSQLDB) {
+            type = "hsqldb";
+        }
+
+        if (DBType == MYSQL) {
+            type = "mysql";
+        }
+
+        if (DBType == POSTGRESQL) {
+            type = "postgresql";
+        }
+
+        String host = "local";
+        int dp = url.indexOf("//");
+
+        if (dp != -1) {
+            int sp = url.indexOf("/", dp + 2);
+
+            if (sp != -1) {
+                host = url.substring(dp + 2, sp);
+            }
+        }
+
+        return type + "@" + host;
+    }
+
+    /** Opens a Connection for the URL given */
+    public static synchronized Connection getConnection(String url) {
+        try {
+            Global.logDebug("Getting connection: " + url,
+                "DBConnection.getConnection");
+
+            return DriverManager.getConnection(url);
+        } catch (Exception e) {
+            Global.logDebug("Failed: " + url, "DBConnection.getConnection");
+            Global.logException(e, DBConnection.class);
+
+            return null;
+        }
+    }
+
+    /** Closes any connection we have open */
+    public static synchronized void close() {
+        try {
+            con.close();
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Checks to see if the global connection has been set and if not, sets it.
+     * Returns false if the connection is bad.
+     */
+    public static synchronized boolean getConnection() {
+        try {
+            // Don't reconnect if we already have a connection
+            if ((con != null) && !con.isClosed()) {
+                return true;
+            }
+
+            DBType = getDBTypeForUrl(url);
+            con = DriverManager.getConnection(url);
+
+            DatabaseMetaData dma = con.getMetaData();
+
+            if (!quiet) {
+                Global.logInfo("Connected to " + dma.getURL(),
+                    "DBConnection.getConnection");
+                Global.logInfo("Driver    " + dma.getDriverName(),
+                    "DBConnection.getConnection");
+                Global.logInfo("Version   " + dma.getDriverVersion(),
+                    "DBConnection.getConnection");
+            }
+        } catch (java.lang.Exception ex) {
+            Global.logException(ex, DBConnection.class);
+            lastError = ex.getMessage();
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /** If the database supports checkpoints, issue one */
+    public synchronized static void checkpoint() {
+        if (DBType == HSQLDB) {
+            Global.logDebug("Issuing checkpoint.", "DBConnection.checkpoint");
+
+            try {
+                executeAction("CHECKPOINT");
+            } catch (Exception e) {
+                Global.logException(e, DBConnection.class);
+            }
+        }
+    }
+
+    public static byte getDBTypeForUrl(String url) {
+        // Look for db specific bits of JDBC URL to
+        // update the DBType flag
+        if (url.indexOf("mysql") != -1) {
+            return MYSQL;
+        }
+
+        if (url.indexOf("postgresql") != -1) {
+            return POSTGRESQL;
+        }
+
+        if (url.indexOf("hsqldb") != -1) {
+            return HSQLDB;
+        }
+
+        return MYSQL;
+    }
+
+    /**
+     * Overloaded version to use the default connection
+     *
+     * @param stmt
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    public synchronized static ResultSet openResultset(Statement stmt,
+        String query) throws Exception {
+        getConnection();
+
+        return openResultset(con, stmt, query);
+    }
+
+    /**
+     * Pass in a resultset and statement pointer with a query and this routine
+     * will populate the resultset for you from the DB.
+     *
+     * @param c
+     *            A JDBC connection
+     * @param stmt
+     *            A valid statement pointer (see getStatement())
+     * @param query
+     *            Some SQL to execute to use as the source.
+     * @return A populated JDBC resultset.
+     */
+    public synchronized static ResultSet openResultset(Connection c,
+        Statement stmt, String query) throws Exception {
+        // Create a new statement and run the query
+        stmt = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_READ_ONLY);
+
+        if (!quiet) {
+            Global.logDebug(query, "DBConnection.openResultset");
+        }
+
+        return stmt.executeQuery(query);
+    }
+
+    /**
+     * Call this routine to obtain a new statement for use with obtaining a
+     * resultset
+     *
+     * @return A new statement, generated from the database connection.
+     */
+    static synchronized Statement getStatement() throws Exception {
+        getConnection();
+
+        return getStatement(con);
+    }
+
+    static synchronized Statement getStatement(Connection c)
+        throws Exception {
+        return c.createStatement();
+    }
+
+    /**
+     * Call this routine with a piece of valid SQL to have it executed against
+     * the database connnection.
+     */
+    public synchronized static void executeAction(String query)
+        throws Exception {
+        getConnection();
+        executeAction(con, query);
+    }
+
+    /**
+     * Overloaded executeAction that allows the passing of a Connection
+     *
+     * @param query
+     * @throws Exception
+     */
+    public synchronized static void executeAction(Connection c, String query)
+        throws Exception {
+        // System.out.println("Executing: " + query);
+        // Make sure we have a connection open
+        // Create a new statement and run it
+        Statement stmt = c.createStatement();
+
+        if (!quiet) {
+            Global.logDebug(query, "DBConnection.executeAction");
+        }
+
+        stmt.execute(query);
+    }
+
+    public synchronized static void executeFile(File f)
+        throws Exception {
+        getConnection();
+        executeFile(con, f);
+    }
+
+    /**
+     * Executes a sum query and returns a double of the result
+     * @param sql
+     * @return A double containing the result, or 0 if the result
+     *         was null.
+     */
+    public synchronized static double executeForSum(String sql)
+        throws Exception {
+        return executeForSum(con, sql);
+    }
+
+
+    /**
+     * Executes a sum query and returns a double of the result
+     * @param c The connection
+     * @param sql
+     * @return A double containing the result, or 0 if the result
+     *         was null.
+     */
+    public synchronized static double executeForSum(Connection c, String sql)
+        throws Exception {
+        Statement stmt = c.createStatement();
+        ResultSet r = stmt.executeQuery(sql);
+
+        if (r.next()) {
+            return r.getDouble(1);
+        } else {
+            return 0;
+        }
+    }
+
+
+    /**
+     * Executes a count query and returns an integer of the result
+     * @param c The connection
+     * @param sql
+     * @return An integer containing the result, or 0 if the result
+     *         was null.
+     */
+    public synchronized static int executeForCount(Connection c, String sql)
+        throws Exception {
+        Statement stmt = c.createStatement();
+        ResultSet r = stmt.executeQuery(sql);
+
+        if (r.next()) {
+            return r.getInt(1);
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Executes a count query and returns an integer of the result
+     * overload to use default connection
+     * @param sql
+     * @return An integer containing the result, or 0 if the result
+     *         was null.
+     */
+    public synchronized static int executeForCount(String sql)
+        throws Exception {
+        getConnection();
+
+        return executeForCount(con, sql);
+    }
+
+    /**
+     * Executes the contents of a file against the database
+     *
+     * @param c
+     * @param f
+     * @throws Exception
+     */
+    public synchronized static void executeFile(Connection c, File f)
+        throws Exception {
+        // Read file into string
+        byte[] b = new byte[(int) f.length()];
+        FileInputStream in = new FileInputStream(f);
+        in.read(b);
+
+        // Interpret the file as UTF8
+        String s = new String(b, "UTF8");
+
+        // If we have unicode escape sequences in there, reinterpret
+        // the file as plain ASCII instead so that the characters
+        // are substitued
+        if (s.indexOf("\\u") != -1) {
+            Global.logDebug("Found ASCII unicode escape sequences in UTF8 data, substituting",
+                "DBConnection.executeFile");
+            s = Utils.unescapeUnicode(s);
+        }
+
+        // Find the first query in the file data
+        int be = 0;
+        int en = s.indexOf(";");
+
+        // If we have a byte order marker, skip to the next char
+        // (because java signs all bytes, then < 0 means we're really 
+        // testing that the first byte is > 127 and outside ascii range)
+        if (b[0] < 0) {
+            Global.logDebug("Found Unicode Byte-Order-Marker, skipping",
+                "DBConnection.executeFile");
+            be++;
+        }
+
+        while (true) {
+            String sql = s.substring(be, en).trim();
+            Global.logDebug("FileQuery: " + sql, "DBConnection.executeFile");
+            executeAction(c, sql);
+
+            be = en + 1;
+            en = s.indexOf(";", be);
+
+            if (en == -1) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * Given a target connection, dbType and tableName, deletes the contents of
+     * the table in the target database then copies all the data from the
+     * current db to the target table
+     *
+     * @param target
+     *            The target database connection
+     * @param dbType
+     *            MYSQL, POSTGRESQL or HSQLDB
+     * @param tableName
+     *            The table to copy
+     */
+    public static void copyTable(Connection target, byte dbType,
+        String tableName, boolean hasUserInfo, String userName) {
+        try {
+            Global.logInfo("Copying: " + tableName, "DBConnection.copyTable");
+
+            // Drop everything from the target table
+            executeAction(target, "DELETE FROM " + tableName);
+
+            // Read everything from the source table
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset("SELECT * FROM " + tableName, tableName);
+
+            // Don't do anything if we have no records
+            if (r.getEOF()) {
+                return;
+            }
+
+            // Write this recordset out to a our target
+            r.markAllRowsAsNew();
+            r.save(target, dbType, hasUserInfo, userName, true);
+
+            // Clean up
+            r.free();
+            r = null;
+        } catch (Exception e) {
+            Global.logError("Error occurred copying table: " + e.getMessage(),
+                "DBConnection.copyTable");
+            Global.logError("DBType=" + dbType + ",Table=" + tableName +
+                ",userName=" + userName, "DBConnection.copyTable");
+            Global.logException(e, DBConnection.class);
+        }
+    }
+
+    /**
+     * Given a source connection, dbType and tableName, copies
+     * all the data from the source db to the current db
+     *
+     * @param target
+     *            The target database connection
+     * @param dbType
+     *            MYSQL, POSTGRESQL or HSQLDB
+     * @param tableName
+     *            The table to copy
+     */
+    public static void importTable(Connection source, byte dbType,
+        String tableName, boolean hasUserInfo, String userName,
+        boolean breakOnException) {
+        try {
+            Global.logInfo("Importing: " + tableName, "DBConnection.importTable");
+
+            // Read everything from the source table
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset(source, "SELECT * FROM " + tableName, tableName);
+
+            // Don't do anything if we have no records
+            if (r.getEOF()) {
+                return;
+            }
+
+            // Write this recordset out to a our source
+            r.markAllRowsAsNew();
+            r.save(DBConnection.con, DBConnection.DBType, hasUserInfo,
+                userName, breakOnException);
+
+            // Clean up
+            r.free();
+            r = null;
+        } catch (Exception e) {
+            Global.logError("Error occurred importing table: " +
+                e.getMessage(), "DBConnection.importTable");
+            Global.logError("DBType=" + dbType + ",Table=" + tableName +
+                ",userName=" + userName, "DBConnection.importTable");
+            Global.logException(e, DBConnection.class);
+        }
+    }
+
+    /**
+     * Copies the DBFS from the current database to the target. Handled separately
+     * because of the large BLOB fields - don't want to cache the whole table in
+     * RAM while we do it.
+     *
+     * @param target
+     */
+    public static void copyDBFS(Connection target) {
+        try {
+            // Clear down the target
+            executeAction(target, "DELETE FROM dbfs");
+
+            // Pull out all records less content
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset("SELECT ID, Name, Path FROM dbfs", "dbfs");
+
+            // Go through each row from the DBFS, look it up
+            // with it's content and flush out to the new database
+            while (!r.getEOF()) {
+                SQLRecordset r2 = new SQLRecordset();
+                Global.logDebug("Copy DBFS Entry: " +
+                    r.getField("Path").toString() + "/" +
+                    r.getField("Name").toString(), "DBConnection.copyDBFS");
+                r2.openRecordset("SELECT * FROM dbfs WHERE ID=" +
+                    r.getField("ID").toString(), "dbfs");
+                r2.markAllRowsAsNew();
+                r2.save(target, DBConnection.HSQLDB, false, "", false);
+                r2.free();
+                r2 = null;
+                r.moveNext();
+            }
+        } catch (Exception e) {
+            Global.logError("Error occurred copying table: " + e.getMessage(),
+                "DBConnection.copyTable");
+            Global.logException(e, DBConnection.class);
+        }
+    }
+
+    /**
+     * Imports the DBFS from the source database to the local one. Due to the
+     * nature of DBFS, clears down the current db before the import.
+     * Handled separately because of the large BLOB fields - don't want to cache the
+     * whole table in RAM while we do it.
+     *
+     * @param target
+     */
+    public static void importDBFS(Connection source) {
+        try {
+            // Clear down the target
+            executeAction("DELETE FROM dbfs");
+
+            // Get all records less content
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset(source, "SELECT ID, Name, Path FROM dbfs", "dbfs");
+
+            // Go through each row from the DBFS, look it up
+            // with it's content and flush out to the new database
+            while (!r.getEOF()) {
+                SQLRecordset r2 = new SQLRecordset();
+                Global.logDebug("Import DBFS Entry: " +
+                    r.getField("Path").toString() + "/" +
+                    r.getField("Name").toString(), "DBConnection.importDBFS");
+                r2.openRecordset(source,
+                    "SELECT * FROM dbfs WHERE ID=" +
+                    r.getField("ID").toString(), "dbfs");
+                r2.markAllRowsAsNew();
+                r2.save(DBConnection.con, DBConnection.HSQLDB, false, "", false);
+                r2.free();
+                r2 = null;
+                r.moveNext();
+            }
+        } catch (Exception e) {
+            Global.logError("Error occurred copying table: " + e.getMessage(),
+                "DBConnection.copyTable");
+            Global.logException(e, DBConnection.class);
+        }
+    }
+
+    /** Returns the next primary key for a given table on the current connection */
+    public static int getPrimaryKey(String tableName)
+        throws CursorEngineException {
+        return getPrimaryKey(con, tableName);
+    }
+
+    /**
+     * This routine uses the PrimaryKey table which must be present in the
+     * database to calculate the next available primary key.
+     */
+    public synchronized static int getPrimaryKey(Connection c, String tableName)
+        throws CursorEngineException {
+        // Check the table first for a key value:
+        SQLRecordset rs = new SQLRecordset();
+
+        try {
+            rs.openRecordset(c,
+                "Select * From primarykey Where TableName Like '" + tableName +
+                "'", "primarykey");
+        } catch (Exception e) {
+            throw new CursorEngineException(e.getMessage());
+        }
+
+        try {
+            if (rs.getBOF()) {
+                // No entry in the table found, check the physical
+                // table to see what the highest ID in it is:
+                SQLRecordset thetable = new SQLRecordset();
+
+                try {
+                    thetable.openRecordset(c,
+                        "Select ID From " + tableName + " Order By ID",
+                        tableName);
+                } catch (Exception e) {
+                    throw new CursorEngineException(e.getMessage());
+                }
+
+                // If there are no records in the table, start at 1
+                // and set the table entry to 2 for future use.
+                if (thetable.getBOF()) {
+                    // Write insert query
+                    String sql = "INSERT INTO primarykey (TableName, NextID) VALUES ('" +
+                        tableName + "', 2)";
+
+                    try {
+                        executeAction(c, sql);
+                    } catch (Exception e) {
+                        throw new CursorEngineException(e.getMessage());
+                    }
+
+                    return 1;
+                } else {
+                    // Find the highest ID in the table and use that instead
+                    thetable.moveLast();
+
+                    int realID = ((Integer) thetable.getField("ID")).intValue();
+                    realID++;
+
+                    // Write insert query
+                    realID++;
+
+                    String sql = "INSERT INTO primarykey (TableName, NextID) VALUES ('" +
+                        tableName + "', " + Integer.toString((realID)) + ")";
+
+                    try {
+                        executeAction(c, sql);
+                    } catch (Exception e) {
+                        throw new CursorEngineException(e.getMessage());
+                    }
+
+                    realID--;
+
+                    return realID;
+                }
+            } else {
+                // We have an entry, return that and increment the counter
+                int realID = ((Integer) rs.getField("NextID")).intValue();
+                int nextID = realID;
+                nextID++;
+
+                // Write an update query and run it
+                String sql = "UPDATE primarykey SET NextID = " +
+                    Integer.toString(nextID) + " WHERE TableName Like '" +
+                    tableName + "'";
+
+                try {
+                    executeAction(c, sql);
+                } catch (Exception e) {
+                    throw new CursorEngineException(e.getMessage());
+                }
+
+                return realID;
+            }
+        } finally {
+            rs = null;
+        }
+    }
+}

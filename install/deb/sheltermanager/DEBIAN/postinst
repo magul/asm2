@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Force update of the menu structure - should be done automatically
+update-menus
+
+# ==== Old stuff for MySQL - no longer used.
+
+# Animal Shelter Manager installation script.
+# echo "Installing Animal Shelter Manager server..."
+
+# Install the database
+# echo "Creating asm database..."
+
+# If the database already exists, then we have to assume the user has already
+# done a server installation, so do nothing. 
+
+# EXISTINGDB=`mysql -u root -e "SHOW DATABASES;" | grep 'asm'`
+
+#if [ -n "$EXISTINGDB" ]; then
+#    echo "Found an already existing ASM server on this machine..."
+#    exit 0
+#fi
+
+# Create the tables and initial setup
+#mysql -u root -e "CREATE DATABASE asm;"
+#mysql -u root -e "use asm; source /usr/local/asm/install/brand_new_database.sql;"
+
+# Allow other boxes in
+#echo "Applying DB permissions..."
+#mysql -u root -e "GRANT ALL PRIVILEGES ON * TO root@'%';"
+#mysql -u root -e "use asm; GRANT ALL PRIVILEGES ON * TO root@'%';"
+
+#echo "ASM Server installation complete."

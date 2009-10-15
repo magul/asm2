@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Animal Shelter Manager translation file encoder</title>
+		<script type="text/javascript">
+			//<![CDATA[
+			function native2ascii (str) {
+				// Available escapes appear to be listed here:
+				// http://java.sun.com/j2se/1.4.2/docs/api/java/util/Properties.html#load%28java.io.InputStream%29
+				// This function is partly stolen from Richard Ishida's Unicode Code Converter v6:
+				// http://rishida.net/scripts/uniview/conversion.php
+				// It is by no means a full implementation of native2ascii: it will
+				// encode anything, regardless of whether it is a key or a value.
+				var outputString = '';
+				for ( var i = 0; i < str.length; i++ ) {
+					code = parseInt(str[i].charCodeAt());
+					switch (code) {
+						case 9: outputString += '\\t'; break;
+						case 10: outputString += '\n'; break;
+						case 12: outputString += '\\f'; break;
+						case 13: outputString += '\r'; break;
+						case 34: outputString += '\\\"'; break;
+						case 39: outputString += '\\\''; break;
+						// not escaping slashes since they appear to be used in a non-standard way in ASM
+						// case 92: outputString += '\\\\'; break;
+						default:
+							if (code > 0x1f && code < 0x7F) {
+								outputString += str[i];
+							} else { 
+								pad = '';
+								codestr = code.toString(16);
+								if (codestr.length == 1) { pad = '000'; }
+								else if (codestr.length == 2) { pad = '00'; }
+								else if (codestr.length == 3) { pad = '0'; }
+								outputString += '\\u'+pad+codestr; 
+							}
+					}
+				}
+				return outputString;
+			}
+
+			function syncFields() {
+				document.getElementById('enc').value = native2ascii(document.getElementById('orig').value);
+			}
+			//]]>
+		</script>
+		<style type="text/css">
+			/* <![CDATA[ */
+			h1 {
+				font-size: 130%;
+			}
+			
+			label {
+				display: block;
+			}
+			/* ]]> */
+		</style>
+	</head>
+	<body>
+		<h1>ASM translation file encoder</h1>
+		<p>Enter unencoded text into the top field, click the Encode button, and the encoded text will be available for copying from the bottom field.</p>
+		<dl>
+			<dt>
+				<label for="orig">Original text:</label>
+			</dt>
+			<dd>
+				<textarea id="orig" name="orig" cols="100" rows="15" onchange="syncFields()"></textarea>
+			</dd>
+			<dt>
+				<button type="button" onclick="syncFields()">Encode!</button>
+			</dt>
+			<dt>
+				<label for="enc">Encoded text:</label>
+			</dt>
+			<dd>
+				<textarea id="enc" name="enc" cols="100" rows="15" readonly="readonly"></textarea>
+			</dd>
+		</dl>
+	</body>
+</html>

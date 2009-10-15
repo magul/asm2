@@ -1,0 +1,35 @@
+Explanation of translation conversions. These are done to convert between sql,
+java properties and gettext po files so that translations can be done with
+Launchpad Rosetta and converted back again.
+
+java_to_gettext.sh
+
+Reads the java properties files and creates .po files for our supported languages
+in src/locale/po
+It also creates a .pot file from the en_GB (no property file suffix) files
+
+java_to_pot.sh
+
+Reads the properties files and creates a new .pot file
+
+gettext_to_java.sh
+
+Looks in src/locale/po/ for po files and generates java properties files from them
+to match the English template. Note that they should be named with the country
+code in there - eg: lt_LT.po
+
+database_to_java.sh
+
+Reads the UTF8 database translation patch files in sql/translate_* and converts them
+into Latin1 java properties files in src/locale as database.properties
+
+database_to_java_en.sh
+
+Reads the UTF8 database translation patch files for English only (sql/translate_en.sql) and
+recreates the src/locale/database.properties file - the template for the other
+languages.
+
+java_to_database.sh
+
+Reads the java database.properties files in src/locale and converts them into
+UTF8 translation patch files in sql/

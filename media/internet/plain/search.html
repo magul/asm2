@@ -1,0 +1,296 @@
+<html>
+<head>
+<title>Search Animals Available for Adoption</title>
+</head>
+
+<!-- Embedded style sheet !-->
+<style>
+	td {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 10pt;
+	}
+	p {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 10pt;
+	}
+	li {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 10pt;
+	}
+	h1 {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 16pt;
+	}
+	h2 {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 14pt;
+	}
+	h3 {
+		font-family: Verdana,Arial,Helvetica,Sans-Serif;
+		font-size: 12pt;
+	}
+	
+</style>
+
+<!-- Import the database !-->
+<script language="javascript" src="db.js"></script>
+
+<script language="javascript">
+
+	// Main search code:
+	function search() {
+	
+		// Create the results pane and buffer
+		resultsPane = window.open();
+		var buffer = "<html><head>";
+		buffer = buffer + "<!-- Embedded style sheet !-->";
+		buffer = buffer + "<style>";
+		buffer = buffer + "td {";
+		buffer = buffer + "font-family: Verdana,Arial,Helvetica,Sans-Serif;";
+		buffer = buffer + "font-size: 10pt;";
+		buffer = buffer + "}";
+		buffer = buffer + "p {";
+		buffer = buffer + "font-family: Verdana,Arial,Helvetica,Sans-Serif;";
+		buffer = buffer + "font-size: 10pt;";
+		buffer = buffer + "}";
+		buffer = buffer + "h2 {";
+		buffer = buffer + "font-family: Verdana,Arial,Helvetica,Sans-Serif;";
+		buffer = buffer + "font-size: 16pt;";
+		buffer = buffer + "}";
+		buffer = buffer + "</style>";
+		buffer = buffer + "<title>Search Results</title>";
+		buffer = buffer + "</head>";
+		buffer = buffer + '<body>';
+		buffer = buffer + "<h2><u>Search Results</u></h2>";
+		buffer = buffer + "<p>Data last updated on: " + publishDate + "</p>";
+		buffer = buffer + "<table width = 100%>";
+	
+		// Loop through the db	
+		var okToAdd = false;
+		var matched = 0;
+		for (i = 0; i < name.length; i++) {
+	
+			okToAdd = true;
+	
+			// Filter according to criteria
+			
+			// Species
+			if (document.form1.chkSpecies.checked == true) {
+				var speciesname = document.form1.cboSpecies[document.form1.cboSpecies.selectedIndex].value;
+				okToAdd = (species[i] == speciesname);
+			}
+			
+			// Colour
+			if (okToAdd == true) {
+				if (document.form1.chkColour.checked == true) {
+					var colourname = document.form1.cboColour[document.form1.cboColour.selectedIndex].value;
+					okToAdd = (colour[i].indexOf(colourname) != -1);
+				}
+			}
+			
+			// Sex
+			if (okToAdd == true) {
+				if (document.form1.chkSex.checked == true) {
+					var sexname = document.form1.cboSex[document.form1.cboSex.selectedIndex].value;
+					okToAdd = (sex[i] == sexname);
+				}
+			}
+			
+			// Size
+			if (okToAdd == true) {
+				if (document.form1.chkSize.checked == true) {
+					var sizename = document.form1.cboSize[document.form1.cboSize.selectedIndex].value;
+					okToAdd = (size[i] == sizename);
+				}
+			}
+			
+			// Age
+			if (okToAdd == true) {
+				if (document.form1.chkAge.checked == true) {
+					
+					// See what range we are looking for
+					var agerange = document.form1.cboAge[document.form1.cboAge.selectedIndex].value;
+					
+					// 6-12 months
+					if (agerange == 1) {
+						okToAdd = ((age[i].substring(0, 7) == "0 years") || (age[i].indexOf("weeks") != -1));
+					}
+					// 1-2 years
+					if (agerange == 2) {
+						if ( (age[i].substring(0, 7) == "1 years") )
+							okToAdd = true;
+						else
+							okToAdd = false;
+					
+					}
+					// 2-5 years
+					if (agerange == 3) {
+					
+						if ( (age[i].substring(0, 7) == "2 years") ||
+							 (age[i].substring(0, 7) == "3 years") ||
+							 (age[i].substring(0, 7) == "4 years"))
+							okToAdd = true;
+						else
+							okToAdd = false;
+					}
+					// 5-10 years
+					if (agerange == 4) {
+					
+						if ( (age[i].substring(0, 7) == "5 years") ||
+							 (age[i].substring(0, 7) == "6 years") ||
+							 (age[i].substring(0, 7) == "7 years") ||
+							 (age[i].substring(0, 7) == "8 years") ||
+							 (age[i].substring(0, 7) == "9 years"))
+							okToAdd = true;
+						else
+							okToAdd = false;
+					
+					}
+					// 10 years +
+					if (agerange == 5) {
+						if ( (age[i].substring(1, 2) != " ") && 
+							 (age[i].indexOf("years") != -1))
+							okToAdd = true;
+						else
+							okToAdd = false;
+					}
+					
+				}
+			}
+			
+			
+			
+	
+			// If all is ok, append into the pane
+			if (okToAdd == true) {
+				buffer = buffer + "<tr>";
+				buffer = buffer + "<td>";
+				buffer = buffer + "<img height=200 width=320 src=" + image[i] + ">";
+				buffer = buffer + "</td>";
+				buffer = buffer + "<td>";
+				buffer = buffer + "<b>" + sheltercode[i] + " - " + name[i] + "</b><br>";
+				buffer = buffer + breed[i] + " " + species[i] + " aged " + age[i] + "<br>";
+				buffer = buffer + "Good with Children: " + goodwithkids[i] + ", Good with Cats: ";
+				buffer = buffer + goodwithcats[i] + ", Good with Dogs: " + goodwithdogs[i];
+				buffer = buffer + ", Housetrained: " + housetrained[i];
+				buffer = buffer + "<br>";
+				buffer = buffer + "<b>Details</b><br>";
+				buffer = buffer + "<br>";
+				buffer = buffer + details[i];
+				buffer = buffer + "<hr>";
+				buffer = buffer + "</td>";
+				buffer = buffer + "</tr>";
+				matched++;
+			}
+		}
+		buffer = buffer + "</table>";
+		buffer = buffer + "<hr><p>" + matched + " matches found.</p>";
+		buffer = buffer + "<p>Data last updated on: " + publishDate + "</p></body></html>";
+		resultsPane.document.write(buffer);
+		
+	}
+	
+</script>
+
+
+
+
+<body>
+<p>
+<h2><u>Up for Adoption</u></h2>
+<p></p>
+
+<p><b><u>Search Options</u></b></p>
+
+
+<form method="post" action="" id="form1" name="form1">
+<table width = "75%">
+<tr>
+<td>
+	<INPUT id=chkSpecies type=checkbox 
+	name=chkSpecies>Species
+</td>
+<td>
+	<SELECT id="cboSpecies" name="cboSpecies" style="WIDTH: 160px">
+	  <OPTION value=Cat selected>Cat</OPTION>
+	  <OPTION value="Dog">Dog</OPTION>
+	  <OPTION value="Budgie">Budgie</OPTION>
+	  <OPTION value="Ferret">Ferret</OPTION>
+	  <OPTION value="Gerbil">Gerbil</OPTION>
+	  <OPTION value="Guinea Pig">Guinea Pig</OPTION>
+	  <OPTION value="Hamster">Hamster</OPTION>
+	  <OPTION value="Mouse">Mouse</OPTION>
+	  <OPTION value="Rabbit">Rabbit</OPTION>
+	</SELECT>
+</td>
+</tr>
+<tr>
+
+<td>
+	<INPUT id=chkColour type=checkbox 
+	name=chkColour>Colour 
+</td>
+<td>
+	<SELECT id=cboColour style="WIDTH: 160px" name=cboColour> 
+	<OPTION value="Black" selected>Black</OPTION>
+	<OPTION value="Brindle">Brindle</OPTION>
+	<OPTION value="Ginger">Ginger</OPTION>
+	<OPTION value="Silver">Silver</OPTION>
+	<OPTION value="Tabby">Tabby</OPTION>
+	<OPTION value="Tricolour">Tricolour</OPTION>
+	<OPTION value="Tan">Tan</OPTION>
+	<OPTION value="White">White</OPTION>
+	</SELECT>
+</td>
+
+
+<td>
+	<INPUT id=chkSex type=checkbox 
+	name=chkSex>Sex 
+</td>
+<td>
+<SELECT id=cboSex style="WIDTH: 160px" name=cboSex> 
+  <OPTION value="Male" selected>Male</OPTION>
+  <OPTION value="Female">Female</OPTION>
+  <OPTION value="Unknown">Unknown</OPTION></SELECT>
+</td>
+
+</tr>
+<tr>
+
+<td>
+	<INPUT id=chkSize type=checkbox 
+	name=chkSize>Size 
+</td>
+<td>
+	<SELECT id=cboSize style="WIDTH: 160px" name=cboSize> 
+		<OPTION value="Very Large" selected>Very Large</OPTION>
+		<OPTION value="Large">Large</OPTION>
+		<OPTION value="Medium">Medium</OPTION>
+		<OPTION value="Small">Small</OPTION>
+	</SELECT>
+</td>
+
+<td>
+	<INPUT id=chkAge type=checkbox 
+	name=chkAge>Aged 
+</td>
+<td>
+	<SELECT id=cboAge style="WIDTH: 160px" name=cboAge>
+		<OPTION value="1" selected>Under 12 Months</OPTION> 
+		<OPTION value="2">1-2 Years</OPTION>
+		<OPTION value="3">2-5 Years</OPTION>
+		<OPTION value="4">5-10 Years</OPTION>
+		<OPTION value="5">10+ Years</OPTION>
+	</SELECT>
+</td>
+</tr>
+</table>
+</form>
+
+<p><a href="javascript:search()">Search</a></p>
+<hr>
+<p><font size=1>Animal database search engine, Copyright(c) R.Rawson-Tetley.</font></p>
+
+</body>
+</html>
