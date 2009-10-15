@@ -5,7 +5,13 @@
 cd `dirname $0`
 SQLDIR=../sql
 PROPDIR=../src/locale
-FILES="translate_en.sql translate_lt.sql translate_es.sql"
+
+# This script is really for updating the template database.properties file
+# from the English script now - the other languages are translated
+# elsewhere to produce a database_lang.properties, which is then
+# turned into sql by the java_to_database.sh/sql_to_property.py scripts
+FILES="translate_en.sql"
+#FILES="translate_en.sql translate_lt.sql translate_es.sql"
 
 for f in $FILES; do
 
