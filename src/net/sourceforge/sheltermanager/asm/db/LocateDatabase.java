@@ -363,7 +363,7 @@ public class LocateDatabase {
     public void applyTranslationPatch() {
         try {
             // Languages for which we have patch files
-            String[] patches = { "es", "fr", "lt" };
+            String[] patches = { "es", "fr", "lt", "nl" };
 
             for (int i = 0; i < patches.length; i++) {
                 if (Locale.getDefault().getLanguage().equals(patches[i])) {
