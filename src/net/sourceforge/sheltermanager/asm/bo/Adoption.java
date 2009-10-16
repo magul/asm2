@@ -422,7 +422,7 @@ public class Adoption extends UserInfoBO {
      */
     public Owner getRetailer() throws CursorEngineException {
         // Do we have an owner?
-        if (retailer != null) {
+        if (retailer != null && !retailer.getEOF()) {
             // Is it the correct one?
             if (retailer.getID().equals(getRetailerID())) {
                 // It is - return it

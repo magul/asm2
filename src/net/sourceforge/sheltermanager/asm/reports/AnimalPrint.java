@@ -386,7 +386,9 @@ public class AnimalPrint extends Report {
             tableAddRow();
             tableAddBoldCell(Global.i18n("uimovement", "Number:"));
             tableAddBoldCell(Global.i18n("uimovement", "Owner"));
-            tableAddBoldCell(Global.i18n("uimovement", "from_retailer"));
+            if (!Configuration.getBoolean("DisableRetailer")) {
+                tableAddBoldCell(Global.i18n("uimovement", "from_retailer"));
+            }
             tableAddBoldCell(Global.i18n("uimovement", "Reservation"));
             tableAddBoldCell(Global.i18n("uimovement", "Cancelled:"));
             tableAddBoldCell(Global.i18n("uimovement", "Movement"));
@@ -403,7 +405,9 @@ public class AnimalPrint extends Report {
             tableAddRow();
             tableAddCell(mo.getAdoptionNumber());
             tableAddCell(owner(mo.getOwner()));
-            tableAddCell(owner(mo.getRetailer()));
+            if (!Configuration.getBoolean("DisableRetailer")) {
+                tableAddCell(owner(mo.getRetailer()));
+            }
             tableAddCell(date(mo.getReservationDate()));
             tableAddCell(date(mo.getReservationCancelledDate()));
             tableAddCell(date(mo.getMovementDate()));

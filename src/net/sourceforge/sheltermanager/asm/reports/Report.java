@@ -249,6 +249,7 @@ public abstract class Report extends Thread {
     }
 
     public String money(Double d) {
+        if (d == null) d = new Double(0);
         return Global.currencySymbol + d.toString();
     }
 
@@ -269,6 +270,7 @@ public abstract class Report extends Thread {
     }
 
     public String number(Number n) {
+        if (n == null) return "0";
         return n.toString();
     }
 
