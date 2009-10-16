@@ -2288,7 +2288,7 @@ public class Main extends ASMWindow {
         Dialog.theParent = null;
 
         // Spawn a new shutdown process
-        new ShutdownThread().start();
+        new ShutdownThread().run();
     }
 
     public void logout() {

@@ -1,6 +1,9 @@
 2.6.0
 ================
 
+*. Swing interface is now the default for all platforms - simplifies
+   build procedures and cures issues with XUL/GTK2 by removing it
+   as a dependency (along with lack of vertical scroll support)
 *. CTRL+C / kill could previously cause the UI to hang instead 
    of closing
 *. Fixed EOF bug with retailers when printing animals

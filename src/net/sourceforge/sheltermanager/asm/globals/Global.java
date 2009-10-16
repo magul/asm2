@@ -177,6 +177,9 @@ public abstract class Global {
     public static boolean showDebug = System.getProperty("asm.log.debug",
             "false").equals("true");
 
+    /** Echo log messages to stdout */
+    public static boolean echolog = true;
+
     /**
      * Pivot point at which 2 digit years are changed This could be made into a
      * user configurable option at some point.
@@ -459,7 +462,7 @@ public abstract class Global {
         try {
             log.write(m.getBytes());
             log.flush();
-            System.out.print(m);
+            if (echolog) System.out.print(m);
             m = null;
         } catch (Exception e) {
             e.printStackTrace();

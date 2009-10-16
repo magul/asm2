@@ -76,6 +76,7 @@
 			       <path location="lib/charting-0.94.jar"/>
 			       <path location="lib/rowset.jar"/>
 			       <path location="lib/swingwt.jar"/>
+                               <path location="lib/hsqldb.jar"/>
 			       <path location="lib/swt_gtk2/swt.jar"/>
 			       <path location="lib/swt_gtk2/swt-pi.jar"/>
 			       <path location="lib/swt_gtk2/swt-mozilla.jar"/>
@@ -100,6 +101,7 @@
 		       target="1.4"
 		       verbose="off">
 		       <classpath>
+                               <path location="lib/hsqldb.jar"/>
 			       <path location="lib/charting-0.94.jar"/>
 			       <path location="lib/rowset.jar"/>
 		       </classpath>

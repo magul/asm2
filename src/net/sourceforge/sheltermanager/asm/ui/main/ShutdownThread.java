@@ -24,7 +24,6 @@ package net.sourceforge.sheltermanager.asm.ui.main;
 import net.sourceforge.sheltermanager.asm.bo.*;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.io.File;
@@ -38,12 +37,14 @@ public class ShutdownThread extends Thread {
     public static boolean shuttingDown = false;
 
     public void run() {
-        // If the main form is still open (ie. This was a CTRL+C or a kill)
-        // close the form gracefully
-        if (Dialog.theParent != null) {
-            Global.mainForm.closeApplication();
 
-            return;
+        // Is this a CTRL+C ? If so, we need to forcibly terminate the VM
+        boolean isCtrlC = Global.mainForm != null;
+
+        // If the main form is still open (ie. This was a CTRL+C or a kill)
+        // try and close the form gracefully before we kill the VM
+        if (Global.mainForm != null) {
+            Global.mainForm.dispose();
         }
 
         // Only do the shutdown sequence if it hasn't already
@@ -54,6 +55,10 @@ public class ShutdownThread extends Thread {
             return;
         }
 
+        // Stop the log echoing anything to stdout to prevent stream deadlock
+        // when System.exit is called
+        // Global.echolog = false;
+        
         // Update litter figures to make sure any that should be cancelled are.
         // We do this here because we do not want to affect system
         // startup times, however we want this checked at least once per day.
@@ -86,10 +91,10 @@ public class ShutdownThread extends Thread {
 
                 // Close the log
                 Global.closeLog();
+
             } catch (Exception e) {
             }
+            Startup.terminateVM(isCtrlC);
         }
-
-        Startup.terminateVM();
     }
 }

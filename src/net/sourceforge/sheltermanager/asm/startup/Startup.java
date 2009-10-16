@@ -89,6 +89,18 @@ public class Startup implements Runnable {
         }
     }
 
+
+    public static void terminateVM(boolean halt) {
+        if (!applet) {
+            if (halt) {
+                Runtime.getRuntime().halt(-1);
+            }
+            else {
+                System.exit(0);
+            }
+        }
+    }
+
     public static void waitExit(int returncode) {
         // Wait for 5 seconds and then exit if we're using
         // SwingWT - Swing blocks the thread correctly so this
