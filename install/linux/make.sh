@@ -18,6 +18,14 @@ java -Xmx256m -Dorg.eclipse.swt.browser.XULRunnerPath=/usr/lib/xulrunner-1.9 -cp
 ' > asm/run.sh
 chmod +x asm/run.sh
 
+# Swing shell script
+echo '#!/bin/sh
+INSTDIR=`dirname $0`
+java -Xmx256m -Dorg.eclipse.swt.browser.XULRunnerPath=/usr/lib/xulrunner-1.9 -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/swingwt.jar:$INSTDIR/lib/swt.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/asm-swing.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup $INSTDIR/data
+
+' > asm/run.sh
+chmod +x asm/runswing.sh
+
 # Command line interface script
 echo '#!/bin/sh
 INSTDIR=`dirname $0`
@@ -46,6 +54,7 @@ chmod +x asm/run_hsqlserver.sh
 # libs
 mkdir asm/lib
 cp ../../build/asm.jar asm
+cp ../../build/asm-swing.jar asm
 cp ../../lib/*.jar asm/lib
 cp ../../lib/swt_gtk2/* asm/lib
 
