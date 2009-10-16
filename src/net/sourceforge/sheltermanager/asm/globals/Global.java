@@ -462,7 +462,11 @@ public abstract class Global {
         try {
             log.write(m.getBytes());
             log.flush();
-            if (echolog) System.out.print(m);
+
+            if (echolog) {
+                System.out.print(m);
+            }
+
             m = null;
         } catch (Exception e) {
             e.printStackTrace();

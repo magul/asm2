@@ -60,7 +60,6 @@ public final class UI {
 
     static {
         try {
-            
             // Make sure AWT honours font rendering
             System.setProperty("awt.useSystemAAFontSettings", "on");
 
@@ -68,7 +67,6 @@ public final class UI {
             // the command line, otherwise ASM tries to use whatever native
             // support Swing might have for the platform
             if (!System.getProperty("asm.swingdefault", "false").equals("true")) {
-
                 // If we're on Linux, then try to use GTK - it only picks
                 // it up if the WM is GNOME, irrespective of GTK being available
                 // and Metal is hideous

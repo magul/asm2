@@ -163,10 +163,16 @@ public abstract class DBConnection {
     /** Closes any connection we have open */
     public static synchronized void close() {
         try {
-            if (con != null) con.close();
+            if (con != null) {
+                con.close();
+            }
+
             con = null;
+
             // Hack - HSQLDB 1.8.0 doesn't release locks straight away
-            if (DBType == HSQLDB) org.hsqldb.DatabaseManager.closeDatabases(0);
+            if (DBType == HSQLDB) {
+                org.hsqldb.DatabaseManager.closeDatabases(0);
+            }
         } catch (Exception e) {
         }
     }

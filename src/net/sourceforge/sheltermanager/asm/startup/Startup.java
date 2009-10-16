@@ -89,13 +89,11 @@ public class Startup implements Runnable {
         }
     }
 
-
     public static void terminateVM(boolean halt) {
         if (!applet) {
             if (halt) {
                 Runtime.getRuntime().halt(-1);
-            }
-            else {
+            } else {
                 System.exit(0);
             }
         }

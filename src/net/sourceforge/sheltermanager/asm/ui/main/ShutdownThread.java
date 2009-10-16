@@ -37,7 +37,6 @@ public class ShutdownThread extends Thread {
     public static boolean shuttingDown = false;
 
     public void run() {
-
         // Is this a CTRL+C ? If so, we need to forcibly terminate the VM
         boolean isCtrlC = Global.mainForm != null;
 
@@ -58,7 +57,7 @@ public class ShutdownThread extends Thread {
         // Stop the log echoing anything to stdout to prevent stream deadlock
         // when System.exit is called
         // Global.echolog = false;
-        
+
         // Update litter figures to make sure any that should be cancelled are.
         // We do this here because we do not want to affect system
         // startup times, however we want this checked at least once per day.
@@ -91,9 +90,9 @@ public class ShutdownThread extends Thread {
 
                 // Close the log
                 Global.closeLog();
-
             } catch (Exception e) {
             }
+
             Startup.terminateVM(isCtrlC);
         }
     }
