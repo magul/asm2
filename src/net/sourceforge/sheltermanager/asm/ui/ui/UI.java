@@ -398,8 +398,18 @@ public final class UI {
         return new List(onDoubleClick, onClick);
     }
 
+    public static Panel getPanel(int bordersize) {
+        Panel p = new Panel(bordersize);
+
+        if (useDefaultTooltip) {
+            p.setToolTipText(TOOLTIP_DEFAULT);
+        }
+
+        return p;
+    }
+
     public static Panel getPanel() {
-        Panel p = new Panel();
+        Panel p = new Panel(4);
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -427,6 +437,17 @@ public final class UI {
 
         return p;
     }
+
+    public static Panel getPanel(LayoutManager l, int bordersize) {
+        Panel p = new Panel(l, bordersize);
+
+        if (useDefaultTooltip) {
+            p.setToolTipText(TOOLTIP_DEFAULT);
+        }
+
+        return p;
+    }
+
 
     public static Panel getPanel(LayoutManager l, boolean noborder) {
         Panel p = new Panel(l, noborder);
@@ -2008,9 +2029,14 @@ public final class UI {
     }
 
     public static class Panel extends JPanel {
+
         public Panel() {
+            this(4);
+        }
+
+        public Panel(int bs) {
             super();
-            setBorder(new EmptyBorder(4, 4, 4, 4));
+            setBorder(new EmptyBorder(bs, bs, bs, bs));
         }
 
         public Panel(boolean noborder) {
@@ -2018,8 +2044,12 @@ public final class UI {
         }
 
         public Panel(LayoutManager l) {
+            this(l, 4);
+        }
+
+        public Panel(LayoutManager l, int bs) {
             super(l);
-            setBorder(new EmptyBorder(4, 4, 4, 4));
+            setBorder(new EmptyBorder(bs, bs, bs, bs));
         }
 
         public Panel(LayoutManager l, boolean noborder) {
