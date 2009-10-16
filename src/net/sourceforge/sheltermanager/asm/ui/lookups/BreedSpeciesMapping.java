@@ -87,8 +87,13 @@ public class BreedSpeciesMapping extends ASMView {
             while (!breed.getEOF()) {
                 datar[i][0] = breed.getBreedName();
                 datar[i][1] = Utils.nullToEmptyString(breed.getBreedDescription());
+
                 String bname = LookupCache.getSpeciesName(breed.getSpeciesID());
-                if (bname.equals("")) bname = i18n("any");
+
+                if (bname.equals("")) {
+                    bname = i18n("any");
+                }
+
                 datar[i][2] = bname;
                 datar[i][3] = breed.getID().toString();
 
@@ -123,6 +128,7 @@ public class BreedSpeciesMapping extends ASMView {
     public boolean formClosing() {
         LookupCache.invalidate();
         LookupCache.fill();
+
         return false;
     }
 
@@ -136,7 +142,8 @@ public class BreedSpeciesMapping extends ASMView {
         btnView = UI.getButton(null, Global.i18n("uilookups", "Edit"), 'e',
                 IconManager.getIcon(IconManager.SCREEN_MAPBREEDSPECIES_EDIT),
                 UI.fp(this, "actionEdit"));
-        btnAll = UI.getButton(null, Global.i18n("uilookups", "Map_to_all_species"), 'a',
+        btnAll = UI.getButton(null,
+                Global.i18n("uilookups", "Map_to_all_species"), 'a',
                 IconManager.getIcon(IconManager.SCREEN_MAPBREEDSPECIES_ALL),
                 UI.fp(this, "actionAll"));
         addToolButton(btnView, true);
@@ -221,5 +228,4 @@ public class BreedSpeciesMapping extends ASMView {
             Dialog.showError(e.getMessage());
         }
     }
-
 }

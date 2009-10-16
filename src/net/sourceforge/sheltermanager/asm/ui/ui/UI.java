@@ -448,7 +448,6 @@ public final class UI {
         return p;
     }
 
-
     public static Panel getPanel(LayoutManager l, boolean noborder) {
         Panel p = new Panel(l, noborder);
 
@@ -486,7 +485,6 @@ public final class UI {
     public static FlowLayout getFlowLayout(int orientation, boolean nogap) {
         return new FlowLayout(orientation, 0, 0);
     }
-
 
     public static BorderLayout getBorderLayout() {
         return new BorderLayout();
@@ -2029,7 +2027,6 @@ public final class UI {
     }
 
     public static class Panel extends JPanel {
-
         public Panel() {
             this(4);
         }
@@ -2284,7 +2281,6 @@ public final class UI {
         public FlowLayout(int align, int hgap, int vgap) {
             super(align, hgap, vgap);
         }
-
     }
 
     public static class BorderLayout extends java.awt.BorderLayout {

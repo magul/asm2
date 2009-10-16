@@ -646,7 +646,6 @@ public class Main extends ASMWindow {
         this.mnuPreferencesSwitchDatabase.setVisible(!Startup.applet);
         this.mnuHelpContentsPDF.setVisible(!Startup.applet);
         this.mnuHelpCheckUpdates.setVisible(!Startup.applet);
-
     }
 
     public void windowOpened() {
@@ -1300,7 +1299,7 @@ public class Main extends ASMWindow {
         if (!Configuration.getBoolean("DisableRetailer")) {
             mnuFileAnimal.add(mnuFileAnimalRetailerBook);
         }
-        
+
         mnuFileAnimal.add(mnuFileAnimalNotAdoptionBook);
         mnuFileAnimal.add(UI.getSeparator());
         mnuFileAnimal.add(mnuFileAnimalLitter);

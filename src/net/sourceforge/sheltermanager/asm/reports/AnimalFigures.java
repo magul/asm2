@@ -160,7 +160,6 @@ public class AnimalFigures extends Report {
 
             // Initialise the status bar upto
             // the maximum steps - 14 steps in number of animaltype groups
-
             SQLRecordset at = LookupCache.getAnimalTypeLookup();
             at.moveFirst();
 
@@ -171,8 +170,8 @@ public class AnimalFigures extends Report {
                 genFigs((Integer) at.getField("ID"));
                 at.moveNext();
             }
-            resetStatusBar();
 
+            resetStatusBar();
         } catch (Exception e) {
             Dialog.showError(Global.i18n("reports",
                     "An_error_occurred_generating_the_report", e.getMessage()));
@@ -210,7 +209,6 @@ public class AnimalFigures extends Report {
     }
 
     public void genFigs(Integer animalTypeID) throws Exception {
-        
         String animalName = "";
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;
@@ -265,8 +263,7 @@ public class AnimalFigures extends Report {
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
             int total = Animal.getNumberOfAnimalsOnShelter(Utils.calendarToDate(
-                        atDate), 0, animalTypeID.intValue(),
-                    0, Animal.ALLAGES);
+                        atDate), 0, animalTypeID.intValue(), 0, Animal.ALLAGES);
             tableAddCell(Integer.toString(total));
             animalTotal[i] = total;
             animalTotalNoFoster[i] = animalTotal[i];
@@ -288,8 +285,7 @@ public class AnimalFigures extends Report {
                 atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
                 int total = Animal.getNumberOfAnimalsOnFoster(Utils.calendarToDate(
-                            atDate), 0, 
-                        animalTypeID.intValue());
+                            atDate), 0, animalTypeID.intValue());
                 tableAddCell(Integer.toString(total));
                 animalTotal[i] += total;
             }
@@ -334,12 +330,12 @@ public class AnimalFigures extends Report {
         int[] broughtInAnimals = new int[40];
 
         broughtInAnimals = fillRow(
-                    "SELECT DateBroughtIn, COUNT(ID) AS Total FROM animal WHERE " +
-                    "AnimalTypeID = " + animalTypeID +
-                    " AND DateBroughtIn >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND DateBroughtIn <= '" + sqlLastDayOfMonth + "'" +
-                    " AND IsTransfer = 0 AND NonShelterAnimal = 0" +
-                    " GROUP BY DateBroughtIn", "DateBroughtIn", "Total");
+                "SELECT DateBroughtIn, COUNT(ID) AS Total FROM animal WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND DateBroughtIn >= '" +
+                sqlFirstDayOfMonth + "'" + " AND DateBroughtIn <= '" +
+                sqlLastDayOfMonth + "'" +
+                " AND IsTransfer = 0 AND NonShelterAnimal = 0" +
+                " GROUP BY DateBroughtIn", "DateBroughtIn", "Total");
 
         incrementStatusBar();
 
@@ -349,14 +345,13 @@ public class AnimalFigures extends Report {
         int[] returnedAnimals = new int[40];
 
         returnedAnimals = fillRow(
-                    "SELECT ReturnDate, COUNT(ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
-                    "WHERE AnimalTypeID = " + animalTypeID +
-                    " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
-                    " AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
-                    " GROUP BY ReturnDate", 
-                    "ReturnDate", "Total");
+                "SELECT ReturnDate, COUNT(ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
+                "WHERE AnimalTypeID = " + animalTypeID +
+                " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
+                " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
+                " AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
+                " GROUP BY ReturnDate", "ReturnDate", "Total");
 
         incrementStatusBar();
 
@@ -366,12 +361,12 @@ public class AnimalFigures extends Report {
         int[] transferInAnimals = new int[40];
 
         transferInAnimals = fillRow(
-                    "SELECT DateBroughtIn, COUNT(ID) AS Total FROM animal WHERE " +
-                    "AnimalTypeID = " + animalTypeID +
-                    " AND DateBroughtIn >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND DateBroughtIn <= '" + sqlLastDayOfMonth + "'" +
-                    " AND IsTransfer <> 0 AND NonShelterAnimal = 0" +
-                    " GROUP BY DateBroughtIn", "DateBroughtIn", "Total");
+                "SELECT DateBroughtIn, COUNT(ID) AS Total FROM animal WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND DateBroughtIn >= '" +
+                sqlFirstDayOfMonth + "'" + " AND DateBroughtIn <= '" +
+                sqlLastDayOfMonth + "'" +
+                " AND IsTransfer <> 0 AND NonShelterAnimal = 0" +
+                " GROUP BY DateBroughtIn", "DateBroughtIn", "Total");
 
         incrementStatusBar();
 
@@ -381,13 +376,13 @@ public class AnimalFigures extends Report {
         int[] returnedFoster = new int[40];
 
         returnedFoster = fillRow(
-                    "SELECT ReturnDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND MovementType = " +
-                    Adoption.MOVETYPE_FOSTER + " AND ReturnDate >= '" +
-                    sqlFirstDayOfMonth + "'" + " AND ReturnDate <= '" +
-                    sqlLastDayOfMonth + "'" + " GROUP BY ReturnDate",
-                    "ReturnDate", "Total");
+                "SELECT ReturnDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND MovementType = " +
+                Adoption.MOVETYPE_FOSTER + " AND ReturnDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND ReturnDate <= '" +
+                sqlLastDayOfMonth + "'" + " GROUP BY ReturnDate", "ReturnDate",
+                "Total");
 
         incrementStatusBar();
 
@@ -398,14 +393,14 @@ public class AnimalFigures extends Report {
         int[] returnedOther = new int[40];
 
         returnedOther = fillRow(
-                    "SELECT ReturnDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND " +
-                    "MovementType <> " + Adoption.MOVETYPE_FOSTER + " AND " +
-                    "MovementType <> " + Adoption.MOVETYPE_ADOPTION + 
-                    " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
-                    "GROUP BY ReturnDate", "ReturnDate", "Total");
+                "SELECT ReturnDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND " +
+                "MovementType <> " + Adoption.MOVETYPE_FOSTER + " AND " +
+                "MovementType <> " + Adoption.MOVETYPE_ADOPTION +
+                " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
+                " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
+                "GROUP BY ReturnDate", "ReturnDate", "Total");
         incrementStatusBar();
 
         // ================================================================
@@ -470,9 +465,8 @@ public class AnimalFigures extends Report {
         int[] animalSubTotalIn = new int[40];
 
         for (int i = 1; i <= noDaysInMonth; i++) {
-            animalSubTotalIn[i] = broughtInAnimals[i] +
-                returnedAnimals[i] + transferInAnimals[i] + returnedFoster[i] +
-                returnedOther[i];
+            animalSubTotalIn[i] = broughtInAnimals[i] + returnedAnimals[i] +
+                transferInAnimals[i] + returnedFoster[i] + returnedOther[i];
             tableAddCell(bold(Integer.toString(animalSubTotalIn[i])));
         }
 
@@ -497,10 +491,9 @@ public class AnimalFigures extends Report {
             String sqldate = Utils.getSQLDateOnly(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
-            sql += ("AnimalTypeID = " + animalTypeID +
-                " AND MovementDate = '" + sqldate + "' AND MovementType = " +
-                Adoption.MOVETYPE_ADOPTION +
-                " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
+            sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
+            sqldate + "' AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
+            " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
 
             adoptedAnimals[i] = DBConnection.executeForCount(sql);
             tableAddCell(adoptedAnimals[i]);
@@ -518,13 +511,13 @@ public class AnimalFigures extends Report {
         tableAddCell(Global.i18n("reports", "Returned_To_Owner"));
 
         reclaimedAnimals = fillRow(
-                    "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND " +
-                    "MovementType = " + Adoption.MOVETYPE_RECLAIMED +
-                    " AND MovementDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND MovementDate <= '" + sqlLastDayOfMonth + "'" +
-                    "GROUP BY MovementDate", "MovementDate", "Total");
+                "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND " + "MovementType = " +
+                Adoption.MOVETYPE_RECLAIMED + " AND MovementDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND MovementDate <= '" +
+                sqlLastDayOfMonth + "'" + "GROUP BY MovementDate",
+                "MovementDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(Integer.toString(reclaimedAnimals[i]));
@@ -541,13 +534,13 @@ public class AnimalFigures extends Report {
         tableAddCell(Global.i18n("reports", "Escaped"));
 
         escapedAnimals = fillRow(
-                    "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND " +
-                    "MovementType = " + Adoption.MOVETYPE_ESCAPED +
-                    " AND MovementDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND MovementDate <= '" + sqlLastDayOfMonth + "'" +
-                    "GROUP BY MovementDate", "MovementDate", "Total");
+                "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND " + "MovementType = " +
+                Adoption.MOVETYPE_ESCAPED + " AND MovementDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND MovementDate <= '" +
+                sqlLastDayOfMonth + "'" + "GROUP BY MovementDate",
+                "MovementDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(Integer.toString(escapedAnimals[i]));
@@ -564,13 +557,13 @@ public class AnimalFigures extends Report {
         tableAddCell(Global.i18n("reports", "Stolen"));
 
         stolenAnimals = fillRow(
-                    "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND " +
-                    "MovementType = " + Adoption.MOVETYPE_STOLEN +
-                    " AND MovementDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND MovementDate <= '" + sqlLastDayOfMonth + "'" +
-                    "GROUP BY MovementDate", "MovementDate", "Total");
+                "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND " + "MovementType = " +
+                Adoption.MOVETYPE_STOLEN + " AND MovementDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND MovementDate <= '" +
+                sqlLastDayOfMonth + "'" + "GROUP BY MovementDate",
+                "MovementDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(Integer.toString(stolenAnimals[i]));
@@ -587,13 +580,13 @@ public class AnimalFigures extends Report {
         tableAddCell(Global.i18n("reports", "Released_To_Wild"));
 
         releasedAnimals = fillRow(
-                    "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
-                    "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                    "AnimalTypeID = " + animalTypeID + " AND " +
-                    "MovementType = " + Adoption.MOVETYPE_RELEASED +
-                    " AND MovementDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND MovementDate <= '" + sqlLastDayOfMonth + "'" +
-                    "GROUP BY MovementDate", "MovementDate", "Total");
+                "SELECT MovementDate, COUNT(adoption.ID) AS Total FROM adoption " +
+                "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
+                "AnimalTypeID = " + animalTypeID + " AND " + "MovementType = " +
+                Adoption.MOVETYPE_RELEASED + " AND MovementDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND MovementDate <= '" +
+                sqlLastDayOfMonth + "'" + "GROUP BY MovementDate",
+                "MovementDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(Integer.toString(releasedAnimals[i]));
@@ -616,10 +609,9 @@ public class AnimalFigures extends Report {
             String sqldate = Utils.getSQLDateOnly(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
-            sql += ("AnimalTypeID = " + animalTypeID +
-                " AND MovementDate = '" + sqldate + "' AND MovementType = " +
-                Adoption.MOVETYPE_TRANSFER +
-                " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
+            sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
+            sqldate + "' AND MovementType = " + Adoption.MOVETYPE_TRANSFER +
+            " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
 
             transferredOut[i] = DBConnection.executeForCount(sql);
             tableAddCell(transferredOut[i]);
@@ -643,10 +635,9 @@ public class AnimalFigures extends Report {
             String sqldate = Utils.getSQLDateOnly(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
-            sql += ("AnimalTypeID = " + animalTypeID +
-                " AND MovementDate = '" + sqldate + "' AND MovementType = " +
-                Adoption.MOVETYPE_FOSTER +
-                " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
+            sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
+            sqldate + "' AND MovementType = " + Adoption.MOVETYPE_FOSTER +
+            " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
 
             fosteredOut[i] = DBConnection.executeForCount(sql);
             tableAddCell(fosteredOut[i]);
@@ -665,18 +656,17 @@ public class AnimalFigures extends Report {
 
         // Include case to stop them disappearing from inventory
         deadAnimals = fillRow(
-                    "SELECT DeceasedDate, COUNT(ID) AS Total FROM animal WHERE " +
-                    "(AnimalTypeID = " + animalTypeID +
-                    " AND DeceasedDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
-                    " AND PutToSleep = 0 AND DiedOffShelter = 0" +
-                    " AND NonShelterAnimal = 0) OR " + "(AnimalTypeID = " +
-                    animalTypeID + " AND DeceasedDate >= '" +
-                    sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
-                    sqlLastDayOfMonth + "'" +
-                    " AND PutToSleep = 0 AND DiedOffShelter = 0" +
-                    " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
-                    "DeceasedDate", "Total");
+                "SELECT DeceasedDate, COUNT(ID) AS Total FROM animal WHERE " +
+                "(AnimalTypeID = " + animalTypeID + " AND DeceasedDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
+                sqlLastDayOfMonth + "'" +
+                " AND PutToSleep = 0 AND DiedOffShelter = 0" +
+                " AND NonShelterAnimal = 0) OR " + "(AnimalTypeID = " +
+                animalTypeID + " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
+                "'" + " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
+                " AND PutToSleep = 0 AND DiedOffShelter = 0" +
+                " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
+                "DeceasedDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(Integer.toString(deadAnimals[i]));
@@ -695,18 +685,17 @@ public class AnimalFigures extends Report {
 
         // Include case to stop them disappearing from inventory
         ptsAnimals = fillRow(
-                    "SELECT DeceasedDate, COUNT(ID) AS Total FROM animal WHERE " +
-                    "(AnimalTypeID = " + animalTypeID +
-                    " AND DeceasedDate >= '" + sqlFirstDayOfMonth + "'" +
-                    " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
-                    " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                    " AND NonShelterAnimal = 0) OR " + "(AnimalTypeID = " +
-                    animalTypeID + " AND DeceasedDate >= '" +
-                    sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
-                    sqlLastDayOfMonth + "'" +
-                    " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                    " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
-                    "DeceasedDate", "Total");
+                "SELECT DeceasedDate, COUNT(ID) AS Total FROM animal WHERE " +
+                "(AnimalTypeID = " + animalTypeID + " AND DeceasedDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
+                sqlLastDayOfMonth + "'" +
+                " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
+                " AND NonShelterAnimal = 0) OR " + "(AnimalTypeID = " +
+                animalTypeID + " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
+                "'" + " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
+                " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
+                " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
+                "DeceasedDate", "Total");
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             // Summary totals
@@ -731,10 +720,9 @@ public class AnimalFigures extends Report {
             String sqldate = Utils.getSQLDateOnly(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID WHERE ";
 
-            sql += ("AnimalTypeID = " + animalTypeID +
-                " AND MovementDate = '" + sqldate + "' AND MovementType = " +
-                Adoption.MOVETYPE_RETAILER +
-                " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
+            sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
+            sqldate + "' AND MovementType = " + Adoption.MOVETYPE_RETAILER +
+            " AND (ReturnDate Is Null Or ReturnDate > '" + sqldate + "')");
 
             otherOut[i] = DBConnection.executeForCount(sql);
             tableAddCell(otherOut[i]);
@@ -772,8 +760,8 @@ public class AnimalFigures extends Report {
                 Global.i18n("reports",
                     "Day_total_of_last_day_of_previous_month",
                     Integer.toString(Animal.getNumberOfAnimalsOnShelter(
-                            dayBeforeFirst, 0,
-                            animalTypeID.intValue(), 0, Animal.ALLAGES)))));
+                            dayBeforeFirst, 0, animalTypeID.intValue(), 0,
+                            Animal.ALLAGES)))));
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(bold(Integer.toString(animalTotalNoFoster[i])));
@@ -833,8 +821,7 @@ public class AnimalFigures extends Report {
                 additional += ", ";
             }
 
-            additional += Global.i18n("reports",
-                "_returned_from_foster_homes",
+            additional += Global.i18n("reports", "_returned_from_foster_homes",
                 Integer.toString(totReturnFoster));
             hasExtra = true;
         }
@@ -851,14 +838,14 @@ public class AnimalFigures extends Report {
         }
 
         if (hasExtra) {
-            totalUnwantedSummary = Global.i18n("reports",
-                    "unwanted_including", Integer.toString(totalAnimals),
-                    additional);
+            totalUnwantedSummary = Global.i18n("reports", "unwanted_including",
+                    Integer.toString(totalAnimals), additional);
         }
 
         // ADOPTED ---------------------------
         // ==============================================================
         totalAnimals = 0;
+
         int totFostered = 0;
         int totTransferred = 0;
         int totReclaimed = 0;

@@ -82,6 +82,7 @@ public class ConfigureReportsDefaults extends ASMForm {
         ctl.add(cboDefaultSize);
         ctl.add(btnOk);
         ctl.add(btnCancel);
+
         return ctl;
     }
 
@@ -91,7 +92,6 @@ public class ConfigureReportsDefaults extends ASMForm {
 
     public void loadData() {
         try {
-
             Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
                 new Integer(Configuration.getInteger("AFDefaultSpecies")),
                 cboDefaultSpecies);
@@ -145,7 +145,6 @@ public class ConfigureReportsDefaults extends ASMForm {
 
     public boolean saveData() {
         try {
-
             Configuration.setEntry("AFDefaultSpecies",
                 Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
                     "SpeciesName", cboDefaultSpecies).toString());
@@ -209,8 +208,7 @@ public class ConfigureReportsDefaults extends ASMForm {
 
         cboDefaultType = UI.getCombo(i18n("default_type"),
                 LookupCache.getAnimalTypeLookup(), "AnimalType", i18n("None"));
-        UI.addComponent(pr, i18n("default_type"),
-            cboDefaultType);
+        UI.addComponent(pr, i18n("default_type"), cboDefaultType);
 
         cboNonShelter = UI.getCombo(i18n("Non_Shelter_Animal_Type:"),
                 LookupCache.getAnimalTypeLookup(), "AnimalType", i18n("None"));

@@ -985,12 +985,13 @@ public class Animal extends UserInfoBO {
             tanimal.openRecordset("ShelterCode Like '" + getShelterCode() +
                 "'");
 
-	    // If the animal is flagged as a crossbreed, make sure they aren't
-	    // the same
-            if (getCrossBreed().intValue() == 1 && getBreedID().equals(getBreed2ID())) {
+            // If the animal is flagged as a crossbreed, make sure they aren't
+            // the same
+            if ((getCrossBreed().intValue() == 1) &&
+                    getBreedID().equals(getBreed2ID())) {
                 throw new BOValidationException(Global.i18n("bo",
-		        "You_must_select_two_different_breeds_for_a_crossbreed_animal."));
-	    }
+                        "You_must_select_two_different_breeds_for_a_crossbreed_animal."));
+            }
 
             // Any similar records?
             if (!tanimal.getEOF()) {

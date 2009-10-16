@@ -541,8 +541,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Default species and type
         Utils.setComboFromID(LookupCache.getAnimalTypeLookup(), "AnimalType",
-            new Integer(Configuration.getInteger("AFDefaultType")),
-            cboType);
+            new Integer(Configuration.getInteger("AFDefaultType")), cboType);
         Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
             new Integer(Configuration.getInteger("AFDefaultSpecies")),
             cboSpecies);
@@ -802,8 +801,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 // on and the animal is fostered, then display the animal as off shelter
                 if ((animal.getArchived().intValue() == 1) ||
                         (Configuration.getBoolean("FosterOnShelter") &&
-                        (animal.getActiveMovementType() != null && 
-                         animal.getActiveMovementType().intValue() == Adoption.MOVETYPE_FOSTER))) {
+                        ((animal.getActiveMovementType() != null) &&
+                        (animal.getActiveMovementType().intValue() == Adoption.MOVETYPE_FOSTER)))) {
                     cboLocation.addItem(animal.getAnimalLocationAtDateByName(
                             new Date()));
                     cboLocation.setSelectedIndex(cboLocation.getItemCount() -
@@ -1089,6 +1088,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                            .equals(new Integer(Configuration.getInteger(
                                 "AFDefaultSpecies")))) {
                 vacc = null;
+
                 return true;
             }
 

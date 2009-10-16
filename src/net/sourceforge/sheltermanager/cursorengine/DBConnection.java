@@ -337,7 +337,6 @@ public abstract class DBConnection {
         return executeForSum(con, sql);
     }
 
-
     /**
      * Executes a sum query and returns a double of the result
      * @param c The connection
@@ -356,7 +355,6 @@ public abstract class DBConnection {
             return 0;
         }
     }
-
 
     /**
      * Executes a count query and returns an integer of the result

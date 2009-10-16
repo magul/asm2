@@ -346,8 +346,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                             i18n("retailer_adoption"))) {
                     try {
                         olRetailerName.setID(ad.getOwnerID().intValue());
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         Global.logException(e, getClass());
                     }
                 }
@@ -840,10 +839,12 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                     UI.fp(this, "actionSelectAnimal")));
 
         olOwnerName = (OwnerLink) UI.addComponent(ao, i18n("Owner:"),
-                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE, "OWNER"));
+                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE,
+                    "OWNER"));
         olOwnerName.setParent(this);
 
-        olRetailerName = new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_RETAILERS, "RETAILER");
+        olRetailerName = new OwnerLink(OwnerLink.MODE_ONELINE,
+                OwnerLink.FILTER_RETAILERS, "RETAILER");
         olRetailerName.setParent(this);
 
         if (!Configuration.getBoolean("DisableRetailer")) {
@@ -900,23 +901,24 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             lt.moveFirst();
 
             while (!lt.getEOF()) {
-
                 int idval = ((Integer) lt.getField("ID")).intValue();
 
                 // Skip reservations
-                if (idval == 9 || idval == 10) {
+                if ((idval == 9) || (idval == 10)) {
                     lt.moveNext();
+
                     continue;
                 }
 
                 // Skip retailer if disabled
-                if (idval ==8 && Configuration.getBoolean("DisableRetailer")) {
+                if ((idval == 8) &&
+                        Configuration.getBoolean("DisableRetailer")) {
                     lt.moveNext();
+
                     continue;
                 }
-                
-                cboMovementType.addItem(lt.getField("MovementType")
-                                              .toString());
+
+                cboMovementType.addItem(lt.getField("MovementType").toString());
 
                 lt.moveNext();
             }
@@ -1003,35 +1005,36 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     }
 
     public void movementTypeChanged() {
-        
         // Default the movement date to today's date, unless
         // none is selected in which case blank it
         try {
-            
             if (cboMovementType.getSelectedIndex() == 0) {
                 txtMovementDate.setText("");
                 olOwnerName.setFilter(OwnerLink.FILTER_NONE);
-            }
-            else {           
+            } else {
                 // We have a movement type - if there's no date, default today
                 if (txtMovementDate.getText().trim().equals("")) {
-                    txtMovementDate.setText(Utils.formatDate(Calendar.getInstance()));
+                    txtMovementDate.setText(Utils.formatDate(
+                            Calendar.getInstance()));
                 }
             }
 
             // Update the owner filter
             switch (cboMovementType.getSelectedIndex()) {
-                case Adoption.MOVETYPE_FOSTER:
-                    olOwnerName.setFilter(OwnerLink.FILTER_FOSTERERS);
-                    break;
+            case Adoption.MOVETYPE_FOSTER:
+                olOwnerName.setFilter(OwnerLink.FILTER_FOSTERERS);
 
-                case Adoption.MOVETYPE_RETAILER:
-                    olOwnerName.setFilter(OwnerLink.FILTER_RETAILERS);
-                    break;
+                break;
 
-                case Adoption.MOVETYPE_TRANSFER:
-                    olOwnerName.setFilter(OwnerLink.FILTER_SHELTERS);
-                    break;
+            case Adoption.MOVETYPE_RETAILER:
+                olOwnerName.setFilter(OwnerLink.FILTER_RETAILERS);
+
+                break;
+
+            case Adoption.MOVETYPE_TRANSFER:
+                olOwnerName.setFilter(OwnerLink.FILTER_SHELTERS);
+
+                break;
             }
 
             dataChanged();
@@ -1074,7 +1077,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
     /** Callback from the ownerlink forms */
     public void ownerChanged(int ownerid, String id) {
-
         if (id.equals("OWNER")) {
             // Store the ID
             try {
@@ -1085,7 +1087,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 // newly selected owner (as long as they weren't clearing, in
                 // which case better to leave the donations attached to the
                 // old owner until a new one is selected).
-                if (donations.hasData() && ownerID != 0) {
+                if (donations.hasData() && (ownerID != 0)) {
                     Global.logDebug("Reparenting donations for movement " +
                         movement.getID() + " to owner " + ownerID,
                         "MovementEdit.ownerSelected");
@@ -1101,7 +1103,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 // is banned or not homechecked:
                 if (ownerID != 0) {
                     if (Configuration.getBoolean("WarnBannedOwner")) {
-                        int banned = DBConnection.executeForCount("SELECT IsBanned FROM owner WHERE ID = " + ownerid);
+                        int banned = DBConnection.executeForCount(
+                                "SELECT IsBanned FROM owner WHERE ID = " +
+                                ownerid);
+
                         if (banned == 1) {
                             Dialog.showWarning(i18n("WARNING:_This_owner_is_banned_from_adopting_animals."),
                                 i18n("Banned_Owner"));
@@ -1109,7 +1114,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                     }
 
                     if (Configuration.getBoolean("WarnNoHomeCheck")) {
-                        int homechecked = DBConnection.executeForCount("SELECT IDCheck FROM owner WHERE ID = " + ownerid);
+                        int homechecked = DBConnection.executeForCount(
+                                "SELECT IDCheck FROM owner WHERE ID = " +
+                                ownerid);
+
                         if (homechecked == 0) {
                             Dialog.showWarning(i18n("WARNING:_This_owner_has_not_passed_a_home_check."),
                                 i18n("Unchecked_Owner"));
@@ -1119,29 +1127,24 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
                 dataChanged();
                 enableButtons();
-
             } catch (Exception e) {
                 Dialog.showError(i18n("Unable_to_open_find_owner_screen:_") +
                     e.getMessage());
                 Global.logException(e, getClass());
             }
-        }
-        else if (id.equals("RETAILER")) {
+        } else if (id.equals("RETAILER")) {
             try {
                 // Store the ID
                 selectedRetailerID = ownerid;
                 dataChanged();
-
             } catch (Exception e) {
                 Dialog.showError(i18n("Unable_to_open_find_owner_screen:_") +
                     e.getMessage());
                 Global.logException(e, getClass());
             }
         }
-
     }
 
-   
     /// SearchListener INTERFACE
 
     /** Call back from the animal search screen when a selection is made */

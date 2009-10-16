@@ -563,9 +563,11 @@ public class InOut extends Report {
                     tableAddCell(((theA.getPutToSleep().intValue() == 1)
                         ? "Yes" : "No"));
                     tableAddCell(((theA.getIsDOA().intValue() == 1) ? "Yes" : "No"));
-                    String dr = Utils.nullToEmptyString(LookupCache.getDeathReasonNameForID(theA.getPTSReasonID()));
+
+                    String dr = Utils.nullToEmptyString(LookupCache.getDeathReasonNameForID(
+                                theA.getPTSReasonID()));
                     String pc = Utils.nullToEmptyString(theA.getPTSReason());
-                    tableAddCell(dr + ( pc.equals("") ? "" : ": ") + pc);
+                    tableAddCell(dr + (pc.equals("") ? "" : ": ") + pc);
                     tableFinishRow();
                 }
 

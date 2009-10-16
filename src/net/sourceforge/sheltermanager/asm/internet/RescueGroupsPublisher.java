@@ -73,11 +73,10 @@ public class RescueGroupsPublisher extends Thread {
 
     /** The main application thread */
     public void run() {
-
         // Before we start, make sure that all species have been
         // mapped - we reuse the PetFinder mappings for RescueGroups
-	// so they know the limits of what they can expect from
-	// us.
+        // so they know the limits of what they can expect from
+        // us.
         if (!checkMappedSpecies()) {
             if (parent != null) {
                 // Re-enable buttons
@@ -99,26 +98,28 @@ public class RescueGroupsPublisher extends Thread {
             return;
         }
 
-
         // Get the publish directory and clean it
         String publishDir = makePublishDirectory();
         String shelterId = "";
 
         try {
             shelterId = Configuration.getString("RescueGroupsFTPUser");
-            if (shelterId == null || shelterId.trim().equals("")) {
+
+            if ((shelterId == null) || shelterId.trim().equals("")) {
                 Global.logError(Global.i18n("uiinternet",
-                    "You_need_to_set_your_RescueGroups_settings_before_publishing"), "RescueGroupsPublisher.run");
+                        "You_need_to_set_your_RescueGroups_settings_before_publishing"),
+                    "RescueGroupsPublisher.run");
+
                 if (parent != null) {
                     Dialog.showError(Global.i18n("uiinternet",
-                        "You_need_to_set_your_RescueGroups_settings_before_publishing"));
+                            "You_need_to_set_your_RescueGroups_settings_before_publishing"));
                     // Re-enable parent buttons
                     parent.btnClose.setEnabled(true);
                     parent.btnPublish.setEnabled(true);
                 }
+
                 return;
             }
-
         } catch (Exception e) {
             Global.logError(Global.i18n("uiinternet",
                     "An_error_occurred_reading_the_rescue_groups_user") +
@@ -287,8 +288,8 @@ public class RescueGroupsPublisher extends Thread {
                         }
                     }
 
-	            // Get Petfinder mapped species and breeds
-	            String pfSpecies = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());
+                    // Get Petfinder mapped species and breeds
+                    String pfSpecies = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());
                     String pfBreed1 = LookupCache.getBreedPetFinderMapping(an.getBreedID());
                     String pfBreed2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
 
@@ -507,11 +508,11 @@ public class RescueGroupsPublisher extends Thread {
             if (parent != null) {
                 Dialog.showError(Global.i18n("uiinternet",
                         "an_error_occurred_contacting_rescue_groups") +
-                        e.getMessage());
+                    e.getMessage());
             } else {
                 Global.logError(Global.i18n("uiinternet",
                         "an_error_occurred_contacting_rescue_groups") +
-                        e.getMessage(), "RescueGroupsPublisher.run");
+                    e.getMessage(), "RescueGroupsPublisher.run");
             }
         }
 
@@ -739,9 +740,9 @@ public class RescueGroupsPublisher extends Thread {
             b = null;
         } catch (Exception e) {
             Global.logException(e, getClass());
-	}
+        }
 
-	if (!retval) {
+        if (!retval) {
             if (parent == null) {
                 Global.logError(Global.i18n("uiinternet",
                         "not_all_your_petfinder_breeds_are_mapped"),
@@ -756,7 +757,7 @@ public class RescueGroupsPublisher extends Thread {
             }
         }
 
-	return retval;
+        return retval;
     }
 
     /**
@@ -944,5 +945,4 @@ public class RescueGroupsPublisher extends Thread {
         int maxDim = width;
         UI.scaleImage(pathToImage, pathToImage, width, height);
     }
-
 }

@@ -181,7 +181,6 @@ public class Login extends ASMWindow {
     }
 
     public void initComponents() {
-
         UI.Panel pnlUserAndPass = UI.getPanel(UI.getGridLayout(2), 20);
 
         // Show the user/pass boxes
@@ -189,7 +188,7 @@ public class Login extends ASMWindow {
         txtUsername = UI.getTextField();
         txtUsername.setWidth(220);
         pnlUserAndPass.add(txtUsername);
-        
+
         pnlUserAndPass.add(UI.getLabel(i18n("Password")));
         txtPassword = UI.getPasswordField();
         txtPassword.setWidth(220);

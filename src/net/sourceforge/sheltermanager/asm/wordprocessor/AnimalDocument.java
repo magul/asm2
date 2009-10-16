@@ -427,7 +427,8 @@ public class AnimalDocument extends GenerateDocument {
             // Get a reverse list of vaccinations for this animal so that 
             // people can use most recent on documents
             av = new AnimalVaccination();
-            av.openRecordset("AnimalID = " + animal.getID() + " ORDER BY ID DESC");
+            av.openRecordset("AnimalID = " + animal.getID() +
+                " ORDER BY ID DESC");
 
             uniquecount = 1;
 
@@ -455,11 +456,13 @@ public class AnimalDocument extends GenerateDocument {
                 while (uniquecount < 101) {
                     addTag(Global.i18n("wordprocessor", "VaccinationNameLast") +
                         Integer.toString(uniquecount), "");
-                    addTag(Global.i18n("wordprocessor", "VaccinationRequiredLast") +
+                    addTag(Global.i18n("wordprocessor",
+                            "VaccinationRequiredLast") +
                         Integer.toString(uniquecount), "");
                     addTag(Global.i18n("wordprocessor", "VaccinationGivenLast") +
                         Integer.toString(uniquecount), "");
-                    addTag(Global.i18n("wordprocessor", "VaccinationCommentsLast") +
+                    addTag(Global.i18n("wordprocessor",
+                            "VaccinationCommentsLast") +
                         Integer.toString(uniquecount), "");
                     uniquecount++;
                 }
@@ -593,7 +596,8 @@ public class AnimalDocument extends GenerateDocument {
             media.setUpdatedSinceLastPublish(new Integer(0));
             media.save();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal", "Unable_to_create_media_database_entry:_") +
+            Dialog.showError(Global.i18n("uianimal",
+                    "Unable_to_create_media_database_entry:_") +
                 e.getMessage(),
                 java.util.ResourceBundle.getBundle("locale/uianimal")
                                         .getString("Error"));
@@ -615,7 +619,8 @@ public class AnimalDocument extends GenerateDocument {
                 uiparent.updateList();
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal", "Error_occurred_uploading_to_media_server:_") +
+            Dialog.showError(Global.i18n("uianimal",
+                    "Error_occurred_uploading_to_media_server:_") +
                 e.getMessage(),
                 java.util.ResourceBundle.getBundle("locale/uianimal")
                                         .getString("Error"));

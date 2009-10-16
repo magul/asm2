@@ -1172,25 +1172,18 @@ public class AutoDBUpdates {
                                 animalDeathReasonID = 1;
                             } else if (a.getPutToSleep().equals("0")) {
                                 animalDeathReasonID = 2;
-                            } else if (a.getPTSReason()
-                                            .indexOf("healthy") != -1) {
+                            } else if (a.getPTSReason().indexOf("healthy") != -1) {
                                 animalDeathReasonID = 3;
-                            } else if ((a.getPTSReason()
-                                             .indexOf("injured") != -1) ||
-                                    (a.getPTSReason()
-                                          .indexOf("sick") != -1)) {
+                            } else if ((a.getPTSReason().indexOf("injured") != -1) ||
+                                    (a.getPTSReason().indexOf("sick") != -1)) {
                                 animalDeathReasonID = 4;
-                            } else if (a.getPTSReason()
-                                            .indexOf("requested") != -1) {
+                            } else if (a.getPTSReason().indexOf("requested") != -1) {
                                 animalDeathReasonID = 5;
-                            } else if (a.getPTSReason()
-                                            .indexOf("culling") != -1) {
+                            } else if (a.getPTSReason().indexOf("culling") != -1) {
                                 animalDeathReasonID = 6;
-                            } else if (a.getPTSReason()
-                                            .indexOf("feral") != -1) {
+                            } else if (a.getPTSReason().indexOf("feral") != -1) {
                                 animalDeathReasonID = 7;
-                            } else if (a.getPTSReason()
-                                            .indexOf("bit") != -1) {
+                            } else if (a.getPTSReason().indexOf("bit") != -1) {
                                 animalDeathReasonID = 8;
                             } else {
                                 animalDeathReasonID = 4;
@@ -3902,32 +3895,32 @@ public class AutoDBUpdates {
                 // Add the cruelty case flag and set it from the old case type
                 DBConnection.executeAction(
                     "ALTER TABLE animal ADD CrueltyCase INTEGER NULL");
+                DBConnection.executeAction("UPDATE animal SET CrueltyCase = 0");
                 DBConnection.executeAction(
-                    "UPDATE animal SET CrueltyCase = 0");
-                DBConnection.executeAction(
-                    "UPDATE animal SET CrueltyCase = 1 WHERE AnimalTypeID = " + Configuration.getString("AFCaseAnimalType"));
+                    "UPDATE animal SET CrueltyCase = 1 WHERE AnimalTypeID = " +
+                    Configuration.getString("AFCaseAnimalType"));
             } catch (Exception e) {
                 errors.add("animal: Add CrueltyCase field");
             }
 
             try {
                 // Make primary type/species the new default
-                Configuration.changeKeyName("AFPrimaryUnwantedType", "AFDefaultType");
-                Configuration.changeKeyName("AFPrimarySpecies", "AFDefaultSpecies");
+                Configuration.changeKeyName("AFPrimaryUnwantedType",
+                    "AFDefaultType");
+                Configuration.changeKeyName("AFPrimarySpecies",
+                    "AFDefaultSpecies");
                 Configuration.loadFromDatabase();
             } catch (Exception e) {
                 errors.add("animal: Set default type/species");
             }
 
             Configuration.setEntry("DatabaseVersion", "2601");
-
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
             Global.logException(e, getClass());
         }
     }
-
 }
 
 

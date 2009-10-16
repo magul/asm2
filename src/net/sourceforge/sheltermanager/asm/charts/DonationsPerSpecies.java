@@ -64,29 +64,32 @@ public class DonationsPerSpecies extends Chart {
     }
 
     public boolean createGraph() throws Exception {
-        
         // Get total number of species used in the time period
         Calendar firstOfYear = Calendar.getInstance();
         firstOfYear.set(Calendar.YEAR, selectedYear);
         firstOfYear.set(Calendar.MONTH, 0);
         firstOfYear.set(Calendar.DAY_OF_MONTH, 1);
-        String firstYearSql = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(firstOfYear));
+
+        String firstYearSql = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
+                    firstOfYear));
         Calendar lastOfYear = Calendar.getInstance();
         lastOfYear.set(Calendar.YEAR, selectedYear);
         lastOfYear.set(Calendar.MONTH, 11);
         lastOfYear.set(Calendar.DAY_OF_MONTH, 31);
-        String lastYearSql = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(lastOfYear));
-    
-        SQLRecordset spec = new SQLRecordset();
-        spec.openRecordset("SELECT SpeciesID, SpeciesName, SUM(adoption.Donation) AS TotOfSpecies FROM animal " +
-                "INNER JOIN species ON animal.SpeciesID = species.ID " +
-                "INNER JOIN adoption ON animal.ID = adoption.AnimalID " +
-                "WHERE MovementDate >= '" + firstYearSql + "' AND " +
-                "MovementDate <= '" + lastYearSql + "' AND " +
-                "MovementType = " + Adoption.MOVETYPE_ADOPTION + 
-                " GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
 
-        
+        String lastYearSql = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
+                    lastOfYear));
+
+        SQLRecordset spec = new SQLRecordset();
+        spec.openRecordset(
+            "SELECT SpeciesID, SpeciesName, SUM(adoption.Donation) AS TotOfSpecies FROM animal " +
+            "INNER JOIN species ON animal.SpeciesID = species.ID " +
+            "INNER JOIN adoption ON animal.ID = adoption.AnimalID " +
+            "WHERE MovementDate >= '" + firstYearSql + "' AND " +
+            "MovementDate <= '" + lastYearSql + "' AND " + "MovementType = " +
+            Adoption.MOVETYPE_ADOPTION +
+            " GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
+
         // Outline model - 12 columns (Month, Year period)
         // No species rows 
         double[][] model = new double[(int) spec.getRecordCount()][12];
@@ -94,7 +97,6 @@ public class DonationsPerSpecies extends Chart {
         setStatusBarMax(12);
 
         for (int i = 0; i < 12; i++) {
- 
             // Calculate month boundaries
             Calendar firstDayOfMonth = Calendar.getInstance();
             firstDayOfMonth.set(Calendar.YEAR, selectedYear);
@@ -114,9 +116,10 @@ public class DonationsPerSpecies extends Chart {
                         lastDayOfMonth));
 
             spec.moveFirst();
+
             int sp = 0;
+
             while (!spec.getEOF()) {
-                
                 // ------------ DONATION FIGURES PER SPECIES/MONTH ----
                 SQLRecordset adoption = new SQLRecordset();
 
@@ -130,6 +133,7 @@ public class DonationsPerSpecies extends Chart {
                 spec.moveNext();
                 sp++;
             }
+
             incrementStatusBar();
         }
 
@@ -144,8 +148,9 @@ public class DonationsPerSpecies extends Chart {
 
         String[] rows = new String[(int) spec.getRecordCount()];
         spec.moveFirst();
+
         for (int i = 0; i < spec.getRecordCount(); i++) {
-            rows[i] = spec.getField("SpeciesName").toString() + " (" + 
+            rows[i] = spec.getField("SpeciesName").toString() + " (" +
                 spec.getField("TotOfSpecies").toString() + ")";
             spec.moveNext();
         }

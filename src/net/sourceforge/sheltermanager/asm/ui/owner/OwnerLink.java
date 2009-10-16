@@ -39,6 +39,13 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  * @author Robin Rawson-Tetley
  */
 public class OwnerLink extends UI.Panel implements SearchListener {
+    public final static int MODE_FULL = 0;
+    public final static int MODE_ONELINE = 1;
+    public final static int FILTER_NONE = 0;
+    public final static int FILTER_ADOPTERS = 1;
+    public final static int FILTER_FOSTERERS = 2;
+    public final static int FILTER_SHELTERS = 3;
+    public final static int FILTER_RETAILERS = 4;
     private int ownerID = 0;
     private OwnerLinkListener parent = null;
     private UI.Button btnClear;
@@ -56,16 +63,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     private UI.TextField txtMobileTelephone;
     private UI.TextField txtName;
     private UI.TextField txtPostcode;
-
-    public final static int MODE_FULL = 0;
-    public final static int MODE_ONELINE = 1;
-
-    public final static int FILTER_NONE = 0;
-    public final static int FILTER_ADOPTERS = 1;
-    public final static int FILTER_FOSTERERS = 2;
-    public final static int FILTER_SHELTERS = 3;
-    public final static int FILTER_RETAILERS = 4;
-
     private int filter = FILTER_NONE;
     private int mode = MODE_FULL;
     private String id = "LINK";
@@ -152,7 +149,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     }
 
     public void initComponents() {
-
         if (mode == MODE_FULL) {
             UI.Panel p = UI.getPanel(UI.getBorderLayout());
             UI.Panel name = UI.getPanel(UI.getGridLayout(2));
@@ -163,8 +159,8 @@ public class OwnerLink extends UI.Panel implements SearchListener {
                     UI.getTextField());
             txtName.setEnabled(false);
 
-            txtAddress = (UI.TextArea) UI.addComponent(address, i18n("Address:"),
-                    UI.getTextArea());
+            txtAddress = (UI.TextArea) UI.addComponent(address,
+                    i18n("Address:"), UI.getTextArea());
             txtAddress.setEnabled(false);
 
             txtPostcode = (UI.TextField) UI.addComponent(postcode,
@@ -184,15 +180,16 @@ public class OwnerLink extends UI.Panel implements SearchListener {
                         UI.fp(this, "actionNew")));
             btnNew.setEnabled(Global.currentUserObject.getSecAddOwner());
 
-            btnOpen = (UI.Button) t.add(UI.getButton(null, i18n("edit_this_owner"),
-                        ' ',
+            btnOpen = (UI.Button) t.add(UI.getButton(null,
+                        i18n("edit_this_owner"), ' ',
                         IconManager.getIcon(IconManager.SCREEN_EMBEDOWNER_OPEN),
                         UI.fp(this, "actionOpen")));
             btnOpen.setEnabled(Global.currentUserObject.getSecChangeOwner());
 
             btnFind = (UI.Button) t.add(UI.getButton(null,
                         i18n("use_an_existing_owner"), ' ',
-                        IconManager.getIcon(IconManager.SCREEN_EMBEDOWNER_SEARCH),
+                        IconManager.getIcon(
+                            IconManager.SCREEN_EMBEDOWNER_SEARCH),
                         UI.fp(this, "actionSearch")));
             btnFind.setEnabled(Global.currentUserObject.getSecViewOwner());
 
@@ -209,9 +206,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             add(lblTitle, UI.BorderLayout.NORTH);
             add(p, UI.BorderLayout.CENTER);
             add(t, UI.BorderLayout.EAST);
-        }
-        else if (mode == MODE_ONELINE) {
-
+        } else if (mode == MODE_ONELINE) {
             setLayout(UI.getBorderLayout());
 
             txtName = UI.getTextField();
@@ -222,24 +217,28 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
             btnNew = (UI.Button) t.add(UI.getButton(null,
                         i18n("create_a_new_owner"), ' ',
-                        IconManager.getIcon(IconManager.SCREEN_EMBEDOWNERSMALL_NEW),
+                        IconManager.getIcon(
+                            IconManager.SCREEN_EMBEDOWNERSMALL_NEW),
                         UI.fp(this, "actionNew")));
             btnNew.setEnabled(Global.currentUserObject.getSecAddOwner());
 
-            btnOpen = (UI.Button) t.add(UI.getButton(null, i18n("edit_this_owner"),
-                        ' ',
-                        IconManager.getIcon(IconManager.SCREEN_EMBEDOWNERSMALL_OPEN),
+            btnOpen = (UI.Button) t.add(UI.getButton(null,
+                        i18n("edit_this_owner"), ' ',
+                        IconManager.getIcon(
+                            IconManager.SCREEN_EMBEDOWNERSMALL_OPEN),
                         UI.fp(this, "actionOpen")));
             btnOpen.setEnabled(Global.currentUserObject.getSecChangeOwner());
 
             btnFind = (UI.Button) t.add(UI.getButton(null,
                         i18n("use_an_existing_owner"), ' ',
-                        IconManager.getIcon(IconManager.SCREEN_EMBEDOWNERSMALL_SEARCH),
+                        IconManager.getIcon(
+                            IconManager.SCREEN_EMBEDOWNERSMALL_SEARCH),
                         UI.fp(this, "actionSearch")));
             btnFind.setEnabled(Global.currentUserObject.getSecViewOwner());
 
             btnClear = (UI.Button) t.add(UI.getButton(null, i18n("clear"), ' ',
-                        IconManager.getIcon(IconManager.SCREEN_EMBEDOWNERSMALL_CLEAR),
+                        IconManager.getIcon(
+                            IconManager.SCREEN_EMBEDOWNERSMALL_CLEAR),
                         UI.fp(this, "actionClear")));
 
             add(t, UI.BorderLayout.EAST);
@@ -248,40 +247,50 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
     public void actionClear() {
         ownerID = 0;
+
         if (mode == MODE_FULL) {
             txtName.setText("");
             txtAddress.setText("");
             txtHomeTelephone.setText("");
             txtMobileTelephone.setText("");
             txtPostcode.setText("");
-        }
-        else if (mode == MODE_ONELINE) {
+        } else if (mode == MODE_ONELINE) {
             txtName.setText("");
         }
-        if (parent != null) parent.ownerChanged(ownerID, id);
+
+        if (parent != null) {
+            parent.ownerChanged(ownerID, id);
+        }
     }
 
     public void actionSearch() {
-        
         OwnerFind fo = new OwnerFind(this, true, false);
 
         // Do we have a filter?
         switch (filter) {
-            case FILTER_ADOPTERS:
-                fo.cboFilter.setSelectedIndex(1); fo.cboFilter.setEnabled(false);
-                break;
-            case FILTER_FOSTERERS:
-                fo.cboFilter.setSelectedIndex(13);
-                fo.cboFilter.setEnabled(false);
-                break;
-            case FILTER_RETAILERS:
-                fo.cboFilter.setSelectedIndex(12);
-                fo.cboFilter.setEnabled(false);
-                break;
-            case FILTER_SHELTERS:
-                fo.cboFilter.setSelectedIndex(9);
-                fo.cboFilter.setEnabled(false);
-                break;
+        case FILTER_ADOPTERS:
+            fo.cboFilter.setSelectedIndex(1);
+            fo.cboFilter.setEnabled(false);
+
+            break;
+
+        case FILTER_FOSTERERS:
+            fo.cboFilter.setSelectedIndex(13);
+            fo.cboFilter.setEnabled(false);
+
+            break;
+
+        case FILTER_RETAILERS:
+            fo.cboFilter.setSelectedIndex(12);
+            fo.cboFilter.setEnabled(false);
+
+            break;
+
+        case FILTER_SHELTERS:
+            fo.cboFilter.setSelectedIndex(9);
+            fo.cboFilter.setEnabled(false);
+
+            break;
         }
 
         Global.mainForm.addChild(fo);
@@ -317,10 +326,9 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             ownerID = theowner.getID().intValue();
 
             // Load the data
-            if (mode == MODE_FULL || mode == MODE_ONELINE) {
+            if ((mode == MODE_FULL) || (mode == MODE_ONELINE)) {
                 txtName.setText(Utils.nullToEmptyString(theowner.getOwnerName()));
-            }
-            else if (mode == MODE_FULL) {
+            } else if (mode == MODE_FULL) {
                 txtAddress.setText(Utils.nullToEmptyString(
                         theowner.getOwnerAddress()));
                 txtPostcode.setText(Utils.nullToEmptyString(
@@ -330,9 +338,11 @@ public class OwnerLink extends UI.Panel implements SearchListener {
                 txtMobileTelephone.setText(Utils.nullToEmptyString(
                         theowner.getMobileTelephone()));
             }
-            // Fire updated event
-            if (parent != null) parent.ownerChanged(ownerID, id);
 
+            // Fire updated event
+            if (parent != null) {
+                parent.ownerChanged(ownerID, id);
+            }
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

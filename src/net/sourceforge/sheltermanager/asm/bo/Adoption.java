@@ -422,7 +422,7 @@ public class Adoption extends UserInfoBO {
      */
     public Owner getRetailer() throws CursorEngineException {
         // Do we have an owner?
-        if (retailer != null && !retailer.getEOF()) {
+        if ((retailer != null) && !retailer.getEOF()) {
             // Is it the correct one?
             if (retailer.getID().equals(getRetailerID())) {
                 // It is - return it
@@ -535,14 +535,17 @@ public class Adoption extends UserInfoBO {
                     match++;
                 }
 
-                if (co.getAnimalID().equals(getAnimalID()))
+                if (co.getAnimalID().equals(getAnimalID())) {
                     match++;
+                }
 
-                if (co.getOwnerID().equals(getOwnerID()))
+                if (co.getOwnerID().equals(getOwnerID())) {
                     match++;
+                }
 
-                if (co.getRetailerID().equals(getRetailerID()))
+                if (co.getRetailerID().equals(getRetailerID())) {
                     match++;
+                }
 
                 if (match == 5) {
                     return;

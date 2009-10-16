@@ -248,7 +248,11 @@ public class AnimalFind extends ASMFind {
         cboLocation.addItem(i18n("Released_To_Wild"));
         cboLocation.addItem(i18n("Reclaimed_By_Owner"));
         cboLocation.addItem(i18n("Dead"));
-        if (!Configuration.getBoolean("DisableRetailer")) cboLocation.addItem(i18n("Retailer"));
+
+        if (!Configuration.getBoolean("DisableRetailer")) {
+            cboLocation.addItem(i18n("Retailer"));
+        }
+
         cboLocation.addItem(i18n("Non-Shelter"));
         cboLocation.addItem(i18n("Not_Available_For_Adoption"));
 

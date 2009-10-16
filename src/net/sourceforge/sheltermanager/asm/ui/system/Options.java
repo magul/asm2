@@ -428,10 +428,9 @@ public class Options extends ASMForm {
                     Configuration.getString("AutoMediaNotes")
                                  .equalsIgnoreCase("Yes"), false));
 
-
             // Features
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Features"), null, false, true));
+            l.add(new SelectableItem(Global.i18n("uisystem", "Features"), null,
+                    false, true));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Default_to_advanced_find_animal_screen"),
@@ -451,8 +450,7 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
-                        "disable_retailer_functionality"),
-                    "DisableRetailer",
+                        "disable_retailer_functionality"), "DisableRetailer",
                     Configuration.getString("DisableRetailer")
                                  .equalsIgnoreCase("Yes"), false));
 
@@ -477,11 +475,6 @@ public class Options extends ASMForm {
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Use_a_single_breed_field"), "UseSingleBreedField",
                     Configuration.getBoolean("UseSingleBreedField"), false));
-
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

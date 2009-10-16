@@ -67,6 +67,9 @@ import java.util.Vector;
  * @version 1.0
  */
 public abstract class Utils {
+    public static boolean testedSM = false;
+    public static boolean isSM = false;
+
     /** Looks in findin for all occurrences of find and replaces them with replacewith
      * @param findin The string to find occurrences in
      * @param find The string to find
@@ -1699,23 +1702,26 @@ public abstract class Utils {
             isSM = DBConnection.url.indexOf("sheltermanager.com") != -1;
             testedSM = true;
         }
-        if (!isSM) return s.toUpperCase();
+
+        if (!isSM) {
+            return s.toUpperCase();
+        }
+
         StringBuffer b = new StringBuffer();
         String asciiLower = "abcdefghijklmnopqrstuvwxyz";
+
         for (int i = 0; i < s.length(); i++) {
             String ch = s.substring(i, i + 1);
+
             if (asciiLower.indexOf(ch) != -1) {
                 b.append(ch.toUpperCase());
-            }
-            else {
+            } else {
                 b.append(ch);
             }
         }
+
         return b.toString();
     }
-
-    public static boolean testedSM = false;
-    public static boolean isSM = false;
 
     /**
      * Executes a command

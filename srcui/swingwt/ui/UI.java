@@ -496,7 +496,6 @@ public final class UI {
         return p;
     }
 
-
     public static GridLayout getGridLayout(int cols) {
         return new GridLayout(0, cols, 4, 4);
     }
@@ -1942,7 +1941,6 @@ public final class UI {
     }
 
     public static class Panel extends JPanel {
-
         public Panel() {
             this(4);
         }
@@ -2147,7 +2145,6 @@ public final class UI {
         public FlowLayout(int align, int hgap, int vgap) {
             super(align, hgap, vgap);
         }
-
     }
 
     public static class BorderLayout extends swingwt.awt.BorderLayout {

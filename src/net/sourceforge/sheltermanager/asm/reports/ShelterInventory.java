@@ -104,8 +104,8 @@ public class ShelterInventory extends Report {
 
             while (!theS.getEOF()) {
                 currentAnimals = Animal.getNumberOfAnimalsOnShelter(new Date(),
-                        theS.getID().intValue(), 0,
-                        theIL.getID().intValue(), Animal.ALLAGES);
+                        theS.getID().intValue(), 0, theIL.getID().intValue(),
+                        Animal.ALLAGES);
                 totalAnimals += currentAnimals;
 
                 if (currentAnimals > 0) {

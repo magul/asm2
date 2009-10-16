@@ -97,7 +97,9 @@ public class UnCombiTestedCats extends Report {
                 " Order By ShelterLocation");
 
             if (an.getEOF()) {
-                addParagraph(Global.i18n("reports", "No_cats_matching_your_criteria_were_found_on_the_shelter."));
+                addParagraph(Global.i18n("reports",
+                        "No_cats_matching_your_criteria_were_found_on_the_shelter."));
+
                 return;
             }
 

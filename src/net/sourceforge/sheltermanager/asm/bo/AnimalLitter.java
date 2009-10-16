@@ -242,10 +242,10 @@ public class AnimalLitter extends NormalBO {
         al = null;
 
         if (noCancelled > 0) {
-            Global.logInfo(Global.i18n("bo", "litters_cancelled", 
-                Integer.toString(noCancelled)), "AnimalLitter.updateLitters");
+            Global.logInfo(Global.i18n("bo", "litters_cancelled",
+                    Integer.toString(noCancelled)), "AnimalLitter.updateLitters");
         } else {
-            Global.logInfo(Global.i18n("bo","No_litters_cancelled."),
+            Global.logInfo(Global.i18n("bo", "No_litters_cancelled."),
                 "AnimalLitter.updateLitters");
         }
     }

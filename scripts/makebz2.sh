@@ -10,7 +10,6 @@ tar -cjvf asm.tar.bz2 \
 	build.xml \
 	INSTALLATION \
 	README \
-	TODO \
 	AUTHORS \
 	COPYING \
 	src \
