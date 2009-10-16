@@ -24,9 +24,8 @@ package net.sourceforge.sheltermanager.asm.ui.main;
 import net.sourceforge.sheltermanager.asm.bo.*;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.io.File;
 
@@ -39,11 +38,11 @@ public class ShutdownThread extends Thread {
     public static boolean shuttingDown = false;
 
     public void run() {
-
         // If the main form is still open (ie. This was a CTRL+C or a kill)
         // close the form gracefully
         if (Dialog.theParent != null) {
             Global.mainForm.closeApplication();
+
             return;
         }
 

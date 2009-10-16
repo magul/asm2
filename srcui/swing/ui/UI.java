@@ -60,9 +60,14 @@ public final class UI {
 
     static {
         try {
+            
+            // Make sure AWT honours font rendering
+            System.setProperty("awt.useSystemAAFontSettings", "on");
+
+            // This setting allows users to override the Swing renderer at
+            // the command line, otherwise ASM tries to use whatever native
+            // support Swing might have for the platform
             if (!System.getProperty("asm.swingdefault", "false").equals("true")) {
-                // Make sure AWT honours font rendering
-                System.setProperty("awt.useSystemAAFontSettings", "on");
 
                 // If we're on Linux, then try to use GTK - it only picks
                 // it up if the WM is GNOME, irrespective of GTK being available

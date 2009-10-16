@@ -16,13 +16,11 @@
 #	source:		Builds a source tarball
 #	deb:		Builds an x86 Debian package
 #	rpm:		Builds an x86 RPM package
-#	linux:		Builds an x86 Linux tarball
-#	linux_amd64:	Builds an amd64 Linux tarball
 #	unix:		Builds a generic UNIX tarball
 #	macosx:		Builds a Mac OSX ASM.app
 #	win32:		Builds a Windows installer
 
-all:	manual jar source deb rpm applet linux linux_amd64 unix macosx win32
+all:	manual jar source deb rpm applet unix macosx win32
 
 checkbinaries:
 	@echo "[checkbinaries] ==================="
@@ -94,26 +92,14 @@ source:	codeformat docs
 
 deb:	manual jar
 	@echo "[deb] ============================="
-	sh install/deb/makedeb_i386.sh
-	sh install/deb/makedeb_amd64.sh
+	sh install/deb/makedeb.sh
 	cp install/deb/sheltermanager*.deb build
 
 rpm:	deb
 	@echo "[rpm] ============================="
-	sh install/deb/makerpm_i386.sh
-	sh install/deb/makerpm_amd64.sh
+	sh install/deb/makerpm.sh
 	rm -f install/deb/sheltermanager*.deb
 	mv install/deb/sheltermanager*.rpm build
-
-linux:	manual jar
-	@echo "[linux] ==========================="
-	sh install/linux/make.sh
-	mv install/linux/*.tar.gz build/sheltermanager-`cat VERSION`_i386_linux.tar.gz
-
-linux_amd64:	manual jar
-	@echo "[linux_amd64] ====================="
-	sh install/linux_amd64/make.sh
-	mv install/linux_amd64/*.tar.gz build/sheltermanager-`cat VERSION`_amd64_linux.tar.gz
 
 unix:	manual jar
 	@echo "[unix] ============================"

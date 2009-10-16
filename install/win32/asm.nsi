@@ -60,45 +60,18 @@ Section "Animal Shelter Manager" Client
   SetOutPath $INSTDIR
   
   ; Core files
-  File ..\..\build\asm.jar
-  File ..\..\build\asm-swing.jar
+  File /oname=asm.jar ..\..\build\asm-swing.jar
   File ..\..\logo\asm2009\asm.ico
   File ..\..\scripts\translation_encoder.html
   
   ; Libraries
   CreateDirectory $INSTDIR\lib
   SetOutPath $INSTDIR\lib
-  File ..\..\lib\swingwt.jar
   File ..\..\lib\charting-0.94.jar
   File ..\..\lib\mysql.jar
   File ..\..\lib\postgresql.jar
   File ..\..\lib\hsqldb.jar
-  File ..\..\lib\swt_win32\swt.jar
 
-  ; Java - detect which version to install based on Windows - anything
-  ; NT gets Java 6, 95/98/ME get the last version of Java 5 that worked
-  ; with them.
-  
-  ; DISABLED - Is support for a 12-year old operating system worth making
-  ;            everyone download an extra 30MB?
-  ;SetOutPath $INSTDIR
-  ;ClearErrors
-  ;ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows NT\CurrentVersion" CurrentVersion
-  ;IfErrors 0 lbl_java6
-
-;lbl_java5:
-;  File java5.zip
-;  nsisunz::UnzipToLog "$INSTDIR\java5.zip" "$INSTDIR"
-;  Delete "$INSTDIR\java5.zip"
-;  Goto lbl_data
-
-;lbl_java6:
-;  File java6.zip
-;  nsisunz::UnzipToLog "$INSTDIR\java6.zip" "$INSTDIR"
-;  Delete "$INSTDIR\java6.zip"
-;  Goto lbl_data
-
-  ; Just do java 6 and retain compatibility with NT
   SetOutPath $INSTDIR
   File java6.zip
   nsisunz::UnzipToLog "$INSTDIR\java6.zip" "$INSTDIR"
@@ -112,6 +85,9 @@ lbl_data:
   File ..\..\sql\hsqldb.sql
   File ..\..\sql\postgresql.sql
   File ..\..\sql\mysql.sql
+  File ..\..\sql\translate_lt.sql
+  File ..\..\sql\translate_fr.sql
+  File ..\..\sql\translate_nl.sql
   File ..\..\sql\translate_es.sql
   File ..\..\sql\translate_en.sql
   SetOutPath $INSTDIR\data
@@ -130,20 +106,15 @@ lbl_data:
   ; Write batch files
   SetOutPath $INSTDIR
 
-  ; Main launcher
-  FileOpen $FH "$INSTDIR\asm.bat" w
-  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\swingwt.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar;$INSTDIR\lib\swt.jar" net.sourceforge.sheltermanager.asm.startup.Startup "$INSTDIR\data"'
-  FileClose $FH
-
   ; Main launcher with Swing interface
-  FileOpen $FH "$INSTDIR\asm-swing.bat" w
+  FileOpen $FH "$INSTDIR\asm.bat" w
   FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm-swing.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup "$INSTDIR\data"'
   FileClose $FH
 
 
   ; Command line interface
   FileOpen $FH "$INSTDIR\asmcmd.bat" w
-  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\swingwt.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar;$INSTDIR\lib\swt.jar" net.sourceforge.sheltermanager.asm.script.Startup "$INSTDIR\data" %1 %2 %3 %4 %5 %6 %7 %8 %9'
+  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.script.Startup "$INSTDIR\data" %1 %2 %3 %4 %5 %6 %7 %8 %9'
   FileClose $FH
 
   ; Write the uninstaller, since the installer always insists on
@@ -173,7 +144,7 @@ lbl_data:
   ; Start application
   CreateShortCut "$DESKTOP\Animal Shelter Manager.lnk" "$INSTDIR\java\bin\javaw.exe" '-cp "$INSTDIR\asm.jar" net.sourceforge.sheltermanager.asm.startup.WindowsBoot "$INSTDIR"' "$INSTDIR\asm.ico"
 
-  ; ======= INSTALL DIRECTORY (FOR 98/ME) ===========
+  ; ======= INSTALL DIRECTORY ===========
 
   ; Start application
   CreateShortCut "$INSTDIR\Animal Shelter Manager.lnk" "$INSTDIR\java\bin\javaw.exe" '-cp "$INSTDIR\asm.jar" net.sourceforge.sheltermanager.asm.startup.WindowsBoot "$INSTDIR"' "$INSTDIR\asm.ico"

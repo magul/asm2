@@ -47,10 +47,9 @@ public class WindowsBootTrans {
         s.append("-Xmx" + ram + "m ");
 
         // Classpath
-        s.append("-cp \"" + d + ";" + d + "lib\\swingwt.jar;" + d +
-            "lib\\charting-0.94.jar;" + d + "lib\\mysql.jar;" + d +
-            "lib\\postgresql.jar;" + d + "lib\\hsqldb.jar;" + d +
-            "lib\\swt.jar\" ");
+        s.append("-cp \"" + d + ";" + d + "lib\\charting-0.94.jar;" + d +
+            "lib\\mysql.jar;" + d + "lib\\postgresql.jar;" + d +
+            "lib\\hsqldb.jar\" ");
 
         // Bootclass
         s.append("net.sourceforge.sheltermanager.asm.startup.Startup ");

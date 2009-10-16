@@ -32,7 +32,7 @@ to install NSIS.
 Eg:
 
 make win32          [just build the win32 installer]
-make macosx linux   [just build the linux/macosx tarballs]
+make macosx unix    [just build the unix/macosx tarballs]
 make source deb     [just build a source tarball and a debian package]
 make cd             [build everything and an installer CD ISO image]
 make [all]          [build everything]
