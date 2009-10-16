@@ -1,6 +1,8 @@
 2.6.0
 ================
 
+*. CTRL+C / kill could previously cause the UI to hang instead 
+   of closing
 *. Fixed EOF bug with retailers when printing animals
 *. Removed support for Windows 98, reducing installer size by half
    98 is now obsolete as far as we're concerned

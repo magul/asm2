@@ -60,17 +60,19 @@ public final class UI {
 
     static {
         try {
-            // Make sure AWT honours font rendering
-            System.setProperty("awt.useSystemAAFontSettings", "on");
+            if (!System.getProperty("asm.swingdefault", "false").equals("true")) {
+                // Make sure AWT honours font rendering
+                System.setProperty("awt.useSystemAAFontSettings", "on");
 
-            // If we're on Linux, then try to use GTK - it only picks
-            // it up if the WM is GNOME, irrespective of GTK being available
-            // and Metal is hideous
-            if (System.getProperty("os.name").equalsIgnoreCase("Linux")) {
-                UIManager.setLookAndFeel(
-                    "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-            } else {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                // If we're on Linux, then try to use GTK - it only picks
+                // it up if the WM is GNOME, irrespective of GTK being available
+                // and Metal is hideous
+                if (System.getProperty("os.name").equalsIgnoreCase("Linux")) {
+                    UIManager.setLookAndFeel(
+                        "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+                } else {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
