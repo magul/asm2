@@ -63,6 +63,7 @@ public abstract class IconManager {
     public final static String SAVE = "actions-Save-24.png";
     public final static String CLONE = "actions-Copy-24.png";
     public final static String CLOSE = "actions-Close-24.png";
+    public final static String CLOSE_HILITE = "actions-Close-hilite-24.png";
     public final static String DELETE = "actions-Remove-24.png";
     public final static String PREVIEW = "actions-Preview-24.png";
     public final static String WEB = "actions-Web-24.png";

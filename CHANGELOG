@@ -1,6 +1,7 @@
 2.6.0
 ================
 
+*. Swing close tab button now highlights as the mouse hovers over it
 *. Swing interface is now the default for all platforms - simplifies
    build procedures and cures issues with XUL/GTK2 by removing it
    as a dependency (along with lack of vertical scroll support)

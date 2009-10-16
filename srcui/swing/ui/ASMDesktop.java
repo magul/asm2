@@ -226,6 +226,12 @@ class ASMTab extends JPanel implements MouseListener {
                         desktop.close(form);
                     }
                 }
+                public void mouseEntered(MouseEvent e) {
+                    button.setIcon(IconManager.getIcon(IconManager.CLOSE_HILITE));
+                }
+                public void mouseExited(MouseEvent e) {
+                    button.setIcon(IconManager.getIcon(IconManager.CLOSE));
+                }
             });
 
         add(iconlabel, BorderLayout.WEST);
