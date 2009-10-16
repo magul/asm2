@@ -1,6 +1,8 @@
 2.6.0
 ================
 
+*. Removed support for Windows 98, reducing installer size by half
+   98 is now obsolete as far as we're concerned
 *. Added "asmswing" to debian and RPM installers
 *. Fixed layout of login screen to be a grid so username and
    password boxes line up for other locales

@@ -78,23 +78,31 @@ Section "Animal Shelter Manager" Client
   ; Java - detect which version to install based on Windows - anything
   ; NT gets Java 6, 95/98/ME get the last version of Java 5 that worked
   ; with them.
+  
+  ; DISABLED - Is support for a 12-year old operating system worth making
+  ;            everyone download an extra 30MB?
+  ;SetOutPath $INSTDIR
+  ;ClearErrors
+  ;ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows NT\CurrentVersion" CurrentVersion
+  ;IfErrors 0 lbl_java6
+
+;lbl_java5:
+;  File java5.zip
+;  nsisunz::UnzipToLog "$INSTDIR\java5.zip" "$INSTDIR"
+;  Delete "$INSTDIR\java5.zip"
+;  Goto lbl_data
+
+;lbl_java6:
+;  File java6.zip
+;  nsisunz::UnzipToLog "$INSTDIR\java6.zip" "$INSTDIR"
+;  Delete "$INSTDIR\java6.zip"
+;  Goto lbl_data
+
+  ; Just do java 6 and retain compatibility with NT
   SetOutPath $INSTDIR
-  ClearErrors
-  ReadRegStr $R0 HKLM "SOFTWARE\Microsoft\Windows NT\CurrentVersion" CurrentVersion
-  IfErrors 0 lbl_java6
-
-lbl_java5:
-  File java5.zip
-  nsisunz::UnzipToLog "$INSTDIR\java5.zip" "$INSTDIR"
-  Delete "$INSTDIR\java5.zip"
-  Goto lbl_data
-
-lbl_java6:
   File java6.zip
   nsisunz::UnzipToLog "$INSTDIR\java6.zip" "$INSTDIR"
   Delete "$INSTDIR\java6.zip"
-  Goto lbl_data
-
 
 lbl_data:
   ; Data Directory
