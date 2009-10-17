@@ -281,7 +281,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
     }
 
     public int getScrollHeight() {
-        return 650;
+        return 620;
     }
 
     public String getAuditInfo() {
