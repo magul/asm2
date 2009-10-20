@@ -12,6 +12,7 @@ tar -cjvf asm.tar.bz2 \
 	README \
 	AUTHORS \
 	COPYING \
+        changelog \
 	src \
 	doxygen \
 	install/macosx/*.sh \

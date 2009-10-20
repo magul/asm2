@@ -5,7 +5,7 @@ cd `dirname $0`/../build
 # Make a big fat applet jar
 mkdir applet
 cd applet
-unzip ../asm-swing.jar
+unzip ../asm.jar
 rm -rf META-INF
 unzip ../../lib/hsqldb.jar
 rm -rf META-INF

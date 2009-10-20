@@ -10,8 +10,8 @@
 # 	manual:		Builds the manual
 # 	cd:		Builds everything and a CD image
 # 	docs:		Generates doxygen docs
-#	jar:		Compiles ASM and makes asm.jar and asm-swing.jar
-#	applet:		Makes a signed asm-applet.jar from asm-swing.jar
+#	jar:		Compiles ASM and makes asm.jar
+#	applet:		Makes a signed asm-applet.jar from asm.jar
 #       pgapplet:       Makes a signed asm-applet.jar with just postgres
 #	source:		Builds a source tarball
 #	deb:		Builds an x86 Debian package
@@ -20,7 +20,7 @@
 #	macosx:		Builds a Mac OSX ASM.app
 #	win32:		Builds a Windows installer
 
-all:	manual jar source deb rpm applet unix macosx win32
+all:	clean manual jar source deb rpm applet unix macosx win32
 
 checkbinaries:
 	@echo "[checkbinaries] ==================="
@@ -34,7 +34,7 @@ clean:	checkbinaries
 	rm -rf install/linux/asm install/linux_amd64/asm install/unix/asm 
 	rm -rf install/macosx/ASM.app install/win32/media.zip
 
-init:	clean
+init:	
 	@echo "[init] ============================"
 	mkdir -p build
 
@@ -55,7 +55,7 @@ docs:
 jar:	init
 	@echo "[jar] ============================="
 	cat src/locale/globals_build.properties | sed "s/ZZZbuildZZZ/`cat VERSION`\ \(`date`\)/g" > src/locale/globals.properties
-	ant clean build
+	ant build
 	cp -f build/asm.jar build/asm-`cat VERSION`.jar
 
 applet:	jar
@@ -78,8 +78,8 @@ template:
 translation:
 	@echo "[translation] ====================="
 	scripts/gettext_to_java.sh
-	@echo "Property files need copying from po to src/locale before running java_to_database"
-	#scripts/java_to_database.sh
+	cp src/locale/po/*.properties src/locale
+	scripts/java_to_database.sh
 
 tags:
 	@echo "[tags] ============================"

@@ -45,7 +45,7 @@ chmod +x asm/runcmd.sh
 # Copy the necessary files across
 # libs
 mkdir asm/lib
-cp ../../build/asm-swing.jar asm/asm.jar
+cp ../../build/asm.jar asm/asm.jar
 cp ../../lib/*.jar asm/lib
 
 # docs/data

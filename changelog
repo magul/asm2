@@ -1,97 +1,103 @@
 2.6.1
 ================
 
+*. Renamed changelog to match vim syntax highlighting
+*. Fixed up ant script and Makefile so incremental building works properly 
+*. Removed swingwt stuff since it's no longer needed, this simplifies
+-  the source tree and build scripts by quite a lot. Removed srcui
+-  hierarchy and moved swing abstracted UI code back into main source tree.
+*. Fixed translation target to copy generated properties files
 *. Better debug information on diagnostics for MySQL date fixing
 *. Windows installer is still using asm-swing.jar in bat file
 *. Scroller heights for edit animal/owner are about 30 pixels too large,
-   enough to elongate boxes just slightly when there isn't enough screen
+-  enough to elongate boxes just slightly when there isn't enough vertical res
 
 2.6.0
 ================
 
 *. Swing close tab button now highlights as the mouse hovers over it
 *. Swing interface is now the default for all platforms - simplifies
-   build procedures and cures issues with XUL/GTK2 by removing it
-   as a dependency (along with lack of vertical scroll support)
+-  build procedures and cures issues with XUL/GTK2 by removing it
+-  as a dependency (along with lack of vertical scroll support)
 *. CTRL+C / kill could previously cause the UI to hang instead 
-   of closing
+-  of closing
 *. Fixed EOF bug with retailers when printing animals
 *. Removed support for Windows 98, reducing installer size by half
-   98 is now obsolete as far as we're concerned
+-  98 is now obsolete as far as we're concerned
 *. Added "asmswing" to debian and RPM installers
 *. Fixed layout of login screen to be a grid so username and
-   password boxes line up for other locales
+-  password boxes line up for other locales
 *. amd64 Debian and RPM packages
 *. In/Out report shows death category as well as PTS comments now
 *. Added new custom report - Death Reasons by Species and Date
 *. Fix for bug in animal edit screen that assumed activemovementtype
-   would always be non-null
+-  would always be non-null
 *. Ability to disable retailer functionality
 *. Rearranged system options and added features section
 *. Switching between simple/advanced animal find works correctly for 
-   selection mode from movement screen now
+-  selection mode from movement screen now
 *. Use of embedded owner control for movements in new one-line mode
 *. Made RescueGroups.org publisher use PetFinder mappings for known
-   species/breeds list
+-  species/breeds list
 *. VaccinationXLast keys to allow documents to show most recent
-   vaccinations instead of from start of history
+-  vaccinations instead of from start of history
 *. Crossbreed animals can't be a cross of the same breed
 *. Fixed incorrect area lost key on add lost animal screen
 *. Fix for upper casing when doing insensitive searches for 
-   sheltermanager.com - will only uppercase valid ASCII values so
-   extended character Latin 1 languages still work correctly
+-  sheltermanager.com - will only uppercase valid ASCII values so
+-  extended character Latin 1 languages still work correctly
 *. Breed/Species mapping now has a button to apply a breed to all
-   species (useful for shelters using old-style crossbreed)
+-  species (useful for shelters using old-style crossbreed)
 *. Cruelty case is now an animal tickbox instead of a type. Publishers
-   have been updated to use it, along with reports.
+-  have been updated to use it, along with reports.
 *. Removed primary/secondary type/species stuff and replaced with
-   simpler default species/type. Fixed reports and graphs that 
-   relied on it to default to standard known lists where necessary
-   or to produce for all species instead of 3 groups. 
+-  simpler default species/type. Fixed reports and graphs that 
+-  relied on it to default to standard known lists where necessary
+-  or to produce for all species instead of 3 groups. 
 *. Rewrote animal figures report to be more generic and built around
-   types with a view to abolishing primary/secondary type confusion.
-   It was no longer valid for UK RSPCA head office shelters as they
-   have changed the rules, so this way it's actually useful to people
-   outside the UK. Performance of the report is also much improved.
+-  types with a view to abolishing primary/secondary type confusion.
+-  It was no longer valid for UK RSPCA head office shelters as they
+-  have changed the rules, so this way it's actually useful to people
+-  outside the UK. Performance of the report is also much improved.
 *. Removed 300 unused translation keys to save translators work,
-   added script to auto-remove unused keys
+-  added script to auto-remove unused keys
 *. New centralised report repository, accessible via the last option
-   on the reports menu "Get more reports from sheltermanager.com"
+-  on the reports menu "Get more reports from sheltermanager.com"
 *. Added update notifications from sheltermanager website, users can
-   now be informed when a new release is available
+-  now be informed when a new release is available
 *. Added "ask a question", "report a bug" and "translate" to help menu
 *. Coat type field (optional) for animal editing screen
 *. Fixed incorrect breed names for Schipperke, Portugese Podengo and
-   PetFinder mappings
+-  PetFinder mappings
 *. Option to turn off breed filtering by species if not desired, enabled
-   by default for upgrades to not change behaviour for existing users
+-  by default for upgrades to not change behaviour for existing users
 *. Users can add additional movement types to the lksmovementtype table
-   now and the animal/movement screens will cope. Reports will ignore
-   your custom movement type, so custom reports will be needed. The
-   system will treat your movement type like any other physical movement.
+-  now and the animal/movement screens will cope. Reports will ignore
+-  your custom movement type, so custom reports will be needed. The
+-  system will treat your movement type like any other physical movement.
 *. Scripts to convert database translations to java properties so they
-   can be included in po conversion for Rosetta
+-  can be included in po conversion for Rosetta
 *. Species filtering on breed list with mapping screen and upgrade
-   for standard breeds
+-  for standard breeds
 *. Second telephone contact field for shelters in System->Options
 *. Additional scripts to convert between pot/po and .properties to use
-   Launchpad/Rosetta for translations
+-  Launchpad/Rosetta for translations
 *. Removed TODO file - bug/feature management has moved to
-   http://launchpad.net/sheltermanager
+-  http://launchpad.net/sheltermanager
 *. Fixed translation bug with petfinder error message
 *. RescueGroups.org/PetAdoptionPortal.org publisher added and
-   checked with test account
+-  checked with test account
 *. Added some clarity to the remove breeds and species screen so
-   it's clear you unselect the items you don't want
+-  it's clear you unselect the items you don't want
 *. System option for case sensitive searching as the default case 
-   insensitive searches can break in some non-English locales
+-  insensitive searches can break in some non-English locales
 *. Custom reports can draw custom graphs as well now
 *. Additional fields can now be lookups with custom lists
 *. Auto archive menu option rechecks all animals in the database, not 
-   just on-shelter animals like the archive on close process
+-  just on-shelter animals like the archive on close process
 *. Fixed bug that caused the internal location box to still display for
-   animals that are fostered when the "Foster as shelter inventory"
-   option is turned on
+-  animals that are fostered when the "Foster as shelter inventory"
+-  option is turned on
 *. Fixed out of date copyright year on publishing templates
 *. New force reupload option that tells publishers to reupload images
 *. Additional breed and type matching for owner criteria
@@ -99,13 +105,13 @@
 *. Fixed bug in In/Out report with null donations
 *. Fixed bug in Retailer volume report that prevented data appearing
 *. Archive on close only updates non-archived animals - archived ones
-   are updated when you edit their records. Added progress meter and made
-   it a background process when run from the System menu.
+-  are updated when you edit their records. Added progress meter and made
+-  it a background process when run from the System menu.
 *. Fixed broken Swing threading for generating CSV from report
 *. Removed some unnecessary section/subsections from manual
 *. Documented log and vet tab in manual, along with owner merge
 *. Remove unwanted breeds/species won't remove them if any for a category
-   are currently in use in the animal database
+-  are currently in use in the animal database
 *. System options screen split into tabs now for clarity 
 *. Added organisation country field to system options
 *. Reason not from original owner field wasn't cloned

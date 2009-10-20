@@ -60,7 +60,7 @@ Section "Animal Shelter Manager" Client
   SetOutPath $INSTDIR
   
   ; Core files
-  File /oname=asm.jar ..\..\build\asm-swing.jar
+  File ..\..\build\asm.jar
   File ..\..\logo\asm2009\asm.ico
   File ..\..\scripts\translation_encoder.html
   
@@ -161,7 +161,7 @@ lbl_data:
   CreateShortCut "$INSTDIR\Animal Shelter Manager (Translation Test).lnk" "$INSTDIR\java\bin\javaw.exe" '-cp "$INSTDIR\asm.jar" net.sourceforge.sheltermanager.asm.startup.WindowsBootTrans "$INSTDIR"' "$INSTDIR\asm.ico"
 
   ; Friendly shortcut for windows users to unpack the jar file if they
-  ; want to do a translation
+  ; want to do a translation the old fashioned way
   CreateShortCut "$INSTDIR\Unpack asm jar file.lnk" "$INSTDIR\data\unzip.exe" '-d "$INSTDIR" "$INSTDIR\asm.jar"' ""
 
   SetDetailsPrint textonly

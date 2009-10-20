@@ -98,7 +98,7 @@ chmod +x ASM.app/run_hsqlserver.sh
 # libs
 mkdir ASM.app/lib
 cp LICENSE.txt ASM.app
-cp ../../build/asm-swing.jar ASM.app/asm.jar
+cp ../../build/asm.jar ASM.app/asm.jar
 cp ../../lib/*.jar ASM.app/lib
 
 # docs/data

@@ -27,7 +27,7 @@ cp ../../lib/*.jar sheltermanager/usr/share/asm/lib -f
 
 # Update asm jar
 #echo "Updating ASM in image..."
-cp ../../build/asm-swing.jar sheltermanager/usr/share/asm/asm.jar -f
+cp ../../build/asm.jar sheltermanager/usr/share/asm/asm.jar -f
 
 # Update help 
 #echo "Updating help and media files in image..."
