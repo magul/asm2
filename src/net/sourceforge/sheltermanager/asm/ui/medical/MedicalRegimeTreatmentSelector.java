@@ -147,7 +147,7 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
         // Create an array of headers for the table
         String[] columnheaders = {
                 i18n("Date_Required"), i18n("Date_Given"), i18n("Given_By"),
-                i18n("No"), i18n("Total_Today"), i18n("Comments")
+                i18n("Sequence"), i18n("Total_Today"), i18n("Comments")
             };
 
         // Build the data

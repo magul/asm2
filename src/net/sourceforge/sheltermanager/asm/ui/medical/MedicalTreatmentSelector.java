@@ -195,13 +195,13 @@ public class MedicalTreatmentSelector extends ASMSelector {
             columnheaders = new String[] {
                     i18n("Treatment_Name"), i18n("Dosage"), i18n("Status"),
                     i18n("Comments"), i18n("Date_Required"), i18n("Date_Given"),
-                    i18n("No"), i18n("Total_Today"), i18n("Comments")
+                    i18n("Sequence"), i18n("Total_Today"), i18n("Comments")
                 };
         } else {
             columnheaders = new String[] {
                     i18n("Code"), i18n("Name"), i18n("Treatment_Name"),
                     i18n("Dosage"), i18n("Status"), i18n("Comments"),
-                    i18n("Date_Required"), i18n("Date_Given"), i18n("No"),
+                    i18n("Date_Required"), i18n("Date_Given"), i18n("Sequence"),
                     i18n("Total_Today"), i18n("Comments")
                 };
         }
