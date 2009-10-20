@@ -196,28 +196,28 @@ public class Diagnostic extends Thread {
 
     /** Sets MySQL 0000 date fields to null */
     public void fixMySQLDate(String table, String field) {
-        String sql = "UPDATE " + table + " SET " + field +
-                " = null " + "WHERE " + field + " = '0000-00-00 00:00:00'";
+        String sql = "UPDATE " + table + " SET " + field + " = null " +
+            "WHERE " + field + " = '0000-00-00 00:00:00'";
+
         try {
             DBConnection.executeAction(sql);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logError(sql, "fixMySQLDate");
-            Global.logException(e, getClass());    
+            Global.logException(e, getClass());
         }
     }
 
     /** Sets MySQL 0000 date fields to today */
     public void fixMySQLDateNonNull(String table, String field) {
-        String sql = "UPDATE " + table + " SET " + field +
-            " = '" + Utils.getSQLDate(new Date()) + "' WHERE " + field +
+        String sql = "UPDATE " + table + " SET " + field + " = '" +
+            Utils.getSQLDate(new Date()) + "' WHERE " + field +
             " = '0000-00-00 00:00:00'";
+
         try {
             DBConnection.executeAction(sql);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logError(sql, "fixMySQLDateNonNull");
-            Global.logException(e, getClass());    
+            Global.logException(e, getClass());
         }
     }
 
