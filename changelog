@@ -5,7 +5,7 @@
 -  to appear in translations in place of No (as in Yes/No) incorrectly
 *. Moved markings field to sit with comments to reduce screen res needed
 -  to display animal details page
-*. Renamed changelog to match vim syntax highlighting
+*. Renamed changelog to match vim syntax highlighting, reformatted
 *. Fixed up ant script and Makefile so incremental building works properly 
 *. Removed swingwt stuff since it's no longer needed, this simplifies
 -  the source tree and build scripts by quite a lot. Removed srcui
@@ -126,16 +126,16 @@
 *. Added info on networking and backups to manual
 *. System option to automatically tick not for adoption box on new animals
 *. Added Getting Started guide to the manual, with additional screenshots, updated
-   some of the out-of-date screenshots
+-  some of the out-of-date screenshots
 *. Fixed bug that meant donation totals for a movement could be reset if the
-   movement was saved after donations were added. Diagnostic tool now recalculates
-   all movement donations.
+-  movement was saved after donations were added. Diagnostic tool now recalculates
+-  all movement donations.
 *. Updated Lithuanian translation (crossbreed fields) from Ruta Kudelyte
 *. Added remove breeds/species to lookups menu to mass remove unwanted
-   types quickly for new installations
+-  types quickly for new installations
 *. Fixed swing bug with setting focus when screens first open
 *. New simple find animal screen, uses fulltext searching for quick
-   matching, with switch for advanced view
+-  matching, with switch for advanced view
 *. Adapted manual build to include cover image from SVG
 *. Donation type table missing from custom report edit screen
 *. Fixed bug in owner criteria matching on animal age
@@ -144,13 +144,13 @@
 *. Internet publisher orders animals by entry to the shelter
 *. Date ascending order default for movements and donations
 *. Graph for monthly donations included adoption donations twice and
-   wasn't including waiting list donations. Added rounding.
+-  wasn't including waiting list donations. Added rounding.
 *. Last location for animals off shelter was updating wrong label
 *. Manual additions for reporting/defaults and a few errors corrected,
-   fixes to use pdflatex with correct image/paper sizes
+-  fixes to use pdflatex with correct image/paper sizes
 *. Added South Africa/English (en_ZA) locale with Rand currency
 *. Mismatch in PostgreSQL date representations - could break other locales
-   running English locale database
+-  running English locale database
 *. Don't default date of birth for new animals
 
 2.5.1
@@ -160,20 +160,20 @@
 *. PostgreSQL SSL support added
 *. Usernames shouldn't be editable when using web security/applet mode
 *. Fix to Windows installer so local database server works with XP
-   (space in Documents and Settings broke start script)
+-  (space in Documents and Settings broke start script)
 *. Misspelling of Ruta's surname (Kudelyte)
 *. Lithuanian translation of crossbreed field
 *. Removed full stop from years and months translation for animal
-   ages (bit silly having it there)
+-  ages (bit silly having it there)
 *. Added XULrunner switch to Linux x86 and amd64 builds
 *. Fixed bug that caused error messages on startup with SwingWT to only 
-   be displayed for a short time before vanishing
+-  be displayed for a short time before vanishing
 
 2.5.0.2
 ================
 
 *. Fixed bug that caused lookup cache not to be invalidated when lookup 
-   viewer closed under Swing
+-  viewer closed under Swing
 *. Refactored/simplified animal cache code
 *. Added caching for external data lookup for icons
 
@@ -182,22 +182,22 @@
 
 *. Class preload for most often used bits of UI to improve applet performance
 *. Added active animal cache functionality (with system option to turn on)
-   Keeps active animals in RAM to speed up opening of the edit screen
+-  Keeps active animals in RAM to speed up opening of the edit screen
 *. Added tab lazy loading, so data is loaded on demand for the animal
-   screen (also with system option to turn on)
+-  screen (also with system option to turn on)
 *. Higher memory allocation for applet mode with Java 6u10 (-Xmx256)
 *. Internet publisher no longer warns that an internet connection is
-   required - it was a pointless, annoying dialog
+-  required - it was a pointless, annoying dialog
 *. Fixed PetFinder bug with Unknown sexed animals
 *. Match added and expiry fields for owner criteria to allow the system
-   to stop looking after a period of time
+-  to stop looking after a period of time
 *. Option to disable second breed field to use traditional ASM
-   single breed field for shelters not dealing with dogs and cats
-   (or who prefer the old way)
+-  single breed field for shelters not dealing with dogs and cats
+-  (or who prefer the old way)
 *. Second breed field with crossbreed indicator to allow selection
-   of multiple breeds on the animal screen
+-  of multiple breeds on the animal screen
 *. Default screen size set to 1280x800 to cope with larger
-   resolutions (and widescreen laptops)
+-  resolutions (and widescreen laptops)
 *. Added Lithuanian translation (thanks to Ruta Kudelyte)
 *. Fixed upload all images option for PetFinder
 
@@ -207,17 +207,17 @@
 *. Fixed screenshot scaling size in manual PDF
 *. Movement custom buttons, similar to animal/owner 
 *. Fix to ensure new animal screen always opens even if a code can't be
-   generated for the default animal type
+-  generated for the default animal type
 *. readFile utility method reads in one chunk and expects UTF-8 when
-   dealing with OpenOffice and other XML documents. Documents are translated
-   back to UTF-8 after conversion as well when calling writeFile.
+-  dealing with OpenOffice and other XML documents. Documents are translated
+-  back to UTF-8 after conversion as well when calling writeFile.
 *. Added import facility for PetFinder SQL export
 *. Added database latency check to about screen/opening log
 *. Options to disable media thumbnails and breed popularity
 *. Optimised edit animal screen to remove and amalgamate unnecessary
-   queries for performance. Tab contents are lazily loaded now.
+-  queries for performance. Tab contents are lazily loaded now.
 *. Fixed bug in testing for additional fields that allow creation/enabling
-   mismatch on some systems
+-  mismatch on some systems
 *. New waiting list defaults the primary species
 *. Fixed obscure null bug in waiting list view and re-enabled all species
 *. Lost/Found search screen orders results by date lost/found descending
@@ -232,10 +232,10 @@
 *. Lookup cache should refill after a database update patch
 *. Include translate_en.sql with Windows installer
 *. Added translation_encoder to release to assist with text encodings
-   when translating files
+-  when translating files
 *. New medical profile enables duration correctly now
 *. DBConnection.executeFile supports java \u0000 style escape sequences
-   now, so they can be used when translating sql files
+-  now, so they can be used when translating sql files
 *. DBUpdate uses DBConnection.executeFile now
 *. translate_en should not truncate configuration table
 *. Owner merge for log records referring to wrong field
@@ -247,56 +247,56 @@
 ================
 
 *. From now on, minor version number increments with database changes
-   so that all releases sharing a common x, y in x.y.z can use
-   the same database without upgrades.
+-  so that all releases sharing a common x, y in x.y.z can use
+-  the same database without upgrades.
 *. Added video capture support for IP cameras and other video sources
-   via HTTP or via a shell script or binary
+-  via HTTP or via a shell script or binary
 *. Changed add/edit media layout to scale better and allow more space
-   for notes
+-  for notes
 *. Adaptive layout for additional fields - adds more columns depending
-   on number of additional fields to layout
+-  on number of additional fields to layout
 *. Fixed native layout of removal tab on waiting list edit
-   (date field is normal sized)
+-  (date field is normal sized)
 *. Waiting list remove after weeks spinner enables save button again
 *. Ranking on waiting list viewer so you can see at a glance how many
-   are above/below a certain person on the list
+-  are above/below a certain person on the list
 *. New waiting list screen defaults correct urgency again
 *. Owner merging reparents diary notes and log records correctly now
 *. Autologout disabled on configuration for applet mode
 *. Fixed bug when changing animal type with keyboard shortcuts on native
-   platforms (prompt would generate code for previous type)
+-  platforms (prompt would generate code for previous type)
 *. Additional tables added to custom report edit screen
 *. Manual updates
 *. Medical history keys for word processors similar to vaccinations
 *. Fix to improve stability of create animal from both found animal
-   and waiting list entries
+-  and waiting list entries
 *. Create animal from found animal button
 *. Additional fields available by name in document templates
 *. Additional field validation
 *. Tooltips for additional fields
 *. Correct deletion behaviour for new additional fields
 *. Fixed owner deletions - they could orphan donation and voucher
-   records
+-  records
 *. Added scrollbars to medical screens for applet users with limited vertical
-   screen space
+-  screen space
 *. Added tab ordering for additional fields
 *. Fixed currency field default size to match other controls
 *. Additional tab for owner screen
 *. Additional tab for animal screen with user customisable fields
 *. Additional fields functionality - schema changes and editing facilities
 *. Internet publisher correctly tests for valid media (jpg/jpeg/png/gif)
-   in case insensitive manner
+-  in case insensitive manner
 *. Media notes screen has the edit box fill the screen now
 *. Larger field sizes for postgresql databases to match MySQL/HSQLDB
 *. Tweaks to diagnostic for non-null date fixes for MySQL 5 conversion
 *. Setting autologout works properly again
 *. Word processor automatically set from file type scan for local
-   databases. MSO2007 takes precedence over OO on Windows, OO
-   takes precendence over Abiword on Linux
+-  databases. MSO2007 takes precedence over OO on Windows, OO
+-  takes precendence over Abiword on Linux
 *. Abiword versions of templates
 *. Abiword detection for Linux when auto configuring file types
 *. When the owner changes on a movement, donations are reparented to
-   the new owner correctly now
+-  the new owner correctly now
 
 2.3.8-1 (deb)
 ================
@@ -309,53 +309,53 @@
 ================
 
 *. Swing labels format correctly with line breaks (noticeable on
-   matched owner found screen).
+-  matched owner found screen).
 *. Fixed missing escaping when matching owner addresses in create 
-   owner (could fail if address contained an apostrophe)
+-  owner (could fail if address contained an apostrophe)
 *. Added time output to diary/vets diary print
 *. Vets diary matches other diary screens
 *. Creating new diary notes from the vets book defaults to vets
 *. Diary note screens show time now
 *. Cleaned up formatting of linked data in diary screens
 *. Fixed cache data bug with stored owners that can crop up if 
-   a field is blank and it is read twice on the same object
+-  a field is blank and it is read twice on the same object
 *. Added some padding to default tables in reports for legibility
 *. Animal print button to output a complete report of all animal
-   information.
+-  information.
 *. Added pgapplet target for smaller asm-applet with only 
-   postgresql support
+-  postgresql support
 *. Re-enabled button hotkeys for swing/applet modes
 *. Internal report viewer, start maximised and single instance 
-   don't make sense in applet mode
+-  don't make sense in applet mode
 *. Fixed missing scrollbars on media selector in Swing mode
 *. Added docx versions of templates for Word 2007
 *. File extension selection in internet publisher
 *. Database import should be disabled for online ASM
 *. Fixed date generation for bulk emails as some constants have 
-   changed in latest Java 6 and offset calculations with Calendar
-   constants no longer work.
+-  changed in latest Java 6 and offset calculations with Calendar
+-  constants no longer work.
 
 2.3.7
 ================
 
 *. Fixed all occurrences of checkboxes with separate labels as
-   it can look awful on some platforms
+-  it can look awful on some platforms
 *. Try to load GTK for Swing/Linux (Metal is hideous and GTK
-   only defaults if the current WM is GNOME). Also forces honouring
-   of system font smoothing irrespective of WM.
+-  only defaults if the current WM is GNOME). Also forces honouring
+-  of system font smoothing irrespective of WM.
 *. Fixed thumbnail threading to improve animal screen loading time
 *. New layout for animal and owner screens to reclaim some space
 *. Added error log viewer to help menu
 *. Fixed vaccination book bug that showed date given against the
-   wrong record (but updated the correct one)
+-  wrong record (but updated the correct one)
 *. Vaccination book allows multiple selection
 *. Vaccination book has checkboxes to include off shelter and 
-   deceased animals (both off by default)
+-  deceased animals (both off by default)
 *. Cleaned up welcome log message and included OS/Arch
 *. New $VAR$ and $@$ custom report tags to support stored variables
 *. Database diagnostic tool to fix zero dates in MySQL 5.1
 *. Auto logout makes no sense in applet user mode, nor does setting
-   authentication options so they disable now
+-  authentication options so they disable now
 *. Applet user mode to allow integrated web authentication mechanism
 *. Fixed bug with OS security and Swing renderer
 
@@ -363,34 +363,34 @@
 ================
 
 *. Database diagnostic tool can find and fix broken animal codes
-   in historic data (where the year or type doesn't match brought in)
+-  in historic data (where the year or type doesn't match brought in)
 *. Removed max media file size and tickbox for allowing db updates
-   from system options - duplicated on configure database screen
-   and should no longer be system options
+-  from system options - duplicated on configure database screen
+-  and should no longer be system options
 *. Database configuration screen uses proper validated controls to
-   prevent people setting media scaling wrong and breaking 
-   importing media
+-  prevent people setting media scaling wrong and breaking 
+-  importing media
 *. Internal report viewer disabled for applet mode
 *. Viewing charts with Swing renderer works again (uses external viewer)
 *. Scrollbars appear in Swing mode if there isn't enough vertical
-   resolution (handy for applet mode with browser toolbars)
+-  resolution (handy for applet mode with browser toolbars)
 *. Applet mode integrates fully with browser now
 *. Branding updated
 *. All tables repaired for MySQL in diagnostics now
 *. Automatically switch to using network with localhost if a locked
-   local database is detected (assumes sharing)
+-  local database is detected (assumes sharing)
 *. Scan button for database discovery - can find all database types
-   on local subnet
+-  on local subnet
 *. Can use HSQL from within applet now
 *. Added links to share local database for a user via HSQL server
-   for all platforms.
-   (clients need to use HSQLDB option and specify correct host and
-    database of "asm" with no user/password)
+-  for all platforms.
+-  (clients need to use HSQLDB option and specify correct host and
+-   database of "asm" with no user/password)
 *. Added species name to owner movement view (patch from Matt)
 *. Updated copyright year to 2009
 *. Applet fixes to make ASM online work with MacOSX
 *. Win32 installer bundles Java5 and installs it for Windows 95/98/ME
-   anything NT based gets Java6.
+-  anything NT based gets Java6.
 *. View littermates action mapped incorrectly (to find litter)
 *. Applet bug fix (dispose crash on status screen)
 
@@ -398,28 +398,28 @@
 ================
 
 *. Spinner widget for waiting list removal, medial profiles and regime
-   editing and diary task pivots
+-  editing and diary task pivots
 *. Limit editing code formats to prevent NNN and UUU in the same format
 *. Throbber in status bar for progress meter tasks
 *. Selector based components (like the media tab) will truncate any long
-   content to prevent other columns being shoved off screen and the
-   user having to scroll along to them
+-  content to prevent other columns being shoved off screen and the
+-  user having to scroll along to them
 *. Fixed bug in archive generation for OpenOffice that caused
-   OO documents to appear corrupt and without images on Windows
+-  OO documents to appear corrupt and without images on Windows
 *. Selecting file type handlers is now done via file browse dialog
 *. Animal web-preferred image can now be included in published documents
-   via a placeholder image in templates (supported in MSO2007 and all
-   versions of OpenOffice).
+-  via a placeholder image in templates (supported in MSO2007 and all
+-  versions of OpenOffice).
 *. Support for OpenOffice 3 and Microsoft Office 2007 (docx)
 *. Fixed bug in new Windows file type scanning which meant no executables
-   would ever be found.
+-  would ever be found.
 *. Added SQL interface to Database Tools for easier access to SQL
-   functions across different databases (better for me giving support
-   since users don't have to know where to find an SQL console)
+-  functions across different databases (better for me giving support
+-  since users don't have to know where to find an SQL console)
 *. Configure Database screen to allow setting of RecordSearchLimit,
-   IncomingMediaScaling, MaxMediaFileSize and Allowing client updates.
-   Appears under System->Database Tools and requires Use SQL Interface
-   permission.
+-  IncomingMediaScaling, MaxMediaFileSize and Allowing client updates.
+-  Appears under System->Database Tools and requires Use SQL Interface
+-  permission.
 *. Show Mac-style throbber on startup page
 *. Removed debian dependency on zip/unzip
 *. Allowed Swing UI to update tab titles
@@ -427,20 +427,20 @@
 *. Manual update for procedure for disabling ASM generated codes
 *. Edit animal screen updates its tab as the code changes
 *. Removed system option to warn on type change (always warns and
-   regenerates now).
+-  regenerates now).
 *. Animal code changes are forced for dates and types now, as they can
-   cause duplicate codes otherwise.
+-  cause duplicate codes otherwise.
 *. Changing brought in date will change animal code to prevent
-   invalid codes.
+-  invalid codes.
 *. Fast version of code generator based on new pre-parsed code fields
-   on the animal - improves speed to open create new animal screen
-   when using remote databases.
+-  on the animal - improves speed to open create new animal screen
+-  when using remote databases.
 *. Missing index for datebroughtin on postgresql/hsql databases
 *. Fixed Unix/MacOS builds to remove all traces of swingwt and swt
 *. Updated manual
 *. Added "Include Colors" option for AdoptAPet - you need to map the
-   text descriptions of your colours to their colours in saveapet_mappings.txt
-   if you want to use this feature.
+-  text descriptions of your colours to their colours in saveapet_mappings.txt
+-  if you want to use this feature.
 *. Renamed 1800SaveAPet to AdoptAPet in the UI to match their new name
 *. Fixed reverse logic for neutered flag output on 1800SaveAPet publisher
 
@@ -456,9 +456,9 @@
 *. medicalprofile table missing from database importer
 *. Startup progress screen and indicator
 *. Fixed bug in swing renderer's tab indexing that could cause tabs
-   to become detached from content
+-  to become detached from content
 *. Added missing security flags for view disabling on vet, medical,
-   diet, log entries, donations and links
+-  diet, log entries, donations and links
 *. Enabled database copying for debug mode
 *. Fixed tab disabling on animal screen for view permissions
 *. Fixed security for copying media notes (need media change permission)
@@ -466,18 +466,18 @@
 *. Fixed swing vertical scrollbars on text areas
 *. Added CTRL+F4 menu item to close the active tab
 *. Rewrote tabbed desktop for swing renderer from scratch (JTabbedPane
-   is too unpredictable between different versions of OSX).
+-  is too unpredictable between different versions of OSX).
 
 2.3.3
 ================
 
 *. Fixed hideous Mac icon
 *. When creating new owners, the most common town/counties are 
-   automatically defaulted
+-  automatically defaulted
 *. Fixed swing key handling for date fields
 *. Updated Vaccination*X wordkeys to allow upto 100 vaccinations
 *. Fixed chain loading of JDBC drivers so only the necessary one for
-   a deployment can be included in a build
+-  a deployment can be included in a build
 *. Pure java Zip handling for portability
 *. Fix for file:// URLs for the Mac (why does everyone have to be different?)
 *. Fix for tab closing on the Mac
@@ -497,30 +497,30 @@
 *. Removed MacOSX Carbon renderer (no longer needed)
 *. Start of Swing UI abstraction without SwingWT to solve Mac issues
 *. Moved all table renderers into UI class and separated UI implementation
-   further.
+-  further.
 *. Moved all image scaling code into UI class
 *. Fixes for Pets911 publisher (age column, quotes)
 *. Start of French translation
 *. Fixed null pointer running publisher from command line tool (did
-   not break any functionality, except leaving tag $$USER in page).
+-  not break any functionality, except leaving tag $$USER in page).
 
 2.3.2
 ================
 
 *. Overhauled file type scanner to do tree searching on Windows
-   (which takes a little bit longer, but guarantees we find everything)
+-  (which takes a little bit longer, but guarantees we find everything)
 *. Simplified Unix file type scanning code and added more known binaries
 *. Mark cloned animal names with "Copy of"
 *. Fixed generating animal records from waiting list
 *. Fixed missing string in diary task date selector
 *. Fixed missing scrollbars from report editing, homecheck areas and 
-   health problems
+-  health problems
 *. SwingWT now uses Swing dispatch thread for SWTSwing - fixes race
-   condition crashing and improves performance even further
+-  condition crashing and improves performance even further
 *. No need to use normal filechooser for Swing any more as race condition 
-   now fixed
+-  now fixed
 *. Cleaned up OS/Widget kit detecting in a few places (Swing kit broke
-   a few of these because Swing can run on any OS).
+-  a few of these because Swing can run on any OS).
 
 2.3.1
 ================
@@ -529,56 +529,56 @@
 *. Right click context menus for search screens
 *. Fix for image file browser breaking with Swing renderer
 *. Higher Max heap for all platforms - memory is a lot cheaper than
-   it was 8 years ago and we can afford to raise requirements slightly
+-  it was 8 years ago and we can afford to raise requirements slightly
 *. Migration path for HSQLDB TEXT based databases (from 2.2.2)
 *. Added denormalised fields to the animal table for TimeOnShelter and
-   AnimalAge for easier reporting
+-  AnimalAge for easier reporting
 *. Added lookup tables for yes/no, yes/no/unknown, 
-   positive/negative/unknown for easier custom reporting
+-  positive/negative/unknown for easier custom reporting
 *. Dramatic performance improvement for Swing-based renderers 
-   (Mac OS X and generic Unix). Fixes a number of issues with
-   tooltips and combo box events as well as Mac OS X painting 
-   issues.
+-  (Mac OS X and generic Unix). Fixes a number of issues with
+-  tooltips and combo box events as well as Mac OS X painting 
+-  issues.
 
 2.3.0 (Pulled while HSQLDB migration sorted)
 ============================================
 
 *. Preferences interface for HeartbeatInterval
 *. Animal search results print showed animal names out of sequence 
-   if it was sorted before printing
+-  if it was sorted before printing
 *. Configurable database heartbeat interval with the
-   HeartbeatInterval=ms value in asm.properties
+-  HeartbeatInterval=ms value in asm.properties
 *. MacOSX/generic Unix scripts use Swing renderer, which requires
-   more RAM available in the heap.
+-  more RAM available in the heap.
 *. Button on animal comments to copy to web media for the animal
 *. SelectableTable implementation for MacOS instead of SelectablePane
-   (this doesn't use scroll/direct renderering, but is not as good)
+-  (this doesn't use scroll/direct renderering, but is not as good)
 *. getConnection tests whether connection is open before proceeding
-   (helps with remote databases with very low timeouts)
+-  (helps with remote databases with very low timeouts)
 *. Prefill media notes wasn't working (should default animal comments
-   when you create a new media record).
+-  when you create a new media record).
 *. Fixed MacOSX SwingWT bug that meant scrollbars could disappear
-   from the options and user permissions pages
+-  from the options and user permissions pages
 *. HasActiveReserve flag was being set to the opposite of its meaning
-   (this affected animal searching). Need to re archive animal records
-   (or shut ASM down once) for it to take effect.
+-  (this affected animal searching). Need to re archive animal records
+-  (or shut ASM down once) for it to take effect.
 *. When calculating highest ever code, looks at records created in
-   the last 12 months, since they should (by definition) be higher
-   than anything else and it's a smaller set to search.
+-  the last 12 months, since they should (by definition) be higher
+-  than anything else and it's a smaller set to search.
 *. Removed noisy logging when parsing bad codes (unless debug enabled)
 *. Added Swing package for MacOSX as Carbon seems unstable on some
-   Mac systems
+-  Mac systems
 *. Highest year/ever values are not calculated if the format code
-   does not use it (saves unnecessary database calls)
+-  does not use it (saves unnecessary database calls)
 *. Rewrote getIDFromCombo/setComboFromID to use lookup caches instead
-   of making database calls
+-  of making database calls
 *. Added HasSpecialNeeds wordkey
 *. 1800saveapet, pets911, petfinder publishers use media notes
-   for animal description (as they should have in the first place).
+-  for animal description (as they should have in the first place).
 *. Fix for upper case image files in media
 *. Added WebMediaNew and WebMediaUpdated animal wordkeys (they
-   update automatically as animals are published to the web and
-   allow the site generator to flag new/changed animals)
+-  update automatically as animals are published to the web and
+-  allow the site generator to flag new/changed animals)
 *. Medical diary should only include on-shelter animals
 *. Animal Clone now includes everything but media
 *. Animal Delete removes all satellite data
@@ -587,7 +587,7 @@
 *. Wrong key used for Add Animal in menu
 *. Fixed tab disabling for non-shelter animals
 *. Added Special Needs checkbox to vets tab (used by PetFinder and
-   SaveAPet publisher)
+-  SaveAPet publisher)
 *. Animal buttons not enabling after save
 *. Short shelter codes aren't valid for non-XYYYYNNN coding systems
 *. System options didn't allow changing of short code flag
@@ -597,55 +597,55 @@
 
 *. Brought manual upto date.
 *. Fixed various areas where security was missing and closed the
-   double click selector bug (which allowed users to open screens
-   they didn't have permissions to).
+-  double click selector bug (which allowed users to open screens
+-  they didn't have permissions to).
 *. Hitting ok on the authentication screen wasn't closing the screen.
 *. Change permissions weren't preventing users changing animal, owner, 
-   lost/found, diary note, owner donations and waiting list records 
-   due to new UI scheme.
+-  lost/found, diary note, owner donations and waiting list records 
+-  due to new UI scheme.
 
 2.2.1
 ================
 
 *. Fixed URLLabel bug (URLs look like URLs again and have correct
-   cursor)
+-  cursor)
 *. Internet publisher uploads all images as -1.jpg, -2.jpg, starting
-   at -1 now. It will also not upload the MEDIAID.jpg file if upload
-   all is set, assuming you can handle CODE-X.jpg in your templates
-   yourself.
+-  at -1 now. It will also not upload the MEDIAID.jpg file if upload
+-  all is set, assuming you can handle CODE-X.jpg in your templates
+-  yourself.
 *. PetFinder publisher uploads all images as -1.jpg, -2.jpg, etc,
-   starting at -1 now.
+-  starting at -1 now.
 *. HSQLDB checkpoint interval is now every 30 seconds.
 *. HSQLDB uses CSV storage for all tables but DBFS, so in the event
-   of any kind of corruption problem with the cached data, 99% of the
-   data is retrievable. The cost is performance (this only affects
-   new installs).
+-  of any kind of corruption problem with the cached data, 99% of the
+-  data is retrievable. The cost is performance (this only affects
+-  new installs).
 *. Use localdb.script to test for existence of local database.
 *. Tidying of publishing templates to make them XHTML compliant and
-   operate better with the patasunidas.com and sheltermanager.com
-   search engines.
+-  operate better with the patasunidas.com and sheltermanager.com
+-  search engines.
 *. Organisation address and telephone number boxes on system options.
-   They can be accessed in the WWW publisher with the $$ORGNAME$$, 
-   $$ORGADDRESS$$ and $$ORGTEL$$ keys for the header/footer. They
-   are included in the default media templates. $$ORGEMAIL$$ can also
-   be used and is supplied by the ASM FROM email account.
+-  They can be accessed in the WWW publisher with the $$ORGNAME$$, 
+-  $$ORGADDRESS$$ and $$ORGTEL$$ keys for the header/footer. They
+-  are included in the default media templates. $$ORGEMAIL$$ can also
+-  be used and is supplied by the ASM FROM email account.
 *. Date boxes will no longer let you use dates more than 10 years in
-   the future, or 100 years in the past (based on today's date). This
-   solves the date range bug in HSQL and stops people putting in ridiculous
-   dates when making typos (one shelter had a bunch of vaccinations to
-   be performed in 20089).
+-  the future, or 100 years in the past (based on today's date). This
+-  solves the date range bug in HSQL and stops people putting in ridiculous
+-  dates when making typos (one shelter had a bunch of vaccinations to
+-  be performed in 20089).
 *. The HTML and PetFinder publishers have a new "uploadall" option, which 
-   will include all of the animal's images. The preferred will be called
-   sheltercode.jpg, with the remainder sheltercode-1.jpg, sheltercode-2.jpg,
-   etc. Note that the HTML templates can't use these extra images 
-   (unless you know how many there will be and put $$SHELTERCODE$$-1.jpg
-   in pib.dat), it's for shelters that do other processing on the output.
+-  will include all of the animal's images. The preferred will be called
+-  sheltercode.jpg, with the remainder sheltercode-1.jpg, sheltercode-2.jpg,
+-  etc. Note that the HTML templates can't use these extra images 
+-  (unless you know how many there will be and put $$SHELTERCODE$$-1.jpg
+-  in pib.dat), it's for shelters that do other processing on the output.
 *. Added new "dbfsupload", "dbfsdownload" and "dbfsdelete" command line
-   options for manipulating the DBFS. Both can handle directories and
-   are documented in the manual.
+-  options for manipulating the DBFS. Both can handle directories and
+-  are documented in the manual.
 *. Added system options interface to AllowDBAutoUpdates
 *. Added AllowDBAutoUpdates flag (set to No in configuration to disable
-   ASM's auto database update feature).
+-  ASM's auto database update feature).
 *. Changing owner surname/address enables save button again
 *. Fixed tooltips on preferences screen dropdowns for tabs/labels
 
@@ -656,22 +656,22 @@
 *. SaveAPet publisher requires quoted values for everything
 *. Class accessor bug in custom report engine fixed
 *. FilePreviewPane moved to new UI scheme and then rolled into a single
-   UI.getImageFileChooser() call for simplicity. Added resolution output
-   of previewed images and updated SwingWT file chooser layout.
+-  UI.getImageFileChooser() call for simplicity. Added resolution output
+-  of previewed images and updated SwingWT file chooser layout.
 *. Fixed the "attach as media" flag for movements and donation records
 *. Fixed the broken edit movement layout
 *. Updated CD art for cafepress
 *. Added in audit information for all previous screens where it was
-   kept but not shown (vouchers, donations, medical records, vaccinations)
+-  kept but not shown (vouchers, donations, medical records, vaccinations)
 *. Title labels fill the correct horizontal areas
 *. Medical screens done, low level references to UI kit all converted
-   to use new UI abstraction (final tidying up).
+-  to use new UI abstraction (final tidying up).
 *. Hotkeys are used if a button has text, so the toggle only applies to
-   icon buttons.
+-  icon buttons.
 *. Removed hotkey assignment for combo search
 *. Petfinder publishing had two 7 indexes in the header
 *. New ASMConfigForm superclass for all small forms that use textfields
-   to edit items in the configuration table. All config forms converted.
+-  to edit items in the configuration table. All config forms converted.
 *. File type editing and configuring defaults uses new scheme
 *. Report criteria screens use new scheme, added radio buttons
 *. Diary task editing, executing, owner checking use new scheme
@@ -679,69 +679,69 @@
 *. Removed coloured breeds from default list (legacy from PetFinder)
 *. Reinstated match button for found animals
 *. New SearchTextField component to handle text boxes with a side button
-   for searching/lookups. Converted AnimalEdit, MovementEdit and LitterEdit
-   to use it.
+-  for searching/lookups. Converted AnimalEdit, MovementEdit and LitterEdit
+-  to use it.
 *. Converted date fields to use a button with matching tooltip.
 *. Combo boxes have a search button that appears once they have more than
-   20 items in them. It uses the new InputListDialog functionality to
-   do the search.
+-  20 items in them. It uses the new InputListDialog functionality to
+-  do the search.
 *. FlexibleFocusManager recognises our composites to save mucking around
-   with getTabOrder
+-  with getTabOrder
 *. Animal.getMostRecentEntry takes account of FosterOnShelter flag
 *. Animal.findLatestMovementInList counts back to "real" movements and 
-   discards reservations if there is a real movement.
+-  discards reservations if there is a real movement.
 *. Local settings file is now asm.properties to fit in with other files
-   and Java way of doing things
+-  and Java way of doing things
 *. Much improved selection input dialog with search box
 *. New, nicer text input dialog
 *. Locked screen fixed/moved to new scheme. Last of system dialogs done
 *. Logout screen/dialogs fixed
 *. About screen moved to new scheme
 *. Added new List control, added minimal table update features for
-   diary/petfinder mappings - improves performance hugely when updating
-   table entries.
+-  diary/petfinder mappings - improves performance hugely when updating
+-  table entries.
 *. Email form revamped. Log editing uses new scheme
 *. PetFinder mapping screens redone, Voucher amount fixed (wasn't
-   saving to database) and edit voucher converted to new scheme
+-  saving to database) and edit voucher converted to new scheme
 *. Date of birth tooltip shows animal's age
 *. Fix for local cache concurrent modification in delete.
 *. Cache viewer, profiles viewer, litter viewer, file types handler 
-   and diary tasks use new UI scheme. This is the last of the viewer
-   screens done.
+-  and diary tasks use new UI scheme. This is the last of the viewer
+-  screens done.
 *. Custom report viewers and editing conversion done.
 *. Fix for save a pet publisher to stop it getting into an endless loop
-   when faced with an animal that isn't a dog or cat.
+-  when faced with an animal that isn't a dog or cat.
 *. HTML viewer has back/forward/refresh buttons and works correctly
 *. Internet publisher can now handle different styles. The sheltermanager.com
-   style is included with new installations (and can be imported from
-   the data directory for existing installs)
+-  style is included with new installations (and can be imported from
+-  the data directory for existing installs)
 *. Lost and found screens use new UI scheme now.
 *. Vet book uses new scheme. New "VetsDiaryUser" config key for the
-   database instead of hardcoding Vets% user. Fixed case matching for
-   vets user. Vets user appears in options list when creating diary notes.
+-  database instead of hardcoding Vets% user. Fixed case matching for
+-  vets user. Vets user appears in options list when creating diary notes.
 *. Keystrokes in ASMView/Selector now trigger updating tool buttons
 *. New databases default max media file size of 1MB
 *. Date picker button for date fields
 *. Fixed find animal tab ordering
 *. Checkpointing is either done on a 5 minute timer (single threaded 
-   access mode added to DB calls) or on shutdown rather than with
-   every save to prevent slowdown on larger databases.
+-  access mode added to DB calls) or on shutdown rather than with
+-  every save to prevent slowdown on larger databases.
 *. Fixed heartbeat to no longer shunt onto dispatch thread (and
-   block UI) as new single threaded DB code will prevent this and
-   allow it to work in the background.
+-  block UI) as new single threaded DB code will prevent this and
+-  allow it to work in the background.
 *. Add media auto scales images according to configuration table
-   (has no UI component on purpose, but can be hand edited in the
-   database). Add screen converted to new UI scheme and outputs 
-   default scaling on screen.
+-  (has no UI component on purpose, but can be hand edited in the
+-  database). Add screen converted to new UI scheme and outputs 
+-  default scaling on screen.
 *. Speeded up empty DBFS check.
 *. Not adoption view uses new UI scheme.
 *. Vaccination editing uses new UI scheme.
 *. Fix for focus manager to prevent null values breaking tabbing.
 *. Fix for waitinglist->animal cloning (defaults vet id and fixes
-   enabled tabs that shouldn't be)
+-  enabled tabs that shouldn't be)
 *. Vaccination book redone for new UI scheme.
 *. Rewrote media handling to use a new DBFS component. Rewrote media
-   screen and select template to use new UI scheme and DBFS component.
+-  screen and select template to use new UI scheme and DBFS component.
 *. Animal name screens moved to new UI scheme.
 *. Fixed random animal name when there aren't any in the database.
 *. Upgraded to HSQLDB 1.8.0_9
@@ -750,15 +750,15 @@
 *. Removed unused publisher code.
 *. Finished publisher modes.
 *. Added SelectableItem groups for new internet publisher and options
-   screen.
+-  screen.
 *. Fixed SwingWT JList to use platform list (works better on Windows)
 *. Rewrote SelectedList to use scrollable/checkboxes instead of a table.
 *. New InternetPublisher frontend to all publishers (HTML mode done)
 *. Refactored internet publishers into non-UI package.
 *. Report viewer done
 *. Waiting list printing has always chopped off the last row of the
-   table. Fixed a bug with blank dates causing columns to move to the
-   left.
+-  table. Fixed a bug with blank dates causing columns to move to the
+-  left.
 *. WaitinglistView done
 *. MovementView replaces the Foster, Reservation and Retailer books
 *. MovementEdit rewritten for new scheme
@@ -766,100 +766,100 @@
 *. Preferences flag to disable hotkeys
 *. Edit animal screen moved to new UI kit
 *. Date/Currency fields use new UI scheme (and inherit default
-   size/layout).
+-  size/layout).
 *. Waiting list editing uses new UI scheme.
 *. Fixed mouse pointer busy code (and SwingWT fix)
 *. Audit info is shown by hovering over the audit icon on the toolbar -
-   this frees up the large and unsightly audit boxes from screens.
+-  this frees up the large and unsightly audit boxes from screens.
 *. Added "make tags" target for exuberant-ctags/vim use
 *. Redesigned owner editing screen for new UI kit.
 *. Rewrote configuration handling to use RAM cache to prevent many 
-   small database calls.
+-  small database calls.
 *. HTML word processor will accept .htm as a valid extension. Extensions
-   are no longer case sensitive.
+-  are no longer case sensitive.
 *. A new custom.properties file can be used to specify new buttons on
-   the animal and owner forms. These can be used to open http addresses
-   using animal/owner data, or to run commands on the system.
+-  the animal and owner forms. These can be used to open http addresses
+-  using animal/owner data, or to run commands on the system.
 *. Original owner name search from find animal was previously broken.
 *. All search forms correctly use case insensitivity now (ASM previously
-   exploited a bug in MySQL handling, which meant searches on HSQL/Postgres
-   were case sensitive).
+-  exploited a bug in MySQL handling, which meant searches on HSQL/Postgres
+-  were case sensitive).
 *. All search forms use SQL builder for easier to read code.
 *. Owner search converted to new UI scheme (all searches and selectors
-   now done).
+-  now done).
 *. Selecting a template uses alphanumeric ordering for the list
 *. Disabled media files import from fs option (it's dangerous and
-   not needed now).
+-  not needed now).
 *. Owner link button on the animal disables if the animal has no active
-   movement.
+-  movement.
 *. Today's date is now defaulted for new movements that have a type,
-   but no date given.
+-  but no date given.
 *. Refactored UI class names to obey sensible scheme - embedded panels
-   that manage data have a Selector suffix, forms that do the same
-   job are suffixed with View, Edit and Find forms are suffixed now.
+-  that manage data have a Selector suffix, forms that do the same
+-  job are suffixed with View, Edit and Find forms are suffixed now.
 *. All owner selectors refactored.
 *. Search forms default the search button for enter now and switch to
-   open/select when a search is performed.
+-  open/select when a search is performed.
 *. Find animal converted to new scheme.
 *. Progress meter is stepped for searches to save blocking thread
-   switches during table population (improves performance by a lot
-   when filling table for find animal/owner)
+-  switches during table population (improves performance by a lot
+-  when filling table for find animal/owner)
 *. Added ASMSearchForm base class and converted Find Lost Animal to work
-   with it. Makes the code much cleaner and handles button disabling.
+-  with it. Makes the code much cleaner and handles button disabling.
 *. Fixed SwingWT to allow override of tool buttons in favour of push
-   buttons.
+-  buttons.
 *. Altered new panel class to set insets correctly for nicer layout.
 *. Added -Dasm.ram=RAM switch for WindowsBoot class. This means you can
-   edit the windows shortcut and put (for example) -Dasm.ram=128 to
-   have ASM use 128MB of RAM. The new default is 96MB since a lot of
-   Windows users use the local database (which requires a cache).
+-  edit the windows shortcut and put (for example) -Dasm.ram=128 to
+-  have ASM use 128MB of RAM. The new default is 96MB since a lot of
+-  Windows users use the local database (which requires a cache).
 *. Altered PetFinder publisher to use separate option fields (PF have
-   remove single options field).
+-  remove single options field).
 *. Rewrote medical selector into separate components with umbrella
-   component (easier to maintain and understand). Treatment editing
-   done.
+-  component (easier to maintain and understand). Treatment editing
+-  done.
 *. Converted JDBC dialog to new scheme and added database field
-   so it can be specified (it defaults to "asm" just in case).
+-  so it can be specified (it defaults to "asm" just in case).
 *. Converted movement selection screen
 *. Converted log types
 *. Extracted vaccinations into separate tableview screen
 *. Removed -Xms/Xmx/Xss settings from Linux/Unix scripts - it's better
-   to let the VM implementations decide (for some reason ASM takes twice
-   as much memory if you specify -Xmx128m on Java 6)
+-  to let the VM implementations decide (for some reason ASM takes twice
+-  as much memory if you specify -Xmx128m on Java 6)
 *. Removed pointless pack() command from Main.addChild() and severely
-   speeded up the UI.
+-  speeded up the UI.
 *. Moved criteria package into the UI
 *. Rewrote ASM Main form with new UI scheme. Split component
-   creation for ease of reading/maintainability.
+-  creation for ease of reading/maintainability.
 *. Rewrote ASM login form with new UI scheme
 *. Added missing keys for media panel. Media pane uses
-   new UI scheme.
+-  new UI scheme.
 *. Diary screens use new UI scheme now. More UI work.
 *. Fixed homecheck area search (old incorrect i18n key)
 *. Fixed new towns/counties lookups for when the option is
-   disabled and they aren't used.
+-  disabled and they aren't used.
 *. Refactored UI code for date/currency boxes
 *. Start of new UI library to simplify form programming for ASM
-   (still experimental, first screen done - Edit Diary).
+-  (still experimental, first screen done - Edit Diary).
 *. Edit owner uses lookup cache
 *. Fixed owner thumbnails for png images
 *. Town/City and County/State fields are dropdowns, populated from 
-   previous data. They are also linked, so changing a town will
-   update the list of counties.
+-  previous data. They are also linked, so changing a town will
+-  update the list of counties.
 *. Updated manual images
 *. Fixed hideous About screen
 *. Default Ok button on database selector so you can hit enter
 *. Removed pngs from doc/help/Makefile clean target
 *. Cleaned up status panel on main screen to have icons for current
-   database and user. Removed user from window title.
+-  database and user. Removed user from window title.
 *. MacOSX start script detects Java versions now and will use Swing
-   renderer for Java 1.4 and Carbon renderer for 1.5+
+-  renderer for Java 1.4 and Carbon renderer for 1.5+
 *. Checkpointing is disabled for database imports for speed
 *. Internal report viewer can be used for HTML document templates now
 *. Debian package now depends on menu again and auto generates correct
-   installed size.
+-  installed size.
 *. Database configuration switch: RecordSearchLimit to limit the number
-   of maximum rows allowed in a search resultset.
+-  of maximum rows allowed in a search resultset.
 *. Complete rewrite of find animal for maximum speed and single query
 
 2.1.1-1 
@@ -869,41 +869,41 @@
 *. Fixed check owner screen layout
 *. Fixed owner name searching to handle apostrophes
 *. Added xulrunner dependency for deb and fix to set MOZILLA_FIVE_HOME
-   correctly.
+-  correctly.
 
 2.1.1
 ================
 
 *. Added folder import/export to media screen and added hotkeys and
-   intelligent button enabling.
+-  intelligent button enabling.
 *. Disabled database copying - the import option works much better and
-   is less confusing (pull data from *this* other database into my
-   current one).
+-  is less confusing (pull data from *this* other database into my
+-  current one).
 *. Database selector not only checks the connection, but verifies there's
-   an ASM database there now. 
+-  an ASM database there now. 
 *. Acceptance should read Litter ID on View Litters screen
 *. Added additional credits and updated AUTHORS
 *. Media files display alphabetically now
 *. If you don't have defaulting of codes turned on and you tab through the
-   type box, it will now generate an animal code if the animal doesn't have
-   one.
+-  type box, it will now generate an animal code if the animal doesn't have
+-  one.
 *. Downloading a media file defaults the media's filename.
 *. Added asm.log.debug system property to turn off debugging messages
 *. When adding media, if the last used path no longer exists, it returns
-   to the default path for the platform.
+-  to the default path for the platform.
 *. Fixed tabbing in date from/to selection screen
 *. Manually set widths for animal fields for Vista.
 *. Fixed database diagnostic to work with other databases.
 *. Added unpack JAR shortcut for Windows (in install dir)
 *. Movement screen layout is now much better - the old one was a hideous
-   frankensteinesque minefield of giant text boxes and weird shapes.
+-  frankensteinesque minefield of giant text boxes and weird shapes.
 *. Fixed animal thumbnail layout and left column
 *. Better grid spacing throughout to not let components sit right next
-   to each other.
+-  to each other.
 *. Added title labels to embedded owner control and fixed auto sizing.
 *. Fixed diary criteria button placement
 *. Configure reporting/defaults layout fixed, titles added and class
-   renamed to be less confusing.
+-  renamed to be less confusing.
 *. Icon overhaul finished.
 *. Better title component
 *. Phase 2 of icon overhaul
@@ -911,62 +911,62 @@
 *. Improved appearance of JDBC selector
 *. Start of icon overhaul
 *. New switch database dialog offers a much friendlier way of dealing with
-   databases (no need for JDBC URLs). ASM will also always fall back to
-   a local database and make sure one is present so that it can always
-   be started up. The dialog also checks all connections before allowing
-   the user to proceed, so they can't break their ASM. This dialog is
-   now used on startup and during copy/import operations.
+-  databases (no need for JDBC URLs). ASM will also always fall back to
+-  a local database and make sure one is present so that it can always
+-  be started up. The dialog also checks all connections before allowing
+-  the user to proceed, so they can't break their ASM. This dialog is
+-  now used on startup and during copy/import operations.
 *. Fixed date format to use ISO for PostgreSQL (workaround for older
-   PostgreSQL date format problem). This solves the problem of foreign
-   locales getting SQL representations of date fields.
+-  PostgreSQL date format problem). This solves the problem of foreign
+-  locales getting SQL representations of date fields.
 *. Added translation test shortcut for Windows (appears in install directory).
-   This allows people doing translations to test ASM with their new
-   values (after unpacking asm.jar) without having to edit anything.
+-  This allows people doing translations to test ASM with their new
+-  values (after unpacking asm.jar) without having to edit anything.
 *. Fixed bad layout of animal name editing screen.
 *. Refactoring of startup code to fix MacOSX native renderer.
 *. Reinstated MacOSX native renderer, ready for testing.
 *. Moved to SWT-3.3.3.1 - Fixes combo box shading problems in Vista
-   and MacOSX. Uses native GTK2 combos and improves performance.
+-  and MacOSX. Uses native GTK2 combos and improves performance.
 *. Fixed missing i18n tokens for lock screen.
 *. Replaced SwingWT screen centering with better algorithm for 
-   dual-monitor setups.
+-  dual-monitor setups.
 *. Installer removes zip files after unpacking. Removed commented out,
-   unused old code and binaries that no longer need to be included.
-   Installer also puts a backup of the windows shortcut in the install
-   directory for 98/ME users.
+-  unused old code and binaries that no longer need to be included.
+-  Installer also puts a backup of the windows shortcut in the install
+-  directory for 98/ME users.
 *. Added more splash screens - all my beasts are on!
 *. Reinstated start maximised option and made default screen size larger
-   to cope with larger monitor resolutions (and to ensure animal screen
-   has all fields available).
+-  to cope with larger monitor resolutions (and to ensure animal screen
+-  has all fields available).
 *. Cleaned up build file and some tweaks for SwingWTUtils, so it can be
-   removed by preprocessing the code.
+-  removed by preprocessing the code.
 *. Builds are version/timestamped automatically by "make jar" now.
 
 2.1.0-1
 ================
 
 *. Added UTF-8 fix for SQL files (causes problems for UTF chars on Windows
-   where JRE6 defaults to the wrong character encoding - Unix systems
-   are unaffected)
+-  where JRE6 defaults to the wrong character encoding - Unix systems
+-  are unaffected)
 
 2.1.0
 ================
 
 *. Added Spanish translation and database patch (many thanks to
-   Andrés Palomare and Vasco Marques)
+-  Andrés Palomare and Vasco Marques)
 *. Updated splash/artwork to match CD
 *. Random splash screens for a bit of variety (using photos of my animals
-   of course!)
+-  of course!)
 *. Hides US publishing services (Petfinder, 1-800-sap, Pets911) if the locale
-   for the country is not the US
+-  for the country is not the US
 *. Added code formatter and script that removes all old netbeans plugin comments
-   from the code
+-  from the code
 *. Use localised translations from the system when asking for locale choice.
 *. Disables checkpointing during media import now for speed
 *. Translation patch for Spanish database. Added Spanish as 
-   locale option in anticipation of translation.
+-  locale option in anticipation of translation.
 *. Fixed many broken word tokens in translation files (and fixed
-   Dutch translation)
+-  Dutch translation)
 *. Fixed part-word tokens for bo.properties
 *. Added extra i18n tokens for database copy/import/locate
 *. Debian package now correctly depends on the "menu" package
@@ -974,63 +974,63 @@
 *. Added missing menu items to donation right-click menu
 *. Added new owners vet field to owner links tab
 *. Intelligent adoption donations - ASM learns what the normal donation
-   amount is for an adoption of each species of animal and defaults it
-   automatically.
+-  amount is for an adoption of each species of animal and defaults it
+-  automatically.
 *. Intelligent breed selection - ASM learns what breeds go with which
-   species and presents them based on how common each breed is to your
-   shelter.
+-  species and presents them based on how common each breed is to your
+-  shelter.
 *. Massively improved lookup data caching strategy to make edit/search
-   animal pages load faster.
+-  animal pages load faster.
 *. Removed jikes build dependency - javac isn't that much slower these
-   days.
+-  days.
 *. Created linked owner record for animal's vet instead of free form
-   box. Existing free form box is transferred to health problems
-   field.
+-  box. Existing free form box is transferred to health problems
+-  field.
 *. Moved wordkeys into an appendix of the manual and added better explanations
-   for the keys.
+-  for the keys.
 *. Doxygen system documentation
 *. Removed unused utility classes
 *. Better integrated Win32 installer (no more DOS box popping up for
-   extraction of zip files).
+-  extraction of zip files).
 *. Locale selector on startup so the rest of the system is guaranteed to
-   know the locale immediately (for future use in multilingual 
-   databases/manuals). Cleaned up locale handling.
+-  know the locale immediately (for future use in multilingual 
+-  databases/manuals). Cleaned up locale handling.
 *. Switch to GNU Make build system and cleaned up all areas of the build
 *. Language specific manual support
 *. Restructured packages to use net.sourceforge.sheltermanager - it's only
-   lived there for 6 years or so!
+-  lived there for 6 years or so!
 *. Removed MySQL info from Mac installer (to match others) - MySQL should
-   be handled separately.
+-  be handled separately.
 *. Streamlined language files and removed all unnecessary en_US entries
 *. Fixed missing comments on donations tab
 *. Better placement for buttons on Preferences screen in line with other
-   screens.
+-  screens.
 *. TimeOnShelter wordkey for animal documents and web publisher. Shows text
-   representation of time on shelter.
+-  representation of time on shelter.
 *. Added delete button to donations
 *. Updated copyright year to 2008
 *. Upgrade to Java6 for Win32 installer (fixes Vista non-GMT timezone bug and 
-   adds full compatibility with Windows Vista)
+-  adds full compatibility with Windows Vista)
 *. New checkboxes to allow disabling of criteria and header/footer output on
-   custom reports.
+-  custom reports.
 *. Authentication screen uses dropdown instead of radio buttons now as there
-   were problems setting a default value on Windows.
+-  were problems setting a default value on Windows.
 *. Media files can be attached to waiting list records now.
 *. New scripts for firing up HSQL manager over the current local database
-   for maintenance, etc.
+-  for maintenance, etc.
 *. Consolidated all use of Runtime.exec() with more robust version to fix 
-   the problem of Windows Process.waitFor() never completing.
+-  the problem of Windows Process.waitFor() never completing.
 *. The "noKids" PetFinder flag has never worked (there was no code to
-   set it - only for dogs/cats).
+-  set it - only for dogs/cats).
 *. New {IMAGE.animalid} tag for custom reports - will embed an image in
-   a custom report.
+-  a custom report.
 *. Fix for sequencing in animal aggregate data updating for the db
-   returning records out of order
+-  returning records out of order
 *. Reinstated old replace code as regex breaks with most publishing
-   tokens. PetFinder publishing (reason for change) uses direct regex
-   anyway.
+-  tokens. PetFinder publishing (reason for change) uses direct regex
+-  anyway.
 *. Patch from Chris Thomas to make ASM integrate correctly with the Mac
-   OSX menu bar and display icons correctly.
+-  OSX menu bar and display icons correctly.
 *. Removed old (and unused) activation nonsense
 *. Fix for owner criteria matching
 *. Further fix for PetFinder and null ftp socket
@@ -1045,61 +1045,61 @@
 ================
 
 *. Added additional indexes to database columns for adoption,
-   animal and media tables.
+-  animal and media tables.
 *. Breed mappings for 1-800-Save-A-Pet.com
 *. Added publisher for 1-800-Save-A-Pet.com
 *. Added option to limit media file sizes.
 *. Fixed rounding bug in custom reports where decimal places are
-   specified with sum/avg/pct functions
+-  specified with sum/avg/pct functions
 *. Altered animal movement type lookups to use the LookupCache and 
-   database instead of internationalised strings (so people altering
-   movement types in the database see their new names).
+-  database instead of internationalised strings (so people altering
+-  movement types in the database see their new names).
 *. Removed common fields from global resource fields so I only have to
-   change one version number.
+-  change one version number.
 *. Added en_IN locale with Rs. currency symbol.
 
 2.0.21
 ================
 
-   (win32/swt can look quite awful on Windows Server 2003 and over RDP
-    with broken PNG alpha and things, so you at least have a choice).
+-  (win32/swt can look quite awful on Windows Server 2003 and over RDP
+-   with broken PNG alpha and things, so you at least have a choice).
 *. Fixed broken icon link on Export Custom Report as CSV
 *. Obfuscation of LDAP bind password in database.
 *. New Not For Adoption book to quickly show all animals on the shelter
-   not available for adoption.
+-  not available for adoption.
 *. Database importer no longer imports configuration table (not necessary
-   and produces harmless, but annoying duplicate data). Also imports DBFS
-   from old databases now.
+-  and produces harmless, but annoying duplicate data). Also imports DBFS
+-  from old databases now.
 *. Added single instance lock file, can be toggled under Preferences
-   settings to only allow one instance of ASM open at a time.
+-  settings to only allow one instance of ASM open at a time.
 *. Improved debugging for LDAP authentication.
 *. Tidied up debug logging and dialog wait time code.
 *. Fixed to wait if a dialog is displayed before a form parent is loaded
-   to prevent them disappearing before the user can see them (only during
-   boot sequence).
+-  to prevent them disappearing before the user can see them (only during
+-  boot sequence).
 *. Fixed security flags on main screen buttons.
 *. View users displays real name as well as username.
 *. MD5 integration for all database user functions.
 *. New Authentication page on system menu to choose how ASM will authenticate
-   users. Select from OS, Database or LDAP.
+-  users. Select from OS, Database or LDAP.
 *. OS authentication is now stricter - if it's set and you don't have a
-   matching ASM user, ASM will refuse to let you in. This is equivalent
-   to ident security on some Unix applications.
+-  matching ASM user, ASM will refuse to let you in. This is equivalent
+-  to ident security on some Unix applications.
 *. Lock user menu item now authenticates with LDAP.
 *. Lock user and Login Again now disabled for OS authentication (since they
-   aren't valid).
+-  aren't valid).
 *. MD5 hashing code.
 *. Removed FindMeAPet menu.
 *. Removed LDAP stuff from Options in preparation for move to separate
-   configuration screen. Updated LDAP auth to use subtree search and
-   bind.
+-  configuration screen. Updated LDAP auth to use subtree search and
+-  bind.
 *. LDAP configuration for authentication. Allows ASM to authenticate 
-   from any V3 compliant LDAP server, as long as the user exists in
-   ASM's own database as well.
+-  from any V3 compliant LDAP server, as long as the user exists in
+-  ASM's own database as well.
 *. Expiring members mail merge.
 *. Instalment donations now available from movement records.
 *. Database importer doesn't override JDBC URL anymore and defaults
-   sane HSQLDB value to standard ASM local database.
+-  sane HSQLDB value to standard ASM local database.
 *. Fixed bug in 0 pivot dates for owner tasks
 
 2.0.20
@@ -1139,23 +1139,23 @@ opens and if a heartbeat request fails, it will re-establish the connection.
 
 *. Donations are correctly formatted for the locale now
 *. Custom report editor shows fields correctly for all tables on all database
-   platforms now (previous use of MySQL specific LIMIT clause)
+-  platforms now (previous use of MySQL specific LIMIT clause)
 *. Fixed lock menu option to allow unlocking again.
 *. Flag for dev builds is now DEV instead of CVS
 *. Fixed DOA/PTS Flags on In/Out report
 *. Fixed diet icon bug
 *. Renamed icons in line with actual image sizes and formats
 *. Re-enabling of asm.bat file for 98/ME machines that cannot work with 
-   new bootloader.
+-  new bootloader.
 *. Image scaling now always retains aspect ratio.
 *. Updated code copyright year and version
 *. Linux amd64 build.
 *. Debian/Ubuntu package obeys Debian file structure better and now 
-   includes Window Manager menu items for Ubuntu/Debian.
+-  includes Window Manager menu items for Ubuntu/Debian.
 *. Fixed bug in reserve/fostering check to allow animals on foster to
-   be reserved.
+-  be reserved.
 *. Added new "getdbfsfile" command to allow retrieving of any file from
-   the DBFS.
+-  the DBFS.
 *. Fixed other broken flags on the options screen
 *. Fixed broken auto incrementing codes option in options screen
 
@@ -1164,78 +1164,78 @@ opens and if a heartbeat request fails, it will re-establish the connection.
 ================
 
 *. Separated FIV Result to a separate line for US users to save 
-   confusion.
+-  confusion.
 *. Added "OwnerEmail" wordkey to output the owner's email address
-   in documents.
+-  in documents.
 *. Added OpenOffice 2.0 versions of all media templates and set
-   default for new databases to OpenOffice 2. Added missing rtf
-   versions of some templates for MS Word users.
+-  default for new databases to OpenOffice 2. Added missing rtf
+-  versions of some templates for MS Word users.
 *. Added notes to linux and unix tarballs about the requirements for
-   zip/unzip installed in /usr/bin for OpenOffice support
+-  zip/unzip installed in /usr/bin for OpenOffice support
 *. Fixed custom report screen to display fields again when
-   selecting a table in the drop down.
+-  selecting a table in the drop down.
 *. When outputting FIV/L and other test results to word processor
-   templates, if the animal hasn't been tested, a blank is returned 
-   instead of "unknown".
+-  templates, if the animal hasn't been tested, a blank is returned 
+-  instead of "unknown".
 *. Removed dependency on Java 5 ProcessBuilder for OpenOffice support
-   and rewrote to use Runtime.exec() instead. ASM is now fully
-   1.4 compliant again.
+-  and rewrote to use Runtime.exec() instead. ASM is now fully
+-  1.4 compliant again.
 *. Fixed build to specify noarch on unix builds.
 *. Submitted SWTSwing patch to fix table double-click behaviour and
-   focus management for Mac/UNIX
+-  focus management for Mac/UNIX
 
 2.0.15
 ================
 
 *. MacOS build comes out as ppcx86 now.
 *. Fixed bug in "attach as media" checkbox for documentation generation
-   (still using old FTP module - now works with DBFS again)
+-  (still using old FTP module - now works with DBFS again)
 *. Media preview will now work for any case of image files.
 *. Media previewer will accept GIF and PNG as well as jpeg now.
 *. SWTSwing fixes for Java 1.4 compatibility (not all Unix/Macs have
-   an easy path to Java 1.5)
+-  an easy path to Java 1.5)
 *. Compiler target set to 1.4
 *. Use Swing bridge for Mac (to fix threading issues on Mac and Apple
-   integrate it nicely with Carbon)
+-  integrate it nicely with Carbon)
 *. Added Windows boot code to hide the debug window
 *. Removed  MacOSX specific thread code as SWT 3.2 no longer
-   needs them.
+-  needs them.
 *. Fixed bug in getAnimalsOnFoster code.
 *. Fixed internal report viewer for SWTSwing backend
 *. Added SWTSwing to credited OSS list
 *. Upgrade to SWT 3.2
 *. MacOSX no longer needs java_swt wrapper for SWT 3.2. Also has
-   fat binary support for Intel Mac
+-  fat binary support for Intel Mac
 *. Added SWTSwing (thanks Chris!) support and tarball build for other unices
-   not currently supported by native widgets in ASM. *BSD, AIX, HP-UX and
-   Solaris users can now get an out of the box build of ASM now!
+-  not currently supported by native widgets in ASM. *BSD, AIX, HP-UX and
+-  Solaris users can now get an out of the box build of ASM now!
 *. Fixed ambiguous Put_to_Sleep resource link in figures and in/out reports
 *. Fixed missing wordkey from In/Out report for PTS
 *. Fixed minor date bug in searches that caused dates to default
-   to 12 midday instead of 12 midnight (thanks to Java's rubbish
-   Calendar->Date nonsense)
+-  to 12 midday instead of 12 midnight (thanks to Java's rubbish
+-  Calendar->Date nonsense)
 *. Fixed annoying screen maximising bug
 *. Fixed litter search/check date bug
 *. Optimised total animals on shelter method of animal business object
-   (used by figures reports). Note that it now requires MySQL 5
-   (Any PostgreSQL and HSQLDB can be used)
+-  (used by figures reports). Note that it now requires MySQL 5
+-  (Any PostgreSQL and HSQLDB can be used)
 *. Optimised animal total lookups for efficiency (used by 
-   figures and other reports)
+-  figures and other reports)
 *. Rewrote animal figures report using single queries to replace the
-   31 presently done for each day of the month. It now takes about 5%
-   the time it did previously.
+-  31 presently done for each day of the month. It now takes about 5%
+-  the time it did previously.
 *. Yet another publisher fix for specifying location patterns
 *. Publisher fix had goodwith flags wrong way round
 *. Similar publisher bug in PetFinder module
 *. Failed location matches in command line publishers break and
-   inform the user of the location that couldn't be matched.
+-  inform the user of the location that couldn't be matched.
 *. Fixed mysql.sql to not use default values any more (they are 
-   ignored by ASM anyway)
+-  ignored by ASM anyway)
 *. Bug fixed in publisher for good with cats/kids/dogs/housetrained
 *. FTP Root directory can be overriden via command line publisher
-   to use different criteria to publish different sets of animals
+-  to use different criteria to publish different sets of animals
 *. Fixed Configure Report/Defaults screen to not barf on missing
-   entries from the config table
+-  entries from the config table
 *. Updated SQL to show DontAutoArchiveOnExit option
 
 2.0.14
