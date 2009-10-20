@@ -302,7 +302,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         ctl.add(cboLocation);
         ctl.add(txtDateOfBirth);
-        ctl.add(txtMarkings);
         ctl.add(chkIdentichipped);
         ctl.add(txtIdentichipDate);
         ctl.add(txtIdentichipNo);
@@ -323,6 +322,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             ctl.add(cboFLVTestResult);
         }
 
+        ctl.add(txtMarkings);
         ctl.add(txtHiddenAnimalComments);
         ctl.add(txtComments);
         ctl.add(cboGoodCats);
@@ -1928,7 +1928,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlLeftTop = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlThumbnail = UI.getPanel(UI.getGridLayout(4));
-        UI.Panel pnlMarkings = UI.getPanel(UI.getGridLayout(2));
         pnlLeftFields = UI.getPanel(UI.getGridLayout(2));
 
         // Thumbnail panel
@@ -2058,17 +2057,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 UI.getDateField(i18n("The_animal's_date_of_birth"),
                     UI.fp(this, "dataChanged"), UI.fp(this, "updateAge")));
 
-        // Markings panel
-        txtMarkings = (UI.TextArea) UI.addComponent(pnlMarkings,
-                i18n("Dist._Features:"),
-                UI.getTextArea(i18n("Any_distinguishing_markings_or_features_the_animal_has"),
-                    UI.fp(this, "dataChanged")));
-
         // Lay out the left side
         pnlLeftTop.add(pnlThumbnail, UI.BorderLayout.NORTH);
         pnlLeftTop.add(pnlLeftFields, UI.BorderLayout.CENTER);
         pnlLeft.add(pnlLeftTop, UI.BorderLayout.NORTH);
-        pnlLeft.add(pnlMarkings, UI.BorderLayout.CENTER);
+        //pnlLeft.add(pnlMarkings, UI.BorderLayout.CENTER);
         pnlDetails.add(pnlLeft);
 
         // Details right pane =========================================
@@ -2171,6 +2164,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Comments panel
         UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2));
+
+        txtMarkings = (UI.TextArea) UI.addComponent(pnlComments,
+                i18n("Dist._Features:"),
+                UI.getTextArea(i18n("Any_distinguishing_markings_or_features_the_animal_has"),
+                    UI.fp(this, "dataChanged")));
 
         txtHiddenAnimalComments = (UI.TextArea) UI.addComponent(pnlComments,
                 i18n("Hidden_Comments:"),

@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Moved markings field to sit with comments to reduce screen res needed
+-  to display animal details page
 *. Renamed changelog to match vim syntax highlighting
 *. Fixed up ant script and Makefile so incremental building works properly 
 *. Removed swingwt stuff since it's no longer needed, this simplifies
