@@ -106,9 +106,9 @@ lbl_data:
   ; Write batch files
   SetOutPath $INSTDIR
 
-  ; Main launcher with Swing interface
+  ; Main launcher from batch file
   FileOpen $FH "$INSTDIR\asm.bat" w
-  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm-swing.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup "$INSTDIR\data"'
+  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup "$INSTDIR\data"'
   FileClose $FH
 
 
