@@ -23,9 +23,12 @@ lines = infile.readlines()
 infile.close()
 
 # Infer a java locale from the language code in translate_lang.sql
-code = filename[filename.find(":")+1:filename.find(".")]
+code = filename[filename.find("_")+1:filename.find(".")]
 if code.find("_") != -1:
     code = code + "_" + code.upper()
+
+# No lang for English as it's the template
+if code == "en": code = ""
 
 # Open the output file
 outfilename = "database" + code + ".properties"

@@ -4,8 +4,6 @@ THISDIR=`dirname $0`
 FILES="`cat $THISDIR/i18n_files.txt`"
 
 cd `dirname $0`/../src/locale
-mkdir -p po
-rm -f po/*
 
 # Create master template file of all English properties
 for F in $FILES; do
