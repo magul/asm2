@@ -1,4 +1,5 @@
 ASM Web Component
+=======================
 
 The ASM web component is a build of ASM that runs as a java applet. The
 user hits a webpage with their browser and ASM starts up in the browser
@@ -8,7 +9,12 @@ DATABASE
 =======================
 
 Install MySQL or PostgreSQL
+
 Use the appropriate script in the sql directory to create the database
+(mysql.sql or postgresql.sql)
+
+If you want to use a different language for the database, run one of the
+translation patches also included in the sql directory.
 
 WEBSERVER
 =======================

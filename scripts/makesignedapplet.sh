@@ -28,8 +28,9 @@ rm -f fatone.jar
 cp asm-applet.jar ../scripts/asmweb
 cd ../scripts
 mkdir asm
+mkdir asm/sql
 cp -f asmweb/* asm
-cp -r ../sql asm
+cp -r ../sql/*.sql asm/sql
 cp -r ../media asm
-zip -r9 ../build/sheltermanager-web-`cat ../VERSION`.zip asm
+zip -r9 ../build/sheltermanager-`cat ../VERSION`_web.zip asm
 rm -rf asmweb/asm-applet.jar asm
