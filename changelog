@@ -1,6 +1,12 @@
 2.6.1
 ================
 
+*. All supported languages are now stored in scripts/i18n_languages.txt
+-  with property files in scripts/i18n_files.txt. This means we can add
+-  supported languages by just adding to these files now
+*. Added launchpad snapshots of supported languages to src/locale/po. 
+-  We can use these to synchronise translations so translators know when 
+-  their translations are added to a build
 *. Mistranslation of "No" in uimedical was causing the word "Sequence" to
 -  to appear in translations in place of No (as in Yes/No) incorrectly
 *. Moved markings field to sit with comments to reduce screen res needed

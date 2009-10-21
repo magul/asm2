@@ -5,6 +5,7 @@
 cd `dirname $0`
 SQLDIR=../sql
 PROPDIR=../src/locale
+LANGUAGES="`cat i18n_languages.txt`"
 
 # This script is really for updating the template database.properties file
 # from the English script now - the other languages are translated

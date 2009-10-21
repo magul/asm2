@@ -1,22 +1,20 @@
-#. # bo.properties#=========================================================================
-#. extracted from ./../src/locale/po/t.properties
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-21 09:07+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2009-10-13 15:19+0100\n"
+"PO-Revision-Date: 2009-10-14 15:27+0000\n"
+"Last-Translator: Bertrand <bardet-bertrand@aliceadsl.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.4.0\n"
+"X-Launchpad-Export-Date: 2009-10-16 06:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
 msgid "You must give the diary task a name."
-msgstr ""
+msgstr "Vous devez nommer la tâche"
 
 #: You_must_set_who_the_task_is_for
 msgid "You must set who the task is for"
@@ -24,11 +22,11 @@ msgstr ""
 
 #: You_must_set_the_note_text.
 msgid "You must set the note text."
-msgstr ""
+msgstr "Vous devez saisir une note."
 
 #: You_must_set_a_subject.
 msgid "You must set a subject."
-msgstr ""
+msgstr "Vous devez saisir un sujet."
 
 #: You_must_set_a_day_pivot.
 msgid "You must set a day pivot."
@@ -120,7 +118,7 @@ msgstr ""
 
 #: litters_cancelled
 msgid "{0} litter(s) cancelled."
-msgstr ""
+msgstr "{0} portée(s) annulée(s)"
 
 #: You_must_enter_the_number_of_animals_in_the_litter.
 msgid "You must enter the number of animals in the litter."
@@ -245,7 +243,7 @@ msgstr ""
 #: Reservation
 #: lksmovementtype_9
 msgid "Reservation"
-msgstr ""
+msgstr "Réservation"
 
 #: updating_and_cancelling_litters
 msgid "Updating and cancelling animal litters..."
@@ -398,7 +396,7 @@ msgstr ""
 
 #: days
 msgid "days"
-msgstr ""
+msgstr "jours"
 
 #: weeks
 msgid "weeks"
@@ -406,19 +404,19 @@ msgstr ""
 
 #: monthly
 msgid "monthly"
-msgstr ""
+msgstr "monthly"
 
 #: years
 msgid "years"
-msgstr ""
+msgstr "years"
 
 #: months
 msgid "months"
-msgstr ""
+msgstr "mois"
 
 #: Unspecified
 msgid "Unspecified"
-msgstr ""
+msgstr "Non-spécifié"
 
 #: treatments
 msgid "treatments"
@@ -535,7 +533,7 @@ msgstr ""
 
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
-msgstr ""
+msgstr "Analyse mensuelle des dons (par type) pour "
 
 #: Brought_In_(
 msgid "Brought In ("
@@ -543,7 +541,7 @@ msgstr ""
 
 #: Monthly_Donation_analysis_(by_species)_for_
 msgid "Monthly Donation analysis (by species) for "
-msgstr ""
+msgstr "Analyse mensuelle des dons (par espèces) pour "
 
 #: Adoption_Return_Reasons_for_
 msgid "Adoption Return Reasons for "
@@ -555,23 +553,23 @@ msgstr ""
 
 #: Monthly_Adoption_analysis_(by_species)_for_
 msgid "Monthly Adoption analysis (by species) for "
-msgstr ""
+msgstr "Analyse mensuelle des adoptions (par espèces) pour "
 
 #: Oct
 msgid "Oct"
-msgstr ""
+msgstr "Oct"
 
 #: Monthly_Adoption_analysis_(by_location,_
 msgid "Monthly Adoption analysis (by location, "
-msgstr ""
+msgstr "Analyse mensuelle des adoptions (by location, "
 
 #: Jul
 msgid "Jul"
-msgstr ""
+msgstr "Juil"
 
 #: Aug
 msgid "Aug"
-msgstr ""
+msgstr "Août"
 
 #: Which_year_is_this_graph_for?
 msgid "Which year is this graph for?"
@@ -579,19 +577,19 @@ msgstr ""
 
 #: Jan
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
 
 #: all
 msgid "all"
-msgstr ""
+msgstr "Tous"
 
 #: Sep
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
 #: Nov
 msgid "Nov"
-msgstr ""
+msgstr "Nov"
 
 #: May
 msgid "May"
@@ -599,27 +597,27 @@ msgstr ""
 
 #: Apr
 msgid "Apr"
-msgstr ""
+msgstr "Avr"
 
 #: Dec
 msgid "Dec"
-msgstr ""
+msgstr "Déc"
 
 #: _species)_for_
 msgid " species) for "
-msgstr ""
+msgstr " espèces) pour "
 
 #: Mar
 msgid "Mar"
-msgstr ""
+msgstr "Mars"
 
 #: Jun
 msgid "Jun"
-msgstr ""
+msgstr "Juin"
 
 #: Feb
 msgid "Feb"
-msgstr ""
+msgstr "Fév"
 
 #: Generating_Graph_-_
 msgid "Generating Graph - "
@@ -627,11 +625,11 @@ msgstr ""
 
 #: What_type_of_graph_would_you_like_to_generate?
 msgid "What type of graph would you like to generate?"
-msgstr ""
+msgstr "Quel type de graphique souhaitez-vous créer ?"
 
 #: Graph_Type
 msgid "Graph Type"
-msgstr ""
+msgstr "Type de graphique"
 
 #: Interpolation
 msgid "Interpolation"
@@ -651,11 +649,11 @@ msgstr ""
 
 #: Line
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
 #: Bar_Chart
 msgid "Bar Chart"
-msgstr ""
+msgstr "Graphique en Barres"
 
 #: Unknown_chart_type_'
 msgid "Unknown chart type '"
@@ -679,7 +677,7 @@ msgstr ""
 
 #: donations
 msgid "Donations ("
-msgstr ""
+msgstr "Dons ("
 
 #: there_is_no_data_to_show_on_the_chart
 msgid "There is no data to show on the chart."
@@ -2516,7 +2514,7 @@ msgstr ""
 #: customreport_40_category
 #: Auditing
 msgid "Auditing"
-msgstr ""
+msgstr "Auditer"
 
 #: customreport_37_002
 msgid "Animals Without Photo Media"
@@ -2542,7 +2540,7 @@ msgstr ""
 #: customreport_42_category
 #: Figures
 msgid "Figures"
-msgstr ""
+msgstr "Chiffres"
 
 #: customreport_42_007
 msgid "Long Term Animals"
@@ -2557,7 +2555,7 @@ msgstr ""
 #: customreport_66_category
 #: Inventories
 msgid "Inventories"
-msgstr ""
+msgstr "Inventaires"
 
 #: customreport_44_009
 msgid "Detailed Shelter Inventory"
@@ -2583,7 +2581,7 @@ msgstr ""
 #: movements
 #: Movements
 msgid "Movements"
-msgstr ""
+msgstr "Mouvements"
 
 #: customreport_47_012
 msgid "In/Out Summary"
@@ -2646,7 +2644,7 @@ msgstr ""
 #: customreport_59_category
 #: Statistics
 msgid "Statistics"
-msgstr ""
+msgstr "Statistiques"
 
 #: customreport_56_021
 msgid "Animal Death Reasons"
@@ -2667,7 +2665,7 @@ msgstr ""
 
 #: customreport_60_025
 msgid "Monthly Donations"
-msgstr ""
+msgstr "Dons mensuels"
 
 #: customreport_60_category
 #: customreport_61_category
@@ -2676,11 +2674,11 @@ msgstr ""
 
 #: customreport_61_026
 msgid "Monthly Donations By Species"
-msgstr ""
+msgstr "Dons mensuels par espèces"
 
 #: customreport_62_027
 msgid "Monthly Adoptions By Species"
-msgstr ""
+msgstr "Adoptions mensuelles par espèces"
 
 #: customreport_62_category
 #: customreport_63_category
@@ -2761,7 +2759,7 @@ msgstr ""
 
 #: entryreason_10
 msgid "Abuse"
-msgstr ""
+msgstr "Abuse"
 
 #: entryreason_11
 msgid "Abandoned"
@@ -2774,21 +2772,21 @@ msgstr ""
 #: lksex_0
 #: Female
 msgid "Female"
-msgstr ""
+msgstr "Femelle"
 
 #: lksex_1
 #: Male
 msgid "Male"
-msgstr ""
+msgstr "Mâle"
 
 #: lksize_0
 msgid "Very Large"
-msgstr ""
+msgstr "Très grand"
 
 #: lksize_1
 #: Large
 msgid "Large"
-msgstr ""
+msgstr "Grand"
 
 #: lksize_2
 #: lkurgency_3
@@ -2799,7 +2797,7 @@ msgstr ""
 #: lksize_3
 #: Small
 msgid "Small"
-msgstr ""
+msgstr "Petit"
 
 #: lkcoattype_0
 msgid "Short"
@@ -2896,12 +2894,12 @@ msgstr ""
 #: lksfieldtype_1
 #: Text
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
 #: lksfieldtype_2
 #: Notes
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 #: lksfieldtype_3
 #: Number
@@ -2937,7 +2935,7 @@ msgstr ""
 
 #: lkurgency_5
 msgid "Lowest"
-msgstr ""
+msgstr "Minimum"
 
 #: logtype_1
 msgid "Bite"
@@ -3034,7 +3032,7 @@ msgstr ""
 
 #: Errors_Found_and_Repaired
 msgid "Errors Found and Repaired"
-msgstr ""
+msgstr "Erreurs trouvées et réparées"
 
 #: Scan_complete
 msgid "Scan complete"
@@ -3058,7 +3056,7 @@ msgstr ""
 
 #: No_errors_were_found_during_diagnostics.
 msgid "No errors were found during diagnostics."
-msgstr ""
+msgstr "Pas d'erreur constatées durant les diagnostics."
 
 #: _orphaned_movement_records_found_and_removed.\n
 msgid " orphaned movement records found and removed. "
@@ -3082,13 +3080,13 @@ msgstr ""
 
 #: Database_update_was_successful.
 msgid "Database update was successful."
-msgstr ""
+msgstr "Base de données mise à jour avec succès."
 
 #: OK
 #: Ok
 #: ok
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: Select_database_update_file_to_process\:
 msgid "Select database update file to process:"
@@ -3100,7 +3098,7 @@ msgstr ""
 
 #: _corrupted_tables_repaired
 msgid " corrupted tables repaired."
-msgstr ""
+msgstr " Tables corrompues réparées."
 
 #: checking_for_corrupted_tables
 msgid "Checking for corrupted tables in the database..."
@@ -3113,14 +3111,14 @@ msgstr ""
 #: username
 #: LDAP_User
 msgid "User:"
-msgstr ""
+msgstr "Utilisateur:"
 
 #: password
 #: Password\:
 #: Password
 #: LDAP_Pass
 msgid "Password:"
-msgstr ""
+msgstr "Mot de passe:"
 
 #: hostname
 msgid "Hostname:"
@@ -3184,7 +3182,7 @@ msgstr ""
 
 #: continue
 msgid "Continue?"
-msgstr ""
+msgstr "Continuer?"
 
 #: copy_successful
 msgid "Copy completed successfully."
@@ -3230,10 +3228,11 @@ msgstr ""
 #: couldntconnectmess
 msgid "Could not connect to {0} - see the asm.log for details."
 msgstr ""
+"Connexion impossible à {0} - Voir le fichier asm.log pour plus de détails."
 
 #: couldntconnect
 msgid "Couldn't Connect"
-msgstr ""
+msgstr "Connexion impossible"
 
 #: scan
 msgid "Scan"
@@ -3248,7 +3247,7 @@ msgstr ""
 
 #: database
 msgid "Database:"
-msgstr ""
+msgstr "Base de données:"
 
 #: no_allowdbautoupdates
 msgid ""
@@ -3300,8 +3299,7 @@ msgstr ""
 
 #: Please_enter_the_start_date_you_would_like_to_prepare_vaccination_letters_for
 msgid ""
-"Please enter the start date you would like to prepare vaccination letters "
-"for"
+"Please enter the start date you would like to prepare vaccination letters for"
 msgstr ""
 
 #: Date_Required
@@ -3660,7 +3658,7 @@ msgstr ""
 #: Cancel
 #: cancel
 msgid "Cancel"
-msgstr ""
+msgstr "Annulé"
 
 #: Date_From\:
 msgid "Date From:"
@@ -3804,19 +3802,19 @@ msgstr ""
 
 #: 9_weeks
 msgid "9 weeks"
-msgstr ""
+msgstr "9 semaines"
 
 #: 12_weeks
 msgid "12 weeks"
-msgstr ""
+msgstr "12 semaines"
 
 #: 52_weeks
 msgid "52 weeks"
-msgstr ""
+msgstr "52 semaines"
 
 #: 15_weeks
 msgid "15 weeks"
-msgstr ""
+msgstr "15 semaines"
 
 #: Include_cats_aged_how_many_weeks_and_above?
 msgid "Include cats aged how many weeks and above?"
@@ -3824,15 +3822,15 @@ msgstr ""
 
 #: 10_weeks
 msgid "10 weeks"
-msgstr ""
+msgstr "10 semaines"
 
 #: 4_weeks
 msgid "4 weeks"
-msgstr ""
+msgstr "4 semaines"
 
 #: 8_weeks
 msgid "8 weeks"
-msgstr ""
+msgstr "8 semaines"
 
 #: 1_week
 msgid "1 week"
@@ -3840,7 +3838,7 @@ msgstr ""
 
 #: 16_weeks
 msgid "16 weeks"
-msgstr ""
+msgstr "16 semaines"
 
 #: No_cats_matching_your_criteria_were_found_on_the_shelter.
 msgid "No cats matching your criteria were found on the shelter."
@@ -3848,11 +3846,11 @@ msgstr ""
 
 #: 2_weeks
 msgid "2 weeks"
-msgstr ""
+msgstr "2 semaines"
 
 #: 13_weeks
 msgid "13 weeks"
-msgstr ""
+msgstr "13 semaines"
 
 #: Cats_not_combi-tested_on_the_shelter_aged_
 msgid "Cats not combi-tested on the shelter aged {0} weeks and over at {1}"
@@ -3860,31 +3858,31 @@ msgstr ""
 
 #: 7_weeks
 msgid "7 weeks"
-msgstr ""
+msgstr "7 semaines"
 
 #: 14_weeks
 msgid "14 weeks"
-msgstr ""
+msgstr "14 semaines"
 
 #: 26_weeks
 msgid "26 weeks"
-msgstr ""
+msgstr "26 semaines"
 
 #: 11_weeks
 msgid "11 weeks"
-msgstr ""
+msgstr "11 semaines"
 
 #: 3_weeks
 msgid "3 weeks"
-msgstr ""
+msgstr "3 semaines"
 
 #: 5_weeks
 msgid "5 weeks"
-msgstr ""
+msgstr "5 semaines"
 
 #: 6_weeks
 msgid "6 weeks"
-msgstr ""
+msgstr "6 semaines"
 
 #: Total__
 msgid "Total: {0}"
@@ -3916,7 +3914,7 @@ msgstr ""
 
 #: Rank
 msgid "Rank"
-msgstr ""
+msgstr "Classement"
 
 #: Deceased_Reasons
 msgid "Deceased Reasons"
@@ -3960,7 +3958,7 @@ msgstr ""
 
 #: Building_report...
 msgid "Building report..."
-msgstr ""
+msgstr "Construction du rapport..."
 
 #: Do_you_want_to_include_blank_postcodes_in_this_report?
 msgid "Do you want to include blank postcodes in this report?"
@@ -3968,7 +3966,7 @@ msgstr ""
 
 #: Sorting...
 msgid "Sorting..."
-msgstr ""
+msgstr "Tri..."
 
 #: Occurrences
 msgid "Occurrences"
@@ -3980,7 +3978,7 @@ msgstr ""
 
 #: Retrieving_data...
 msgid "Retrieving data..."
-msgstr ""
+msgstr "Réception des données..."
 
 #: AnimalName
 msgid "AnimalName"
@@ -4060,7 +4058,7 @@ msgstr ""
 
 #: Length
 msgid "Length"
-msgstr ""
+msgstr "Longueur"
 
 #: Reason_For_Return
 msgid "Reason For Return"
@@ -4132,7 +4130,7 @@ msgstr ""
 
 #: 80%
 msgid "80%"
-msgstr ""
+msgstr "80%"
 
 #: Lost/Found_Animal_Match_Report_At_
 msgid "Lost/Found Animal Match Report At {0} "
@@ -4140,7 +4138,7 @@ msgstr ""
 
 #: 60%
 msgid "60%"
-msgstr ""
+msgstr "60%"
 
 #: Percentage_Match
 msgid "Percentage Match"
@@ -4152,11 +4150,11 @@ msgstr ""
 
 #: 90%
 msgid "90%"
-msgstr ""
+msgstr "90%"
 
 #: 70%
 msgid "70%"
-msgstr ""
+msgstr "70%"
 
 #: Set_Match_Floor
 msgid "Set Match Floor"
@@ -4180,7 +4178,7 @@ msgstr ""
 
 #: 30%
 msgid "30%"
-msgstr ""
+msgstr "30%"
 
 #: No_matches_found.
 msgid "No matches found."
@@ -4192,7 +4190,7 @@ msgstr ""
 
 #: 50%
 msgid "50%"
-msgstr ""
+msgstr "50%"
 
 #: Date_Of_Entry
 msgid "Date Of Entry"
@@ -4475,7 +4473,7 @@ msgstr ""
 
 #: Select_Month
 msgid "Select Month"
-msgstr ""
+msgstr "Sélectionnez le mois"
 
 #: _stolen
 msgid "{0} stolen"
@@ -4487,7 +4485,7 @@ msgstr ""
 
 #: April
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: To_Fostering
 msgid "To Fostering"
@@ -4495,7 +4493,7 @@ msgstr ""
 
 #: Cats
 msgid "Cats"
-msgstr ""
+msgstr "Chats"
 
 #: _returned_from_other_(transfers,_released,_escaped,_stolen_or_reclaimed)
 msgid ""
@@ -4508,7 +4506,7 @@ msgstr ""
 
 #: July
 msgid "July"
-msgstr ""
+msgstr "July"
 
 #: Summary_Totals\:
 msgid "Summary Totals:"
@@ -4532,7 +4530,7 @@ msgstr ""
 
 #: Dogs
 msgid "Dogs"
-msgstr ""
+msgstr "Chiens"
 
 #: Transferred_In
 msgid "Transferred In"
@@ -4540,7 +4538,7 @@ msgstr ""
 
 #: August
 msgid "August"
-msgstr ""
+msgstr "Août"
 
 #: PTS
 msgid "PTS"
@@ -4552,7 +4550,7 @@ msgstr ""
 
 #: January
 msgid "January"
-msgstr ""
+msgstr "Janvier"
 
 #: From_Fostering
 msgid "From Fostering"
@@ -4560,7 +4558,7 @@ msgstr ""
 
 #: February
 msgid "February"
-msgstr ""
+msgstr "Février"
 
 #: _to_foster_home
 msgid "{0} to foster home"
@@ -4568,7 +4566,7 @@ msgstr ""
 
 #: March
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 #: Incoming
 msgid "Incoming"
@@ -4580,11 +4578,11 @@ msgstr ""
 
 #: November
 msgid "November"
-msgstr ""
+msgstr "Novembre"
 
 #: October
 msgid "October"
-msgstr ""
+msgstr "Octobre"
 
 #: Brought_to_the_Shelter
 msgid "Brought to the Shelter:"
@@ -4596,7 +4594,7 @@ msgstr ""
 
 #: June
 msgid "June"
-msgstr ""
+msgstr "Juin"
 
 #: Day_Of_Month
 msgid "Day Of Month"
@@ -4608,7 +4606,7 @@ msgstr ""
 
 #: September
 msgid "September"
-msgstr ""
+msgstr "Septembre"
 
 #: _transferred_in
 msgid "{0} transferred in"
@@ -4620,7 +4618,7 @@ msgstr ""
 
 #: Day_Total
 msgid "Day Total"
-msgstr ""
+msgstr "Total de jour"
 
 #: Day_total_of_last_day_of_previous_month
 msgid "(Day total of last day of previous month: {0}) "
@@ -4632,7 +4630,7 @@ msgstr ""
 
 #: December
 msgid "December"
-msgstr ""
+msgstr "Décembre"
 
 #: _transferred_out
 msgid "{0} transferred out"
@@ -4660,7 +4658,7 @@ msgstr ""
 
 #: criteria
 msgid "Criteria"
-msgstr ""
+msgstr "Critères"
 
 #: to_other
 msgid "To Other"
@@ -4699,7 +4697,7 @@ msgstr ""
 #: Diet
 #: diet
 msgid "Diet"
-msgstr ""
+msgstr "Régime"
 
 #: Voucher
 msgid "Voucher"
@@ -4746,7 +4744,8 @@ msgid "{0} (plus {1})"
 msgstr ""
 
 #: there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run
-msgid "There must be at least one SELECT query and it must be the last to run."
+msgid ""
+"There must be at least one SELECT query and it must be the last to run."
 msgstr ""
 
 #: owner_criteria_search
@@ -4764,12 +4763,12 @@ msgstr ""
 #: GoodWithCats
 #: Good_with_cats
 msgid "Good with cats"
-msgstr ""
+msgstr "S'entend avec les chats"
 
 #: GoodWithDogs
 #: Good_with_dogs
 msgid "Good with dogs"
-msgstr ""
+msgstr "S'entend avec les chiens"
 
 #: GoodWithChildren
 #: Good_with_kids
@@ -4872,7 +4871,7 @@ msgstr ""
 
 #: Remaining
 msgid "Remaining"
-msgstr ""
+msgstr "Restant"
 
 #: New_litter
 msgid "New litter"
@@ -4923,7 +4922,7 @@ msgstr ""
 
 #: tick_this_box_to_include_deceased_animals
 msgid "Tick this box to include deceased animals"
-msgstr ""
+msgstr "Cocher cette case afin d'inclure les animaux décédés"
 
 #: Type\:_
 #: Type\:
@@ -4948,7 +4947,7 @@ msgstr ""
 
 #: Reserved\:_
 msgid "Reserved: "
-msgstr ""
+msgstr "Réservé : "
 
 #: Sex\:_
 msgid "Sex: "
@@ -4964,7 +4963,7 @@ msgstr ""
 
 #: Aged_between\:_
 msgid "Aged between: "
-msgstr ""
+msgstr "Agé entre : "
 
 #. # uiowner.properties#=========================================================================
 #: Open
@@ -4973,11 +4972,11 @@ msgstr ""
 
 #: Unreserved
 msgid "Unreserved"
-msgstr ""
+msgstr "Non réservé"
 
 #: Print
 msgid "Print"
-msgstr ""
+msgstr "Imprimer"
 
 #: Search_complete_-_no_matches_found.
 msgid "Search complete - no matches found."
@@ -4985,7 +4984,7 @@ msgstr ""
 
 #: and\:_
 msgid "and: "
-msgstr ""
+msgstr "et: "
 
 #: In_Between\:_
 msgid "In Between: "
@@ -4993,7 +4992,7 @@ msgstr ""
 
 #: Features_
 msgid "Features: "
-msgstr ""
+msgstr "Caractéristiques: "
 
 #: LocationName
 msgid "LocationName"
@@ -5005,7 +5004,7 @@ msgstr ""
 
 #: Insurance_No\:_
 msgid "Insurance No: "
-msgstr ""
+msgstr "N° d'assurance : "
 
 #: Find_Animal
 msgid "Find Animal"
@@ -5013,11 +5012,11 @@ msgstr ""
 
 #: Reserved
 msgid "Reserved"
-msgstr ""
+msgstr "Réservé"
 
 #: Species\:_
 msgid "Species: "
-msgstr ""
+msgstr "Espèces: "
 
 #: Searching_the_database,_please_wait...
 msgid "Searching the database, please wait..."
@@ -5025,7 +5024,7 @@ msgstr ""
 
 #: Reclaimed_By_Owner
 msgid "Reclaimed By Owner"
-msgstr ""
+msgstr "Réclamé par le propriétaire"
 
 #: Code\:_
 msgid "Code: "
@@ -5118,7 +5117,7 @@ msgstr ""
 
 #: Mother\:
 msgid "Mother:"
-msgstr ""
+msgstr "Mère :"
 
 #: Number\:
 msgid "Number:"
@@ -5126,11 +5125,11 @@ msgstr ""
 
 #: ...
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: SpeciesName
 msgid "SpeciesName"
-msgstr ""
+msgstr "Nom des espèces"
 
 #: The_number_of_animals_in_the_litter
 msgid "The number of animals in the litter"
@@ -5150,7 +5149,7 @@ msgstr ""
 
 #: Abandon_this_record
 msgid "Abandon this record"
-msgstr ""
+msgstr "Annuler cet enregistrement"
 
 #: The_acceptance_number_for_all_the_animals_in_this_litter_-_the_system_can_automatically_remove_litters
 msgid ""
@@ -5160,7 +5159,7 @@ msgstr ""
 
 #: Edit_Vaccination
 msgid "Edit Vaccination"
-msgstr ""
+msgstr "Mettre à jour les vaccinations"
 
 #: Unable_to_create_new_vaccination_record\:_
 #: Unable_to_create_new_vaccination\:_
@@ -5189,31 +5188,31 @@ msgstr ""
 
 #: New_Vaccination
 msgid "New Vaccination"
-msgstr ""
+msgstr "Nouvelle vaccination"
 
 #: Date_Given\:
 msgid "Date Given:"
-msgstr ""
+msgstr "Date injection :"
 
 #: Date_Required\:
 msgid "Date Required:"
-msgstr ""
+msgstr "Date recommandée :"
 
 #: The_date_the_animal_should_be_given_this_vaccination
 msgid "The date the animal should be given this vaccination treatment"
-msgstr ""
+msgstr "La date à laquelle l'animal doit être vacciné"
 
 #: Vaccination_Type\:
 msgid "Treatment Type:"
-msgstr ""
+msgstr "Type de traitement :"
 
 #: Any_comments_about_the_vaccination
 msgid "Any comments about the vaccination treatment"
-msgstr ""
+msgstr "Commentaires à propos du traitement vacccinatoire"
 
 #: New_vaccination_record
 msgid "Create a new vaccination treatment"
-msgstr ""
+msgstr "Créer un nouveau traitement vaccinatoire"
 
 #: Location\:
 msgid "Location:"
@@ -5237,6 +5236,10 @@ msgid ""
 "save the record anyway, but you should complete vaccination information for "
 "this animal. Are you sure you wish to close?"
 msgstr ""
+"ATTENTION : Cet animal n'a pas de vaccination en cours dans son dossier. Le "
+"système va tout de meme sauvegarder l'enregistrement, cependant vous devrez "
+"compléter le carnet de vaccination pour cet animal. Êtes-vous sûr(e) de "
+"vouloir fermer ?"
 
 #: Species\:
 msgid "Species:"
@@ -5248,11 +5251,11 @@ msgstr ""
 
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
-msgstr ""
+msgstr "Commentaires cachés :"
 
 #: Size\:
 msgid "Size:"
-msgstr ""
+msgstr "Taille :"
 
 #: Save_Error
 msgid "Save Error"
@@ -5260,15 +5263,15 @@ msgstr ""
 
 #: Dead_On_Arrival\:
 msgid "Dead On Arrival:"
-msgstr ""
+msgstr "Mort à l'arrivée :"
 
 #: Delete_the_highlighted_vaccination_record
 msgid "Delete the selected vaccination records"
-msgstr ""
+msgstr "Supprimer les vaccinations sélectionnées"
 
 #: Neutered\:
 msgid "Neutered/Spayed:"
-msgstr ""
+msgstr "Stérilisée/Castré:"
 
 #: Combi-Tested\:
 msgid "Combi-Tested:"
@@ -5276,15 +5279,16 @@ msgstr ""
 
 #: The_animal's_basic_colour
 msgid "The animal's basic colour"
-msgstr ""
+msgstr "La couleur dominante de l'animal"
 
 #: Sex\:
 msgid "Sex:"
-msgstr ""
+msgstr "Sexe:"
 
 #: The_reason_the_animal_was_not_brought_by_its_owner
 msgid "The reason the animal was not brought in by its owner"
 msgstr ""
+"Raison pour laquelle le propriétaire n'a pas apporté l'animal lui-même"
 
 #: The_animal_acceptance_number_from_head_office
 msgid "The animal acceptance number from head office"
@@ -5293,10 +5297,12 @@ msgstr ""
 #: Animal_comments_you_do_not_want_to_appear_on_any_documents
 msgid "Animal comments you do not want to appear on any documents"
 msgstr ""
+"Commentaires sur l'animal que vous ne souhaitez voir apparaître sur aucun "
+"document"
 
 #: Brought_In_By\:
 msgid "Brought In By:"
-msgstr ""
+msgstr "Apporté par :"
 
 #: Edit_the_highlighted_vaccination_record
 msgid "Edit the highlighted vaccination record"
@@ -5308,19 +5314,19 @@ msgstr ""
 
 #: Create_a_new_animal_by_copying_this_one
 msgid "Create a new animal by copying this one"
-msgstr ""
+msgstr "Créer une nouvelle fiche en copiant celle-ci"
 
 #: Breed\:
 msgid "Breed:"
-msgstr ""
+msgstr "Elevage :"
 
 #: Unable_to_open_animal_vaccination_records\:_
 msgid "Unable to open animal vaccination records: "
-msgstr ""
+msgstr "Impossible d'ouvrir les vaccinations enregistrées : "
 
 #: Date_Deceased\:
 msgid "Date Deceased:"
-msgstr ""
+msgstr "Date du décès :"
 
 #: Invalid_Vaccination_Details
 msgid "Invalid Vaccination Details"
@@ -5328,7 +5334,7 @@ msgstr ""
 
 #: Create_New_Animal
 msgid "Create New Animal"
-msgstr ""
+msgstr "Créer une nouvelle fiche animal"
 
 #: Entry_Donation\:
 msgid "Entry Donation:"
@@ -5336,11 +5342,13 @@ msgstr ""
 
 #: The_animal_type
 msgid "The animal type"
-msgstr ""
+msgstr "Le type de l'animal"
 
 #: Tick_this_box_if_the_animal_died_off_the_shelter_(keep_out_of_figures)
-msgid "Tick this box if the animal died off the shelter (keep out of figures)"
+msgid ""
+"Tick this box if the animal died off the shelter (keep out of figures)"
 msgstr ""
+"Cocher cette case si l'animal est mort hors du refuge (keep out of figures)"
 
 #: Generate_a_diary_task_for_this_animal
 msgid "Generate a diary task for this animal"
@@ -5348,7 +5356,7 @@ msgstr ""
 
 #: The_reason_the_animal_was_put_to_sleep
 msgid "The reason the animal was put to sleep"
-msgstr ""
+msgstr "Raison de l'euthanasie"
 
 #: Comments\:
 msgid "Comments:"
@@ -5356,7 +5364,7 @@ msgstr ""
 
 #: Health_Problems\:
 msgid "Health Problems:"
-msgstr ""
+msgstr "Problèmes de santé:"
 
 #: Transfer_In\:
 msgid "Transfer In:"
@@ -5368,11 +5376,11 @@ msgstr ""
 
 #: The_animal's_name
 msgid "The animal's name"
-msgstr ""
+msgstr "Nom de l'animal"
 
 #: Tick_this_box_if_the_animal_was_put_to_sleep
 msgid "Tick this box if the animal was put to sleep"
-msgstr ""
+msgstr "Cocher cette case sil'animal a été euthanasié"
 
 #: Dist._Features\:
 msgid "Dist. Features:"
@@ -5380,15 +5388,15 @@ msgstr ""
 
 #: Delete_this_animal
 msgid "Delete this animal"
-msgstr ""
+msgstr "Supprimer cet animal"
 
 #: Put_To_Sleep\:
 msgid "Put To Sleep:"
-msgstr ""
+msgstr "Euthanasie :"
 
 #: Generate_New_Code
 msgid "Generate New Code"
-msgstr ""
+msgstr "Générer un nouveau code"
 
 #: The_date_the_animal_was_combi-tested_if_known
 msgid "The date the animal was combi-tested if known"
@@ -5400,7 +5408,7 @@ msgstr ""
 
 #: The_date_the_animal_died
 msgid "The date the animal died"
-msgstr ""
+msgstr "Date de la mort"
 
 #: Edit_Animal
 msgid "Edit Animal"
@@ -5408,7 +5416,7 @@ msgstr ""
 
 #: Original_Owner\:
 msgid "Original Owner:"
-msgstr ""
+msgstr "Propriétaire originel:"
 
 #: Identichipped\:
 msgid "Identichipped:"
@@ -5416,23 +5424,25 @@ msgstr ""
 
 #: The_animal's_size
 msgid "The animal's size"
-msgstr ""
+msgstr "Taille de l'animal"
 
 #: The_animal's_sex
 msgid "The animal's sex"
-msgstr ""
+msgstr "Sexe de l'animal"
 
 #: Animal_comments_you_want_to_see_on_documents
 msgid "Animal comments you want to see on documents"
 msgstr ""
+"Commentaires sur l'animal que vous souhaitez voir apparaître sur les "
+"documents"
 
 #: Base_Colour\:
 msgid "Base Colour:"
-msgstr ""
+msgstr "couleur de base:"
 
 #: Unable_to_create_new_animal_record\:_
 msgid "Unable to create new animal record: "
-msgstr ""
+msgstr "Impossible de créer un nouvel enregistrement : "
 
 #: Unsaved_Changes
 msgid "Unsaved Changes"
@@ -5440,7 +5450,7 @@ msgstr ""
 
 #: Given
 msgid "Given"
-msgstr ""
+msgstr "Donné"
 
 #: Name\:
 msgid "Name:"
@@ -5448,19 +5458,19 @@ msgstr ""
 
 #: Any_distinguishing_markings_or_features_the_animal_has
 msgid "Any distinguishing markings or features the animal has"
-msgstr ""
+msgstr "Tous traits caractéristiques ou marques distinctives de l'animal"
 
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
-msgstr ""
+msgstr "Date de naissance:"
 
 #: The_date_the_animal_was_neutered_if_known
 msgid "The date the animal was neutered/spayed if known"
-msgstr ""
+msgstr "Date de la sterilisation / castration si connue"
 
 #: The_animal's_species
 msgid "The animal's species"
-msgstr ""
+msgstr "Espèce de l'animal"
 
 #: Failed_Create
 msgid "Failed Create"
@@ -5473,15 +5483,15 @@ msgstr ""
 #: Address\:
 #: Organisation_Address\:
 msgid "Address:"
-msgstr ""
+msgstr "Adresse:"
 
 #: The_animal's_breed
 msgid "The animal's breed"
-msgstr ""
+msgstr "Elevage de l'animal"
 
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
-msgstr ""
+msgstr "Impossible de lire les vaccinations enregistrées: "
 
 #: Postcode\:
 msgid "Postcode:"
@@ -5489,19 +5499,19 @@ msgstr ""
 
 #: The_amount_donated_when_this_animal_entered_the_shelter
 msgid "The amount donated when this animal entered the shelter"
-msgstr ""
+msgstr "Somme donnée lors de l'entrée de l'animal au refuge"
 
 #: The_animal's_date_of_birth
 msgid "The animal's date of birth"
-msgstr ""
+msgstr "Date de naissance de l'animal"
 
 #: Any_health_problems_the_animal_has
 msgid "Any health problems the animal has"
-msgstr ""
+msgstr "Tout problème de santé qu'a l'animal"
 
 #: Required
 msgid "Required"
-msgstr ""
+msgstr "Demandé"
 
 #: The_Identichip_Number
 msgid "The Identichip Number"
@@ -5513,7 +5523,7 @@ msgstr ""
 
 #: Code\:
 msgid "Code:"
-msgstr ""
+msgstr "Code :"
 
 #: The_animal's_unique_shelter_code
 msgid "The animal's unique shelter code"
@@ -5521,7 +5531,7 @@ msgstr ""
 
 #: Tick_this_box_if_the_animal_was_transferred_from_another_shelter
 msgid "Tick this box if the animal was transferred from another shelter"
-msgstr ""
+msgstr "Cocher cette case si l'animal a été transféré d'un autre refuge"
 
 #: Error_saving_to_local_SQLRecordset\:_
 msgid "Error saving to local SQLRecordset: "
@@ -5529,15 +5539,15 @@ msgstr ""
 
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
-msgstr ""
+msgstr "Date à laquelle l'animal a été apporté au refuge"
 
 #: Tick_this_box_if_the_animal_was_dead_on_entry_to_the_shelter
 msgid "Tick this box if the animal was dead on entry to the shelter"
-msgstr ""
+msgstr "Cocher cette case si l'animal était mort en entrant au refuge"
 
 #: Reason_for_Entry\:
 msgid "Reason for Entry:"
-msgstr ""
+msgstr "Raison de l'entrée :"
 
 #: Invalid_Date
 msgid "Invalid Date"
@@ -5549,19 +5559,19 @@ msgstr ""
 
 #: Generate_a_random_name_for_this_animal
 msgid "Generate a random name for this animal"
-msgstr ""
+msgstr "Généré un nom au hasard pour cet animal"
 
 #: The_reason_the_animal_was_brought_to_the_shelter
 msgid "The reason the animal was brought to the shelter"
-msgstr ""
+msgstr "Raison pour laquelle l'animal a été apporté au refuge"
 
 #: Died_Off_Shelter\:
 msgid "Died Off Shelter:"
-msgstr ""
+msgstr "Mort hors du refuge :"
 
 #: Date_Brought_In\:
 msgid "Date Brought In:"
-msgstr ""
+msgstr "Date d'entrée :"
 
 #: A_date_you_entered_was_not_valid\:_
 msgid "A date you entered was not valid: "
@@ -5569,12 +5579,12 @@ msgstr ""
 
 #: breed
 msgid "breed"
-msgstr ""
+msgstr "élevage"
 
 #: PTS_Reason\:
 #: Reason\:
 msgid "Reason:"
-msgstr ""
+msgstr "Raison:"
 
 #: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
 msgid "An error occurred scaling and displaying the preview image:\n"
@@ -5582,11 +5592,11 @@ msgstr ""
 
 #: Attach_new_media
 msgid "Attach new media"
-msgstr ""
+msgstr "Joindre un média"
 
 #: Preview
 msgid "Preview"
-msgstr ""
+msgstr "Prévisualisation"
 
 #: Really_Delete?
 msgid "Really Delete?"
@@ -5594,7 +5604,7 @@ msgstr ""
 
 #: Delete_this_media
 msgid "Delete this media"
-msgstr ""
+msgstr "Supprimer ce média"
 
 #: Edit_this_media_entry
 msgid "Edit this media entry"
@@ -5610,7 +5620,7 @@ msgstr ""
 
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
-msgstr ""
+msgstr "marquer ce média comme favori pour une utilisation sur web"
 
 #: An_error_ocurred_opening_the_media_entry_for_editing\:_
 msgid "An error ocurred opening the media entry for editing: "
@@ -5618,7 +5628,7 @@ msgstr ""
 
 #: View_this_media
 msgid "View this media"
-msgstr ""
+msgstr "Voir le média"
 
 #: An_error_occurred_retrieving_the_media_file\:_
 msgid "An error occurred retrieving the media file: "
@@ -5632,7 +5642,7 @@ msgstr ""
 
 #: Web_Preferred
 msgid "Web Preferred"
-msgstr ""
+msgstr "Préférence web"
 
 #: Unable_to_remove_file_from_FTP_server\:_
 msgid "Unable to remove file from FTP server: "
@@ -5640,7 +5650,7 @@ msgstr ""
 
 #: Unable_to_read_media_records\:_
 msgid "Unable to read media records: "
-msgstr ""
+msgstr "Impossible de lire le media enregistré : "
 
 #: Error_occurred_uploading_to_media_server\:_
 msgid "Error occurred uploading to media server: "
@@ -5663,34 +5673,38 @@ msgid ""
 "Any information about this file. If this is an animal photo, please write "
 "website details here"
 msgstr ""
+"Aucune information sur ce fichier. S'il s'agit de la photo d'un animal, "
+"merci de noter les détails du site internet ici"
 
 #: Browse_for_the_file_to_add
 msgid "Browse for the file to add"
-msgstr ""
+msgstr "Parcourir"
 
 #: Local_File\:
 msgid "Local File:"
-msgstr ""
+msgstr "Fichier Local:"
 
 #: Notes\:
 msgid "Notes:"
-msgstr ""
+msgstr "Remarques :"
 
 #: Add_New_Media
 msgid "Add New Media"
-msgstr ""
+msgstr "Ajouter un nouveau média"
 
 #: Hidden_Comments\:_
 msgid "Hidden Comments: "
-msgstr ""
+msgstr "Commentaires cachés: "
 
 #: find_original_owner_name
 msgid "Original Owner Name:"
-msgstr ""
+msgstr "Nom du propriétaire original :"
 
 #: look_in_lost_animal_database
 msgid "Look for a potential match in the lost animal database"
 msgstr ""
+"Vérifier une éventuelle correspondance avec la base de données des animaux "
+"perdus"
 
 #: complete_selected_vaccinations
 msgid "Complete the selected vaccination treatments"
@@ -5718,7 +5732,7 @@ msgstr ""
 
 #: Entry_Category
 msgid "Entry Category:"
-msgstr ""
+msgstr "Indiquer la catégorie:"
 
 #: Death_Category
 msgid "Death Category:"
@@ -5726,11 +5740,11 @@ msgstr ""
 
 #: Last_Location
 msgid "Last Location:"
-msgstr ""
+msgstr "Dernier lieu:"
 
 #: Show_Only_Transfers
 msgid "Show Transfers Only:"
-msgstr ""
+msgstr "Voir uniquement les transferts :"
 
 #: media_notes_contain
 msgid "Media Notes Contain:"
@@ -5773,6 +5787,8 @@ msgid ""
 "You are about to permanently delete the selected vaccination records.\n"
 "Are you sure you wish to do this?"
 msgstr ""
+"Êtes-vous sûr(e) de vouloir supprimer définitivement le ou les élément(s) "
+"sélectionné(s) ?"
 
 #: find_this_animals_littermates
 msgid "Find this animal's littermates"
@@ -5792,7 +5808,7 @@ msgstr ""
 
 #: Start_Date
 msgid "Start Date"
-msgstr ""
+msgstr "Date de début"
 
 #: unable_to_read_diet_records\:
 msgid "Unable to read diet records:"
@@ -5800,47 +5816,47 @@ msgstr ""
 
 #: Create_new_diet
 msgid "Create new diet"
-msgstr ""
+msgstr "Créer un nouveau régime"
 
 #: Edit_this_diet
 msgid "Edit this diet"
-msgstr ""
+msgstr "Mettre à jour ce régime"
 
 #: Delete_this_diet
 msgid "Delete this diet"
-msgstr ""
+msgstr "Supprimer ce régime"
 
 #: Diet_Type\:
 msgid "Diet Type:"
-msgstr ""
+msgstr "Type de regime :"
 
 #: Start_Date\:
 msgid "Start Date:"
-msgstr ""
+msgstr "Date de début:"
 
 #: New_Diet
 msgid "New Diet"
-msgstr ""
+msgstr "Nouveau régime"
 
 #: unable_to_create_new_record\:
 msgid "Unable to create new record: "
-msgstr ""
+msgstr "Impossible de créer un nouvel enregistrement: "
 
 #: Edit_Diet
 msgid "Edit Diet"
-msgstr ""
+msgstr "Mettre à jour régime"
 
 #: The_type_of_diet
 msgid "The type of diet the animal is on"
-msgstr ""
+msgstr "Le type de regime que l'animal suit"
 
 #: The_date_the_animal_started_this_diet
 msgid "The date the animal started this diet"
-msgstr ""
+msgstr "Date à laquelle l'animal a commencé ce regime"
 
 #: Any_comments_about_the_diet
 msgid "Any comments about the diet"
-msgstr ""
+msgstr "Commentaires à propos du régime"
 
 #: Issue_Date\:
 msgid "Issue Date:"
@@ -5860,27 +5876,27 @@ msgstr ""
 
 #: tick_this_box_to_include_nonshelter_animals
 msgid "Tick this box to include non-shelter animals"
-msgstr ""
+msgstr "Cocher cette case pour inclure les animaux hors refuge"
 
 #: Details\:
 msgid "Details:"
-msgstr ""
+msgstr "Détails :"
 
 #: generate_a_diary_note_for_this_animal
 msgid "Generate a diary note for this animal"
-msgstr ""
+msgstr "Créer une note journalière pour cet animal"
 
 #: Add_new_media_to_this_animal
 msgid "Add new media to this animal"
-msgstr ""
+msgstr "Ajouter un nouveau media à cet animal"
 
 #: Move_this_animal
 msgid "Move this animal"
-msgstr ""
+msgstr "Déplacer cet animal"
 
 #: Declawed
 msgid "Declawed:"
-msgstr ""
+msgstr "Onyxectomie :"
 
 #: tick_this_box_if_the_animal_has_been_declawed
 msgid "Check this box if this animal has been declawed"
@@ -5888,27 +5904,28 @@ msgstr ""
 
 #: Save_this_media_file_to_disk
 msgid "Save this media file to disk"
-msgstr ""
+msgstr "Sauvegarder ce media sur le disque"
 
 #: view_the_current_owner_for_this_animal
 msgid "View the current owner for this animal"
-msgstr ""
+msgstr "Voir le propriétaire actuel pour cet animal"
 
 #: are_you_sure_you_want_to_clone_this_animal
 msgid "Are you sure you want to clone this animal?"
-msgstr ""
+msgstr "Êtes-vous sûr(e) de vouloir cloner cet animal ?"
 
 #: sure
 msgid "Sure?"
-msgstr ""
+msgstr "Sûr(e) ?"
 
 #: Capture_from_video_source
 msgid "Capture image from video camera/webcam"
-msgstr ""
+msgstr "Capturer l'image d'une webcam / caméra"
 
 #: video_capture_is_only_available_for_linux
 msgid "Video capture is currently only available for Linux platforms."
 msgstr ""
+"La capture de video est actuellement uniquement sur les pate-formes Linux."
 
 #: could_not_locate_the_vgrabbj_utility
 msgid ""
@@ -5922,82 +5939,90 @@ msgstr ""
 
 #: Tattoo\:
 msgid "Tattoo:"
-msgstr ""
+msgstr "Tatouage:"
 
 #: The_Tattoo_Number
 msgid "The Tattoo Number"
-msgstr ""
+msgstr "Le numéro de tatouage"
 
 #: FLVResult
 msgid "FLV Result"
-msgstr ""
+msgstr "Résultat FLV"
 
 #: FIVResult
 msgid "FIV Result"
-msgstr ""
+msgstr "Résultat FIV"
 
 #: the_date_the_animal_was_identichipped
 msgid "The date the animal was identichipped"
-msgstr ""
+msgstr "Date à laquelle l'animal a reçu le transpondeur"
 
 #: the_date_the_animal_had_the_tattoo
 msgid "The date the animal had the tattoo"
-msgstr ""
+msgstr "La date du tatouage de l'animal"
 
 #: tick_this_box_to_only_show_animals_who_are_good_with_children
 msgid "Tick this box to only show animals who are good with children"
 msgstr ""
+"Cocher cette case pour voir uniquement les animaux qui s'entendent avec les "
+"enfants"
 
 #: tick_this_box_to_only_show_animals_who_are_good_with_cats
 msgid "Tick this box to only show animals who are good with cats"
 msgstr ""
+"Cocher cette case pour voir uniquement les animaux qui s'entendent avec les "
+"chats"
 
 #: tick_this_box_to_only_show_animals_who_are_good_with_dogs
 msgid "Tick this box to only show animals who are good with dogs"
 msgstr ""
+"Cocher cette case pour voir uniquement les animaux qui s'entendent avec les "
+"chiens"
 
 #: tick_this_box_to_only_show_animals_who_are_housetrained
 msgid "Tick this box to only show animals who are housetrained"
-msgstr ""
+msgstr "Cocher cette case pour voir uniquement les animaux propres"
 
 #: generate_a_new_animal_code
 msgid "Generate a new animal code"
-msgstr ""
+msgstr "Générer un nouveau code animal"
 
 #: Heartworm_Tested\:
 msgid "Heartworm Tested:"
-msgstr ""
+msgstr "Vermifugé:"
 
 #: the_date_the_animal_was_last_heartworm_tested
 msgid "The date the animal was last heartworm tested"
-msgstr ""
+msgstr "La date de la vermifugication de l'animal"
 
 #: good_with_cats
 msgid "Good with Cats:"
-msgstr ""
+msgstr "S'entend avec les chats :"
 
 #: good_with_dogs
 msgid "Good with Dogs:"
-msgstr ""
+msgstr "S'entend avec les chiens :"
 
 #: good_with_kids
 msgid "Good with Kids:"
-msgstr ""
+msgstr "S'entend avec les enfants :"
 
 #: housetrained
 msgid "Housetrained:"
-msgstr ""
+msgstr "Propre:"
 
 #: tick_this_box_if_this_animal_is_not_available_for_adoption
 msgid ""
 "Tick this box if this animal is not available for adoption (exclude from "
 "publishing)"
 msgstr ""
+"Cocher cette case si cet animal n'est pas disponible à l'adoption (exclut "
+"des publications)"
 
 #: Not_for_adoption
 #: Not_Available_For_Adoption
 msgid "Not for adoption"
-msgstr ""
+msgstr "Pas disponible à l'adoption"
 
 #: Close
 msgid "Close"
@@ -6005,7 +6030,7 @@ msgstr ""
 
 #: Video_Capture
 msgid "Video Capture"
-msgstr ""
+msgstr "Capture Vidéo"
 
 #: Adoptable
 msgid "Adoptable"
@@ -6013,28 +6038,30 @@ msgstr ""
 
 #: animal_details
 msgid "Animal Details"
-msgstr ""
+msgstr "Détails sur l'animal"
 
 #: basic_animal_information
 msgid "Basic Animal Information"
-msgstr ""
+msgstr "Informations générales sur l'animal"
 
 #: entry_details
 msgid "Entry Details"
-msgstr ""
+msgstr "Détails d'entrée"
 
 #: about_entry_details
 msgid "Original owner information and how the animal came into the shelter"
 msgstr ""
+"Information du propriétaire original et comment l'animal est-il entré au "
+"refuge"
 
 #: vet
 #: Vet
 msgid "Vet"
-msgstr ""
+msgstr "Vétérinaire"
 
 #: about_vet
 msgid "Details of the animal's vet and any health problems"
-msgstr ""
+msgstr "Détails sur le vétérinaire de l'animal et tout problème de santé"
 
 #: death
 msgid "Death"
@@ -6042,7 +6069,7 @@ msgstr ""
 
 #: if_the_animal_is_deceased
 msgid "Information if the animal is deceased"
-msgstr ""
+msgstr "Informations si l'animal est mort"
 
 #: Vaccination
 msgid "Vaccination"
@@ -6050,24 +6077,24 @@ msgstr ""
 
 #: animal_vaccination_information
 msgid "Animal vaccination information"
-msgstr ""
+msgstr "Informations sur les vaccinations de l'animal"
 
 #: medical
 msgid "Medical"
-msgstr ""
+msgstr "Médical"
 
 #: diet_information
 msgid "Diet Information"
-msgstr ""
+msgstr "information sur le régime"
 
 #: media
 #: Media
 msgid "Media"
-msgstr ""
+msgstr "Média"
 
 #: media_for_this_animal
 msgid "Media associated with this animal"
-msgstr ""
+msgstr "Médias associés à cet animal"
 
 #: diary
 #: Diary
@@ -6089,7 +6116,7 @@ msgstr ""
 
 #: log_info
 msgid "Any other information about the animal"
-msgstr ""
+msgstr "Autre information sur l'animal"
 
 #: Not_For_Adoption_Book
 msgid "Not For Adoption Book"
@@ -6101,11 +6128,11 @@ msgstr ""
 
 #: Refresh_the_list_of_animals
 msgid "Refresh the list of animals"
-msgstr ""
+msgstr "Rafraîchir la liste des animaux"
 
 #: File_does_not_exist
 msgid "{0} does not exist."
-msgstr ""
+msgstr "{0} n'existe pas."
 
 #: File_is_too_large
 msgid ""
@@ -6118,7 +6145,7 @@ msgstr ""
 
 #: active_litters
 msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-msgstr ""
+msgstr "{0} active litters ({1} chats, {2} chiens et {3} autres)"
 
 #: search_complete
 msgid "Search complete - {0} matches found. "
@@ -6170,6 +6197,9 @@ msgid ""
 "You have changed the type and the code previously generated no longer "
 "matches. ASM will generate a new code for animal type ({0}) instead."
 msgstr ""
+"Vous avez modifié le type de l''animal et le code généré précédemment ne "
+"correspond plus. ASM générer un nouveau pour ce type d'animal ({0}) a la "
+"place de."
 
 #: include_deceased
 msgid "Include Deceased"
@@ -6397,35 +6427,35 @@ msgstr ""
 
 #: An_error_occurred_creating_a_new_diary_record\:_
 msgid "An error occurred creating a new diary record: "
-msgstr ""
+msgstr "Erreur lors de la création d'un nouveau journal : "
 
 #: Close_without_saving
 msgid "Close without saving"
-msgstr ""
+msgstr "Fermer sans sauvegarder"
 
 #: The_subject_of_the_note
 msgid "The subject of the note"
-msgstr ""
+msgstr "Le sujet de la note"
 
 #: An_error_occurred_reading_the_diary_note\:_
 msgid "An error occurred reading the diary note: "
-msgstr ""
+msgstr "Erreur lors de la lecture de la note du journal : "
 
 #: Create_New_Diary_Note
 msgid "Create New Diary Note"
-msgstr ""
+msgstr "Créer une nouvelle note dans le journal"
 
 #: For\:
 msgid "For:"
-msgstr ""
+msgstr "Pour :"
 
 #: Completed\:
 msgid "Completed:"
-msgstr ""
+msgstr "Terminé :"
 
 #: Save_this_diary_note_and_exit
 msgid "Save this diary note and exit"
-msgstr ""
+msgstr "Sauvegarder cette note et fermer"
 
 #: The_date_this_diary_note_was_completed
 msgid "The date this diary note was completed"
@@ -6433,7 +6463,7 @@ msgstr ""
 
 #: Time\:
 msgid "Time:"
-msgstr ""
+msgstr "Heure :"
 
 #: The_date_this_reminder_should_appear
 msgid "The date this reminder should appear"
@@ -6441,7 +6471,7 @@ msgstr ""
 
 #: Edit_Diary_Note
 msgid "Edit Diary Note"
-msgstr ""
+msgstr "Éditer les notes"
 
 #: Subject\:
 #: subject
@@ -6458,11 +6488,11 @@ msgstr ""
 
 #: Please_enter_a_name_for_the_new_task\:
 msgid "Please enter a name for the new task:"
-msgstr ""
+msgstr "Veuillez renseigner le nom de cette nouvelle tâche :"
 
 #: New_Diary_Task
 msgid "New Diary Task"
-msgstr ""
+msgstr "Nouvelle tâche"
 
 #: Edit_Diary_Tasks
 msgid "Edit Diary Tasks"
@@ -6470,23 +6500,23 @@ msgstr ""
 
 #: Delete_this_diary_task
 msgid "Delete this diary task"
-msgstr ""
+msgstr "Supprimer la tâche sélectionnée"
 
 #: Number_Of_Tasks
 msgid "Number Of Tasks"
-msgstr ""
+msgstr "Nombre de sous-tâches"
 
 #: Edit_this_diary_task
 msgid "Edit this diary task"
-msgstr ""
+msgstr "Éditer la tâche sélectionnée"
 
 #: Create_a_new_diary_task
 msgid "Create a new diary task"
-msgstr ""
+msgstr "Créer une nouvelle tâche"
 
 #: Add_a_new_diary_note
 msgid "Add a new diary note"
-msgstr ""
+msgstr "Ajouter une nouvelle note"
 
 #: Note
 msgid "Note"
@@ -6494,33 +6524,35 @@ msgstr ""
 
 #: For
 msgid "For"
-msgstr ""
+msgstr "Pour"
 
 #: Edit_the_selected_diary_note
 msgid "Edit the selected diary note"
-msgstr ""
+msgstr "Éditer la note sélectionnée"
 
 #: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
 msgid ""
 "You are about to permanently delete this record, are you sure you want to do "
 "this?"
 msgstr ""
+"Êtes-vous sûr(e) de vouloir supprimer définitivement le ou les element(s) "
+"sélectionné(s) ?"
 
 #: Created_By
 msgid "Created By"
-msgstr ""
+msgstr "Créé par"
 
 #: An_error_occurred_removing_the_record\:_
 msgid "An error occurred removing the record: "
-msgstr ""
+msgstr "Erreur lors du déplacement de l'enregistrement : "
 
 #: Delete_the_selected_diary_note
 msgid "Delete the selected diary note"
-msgstr ""
+msgstr "Supprimer la note sélectionnée"
 
 #: Edit_the_selected_task
 msgid "Edit the selected task"
-msgstr ""
+msgstr "Éditer la sous-tâche sélectionnée"
 
 #: Diarise_For\:
 msgid "Diarise For:"
@@ -6528,7 +6560,7 @@ msgstr ""
 
 #: Create_New_Diary_Task_Detail
 msgid "Create New Diary Task Detail"
-msgstr ""
+msgstr "Créer une sous-tâche"
 
 #: days_from_today_(or_0_to_prompt)
 msgid "days from today (or 0 to prompt)"
@@ -6540,19 +6572,19 @@ msgstr ""
 
 #: Edit_Diary_Task_Detail
 msgid "Edit Diary Task Detail"
-msgstr ""
+msgstr "Éditer la sous-tâche"
 
 #: Task\:
 msgid "Task:"
-msgstr ""
+msgstr "Tâche :"
 
 #: Edit_Diary_Task
 msgid "Edit Diary Task"
-msgstr ""
+msgstr "Mettre à jour la tâche"
 
 #: Delete_this_task
 msgid "Delete this task"
-msgstr ""
+msgstr "Supprimer la sous-tâche sélectionnée"
 
 #: Day_Pivot
 msgid "Day Pivot"
@@ -6560,27 +6592,27 @@ msgstr ""
 
 #: An_error_occurred_reading_the_header\:\n
 msgid "An error occurred reading the header:\n"
-msgstr ""
+msgstr "Erreur lors de la lecture de l'en-tête :\n"
 
 #: Save_the_header
 msgid "Save the header"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: New_task_detail
 msgid "New task detail"
-msgstr ""
+msgstr "Créer une sous-tâche"
 
 #: Link
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 #: View_Diary_Notes
 msgid "View Diary Notes"
-msgstr ""
+msgstr "Voir les notes du journal"
 
 #: View_the_record_this_diary_note_relates_to
 msgid "View the record this diary note relates to"
-msgstr ""
+msgstr "Voir l'enregistrement auquel renvoit cette note"
 
 #: An_error_occurred_accessing_linked_data\:\n
 msgid "An error occurred accessing linked data:\n"
@@ -6588,7 +6620,7 @@ msgstr ""
 
 #: Execute_Diary_Task
 msgid "Execute Diary Task"
-msgstr ""
+msgstr "Executer les tâches du journal"
 
 #: Diary_entries_successfully_created.
 msgid "Diary entries successfully created."
@@ -6596,7 +6628,7 @@ msgstr ""
 
 #: Enter_Date
 msgid "Enter Date"
-msgstr ""
+msgstr "Indiquer la date"
 
 #: Diary_Task_Complete
 msgid "Diary Task Complete"
@@ -6604,7 +6636,7 @@ msgstr ""
 
 #: An_error_occurred_creating_the_diary_notes\:\n
 msgid "An error occurred creating the diary notes:\n"
-msgstr ""
+msgstr "Erreur lors de la création des notes :\n"
 
 #: complete_the_selected_diary_notes
 msgid "Complete the selected diary notes"
@@ -6612,7 +6644,7 @@ msgstr ""
 
 #: Name_like\:
 msgid "Name Like:"
-msgstr ""
+msgstr "Nom du lien :"
 
 #: Show_Future\:
 msgid "Show Future:"
@@ -6620,33 +6652,35 @@ msgstr ""
 
 #: Show_Completed\:
 msgid "Show Completed:"
-msgstr ""
+msgstr "Voir les \"terminées\":"
 
 #: Completed
 msgid "Completed"
-msgstr ""
+msgstr "Terminé"
 
 #: please_enter_a_date_for_task
 msgid ""
 "Please enter a date for task {0} \n"
 "with subject \"{1}\""
 msgstr ""
+"Merci d'indiquer une date pour cette tâche {0} \n"
+"avec subject {1}"
 
 #: View_Vet_Diary
 msgid "View Vet Diary"
-msgstr ""
+msgstr "Voir le journal vétérinaire"
 
 #: edit_notes_after_creation
 msgid "Edit notes after creation"
-msgstr ""
+msgstr "Editer les notes après leur création"
 
 #: tick_this_box_to_edit_the_created_diary_notes
 msgid "Tick this box to edit the diary notes created by this task"
-msgstr ""
+msgstr "Cocher cette case pour éditer les notes créées par cette tâche"
 
 #: edit_diary_title
 msgid "Edit Diary - {0}"
-msgstr ""
+msgstr "Editer le journal - {0}"
 
 #: enter_date_task
 msgid "Please enter a date for the diary note in task {0} with subject {1}"
@@ -6654,15 +6688,15 @@ msgstr ""
 
 #: new_diary_title
 msgid "New Diary - {0}"
-msgstr ""
+msgstr "Nouveau journal - {0}"
 
 #: edit_diary_task_title
 msgid "Edit Diary Task - {0}"
-msgstr ""
+msgstr "Editer la tâche - {0}"
 
 #: invalid_date
 msgid "{0} is not a valid date."
-msgstr ""
+msgstr "{0} est une date incorrecte."
 
 #: Select_Species
 #: Select_species
@@ -6675,7 +6709,7 @@ msgstr ""
 
 #: Select_Year
 msgid "Select Year"
-msgstr ""
+msgstr "Sélectionner l'année"
 
 #: select_animal_type
 msgid "Select Animal Type"
@@ -6691,7 +6725,7 @@ msgstr ""
 
 #: Select_User_title
 msgid "Select User"
-msgstr ""
+msgstr "Choisir l'utilisateur"
 
 #: select_diet
 msgid "Select a diet"
@@ -6711,7 +6745,7 @@ msgstr ""
 
 #: Information
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #. # uiinternet.properties#=========================================================================
 #: Include_Reserved_Animals
@@ -6752,7 +6786,7 @@ msgstr ""
 
 #: Publish_Animals_Available_For_Adoption
 msgid "Publish Animals Available For Adoption"
-msgstr ""
+msgstr "Publication des animaux disponibles à l'adoption"
 
 #: An_error_occurred_testing_the_animals\:\n
 msgid "An error occurred testing the animals:\n"
@@ -6798,7 +6832,7 @@ msgstr ""
 
 #: Internet_Site_FTP_Settings
 msgid "Internet Site FTP Settings"
-msgstr ""
+msgstr "Paramètres FTP (Site web)"
 
 #: Port\:
 msgid "Port:"
@@ -6815,11 +6849,11 @@ msgstr ""
 
 #: Host_URL\:
 msgid "Host URL:"
-msgstr ""
+msgstr "Hôte :"
 
 #: Root\:
 msgid "Root:"
-msgstr ""
+msgstr "Racine :"
 
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
@@ -6839,7 +6873,7 @@ msgstr ""
 
 #: send
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 #: you_must_supply_a_to
 msgid "You must have an email address to send the message to"
@@ -6933,11 +6967,13 @@ msgid "PetFinder Breed Mapping"
 msgstr ""
 
 #: not_all_your_petfinder_types_are_mapped
-msgid "Not all of your PetFinder types are mapped. Publisher cannot continue."
+msgid ""
+"Not all of your PetFinder types are mapped. Publisher cannot continue."
 msgstr ""
 
 #: not_all_your_petfinder_breeds_are_mapped
-msgid "Not all of your PetFinder breeds are mapped. Publisher cannot continue."
+msgid ""
+"Not all of your PetFinder breeds are mapped. Publisher cannot continue."
 msgstr ""
 
 #: Pets911_Settings
@@ -7004,7 +7040,7 @@ msgstr ""
 
 #: Style
 msgid "Style"
-msgstr ""
+msgstr "Apparence"
 
 #: Upload_all_animal_images
 msgid "Upload all animal images"
@@ -7012,11 +7048,11 @@ msgstr ""
 
 #: Unlimited
 msgid "Unlimited"
-msgstr ""
+msgstr "Sans limite"
 
 #: Include
 msgid "Include"
-msgstr ""
+msgstr "Inclusion"
 
 #: Include_colours
 msgid "Include Colours"
@@ -7060,13 +7096,14 @@ msgid "RescueGroups.org Settings"
 msgstr ""
 
 #: You_need_to_set_your_RescueGroups_settings_before_publishing
-msgid "You need to configure your RescueGroups.org settings before publishing."
+msgid ""
+"You need to configure your RescueGroups.org settings before publishing."
 msgstr ""
 
 #. # uilocalcache.properties#=========================================================================
 #: View_Local_Cache
 msgid "View Local Cache"
-msgstr ""
+msgstr "Voir le cache local"
 
 #: Filename
 msgid "Filename"
@@ -7233,6 +7270,8 @@ msgid ""
 "You are about to permanently delete the selected records, are you sure you "
 "want to do this?"
 msgstr ""
+"Êtes-vous sûr(e) de vouloir supprimer définitivement le ou les element(s) "
+"sélectionné(s) ?"
 
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
 msgid ""
@@ -7242,7 +7281,7 @@ msgstr ""
 
 #: Breeds
 msgid "Breeds"
-msgstr ""
+msgstr "Races"
 
 #: Base_Colours
 msgid "Base Colours"
@@ -7295,7 +7334,7 @@ msgstr ""
 
 #: Description\:
 msgid "Description:"
-msgstr ""
+msgstr "Description:"
 
 #: An_error_occurred_saving_the_record\:_
 msgid "An error occurred saving the record: "
@@ -7401,7 +7440,7 @@ msgstr ""
 
 #: and
 msgid "and"
-msgstr ""
+msgstr "et"
 
 #: Lost_Between\:
 msgid "Lost Between:"
@@ -7469,7 +7508,7 @@ msgstr ""
 
 #: The_postcode_area_the_animal_was_found_in
 msgid "The postcode area the animal was found in"
-msgstr ""
+msgstr "Code postal du lieu où l'animal a été trouvé"
 
 #: Unable_to_create_new_found_animal_record\:_
 msgid "Unable to create new found animal record: "
@@ -7477,7 +7516,7 @@ msgstr ""
 
 #: Date_Found\:
 msgid "Date Found:"
-msgstr ""
+msgstr "Trouvé le :"
 
 #: Features\:
 msgid "Features:"
@@ -7485,15 +7524,15 @@ msgstr ""
 
 #: Colour\:
 msgid "Colour:"
-msgstr ""
+msgstr "Couleur :"
 
 #: The_date_this_animal_was_returned_to_its_owner
 msgid "The date this animal was returned to its owner"
-msgstr ""
+msgstr "Date à laquelle l'animal a été restitué à son proriétaire"
 
 #: Returned\:
 msgid "Returned:"
-msgstr ""
+msgstr "Restitué le :"
 
 #: Area_Found\:
 msgid "Area Found:"
@@ -7537,37 +7576,37 @@ msgstr ""
 
 #: Area_Lost\:
 msgid "Area Lost:"
-msgstr ""
+msgstr "Area Lost:"
 
 #. # uimain.properties#=========================================================================
 #: Waiting_List_(SHIFT+CTRL+W)
 msgid "Waiting List (SHIFT+CTRL+W)"
-msgstr ""
+msgstr "Liste d'attente (SHIFT+CTRL+W)"
 
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
-msgstr ""
+msgstr "Créer un rapport de correspondance des animaux perdus/trouvés"
 
 #: Off_The_Shelter
 msgid "Off The Shelter"
-msgstr ""
+msgstr "Animaux hors refuge"
 
 #: Mail_Merge
 msgid "Mail Merge"
-msgstr ""
+msgstr "Publipostage"
 
 #: Find_an_Animal_(CTRL+F)
 msgid "Find an Animal (CTRL+F)"
-msgstr ""
+msgstr "Rechercher un animal (CTRL+F)"
 
 #: Options
 #: options
 msgid "Options"
-msgstr ""
+msgstr "Paramétres"
 
 #: Find_a_Lost_Animal
 msgid "Find a Lost Animal"
-msgstr ""
+msgstr "Rechercher un animal perdu"
 
 #: System
 msgid "System"
@@ -7587,11 +7626,11 @@ msgstr ""
 
 #: Find_an_Owner_(SHIFT+CTRL+F)
 msgid "Find an Owner (SHIFT+CTRL+F)"
-msgstr ""
+msgstr "Rechercher un propriétaire (SHIFT+CTRL+F)"
 
 #: Add_a_new_animal_(CTRL+N)
 msgid "Add a new animal (CTRL+N)"
-msgstr ""
+msgstr "Ajouter un animal (CTRL+N)"
 
 #: Configure_Defaults
 msgid "Configure Defaults"
@@ -7599,11 +7638,11 @@ msgstr ""
 
 #: Preferences
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 #: Lost_and_Found
 msgid "Lost and Found"
-msgstr ""
+msgstr "Perdu/Trouvé"
 
 #: Lookups
 msgid "Lookups"
@@ -7611,11 +7650,11 @@ msgstr ""
 
 #: Animals_On_The_Shelter
 msgid "Animals On The Shelter"
-msgstr ""
+msgstr "Animaux du refuge"
 
 #: Internet
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: Run_Database_Update
 msgid "Run Database Update"
@@ -7623,11 +7662,11 @@ msgstr ""
 
 #: Colours
 msgid "Colours"
-msgstr ""
+msgstr "Couleurs"
 
 #: File
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: All_Members
 msgid "All Members"
@@ -7655,11 +7694,11 @@ msgstr ""
 
 #: Add_a_Found_Animal
 msgid "Add a Found Animal"
-msgstr ""
+msgstr "Ajouter un animal trouvé"
 
 #: Add_Animal
 msgid "Add Animal"
-msgstr ""
+msgstr "Nouveau"
 
 #: Vaccination_Diary
 msgid "Vaccination Diary"
@@ -7671,7 +7710,7 @@ msgstr ""
 
 #: FTP_Settings
 msgid "Website FTP Settings"
-msgstr ""
+msgstr "Paramètres FTP (Site Web)"
 
 #: Microchip_Cancellations
 msgid "Microchip Cancellations"
@@ -7687,7 +7726,7 @@ msgstr ""
 
 #: Lost_Animals
 msgid "Lost Animals"
-msgstr ""
+msgstr "Animaux perdus"
 
 #: Print_Diary_Notes
 msgid "Print Diary Notes"
@@ -7695,7 +7734,7 @@ msgstr ""
 
 #: Add_Lost_Animal
 msgid "Add Lost Animal"
-msgstr ""
+msgstr "Ajouter un animal perdu"
 
 #: Reservation_Book_(SHIFT+CTRL+R)
 msgid "Reservation Book (SHIFT+CTRL+R)"
@@ -7703,11 +7742,11 @@ msgstr ""
 
 #: Help_(F1)
 msgid "Help (F1)"
-msgstr ""
+msgstr "Aide (F1)"
 
 #: Contents
 msgid "Contents"
-msgstr ""
+msgstr "Sommaire"
 
 #: Add_New_Waiting_List_Entry
 msgid "Add New Waiting List Entry"
@@ -7715,7 +7754,7 @@ msgstr ""
 
 #: Add_Owner
 msgid "Add Owner"
-msgstr ""
+msgstr "Nouveau"
 
 #: Reservation_Book
 msgid "Reservation Book"
@@ -7727,11 +7766,11 @@ msgstr ""
 
 #: Find_Owner
 msgid "Find Owner"
-msgstr ""
+msgstr "Rechercher"
 
 #: Publish_Animals_Available_for_Adoption
 msgid "Publish Animals Available for Adoption"
-msgstr ""
+msgstr "Publier les animaux disponibles à l'adoption"
 
 #: Microchip_Registration
 msgid "Microchip Registration"
@@ -7739,7 +7778,7 @@ msgstr ""
 
 #: Help
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 #: Edit_System_Users
 msgid "Edit System Users"
@@ -7747,11 +7786,11 @@ msgstr ""
 
 #: Login_Again
 msgid "Login Again"
-msgstr ""
+msgstr "Fermer la session"
 
 #: Exit
 msgid "Exit"
-msgstr ""
+msgstr "Quitter"
 
 #: Litter_Logger
 msgid "Litter Logger"
@@ -7759,27 +7798,27 @@ msgstr ""
 
 #: All_Animals
 msgid "All Animals"
-msgstr ""
+msgstr "Tous les animaux"
 
 #: Found_Animals
 msgid "Found Animals"
-msgstr ""
+msgstr "Animaux trouvés"
 
 #: Add_an_Owner_(SHIFT+CTRL+N)
 msgid "Add an Owner (SHIFT+CTRL+N)"
-msgstr ""
+msgstr "Ajouter un propriétaire (SHIFT+CTRL+N)"
 
 #: Add_Found_Animal
 msgid "Add Found Animal"
-msgstr ""
+msgstr "Ajouter un animal trouvé"
 
 #: Contents_PDF
 msgid "Contents (Printable PDF)"
-msgstr ""
+msgstr "Sommaire (PDF imprimable)"
 
 #: Settings
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: collect_garbage_now
 msgid "Collect Garbage Now"
@@ -7799,7 +7838,7 @@ msgstr ""
 
 #: ConfigureFiletypes
 msgid "Configure File Types"
-msgstr ""
+msgstr "Types de fichiers"
 
 #: uncategorised
 msgid "Uncategorised"
@@ -7819,15 +7858,15 @@ msgstr ""
 
 #: Locked
 msgid "Locked"
-msgstr ""
+msgstr "Verrouillé"
 
 #: incorrect_password
 msgid "Incorrect Password"
-msgstr ""
+msgstr "Mot de passe erroné"
 
 #: Lock_ASM
 msgid "Lock"
-msgstr ""
+msgstr "Verrouiller"
 
 #: Foster_Book
 #: foster_book_m
@@ -7852,7 +7891,7 @@ msgstr ""
 
 #: Medical_Diary
 msgid "Medical Diary"
-msgstr ""
+msgstr "Médical"
 
 #: Medical_Book
 msgid "Medical Book"
@@ -7860,11 +7899,11 @@ msgstr ""
 
 #: Print_Medical_Diary
 msgid "Print Medical Diary"
-msgstr ""
+msgstr "Imprimer"
 
 #: Donate_to_ASM!
 msgid "Donate to ASM!"
-msgstr ""
+msgstr "Soutenez ASM !"
 
 #: Edit_Diary_Notes
 msgid "Edit Diary Notes"
@@ -7880,7 +7919,7 @@ msgstr ""
 
 #: Dont_ask_me_again
 msgid "Don't ask me again."
-msgstr ""
+msgstr "Ne plus me demander"
 
 #: Logout_or_close
 msgid "Logout or Close"
@@ -7888,7 +7927,7 @@ msgstr ""
 
 #: Logout
 msgid "Logout"
-msgstr ""
+msgstr "Déconnection"
 
 #: Close_ASM
 msgid "Close ASM"
@@ -7932,15 +7971,15 @@ msgstr ""
 
 #: please_enter_password_for
 msgid "Please enter the password for:"
-msgstr ""
+msgstr "Veuillez saisir le mot de passe de :"
 
 #: switch_database
 msgid "Switch Database"
-msgstr ""
+msgstr "Base de données"
 
 #: switch_database_asm_restart
 msgid "The new database will be used after you have restarted ASM."
-msgstr ""
+msgstr "ASM utilisera la nouvelle base de données après un redémarrage."
 
 #: Returned_Adoptions
 msgid "Returned Adoptions"
@@ -8865,7 +8904,7 @@ msgstr ""
 
 #: monthly
 msgid "Monthly"
-msgstr ""
+msgstr "Mensuel"
 
 #: annually
 msgid "Annually"
@@ -8898,7 +8937,7 @@ msgstr ""
 #: Telephone\:
 #: Organisation_Telephone\:
 msgid "Telephone:"
-msgstr ""
+msgstr "Téléphone:"
 
 #: create_a_new_owner
 msgid "Create a new owner"
@@ -9131,7 +9170,7 @@ msgstr ""
 
 #: Owners_Vet
 msgid "Owner's Vet"
-msgstr ""
+msgstr "Vétérinaire du propriétaire :"
 
 #: create_a_new_donation
 msgid "Create a new donation"
@@ -9215,7 +9254,7 @@ msgstr ""
 
 #: User_Name\:_
 msgid "User Name: "
-msgstr ""
+msgstr "Nom d'utilisateur: "
 
 #: Vendor_URL\:_
 msgid "Vendor URL: "
@@ -9247,11 +9286,11 @@ msgstr ""
 
 #: Version
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: visit_site
 msgid "Visit the Animal Shelter Manager website"
-msgstr ""
+msgstr "Visiter le site web de Animal Shelter Manager"
 
 #. # uisystem.properties#=========================================================================
 #: Word_Processor\:
@@ -9260,7 +9299,7 @@ msgstr ""
 
 #: System_Options
 msgid "System Options"
-msgstr ""
+msgstr "Options du système"
 
 #: Warn_on_multiple_reservations
 msgid "Warn on multiple reservations"
@@ -9340,7 +9379,7 @@ msgstr ""
 
 #: Handler
 msgid "Handler"
-msgstr ""
+msgstr "Programmes"
 
 #: ItemValue
 msgid "ItemValue"
@@ -9348,7 +9387,7 @@ msgstr ""
 
 #: Add_a_new_file_type
 msgid "Add a new file type"
-msgstr ""
+msgstr "Nouveau type de fichier"
 
 #: An_error_occurred_updating_the_file_types\:\n
 msgid "An error occurred updating the file types:\n"
@@ -9356,11 +9395,11 @@ msgstr ""
 
 #: Delete_the_selected_type
 msgid "Delete the selected type"
-msgstr ""
+msgstr "Effacer la selection"
 
 #: Extension
 msgid "Extension"
-msgstr ""
+msgstr "Extensions"
 
 #: An_error_occurred_reading_the_list_of_system_filetypes\:\n
 msgid "An error occurred reading the list of system filetypes:\n"
@@ -9368,11 +9407,11 @@ msgstr ""
 
 #: Save_the_list_of_filetypes
 msgid "Save the list of filetypes"
-msgstr ""
+msgstr "Sauvegarder la liste"
 
 #: Edit_File_Types
 msgid "Edit File Types"
-msgstr ""
+msgstr "Types de fichiers"
 
 #: No_HTML_Viewer
 msgid "No HTML Viewer"
@@ -9419,7 +9458,8 @@ msgid "[no entry]"
 msgstr ""
 
 #: This_file_has_no_type_extension._Animal_Shelter_Manager_cannot_open_it.
-msgid "This file has no type extension. Animal Shelter Manager cannot open it."
+msgid ""
+"This file has no type extension. Animal Shelter Manager cannot open it."
 msgstr ""
 
 #: No_type
@@ -9456,7 +9496,7 @@ msgstr ""
 
 #: Discard_changes_and_exit
 msgid "Discard changes and exit"
-msgstr ""
+msgstr "Quitter sans sauvegarder"
 
 #: Configure_Local_Settings
 msgid "Configure Local Settings"
@@ -9464,11 +9504,11 @@ msgstr ""
 
 #: Tick_this_box_to_start_ASM_in_a_maximised_window
 msgid "Tick this box to start ASM in a maximised window"
-msgstr ""
+msgstr "Cocher cette case pour démarrer ASM en plein écran"
 
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
-msgstr ""
+msgstr "Sauvegarder et quitter"
 
 #: An_error_occurred_saving_changes_to_localsettings.conf\:\n
 msgid "An error occurred saving changes to asm.properties:\n"
@@ -9476,11 +9516,11 @@ msgstr ""
 
 #: Start_Maximised\:
 msgid "Start Maximised:"
-msgstr ""
+msgstr "Démarrer en plein écran :"
 
 #: email_address
 msgid "Email address:"
-msgstr ""
+msgstr "Adresse E-mail"
 
 #: emails_from_ASM_come_from
 msgid "The email address that mails sent from ASM appear to come from"
@@ -9488,7 +9528,7 @@ msgstr ""
 
 #: smtp_server
 msgid "SMTP Server:"
-msgstr ""
+msgstr "Serveur SMTP :"
 
 #: address_of_smtp_server
 msgid "The IP address/hostname of your SMTP Server"
@@ -9542,7 +9582,7 @@ msgstr ""
 
 #: Warnings
 msgid "Warnings"
-msgstr ""
+msgstr "Alertes"
 
 #: Format_and_Display
 msgid "Format and Display"
@@ -9558,11 +9598,12 @@ msgstr ""
 
 #: use_internal_report_viewer
 msgid "Use Internal Report Viewer:"
-msgstr ""
+msgstr "Utiliser le visionneur de rapport embarqué :"
 
 #: Tick_this_box_to_use_ASMs_internal_report_viewer
 msgid "Tick this box to use ASMs internal report viewer"
 msgstr ""
+"Cocher cette case pour utiliser le visionneur de rapport embarqué d'ASM"
 
 #: Default_Breed\:
 msgid "Default Breed:"
@@ -9594,7 +9635,7 @@ msgstr ""
 
 #: Application
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #: Organisation_Name\:
 msgid "Organisation Name:"
@@ -9606,13 +9647,15 @@ msgstr ""
 
 #: automatic_logout
 msgid "Automatic logout:"
-msgstr ""
+msgstr "Déconnexion automatique:"
 
 #: automatically_log_the_current_user_out_after_minutes_of_inactivity
 msgid ""
 "Automatically log the current user out after this many minutes of inactivity "
 "or 0 to never logout"
 msgstr ""
+"Déconnecter automatiquement l'utilisateur courant après N minutes "
+"d'inactivité (0 pour désactiver l'option)"
 
 #: ASM_could_not_locate_an_office_suite_on_your_computer
 msgid ""
@@ -9620,10 +9663,13 @@ msgid ""
 "will not work until you install and setup an office suite and file type "
 "handlers in ASM."
 msgstr ""
+"ASM ne trouve pas de suite bureautique sur votre ordinateur. Document "
+"generation will not work until you install and setup an office suite and "
+"file type handlers in ASM."
 
 #: LEFT
 msgid "LEFT"
-msgstr ""
+msgstr "GAUCHE"
 
 #: Align_labels
 msgid "Align Labels:"
@@ -9635,7 +9681,7 @@ msgstr ""
 
 #: RIGHT
 msgid "RIGHT"
-msgstr ""
+msgstr "DROITE"
 
 #: Align_tabs
 msgid "Align Tabs:"
@@ -9643,7 +9689,7 @@ msgstr ""
 
 #: TOP
 msgid "TOP"
-msgstr ""
+msgstr "PARFAIT"
 
 #: BOTTOM
 msgid "BOTTOM"
@@ -9655,21 +9701,23 @@ msgstr ""
 
 #: Automatically_determine_filetypes_from_installed_programs
 msgid "Automatically scan filetypes from installed programs"
-msgstr ""
+msgstr "Détection automatique"
 
 #: Overwrite_existing_types
 msgid "Overwrite existing types?"
-msgstr ""
+msgstr "Écraser la liste existante ?"
 
 #: Warning_overwrite_existing_types
 msgid ""
 "Warning: Rescanning will overwrite your current list of types. Are you sure "
 "you want to do this?"
 msgstr ""
+"Attention : La détection automatique va écraser la liste existante. Êtes-"
+"vous sûr de vouloir faire cela ?"
 
 #: Operating_System
 msgid "Operating System"
-msgstr ""
+msgstr "Système d'exploitation"
 
 #: Operating_System_Desc
 msgid "Match an ASM user to the currently logged in OS user"
@@ -9681,15 +9729,15 @@ msgstr ""
 
 #: LDAP
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #: LDAP_Desc
 msgid "Use an external LDAP server to authenticate ASM users"
-msgstr ""
+msgstr "Utiliser un serveur LDAP Pour authentifier les utilisateurs"
 
 #: LDAP_URL
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: LDAP_DN
 msgid "Base DN:"
@@ -9701,11 +9749,12 @@ msgstr ""
 
 #: single_instance
 msgid "Only allow one ASM instance:"
-msgstr ""
+msgstr "N'autoriser qu'une seule instance ASM:"
 
 #: Tick_this_box_to_only_allow_one_instance
 msgid "Tick this box to only allow one instance of ASM open at a time"
 msgstr ""
+"Cocher cette case pour n'autoriser qu'une seule instance d'ASM à la fois"
 
 #: use_button_hotkeys
 msgid "Use Button Hotkeys:"
@@ -9769,8 +9818,8 @@ msgstr ""
 
 #: incoming_media_scaling_tooltip
 msgid ""
-"Automatically scale all incoming photographs to this resolution. Use \"None\" "
-"to disable scaling"
+"Automatically scale all incoming photographs to this resolution. Use "
+"\"None\" to disable scaling"
 msgstr ""
 
 #: max_media_file_size
@@ -10006,19 +10055,19 @@ msgstr ""
 
 #: Add_a_new_user
 msgid "Add a new user"
-msgstr ""
+msgstr "Créer un utilisateur"
 
 #: System_Users
 msgid "System Users"
-msgstr ""
+msgstr "Gestion des utilisateurs"
 
 #: Delete_the_highlighted_user
 msgid "Delete the highlighted user"
-msgstr ""
+msgstr "Supprimer l'utilisateur sélectionné"
 
 #: Edit_the_highlighted_user
 msgid "Edit the highlighted user"
-msgstr ""
+msgstr "Éditer l'utilisateur sélectionné"
 
 #: Delete_Animal_Movements
 msgid "Delete Animal Movements"
@@ -10050,7 +10099,7 @@ msgstr ""
 
 #: Clone_Animals
 msgid "Clone Animals"
-msgstr ""
+msgstr "Cloner"
 
 #: Print_Vaccination_Diary
 msgid "Print Vaccination Diary"
@@ -10066,11 +10115,11 @@ msgstr ""
 
 #: Password\:_
 msgid "Password: "
-msgstr ""
+msgstr "Mot de passe: "
 
 #: Edit_User
 msgid "Edit User"
-msgstr ""
+msgstr "Editer utilisateur"
 
 #: Add_Diary_Notes
 msgid "Add Diary Notes"
@@ -10130,7 +10179,7 @@ msgstr ""
 
 #: Add_Animals
 msgid "Add Animals"
-msgstr ""
+msgstr "Créer"
 
 #: System\:
 msgid "System:"
@@ -10174,7 +10223,7 @@ msgstr ""
 
 #: Real_Name
 msgid "Real Name: "
-msgstr ""
+msgstr "Nom: "
 
 #: Add_Owners
 msgid "Add Owners"
@@ -10198,7 +10247,7 @@ msgstr ""
 
 #: View_Animals
 msgid "View Animals"
-msgstr ""
+msgstr "Voir"
 
 #: Edit_My_Diary_Notes
 msgid "Edit My Diary Notes"
@@ -10210,7 +10259,7 @@ msgstr ""
 
 #: Username\:_
 msgid "Username: "
-msgstr ""
+msgstr "Utilisateur: "
 
 #: Change_Animal_Media
 msgid "Change Animal Media"
@@ -10254,7 +10303,7 @@ msgstr ""
 
 #: Delete_Animals
 msgid "Delete Animals"
-msgstr ""
+msgstr "Supprimer"
 
 #: Lost_and_Found_Animals\:
 msgid "Lost and Found Animals:"
@@ -10270,7 +10319,7 @@ msgstr ""
 
 #: Media\:
 msgid "Media:"
-msgstr ""
+msgstr "Média:"
 
 #: Use_Internet_Publisher
 msgid "Use Internet Publisher"
@@ -10282,7 +10331,7 @@ msgstr ""
 
 #: Change_Animals
 msgid "Change Animals"
-msgstr ""
+msgstr "Modifier"
 
 #: Add_Animal_Movements
 msgid "Add Animal Movements"
@@ -10317,7 +10366,7 @@ msgstr ""
 
 #: Custom_Reports
 msgid "Custom Reports"
-msgstr ""
+msgstr "Rapports personalisés"
 
 #: Add_Custom_Report
 msgid "Add Custom Reports"
@@ -10337,7 +10386,7 @@ msgstr ""
 
 #: clone
 msgid "Clone"
-msgstr ""
+msgstr "Cloner"
 
 #: create_a_new_user_by_cloning_this_user
 msgid "Create a new user by cloning this user"
@@ -10417,15 +10466,15 @@ msgstr ""
 
 #: Reset_Password
 msgid "Reset Password"
-msgstr ""
+msgstr "Changer le mot de passe"
 
 #: Enter_new_password
 msgid "Enter new password"
-msgstr ""
+msgstr "Saisir un nouveau mot de passe"
 
 #: Password_updated
 msgid "Password updated."
-msgstr ""
+msgstr "Mot de passe mis à jour"
 
 #: View_Animal_Vet
 msgid "View Animal Vet"
@@ -10474,7 +10523,7 @@ msgstr ""
 #. # uiviewers.properties#=========================================================================
 #: HTML_Viewer
 msgid "HTML Viewer"
-msgstr ""
+msgstr "Visionneur HTML"
 
 #: Name_Contains\:
 msgid "Name Contains:"
@@ -10482,7 +10531,7 @@ msgstr ""
 
 #: Delete_this_entry
 msgid "Delete this entry"
-msgstr ""
+msgstr "Supprimer l'entrée sélectionnée"
 
 #: Show_Removed\:
 msgid "Show Removed:"
@@ -10498,7 +10547,7 @@ msgstr ""
 
 #: Edit_this_entry
 msgid "Edit this entry"
-msgstr ""
+msgstr "Éditer l'entrée sélectionnée"
 
 #: An_error_occurred_accessing_external_data\:\n
 msgid "An error occurred accessing external data:\n"
@@ -10538,7 +10587,7 @@ msgstr ""
 
 #: New_Waiting_List_Entry
 msgid "New Waiting List Entry"
-msgstr ""
+msgstr "Nouvelle entrée"
 
 #: complete_the_selected_waiting_list_entries
 msgid "Complete the selected waiting list entries"
@@ -10553,7 +10602,8 @@ msgid "Remove this entry after"
 msgstr ""
 
 #: automatically_remove_this_entry_after_x_weeks_without_owner_contact
-msgid "Automatically remove this entry after weeks (or 0 to never auto remove)"
+msgid ""
+"Automatically remove this entry after weeks (or 0 to never auto remove)"
 msgstr ""
 
 #: date_of_last_owner_contact
@@ -10604,3 +10654,707 @@ msgstr ""
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr ""
+
+#~ msgid "The contact must have a phone number."
+#~ msgstr "The contact must have a phone number."
+
+#~ msgid "The contact must have an address."
+#~ msgstr "The contact must have an address."
+
+#~ msgid " litter(s) cancelled."
+#~ msgstr " litter(s) cancelled."
+
+#~ msgid "You must enter a contact number."
+#~ msgstr "You must enter a contact number."
+
+#~ msgid "Could not afford"
+#~ msgstr "Could not afford"
+
+#~ msgid "feral"
+#~ msgstr "feral"
+
+#~ msgid "Injured"
+#~ msgstr "Injured"
+
+#~ msgid "relation"
+#~ msgstr "relation"
+
+#~ msgid "stray"
+#~ msgstr "stray"
+
+#~ msgid "afford"
+#~ msgstr "afford"
+
+#~ msgid "healthy"
+#~ msgstr "healthy"
+
+#~ msgid "injur"
+#~ msgstr "injur"
+
+#~ msgid "Marriage/relationship split"
+#~ msgstr "Marriage/relationship split"
+
+#~ msgid "culling"
+#~ msgstr "culling"
+
+#~ msgid "died"
+#~ msgstr "died"
+
+#~ msgid "bit"
+#~ msgstr "bit"
+
+#~ msgid "injured"
+#~ msgstr "injured"
+
+#~ msgid "Released to Wild"
+#~ msgstr "Released to Wild"
+
+#~ msgid "marriage"
+#~ msgstr "marriage"
+
+#~ msgid " bit"
+#~ msgstr " bit"
+
+#~ msgid "allerg"
+#~ msgstr "allerg"
+
+#~ msgid "cope"
+#~ msgstr "cope"
+
+#~ msgid "(Unknown)"
+#~ msgstr "(Unknown)"
+
+#~ msgid "sick"
+#~ msgstr "sick"
+
+#~ msgid "accomodation"
+#~ msgstr "accomodation"
+
+#~ msgid "requested"
+#~ msgstr "requested"
+
+#~ msgid "Unable to cope"
+#~ msgstr "Unable to cope"
+
+#~ msgid "Unsuitable accomodation"
+#~ msgstr "Unsuitable accomodation"
+
+#~ msgid "Released"
+#~ msgstr "Released"
+
+#~ msgid "Perpetual"
+#~ msgstr "Perpetual"
+
+#~ msgid "Donation must have a date"
+#~ msgstr "Donation must have a date"
+
+#~ msgid "Died ("
+#~ msgstr "Died ("
+
+#~ msgid "Unable To Cope ("
+#~ msgstr "Unable To Cope ("
+
+#~ msgid "Stray ("
+#~ msgstr "Errant ("
+
+#~ msgid "Unable To Afford ("
+#~ msgstr "Unable To Afford ("
+
+#~ msgid "Unsuitable Accomodation ("
+#~ msgstr "Unsuitable Accomodation ("
+
+#~ msgid "Injured ("
+#~ msgstr "Blessure ("
+
+#~ msgid "Allergies ("
+#~ msgstr "Allergies ("
+
+#~ msgid "Marriage/Relationship Split ("
+#~ msgstr "Divorce/Séparation ("
+
+#~ msgid "Abuse ("
+#~ msgstr "Abuse ("
+
+#~ msgid "Biting ("
+#~ msgstr "Morsure ("
+
+#~ msgid "An error occurred generating the chart:\n"
+#~ msgstr "An error occurred generating the chart:\n"
+
+#~ msgid "Cats ("
+#~ msgstr "Chats ("
+
+#~ msgid "Misc ("
+#~ msgstr "Autres ("
+
+#~ msgid "Dogs ("
+#~ msgstr "Chiens ("
+
+#~ msgid "Puppies: "
+#~ msgstr "Puppies: "
+
+#~ msgid "Kittens: "
+#~ msgstr "Kittens: "
+
+#~ msgid "<u>DOGS</u>"
+#~ msgstr "<u>DOGS</u>"
+
+#~ msgid "Culling of Litters"
+#~ msgstr "Culling of Litters"
+
+#~ msgid "CATS"
+#~ msgstr "CATS"
+
+#~ msgid "Case"
+#~ msgstr "Case"
+
+#~ msgid "<u>CATS</u>"
+#~ msgstr "<u>CATS</u>"
+
+#~ msgid "Totals"
+#~ msgstr "Totals"
+
+#~ msgid "Adopted:"
+#~ msgstr "Adopted:"
+
+#~ msgid "Feral/Wild"
+#~ msgstr "Feral/Wild"
+
+#~ msgid "Dead on Arrival"
+#~ msgstr "Dead on Arrival"
+
+#~ msgid " released"
+#~ msgstr " released"
+
+#~ msgid "DOGS"
+#~ msgstr "DOGS"
+
+#~ msgid "REASONS FOR PUTTING TO SLEEP:"
+#~ msgstr "REASONS FOR PUTTING TO SLEEP:"
+
+#~ msgid "Unwanted"
+#~ msgstr "Unwanted"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Miscellaneous"
+
+#~ msgid "Income Derived From Retailer Between"
+#~ msgstr "Income Derived From Retailer Between"
+
+#~ msgid "An error occurred dropping temporary table {0}: {1}"
+#~ msgstr "An error occurred dropping temporary table {0}: {1}"
+
+#~ msgid "No JDBC URL specified."
+#~ msgstr "Pas d'URL JDBC spécifiée."
+
+#~ msgid "No TEMP directory specified."
+#~ msgstr "Pas de répertoire TEMP spécifié."
+
+#~ msgid "No Database"
+#~ msgstr "Aucune base de donnée"
+
+#~ msgid "Loading..."
+#~ msgstr "Chargement..."
+
+#~ msgid "Please Wait..."
+#~ msgstr "Veuillez patienter..."
+
+#~ msgid ""
+#~ "ASM could not find a suitable database server on your network. Please enter "
+#~ "a JDBC URL."
+#~ msgstr ""
+#~ "ASM ne trouve pas de serveur de base de donnée sur le réseau. Veuillez "
+#~ "saisir une URL JDBC."
+
+#~ msgid "Hidden Comments"
+#~ msgstr "Commentaires cachés"
+
+#~ msgid "Expires in:"
+#~ msgstr "Expires in:"
+
+#~ msgid "The mother's name (if known)"
+#~ msgstr "Nom de la mère (si connu)"
+
+#~ msgid "The type of vaccination treatment"
+#~ msgstr "The type of vaccination treatment"
+
+#~ msgid ""
+#~ "Another user has submitted changes to this record whilst you were editing "
+#~ "it. Your changes must be discarded now to retain data integrity. Animal "
+#~ "Shelter Manager will now reload the current record."
+#~ msgstr ""
+#~ "Un autre utilisateur a effectué des modifications pendant que vous le "
+#~ "mettiez à jour. Your changes must be discarded now to retain data integrity. "
+#~ "Animal Shelter Manager will now reload the current record."
+
+#~ msgid "The address of the person who brought the animal in"
+#~ msgstr "L'adresse de la personne qui a apporté l'animal"
+
+#~ msgid "The name and address of the current owner's vet"
+#~ msgstr "Le nom et l'adresse du vétérinaire du propriétaire actuel"
+
+#~ msgid "The original owner's full name and title - eg: \"Mr Gary Smith\""
+#~ msgstr "Nom complet du propriétaire et civilité - ex. : \"M. Gary Smith\""
+
+#~ msgid "Name of the person who brought the animal in"
+#~ msgstr "Nom de la personne qui a apporté l'animal"
+
+#~ msgid "Data Conflict"
+#~ msgstr "Data Conflict"
+
+#~ msgid "The original owner's phone number"
+#~ msgstr "Numéro de telephone du propriétaire"
+
+#~ msgid "Generate New Code?"
+#~ msgstr "Générer un nouveau code ?"
+
+#~ msgid "The original owner's address"
+#~ msgstr "Adresse du propriétaire originel"
+
+#~ msgid "The original owner's postcode"
+#~ msgstr "Le code postal du propriétaire originel"
+
+#~ msgid "A database error ocurred checking record locks: "
+#~ msgstr "A database error ocurred checking record locks: "
+
+#~ msgid "Reason not brought"
+#~ msgstr "Reason not brought"
+
+#~ msgid "The postcode of the person who brought the animal in"
+#~ msgstr "Le code postal de la personne ayant apporté l'animal"
+
+#~ msgid "Form"
+#~ msgstr "Form"
+
+#~ msgid "Diary Task"
+#~ msgstr "Tâche journalière"
+
+#~ msgid "Diary Note"
+#~ msgstr "Note journalière"
+
+#~ msgid "Combi Test Result:"
+#~ msgstr "Combi Test Result:"
+
+#~ msgid "Who the diary note is for"
+#~ msgstr "Qui cette note concerne-t-elle"
+
+#~ msgid "The text of the note"
+#~ msgstr "Le texte de la note"
+
+#~ msgid ""
+#~ "You are about to permanently delete this record. Are you sure you want to do "
+#~ "this?"
+#~ msgstr ""
+#~ "Êtes-vous sûr(e) de vouloir supprimer définitivement le ou les element(s) "
+#~ "sélectionné(s) ?"
+
+#~ msgid "View All Diary Notes"
+#~ msgstr "Voir toutes les notes du journal"
+
+#~ msgid "View Completed Diary Notes"
+#~ msgstr "Voir les notes terminées du journal"
+
+#~ msgid "Diary notes for"
+#~ msgstr "Notes pour"
+
+#~ msgid "Include Completed"
+#~ msgstr "Inclure les \"accomplies\""
+
+#~ msgid ""
+#~ "Tick this box to have the publisher upload your web site as it is built"
+#~ msgstr ""
+#~ "Tick this box to have the publisher upload your web site as it is built"
+
+#~ msgid "An error occurred reading the list of locations:\n"
+#~ msgstr "An error occurred reading the list of locations:\n"
+
+#~ msgid "Tick this box to include fostered animals"
+#~ msgstr "Tick this box to include fostered animals"
+
+#~ msgid "Tick this box to include reserved animals"
+#~ msgstr "Tick this box to include reserved animals"
+
+#~ msgid ""
+#~ "An error occurred scaling the image \n"
+#~ "'"
+#~ msgstr ""
+#~ "An error occurred scaling the image \n"
+#~ "'"
+
+#~ msgid ""
+#~ "If you would like your images scaled on the way out, select a setting here"
+#~ msgstr ""
+#~ "If you would like your images scaled on the way out, select a setting here"
+
+#~ msgid "Tick this box to include case animals"
+#~ msgstr "Tick this box to include case animals"
+
+#~ msgid "Include Case Animals"
+#~ msgstr "Include Case Animals"
+
+#~ msgid ""
+#~ "Ticking this box will make the publisher generate a searchable online "
+#~ "database"
+#~ msgstr ""
+#~ "Ticking this box will make the publisher generate a searchable online "
+#~ "database"
+
+#~ msgid "Don't Scale"
+#~ msgstr "Don't Scale"
+
+#~ msgid "Internet Connection Required"
+#~ msgstr "Internet Connection Required"
+
+#~ msgid "Upload directly to PetFinder.org"
+#~ msgstr "Upload directly to PetFinder.org"
+
+#~ msgid "Tick this box to have the publisher upload directly to petfinder.com"
+#~ msgstr "Tick this box to have the publisher upload directly to petfinder.com"
+
+#~ msgid "Publishing to FindMeAPet.com is complete."
+#~ msgstr "Publishing to FindMeAPet.com is complete."
+
+#~ msgid "FindMeAPet.com Upload Complete"
+#~ msgstr "FindMeAPet.com Upload Complete"
+
+#~ msgid "Publish Available Animals To FindMeAPet.com"
+#~ msgstr "Publish Available Animals To FindMeAPet.com"
+
+#~ msgid "You need to configure your FindMeAPet.com settings before publishing."
+#~ msgstr ""
+#~ "You need to configure your FindMeAPet.com settings before publishing."
+
+#~ msgid "tick this box to include animals with no photo media"
+#~ msgstr "tick this box to include animals with no photo media"
+
+#~ msgid "FindMeAPet.com Settings"
+#~ msgstr "FindMeAPet.com Settings"
+
+#~ msgid "The type of log entry"
+#~ msgstr "The type of log entry"
+
+#~ msgid "Edit Lost Animal"
+#~ msgstr "Edit Lost Animal"
+
+#~ msgid "The date the animal was found and returned to its owner"
+#~ msgstr "The date the animal was found and returned to its owner"
+
+#~ msgid "Delete From media Where LinkID = "
+#~ msgstr "Delete From media Where LinkID = "
+
+#~ msgid "Edit Found Animal"
+#~ msgstr "Edit Found Animal"
+
+#~ msgid "Contact:"
+#~ msgstr "Contact:"
+
+#~ msgid "Add Diary"
+#~ msgstr "Add Diary"
+
+#~ msgid "Print Diary"
+#~ msgstr "Print Diary"
+
+#~ msgid "Show Animal/Owner Toolbar"
+#~ msgstr "Show Animal/Owner Toolbar"
+
+#~ msgid "All Home Checkers"
+#~ msgstr "All Home Checkers"
+
+#~ msgid "Financial"
+#~ msgstr "Financial"
+
+#~ msgid "_ShowAnimalToolbar"
+#~ msgstr "_ShowAnimalToolbar"
+
+#~ msgid "All Volunteers"
+#~ msgstr "All Volunteers"
+
+#~ msgid "Non-Neutered Animals Aged Over Six Months"
+#~ msgstr "Non-Neutered Animals Aged Over Six Months"
+
+#~ msgid "Updating and cancelling litters on system exit..."
+#~ msgstr "Updating and cancelling litters on system exit..."
+
+#~ msgid "Match Lost/Found"
+#~ msgstr "Match Lost/Found"
+
+#~ msgid "Animals Not Part of a Litter"
+#~ msgstr "Animals Not Part of a Litter"
+
+#~ msgid "View My Diary"
+#~ msgstr "View My Diary"
+
+#~ msgid "Window"
+#~ msgstr "Window"
+
+#~ msgid "Show Toolbar Text"
+#~ msgstr "Show Toolbar Text"
+
+#~ msgid "View My Diary Notes (CTRL+M)"
+#~ msgstr "View My Diary Notes (CTRL+M)"
+
+#~ msgid "Show Lost/Found Toolbar"
+#~ msgstr "Show Lost/Found Toolbar"
+
+#~ msgid "Configure Media Server"
+#~ msgstr "Configure Media Server"
+
+#~ msgid "All Owners"
+#~ msgstr "All Owners"
+
+#~ msgid "An error occurred: "
+#~ msgstr "An error occurred: "
+
+#~ msgid "Graphs"
+#~ msgstr "Graphs"
+
+#~ msgid "asm.pdf"
+#~ msgstr "asm.pdf"
+
+#~ msgid "View Completed Notes"
+#~ msgstr "View Completed Notes"
+
+#~ msgid "Animal Shelter Manager"
+#~ msgstr "Animal Shelter Manager"
+
+#~ msgid "Show Diary Toolbar"
+#~ msgstr "Show Diary Toolbar"
+
+#~ msgid "days, based on "
+#~ msgstr "days, based on "
+
+#~ msgid "retailer records, with a cumulative time of "
+#~ msgstr "retailer records, with a cumulative time of "
+
+#~ msgid "View Diary For Another User"
+#~ msgstr "View Diary For Another User"
+
+#~ msgid "Publish Adoptable Animals To the Web"
+#~ msgstr "Publish Adoptable Animals To the Web"
+
+#~ msgid "Reset My Preferences"
+#~ msgstr "Reset My Preferences"
+
+#~ msgid ""
+#~ "Are you sure you want to delete all your preferences? This\n"
+#~ "will reset all lists back to their defaults column positions and widths."
+#~ msgstr ""
+#~ "Are you sure you want to delete all your preferences? This\n"
+#~ "will reset all lists back to their defaults column positions and widths."
+
+#~ msgid "Really Reset?"
+#~ msgstr "Really Reset?"
+
+#~ msgid "Left"
+#~ msgstr "Left"
+
+#~ msgid "Top"
+#~ msgstr "Top"
+
+#~ msgid "Right"
+#~ msgstr "Right"
+
+#~ msgid "Bottom"
+#~ msgstr "Bottom"
+
+#~ msgid "Show Screen Tabs On The"
+#~ msgstr "Show Screen Tabs On The"
+
+#~ msgid "Publish Adoptable Animals to FindMeAPet.com"
+#~ msgstr "Publish Adoptable Animals to FindMeAPet.com"
+
+#~ msgid "Publish Animals Available For Adoption to FindMeAPet.com"
+#~ msgstr "Publish Animals Available For Adoption to FindMeAPet.com"
+
+#~ msgid "ASM has been locked."
+#~ msgstr "ASM has been locked."
+
+#~ msgid "Cursor Engine Version"
+#~ msgstr "Cursor Engine Version"
+
+#~ msgid "An error occurred loading the data: "
+#~ msgstr "An error occurred loading the data: "
+
+#~ msgid "Use automatic type based codes in XYYYYNNN format"
+#~ msgstr "Use automatic type based codes in XYYYYNNN format"
+
+#~ msgid "Host:"
+#~ msgstr "Host:"
+
+#~ msgid "Media Server Settings"
+#~ msgstr "Media Server Settings"
+
+#~ msgid "Scanning"
+#~ msgstr "Scanning"
+
+#~ msgid "No Internet Explorer"
+#~ msgstr "No Internet Explorer"
+
+#~ msgid ""
+#~ "No valid sound player could be found. External sounds will not be playable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "No valid sound player could be found. External sounds will not be playable "
+#~ "from Animal Shelter Manager."
+
+#~ msgid ""
+#~ "Internet Explorer could not be found. External media will\n"
+#~ " not be viewable from Animal Shelter Manager."
+#~ msgstr ""
+#~ "Internet Explorer could not be found. External media will\n"
+#~ " not be viewable from Animal Shelter Manager."
+
+#~ msgid "No OpenOffice"
+#~ msgstr "No OpenOffice"
+
+#~ msgid "No sound player"
+#~ msgstr "No sound player"
+
+#~ msgid "No movie viewer"
+#~ msgstr "No movie viewer"
+
+#~ msgid ""
+#~ "Could not find OpenOffice on your system. If it is installed, \n"
+#~ "please make symlinks from swriter, scalc and simpress in /usr/bin to \n"
+#~ "oowriter, oocalc and ooimpress."
+#~ msgstr ""
+#~ "Could not find OpenOffice on your system. If it is installed, \n"
+#~ "please make symlinks from swriter, scalc and simpress in /usr/bin to \n"
+#~ "oowriter, oocalc and ooimpress."
+
+#~ msgid ""
+#~ "No valid movie viewer could be found. External movies will not be viewable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "No valid movie viewer could be found. External movies will not be viewable "
+#~ "from Animal Shelter Manager."
+
+#~ msgid ""
+#~ "No valid image viewer could be found. External images will not be viewable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "No valid image viewer could be found. External images will not be viewable "
+#~ "from Animal Shelter Manager."
+
+#~ msgid "Stray Dog Animal Type:"
+#~ msgstr "Stray Dog Animal Type:"
+
+#~ msgid "Unwanted Dog Animal Type:"
+#~ msgstr "Unwanted Dog Animal Type:"
+
+#~ msgid "Miscellaneous Type:"
+#~ msgstr "Miscellaneous Type:"
+
+#~ msgid "[ We don't have case animals ]"
+#~ msgstr "[ We don't have case animals ]"
+
+#~ msgid "Cat Species:"
+#~ msgstr "Cat Species:"
+
+#~ msgid "[ We don't have miscellaneous animals ]"
+#~ msgstr "[ We don't have miscellaneous animals ]"
+
+#~ msgid "Dog Species:"
+#~ msgstr "Dog Species:"
+
+#~ msgid "Case Type:"
+#~ msgstr "Case Type:"
+
+#~ msgid "Stray Cat Animal Type:"
+#~ msgstr "Stray Cat Animal Type:"
+
+#~ msgid "Unwanted Cat Animal Type:"
+#~ msgstr "Unwanted Cat Animal Type:"
+
+#~ msgid "[ We don't have dogs ]"
+#~ msgstr "[ We don't have dogs ]"
+
+#~ msgid "[ We don't have cats ]"
+#~ msgstr "[ We don't have cats ]"
+
+#~ msgid "Select the system locale to use"
+#~ msgstr "Select the system locale to use"
+
+#~ msgid "Simple Look and Feel Theme:"
+#~ msgstr "Simple Look and Feel Theme:"
+
+#~ msgid "Changes will not be activated until you restart the system."
+#~ msgstr "Changes will not be activated until you restart the system."
+
+#~ msgid "Skin Look and Feel Theme:"
+#~ msgstr "Skin Look and Feel Theme:"
+
+#~ msgid "Rendering Engine:"
+#~ msgstr "Rendering Engine:"
+
+#~ msgid "Use Antialiased Fonts:"
+#~ msgstr "Use Antialiased Fonts:"
+
+#~ msgid ""
+#~ "Tick this box to have Animal Shelter Manager smooth the edges of jagged "
+#~ "fonts on screen"
+#~ msgstr ""
+#~ "Tick this box to have Animal Shelter Manager smooth the edges of jagged "
+#~ "fonts on screen"
+
+#~ msgid "VM Heap Size:"
+#~ msgstr "VM Heap Size:"
+
+#~ msgid "The amount of memory Animal Shelter Manager should use"
+#~ msgstr "The amount of memory Animal Shelter Manager should use"
+
+#~ msgid "Garbage Collection Policy:"
+#~ msgstr "Garbage Collection Policy:"
+
+#~ msgid "The garbage collection policy (how ASM cleans up after itself) to use"
+#~ msgstr ""
+#~ "The garbage collection policy (how ASM cleans up after itself) to use"
+
+#~ msgid "Use automatic incrementing codes in NNNNNNNNN format"
+#~ msgstr "Use automatic incrementing codes in NNNNNNNNN format"
+
+#~ msgid "Keep NNNN portion of type-based codes unique"
+#~ msgstr "Keep NNNN portion of type-based codes unique"
+
+#~ msgid "Automatically Log in OS users if a matching ASM user exists"
+#~ msgstr "Automatically Log in OS users if a matching ASM user exists"
+
+#~ msgid "Primary Species:"
+#~ msgstr "Primary Species:"
+
+#~ msgid "Secondary Species:"
+#~ msgstr "Secondary Species:"
+
+#~ msgid "Secondary Unwanted Type:"
+#~ msgstr "Secondary Unwanted Type:"
+
+#~ msgid "Secondary Stray Type:"
+#~ msgstr "Secondary Stray Type:"
+
+#~ msgid "Primary Stray Type:"
+#~ msgstr "Primary Stray Type:"
+
+#~ msgid "Primary Unwanted Type:"
+#~ msgstr "Primary Unwanted Type:"
+
+#~ msgid "Animal Reporting"
+#~ msgstr "Animal Reporting"
+
+#~ msgid "JGoodies Look and Feel"
+#~ msgstr "JGoodies Look and Feel"
+
+#~ msgid "Maximum Media File Size in Kb:"
+#~ msgstr "Maximum Media File Size in Kb:"
+
+#~ msgid ""
+#~ "The maximum size allowed size for media files (leave blank for no limit)"
+#~ msgstr ""
+#~ "The maximum size allowed size for media files (leave blank for no limit)"
+
+#~ msgid "Can't follow link to {0}"
+#~ msgstr "Lien mort vers {0}"
+
+#~ msgid ""
+#~ "An error occurred while updating the urgencies of the waiting list entries:\n"
+#~ msgstr ""
+#~ "An error occurred while updating the urgencies of the waiting list entries:\n"

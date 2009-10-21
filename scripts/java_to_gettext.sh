@@ -1,27 +1,28 @@
 #!/bin/sh
 
-LANGUAGES="es_ES fr_FR nl_NL lt_LT"
-FILES="bo charts database db mailmerge reports startup uianimal uianimalname uibeans uicustomreport uidiary uierror uiinternet uilocalcache uilog uilogin uilookups uilostandfound uimain uimedical uimovement uiowner uireportviewer uisplash uisystem uiusers uiviewers uiwaitinglist uiwordprocessor"
-
-cd `dirname $0`/../src/locale
-mkdir -p po
-rm -f po/*
+THISDIR=`dirname $0`
+LANGUAGES="`cat $THISDIR/i18n_languages.txt`"
+FILES="`cat $THISDIR/i18n_files.txt`"
+LDIR="$THISDIR/../src/locale"
 
 # Create master template file of all English properties
 for F in $FILES; do
-    cat $F.properties >> po/t.properties
+    cat $LDIR/$F.properties >> $LDIR/po/t.properties
 done
 
 # Convert it to a .pot file
-prop2po --duplicates=merge -P po/t.properties > po/sheltermanager.pot
+prop2po --duplicates=merge -P $LDIR/po/t.properties > $LDIR/po/sheltermanager.pot
 
 # Create combined file for each language
 for L in $LANGUAGES; do
     for F in $FILES; do
-        cat $F*$L.properties >> po/t_$L.properties
+        cat $LDIR/$F*$L.properties >> $LDIR/po/t_$L.properties
     done
 
-    # Convert it to po
-    prop2po --duplicates=merge -t po/t.properties -i po/t_$L.properties > po/$L.po
+    # Convert it to a po
+    prop2po --duplicates=merge -t $LDIR/po/t.properties -i $LDIR/po/t_$L.properties > $LDIR/po/`python $THISDIR/locale_to_po.py $L`
 
 done
+
+# Remove temporary files
+rm -f $LDIR/po/t.properties $LDIR/po/t_*.properties

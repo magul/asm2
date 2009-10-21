@@ -21,14 +21,13 @@ lines = infile.readlines()
 infile.close()
 
 # Languages we recognise and prop suffix - if we don't recognise, assume
-# english and our template - each new language should be added here
-codes = (  ( "lt", "_lt_LT" ), ( "es", "_es_ES" ), ( "nl", "_nl_NL" ), ( "fr", "_fr_FR" ) )
+# english and that we're generating a template (no language code)
 code = ""
-
-for c in codes:
-    if filename.find(c[1]) != -1:
-        code = c[0]
-        break
+if filename.find("_") != 1:
+    code = filename[filename.find("_")+1:filename.find(".")]
+    bits = code.split("_")
+    if bits[0] == bits[1].lower():
+        code = bits[0]
 
 # Open the output file
 outfilename = "translate_" + code + ".sql"

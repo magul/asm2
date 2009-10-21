@@ -22,15 +22,10 @@ infile = open(inputfile, "r")
 lines = infile.readlines()
 infile.close()
 
-# Languages we recognise and prop suffix - if we don't recognise, assume
-# english and our template - each new language should be added here
-codes = (  ( "lt", "_lt_LT" ), ( "es", "_es_ES" ), ( "nl", "_nl_NL" ), ( "fr", "_fr_FR" ) )
-code = ""
-
-for c in codes:
-    if filename.find(c[0]) != -1:
-        code = c[1]
-        break
+# Infer a java locale from the language code in translate_lang.sql
+code = filename[filename.find(":")+1:filename.find(".")]
+if code.find("_") != -1:
+    code = code + "_" + code.upper()
 
 # Open the output file
 outfilename = "database" + code + ".properties"
