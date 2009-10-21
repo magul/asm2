@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. The default username and password is displayed as a hint on the
+-  login screen now if there are no animals in the database
 *. Naming convention wrong for web package, still got some old
 -  .svn folders in the media directory
 *. Directory browsing was broken with Swing (media files import dir)

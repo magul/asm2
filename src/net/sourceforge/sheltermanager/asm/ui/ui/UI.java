@@ -356,6 +356,15 @@ public final class UI {
         return l;
     }
 
+    public static Label getHintLabel(String text) {
+        Label l = new Label(text);
+        l.setBackground(getColor(255, 251, 192));
+        l.setBorder(new LineBorder(Color.BLACK));
+        l.setHorizontalAlignment(ALIGN_CENTER);
+        l.setOpaque(true);
+        return l;
+    }
+
     public static Label getURLLabel(String text, String tooltiptext,
         final FunctionPointer onClick) {
         Label l = new Label(text);
@@ -1362,11 +1371,11 @@ public final class UI {
     }
 
     public static String getRendererName() {
-        return "ASMSwing 1.00";
+        return "ASMSwing 1.10";
     }
 
     public static String getRendererVersion() {
-        return "1.00";
+        return "1.10";
     }
 
     public static void disableRendererMessages() {

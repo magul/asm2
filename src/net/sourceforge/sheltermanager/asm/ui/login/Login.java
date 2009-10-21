@@ -48,8 +48,8 @@ public class Login extends ASMWindow {
      * If set, the application will be killed when this screen is closed.
      */
     private boolean killOnClose = true;
-    private UI.Button btnCancel;
-    private UI.Button btnOk;
+    private UI.Button btnExit;
+    private UI.Button btnLogin;
     private UI.PasswordField txtPassword;
     private UI.TextField txtUsername;
 
@@ -71,16 +71,6 @@ public class Login extends ASMWindow {
                     txtUsername.grabFocus();
                 }
             }, 250);
-
-        /*
-         * TODO: I don't think this is necessary
-        UI.invokeIn(new Runnable() {
-                public void run() {
-                    // make sure we get painted
-                    ((org.eclipse.swt.widgets.Shell) getSWTPeer()).layout();
-                }
-            }, 50);
-        */
     }
 
     public void setSecurity() {
@@ -106,8 +96,8 @@ public class Login extends ASMWindow {
         Vector ctl = new Vector();
         ctl.add(txtUsername);
         ctl.add(txtPassword);
-        ctl.add(btnOk);
-        ctl.add(btnCancel);
+        ctl.add(btnLogin);
+        ctl.add(btnExit);
 
         return ctl;
     }
@@ -181,6 +171,8 @@ public class Login extends ASMWindow {
     }
 
     public void initComponents() {
+        
+        UI.Panel pnlCenter = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlUserAndPass = UI.getPanel(UI.getGridLayout(2), 20);
 
         // Show the user/pass boxes
@@ -194,7 +186,8 @@ public class Login extends ASMWindow {
         txtPassword.setWidth(220);
         pnlUserAndPass.add(txtPassword);
 
-        add(pnlUserAndPass, UI.BorderLayout.CENTER);
+        pnlCenter.add(pnlUserAndPass, UI.BorderLayout.NORTH);
+        add(pnlCenter, UI.BorderLayout.CENTER);
 
         // Show the ASM splash centered at the top
         UI.Label lblSplash = UI.getLabel(IconManager.getSplashScreen());
@@ -203,30 +196,50 @@ public class Login extends ASMWindow {
 
         // Buttons
         UI.Panel pnlButtons = UI.getPanel(UI.getFlowLayout());
-        btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
-                UI.fp(this, "actionOk"));
-        pnlButtons.add(btnOk);
-        btnCancel = UI.getButton(i18n("Cancel"), null, 'c', null,
-                UI.fp(this, "actionCancel"));
-        pnlButtons.add(btnCancel);
+        btnLogin = UI.getButton(i18n("Login"), null, 'o', null,
+                UI.fp(this, "actionLogin"));
+        pnlButtons.add(btnLogin);
+        btnExit = UI.getButton(i18n("Exit"), null, 'c', null,
+                UI.fp(this, "actionExit"));
+        pnlButtons.add(btnExit);
         add(pnlButtons, UI.BorderLayout.SOUTH);
 
-        // Set default button
-        this.getRootPane().setDefaultButton(btnOk);
+        // Show the username and password hint if there are no animals
+        // in the database - doesn't matter hinting if we aren't
+        // protecting anything.
+        // Having the hint needs more space, so we make the form slightly
+        // larger.
+        try {
+            if (DBConnection.executeForCount("SELECT COUNT(*) FROM animal") == 0) {
+                pnlCenter.add(
+                    UI.getHintLabel(i18n("default_username_password_hint")), 
+                    UI.BorderLayout.CENTER);
+                    this.setSize(UI.getDimension(436, 396));
+            }
+            else {
+                this.setSize(UI.getDimension(436, 376));
+            }
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+            this.setSize(UI.getDimension(436, 376));
+        }
 
-        // Size/Center window and display
-        this.setSize(UI.getDimension(436, 376));
+        // Set default button
+        this.getRootPane().setDefaultButton(btnLogin);
+
+        // Center window and display
         UI.centerWindow(this);
 
         setVisible(true);
         Dialog.theParent = this;
     }
 
-    public void actionCancel() {
+    public void actionExit() {
         windowCloseAttempt();
     }
 
-    public void actionOk() {
+    public void actionLogin() {
         boolean passOk = false;
 
         // Some people have experienced problems with dropped connections
