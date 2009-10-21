@@ -81,8 +81,8 @@ public class About extends ASMDialog {
 
         // Sysinfo
         String sys = "<html>" +
-            "<head><style> td { font-family: sans-serif; font-size: 10pt; } </style></head>" +
-            "<body><table border=\"1\">";
+            "<head><style> td { font-family: sans-serif; }" +
+            "</style></head>" + "<body><table border=\"1\">";
 
         for (int i = 0; i < names.size(); i++) {
             sys += ("<tr><td><b>" + names.get(i) + "</b></td>");

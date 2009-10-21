@@ -33,10 +33,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.*;
  */
 public class Credits {
     public final static String content = "<html>" +
-        "<head><style> p { font-family: sans-serif; font-size: 10pt; }" +
-        "\n li { font-family: sans-serif; font-size: 10pt; }" +
-        "\n h2 { font-family: sans-serif; font-size: 12pt; }" +
-        "\n h1 { font-family: sans-serif; font-size: 14pt; }" +
+        "<head><style>p, h1, h2, li, a { font-family: sans-serif; }" +
         "</style></head>" + "<body>" + "<h1>Credits:</h1>" +
         "<h2>ASM System Design, Programming and Website</h2>" +
         "<p>Robin Rawson-Tetley [robin@rawsontetley.org]</p>" +

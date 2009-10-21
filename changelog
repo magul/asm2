@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Removed ugly styling from credits/license/splash so that it looks
+-  better with Swing HTMLEditorKit
 *. Coat type and additional fields appear on animal print now
 *. All supported languages are now stored in scripts/i18n_languages.txt
 -  with property files in scripts/i18n_files.txt. This means we can add
