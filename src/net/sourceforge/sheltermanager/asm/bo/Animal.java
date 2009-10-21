@@ -323,6 +323,10 @@ public class Animal extends UserInfoBO {
         rs.setField("CoatType", newValue);
     }
 
+    public String getCoatTypeName() throws CursorEngineException {
+        return LookupCache.getCoatTypeForID(getCoatType());
+    }
+
     public Integer getCrossBreed() throws CursorEngineException {
         return (Integer) rs.getField("CrossBreed");
     }

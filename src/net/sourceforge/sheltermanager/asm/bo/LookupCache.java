@@ -581,6 +581,12 @@ public abstract class LookupCache {
         return getLookup(LOOKUP_FIELDTYPE);
     }
 
+    public static String getCoatTypeForID(Integer ID) {
+        getLookup(LOOKUP_COATTYPE);
+
+        return getNameForID(coattype, "CoatType", ID);
+    }
+
     public static String getFieldTypeForID(Integer ID) {
         getLookup(LOOKUP_FIELDTYPE);
 

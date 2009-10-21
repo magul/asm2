@@ -116,6 +116,10 @@ public class AnimalPrint extends Report {
         tableAddRow();
         tableAddBoldCell(Global.i18n("uianimal", "Base_Colour:"));
         tableAddCell(a.getBaseColourName());
+        tableAddBoldCell(Global.i18n("uianimal", "Coat_Type"));
+        tableAddCell(a.getCoatTypeName());
+        tableFinishRow();
+        tableAddRow();
         tableAddBoldCell(Global.i18n("uianimal", "Size:"));
         tableAddCell(a.getSizeName());
         tableFinishRow();
@@ -464,5 +468,22 @@ public class AnimalPrint extends Report {
         }
 
         l.free();
+
+        // Additional Fields
+        Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL, a.getID().intValue());
+        if (v.size() > 0) {
+            addLevelTwoHeader(Global.i18n("uianimal", "additional"));
+            tableNew(true);
+            for (int i = 0; i < v.size(); i++) {
+                Additional.Field af = (Additional.Field) v.get(i);
+                tableAddRow();
+                tableAddCell(af.fieldLabel);
+                tableAddCell(af.value );
+                tableFinishRow();
+            }
+            tableFinish();
+            addTable();
+        }
+
     }
 }
