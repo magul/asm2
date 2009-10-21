@@ -1,11 +1,11 @@
 #. # bo.properties#=========================================================================
-#. extracted from ./../src/locale/po/t.properties
+#. extracted from po/t.properties
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-21 09:07+0100\n"
+"POT-Creation-Date: 2009-10-21 14:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7165,6 +7165,10 @@ msgstr ""
 msgid "The username and/or password you supplied were not recognised."
 msgstr ""
 
+#: Exit
+msgid "Exit"
+msgstr ""
+
 #: Invalid_Password
 msgid "Invalid Password"
 msgstr ""
@@ -7173,12 +7177,20 @@ msgstr ""
 msgid "Version "
 msgstr ""
 
+#: Login
+msgid "Login"
+msgstr ""
+
 #: An_error_occurred_obtaining_a_connection_to_the_database_-_
 msgid "An error occurred obtaining a connection to the database - "
 msgstr ""
 
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
+msgstr ""
+
+#: default_username_password_hint
+msgid "The default username is \"user\" with password \"letmein\""
 msgstr ""
 
 #. # uilookups.properties#=========================================================================
@@ -7747,10 +7759,6 @@ msgstr ""
 
 #: Login_Again
 msgid "Login Again"
-msgstr ""
-
-#: Exit
-msgid "Exit"
 msgstr ""
 
 #: Litter_Logger
