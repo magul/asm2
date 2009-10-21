@@ -29,5 +29,7 @@ cp asm-applet.jar ../scripts/asmweb
 cd ../scripts
 mkdir asm
 cp -f asmweb/* asm
+cp -r ../sql asm
+cp -r ../media asm
 zip -r9 ../build/sheltermanager-web-`cat ../VERSION`.zip asm
 rm -rf asmweb/asm-applet.jar asm

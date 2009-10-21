@@ -1,10 +1,68 @@
 ASM Web Component
 
 The ASM web component is a build of ASM that runs as a java applet. The
-user hits a webpage with their browser and ASM starts up, pointing
-to your database.
+user hits a webpage with their browser and ASM starts up in the browser
+window, pointing to your database. 
 
-To use, put the asm-applet.jar file and the sample index.html page on
-your webserver. Edit index.html and change the jdbcurl to match the
-location of your mysql or postgresql database. Note that the database
-*must* be accessible to the client machines.
+DATABASE
+=======================
+
+Install MySQL or PostgreSQL
+Use the appropriate script in the sql directory to create the database
+
+WEBSERVER
+=======================
+
+Put the asm-applet.jar file and the sample index.html page on
+your webserver. Edit index.html and change the jdbcurl property to match 
+the location of your mysql or postgresql database server. 
+
+Eg:
+
+jdbc:mysql://192.168.0.1/asm?user=user&password=pass
+
+jdbc:postgresql://192.168.0.1/asm?user=user&password=pass
+
+Alter accordingly for your server's IP address, ASM database name, user
+and password.
+
+Note that the database *must* be accessible to the client machines - the
+webserver is just a delivery platform for the client program.
+
+CLIENT MACHINES
+=========================
+
+The client machines will need the Java plugin installed from http://java.com
+
+MEDIA
+=========================
+
+ASM does not include the default media (wordprocessor templates, templates
+for the look and feel of reports and internet publishing, etc.) in the database 
+structure files, so you will have to import these into the database.
+
+To do this, open ASM in your web browser and go to System->Media Files.
+
+Hit the "import directory from the filesystem here" button and choose
+each folder in the media folder supplied in turn. You should
+have "internet", "reports" and "templates" folders.
+
+AUTHENTICATION
+=========================
+
+If you don't want ASM to prompt the user to login, you can specify a "user"
+parameter to the applet so have ASM automatically login as that user.
+
+Eg:
+
+<param name="user" value="asmuser" />
+
+(where "asmuser" is the name of the user you'd like all users to login as)
+
+If you have a scripting language available, you can use this technique to
+use basic authentication or some other webserver authentication to automatically
+set the value of the user parameter after a user has logged in by some
+other means.
+
+ASM can also authenticate via the operating system user and LDAP. You can set
+these in the database by logging in to ASM and going to System->Authentication.

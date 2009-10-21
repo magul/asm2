@@ -2269,8 +2269,13 @@ public final class UI {
 
         public String showDirectorySelectDialog(java.awt.Window parent,
             String title) {
-            // TODO:
-            return "";
+            setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //setTitle(title);
+            int rv = showOpenDialog(parent);
+            if (JFileChooser.APPROVE_OPTION == rv)
+                return getSelectedFile().getAbsolutePath();
+            else
+                return "";
         }
     }
 
