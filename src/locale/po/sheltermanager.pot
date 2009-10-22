@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-21 15:03+0100\n"
+"POT-Creation-Date: 2009-10-22 10:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2505,6 +2505,10 @@ msgstr ""
 msgid "Pig (Farm)"
 msgstr ""
 
+#: configuration_Organisation
+msgid "Organisation"
+msgstr ""
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr ""
@@ -4858,10 +4862,6 @@ msgstr ""
 msgid "Delete this litter"
 msgstr ""
 
-#: An_error_occurred_removing_the_record\:\n
-msgid "An error occurred removing the record:\n"
-msgstr ""
-
 #: Really_Delete
 msgid "Really Delete"
 msgstr ""
@@ -4880,12 +4880,6 @@ msgstr ""
 
 #: Edit_this_litter
 msgid "Edit this litter"
-msgstr ""
-
-#: You_are_about_to_permanently_delete_this_record._Are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record. Are you sure you wish to do "
-"this?"
 msgstr ""
 
 #: Animal_Litters
@@ -5588,10 +5582,6 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: Really_Delete?
-msgid "Really Delete?"
-msgstr ""
-
 #: Delete_this_media
 msgid "Delete this media"
 msgstr ""
@@ -5602,10 +5592,6 @@ msgstr ""
 
 #: An_error_occurred_while_setting_the_web_preferred_option\:_
 msgid "An error occurred while setting the web preferred option: "
-msgstr ""
-
-#: An_error_occurred_while_deleting_the_record\:_
-msgid "An error occurred while deleting the record: "
 msgstr ""
 
 #: Mark_this_media_as_preferred_for_use_with_the_web
@@ -5624,18 +5610,8 @@ msgstr ""
 msgid "An error occurred retrieving the media file: "
 msgstr ""
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you wish to do "
-"this?"
-msgstr ""
-
 #: Web_Preferred
 msgid "Web Preferred"
-msgstr ""
-
-#: Unable_to_remove_file_from_FTP_server\:_
-msgid "Unable to remove file from FTP server: "
 msgstr ""
 
 #: Unable_to_read_media_records\:_
@@ -6500,12 +6476,6 @@ msgstr ""
 msgid "Edit the selected diary note"
 msgstr ""
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you want to do "
-"this?"
-msgstr ""
-
 #: Created_By
 msgid "Created By"
 msgstr ""
@@ -7238,12 +7208,6 @@ msgstr ""
 
 #: Animal_Type_Description
 msgid "Animal Type Description"
-msgstr ""
-
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete the selected records, are you sure you "
-"want to do this?"
 msgstr ""
 
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
@@ -8259,10 +8223,6 @@ msgstr ""
 msgid "Unchecked Owner"
 msgstr ""
 
-#: Select_an_owner
-msgid "Select an owner"
-msgstr ""
-
 #: Unable_to_create_new_movement\:_
 msgid "Unable to create new movement: "
 msgstr ""
@@ -8472,10 +8432,6 @@ msgstr ""
 msgid "From Retailer:"
 msgstr ""
 
-#: If_this_is_an_adoption_from_a_retailer_select_the_retailer_here
-msgid "If this is an adoption from a retailer, select the retailer"
-msgstr ""
-
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
 msgid ""
 "This animal was previously at a retailer. Do you want to\n"
@@ -8627,10 +8583,6 @@ msgstr ""
 
 #: NameSurname\:
 msgid "Surname:"
-msgstr ""
-
-#: An_error_occurred_deleting_the_record\:_
-msgid "An error occurred deleting the record: "
 msgstr ""
 
 #: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
@@ -9187,6 +9139,10 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
+#: has_this_owner_ever_been_homechecked
+msgid "Has this owner been homechecked?"
+msgstr ""
+
 #. # uireportviewer.properties#=========================================================================
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -9326,10 +9282,6 @@ msgstr ""
 
 #: When_entering_new_owners,_check_for_similar_addresses
 msgid "When entering new owners, check for similar addresses"
-msgstr ""
-
-#: Prompt_to_change_animal_auto_code_when_type_changes
-msgid "Prompt to change animal auto code when type changes"
 msgstr ""
 
 #: Warn_on_close_if_an_animal_has_no_pending_vaccinations
@@ -9721,10 +9673,6 @@ msgstr ""
 
 #: Tick_this_box_to_assign_hotkeys_to_buttons
 msgid "Tick this box to assign keyboard accelerators to buttons"
-msgstr ""
-
-#: allow_asm_clients_db_updates
-msgid "Allow ASM clients to update the database structure"
 msgstr ""
 
 #: Your_organisations_address
