@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Switched new update mechanism to use program version instead of DB version
+-  fixed bug with closing update notification form in swing
 *. Fixed "start maximised" option, which was broken some time ago
 *. Hardened monthly donations graph to cope with null inputs
 *. Missing tooltip for homechecked box on owner edit screen

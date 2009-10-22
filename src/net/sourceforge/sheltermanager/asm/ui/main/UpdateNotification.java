@@ -70,12 +70,12 @@ public class UpdateNotification extends Thread {
             UpdateEntry e = new UpdateEntry();
             e.id = Integer.parseInt(m[0].trim());
             e.date = m[1].trim();
-            e.db = Integer.parseInt(m[2].trim());
+            e.version = m[2].trim();
             e.text = m[3].trim();
             e.urltext = m[4].trim();
             e.url = m[5].trim();
 
-            if (e.db == AutoDBUpdates.LATEST_DB_VERSION) {
+            if (e.version.equals(Global.version.trim())) {
                 v.add(e);
             }
         }
@@ -91,7 +91,7 @@ public class UpdateNotification extends Thread {
 class UpdateEntry {
     public int id;
     public String date;
-    public int db;
+    public String version;
     public String text;
     public String urltext;
     public String url;

@@ -89,6 +89,7 @@ public abstract class Global {
 
     /** Product version */
     public static String productVersion = "[Missing locale version]";
+    public static String version = "0.0.0";
 
     /** Product name */
     public static String productName = "Animal Shelter Manager";
@@ -296,6 +297,7 @@ public abstract class Global {
             Global.productVersion = i18n("globals", "Version");
             Global.productName = i18n("globals", "Product");
             Global.copyrightMessage = i18n("globals", "Copyright");
+            Global.version = productVersion.substring(0, productVersion.indexOf(" "));
         } catch (Exception e) {
         }
     }
