@@ -285,7 +285,7 @@ public class DiaryTaskHeadEdit extends ASMForm {
 
                 updateList();
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_deleting_the_record:\n") +
+                Dialog.showError(UI.messageDeleteError() +
                     e.getMessage());
                 Global.logException(e, getClass());
             }

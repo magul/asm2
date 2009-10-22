@@ -152,14 +152,13 @@ public class NamesView extends ASMView {
             return;
         }
 
-        if (Dialog.showYesNoWarning(i18n("Really_delete_this_record?"),
-                    i18n("Really_Delete"))) {
+        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             try {
                 String sql = "DELETE FROM animalname WHERE ID = " + id;
                 DBConnection.executeAction(sql);
                 updateList();
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_deleting_the_record:\n") +
+                Dialog.showError(UI.messageDeleteError() +
                     e.getMessage());
                 Global.logException(e, getClass());
             }

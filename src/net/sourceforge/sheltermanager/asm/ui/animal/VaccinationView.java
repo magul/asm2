@@ -407,8 +407,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                                                                  .getModel();
 
         // Make sure they are sure about this
-        if (Dialog.showYesNo(i18n("You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    i18n("Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             for (int i = 0; i < selrows.length; i++) {
                 // Get the ID for the selected row
                 String avID = (String) tablemodel.getValueAt(selrows[i], 7);
@@ -419,7 +418,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 try {
                     DBConnection.executeAction(sql);
                 } catch (Exception e) {
-                    Dialog.showError(i18n("an_error_occurred_completing_the_vaccination") +
+                    Dialog.showError(UI.messageDeleteError() +
                         e.getMessage());
                     Global.logException(e, getClass());
                 }

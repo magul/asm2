@@ -237,10 +237,7 @@ public class DonationSelector extends ASMSelector {
                 DBConnection.executeAction(sql);
                 updateList();
             } catch (Exception e) {
-                Dialog.showError(java.util.ResourceBundle.getBundle(
-                        "locale/uianimalname")
-                                                         .getString("An_error_occurred_deleting_the_record:\n") +
-                    e.getMessage());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

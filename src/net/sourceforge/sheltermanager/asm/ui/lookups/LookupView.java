@@ -377,9 +377,7 @@ public class LookupView extends ASMView {
         }
 
         // Make sure they're sure
-        if (!Dialog.showYesNoWarning(Global.i18n("uilookups",
-                        "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?"),
-                    Global.i18n("uilookups", "Really_Delete"))) {
+        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             return;
         }
 
@@ -431,9 +429,7 @@ public class LookupView extends ASMView {
                         DBConnection.executeAction(sql);
                     }
                 } catch (Exception e) {
-                    Dialog.showError(Global.i18n("uilookups",
-                            "An_error_occurred_removing_the_record:_") +
-                        e.getMessage());
+                    Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
                 }
             } catch (Exception e) {

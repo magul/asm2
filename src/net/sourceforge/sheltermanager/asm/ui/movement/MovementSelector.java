@@ -401,9 +401,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
         }
 
         // Ask
-        if (!Dialog.showYesNoWarning(Global.i18n("uimovement",
-                        "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?"),
-                    Global.i18n("uimovement", "Really_Delete"))) {
+        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             return;
         }
 
@@ -424,9 +422,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
             // Update the animal's denormalised fields
             Animal.updateAnimalStatus(anID);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uimovement",
-                    "An_error_occurred_deleting_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(UI.messageDeleteError() + e.getMessage());
             Global.logException(e, getClass());
         }
     }

@@ -2751,9 +2751,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     public void actionDelete() {
         // Make sure they are sure about this
-        if (Dialog.showYesNo(Global.i18n("uianimal",
-                        "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    Global.i18n("uianimal", "Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database, along with any satellite data
             try {
                 String s = "Delete From animalvaccination Where AnimalID = " +
@@ -2787,9 +2785,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
                 dispose();
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("uianimal",
-                        "An_error_occurred_while_deleting_the_record:_") +
-                    e.getMessage(), Global.i18n("uianimal", "Error"));
+                Dialog.showError(UI.messageDeleteError() +
+                    e.getMessage());
                 Global.logException(e, getClass());
             }
         }

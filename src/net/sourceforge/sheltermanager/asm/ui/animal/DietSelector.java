@@ -180,9 +180,7 @@ public class DietSelector extends ASMSelector {
         }
 
         // Make sure they are sure about this
-        if (Dialog.showYesNo(Global.i18n("uianimal",
-                        "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    Global.i18n("uianimal", "Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
                 String s = "Delete From animaldiet Where ID = " + id;
@@ -190,9 +188,8 @@ public class DietSelector extends ASMSelector {
                 // update the list
                 this.updateList();
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("uianimal",
-                        "An_error_occurred_while_deleting_the_record:_") +
-                    e.getMessage(), Global.i18n("uianimal", "Error"));
+                Dialog.showError(UI.messageDeleteError() +
+                    e.getMessage());
                 Global.logException(e, getClass());
             }
         }

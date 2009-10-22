@@ -1551,8 +1551,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             return;
         }
 
-        if (Dialog.showYesNo(i18n("You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    i18n("Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             try {
                 String sql = "DELETE FROM diary WHERE LinkID = " +
                     owner.getID() + " AND LinkType = " + Diary.LINKTYPE_OWNER;
@@ -1574,8 +1573,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
                 DBConnection.executeAction(sql);
                 dispose();
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_deleting_the_record:_") +
-                    e.getMessage());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

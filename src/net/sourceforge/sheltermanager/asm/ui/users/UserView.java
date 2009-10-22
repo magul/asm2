@@ -168,8 +168,7 @@ public class UserView extends ASMView {
     public void actionDelete() {
         // Delete the user represented by the selected list item
         try {
-            if (!Dialog.showYesNo(i18n("You_are_about_to_permanently_delete_this_record._Are_you_sure_you_wish_to_do_this?"),
-                        i18n("Really_Delete?"))) {
+            if (!Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
                 return;
             }
 
@@ -179,8 +178,7 @@ public class UserView extends ASMView {
 
             updateList();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_deleting_the_record:_") +
-                e.getMessage());
+            Dialog.showError(UI.messageDeleteError() + e.getMessage());
             Global.logException(e, getClass());
         }
     }

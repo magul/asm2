@@ -172,7 +172,7 @@ public class VoucherSelector extends ASMSelector {
                 // update the list
                 this.updateList();
             } catch (Exception e) {
-                Dialog.showError(UI.messageDeleteError());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

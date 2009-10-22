@@ -539,8 +539,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
     public void actionDelete() {
         // Make sure they are sure about this
-        if (Dialog.showYesNo(i18n("You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    i18n("Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database, along with any associated Media
             try {
                 String s = i18n("Delete_From_media_Where_LinkID_=_") +
@@ -551,8 +550,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
                 dispose();
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_while_deleting_the_record:_") +
-                    e.getMessage(), i18n("Error"));
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

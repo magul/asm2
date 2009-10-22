@@ -202,14 +202,13 @@ public class VaccinationSelector extends ASMSelector
         String message = "";
 
         if (getTable().getSelectedRowCount() == 1) {
-            message = Global.i18n("uianimal",
-                    "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?");
+            message = UI.messageDeleteConfirm();
         } else {
             message = Global.i18n("uianimal",
                     "you_are_about_to_permanently_delete_the_selected_medical_records_are_you_sure");
         }
 
-        if (Dialog.showYesNo(message, Global.i18n("uianimal", "Really_Delete?"))) {
+        if (Dialog.showYesNo(message, UI.messageReallyDelete())) {
             // Read the highlighted table records and get the IDs
             int[] selrows = getTable().getSelectedRows();
 
@@ -223,9 +222,8 @@ public class VaccinationSelector extends ASMSelector
                         avID;
                     net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
                 } catch (Exception e) {
-                    Dialog.showError(Global.i18n("uianimal",
-                            "An_error_occurred_while_deleting_the_record:_") +
-                        e.getMessage(), Global.i18n("uianimal", "Error"));
+                    Dialog.showError(UI.messageDeleteError() +
+                        e.getMessage());
                     Global.logException(e, getClass());
                 }
             }

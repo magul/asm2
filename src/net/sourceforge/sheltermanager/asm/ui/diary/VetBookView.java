@@ -477,8 +477,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
 
     public void actionDelete() {
         // Ask if they are sure they want to delete the row(s)
-        if (Dialog.showYesNoWarning(i18n("You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?"),
-                    i18n("Really_Delete"))) {
+        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             SortableTableModel tablemodel = (SortableTableModel) getTable()
                                                                      .getModel();
             int[] selrows = getTable().getSelectedRows();
@@ -500,7 +499,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 try {
                     DBConnection.executeAction(sql);
                 } catch (Exception e) {
-                    Dialog.showError(i18n("An_error_occurred_removing_the_record:_") +
+                    Dialog.showError(UI.messageDeleteError() +
                         e.getMessage());
                     Global.logException(e, getClass());
                 }

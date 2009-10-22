@@ -205,9 +205,7 @@ public class LogSelector extends ASMSelector {
         }
 
         // Make sure they are sure about this
-        if (Dialog.showYesNo(Global.i18n("locale/uianimal",
-                        "You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    Global.i18n("locale/uianimal", "Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
                 String s = "Delete From log Where ID = " + id;
@@ -215,12 +213,7 @@ public class LogSelector extends ASMSelector {
                 // update the list
                 this.updateList();
             } catch (Exception e) {
-                Dialog.showError(java.util.ResourceBundle.getBundle(
-                        "locale/uianimal")
-                                                         .getString("An_error_occurred_while_deleting_the_record:_") +
-                    e.getMessage(),
-                    java.util.ResourceBundle.getBundle("locale/uianimal")
-                                            .getString("Error"));
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

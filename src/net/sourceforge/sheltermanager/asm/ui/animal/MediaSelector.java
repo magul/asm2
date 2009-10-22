@@ -455,8 +455,7 @@ public class MediaSelector extends ASMSelector {
         }
 
         // Make sure they are sure about this
-        if (Dialog.showYesNo(i18n("You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?"),
-                    Global.i18n("uianimal", "Really_Delete?"))) {
+        if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Destroy the media file on the DBFS server
             try {
                 DBFS dbfs = Utils.getDBFSDirectoryForLink(linkType, linkID);
@@ -464,8 +463,7 @@ public class MediaSelector extends ASMSelector {
                 dbfs.deleteFile(tabledata[getTable().getSelectedRow()][0]);
                 dbfs = null;
             } catch (Exception e) {
-                Dialog.showError(i18n("Unable_to_remove_file_from_FTP_server:_") +
-                    e.getMessage(), Global.i18n("uianimal", "Error"));
+                Global.logException(e, getClass());
             }
 
             // Remove it from the database
@@ -479,8 +477,8 @@ public class MediaSelector extends ASMSelector {
                 // update the list
                 this.updateList();
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_while_deleting_the_record:_") +
-                    e.getMessage(), Global.i18n("uianimal", "Error"));
+                Dialog.showError(UI.messageDeleteError() +
+                    e.getMessage());
                 Global.logException(e, getClass());
             }
         }
