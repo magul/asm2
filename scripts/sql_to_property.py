@@ -86,6 +86,12 @@ for l in lines:
             # Ignore any users table - that should be kept in English
             # to match documentation
             pass
+        elif currentTable == "configuration":
+            v = values[1].strip()
+            if v.startswith("'"): v = v[1:]
+            if v.endswith("'"): v = v[0:len(v)-1]
+            nextline = "configuration_" + id.replace("'", "") + "=" + v
+            outfile.write(nextline + "\n\n")
         else:
             # Must be a single value translation
             v = values[1].strip()

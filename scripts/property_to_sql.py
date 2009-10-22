@@ -60,7 +60,10 @@ for l in lines:
 
     if not seenit:
         seentables.append(table)
-        outfile.write("DELETE FROM %s;\n" % table)
+        if table == "configuration":
+            outfile.write("DELETE FROM configuration WHERE ItemName Like 'Organisation';\n");
+        else
+            outfile.write("DELETE FROM %s;\n" % table)
 
     if table == "animaltype":
         outfile.write("INSERT INTO animaltype VALUES (%s, '%s', NULL);\n" % (id, value))
@@ -70,6 +73,8 @@ for l in lines:
         sid = kb[2]
         sid = sid[0:sid.find("=")]
         outfile.write("INSERT INTO breed VALUES (%s, '%s', '', '', %s);\n" % (id, value, sid))
+    elif table == "configuration";
+        outfile.write("INSERT INTO configuration VALUES ('%s', '%s');\n" % ( id, value ));
     elif table == "customreport":
         if not kb[2].startswith("category"):
             cr_sql = kb[2]
