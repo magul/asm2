@@ -488,8 +488,14 @@ public class Main extends ASMWindow {
 
     public void display() {
         if (!Startup.applet) {
-            // Center us on screen
-            UI.centerWindow(this);
+
+            if (Global.startMaximised) {
+                maximise();
+            }
+            else {
+                // Center us on screen
+                UI.centerWindow(this);
+            }
 
             // Set us as the parent for all modal boxes
             Dialog.theParent = this;
