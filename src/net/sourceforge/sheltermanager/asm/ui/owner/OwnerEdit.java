@@ -1205,7 +1205,8 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         pnlRightTop.add(UI.getLabel());
 
         chkHomeCheck = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("ID_Check"),
-                    null, UI.fp(this, "dataChanged")));
+                    i18n("has_this_owner_ever_been_homechecked"),
+                    UI.fp(this, "dataChanged")));
         txtLastHadHomecheckDate = (DateField) pnlRightTop.add(UI.getDateField(
                     i18n("The_date_this_owner_was_last_homechecked"),
                     UI.fp(this, "dataChanged")));
