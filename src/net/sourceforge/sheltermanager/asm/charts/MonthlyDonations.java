@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
@@ -103,42 +104,22 @@ public class MonthlyDonations extends Chart {
                         lastDayOfMonth));
 
             // Get the total figures
-            Animal broughtIn = new Animal();
-            broughtIn.openRecordset("DateBroughtIn >= '" + firstDay + "' AND " +
-                "DateBroughtIn <= '" + lastDay + "'");
+            totBI = DBConnection.executeForSum("SELECT SUM(AmountDonatedOnEntry) AS Total " +
+                "FROM animal WHERE DateBroughtIn >= '" + firstDay + "' AND " +
+                "DateBroughtIn <= '" + lastDay + "' AND AmountDonatedOnEntry > 0");
 
-            OwnerDonation adoption = new OwnerDonation();
-            adoption.openRecordset("Date >= '" + firstDay + "' AND " +
+            totAd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
+                "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
                 "Date <= '" + lastDay + "' AND MovementID > 0");
 
-            OwnerDonation ownerdonation = new OwnerDonation();
-            ownerdonation.openRecordset("Date >= '" + firstDay + "' AND " +
+            totOd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
+                "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
                 "Date <= '" + lastDay + "' AND MovementID = 0");
 
-            AnimalWaitingList awl = new AnimalWaitingList();
-            awl.openRecordset("DatePutOnList >='" + firstDay + "' AND " +
+            totAl = DBConnection.executeForSum("SELECT SUM(DonationSize) AS Total " +
+                "FROM animalwaitinglist WHERE DatePutOnList >='" + firstDay + "' AND " +
                 "DatePutOnList <= '" + lastDay + "' AND DonationSize > 0");
 
-            // Add up the figures
-            while (!broughtIn.getEOF()) {
-                totBI += broughtIn.getAmountDonatedOnEntry().doubleValue();
-                broughtIn.moveNext();
-            }
-
-            while (!adoption.getEOF()) {
-                totAd += adoption.getDonation().doubleValue();
-                adoption.moveNext();
-            }
-
-            while (!ownerdonation.getEOF()) {
-                totOd += ownerdonation.getDonation().doubleValue();
-                ownerdonation.moveNext();
-            }
-
-            while (!awl.getEOF()) {
-                totAl += awl.getDonationSize().doubleValue();
-                awl.moveNext();
-            }
 
             model[0][i] = (int) totAd;
             model[1][i] = (int) totBI;
