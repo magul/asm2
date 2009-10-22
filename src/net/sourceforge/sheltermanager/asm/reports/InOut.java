@@ -109,6 +109,13 @@ public class InOut extends Report {
         }
     }
 
+    private void addLocation(Animal a) throws Exception {
+        String s = a.getShelterLocationName();
+        if (a.getArchived().intValue() == 1) 
+            s += " (" + a.getAnimalLocationAtDateByName(new Date()) + ")";
+        tableAddCell(s);
+    }
+
     private void genAnimalsBroughtIn() throws Exception {
         Animal theA = new Animal();
         double donations = 0;
@@ -145,7 +152,7 @@ public class InOut extends Report {
                     tableAddCell(theA.getSpeciesName());
                     tableAddCell(theA.getAge());
                     tableAddCell(theA.getSexName());
-                    tableAddCell(theA.getShelterLocationName());
+                    addLocation(theA);
 
                     try {
                         tableAddCell(theA.getBroughtInByOwner().getOwnerName());
@@ -211,7 +218,7 @@ public class InOut extends Report {
                     tableAddCell(theA.getSpeciesName());
                     tableAddCell(theA.getAge());
                     tableAddCell(theA.getSexName());
-                    tableAddCell(theA.getShelterLocationName());
+                    addLocation(theA);
 
                     try {
                         tableAddCell(theA.getBroughtInByOwner().getOwnerName());
@@ -272,7 +279,7 @@ public class InOut extends Report {
                     tableAddCell(theAD.getAnimal().getSpeciesName());
                     tableAddCell(theAD.getAnimal().getAge());
                     tableAddCell(theAD.getAnimal().getSexName());
-                    tableAddCell(theAD.getAnimal().getShelterLocationName());
+                    addLocation(theAD.getAnimal());
                     tableAddCell(theAD.getOwner().getOwnerName());
                     tableFinishRow();
                 }
@@ -326,7 +333,7 @@ public class InOut extends Report {
                     tableAddCell(theAD.getAnimal().getSpeciesName());
                     tableAddCell(theAD.getAnimal().getAge());
                     tableAddCell(theAD.getAnimal().getSexName());
-                    tableAddCell(theAD.getAnimal().getShelterLocationName());
+                    addLocation(theAD.getAnimal());
                     tableAddCell(theAD.getOwner().getOwnerName());
                     tableFinishRow();
                 }
@@ -381,7 +388,7 @@ public class InOut extends Report {
                     tableAddCell(theAD.getAnimal().getSpeciesName());
                     tableAddCell(theAD.getAnimal().getAge());
                     tableAddCell(theAD.getAnimal().getSexName());
-                    tableAddCell(theAD.getAnimal().getShelterLocationName());
+                    addLocation(theAD.getAnimal());
                     tableAddCell(theAD.getOwner().getOwnerName());
                     tableFinishRow();
                 }
@@ -439,7 +446,7 @@ public class InOut extends Report {
                     tableAddCell(theAD.getAnimal().getSpeciesName());
                     tableAddCell(theAD.getAnimal().getAge());
                     tableAddCell(theAD.getAnimal().getSexName());
-                    tableAddCell(theAD.getAnimal().getShelterLocationName());
+                    addLocation(theAD.getAnimal());
                     tableFinishRow();
                 }
 
