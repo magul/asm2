@@ -411,7 +411,7 @@ public class AnimalFindText extends ASMFind {
         term = Utils.replace(term, "'", "");
         txtSearch.setText(term);
 
-        if (term.length() < 2) {
+        if (term.length() > 0 && term.length() < 2) {
             Dialog.showError(i18n("search_term_bad"));
 
             return;
@@ -425,125 +425,74 @@ public class AnimalFindText extends ASMFind {
             "INNER JOIN owner ON adoption.OwnerID = owner.ID";
         final String ORIGINALOWNER = "INNER JOIN owner ON animal.OriginalOwnerID = owner.ID";
 
-        // Build UNION query for text results
         sql = new StringBuffer();
-        addQuery(new String[] {
-                "animal.AnimalName", "animal.ShelterCode", "animal.ShortCode",
-                "animal.AcceptanceNumber"
-            }, "", 1);
-        addQuery(new String[] { "animal.BreedName", "animal.Markings" }, "", 2);
-        addQuery(new String[] {
-                "animal.IdentichipNumber", "animal.TattooNumber",
-                "animal.RabiesTag"
-            }, "", 3);
-        addQuery(new String[] {
-                "animal.IdentichipNumber", "animal.TattooNumber",
-                "animal.RabiesTag"
-            }, "", 3);
-        addQuery(new String[] {
-                "animal.HiddenAnimalDetails", "animal.AnimalComments",
-                "animal.ReasonNO", "animal.HealthProblems", "animal.PTSReason"
-            }, "", 4);
-        addQuery(new String[] { "media.MediaNotes" }, MEDIA, 5);
-        addQuery(new String[] {
-                "adoption.Comments", "adoption.InsuranceNumber",
-                "adoption.ReasonForReturn"
-            }, ADOPTION, 6);
 
-        addQuery(new String[] {
-                "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
-                "owner.OwnerCounty", "owner.OwnerPostcode",
-                "owner.HomeTelephone", "owner.WorkTelephone",
-                "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
-            }, ADOPTER, 7);
-        addQuery(new String[] {
-                "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
-                "owner.OwnerCounty", "owner.OwnerPostcode",
-                "owner.HomeTelephone", "owner.WorkTelephone",
-                "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
-            }, ORIGINALOWNER, 7);
+        // If no term was given, do an on-shelter search
+        if (term.length() == 0) {
+            sql.append("SELECT animal.ID, animal.AnimalTypeID, animal.BreedID, " +
+                "animal.CrossBreed, animal.Breed2ID, animal.BreedName, " +
+                "animal.SpeciesID, animal.ShelterCode, animal.ShortCode, animal.AnimalName, " +
+                "animal.ShelterLocation, animal.DateOfBirth, animal.Sex, animal.Size, " +
+                "animal.BaseColourID, animal.Markings, animal.IdentichipNumber, " +
+                "animal.DateBroughtIn, animal.NonShelterAnimal, animal.ActiveMovementID, " +
+                "animal.HasActiveReserve, animal.ActiveMovementType, animal.ActiveMovementDate, " +
+                "animal.DeceasedDate, animal.ID AS priority " +
+                "FROM animal " +
+                "WHERE Archived = 0");
+        }
+        else {
+        
+            // Build UNION query for text results
+            addQuery(new String[] {
+                    "animal.AnimalName", "animal.ShelterCode", "animal.ShortCode",
+                    "animal.AcceptanceNumber"
+                }, "", 1);
+            addQuery(new String[] { "animal.BreedName", "animal.Markings" }, "", 2);
+            addQuery(new String[] {
+                    "animal.IdentichipNumber", "animal.TattooNumber",
+                    "animal.RabiesTag"
+                }, "", 3);
+            addQuery(new String[] {
+                    "animal.IdentichipNumber", "animal.TattooNumber",
+                    "animal.RabiesTag"
+                }, "", 3);
+            addQuery(new String[] {
+                    "animal.HiddenAnimalDetails", "animal.AnimalComments",
+                    "animal.ReasonNO", "animal.HealthProblems", "animal.PTSReason"
+                }, "", 4);
+            addQuery(new String[] { "media.MediaNotes" }, MEDIA, 5);
+            addQuery(new String[] {
+                    "adoption.Comments", "adoption.InsuranceNumber",
+                    "adoption.ReasonForReturn"
+                }, ADOPTION, 6);
 
-        addQuery(new String[] { "animaltype.AnimalType" },
-            "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID", 8);
-        addQuery(new String[] { "species.SpeciesName" },
-            "INNER JOIN species ON animal.SpeciesID = species.ID", 8);
-        addQuery(new String[] { "basecolour.BaseColour" },
-            "INNER JOIN basecolour ON animal.BaseColourID = basecolour.ID", 8);
-        addQuery(new String[] { "lksex.Sex" },
-            "INNER JOIN lksex ON animal.Sex = lksex.ID", 8);
-        addQuery(new String[] { "internallocation.LocationName" },
-            "INNER JOIN internallocation ON animal.ShelterLocation = internallocation.ID",
-            8);
-        addQuery(new String[] { "lksize.Size" },
-            "INNER JOIN lksize ON animal.Size = lksize.ID", 8);
+            addQuery(new String[] {
+                    "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
+                    "owner.OwnerCounty", "owner.OwnerPostcode",
+                    "owner.HomeTelephone", "owner.WorkTelephone",
+                    "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
+                }, ADOPTER, 7);
+            addQuery(new String[] {
+                    "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
+                    "owner.OwnerCounty", "owner.OwnerPostcode",
+                    "owner.HomeTelephone", "owner.WorkTelephone",
+                    "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
+                }, ORIGINALOWNER, 7);
 
-        /*
-        final String SELECT = "SELECT animal.ID, animal.AnimalTypeID, animal.BreedID, " +
-            "animal.CrossBreed, animal.Breed2ID, animal.BreedName, " +
-            "animal.SpeciesID, animal.ShelterCode, animal.ShortCode, animal.AnimalName, " +
-            "animal.ShelterLocation, animal.DateOfBirth, animal.Sex, animal.Size, " +
-            "animal.BaseColourID, animal.Markings, animal.IdentichipNumber, " +
-            "animal.DateBroughtIn, animal.NonShelterAnimal, animal.ActiveMovementID, " +
-            "animal.HasActiveReserve, animal.ActiveMovementType, animal.ActiveMovementDate, " +
-            "animal.DeceasedDate " +
-            "FROM animal " +
-            "LEFT OUTER JOIN adoption ON animal.ID = adoption.AnimalID  " +
-            "LEFT OUTER JOIN media ON media.LinkID = animal.ID " +
-            "LEFT OUTER JOIN owner oowner ON animal.OriginalOwnerID = oowner.ID " +
-            "LEFT OUTER JOIN owner aowner ON adoption.OwnerID = aowner.ID " +
-            "INNER JOIN animaltype ON animaltype.ID = animal.AnimalTypeID " +
-            "INNER JOIN species ON species.ID = animal.SpeciesID " +
-            "INNER JOIN basecolour ON basecolour.ID = animal.BaseColourID " +
-            "INNER JOIN lksex ON lksex.ID = animal.Sex " +
-            "INNER JOIN internallocation ON internallocation.ID = animal.ShelterLocation " +
-            "INNER JOIN lksize ON lksize.ID = animal.Size " +
-            "WHERE " +
-            "animal.AnimalName LIKE '%{0}%' OR " +
-            "animal.BreedName LIKE '%{0}%' OR " +
-            "animal.Markings LIKE '%{0}%' OR " +
-            "animal.ShelterCode LIKE '%{0}%' OR " +
-            "animal.ShortCode LIKE '%{0}%' OR " +
-            "animal.AcceptanceNumber LIKE '%{0}%' OR " +
-            "animal.IdentichipNumber LIKE '%{0}%' OR " +
-            "animal.TattooNumber LIKE '%{0}%' OR " +
-            "animal.HiddenAnimalDetails LIKE '%{0}%' OR " +
-            "animal.AnimalComments LIKE '%{0}%' OR " +
-            "animal.ReasonNO LIKE '%{0}%' OR " +
-            "animal.HealthProblems LIKE '%{0}%' OR " +
-            "animal.PTSReason LIKE '%{0}%' OR " +
-            "animal.RabiesTag LIKE '%{0}%' OR " +
-            "adoption.Comments LIKE '%{0}%' OR " +
-            "adoption.InsuranceNumber LIKE '%{0}%' OR " +
-            "adoption.ReasonForReturn LIKE '%{0}%' OR " +
-            "media.MediaNotes LIKE '%{0}%' OR " +
-            "oowner.OwnerName LIKE '%{0}%' OR " +
-            "oowner.OwnerAddress LIKE '%{0}%' OR " +
-            "oowner.OwnerTown LIKE '%{0}%' OR " +
-            "oowner.OwnerCounty LIKE '%{0}%' OR " +
-            "oowner.OwnerPostcode LIKE '%{0}%' OR " +
-            "oowner.HomeTelephone LIKE '%{0}%' OR " +
-            "oowner.WorkTelephone LIKE '%{0}%' OR " +
-            "oowner.MobileTelephone LIKE '%{0}%' OR " +
-            "oowner.EmailAddress LIKE '%{0}%' OR " +
-            "oowner.Comments LIKE '%{0}%' OR " +
-            "aowner.OwnerName LIKE '%{0}%' OR " +
-            "aowner.OwnerAddress LIKE '%{0}%' OR " +
-            "aowner.OwnerTown LIKE '%{0}%' OR " +
-            "aowner.OwnerCounty LIKE '%{0}%' OR " +
-            "aowner.OwnerPostcode LIKE '%{0}%' OR " +
-            "aowner.HomeTelephone LIKE '%{0}%' OR " +
-            "aowner.WorkTelephone LIKE '%{0}%' OR " +
-            "aowner.MobileTelephone LIKE '%{0}%' OR " +
-            "aowner.EmailAddress LIKE '%{0}%' OR " +
-            "aowner.Comments LIKE '%{0}%' OR " +
-            "animaltype.AnimalType LIKE '%{0}%' OR " +
-            "species.SpeciesName LIKE '%{0}%' OR " +
-            "basecolour.BaseColour LIKE '%{0}%' OR " +
-            "lksex.Sex LIKE '%{0}%' OR " +
-            "internallocation.LocationName LIKE '%{0}%' OR " +
-            "lksize.Size LIKE '%{0}%' " +
-            "ORDER BY animal.AnimalName";
-        */
+            addQuery(new String[] { "animaltype.AnimalType" },
+                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID", 8);
+            addQuery(new String[] { "species.SpeciesName" },
+                "INNER JOIN species ON animal.SpeciesID = species.ID", 8);
+            addQuery(new String[] { "basecolour.BaseColour" },
+                "INNER JOIN basecolour ON animal.BaseColourID = basecolour.ID", 8);
+            addQuery(new String[] { "lksex.Sex" },
+                "INNER JOIN lksex ON animal.Sex = lksex.ID", 8);
+            addQuery(new String[] { "internallocation.LocationName" },
+                "INNER JOIN internallocation ON animal.ShelterLocation = internallocation.ID",
+                8);
+            addQuery(new String[] { "lksize.Size" },
+                "INNER JOIN lksize ON animal.Size = lksize.ID", 8);
+        }
 
         // Create an array of headers for the animals
         String[] columnheaders = {
