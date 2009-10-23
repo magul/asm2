@@ -89,6 +89,8 @@ public class AdoptionsPerSpecies extends Chart {
             Adoption.MOVETYPE_ADOPTION +
             " GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
 
+        if (spec.getEOF()) return false;
+
         // Outline model - 12 columns (Month, Year period)
         // No species rows 
         int[][] model = new int[(int) spec.getRecordCount()][12];
@@ -123,7 +125,8 @@ public class AdoptionsPerSpecies extends Chart {
                 SQLRecordset adoption = new SQLRecordset();
 
                 model[sp][i] = DBConnection.executeForCount(
-                        "SELECT Count(ID) FROM adoption INNER JOIN animal " +
+                        "SELECT Count(adoption.ID) FROM adoption " +
+                        "INNER JOIN animal " +
                         "ON adoption.AnimalID = animal.ID WHERE " +
                         "MovementDate >= '" + firstDay + "' AND " +
                         "MovementDate <= '" + lastDay + "' AND " +
