@@ -362,6 +362,12 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Group_the_animal_figures_report_by_species_instead_of_type"),
+                    "AnimalFiguresGroupBySpecies",
+                    Configuration.getString("AnimalFiguresGroupBySpecies")
+                                .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Highlight_animals_under_6_months,_reserved_or_dead_on_reports"),
                     "HighlightReportAnimals",
                     Configuration.getString("HighlightReportAnimals")
