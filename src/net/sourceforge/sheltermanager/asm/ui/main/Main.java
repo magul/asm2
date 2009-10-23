@@ -778,7 +778,7 @@ public class Main extends ASMWindow {
         mnuFileAnimalAddWLEntry = UI.getMenuItem(i18n("Add_New_Waiting_List_Entry"),
                 'W',
                 IconManager.getIcon(IconManager.MENU_FILEANIMALADDWLENTRY),
-                new ASMAccelerator("w", "ctrl", ""),
+                new ASMAccelerator("l", "ctrl", ""),
                 UI.fp(this, "actionFileAnimalAddWLEntry"));
 
         mnuFileAnimalWaitingList = UI.getMenuItem(i18n("Edit_Waiting_List"),
@@ -880,7 +880,7 @@ public class Main extends ASMWindow {
 
         mnuFileCloseTab = UI.getMenuItem(i18n("Close_Active_Tab"), ' ',
                 IconManager.getIcon(IconManager.MENU_FILECLOSETAB),
-                new ASMAccelerator("f4", "ctrl", ""),
+                new ASMAccelerator("w", "ctrl", ""),
                 UI.fp(this, "actionCloseTab"));
 
         mnuFileExit = UI.getMenuItem(i18n("Exit"), 'X',
