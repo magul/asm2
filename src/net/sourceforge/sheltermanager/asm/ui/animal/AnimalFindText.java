@@ -534,21 +534,23 @@ public class AnimalFindText extends ASMFind {
         Vector uid = new Vector();
         int dups = 0;
         try {
-            while (!animal.getEOF()) {
-                boolean alreadygot = false;
-                for (int y = 0; y < uid.size(); y++) {
-                    if (uid.get(y).equals(animal.getField("ID"))) {
-                        alreadygot = true;
-                        dups++;
-                        break;
+            if (!animal.getEOF()) {
+                while (!animal.getEOF()) {
+                    boolean alreadygot = false;
+                    for (int y = 0; y < uid.size(); y++) {
+                        if (uid.get(y).equals(animal.getField("ID"))) {
+                            alreadygot = true;
+                            dups++;
+                            break;
+                        }
                     }
+                    if (!alreadygot)
+                        uid.add(animal.getField("ID"));
+                    animal.moveNext();
                 }
-                if (!alreadygot)
-                    uid.add(animal.getField("ID"));
-                animal.moveNext();
+                Global.logDebug("Removed " + dups + " duplicate records from results", "AnimalFindText.runSearch");
+                animal.moveFirst();
             }
-            Global.logDebug("Removed " + dups + " duplicate records from results", "AnimalFindText.runSearch");
-            animal.moveFirst();
         }
         catch(Exception e) {
             Global.logException(e, getClass());

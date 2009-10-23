@@ -1218,9 +1218,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 cboType);
             cboType.setEnabled(false);
 
-            if (txtShelterCode.getCode().trim().equals("")) {
-                generateAnimalCode(animal, (String) cboType.getSelectedItem());
-            }
+            generateAnimalCode(animal, (String) cboType.getSelectedItem());
         } else {
             cboType.setEnabled(true);
         }
