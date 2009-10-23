@@ -36,6 +36,7 @@ public class InputTextDialog extends ASMDialog {
     public InputTextDialog(String message, String title) {
         this.message = message;
         init(title, IconManager.getIcon(IconManager.QUESTION), "uierror", false);
+        UI.centerWindow(this);
         show();
     }
 
@@ -44,7 +45,12 @@ public class InputTextDialog extends ASMDialog {
         UI.Panel b = UI.getPanel(UI.getFlowLayout());
 
         p.add(UI.getLabel(IconManager.getIcon(IconManager.QUESTION)));
-        p.add(UI.getLabel(message));
+        
+        UI.Label lblQuestion = UI.getLabel("<html>" + message + "</html>");
+        lblQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblQuestion.setPreferredSize(new java.awt.Dimension(350, 45));
+        p.add(lblQuestion);
+
         txt = (UI.TextField) p.add(UI.getTextField());
 
         btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
