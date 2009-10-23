@@ -1,6 +1,11 @@
 2.6.1
 ================
 
+*. Mail merge menu has "Owner Mail Merge" and "Adoption Mail Merge" now.
+-  This is because just Owner and Adoption can have different contextual
+-  meanings in Lithuanian.
+*. Changed treatment name/description on vaccination lookup to vaccination
+-  name/description instead
 *. Switched new update mechanism to use program version instead of DB version
 -  fixed bug with closing update notification form in swing
 *. Fixed "start maximised" option, which was broken some time ago

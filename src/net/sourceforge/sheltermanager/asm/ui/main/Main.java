@@ -1178,7 +1178,7 @@ public class Main extends ASMWindow {
 
         mnuMailMerge = UI.getMenu(i18n("Mail_Merge"));
 
-        mnuMailMergeOwner = UI.getMenu(i18n("Owner"), 'o',
+        mnuMailMergeOwner = UI.getMenu(i18n("Owner_Merge"), 'o',
                 IconManager.getIcon(IconManager.MENU_MAILMERGEOWNER));
 
         mnuMailMergeOwnerMembership = UI.getMenuItem(i18n("All_Members"), 'a',
@@ -1191,7 +1191,7 @@ public class Main extends ASMWindow {
                     IconManager.MENU_MAILMERGEOWNERMEMBERSHIPEXPIRY),
                 UI.fp(this, "actionMailMergeOwnerMembershipExpiry"));
 
-        mnuMailMergeAdoptions = UI.getMenu(i18n("Adoption"), 'a',
+        mnuMailMergeAdoptions = UI.getMenu(i18n("Adoption_Merge"), 'a',
                 IconManager.getIcon(IconManager.MENU_MAILMERGEADOPTIONS));
 
         mnuMailMergeOffShelterVaccination = UI.getMenuItem(i18n("Off_Shelter_Vaccinations"),
