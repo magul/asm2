@@ -530,16 +530,62 @@ public class AnimalFindText extends ASMFind {
             Dialog.showError(e.getMessage());
         }
 
+        // Count the unique IDs
+        Vector uid = new Vector();
+        int dups = 0;
+        try {
+            while (!animal.getEOF()) {
+                boolean alreadygot = false;
+                for (int y = 0; y < uid.size(); y++) {
+                    if (uid.get(y).equals(animal.getField("ID"))) {
+                        alreadygot = true;
+                        dups++;
+                        break;
+                    }
+                }
+                if (!alreadygot)
+                    uid.add(animal.getField("ID"));
+                animal.moveNext();
+            }
+            Global.logDebug("Removed " + dups + " duplicate records from results", "AnimalFindText.runSearch");
+            animal.moveFirst();
+        }
+        catch(Exception e) {
+            Global.logException(e, getClass());
+        }
+
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) animal.getRecordCount()][14];
+        String[][] datar = new String[uid.size()][14];
 
         // Initialise the progress meter
-        initStatusBarMax((int) animal.getRecordCount());
+        initStatusBarMax(uid.size());
 
         int i = 0;
 
         while (!animal.getEOF()) {
-            // Add this animal record to the table data
+
+            // Add this animal record to the table data if we haven't
+            // already seen it's ID before
+            try {
+                boolean seenit = false;
+                for (int z = 0; z < i; z++) {
+                    if (datar[z][12].equals(animal.getField("ID").toString())) {
+                        seenit = true;
+                        break;
+                    }
+                }
+
+                if (seenit) {
+                    animal.moveNext();
+                    continue;
+                }
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+                break;
+            }
+
+
             try {
                 datar[i][0] = (String) animal.getField("AnimalName");
 
@@ -607,6 +653,8 @@ public class AnimalFindText extends ASMFind {
             try {
                 animal.moveNext();
             } catch (Exception e) {
+                Global.logException(e, getClass());
+                break;
             }
 
             incrementStatusBar();
