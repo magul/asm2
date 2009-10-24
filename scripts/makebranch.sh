@@ -5,4 +5,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-svn copy https://sheltermanager.svn.sourceforge.net/svnroot/sheltermanager/trunk https://sheltermanager.svn.sourceforge.net/svnroot/sheltermanager/branches/$1
+#svn copy https://sheltermanager.svn.sourceforge.net/svnroot/sheltermanager/trunk https://sheltermanager.svn.sourceforge.net/svnroot/sheltermanager/branches/$1
+
+bzr tag $1
