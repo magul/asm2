@@ -456,6 +456,8 @@ INSERT INTO breed VALUES (438, 'Goat', '', '', 16);
 INSERT INTO breed VALUES (439, 'Sheep', '', '', 16);
 INSERT INTO breed VALUES (440, 'Llama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Pig (Farm)', '', '', 28);
+DELETE FROM configuration WHERE ItemName Like 'Organisation';
+INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 DELETE FROM customreport;
 INSERT INTO customreport VALUES (36, 'Non-Microchipped Animals', '001', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Auditer');
 INSERT INTO customreport VALUES (37, 'Animals Without Photo Media', '002', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Auditer');

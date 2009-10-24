@@ -24,7 +24,7 @@ infile.close()
 # english and that we're generating a template (no language code)
 code = ""
 if filename.find("_") != 1:
-    code = filename[filename.find("_")+1:filename.find(".")]
+    code = filename[filename.find("_")+1:filename.rfind(".")]
     bits = code.split("_")
     if bits[0] == bits[1].lower():
         code = bits[0]
@@ -62,7 +62,7 @@ for l in lines:
         seentables.append(table)
         if table == "configuration":
             outfile.write("DELETE FROM configuration WHERE ItemName Like 'Organisation';\n");
-        else
+        else:
             outfile.write("DELETE FROM %s;\n" % table)
 
     if table == "animaltype":
@@ -73,7 +73,7 @@ for l in lines:
         sid = kb[2]
         sid = sid[0:sid.find("=")]
         outfile.write("INSERT INTO breed VALUES (%s, '%s', '', '', %s);\n" % (id, value, sid))
-    elif table == "configuration";
+    elif table == "configuration":
         outfile.write("INSERT INTO configuration VALUES ('%s', '%s');\n" % ( id, value ));
     elif table == "customreport":
         if not kb[2].startswith("category"):

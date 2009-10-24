@@ -13,7 +13,7 @@ for L in $LANGUAGES; do
     # used as a template in the first place - I update the English
     # one when things change, then use database_to_java_en to generate
     # a new database.properties which becomes the new template
-    if [ -f $PROPDIR/database$L.properties ]; then
+    if [ -f $PROPDIR/database_$L.properties ]; then
 
         # Run our process on the file to create the sql patch
         python property_to_sql.py $PROPDIR/database_$L.properties $SQLDIR $L

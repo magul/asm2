@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-13 15:19+0100\n"
-"PO-Revision-Date: 2009-10-19 16:19+0000\n"
-"Last-Translator: Ivan Garcia <capiscuas@gmail.com>\n"
+"POT-Creation-Date: 2009-10-23 14:52+0100\n"
+"PO-Revision-Date: 2009-10-23 16:06+0000\n"
+"Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-20 07:14+0000\n"
+"X-Launchpad-Export-Date: 2009-10-24 07:35+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2535,6 +2535,10 @@ msgstr "Llama"
 msgid "Pig (Farm)"
 msgstr "Cerdo (Granja)"
 
+#: configuration_Organisation
+msgid "Organisation"
+msgstr "Organización"
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Animales sin microchip"
@@ -4955,10 +4959,6 @@ msgstr "Las gràficas no pueden ser enviadas a stdout."
 msgid "Delete this litter"
 msgstr "Borrar esta camada"
 
-#: An_error_occurred_removing_the_record\:\n
-msgid "An error occurred removing the record:\n"
-msgstr "Un error ocurrió intentando quitar el registro:\n"
-
 #: Really_Delete
 msgid "Really Delete"
 msgstr "Borrar en serio"
@@ -4978,14 +4978,6 @@ msgstr "Nueva camada"
 #: Edit_this_litter
 msgid "Edit this litter"
 msgstr "Editar esta camada"
-
-#: You_are_about_to_permanently_delete_this_record._Are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record. Are you sure you wish to do "
-"this?"
-msgstr ""
-"Está a punto de borrar permanentemente este registro. Desea hacerlo "
-"realmente?"
 
 #: Animal_Litters
 msgid "Animal Litters"
@@ -5704,10 +5696,6 @@ msgstr "Añadir nuevo archivo multimedia"
 msgid "Preview"
 msgstr "Previsualizar"
 
-#: Really_Delete?
-msgid "Really Delete?"
-msgstr "¿Realmente desea borrarlo?"
-
 #: Delete_this_media
 msgid "Delete this media"
 msgstr "Borrar este archivo multimedia"
@@ -5720,10 +5708,6 @@ msgstr "Editar esta entrada multimedia"
 msgid "An error occurred while setting the web preferred option: "
 msgstr ""
 "Se ha producido un error al establecer el valor preferida para el web: "
-
-#: An_error_occurred_while_deleting_the_record\:_
-msgid "An error occurred while deleting the record: "
-msgstr "Se ha producido un error al eliminar el registro: "
 
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
@@ -5743,20 +5727,9 @@ msgstr "Visualizar este archivo multimedia"
 msgid "An error occurred retrieving the media file: "
 msgstr "Se ha producido un error al leer el archivo multimedia: "
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you wish to do "
-"this?"
-msgstr ""
-"Está a punto de eliminar el registro. ¿Está seguro de querer hacerlo?"
-
 #: Web_Preferred
 msgid "Web Preferred"
 msgstr "Preferido para el web"
-
-#: Unable_to_remove_file_from_FTP_server\:_
-msgid "Unable to remove file from FTP server: "
-msgstr "No es posible borrar el archivo en el servidor FTP: "
 
 #: Unable_to_read_media_records\:_
 msgid "Unable to read media records: "
@@ -6657,14 +6630,6 @@ msgstr "Para"
 msgid "Edit the selected diary note"
 msgstr "Editar la nota seleccionada"
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you want to do "
-"this?"
-msgstr ""
-"Está a punto de borrar permanentemente este registro, está seguro que desea "
-"hacerlo?"
-
 #: Created_By
 msgid "Created By"
 msgstr "Creado por"
@@ -7348,6 +7313,10 @@ msgid "The username and/or password you supplied were not recognised."
 msgstr ""
 "El usuario y/o contraseña que ha proporcionado no fueron reconocidas."
 
+#: Exit
+msgid "Exit"
+msgstr "Salir"
+
 #: Invalid_Password
 msgid "Invalid Password"
 msgstr "Contraseña incorrecta"
@@ -7356,6 +7325,10 @@ msgstr "Contraseña incorrecta"
 msgid "Version "
 msgstr "Versión "
 
+#: Login
+msgid "Login"
+msgstr "Iniciar sesión"
+
 #: An_error_occurred_obtaining_a_connection_to_the_database_-_
 msgid "An error occurred obtaining a connection to the database - "
 msgstr "Ha ocurrido un error conectándose a la base de datos - "
@@ -7363,6 +7336,11 @@ msgstr "Ha ocurrido un error conectándose a la base de datos - "
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
 msgstr "Acceso al Animal Shelter Manager"
+
+#: default_username_password_hint
+msgid "The default username is \"user\" with password \"letmein\""
+msgstr ""
+"El nombre de usuario por defecto es \"user\" con la contraseña \"letmein\""
 
 #. # uilookups.properties#=========================================================================
 #: Breed_Name
@@ -7413,14 +7391,6 @@ msgstr "Borrar"
 msgid "Animal Type Description"
 msgstr "Descripción del tipo de animal"
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete the selected records, are you sure you "
-"want to do this?"
-msgstr ""
-"Está apunto de borrar permanente los registros seleccionados, ¿está seguro "
-"que quiere hacerlo?"
-
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
 msgid ""
 "This record is currently in use in the database. \n"
@@ -7450,8 +7420,8 @@ msgid "Colour Name"
 msgstr "Nombre del color"
 
 #: Vaccination_Description
-msgid "Treatment Description"
-msgstr "Descripción del tratamiento"
+msgid "Vaccination Description"
+msgstr "Descripción de la vacunación"
 
 #: Location_Name
 msgid "Location Name"
@@ -7462,9 +7432,8 @@ msgid "New"
 msgstr "Nuevo"
 
 #: Vaccination_Name
-#: Treatment_Name
-msgid "Treatment Name"
-msgstr "Nombre del Tratamiento"
+msgid "Vaccination Name"
+msgstr "Nombre de la vacunación"
 
 #: Location_Description
 msgid "Location Description"
@@ -7826,6 +7795,10 @@ msgstr "Archivo"
 msgid "All Members"
 msgstr "Todos los socios"
 
+#: Owner_Merge
+msgid "Owner Mail Merge"
+msgstr ""
+
 #: Configure_Automatic_Insurance_Numbers
 msgid "Configure Automatic Insurance Numbers"
 msgstr "Configurar Números Automáticos de Seguro"
@@ -7942,10 +7915,6 @@ msgstr "Editar Usuarios del Sistema"
 msgid "Login Again"
 msgstr "Acceder de nuevo"
 
-#: Exit
-msgid "Exit"
-msgstr "Salir"
-
 #: Litter_Logger
 msgid "Litter Logger"
 msgstr "Registro de camadas"
@@ -7953,6 +7922,10 @@ msgstr "Registro de camadas"
 #: All_Animals
 msgid "All Animals"
 msgstr "Todos los animales"
+
+#: Adoption_Merge
+msgid "Adoption Mail Merge"
+msgstr ""
 
 #: Found_Animals
 msgid "Found Animals"
@@ -8217,6 +8190,10 @@ msgstr "Obtener más informes desde sheltermanager.com ..."
 msgid "Profile Name"
 msgstr "Nombre del perfil"
 
+#: Treatment_Name
+msgid "Treatment Name"
+msgstr "Nombre del Tratamiento"
+
 #: Frequency
 msgid "Frequency"
 msgstr "Frecuencia"
@@ -8446,10 +8423,6 @@ msgstr "La razón por la que se devolvió el animal"
 msgid "Unchecked Owner"
 msgstr "Contacto sin comprobar"
 
-#: Select_an_owner
-msgid "Select an owner"
-msgstr "Seleccione un contacto"
-
 #: Unable_to_create_new_movement\:_
 msgid "Unable to create new movement: "
 msgstr "No es posible crear un nuevo movimiento:: "
@@ -8669,10 +8642,6 @@ msgstr "Visualizar la tienda correspondiente a este movimiento"
 msgid "From Retailer:"
 msgstr "Desde la tienda:"
 
-#: If_this_is_an_adoption_from_a_retailer_select_the_retailer_here
-msgid "If this is an adoption from a retailer, select the retailer"
-msgstr "Si se trata de una adopción desde una tienda, seleccione ésta"
-
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
 msgid ""
 "This animal was previously at a retailer. Do you want to\n"
@@ -8729,6 +8698,10 @@ msgstr "Devolución"
 #: edit_movement_title
 msgid "Edit Movement - [{0}, {1} ({2}) to {3}]"
 msgstr "Editar movimiento - [{0}, {1} ({2}) a {3}]"
+
+#: You_cannot_move_nonshelter_animals
+msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
+msgstr ""
 
 #: Work_Tel
 msgid "Work Tel"
@@ -8835,10 +8808,6 @@ msgstr "Nombre:"
 #: NameSurname\:
 msgid "Surname:"
 msgstr "Apellidos:"
-
-#: An_error_occurred_deleting_the_record\:_
-msgid "An error occurred deleting the record: "
-msgstr "Ha ocurrido un error borrando el registro: "
 
 #: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
 msgid "Check this box if this owner is a volunteer or dog walker"
@@ -9409,6 +9378,10 @@ msgstr "Concidencia ha expirado"
 msgid "Or"
 msgstr "O"
 
+#: has_this_owner_ever_been_homechecked
+msgid "Has this owner been homechecked?"
+msgstr ""
+
 #. # uireportviewer.properties#=========================================================================
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -9559,10 +9532,6 @@ msgstr ""
 msgid "When entering new owners, check for similar addresses"
 msgstr ""
 "Comprobar direcciones similares cuando se introduzcan nuevos contactos"
-
-#: Prompt_to_change_animal_auto_code_when_type_changes
-msgid "Prompt to change animal auto code when type changes"
-msgstr "Solicitar el cambio automático de código cuando cambie el tipo"
 
 #: Warn_on_close_if_an_animal_has_no_pending_vaccinations
 msgid "Warn on close if an animal has no pending vaccinations"
@@ -9988,11 +9957,6 @@ msgstr "Usa los accesos de teclado de los botones:"
 msgid "Tick this box to assign keyboard accelerators to buttons"
 msgstr "Marque esta casilla para asignar un acceso de teclado a los botones"
 
-#: allow_asm_clients_db_updates
-msgid "Allow ASM clients to update the database structure"
-msgstr ""
-"Permitir que los clientes de ASM actualicen la estrucutra de la base de datos"
-
 #: Your_organisations_address
 msgid "Your organisation's address"
 msgstr "La dirección de su organización"
@@ -10289,6 +10253,10 @@ msgstr "Tipo por defecto:"
 #: disable_retailer_functionality
 msgid "Disable Retailer Functionality"
 msgstr "Deshabilitar funcionalidad de Colaborador:"
+
+#: Group_the_animal_figures_report_by_species_instead_of_type
+msgid "Group the animal figures report by species instead of type"
+msgstr ""
 
 #. # uiuisers.properties#=========================================================================
 #: Unable_to_open_user_for_editing\:_
@@ -11158,6 +11126,9 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 #~ msgid "The postcode of the person who brought the animal in"
 #~ msgstr "El código postal de la persona que trajo el animal"
 
+#~ msgid "Unable to remove file from FTP server: "
+#~ msgstr "No es posible borrar el archivo en el servidor FTP: "
+
 #~ msgid "Form"
 #~ msgstr "De"
 
@@ -11302,6 +11273,9 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 
 #~ msgid "The type of log entry"
 #~ msgstr "Tipo de entrada del registro"
+
+#~ msgid "Treatment Description"
+#~ msgstr "Descripción del tratamiento"
 
 #~ msgid "View Lookup"
 #~ msgstr "Visualizar búsqueda"
@@ -11465,8 +11439,14 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 #~ msgid "The donation amount"
 #~ msgstr "Importe de la donación"
 
+#~ msgid "Select an owner"
+#~ msgstr "Seleccione un contacto"
+
 #~ msgid "(None)"
 #~ msgstr "(Ninguno)"
+
+#~ msgid "If this is an adoption from a retailer, select the retailer"
+#~ msgstr "Si se trata de una adopción desde una tienda, seleccione ésta"
 
 #~ msgid "Edit Movement Donation"
 #~ msgstr "Editar donación de movimiento"
@@ -11530,6 +11510,9 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 
 #~ msgid "Cursor Engine Version"
 #~ msgstr "Versión del motor de cursor"
+
+#~ msgid "Prompt to change animal auto code when type changes"
+#~ msgstr "Solicitar el cambio automático de código cuando cambie el tipo"
 
 #~ msgid "An error occurred loading the data: "
 #~ msgstr "Se ha producido un error al leer los datos: "
@@ -11737,3 +11720,46 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 
 #~ msgid "<dir>"
 #~ msgstr "<dir> .."
+
+#~ msgid "An error occurred removing the record:\n"
+#~ msgstr "Un error ocurrió intentando quitar el registro:\n"
+
+#~ msgid ""
+#~ "You are about to permanently delete this record. Are you sure you wish to do "
+#~ "this?"
+#~ msgstr ""
+#~ "Está a punto de borrar permanentemente este registro. Desea hacerlo "
+#~ "realmente?"
+
+#~ msgid "Really Delete?"
+#~ msgstr "¿Realmente desea borrarlo?"
+
+#~ msgid "An error occurred while deleting the record: "
+#~ msgstr "Se ha producido un error al eliminar el registro: "
+
+#~ msgid ""
+#~ "You are about to permanently delete this record, are you sure you wish to do "
+#~ "this?"
+#~ msgstr ""
+#~ "Está a punto de eliminar el registro. ¿Está seguro de querer hacerlo?"
+
+#~ msgid ""
+#~ "You are about to permanently delete the selected records, are you sure you "
+#~ "want to do this?"
+#~ msgstr ""
+#~ "Está apunto de borrar permanente los registros seleccionados, ¿está seguro "
+#~ "que quiere hacerlo?"
+
+#~ msgid "An error occurred deleting the record: "
+#~ msgstr "Ha ocurrido un error borrando el registro: "
+
+#~ msgid "Allow ASM clients to update the database structure"
+#~ msgstr ""
+#~ "Permitir que los clientes de ASM actualicen la estrucutra de la base de datos"
+
+#~ msgid ""
+#~ "You are about to permanently delete this record, are you sure you want to do "
+#~ "this?"
+#~ msgstr ""
+#~ "Está a punto de borrar permanentemente este registro, está seguro que desea "
+#~ "hacerlo?"

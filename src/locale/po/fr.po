@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-13 15:19+0100\n"
-"PO-Revision-Date: 2009-10-14 15:27+0000\n"
+"POT-Creation-Date: 2009-10-21 15:03+0100\n"
+"PO-Revision-Date: 2009-10-21 17:46+0000\n"
 "Last-Translator: Bertrand <bardet-bertrand@aliceadsl.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-16 06:59+0000\n"
+"X-Launchpad-Export-Date: 2009-10-22 07:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -7202,6 +7202,10 @@ msgstr ""
 msgid "The username and/or password you supplied were not recognised."
 msgstr ""
 
+#: Exit
+msgid "Exit"
+msgstr "Quitter"
+
 #: Invalid_Password
 msgid "Invalid Password"
 msgstr ""
@@ -7210,12 +7214,20 @@ msgstr ""
 msgid "Version "
 msgstr ""
 
+#: Login
+msgid "Login"
+msgstr ""
+
 #: An_error_occurred_obtaining_a_connection_to_the_database_-_
 msgid "An error occurred obtaining a connection to the database - "
 msgstr ""
 
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
+msgstr ""
+
+#: default_username_password_hint
+msgid "The default username is \"user\" with password \"letmein\""
 msgstr ""
 
 #. # uilookups.properties#=========================================================================
@@ -7787,10 +7799,6 @@ msgstr ""
 #: Login_Again
 msgid "Login Again"
 msgstr "Fermer la session"
-
-#: Exit
-msgid "Exit"
-msgstr "Quitter"
 
 #: Litter_Logger
 msgid "Litter Logger"

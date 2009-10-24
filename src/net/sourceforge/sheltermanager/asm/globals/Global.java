@@ -204,8 +204,8 @@ public abstract class Global {
             getLanguageCountry("en_US"), getLanguageCountry("en_GB"),
             getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
             getLanguageCountry("en_ZA"), getLanguageCountry("es_ES"),
-            getLanguageCountry("fr_FR"), getLanguageCountry("lt_LT"),
-            getLanguageCountry("nl_NL")
+	    getLanguageCountry("de_DE"), getLanguageCountry("fr_FR"), 
+	    getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL")
         };
     }
 
