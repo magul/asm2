@@ -1208,7 +1208,7 @@ public class Main extends ASMWindow {
                 'c', IconManager.getIcon(IconManager.MENU_MAILMERGECHIPCANCEL),
                 UI.fp(this, "actionMailMergeChipCancel"));
 
-        mnuMailMergeAdoptedNoReturn = UI.getMenuItem(i18n("Returned_Adoptions"),
+        mnuMailMergeAdoptedNoReturn = UI.getMenuItem(i18n("Non-Returned_Adoptions"),
                 'n',
                 IconManager.getIcon(IconManager.MENU_MAILMERGEADOPTEDNORETURN),
                 UI.fp(this, "actionMailMergeAdoptedNoReturn"));
