@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Build script should not include intermediate po files when copying
+-  for inclusion in the jar
 *. Changed default screen size back to 1024x768 to match lower res
 -  monitors now that all screens can display correctly at lower res
 *. Tables resize columns to match their contents as SwingWT used to,

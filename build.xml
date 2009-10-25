@@ -59,7 +59,9 @@
 
 		<!-- Copy the user locales across from the base -->
 		<copy todir="bin/asmswing/locale">
-			<fileset dir="src/locale"/>
+			<fileset dir="src/locale">
+				<include name="*.properties" />
+			</fileset>
 		</copy>
 
 		<!-- Build the asm.jar file from asmswing -->
