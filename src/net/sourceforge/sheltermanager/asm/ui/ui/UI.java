@@ -1641,6 +1641,7 @@ public final class UI {
             this.toolbar = toolbar;
             addMouseListener(this);
             addKeyListener(this);
+	    setShowGrid(false);
 
             if (useDefaultTooltip) {
                 setToolTipText(TOOLTIP_DEFAULT);

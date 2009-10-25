@@ -1,8 +1,11 @@
 2.6.1
 ================
 
+*. Changed default screen size back to 1024x768 to match lower res
+-  monitors now that all screens can display correctly at lower res
 *. Tables resize columns to match their contents as SwingWT used to,
--  horizontal scrollbars are added when needed
+-  horizontal scrollbars are added when needed and no longer show
+-  grid lines
 *. Use derived fonts for title labels to stop headings looking hideous
 -  under Linux/Unix
 *. Criteria tab on owner screen chops off comment match on smaller

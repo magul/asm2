@@ -349,7 +349,7 @@ public class Main extends ASMWindow {
         setTitle(ftitle);
 
         // Window dimensions
-        this.setSize(UI.getDimension(1280, 800));
+        this.setSize(UI.getDimension(1024, 768));
 
         // Load custom report list
         refreshCustomReports();
