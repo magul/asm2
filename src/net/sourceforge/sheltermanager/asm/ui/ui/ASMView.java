@@ -121,8 +121,10 @@ public abstract class ASMView extends ASMForm {
         setLayout(UI.getBorderLayout());
 
         // Toolbar and panel
-        UI.Panel top = (UI.Panel) UI.getPanel(UI.getGridLayout(1));
-        toolbar = (UI.ToolBar) top.add(UI.getToolBar());
+        UI.Panel top = (UI.Panel) UI.getPanel(UI.getBorderLayout());
+        toolbar = UI.getToolBar();
+	top.add(toolbar, UI.BorderLayout.NORTH);
+	
 
         if (hasTopPanel) {
             toppanel = (UI.Panel) top.add(UI.getPanel(UI.getFlowLayout()));

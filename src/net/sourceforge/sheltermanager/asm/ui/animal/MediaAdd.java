@@ -288,11 +288,13 @@ public class MediaAdd extends ASMForm {
                 UI.getTextField(i18n("The_path_to_the_local_file_you_want_to_attach")));
         txtFileName.setWidth(500);
 
-        btnBrowse = (UI.Button) browsewidget.add(UI.getButton(null,
+	UI.ToolBar t = UI.getToolBar();
+	browsewidget.add(t);
+        btnBrowse = (UI.Button) t.add(UI.getButton(null,
                     i18n("Browse_for_the_file_to_add"),
                     IconManager.getIcon(IconManager.SCREEN_ADDMEDIA_BROWSE),
                     UI.fp(this, "actionBrowse")));
-        btnCapture = (UI.Button) browsewidget.add(UI.getButton(null,
+        btnCapture = (UI.Button) t.add(UI.getButton(null,
                     i18n("Capture_from_video_source"), ' ',
                     IconManager.getIcon(IconManager.SCREEN_ADDMEDIA_CAPTURE),
                     UI.fp(this, "actionCapture")));

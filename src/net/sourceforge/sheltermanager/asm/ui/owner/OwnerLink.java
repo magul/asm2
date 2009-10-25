@@ -213,7 +213,8 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             txtName.setEnabled(false);
             add(txtName, UI.BorderLayout.CENTER);
 
-            UI.Panel t = UI.getPanel(UI.getFlowLayout(UI.ALIGN_LEFT, true), true);
+            //UI.Panel t = UI.getPanel(UI.getFlowLayout(UI.ALIGN_LEFT, true), true);
+	    UI.ToolBar t = UI.getToolBar();
 
             btnNew = (UI.Button) t.add(UI.getButton(null,
                         i18n("create_a_new_owner"), ' ',

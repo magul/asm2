@@ -1906,7 +1906,9 @@ public final class UI {
 
             if ((cbo.getItemCount() > listSearchThreshold()) && !shownSearch) {
                 shownSearch = true;
-                add(b, UI.BorderLayout.EAST);
+		UI.ToolBar t = UI.getToolBar();
+		t.add(b);
+                add(t, UI.BorderLayout.EAST);
             }
         }
 
@@ -2234,7 +2236,9 @@ public final class UI {
             btn = UI.getButton(null,
                     ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
                     IconManager.getIcon(IconManager.SEARCHSMALL), onSearch);
-            add(btn, UI.BorderLayout.EAST);
+	    UI.ToolBar t = UI.getToolBar();
+	    t.add(btn);
+            add(t, UI.BorderLayout.EAST);
         }
 
         public UI.TextField getTextField() {

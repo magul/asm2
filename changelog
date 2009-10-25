@@ -1,6 +1,10 @@
 2.6.1
 ================
 
+*. Converted text/combo tool buttons to use toolbars to fit in with
+-  with other buttons and prevent massive widths on Windows
+*. Fixed layout of selectors/views with criteria panels to prevent
+-  layout issues like the massive toolbar on the waiting list viewer
 *. Internal report viewer should be usable for applets and can save
 -  people some initial headaches
 *. Build script should not include intermediate po files when copying
