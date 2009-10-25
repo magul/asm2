@@ -140,6 +140,8 @@ public class Authentication extends ASMForm {
         cboMech.addItem(i18n("Operating_System") + " - " +
             i18n("Operating_System_Desc"));
         cboMech.addItem(i18n("LDAP") + " - " + i18n("LDAP_Desc"));
+	cboMech.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3,
+                    UI.getComboBoxHeight()));
         UI.addComponent(pt, i18n("Authentication"), cboMech);
 
         p.add(pt);
