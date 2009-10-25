@@ -492,8 +492,8 @@ public abstract class Report extends Thread {
      */
     protected void display() {
         // See if the options say we are using our internal
-        // browser to display the report (and we're not an applet).
-        if (Global.useInternalReportViewer && !Global.applet) {
+        // browser to display the report
+        if (Global.useInternalReportViewer) {
             ReportViewer rv = new ReportViewer(filename, getTitle());
             rv.setSize(UI.getDimension(512, 384));
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.addChild(rv);

@@ -116,13 +116,11 @@ public class ConfigureLocal extends ASMForm {
 
         if (!Global.applet) {
             chkMaximised.setSelected(Global.startMaximised);
-            chkUseInternal.setSelected(Global.useInternalReportViewer);
             chkOneInstance.setSelected(Global.oneInstance);
             chkShowUpdates.setSelected(Global.showUpdates);
         } else {
             // These options don't make sense for an applet
             chkMaximised.setEnabled(false);
-            chkUseInternal.setEnabled(false);
             chkOneInstance.setEnabled(false);
             chkShowUpdates.setEnabled(false);
             txtAutologout.setEnabled(false);
@@ -131,6 +129,7 @@ public class ConfigureLocal extends ASMForm {
         cboCaptureMethod.setSelectedIndex(Global.videoCaptureMethod);
         txtCaptureCommand.setText(Global.videoCaptureCommand);
         chkHotkeys.setSelected(Global.buttonHotkeys);
+        chkUseInternal.setSelected(Global.useInternalReportViewer);
         txtAutologout.setText(Integer.toString(Global.autoLogout));
         txtHeartbeatInterval.setText(Integer.toString(Global.heartbeatInterval));
     }
