@@ -1118,9 +1118,14 @@ public final class UI {
     public static Component addComponent(Container container, Component c) {
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
-                c instanceof Table || c instanceof List) {
+                c instanceof List) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            container.add(s);
+	} else if (c instanceof Table) {
+            JScrollPane s = new JScrollPane(c);
+            s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else {
@@ -1144,9 +1149,14 @@ public final class UI {
 
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
-                c instanceof Table || c instanceof List) {
+                c instanceof List) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            container.add(s);
+	} else if (c instanceof Table) {
+            JScrollPane s = new JScrollPane(c);
+            s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else {
@@ -1168,9 +1178,14 @@ public final class UI {
 
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
-                c instanceof Table || c instanceof List) {
+                c instanceof List) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            container.add(s);
+	} else if (c instanceof Table) {
+            JScrollPane s = new JScrollPane(c);
+            s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else {
@@ -1371,7 +1386,7 @@ public final class UI {
     }
 
     public static String getRendererName() {
-        return "ASMSwing 1.10";
+        return "ASMSwing 1.20";
     }
 
     public static String getRendererVersion() {
@@ -1716,6 +1731,7 @@ public final class UI {
             }
 
             model.addMouseListenerToHeaderInTable(this);
+	    model.packColumns(4);
 
             // If we have a renderer, use it
             if (renderer != null) {

@@ -25,10 +25,9 @@ import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumnModel;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 
 /**
@@ -45,6 +44,7 @@ public class SortableTableModel extends AbstractTableModel {
     private int maxrows;
     private int maxcols;
     private int idcol;
+    private JTable table = null;
 
     public String[][] getData() {
         return data;
@@ -151,6 +151,7 @@ public class SortableTableModel extends AbstractTableModel {
     public void addMouseListenerToHeaderInTable(JTable table) {
         final SortableTableModel sorter = this;
         final JTable tableView = table;
+        this.table = table;
         tableView.setColumnSelectionAllowed(false);
 
         MouseAdapter listMouseListener = new MouseAdapter() {
@@ -172,6 +173,48 @@ public class SortableTableModel extends AbstractTableModel {
         JTableHeader th = tableView.getTableHeader();
         th.addMouseListener(listMouseListener);
     }
+
+    public void packColumns(int margin) {
+	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        for (int c = 0; c < table.getColumnCount(); c++) {
+            packColumn(c, 2);
+        }
+    }
+    
+    // Sets the preferred width of the visible column specified by vColIndex. The column
+    // will be just wide enough to show the column head and the widest cell in the column.
+    // margin pixels are added to the left and right
+    // (resulting in an additional width of 2*margin pixels).
+    public void packColumn(int vColIndex, int margin) {
+        TableModel model = this;
+        DefaultTableColumnModel colModel = (DefaultTableColumnModel)table.getColumnModel();
+        TableColumn col = colModel.getColumn(vColIndex);
+        int width = 0;
+    
+        // Get width of column header
+        TableCellRenderer renderer = col.getHeaderRenderer();
+        if (renderer == null) {
+            renderer = table.getTableHeader().getDefaultRenderer();
+        }
+        Component comp = renderer.getTableCellRendererComponent(
+            table, col.getHeaderValue(), false, false, 0, 0);
+        width = comp.getPreferredSize().width;
+    
+        // Get maximum width of column data
+        for (int r = 0; r < table.getRowCount(); r++) {
+            renderer = table.getCellRenderer(r, vColIndex);
+            comp = renderer.getTableCellRendererComponent(
+                table, table.getValueAt(r, vColIndex), false, false, r, vColIndex);
+            width = Math.max(width, comp.getPreferredSize().width);
+        }
+    
+        // Add margin
+        width += 2 * margin;
+    
+        // Set the width
+        col.setPreferredWidth(width);
+    }
+
 
     public void finalize() throws Throwable {
         free();
