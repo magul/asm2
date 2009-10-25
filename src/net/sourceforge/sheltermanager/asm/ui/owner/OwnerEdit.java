@@ -1252,80 +1252,87 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             i18n("details_if_this_owner_is_a_homechecker"));
 
         // Criteria tab =====================================================
-        UI.Panel pnlAnimalCriteria = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlACTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlACMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlAnimalCriteria = UI.getPanel(UI.getGridLayout(2));
+	UI.Panel pnlACLeft = UI.getPanel(UI.getBorderLayout());
+	UI.Panel pnlACLeftTop = UI.getPanel(UI.getGridLayout(2));
+	UI.Panel pnlACRight = UI.getPanel(UI.getBorderLayout());
+        UI.Panel pnlACRightTop = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlACLeftMid = UI.getPanel(UI.getGridLayout(2));
 
-        txtMatchAdded = (DateField) UI.addComponent(pnlACTop,
+	pnlACLeft.add(pnlACLeftTop, UI.BorderLayout.NORTH);
+	pnlACLeft.add(pnlACLeftMid, UI.BorderLayout.CENTER);
+	pnlACRight.add(pnlACRightTop, UI.BorderLayout.NORTH);
+	pnlAnimalCriteria.add(pnlACLeft);
+	pnlAnimalCriteria.add(pnlACRight);
+
+        txtMatchAdded = (DateField) UI.addComponent(pnlACLeftTop,
                 i18n("Match_added"),
                 UI.getDateField(null, UI.fp(this, "dataChanged")));
 
-        txtMatchExpires = (DateField) UI.addComponent(pnlACTop,
+        txtMatchExpires = (DateField) UI.addComponent(pnlACLeftTop,
                 i18n("Match_expires"),
                 UI.getDateField(null, UI.fp(this, "dataChanged")));
 
-        pnlACTop.add(UI.getLabel());
-        chkMatchActive = (UI.CheckBox) pnlACTop.add(UI.getCheckBox(i18n("Active"),
+        pnlACLeftTop.add(UI.getLabel());
+        chkMatchActive = (UI.CheckBox) pnlACLeftTop.add(UI.getCheckBox(i18n("Active"),
                     null, UI.fp(this, "dataChanged")));
+
 
         cboMatchSex = UI.getCombo(LookupCache.getSexLookup(), "Sex",
                 UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("Sex"), cboMatchSex);
+        UI.addComponent(pnlACRightTop, i18n("Sex"), cboMatchSex);
 
         cboMatchSize = UI.getCombo(LookupCache.getSizeLookup(), "Size",
                 UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("Size"), cboMatchSize);
+        UI.addComponent(pnlACRightTop, i18n("Size"), cboMatchSize);
 
-        txtMatchAgeFrom = (UI.TextField) UI.addComponent(pnlACTop,
+        txtMatchAgeFrom = (UI.TextField) UI.addComponent(pnlACRightTop,
                 i18n("Age_From"),
                 UI.getTextField(null, UI.fp(this, "dataChanged")));
 
-        txtMatchAgeTo = (UI.TextField) UI.addComponent(pnlACTop,
+        txtMatchAgeTo = (UI.TextField) UI.addComponent(pnlACRightTop,
                 i18n("Age_To"),
                 UI.getTextField(null, UI.fp(this, "dataChanged")));
 
         cboMatchAnimalType = UI.getCombo(LookupCache.getAnimalTypeLookup(),
                 "AnimalType", UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("type"), cboMatchAnimalType);
+        UI.addComponent(pnlACRightTop, i18n("type"), cboMatchAnimalType);
 
         cboMatchSpecies = UI.getCombo(LookupCache.getSpeciesLookup(),
                 "SpeciesName", UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("Species"), cboMatchSpecies);
+        UI.addComponent(pnlACRightTop, i18n("Species"), cboMatchSpecies);
 
         cboMatchBreed = UI.getCombo(LookupCache.getBreedLookup(), "BreedName",
                 UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("Breed"), cboMatchBreed);
+        UI.addComponent(pnlACRightTop, i18n("Breed"), cboMatchBreed);
 
         cboMatchBreed2 = UI.getCombo(LookupCache.getBreedLookup(), "BreedName",
                 UI.fp(this, "dataChanged"), i18n("(all)"));
-        UI.addComponent(pnlACTop, i18n("Or"), cboMatchBreed2);
+        UI.addComponent(pnlACRightTop, i18n("Or"), cboMatchBreed2);
 
-        pnlACTop.add(UI.getLabel());
-        chkMatchGoodWithCats = (UI.CheckBox) UI.addComponent(pnlACTop,
+        pnlACRightTop.add(UI.getLabel());
+        chkMatchGoodWithCats = (UI.CheckBox) UI.addComponent(pnlACRightTop,
                 UI.getCheckBox(i18n("Good_with_cats"), null,
                     UI.fp(this, "dataChanged")));
 
-        pnlACTop.add(UI.getLabel());
-        chkMatchGoodWithDogs = (UI.CheckBox) UI.addComponent(pnlACTop,
+        pnlACRightTop.add(UI.getLabel());
+        chkMatchGoodWithDogs = (UI.CheckBox) UI.addComponent(pnlACRightTop,
                 UI.getCheckBox(i18n("Good_with_dogs"), null,
                     UI.fp(this, "dataChanged")));
 
-        pnlACTop.add(UI.getLabel());
-        chkMatchGoodWithChildren = (UI.CheckBox) UI.addComponent(pnlACTop,
+        pnlACRightTop.add(UI.getLabel());
+        chkMatchGoodWithChildren = (UI.CheckBox) UI.addComponent(pnlACRightTop,
                 UI.getCheckBox(i18n("Good_with_children"), null,
                     UI.fp(this, "dataChanged")));
 
-        pnlACTop.add(UI.getLabel());
-        chkMatchHouseTrained = (UI.CheckBox) UI.addComponent(pnlACTop,
+        pnlACRightTop.add(UI.getLabel());
+        chkMatchHouseTrained = (UI.CheckBox) UI.addComponent(pnlACRightTop,
                 UI.getCheckBox(i18n("Housetrained"), null,
                     UI.fp(this, "dataChanged")));
 
-        txtMatchCommentsContain = (UI.TextArea) UI.addComponent(pnlACMid,
+        txtMatchCommentsContain = (UI.TextArea) UI.addComponent(pnlACLeftMid,
                 i18n("Comments_contain"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
-
-        pnlAnimalCriteria.add(pnlACTop, UI.BorderLayout.NORTH);
-        pnlAnimalCriteria.add(pnlACMid, UI.BorderLayout.CENTER);
 
         tabTabs.addTab(i18n("criteria"), null, pnlAnimalCriteria,
             i18n("animals_this_owner_is_interested_in"));

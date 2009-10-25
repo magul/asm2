@@ -493,9 +493,9 @@ public class Options extends ASMForm {
                     i18n("Save_your_changes_and_exit"), 's',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
                     UI.fp(this, "actionOk")));
-        btnClose = (UI.Button) t.add(UI.getButton(null, null, 'x',
+        /*btnClose = (UI.Button) t.add(UI.getButton(null, null, 'x',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_CLOSE),
-                    UI.fp(this, "dispose")));
+                    UI.fp(this, "dispose")));*/
 
         add(t, UI.BorderLayout.NORTH);
         add(tabTabs, UI.BorderLayout.CENTER);

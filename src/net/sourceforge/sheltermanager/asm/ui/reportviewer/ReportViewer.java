@@ -81,7 +81,6 @@ public class ReportViewer extends ASMForm {
     public Vector getTabOrder() {
         Vector ctl = new Vector();
         ctl.add(edOutput);
-        ctl.add(btnClose);
         ctl.add(btnPrint);
         ctl.add(btnPage);
         ctl.add(btnExternal);
@@ -124,10 +123,11 @@ public class ReportViewer extends ASMForm {
     public void initComponents() {
         tlbPrintTools = UI.getToolBar();
 
-        btnClose = UI.getButton(null, null, 'x',
+        /*btnClose = UI.getButton(null, null, 'x',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_CLOSE),
                 UI.fp(this, "dispose"));
         tlbPrintTools.add(btnClose);
+	*/
 
         btnPrint = UI.getButton(null, i18n("Print"), 'p',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
