@@ -214,7 +214,7 @@ public class Login extends ASMWindow {
                 pnlCenter.add(
                     UI.getHintLabel(i18n("default_username_password_hint")), 
                     UI.BorderLayout.CENTER);
-                    this.setSize(UI.getDimension(436, 396));
+                    this.setSize(UI.getDimension(436, 406));
             }
             else {
                 this.setSize(UI.getDimension(436, 376));
