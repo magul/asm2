@@ -1,6 +1,9 @@
 2.6.1
 ================
 
+*. Internet publisher set wrong value for scaleNone, causing all 
+-  animals to publish at 300x200 instead of original image size 
+-  when requested
 *. Allow extra height for hint label when giving username and password
 -  as translated languages could take up more room than English
 *. Fixed layout bug with shelter inventory report that caused it not

@@ -371,7 +371,7 @@ public class InternetPublisher extends ASMForm {
             if (s[i].getValue().toString().startsWith("scale")) {
                 if (s[i].isSelected()) {
                     if (s[i].getValue().equals("scaleNone")) {
-                        pc.scaleImages = 0;
+                        pc.scaleImages = 1;
                     }
 
                     if (s[i].getValue().equals("scale320x200")) {
