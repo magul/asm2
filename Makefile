@@ -78,7 +78,7 @@ template:
 translation:
 	@echo "[translation] ====================="
 	scripts/gettext_to_java.sh
-	cp src/locale/po/*.properties src/locale
+	mv src/locale/po/*.properties src/locale
 	scripts/java_to_database.sh
 
 tags:

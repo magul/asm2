@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-23 14:52+0100\n"
-"PO-Revision-Date: 2009-10-23 13:11+0000\n"
+"PO-Revision-Date: 2009-10-24 12:59+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-24 07:35+0000\n"
+"X-Launchpad-Export-Date: 2009-10-25 08:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2830,7 +2830,7 @@ msgstr "Ilgaplaukis"
 
 #: lkcoattype_2
 msgid "Rough"
-msgstr "Šiurkštus"
+msgstr "Vidutinio ilgio"
 
 #: lkcoattype_3
 msgid "Curly"
@@ -3385,8 +3385,8 @@ msgid ""
 "Please enter the start date you would like to prepare chip registration "
 "letters for"
 msgstr ""
-"Prašome įvesti pradžios datą, kuriai norėtumėte paruošti laiškus apie "
-"mikroschemos registraciją"
+"Prašome įvesti pradžios datą, nuo kada buvo užregistruotos mikroschemos, "
+"apie kurias norite paruošti laiškus"
 
 #: There_are_no_required_chip_registrations_between_those_dates.
 msgid "There are no required chip registrations between those dates."
@@ -3394,19 +3394,19 @@ msgstr "Tarp šių datų nėra jokių planinių žymėjimų mikroschemomis."
 
 #: Chip_Registration_Mail_Merge
 msgid "Chip Registration Mail Merge"
-msgstr "Laiško komponavimas apie mikroschemos registraciją"
+msgstr "Laiško komponavimas apie mikroschemų registraciją"
 
 #: Please_enter_the_end_date_you_would_like_to_prepare_chip_registration_letters_for
 msgid ""
 "Please enter the end date you would like to prepare chip registration "
 "letters for"
 msgstr ""
-"Prašome įvesti pabaigos datą, kuriai norėtumėte paruošti laiškus apie "
-"mikroschemos registraciją"
+"Prašome įvesti pabaigos datą, iki kada buvo užregistruotos mikroschemos, "
+"apie kurias norite paruošti laiškus"
 
 #: Chip_Cancellation_Mail_Merge
 msgid "Chip Cancellation Mail Merge"
-msgstr "Laiško komponavimas apie atšauktą žymėjimą mikroschema"
+msgstr "Laiško komponavimas apie atšauktą mikroschemų registraciją"
 
 #: Work_Telephone
 msgid "Work Telephone"
@@ -3417,8 +3417,8 @@ msgid ""
 "Please enter the start date you would like to prepare chip cancellation "
 "letters for"
 msgstr ""
-"Prašome įvesti pradžios datą, kuriai norėtumėte paruošti laiškus apie "
-"atšauktą žymėjimą mikroschema"
+"Prašome įvesti pradžios datą, nuo kada buvo atšauktos mikroschemų "
+"registracijos, apie kurias norite paruošti laiškus"
 
 #: Shelter_Code
 #: Sheltercode
@@ -3487,15 +3487,15 @@ msgstr "Atidavimo data"
 
 #: There_are_no_required_chip_cancellations_between_those_dates.
 msgid "There are no required chip cancellations between those dates."
-msgstr "Tarp šių datų nėra jokių atšauktų žymėjimų mikroschemomis."
+msgstr "Tarp šių datų nėra jokių atšauktų mikroschemų registracijų."
 
 #: Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for
 msgid ""
 "Please enter the end date you would like to prepare chip cancellation "
 "letters for"
 msgstr ""
-"Prašome įvesti pabaigos datą, kuriai norėtumėte paruošti laiškus apie "
-"atšauktą žymėjimą mikroschema"
+"Prašome įvesti pabaigos datą, iki kada buvo atšauktos mikroschemų "
+"registracijos, apie kurias norite paruošti laiškus"
 
 #: Date_Of_Birth
 msgid "Date Of Birth"
@@ -3626,7 +3626,7 @@ msgstr "Rodyti narius, kurių narystė baigiasi iki"
 
 #: Expiring_Members
 msgid "Expiring Members"
-msgstr "Besibaigianti narystė"
+msgstr "Apie besibaigiančią narystę"
 
 #: Membership_Expiry
 msgid "MembershipExpiry"
@@ -6280,11 +6280,13 @@ msgstr "Gyvūno kailio tipas"
 
 #: Cruelty_case
 msgid "Cruelty case"
-msgstr "Žiaurus elgesys"
+msgstr "Byla dėl žiauraus elgesio"
 
 #: tick_this_box_if_this_animal_is_a_cruelty_case
 msgid "Tick this box if this animal is a cruelty case"
-msgstr "Pažymėkite šį laukelį, jei gyvūnas patyrė žiaurų elgesį"
+msgstr ""
+"Pažymėkite šį laukelį, jei gyvūnas patyrė žiaurų elgesį, dėl kurio iškelta "
+"byla"
 
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
@@ -6801,7 +6803,7 @@ msgstr "Gyvūnų puslapyje:"
 
 #: Include_Case_Animals
 msgid "Include Cruelty Case Animals"
-msgstr "Įtraukti su žiauraus elgesio atvejais susijusius gyvūnus"
+msgstr "Įtraukti su bylomis dėl žiauraus elgesio susijusius gyvūnus"
 
 #: An_error_occurred_connecting_to_the_internet_provider\:\n
 msgid "An error occurred connecting to the internet provider:\n"
@@ -7332,7 +7334,7 @@ msgstr "Spalvos pavadinimas"
 
 #: Vaccination_Description
 msgid "Vaccination Description"
-msgstr ""
+msgstr "Vakcinacijos aprašymas"
 
 #: Location_Name
 msgid "Location Name"
@@ -7344,7 +7346,7 @@ msgstr "Naujas"
 
 #: Vaccination_Name
 msgid "Vaccination Name"
-msgstr ""
+msgstr "Vakcinacijos tipas"
 
 #: Location_Description
 msgid "Location Description"
@@ -7441,7 +7443,7 @@ msgstr "{0} negali buti tuscias."
 
 #: edit_x
 msgid "Edit {0}"
-msgstr "Redaguoti {0}"
+msgstr "{0} redagavimas"
 
 #: Map_Breeds_to_Species
 msgid "Map Breeds to Species"
@@ -7700,11 +7702,11 @@ msgstr "Failai"
 
 #: All_Members
 msgid "All Members"
-msgstr "Visi nariai"
+msgstr "Visiems nariams"
 
 #: Owner_Merge
 msgid "Owner Mail Merge"
-msgstr "Laiškai asmenims"
+msgstr "Pagal asmenų duomenis"
 
 #: Configure_Automatic_Insurance_Numbers
 msgid "Configure Automatic Insurance Numbers"
@@ -7720,7 +7722,7 @@ msgstr "Duomenų bazės įrankiai"
 
 #: Off_Shelter_Vaccinations
 msgid "Off Shelter Vaccinations"
-msgstr "Vakcinacijos ne prieglaudoje"
+msgstr "Apie reikiamas vakcinacijas"
 
 #: About...
 msgid "About..."
@@ -7748,7 +7750,7 @@ msgstr "Tinklapio FTP nustatymai"
 
 #: Microchip_Cancellations
 msgid "Microchip Cancellations"
-msgstr "Atšaukti žymėjimai mikroschemomis"
+msgstr "Apie atšauktą mikroschemų registraciją"
 
 #: Edit_All_Diary_Notes
 msgid "Edit All Diary Notes"
@@ -7808,7 +7810,7 @@ msgstr "Publikuoti atiduodamus gyvūnus"
 
 #: Microchip_Registration
 msgid "Microchip Registration"
-msgstr "Mikroschemos registracija"
+msgstr "Apie mikroschemų registraciją"
 
 #: Help
 msgid "Help"
@@ -7832,7 +7834,7 @@ msgstr "Visi gyvūnai (spausdinimui)"
 
 #: Adoption_Merge
 msgid "Adoption Mail Merge"
-msgstr ""
+msgstr "Pagal atidavimo duomenis"
 
 #: Found_Animals
 msgid "Found Animals"
@@ -10149,7 +10151,7 @@ msgstr "Trinti gyvūnų veiksmus"
 
 #: Mail_Merge_(Adoption_Data)
 msgid "Mail Merge (Adoption Data)"
-msgstr "Komponuoti laiškus šeimininkams"
+msgstr "Komponuoti laiškus pagal atidavimo duomenis"
 
 #: Change_Litter_Log
 msgid "Change Litter Log"
@@ -10237,11 +10239,11 @@ msgstr "Žiūrėti asmenis"
 
 #: Waiting_List\:
 msgid "Waiting List:"
-msgstr "Laukia vietos:"
+msgstr "Laukiančiųjų vietos sąrašas:"
 
 #: Mail_Merge_(Owner_Data)
 msgid "Mail Merge (Owner Data)"
-msgstr "Komponuoti laiškus asmenims"
+msgstr "Komponuoti laiškus pagal asmenų duomenis"
 
 #: Change_Found_Animals
 msgid "Change Found Animals"
@@ -10468,7 +10470,7 @@ msgstr "Kurti naują naudotoją klonuojant šį"
 
 #: Diets\:
 msgid "Diets:"
-msgstr "Dieta:"
+msgstr "Dietos:"
 
 #: Add_Animal_Diets
 msgid "Add Animal Diets"

@@ -525,7 +525,7 @@ INSERT INTO lksize VALUES (3, 'Mažas');
 DELETE FROM lkcoattype;
 INSERT INTO lkcoattype VALUES (0, 'Trumpaplaukis');
 INSERT INTO lkcoattype VALUES (1, 'Ilgaplaukis');
-INSERT INTO lkcoattype VALUES (2, 'Šiurkštus');
+INSERT INTO lkcoattype VALUES (2, 'Vidutinio ilgio');
 INSERT INTO lkcoattype VALUES (3, 'Garbanotas');
 INSERT INTO lkcoattype VALUES (4, 'Virvėmis');
 INSERT INTO lkcoattype VALUES (5, 'Beplaukis');

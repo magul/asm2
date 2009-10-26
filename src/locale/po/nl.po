@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-21 15:03+0100\n"
-"PO-Revision-Date: 2009-10-21 17:47+0000\n"
+"POT-Creation-Date: 2009-10-23 14:52+0100\n"
+"PO-Revision-Date: 2009-10-24 09:37+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-22 07:27+0000\n"
+"X-Launchpad-Export-Date: 2009-10-25 08:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2523,6 +2523,10 @@ msgstr ""
 msgid "Pig (Farm)"
 msgstr ""
 
+#: configuration_Organisation
+msgid "Organisation"
+msgstr ""
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Niet Gechipte Dieren"
@@ -4896,10 +4900,6 @@ msgstr ""
 msgid "Delete this litter"
 msgstr "Verwijder dit nest"
 
-#: An_error_occurred_removing_the_record\:\n
-msgid "An error occurred removing the record:\n"
-msgstr ""
-
 #: Really_Delete
 msgid "Really Delete"
 msgstr ""
@@ -4919,12 +4919,6 @@ msgstr "Nieuw nest"
 #: Edit_this_litter
 msgid "Edit this litter"
 msgstr "Bewerk dit nest"
-
-#: You_are_about_to_permanently_delete_this_record._Are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record. Are you sure you wish to do "
-"this?"
-msgstr ""
 
 #: Animal_Litters
 msgid "Animal Litters"
@@ -5642,10 +5636,6 @@ msgstr "Koppel nieuwe media"
 msgid "Preview"
 msgstr "Preview"
 
-#: Really_Delete?
-msgid "Really Delete?"
-msgstr ""
-
 #: Delete_this_media
 msgid "Delete this media"
 msgstr "V erwijder deze media"
@@ -5657,10 +5647,6 @@ msgstr "Wijzig de media"
 #: An_error_occurred_while_setting_the_web_preferred_option\:_
 msgid "An error occurred while setting the web preferred option: "
 msgstr "Er is een fout opgetreden bij het instellen van web-opties: "
-
-#: An_error_occurred_while_deleting_the_record\:_
-msgid "An error occurred while deleting the record: "
-msgstr ""
 
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
@@ -5679,19 +5665,9 @@ msgstr "Bekijk deze media"
 msgid "An error occurred retrieving the media file: "
 msgstr "Er is een fout opgetreden bij het ophalen van de media bestanden: "
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_wish_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you wish to do "
-"this?"
-msgstr ""
-
 #: Web_Preferred
 msgid "Web Preferred"
 msgstr "Internet voorkeur"
-
-#: Unable_to_remove_file_from_FTP_server\:_
-msgid "Unable to remove file from FTP server: "
-msgstr "Kan bestand niet verwijderen van FTP server: "
 
 #: Unable_to_read_media_records\:_
 msgid "Unable to read media records: "
@@ -6568,12 +6544,6 @@ msgstr "Voor"
 msgid "Edit the selected diary note"
 msgstr "Bewerk de geselecteerde agendanotitie"
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete this record, are you sure you want to do "
-"this?"
-msgstr ""
-
 #: Created_By
 msgid "Created By"
 msgstr "Aangemaakt door"
@@ -7319,12 +7289,6 @@ msgstr "Verwijderen"
 msgid "Animal Type Description"
 msgstr "Omschrijving Type Dier"
 
-#: You_are_about_to_permanently_delete_this_record,_are_you_sure_you_want_to_do_this?
-msgid ""
-"You are about to permanently delete the selected records, are you sure you "
-"want to do this?"
-msgstr ""
-
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
 msgid ""
 "This record is currently in use in the database. \n"
@@ -7354,8 +7318,8 @@ msgid "Colour Name"
 msgstr "Kleur Naam"
 
 #: Vaccination_Description
-msgid "Treatment Description"
-msgstr "Omschrijving behandeling"
+msgid "Vaccination Description"
+msgstr ""
 
 #: Location_Name
 msgid "Location Name"
@@ -7366,9 +7330,8 @@ msgid "New"
 msgstr "Nieuw"
 
 #: Vaccination_Name
-#: Treatment_Name
-msgid "Treatment Name"
-msgstr "Naam Behandeling"
+msgid "Vaccination Name"
+msgstr ""
 
 #: Location_Description
 msgid "Location Description"
@@ -7727,6 +7690,10 @@ msgstr "Bestand"
 msgid "All Members"
 msgstr "Alle Leden"
 
+#: Owner_Merge
+msgid "Owner Mail Merge"
+msgstr ""
+
 #: Configure_Automatic_Insurance_Numbers
 msgid "Configure Automatic Insurance Numbers"
 msgstr ""
@@ -7850,6 +7817,10 @@ msgstr "Nest Logger"
 #: All_Animals
 msgid "All Animals"
 msgstr "Alle Dieren"
+
+#: Adoption_Merge
+msgid "Adoption Mail Merge"
+msgstr ""
 
 #: Found_Animals
 msgid "Found Animals"
@@ -8114,6 +8085,10 @@ msgstr ""
 msgid "Profile Name"
 msgstr "Naam Profiel"
 
+#: Treatment_Name
+msgid "Treatment Name"
+msgstr "Naam Behandeling"
+
 #: Frequency
 msgid "Frequency"
 msgstr "Frequentie"
@@ -8344,10 +8319,6 @@ msgstr "De reden waarom het dier retour Asiel is gekomen"
 msgid "Unchecked Owner"
 msgstr "Niet gecontroleerde persoon"
 
-#: Select_an_owner
-msgid "Select an owner"
-msgstr "Kies een persoon"
-
 #: Unable_to_create_new_movement\:_
 msgid "Unable to create new movement: "
 msgstr "Kan geen nieuwe plaatsing aanmaken: "
@@ -8566,10 +8537,6 @@ msgstr "Bekijk de dependance bij deze plaatsing"
 msgid "From Retailer:"
 msgstr "Van Dependance:"
 
-#: If_this_is_an_adoption_from_a_retailer_select_the_retailer_here
-msgid "If this is an adoption from a retailer, select the retailer"
-msgstr "Als dit een plaatsing is door een dependance, kies dan de dependance"
-
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
 msgid ""
 "This animal was previously at a retailer. Do you want to\n"
@@ -8627,6 +8594,10 @@ msgstr ""
 #: edit_movement_title
 msgid "Edit Movement - [{0}, {1} ({2}) to {3}]"
 msgstr "Bewerk Plaatsing - [{0}, {1} ({2}) naar {3}]"
+
+#: You_cannot_move_nonshelter_animals
+msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
+msgstr ""
 
 #: Work_Tel
 msgid "Work Tel"
@@ -8730,10 +8701,6 @@ msgstr "Voornamen/letters [NIEUW]:"
 #: NameSurname\:
 msgid "Surname:"
 msgstr "Achternaam [NIEUW]:"
-
-#: An_error_occurred_deleting_the_record\:_
-msgid "An error occurred deleting the record: "
-msgstr ""
 
 #: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
 msgid "Check this box if this owner is a volunteer or dog walker"
@@ -9300,6 +9267,10 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
+#: has_this_owner_ever_been_homechecked
+msgid "Has this owner been homechecked?"
+msgstr ""
+
 #. # uireportviewer.properties#=========================================================================
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -9452,12 +9423,6 @@ msgid "When entering new owners, check for similar addresses"
 msgstr ""
 "Controleer bij het toevoegen van nieuwe personen op reeds bestaande "
 "overeenkomende adressen"
-
-#: Prompt_to_change_animal_auto_code_when_type_changes
-msgid "Prompt to change animal auto code when type changes"
-msgstr ""
-"Vraag om het wijzigen van de automatische diercode als het diertype wordt "
-"gewijzigd"
 
 #: Warn_on_close_if_an_animal_has_no_pending_vaccinations
 msgid "Warn on close if an animal has no pending vaccinations"
@@ -9868,10 +9833,6 @@ msgstr ""
 msgid "Tick this box to assign keyboard accelerators to buttons"
 msgstr ""
 
-#: allow_asm_clients_db_updates
-msgid "Allow ASM clients to update the database structure"
-msgstr ""
-
 #: Your_organisations_address
 msgid "Your organisation's address"
 msgstr ""
@@ -10146,6 +10107,10 @@ msgstr ""
 
 #: disable_retailer_functionality
 msgid "Disable Retailer Functionality"
+msgstr ""
+
+#: Group_the_animal_figures_report_by_species_instead_of_type
+msgid "Group the animal figures report by species instead of type"
 msgstr ""
 
 #. # uiuisers.properties#=========================================================================
@@ -11058,6 +11023,9 @@ msgstr "Koppel het aangemaakte document als media?"
 #~ msgid "The postcode of the person who brought the animal in"
 #~ msgstr "De postcode van de persoon die het dier gebracht heeft"
 
+#~ msgid "Unable to remove file from FTP server: "
+#~ msgstr "Kan bestand niet verwijderen van FTP server: "
+
 #~ msgid "Form"
 #~ msgstr "Formulier"
 
@@ -11196,6 +11164,9 @@ msgstr "Koppel het aangemaakte document als media?"
 
 #~ msgid "The type of log entry"
 #~ msgstr "Het type van de log invoer"
+
+#~ msgid "Treatment Description"
+#~ msgstr "Omschrijving behandeling"
 
 #~ msgid "View Lookup"
 #~ msgstr "Bekijk Lookup"
@@ -11357,8 +11328,14 @@ msgstr "Koppel het aangemaakte document als media?"
 #~ msgid "The donation amount"
 #~ msgstr "Het gedoneerde bedrag"
 
+#~ msgid "Select an owner"
+#~ msgstr "Kies een persoon"
+
 #~ msgid "(None)"
 #~ msgstr "(Geen)"
+
+#~ msgid "If this is an adoption from a retailer, select the retailer"
+#~ msgstr "Als dit een plaatsing is door een dependance, kies dan de dependance"
 
 #~ msgid "Edit Movement Donation"
 #~ msgstr "Bewerk Donatie Plaatsing"
@@ -11411,6 +11388,11 @@ msgstr "Koppel het aangemaakte document als media?"
 
 #~ msgid "Cursor Engine Version"
 #~ msgstr "Cursor Engine Version"
+
+#~ msgid "Prompt to change animal auto code when type changes"
+#~ msgstr ""
+#~ "Vraag om het wijzigen van de automatische diercode als het diertype wordt "
+#~ "gewijzigd"
 
 #~ msgid "An error occurred loading the data: "
 #~ msgstr "Er is een fout opgetreden bij het laden van de gegevens: "
