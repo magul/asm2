@@ -175,13 +175,17 @@ public class Chart extends Thread {
             Global.i18n("charts", "Chart_-_") + getTitle());
 
         // See if the options say we are using our internal
-        // browser to display the report (and we're not using Swing - its
-        // HTML browser can't cope with images directly)
-        if (Global.useInternalReportViewer && !UI.isSwing()) {
-            ReportViewer rv = new ReportViewer(filename, getTitle());
-            rv.setSize(UI.getDimension(512, 384));
+        // browser to display the report
+        if (Global.useInternalReportViewer) {
+            
+            // Make a quick HTML document to view the chart
+            String fname = f.getName();
+            String view = "<html><body bgcolor=\"white\"><img src=\"" + fname + "\" /></body></html>";
+            File html = Utils.getNewTempFile("html");
+            Utils.writeFile(html.getAbsolutePath(), view.getBytes());
+
+            ReportViewer rv = new ReportViewer(html.getAbsolutePath(), getTitle());
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.addChild(rv);
-            rv.setVisible(true);
         } else {
             FileTypeManager.shellExecute(filename, false);
         }

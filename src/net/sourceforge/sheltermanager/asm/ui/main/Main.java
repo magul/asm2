@@ -1523,12 +1523,6 @@ public class Main extends ASMWindow {
 
         pnlStatus = UI.getPanel(UI.getBorderLayout(), true);
 
-        // Set the height of the progress meter and status bar correctly for 
-        // OSX/Carbon
-        if (UI.isCarbon()) {
-            pgStatus.setPreferredSize(UI.getDimension(150, 30));
-        }
-
         // Sort out the status bar
         UI.Panel pnlStatusLeft = UI.getPanel(UI.getFlowLayout());
         pnlStatusLeft.add(lblStatus);

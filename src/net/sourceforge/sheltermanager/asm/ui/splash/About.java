@@ -108,10 +108,6 @@ public class About extends ASMDialog {
         // ed.addHyperlinkListener(this);
         try {
             ed.setContentType("text/html");
-
-            // Dies in GTK2
-            // ed.setText(content);
-
             // Generate a temp file and point the browser to it
             String tempFileName = Utils.createTemporaryFile(content, "html");
             ed.setPage("file:///" + tempFileName);

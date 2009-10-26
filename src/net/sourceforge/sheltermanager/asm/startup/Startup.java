@@ -89,6 +89,12 @@ public class Startup implements Runnable {
         }
     }
 
+    public static void terminateVM(int returncode) {
+        if (!applet) {
+            System.exit(returncode);
+        }
+    }
+
     public static void terminateVM(boolean halt) {
         if (!applet) {
             if (halt) {
@@ -97,20 +103,6 @@ public class Startup implements Runnable {
                 System.exit(0);
             }
         }
-    }
-
-    public static void waitExit(int returncode) {
-        // Wait for 5 seconds and then exit if we're using
-        // SwingWT - Swing blocks the thread correctly so this
-        // isn't needed.
-        if (!UI.isSwing()) {
-            try {
-                Thread.currentThread().sleep(5000);
-            } catch (Exception e) {
-            }
-        }
-
-        System.exit(returncode);
     }
 
     public void run() {
@@ -142,7 +134,7 @@ public class Startup implements Runnable {
                         "ASM requires a path to the data directory to be passed.");
                     Global.logError("ASM requires a path to the data directory to be passed.",
                         "Startup");
-                    waitExit(1);
+                    terminateVM(1);
                 }
 
                 // We have a data directory
@@ -271,7 +263,7 @@ public class Startup implements Runnable {
                     "A connection to the database server could not be made.\nThe error was: " +
                     DBConnection.lastError, "Startup.Startup");
                 clearLock();
-                waitExit(1);
+                terminateVM(1);
             }
 
             // Now do a quick speed test - take two samples and average
@@ -308,7 +300,7 @@ public class Startup implements Runnable {
                 Dialog.showError(msg);
                 Global.logError(msg, "Startup.Startup");
                 clearLock();
-                waitExit(1);
+                terminateVM(1);
             }
 
             // Update the max packet size so big media files don't upset
@@ -347,7 +339,7 @@ public class Startup implements Runnable {
                     "Your database is newer than this client and will not work correctly with it.\nYou must update your client to version " +
                     AutoDBUpdates.LATEST_DB_VERSION + " to continue.", "Startup");
                 clearLock();
-                waitExit(1);
+                terminateVM(1);
             }
 
             // Check for updates
@@ -356,7 +348,7 @@ public class Startup implements Runnable {
 
             if (!new AutoDBUpdates().runUpdates()) {
                 clearLock();
-                waitExit(1);
+                terminateVM(1);
             }
 
             // See if we need to import the media from the data directory
@@ -375,7 +367,7 @@ public class Startup implements Runnable {
                 Global.logError("No matching user found for OS user " +
                     System.getProperty("user.name"), "Login.autoLogUserIn");
                 clearLock();
-                waitExit(1);
+                terminateVM(1);
             }
 
             // Load any custom buttons/menu items
@@ -504,7 +496,7 @@ public class Startup implements Runnable {
                 "lock file hanging around at" + f.getAbsolutePath(),
                 "Startup.checkForOtherInstance");
             Dialog.showError("There is already another instance of ASM open.");
-            waitExit(1);
+            terminateVM(1);
         }
 
         // No, write the lock file

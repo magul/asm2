@@ -43,6 +43,7 @@ import javax.swing.border.*;
 import javax.swing.event.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
+import javax.swing.text.*;
 
 
 /**
@@ -1195,17 +1196,6 @@ public final class UI {
         return c;
     }
 
-    public static boolean isCarbon() {
-        return false;
-    }
-
-    public static void initialiseCarbon(Runnable run) {
-    }
-
-    public static boolean isWindows() {
-        return false;
-    }
-
     public static boolean osIsMacOSX() {
         return System.getProperty("os.name").toLowerCase().indexOf("mac os") != -1;
     }
@@ -1216,10 +1206,6 @@ public final class UI {
 
     public static boolean osIsWindows() {
         return System.getProperty("os.name").toLowerCase().indexOf("windows") != -1;
-    }
-
-    public static boolean isSwing() {
-        return true;
     }
 
     public static void cursorToWait() {
@@ -1364,11 +1350,7 @@ public final class UI {
 
     /** Returns the height a text component should be */
     public static int getTextBoxHeight() {
-        if (isCarbon()) {
-            return 29;
-        } else {
-            return 23;
-        }
+        return 23;
     }
 
     /** Returns the height a combo box should be */
@@ -1577,6 +1559,10 @@ public final class UI {
                     url = "file:///" + url.substring("file:/".length());
                 }
             }
+
+            // This is needed to prevent URL caching if we want to update
+            // the page we're looking at by going there again
+            getDocument().putProperty(Document.StreamDescriptionProperty, null);
 
             super.setPage(url);
         }

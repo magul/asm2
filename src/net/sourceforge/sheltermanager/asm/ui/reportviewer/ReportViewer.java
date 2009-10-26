@@ -74,7 +74,6 @@ public class ReportViewer extends ASMForm {
         try {
             Global.logDebug("Viewing: file:///" + filename, "ReportViewer.init");
             filecontents = Utils.readFile(filename);
-            Global.logDebug("Got contents: " + filecontents, "ReportViewer.init");
             setContentSize();
         } catch (IOException e) {
             Dialog.showError(Global.i18n("uireportviewer",
@@ -90,43 +89,66 @@ public class ReportViewer extends ASMForm {
      */
     public void setContentSize() {
 
+        // Strip out any windows CR tokens
+        filecontents = Utils.replace(filecontents, "\r", "");
+
         // Do we have an <!-- Embedded style sheet comment - if so,
         // it's one of our default templates so we can work with it
         if (filecontents.indexOf("<!-- Embedded style sheet") == -1) {
             Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" marker, disabling zoom", "ReportViewer.setContentSize");
             btnZoomIn.setEnabled(false);
             btnZoomOut.setEnabled(false);
-            edOutput.setContent(filecontents);
+            try {
+                edOutput.setPage("file:///" + filename);
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+            }
             return;
         }
 
         // Construct a new style portion
         final String font = "font-family: Verdana,Arial,Helvetica,Sans-Serif;\n";
         final String fontsize = "font-size: ";
-        String style = "<style>\n" +
+        String style = "<style type=\"text/css\">\n" +
             "td {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
             "p  {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
             "li {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
             "h1 {\n" + font + fontsize + (baseFontSize + 8) + "pt;\n}\n" +
             "h2 {\n" + font + fontsize + (baseFontSize + 4) + "pt;\n}\n" +
             "h3 {\n" + font + fontsize + (baseFontSize + 2) + "pt;\n}\n" +
-            "</style>\n";
+            "</style>";
 
-        // Replace it in the contents
-        filecontents = filecontents.substring(0, filecontents.indexOf("<style>")) +
-            style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
+        // Replace it in the contents - unless we're dealing with 
+        // MacOS, which seems to be incapable of reading style tags
+        if (UI.osIsMacOSX()) {
+            btnZoomIn.setEnabled(false);
+            btnZoomOut.setEnabled(false);
+            filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
+                filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
+        }
+        else {
 
-        // The old template had a font tag that shrank the footer to unreadable levels
-        // it's annoying it has to be removed here, but getting people to update their
-        // templates is virtually impossible
-        int ft = filecontents.lastIndexOf("<font");
-        if (ft != -1)
-            filecontents = filecontents.substring(0, ft) + 
-                filecontents.substring(filecontents.indexOf(">", ft) + 1);
+            filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
+                style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
 
-        Global.logDebug("Replaced style in standard template, new output: " + filecontents, "ReportViewer.setContentSize");
-        edOutput.setContent(filecontents);
+            // The old template had a font tag that shrank the footer to unreadable levels
+            // it's annoying it has to be removed here, but getting people to update their
+            // templates is virtually impossible
+            int ft = filecontents.lastIndexOf("<font");
+            if (ft != -1)
+                filecontents = filecontents.substring(0, ft) + 
+                    filecontents.substring(filecontents.indexOf(">", ft) + 1);
 
+        }
+
+        try {
+            Utils.writeFile(filename, filecontents.getBytes());
+            edOutput.setPage("file:///" + filename);
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     public Vector getTabOrder() {

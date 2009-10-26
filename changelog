@@ -1,6 +1,10 @@
 2.6.1
 ================
 
+*. Charts are viewable with the internal report viewer now
+*. Removed SwingWT platform specific code, disabled zoom for MacOSX
+-  where it can't be supported due to lack of CSS support in 
+-  HTMLEditorKit for JRE 1.5.0_07
 *. Cancelling mail merge criteria should silently return without
 -  producing error messages
 *. Internet publisher set wrong value for scaleNone, causing all 
