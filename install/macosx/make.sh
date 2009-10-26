@@ -22,7 +22,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <key>CFBundleExecutable</key>
     <string>asm</string>
     <key>CFBundleGetInfoString</key>
-    <string>Animal Shelter Manager, Copyright 2000-2008 Robin Rawson-Tetley.</string>
+    <string>Animal Shelter Manager, Copyright 2000-2009 Robin Rawson-Tetley.</string>
     <key>CFBundleIconFile</key>
     <string>asm.icns</string>
     <key>CFBundleInfoDictionaryVersion</key>

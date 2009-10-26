@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Fixed broken MacOSX icon (pallette too high for icns format)
+-  and copyright year in .app bundle
 *. Charts are viewable with the internal report viewer now
 *. Removed SwingWT platform specific code, disabled zoom for MacOSX
 -  where it can't be supported due to lack of CSS support in 
