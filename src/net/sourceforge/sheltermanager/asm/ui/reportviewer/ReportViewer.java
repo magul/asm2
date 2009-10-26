@@ -185,12 +185,12 @@ public class ReportViewer extends ASMForm {
     }
 
     public void actionZoomIn() {
-        baseFontSize += 2;
+        baseFontSize += 1;
         setContentSize();
     }
 
     public void actionZoomOut() {
-        baseFontSize -= 2;
+        baseFontSize -= 1;
         setContentSize();
     }   
 
