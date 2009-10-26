@@ -191,8 +191,6 @@ public class ReportViewer extends ASMForm {
                 UI.fp(this, "actionExternal"));
         tlbPrintTools.add(btnExternal);
 
-        tlbPrintTools.add(UI.getSeparator());
-
         btnZoomIn = UI.getButton(null,
                 i18n("Zoom_In"), 'i',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_ZOOMIN),
