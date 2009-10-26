@@ -54,9 +54,9 @@ public class Members extends MailMerge {
 
         try {
             rs.openRecordset(
-                "SELECT * FROM owner WHERE MembershipExpiryDate <= '" +
+                "SELECT * FROM owner WHERE IsMember = 1 AND (MembershipExpiryDate <= '" +
                 Utils.getSQLDate(new Date()) +
-                "' OR MembershipExpiryDate Is Null " + "ORDER BY OwnerSurname",
+                "' OR MembershipExpiryDate Is Null) " + "ORDER BY OwnerSurname",
                 "owner");
         } catch (Exception e) {
             throw new CursorEngineException(e.getMessage());

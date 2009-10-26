@@ -82,6 +82,7 @@ public class MailMerge extends Thread implements EmailFormListener {
             choice = (String) Dialog.getInput(Global.i18n("mailmerge",
                         "how_to_merge"),
                     Global.i18n("mailmerge", "merge_type"), choices, choice);
+            if (choice == null) return;
 
             if (choice.equals(Global.i18n("mailmerge", "produce_cvs"))) {
                 // Output the CVS file
