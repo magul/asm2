@@ -180,7 +180,7 @@ public class Chart extends Thread {
             
             // Make a quick HTML document to view the chart
             String fname = f.getName();
-            String view = "<html><body bgcolor=\"white\"><img src=\"" + fname + "\" /></body></html>";
+            String view = "<html><body bgcolor=\"white\"><img src=\"" + fname + "\"></body></html>";
             File html = Utils.getNewTempFile("html");
             Utils.writeFile(html.getAbsolutePath(), view.getBytes());
 
