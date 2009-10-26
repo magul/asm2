@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.reportviewer;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -43,11 +44,14 @@ import java.util.Vector;
  */
 public class ReportViewer extends ASMForm {
     private String filename = "";
+    private int baseFontSize = 10;
+    private String filecontents = "";
     private String reportTitle = "";
-    private UI.Button btnClose;
     private UI.Button btnExternal;
     private UI.Button btnPage;
     private UI.Button btnPrint;
+    private UI.Button btnZoomIn;
+    private UI.Button btnZoomOut;
     private UI.ComboBox cboScaling;
     private UI.HTMLBrowser edOutput;
     private UI.ToolBar tlbPrintTools;
@@ -69,13 +73,57 @@ public class ReportViewer extends ASMForm {
         // Load content into viewer
         try {
             Global.logDebug("Viewing: file:///" + filename, "ReportViewer.init");
-            edOutput.setURL("file:///" + filename);
+            filecontents = Utils.readFile(filename);
+            setContentSize();
         } catch (IOException e) {
             Dialog.showError(Global.i18n("uireportviewer",
                     "Error_occurred_accessing_") + filetoview + ": " +
                 e.getMessage(), Global.i18n("uireportviewer", "Bad_File"));
             Global.logException(e, getClass());
         }
+    }
+
+    /** If possible, rewrites the <style> portion of the content to
+     *  reassert font sizes from our baseFontSize variable. If not possible,
+     *  disables the buttons.
+     */
+    public void setContentSize() {
+
+        // Do we have an <!-- Embedded style sheet comment - if so,
+        // it's one of our default templates so we can work with it
+        if (filecontents.indexOf("<!-- Embedded style sheet") == -1) {
+            btnZoomIn.setEnabled(false);
+            btnZoomOut.setEnabled(false);
+            edOutput.setContent(filecontents);
+            return;
+        }
+
+        // Construct a new style portion
+        final String font = "font-family: Verdana,Arial,Helvetica,Sans-Serif;\n";
+        final String fontsize = "font-size: ";
+        String style = "<style>\n" +
+            "td {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
+            "p  {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
+            "li {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
+            "h1 {\n" + font + fontsize + (baseFontSize + 8) + "pt;\n}\n" +
+            "h2 {\n" + font + fontsize + (baseFontSize + 4) + "pt;\n}\n" +
+            "h3 {\n" + font + fontsize + (baseFontSize + 2) + "pt;\n}\n" +
+            "</style>\n";
+
+        // Replace it in the contents
+        filecontents = filecontents.substring(0, filecontents.indexOf("<style>")) +
+            style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
+
+        // The old template had a font tag that shrank the footer to unreadable levels
+        // it's annoying it has to be removed here, but getting people to update their
+        // templates is virtually impossible
+        int ft = filecontents.lastIndexOf("<font");
+        if (ft != -1)
+            filecontents = filecontents.substring(0, ft) + 
+                filecontents.substring(filecontents.indexOf(">", ft) + 1);
+
+        edOutput.setContent(filecontents);
+
     }
 
     public Vector getTabOrder() {
@@ -111,8 +159,17 @@ public class ReportViewer extends ASMForm {
     public void setSecurity() {
     }
 
+    public void actionZoomIn() {
+        baseFontSize += 2;
+        setContentSize();
+    }
+
+    public void actionZoomOut() {
+        baseFontSize -= 2;
+        setContentSize();
+    }   
+
     public void actionPrint() {
-        // Call the Javascript print method on the browser widget
         edOutput.print();
     }
 
@@ -122,12 +179,6 @@ public class ReportViewer extends ASMForm {
 
     public void initComponents() {
         tlbPrintTools = UI.getToolBar();
-
-        /*btnClose = UI.getButton(null, null, 'x',
-                IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_CLOSE),
-                UI.fp(this, "dispose"));
-        tlbPrintTools.add(btnClose);
-	*/
 
         btnPrint = UI.getButton(null, i18n("Print"), 'p',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
@@ -139,6 +190,20 @@ public class ReportViewer extends ASMForm {
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_EXTERNAL),
                 UI.fp(this, "actionExternal"));
         tlbPrintTools.add(btnExternal);
+
+        tlbPrintTools.add(UI.getSeparator());
+
+        btnZoomIn = UI.getButton(null,
+                i18n("Zoom_In"), 'i',
+                IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_ZOOMIN),
+                UI.fp(this, "actionZoomIn"));
+        tlbPrintTools.add(btnZoomIn);
+
+        btnZoomOut = UI.getButton(null,
+                i18n("Zoom_Out"), 'o',
+                IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_ZOOMOUT),
+                UI.fp(this, "actionZoomOut"));
+        tlbPrintTools.add(btnZoomOut);
 
         add(tlbPrintTools, UI.BorderLayout.NORTH);
 

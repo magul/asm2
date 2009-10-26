@@ -1554,6 +1554,10 @@ public final class UI {
             }
         }
 
+        public void setContent(String content) {
+            super.setText(content);
+        }
+
         public void setURL(String url) throws IOException {
             setPage(url);
         }

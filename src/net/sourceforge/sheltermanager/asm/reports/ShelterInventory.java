@@ -94,11 +94,10 @@ public class ShelterInventory extends Report {
         setStatusBarMax((int) theIL.getRecordCount());
 
         while (!theIL.getEOF()) {
-            // Show location
-            String spectype = "<h2>" + theIL.getLocationName() + "</h2>";
 
             // Current location by -------------------------------
             totalAnimals = 0;
+            String spectype = "";
 
             theS.moveFirst();
 
@@ -117,6 +116,7 @@ public class ShelterInventory extends Report {
             }
 
             if (totalAnimals > 0) {
+                addLevelTwoHeader(theIL.getLocationName());
                 addParagraph(spectype);
             }
 

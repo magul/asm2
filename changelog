@@ -1,6 +1,10 @@
 2.6.1
 ================
 
+*. Fixed layout bug with shelter inventory report that caused it not
+-  to work with zoom (bad nesting of h2/p tags)
+*. Ability to zoom in/out with standard report template and internal
+-  report viewer
 *. Converted text/combo tool buttons to use toolbars to fit in with
 -  with other buttons and prevent massive widths on Windows
 *. Fixed layout of selectors/views with criteria panels to prevent

@@ -128,6 +128,8 @@ public abstract class IconManager {
     public final static String DATEPICKER = "actions-WaitingList-16.png";
     public final static String BACK = "actions-Back-24.png";
     public final static String FORWARD = "actions-Forward-24.png";
+    public final static String ZOOMIN = "actions-ZoomIn-24.png";
+    public final static String ZOOMOUT = "actions-ZoomOut-24.png";
 
     // Screen icons ======================================================
     // These are in package/class alphabetical order
@@ -465,9 +467,10 @@ public abstract class IconManager {
     // REPORTVIEWER package
     // ==========================================================
     public final static String SCREEN_REPORTVIEWER = REPORT;
-    public final static String SCREEN_REPORTVIEWER_CLOSE = CLOSE;
     public final static String SCREEN_REPORTVIEWER_PRINT = PRINT;
     public final static String SCREEN_REPORTVIEWER_EXTERNAL = PREVIEW;
+    public final static String SCREEN_REPORTVIEWER_ZOOMIN = ZOOMIN;
+    public final static String SCREEN_REPORTVIEWER_ZOOMOUT = ZOOMOUT;
 
     // SPLASH package
     // ================================================================
