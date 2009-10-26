@@ -41,7 +41,7 @@ public class DateInputDlg extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setTitle(title);
-        this.lblQuestion.setText("<html>" + message + "</html>");
+        this.lblQuestion.setText("<html><center>" + message + "</center></html>");
         this.db.setToToday();
 
         this.setSize(359, 200);
@@ -79,7 +79,7 @@ public class DateInputDlg extends javax.swing.JDialog {
 
         lblQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuestion.setText("lblQuestion");
-        lblQuestion.setPreferredSize(new java.awt.Dimension(350, 45));
+        lblQuestion.setPreferredSize(new java.awt.Dimension(350, 60));
         pnlMain.add(lblQuestion);
 
         db.setMinimumSize(UI.getDimension(200, 38));

@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Cancelling mail merge criteria should silently return without
+-  producing error messages
 *. Internet publisher set wrong value for scaleNone, causing all 
 -  animals to publish at 300x200 instead of original image size 
 -  when requested

@@ -48,9 +48,12 @@ public class ChipCancellation extends MailMerge {
         String ldate = Dialog.getDateInput(Global.i18n("mailmerge",
                     "Please_enter_the_start_date_you_would_like_to_prepare_chip_cancellation_letters_for"),
                 Global.i18n("mailmerge", "Chip_Cancellation_Mail_Merge"));
+        if (ldate.equals("")) return;
+
         String udate = Dialog.getDateInput(Global.i18n("mailmerge",
                     "Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for"),
                 Global.i18n("mailmerge", "Chip_Cancellation_Mail_Merge"));
+        if (udate.equals("")) return;
 
         try {
             theLDate = Utils.getSQLDateOnly(ldate);

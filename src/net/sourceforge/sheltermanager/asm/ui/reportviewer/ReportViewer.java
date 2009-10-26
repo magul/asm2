@@ -74,6 +74,7 @@ public class ReportViewer extends ASMForm {
         try {
             Global.logDebug("Viewing: file:///" + filename, "ReportViewer.init");
             filecontents = Utils.readFile(filename);
+            Global.logDebug("Got contents: " + filecontents, "ReportViewer.init");
             setContentSize();
         } catch (IOException e) {
             Dialog.showError(Global.i18n("uireportviewer",
@@ -92,6 +93,7 @@ public class ReportViewer extends ASMForm {
         // Do we have an <!-- Embedded style sheet comment - if so,
         // it's one of our default templates so we can work with it
         if (filecontents.indexOf("<!-- Embedded style sheet") == -1) {
+            Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" marker, disabling zoom", "ReportViewer.setContentSize");
             btnZoomIn.setEnabled(false);
             btnZoomOut.setEnabled(false);
             edOutput.setContent(filecontents);
@@ -122,6 +124,7 @@ public class ReportViewer extends ASMForm {
             filecontents = filecontents.substring(0, ft) + 
                 filecontents.substring(filecontents.indexOf(">", ft) + 1);
 
+        Global.logDebug("Replaced style in standard template, new output: " + filecontents, "ReportViewer.setContentSize");
         edOutput.setContent(filecontents);
 
     }

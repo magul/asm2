@@ -48,11 +48,10 @@ public class ExpiringMembers extends MailMerge {
                     "Show_members_expiring_before"),
                 Global.i18n("mailmerge", "Expiring_Members"));
 
+        if (cdate.equals("")) return;
         try {
             cutoffDate = Utils.getSQLDateOnly(cdate);
-        } catch (ParseException e) {
-            Dialog.showError(e.getMessage());
-
+        } catch (Exception e) {
             return;
         }
 

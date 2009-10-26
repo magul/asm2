@@ -48,9 +48,12 @@ public class AdoptedNoReturn extends MailMerge {
         String ldate = Dialog.getDateInput(Global.i18n("mailmerge",
                     "Please_enter_the_start_date_of_adoptions_to_include"),
                 Global.i18n("mailmerge", "Non-Returned_Adoptions"));
+        if (ldate.equals("")) return;
+
         String udate = Dialog.getDateInput(Global.i18n("mailmerge",
                     "Please_enter_the_closing_date_of_adoptions_to_include"),
                 Global.i18n("mailmerge", "Non-Returned_Adoptions"));
+        if (udate.equals("")) return;
 
         try {
             theLDate = Utils.getSQLDateOnly(ldate);

@@ -1555,7 +1555,8 @@ public final class UI {
         }
 
         public void setContent(String content) {
-            super.setText(content);
+            setText(content);
+            setContentType("text/html");
         }
 
         public void setURL(String url) throws IOException {
