@@ -958,6 +958,13 @@ public final class UI {
             onChange);
     }
 
+    public static SearchTextField getSearchTextField(String tooltip,
+        String buttontooltip, boolean enabled, Icon icon, 
+	FunctionPointer onSearch, FunctionPointer onChange) {
+        return new SearchTextField(tooltip, buttontooltip, enabled, icon, 
+	    onSearch, onChange);
+    }
+
     public static TextField getTextField() {
         return new TextField();
     }
@@ -2218,15 +2225,20 @@ public final class UI {
         UI.TextField t = null;
         UI.Button btn = null;
 
-        public SearchTextField(String tooltip, String buttontooltip,
+	public SearchTextField(String tooltip, String buttontooltip,
             boolean enabled, FunctionPointer onSearch, FunctionPointer onChange) {
+            this(tooltip, buttontooltip, enabled, IconManager.getIcon(IconManager.SEARCHSMALL), onSearch, onChange);
+	}
+
+        public SearchTextField(String tooltip, String buttontooltip,
+            boolean enabled, Icon icon, FunctionPointer onSearch, FunctionPointer onChange) {
             super(UI.getBorderLayout(), true);
             t = UI.getTextField(tooltip, onChange);
             t.setEnabled(enabled);
             add(t, UI.BorderLayout.CENTER);
             btn = UI.getButton(null,
                     ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
-                    IconManager.getIcon(IconManager.SEARCHSMALL), onSearch);
+                    icon, onSearch);
 	    UI.ToolBar t = UI.getToolBar();
 	    t.add(btn);
             add(t, UI.BorderLayout.EAST);
