@@ -53,7 +53,7 @@ public class AutoDBUpdates {
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2610;
+    public final static int LATEST_DB_VERSION = 2611;
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -606,6 +606,15 @@ public class AutoDBUpdates {
             }
 
             // 2.610
+            if (dbVer.equals("2610")) {
+                Global.logInfo("Updating database to 2.611 please wait...",
+                    "AutoDBUpdates");
+                checkUpdateAllowed();
+                update2611();
+                dbVer = Configuration.getString("DatabaseVersion");
+            }
+
+            // 2.611
 
 
             // All successful
@@ -3935,7 +3944,7 @@ public class AutoDBUpdates {
     private void update2610() {
         try {
             try {
-                // Add the cruelty case flag and set it from the old case type
+                // Add the homecheckedby field
                 DBConnection.executeAction(
                     "ALTER TABLE owner ADD HomeCheckedBy INTEGER NULL");
                 DBConnection.executeAction(
@@ -3945,6 +3954,36 @@ public class AutoDBUpdates {
             }
 
             Configuration.setEntry("DatabaseVersion", "2610");
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+    }
+
+    private void update2611() {
+        try {
+            try {
+                // Delete the old DatePerformedLastHomeCheck field
+                DBConnection.executeAction(
+                    "ALTER TABLE owner DROP DatePerformedLastHomeCheck");
+            } catch (Exception e) {
+                errors.add("owner: DROP DatePerformedLastHomeCheck field");
+            }
+
+            try {
+                // Add the current vet field
+                DBConnection.executeAction(
+                    "ALTER TABLE animal ADD CurrentVetID INTEGER NULL");
+                DBConnection.executeAction(
+                    "UPDATE animal SET CurrentVetID = 0");
+            } catch (Exception e) {
+                errors.add("owner: DROP DatePerformedLastHomeCheck field");
+            }
+
+
+
+            Configuration.setEntry("DatabaseVersion", "2611");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());

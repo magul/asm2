@@ -47,6 +47,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     public final static int FILTER_SHELTERS = 3;
     public final static int FILTER_RETAILERS = 4;
     public final static int FILTER_HOMECHECKERS = 5;
+    public final static int FILTER_VETS = 6;
     private int ownerID = 0;
     private OwnerLinkListener parent = null;
     private UI.Button btnClear;
@@ -304,6 +305,13 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             fo.cboFilter.setEnabled(false);
 
             break;
+
+        case FILTER_VETS:
+            fo.cboFilter.setSelectedIndex(14);
+            fo.cboFilter.setEnabled(false);
+
+            break;
+
 
         }
 

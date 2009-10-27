@@ -661,6 +661,14 @@ public class Animal extends UserInfoBO {
         rs.setField("OwnersVetID", newValue);
     }
 
+    public Integer getCurrentVetID() throws CursorEngineException {
+        return (Integer) rs.getField("CurrentVetID");
+    }
+
+    public void setCurrentVetID(Integer newValue) throws CursorEngineException {
+        rs.setField("CurrentVetID", newValue);
+    }
+
     public String getReasonForEntry() throws CursorEngineException {
         return (String) rs.getField("ReasonForEntry");
     }

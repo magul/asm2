@@ -165,6 +165,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private OwnerLink embBroughtInBy;
     private OwnerLink embOriginalOwner;
     private OwnerLink embVet;
+    private OwnerLink embCurrentVet;
     private UI.Label lblLastLocation;
     private UI.Label lblLocationText;
     private UI.Panel pnlDetails;
@@ -1463,6 +1464,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
             animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
             animal.setOwnersVetID(new Integer(embVet.getID()));
+            animal.setCurrentVetID(new Integer(embCurrentVet.getID()));
             animal.setAnimalComments(txtComments.getText());
             animal.setHealthProblems(txtHealthProblems.getText());
             animal.setHiddenAnimalDetails(txtHiddenAnimalComments.getText());
@@ -2202,13 +2204,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         embBroughtInBy = new OwnerLink();
         embOriginalOwner = new OwnerLink();
-        embVet = new OwnerLink();
+        embVet = new OwnerLink(OwnerLink.MODE_FULL, OwnerLink.FILTER_VETS, "LINK");
+        embCurrentVet = new OwnerLink(OwnerLink.MODE_FULL, OwnerLink.FILTER_VETS, "LINK");
         embBroughtInBy.setTitle(Global.i18n("uianimal", "Brought_In_By:"));
         embOriginalOwner.setTitle(Global.i18n("uianimal", "Original_Owner:"));
         embVet.setTitle(Global.i18n("uianimal", "Owners_Vet"));
+        embCurrentVet.setTitle(Global.i18n("uianimal", "Current_Vet"));
         embBroughtInBy.setParent(this);
         embOriginalOwner.setParent(this);
         embVet.setParent(this);
+        embCurrentVet.setParent(this);
 
         pnlEntryLeft.add(embOriginalOwner);
         pnlEntryLeft.add(embBroughtInBy);
@@ -2262,8 +2267,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         UI.Panel pnlVet = UI.getPanel(UI.getGridLayout(1));
         UI.Panel pnlHealthProblems = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlHealthDetails = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pnlVets = UI.getPanel(UI.getGridLayout(2));
 
-        pnlHealthProblems.add(UI.getLabel(i18n("Health_Problems:")),
+        pnlHealthProblems.add(UI.getLabel(UI.ALIGN_LEFT, i18n("Health_Problems:")),
             UI.BorderLayout.NORTH);
         txtHealthProblems = (UI.TextArea) UI.addComponent(pnlHealthProblems,
                 UI.getTextArea(i18n("Any_health_problems_the_animal_has"),
@@ -2276,10 +2282,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         chkHasSpecialNeeds = UI.getCheckBox(i18n("special_needs"),
                 i18n("special_needs_tooltip"), UI.fp(this, "dataChanged"));
         pnlHealthDetails.add(chkHasSpecialNeeds);
-
         pnlHealthProblems.add(pnlHealthDetails, UI.BorderLayout.SOUTH);
+
+        pnlVets.add(embCurrentVet);
+        pnlVets.add(embVet);
+
         pnlVet.add(pnlHealthProblems);
-        pnlVet.add(embVet);
+        pnlVet.add(pnlVets);
 
         // Death pane ===================================================
         UI.Panel pnlDeath = UI.getPanel(UI.getBorderLayout());
@@ -2583,6 +2592,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         try {
             embVet.loadFromID(animal.getOwnersVetID().intValue());
+            embCurrentVet.loadFromID(animal.getCurrentVetID().intValue());
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2632,6 +2642,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
                 try {
                     embVet.loadFromID(animal.getOwnersVetID().intValue());
+                    embCurrentVet.loadFromID(animal.getCurrentVetID().intValue());
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }

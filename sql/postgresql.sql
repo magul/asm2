@@ -91,6 +91,7 @@ CREATE TABLE animal (
   HiddenAnimalDetails VARCHAR(16384) NULL,
   AnimalComments VARCHAR(16384) NULL,
   OwnersVetID INTEGER NOT NULL,
+  CurrentVetID INTEGER NOT NULL,
   OriginalOwnerID INTEGER NOT NULL,
   BroughtInByOwnerID INTEGER NOT NULL,
   ReasonForEntry VARCHAR(16384) NULL,
@@ -851,7 +852,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2610');
+INSERT INTO configuration VALUES ('DatabaseVersion','2611');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1387,7 +1388,6 @@ CREATE TABLE owner (
   IsVet INTEGER NOT NULL,
   HomeCheckAreas VARCHAR(16384) NULL,
   DateLastHomeChecked TIMESTAMP NULL,
-  DatePerformedLastHomeCheck TIMESTAMP NULL,
   HomeCheckedBy INTEGER NULL,
   MatchAdded TIMESTAMP NULL,
   MatchExpires TIMESTAMP NULL,

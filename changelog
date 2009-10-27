@@ -1,6 +1,11 @@
 2.6.1
 ================
 
+*. Fixed alignment of health problems field
+*. Added borders to title labels
+*. Made both vet fields on animal screen filter to only show vets
+*. Added current vet field
+*. Removed Date performed last homecheck as no longer needed
 *. Fixed bug that caused random name to access past the end of the
 -  array of names 1 in n times (where n = number of animals)
 *. Better logging around OS and Applet security so problems can

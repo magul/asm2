@@ -103,6 +103,7 @@ CREATE TABLE animal (
   HiddenAnimalDetails text NULL,
   AnimalComments text NULL,
   OwnersVetID int(11) NOT NULL,
+  CurrentVetID int(11) NOT NULL,
   OriginalOwnerID int(11) NOT NULL,
   BroughtInByOwnerID int(11) NOT NULL,
   ReasonForEntry text NULL,
@@ -875,7 +876,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2610');
+INSERT INTO configuration VALUES ('DatabaseVersion','2611');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1435,7 +1436,6 @@ CREATE TABLE owner (
   IsVet tinyint(4) NOT NULL ,
   HomeCheckAreas text NULL,
   DateLastHomeChecked datetime NULL,
-  DatePerformedLastHomeCheck datetime NULL,
   HomeCheckedBy int(11) NULL,
   MatchAdded datetime NULL,
   MatchExpires datetime NULL,
