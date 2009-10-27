@@ -484,8 +484,8 @@ INSERT INTO customreport VALUES (53,'Animals Returned Within 6 Months','018','',
 INSERT INTO customreport VALUES (54,'Animals Returned After 6 Months','019','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Returns');
 INSERT INTO customreport VALUES (55,'Most Common Name','020','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
 INSERT INTO customreport VALUES (56,'Animal Death Reasons','021','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
-INSERT INTO customreport VALUES (57,'Common Animal Entry Areas','022','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
-INSERT INTO customreport VALUES (58,'Common Animal Adoption Areas','023','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
+INSERT INTO customreport VALUES (57,'Most Common Animal Entry Areas','022','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
+INSERT INTO customreport VALUES (58,'Most Common Animal Adoption Areas','023','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
 INSERT INTO customreport VALUES (59,'Average Time On Waiting List','024','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Statistics');
 INSERT INTO customreport VALUES (60,'Monthly Donations','025','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Financial Graphs');
 INSERT INTO customreport VALUES (61,'Monthly Donations By Species','026','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Financial Graphs');
