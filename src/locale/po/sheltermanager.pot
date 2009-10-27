@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-27 11:51+0100\n"
+"POT-Creation-Date: 2009-10-27 12:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,11 +235,6 @@ msgstr ""
 #: Fostered
 #: fostered
 msgid "Fostered"
-msgstr ""
-
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
 msgstr ""
 
 #: Reservation
@@ -2829,6 +2824,10 @@ msgstr ""
 msgid "Hairless"
 msgstr ""
 
+#: lksmovementtype_1
+msgid "Adoption"
+msgstr ""
+
 #: lksmovementtype_2
 msgid "Foster"
 msgstr ""
@@ -2952,7 +2951,6 @@ msgid "Complaint"
 msgstr ""
 
 #: logtype_3
-#: History
 msgid "History"
 msgstr ""
 
@@ -7922,10 +7920,6 @@ msgstr ""
 msgid "The new database will be used after you have restarted ASM."
 msgstr ""
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
-msgstr ""
-
 #: configure_email
 msgid "Configure ASM Email Account"
 msgstr ""
@@ -8551,10 +8545,6 @@ msgstr ""
 msgid "Create New Owner"
 msgstr ""
 
-#: Home_Checker
-msgid "Home Checker"
-msgstr ""
-
 #: Edit_Owner
 msgid "Edit Owner"
 msgstr ""
@@ -8577,12 +8567,6 @@ msgstr ""
 
 #: Member
 msgid "Member"
-msgstr ""
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
 msgstr ""
 
 #: NameTitle\:
@@ -8657,16 +8641,8 @@ msgstr ""
 msgid "Homechecker"
 msgstr ""
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr ""
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
-msgstr ""
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
 msgstr ""
 
 #: Donor
@@ -9161,6 +9137,10 @@ msgstr ""
 
 #: Checked_By
 msgid "Checked By:"
+msgstr ""
+
+#: Homecheck_History
+msgid "Homecheck History:"
 msgstr ""
 
 #: New_homecheck_area
