@@ -586,22 +586,23 @@ public class OwnerEdit extends ASMForm implements SearchListener, OwnerLinkListe
     public void loadHomecheckerHistory() {
         try {
             SQLRecordset r = new SQLRecordset();
-            r.openRecordset("SELECT ID, OwnerName, DateLastHomeChecked FROM owner WHERE HomeCheckedBy = " 
+            r.openRecordset("SELECT ID, OwnerName, Comments, DateLastHomeChecked FROM owner WHERE HomeCheckedBy = " 
                 + owner.getID() + " ORDER BY DateLastHomeChecked DESC", "owner");
 
-            String[] cols = { i18n("Owner"), i18n("Date") };
-            String[][] data = new String[(int) r.getRecordCount()][3];
+            String[] cols = { i18n("Date"), i18n("Owner"), i18n("Comments") };
+            String[][] data = new String[(int) r.getRecordCount()][4];
 
             int i = 0;
             while (!r.getEOF()) {
-                data[i][0] = r.getField("OwnerName").toString();
-                data[i][1] = Utils.formatTableDate((Date) r.getField("DateLastHomeChecked"));
-                data[i][2] = r.getField("ID").toString();
+                data[i][0] = Utils.formatTableDate((Date) r.getField("DateLastHomeChecked"));
+                data[i][1] = r.getField("OwnerName").toString();
+                data[i][2] = Utils.nullToEmptyString((String) r.getField("Comments"));
+                data[i][3] = r.getField("ID").toString();
                 i++;
                 r.moveNext();
             }
 
-            tblCheckHistory.setTableData(cols, data, i, 3, 2);
+            tblCheckHistory.setTableData(cols, data, i, 4, 3);
 
         }
         catch (Exception e) {
