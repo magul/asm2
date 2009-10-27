@@ -691,8 +691,7 @@ public abstract class Global {
         logInfo("On:", "Welcome");
         logInfo("   " + System.getProperty("os.name") + " " +
             System.getProperty("os.version") + "/" +
-            System.getProperty("os.arch"), "Welcome");
-
+            System.getProperty("os.arch") + " (" + System.getProperty("user.name") + ")", "Welcome");
         logInfo("", "Welcome");
         logInfo("This program is distributed in the hope that it will be useful,",
             "Welcome");

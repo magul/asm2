@@ -142,26 +142,30 @@ public class Login extends ASMWindow {
     public boolean autoLogUserIn() {
         try {
             if (Configuration.getBoolean("AutoLoginOSUsers")) {
+                Global.logInfo("OS Security. Looking for matching user '" + System.getProperty("user.name") + "'", "Login.autoLogUserIn");
                 Users u = new Users();
                 u.openRecordset("UserName Like '" +
                     System.getProperty("user.name") + "'");
 
                 if (!u.getEOF()) {
+                    Global.logInfo("PASS: Found matching ASM user '" + System.getProperty("user.name") + "', logging in...", "Login.autoLogUserIn");
                     openMainForm(u);
-
                     return true;
                 }
+                Global.logInfo("FAIL: ASM user '" + System.getProperty("user.name") + "' doesn't exist.", "Login.autoLogUserIn");
             }
 
             if (Global.appletUser != null) {
+                Global.logInfo("Applet Security. Looking for matching user '" + Global.appletUser + "'", "Login.autoLogUserIn");
                 Users u = new Users();
                 u.openRecordset("UserName Like '" + Global.appletUser + "'");
 
                 if (!u.getEOF()) {
+                    Global.logInfo("PASS: Found matching ASM user '" + Global.appletUser + "', logging in...", "Login.autoLogUserIn");
                     openMainForm(u);
-
                     return true;
                 }
+                Global.logInfo("FAIL: ASM user '" + Global.appletUser + "' doesn't exist.", "Login.autoLogUserIn");
             }
         } catch (Exception e) {
             Global.logException(e, getClass());
