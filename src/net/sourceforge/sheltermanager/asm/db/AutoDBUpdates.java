@@ -53,7 +53,7 @@ public class AutoDBUpdates {
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2601;
+    public final static int LATEST_DB_VERSION = 2610;
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -597,6 +597,16 @@ public class AutoDBUpdates {
             }
 
             // 2.601
+            if (dbVer.equals("2601")) {
+                Global.logInfo("Updating database to 2.610 please wait...",
+                    "AutoDBUpdates");
+                checkUpdateAllowed();
+                update2610();
+                dbVer = Configuration.getString("DatabaseVersion");
+            }
+
+            // 2.610
+
 
             // All successful
             finish();
@@ -3921,6 +3931,28 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    private void update2610() {
+        try {
+            try {
+                // Add the cruelty case flag and set it from the old case type
+                DBConnection.executeAction(
+                    "ALTER TABLE owner ADD HomeCheckedBy INTEGER NULL");
+                DBConnection.executeAction(
+                    "UPDATE owner SET HomeCheckedBy = 0");
+            } catch (Exception e) {
+                errors.add("owner: Add HomeCheckedBy field");
+            }
+
+            Configuration.setEntry("DatabaseVersion", "2610");
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+    }
+
+
 }
 
 

@@ -59,6 +59,7 @@ import net.sourceforge.sheltermanager.dbfs.DBFSException;
 
 import java.io.File;
 
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -112,9 +113,9 @@ public class OwnerEdit extends ASMForm implements SearchListener {
     private UI.TextField txtMobileTelephone;
     private DateField txtMembershipExpiryDate;
     private DateField txtLastHadHomecheckDate;
-    private DateField txtLastHomecheckDate;
     private DateField txtMatchAdded;
     private DateField txtMatchExpires;
+    private OwnerLink embHomeCheckedBy;
     private UI.TextField txtPostcode;
     private UI.ComboBox cboTown;
     private UI.TextField txtWorkTelephone;
@@ -140,6 +141,8 @@ public class OwnerEdit extends ASMForm implements SearchListener {
     private UI.TextArea txtMatchCommentsContain;
     private UI.Panel pnlTop;
     private UI.Label lblThumbnail;
+    private UI.Table tblAreas;
+    private UI.Table tblCheckHistory;
 
     /** Whether or not we've added any custom buttons */
     private boolean addedCustomButtons = false;
@@ -241,11 +244,10 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         ctl.add(chkIsRetailer);
         ctl.add(chkIsFosterer);
         ctl.add(chkIsVet);
+        ctl.add(chkHomeChecker);
         ctl.add(chkHomeCheck);
         ctl.add(txtLastHadHomecheckDate.getTextField());
         ctl.add(txtComments);
-        ctl.add(chkHomeChecker);
-        ctl.add(txtLastHomecheckDate.getTextField());
         ctl.add(txtHomeCheckArea);
         ctl.add(txtMatchAdded);
         ctl.add(txtMatchExpires);
@@ -478,6 +480,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
                         owner.getDateLastHomeChecked()));
             } catch (Exception e) {
             }
+            embHomeCheckedBy.setID(owner.getHomeCheckedBy());
 
             chkIsMember.setSelected(owner.getIsMember().equals(y));
 
@@ -511,8 +514,6 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             chkIsFosterer.setSelected(owner.getIsFosterer().equals(y));
 
             try {
-                txtLastHomecheckDate.setText(Utils.formatDate(
-                        owner.getDatePerformedLastHomeCheck()));
                 txtMatchAdded.setText(Utils.formatDate(owner.getMatchAdded()));
                 txtMatchExpires.setText(Utils.formatDate(
                         owner.getMatchExpires()));
@@ -520,8 +521,6 @@ public class OwnerEdit extends ASMForm implements SearchListener {
                 Global.logException(e, getClass());
             }
 
-            txtHomeCheckArea.setText(Utils.nullToEmptyString(
-                    owner.getHomeCheckAreas()));
             chkMatchActive.setSelected(owner.getMatchActive().equals(y));
             cboMatchSex.setSelectedIndex(owner.getMatchSex().intValue());
             cboMatchSize.setSelectedIndex(owner.getMatchSize().intValue());
@@ -549,7 +548,10 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             txtMatchCommentsContain.setText(Utils.nullToEmptyString(
                     owner.getMatchCommentsContain()));
 
+            loadHomecheckerAreas();
+            loadHomecheckerHistory();
             loadExternal();
+            actionHomecheckerChanged();
 
             this.isDirty = false;
             btnSave.setEnabled(isDirty);
@@ -558,6 +560,51 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         } catch (CursorEngineException e) {
             Dialog.showError(i18n("An_error_occurred_reading_owner_information:_") +
                 e.getMessage());
+            Global.logException(e, getClass());
+        }
+    }
+
+    public void loadHomecheckerAreas() {
+        String s = "";
+        try {
+            s = Utils.nullToEmptyString(owner.getHomeCheckAreas()).trim();
+            s = Utils.replace(s, "\n", " ");
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+        String[] areas = Utils.split(s, " ");
+
+        String[] colhead = { i18n("Area") };
+        String[][] data = new String[areas.length][1];
+        for (int i = 0; i < areas.length; i++)
+            data[i][0] = areas[i];
+
+        tblAreas.setTableData( colhead, data, areas.length, 0 );
+    }
+
+    public void loadHomecheckerHistory() {
+        try {
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset("SELECT ID, OwnerName, DateLastHomeChecked FROM owner WHERE HomeCheckedBy = " 
+                + owner.getID() + " ORDER BY DateLastHomeChecked DESC", "owner");
+
+            String[] cols = { i18n("Owner"), i18n("Date") };
+            String[][] data = new String[(int) r.getRecordCount()][3];
+
+            int i = 0;
+            while (!r.getEOF()) {
+                data[i][0] = r.getField("OwnerName").toString();
+                data[i][1] = Utils.formatTableDate((Date) r.getField("DateLastHomeChecked"));
+                data[i][2] = r.getField("ID").toString();
+                i++;
+                r.moveNext();
+            }
+
+            tblCheckHistory.setTableData(cols, data, i, 3, 2);
+
+        }
+        catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
@@ -801,6 +848,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
                 Global.logException(e, getClass());
             }
 
+            owner.setHomeCheckedBy(new Integer(embHomeCheckedBy.getID()));
             owner.setIsVolunteer(chkVolunteer.isSelected() ? y : n);
             owner.setIsHomeChecker(chkHomeChecker.isSelected() ? y : n);
             owner.setIsMember(chkIsMember.isSelected() ? y : n);
@@ -824,13 +872,6 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             owner.setHomeTelephone(txtHomeTelephone.getText());
             owner.setEmailAddress(txtEmail.getText());
             owner.setComments(txtComments.getText());
-            owner.setHomeCheckAreas(txtHomeCheckArea.getText());
-
-            try {
-                owner.setDatePerformedLastHomeCheck(Utils.parseDate(
-                        txtLastHomecheckDate.getText()));
-            } catch (Exception e) {
-            }
 
             owner.setMatchActive(chkMatchActive.isSelected() ? y : n);
             owner.setMatchSex(new Integer(cboMatchSex.getSelectedIndex()));
@@ -1202,14 +1243,22 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         chkIsVet = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Vet"),
                     i18n("check_this_box_if_this_owner_is_a_veterinary_surgery_or_clinic"),
                     UI.fp(this, "dataChanged")));
-        pnlRightTop.add(UI.getLabel());
+
+        chkHomeChecker = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(
+                    i18n("Homechecker"),
+                    i18n("Tick_this_box_if_this_owner_is_a_home_checker"),
+                    UI.fp(this, "actionHomecheckerChanged")));
 
         chkHomeCheck = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("ID_Check"),
                     i18n("has_this_owner_ever_been_homechecked"),
                     UI.fp(this, "dataChanged")));
+
         txtLastHadHomecheckDate = (DateField) pnlRightTop.add(UI.getDateField(
                     i18n("The_date_this_owner_was_last_homechecked"),
                     UI.fp(this, "dataChanged")));
+
+        embHomeCheckedBy = (OwnerLink) UI.addComponent(pnlRightTop, 
+            i18n("Checked_By"), new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_HOMECHECKERS, "LINK"));
 
         txtComments = (UI.TextArea) UI.addComponent(pnlRightMid,
                 i18n("Comments:"),
@@ -1224,29 +1273,30 @@ public class OwnerEdit extends ASMForm implements SearchListener {
             i18n("basic_owner_information"));
 
         // Homechecker Tab =========================================================
-        UI.Panel pnlHomeChecker = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlHomeCheckerTop = UI.getPanel(UI.getGridLayout(3));
+        UI.Panel pnlHomeChecker = UI.getPanel(UI.getGridLayout(2));
         UI.Panel pnlHomeCheckerAreas = UI.getPanel(UI.getBorderLayout());
+        UI.Panel pnlHomeCheckerHistory = UI.getPanel(UI.getBorderLayout());
 
-        chkHomeChecker = (UI.CheckBox) pnlHomeCheckerTop.add(UI.getCheckBox(
-                    i18n("Home_Checker"),
-                    i18n("Tick_this_box_if_this_owner_is_a_home_checker"),
-                    UI.fp(this, "dataChanged")));
-        pnlHomeCheckerTop.add(UI.getLabel());
-        pnlHomeCheckerTop.add(UI.getLabel());
+        // Areas pane
+        pnlHomeCheckerAreas.add(UI.getTitleLabel(i18n("Homecheck_Areas:")), UI.BorderLayout.NORTH);
+        UI.Panel pnlHomeCheckerAreasInner = UI.getPanel(UI.getBorderLayout());
+        
+        UI.ToolBar tlbAreas = UI.getToolBar();
+        tlbAreas.add (UI.getButton(null, i18n("New_homecheck_area"), IconManager.getIcon(IconManager.NEW), UI.fp(this, "actionNewHomecheckArea")));
+        tlbAreas.add (UI.getButton(null, i18n("Delete_homecheck_area"), IconManager.getIcon(IconManager.DELETE), UI.fp(this, "actionDeleteHomecheckArea")));
+        tblAreas = UI.getTable(null, null, tlbAreas); 
 
-        txtLastHomecheckDate = (DateField) UI.addComponent(pnlHomeCheckerTop,
-                i18n("Last_Homecheck_Date:"),
-                UI.getDateField(i18n("The_date_this_homechecker_last_performed_a_homecheck"),
-                    UI.fp(this, "dataChanged")));
+        pnlHomeCheckerAreasInner.add(tlbAreas, UI.BorderLayout.NORTH);
+        UI.addComponent(pnlHomeCheckerAreasInner, tblAreas);
+        pnlHomeCheckerAreas.add(pnlHomeCheckerAreasInner, UI.BorderLayout.CENTER);
 
-        pnlHomeCheckerAreas.add(UI.getLabel(i18n("Homecheck_Areas:")));
-        txtHomeCheckArea = UI.getTextArea(i18n("If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check"),
-                UI.fp(this, "dataChanged"));
-        UI.addComponent(pnlHomeCheckerAreas, txtHomeCheckArea);
+        // History pane
+        pnlHomeCheckerHistory.add(UI.getTitleLabel(i18n("Homecheck_History")), UI.BorderLayout.NORTH);
+        tblCheckHistory = UI.getTable(null, UI.fp(this, "actionHistoryDoubleClick"));
+        UI.addComponent(pnlHomeCheckerHistory, tblCheckHistory);
 
-        pnlHomeChecker.add(pnlHomeCheckerTop, UI.BorderLayout.NORTH);
-        pnlHomeChecker.add(pnlHomeCheckerAreas, UI.BorderLayout.CENTER);
+        pnlHomeChecker.add(pnlHomeCheckerAreas);
+        pnlHomeChecker.add(pnlHomeCheckerHistory);
 
         tabTabs.addTab(i18n("Homechecker"), null, pnlHomeChecker,
             i18n("details_if_this_owner_is_a_homechecker"));
@@ -1463,8 +1513,53 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         }
     }
 
+    public void actionHomecheckerChanged() {
+        tabTabs.setEnabledAt(1, chkHomeChecker.isSelected());
+        dataChanged();
+    }
+
     public void actionDocument() {
         OwnerDocument od = new OwnerDocument(owner, media);
+    }
+
+    public void actionHistoryDoubleClick() {
+        int id = tblCheckHistory.getSelectedID();
+        if (id == -1) return;
+        OwnerEdit oe = new OwnerEdit();
+        oe.openForEdit(id);
+        Global.mainForm.addChild(oe);
+    }
+
+    public void actionNewHomecheckArea() {
+        try {
+            String area = Dialog.getInput(i18n("The_new_homecheck_area"), "");
+            if (area == null || area.equals("")) return;
+
+            String x = Utils.nullToEmptyString(owner.getHomeCheckAreas());
+            x += " " + area;
+            owner.setHomeCheckAreas(x);
+            dataChanged();
+            loadHomecheckerAreas();
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+    }
+
+    public void actionDeleteHomecheckArea() {
+        try {
+            String x = Utils.nullToEmptyString(owner.getHomeCheckAreas());
+            String y = (String) tblAreas.getModel().getValueAt(tblAreas.getSelectedRow(), 0);
+            if (y == null || y.equals("")) return;
+            x = Utils.replace(x, " " + y, "");
+            x = Utils.replace(x, y, "");
+            owner.setHomeCheckAreas(x);
+            dataChanged();
+            loadHomecheckerAreas();
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     public void actionDelete() {

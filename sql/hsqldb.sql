@@ -841,7 +841,7 @@ CREATE MEMORY TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2601');
+INSERT INTO configuration VALUES ('DatabaseVersion','2610');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1361,6 +1361,7 @@ CREATE MEMORY TABLE owner (
   IsVet INTEGER NOT NULL,
   HomeCheckAreas VARCHAR(16384) NULL,
   DateLastHomeChecked TIMESTAMP NULL,
+  HomeCheckedBy INTEGER NULL,
   DatePerformedLastHomeCheck TIMESTAMP NULL,
   MatchAdded TIMESTAMP NULL,
   MatchExpires TIMESTAMP NULL,

@@ -1,6 +1,9 @@
 2.6.1
 ================
 
+*. Rewrote homechecker tab to be disabled by homechecker flag on main
+-  details screen, use lists for areas, allow setting of the homechecker
+-  with the checked flag and show homecheck histories automatically
 *. Moved generate random animal name to the animal name field
 *. All members mail merge included non-members, fixed null bug
 -  when cancelling a merge

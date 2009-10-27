@@ -4,10 +4,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 
 import java.awt.Font;
 
-import javax.swing.JLabel;
 
-
-public class TitleLabel extends JLabel {
+public class TitleLabel extends UI.Label {
 
     public TitleLabel(String title) {
         super(title);

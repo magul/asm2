@@ -851,7 +851,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2601');
+INSERT INTO configuration VALUES ('DatabaseVersion','2610');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1388,6 +1388,7 @@ CREATE TABLE owner (
   HomeCheckAreas VARCHAR(16384) NULL,
   DateLastHomeChecked TIMESTAMP NULL,
   DatePerformedLastHomeCheck TIMESTAMP NULL,
+  HomeCheckedBy INTEGER NULL,
   MatchAdded TIMESTAMP NULL,
   MatchExpires TIMESTAMP NULL,
   MatchActive INTEGER NOT NULL,

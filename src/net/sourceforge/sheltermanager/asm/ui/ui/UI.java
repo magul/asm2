@@ -357,6 +357,10 @@ public final class UI {
         return l;
     }
 
+    public static Label getTitleLabel(String text) {
+        return new TitleLabel(text);
+    }
+
     public static Label getHintLabel(String text) {
         Label l = new Label("<html><center>" + text + "</center></html>");
         l.setBackground(getColor(255, 251, 192));

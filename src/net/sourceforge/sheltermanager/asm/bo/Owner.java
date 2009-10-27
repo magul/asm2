@@ -363,6 +363,14 @@ public class Owner extends UserInfoBO {
         rs.setField("DateLastHomeChecked", newValue);
     }
 
+    public Integer getHomeCheckedBy() throws CursorEngineException {
+        return (Integer) rs.getField("HomeCheckedBy");
+    }
+
+    public void setHomeCheckedBy(Integer newValue) throws CursorEngineException {
+        rs.setField("HomeCheckedBy", newValue);
+    }
+
     public Date getDatePerformedLastHomeCheck() throws CursorEngineException {
         return (Date) rs.getField("DatePerformedLastHomeCheck");
     }

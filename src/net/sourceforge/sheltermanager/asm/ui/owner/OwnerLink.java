@@ -46,6 +46,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     public final static int FILTER_FOSTERERS = 2;
     public final static int FILTER_SHELTERS = 3;
     public final static int FILTER_RETAILERS = 4;
+    public final static int FILTER_HOMECHECKERS = 5;
     private int ownerID = 0;
     private OwnerLinkListener parent = null;
     private UI.Button btnClear;
@@ -121,6 +122,11 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
     public void setID(int newID) {
         loadFromID(newID);
+    }
+
+    public void setID(Integer newID) {
+        if (newID != null)
+            loadFromID(newID.intValue());
     }
 
     public void setEnabled(boolean b) {
@@ -292,6 +298,13 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             fo.cboFilter.setEnabled(false);
 
             break;
+
+        case FILTER_HOMECHECKERS:
+            fo.cboFilter.setSelectedIndex(7);
+            fo.cboFilter.setEnabled(false);
+
+            break;
+
         }
 
         Global.mainForm.addChild(fo);

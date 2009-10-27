@@ -875,7 +875,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2601');
+INSERT INTO configuration VALUES ('DatabaseVersion','2610');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1436,6 +1436,7 @@ CREATE TABLE owner (
   HomeCheckAreas text NULL,
   DateLastHomeChecked datetime NULL,
   DatePerformedLastHomeCheck datetime NULL,
+  HomeCheckedBy int(11) NULL,
   MatchAdded datetime NULL,
   MatchExpires datetime NULL,
   MatchActive tinyint(4) NOT NULL ,
