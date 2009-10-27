@@ -2668,31 +2668,56 @@ Home Checkers
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_homechecker.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Animal Shelter Manager allows you to keep a list of your volunteer homecheckers
  in the owner database.
  To use this facility, simply tick the 
 \begin_inset Quotes eld
 \end_inset
 
-Home Checker
+Homechecker
 \begin_inset Quotes erd
 \end_inset
 
- box, and fill in the areas they are willing to check in the Areas box.
+ box on the detail tab, and add the areas they are willing to check in the
+ Areas box under the Homechecker tab.
 \end_layout
 
 \begin_layout Standard
-It is best to include both the area name and postcode in the box (eg: Rotherham
- S60).
+It is best to include both the area name and postal/zipcode in the box (eg:
+ Rotherham S60).
  You can then use the find owner screen to enter the name of an area you
  want to check by postcode or name and you will receive a list of homecheckers
  who cover that area.
 \end_layout
 
 \begin_layout Standard
-If you want to show all homecheckers on the system, type an underscore (_)
- in the area box on the find owner screen.
- This will search for all owners who have something in the area box.
+When marking an owner as homechecked, you can link to the owner record of
+ the person who did the check, and it will show up in their homecheck history.
 \end_layout
 
 \begin_layout Subsection
