@@ -1,6 +1,8 @@
 2.6.1
 ================
 
+*. Fixed bug that caused random name to access past the end of the
+-  array of names 1 in n times (where n = number of animals)
 *. Better logging around OS and Applet security so problems can
 -  be traced
 *. Rewrote homechecker tab to be disabled by homechecker flag on main

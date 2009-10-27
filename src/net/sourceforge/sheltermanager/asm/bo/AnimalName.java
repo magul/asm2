@@ -100,13 +100,12 @@ public class AnimalName extends NormalBO {
                 i++;
             }
 
-            // Choose a number between 1 and total
+            // Choose a number between 0 and total
             double choice = (Math.random() * (double) tot);
-            int ichoice = (int) choice;
-            ichoice++;
 
             // Get the name
-            return names[ichoice];
+            return names[(int) choice];
+
         } catch (Exception e) {
             Global.logException(e, AnimalName.class);
         }
