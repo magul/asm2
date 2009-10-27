@@ -69,7 +69,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
-public class OwnerEdit extends ASMForm implements SearchListener {
+public class OwnerEdit extends ASMForm implements SearchListener, OwnerLinkListener {
     private Owner owner = null;
     public MediaSelector media = null;
     private MovementSelector movement = null;
@@ -775,6 +775,10 @@ public class OwnerEdit extends ASMForm implements SearchListener {
         }
     }
 
+    public void ownerChanged(int ownerid, String id) {
+        dataChanged();
+    }
+
     /** Allows external calls to force a reload of the owner's diary */
     public void updateDiary() {
         diary.updateList();
@@ -1259,6 +1263,7 @@ public class OwnerEdit extends ASMForm implements SearchListener {
 
         embHomeCheckedBy = (OwnerLink) UI.addComponent(pnlRightTop, 
             i18n("Checked_By"), new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_HOMECHECKERS, "LINK"));
+        embHomeCheckedBy.setParent(this);
 
         txtComments = (UI.TextArea) UI.addComponent(pnlRightMid,
                 i18n("Comments:"),
