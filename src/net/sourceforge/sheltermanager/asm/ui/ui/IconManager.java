@@ -101,6 +101,7 @@ public abstract class IconManager {
     public final static String DEATH = CLOSE;
     public final static String COMPLETE = "actions-Complete-24.png";
     public final static String RANDOM = "actions-Random-24.png";
+    public final static String RANDOMSMALL = "actions-Random-16.png";
     public final static String EXPORT = "actions-Export-24.png";
     public final static String REPORT = "actions-Report-24.png";
     public final static String EMAIL = "actions-Email-24.png";
@@ -194,6 +195,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITANIMAL_PRINT = PRINT;
     public final static String SCREEN_EDITANIMAL_DIARYTASK = TASK;
     public final static String SCREEN_EDITANIMAL_RANDOMNAME = RANDOM;
+    public final static String SCREEN_EDITANIMAL_RANDOMNAME_SMALL = RANDOMSMALL;
     public final static String SCREEN_EDITANIMAL_VIEWOWNER = OWNERLINK;
     public final static String SCREEN_EDITANIMAL_LOSTFOUND = MATCH;
     public final static String SCREEN_EDITANIMAL_CREATELITTER = LITTERNEW;

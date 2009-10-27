@@ -123,7 +123,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.Button btnDelete;
     private UI.Button btnDiaryTask;
     private UI.Button btnFindLitter;
-    private UI.Button btnGenerateRandomName;
     private UI.Button btnMatchLost;
     private UI.Button btnOwner;
     private UI.Button btnSave;
@@ -177,7 +176,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.ToolBar tlbTools;
     private UI.TextField txtAcceptanceNumber;
     private CurrencyField txtAmountDonatedOnEntry;
-    private UI.TextField txtAnimalName;
+    private UI.SearchTextField txtAnimalName;
     private DateField txtCombiTested;
     private UI.TextArea txtComments;
     private DateField txtDateBroughtIn;
@@ -286,7 +285,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(txtShelterCode.getCodeField());
         ctl.add(txtShelterCode.getShortCodeField());
         ctl.add(txtAcceptanceNumber);
-        ctl.add(txtAnimalName);
+        ctl.add(txtAnimalName.getTextField());
         ctl.add(cboSex);
         ctl.add(cboType);
         ctl.add(cboColour);
@@ -1738,7 +1737,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             // Disable the save button
             this.isDirty = false;
             btnSave.setEnabled(isDirty);
-            txtAnimalName.grabFocus();
+            txtAnimalName.getTextField().grabFocus();
             enableButtons();
 
             return true;
@@ -1883,12 +1882,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_DIARYTASK),
                     UI.fp(this, "actionDiaryTask")));
 
-        btnGenerateRandomName = (UI.Button) tlbTools.add(UI.getButton(null,
-                    i18n("Generate_a_random_name_for_this_animal"), 'a',
-                    IconManager.getIcon(
-                        IconManager.SCREEN_EDITANIMAL_RANDOMNAME),
-                    UI.fp(this, "actionRandomName")));
-
         btnOwner = (UI.Button) tlbTools.add(UI.getButton(null,
                     i18n("view_the_current_owner_for_this_animal"), 'o',
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VIEWOWNER),
@@ -1969,10 +1962,19 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 UI.getTextField(littertooltip, UI.fp(this, "litterIDChanged")));
         txtAcceptanceNumber.setForeground(UI.getColor(0, 204, 51));
 
+        /*
         txtAnimalName = (UI.TextField) UI.addComponent(pnlLeftFields,
                 i18n("Name:"),
                 UI.getTextField(i18n("The_animal's_name"),
                     UI.fp(this, "dataChanged")));
+        */
+
+        txtAnimalName = (UI.SearchTextField) UI.addComponent(pnlLeftFields,
+                i18n("Name:"),
+                UI.getSearchTextField(i18n("The_animal's_name"),
+                i18n("Generate_a_random_name_for_this_animal"), true,
+                IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_RANDOMNAME_SMALL),
+                UI.fp(this, "actionRandomName"), UI.fp(this, "dataChanged")));
 
         cboSex = (UI.ComboBox) UI.addComponent(pnlLeftFields, i18n("Sex:"),
                 UI.getCombo(LookupCache.getSexLookup(), "Sex",

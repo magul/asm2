@@ -176,9 +176,10 @@ public class InputListDialog extends ASMDialog {
                     }
                 });
             add(txt, UI.BorderLayout.CENTER);
-            add(UI.getButton(null, null, 's',
-                    IconManager.getIcon(IconManager.SEARCHSMALL), onSearch),
-                UI.BorderLayout.EAST);
+            UI.ToolBar t = UI.getToolBar();
+            t.add(UI.getButton(null, null, 's',
+                    IconManager.getIcon(IconManager.SEARCHSMALL), onSearch));
+            add(t, UI.BorderLayout.EAST);
         }
 
         public String getSearchText() {
