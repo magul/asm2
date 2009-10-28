@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-26 09:24+0100\n"
-"PO-Revision-Date: 2009-10-27 00:01+0000\n"
+"POT-Creation-Date: 2009-10-27 18:09+0100\n"
+"PO-Revision-Date: 2009-10-28 00:16+0000\n"
 "Last-Translator: Ivan Garcia <capiscuas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-27 08:29+0000\n"
+"X-Launchpad-Export-Date: 2009-10-28 08:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -246,11 +246,6 @@ msgstr "Ninguno"
 msgid "Fostered"
 msgstr "Acogidos"
 
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
-msgstr "Adopción"
-
 #: Reservation
 #: lksmovementtype_9
 msgid "Reservation"
@@ -286,16 +281,16 @@ msgid ""
 "The owner you have selected is an animal retailer and can only have retailer "
 "movements."
 msgstr ""
-"El contacto que ha seleccionado es una tienda de animales, por lo que solo "
-"puede estar asociado a acciones de colaboradores."
+"El contacto que ha seleccionado es un colaborador, por lo que solo puede "
+"estar asociado a acciones de colaboradores."
 
 #: retailer_movement_non_retailer_owner
 msgid ""
 "The owner you have selected is not an animal retailer and cannot have "
 "retailer movements."
 msgstr ""
-"El contacto que ha seleccionado no es una tienda de animales, por lo que no "
-"puede estar asociado a acciones de colaboradores."
+"El contacto que ha seleccionado no es un colaborador, por lo que no puede "
+"estar asociado a acciones de colaboradores."
 
 #: retailer
 #: lksmovementtype_8
@@ -334,8 +329,8 @@ msgid ""
 "The owner you have selected is not an animal fosterer and cannot have foster "
 "movements."
 msgstr ""
-"El contacto que ha seleccionado no es una tienda de animales, por lo que no "
-"puede estar asociado a acciones de adopción."
+"El contacto que ha seleccionado no acoge animales, por lo que no puede estar "
+"asociado a acciones de acogida."
 
 #: cancel_reserve_without_reserve
 msgid "You have entered a reservation cancelled date without a reserve!"
@@ -380,13 +375,14 @@ msgid ""
 "You have marked this movement as from a retailer, but this animal has no "
 "prior retailer movements."
 msgstr ""
-"Ha indicado que este movimiento procede de una tienda, pero este animal\n"
-"no dispone de movimientos anteriores relacionados con una tienda."
+"Ha indicado que este movimiento procede de un colaborador, pero este "
+"animal\r\n"
+"no dispone de movimientos anteriores relacionados con un colaborador."
 
 #: you_cant_have_a_from_retailer_on_a_non_adoption_movement
 msgid "You cannot have a retailer on a non-adoption movement."
 msgstr ""
-"No es posible asociar una tienda a un movimiento que no sea una adopción."
+"No es posible asociar un colaborador a un movimiento que no sea una adopción."
 
 #: You_must_select_a_diet_type
 msgid "You must select a diet type."
@@ -2642,7 +2638,7 @@ msgstr "Colaboradores"
 
 #: customreport_50_015
 msgid "Average Time At Retailer Before Adoption"
-msgstr "Tiempo Medio con el Colaborador Antes de la Adopción"
+msgstr "Tiempo medio con el colaborador antes de la adopción"
 
 #: customreport_51_016
 #: retailer_inventory
@@ -2684,15 +2680,17 @@ msgstr "Estadísticas"
 
 #: customreport_56_021
 msgid "Animal Death Reasons"
-msgstr "Razones de la Muerte del Animal"
+msgstr "Razones de muerte de animales"
 
 #: customreport_57_022
-msgid "Common Animal Entry Areas"
-msgstr "Areas de Entrada Comunes de Animales"
+#: Most_Common_Animal_Entry_Areas
+msgid "Most Common Animal Entry Areas"
+msgstr "Zonas de entrada de animales más comunes"
 
 #: customreport_58_023
-msgid "Common Animal Adoption Areas"
-msgstr "Areas de Adopción Comunes de Animales"
+#: Most_Common_Animal_Adoption_Areas
+msgid "Most Common Animal Adoption Areas"
+msgstr "Zonas de adopción más comunes"
 
 #: customreport_59_024
 #: Average_Time_On_Waiting_List
@@ -2725,7 +2723,7 @@ msgstr "Gráficos de movimientos"
 
 #: customreport_63_028
 msgid "Monthly Adoptions By Location"
-msgstr "Adopciones Mensuales Por Ubicación"
+msgstr "Adopciones mensuales Por ubicación"
 
 #: customreport_64_029
 msgid "Animal Entry Reasons"
@@ -2733,7 +2731,7 @@ msgstr "Razones de entrada de los animales"
 
 #: customreport_65_030
 msgid "Animal Return Reasons"
-msgstr "Razones de Retorno de Animales"
+msgstr "Razones de retorno de animales"
 
 #: customreport_66_031
 msgid "Owner Criteria Matching"
@@ -2858,6 +2856,10 @@ msgstr "Mechones"
 #: lkcoattype_5
 msgid "Hairless"
 msgstr "Sin pelo"
+
+#: lksmovementtype_1
+msgid "Adoption"
+msgstr "Adopción"
 
 #: lksmovementtype_2
 msgid "Foster"
@@ -3027,7 +3029,7 @@ msgstr "Burro"
 
 #: species_28
 msgid "Pig"
-msgstr "Pig"
+msgstr "Cerdo"
 
 #: voucher_1
 msgid "Neuter/Spay"
@@ -3340,7 +3342,7 @@ msgstr "OffShelterVaccinations.csv"
 
 #: Off-Shelter_Vaccination_Mail_Merge
 msgid "Off-Shelter Vaccination Mail Merge"
-msgstr "Envío por correo de vacunas"
+msgstr "Avisos por correo sobre vacunas"
 
 #: There_are_no_required_vaccinations_on_that_date.
 msgid "There are no required vaccinations on that date."
@@ -3401,7 +3403,7 @@ msgstr "envíos por correo"
 
 #: Successfully_built_mail_merge_source_as_file\:
 msgid "Successfully built mail merge source as file:"
-msgstr "Se ha creado el archivo de origen para los envíos por correo:"
+msgstr "Se ha creado el archivo de origen para los avisos por correo:"
 
 #: ChipRegistrations.csv
 msgid "ChipRegistrations.csv"
@@ -3421,7 +3423,7 @@ msgstr "No existen registros de chips para esas fechas."
 
 #: Chip_Registration_Mail_Merge
 msgid "Chip Registration Mail Merge"
-msgstr "Envío por correo de avisos de registro de chip"
+msgstr "Avisos por correo de registro de chip"
 
 #: Please_enter_the_end_date_you_would_like_to_prepare_chip_registration_letters_for
 msgid ""
@@ -3433,7 +3435,7 @@ msgstr ""
 
 #: Chip_Cancellation_Mail_Merge
 msgid "Chip Cancellation Mail Merge"
-msgstr "Envío por correo de cancelaciones de chip"
+msgstr "Avisos por correo de cancelaciones de chip"
 
 #: Work_Telephone
 msgid "Work Telephone"
@@ -3615,7 +3617,7 @@ msgstr "¿Desea crear un archivo CVS para envío por correo electrónico?"
 
 #: merge_type
 msgid "Mail Merge Type"
-msgstr "Tipo de envío por correo"
+msgstr "Tipo de aviso por correo"
 
 #: produce_cvs
 msgid "Create a CVS file on disk"
@@ -3977,10 +3979,6 @@ msgstr "Animales transferidos entre {0} en?? {1}"
 msgid "No animals found."
 msgstr "No se han encontrado animales."
 
-#: Most_Common_Animal_Adoption_Areas
-msgid "Most Common Animal Adoption Areas"
-msgstr "Zonas de adopción más comunes"
-
 #: The_average_waiting_list_time_is_currently_
 msgid "The average waiting list time is currently {0} days."
 msgstr ""
@@ -4037,10 +4035,6 @@ msgid ""
 msgstr ""
 "Basado en las {0} entradas registradas como completadas en la lista de "
 "espera, lo que significa un tiempo de espera acumulado de {1} días."
-
-#: Most_Common_Animal_Entry_Areas
-msgid "Most Common Animal Entry Areas"
-msgstr "Zonas de entrada de animales más comunes"
 
 #: Building_report...
 msgid "Building report..."
@@ -4757,15 +4751,15 @@ msgstr "A otros??"
 
 #: at_retailer
 msgid "At Retailer"
-msgstr "En tienda"
+msgstr "Con el colaborador"
 
 #: volume_of_adoptions_per_retailer_between
 msgid "Volume of adoptions per retailer between {0} and {1}"
-msgstr "Volumen de adopciones por tienda entre {0} y {1}"
+msgstr "Volumen de adopciones por colaborador entre {0} y {1}"
 
 #: average_time_at_retailer
 msgid "Average Time At Retailer"
-msgstr "Tiempo medio en la tienda"
+msgstr "Tiempo medio con el colaborador"
 
 #: all_retailers
 msgid "All Retailers"
@@ -4773,7 +4767,7 @@ msgstr "Todos los colaboradores"
 
 #: date_entered_retailer
 msgid "Date Entered Retailer"
-msgstr "Fecha en la que entró en la tienda"
+msgstr "Fecha en la que entró con el colaborador"
 
 #: Invalid_standard_report
 msgid "Invalid standard report: {0}"
@@ -4938,7 +4932,7 @@ msgstr "{0} Total de animales: {1}"
 
 #: total_animals_at_retailers
 msgid "Total Animals At Retailers: {0}"
-msgstr "Total de animales en colaboradores: {0}"
+msgstr "Total de animales con colaboradores: {0}"
 
 #: retailer_average
 msgid ""
@@ -5116,7 +5110,7 @@ msgstr "Buscando en la base de datos, espere por favor..."
 
 #: Reclaimed_By_Owner
 msgid "Reclaimed By Owner"
-msgstr "Reclamado por el dueño"
+msgstr "Reclamado por el contacto"
 
 #: Code\:_
 msgid "Code: "
@@ -5324,7 +5318,7 @@ msgstr "Crear una camada a partir de este animal"
 
 #: You_have_unsaved_changes_-_are_you_sure_you_wish_to_close?
 msgid "You have unsaved changes - are you sure you wish to close?"
-msgstr "Tiene cambios sin guardar - está seguro de que quiere cerrar?"
+msgstr "Tiene cambios sin guardar, está seguro de que quiere cerrar?"
 
 #: Where_the_animal_is_currently_located_on_the_shelter
 msgid "Where the animal is currently located on the shelter"
@@ -6355,6 +6349,10 @@ msgstr "Caso de crueldad"
 msgid "Tick this box if this animal is a cruelty case"
 msgstr "Marque esta casilla si se trata de un caso de crueldad"
 
+#: Current_Vet
+msgid "Current Vet:"
+msgstr "Veterinario actual:"
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -6596,7 +6594,7 @@ msgstr "Nueva tarea del diario"
 
 #: Edit_Diary_Tasks
 msgid "Edit Diary Tasks"
-msgstr "Editar Tareas del Diario"
+msgstr "Editar tareas del diario"
 
 #: Delete_this_diary_task
 msgid "Delete this diary task"
@@ -6758,7 +6756,7 @@ msgstr "Por favor, introduzca una fecha para la tarea {0} con asunto \"{1}\""
 
 #: View_Vet_Diary
 msgid "View Vet Diary"
-msgstr "Visualizar diario de veterinario"
+msgstr "Visualizar diario veterinario"
 
 #: edit_notes_after_creation
 msgid "Edit notes after creation"
@@ -7213,7 +7211,7 @@ msgstr ""
 #. # uilocalcache.properties#=========================================================================
 #: View_Local_Cache
 msgid "View Local Cache"
-msgstr "Caché de Vista Local"
+msgstr "Caché de vista local"
 
 #: Filename
 msgid "Filename"
@@ -7465,7 +7463,7 @@ msgstr "Se ha producido un error al crear el registro: "
 
 #: Entry_Reasons
 msgid "Entry Reasons"
-msgstr "Razones de Entrada"
+msgstr "Razones de entrada"
 
 #: Reason_Name
 msgid "Reason Name"
@@ -7522,7 +7520,7 @@ msgstr "Descripción del tipo de donación"
 #: donation_types
 #: Donation_Types
 msgid "Donation Types"
-msgstr "Tipos de Donaciones"
+msgstr "Tipos de donaciones"
 
 #: cannot_be_empty
 msgid "{0} cannot be empty."
@@ -7716,7 +7714,7 @@ msgstr "Animales externos"
 
 #: Mail_Merge
 msgid "Mail Merge"
-msgstr "Envío por correo"
+msgstr "Avisos por correo"
 
 #: Find_an_Animal_(CTRL+F)
 msgid "Find an Animal (CTRL+F)"
@@ -7737,7 +7735,7 @@ msgstr "Sistema"
 
 #: Match_Lost_and_Found_Animals
 msgid "Match Lost and Found Animals"
-msgstr "Coincidir Animales Perdidos y Encontrados"
+msgstr "Coincidir animales perdidos y encontrados"
 
 #: Print_Vets_Diary
 msgid "Print Vets Diary"
@@ -7797,15 +7795,15 @@ msgstr "Todos los socios"
 
 #: Owner_Merge
 msgid "Owner Mail Merge"
-msgstr ""
+msgstr "Avisos a colaboradores"
 
 #: Configure_Automatic_Insurance_Numbers
 msgid "Configure Automatic Insurance Numbers"
-msgstr "Configurar Números Automáticos de Seguro"
+msgstr "Configurar números automáticos de seguro"
 
 #: Print_Diary_Notes_(SHIFT+CTRL+P)
 msgid "Print Diary Notes (SHIFT+CTRL+P)"
-msgstr "Imprimir notas del diario (SHIFT+CTRL+P)"
+msgstr "Imprimir notas del diario (Mayúsculas+CTRL+P)"
 
 #: Database_Tools
 msgid "Database Tools"
@@ -7845,7 +7843,7 @@ msgstr "Anulaciones de microchip"
 
 #: Edit_All_Diary_Notes
 msgid "Edit All Diary Notes"
-msgstr "Editar Todas las Notas del Diario"
+msgstr "Editar todas las notas del diario"
 
 #: Add_Diary_Note
 msgid "Add Diary Note"
@@ -7857,7 +7855,7 @@ msgstr "Animales perdidos"
 
 #: Print_Diary_Notes
 msgid "Print Diary Notes"
-msgstr "Imprimir las notas del diario"
+msgstr "Imprimir notas del diario"
 
 #: Add_Lost_Animal
 msgid "Add Lost Animal"
@@ -7893,7 +7891,7 @@ msgstr "Editar la lista de espera"
 
 #: Find_Owner
 msgid "Find Owner"
-msgstr "Buscar Dueño"
+msgstr "Buscar contacto"
 
 #: Publish_Animals_Available_for_Adoption
 msgid "Publish Animals Available for Adoption"
@@ -7909,7 +7907,7 @@ msgstr "Ayuda"
 
 #: Edit_System_Users
 msgid "Edit System Users"
-msgstr "Editar Usuarios del Sistema"
+msgstr "Editar usuarios del sistema"
 
 #: Login_Again
 msgid "Login Again"
@@ -7925,7 +7923,7 @@ msgstr "Todos los animales"
 
 #: Adoption_Merge
 msgid "Adoption Mail Merge"
-msgstr ""
+msgstr "Avisos sobre adopciones"
 
 #: Found_Animals
 msgid "Found Animals"
@@ -8002,11 +8000,11 @@ msgstr "Libro de acogidas"
 
 #: Retailer_Book
 msgid "Retailer Book"
-msgstr "Libro de Colaboradores"
+msgstr "Libro de colaboradores"
 
 #: Retailer_Book_ctrlse
 msgid "Retailer Book (CTRL+SHIFT+E)"
-msgstr "Libro de colaboradores (CTRL+SHIFT+E)"
+msgstr "Libro de colaboradores (CTRL+Mayúsculas+E)"
 
 #: Credits
 msgid "Credits"
@@ -8074,7 +8072,7 @@ msgstr "Editar diario veterinario"
 
 #: export_custom_report_data
 msgid "Export Custom Report Data"
-msgstr "Expotar Datos del Informe Personalizado"
+msgstr "Exportar datos del informe personalizado"
 
 #: media_files
 msgid "Media Files"
@@ -8108,17 +8106,13 @@ msgstr "Cambiar la base de datos"
 msgid "The new database will be used after you have restarted ASM."
 msgstr "La nueva base de datos se usará al reiniciar ASM."
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
-msgstr "Adopciones devueltas"
-
 #: configure_email
 msgid "Configure ASM Email Account"
-msgstr "Configurar Email de la cuenta ASM"
+msgstr "Configurar email de la cuenta ASM"
 
 #: Close_Active_Tab
 msgid "Close Active Tab"
-msgstr "Cerrar Pestañas activas"
+msgstr "Cerrar pestañas activas"
 
 #: Configure_Database
 #: configure_database
@@ -8135,7 +8129,7 @@ msgstr "Historial de errores"
 
 #: Configure_Additional_Fields
 msgid "Configure Additional Fields"
-msgstr "Configurar Campos Adicionales"
+msgstr "Configurar campos adicionales"
 
 #: Import_PetFinder
 msgid "Import PetFinder Data"
@@ -8179,7 +8173,7 @@ msgstr "Avísame de actualizaciones en el futuro"
 
 #: Check_For_Updates
 msgid "Check for ASM updates"
-msgstr "Busca actualizaciones de ASM"
+msgstr "Buscar actualizaciones de ASM"
 
 #: Get_more_reports
 msgid "Get more reports from sheltermanager.com ..."
@@ -8389,7 +8383,8 @@ msgstr "Cancelado:"
 
 #: WARNING\:_This_owner_has_not_passed_a_home_check.
 msgid "WARNING: This owner has not passed a home check."
-msgstr "ADVERTENCIA: Este contacto no ha pasado ninguna inspección."
+msgstr ""
+"ADVERTENCIA: Este contacto no ha recibido ninguna visita de revisión."
 
 #: Select_an_animal
 msgid "Select an animal"
@@ -8496,7 +8491,7 @@ msgstr "Editar movimiento"
 
 #: Insurance\:
 msgid "Insurance:"
-msgstr "Seguro"
+msgstr "Seguro:"
 
 #: The_movement_date
 msgid "The movement date"
@@ -8624,35 +8619,35 @@ msgstr "Actualizar la lista de movimientos (colaboradores)"
 
 #: Create_a_new_retailer_movement
 msgid "Create a new retailer movement"
-msgstr "Crear un nuevo movimiento (tienda)"
+msgstr "Crear un nuevo movimiento de colaborador"
 
 #: View_this_retailer_movement
 msgid "View this retailer movement"
-msgstr "Visualizar este movimiento (tienda)"
+msgstr "Visualizar este movimiento de colaborador"
 
 #: View_the_animal_for_this_retailer_movement
 msgid "View the animal for this retailer movement"
-msgstr "Visualizar el animal de este movimiento (tienda)"
+msgstr "Visualizar el animal de este movimiento de colaborador"
 
 #: View_the_retailer_for_this_movement
 msgid "View the retailer for this movement"
-msgstr "Visualizar la tienda correspondiente a este movimiento"
+msgstr "Visualizar el colaborador correspondiente a este movimiento"
 
 #: from_retailer
 msgid "From Retailer:"
-msgstr "Desde la tienda:"
+msgstr "Del colaborador:"
 
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
 msgid ""
 "This animal was previously at a retailer. Do you want to\n"
 "mark this movement as an adoption from that retailer?"
 msgstr ""
-"Este animal estaba previamente en una tienda. ¿Desea\n"
-"identificar este movimiento como una adopción desde la tienda indicada?"
+"Este animal estaba previamente con un colaborador. ¿Desea\n"
+"identificar este movimiento como una adopción desde el colaborador indicado?"
 
 #: retailer_adoption
 msgid "Retailer Adoption"
-msgstr "Adopción de tienda"
+msgstr "Adopción de colaborador"
 
 #: return_this_movement_and_create_a_new_one
 msgid "Return the selected movement and create a new one for that animal"
@@ -8702,6 +8697,7 @@ msgstr "Editar movimiento - [{0}, {1} ({2}) a {3}]"
 #: You_cannot_move_nonshelter_animals
 msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
 msgstr ""
+"El animal {0} - {1} es un animal externo al refugio y no puede ser movido."
 
 #: Work_Tel
 msgid "Work Tel"
@@ -8714,7 +8710,7 @@ msgstr "La dirección contiene:"
 #: Homechecked
 #: ID_Check
 msgid "Homechecked"
-msgstr "Casa revisada"
+msgstr "Con casa revisada"
 
 #: Comments_contain\:
 msgid "Comments contain:"
@@ -8756,10 +8752,6 @@ msgstr "Se ha producido un error al crear el registro del contacto: "
 msgid "Create New Owner"
 msgstr "Crear nuevo contacto"
 
-#: Home_Checker
-msgid "Home Checker"
-msgstr "Visitador"
-
 #: Edit_Owner
 msgid "Edit Owner"
 msgstr "Editar contacto"
@@ -8784,14 +8776,6 @@ msgstr "Se ha producido un error al comprobar el contacto:\n"
 #: Member
 msgid "Member"
 msgstr "Socio"
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
-msgstr ""
-"Si este contacto es un visitador, las zonas (nombres/códigos postales) de "
-"las que están dispuestos a encargarse"
 
 #: NameTitle\:
 msgid "Title:"
@@ -8845,7 +8829,7 @@ msgstr "Contacto sospechoso"
 
 #: Homecheck_Areas\:
 msgid "Homecheck Areas:"
-msgstr "Zona de comprobación:"
+msgstr "Zona de visitas:"
 
 #: Error_reading_configuration\:\n
 msgid "Error reading configuration:\n"
@@ -8867,17 +8851,9 @@ msgstr "Vetado"
 msgid "Homechecker"
 msgstr "Visitador"
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr "Última fecha de comprobación:"
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
-msgstr "La fecha en que la casa del contacto fue visitada por última vez"
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
-msgstr "Fecha de la última visita"
+msgstr "La fecha en que la casa del contacto fue revisada por última vez"
 
 #: Donor
 msgid "Donor"
@@ -8997,7 +8973,7 @@ msgstr "Marque esta casilla si el contacto puede acoger animales"
 
 #: Fosterers
 msgid "Fosterers"
-msgstr "Adoptantes"
+msgstr "Casas de acogida"
 
 #: town
 msgid "Town:"
@@ -9094,7 +9070,7 @@ msgstr "Crear un nuevo contacto"
 
 #: edit_this_owner
 msgid "Edit this owner"
-msgstr "Editar este contacto:"
+msgstr "Editar este contacto"
 
 #: use_an_existing_owner
 msgid "Use an existing owner"
@@ -9324,7 +9300,7 @@ msgstr "Información adicional acerca del contacto"
 
 #: Owners_Vet
 msgid "Owner's Vet"
-msgstr "Veterinario del dueño"
+msgstr "Veterinario del contacto"
 
 #: create_a_new_donation
 msgid "Create a new donation"
@@ -9364,7 +9340,7 @@ msgstr ""
 
 #: additional_info
 msgid "Additional information about the owner"
-msgstr "Información adicional sobre el dueño"
+msgstr "Información adicional sobre el contacto"
 
 #: Match_added
 msgid "Match Added"
@@ -9380,7 +9356,27 @@ msgstr "O"
 
 #: has_this_owner_ever_been_homechecked
 msgid "Has this owner been homechecked?"
-msgstr ""
+msgstr "¿El hogar de este colaborador es adecuado?"
+
+#: Checked_By
+msgid "Checked By:"
+msgstr "Comprobada por:"
+
+#: Homecheck_History
+msgid "Homecheck History:"
+msgstr "Historial de revisiones de hogares:"
+
+#: New_homecheck_area
+msgid "New Homecheck Area"
+msgstr "Nueva zona de visitas"
+
+#: Delete_homecheck_area
+msgid "Delete Homecheck Area"
+msgstr "Borrar zona de visitas"
+
+#: The_new_homecheck_area
+msgid "The new homecheck area"
+msgstr "La nueva zona de visitas"
 
 #. # uireportviewer.properties#=========================================================================
 #: View_This_Report_In_External_Browser
@@ -9397,11 +9393,11 @@ msgstr "Archivo erróneo"
 
 #: Zoom_In
 msgid "Zoom In"
-msgstr ""
+msgstr "Acercarse"
 
 #: Zoom_Out
 msgid "Zoom Out"
-msgstr ""
+msgstr "Alejarse"
 
 #. # uisplash.properties#=========================================================================
 #: User_Directory\:_
@@ -9999,7 +9995,7 @@ msgid ""
 "(in ms) - 0=disable"
 msgstr ""
 "Cada cuánto debería ASM preguntar a la base de datos para mantener la "
-"conexión abierta (en ms) - 0=disable"
+"conexión abierta (en ms) - 0=deshabilitado"
 
 #: record_search_limit
 msgid "Record Search Limit:"
@@ -10105,7 +10101,7 @@ msgstr "Editar Campo Adicional"
 
 #: Video_capture_method
 msgid "Video Capture Method:"
-msgstr "Método de Captura de Video"
+msgstr "Método de captura de video"
 
 #: Video_capture_method_tool
 msgid "Select how ASM will capture media images from a video source"
@@ -10145,7 +10141,7 @@ msgstr ""
 #: Dont_show_media_thumbnails_on_details_screen
 msgid "Don't show media thumbnails on animal or owner screens"
 msgstr ""
-"No mostrar las miniaturas multimedia en las pantallas de animales o dueños"
+"No mostrar las miniaturas multimedia en las pantallas de animales o contactos"
 
 #: Use_a_single_breed_field
 msgid "Use a single breed field for animals"
@@ -10244,7 +10240,7 @@ msgstr "No mostrar el campo de tipo de pelaje en la pantalla del animal"
 
 #: show_updates
 msgid "Show Updates"
-msgstr "Mostrar Actualizaciones"
+msgstr "Mostrar actualizaciones"
 
 #: Tick_this_box_to_notify_me_of_asm_updates
 msgid "Tick this box to notify me of ASM updates"
@@ -10260,11 +10256,12 @@ msgstr "Tipo por defecto:"
 
 #: disable_retailer_functionality
 msgid "Disable Retailer Functionality"
-msgstr "Deshabilitar funcionalidad de Colaborador:"
+msgstr "Deshabilitar funcionalidad de colaborador"
 
 #: Group_the_animal_figures_report_by_species_instead_of_type
 msgid "Group the animal figures report by species instead of type"
 msgstr ""
+"Agrupar el informe de cifras de animales por especies en vez de por tipo"
 
 #. # uiuisers.properties#=========================================================================
 #: Unable_to_open_user_for_editing\:_
@@ -10297,7 +10294,7 @@ msgstr "Borrar movimientos de animales"
 
 #: Mail_Merge_(Adoption_Data)
 msgid "Mail Merge (Adoption Data)"
-msgstr "Envío de correo (datos de adopción)"
+msgstr "Aviso por correo (datos de adopción)"
 
 #: Change_Litter_Log
 msgid "Change Litter Log"
@@ -10389,7 +10386,7 @@ msgstr "Lista de espera:"
 
 #: Mail_Merge_(Owner_Data)
 msgid "Mail Merge (Owner Data)"
-msgstr "Envío de correo (datos de los contactos)"
+msgstr "Aviso por correo (datos de los contactos)"
 
 #: Change_Found_Animals
 msgid "Change Found Animals"
@@ -11426,6 +11423,9 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 #~ msgid "Publish Animals Available For Adoption to FindMeAPet.com"
 #~ msgstr "Publicar animales disponibles para adopción en FindMeAPet.com"
 
+#~ msgid "Returned Adoptions"
+#~ msgstr "Adopciones devueltas"
+
 #~ msgid "Number Of Treatments"
 #~ msgstr "Número de tratamientos"
 
@@ -11477,6 +11477,16 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 #~ msgid "Tick this box to only include members"
 #~ msgstr "Marque esta casilla si desea incluir solo a los socios"
 
+#~ msgid "Home Checker"
+#~ msgstr "Visitador"
+
+#~ msgid ""
+#~ "If this owner is a homechecker, the areas (names/postcodes) they are willing "
+#~ "to check"
+#~ msgstr ""
+#~ "Si este contacto es un visitador, las zonas (nombres/códigos postales) de "
+#~ "las que están dispuestos a encargarse"
+
 #~ msgid ""
 #~ "WARNING: This owner has the same name as a person that brought an animal in "
 #~ "\n"
@@ -11485,6 +11495,12 @@ msgstr "¿Adjuntar el documento generado como datos multimedia?"
 #~ "ADVERTENCIA: Este contacto tiene el mismo nombre que una persona que "
 #~ "adquirió un animal en\n"
 #~ "(Animal "
+
+#~ msgid "Last Homecheck Date:"
+#~ msgstr "Última fecha de comprobación:"
+
+#~ msgid "The date this homechecker last performed a homecheck"
+#~ msgstr "Fecha de la última visita"
 
 #~ msgid "null"
 #~ msgstr "null"

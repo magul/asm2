@@ -477,8 +477,7 @@ public class MediaSelector extends ASMSelector {
                 // update the list
                 this.updateList();
             } catch (Exception e) {
-                Dialog.showError(UI.messageDeleteError() +
-                    e.getMessage());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

@@ -104,22 +104,25 @@ public class MonthlyDonations extends Chart {
                         lastDayOfMonth));
 
             // Get the total figures
-            totBI = DBConnection.executeForSum("SELECT SUM(AmountDonatedOnEntry) AS Total " +
-                "FROM animal WHERE DateBroughtIn >= '" + firstDay + "' AND " +
-                "DateBroughtIn <= '" + lastDay + "' AND AmountDonatedOnEntry > 0");
+            totBI = DBConnection.executeForSum(
+                    "SELECT SUM(AmountDonatedOnEntry) AS Total " +
+                    "FROM animal WHERE DateBroughtIn >= '" + firstDay +
+                    "' AND " + "DateBroughtIn <= '" + lastDay +
+                    "' AND AmountDonatedOnEntry > 0");
 
             totAd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
-                "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
-                "Date <= '" + lastDay + "' AND MovementID > 0");
+                    "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
+                    "Date <= '" + lastDay + "' AND MovementID > 0");
 
             totOd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
-                "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
-                "Date <= '" + lastDay + "' AND MovementID = 0");
+                    "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
+                    "Date <= '" + lastDay + "' AND MovementID = 0");
 
-            totAl = DBConnection.executeForSum("SELECT SUM(DonationSize) AS Total " +
-                "FROM animalwaitinglist WHERE DatePutOnList >='" + firstDay + "' AND " +
-                "DatePutOnList <= '" + lastDay + "' AND DonationSize > 0");
-
+            totAl = DBConnection.executeForSum(
+                    "SELECT SUM(DonationSize) AS Total " +
+                    "FROM animalwaitinglist WHERE DatePutOnList >='" +
+                    firstDay + "' AND " + "DatePutOnList <= '" + lastDay +
+                    "' AND DonationSize > 0");
 
             model[0][i] = (int) totAd;
             model[1][i] = (int) totBI;

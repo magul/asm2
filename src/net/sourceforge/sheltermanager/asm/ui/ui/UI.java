@@ -367,6 +367,7 @@ public final class UI {
         l.setBorder(new LineBorder(Color.BLACK));
         l.setHorizontalAlignment(ALIGN_CENTER);
         l.setOpaque(true);
+
         return l;
     }
 
@@ -963,10 +964,10 @@ public final class UI {
     }
 
     public static SearchTextField getSearchTextField(String tooltip,
-        String buttontooltip, boolean enabled, Icon icon, 
-	FunctionPointer onSearch, FunctionPointer onChange) {
-        return new SearchTextField(tooltip, buttontooltip, enabled, icon, 
-	    onSearch, onChange);
+        String buttontooltip, boolean enabled, Icon icon,
+        FunctionPointer onSearch, FunctionPointer onChange) {
+        return new SearchTextField(tooltip, buttontooltip, enabled, icon,
+            onSearch, onChange);
     }
 
     public static TextField getTextField() {
@@ -1135,7 +1136,7 @@ public final class UI {
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
-	} else if (c instanceof Table) {
+        } else if (c instanceof Table) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1166,7 +1167,7 @@ public final class UI {
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
-	} else if (c instanceof Table) {
+        } else if (c instanceof Table) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1195,7 +1196,7 @@ public final class UI {
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
-	} else if (c instanceof Table) {
+        } else if (c instanceof Table) {
             JScrollPane s = new JScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -1643,7 +1644,7 @@ public final class UI {
             this.toolbar = toolbar;
             addMouseListener(this);
             addKeyListener(this);
-	    setShowGrid(false);
+            setShowGrid(false);
 
             if (useDefaultTooltip) {
                 setToolTipText(TOOLTIP_DEFAULT);
@@ -1734,7 +1735,7 @@ public final class UI {
             }
 
             model.addMouseListenerToHeaderInTable(this);
-	    model.packColumns(4);
+            model.packColumns(4);
 
             // If we have a renderer, use it
             if (renderer != null) {
@@ -1908,8 +1909,9 @@ public final class UI {
 
             if ((cbo.getItemCount() > listSearchThreshold()) && !shownSearch) {
                 shownSearch = true;
-		UI.ToolBar t = UI.getToolBar();
-		t.add(b);
+
+                UI.ToolBar t = UI.getToolBar();
+                t.add(b);
                 add(t, UI.BorderLayout.EAST);
             }
         }
@@ -2229,13 +2231,15 @@ public final class UI {
         UI.TextField t = null;
         UI.Button btn = null;
 
-	public SearchTextField(String tooltip, String buttontooltip,
+        public SearchTextField(String tooltip, String buttontooltip,
             boolean enabled, FunctionPointer onSearch, FunctionPointer onChange) {
-            this(tooltip, buttontooltip, enabled, IconManager.getIcon(IconManager.SEARCHSMALL), onSearch, onChange);
-	}
+            this(tooltip, buttontooltip, enabled,
+                IconManager.getIcon(IconManager.SEARCHSMALL), onSearch, onChange);
+        }
 
         public SearchTextField(String tooltip, String buttontooltip,
-            boolean enabled, Icon icon, FunctionPointer onSearch, FunctionPointer onChange) {
+            boolean enabled, Icon icon, FunctionPointer onSearch,
+            FunctionPointer onChange) {
             super(UI.getBorderLayout(), true);
             t = UI.getTextField(tooltip, onChange);
             t.setEnabled(enabled);
@@ -2243,8 +2247,9 @@ public final class UI {
             btn = UI.getButton(null,
                     ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
                     icon, onSearch);
-	    UI.ToolBar t = UI.getToolBar();
-	    t.add(btn);
+
+            UI.ToolBar t = UI.getToolBar();
+            t.add(btn);
             add(t, UI.BorderLayout.EAST);
         }
 
@@ -2307,12 +2312,15 @@ public final class UI {
         public String showDirectorySelectDialog(java.awt.Window parent,
             String title) {
             setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
             //setTitle(title);
             int rv = showOpenDialog(parent);
-            if (JFileChooser.APPROVE_OPTION == rv)
+
+            if (JFileChooser.APPROVE_OPTION == rv) {
                 return getSelectedFile().getAbsolutePath();
-            else
+            } else {
                 return "";
+            }
         }
     }
 

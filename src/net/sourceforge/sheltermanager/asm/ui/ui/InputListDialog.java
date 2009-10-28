@@ -176,6 +176,7 @@ public class InputListDialog extends ASMDialog {
                     }
                 });
             add(txt, UI.BorderLayout.CENTER);
+
             UI.ToolBar t = UI.getToolBar();
             t.add(UI.getButton(null, null, 's',
                     IconManager.getIcon(IconManager.SEARCHSMALL), onSearch));

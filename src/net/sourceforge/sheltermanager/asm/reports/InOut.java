@@ -111,8 +111,11 @@ public class InOut extends Report {
 
     private void addLocation(Animal a) throws Exception {
         String s = a.getShelterLocationName();
-        if (a.getArchived().intValue() == 1) 
-            s += " (" + a.getAnimalLocationAtDateByName(new Date()) + ")";
+
+        if (a.getArchived().intValue() == 1) {
+            s += (" (" + a.getAnimalLocationAtDateByName(new Date()) + ")");
+        }
+
         tableAddCell(s);
     }
 

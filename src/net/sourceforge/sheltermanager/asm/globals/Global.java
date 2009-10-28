@@ -204,8 +204,8 @@ public abstract class Global {
             getLanguageCountry("en_US"), getLanguageCountry("en_GB"),
             getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
             getLanguageCountry("en_ZA"), getLanguageCountry("de_DE"),
-	    getLanguageCountry("es_ES"), getLanguageCountry("fr_FR"), 
-	    getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL")
+            getLanguageCountry("es_ES"), getLanguageCountry("fr_FR"),
+            getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL")
         };
     }
 
@@ -297,7 +297,8 @@ public abstract class Global {
             Global.productVersion = i18n("globals", "Version");
             Global.productName = i18n("globals", "Product");
             Global.copyrightMessage = i18n("globals", "Copyright");
-            Global.version = productVersion.substring(0, productVersion.indexOf(" "));
+            Global.version = productVersion.substring(0,
+                    productVersion.indexOf(" "));
         } catch (Exception e) {
         }
     }
@@ -691,7 +692,8 @@ public abstract class Global {
         logInfo("On:", "Welcome");
         logInfo("   " + System.getProperty("os.name") + " " +
             System.getProperty("os.version") + "/" +
-            System.getProperty("os.arch") + " (" + System.getProperty("user.name") + ")", "Welcome");
+            System.getProperty("os.arch") + " (" +
+            System.getProperty("user.name") + ")", "Welcome");
         logInfo("", "Welcome");
         logInfo("This program is distributed in the hope that it will be useful,",
             "Welcome");

@@ -152,14 +152,14 @@ public class NamesView extends ASMView {
             return;
         }
 
-        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
+                    UI.messageReallyDelete())) {
             try {
                 String sql = "DELETE FROM animalname WHERE ID = " + id;
                 DBConnection.executeAction(sql);
                 updateList();
             } catch (Exception e) {
-                Dialog.showError(UI.messageDeleteError() +
-                    e.getMessage());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }

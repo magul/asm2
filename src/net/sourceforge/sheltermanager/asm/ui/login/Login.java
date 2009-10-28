@@ -142,30 +142,45 @@ public class Login extends ASMWindow {
     public boolean autoLogUserIn() {
         try {
             if (Configuration.getBoolean("AutoLoginOSUsers")) {
-                Global.logInfo("OS Security. Looking for matching user '" + System.getProperty("user.name") + "'", "Login.autoLogUserIn");
+                Global.logInfo("OS Security. Looking for matching user '" +
+                    System.getProperty("user.name") + "'", "Login.autoLogUserIn");
+
                 Users u = new Users();
                 u.openRecordset("UserName Like '" +
                     System.getProperty("user.name") + "'");
 
                 if (!u.getEOF()) {
-                    Global.logInfo("PASS: Found matching ASM user '" + System.getProperty("user.name") + "', logging in...", "Login.autoLogUserIn");
+                    Global.logInfo("PASS: Found matching ASM user '" +
+                        System.getProperty("user.name") + "', logging in...",
+                        "Login.autoLogUserIn");
                     openMainForm(u);
+
                     return true;
                 }
-                Global.logInfo("FAIL: ASM user '" + System.getProperty("user.name") + "' doesn't exist.", "Login.autoLogUserIn");
+
+                Global.logInfo("FAIL: ASM user '" +
+                    System.getProperty("user.name") + "' doesn't exist.",
+                    "Login.autoLogUserIn");
             }
 
             if (Global.appletUser != null) {
-                Global.logInfo("Applet Security. Looking for matching user '" + Global.appletUser + "'", "Login.autoLogUserIn");
+                Global.logInfo("Applet Security. Looking for matching user '" +
+                    Global.appletUser + "'", "Login.autoLogUserIn");
+
                 Users u = new Users();
                 u.openRecordset("UserName Like '" + Global.appletUser + "'");
 
                 if (!u.getEOF()) {
-                    Global.logInfo("PASS: Found matching ASM user '" + Global.appletUser + "', logging in...", "Login.autoLogUserIn");
+                    Global.logInfo("PASS: Found matching ASM user '" +
+                        Global.appletUser + "', logging in...",
+                        "Login.autoLogUserIn");
                     openMainForm(u);
+
                     return true;
                 }
-                Global.logInfo("FAIL: ASM user '" + Global.appletUser + "' doesn't exist.", "Login.autoLogUserIn");
+
+                Global.logInfo("FAIL: ASM user '" + Global.appletUser +
+                    "' doesn't exist.", "Login.autoLogUserIn");
             }
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -175,7 +190,6 @@ public class Login extends ASMWindow {
     }
 
     public void initComponents() {
-        
         UI.Panel pnlCenter = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlUserAndPass = UI.getPanel(UI.getGridLayout(2), 20);
 
@@ -215,16 +229,13 @@ public class Login extends ASMWindow {
         // larger.
         try {
             if (DBConnection.executeForCount("SELECT COUNT(*) FROM animal") == 0) {
-                pnlCenter.add(
-                    UI.getHintLabel(i18n("default_username_password_hint")), 
+                pnlCenter.add(UI.getHintLabel(i18n("default_username_password_hint")),
                     UI.BorderLayout.CENTER);
-                    this.setSize(UI.getDimension(436, 406));
-            }
-            else {
+                this.setSize(UI.getDimension(436, 406));
+            } else {
                 this.setSize(UI.getDimension(436, 376));
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
             this.setSize(UI.getDimension(436, 376));
         }

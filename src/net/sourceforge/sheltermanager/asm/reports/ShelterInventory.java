@@ -94,9 +94,9 @@ public class ShelterInventory extends Report {
         setStatusBarMax((int) theIL.getRecordCount());
 
         while (!theIL.getEOF()) {
-
             // Current location by -------------------------------
             totalAnimals = 0;
+
             String spectype = "";
 
             theS.moveFirst();

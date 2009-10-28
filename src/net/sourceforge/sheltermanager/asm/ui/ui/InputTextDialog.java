@@ -45,7 +45,7 @@ public class InputTextDialog extends ASMDialog {
         UI.Panel b = UI.getPanel(UI.getFlowLayout());
 
         p.add(UI.getLabel(IconManager.getIcon(IconManager.QUESTION)));
-        
+
         UI.Label lblQuestion = UI.getLabel("<html>" + message + "</html>");
         lblQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblQuestion.setPreferredSize(new java.awt.Dimension(350, 45));

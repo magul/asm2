@@ -488,11 +488,9 @@ public class Main extends ASMWindow {
 
     public void display() {
         if (!Startup.applet) {
-
             if (Global.startMaximised) {
                 maximise();
-            }
-            else {
+            } else {
                 // Center us on screen
                 UI.centerWindow(this);
             }

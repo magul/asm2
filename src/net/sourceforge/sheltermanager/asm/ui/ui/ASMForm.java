@@ -147,8 +147,12 @@ public abstract class ASMForm extends JPanel {
     }
 
     public void dispose() {
-        unregisterTabOrder();        
-        if (parent != null) parent.close(this);
+        unregisterTabOrder();
+
+        if (parent != null) {
+            parent.close(this);
+        }
+
         tab = null;
         parent = null;
     }

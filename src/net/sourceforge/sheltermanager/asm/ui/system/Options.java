@@ -365,7 +365,7 @@ public class Options extends ASMForm {
                         "Group_the_animal_figures_report_by_species_instead_of_type"),
                     "AnimalFiguresGroupBySpecies",
                     Configuration.getString("AnimalFiguresGroupBySpecies")
-                                .equalsIgnoreCase("Yes"), false));
+                                 .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Highlight_animals_under_6_months,_reserved_or_dead_on_reports"),
@@ -496,7 +496,6 @@ public class Options extends ASMForm {
         /*btnClose = (UI.Button) t.add(UI.getButton(null, null, 'x',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_CLOSE),
                     UI.fp(this, "dispose")));*/
-
         add(t, UI.BorderLayout.NORTH);
         add(tabTabs, UI.BorderLayout.CENTER);
     }

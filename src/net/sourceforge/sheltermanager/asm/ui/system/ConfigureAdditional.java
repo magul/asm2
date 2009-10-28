@@ -172,7 +172,8 @@ public class ConfigureAdditional extends ASMView {
         }
 
         // Make sure they're sure
-        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
+                    UI.messageReallyDelete())) {
             return;
         }
 

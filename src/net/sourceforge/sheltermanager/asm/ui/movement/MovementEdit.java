@@ -1150,10 +1150,11 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     /** Call back from the animal search screen when a selection is made */
     public void animalSelected(Animal theanimal) {
         try {
-
             // We can't move non-shelter animals
             if (theanimal.getNonShelterAnimal().intValue() == 1) {
-                Dialog.showError(i18n("You_cannot_move_nonshelter_animals", theanimal.getShelterCode(), theanimal.getAnimalName()));
+                Dialog.showError(i18n("You_cannot_move_nonshelter_animals",
+                        theanimal.getShelterCode(), theanimal.getAnimalName()));
+
                 return;
             }
 

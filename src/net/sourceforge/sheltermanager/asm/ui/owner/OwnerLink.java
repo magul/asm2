@@ -126,8 +126,9 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     }
 
     public void setID(Integer newID) {
-        if (newID != null)
+        if (newID != null) {
             loadFromID(newID.intValue());
+        }
     }
 
     public void setEnabled(boolean b) {
@@ -221,7 +222,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             add(txtName, UI.BorderLayout.CENTER);
 
             //UI.Panel t = UI.getPanel(UI.getFlowLayout(UI.ALIGN_LEFT, true), true);
-	    UI.ToolBar t = UI.getToolBar();
+            UI.ToolBar t = UI.getToolBar();
 
             btnNew = (UI.Button) t.add(UI.getButton(null,
                         i18n("create_a_new_owner"), ' ',
@@ -311,8 +312,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             fo.cboFilter.setEnabled(false);
 
             break;
-
-
         }
 
         Global.mainForm.addChild(fo);

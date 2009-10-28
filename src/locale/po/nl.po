@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-26 09:24+0100\n"
-"PO-Revision-Date: 2009-10-26 10:47+0000\n"
+"POT-Creation-Date: 2009-10-27 18:09+0100\n"
+"PO-Revision-Date: 2009-10-27 14:02+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-27 08:29+0000\n"
+"X-Launchpad-Export-Date: 2009-10-28 08:33+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -238,11 +238,6 @@ msgstr ""
 #: fostered
 msgid "Fostered"
 msgstr "Gastgezin"
-
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
-msgstr ""
 
 #: Reservation
 #: lksmovementtype_9
@@ -2675,12 +2670,14 @@ msgid "Animal Death Reasons"
 msgstr "Doodsoorzaken Dier"
 
 #: customreport_57_022
-msgid "Common Animal Entry Areas"
-msgstr "Veel voorkomende gebieden van herkomst Dieren"
+#: Most_Common_Animal_Entry_Areas
+msgid "Most Common Animal Entry Areas"
+msgstr "Meest voorkomende gebieden van herkomst binnengekomen dieren"
 
 #: customreport_58_023
-msgid "Common Animal Adoption Areas"
-msgstr "Veel Voorkomende Gebieden Voor Adopties"
+#: Most_Common_Animal_Adoption_Areas
+msgid "Most Common Animal Adoption Areas"
+msgstr "Meest voorkomende adoptie gebieden"
 
 #: customreport_59_024
 #: Average_Time_On_Waiting_List
@@ -2845,6 +2842,10 @@ msgstr ""
 
 #: lkcoattype_5
 msgid "Hairless"
+msgstr ""
+
+#: lksmovementtype_1
+msgid "Adoption"
 msgstr ""
 
 #: lksmovementtype_2
@@ -3926,10 +3927,6 @@ msgstr "overgeplaatste dieren naar asiel tussen {0} en {1}"
 msgid "No animals found."
 msgstr "Geen dieren gevonden."
 
-#: Most_Common_Animal_Adoption_Areas
-msgid "Most Common Animal Adoption Areas"
-msgstr "Meest voorkomende adoptie gebieden"
-
 #: The_average_waiting_list_time_is_currently_
 msgid "The average waiting list time is currently {0} days."
 msgstr "De gemiddelde tijd voor de wachtlijst is momenteel {0} daagen."
@@ -3985,10 +3982,6 @@ msgid ""
 msgstr ""
 "Dit is gebaseerd op de {0} voltooide invoer wachtlijst in het bestand, omvat "
 "tot een cumulatieve wachttijd van {1} daagen."
-
-#: Most_Common_Animal_Entry_Areas
-msgid "Most Common Animal Entry Areas"
-msgstr "Meest voorkomende gebieden van herkomst binnengekomen dieren"
 
 #: Building_report...
 msgid "Building report..."
@@ -6270,6 +6263,10 @@ msgstr ""
 msgid "Tick this box if this animal is a cruelty case"
 msgstr ""
 
+#: Current_Vet
+msgid "Current Vet:"
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -8003,10 +8000,6 @@ msgstr ""
 msgid "The new database will be used after you have restarted ASM."
 msgstr ""
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
-msgstr "Adopties Retour Asiel"
-
 #: configure_email
 msgid "Configure ASM Email Account"
 msgstr ""
@@ -8650,10 +8643,6 @@ msgstr "Er is een fout opgetreden bij het aanmaken van het persoonsrecord: "
 msgid "Create New Owner"
 msgstr "Maak nieuwe persoon aan"
 
-#: Home_Checker
-msgid "Home Checker"
-msgstr "Nazorg"
-
 #: Edit_Owner
 msgid "Edit Owner"
 msgstr ""
@@ -8677,14 +8666,6 @@ msgstr "Er is een fout opgetreden bij het controleren van de persoon:\n"
 #: Member
 msgid "Member"
 msgstr "Lid"
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
-msgstr ""
-"Als deze persoon Nazorgmedewerker is, welke gebieden wil deze dan gaan doen "
-"(namen/postcodes)"
 
 #: NameTitle\:
 msgid "Title:"
@@ -8760,18 +8741,9 @@ msgstr "Ongewenst"
 msgid "Homechecker"
 msgstr "null"
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr "Datum laatste nazorgbezoek:"
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
 msgstr "De datum van het nazorgbezoek"
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
-msgstr ""
-"De datum van het meest recente nazorgbezoek van deze nazorgmedewerker"
 
 #: Donor
 msgid "Donor"
@@ -9269,6 +9241,26 @@ msgstr ""
 
 #: has_this_owner_ever_been_homechecked
 msgid "Has this owner been homechecked?"
+msgstr ""
+
+#: Checked_By
+msgid "Checked By:"
+msgstr ""
+
+#: Homecheck_History
+msgid "Homecheck History:"
+msgstr ""
+
+#: New_homecheck_area
+msgid "New Homecheck Area"
+msgstr ""
+
+#: Delete_homecheck_area
+msgid "Delete Homecheck Area"
+msgstr ""
+
+#: The_new_homecheck_area
+msgid "The new homecheck area"
 msgstr ""
 
 #. # uireportviewer.properties#=========================================================================
@@ -10867,6 +10859,12 @@ msgstr "Koppel het aangemaakte document als media?"
 #~ msgid "Dogs ("
 #~ msgstr "Honden ("
 
+#~ msgid "Common Animal Entry Areas"
+#~ msgstr "Veel voorkomende gebieden van herkomst Dieren"
+
+#~ msgid "Common Animal Adoption Areas"
+#~ msgstr "Veel Voorkomende Gebieden Voor Adopties"
+
 #~ msgid "Volunteers.csv"
 #~ msgstr "Vrijwilligers.csv"
 
@@ -11315,6 +11313,9 @@ msgstr "Koppel het aangemaakte document als media?"
 #~ msgid "Publish Animals Available For Adoption to FindMeAPet.com"
 #~ msgstr "Publiceer Plaatsbare Dieren Naar FindMeAPet.com"
 
+#~ msgid "Returned Adoptions"
+#~ msgstr "Adopties Retour Asiel"
+
 #~ msgid "Number Of Treatments"
 #~ msgstr "Aantal Behandelingen"
 
@@ -11365,6 +11366,23 @@ msgstr "Koppel het aangemaakte document als media?"
 
 #~ msgid "Tick this box to only include members"
 #~ msgstr "Vink dit aan om de leden mee te nemen"
+
+#~ msgid "Home Checker"
+#~ msgstr "Nazorg"
+
+#~ msgid ""
+#~ "If this owner is a homechecker, the areas (names/postcodes) they are willing "
+#~ "to check"
+#~ msgstr ""
+#~ "Als deze persoon Nazorgmedewerker is, welke gebieden wil deze dan gaan doen "
+#~ "(namen/postcodes)"
+
+#~ msgid "Last Homecheck Date:"
+#~ msgstr "Datum laatste nazorgbezoek:"
+
+#~ msgid "The date this homechecker last performed a homecheck"
+#~ msgstr ""
+#~ "De datum van het meest recente nazorgbezoek van deze nazorgmedewerker"
 
 #~ msgid "null"
 #~ msgstr "null"

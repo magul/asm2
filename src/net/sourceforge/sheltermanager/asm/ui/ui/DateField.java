@@ -363,8 +363,9 @@ public class DateField extends UI.Panel {
             });
 
         add(txt, UI.BorderLayout.CENTER);
-	UI.ToolBar t = UI.getToolBar();
-	t.add(btn);
+
+        UI.ToolBar t = UI.getToolBar();
+        t.add(btn);
         add(t, UI.BorderLayout.EAST);
     }
 

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-26 09:24+0100\n"
-"PO-Revision-Date: 2009-10-26 10:47+0000\n"
+"POT-Creation-Date: 2009-10-27 18:09+0100\n"
+"PO-Revision-Date: 2009-10-28 06:38+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-27 08:29+0000\n"
+"X-Launchpad-Export-Date: 2009-10-28 08:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -170,7 +170,7 @@ msgstr "Nežinoma"
 
 #: Adopted
 msgid "Adopted"
-msgstr "Atiduota"
+msgstr "Atiduotas"
 
 #: On_Shelter
 msgid "On Shelter"
@@ -236,11 +236,6 @@ msgstr "Joks"
 #: fostered
 msgid "Fostered"
 msgstr "Globojamas namuose"
-
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
-msgstr "Laiškai šeimininkams"
 
 #: Reservation
 #: lksmovementtype_9
@@ -1085,7 +1080,7 @@ msgstr "Karolinos šuo"
 
 #: breed_50_1
 msgid "Catahoula Leopard Dog"
-msgstr ""
+msgstr "Katahulos leopardinis šuo"
 
 #: breed_51_1
 msgid "Cattle Dog"
@@ -1137,7 +1132,7 @@ msgstr "Kolis"
 
 #: breed_63_1
 msgid "Coonhound"
-msgstr ""
+msgstr "Kunhaundas"
 
 #: breed_64_1
 msgid "Corgi"
@@ -1185,7 +1180,7 @@ msgstr ""
 
 #: breed_75_1
 msgid "English Coonhound"
-msgstr ""
+msgstr "Anglų kunhaundas"
 
 #: breed_76_1
 msgid "English Pointer"
@@ -1313,7 +1308,7 @@ msgstr "Ibizos kurtas"
 
 #: breed_107_1
 msgid "Illyrian Sheepdog"
-msgstr ""
+msgstr "Ilirijos aviganis"
 
 #: breed_108_1
 msgid "Irish Setter"
@@ -1353,7 +1348,7 @@ msgstr "Juodasis terjeras"
 
 #: breed_117_1
 msgid "Kai Dog"
-msgstr ""
+msgstr "Kaidogas"
 
 #: breed_118_1
 msgid "Karelian Bear Dog"
@@ -1369,7 +1364,7 @@ msgstr "Keribliuterjeras"
 
 #: breed_121_1
 msgid "Kishu"
-msgstr ""
+msgstr "Kishu"
 
 #: breed_122_1
 msgid "Komondor"
@@ -1381,7 +1376,7 @@ msgstr "Kuvasas"
 
 #: breed_124_1
 msgid "Kyi Leo"
-msgstr ""
+msgstr "Kyi Leo"
 
 #: breed_125_1
 msgid "Labrador Retriever"
@@ -1425,7 +1420,7 @@ msgstr "Mastifas"
 
 #: breed_135_1
 msgid "McNab"
-msgstr ""
+msgstr "McNab"
 
 #: breed_136_1
 msgid "Miniature Pinscher"
@@ -1517,7 +1512,7 @@ msgstr "Pitbulterjeras"
 
 #: breed_158_1
 msgid "Plott Hound"
-msgstr ""
+msgstr "Plothaundas"
 
 #: breed_159_1
 msgid "Portugese Podengo"
@@ -1545,7 +1540,7 @@ msgstr "Portugalų vandens šuo"
 
 #: breed_165_1
 msgid "Presa Canario"
-msgstr ""
+msgstr "Presa Canario"
 
 #: breed_166_1
 msgid "Pug"
@@ -1569,7 +1564,7 @@ msgstr ""
 
 #: breed_171_1
 msgid "Retriever"
-msgstr ""
+msgstr "Retriveris"
 
 #: breed_172_1
 msgid "Rhodesian Ridgeback"
@@ -1593,7 +1588,7 @@ msgstr "Samojedų laika"
 
 #: breed_177_1
 msgid "Schipperke"
-msgstr ""
+msgstr "Šiperkė"
 
 #: breed_178_1
 msgid "Schnauzer"
@@ -2672,11 +2667,13 @@ msgid "Animal Death Reasons"
 msgstr "Gyvūnų mirties priežastys"
 
 #: customreport_57_022
-msgid "Common Animal Entry Areas"
+#: Most_Common_Animal_Entry_Areas
+msgid "Most Common Animal Entry Areas"
 msgstr "Populiariausios vietovės, iš kurių patenka gyvūnai"
 
 #: customreport_58_023
-msgid "Common Animal Adoption Areas"
+#: Most_Common_Animal_Adoption_Areas
+msgid "Most Common Animal Adoption Areas"
 msgstr "Populiariausios gyvūnų atidavimo vietovės"
 
 #: customreport_59_024
@@ -2843,6 +2840,10 @@ msgstr "Virvėmis"
 #: lkcoattype_5
 msgid "Hairless"
 msgstr "Beplaukis"
+
+#: lksmovementtype_1
+msgid "Adoption"
+msgstr "Laiškai šeimininkams"
 
 #: lksmovementtype_2
 msgid "Foster"
@@ -3942,10 +3943,6 @@ msgstr "Iš kitų prieglaudų atvykę gyvūnai tarp {0} ir {1}"
 msgid "No animals found."
 msgstr "Gyvūnų nerasta."
 
-#: Most_Common_Animal_Adoption_Areas
-msgid "Most Common Animal Adoption Areas"
-msgstr "Populiariausios gyvūnų atidavimo vietovės"
-
 #: The_average_waiting_list_time_is_currently_
 msgid "The average waiting list time is currently {0} days."
 msgstr ""
@@ -4000,10 +3997,6 @@ msgid ""
 msgstr ""
 "Paremta iki {0} užbaigtais laukiančių vietos įrašais byloje, kurių bendras "
 "laukimo laikas yra {1} dienos."
-
-#: Most_Common_Animal_Entry_Areas
-msgid "Most Common Animal Entry Areas"
-msgstr "Populiariausios vietovės, iš kurių patenka gyvūnai"
 
 #: Building_report...
 msgid "Building report..."
@@ -4812,7 +4805,7 @@ msgstr "There are no owners on file with criteria"
 
 #: no_matches_found_for_this_owner
 msgid "No matches found for this owner's criteria."
-msgstr "No matches found for this owner's criteria."
+msgstr "Atitikimų pagal šio amens kriterijus nerasta."
 
 #: GoodWithCats
 #: Good_with_cats
@@ -4860,12 +4853,12 @@ msgid ""
 "Do you want to filter matches to only include animals found between two "
 "dates?"
 msgstr ""
-"Do you want to filter matches to only include animals found between two "
-"dates?"
+"Ar ieškodami atitikimų norite įtraukti tik gyvūnus, rastus laikotapyje tarp "
+"dviejų datų?"
 
 #: Filter_Matches
 msgid "Filter Matches?"
-msgstr "Filter Matches?"
+msgstr "Ieškoti atitikimų?"
 
 #: lostfound_match_detail
 msgid ""
@@ -5499,7 +5492,7 @@ msgstr "Neišsaugoti pakeitimai"
 
 #: Given
 msgid "Given"
-msgstr "Atlikta"
+msgstr "Atlikimo data"
 
 #: Name\:
 msgid "Name:"
@@ -5560,7 +5553,7 @@ msgstr "Gyvūno sveikatos sutrikimai"
 
 #: Required
 msgid "Required"
-msgstr "Planuota"
+msgstr "Planinė data"
 
 #: The_Identichip_Number
 msgid "The Identichip Number"
@@ -6081,7 +6074,7 @@ msgstr ""
 #: vet
 #: Vet
 msgid "Vet"
-msgstr "Sveikata"
+msgstr "Veterinaras"
 
 #: about_vet
 msgid "Details of the animal's vet and any health problems"
@@ -6264,11 +6257,11 @@ msgstr "Paieškos terminas turi būti mažiausiai iš 2 raidžių."
 
 #: Advanced
 msgid "Advanced"
-msgstr "Išsamesnis"
+msgstr "Patikslintoji paieška"
 
 #: Simple
 msgid "Simple"
-msgstr "Paprastas"
+msgstr "Supaprastinta paieška"
 
 #: Coat_Type
 msgid "Coat Type:"
@@ -6287,6 +6280,10 @@ msgid "Tick this box if this animal is a cruelty case"
 msgstr ""
 "Pažymėkite šį laukelį, jei gyvūnas patyrė žiaurų elgesį, dėl kurio iškelta "
 "byla"
+
+#: Current_Vet
+msgid "Current Vet:"
+msgstr "Gydantis veterinaras:"
 
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
@@ -7512,7 +7509,7 @@ msgstr "Vietovės, kurioje dingo gyvūnas, pašto kodas"
 
 #: Attempt_to_find_possible_matches_for_this_lost_animal
 msgid "Attempt to find possible matches for this lost animal"
-msgstr "Attempt to find possible matches for this lost animal"
+msgstr "Ieškoti galimų atitikimų šiam dingusiam gyvūnui"
 
 #: The_area_the_animal_was_lost_in,_eg\:_Millhouses,_Sheffield
 msgid "The area the animal was lost in, eg: Millhouses, Sheffield"
@@ -7600,7 +7597,7 @@ msgstr "Redaguoti dingusį gyvūną - {0}"
 
 #: search_complete
 msgid "Search complete - {0} matches found."
-msgstr ""
+msgstr "Paieška atlikta - rasta {0} atitikimas(-ai)."
 
 #: Create_animal_record_from_this_record
 msgid "Create a new animal record from this record"
@@ -7625,7 +7622,7 @@ msgstr "Ne prieglaudoje (spausdinimui)"
 
 #: Mail_Merge
 msgid "Mail Merge"
-msgstr "Laiškų komponavimas"
+msgstr "Komponuoti laiškus"
 
 #: Find_an_Animal_(CTRL+F)
 msgid "Find an Animal (CTRL+F)"
@@ -8017,10 +8014,6 @@ msgstr "Perjungti duomenų bazę"
 msgid "The new database will be used after you have restarted ASM."
 msgstr "The new database will be used after you have restarted ASM."
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
-msgstr "Grąžinti gyvūnai"
-
 #: configure_email
 msgid "Configure ASM Email Account"
 msgstr "Konfigūruoti ASM el. pašto paskyrą"
@@ -8064,7 +8057,7 @@ msgstr ""
 
 #: Breed_Mappings
 msgid "Breed Mappings"
-msgstr "Veislių aprašymai"
+msgstr "Veislių priskyrimas rūšims"
 
 #: Ask_a_question
 msgid "Ask a question about ASM"
@@ -8092,7 +8085,7 @@ msgstr "Tikrinti ASM atnaujinimus"
 
 #: Get_more_reports
 msgid "Get more reports from sheltermanager.com ..."
-msgstr ""
+msgstr "Gauti daugiau ataskaitų iš sheltermanager.com ..."
 
 #. # uimedical.properties#=========================================================================
 #: Profile_Name
@@ -8665,10 +8658,6 @@ msgstr "Įvyko klaida pridedant naujo asmens įrašą: "
 msgid "Create New Owner"
 msgstr "Pridėti naują asmenį"
 
-#: Home_Checker
-msgid "Home Checker"
-msgstr "Tikrina būsimas gyvūnų laikymo sąlygas"
-
 #: Edit_Owner
 msgid "Edit Owner"
 msgstr "Redaguoti asmenį"
@@ -8692,15 +8681,6 @@ msgstr "Įvyko klaida tikrinant asmenį:\n"
 #: Member
 msgid "Member"
 msgstr "Narys"
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
-msgstr ""
-"Jei šis asmuo tikrina būsimas gyvūnų laikymo sąlygas naujuose namuose, "
-"įrašykite vietoves (rajonų pavadinimus, pašto kodus), kuriose jis nori "
-"tikrinti"
 
 #: NameTitle\:
 msgid "Title:"
@@ -8776,20 +8756,10 @@ msgstr "Juodasis sąrašas"
 msgid "Homechecker"
 msgstr "Tikrintojas"
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr "Paskutinio tikrinimo data:"
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
 msgstr ""
 "Data, kai paskutinį kartą buvo tikrintos gyvūnų laikymo sąlygos pas šį asmenį"
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
-msgstr ""
-"Data, kai šis asmuo paskutinį kartą tikrino būsimas gyvūnų laikymo sąlygas "
-"naujuose namuose"
 
 #: Donor
 msgid "Donor"
@@ -9280,11 +9250,11 @@ msgstr "Papildoma informacija apie asmenį"
 
 #: Match_added
 msgid "Match Added"
-msgstr ""
+msgstr "Užklausa galioja nuo"
 
 #: Match_expires
 msgid "Match Expires"
-msgstr ""
+msgstr "Užklausa galioja iki"
 
 #: Or
 msgid "Or"
@@ -9292,6 +9262,26 @@ msgstr "Arba"
 
 #: has_this_owner_ever_been_homechecked
 msgid "Has this owner been homechecked?"
+msgstr ""
+
+#: Checked_By
+msgid "Checked By:"
+msgstr "Tikrino:"
+
+#: Homecheck_History
+msgid "Homecheck History:"
+msgstr ""
+
+#: New_homecheck_area
+msgid "New Homecheck Area"
+msgstr ""
+
+#: Delete_homecheck_area
+msgid "Delete Homecheck Area"
+msgstr ""
+
+#: The_new_homecheck_area
+msgid "The new homecheck area"
 msgstr ""
 
 #. # uireportviewer.properties#=========================================================================
@@ -11022,6 +11012,9 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 #~ msgid "Publish Animals Available For Adoption to FindMeAPet.com"
 #~ msgstr "Publish Animals Available For Adoption to FindMeAPet.com"
 
+#~ msgid "Returned Adoptions"
+#~ msgstr "Grąžinti gyvūnai"
+
 #~ msgid "Number Of Treatments"
 #~ msgstr "Medikamentų kiekis"
 
@@ -11064,6 +11057,9 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 #~ msgid "Tick this box to only include members"
 #~ msgstr "Pažymėkite šį laukelį, jei norite įtraukti tik narius"
 
+#~ msgid "Home Checker"
+#~ msgstr "Tikrina būsimas gyvūnų laikymo sąlygas"
+
 #~ msgid ""
 #~ "WARNING: This owner has the same name as a person that brought an animal in "
 #~ "\n"
@@ -11072,6 +11068,14 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 #~ "ĮSPĖJIMAS: Šio asmens vardas ir pavardė tokie patys, kaip asmens, pridavusio "
 #~ "gyvūną į prieglaudą \n"
 #~ "(Animal "
+
+#~ msgid "Last Homecheck Date:"
+#~ msgstr "Paskutinio tikrinimo data:"
+
+#~ msgid "The date this homechecker last performed a homecheck"
+#~ msgstr ""
+#~ "Data, kai šis asmuo paskutinį kartą tikrino būsimas gyvūnų laikymo sąlygas "
+#~ "naujuose namuose"
 
 #~ msgid "null"
 #~ msgstr "nulis"
@@ -11131,6 +11135,20 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 
 #~ msgid "Daily"
 #~ msgstr "Kasdien"
+
+#~ msgid ""
+#~ "If this owner is a homechecker, the areas (names/postcodes) they are willing "
+#~ "to check"
+#~ msgstr ""
+#~ "Jei šis asmuo tikrina būsimas gyvūnų laikymo sąlygas naujuose namuose, "
+#~ "įrašykite vietoves (rajonų pavadinimus, pašto kodus), kuriose jis nori "
+#~ "tikrinti"
+
+#~ msgid "Common Animal Entry Areas"
+#~ msgstr "Populiariausios vietovės, iš kurių patenka gyvūnai"
+
+#~ msgid "Common Animal Adoption Areas"
+#~ msgstr "Populiariausios gyvūnų atidavimo vietovės"
 
 #~ msgid "Really Delete?"
 #~ msgstr "Ar tikrai ištrinti?"

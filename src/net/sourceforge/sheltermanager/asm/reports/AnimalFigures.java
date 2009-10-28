@@ -161,16 +161,20 @@ public class AnimalFigures extends Report {
 
             // Based on Species
             if (Configuration.getBoolean("AnimalFiguresGroupBySpecies")) {
-
                 // SPECIES ==============================================
                 SQLRecordset sp = LookupCache.getSpeciesLookup();
                 sp.moveFirst();
 
                 // Compile list of species for which we have animal data
                 Vector v = new Vector();
+
                 while (!sp.getEOF()) {
-                    if (0 < DBConnection.executeForCount("SELECT COUNT(ID) FROM animal WHERE SpeciesID = " + sp.getField("ID")))
+                    if (0 < DBConnection.executeForCount(
+                                "SELECT COUNT(ID) FROM animal WHERE SpeciesID = " +
+                                sp.getField("ID"))) {
                         v.add(sp.getField("ID"));
+                    }
+
                     sp.moveNext();
                 }
 
@@ -181,9 +185,7 @@ public class AnimalFigures extends Report {
                 for (int i = 0; i < v.size(); i++) {
                     genSpeciesFigs((Integer) v.get(i));
                 }
-
-            }
-            else {
+            } else {
                 // ANIMAL TYPES ========================================
                 // Initialise the status bar upto
                 // the maximum steps - 14 steps in number of groups
@@ -192,9 +194,14 @@ public class AnimalFigures extends Report {
 
                 // Compile list of types for which we have animal data
                 Vector v = new Vector();
+
                 while (!at.getEOF()) {
-                    if (0 < DBConnection.executeForCount("SELECT COUNT(ID) FROM animal WHERE AnimalTypeID = " + at.getField("ID")))
+                    if (0 < DBConnection.executeForCount(
+                                "SELECT COUNT(ID) FROM animal WHERE AnimalTypeID = " +
+                                at.getField("ID"))) {
                         v.add(at.getField("ID"));
+                    }
+
                     at.moveNext();
                 }
 
@@ -206,8 +213,6 @@ public class AnimalFigures extends Report {
                     genAnimalTypeFigs((Integer) v.get(i));
                 }
             }
-
-
         } catch (Exception e) {
             Dialog.showError(Global.i18n("reports",
                     "An_error_occurred_generating_the_report", e.getMessage()));
@@ -385,11 +390,11 @@ public class AnimalFigures extends Report {
         returnedAnimals = fillRow(
                 "SELECT ReturnDate, COUNT(animal.ID) AS Total FROM adoption " +
                 "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
-                "WHERE SpeciesID = " + speciesID +
-                " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
-                " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
-                " AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
-                " GROUP BY ReturnDate", "ReturnDate", "Total");
+                "WHERE SpeciesID = " + speciesID + " AND ReturnDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND ReturnDate <= '" +
+                sqlLastDayOfMonth + "'" + " AND MovementType = " +
+                Adoption.MOVETYPE_ADOPTION + " GROUP BY ReturnDate",
+                "ReturnDate", "Total");
 
         incrementStatusBar();
 
@@ -433,12 +438,12 @@ public class AnimalFigures extends Report {
         returnedOther = fillRow(
                 "SELECT ReturnDate, COUNT(adoption.ID) AS Total FROM adoption " +
                 "INNER JOIN animal ON animal.ID = adoption.AnimalID WHERE " +
-                "SpeciesID = " + speciesID + " AND " +
-                "MovementType <> " + Adoption.MOVETYPE_FOSTER + " AND " +
-                "MovementType <> " + Adoption.MOVETYPE_ADOPTION +
-                " AND ReturnDate >= '" + sqlFirstDayOfMonth + "'" +
-                " AND ReturnDate <= '" + sqlLastDayOfMonth + "'" +
-                "GROUP BY ReturnDate", "ReturnDate", "Total");
+                "SpeciesID = " + speciesID + " AND " + "MovementType <> " +
+                Adoption.MOVETYPE_FOSTER + " AND " + "MovementType <> " +
+                Adoption.MOVETYPE_ADOPTION + " AND ReturnDate >= '" +
+                sqlFirstDayOfMonth + "'" + " AND ReturnDate <= '" +
+                sqlLastDayOfMonth + "'" + "GROUP BY ReturnDate", "ReturnDate",
+                "Total");
         incrementStatusBar();
 
         // ================================================================
@@ -699,9 +704,9 @@ public class AnimalFigures extends Report {
                 sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
                 sqlLastDayOfMonth + "'" +
                 " AND PutToSleep = 0 AND DiedOffShelter = 0" +
-                " AND NonShelterAnimal = 0) OR " + "(SpeciesID = " +
-                speciesID + " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
-                "'" + " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
+                " AND NonShelterAnimal = 0) OR " + "(SpeciesID = " + speciesID +
+                " AND DeceasedDate >= '" + sqlFirstDayOfMonth + "'" +
+                " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
                 " AND PutToSleep = 0 AND DiedOffShelter = 0" +
                 " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
                 "DeceasedDate", "Total");
@@ -728,9 +733,9 @@ public class AnimalFigures extends Report {
                 sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
                 sqlLastDayOfMonth + "'" +
                 " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                " AND NonShelterAnimal = 0) OR " + "(SpeciesID = " +
-                speciesID + " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
-                "'" + " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
+                " AND NonShelterAnimal = 0) OR " + "(SpeciesID = " + speciesID +
+                " AND DeceasedDate >= '" + sqlFirstDayOfMonth + "'" +
+                " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
                 " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
                 " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
                 "DeceasedDate", "Total");
@@ -978,7 +983,8 @@ public class AnimalFigures extends Report {
         createSummary();
     }
 
-    public void genAnimalTypeFigs(Integer animalTypeID) throws Exception {
+    public void genAnimalTypeFigs(Integer animalTypeID)
+        throws Exception {
         String animalName = "";
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;

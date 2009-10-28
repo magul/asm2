@@ -89,7 +89,9 @@ public class AdoptionsPerSpecies extends Chart {
             Adoption.MOVETYPE_ADOPTION +
             " GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
 
-        if (spec.getEOF()) return false;
+        if (spec.getEOF()) {
+            return false;
+        }
 
         // Outline model - 12 columns (Month, Year period)
         // No species rows 

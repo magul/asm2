@@ -381,7 +381,8 @@ public class WaitingListView extends ASMView {
         }
 
         // Ask if they are sure they want to delete the row(s)
-        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
+                    UI.messageReallyDelete())) {
             int[] selrows = getTable().getSelectedRows();
             SortableTableModel tablemodel = (SortableTableModel) getTable()
                                                                      .getModel();

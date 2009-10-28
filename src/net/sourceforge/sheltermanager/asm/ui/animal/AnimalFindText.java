@@ -411,7 +411,7 @@ public class AnimalFindText extends ASMFind {
         term = Utils.replace(term, "'", "");
         txtSearch.setText(term);
 
-        if (term.length() > 0 && term.length() < 2) {
+        if ((term.length() > 0) && (term.length() < 2)) {
             Dialog.showError(i18n("search_term_bad"));
 
             return;
@@ -429,25 +429,24 @@ public class AnimalFindText extends ASMFind {
 
         // If no term was given, do an on-shelter search
         if (term.length() == 0) {
-            sql.append("SELECT animal.ID, animal.AnimalTypeID, animal.BreedID, " +
+            sql.append(
+                "SELECT animal.ID, animal.AnimalTypeID, animal.BreedID, " +
                 "animal.CrossBreed, animal.Breed2ID, animal.BreedName, " +
                 "animal.SpeciesID, animal.ShelterCode, animal.ShortCode, animal.AnimalName, " +
                 "animal.ShelterLocation, animal.DateOfBirth, animal.Sex, animal.Size, " +
                 "animal.BaseColourID, animal.Markings, animal.IdentichipNumber, " +
                 "animal.DateBroughtIn, animal.NonShelterAnimal, animal.ActiveMovementID, " +
                 "animal.HasActiveReserve, animal.ActiveMovementType, animal.ActiveMovementDate, " +
-                "animal.DeceasedDate, animal.ID AS priority " +
-                "FROM animal " +
+                "animal.DeceasedDate, animal.ID AS priority " + "FROM animal " +
                 "WHERE Archived = 0");
-        }
-        else {
-        
+        } else {
             // Build UNION query for text results
             addQuery(new String[] {
-                    "animal.AnimalName", "animal.ShelterCode", "animal.ShortCode",
-                    "animal.AcceptanceNumber"
+                    "animal.AnimalName", "animal.ShelterCode",
+                    "animal.ShortCode", "animal.AcceptanceNumber"
                 }, "", 1);
-            addQuery(new String[] { "animal.BreedName", "animal.Markings" }, "", 2);
+            addQuery(new String[] { "animal.BreedName", "animal.Markings" },
+                "", 2);
             addQuery(new String[] {
                     "animal.IdentichipNumber", "animal.TattooNumber",
                     "animal.RabiesTag"
@@ -458,7 +457,8 @@ public class AnimalFindText extends ASMFind {
                 }, "", 3);
             addQuery(new String[] {
                     "animal.HiddenAnimalDetails", "animal.AnimalComments",
-                    "animal.ReasonNO", "animal.HealthProblems", "animal.PTSReason"
+                    "animal.ReasonNO", "animal.HealthProblems",
+                    "animal.PTSReason"
                 }, "", 4);
             addQuery(new String[] { "media.MediaNotes" }, MEDIA, 5);
             addQuery(new String[] {
@@ -470,21 +470,25 @@ public class AnimalFindText extends ASMFind {
                     "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
                     "owner.OwnerCounty", "owner.OwnerPostcode",
                     "owner.HomeTelephone", "owner.WorkTelephone",
-                    "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
+                    "owner.MobileTelephone", "owner.EmailAddress",
+                    "owner.Comments"
                 }, ADOPTER, 7);
             addQuery(new String[] {
                     "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
                     "owner.OwnerCounty", "owner.OwnerPostcode",
                     "owner.HomeTelephone", "owner.WorkTelephone",
-                    "owner.MobileTelephone", "owner.EmailAddress", "owner.Comments"
+                    "owner.MobileTelephone", "owner.EmailAddress",
+                    "owner.Comments"
                 }, ORIGINALOWNER, 7);
 
             addQuery(new String[] { "animaltype.AnimalType" },
-                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID", 8);
+                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID",
+                8);
             addQuery(new String[] { "species.SpeciesName" },
                 "INNER JOIN species ON animal.SpeciesID = species.ID", 8);
             addQuery(new String[] { "basecolour.BaseColour" },
-                "INNER JOIN basecolour ON animal.BaseColourID = basecolour.ID", 8);
+                "INNER JOIN basecolour ON animal.BaseColourID = basecolour.ID",
+                8);
             addQuery(new String[] { "lksex.Sex" },
                 "INNER JOIN lksex ON animal.Sex = lksex.ID", 8);
             addQuery(new String[] { "internallocation.LocationName" },
@@ -533,26 +537,34 @@ public class AnimalFindText extends ASMFind {
         // Count the unique IDs
         Vector uid = new Vector();
         int dups = 0;
+
         try {
             if (!animal.getEOF()) {
                 while (!animal.getEOF()) {
                     boolean alreadygot = false;
+
                     for (int y = 0; y < uid.size(); y++) {
                         if (uid.get(y).equals(animal.getField("ID"))) {
                             alreadygot = true;
                             dups++;
+
                             break;
                         }
                     }
-                    if (!alreadygot)
+
+                    if (!alreadygot) {
                         uid.add(animal.getField("ID"));
+                    }
+
                     animal.moveNext();
                 }
-                Global.logDebug("Removed " + dups + " duplicate records from results", "AnimalFindText.runSearch");
+
+                Global.logDebug("Removed " + dups +
+                    " duplicate records from results",
+                    "AnimalFindText.runSearch");
                 animal.moveFirst();
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
@@ -565,28 +577,29 @@ public class AnimalFindText extends ASMFind {
         int i = 0;
 
         while (!animal.getEOF()) {
-
             // Add this animal record to the table data if we haven't
             // already seen it's ID before
             try {
                 boolean seenit = false;
+
                 for (int z = 0; z < i; z++) {
                     if (datar[z][12].equals(animal.getField("ID").toString())) {
                         seenit = true;
+
                         break;
                     }
                 }
 
                 if (seenit) {
                     animal.moveNext();
+
                     continue;
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
+
                 break;
             }
-
 
             try {
                 datar[i][0] = (String) animal.getField("AnimalName");
@@ -656,6 +669,7 @@ public class AnimalFindText extends ASMFind {
                 animal.moveNext();
             } catch (Exception e) {
                 Global.logException(e, getClass());
+
                 break;
             }
 

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-26 09:24+0100\n"
-"PO-Revision-Date: 2009-10-26 10:45+0000\n"
+"POT-Creation-Date: 2009-10-27 18:09+0100\n"
+"PO-Revision-Date: 2009-10-27 14:01+0000\n"
 "Last-Translator: Bertrand <bardet-bertrand@aliceadsl.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-27 08:29+0000\n"
+"X-Launchpad-Export-Date: 2009-10-28 08:34+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -233,11 +233,6 @@ msgstr ""
 #: Fostered
 #: fostered
 msgid "Fostered"
-msgstr ""
-
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
 msgstr ""
 
 #: Reservation
@@ -2655,11 +2650,13 @@ msgid "Animal Death Reasons"
 msgstr ""
 
 #: customreport_57_022
-msgid "Common Animal Entry Areas"
+#: Most_Common_Animal_Entry_Areas
+msgid "Most Common Animal Entry Areas"
 msgstr ""
 
 #: customreport_58_023
-msgid "Common Animal Adoption Areas"
+#: Most_Common_Animal_Adoption_Areas
+msgid "Most Common Animal Adoption Areas"
 msgstr ""
 
 #: customreport_59_024
@@ -2825,6 +2822,10 @@ msgstr ""
 
 #: lkcoattype_5
 msgid "Hairless"
+msgstr ""
+
+#: lksmovementtype_1
+msgid "Adoption"
 msgstr ""
 
 #: lksmovementtype_2
@@ -3900,10 +3901,6 @@ msgstr ""
 msgid "No animals found."
 msgstr ""
 
-#: Most_Common_Animal_Adoption_Areas
-msgid "Most Common Animal Adoption Areas"
-msgstr ""
-
 #: The_average_waiting_list_time_is_currently_
 msgid "The average waiting list time is currently {0} days."
 msgstr ""
@@ -3954,10 +3951,6 @@ msgstr ""
 msgid ""
 "This is based on the {0} completed waiting list entries on file, amounting "
 "to a cumulative waiting time of {1} days."
-msgstr ""
-
-#: Most_Common_Animal_Entry_Areas
-msgid "Most Common Animal Entry Areas"
 msgstr ""
 
 #: Building_report...
@@ -6233,6 +6226,10 @@ msgstr ""
 msgid "Tick this box if this animal is a cruelty case"
 msgstr ""
 
+#: Current_Vet
+msgid "Current Vet:"
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -7956,10 +7953,6 @@ msgstr "Base de données"
 msgid "The new database will be used after you have restarted ASM."
 msgstr "ASM utilisera la nouvelle base de données après un redémarrage."
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
-msgstr ""
-
 #: configure_email
 msgid "Configure ASM Email Account"
 msgstr ""
@@ -8585,10 +8578,6 @@ msgstr ""
 msgid "Create New Owner"
 msgstr ""
 
-#: Home_Checker
-msgid "Home Checker"
-msgstr ""
-
 #: Edit_Owner
 msgid "Edit Owner"
 msgstr ""
@@ -8611,12 +8600,6 @@ msgstr ""
 
 #: Member
 msgid "Member"
-msgstr ""
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
 msgstr ""
 
 #: NameTitle\:
@@ -8691,16 +8674,8 @@ msgstr ""
 msgid "Homechecker"
 msgstr ""
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr ""
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
-msgstr ""
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
 msgstr ""
 
 #: Donor
@@ -9191,6 +9166,26 @@ msgstr ""
 
 #: has_this_owner_ever_been_homechecked
 msgid "Has this owner been homechecked?"
+msgstr ""
+
+#: Checked_By
+msgid "Checked By:"
+msgstr ""
+
+#: Homecheck_History
+msgid "Homecheck History:"
+msgstr ""
+
+#: New_homecheck_area
+msgid "New Homecheck Area"
+msgstr ""
+
+#: Delete_homecheck_area
+msgid "Delete Homecheck Area"
+msgstr ""
+
+#: The_new_homecheck_area
+msgid "The new homecheck area"
 msgstr ""
 
 #. # uireportviewer.properties#=========================================================================

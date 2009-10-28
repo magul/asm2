@@ -1970,13 +1970,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 UI.getTextField(i18n("The_animal's_name"),
                     UI.fp(this, "dataChanged")));
         */
-
         txtAnimalName = (UI.SearchTextField) UI.addComponent(pnlLeftFields,
                 i18n("Name:"),
                 UI.getSearchTextField(i18n("The_animal's_name"),
-                i18n("Generate_a_random_name_for_this_animal"), true,
-                IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_RANDOMNAME_SMALL),
-                UI.fp(this, "actionRandomName"), UI.fp(this, "dataChanged")));
+                    i18n("Generate_a_random_name_for_this_animal"), true,
+                    IconManager.getIcon(
+                        IconManager.SCREEN_EDITANIMAL_RANDOMNAME_SMALL),
+                    UI.fp(this, "actionRandomName"), UI.fp(this, "dataChanged")));
 
         cboSex = (UI.ComboBox) UI.addComponent(pnlLeftFields, i18n("Sex:"),
                 UI.getCombo(LookupCache.getSexLookup(), "Sex",
@@ -2204,8 +2204,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         embBroughtInBy = new OwnerLink();
         embOriginalOwner = new OwnerLink();
-        embVet = new OwnerLink(OwnerLink.MODE_FULL, OwnerLink.FILTER_VETS, "LINK");
-        embCurrentVet = new OwnerLink(OwnerLink.MODE_FULL, OwnerLink.FILTER_VETS, "LINK");
+        embVet = new OwnerLink(OwnerLink.MODE_FULL, OwnerLink.FILTER_VETS,
+                "LINK");
+        embCurrentVet = new OwnerLink(OwnerLink.MODE_FULL,
+                OwnerLink.FILTER_VETS, "LINK");
         embBroughtInBy.setTitle(Global.i18n("uianimal", "Brought_In_By:"));
         embOriginalOwner.setTitle(Global.i18n("uianimal", "Original_Owner:"));
         embVet.setTitle(Global.i18n("uianimal", "Owners_Vet"));
@@ -2269,8 +2271,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         UI.Panel pnlHealthDetails = UI.getPanel(UI.getFlowLayout());
         UI.Panel pnlVets = UI.getPanel(UI.getGridLayout(2));
 
-        pnlHealthProblems.add(UI.getLabel(UI.ALIGN_LEFT, i18n("Health_Problems:")),
-            UI.BorderLayout.NORTH);
+        pnlHealthProblems.add(UI.getLabel(UI.ALIGN_LEFT,
+                i18n("Health_Problems:")), UI.BorderLayout.NORTH);
         txtHealthProblems = (UI.TextArea) UI.addComponent(pnlHealthProblems,
                 UI.getTextArea(i18n("Any_health_problems_the_animal_has"),
                     UI.fp(this, "dataChanged")));
@@ -2796,8 +2798,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
                 dispose();
             } catch (Exception e) {
-                Dialog.showError(UI.messageDeleteError() +
-                    e.getMessage());
+                Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }
@@ -2841,8 +2842,9 @@ class AnimalCodeField extends UI.Panel {
                 ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
                 IconManager.getIcon(IconManager.SEARCHSMALL), onGenerate);
         add(bits, UI.BorderLayout.CENTER);
-	UI.ToolBar t = UI.getToolBar();
-	t.add(btn);
+
+        UI.ToolBar t = UI.getToolBar();
+        t.add(btn);
         add(t, UI.BorderLayout.EAST);
     }
 

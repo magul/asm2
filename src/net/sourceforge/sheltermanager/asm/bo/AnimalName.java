@@ -105,7 +105,6 @@ public class AnimalName extends NormalBO {
 
             // Get the name
             return names[(int) choice];
-
         } catch (Exception e) {
             Global.logException(e, AnimalName.class);
         }

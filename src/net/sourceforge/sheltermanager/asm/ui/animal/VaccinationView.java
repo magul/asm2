@@ -418,8 +418,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 try {
                     DBConnection.executeAction(sql);
                 } catch (Exception e) {
-                    Dialog.showError(UI.messageDeleteError() +
-                        e.getMessage());
+                    Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
                 }
             }

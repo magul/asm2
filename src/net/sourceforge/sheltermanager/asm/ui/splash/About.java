@@ -108,6 +108,7 @@ public class About extends ASMDialog {
         // ed.addHyperlinkListener(this);
         try {
             ed.setContentType("text/html");
+
             // Generate a temp file and point the browser to it
             String tempFileName = Utils.createTemporaryFile(content, "html");
             ed.setPage("file:///" + tempFileName);

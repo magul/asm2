@@ -403,7 +403,8 @@ public class DiarySelector extends ASMSelector {
                                                                  .getModel();
 
         // Ask if they are sure they want to delete the row(s)
-        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+        if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
+                    UI.messageReallyDelete())) {
             for (int i = 0; i < selrows.length; i++) {
                 // Get the ID for the selected row
                 String diaryID = tablemodel.getIDAt(selrows[i]);
@@ -413,8 +414,7 @@ public class DiarySelector extends ASMSelector {
                 try {
                     DBConnection.executeAction(sql);
                 } catch (Exception e) {
-                    Dialog.showError(UI.messageDeleteError() +
-                        e.getMessage());
+                    Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
                 }
             }

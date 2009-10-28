@@ -41,7 +41,8 @@ public class DateInputDlg extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setTitle(title);
-        this.lblQuestion.setText("<html><center>" + message + "</center></html>");
+        this.lblQuestion.setText("<html><center>" + message +
+            "</center></html>");
         this.db.setToToday();
 
         this.setSize(359, 200);

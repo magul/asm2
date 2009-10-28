@@ -480,8 +480,8 @@ INSERT INTO customreport VALUES (53, 'Animals Returned Within 6 Months', '018', 
 INSERT INTO customreport VALUES (54, 'Animals Returned After 6 Months', '019', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Returns');
 INSERT INTO customreport VALUES (55, 'Meest Voorkomende Naam', '020', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
 INSERT INTO customreport VALUES (56, 'Doodsoorzaken Dier', '021', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
-INSERT INTO customreport VALUES (57, 'Veel voorkomende gebieden van herkomst Dieren', '022', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
-INSERT INTO customreport VALUES (58, 'Veel Voorkomende Gebieden Voor Adopties', '023', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
+INSERT INTO customreport VALUES (57, 'Meest voorkomende gebieden van herkomst binnengekomen dieren', '022', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
+INSERT INTO customreport VALUES (58, 'Meest voorkomende adoptie gebieden', '023', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
 INSERT INTO customreport VALUES (59, 'Average Time On Waiting List', '024', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistieken');
 INSERT INTO customreport VALUES (60, 'Maandelijkse Donaties', '025', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Financial Graphs');
 INSERT INTO customreport VALUES (61, 'Maandelijkse donaties per Diersoort', '026', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Financial Graphs');

@@ -616,7 +616,6 @@ public class AutoDBUpdates {
 
             // 2.611
 
-
             // All successful
             finish();
 
@@ -3947,8 +3946,7 @@ public class AutoDBUpdates {
                 // Add the homecheckedby field
                 DBConnection.executeAction(
                     "ALTER TABLE owner ADD HomeCheckedBy INTEGER NULL");
-                DBConnection.executeAction(
-                    "UPDATE owner SET HomeCheckedBy = 0");
+                DBConnection.executeAction("UPDATE owner SET HomeCheckedBy = 0");
             } catch (Exception e) {
                 errors.add("owner: Add HomeCheckedBy field");
             }
@@ -3975,13 +3973,10 @@ public class AutoDBUpdates {
                 // Add the current vet field
                 DBConnection.executeAction(
                     "ALTER TABLE animal ADD CurrentVetID INTEGER NULL");
-                DBConnection.executeAction(
-                    "UPDATE animal SET CurrentVetID = 0");
+                DBConnection.executeAction("UPDATE animal SET CurrentVetID = 0");
             } catch (Exception e) {
                 errors.add("owner: DROP DatePerformedLastHomeCheck field");
             }
-
-
 
             Configuration.setEntry("DatabaseVersion", "2611");
         } catch (Exception e) {
@@ -3990,8 +3985,6 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
-
-
 }
 
 

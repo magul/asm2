@@ -470,20 +470,23 @@ public class AnimalPrint extends Report {
         l.free();
 
         // Additional Fields
-        Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL, a.getID().intValue());
+        Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
+                a.getID().intValue());
+
         if (v.size() > 0) {
             addLevelTwoHeader(Global.i18n("uianimal", "additional"));
             tableNew(true);
+
             for (int i = 0; i < v.size(); i++) {
                 Additional.Field af = (Additional.Field) v.get(i);
                 tableAddRow();
                 tableAddCell(af.fieldLabel);
-                tableAddCell(af.value );
+                tableAddCell(af.value);
                 tableFinishRow();
             }
+
             tableFinish();
             addTable();
         }
-
     }
 }

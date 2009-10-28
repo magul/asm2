@@ -22,12 +22,12 @@
 package net.sourceforge.sheltermanager.asm.ui.reportviewer;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 import java.io.IOException;
 
@@ -88,61 +88,66 @@ public class ReportViewer extends ASMForm {
      *  disables the buttons.
      */
     public void setContentSize() {
-
         // Strip out any windows CR tokens
         filecontents = Utils.replace(filecontents, "\r", "");
 
         // Do we have an <!-- Embedded style sheet comment - if so,
         // it's one of our default templates so we can work with it
         if (filecontents.indexOf("<!-- Embedded style sheet") == -1) {
-            Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" marker, disabling zoom", "ReportViewer.setContentSize");
+            Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" marker, disabling zoom",
+                "ReportViewer.setContentSize");
             btnZoomIn.setEnabled(false);
             btnZoomOut.setEnabled(false);
+
             try {
                 edOutput.setPage("file:///" + filename);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
+
             return;
         }
 
         // Construct a new style portion
         final String font = "font-family: Sans-Serif; ";
         final String fontsize = "font-size: ";
-        String style = "<style type=\"text/css\">\n" +
-            "td { " + font + fontsize + baseFontSize + "pt; }\n" +
-            "p { " + font + fontsize + baseFontSize + "pt; }\n" +
-            "li { " + font + fontsize + baseFontSize + "pt; }\n" +
-            "h1 { " + font + fontsize + (baseFontSize + 8) + "pt; }\n" +
-            "h2 { " + font + fontsize + (baseFontSize + 4) + "pt; }\n" +
-            "h3 { " + font + fontsize + (baseFontSize + 2) + "pt; }\n" +
-            "</style>";
+        String style = "<style type=\"text/css\">\n" + "td { " + font +
+            fontsize + baseFontSize + "pt; }\n" + "p { " + font + fontsize +
+            baseFontSize + "pt; }\n" + "li { " + font + fontsize +
+            baseFontSize + "pt; }\n" + "h1 { " + font + fontsize +
+            (baseFontSize + 8) + "pt; }\n" + "h2 { " + font + fontsize +
+            (baseFontSize + 4) + "pt; }\n" + "h3 { " + font + fontsize +
+            (baseFontSize + 2) + "pt; }\n" + "</style>";
 
-        Global.logDebug("New style string: " + style, "ReportViewer.setContentSize");
-
+        Global.logDebug("New style string: " + style,
+            "ReportViewer.setContentSize");
 
         filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
-            style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
+            style +
+            filecontents.substring(filecontents.indexOf("</style>") +
+                "</style>".length());
 
         // The old template had a font tag that shrank the footer to unreadable levels
         // it's annoying it has to be removed here, but getting people to update their
         // templates is virtually impossible
         int ft = filecontents.lastIndexOf("<font");
-        if (ft != -1)
-            filecontents = filecontents.substring(0, ft) + 
+
+        if (ft != -1) {
+            filecontents = filecontents.substring(0, ft) +
                 filecontents.substring(filecontents.indexOf(">", ft) + 1);
+        }
 
         // If we have a UTF8 meta tag, the HTMLEditorKit in JRE5 gets upset and 
         // refuses to interpret the style sheet
-        if (filecontents.indexOf("utf-8\" />") != -1)
-            filecontents = Utils.replace(filecontents, "utf-8\" />", "utf-8\"></meta>");
+        if (filecontents.indexOf("utf-8\" />") != -1) {
+            filecontents = Utils.replace(filecontents, "utf-8\" />",
+                    "utf-8\"></meta>");
+        }
 
         try {
             Utils.writeFile(filename, filecontents.getBytes());
             edOutput.setPage("file:///" + filename);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
@@ -188,7 +193,7 @@ public class ReportViewer extends ASMForm {
     public void actionZoomOut() {
         baseFontSize -= 1;
         setContentSize();
-    }   
+    }
 
     public void actionPrint() {
         edOutput.print();
@@ -212,14 +217,12 @@ public class ReportViewer extends ASMForm {
                 UI.fp(this, "actionExternal"));
         tlbPrintTools.add(btnExternal);
 
-        btnZoomIn = UI.getButton(null,
-                i18n("Zoom_In"), 'i',
+        btnZoomIn = UI.getButton(null, i18n("Zoom_In"), 'i',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_ZOOMIN),
                 UI.fp(this, "actionZoomIn"));
         tlbPrintTools.add(btnZoomIn);
 
-        btnZoomOut = UI.getButton(null,
-                i18n("Zoom_Out"), 'o',
+        btnZoomOut = UI.getButton(null, i18n("Zoom_Out"), 'o',
                 IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_ZOOMOUT),
                 UI.fp(this, "actionZoomOut"));
         tlbPrintTools.add(btnZoomOut);

@@ -401,7 +401,8 @@ public class MovementSelector extends ASMSelector implements MovementParent {
         }
 
         // Ask
-        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+        if (!Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
+                    UI.messageReallyDelete())) {
             return;
         }
 

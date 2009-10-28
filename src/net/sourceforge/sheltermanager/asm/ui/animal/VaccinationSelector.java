@@ -222,8 +222,7 @@ public class VaccinationSelector extends ASMSelector
                         avID;
                     net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
                 } catch (Exception e) {
-                    Dialog.showError(UI.messageDeleteError() +
-                        e.getMessage());
+                    Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
                 }
             }

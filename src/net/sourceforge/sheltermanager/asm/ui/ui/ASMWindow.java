@@ -82,7 +82,6 @@ public abstract class ASMWindow extends JFrame {
         }
     }
      */
-
     public void maximise() {
         this.setExtendedState(this.getExtendedState() | this.MAXIMIZED_BOTH);
     }

@@ -168,7 +168,8 @@ public class UserView extends ASMView {
     public void actionDelete() {
         // Delete the user represented by the selected list item
         try {
-            if (!Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
+            if (!Dialog.showYesNo(UI.messageDeleteConfirm(),
+                        UI.messageReallyDelete())) {
                 return;
             }
 
