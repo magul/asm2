@@ -1,3 +1,9 @@
+2.6.2
+================
+
+*. getBytes() defaults to ASCII on Windows instead of UTF8, causing
+-  reports to be written in the wrong charset
+
 2.6.1
 ================
 

@@ -120,7 +120,7 @@ public abstract class Report extends Thread {
             filename = f.getAbsolutePath();
 
             FileOutputStream out = new FileOutputStream(f);
-            out.write(report.toString().getBytes());
+            out.write(report.toString().getBytes("UTF8"));
             out.close();
 
             // The write was successful - add an entry to
