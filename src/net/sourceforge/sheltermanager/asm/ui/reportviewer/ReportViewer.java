@@ -108,39 +108,35 @@ public class ReportViewer extends ASMForm {
         }
 
         // Construct a new style portion
-        final String font = "font-family: Verdana,Arial,Helvetica,Sans-Serif;\n";
+        final String font = "font-family: Sans-Serif; ";
         final String fontsize = "font-size: ";
         String style = "<style type=\"text/css\">\n" +
-            "td {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
-            "p  {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
-            "li {\n" + font + fontsize + baseFontSize + "pt;\n}\n" +
-            "h1 {\n" + font + fontsize + (baseFontSize + 8) + "pt;\n}\n" +
-            "h2 {\n" + font + fontsize + (baseFontSize + 4) + "pt;\n}\n" +
-            "h3 {\n" + font + fontsize + (baseFontSize + 2) + "pt;\n}\n" +
+            "td { " + font + fontsize + baseFontSize + "pt; }\n" +
+            "p { " + font + fontsize + baseFontSize + "pt; }\n" +
+            "li { " + font + fontsize + baseFontSize + "pt; }\n" +
+            "h1 { " + font + fontsize + (baseFontSize + 8) + "pt; }\n" +
+            "h2 { " + font + fontsize + (baseFontSize + 4) + "pt; }\n" +
+            "h3 { " + font + fontsize + (baseFontSize + 2) + "pt; }\n" +
             "</style>";
 
-        // Replace it in the contents - unless we're dealing with 
-        // MacOS, which seems to be incapable of reading style tags
-        if (UI.osIsMacOSX()) {
-            btnZoomIn.setEnabled(false);
-            btnZoomOut.setEnabled(false);
-            filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
-                filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
-        }
-        else {
+        Global.logDebug("New style string: " + style, "ReportViewer.setContentSize");
 
-            filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
-                style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
 
-            // The old template had a font tag that shrank the footer to unreadable levels
-            // it's annoying it has to be removed here, but getting people to update their
-            // templates is virtually impossible
-            int ft = filecontents.lastIndexOf("<font");
-            if (ft != -1)
-                filecontents = filecontents.substring(0, ft) + 
-                    filecontents.substring(filecontents.indexOf(">", ft) + 1);
+        filecontents = filecontents.substring(0, filecontents.indexOf("<style")) +
+            style + filecontents.substring(filecontents.indexOf("</style>") + "</style>".length());
 
-        }
+        // The old template had a font tag that shrank the footer to unreadable levels
+        // it's annoying it has to be removed here, but getting people to update their
+        // templates is virtually impossible
+        int ft = filecontents.lastIndexOf("<font");
+        if (ft != -1)
+            filecontents = filecontents.substring(0, ft) + 
+                filecontents.substring(filecontents.indexOf(">", ft) + 1);
+
+        // If we have a UTF8 meta tag, the HTMLEditorKit in JRE5 gets upset and 
+        // refuses to interpret the style sheet
+        if (filecontents.indexOf("utf-8\" />") != -1)
+            filecontents = Utils.replace(filecontents, "utf-8\" />", "utf-8\"></meta>");
 
         try {
             Utils.writeFile(filename, filecontents.getBytes());

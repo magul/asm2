@@ -203,8 +203,8 @@ public abstract class Global {
         return new String[] {
             getLanguageCountry("en_US"), getLanguageCountry("en_GB"),
             getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
-            getLanguageCountry("en_ZA"), getLanguageCountry("es_ES"),
-	    getLanguageCountry("de_DE"), getLanguageCountry("fr_FR"), 
+            getLanguageCountry("en_ZA"), getLanguageCountry("de_DE"),
+	    getLanguageCountry("es_ES"), getLanguageCountry("fr_FR"), 
 	    getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL")
         };
     }
