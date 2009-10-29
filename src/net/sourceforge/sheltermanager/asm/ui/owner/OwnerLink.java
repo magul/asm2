@@ -160,8 +160,10 @@ public class OwnerLink extends UI.Panel implements SearchListener {
         if (mode == MODE_FULL) {
             UI.Panel p = UI.getPanel(UI.getBorderLayout());
             UI.Panel name = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-            UI.Panel address = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-            UI.Panel postcode = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+            UI.Panel address = UI.getPanel(UI.getGridLayout(2,
+                        new int[] { 30, 70 }));
+            UI.Panel postcode = UI.getPanel(UI.getGridLayout(2,
+                        new int[] { 30, 70 }));
 
             txtName = (UI.TextField) UI.addComponent(name, i18n("Name:"),
                     UI.getTextField());

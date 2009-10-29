@@ -868,7 +868,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         UI.Panel reouter = UI.getPanel(UI.getBorderLayout());
         reouter.setTitle(i18n("Reservation"));
 
-        UI.Panel re = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 } ));
+        UI.Panel re = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         reouter.add(re, UI.BorderLayout.NORTH);
 
         txtReservationDate = (DateField) UI.addComponent(re, i18n("Date:"),

@@ -329,8 +329,8 @@ public final class UI {
 
     public static Label getLabel(int align, String text) {
         Label l = new Label("<html><p align=\"" +
-            ( Global.GRIDLABELALIGN == ALIGN_RIGHT ? "right" : "left" ) +
-            "\">" + text + "</p></html>");
+                ((Global.GRIDLABELALIGN == ALIGN_RIGHT) ? "right" : "left") +
+                "\">" + text + "</p></html>");
         l.setHorizontalAlignment(align);
 
         return l;
@@ -348,6 +348,7 @@ public final class UI {
         l.setIcon(icon);
         l.setToolTipText(tooltiptext);
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
+
         return l;
     }
 
@@ -362,6 +363,7 @@ public final class UI {
         Label l = new Label(text);
         l.setHorizontalAlignment(ALIGN_LEFT);
         l.setFont(l.getFont().deriveFont(Font.BOLD));
+
         return l;
     }
 
@@ -494,7 +496,8 @@ public final class UI {
         return new PCTGridLayout(rows, cols, 4, 4);
     }
 
-    public static PCTGridLayout getGridLayout(int rows, int cols, int hgap, int vgap) {
+    public static PCTGridLayout getGridLayout(int rows, int cols, int hgap,
+        int vgap) {
         return new PCTGridLayout(rows, cols, hgap, vgap);
     }
 
@@ -2103,7 +2106,7 @@ public final class UI {
         public void setTitle(String title) {
             TitledBorder b = new TitledBorder(title);
             b.setTitleFont(b.getTitleFont().deriveFont(Font.BOLD));
-            setBorder( b );
+            setBorder(b);
         }
 
         public void dispose() {

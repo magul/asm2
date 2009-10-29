@@ -71,7 +71,11 @@ public abstract class Dialog {
 
         while ((lastpos + WRAP) < s.length()) {
             int sp = s.lastIndexOf(" ", lastpos + WRAP);
-            if (sp == -1) break;
+
+            if (sp == -1) {
+                break;
+            }
+
             s = s.substring(0, sp) + "\n" + s.substring(sp + 1);
             lastpos = sp;
         }

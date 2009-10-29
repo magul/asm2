@@ -2165,7 +2165,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
 
         // Comments panel
-        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 }));
+        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 35, 65 }));
 
         txtMarkings = (UI.TextArea) UI.addComponent(pnlComments,
                 i18n("Dist._Features:"),
@@ -2222,7 +2223,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Entry Details right pane ===================================
         UI.Panel pnlEntryRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlEntryRightReasons = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65}));
+        UI.Panel pnlEntryRightReasons = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 35, 65 }));
 
         txtReasonNotBroughtByOwner = (UI.TextArea) UI.addComponent(pnlEntryRightReasons,
                 i18n("Reason_not_by_owner"),
@@ -2236,7 +2238,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         pnlEntryRight.add(pnlEntryRightReasons, UI.BorderLayout.CENTER);
 
-        UI.Panel pnlEntryDetails = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 } ));
+        UI.Panel pnlEntryDetails = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 35, 65 }));
 
         cboEntryReason = (UI.ComboBox) UI.addComponent(pnlEntryDetails,
                 i18n("Entry_Category"),
