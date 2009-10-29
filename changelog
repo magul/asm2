@@ -1,6 +1,9 @@
 2.6.2
 ================
 
+*. Added central cage card report
+*. Fixed minor bug in Dialog wordwrap that could cause error if no
+-  spaces were present
 *. getBytes() defaults to ASCII on Windows instead of UTF8, causing
 -  reports to be written in the wrong charset
 
