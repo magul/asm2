@@ -1150,9 +1150,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
         // Left pane ======================================
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlLeftBot = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 }));
+        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 }));
+        UI.Panel pnlLeftBot = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 }));
 
         txtNameTitle = (UI.TextField) UI.addComponent(pnlLeftTop,
                 i18n("NameTitle:"), UI.getTextField(UI.fp(this, "dataChanged")));
@@ -1209,8 +1209,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         // Right pane ======================================
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlThumbnail = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2, new int[] { 45, 55 }));
+        UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2, new int[] { 45, 55 }));
 
         lblThumbnail = UI.getLabel();
         lblThumbnail.setPreferredSize(UI.getDimension(100, 50));
@@ -1323,12 +1323,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             i18n("details_if_this_owner_is_a_homechecker"));
 
         // Criteria tab =====================================================
-        UI.Panel pnlAnimalCriteria = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlAnimalCriteria = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }));
         UI.Panel pnlACLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlACLeftTop = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlACLeftTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlACLeftMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pnlACRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlACRightTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlACLeftMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlACRightTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         pnlACLeft.add(pnlACLeftTop, UI.BorderLayout.NORTH);
         pnlACLeft.add(pnlACLeftMid, UI.BorderLayout.CENTER);

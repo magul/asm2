@@ -328,7 +328,9 @@ public final class UI {
     }
 
     public static Label getLabel(int align, String text) {
-        Label l = new Label(text);
+        Label l = new Label("<html><p align=\"" +
+            ( Global.GRIDLABELALIGN == ALIGN_RIGHT ? "right" : "left" ) +
+            "\">" + text + "</p></html>");
         l.setHorizontalAlignment(align);
 
         return l;
@@ -346,7 +348,6 @@ public final class UI {
         l.setIcon(icon);
         l.setToolTipText(tooltiptext);
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
-
         return l;
     }
 
@@ -478,12 +479,20 @@ public final class UI {
         return p;
     }
 
-    public static GridLayout getGridLayout(int cols) {
-        return new GridLayout(0, cols, 4, 4);
+    public static PCTGridLayout getGridLayout(int cols) {
+        return new PCTGridLayout(0, cols, 4, 4);
     }
 
-    public static GridLayout getGridLayout(int rows, int cols) {
-        return new GridLayout(rows, cols, 4, 4);
+    public static PCTGridLayout getGridLayout(int cols, int[] widths) {
+        return new PCTGridLayout(0, cols, 4, 4, widths);
+    }
+
+    public static PCTGridLayout getGridLayout(int rows, int cols) {
+        return new PCTGridLayout(rows, cols, 4, 4);
+    }
+
+    public static PCTGridLayout getGridLayout(int rows, int cols, int hgap, int vgap) {
+        return new PCTGridLayout(rows, cols, hgap, vgap);
     }
 
     public static TableLayout getTableLayout(int cols) {
@@ -1156,9 +1165,7 @@ public final class UI {
      */
     public static Component addComponent(Container container, String labeltext,
         Component c) {
-        JLabel l = new JLabel(labeltext);
-        l.setHorizontalAlignment(Global.GRIDLABELALIGN);
-        container.add(l);
+        container.add(getLabel(labeltext));
 
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
@@ -2352,12 +2359,6 @@ public final class UI {
          *  on the main screen */
         protected void newTabSelected(ASMForm f) {
             Global.mainForm.updateAuditInfo(f);
-        }
-    }
-
-    public static class GridLayout extends java.awt.GridLayout {
-        public GridLayout(int rows, int cols, int hgap, int vgap) {
-            super(rows, cols, hgap, vgap);
         }
     }
 

@@ -1915,13 +1915,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         add(tlbTools, UI.BorderLayout.NORTH);
 
         // Details panel ===========================================
-        pnlDetails = UI.getPanel(UI.getGridLayout(2));
+        pnlDetails = UI.getPanel(UI.getGridLayout(2, new int[] { 45, 55 }));
 
         // Details left pane ========================================
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlLeftTop = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlThumbnail = UI.getPanel(UI.getGridLayout(4));
-        pnlLeftFields = UI.getPanel(UI.getGridLayout(2));
+        pnlLeftFields = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
 
         // Thumbnail panel
         lblThumbnail = UI.getLabel();
@@ -2165,7 +2165,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
 
         // Comments panel
-        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 }));
 
         txtMarkings = (UI.TextArea) UI.addComponent(pnlComments,
                 i18n("Dist._Features:"),
@@ -2197,7 +2197,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         pnlDetails.add(pnlRight);
 
         // Entry Details pane ====================================================
-        UI.Panel pnlEntry = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlEntry = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
 
         // Entry Details left pane =================================
         UI.Panel pnlEntryLeft = UI.getPanel(UI.getGridLayout(1));
@@ -2222,7 +2222,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Entry Details right pane ===================================
         UI.Panel pnlEntryRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlEntryRightReasons = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlEntryRightReasons = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65}));
 
         txtReasonNotBroughtByOwner = (UI.TextArea) UI.addComponent(pnlEntryRightReasons,
                 i18n("Reason_not_by_owner"),
@@ -2236,7 +2236,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         pnlEntryRight.add(pnlEntryRightReasons, UI.BorderLayout.CENTER);
 
-        UI.Panel pnlEntryDetails = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlEntryDetails = UI.getPanel(UI.getGridLayout(2, new int[] { 35, 65 } ));
 
         cboEntryReason = (UI.ComboBox) UI.addComponent(pnlEntryDetails,
                 i18n("Entry_Category"),
@@ -2829,7 +2829,7 @@ class AnimalCodeField extends UI.Panel {
         String shorttooltip) {
         super(UI.getBorderLayout(), true);
 
-        UI.Panel bits = UI.getPanel(new UI.GridLayout(0, 2, 0, 0), true);
+        UI.Panel bits = UI.getPanel(UI.getGridLayout(0, 2, 0, 0), true);
         code = UI.getTextField(tooltip, onChange);
         code.setWidth(UI.getTextBoxWidth() / 2);
         code.setForeground(UI.getColor(255, 0, 0));
