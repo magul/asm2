@@ -34,7 +34,6 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TitleLabel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;

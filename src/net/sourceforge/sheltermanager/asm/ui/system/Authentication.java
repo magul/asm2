@@ -25,7 +25,6 @@ import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TitleLabel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
@@ -145,7 +144,7 @@ public class Authentication extends ASMForm {
         UI.addComponent(pt, i18n("Authentication"), cboMech);
 
         p.add(pt);
-        p.add(new TitleLabel(i18n("LDAP")));
+        p.add(UI.getTitleLabel(i18n("LDAP")));
 
         txtLDAPUrl = (UI.TextField) UI.addComponent(pb, i18n("LDAP_URL"),
                 UI.getTextField());

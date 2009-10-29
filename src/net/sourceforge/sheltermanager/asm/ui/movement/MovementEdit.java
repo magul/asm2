@@ -47,7 +47,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.DateChangedListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TitleLabel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -828,10 +827,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         // Panel 1 - Animal/Owner (top/left)
         // ------------------------------------
         UI.Panel aoouter = UI.getPanel(UI.getBorderLayout());
-        aoouter.add(new TitleLabel(i18n("Details")), UI.BorderLayout.NORTH);
+        aoouter.setTitle(i18n("Details"));
 
-        UI.Panel ao = UI.getPanel(UI.getTableLayout(2));
-        aoouter.add(ao, UI.BorderLayout.CENTER);
+        UI.Panel ao = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        aoouter.add(ao, UI.BorderLayout.NORTH);
 
         txtAnimalName = (UI.SearchTextField) UI.addComponent(ao,
                 i18n("Animal:"),
@@ -867,10 +866,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         // Panel 2 - Reservation (top right)
         // ------------------------------------
         UI.Panel reouter = UI.getPanel(UI.getBorderLayout());
-        reouter.add(new TitleLabel(i18n("Reservation")), UI.BorderLayout.NORTH);
+        reouter.setTitle(i18n("Reservation"));
 
-        UI.Panel re = UI.getPanel(UI.getTableLayout(2));
-        reouter.add(re, UI.BorderLayout.CENTER);
+        UI.Panel re = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 } ));
+        reouter.add(re, UI.BorderLayout.NORTH);
 
         txtReservationDate = (DateField) UI.addComponent(re, i18n("Date:"),
                 UI.getDateField(i18n("The_reservation_date"),
@@ -886,10 +885,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         // Panel 3 - bottom left (movement)
         // ------------------------------------
         UI.Panel moouter = UI.getPanel(UI.getBorderLayout());
-        moouter.add(new TitleLabel(i18n("Movement")), UI.BorderLayout.NORTH);
+        moouter.setTitle(i18n("Movement"));
 
-        UI.Panel mo = UI.getPanel(UI.getTableLayout(2));
-        moouter.add(mo, UI.BorderLayout.CENTER);
+        UI.Panel mo = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        moouter.add(mo, UI.BorderLayout.NORTH);
 
         cboMovementType = (UI.ComboBox) UI.addComponent(mo, i18n("Type:"),
                 UI.getCombo(i18n("Type:"), UI.fp(this, "movementTypeChanged")));
@@ -934,7 +933,9 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 UI.getDateField(i18n("The_movement_date"),
                     UI.fp(this, "dataChanged")));
 
-        txtComments = (UI.TextArea) UI.addComponent(mo, i18n("Comments:"),
+        UI.Panel moc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        moouter.add(moc, UI.BorderLayout.CENTER);
+        txtComments = (UI.TextArea) UI.addComponent(moc, i18n("Comments:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
         pnlDetails.add(moouter);
@@ -942,10 +943,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         // Panel 4 - Return (bottom right)
         // ----------------------------------
         UI.Panel rtouter = UI.getPanel(UI.getBorderLayout());
-        rtouter.add(new TitleLabel(i18n("Returning")), UI.BorderLayout.NORTH);
+        rtouter.setTitle(i18n("Returning"));
 
-        UI.Panel rt = UI.getPanel(UI.getTableLayout(2));
-        rtouter.add(rt, UI.BorderLayout.CENTER);
+        UI.Panel rt = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        rtouter.add(rt, UI.BorderLayout.NORTH);
 
         txtDateReturned = (DateField) UI.addComponent(rt, i18n("Date:"),
                 UI.getDateField(i18n("The_date_the_animal_was_returned_to_the_shelter"),
@@ -957,7 +958,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 UI.fp(this, "dataChanged"));
         UI.addComponent(rt, i18n("Return_Category"), cboReturnReason);
 
-        txtReason = (UI.TextArea) UI.addComponent(rt, i18n("Reason:"),
+        UI.Panel rtc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        rtouter.add(rtc, UI.BorderLayout.CENTER);
+
+        txtReason = (UI.TextArea) UI.addComponent(rtc, i18n("Reason:"),
                 UI.getTextArea(i18n("The_reason_the_animal_was_returned"),
                     UI.fp(this, "dataChanged")));
 

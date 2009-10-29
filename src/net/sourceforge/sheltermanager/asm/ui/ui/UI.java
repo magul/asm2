@@ -359,7 +359,10 @@ public final class UI {
     }
 
     public static Label getTitleLabel(String text) {
-        return new TitleLabel(text);
+        Label l = new Label(text);
+        l.setHorizontalAlignment(ALIGN_LEFT);
+        l.setFont(l.getFont().deriveFont(Font.BOLD));
+        return l;
     }
 
     public static Label getHintLabel(String text) {
@@ -2095,6 +2098,12 @@ public final class UI {
 
         public Panel(LayoutManager l, boolean noborder) {
             super(l);
+        }
+
+        public void setTitle(String title) {
+            TitledBorder b = new TitledBorder(title);
+            b.setTitleFont(b.getTitleFont().deriveFont(Font.BOLD));
+            setBorder( b );
         }
 
         public void dispose() {

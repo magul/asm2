@@ -460,8 +460,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
 
         // Details Left ===
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         cboSpecies = UI.getCombo(i18n("Species:"),
                 LookupCache.getSpeciesLookup(), "SpeciesName",
@@ -492,8 +492,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
 
         // Details Right ===
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         chkCanAffordDonation = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(
                     i18n("Donation?"), null, UI.fp(this, "dataChanged")));

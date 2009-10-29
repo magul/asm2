@@ -26,7 +26,6 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TitleLabel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 
 import java.util.Vector;
@@ -222,7 +221,7 @@ public class ProfileEdit extends ASMForm {
                 UI.getTextField());
         p.add(top);
 
-        p.add(new TitleLabel(i18n("Frequency")));
+        p.add(UI.getTitleLabel(i18n("Frequency")));
         radOneOff = (UI.RadioButton) treatments.add(UI.getRadioButton(i18n("One-Off"),
                     null, UI.fp(this, "selectedOneOff")));
         radMultiple = (UI.RadioButton) treatments.add(UI.getRadioButton(i18n("Multiple"),
@@ -244,7 +243,7 @@ public class ProfileEdit extends ASMForm {
         frequency.add(cboTimingRuleFrequency);
         p.add(frequency);
 
-        p.add(new TitleLabel(i18n("Duration")));
+        p.add(UI.getTitleLabel(i18n("Duration")));
         cboTreatmentRule = UI.getCombo(new String[] {
                     i18n("Ends_after"), i18n("Unspecified")
                 }, UI.fp(this, "enableScreenParts"));

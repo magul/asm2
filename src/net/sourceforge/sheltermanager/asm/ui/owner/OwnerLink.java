@@ -27,7 +27,6 @@ import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TitleLabel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -54,7 +53,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     private UI.Button btnFind;
     private UI.Button btnNew;
     private UI.Button btnOpen;
-    private TitleLabel lblTitle;
     private UI.Panel pnlAddress;
     private UI.Panel pnlDetail;
     private UI.Panel pnlName;
@@ -68,6 +66,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     private int filter = FILTER_NONE;
     private int mode = MODE_FULL;
     private String id = "LINK";
+    private String title = "";
 
     public OwnerLink() {
         this(MODE_FULL, 0, "LINK");
@@ -145,11 +144,12 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     }
 
     public String getTitle() {
-        return lblTitle.getText();
+        return title;
     }
 
     public void setTitle(String title) {
-        lblTitle.setText(title);
+        super.setTitle(title);
+        this.title = title;
     }
 
     public void setFilter(int filter) {
@@ -159,9 +159,9 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     public void initComponents() {
         if (mode == MODE_FULL) {
             UI.Panel p = UI.getPanel(UI.getBorderLayout());
-            UI.Panel name = UI.getPanel(UI.getGridLayout(2));
-            UI.Panel address = UI.getPanel(UI.getGridLayout(2));
-            UI.Panel postcode = UI.getPanel(UI.getGridLayout(2));
+            UI.Panel name = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+            UI.Panel address = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+            UI.Panel postcode = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
 
             txtName = (UI.TextField) UI.addComponent(name, i18n("Name:"),
                     UI.getTextField());
@@ -209,9 +209,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             p.add(address, UI.BorderLayout.CENTER);
             p.add(postcode, UI.BorderLayout.SOUTH);
 
-            lblTitle = new TitleLabel("");
             setLayout(UI.getBorderLayout());
-            add(lblTitle, UI.BorderLayout.NORTH);
             add(p, UI.BorderLayout.CENTER);
             add(t, UI.BorderLayout.EAST);
         } else if (mode == MODE_ONELINE) {

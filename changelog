@@ -1,10 +1,14 @@
-2.6.2
+2.6.1.1
 ================
 
+*. Stretchable layout and better use of space on movement screen
+*. Panels can have titles/borders now, replaced title labels
+*. Adjusted scrollbars down to fit min res of 1024x768
 *. Form labels can now break lines if their content is too long (useful 
 -  for translations)
 *. Modified grid layout to allow column width hints as percentages, 
--  modified animal/owner screens to take advantage
+-  modified animal, owner, movement, lost and found, and waiting list
+-  screens to take advantage
 *. Fixed bug in local cache remove all that can cause .asm to be removed 
 -  if it is a symlink to another directory
 *. Added central cage card report

@@ -417,10 +417,10 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         // =========================================================
         UI.Panel pnlDetails = UI.getPanel(UI.getGridLayout(2));
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlLeftTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlLeftMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         // Left column
         // ======================
