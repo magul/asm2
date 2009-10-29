@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. Fixed bug in local cache remove all that can cause .asm to be removed 
+-  if it is a symlink to another directory
 *. Added central cage card report
 *. Fixed minor bug in Dialog wordwrap that could cause error if no
 -  spaces were present

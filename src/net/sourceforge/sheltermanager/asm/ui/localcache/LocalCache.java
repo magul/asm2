@@ -83,6 +83,7 @@ public class LocalCache {
                 try {
                     File f = new File(Global.tempDirectory + File.separator +
                             filename);
+                    Global.logDebug("Deleting " + f.getAbsolutePath(), "LocalCache.removeAllEntries");
                     f.delete();
                     theCache.remove(c);
 
@@ -103,9 +104,12 @@ public class LocalCache {
             CacheEntry c = (CacheEntry) i.next();
 
             try {
-                File f = new File(Global.tempDirectory + File.separator +
-                        c.filename);
-                f.delete();
+                if (!c.filename.trim().equals("")) {
+                    File f = new File(Global.tempDirectory + File.separator +
+                            c.filename);
+                    Global.logDebug("Deleting " + f.getAbsolutePath(), "LocalCache.removeAllEntries");
+                    f.delete();
+                }
             } catch (Exception e) {
                 // Ignore errors
             }
