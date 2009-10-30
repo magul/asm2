@@ -1,6 +1,10 @@
 2.6.2
 ================
 
+*. If head.dat/foot.dat are removed, they are defaulted by the code
+-  so that zoom/styles still works. Fixed bug defaults that caused
+-  the default header to be appended as the footer
+
 2.6.1.1
 ================
 
