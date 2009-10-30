@@ -419,7 +419,7 @@ public abstract class Report extends Thread {
             "<head>\n" +
             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" +
             "<title>" + getTitle() + "</title>\n\n" +
-            "<!-- Embedded style sheet !-->\n" +
+            "<!-- Embedded style sheet - required for internal zoom to work -->\n" +
             "<style>\n\n" +
             "</style>\n" +
             "</head>\n" +
