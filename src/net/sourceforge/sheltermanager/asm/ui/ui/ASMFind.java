@@ -218,36 +218,42 @@ public abstract class ASMFind extends ASMForm {
                     // Do the search
                     runSearch();
 
-                    // Output how many there were
-                    int i = table.getRowCount();
+		    // Shunt the next bit onto the dispatch thread
+		    UI.invokeLater(new Runnable() {
+		    	public void run() {
 
-                    if (i > 0) {
-                        String no = Integer.toString(i);
+			    // Output how many there were
+			    int i = table.getRowCount();
 
-                        if (i == Global.getRecordSearchLimit()) {
-                            no += "+";
-                        }
+			    if (i > 0) {
+				String no = Integer.toString(i);
 
-                        setStatusText(Global.i18n("uilostandfound",
-                                "search_complete", no));
-                    } else {
-                        setStatusText(Global.i18n("uilostandfound",
-                                "Search_complete_-_no_matches_found."));
-                    }
+				if (i == Global.getRecordSearchLimit()) {
+				    no += "+";
+				}
 
-                    // Reset the status meter back to 0
-                    resetStatusBar();
+				setStatusText(Global.i18n("uilostandfound",
+					"search_complete", no));
+			    } else {
+				setStatusText(Global.i18n("uilostandfound",
+					"Search_complete_-_no_matches_found."));
+			    }
 
-                    // Enable searching
-                    btnSearch.setEnabled(true);
+			    // Reset the status meter back to 0
+			    resetStatusBar();
 
-                    // If there were some results, highlight the first row in the table
-                    if (i > 0) {
-                        table.changeSelection(0, 0, false, false);
-                        updateButtons(true);
-                    }
+			    // Enable searching
+			    btnSearch.setEnabled(true);
 
-                    UI.cursorToPointer();
+			    // If there were some results, highlight the first row in the table
+			    if (i > 0) {
+				table.changeSelection(0, 0, false, false);
+				updateButtons(true);
+			    }
+
+			    UI.cursorToPointer();
+			}
+		    });
                 }
             }.start();
     }
