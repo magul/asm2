@@ -1,6 +1,8 @@
-2.6.2
+2.6.1.2
 ================
 
+*. Utils.replace can miss a token if the replace string is empty
+-  noticeable with publishers stripping line breaks
 *. Shunt setTableData call onto dispatch thread as it seems to cause
 -  some thread deadlock issues on Windows on the search screens
 *. If head.dat/foot.dat are removed, they are defaulted by the code
