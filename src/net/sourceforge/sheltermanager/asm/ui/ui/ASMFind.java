@@ -218,42 +218,43 @@ public abstract class ASMFind extends ASMForm {
                     // Do the search
                     runSearch();
 
-		    // Shunt the next bit onto the dispatch thread
-		    UI.invokeLater(new Runnable() {
-		    	public void run() {
+                    // Shunt the next bit onto the dispatch thread
+                    UI.invokeLater(new Runnable() {
+                            public void run() {
+                                // Output how many there were
+                                int i = table.getRowCount();
 
-			    // Output how many there were
-			    int i = table.getRowCount();
+                                if (i > 0) {
+                                    String no = Integer.toString(i);
 
-			    if (i > 0) {
-				String no = Integer.toString(i);
+                                    if (i == Global.getRecordSearchLimit()) {
+                                        no += "+";
+                                    }
 
-				if (i == Global.getRecordSearchLimit()) {
-				    no += "+";
-				}
+                                    setStatusText(Global.i18n(
+                                            "uilostandfound",
+                                            "search_complete", no));
+                                } else {
+                                    setStatusText(Global.i18n(
+                                            "uilostandfound",
+                                            "Search_complete_-_no_matches_found."));
+                                }
 
-				setStatusText(Global.i18n("uilostandfound",
-					"search_complete", no));
-			    } else {
-				setStatusText(Global.i18n("uilostandfound",
-					"Search_complete_-_no_matches_found."));
-			    }
+                                // Reset the status meter back to 0
+                                resetStatusBar();
 
-			    // Reset the status meter back to 0
-			    resetStatusBar();
+                                // Enable searching
+                                btnSearch.setEnabled(true);
 
-			    // Enable searching
-			    btnSearch.setEnabled(true);
+                                // If there were some results, highlight the first row in the table
+                                if (i > 0) {
+                                    table.changeSelection(0, 0, false, false);
+                                    updateButtons(true);
+                                }
 
-			    // If there were some results, highlight the first row in the table
-			    if (i > 0) {
-				table.changeSelection(0, 0, false, false);
-				updateButtons(true);
-			    }
-
-			    UI.cursorToPointer();
-			}
-		    });
+                                UI.cursorToPointer();
+                            }
+                        });
                 }
             }.start();
     }

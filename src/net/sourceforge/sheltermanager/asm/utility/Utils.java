@@ -84,7 +84,8 @@ public abstract class Utils {
             while (i <= (sb.length() - find.length())) {
                 if (sb.substring(i, i + find.length()).equalsIgnoreCase(find)) {
                     sb.replace(i, i + find.length(), replacewith);
-		    continue;
+
+                    continue;
                 }
 
                 i++;

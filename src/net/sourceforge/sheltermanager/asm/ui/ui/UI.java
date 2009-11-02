@@ -1730,50 +1730,52 @@ public final class UI {
          * @param rows The number of rows in the data
          * @param idColumn The index of the column containing the ID field
          */
-        public void setTableData(final String[] columnheaders, final String[][] data,
-            final int rows, final int maxcols, final int idColumn) {
+        public void setTableData(final String[] columnheaders,
+            final String[][] data, final int rows, final int maxcols,
+            final int idColumn) {
+            // Shunt this onto the dispatch thread - seems to hang on windows sometimes
+            UI.invokeLater(new Runnable() {
+                    public void run() {
+                        // Set the new model for the data
+                        model = new SortableTableModel();
 
-	    // Shunt this onto the dispatch thread - seems to hang on windows sometimes
-	    UI.invokeLater(new Runnable() { 
-	    	public void run() {
-		    // Set the new model for the data
-		    model = new SortableTableModel();
+                        if (maxcols != -1) {
+                            model.setData(columnheaders, data, rows, maxcols,
+                                idColumn);
+                        } else {
+                            model.setData(columnheaders, data, rows, idColumn);
+                        }
 
-		    if (maxcols != -1) {
-			model.setData(columnheaders, data, rows, maxcols, idColumn);
-		    } else {
-			model.setData(columnheaders, data, rows, idColumn);
-		    }
+                        setModel(model);
 
-		    setModel(model);
+                        if (multiselect) {
+                            setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+                        }
 
-		    if (multiselect) {
-			setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		    }
+                        model.addMouseListenerToHeaderInTable(Table.this);
+                        model.packColumns(4);
 
-		    model.addMouseListenerToHeaderInTable(Table.this);
-		    model.packColumns(4);
+                        // If we have a renderer, use it
+                        if (renderer != null) {
+                            renderer.setTableModel(model);
 
-		    // If we have a renderer, use it
-		    if (renderer != null) {
-			renderer.setTableModel(model);
+                            int columnCount = model.getColumnCount();
+                            TableColumnModel colmod = getColumnModel();
+                            TableColumn column = colmod.getColumn(columnCount -
+                                    1);
 
-			int columnCount = model.getColumnCount();
-			TableColumnModel colmod = getColumnModel();
-			TableColumn column = colmod.getColumn(columnCount - 1);
+                            for (int i = 0; i < columnCount; i++) {
+                                column = colmod.getColumn(i);
+                                column.setCellRenderer((TableCellRenderer) renderer);
+                            }
+                        }
 
-			for (int i = 0; i < columnCount; i++) {
-			    column = colmod.getColumn(i);
-			    column.setCellRenderer((TableCellRenderer) renderer);
-			}
-		    }
-
-		    // Redraw the table
-		    // TODO: Needed for Swing? Should maybe use tablemodel events
-		    // setDirty(true);
-		    // refreshTable();
-		}
-            });
+                        // Redraw the table
+                        // TODO: Needed for Swing? Should maybe use tablemodel events
+                        // setDirty(true);
+                        // refreshTable();
+                    }
+                });
         }
 
         /** Returns the selected ID field in the table */

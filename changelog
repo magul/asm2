@@ -1,6 +1,7 @@
 2.6.1.2
 ================
 
+*. Removed XULRunner dependency from deb/rpm packages
 *. Utils.replace can miss a token if the replace string is empty
 -  noticeable with publishers stripping line breaks
 *. Shunt setTableData call onto dispatch thread as it seems to cause

@@ -48,7 +48,7 @@ Section: contrib
 Priority: optional
 Architecture: all
 Essential: no
-Depends: menu, sun-java6-jre, xulrunner-1.9
+Depends: menu, sun-java6-jre
 Suggests: openoffice.org-writer
 Installed-Size: `du -s -k sheltermanager | awk '{print$1}'`
 Maintainer: Robin Rawson-Tetley [robin@rawsontetley.org]
