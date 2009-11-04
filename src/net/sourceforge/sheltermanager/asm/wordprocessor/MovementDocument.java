@@ -123,8 +123,11 @@ public class MovementDocument extends GenerateDocument {
                 Utils.formatDate(movement.getReturnDate()));
             addTag(Global.i18n("wordprocessor", "InsuranceNumber"),
                 Utils.nullToEmptyString(movement.getInsuranceNumber()));
+            String donation = "";
+            if (movement.getDonation() != null)
+                donation = movement.getDonation().toString();
             addTag(Global.i18n("wordprocessor", "AdoptionDonation"),
-                movement.getDonation().toString());
+                donation);
             addTag(Global.i18n("wordprocessor", "ReservationDate"),
                 Utils.formatDate(movement.getReservationDate()));
             addTag(Global.i18n("wordprocessor", "ReservationCancelledDate"),
