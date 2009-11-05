@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. Allowed MySQL driver to work with UTF8 data
+*. Database copy/import include additional fields
 *. Fixed bug in medical regime/profiles that meant that screen controls
 -  didn't disable properly for one-off treatments
 *. Don't show number of treatments for one-off medicals

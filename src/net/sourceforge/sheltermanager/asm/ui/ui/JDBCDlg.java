@@ -154,7 +154,7 @@ public class JDBCDlg extends ASMDialog {
         case 1:
             Dialog.lastJDBC = "jdbc:mysql://" + host + "/" + db + "?user=" +
                 user + (hasPass ? ("&password=" + pass) : "") +
-                "&zeroDateTimeBehaviour=convertToNull";
+                "&zeroDateTimeBehaviour=convertToNull&useUnicode=true&characterEncoding=UTF8";
 
             break;
 

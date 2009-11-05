@@ -177,8 +177,10 @@ class Copier implements Runnable {
             }
         }
 
-        Global.mainForm.initStatusBarMax(43);
+        Global.mainForm.initStatusBarMax(45);
 
+        copyTable(c, dbType, "additional", false, "copytool");
+        copyTable(c, dbType, "additionalfield", false, "copytool");
         copyTable(c, dbType, "adoption", true, "copytool");
         copyTable(c, dbType, "animaldiet", true, "copytool");
         copyTable(c, dbType, "animalfound", true, "copytool");

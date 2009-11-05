@@ -392,6 +392,23 @@ public abstract class Global {
         }
     }
 
+    /** Sets MySQL to use UTF8 if locale isn't English */
+    public static void setUTF8() {
+        try {
+            // Don't bother for English locales
+            if (settings_Locale.startsWith("en")) return;
+
+            // We don't need to do anything special for Postgres or HSQL
+            if (DBConnection.DBType == DBConnection.MYSQL) {
+                logInfo("Setting MySQL to use UTF8", "Global.setUTF8");
+                DBConnection.executeAction("SET NAMES utf8");
+            }
+        }
+        catch (Exception e) {
+            logException(e, Global.class);
+        }
+    }
+
     /** Determines whether the log is in use */
     public static void setUsingLog(boolean b) {
         usingLog = b;

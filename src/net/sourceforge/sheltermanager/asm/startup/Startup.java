@@ -308,6 +308,9 @@ public class Startup implements Runnable {
             sp.setStatus("Setting maximum packet size...");
             sp.incrementBar();
             Global.setMaxAllowedPacket();
+            // Switch to UTF8 mode if the server needs it
+            sp.setStatus("Switching to UTF8 input/output...");
+            Global.setUTF8();
 
             // Check the screen resolution
             Global.screenResAbove1024 = UI.getScreenSize().width > 1024;
