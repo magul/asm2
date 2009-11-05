@@ -131,7 +131,7 @@ public class ProfileEdit extends ASMForm {
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
 
-            if (mp.getTimingRule().equals("0")) {
+            if (mp.getTimingRule().intValue() == 0) {
                 radOneOff.setSelected(true);
             } else {
                 radMultiple.setSelected(true);
@@ -328,7 +328,7 @@ public class ProfileEdit extends ASMForm {
                         cboTimingRuleFrequency.getSelectedIndex()));
             }
 
-            if (mp.getTimingRule().equals("0")) {
+            if (mp.getTimingRule().intValue() == 0) {
                 radOneOff.setSelected(true);
             } else {
                 spnTimingRule.setValue(mp.getTimingRule());

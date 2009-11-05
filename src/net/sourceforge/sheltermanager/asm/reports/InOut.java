@@ -134,6 +134,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Brought_In")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -150,6 +151,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
                     tableAddCell(theA.getShelterCode());
+                    tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
                     tableAddCell(theA.getAnimalTypeName());
                     tableAddCell(theA.getSpeciesName());
@@ -201,6 +203,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Brought_In")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -216,6 +219,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
                     tableAddCell(theA.getShelterCode());
+                    tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
                     tableAddCell(theA.getAnimalTypeName());
                     tableAddCell(theA.getSpeciesName());
@@ -262,6 +266,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -277,6 +282,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -316,6 +322,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -331,6 +338,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -371,6 +379,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -386,6 +395,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -429,6 +439,7 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Returned_From")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -444,6 +455,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(theAD.getReadableMovementType());
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -482,6 +494,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Adoption_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -504,6 +517,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -547,6 +561,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Deceased")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -564,6 +579,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDeceasedDate()));
                     tableAddCell(theA.getShelterCode());
+                    tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
                     tableAddCell(theA.getAnimalTypeName());
                     tableAddCell(theA.getSpeciesName());
@@ -610,6 +626,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Reclaimed")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -624,6 +641,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
                     tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
                     tableAddCell(theAd.getAnimal().getAnimalTypeName());
                     tableAddCell(theAd.getAnimal().getSpeciesName());
@@ -662,6 +680,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Fostered")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -677,6 +696,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -715,6 +735,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Transferred")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -730,6 +751,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
                     tableAddCell(theAD.getAnimal().getAnimalTypeName());
                     tableAddCell(theAD.getAnimal().getSpeciesName());
@@ -769,6 +791,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Escaped")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -783,6 +806,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
                     tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
                     tableAddCell(theAd.getAnimal().getAnimalTypeName());
                     tableAddCell(theAd.getAnimal().getSpeciesName());
@@ -820,6 +844,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Stolen")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -834,6 +859,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
                     tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
                     tableAddCell(theAd.getAnimal().getAnimalTypeName());
                     tableAddCell(theAd.getAnimal().getSpeciesName());
@@ -872,6 +898,7 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Released")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
+                tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
                 tableAddCell(bold(Global.i18n("reports", "Species")));
@@ -886,6 +913,7 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
                     tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
                     tableAddCell(theAd.getAnimal().getAnimalTypeName());
                     tableAddCell(theAd.getAnimal().getSpeciesName());

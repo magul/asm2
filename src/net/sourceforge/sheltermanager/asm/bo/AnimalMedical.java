@@ -537,9 +537,15 @@ public class AnimalMedical extends UserInfoBO {
 
     /**
      * Pulls together the treatment rule information to return a string like
-     * "Unspecified" or "21 Treatment Periods (52 treatments)"
+     * "Unspecified" or "21 Treatment Periods (52 treatments)" or
+     * "1 treatment" for one-offs
      */
     public String getNamedNumberOfTreatments() throws CursorEngineException {
+
+        if (getTimingRule().intValue() == 0) {
+            return "1 " + Global.i18n("uimedical", "treatment");
+        }
+
         if (getTreatmentRule().intValue() == 1) {
             return Global.i18n("bo", "Unspecified");
         }

@@ -143,7 +143,8 @@ public class MedicalEdit extends ASMForm {
             txtDosage.setText(am.getDosage());
             cboStatus.setSelectedIndex(am.getStatus().intValue());
 
-            if (am.getTimingRule().equals("0")) {
+            if (am.getTimingRule().intValue() == 0) {
+                radMultiple.setSelected(false);
                 radOneOff.setSelected(true);
             } else {
                 spnTimingRule.setValue(am.getTimingRule());
@@ -206,7 +207,8 @@ public class MedicalEdit extends ASMForm {
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
 
-            if (mp.getTimingRule().equals("0")) {
+            if (mp.getTimingRule().intValue() == 0) {
+                radMultiple.setSelected(false);
                 radOneOff.setSelected(true);
             } else {
                 spnTimingRule.setValue(mp.getTimingRule());
@@ -217,7 +219,7 @@ public class MedicalEdit extends ASMForm {
             }
 
             // Only populate if the treatment rule isn't "unspecified"
-            if (!mp.getTreatmentRule().equals("2")) {
+            if (mp.getTreatmentRule().intValue() != 2) {
                 cboTreatmentRule.setSelectedIndex(mp.getTreatmentRule()
                                                     .intValue());
             }
@@ -407,6 +409,7 @@ public class MedicalEdit extends ASMForm {
             }
 
             if (am.getTimingRule().intValue() == 0) {
+                radMultiple.setSelected(false);
                 radOneOff.setSelected(true);
             } else {
                 spnTimingRule.setValue(am.getTimingRule());
