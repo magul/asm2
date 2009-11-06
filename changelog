@@ -1,6 +1,10 @@
 2.6.2
 ================
 
+*. No longer keeps list of database translation patches and reads the
+-  language from the locale and attempts to discover the patch at
+-  runtime
+*. Added Thai language support
 *. Database Import/Copy should include coat type as well, it was also 
 -  missing from the list of tables on the custom report editing screen
 *. Allowed MySQL driver to work with UTF8 data

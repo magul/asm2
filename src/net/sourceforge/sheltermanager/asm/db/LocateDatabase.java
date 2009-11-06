@@ -361,22 +361,20 @@ public class LocateDatabase {
      * the current database.
      */
     public void applyTranslationPatch() {
+
+        String lang = Locale.getDefault().getLanguage();
+
         try {
-            // Languages for which we have patch files
-            String[] patches = { "de", "es", "fr", "lt", "nl" };
+            // Don't bother for english
+            if (lang.equals("en")) return;
 
-            for (int i = 0; i < patches.length; i++) {
-                if (Locale.getDefault().getLanguage().equals(patches[i])) {
-                    DBConnection.executeFile(new File(Global.dataDirectory +
-                            File.separator + "sql" + File.separator +
-                            "translate_" + patches[i] + ".sql"));
+            DBConnection.executeFile(new File(Global.dataDirectory +
+                File.separator + "sql" + File.separator +
+                "translate_" + lang + ".sql"));
 
-                    break;
-                }
-            }
         } catch (Exception e) {
             Global.logError("Failed to apply translation patch for language '" +
-                Locale.getDefault().getLanguage() + "'",
+                lang + "'",
                 "LocateDatabase.applyTranslationPatch");
             Global.logException(e, getClass());
         }
