@@ -100,6 +100,23 @@ public final class UI {
         }
     }
 
+    /**
+     * Reads a mnemonic from the text string given (&c) or mnemonic if
+     * none is found.
+     */
+    private static char mnemonicFromText(String text, char mnemonic) {
+        int i = text.indexOf("&");
+        if (i == -1 || i == (text.length() - 1))
+            return mnemonic;
+        else
+            return text.charAt(i + 1);
+    }
+
+    private static String mnemonicRemove(String text) {
+        return Utils.replace(text, "&", "");
+    }
+
+
     // Component helpers
     public static Button getButton(String text, FunctionPointer onClick) {
         return getButton(text, null, ' ', null, onClick);
@@ -125,7 +142,7 @@ public final class UI {
         Button b = new Button();
 
         if (text != null) {
-            b.setText(text);
+            b.setText(mnemonicRemove(text));
         }
 
         if (icon != null) {
@@ -133,7 +150,10 @@ public final class UI {
         }
 
         if (((mnemonic != ' ') && Global.buttonHotkeys) || (text != null)) {
-            b.setMnemonic(mnemonic);
+            if (text != null) 
+                b.setMnemonic(mnemonicFromText(text, mnemonic));
+            else
+                b.setMnemonic(mnemonic);
 
             if (text == null) {
                 b.setText(Character.toString(mnemonic));
@@ -141,7 +161,7 @@ public final class UI {
         }
 
         if (tooltiptext != null) {
-            b.setToolTipText(tooltiptext);
+            b.setToolTipText(mnemonicRemove(tooltiptext));
         }
 
         if (onClick != null) {
@@ -887,11 +907,8 @@ public final class UI {
 
     public static Menu getMenu(String text, char mnemonic, Icon icon) {
         Menu m = new Menu();
-        m.setText(text);
-
-        if (mnemonic != ' ') {
-            m.setMnemonic(mnemonic);
-        }
+        m.setText(mnemonicRemove(text));
+        m.setMnemonic(mnemonicFromText(text, mnemonic));
 
         if (icon != null) {
             m.setIcon(icon);
@@ -917,11 +934,8 @@ public final class UI {
     public static MenuItem getMenuItem(String text, char mnemonic, Icon icon,
         ASMAccelerator hotkey, final FunctionPointer onClick) {
         MenuItem m = new MenuItem();
-        m.setText(text);
-
-        if (mnemonic != ' ') {
-            m.setMnemonic(mnemonic);
-        }
+        m.setText(mnemonicRemove(text));
+        m.setMnemonic(mnemonicFromText(text, mnemonic));
 
         if (icon != null) {
             m.setIcon(icon);

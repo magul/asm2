@@ -1,6 +1,9 @@
 2.6.2
 ================
 
+*. Escape apostrophes when generating database translation patch files
+*. Removed unnecessary CTRL+SHIFT+X hints for toolbar buttons
+*. Menu options can have hotkeys added with & for translations
 *. Collect Garbage option is hidden for non-debug mode
 *. No longer keeps list of database translation patches and reads the
 -  language from the locale and attempts to discover the patch at

@@ -791,7 +791,7 @@ public class Main extends ASMWindow {
                 new ASMAccelerator("r", "ctrl", "shift"),
                 UI.fp(this, "actionFileAnimalReservationBook"));
 
-        mnuFileAnimalFosterBook = UI.getMenuItem(i18n("foster_book_m"), 'o',
+        mnuFileAnimalFosterBook = UI.getMenuItem(i18n("Foster_Book"), 'o',
                 IconManager.getIcon(IconManager.MENU_FILEANIMALFOSTERBOOK),
                 new ASMAccelerator("o", "ctrl", "shift"),
                 UI.fp(this, "actionFileAnimalFosterBook"));
@@ -1556,31 +1556,31 @@ public class Main extends ASMWindow {
         tlbTools.setPlatformToolbar(true);
         tlbTools.setRollover(true);
 
-        btnAddAnimal = UI.getButton(null, i18n("Add_a_new_animal_(CTRL+N)"),
+        btnAddAnimal = UI.getButton(null, i18n("Add_a_new_animal"),
                 IconManager.getIcon(IconManager.BUTTON_ADDANIMAL),
                 UI.fp(this, "actionFileAnimalAddAnimal"));
 
         tlbTools.add(btnAddAnimal);
 
-        btnFindAnimal = UI.getButton(null, i18n("Find_an_Animal_(CTRL+F)"),
+        btnFindAnimal = UI.getButton(null, i18n("Find_an_Animal"),
                 IconManager.getIcon(IconManager.BUTTON_FINDANIMAL),
                 UI.fp(this, "actionFileAnimalFindAnimal"));
 
         tlbTools.add(btnFindAnimal);
 
-        btnAddOwner = UI.getButton(null, i18n("Add_an_Owner_(SHIFT+CTRL+N)"),
+        btnAddOwner = UI.getButton(null, i18n("Add_an_Owner"),
                 IconManager.getIcon(IconManager.BUTTON_ADDOWNER),
                 UI.fp(this, "actionFileOwnerAddOwner"));
 
         tlbTools.add(btnAddOwner);
 
-        btnFindOwner = UI.getButton(null, i18n("Find_an_Owner_(SHIFT+CTRL+F)"),
+        btnFindOwner = UI.getButton(null, i18n("Find_an_Owner"),
                 IconManager.getIcon(IconManager.BUTTON_FINDOWNER),
                 UI.fp(this, "actionFileOwnerFindOwner"));
 
         tlbTools.add(btnFindOwner);
 
-        btnHelp = UI.getButton(null, i18n("Help_(F1)"),
+        btnHelp = UI.getButton(null, i18n("Help"),
                 IconManager.getIcon(IconManager.BUTTON_HELP),
                 UI.fp(this, "actionHelpContents"));
         tlbTools.add(btnHelp);
@@ -1620,19 +1620,19 @@ public class Main extends ASMWindow {
         tlbTools.addSeparator();
 
         btnReservations = UI.getButton(null,
-                i18n("Reservation_Book_(SHIFT+CTRL+R)"),
+                i18n("Reservation_Book"),
                 IconManager.getIcon(IconManager.BUTTON_RESERVATIONS),
                 UI.fp(this, "actionFileAnimalReservationBook"));
 
         tlbTools.add(btnReservations);
 
-        btnFosterBook = UI.getButton(null, i18n("foster_book"),
+        btnFosterBook = UI.getButton(null, i18n("Foster_Book"),
                 IconManager.getIcon(IconManager.BUTTON_FOSTERBOOK),
                 UI.fp(this, "actionFileAnimalFosterBook"));
 
         tlbTools.add(btnFosterBook);
 
-        btnRetailerBook = UI.getButton(null, i18n("Retailer_Book_ctrlse"),
+        btnRetailerBook = UI.getButton(null, i18n("Retailer_Book"),
                 IconManager.getIcon(IconManager.BUTTON_RETAILERBOOK),
                 UI.fp(this, "actionFileAnimalRetailerBook"));
 
@@ -1642,26 +1642,26 @@ public class Main extends ASMWindow {
         }
 
         btnWaitingList = UI.getButton(null,
-                i18n("Waiting_List_(SHIFT+CTRL+W)"),
+                i18n("Waiting_List"),
                 IconManager.getIcon(IconManager.BUTTON_WAITINGLIST),
                 UI.fp(this, "actionFileAnimalWaitingList"));
 
         tlbTools.add(btnWaitingList);
 
-        btnAddDiary = UI.getButton(null, i18n("Add_Diary_Note_(CTRL+D)"),
+        btnAddDiary = UI.getButton(null, i18n("Add_Diary_Note"),
                 IconManager.getIcon(IconManager.BUTTON_ADDDIARY),
                 UI.fp(this, "actionDiaryAddNote"));
 
         tlbTools.add(btnAddDiary);
 
-        btnViewMyDiary = UI.getButton(null, i18n("Edit_Diary_Notes_(CTRL+M)"),
+        btnViewMyDiary = UI.getButton(null, i18n("Edit_Diary_Notes"),
                 IconManager.getIcon(IconManager.BUTTON_VIEWMYDIARY),
                 UI.fp(this, "actionDiaryViewMyNotes"));
 
         tlbTools.add(btnViewMyDiary);
 
         btnPrintDiary = UI.getButton(null,
-                i18n("Print_Diary_Notes_(SHIFT+CTRL+P)"),
+                i18n("Print_Diary_Notes"),
                 IconManager.getIcon(IconManager.BUTTON_PRINTDIARY),
                 UI.fp(this, "actionDiaryPrintNotes"));
 

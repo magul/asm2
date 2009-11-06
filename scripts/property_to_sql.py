@@ -52,6 +52,9 @@ for l in lines:
     id = kb[1]
     if id.find("=") != -1: id = id[0:id.find("=")]
 
+    # Escape any apostrophes
+    value = value.replace("'", "''")
+
     seenit = False
     for t in seentables:
         if t == table:
