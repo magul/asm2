@@ -368,6 +368,9 @@ public class LocateDatabase {
             // Don't bother for english
             if (lang.equals("en")) return;
 
+            Global.logInfo("Applying translation patch for language '" + 
+                lang + "'", "LocateDatabase.applyTranslationPatch");
+
             DBConnection.executeFile(new File(Global.dataDirectory +
                 File.separator + "sql" + File.separator +
                 "translate_" + lang + ".sql"));

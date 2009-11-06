@@ -85,11 +85,13 @@ lbl_data:
   File ..\..\sql\hsqldb.sql
   File ..\..\sql\postgresql.sql
   File ..\..\sql\mysql.sql
-  File ..\..\sql\translate_lt.sql
-  File ..\..\sql\translate_fr.sql
-  File ..\..\sql\translate_nl.sql
-  File ..\..\sql\translate_es.sql
+  File ..\..\sql\translate_de.sql
   File ..\..\sql\translate_en.sql
+  File ..\..\sql\translate_es.sql
+  File ..\..\sql\translate_fr.sql
+  File ..\..\sql\translate_lt.sql
+  File ..\..\sql\translate_nl.sql
+  File ..\..\sql\translate_th.sql
   SetOutPath $INSTDIR\data
   File ..\..\build\asm_en.pdf
   File ..\..\build\manual_html_en.zip
