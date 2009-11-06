@@ -1465,7 +1465,12 @@ public class Main extends ASMWindow {
 
         mnuPreferences.add(mnuPreferencesLocalCache);
         mnuPreferences.add(UI.getSeparator());
-        mnuPreferences.add(mnuPreferencesCallGC);
+
+        // Only enable garbage collection for debug mode
+        if (Global.showDebug) {
+            mnuPreferences.add(mnuPreferencesCallGC);
+        }
+
         mnuPreferences.add(mnuPreferencesFileTypes);
         mnuPreferences.add(mnuPreferencesSwitchDatabase);
         mnuPreferences.add(mnuPreferencesSettings);
