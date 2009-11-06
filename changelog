@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. Database Import/Copy should include coat type as well, it was also 
+-  missing from the list of tables on the custom report editing screen
 *. Allowed MySQL driver to work with UTF8 data
 *. Database copy/import include additional fields
 *. Fixed bug in medical regime/profiles that meant that screen controls

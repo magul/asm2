@@ -248,11 +248,12 @@ public class CustomReportEdit extends ASMForm {
         cboTables.addItem("donationtype");
         cboTables.addItem("entryreason");
         cboTables.addItem("internallocation");
-        cboTables.addItem("lksmovementtype");
+        cboTables.addItem("lkcoattype");
         cboTables.addItem("lksdiarylink");
         cboTables.addItem("lksfieldlink");
         cboTables.addItem("lksfieldtype");
         cboTables.addItem("lksloglink");
+        cboTables.addItem("lksmovementtype");
         cboTables.addItem("lksposneg");
         cboTables.addItem("lksex");
         cboTables.addItem("lksize");

@@ -69,7 +69,7 @@ public class DatabaseImporter implements Runnable {
 
     public void run() {
         if (Global.mainForm != null) {
-            Global.mainForm.initStatusBarMax(44);
+            Global.mainForm.initStatusBarMax(45);
         }
 
         importTable(c, dbType, "additional", false, "importtool");
@@ -102,6 +102,7 @@ public class DatabaseImporter implements Runnable {
         importTable(c, dbType, "donationtype", false, "importtool");
         importTable(c, dbType, "entryreason", false, "importtool");
         importTable(c, dbType, "internallocation", false, "importtool");
+        importTable(c, dbType, "lkcoattype", false, "importtool");
         importTable(c, dbType, "lksdiarylink", false, "importtool");
         importTable(c, dbType, "lksex", false, "importtool");
         importTable(c, dbType, "lksize", false, "importtool");
