@@ -1760,7 +1760,6 @@ public final class UI {
                         } else {
                             model.setData(columnheaders, data, rows, idColumn);
                         }
-
                         setModel(model);
 
                         if (multiselect) {
@@ -1769,6 +1768,7 @@ public final class UI {
 
                         model.addMouseListenerToHeaderInTable(Table.this);
                         model.packColumns(4);
+			model.fireTableDataChanged();
 
                         // If we have a renderer, use it
                         if (renderer != null) {
@@ -1785,10 +1785,6 @@ public final class UI {
                             }
                         }
 
-                        // Redraw the table
-                        // TODO: Needed for Swing? Should maybe use tablemodel events
-                        // setDirty(true);
-                        // refreshTable();
                     }
                 });
         }

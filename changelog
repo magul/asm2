@@ -1,6 +1,7 @@
 2.6.2
 ================
 
+*. Added table model events to try and fix repaint issue on some Macs
 *. Fixed replace bug that caused some document generation to hang
 *. Use concurrent mark and sweep gc by default for Windows
 *. Use dark font for active tab (can be invisible with some themes as text
