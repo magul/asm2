@@ -1,6 +1,7 @@
 2.6.2
 ================
 
+*. Fixed replace bug that caused some document generation to hang
 *. Use concurrent mark and sweep gc by default for Windows
 *. Use dark font for active tab (can be invisible with some themes as text
 -  did not change colour, but background did)

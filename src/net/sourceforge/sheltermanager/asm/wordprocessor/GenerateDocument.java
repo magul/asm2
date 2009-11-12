@@ -438,15 +438,21 @@ public abstract class GenerateDocument extends Thread
 
                 if (lastseparator > 0) {
                     String newdir = newfile.substring(0, lastseparator);
+		    Global.logDebug("Created directory: " + newdir, "GenerateDocument.unzip");
                     new File(newdir).mkdirs();
                 }
 
+		Global.logDebug("Calling copyInputStream", "GenerateDocument.unzip");
                 copyInputStream(z.getInputStream(entry),
                     new BufferedOutputStream(new FileOutputStream(newfile)),
                     true, true);
+		Global.logDebug("Exited copyInputStream", "GenerateDocument.unzip");
             }
 
+	    Global.logDebug("Finished unpacking zip file", "GenerateDocument.unzip");
             z.close();
+	    Global.logDebug("Closed zip file", "GenerateDocument.unzip");
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -456,6 +462,12 @@ public abstract class GenerateDocument extends Thread
         boolean closeIn, boolean closeOut) throws IOException {
         byte[] buffer = new byte[1024];
         int len;
+
+	// If there's nothing in the buffer, bail out
+	if (in.available() == 0) {
+	     Global.logDebug("Empty buffer, bailing", "GenerateDocument.copyInputStream");
+	     return;
+	}
 
         while ((len = in.read(buffer)) >= 0)
             out.write(buffer, 0, len);
@@ -622,6 +634,8 @@ public abstract class GenerateDocument extends Thread
         final String MAGIC_TAG = "draw:name=\"media\"";
         String oodir = Global.tempDirectory + File.separator + "openoffice";
 
+	Global.logDebug("Processing OpenOffice image...", "processOpenOfficeImage");
+
         try {
             String s = Utils.readFile(localfile);
 
@@ -669,6 +683,8 @@ public abstract class GenerateDocument extends Thread
 
             // Replace the file on the disk with this one
             Utils.writeFile(localfile, s.getBytes("UTF8"));
+
+	    Global.logDebug("Finished processing OpenOffice image.", "GenerateDocument.processOpenOfficeImage");
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());
@@ -791,6 +807,9 @@ public abstract class GenerateDocument extends Thread
 
     protected void processText(boolean markedUp, boolean displayAfterwards) {
         try {
+
+            Global.logDebug("Entering processText", "GenerateDocument.processText");
+
             // Mark up our content if the text is marked up
             if (markedUp) {
                 markUpTags();
@@ -853,7 +872,10 @@ public abstract class GenerateDocument extends Thread
             thefile = sb.toString();
 
             // Replace the file on the disk with this one
+            Global.logDebug("Writing update document to disk", "GenerateDocument.processText");
             Utils.writeFile(localfile, thefile.getBytes("UTF8"));
+
+            Global.logDebug("Completed processText", "GenerateDocument.processText");
 
             // End this now if we aren't displaying
             if (!displayAfterwards) {
@@ -993,10 +1015,10 @@ public abstract class GenerateDocument extends Thread
      * correctly. Thankfully there are only three that are necessary.
      */
     private void markUpTags() {
-        Iterator stags = searchtags.iterator();
+    	Global.logDebug("Marking up search tags for XML", "GenerateDocument.markupTags");
 
-        while (stags.hasNext()) {
-            SearchTag tag = (SearchTag) stags.next();
+	for (int i = 0; i < searchtags.size(); i++) {
+            SearchTag tag = (SearchTag) searchtags.get(i);
 
             // Ampersands
             if (tag.replace.indexOf('&') != -1) {
@@ -1013,6 +1035,7 @@ public abstract class GenerateDocument extends Thread
                 tag.replace = Utils.replace(tag.replace, ">", "&lt;");
             }
         }
+    	Global.logDebug("Finished marking up search tags for XML", "GenerateDocument.markupTags");
     }
 
     public void finalize() throws Throwable {
