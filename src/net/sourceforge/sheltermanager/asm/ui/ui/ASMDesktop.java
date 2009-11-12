@@ -201,7 +201,7 @@ class ASMTab extends JPanel implements MouseListener {
 
         this.plain = getFont().deriveFont(Font.PLAIN);
         this.bold = getFont().deriveFont(Font.BOLD);
-        this.title = title;
+        this.title = UI.mnemonicRemove(title);
         this.tooltip = tooltip;
         this.icon = icon;
         this.form = form;
@@ -244,7 +244,7 @@ class ASMTab extends JPanel implements MouseListener {
     }
 
     public void setTitle(String s) {
-        label.setText(s);
+        label.setText(UI.mnemonicRemove(s));
     }
 
     public void setActive(boolean b) {

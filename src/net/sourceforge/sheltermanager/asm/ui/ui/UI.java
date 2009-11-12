@@ -104,7 +104,7 @@ public final class UI {
      * Reads a mnemonic from the text string given (&c) or mnemonic if
      * none is found.
      */
-    private static char mnemonicFromText(String text, char mnemonic) {
+    public static char mnemonicFromText(String text, char mnemonic) {
         int i = text.indexOf("&");
         if (i == -1 || i == (text.length() - 1))
             return mnemonic;
@@ -112,7 +112,7 @@ public final class UI {
             return text.charAt(i + 1);
     }
 
-    private static String mnemonicRemove(String text) {
+    public static String mnemonicRemove(String text) {
         return Utils.replace(text, "&", "");
     }
 
