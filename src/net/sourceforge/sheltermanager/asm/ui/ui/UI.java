@@ -390,6 +390,7 @@ public final class UI {
     public static Label getHintLabel(String text) {
         Label l = new Label("<html><center>" + text + "</center></html>");
         l.setBackground(getColor(255, 251, 192));
+	l.setForeground(Color.BLACK);
         l.setBorder(new LineBorder(Color.BLACK));
         l.setHorizontalAlignment(ALIGN_CENTER);
         l.setOpaque(true);
