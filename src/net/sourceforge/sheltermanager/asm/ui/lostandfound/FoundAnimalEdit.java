@@ -545,11 +545,11 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database, along with any associated Media
             try {
-                String s = i18n("Delete_From_media_Where_LinkID_=_") +
+                String s = "DELETE FROM media WHERE LinkID = " +
                     animal.getID() + " AND LinkTypeID = " +
                     Integer.toString(Media.LINKTYPE_FOUNDANIMAL);
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
-                s = "Delete From animalfound Where ID = " + animal.getID();
+                s = "DELETE FROM animalfound WHERE ID = " + animal.getID();
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
                 dispose();
             } catch (Exception e) {
