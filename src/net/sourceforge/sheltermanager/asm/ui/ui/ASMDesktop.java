@@ -181,6 +181,7 @@ class ASMTab extends JPanel implements MouseListener {
     ASMForm form = null;
     ASMDesktop desktop = null;
     Color background = null;
+    Color foreground = null;
     Font plain = null;
     Font bold = null;
     Border raisedbevel = BorderFactory.createRaisedBevelBorder();
@@ -213,6 +214,7 @@ class ASMTab extends JPanel implements MouseListener {
         setLayout(new BorderLayout());
 
         label = new JLabel(title);
+	this.foreground = label.getForeground();
         label.addMouseListener(this);
         label.setToolTipText(tooltip);
         iconlabel = new JLabel(icon);
@@ -249,10 +251,12 @@ class ASMTab extends JPanel implements MouseListener {
         if (b) {
             setBackground(Color.WHITE);
             label.setFont(bold);
+	    label.setForeground(Color.BLACK);
             setBorder(raisedbevel);
         } else {
             setBackground(background);
             label.setFont(plain);
+	    label.setForeground(foreground);
             setBorder(loweredbevel);
         }
     }

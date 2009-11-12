@@ -286,6 +286,9 @@ public class ConfigureLocal extends ASMForm {
         // Re-read the file to load the settings in again
         net.sourceforge.sheltermanager.asm.startup.Startup.readSettings();
 
+	// Reload toolbar and menu in case language has changed
+	Global.mainForm.reloadToolsAndMenu();
+
         dispose();
 
         return true;

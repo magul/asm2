@@ -756,7 +756,10 @@ public class Main extends ASMWindow {
      * Creates the menu objects
      */
     public void initMenu() {
-        mnuMenu = UI.getMenuBar();
+
+    	if (mnuMenu == null) {
+	        mnuMenu = UI.getMenuBar();
+	}
 
         mnuFile = UI.getMenu(i18n("File"));
 
@@ -1502,6 +1505,15 @@ public class Main extends ASMWindow {
         layoutForm();
     }
 
+    public void reloadToolsAndMenu() {
+        mnuMenu.removeAll();
+	tlbTools.removeAll();
+        initMenu();
+	initMenuTree();
+	initToolbar();
+	refreshCustomReports();
+    }
+
     public void layoutForm() {
         if (!Startup.applet) {
             add(tlbTools, UI.BorderLayout.NORTH);
@@ -1552,9 +1564,11 @@ public class Main extends ASMWindow {
      * Draws the toolbar
      */
     public void initToolbar() {
-        tlbTools = UI.getToolBar();
-        tlbTools.setPlatformToolbar(true);
-        tlbTools.setRollover(true);
+        if (tlbTools == null) {
+		tlbTools = UI.getToolBar();
+		tlbTools.setPlatformToolbar(true);
+		tlbTools.setRollover(true);
+	}
 
         btnAddAnimal = UI.getButton(null, i18n("Add_a_new_animal"),
                 IconManager.getIcon(IconManager.BUTTON_ADDANIMAL),

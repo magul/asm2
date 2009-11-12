@@ -7,19 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-10-23 14:52+0100\n"
-"PO-Revision-Date: 2009-10-24 09:37+0000\n"
-"Last-Translator: Swafnil <harlequin2@gmx.de>\n"
+"POT-Creation-Date: 2009-11-06 13:07+0100\n"
+"PO-Revision-Date: 2009-11-07 17:13+0000\n"
+"Last-Translator: MixCool <lars.thoms@mixcool.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-10-25 08:24+0000\n"
+"X-Launchpad-Export-Date: 2009-11-08 04:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
 msgid "You must give the diary task a name."
 msgstr ""
+"Sie müssen der Aufgabenreihe einen Namen geben (z.B. Ausführen - Reinigen - "
+"Füttern)"
 
 #: You_must_set_who_the_task_is_for
 msgid "You must set who the task is for"
@@ -47,7 +49,7 @@ msgstr "Ungültiger Link zu einem entlaufenen Tier"
 
 #: Bad_waiting_list_link
 msgid "Bad waiting list link"
-msgstr ""
+msgstr "Ungültiger Link auf der Warteliste"
 
 #: You_must_supply_at_least_a_date_for_the_diary_note.
 msgid "You must supply at least a date for the diary note."
@@ -79,7 +81,7 @@ msgstr "Sie müssen der Aufgabenreihe einen Titel geben."
 
 #: Bad_found_animal_link
 msgid "Bad found animal link"
-msgstr ""
+msgstr "Ungültiger Verweis auf ein gefundenes Tier."
 
 #: Bad_owner_link
 msgid "Bad owner link"
@@ -100,11 +102,11 @@ msgstr "Ein Fehler beim Zugriff auf ein Objekt ist aufgetreten: "
 
 #: Date_Required_is_mandatory.
 msgid "Date Required is mandatory."
-msgstr ""
+msgstr "Bedarfstermin ist erforderlich."
 
 #: Shelter_Animal_
 msgid "Shelter Animal "
-msgstr ""
+msgstr "Heimtier "
 
 #: You_must_enter_the_area_the_animal_went_missing_from.
 msgid "You must enter the area the animal went missing from."
@@ -124,7 +126,7 @@ msgstr "Kein Wurfeintrag abgebrochen."
 
 #: litters_cancelled
 msgid "{0} litter(s) cancelled."
-msgstr ""
+msgstr "{0} Wurfeinträge abgebrochen."
 
 #: You_must_enter_the_number_of_animals_in_the_litter.
 msgid "You must enter the number of animals in the litter."
@@ -245,11 +247,6 @@ msgstr "Keiner"
 msgid "Fostered"
 msgstr "Begünstigt"
 
-#: Adoption
-#: lksmovementtype_1
-msgid "Adoption"
-msgstr "Adoption"
-
 #: Reservation
 #: lksmovementtype_9
 msgid "Reservation"
@@ -284,6 +281,8 @@ msgid ""
 "The owner you have selected is an animal retailer and can only have retailer "
 "movements."
 msgstr ""
+"Der ausgewählte Besitzer ist ein Tierhändler and kann nur für "
+"Verkaufstransfers verwendet werden."
 
 #: retailer_movement_non_retailer_owner
 msgid ""
@@ -342,6 +341,7 @@ msgstr ""
 #: reserve_after_cancellation
 msgid "You cannot cancel a reservation before it takes effect."
 msgstr ""
+"Sie können keine Reservierung abbrechen, bevor sie gespeichert wurde."
 
 #: cant_reserve_with_open_movement
 msgid ""
@@ -377,6 +377,8 @@ msgid ""
 "You have marked this movement as from a retailer, but this animal has no "
 "prior retailer movements."
 msgstr ""
+"Sie haben angegeben, dass das Tier von einem Einzelhändler abgegeben wurde, "
+"für das Tier gibt es aber keine vorherigen Angaben vom Einzelhändler."
 
 #: you_cant_have_a_from_retailer_on_a_non_adoption_movement
 msgid "You cannot have a retailer on a non-adoption movement."
@@ -470,7 +472,7 @@ msgstr "Anzahl der Behandlungen bitte numerisch angeben"
 
 #: Number_of_frequencies_must_be_numeric
 msgid "Number of frequencies must be numeric"
-msgstr ""
+msgstr "Frequenzanzahl muss numerisch sein"
 
 #: Total_number_of_treatments_must_be_numeric
 msgid "Total number of treatments must be numeric"
@@ -514,7 +516,7 @@ msgstr "Referenz {0} wurde bereits verwendet."
 
 #: movement_to
 msgid "Movement: {0} {1} to {2}"
-msgstr ""
+msgstr "Transfer: {0} {1} nach {2}"
 
 #: waiting_list_link
 msgid "Waiting List: {0}"
@@ -571,7 +573,7 @@ msgstr "Monatliche Spendenanalyse (nach Spezies) für "
 
 #: Adoption_Return_Reasons_for_
 msgid "Adoption Return Reasons for "
-msgstr ""
+msgstr "Grund für Rückgabe von "
 
 #: Animal_Entry_Reasons_for_
 msgid "Animal Entry Reasons for "
@@ -2682,11 +2684,13 @@ msgid "Animal Death Reasons"
 msgstr ""
 
 #: customreport_57_022
-msgid "Common Animal Entry Areas"
+#: Most_Common_Animal_Entry_Areas
+msgid "Most Common Animal Entry Areas"
 msgstr ""
 
 #: customreport_58_023
-msgid "Common Animal Adoption Areas"
+#: Most_Common_Animal_Adoption_Areas
+msgid "Most Common Animal Adoption Areas"
 msgstr ""
 
 #: customreport_59_024
@@ -2854,6 +2858,10 @@ msgstr ""
 msgid "Hairless"
 msgstr ""
 
+#: lksmovementtype_1
+msgid "Adoption"
+msgstr "Adoption"
+
 #: lksmovementtype_2
 msgid "Foster"
 msgstr ""
@@ -2910,6 +2918,7 @@ msgstr ""
 msgid "Movement"
 msgstr ""
 
+#. # uimain.properties#=========================================================================
 #. # uiwaitinglist.properties#=========================================================================
 #: lksdiarylink_5
 #: lksloglink_4
@@ -3180,7 +3189,6 @@ msgid "Sheltermanager.com"
 msgstr ""
 
 #: copy_database
-#: Copy_Database
 msgid "Copy Database"
 msgstr ""
 
@@ -3236,7 +3244,6 @@ msgid "Copying {0}..."
 msgstr ""
 
 #: import_database
-#: Import_Database
 msgid "Import Database"
 msgstr ""
 
@@ -3926,10 +3933,6 @@ msgstr ""
 msgid "No animals found."
 msgstr ""
 
-#: Most_Common_Animal_Adoption_Areas
-msgid "Most Common Animal Adoption Areas"
-msgstr ""
-
 #: The_average_waiting_list_time_is_currently_
 msgid "The average waiting list time is currently {0} days."
 msgstr ""
@@ -3980,10 +3983,6 @@ msgstr ""
 msgid ""
 "This is based on the {0} completed waiting list entries on file, amounting "
 "to a cumulative waiting time of {1} days."
-msgstr ""
-
-#: Most_Common_Animal_Entry_Areas
-msgid "Most Common Animal Entry Areas"
 msgstr ""
 
 #: Building_report...
@@ -6229,6 +6228,10 @@ msgstr ""
 msgid "Tick this box if this animal is a cruelty case"
 msgstr ""
 
+#: Current_Vet
+msgid "Current Vet:"
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -6272,7 +6275,6 @@ msgid "The currency figure you entered was invalid."
 msgstr ""
 
 #: Custom_Reports
-#: Reports
 msgid "Reports"
 msgstr ""
 
@@ -6866,7 +6868,6 @@ msgid "An error occurred contacting PetFinder.com: "
 msgstr ""
 
 #: PetFinder_Settings
-#: petfinder.org_settings
 msgid "PetFinder.com Settings"
 msgstr ""
 
@@ -6939,7 +6940,6 @@ msgid ""
 msgstr ""
 
 #: Pets911_Settings
-#: Pets911.com_Settings
 msgid "Pets911.com Settings"
 msgstr ""
 
@@ -6984,7 +6984,6 @@ msgid "Publish Available Animals to AdoptAPet.com"
 msgstr ""
 
 #: SaveAPet_Settings
-#: SaveAPet.com_Settings
 msgid "AdoptAPet.com Settings"
 msgstr ""
 
@@ -7053,7 +7052,6 @@ msgid "Publish Available Animals to RescueGroups.org"
 msgstr ""
 
 #: RescueGroups_Settings
-#: RescueGroups.org_Settings
 msgid "RescueGroups.org Settings"
 msgstr ""
 
@@ -7366,7 +7364,6 @@ msgid "Donation Type Description"
 msgstr ""
 
 #: donation_types
-#: Donation_Types
 msgid "Donation Types"
 msgstr ""
 
@@ -7543,30 +7540,24 @@ msgstr ""
 msgid "Area Lost:"
 msgstr ""
 
-#. # uimain.properties#=========================================================================
-#: Waiting_List_(SHIFT+CTRL+W)
-msgid "Waiting List (SHIFT+CTRL+W)"
-msgstr ""
-
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
 msgstr ""
 
 #: Off_The_Shelter
-msgid "Off The Shelter"
+msgid "O&ff The Shelter"
 msgstr ""
 
 #: Mail_Merge
-msgid "Mail Merge"
+msgid "&Mail Merge"
 msgstr ""
 
-#: Find_an_Animal_(CTRL+F)
-msgid "Find an Animal (CTRL+F)"
+#: Find_an_Animal
+msgid "Find an Animal"
 msgstr ""
 
 #: Options
-#: options
-msgid "Options"
+msgid "&Options"
 msgstr ""
 
 #: Find_a_Lost_Animal
@@ -7582,71 +7573,91 @@ msgid "Match Lost and Found Animals"
 msgstr ""
 
 #: Print_Vets_Diary
-msgid "Print Vets Diary"
+msgid "Print Vets Diar&y"
 msgstr ""
 
 #: Run_Database_Diagnostic
-msgid "Run Database Diagnostic"
+msgid "Run Database Diagn&ostic"
 msgstr ""
 
-#: Find_an_Owner_(SHIFT+CTRL+F)
-msgid "Find an Owner (SHIFT+CTRL+F)"
+#: Find_an_Owner
+msgid "Find an Owner"
 msgstr ""
 
-#: Add_a_new_animal_(CTRL+N)
-msgid "Add a new animal (CTRL+N)"
+#: Add_a_new_animal
+msgid "Add a new animal"
+msgstr ""
+
+#: View_Local_Cache
+msgid "View Local &Cache"
 msgstr ""
 
 #: Configure_Defaults
-msgid "Configure Defaults"
+msgid "Configu&re Defaults"
 msgstr ""
 
 #: Preferences
-msgid "Preferences"
+msgid "&Preferences"
 msgstr ""
 
 #: Lost_and_Found
-msgid "Lost and Found"
+msgid "&Lost and Found"
 msgstr ""
 
 #: Lookups
-msgid "Lookups"
+msgid "&Lookups"
 msgstr ""
 
 #: Animals_On_The_Shelter
-msgid "Animals On The Shelter"
+msgid "Animals &On The Shelter"
 msgstr ""
 
 #: Internet
-msgid "Internet"
+msgid "&Internet"
 msgstr ""
 
 #: Run_Database_Update
-msgid "Run Database Update"
+msgid "Run Database U&pdate"
 msgstr ""
 
 #: Colours
-msgid "Colours"
+msgid "&Colours"
 msgstr ""
 
 #: File
-msgid "File"
+msgid "&File"
+msgstr ""
+
+#: Animal
+msgid "&Animal"
 msgstr ""
 
 #: All_Members
 msgid "All Members"
 msgstr ""
 
+#: Owner
+msgid "&Owner"
+msgstr ""
+
 #: Owner_Merge
-msgid "Owner Mail Merge"
+msgid "&Owner Mail Merge"
 msgstr ""
 
 #: Configure_Automatic_Insurance_Numbers
-msgid "Configure Automatic Insurance Numbers"
+msgid "Configure &Automatic Insurance Numbers"
 msgstr ""
 
-#: Print_Diary_Notes_(SHIFT+CTRL+P)
-msgid "Print Diary Notes (SHIFT+CTRL+P)"
+#: Non-Returned_Adoptions
+msgid "&Non-Returned Adoptions"
+msgstr ""
+
+#: Find_Animal
+msgid "&Find Animal"
+msgstr ""
+
+#: Print_Diary_Notes
+msgid "&Print Diary Notes"
 msgstr ""
 
 #: Database_Tools
@@ -7654,163 +7665,215 @@ msgid "Database Tools"
 msgstr ""
 
 #: Off_Shelter_Vaccinations
-msgid "Off Shelter Vaccinations"
+msgid "Off Shelter &Vaccinations"
 msgstr ""
 
 #: About...
-msgid "About..."
+msgid "&About..."
 msgstr ""
 
 #: Add_a_Found_Animal
 msgid "Add a Found Animal"
 msgstr ""
 
+#: Copy_Database
+msgid "&Copy Database"
+msgstr ""
+
+#: Import_Database
+msgid "&Import Database"
+msgstr ""
+
 #: Add_Animal
-msgid "Add Animal"
+msgid "&Add Animal"
 msgstr ""
 
 #: Vaccination_Diary
-msgid "Vaccination Diary"
+msgid "&Vaccination Diary"
 msgstr ""
 
-#: Add_Diary_Note_(CTRL+D)
-msgid "Add Diary Note (CTRL+D)"
+#: Add_Diary_Note
+msgid "Add Diary &Note"
+msgstr ""
+
+#: Internal_Locations
+msgid "Internal &Locations"
 msgstr ""
 
 #: FTP_Settings
-msgid "Website FTP Settings"
+msgid "Website &FTP Settings"
 msgstr ""
 
 #: Microchip_Cancellations
-msgid "Microchip Cancellations"
+msgid "Microchip &Cancellations"
+msgstr ""
+
+#: Find_Lost_Animal
+msgid "&Find Lost Animal"
 msgstr ""
 
 #: Edit_All_Diary_Notes
 msgid "Edit All Diary Notes"
 msgstr ""
 
-#: Add_Diary_Note
-msgid "Add Diary Note"
+#: Species
+msgid "&Species"
 msgstr ""
 
 #: Lost_Animals
-msgid "Lost Animals"
+msgid "&Lost Animals"
 msgstr ""
 
-#: Print_Diary_Notes
-msgid "Print Diary Notes"
+#: Find_Found_Animal
+msgid "&Find Found Animal"
+msgstr ""
+
+#: Animal_Types
+msgid "Animal &Types"
 msgstr ""
 
 #: Add_Lost_Animal
-msgid "Add Lost Animal"
-msgstr ""
-
-#: Reservation_Book_(SHIFT+CTRL+R)
-msgid "Reservation Book (SHIFT+CTRL+R)"
-msgstr ""
-
-#: Help_(F1)
-msgid "Help (F1)"
-msgstr ""
-
-#: Contents
-msgid "Contents"
-msgstr ""
-
-#: Add_New_Waiting_List_Entry
-msgid "Add New Waiting List Entry"
-msgstr ""
-
-#: Add_Owner
-msgid "Add Owner"
+msgid "&Add Lost Animal"
 msgstr ""
 
 #: Reservation_Book
 msgid "Reservation Book"
 msgstr ""
 
+#: Help
+msgid "&Help"
+msgstr ""
+
+#: Contents
+msgid "&Contents"
+msgstr ""
+
+#: Add_New_Waiting_List_Entry
+msgid "Add New &Waiting List Entry"
+msgstr ""
+
+#: Add_Owner
+msgid "&Add Owner"
+msgstr ""
+
+#: Edit_Diary_Tasks
+msgid "Edit Diary &Tasks"
+msgstr ""
+
+#: Reservation_Book
+msgid "&Reservation Book"
+msgstr ""
+
 #: Edit_Waiting_List
-msgid "Edit Waiting List"
+msgid "Edit Wa&iting List"
+msgstr ""
+
+#: Vaccination_Book
+msgid "Vaccination &Book"
+msgstr ""
+
+#: Reports
+msgid "&Reports"
+msgstr ""
+
+#: Vaccination_Types
+msgid "&Vaccination Types"
 msgstr ""
 
 #: Find_Owner
-msgid "Find Owner"
+msgid "&Find Owner"
 msgstr ""
 
 #: Publish_Animals_Available_for_Adoption
-msgid "Publish Animals Available for Adoption"
+msgid "Publish &Animals Available for Adoption"
 msgstr ""
 
 #: Microchip_Registration
-msgid "Microchip Registration"
-msgstr ""
-
-#: Help
-msgid "Help"
+msgid "Microchip Re&gistration"
 msgstr ""
 
 #: Edit_System_Users
-msgid "Edit System Users"
+msgid "Edit System &Users"
+msgstr ""
+
+#: Diary
+msgid "&Diary"
+msgstr ""
+
+#: Breeds
+msgid "&Breeds"
 msgstr ""
 
 #: Login_Again
-msgid "Login Again"
+msgid "Lo&gin Again"
+msgstr ""
+
+#: Exit
+msgid "E&xit"
 msgstr ""
 
 #: Litter_Logger
-msgid "Litter Logger"
+msgid "&Litter Logger"
 msgstr ""
 
 #: All_Animals
-msgid "All Animals"
+msgid "&All Animals"
 msgstr ""
 
 #: Adoption_Merge
-msgid "Adoption Mail Merge"
+msgid "&Adoption Mail Merge"
 msgstr ""
 
 #: Found_Animals
-msgid "Found Animals"
+msgid "&Found Animals"
 msgstr ""
 
-#: Add_an_Owner_(SHIFT+CTRL+N)
-msgid "Add an Owner (SHIFT+CTRL+N)"
+#: Add_an_Owner
+msgid "Add an Owner"
 msgstr ""
 
 #: Add_Found_Animal
-msgid "Add Found Animal"
+msgid "&Add Found Animal"
 msgstr ""
 
 #: Contents_PDF
-msgid "Contents (Printable PDF)"
+msgid "Contents (&Printable PDF)"
+msgstr ""
+
+#: Animal_Name_Database
+msgid "Animal Name Data&base"
 msgstr ""
 
 #: Settings
-msgid "Settings"
+msgid "&Settings"
 msgstr ""
 
 #: collect_garbage_now
-msgid "Collect Garbage Now"
+msgid "Collect &Garbage Now"
 msgstr ""
 
 #: Licence
-msgid "Licence Information"
+msgid "&Licence Information"
 msgstr ""
 
 #: edit_custom_reports
-msgid "Edit Reports"
-msgstr ""
-
-#: foster_book
-msgid "Foster Book (CTRL+SHIFT+O)"
+msgid "Edit Re&ports"
 msgstr ""
 
 #: ConfigureFiletypes
-msgid "Configure File Types"
+msgid "Configure File &Types"
 msgstr ""
 
 #: uncategorised
 msgid "Uncategorised"
+msgstr ""
+
+#: Death_Reasons
+msgid "&Death Reasons"
+msgstr ""
+
+#: Entry_Reasons
+msgid "&Entry Reasons"
 msgstr ""
 
 #: publish_available_animals_to_petfinder
@@ -7818,11 +7881,15 @@ msgid "Publish Adoptable Animals To PetFinder.com"
 msgstr ""
 
 #: Publish_animals_available_for_adoption_to_PetFinder.org
-msgid "Publish Animals Available For Adoption To PetFinder.com"
+msgid "&Publish Animals Available For Adoption To PetFinder.com"
+msgstr ""
+
+#: petfinder.org_settings
+msgid "PetFinder.com Se&ttings"
 msgstr ""
 
 #: PetFinder_Species_Mappings
-msgid "PetFinder Species Mappings"
+msgid "PetFinder &Species Mappings"
 msgstr ""
 
 #: Locked
@@ -7834,52 +7901,51 @@ msgid "Incorrect Password"
 msgstr ""
 
 #: Lock_ASM
-msgid "Lock"
+msgid "Loc&k"
 msgstr ""
 
 #: Foster_Book
-#: foster_book_m
-msgid "Foster Book"
+msgid "&Foster Book"
 msgstr ""
 
 #: Retailer_Book
-msgid "Retailer Book"
+msgid "R&etailer Book"
 msgstr ""
 
-#: Retailer_Book_ctrlse
-msgid "Retailer Book (CTRL+SHIFT+E)"
+#: Diets
+msgid "D&iets"
+msgstr ""
+
+#: Vouchers
+msgid "Vo&uchers"
 msgstr ""
 
 #: Credits
-msgid "Credits"
+msgid "C&redits"
 msgstr ""
 
 #: Edit_Medical_Profiles
-msgid "Edit Medical Profiles"
+msgid "Edit &Medical Profiles"
 msgstr ""
 
 #: Medical_Diary
-msgid "Medical Diary"
+msgid "&Medical Diary"
 msgstr ""
 
 #: Medical_Book
-msgid "Medical Book"
+msgid "Medical &Book"
 msgstr ""
 
 #: Print_Medical_Diary
-msgid "Print Medical Diary"
+msgid "&Print Medical Diary"
 msgstr ""
 
 #: Donate_to_ASM!
-msgid "Donate to ASM!"
+msgid "&Donate to ASM!"
 msgstr ""
 
 #: Edit_Diary_Notes
-msgid "Edit Diary Notes"
-msgstr ""
-
-#: Edit_Diary_Notes_(CTRL+M)
-msgid "Edit Diary Notes (CTRL+M)"
+msgid "&Edit Diary Notes"
 msgstr ""
 
 #: Do_you_want_to_logout_or_close_ASM?
@@ -7906,28 +7972,40 @@ msgstr ""
 msgid "Publish Adoptable Animals to Pets911.com"
 msgstr ""
 
+#: Pets911.com_Settings
+msgid "Pets911.com &Settings"
+msgstr ""
+
 #: Publish_Animals_Available_For_Adoption_To_Pets911.com
-msgid "Publish Animals Available For Adoption To Pets911.com"
+msgid "&Publish Animals Available For Adoption To Pets911.com"
 msgstr ""
 
 #: Edit_Vets_Diary
-msgid "Edit Vets Diary"
+msgid "Edit &Vets Diary"
+msgstr ""
+
+#: Donation_Types
+msgid "Donation T&ypes"
 msgstr ""
 
 #: export_custom_report_data
-msgid "Export Custom Report Data"
+msgid "E&xport Custom Report Data"
 msgstr ""
 
 #: media_files
-msgid "Media Files"
+msgid "Media &Files"
 msgstr ""
 
 #: Auto_Archive_Animal_Records
-msgid "Auto Archive Animal Records"
+msgid "&Auto Archive Animal Records"
 msgstr ""
 
 #: Authentication
-msgid "Authentication"
+msgid "&Authentication"
+msgstr ""
+
+#: Not_For_Adoption_Book
+msgid "&Not For Adoption Book"
 msgstr ""
 
 #: Publish_adoptable_animals_to_SaveAPet.com
@@ -7935,7 +8013,11 @@ msgid "Publish adoptable animals to AdoptAPet.com"
 msgstr ""
 
 #: Publish_Animals_Available_For_Adoption_To_SaveAPet.com
-msgid "Publish Animals Available For Adoption To AdoptAPet.com"
+msgid "&Publish Animals Available For Adoption To AdoptAPet.com"
+msgstr ""
+
+#: SaveAPet.com_Settings
+msgid "AdoptAPet.com &Settings"
 msgstr ""
 
 #: please_enter_password_for
@@ -7943,19 +8025,27 @@ msgid "Please enter the password for:"
 msgstr ""
 
 #: switch_database
-msgid "Switch Database"
+msgid "Switch &Database"
 msgstr ""
 
 #: switch_database_asm_restart
 msgid "The new database will be used after you have restarted ASM."
 msgstr ""
 
-#: Returned_Adoptions
-msgid "Returned Adoptions"
+#: petfinder_breed_mapping
+msgid "PetFinder &Breed Mapping"
 msgstr ""
 
 #: configure_email
-msgid "Configure ASM Email Account"
+msgid "Configure ASM E&mail Account"
+msgstr ""
+
+#: Log_Types
+msgid "Log Ty&pes"
+msgstr ""
+
+#: Expiring_Members
+msgid "&Expiring Members"
 msgstr ""
 
 #: Close_Active_Tab
@@ -7963,28 +8053,31 @@ msgid "Close Active Tab"
 msgstr ""
 
 #: Configure_Database
-#: configure_database
-msgid "Configure Database"
+msgid "Confi&gure Database"
 msgstr ""
 
 #: SQL_Interface
-msgid "SQL Interface"
+msgid "&SQL Interface"
 msgstr ""
 
 #: Error_Log
-msgid "Error Log"
+msgid "Err&or Log"
 msgstr ""
 
 #: Configure_Additional_Fields
-msgid "Configure Additional Fields"
+msgid "Configure A&dditional Fields"
 msgstr ""
 
 #: Import_PetFinder
-msgid "Import PetFinder Data"
+msgid "Import &PetFinder Data"
+msgstr ""
+
+#: All_Members
+msgid "&All Members"
 msgstr ""
 
 #: Remove_unwanted_breeds
-msgid "Remove unwanted breeds and species"
+msgid "&Remove unwanted breeds and species"
 msgstr ""
 
 #: Publish_adoptable_animals_to_RescueGroups.org
@@ -7992,23 +8085,27 @@ msgid "Publish adoptable animals to RescueGroups.org"
 msgstr ""
 
 #: Publish_Animals_Available_For_Adoption_To_RescueGroups.org
-msgid "Publish Animals Available For Adoption to RescueGroups.org"
+msgid "&Publish Animals Available For Adoption to RescueGroups.org"
+msgstr ""
+
+#: RescueGroups.org_Settings
+msgid "RescueGroups.org &Settings"
 msgstr ""
 
 #: Breed_Mappings
-msgid "Breed Mappings"
+msgid "Breed &Mappings"
 msgstr ""
 
 #: Ask_a_question
-msgid "Ask a question about ASM"
+msgid "Ask a &question about ASM"
 msgstr ""
 
 #: Report_a_bug
-msgid "Report a bug in ASM"
+msgid "Report a &bug in ASM"
 msgstr ""
 
 #: Translate_ASM
-msgid "Help translate ASM"
+msgid "Help &translate ASM"
 msgstr ""
 
 #: Updates
@@ -8020,11 +8117,11 @@ msgid "Show me updates in future"
 msgstr ""
 
 #: Check_For_Updates
-msgid "Check for ASM updates"
+msgid "Check for ASM &updates"
 msgstr ""
 
 #: Get_more_reports
-msgid "Get more reports from sheltermanager.com ..."
+msgid "&Get more reports from sheltermanager.com ..."
 msgstr ""
 
 #. # uimedical.properties#=========================================================================
@@ -8162,6 +8259,10 @@ msgstr ""
 
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
+msgstr ""
+
+#: Medical_Book
+msgid "Medical Book"
 msgstr ""
 
 #: Sequence
@@ -8420,12 +8521,20 @@ msgstr ""
 msgid "View the owner"
 msgstr ""
 
+#: Foster_Book
+msgid "Foster Book"
+msgstr ""
+
 #: Return_Category
 msgid "Return Category:"
 msgstr ""
 
 #: none
 msgid "[none]"
+msgstr ""
+
+#: Retailer_Book
+msgid "Retailer Book"
 msgstr ""
 
 #: Refresh_the_list_of_fosters
@@ -8559,6 +8668,10 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+#: Find_Owner
+msgid "Find Owner"
+msgstr ""
+
 #: A_full,_or_part_email_address_for_the_owner
 msgid "A full, or part email address for the owner"
 msgstr ""
@@ -8577,10 +8690,6 @@ msgstr ""
 
 #: Create_New_Owner
 msgid "Create New Owner"
-msgstr ""
-
-#: Home_Checker
-msgid "Home Checker"
 msgstr ""
 
 #: Edit_Owner
@@ -8605,12 +8714,6 @@ msgstr ""
 
 #: Member
 msgid "Member"
-msgstr ""
-
-#: If_this_owner_is_a_homechecker,_the_areas_(names/postcodes)_they_are_willing_to_check
-msgid ""
-"If this owner is a homechecker, the areas (names/postcodes) they are willing "
-"to check"
 msgstr ""
 
 #: NameTitle\:
@@ -8685,16 +8788,8 @@ msgstr ""
 msgid "Homechecker"
 msgstr ""
 
-#: Last_Homecheck_Date\:
-msgid "Last Homecheck Date:"
-msgstr ""
-
 #: The_date_this_owner_was_last_homechecked
 msgid "The date this owner was last homechecked"
-msgstr ""
-
-#: The_date_this_homechecker_last_performed_a_homecheck
-msgid "The date this homechecker last performed a homecheck"
 msgstr ""
 
 #: Donor
@@ -8743,6 +8838,10 @@ msgstr ""
 
 #: is_animal_care_officer
 msgid "Animal Care Officer"
+msgstr ""
+
+#: Mail_Merge
+msgid "Mail Merge"
 msgstr ""
 
 #: email
@@ -9187,6 +9286,26 @@ msgstr ""
 msgid "Has this owner been homechecked?"
 msgstr ""
 
+#: Checked_By
+msgid "Checked By:"
+msgstr ""
+
+#: Homecheck_History
+msgid "Homecheck History:"
+msgstr ""
+
+#: New_homecheck_area
+msgid "New Homecheck Area"
+msgstr ""
+
+#: Delete_homecheck_area
+msgid "Delete Homecheck Area"
+msgstr ""
+
+#: The_new_homecheck_area
+msgid "The new homecheck area"
+msgstr ""
+
 #. # uireportviewer.properties#=========================================================================
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -9200,6 +9319,14 @@ msgstr ""
 msgid "Bad File"
 msgstr ""
 
+#: Zoom_In
+msgid "Zoom In"
+msgstr ""
+
+#: Zoom_Out
+msgid "Zoom Out"
+msgstr ""
+
 #. # uisplash.properties#=========================================================================
 #: User_Directory\:_
 msgid "User Directory: "
@@ -9207,6 +9334,10 @@ msgstr ""
 
 #: Vendor\:_
 msgid "Vendor: "
+msgstr ""
+
+#: About...
+msgid "About..."
 msgstr ""
 
 #: User_Home\:_
@@ -9259,6 +9390,10 @@ msgstr ""
 
 #: visit_site
 msgid "Visit the Animal Shelter Manager website"
+msgstr ""
+
+#: Credits
+msgid "Credits"
 msgstr ""
 
 #. # uisystem.properties#=========================================================================
@@ -9443,6 +9578,10 @@ msgstr ""
 msgid "Start At:"
 msgstr ""
 
+#: Configure_Automatic_Insurance_Numbers
+msgid "Configure Automatic Insurance Numbers"
+msgstr ""
+
 #: Use_Automatic_Insurance_Numbers
 msgid "Use Automatic Insurance Numbers"
 msgstr ""
@@ -9481,6 +9620,10 @@ msgstr ""
 
 #: Start_Maximised\:
 msgid "Start Maximised:"
+msgstr ""
+
+#: configure_email
+msgid "Configure ASM Email Account"
 msgstr ""
 
 #: email_address
@@ -9626,6 +9769,10 @@ msgid ""
 "handlers in ASM."
 msgstr ""
 
+#: media_files
+msgid "Media Files"
+msgstr ""
+
 #: LEFT
 msgid "LEFT"
 msgstr ""
@@ -9670,6 +9817,10 @@ msgstr ""
 msgid ""
 "Warning: Rescanning will overwrite your current list of types. Are you sure "
 "you want to do this?"
+msgstr ""
+
+#: Authentication
+msgid "Authentication"
 msgstr ""
 
 #: Operating_System
@@ -9752,6 +9903,10 @@ msgstr ""
 msgid ""
 "How often ASM should heartbeat to the database to keep the connection open "
 "(in ms) - 0=disable"
+msgstr ""
+
+#: configure_database
+msgid "Configure Database"
 msgstr ""
 
 #: record_search_limit
@@ -9952,6 +10107,10 @@ msgstr ""
 msgid "Animal Codes"
 msgstr ""
 
+#: options
+msgid "Options"
+msgstr ""
+
 #: Country\:
 msgid "Country:"
 msgstr ""
@@ -9990,6 +10149,10 @@ msgstr ""
 
 #: default_type
 msgid "Default Type:"
+msgstr ""
+
+#: Configure_Defaults
+msgid "Configure Defaults"
 msgstr ""
 
 #: disable_retailer_functionality
@@ -10137,6 +10300,10 @@ msgstr ""
 msgid "Add Animals"
 msgstr ""
 
+#: Edit_System_Users
+msgid "Edit System Users"
+msgstr ""
+
 #: System\:
 msgid "System:"
 msgstr ""
@@ -10239,6 +10406,10 @@ msgstr ""
 
 #: Delete_Lost_Animals
 msgid "Delete Lost Animals"
+msgstr ""
+
+#: Print_Diary_Notes
+msgid "Print Diary Notes"
 msgstr ""
 
 #: Change_Animal_Vaccinations
@@ -10511,6 +10682,10 @@ msgstr ""
 
 #: Urgency\:
 msgid "Urgency:"
+msgstr ""
+
+#: Edit_Waiting_List
+msgid "Edit Waiting List"
 msgstr ""
 
 #: Clone_this_record

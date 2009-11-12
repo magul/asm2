@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-10-27 18:09+0100\n"
-"PO-Revision-Date: 2009-11-05 17:36+0000\n"
-"Last-Translator: Krit Marukawisutthigul <Unknown>\n"
+"POT-Creation-Date: 2009-11-06 13:07+0100\n"
+"PO-Revision-Date: 2009-11-06 11:36+0000\n"
+"Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-06 10:00+0000\n"
+"X-Launchpad-Export-Date: 2009-11-07 04:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2889,6 +2889,7 @@ msgstr "เจ้าของ"
 msgid "Movement"
 msgstr ""
 
+#. # uimain.properties#=========================================================================
 #. # uiwaitinglist.properties#=========================================================================
 #: lksdiarylink_5
 #: lksloglink_4
@@ -3159,7 +3160,6 @@ msgid "Sheltermanager.com"
 msgstr "Sheltermanager.com"
 
 #: copy_database
-#: Copy_Database
 msgid "Copy Database"
 msgstr "สำเนาฐานข้อมูล"
 
@@ -3215,7 +3215,6 @@ msgid "Copying {0}..."
 msgstr "กำลังสำเนา {0}..."
 
 #: import_database
-#: Import_Database
 msgid "Import Database"
 msgstr "นำเข้าฐานข้อมูล"
 
@@ -6250,7 +6249,6 @@ msgid "The currency figure you entered was invalid."
 msgstr ""
 
 #: Custom_Reports
-#: Reports
 msgid "Reports"
 msgstr "รายงาน"
 
@@ -6844,7 +6842,6 @@ msgid "An error occurred contacting PetFinder.com: "
 msgstr ""
 
 #: PetFinder_Settings
-#: petfinder.org_settings
 msgid "PetFinder.com Settings"
 msgstr "PetFinder.com การตั้งค่า"
 
@@ -6917,7 +6914,6 @@ msgid ""
 msgstr ""
 
 #: Pets911_Settings
-#: Pets911.com_Settings
 msgid "Pets911.com Settings"
 msgstr "Pets911.com การตั้งค่า"
 
@@ -6962,7 +6958,6 @@ msgid "Publish Available Animals to AdoptAPet.com"
 msgstr ""
 
 #: SaveAPet_Settings
-#: SaveAPet.com_Settings
 msgid "AdoptAPet.com Settings"
 msgstr "AdoptAPet.com การตั้งค่า"
 
@@ -7031,7 +7026,6 @@ msgid "Publish Available Animals to RescueGroups.org"
 msgstr ""
 
 #: RescueGroups_Settings
-#: RescueGroups.org_Settings
 msgid "RescueGroups.org Settings"
 msgstr ""
 
@@ -7344,7 +7338,6 @@ msgid "Donation Type Description"
 msgstr ""
 
 #: donation_types
-#: Donation_Types
 msgid "Donation Types"
 msgstr ""
 
@@ -7521,30 +7514,24 @@ msgstr ""
 msgid "Area Lost:"
 msgstr ""
 
-#. # uimain.properties#=========================================================================
-#: Waiting_List_(SHIFT+CTRL+W)
-msgid "Waiting List (SHIFT+CTRL+W)"
-msgstr ""
-
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
 msgstr ""
 
 #: Off_The_Shelter
-msgid "Off The Shelter"
+msgid "O&ff The Shelter"
 msgstr ""
 
 #: Mail_Merge
-msgid "Mail Merge"
+msgid "&Mail Merge"
 msgstr ""
 
-#: Find_an_Animal_(CTRL+F)
-msgid "Find an Animal (CTRL+F)"
+#: Find_an_Animal
+msgid "Find an Animal"
 msgstr ""
 
 #: Options
-#: options
-msgid "Options"
+msgid "&Options"
 msgstr ""
 
 #: Find_a_Lost_Animal
@@ -7560,71 +7547,91 @@ msgid "Match Lost and Found Animals"
 msgstr ""
 
 #: Print_Vets_Diary
-msgid "Print Vets Diary"
+msgid "Print Vets Diar&y"
 msgstr ""
 
 #: Run_Database_Diagnostic
-msgid "Run Database Diagnostic"
+msgid "Run Database Diagn&ostic"
 msgstr ""
 
-#: Find_an_Owner_(SHIFT+CTRL+F)
-msgid "Find an Owner (SHIFT+CTRL+F)"
+#: Find_an_Owner
+msgid "Find an Owner"
 msgstr ""
 
-#: Add_a_new_animal_(CTRL+N)
-msgid "Add a new animal (CTRL+N)"
+#: Add_a_new_animal
+msgid "Add a new animal"
+msgstr ""
+
+#: View_Local_Cache
+msgid "View Local &Cache"
 msgstr ""
 
 #: Configure_Defaults
-msgid "Configure Defaults"
+msgid "Configu&re Defaults"
 msgstr ""
 
 #: Preferences
-msgid "Preferences"
+msgid "&Preferences"
 msgstr ""
 
 #: Lost_and_Found
-msgid "Lost and Found"
+msgid "&Lost and Found"
 msgstr ""
 
 #: Lookups
-msgid "Lookups"
+msgid "&Lookups"
 msgstr ""
 
 #: Animals_On_The_Shelter
-msgid "Animals On The Shelter"
+msgid "Animals &On The Shelter"
 msgstr ""
 
 #: Internet
-msgid "Internet"
+msgid "&Internet"
 msgstr ""
 
 #: Run_Database_Update
-msgid "Run Database Update"
+msgid "Run Database U&pdate"
 msgstr ""
 
 #: Colours
-msgid "Colours"
+msgid "&Colours"
 msgstr ""
 
 #: File
-msgid "File"
+msgid "&File"
+msgstr ""
+
+#: Animal
+msgid "&Animal"
 msgstr ""
 
 #: All_Members
 msgid "All Members"
 msgstr ""
 
+#: Owner
+msgid "&Owner"
+msgstr ""
+
 #: Owner_Merge
-msgid "Owner Mail Merge"
+msgid "&Owner Mail Merge"
 msgstr ""
 
 #: Configure_Automatic_Insurance_Numbers
-msgid "Configure Automatic Insurance Numbers"
+msgid "Configure &Automatic Insurance Numbers"
 msgstr ""
 
-#: Print_Diary_Notes_(SHIFT+CTRL+P)
-msgid "Print Diary Notes (SHIFT+CTRL+P)"
+#: Non-Returned_Adoptions
+msgid "&Non-Returned Adoptions"
+msgstr ""
+
+#: Find_Animal
+msgid "&Find Animal"
+msgstr ""
+
+#: Print_Diary_Notes
+msgid "&Print Diary Notes"
 msgstr ""
 
 #: Database_Tools
@@ -7632,163 +7639,215 @@ msgid "Database Tools"
 msgstr ""
 
 #: Off_Shelter_Vaccinations
-msgid "Off Shelter Vaccinations"
+msgid "Off Shelter &Vaccinations"
 msgstr ""
 
 #: About...
-msgid "About..."
+msgid "&About..."
 msgstr ""
 
 #: Add_a_Found_Animal
 msgid "Add a Found Animal"
 msgstr ""
 
+#: Copy_Database
+msgid "&Copy Database"
+msgstr ""
+
+#: Import_Database
+msgid "&Import Database"
+msgstr ""
+
 #: Add_Animal
-msgid "Add Animal"
+msgid "&Add Animal"
 msgstr ""
 
 #: Vaccination_Diary
-msgid "Vaccination Diary"
+msgid "&Vaccination Diary"
 msgstr ""
 
-#: Add_Diary_Note_(CTRL+D)
-msgid "Add Diary Note (CTRL+D)"
+#: Add_Diary_Note
+msgid "Add Diary &Note"
+msgstr ""
+
+#: Internal_Locations
+msgid "Internal &Locations"
 msgstr ""
 
 #: FTP_Settings
-msgid "Website FTP Settings"
+msgid "Website &FTP Settings"
 msgstr ""
 
 #: Microchip_Cancellations
-msgid "Microchip Cancellations"
+msgid "Microchip &Cancellations"
+msgstr ""
+
+#: Find_Lost_Animal
+msgid "&Find Lost Animal"
 msgstr ""
 
 #: Edit_All_Diary_Notes
 msgid "Edit All Diary Notes"
 msgstr ""
 
-#: Add_Diary_Note
-msgid "Add Diary Note"
+#: Species
+msgid "&Species"
 msgstr ""
 
 #: Lost_Animals
-msgid "Lost Animals"
+msgid "&Lost Animals"
 msgstr ""
 
-#: Print_Diary_Notes
-msgid "Print Diary Notes"
+#: Find_Found_Animal
+msgid "&Find Found Animal"
+msgstr ""
+
+#: Animal_Types
+msgid "Animal &Types"
 msgstr ""
 
 #: Add_Lost_Animal
-msgid "Add Lost Animal"
-msgstr ""
-
-#: Reservation_Book_(SHIFT+CTRL+R)
-msgid "Reservation Book (SHIFT+CTRL+R)"
-msgstr ""
-
-#: Help_(F1)
-msgid "Help (F1)"
-msgstr ""
-
-#: Contents
-msgid "Contents"
-msgstr ""
-
-#: Add_New_Waiting_List_Entry
-msgid "Add New Waiting List Entry"
-msgstr ""
-
-#: Add_Owner
-msgid "Add Owner"
+msgid "&Add Lost Animal"
 msgstr ""
 
 #: Reservation_Book
 msgid "Reservation Book"
 msgstr ""
 
+#: Help
+msgid "&Help"
+msgstr ""
+
+#: Contents
+msgid "&Contents"
+msgstr ""
+
+#: Add_New_Waiting_List_Entry
+msgid "Add New &Waiting List Entry"
+msgstr ""
+
+#: Add_Owner
+msgid "&Add Owner"
+msgstr ""
+
+#: Edit_Diary_Tasks
+msgid "Edit Diary &Tasks"
+msgstr ""
+
+#: Reservation_Book
+msgid "&Reservation Book"
+msgstr ""
+
 #: Edit_Waiting_List
-msgid "Edit Waiting List"
+msgid "Edit Wa&iting List"
+msgstr ""
+
+#: Vaccination_Book
+msgid "Vaccination &Book"
+msgstr ""
+
+#: Reports
+msgid "&Reports"
+msgstr ""
+
+#: Vaccination_Types
+msgid "&Vaccination Types"
 msgstr ""
 
 #: Find_Owner
-msgid "Find Owner"
+msgid "&Find Owner"
 msgstr ""
 
 #: Publish_Animals_Available_for_Adoption
-msgid "Publish Animals Available for Adoption"
+msgid "Publish &Animals Available for Adoption"
 msgstr ""
 
 #: Microchip_Registration
-msgid "Microchip Registration"
-msgstr ""
-
-#: Help
-msgid "Help"
+msgid "Microchip Re&gistration"
 msgstr ""
 
 #: Edit_System_Users
-msgid "Edit System Users"
+msgid "Edit System &Users"
+msgstr ""
+
+#: Diary
+msgid "&Diary"
+msgstr ""
+
+#: Breeds
+msgid "&Breeds"
 msgstr ""
 
 #: Login_Again
-msgid "Login Again"
-msgstr "ล็อกอินอีกครั้ง"
+msgid "Lo&gin Again"
+msgstr ""
+
+#: Exit
+msgid "E&xit"
+msgstr ""
 
 #: Litter_Logger
-msgid "Litter Logger"
+msgid "&Litter Logger"
 msgstr ""
 
 #: All_Animals
-msgid "All Animals"
-msgstr "สัตว์ทั้งหมด"
+msgid "&All Animals"
+msgstr ""
 
 #: Adoption_Merge
-msgid "Adoption Mail Merge"
+msgid "&Adoption Mail Merge"
 msgstr ""
 
 #: Found_Animals
-msgid "Found Animals"
+msgid "&Found Animals"
 msgstr ""
 
-#: Add_an_Owner_(SHIFT+CTRL+N)
-msgid "Add an Owner (SHIFT+CTRL+N)"
+#: Add_an_Owner
+msgid "Add an Owner"
 msgstr ""
 
 #: Add_Found_Animal
-msgid "Add Found Animal"
+msgid "&Add Found Animal"
 msgstr ""
 
 #: Contents_PDF
-msgid "Contents (Printable PDF)"
+msgid "Contents (&Printable PDF)"
+msgstr ""
+
+#: Animal_Name_Database
+msgid "Animal Name Data&base"
 msgstr ""
 
 #: Settings
-msgid "Settings"
-msgstr "การตั้งค่า"
+msgid "&Settings"
+msgstr ""
 
 #: collect_garbage_now
-msgid "Collect Garbage Now"
+msgid "Collect &Garbage Now"
 msgstr ""
 
 #: Licence
-msgid "Licence Information"
+msgid "&Licence Information"
 msgstr ""
 
 #: edit_custom_reports
-msgid "Edit Reports"
-msgstr "แก้ไขรายงาน"
-
-#: foster_book
-msgid "Foster Book (CTRL+SHIFT+O)"
+msgid "Edit Re&ports"
 msgstr ""
 
 #: ConfigureFiletypes
-msgid "Configure File Types"
+msgid "Configure File &Types"
 msgstr ""
 
 #: uncategorised
 msgid "Uncategorised"
+msgstr ""
+
+#: Death_Reasons
+msgid "&Death Reasons"
+msgstr ""
+
+#: Entry_Reasons
+msgid "&Entry Reasons"
 msgstr ""
 
 #: publish_available_animals_to_petfinder
@@ -7796,11 +7855,15 @@ msgid "Publish Adoptable Animals To PetFinder.com"
 msgstr ""
 
 #: Publish_animals_available_for_adoption_to_PetFinder.org
-msgid "Publish Animals Available For Adoption To PetFinder.com"
+msgid "&Publish Animals Available For Adoption To PetFinder.com"
+msgstr ""
+
+#: petfinder.org_settings
+msgid "PetFinder.com Se&ttings"
 msgstr ""
 
 #: PetFinder_Species_Mappings
-msgid "PetFinder Species Mappings"
+msgid "PetFinder &Species Mappings"
 msgstr ""
 
 #: Locked
@@ -7812,52 +7875,51 @@ msgid "Incorrect Password"
 msgstr "รหัสผ่านไม่ถูกต้อง"
 
 #: Lock_ASM
-msgid "Lock"
+msgid "Loc&k"
 msgstr ""
 
 #: Foster_Book
-#: foster_book_m
-msgid "Foster Book"
+msgid "&Foster Book"
 msgstr ""
 
 #: Retailer_Book
-msgid "Retailer Book"
+msgid "R&etailer Book"
 msgstr ""
 
-#: Retailer_Book_ctrlse
-msgid "Retailer Book (CTRL+SHIFT+E)"
+#: Diets
+msgid "D&iets"
+msgstr ""
+
+#: Vouchers
+msgid "Vo&uchers"
 msgstr ""
 
 #: Credits
-msgid "Credits"
+msgid "C&redits"
 msgstr ""
 
 #: Edit_Medical_Profiles
-msgid "Edit Medical Profiles"
+msgid "Edit &Medical Profiles"
 msgstr ""
 
 #: Medical_Diary
-msgid "Medical Diary"
+msgid "&Medical Diary"
 msgstr ""
 
 #: Medical_Book
-msgid "Medical Book"
+msgid "Medical &Book"
 msgstr ""
 
 #: Print_Medical_Diary
-msgid "Print Medical Diary"
+msgid "&Print Medical Diary"
 msgstr ""
 
 #: Donate_to_ASM!
-msgid "Donate to ASM!"
+msgid "&Donate to ASM!"
 msgstr ""
 
 #: Edit_Diary_Notes
-msgid "Edit Diary Notes"
-msgstr ""
-
-#: Edit_Diary_Notes_(CTRL+M)
-msgid "Edit Diary Notes (CTRL+M)"
+msgid "&Edit Diary Notes"
 msgstr ""
 
 #: Do_you_want_to_logout_or_close_ASM?
@@ -7884,28 +7946,40 @@ msgstr ""
 msgid "Publish Adoptable Animals to Pets911.com"
 msgstr ""
 
+#: Pets911.com_Settings
+msgid "Pets911.com &Settings"
+msgstr ""
+
 #: Publish_Animals_Available_For_Adoption_To_Pets911.com
-msgid "Publish Animals Available For Adoption To Pets911.com"
+msgid "&Publish Animals Available For Adoption To Pets911.com"
 msgstr ""
 
 #: Edit_Vets_Diary
-msgid "Edit Vets Diary"
+msgid "Edit &Vets Diary"
+msgstr ""
+
+#: Donation_Types
+msgid "Donation T&ypes"
 msgstr ""
 
 #: export_custom_report_data
-msgid "Export Custom Report Data"
+msgid "E&xport Custom Report Data"
 msgstr ""
 
 #: media_files
-msgid "Media Files"
+msgid "Media &Files"
 msgstr ""
 
 #: Auto_Archive_Animal_Records
-msgid "Auto Archive Animal Records"
+msgid "&Auto Archive Animal Records"
 msgstr ""
 
 #: Authentication
-msgid "Authentication"
+msgid "&Authentication"
+msgstr ""
+
+#: Not_For_Adoption_Book
+msgid "&Not For Adoption Book"
 msgstr ""
 
 #: Publish_adoptable_animals_to_SaveAPet.com
@@ -7913,7 +7987,11 @@ msgid "Publish adoptable animals to AdoptAPet.com"
 msgstr ""
 
 #: Publish_Animals_Available_For_Adoption_To_SaveAPet.com
-msgid "Publish Animals Available For Adoption To AdoptAPet.com"
+msgid "&Publish Animals Available For Adoption To AdoptAPet.com"
+msgstr ""
+
+#: SaveAPet.com_Settings
+msgid "AdoptAPet.com &Settings"
 msgstr ""
 
 #: please_enter_password_for
@@ -7921,15 +7999,27 @@ msgid "Please enter the password for:"
 msgstr ""
 
 #: switch_database
-msgid "Switch Database"
+msgid "Switch &Database"
 msgstr ""
 
 #: switch_database_asm_restart
 msgid "The new database will be used after you have restarted ASM."
 msgstr ""
 
+#: petfinder_breed_mapping
+msgid "PetFinder &Breed Mapping"
+msgstr ""
+
 #: configure_email
-msgid "Configure ASM Email Account"
+msgid "Configure ASM E&mail Account"
+msgstr ""
+
+#: Log_Types
+msgid "Log Ty&pes"
+msgstr ""
+
+#: Expiring_Members
+msgid "&Expiring Members"
 msgstr ""
 
 #: Close_Active_Tab
@@ -7937,28 +8027,31 @@ msgid "Close Active Tab"
 msgstr ""
 
 #: Configure_Database
-#: configure_database
-msgid "Configure Database"
+msgid "Confi&gure Database"
 msgstr ""
 
 #: SQL_Interface
-msgid "SQL Interface"
+msgid "&SQL Interface"
 msgstr ""
 
 #: Error_Log
-msgid "Error Log"
-msgstr "ปูมบันทึกข้อผิดพลาด"
+msgid "Err&or Log"
+msgstr ""
 
 #: Configure_Additional_Fields
-msgid "Configure Additional Fields"
+msgid "Configure A&dditional Fields"
 msgstr ""
 
 #: Import_PetFinder
-msgid "Import PetFinder Data"
+msgid "Import &PetFinder Data"
+msgstr ""
+
+#: All_Members
+msgid "&All Members"
 msgstr ""
 
 #: Remove_unwanted_breeds
-msgid "Remove unwanted breeds and species"
+msgid "&Remove unwanted breeds and species"
 msgstr ""
 
 #: Publish_adoptable_animals_to_RescueGroups.org
@@ -7966,24 +8059,28 @@ msgid "Publish adoptable animals to RescueGroups.org"
 msgstr ""
 
 #: Publish_Animals_Available_For_Adoption_To_RescueGroups.org
-msgid "Publish Animals Available For Adoption to RescueGroups.org"
+msgid "&Publish Animals Available For Adoption to RescueGroups.org"
+msgstr ""
+
+#: RescueGroups.org_Settings
+msgid "RescueGroups.org &Settings"
 msgstr ""
 
 #: Breed_Mappings
-msgid "Breed Mappings"
+msgid "Breed &Mappings"
 msgstr ""
 
 #: Ask_a_question
-msgid "Ask a question about ASM"
+msgid "Ask a &question about ASM"
 msgstr ""
 
 #: Report_a_bug
-msgid "Report a bug in ASM"
-msgstr "บันทึกบั๊กที่มีอยู่ใน ASM"
+msgid "Report a &bug in ASM"
+msgstr ""
 
 #: Translate_ASM
-msgid "Help translate ASM"
-msgstr "ช่วยแปล ASM"
+msgid "Help &translate ASM"
+msgstr ""
 
 #: Updates
 msgid "Updates"
@@ -7994,11 +8091,11 @@ msgid "Show me updates in future"
 msgstr ""
 
 #: Check_For_Updates
-msgid "Check for ASM updates"
+msgid "Check for ASM &updates"
 msgstr ""
 
 #: Get_more_reports
-msgid "Get more reports from sheltermanager.com ..."
+msgid "&Get more reports from sheltermanager.com ..."
 msgstr ""
 
 #. # uimedical.properties#=========================================================================
@@ -8136,6 +8233,10 @@ msgstr ""
 
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
+msgstr ""
+
+#: Medical_Book
+msgid "Medical Book"
 msgstr ""
 
 #: Sequence
@@ -8394,6 +8495,10 @@ msgstr ""
 msgid "View the owner"
 msgstr ""
 
+#: Foster_Book
+msgid "Foster Book"
+msgstr ""
+
 #: Return_Category
 msgid "Return Category:"
 msgstr ""
@@ -8401,6 +8506,10 @@ msgstr ""
 #: none
 msgid "[none]"
 msgstr "[ไม่มี]"
+
+#: Retailer_Book
+msgid "Retailer Book"
+msgstr ""
 
 #: Refresh_the_list_of_fosters
 msgid "Refresh the list of fosters"
@@ -8532,6 +8641,10 @@ msgstr ""
 #: Select
 msgid "Select"
 msgstr "เลือก"
+
+#: Find_Owner
+msgid "Find Owner"
+msgstr ""
 
 #: A_full,_or_part_email_address_for_the_owner
 msgid "A full, or part email address for the owner"
@@ -8699,6 +8812,10 @@ msgstr ""
 
 #: is_animal_care_officer
 msgid "Animal Care Officer"
+msgstr ""
+
+#: Mail_Merge
+msgid "Mail Merge"
 msgstr ""
 
 #: email
@@ -9193,6 +9310,10 @@ msgstr ""
 msgid "Vendor: "
 msgstr ""
 
+#: About...
+msgid "About..."
+msgstr ""
+
 #: User_Home\:_
 msgid "User Home: "
 msgstr ""
@@ -9243,6 +9364,10 @@ msgstr "รุ่น"
 
 #: visit_site
 msgid "Visit the Animal Shelter Manager website"
+msgstr ""
+
+#: Credits
+msgid "Credits"
 msgstr ""
 
 #. # uisystem.properties#=========================================================================
@@ -9427,6 +9552,10 @@ msgstr ""
 msgid "Start At:"
 msgstr "เริ่มที่:"
 
+#: Configure_Automatic_Insurance_Numbers
+msgid "Configure Automatic Insurance Numbers"
+msgstr ""
+
 #: Use_Automatic_Insurance_Numbers
 msgid "Use Automatic Insurance Numbers"
 msgstr ""
@@ -9465,6 +9594,10 @@ msgstr ""
 
 #: Start_Maximised\:
 msgid "Start Maximised:"
+msgstr ""
+
+#: configure_email
+msgid "Configure ASM Email Account"
 msgstr ""
 
 #: email_address
@@ -9610,6 +9743,10 @@ msgid ""
 "handlers in ASM."
 msgstr ""
 
+#: media_files
+msgid "Media Files"
+msgstr ""
+
 #: LEFT
 msgid "LEFT"
 msgstr "ซ้าย"
@@ -9654,6 +9791,10 @@ msgstr ""
 msgid ""
 "Warning: Rescanning will overwrite your current list of types. Are you sure "
 "you want to do this?"
+msgstr ""
+
+#: Authentication
+msgid "Authentication"
 msgstr ""
 
 #: Operating_System
@@ -9736,6 +9877,10 @@ msgstr ""
 msgid ""
 "How often ASM should heartbeat to the database to keep the connection open "
 "(in ms) - 0=disable"
+msgstr ""
+
+#: configure_database
+msgid "Configure Database"
 msgstr ""
 
 #: record_search_limit
@@ -9936,6 +10081,10 @@ msgstr "โปรแกรมประมวลคำ"
 msgid "Animal Codes"
 msgstr ""
 
+#: options
+msgid "Options"
+msgstr ""
+
 #: Country\:
 msgid "Country:"
 msgstr "ประเทศ:"
@@ -9974,6 +10123,10 @@ msgstr ""
 
 #: default_type
 msgid "Default Type:"
+msgstr ""
+
+#: Configure_Defaults
+msgid "Configure Defaults"
 msgstr ""
 
 #: disable_retailer_functionality
@@ -10121,6 +10274,10 @@ msgstr "เพิ่มมีเดียสัตว์"
 msgid "Add Animals"
 msgstr "เพิ่มสัตว์"
 
+#: Edit_System_Users
+msgid "Edit System Users"
+msgstr ""
+
 #: System\:
 msgid "System:"
 msgstr "ระบบ:"
@@ -10224,6 +10381,10 @@ msgstr ""
 #: Delete_Lost_Animals
 msgid "Delete Lost Animals"
 msgstr "ลบสัตว์ที่สูญหาย"
+
+#: Print_Diary_Notes
+msgid "Print Diary Notes"
+msgstr ""
 
 #: Change_Animal_Vaccinations
 msgid "Change Animal Vaccinations"
@@ -10497,6 +10658,10 @@ msgstr ""
 msgid "Urgency:"
 msgstr ""
 
+#: Edit_Waiting_List
+msgid "Edit Waiting List"
+msgstr ""
+
 #: Clone_this_record
 msgid "Clone this record"
 msgstr ""
@@ -10594,3 +10759,24 @@ msgstr ""
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr ""
+
+#~ msgid "Login Again"
+#~ msgstr "ล็อกอินอีกครั้ง"
+
+#~ msgid "All Animals"
+#~ msgstr "สัตว์ทั้งหมด"
+
+#~ msgid "Settings"
+#~ msgstr "การตั้งค่า"
+
+#~ msgid "Edit Reports"
+#~ msgstr "แก้ไขรายงาน"
+
+#~ msgid "Error Log"
+#~ msgstr "ปูมบันทึกข้อผิดพลาด"
+
+#~ msgid "Report a bug in ASM"
+#~ msgstr "บันทึกบั๊กที่มีอยู่ใน ASM"
+
+#~ msgid "Help translate ASM"
+#~ msgstr "ช่วยแปล ASM"

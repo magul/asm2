@@ -43,6 +43,9 @@ public class WindowsBoot {
         String ram = System.getProperty("asm.ram", "256");
         s.append("-Xmx" + ram + "m ");
 
+	// Garbage collection (use conc mark and sweep)
+	s.append("-XX:+UseConcMarkSweepGC ");
+
         // Classpath
         s.append("-cp \"" + d + "asm.jar;" + d + "lib\\charting-0.94.jar;" + d +
             "lib\\mysql.jar;" + d + "lib\\postgresql.jar;" + d +

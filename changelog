@@ -1,6 +1,12 @@
 2.6.2
 ================
 
+*. Use concurrent mark and sweep gc by default for Windows
+*. Use dark font for active tab (can be invisible with some themes as text
+-  did not change colour, but background did)
+*. Updated translations with Spanish and Lithuanian menu hotkeys
+*. Changing local settings forces a reload of the menu and toolbars for
+-  language switches
 *. Hint colors wrong for dark themes
 *. Fixed deletion bug in lost and found animals
 *. Fixed bug in OwnerLink that prevented address details showing
