@@ -530,7 +530,7 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
                     animal.getID() + " AND LinkTypeID = " +
                     Integer.toString(Media.LINKTYPE_LOSTANIMAL);
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
-                s = "DELETE FROM animalfound WHERE ID = " + animal.getID();
+                s = "DELETE FROM animallost WHERE ID = " + animal.getID();
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
                 dispose();
             } catch (Exception e) {
