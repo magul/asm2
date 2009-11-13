@@ -827,15 +827,28 @@ public abstract class GenerateDocument extends Thread
 
             // Work through it in a single pass
             for (int i = 0; i < (sb.length() - 9); i++) {
-                foundTag = false;
+                
+		foundTag = false;
+		int endMarker = -1;
+		String matchTag = "";
 
                 if (markedUp) {
                     if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
                         foundTag = true;
+			endMarker = sb.indexOf("&gt;&gt;", i);
+			if (endMarker != -1) endMarker += 8;
+			matchTag = sb.substring(i, endMarker);
+			// Word and OO can add formatting and crap in between tags - throw any of it away
+			String bak = matchTag;
+			matchTag = Utils.removeHTML(matchTag);
+			Global.logDebug(bak + " -> " + matchTag, "GenerateDocument.matchTag");
                     }
                 } else {
                     if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
                         foundTag = true;
+			endMarker = sb.indexOf(">>", i);
+			if (endMarker != -1) endMarker += 2;
+			matchTag = sb.substring(i, endMarker);
                     }
                 }
 
@@ -855,10 +868,9 @@ public abstract class GenerateDocument extends Thread
                         }
 
                         // Does it match?
-                        if (sb.substring(i, i + matchs.length())
-                                  .equalsIgnoreCase(matchs)) {
+			if (matchTag.equalsIgnoreCase(matchs)) {
                             // Replace it
-                            sb.replace(i, i + matchs.length(), st.replace);
+                            sb.replace(i, endMarker, st.replace);
 
                             // Break out now, happy in the knowledge we've done
                             // it
@@ -884,6 +896,7 @@ public abstract class GenerateDocument extends Thread
 
             display();
         } catch (Exception e) {
+	    Global.logException(e, getClass());
             Dialog.showError("An error occurred generating the document: " +
                 e.getMessage());
         }

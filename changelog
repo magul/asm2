@@ -1,6 +1,9 @@
 2.6.2
 ================
 
+*. Added fix to XML processing of documents to strip XML tags found
+-  inside wordkey tags to fix unreliability (and should solve
+-  Word 2007 spell checking issue)
 *. Removed tablecell tags from On Foster (In Figures)
 *. Include fosters must be ticked on publishing for shelters with
 -  foster as inventory set (this was confusing previously)

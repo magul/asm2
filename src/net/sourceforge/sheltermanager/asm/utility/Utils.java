@@ -108,11 +108,14 @@ public abstract class Utils {
         while (i <= (s.length() - 1)) {
             if (s.substring(i, i + 1).equals("<")) {
                 oktoadd = false;
+		i++;
+		continue;
             }
 
             if (s.substring(i, i + 1).equals(">")) {
                 i++;
                 oktoadd = true;
+		continue;
             }
 
             if (oktoadd && (i <= (s.length() - 1))) {
