@@ -807,7 +807,9 @@ public class Publisher extends Thread {
             sql.append(" AND (Archived = 0 OR ActiveMovementType = " +
                 Adoption.MOVETYPE_FOSTER + ")");
         } else {
-            sql.append(" AND Archived = 0");
+	    // Make sure we are on-shelter only (filter out fosters where
+	    // foster on shelter set)
+            sql.append(" AND Archived = 0 AND (ActiveMovementType Is Null OR ActiveMovementType <> " + Adoption.MOVETYPE_FOSTER + ")");
         }
 
         sql.append(" ORDER BY MostRecentEntryDate");

@@ -1964,7 +1964,7 @@ public final class UI {
                 o[i] = cbo.getModel().getElementAt(i);
 
             String s = (String) Dialog.getInput(description, description, o,
-                    null);
+                    getSelectedItem());
 
             if (s != null) {
                 cbo.setSelectedItem(s);

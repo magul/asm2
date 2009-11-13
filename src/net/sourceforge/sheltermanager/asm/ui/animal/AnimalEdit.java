@@ -1024,7 +1024,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     /**
-     * Disables/Enables the non animal tabs - movements, media and vaccinations
+     * Disables/Enables the non-animal record tabs
      *
      * @param b
      *            true to enable, false to disable
@@ -1203,8 +1203,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         txtDateBroughtIn.getTextField().setEnabled(!chkNonShelter.isSelected());
         embBroughtInBy.setVisible(!chkNonShelter.isSelected());
 
-        // Disable movement and medical tab for non-shelter
-        tabTabs.setEnabledAt(TAB_MEDICAL, !chkNonShelter.isSelected());
+        // Disable movement tab for non-shelter
         tabTabs.setEnabledAt(TAB_MOVEMENT, !chkNonShelter.isSelected());
         cboLocation.setEnabled(!chkNonShelter.isSelected());
 
