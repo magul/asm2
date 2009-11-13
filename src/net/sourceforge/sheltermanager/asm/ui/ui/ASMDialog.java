@@ -72,6 +72,10 @@ public abstract class ASMDialog extends JDialog {
             });
     }
 
+    public void setTitle(String title) { 
+        super.setTitle(UI.mnemonicRemove(title));
+    }
+
     public abstract Vector getTabOrder();
 
     public abstract Object getDefaultFocusedComponent();
