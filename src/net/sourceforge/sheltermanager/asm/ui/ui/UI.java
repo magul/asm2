@@ -1873,6 +1873,19 @@ public final class UI {
             cbo.addKeyListener(this);
             setLayout(getBorderLayout());
             add(cbo, UI.BorderLayout.CENTER);
+
+            // Add space at the right side - the same size as the button that
+            // appears for lots of items. This is so multiple combo boxes
+            // line up properly - this only looks good on animal details screen,
+            // so disabled
+            /*
+            Label l = UI.getLabel(IconManager.getIcon(IconManager.MENUBLANK));
+            if (osIsWindows())
+                l.setPreferredSize(UI.getDimension(24, 16));
+            else
+                l.setPreferredSize(UI.getDimension(28, 16));
+            add(l, UI.BorderLayout.EAST);
+            */
         }
 
         public void keyPressed(KeyEvent e) {
@@ -1934,6 +1947,14 @@ public final class UI {
 
         public void removeAllItems() {
             cbo.removeAllItems();
+        }
+
+        public void setToolTipText(String s) {
+            cbo.setToolTipText(s);
+        }
+
+        public boolean isEnabled() {
+            return cbo.isEnabled();
         }
 
         public void addItem(Object o) {
@@ -2125,6 +2146,8 @@ public final class UI {
         public void setTitle(String title) {
             TitledBorder b = new TitledBorder(title);
             b.setTitleFont(b.getTitleFont().deriveFont(Font.BOLD));
+            // Some Swing themes always default text to black
+            b.setTitleColor(new JLabel().getForeground());
             setBorder(b);
         }
 

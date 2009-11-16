@@ -1193,6 +1193,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * screen.
      */
     public void enableOnShelterTabs() {
+
+        // If we have some movements, there's no point doing the checks
+        // as it can never be an off-shelter animal
+        if (animalmovement.hasData()) return;
+
         // Entry detail tabs
         txtReasonNotBroughtByOwner.setEnabled(!chkNonShelter.isSelected());
         txtReasonForEntry.setEnabled(!chkNonShelter.isSelected());

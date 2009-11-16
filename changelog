@@ -1,6 +1,11 @@
 2.6.2
 ================
 
+*. Disables location combo correctly now (non-shelter was overriding
+-  location check)
+*. Combo box tooltips weren't displaying properly
+*. Border titles always defaulted to black on some swing themes, fixed
+-  to use label colour
 *. Added fix to XML processing of documents to strip XML tags found
 -  inside wordkey tags to fix unreliability (and should solve
 -  Word 2007 spell checking issue)
