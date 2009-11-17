@@ -193,6 +193,11 @@ public final class UI {
 
     public static CheckBox getCheckBox(String text, String tooltip,
         final FunctionPointer onChange) {
+        return getCheckBox(text, tooltip, ALIGN_RIGHT, onChange);
+    }
+
+    public static CheckBox getCheckBox(String text, String tooltip,
+        int textalign, final FunctionPointer onChange) {
         CheckBox c = new CheckBox();
 
         if (text != null) {
@@ -202,6 +207,9 @@ public final class UI {
         if (tooltip != null) {
             c.setToolTipText(tooltip);
         }
+            
+        if (textalign == ALIGN_LEFT)
+            c.setHorizontalTextPosition(SwingConstants.LEADING);
 
         if (onChange != null) {
             c.addKeyListener(new KeyAdapter() {

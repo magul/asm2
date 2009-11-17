@@ -480,7 +480,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                 i18n("Description:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
-        txtReason = (UI.TextArea) UI.addComponent(pnlLeftMid, i18n("Reason:"),
+        txtReason = (UI.TextArea) UI.addComponent(pnlLeftMid, i18n("Entry_Reason:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
         pnlLeft.add(pnlLeftMid, UI.BorderLayout.CENTER);
@@ -500,7 +500,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                     new int[] { 30, 70 }));
 
         chkCanAffordDonation = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(
-                    i18n("Donation?"), null, UI.fp(this, "dataChanged")));
+                    i18n("Donation?"), null, UI.ALIGN_LEFT, UI.fp(this, "dataChanged")));
 
         txtDonation = (CurrencyField) pnlRightTop.add(UI.getCurrencyField(
                     null, UI.fp(this, "dataChanged")));
@@ -517,7 +517,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
         pnlRight.add(pnlRightTop, UI.BorderLayout.NORTH);
 
         txtReasonForRemoval = (UI.TextArea) UI.addComponent(pnlRightMid,
-                i18n("Reason:"),
+                i18n("Removal_Reason:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
         txtComments = (UI.TextArea) UI.addComponent(pnlRightMid,

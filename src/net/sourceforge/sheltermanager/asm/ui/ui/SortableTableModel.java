@@ -63,6 +63,7 @@ public class SortableTableModel extends AbstractTableModel {
         data = thedata;
         maxrows = maximumrows;
         idcol = theIDcol;
+        cleanCols();
     }
 
     /**
@@ -77,6 +78,17 @@ public class SortableTableModel extends AbstractTableModel {
         maxrows = maximumrows;
         maxcols = cols.length + 1;
         idcol = theIDcol;
+        cleanCols();
+    }
+
+    /** Checks that the column headers don't have colons on the end where
+      * translation strings have been shared */
+    public void cleanCols() {
+        for (int i = 0; i < columnNames.length; i++) {
+            String s = columnNames[i].trim();
+            if (s.endsWith(":"))
+                columnNames[i] = s.substring(0, s.length() - 1);
+        }
     }
 
     public int getColumnCount() {

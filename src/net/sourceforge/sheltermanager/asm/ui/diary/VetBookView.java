@@ -73,7 +73,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
     private UI.CheckBox chkShowFuture;
 
     public VetBookView() {
-        init(Global.i18n("uidiary", "View_Vet_Diary"),
+        init(Global.i18n("uidiary", "Edit_Vets_Diary"),
             IconManager.getIcon(IconManager.SCREEN_VIEWVETBOOK), "uidiary",
             true, true, new DiaryRenderer(0));
         updateList();

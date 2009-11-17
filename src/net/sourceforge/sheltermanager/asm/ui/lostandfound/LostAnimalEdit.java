@@ -415,7 +415,7 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
 
         // Left column
         // ======================
-        lblNumber = UI.getLabel();
+        lblNumber = UI.getLabel(UI.ALIGN_LEFT, "");
         lblNumber.setForeground(UI.getColor(255, 0, 0));
         UI.addComponent(pnlLeftTop, i18n("Number:"), lblNumber);
 
