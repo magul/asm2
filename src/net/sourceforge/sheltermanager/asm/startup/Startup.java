@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.startup;
 
+import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Users;
@@ -170,9 +171,9 @@ public class Startup implements Runnable {
 
             // Set maximum steps to startup (3 are skipped in applet mode)
             if (applet) {
-                sp.setMax(14);
+                sp.setMax(15);
             } else {
-                sp.setMax(17);
+                sp.setMax(18);
             }
 
             // Set the log going
@@ -382,6 +383,11 @@ public class Startup implements Runnable {
             sp.setStatus("Filling lookup cache...");
             sp.incrementBar();
             LookupCache.fill();
+
+            // Update variable data
+            sp.setStatus("Updating variable animal data...");
+            sp.incrementBar();
+            Animal.updateOnShelterVariableAnimalData();
 
             // Preload some classes
             sp.setStatus("Preloading UI classes...");

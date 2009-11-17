@@ -33,6 +33,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
+import java.text.SimpleDateFormat;
+
 
 public class Animal extends UserInfoBO {
     public static final int UNDERSIXMONTHS = 0;
@@ -1704,22 +1706,68 @@ public class Animal extends UserInfoBO {
                 animalID;
             DBConnection.executeAction(sql);
 
+            // Update age, time on shelter, etc.
+            updateVariableAnimalData(an);
+
+            an.free();
+            an = null;
+        } catch (Exception e) {
+            Global.logException(e, Animal.class);
+        }
+    }
+
+    /** Updates variable animal data (time on shelter, age, etc)
+      * for all on shelter animals.
+      */
+    public static void updateOnShelterVariableAnimalData() {
+        try {
+
+            // This only needs to be checked once per day, so see when it was
+            // last run
+            SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+            String today = df.format(new Date());
+            String lastrun = Configuration.getString("VariableAnimalDataUpdated", "0");
+            if (today.equals(lastrun)) return;
+
+            Configuration.setEntry("VariableAnimalDataUpdated", today);
+
+            Global.logInfo("Updating variable animal data...", "Animal.updateOnShelterVariableAnimalData");
+            Animal a = new Animal();
+            a.openRecordset("Archived = 0");
+            while (!a.getEOF()) {
+                updateVariableAnimalData(a);
+                a.moveNext();
+            }
+            a.free();
+            a = null;
+
+         } catch (Exception e) {
+            Global.logException(e, Animal.class);
+        }
+    }
+
+    /** Updates various cached animal dates that can change daily, such
+      * as time on shelter and current age 
+      * @param an The animal record to update
+      */
+    public static void updateVariableAnimalData(Animal an) {
+
+        try {
+
             // Set the cached date for the most recent time the animal
             // came to the shelter
-            sql = "UPDATE animal SET MostRecentEntryDate = '" +
+            String sql = "UPDATE animal SET MostRecentEntryDate = '" +
                 Utils.getSQLDateOnly(an.getMostRecentEntry()) +
-                "' WHERE ID = " + animalID;
+                "' WHERE ID = " + an.getID();
             DBConnection.executeAction(sql);
 
             // Update the text fields for time on shelter and 
             // animal's age
             sql = "UPDATE animal SET AnimalAge = '" + an.getAge() +
                 "', TimeOnShelter = '" + an.getTimeOnShelter() +
-                "' WHERE ID = " + animalID;
+                "' WHERE ID = " + an.getID();
             DBConnection.executeAction(sql);
 
-            an.free();
-            an = null;
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
