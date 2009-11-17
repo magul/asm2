@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.ui.animal.MediaSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
@@ -295,6 +296,16 @@ public class AnimalDocument extends GenerateDocument {
             addTag(Global.i18n("wordprocessor", "Age"), animal.getAge());
             addTag(Global.i18n("wordprocessor", "AcceptanceNumber"),
                 animal.getAcceptanceNumber());
+
+            try {
+                addTag(Global.i18n("wordprocessor", "NumberInLitter"), 
+                    Integer.toString(DBConnection.executeForCount("SELECT NumberInLitter FROM animallitter " +
+                    "WHERE AcceptanceNumber = '" + animal.getAcceptanceNumber() + "'")));
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+
             addTag(Global.i18n("wordprocessor", "DeceasedDate"),
                 Utils.formatDate(animal.getDeceasedDate()));
             addTag(Global.i18n("wordprocessor", "NoTimesReturned"),
