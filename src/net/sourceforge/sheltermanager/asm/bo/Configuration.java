@@ -89,6 +89,14 @@ public class Configuration {
         }
     }
 
+    public static double getDouble(String key) {
+        try {
+            return Double.parseDouble(getString(key));
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static long getLong(String key) {
         try {
             return Long.parseLong(getString(key));

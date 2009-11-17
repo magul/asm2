@@ -118,6 +118,12 @@ public class AnimalDocument extends GenerateDocument {
                 Utils.formatDate(animal.getDateBroughtIn()));
             addTag(Global.i18n("wordprocessor", "DateOfBirth"),
                 Utils.formatDate(animal.getDateOfBirth()));
+            addTag(Global.i18n("wordprocessor", "AgeGroup"),
+                animal.getAgeGroup());
+            addTag(Global.i18n("wordprocessor", "EstimatedDOB"),
+                (animal.getEstimatedDOB().intValue() == 1 ? 
+                Global.i18n("wordprocessor", "estimated") :
+                ""));
             addTag(Global.i18n("wordprocessor", "AnimalID"),
                 animal.getID().toString());
             addTag(Global.i18n("wordprocessor", "IdentichipNumber"),

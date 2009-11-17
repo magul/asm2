@@ -70,6 +70,8 @@ CREATE TABLE animal (
   YearCodeID INTEGER NULL,
   AcceptanceNumber VARCHAR(255) NULL,
   DateOfBirth TIMESTAMP NOT NULL,
+  EstimatedDOB INTEGER NULL,
+  AgeGroup VARCHAR(255) NULL,
   DeceasedDate TIMESTAMP NULL,
   Sex INTEGER NOT NULL,
   Identichipped INTEGER NOT NULL,
@@ -852,7 +854,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2611');
+INSERT INTO configuration VALUES ('DatabaseVersion','2621');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -898,7 +900,14 @@ INSERT INTO configuration VALUES ('DontAutoArchiveOnExit', 'Yes');
 INSERT INTO configuration VALUES ('IncomingMediaScaling', '320x200');
 INSERT INTO configuration VALUES ('MaxMediaFileSize', '1000');
 INSERT INTO configuration VALUES ('AllowDBAutoUpdates', 'Yes');
-
+INSERT INTO configuration VALUES ('AgeGroup1', '0.5');
+INSERT INTO configuration VALUES ('AgeGroup1Name', 'Baby');
+INSERT INTO configuration VALUES ('AgeGroup2', '2');
+INSERT INTO configuration VALUES ('AgeGroup2Name', 'Young Adult');
+INSERT INTO configuration VALUES ('AgeGroup3', '7');
+INSERT INTO configuration VALUES ('AgeGroup3Name', 'Adult');
+INSERT INTO configuration VALUES ('AgeGroup4', '50');
+INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
 
 
 

@@ -53,7 +53,7 @@ public class AutoDBUpdates {
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2611;
+    public final static int LATEST_DB_VERSION = 2621;
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -615,6 +615,15 @@ public class AutoDBUpdates {
             }
 
             // 2.611
+            if (dbVer.equals("2611")) {
+                Global.logInfo("Updating database to 2.621 please wait...",
+                    "AutoDBUpdates");
+                checkUpdateAllowed();
+                update2621();
+                dbVer = Configuration.getString("DatabaseVersion");
+            }
+
+            // 2.621
 
             // All successful
             finish();
@@ -3984,6 +3993,48 @@ public class AutoDBUpdates {
                 e.getMessage());
             Global.logException(e, getClass());
         }
+    }
+
+    private void update2621() {
+        try {
+            try {
+                // Add the EstimatedDOB field
+                DBConnection.executeAction(
+                    "ALTER TABLE animal ADD EstimatedDOB INTEGER NULL");
+                DBConnection.executeAction(
+                    "UPDATE animal SET EstimatedDOB = 0");
+            } catch (Exception e) {
+                errors.add("animal: ADD EstimatedDOB");
+            }
+
+            try {
+                // Add the age group field
+                DBConnection.executeAction(
+                    "ALTER TABLE animal ADD AgeGroup VARCHAR(255) NULL");
+            } catch (Exception e) {
+                errors.add("animal: ADD AgeGroup field");                
+            }
+
+            try {
+                Configuration.setEntry("AgeGroup1", "0.5");
+                Configuration.setEntry("AgeGroup1Name", "Baby");
+                Configuration.setEntry("AgeGroup2", "2");
+                Configuration.setEntry("AgeGroup2Name", "Young Adult");
+                Configuration.setEntry("AgeGroup3", "7");
+                Configuration.setEntry("AgeGroup3Name", "Adult");
+                Configuration.setEntry("AgeGroup4", "50");
+                Configuration.setEntry("AgeGroup4Name", "Senior");
+            } catch (Exception e) {
+                errors.add("configuration: set agegroup thresholds");
+            }
+
+            Configuration.setEntry("DatabaseVersion", "2621");
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+
     }
 }
 

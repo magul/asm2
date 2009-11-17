@@ -183,6 +183,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private DateField txtDateBroughtIn;
     private DateField txtDateDeceased;
     private DateField txtDateOfBirth;
+    private UI.CheckBox chkEstimatedDOB;
     private UI.TextArea txtHealthProblems;
     private UI.TextArea txtHiddenAnimalComments;
     private UI.TextField txtIdentichipNo;
@@ -302,6 +303,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         ctl.add(cboLocation);
         ctl.add(txtDateOfBirth);
+        ctl.add(chkEstimatedDOB);
         ctl.add(chkIdentichipped);
         ctl.add(txtIdentichipDate);
         ctl.add(txtIdentichipNo);
@@ -733,6 +735,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }
 
             Integer y = new Integer(1);
+            this.chkEstimatedDOB.setSelected(animal.getEstimatedDOB().equals(y));
             this.chkCombiTested.setSelected(animal.getCombiTested().equals(y));
             this.chkDOA.setSelected(animal.getIsDOA().equals(y));
             this.chkDiedOffShelter.setSelected(animal.getDiedOffShelter()
@@ -1611,6 +1614,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             Integer y = new Integer(1);
             Integer n = new Integer(0);
 
+            if (chkEstimatedDOB.isSelected()) {
+                animal.setEstimatedDOB(y);
+            } else {
+                animal.setEstimatedDOB(n);
+            }
+
             if (chkCombiTested.isSelected()) {
                 animal.setCombiTested(y);
             } else {
@@ -2057,11 +2066,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         lblLastLocation = UI.getLabel(i18n("Last_Location"));
         pnlLeftFields.add(lblLastLocation);
         pnlLeftFields.add(lblLocationText);
+    
+        txtDateOfBirth = (DateField) UI.getDateField(i18n("The_animal's_date_of_birth"),
+                    UI.fp(this, "dataChanged"), UI.fp(this, "updateAge"));
 
-        txtDateOfBirth = (DateField) UI.addComponent(pnlLeftFields,
-                i18n("Date_Of_Birth:"),
-                UI.getDateField(i18n("The_animal's_date_of_birth"),
-                    UI.fp(this, "dataChanged"), UI.fp(this, "updateAge")));
+        chkEstimatedDOB = (UI.CheckBox) UI.getCheckBox(i18n("Estimate"), i18n("is_this_date_of_birth_an_estimate"),
+            UI.fp(this, "dataChanged"));
+
+        UI.Panel pdob = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }), true);
+        pdob.add(txtDateOfBirth);
+        pdob.add(chkEstimatedDOB);
+
+        UI.addComponent(pnlLeftFields, i18n("Date_Of_Birth:"), pdob);
 
         // Lay out the left side
         pnlLeftTop.add(pnlThumbnail, UI.BorderLayout.NORTH);

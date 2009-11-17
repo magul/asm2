@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 51 (ASM 2.6.1)
+Revision 52 (ASM 2.6.2)
 \end_layout
 
 \begin_layout Chapter*
@@ -8193,7 +8193,37 @@ High
 \begin_layout Standard
 The animal codes tab allows you to set the format that ASM uses when creating
  animal codes.
+ The age groups tab allows you to control age groups of animals.
  Finally, the options tab contains controls to alter the behaviour of ASM.
+\end_layout
+
+\begin_layout Subsection
+Age Groups
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Age Groups
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is possible to categorise your animals by their age in ASM.
+ This is useful when generating adoption paperwork and you don't have an
+ exact date of birth for the animal.
+ Instead, ASM can specify one if its groups, using the AgeGroup wordkey
+ (or animal.AgeGroup field in custom reports).
+\end_layout
+
+\begin_layout Standard
+This tab allows you to choose the threshold for each grouping, as well as
+ the grouping name.
+ By default, anything under 6 months (0.5 years) is classed as a Baby, anything
+ under 2 years is Young Adult, under 7 years is Adult and over that is Senior.
 \end_layout
 
 \begin_layout Subsection
@@ -10021,6 +10051,17 @@ MonthBroughtIn - The month the animal was first brought to the shelter
 
 \begin_layout Itemize
 DateOfBirth - The animal's date of birth
+\end_layout
+
+\begin_layout Itemize
+EstimatedDOB - The word (estimated) if the estimated date of birth flag
+ is ticked on the animal, or a blank string if not.
+\end_layout
+
+\begin_layout Itemize
+AgeGroup - The animal's age group (the defaults are Baby, Adult, Young Adult
+ and Senior).
+ These can be configured under the System->Options screen.
 \end_layout
 
 \begin_layout Itemize

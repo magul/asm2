@@ -59,6 +59,17 @@ public class Options extends ASMForm {
     private UI.TextField txtOrgTelephone2;
     private UI.TextField txtCodingFormat;
     private UI.TextField txtShortCodingFormat;
+    private UI.TextField txtAgeGroup1;
+    private UI.TextField txtAgeGroup1Name;
+    private UI.TextField txtAgeGroup2;
+    private UI.TextField txtAgeGroup2Name;
+    private UI.TextField txtAgeGroup3;
+    private UI.TextField txtAgeGroup3Name;
+    private UI.TextField txtAgeGroup4;
+    private UI.TextField txtAgeGroup4Name;
+    private UI.TextField txtAgeGroup5;
+    private UI.TextField txtAgeGroup5Name;
+
 
     /** Creates new form Options */
     public Options() {
@@ -78,6 +89,16 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultUrgency);
         ctl.add(txtCodingFormat);
         ctl.add(txtShortCodingFormat);
+        ctl.add(txtAgeGroup1);
+        ctl.add(txtAgeGroup1Name);
+        ctl.add(txtAgeGroup2);
+        ctl.add(txtAgeGroup2Name);
+        ctl.add(txtAgeGroup3);
+        ctl.add(txtAgeGroup3Name);
+        ctl.add(txtAgeGroup4);
+        ctl.add(txtAgeGroup4Name);
+        ctl.add(txtAgeGroup5);
+        ctl.add(txtAgeGroup5Name);
         ctl.add(tblOptions);
 
         return ctl;
@@ -123,6 +144,17 @@ public class Options extends ASMForm {
         txtOrgTelephone.setText(Configuration.getString("OrganisationTelephone"));
         txtOrgTelephone2.setText(Configuration.getString(
                 "OrganisationTelephone2"));
+
+        txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
+        txtAgeGroup1Name.setText(Configuration.getString("AgeGroup1Name", ""));
+        txtAgeGroup2.setText(Configuration.getString("AgeGroup2", ""));
+        txtAgeGroup2Name.setText(Configuration.getString("AgeGroup2Name", ""));
+        txtAgeGroup3.setText(Configuration.getString("AgeGroup3", ""));
+        txtAgeGroup3Name.setText(Configuration.getString("AgeGroup3Name", ""));
+        txtAgeGroup4.setText(Configuration.getString("AgeGroup4", ""));
+        txtAgeGroup4Name.setText(Configuration.getString("AgeGroup4Name", ""));
+        txtAgeGroup5.setText(Configuration.getString("AgeGroup5", ""));
+        txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
 
         int ci = Global.getCountryIndex(Configuration.getString(
                     "OrganisationCountry"));
@@ -180,6 +212,17 @@ public class Options extends ASMForm {
             Configuration.setEntry("OrganisationAddress",
                 txtOrgAddress.getText().replace('\'', '`'));
 
+            Configuration.setEntry("AgeGroup1", txtAgeGroup1.getText());
+            Configuration.setEntry("AgeGroup1Name", txtAgeGroup1Name.getText());
+            Configuration.setEntry("AgeGroup2", txtAgeGroup2.getText());
+            Configuration.setEntry("AgeGroup2Name", txtAgeGroup2Name.getText());
+            Configuration.setEntry("AgeGroup3", txtAgeGroup3.getText());
+            Configuration.setEntry("AgeGroup3Name", txtAgeGroup3Name.getText());
+            Configuration.setEntry("AgeGroup4", txtAgeGroup4.getText());
+            Configuration.setEntry("AgeGroup4Name", txtAgeGroup4Name.getText());
+            Configuration.setEntry("AgeGroup5", txtAgeGroup5.getText());
+            Configuration.setEntry("AgeGroup5Name", txtAgeGroup5Name.getText());
+
             String selcountry = cboOrgCountry.getSelectedItem().toString();
             selcountry = selcountry.substring(0, selcountry.indexOf(" "));
             Configuration.setEntry("OrganisationCountry", selcountry);
@@ -213,21 +256,25 @@ public class Options extends ASMForm {
         txtOrgName = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Name:"),
                 UI.getTextField(i18n("Your_organisations_name")));
+        txtOrgName.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
         txtOrgAddress = (UI.TextArea) UI.addComponent(pd,
                 i18n("Organisation_Address:"),
                 UI.getTextArea(i18n("Your_organisations_address")));
 
         cboOrgCountry = UI.getCombo(Global.getCountries());
+        cboOrgCountry.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
         UI.addComponent(pd, i18n("Country:"), cboOrgCountry);
 
         txtOrgTelephone = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
+        txtOrgTelephone.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
         txtOrgTelephone2 = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
+        txtOrgTelephone2.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
         tabTabs.addTab(i18n("shelter_info"), null, pd, null);
 
@@ -267,6 +314,26 @@ public class Options extends ASMForm {
                 UI.getTextField(i18n("short_coding_format_tooltip")));
 
         tabTabs.addTab(i18n("animal_codes"), null, pc, null);
+
+        // Age groups
+        UI.Panel pa = UI.getPanel(UI.getTableLayout(3));
+        txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"), 
+            UI.getTextField());
+        txtAgeGroup1Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup2 = (UI.TextField) UI.addComponent(pa, i18n("age_group_2"), 
+            UI.getTextField());
+        txtAgeGroup2Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup3 = (UI.TextField) UI.addComponent(pa, i18n("age_group_3"), 
+            UI.getTextField());
+        txtAgeGroup3Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup4 = (UI.TextField) UI.addComponent(pa, i18n("age_group_4"), 
+            UI.getTextField());
+        txtAgeGroup4Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup5 = (UI.TextField) UI.addComponent(pa, i18n("age_group_5"), 
+            UI.getTextField());
+        txtAgeGroup5Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+
+        tabTabs.addTab(i18n("age_groups"), null, pa, null);
 
         // Options
         List l = new ArrayList();

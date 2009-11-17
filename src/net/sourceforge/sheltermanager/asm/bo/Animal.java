@@ -455,6 +455,69 @@ public class Animal extends UserInfoBO {
         rs.setField("DateOfBirth", newValue);
     }
 
+    public Integer getEstimatedDOB() throws CursorEngineException {
+        return (Integer) rs.getField("EstimatedDOB");
+    }
+
+    public void setEstimatedDOB(Integer newValue) throws CursorEngineException {
+        rs.setField("EstimatedDOB", newValue);
+    }
+
+    public String getAgeGroup() throws CursorEngineException {
+        return (String) rs.getField("AgeGroup");
+    }
+
+    public void setAgeGroup(String newValue) throws CursorEngineException {
+        rs.setField("AgeGroup", newValue);
+    }
+
+    /** Calculates the animal's age group from the AgeGroupX bands in
+      * configuration and returns the group as a string
+      * @return The age group
+      */
+    public String calculateAgeGroup() {
+
+        try {
+
+            int i = 1;
+            double lastband = 0;
+
+            // Calculate how old the animal is in days
+            Calendar c = Calendar.getInstance();
+            Calendar today = Calendar.getInstance();
+            c.setTime( getDateOfBirth() );
+            long mins = Utils.getDateDiff(today, c);
+            double days = (mins / 60) / 24;
+
+            while (true) {
+
+                // Get the next band
+                double band = Configuration.getDouble("AgeGroup" + i);
+                if (band == 0) break;
+
+                // Our band figure will be in years, convert it to days
+                band = band * 365;
+
+                // Does the animal's current age fall into this band?
+                if (days >= lastband && days <= band) {
+                    return Configuration.getString("AgeGroup" + i + "Name");
+                }
+
+                // Update the last band and go round again
+                lastband = band;
+                i++;
+            }
+
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+        // The age didn't fit a band
+        return "";
+
+    }
+
     public Date getDeceasedDate() throws CursorEngineException {
         return (Date) rs.getField("DeceasedDate");
     }
@@ -1754,18 +1817,12 @@ public class Animal extends UserInfoBO {
 
         try {
 
-            // Set the cached date for the most recent time the animal
-            // came to the shelter
-            String sql = "UPDATE animal SET MostRecentEntryDate = '" +
-                Utils.getSQLDateOnly(an.getMostRecentEntry()) +
-                "' WHERE ID = " + an.getID();
-            DBConnection.executeAction(sql);
+            String sql = "UPDATE animal SET " +
+                "MostRecentEntryDate = '" + Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
+                "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
+                "AgeGroup = '" + an.calculateAgeGroup() + "' " +
+                "WHERE ID = " + an.getID();
 
-            // Update the text fields for time on shelter and 
-            // animal's age
-            sql = "UPDATE animal SET AnimalAge = '" + an.getAge() +
-                "', TimeOnShelter = '" + an.getTimeOnShelter() +
-                "' WHERE ID = " + an.getID();
             DBConnection.executeAction(sql);
 
         } catch (Exception e) {
@@ -2180,6 +2237,8 @@ public class Animal extends UserInfoBO {
 
         setOwnersVetID(z);
         setDateOfBirth(new Date());
+        setEstimatedDOB(z);
+        setAgeGroup("");
         setDateBroughtIn(new Date());
         setMostRecentEntryDate(new Date());
 
@@ -2254,6 +2313,8 @@ public class Animal extends UserInfoBO {
         a.setCrueltyCase(getCrueltyCase());
         a.setDateBroughtIn(getDateBroughtIn());
         a.setDateOfBirth(getDateOfBirth());
+        a.setEstimatedDOB(getEstimatedDOB());
+        a.setAgeGroup(getAgeGroup());
         a.setHealthProblems(getHealthProblems());
         a.setHiddenAnimalDetails(getHiddenAnimalDetails());
         a.setMarkings(getMarkings());
