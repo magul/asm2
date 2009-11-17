@@ -64,7 +64,7 @@ for l in lines:
     if not seenit:
         seentables.append(table)
         if table == "configuration":
-            outfile.write("DELETE FROM configuration WHERE ItemName Like 'Organisation';\n");
+            outfile.write("DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';\n");
         else:
             outfile.write("DELETE FROM %s;\n" % table)
 

@@ -459,8 +459,12 @@ INSERT INTO breed VALUES (439,'Sheep','','Sheep', 16);
 INSERT INTO breed VALUES (440,'Llama','','Llama', 16);
 INSERT INTO breed VALUES (441,'Pig (Farm)','','Pig (Farm)', 28);
 
-DELETE FROM configuration WHERE ItemName like 'Organisation';
+DELETE FROM configuration WHERE ItemName like 'Organisation' OR ItemName Like 'AgeGroup%';
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
+INSERT INTO configuration VALUES ('AgeGroup1Name', 'Baby');
+INSERT INTO configuration VALUES ('AgeGroup2Name', 'Young Adult');
+INSERT INTO configuration VALUES ('AgeGroup3Name', 'Adult');
+INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
 
 DELETE FROM customreport;
 INSERT INTO customreport VALUES (36,'Non-Microchipped Animals','001','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
