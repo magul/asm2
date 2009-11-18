@@ -853,10 +853,14 @@ public abstract class GenerateDocument extends Thread
 
                 if (markedUp) {
                     if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
-			endMarker = sb.indexOf("&gt;&gt;", i);
+                        // Find first end marker in case formatting has split it
+			endMarker = sb.indexOf("&gt;", i);
+                        // Now find the second
+                        if (endMarker != -1) endMarker = sb.indexOf("&gt;", endMarker + 1);
+                        // We have a valid end marker, grab the tag
 			if (endMarker != -1) {
                             foundTag = true;
-                            endMarker += 8;
+                            endMarker += 4;
     			    matchTag = sb.substring(i, endMarker);
 			    // Word and OO can add formatting and crap in between tags - throw any of it away
 			    String bak = matchTag;
