@@ -611,6 +611,25 @@ public abstract class GenerateDocument extends Thread
                         File.separator));
             String target = moodir + File.separator + "word" + File.separator +
                 "media" + File.separator + "image" + id + ".jpeg";
+
+            // Does image[id].jpeg exist?
+            File tg = new File(target);
+            if (!tg.exists()) { 
+
+                // This is a hack, we should use the rels xml file - if we can't
+                // find the matching image with the right ID, then just replace 
+                // the first image file we find instead
+                tg = new File(moodir + File.separator + "word" + File.separator + "media");
+                String[] dir = tg.list();
+                for (int i=0; i < dir.length; i++) {
+                    if (dir[i].indexOf(".jpeg") != -1) {
+                        target = moodir + File.separator + "word" + File.separator + "media" +
+                            File.separator + dir[i];
+                        break;
+                    }
+                }
+            }
+
             new File(target).delete();
             Utils.renameFile(new File(mediafile), new File(target));
 
@@ -834,21 +853,25 @@ public abstract class GenerateDocument extends Thread
 
                 if (markedUp) {
                     if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
-                        foundTag = true;
 			endMarker = sb.indexOf("&gt;&gt;", i);
-			if (endMarker != -1) endMarker += 8;
-			matchTag = sb.substring(i, endMarker);
-			// Word and OO can add formatting and crap in between tags - throw any of it away
-			String bak = matchTag;
-			matchTag = Utils.removeHTML(matchTag);
-			Global.logDebug(bak + " -> " + matchTag, "GenerateDocument.matchTag");
+			if (endMarker != -1) {
+                            foundTag = true;
+                            endMarker += 8;
+    			    matchTag = sb.substring(i, endMarker);
+			    // Word and OO can add formatting and crap in between tags - throw any of it away
+			    String bak = matchTag;
+    			    matchTag = Utils.removeHTML(matchTag);
+			    Global.logDebug(bak + " -> " + matchTag, "GenerateDocument.matchTag");
+                        }
                     }
                 } else {
                     if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
-                        foundTag = true;
 			endMarker = sb.indexOf(">>", i);
-			if (endMarker != -1) endMarker += 2;
-			matchTag = sb.substring(i, endMarker);
+			if (endMarker != -1) {
+                            foundTag = true;
+                            endMarker += 2;
+    			    matchTag = sb.substring(i, endMarker);
+                        }
                     }
                 }
 
