@@ -48,7 +48,7 @@ public class Credits {
         "</ul>" + "<h2>Dutch Translation:</h2><ul>" +
         "<li>Irv Elshoff [irv.elshoff@wldelft.nl]</li>" + "</ul>" +
         "<h2>Spanish Translation:</h2><ul>" +
-        "<li>Vasco Marques [vasco@esysmail.com]</li>" +
+        "<li>Vasco Marques [vmba@mac.com]</li>" +
         "<li>Andres Palomares [andres.palomares@gmail.com]</li>" +
         "<li>Ivan Garcia [capiscuas@gmail.com]</li>" + "</ul>" +
         "<h2>French Translation:</h2><ul>" +
