@@ -65,16 +65,19 @@ public class Additional {
     public static void setFieldValues(int linkType, int linkID, Vector v)
         throws Exception {
         try {
-            // Remove old ones from the database first
-            DBConnection.executeAction("DELETE FROM additional WHERE " +
-                "LinkID = " + linkID + " AND LinkType = " + linkType);
 
             // Set the values
             for (int i = 0; i < v.size(); i++) {
                 Additional.Field f = (Additional.Field) v.get(i);
 
                 try {
-                    DBConnection.executeAction("INSERT INTO additional " +
+
+                    // Try an update first
+		    int co = DBConnection.executeUpdate("UPDATE additional SET Value = '" + f.value + "' WHERE LinkType = " + linkType + " AND LinkID = " + linkID + " AND AdditionalFieldID = " + f.fieldID);
+
+		    // If no records were updated, do an insert instead
+		    if (co == 0) 
+                        DBConnection.executeAction("INSERT INTO additional " +
                         "(LinkType, LinkID, AdditionalFieldID, Value) VALUES (" +
                         linkType + ", " + linkID + ", " + f.fieldID + ", '" +
                         f.value + "')");

@@ -310,6 +310,17 @@ public abstract class DBConnection {
     }
 
     /**
+     * Call this routine with a piece of valid SQL to have it executed against
+     * the database connnection.
+     */
+    public synchronized static int executeUpdate(String query)
+        throws Exception {
+        getConnection();
+        return executeUpdate(con, query);
+    }
+
+
+    /**
      * Overloaded executeAction that allows the passing of a Connection
      *
      * @param query
@@ -328,6 +339,27 @@ public abstract class DBConnection {
 
         stmt.execute(query);
     }
+
+    /**
+     * Overloaded executeUpdate that allows the passing of a Connection
+     *
+     * @param query
+     * @throws Exception
+     */
+    public synchronized static int executeUpdate(Connection c, String query)
+        throws Exception {
+        // System.out.println("Executing: " + query);
+        // Make sure we have a connection open
+        // Create a new statement and run it
+        Statement stmt = c.createStatement();
+
+        if (!quiet) {
+            Global.logDebug(query, "DBConnection.executeAction");
+        }
+
+        return stmt.executeUpdate(query);
+    }
+
 
     public synchronized static void executeFile(File f)
         throws Exception {
