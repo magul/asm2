@@ -2318,6 +2318,7 @@ public class Animal extends UserInfoBO {
         a.setHealthProblems(getHealthProblems());
         a.setHiddenAnimalDetails(getHiddenAnimalDetails());
         a.setMarkings(getMarkings());
+	a.setCurrentVetID(getCurrentVetID());
         a.setOwnersVetID(getOwnersVetID());
         a.setNeutered(getNeutered());
         a.setNeuteredDate(getNeuteredDate());

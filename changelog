@@ -1,6 +1,7 @@
 2.6.2
 ================
 
+*. Current vet not being copied during clone
 *. Vasco's email address changed
 *. Additional field saving attempts to do an update before an insert, instead
 -  of removing and then doing an insert to guarantee no data loss
