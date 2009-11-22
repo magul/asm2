@@ -1,7 +1,8 @@
 2.6.2
 ================
 
-*. Current vet not being copied during clone
+*. Current vet not being copied during clone, or breedname which meant
+-  breed would appear wrong on searches until saved
 *. Vasco's email address changed
 *. Additional field saving attempts to do an update before an insert, instead
 -  of removing and then doing an insert to guarantee no data loss

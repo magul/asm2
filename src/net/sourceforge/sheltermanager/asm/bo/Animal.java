@@ -2306,6 +2306,7 @@ public class Animal extends UserInfoBO {
         a.setBaseColourID(getBaseColourID());
         a.setBreedID(getBreedID());
         a.setBreed2ID(getBreed2ID());
+	a.setBreedName(getBreedName());
         a.setCoatType(getCoatType());
         a.setCombiTestDate(getCombiTestDate());
         a.setCombiTested(getCombiTested());
