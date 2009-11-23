@@ -116,6 +116,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * Determines whether the data on the form has changed since it was loaded.
      */
     private boolean isDirty = false;
+    /** Is the form still loading */
+    private boolean isLoading = false;
+
     private UI.Label lblThumbnail;
     private UI.Button btnClone;
     private UI.Button btnCopyNotes;
@@ -466,6 +469,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      */
     public void openForEdit(Animal animal) {
         isNewRecord = false;
+        isLoading = true;
         this.animal = animal;
         loadData();
         enableButtons();
@@ -475,6 +479,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         isDirty = false;
         btnSave.setEnabled(isDirty);
         setSecurity();
+        isLoading = false;
     }
 
     /**
@@ -484,6 +489,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      */
     public void openForEdit(Animal animal, boolean unsaved) {
         isNewRecord = true;
+        isLoading = true;
         this.animal = animal;
         loadData(false);
         enableOnShelterTabs();
@@ -493,6 +499,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         isDirty = true;
         btnSave.setEnabled(isDirty);
         setSecurity();
+        isLoading = false;
     }
 
     /**
@@ -1217,15 +1224,19 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // If it is off the shelter, then we should automatically
         // choose the non-shelter animal type for it and disable
-        // it. If it has no code, we generate one now.
-        if (chkNonShelter.isSelected()) {
+        // it.
+        if (chkNonShelter.isSelected() ) {
             Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
                 "AnimalType",
                 new Integer(Configuration.getInteger("AFNonShelterType")),
                 cboType);
             cboType.setEnabled(false);
+           
+            // If we aren't loading the screen right now, generate a new code
+            // for the non-shelter animal - the box must have just been ticked
+            if (!isLoading) 
+                generateAnimalCode(animal, (String) cboType.getSelectedItem());
 
-            generateAnimalCode(animal, (String) cboType.getSelectedItem());
         } else {
             cboType.setEnabled(true);
         }

@@ -248,6 +248,8 @@ public class Diagnostic extends Thread {
                            .equals("ok")) {
                     badTables++;
 
+                    Global.logInfo("MySQL says table '" + tables[i] + "' needs to be repaired...", "Diagnostic.repairDB");
+
                     SQLRecordset rs2 = new SQLRecordset();
                     rs2.openRecordset("REPAIR TABLE " + tables[i], "none");
                     rs2.free();

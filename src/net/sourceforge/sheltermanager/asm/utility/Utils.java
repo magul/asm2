@@ -637,8 +637,13 @@ public abstract class Utils {
     public static void setComboFromID(SQLRecordset lookup, String fieldName,
         Integer idValue, UI.ComboBox theCombo) {
         try {
+
+            // Disable events on the combo
+            theCombo.stopEvents();
+
             // Drop out if we have an empty string
             if (idValue.equals("")) {
+                theCombo.startEvents();
                 return;
             }
 
@@ -655,6 +660,7 @@ public abstract class Utils {
 
             // If we didn't find the ID in the set, abandon
             if (lookup.getEOF()) {
+                theCombo.startEvents();
                 return;
             }
 
@@ -667,7 +673,7 @@ public abstract class Utils {
                 if (theitem.equals(lookup.getField(fieldName))) {
                     // We have a match - select it and break
                     theCombo.setSelectedIndex(i);
-
+                    theCombo.startEvents();
                     return;
                 }
 
@@ -675,7 +681,7 @@ public abstract class Utils {
             }
         } catch (Exception e) {
             Global.logException(e, Utils.class);
-
+            theCombo.startEvents();
             return;
         }
     }

@@ -591,7 +591,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, String sql,
         String field, final FunctionPointer onChange) {
-        ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description);
         c.setEditable(false);
 
         try {
@@ -619,7 +619,7 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -627,7 +627,7 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
                 });
         }
@@ -649,7 +649,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, Vector items,
         final FunctionPointer onChange) {
-        ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description);
         c.setEditable(false);
 
         if (items != null) {
@@ -664,7 +664,7 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -672,7 +672,7 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
                 });
         }
@@ -695,7 +695,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, String[] items,
         final FunctionPointer onChange) {
-        ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description);
         c.setEditable(false);
 
         if (items != null) {
@@ -710,7 +710,7 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -718,7 +718,7 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
                 });
         }
@@ -788,7 +788,7 @@ public final class UI {
     public static ComboBox getCombo(String description, SQLRecordset r,
         String field, final FunctionPointer onChange,
         final FunctionPointer onLostFocus, String allstring) {
-        ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description);
         c.setEditable(false);
 
         if (allstring != null) {
@@ -812,7 +812,7 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        onChange.call();
+                        if (!c.noEvents) onChange.call();
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -828,7 +828,7 @@ public final class UI {
         if (onLostFocus != null) {
             c.addFocusListener(new FocusAdapter() {
                     public void focusLost(FocusEvent e) {
-                        onLostFocus.call();
+                        if (!c.noEvents) onLostFocus.call();
                     }
                 });
         }
@@ -1856,6 +1856,7 @@ public final class UI {
     }
 
     public static class ComboBox extends JPanel implements KeyListener {
+        public boolean noEvents = false;
         JComboBox cbo = new JComboBox();
         UI.Button b = UI.getButton(null, null, ' ',
                 IconManager.getIcon(IconManager.SEARCHSMALL),
@@ -1904,6 +1905,14 @@ public final class UI {
                     !cbo.isEditable()) {
                 actionSearch();
             }
+        }
+
+        public void stopEvents() {
+            noEvents = true;
+        }
+
+        public void startEvents() {
+            noEvents = false;
         }
 
         public void keyReleased(KeyEvent e) {

@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. Fixed bug where non-shelter animals were generating new codes on loading
+*. Added logging when repairing MySQL tables
 *. DatePerformedLastHomeCheck was removed, so no longer needs checking as
 -  a date field for MySQL diagnostics
 *. Current vet not being copied during clone, or breedname which meant
