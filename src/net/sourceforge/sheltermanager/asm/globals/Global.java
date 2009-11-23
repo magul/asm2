@@ -278,6 +278,11 @@ public abstract class Global {
         return locale.substring(0, locale.indexOf(" ")).trim();
     }
 
+    public static String getLanguage(String locale) {
+        if (locale.length() < 3) return locale;
+        return locale.substring(0, locale.indexOf("_"));
+    }
+
     /**
      * Reads the current system locale and sets the currency symbol and date
      * format accordingly

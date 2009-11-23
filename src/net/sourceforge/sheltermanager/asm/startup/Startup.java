@@ -686,10 +686,9 @@ public class Startup implements Runnable {
                 // Parse the constant and set the
                 // system locale accordingly.
                 try {
-                    Locale.setDefault(new Locale(locale.substring(0,
-                                locale.indexOf("_")),
-                            locale.substring(locale.indexOf("_") + 1,
-                                locale.length())));
+                    String lang = locale.substring(0, locale.indexOf("_"));
+                    String country = locale.substring(locale.indexOf("_") + 1, locale.length());
+                    Locale.setDefault(new Locale(lang, country));
                 } catch (Exception e) {
                     Global.logError("An error occurred switching to locale '" +
                         locale + "':\n" + e.getMessage(), "Startup.readSettings");

@@ -106,6 +106,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.ASMWindow;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.HTMLViewer;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.LocaleSwitcher;
 import net.sourceforge.sheltermanager.asm.ui.ui.ThrobberSmall;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.ui.users.UserView;
@@ -1557,6 +1558,7 @@ public class Main extends ASMWindow {
         pnlStatusRight.add(lblAudit);
         pnlStatusRight.add(lblDB);
         pnlStatusRight.add(lblUser);
+        pnlStatusRight.add(new LocaleSwitcher());
         pnlStatus.add(pnlStatusRight, UI.BorderLayout.EAST);
     }
 
