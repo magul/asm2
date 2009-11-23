@@ -482,13 +482,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void setDirty(final boolean dirty) {
-        UI.invokeLater(new Runnable() {
-            public void run() {
-                isDirty = dirty;
-                btnSave.setEnabled(isDirty);
-                if (!Global.currentUserObject.getSecChangeAnimal()) btnSave.setEnabled(false);
-            }
-        });
+    	UI.invokeLater(new Runnable() {
+	    public void run() {
+	        isDirty = dirty;
+	        btnSave.setEnabled(isDirty);
+	        if (!Global.currentUserObject.getSecChangeAnimal()) btnSave.setEnabled(false);
+	    }
+	});
     }
 
     /**
@@ -1812,7 +1812,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Notifies the form that the data has been changed. */
     public void dataChanged() {
-        setDirty(true);
+    	if (!isLoading) setDirty(true);
     }
 
     /** Runs when the crossbreed checkbox is toggled and enables the
