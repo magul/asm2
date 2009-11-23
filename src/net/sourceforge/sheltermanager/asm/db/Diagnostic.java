@@ -222,18 +222,19 @@ public class Diagnostic extends Thread {
     public int repairDB() throws Exception {
         int badTables = 0;
         String[] tables = {
+                "additional", "additionalfield", 
                 "adoption", "animal", "animaldiet", "animalfound",
                 "animallitter", "animallost", "animalmedical",
                 "animalmedicaltreatment", "animalname", "animaltype",
                 "animalvaccination", "animalwaitinglist", "basecolour", "breed",
                 "configuration", "customreport", "deathreason", "diary",
                 "diarytaskdetail", "diarytaskhead", "diet", "entryreason",
-                "internallocation", "lksmovementtype", "lksdiarylink",
-                "lksloglink", "lksposneg", "lksex", "lksize", "lksmedialink",
-                "lksyesno", "lksynun", "lkurgency", "log", "logtype", "media",
-                "medicalprofile", "owner", "ownerdonation", "ownervoucher",
-                "primarykey", "settings", "species", "users", "vaccinationtype",
-                "voucher"
+                "internallocation", "lkcoattype",  "lksmovementtype", 
+                "lksdiarylink", "lksloglink", "lksposneg", "lksex", "lksize", 
+                "lksmedialink", "lksyesno", "lksynun", "lkurgency", "log", 
+                "logtype", "media", "medicalprofile", "owner", "ownerdonation",
+                "ownervoucher", "primarykey", "species", "users", 
+                "vaccinationtype", "voucher"
             };
 
         setStatusText(Global.i18n("db", "checking_for_corrupted_tables"));
