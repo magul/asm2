@@ -1,6 +1,7 @@
 2.6.2
 ================
 
+*. Fix for MacOSX to use CMD instead of CTRL as menu accelerator
 *. Fixed bug where non-shelter animals were generating new codes on loading
 *. Added logging when repairing MySQL tables
 *. DatePerformedLastHomeCheck was removed, so no longer needs checking as
