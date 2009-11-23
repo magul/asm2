@@ -476,10 +476,19 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableOnShelterTabs();
         updateDeath();
         showThumbnail();
-        isDirty = false;
-        btnSave.setEnabled(isDirty);
         setSecurity();
         isLoading = false;
+        setDirty(false);
+    }
+
+    public void setDirty(final boolean dirty) {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                isDirty = dirty;
+                btnSave.setEnabled(isDirty);
+                if (!Global.currentUserObject.getSecChangeAnimal()) btnSave.setEnabled(false);
+            }
+        });
     }
 
     /**
@@ -496,10 +505,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableNonAnimalTabs(false);
         enableButtons();
         updateDeath();
-        isDirty = true;
-        btnSave.setEnabled(isDirty);
         setSecurity();
         isLoading = false;
+        setDirty(false);
     }
 
     /**
@@ -608,8 +616,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         txtAmountDonatedOnEntry.setText("0");
 
         // Shouldn't be dirty until some data is entered
-        isDirty = false;
-        btnSave.setEnabled(isDirty);
+        setDirty(false);
 
         // Deactivate vaccinations, media and movements until they
         // have saved
@@ -1761,8 +1768,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             showTitle();
 
             // Disable the save button
-            this.isDirty = false;
-            btnSave.setEnabled(isDirty);
+            setDirty(false);
             txtAnimalName.getTextField().grabFocus();
             enableButtons();
 
@@ -1806,9 +1812,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Notifies the form that the data has been changed. */
     public void dataChanged() {
-        isDirty = true;
-        btnSave.setEnabled(isDirty);
-        setSecurity();
+        setDirty(true);
     }
 
     /** Runs when the crossbreed checkbox is toggled and enables the
