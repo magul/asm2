@@ -100,7 +100,7 @@ public class Diagnostic extends Thread {
     }
 
     public int fixMySQLDates() throws Exception {
-        final int COLS = 40;
+        final int COLS = 39;
         setStatusText(Global.i18n("db", "fixing_mysql_dates"));
         setStatusBarMax(COLS);
         fixMySQLDate("adoption", "MovementDate");
@@ -178,8 +178,6 @@ public class Diagnostic extends Thread {
         fixMySQLDate("owner", "MembershipExpiryDate");
         incrementStatusBar();
         fixMySQLDate("owner", "DateLastHomeChecked");
-        incrementStatusBar();
-        fixMySQLDate("owner", "DatePerformedLastHomeCheck");
         incrementStatusBar();
         fixMySQLDate("ownerdonation", "Date");
         incrementStatusBar();

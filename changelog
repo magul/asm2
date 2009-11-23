@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. DatePerformedLastHomeCheck was removed, so no longer needs checking as
+-  a date field for MySQL diagnostics
 *. Current vet not being copied during clone, or breedname which meant
 -  breed would appear wrong on searches until saved
 *. Vasco's email address changed
