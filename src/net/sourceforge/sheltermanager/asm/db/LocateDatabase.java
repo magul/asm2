@@ -44,11 +44,22 @@ public class LocateDatabase {
     private static String propFileName = Global.tempDirectory + File.separator +
         "jdbc.properties";
     private String jdbcURL = null;
+    private boolean justCreatedLocal = false;
 
     /** Creates a new instance of LocateDatabase */
     public LocateDatabase() {
+        
         // Check we have a local database
         checkLocalDatabase();
+
+        // If we just created the local database, it's a new install - switch
+        // straight to it
+        if (justCreatedLocal) {
+            Global.logInfo("First time use, defaulting to local database.", "LocateDatabase.LocateDatabase");
+            jdbcURL = "jdbc:hsqldb:file:" + Global.tempDirectory + File.separator + "localdb";
+            saveJDBCUrlToConfig();
+            return;
+        }
 
         // Read the db config
         Global.logInfo("Attempting to read JDBC URL from configuration file",
@@ -222,6 +233,11 @@ public class LocateDatabase {
             // we could be switching elsewhere and back again
             DBConnection.con.close();
             DBConnection.con = null;
+
+            // Note that we just created it, so we can default to it for
+            // first time users
+            justCreatedLocal = true;
+
         } catch (Exception e) {
             Global.logError("Failed creating local db: " + e.getMessage(),
                 "LocateDatabase.askUserForDatabase");

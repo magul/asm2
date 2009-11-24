@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. First time users, we autoselect the local database after creation
+-  so that no prompting is needed (seems to confuse people)
 *. Fix for save button remaining active after opening an existing animal
 *. Removed settings table from MySQL corruption check (no longer exists)
 *. Quick locale switcher in status panel
