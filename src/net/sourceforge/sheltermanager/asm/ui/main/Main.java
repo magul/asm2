@@ -319,11 +319,7 @@ public class Main extends ASMWindow {
         init("ASM", IconManager.getIcon(IconManager.SCREEN_MAIN), "uimain", true);
 
         // Make adjustments to better conform to the Mac OS X user interface
-        // (note we have to use system property as well because we want this
-        // for Swing renderering too).
-        if (UI.osIsMacOSX() && !Global.applet) {
-            conformToMacOSXInterfaceGuidelines();
-        }
+        conformToMacOSXInterfaceGuidelines();
 
         // Display the title based on who the product is
         // registered to.
@@ -532,6 +528,13 @@ public class Main extends ASMWindow {
 
     /** Make changes to the UI (after initComponents) to better conform to the Mac OS X interface guidelines.*/
     public void conformToMacOSXInterfaceGuidelines() {
+
+        // Bail if we aren't on a Mac
+        if (!UI.osIsMacOSX()) return;
+
+        // If we're in applet mode, don't bother either
+        if (Global.applet) return;
+
         try {
             // Generate and register the OSXAdapter, passing it a hash of all the methods we wish to
             // use as delegates for various com.apple.eawt.ApplicationListener methods
@@ -1522,6 +1525,7 @@ public class Main extends ASMWindow {
         initMenu();
 	initMenuTree();
 	initToolbar();
+        conformToMacOSXInterfaceGuidelines();
 	refreshCustomReports();
     }
 

@@ -1,6 +1,8 @@
 2.6.2
 ================
 
+*. Force conformance to MacOSX UI guidelines after switching languages
+-  and reloading the menu/toolbar
 *. Fix to prevent extended key presses by themselves being interpreted as
 -  typed strokes, causing CTRL to dirty a form before W can close it
 *. CTRL+S/CMD+S hotkey to save the contents of any screen throughout
