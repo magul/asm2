@@ -567,6 +567,9 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     }
 
     public boolean saveData() {
+
+        if (!isDirty) return false;
+
         try {
             movement.setReasonForReturn(txtReason.getText());
             movement.setAnimalID(new Integer(selectedAnimalID));

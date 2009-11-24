@@ -823,6 +823,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
      */
     public boolean saveData() {
 
+        if (!isDirty) return false;
+
         if (!Global.currentUserObject.getSecChangeOwner()) {
             Dialog.showError(UI.messageNoSavePermission());
             return false;

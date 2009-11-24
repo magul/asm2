@@ -1486,6 +1486,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     public boolean saveData() {
 
+        if (!isDirty) return false;
+
         if (!Global.currentUserObject.getSecChangeAnimal()) {
             Dialog.showError(UI.messageNoSavePermission());
             return false;

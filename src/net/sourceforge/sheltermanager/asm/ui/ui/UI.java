@@ -214,7 +214,7 @@ public final class UI {
         if (onChange != null) {
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        onChange.call();
+                        if (isTypedEvent(e)) onChange.call();
                     }
                 });
             c.addMouseListener(new MouseAdapter() {
@@ -298,7 +298,7 @@ public final class UI {
         if (onChange != null) {
             d.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        onChange.call();
+                        if (isTypedEvent(evt)) onChange.call();
                     }
                 });
         }
@@ -627,7 +627,8 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents)
+                            if (isTypedEvent(evt)) onChange.call();
                     }
                 });
         }
@@ -672,7 +673,8 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents)
+                            if (isTypedEvent(evt)) onChange.call();
                     }
                 });
         }
@@ -718,7 +720,8 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents)
+                            if (isTypedEvent(evt)) onChange.call();
                     }
                 });
         }
@@ -820,7 +823,7 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        onChange.call();
+                        if (isTypedEvent(evt)) onChange.call();
                     }
                 });
         }
@@ -1041,7 +1044,7 @@ public final class UI {
         if (onChange != null) {
             t.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        onChange.call();
+                        if (isTypedEvent(e)) onChange.call();
                     }
                 });
         }
@@ -1084,7 +1087,7 @@ public final class UI {
         if (onChange != null) {
             t.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        onChange.call();
+                        if (isTypedEvent(e)) onChange.call();
                     }
                 });
         }
@@ -1397,6 +1400,21 @@ public final class UI {
     public static Image loadImage(String file) {
         return new ImageIcon(file).getImage();
     }
+
+    /** This is a bit of a hack - checks a KeyEvent and if it is the
+      * pressing of only CTRL, SHIFT, ALT or META, then return
+      * false
+      */
+    public static boolean isTypedEvent(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_CONTROL ||
+            e.getKeyCode() == KeyEvent.VK_ALT ||
+            e.getKeyCode() == KeyEvent.VK_META ||
+            e.getKeyCode() == KeyEvent.VK_SHIFT) {
+            return false;
+        }
+        return true;
+    }
+
 
     /** Returns the height a text component should be */
     public static int getTextBoxHeight() {

@@ -356,6 +356,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
 
     public boolean saveData() {
 
+        if (!isDirty) return false;
+
         if (!Global.currentUserObject.getSecChangeWaitingList()) {
             Dialog.showError(UI.messageNoSavePermission());
             return false;
