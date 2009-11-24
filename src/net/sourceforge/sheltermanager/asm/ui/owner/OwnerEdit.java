@@ -822,6 +822,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
      * database.
      */
     public boolean saveData() {
+
+        if (!Global.currentUserObject.getSecChangeOwner()) {
+            Dialog.showError(UI.messageNoSavePermission());
+            return false;
+        }
+
         try {
             owner.setOwnerName(txtNameTitle.getText(),
                 txtNameInitials.getText(), txtNameForenames.getText(),

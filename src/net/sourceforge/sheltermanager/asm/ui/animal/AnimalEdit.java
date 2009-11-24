@@ -1485,6 +1485,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public boolean saveData() {
+
+        if (!Global.currentUserObject.getSecChangeAnimal()) {
+            Dialog.showError(UI.messageNoSavePermission());
+            return false;
+        }
+
         try {
             animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
             animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));

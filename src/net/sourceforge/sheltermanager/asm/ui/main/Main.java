@@ -209,6 +209,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuFileAnimalRetailerBook;
     private UI.MenuItem mnuFileAnimalWaitingList;
     private UI.MenuItem mnuFileCloseTab;
+    private UI.MenuItem mnuFileSaveTab;
     private UI.MenuItem mnuFileExit;
     private UI.Menu mnuFileFoundAnimals;
     private UI.MenuItem mnuFileFoundAnimalsAddFound;
@@ -539,10 +540,12 @@ public class Main extends ASMWindow {
                 getClass()
                     .getDeclaredMethod("macOSXMenuQuitHandler", (Class[]) null));
 
-            // Don't need the Exit command anymore.
-            // mnuFile.remove(mnuFileExit); No-op -- doesn't do anything...
-            // mnuFile.remove(jSeparator2);
-            mnuFile.remove(mnuFile.getItemCount() - 1); // "Exit"
+            // Don't need the Exit command anymore - applets don't have it
+            // in the first place, though
+            if (!Startup.applet) {
+                mnuFile.remove(mnuFile.getItemCount() - 1); // Separator
+                mnuFile.remove(mnuFile.getItemCount() - 1); // "Exit"
+            }
 
             // Set "About ..." menu item
             OSXAdapter.setAboutHandler(this,
@@ -884,6 +887,11 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_FILECLOSETAB),
                 new ASMAccelerator("w", "ctrl", ""),
                 UI.fp(this, "actionCloseTab"));
+
+        mnuFileSaveTab = UI.getMenuItem(i18n("Save_Active_Tab"), ' ',
+                IconManager.getIcon(IconManager.MENU_FILESAVETAB),
+                new ASMAccelerator("s", "ctrl", ""),
+                UI.fp(this, "actionSaveTab"));
 
         mnuFileExit = UI.getMenuItem(i18n("Exit"), 'X',
                 IconManager.getIcon(IconManager.MENU_FILEEXIT),
@@ -1337,11 +1345,13 @@ public class Main extends ASMWindow {
             mnuFile.add(UI.getSeparator());
         }
 
+        mnuFile.add(mnuFileSaveTab);
         mnuFile.add(mnuFileCloseTab);
 
         // Closing the browser window exits an applet, no need
         // for the exit option
         if (!Startup.applet) {
+            mnuFile.add(UI.getSeparator());
             mnuFile.add(mnuFileExit);
         }
 
@@ -2239,6 +2249,21 @@ public class Main extends ASMWindow {
             }
         }
     }
+
+    public void actionSaveTab() {
+        ASMForm f = null;
+
+        try {
+            f = (ASMForm) jdpDesktop.getSelectedFrame();
+        } catch (Exception e) {
+            // SwingWT can fail here if no windows open
+        }
+
+        if (f != null) {
+            f.saveData();
+        }
+    }
+
 
     public void actionSystemUsers() {
         cursorToWait();

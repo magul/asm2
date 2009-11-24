@@ -235,6 +235,7 @@ public class Options extends ASMForm {
             Configuration.setEntry("ShortCodingFormat",
                 txtShortCodingFormat.getText().replace('\'', '`'));
 
+            dispose();
             return true;
         } catch (Exception e) {
             Dialog.showError(Global.i18n("uisystem",
@@ -559,7 +560,7 @@ public class Options extends ASMForm {
         btnSave = (UI.Button) t.add(UI.getButton(null,
                     i18n("Save_your_changes_and_exit"), 's',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
-                    UI.fp(this, "actionOk")));
+                    UI.fp(this, "saveData")));
         /*btnClose = (UI.Button) t.add(UI.getButton(null, null, 'x',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_CLOSE),
                     UI.fp(this, "dispose")));*/
@@ -567,9 +568,4 @@ public class Options extends ASMForm {
         add(tabTabs, UI.BorderLayout.CENTER);
     }
 
-    public void actionOk() {
-        if (saveData()) {
-            dispose();
-        }
-    }
 }

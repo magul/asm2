@@ -917,7 +917,8 @@ public final class UI {
     public static Menu getMenu(String text, char mnemonic, Icon icon) {
         Menu m = new Menu();
         m.setText(mnemonicRemove(text));
-        m.setMnemonic(mnemonicFromText(text, mnemonic));
+        char mn = mnemonicFromText(text, mnemonic);
+        if (mn != ' ') m.setMnemonic(mn);
 
         if (icon != null) {
             m.setIcon(icon);
@@ -944,7 +945,8 @@ public final class UI {
         ASMAccelerator hotkey, final FunctionPointer onClick) {
         MenuItem m = new MenuItem();
         m.setText(mnemonicRemove(text));
-        m.setMnemonic(mnemonicFromText(text, mnemonic));
+        char mn = mnemonicFromText(text, mnemonic);
+        if (mn != ' ') m.setMnemonic(mn);
 
         if (icon != null) {
             m.setIcon(icon);
@@ -1504,6 +1506,10 @@ public final class UI {
 
     public static String messageSelect() {
         return Global.i18n("uiowner", "Select");
+    }
+
+    public static String messageNoSavePermission() {
+        return Global.i18n("uianimal", "Permission_Denied_Save");
     }
 
     public static String messageAudit(Date createdDate, String createdBy,

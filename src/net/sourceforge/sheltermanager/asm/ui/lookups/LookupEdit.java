@@ -106,10 +106,6 @@ public class LookupEdit extends ASMForm {
         return null;
     }
 
-    public boolean saveData() {
-        return true;
-    }
-
     public void loadData() {
     }
 
@@ -158,7 +154,7 @@ public class LookupEdit extends ASMForm {
         txtDesc = (UI.TextArea) UI.addComponent(p, descDisplay, UI.getTextArea());
 
         btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
-                UI.fp(this, "actionOk"));
+                UI.fp(this, "saveData"));
         btnCancel = UI.getButton(i18n("Cancel"), null, 'c', null,
                 UI.fp(this, "actionCancel"));
         p.add(btnOk);
@@ -171,12 +167,12 @@ public class LookupEdit extends ASMForm {
         dispose();
     }
 
-    public void actionOk() {
+    public boolean saveData() {
         if (txtName.getText().equals("")) {
             Dialog.showError(i18n("cannot_be_empty", jLabel1.getText()),
                 i18n("Validation_Error"));
 
-            return;
+            return false;
         }
 
         // Save the recordset back to the database
@@ -187,10 +183,12 @@ public class LookupEdit extends ASMForm {
             rs.save(false, "");
             parent.updateList();
             dispose();
+            return true;
         } catch (Exception e) {
             Dialog.showError(i18n("An_error_occurred_saving_the_record:_") +
                 e.getMessage());
             Global.logException(e, getClass());
         }
+        return false;
     }
 }

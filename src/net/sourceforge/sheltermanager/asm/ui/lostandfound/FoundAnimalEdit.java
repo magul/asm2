@@ -325,6 +325,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public boolean saveData() {
+
+        if (!Global.currentUserObject.getSecChangeFoundAnimals()) {
+            Dialog.showError(UI.messageNoSavePermission());
+            return false;
+        }
+
         try {
             animal.setOwnerID(new Integer(embOwner.getID()));
             animal.setComments(txtComments.getText());

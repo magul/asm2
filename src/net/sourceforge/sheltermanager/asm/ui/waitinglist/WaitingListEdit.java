@@ -355,6 +355,12 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public boolean saveData() {
+
+        if (!Global.currentUserObject.getSecChangeWaitingList()) {
+            Dialog.showError(UI.messageNoSavePermission());
+            return false;
+        }
+
         try {
             awl.setOwnerID(new Integer(embOwner.getID()));
 

@@ -137,6 +137,7 @@ public class MediaAdd extends ASMForm {
     }
 
     public boolean saveData() {
+        attachMedia();
         return true;
     }
 

@@ -108,10 +108,6 @@ public class CustomReportEdit extends ASMForm {
     public void loadData() {
     }
 
-    public boolean saveData() {
-        return true;
-    }
-
     public void openForEdit(CustomReport cr) {
         this.cr = cr;
 
@@ -181,7 +177,7 @@ public class CustomReportEdit extends ASMForm {
                     's',
                     IconManager.getIcon(
                         IconManager.SCREEN_EDITCUSTOMREPORT_SAVE),
-                    UI.fp(this, "actionSave")));
+                    UI.fp(this, "saveData")));
 
         btnCheckSQL = (UI.Button) t.add(UI.getButton(null,
                     i18n("Syntax_check_the_SQL"), 'c',
@@ -492,7 +488,7 @@ public class CustomReportEdit extends ASMForm {
         }
     }
 
-    public void actionSave() {
+    public boolean saveData() {
         // Save values
         try {
             cr.setTitle(txtTitle.getText());
@@ -507,10 +503,12 @@ public class CustomReportEdit extends ASMForm {
 
             // Update parent
             parent.updateList();
+            return true;
         } catch (Exception e) {
             Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
                 e.getMessage());
             Global.logException(e, getClass());
         }
+        return false;
     }
 }

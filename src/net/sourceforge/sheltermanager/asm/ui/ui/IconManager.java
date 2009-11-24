@@ -582,6 +582,7 @@ public abstract class IconManager {
     public final static String MENU_FILELOCK = "system-Lock-16.png";
     public final static String MENU_FILELOGINAGAIN = "actions-Refresh-16.png";
     public final static String MENU_FILECLOSETAB = "actions-Close-16.png";
+    public final static String MENU_FILESAVETAB = "actions-Save-16.png";
     public final static String MENU_FILEEXIT = "actions-Close-16.png";
     public final static String MENU_DIARYPRINTVACC = "actions-Medical-16.png";
     public final static String MENU_DIARYPVALLANIMALS = "animal-Basic-16.png";

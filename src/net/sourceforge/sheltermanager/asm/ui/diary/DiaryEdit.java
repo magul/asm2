@@ -236,6 +236,7 @@ public class DiaryEdit extends ASMForm {
                     parent.updateList();
                 }
 
+                dispose();
                 return true;
             } catch (CursorEngineException e) {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
@@ -283,7 +284,7 @@ public class DiaryEdit extends ASMForm {
                 UI.getTextArea());
 
         btnOk = UI.getButton(i18n("Ok"), i18n("Save_this_diary_note_and_exit"),
-                'o', null, UI.fp(this, "actionOk"));
+                'o', null, UI.fp(this, "saveData"));
         pnlBot.add(btnOk);
 
         btnCancel = UI.getButton(i18n("Cancel"), i18n("Close_without_saving"),
@@ -295,9 +296,4 @@ public class DiaryEdit extends ASMForm {
         dispose();
     }
 
-    public void actionOk() {
-        if (saveData()) {
-            dispose();
-        }
-    }
 }
