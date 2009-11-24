@@ -1401,17 +1401,22 @@ public final class UI {
         return new ImageIcon(file).getImage();
     }
 
-    /** This is a bit of a hack - checks a KeyEvent and if it is the
-      * pressing of only CTRL, SHIFT, ALT or META, then return
-      * false
+    /** Determines if a key event qualifies as the user typing
+      * something.
       */
     public static boolean isTypedEvent(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_CONTROL ||
-            e.getKeyCode() == KeyEvent.VK_ALT ||
-            e.getKeyCode() == KeyEvent.VK_META ||
-            e.getKeyCode() == KeyEvent.VK_SHIFT) {
+
+        // If we don't have a char, that's not typing
+        if (e.getKeyChar() == KeyEvent.CHAR_UNDEFINED) return false;
+
+        // In fact, if anything but SHIFT is used as a modifier, that's
+        // not typing
+        if (e.isControlDown() || 
+            e.isAltDown() || 
+            e.isMetaDown() || 
+            e.isAltGraphDown())
             return false;
-        }
+
         return true;
     }
 
