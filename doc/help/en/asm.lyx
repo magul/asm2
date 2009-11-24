@@ -204,34 +204,8 @@ The first time you start ASM, it will prompt you for your locale (a combination
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 0.3cm
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename asm_dblocal.png
-	width 2in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.3cm
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-ASM will then prompt you for the location of your database.
- If you just hit Ok with the default option (local database), and you do
- not already have one, ASM will create a fresh, empty database on your computer.
+ASM will then create a new database to hold your information, stored in
+ the .asm directory under your home directory.
 \end_layout
 
 \begin_layout Standard
@@ -279,7 +253,6 @@ letmein
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -570,7 +543,7 @@ Status Bar
 At the bottom part of the screen is the ASM status bar.
  The majority of it is given over to information messages while tasks are
  progressing.
- The right hand side contains a progress meter and upto three icons.
+ The right hand side contains a progress meter and upto four icons.
  Hovering over the icons with the mouse gives additional information.
  From left to right, these icons are:
 \end_layout
@@ -589,6 +562,15 @@ Database information (small database icon).
 \begin_layout Itemize
 User information (small user icon).
  This displays the name of the user you are currently logged in as.
+\end_layout
+
+\begin_layout Itemize
+Locale information (the ISO two letter language code).
+ This displays the name of the country/language ASM is set to use.
+ You may right click on the icon and choose a different country/language
+ to switch locales.
+ Note that while the menu and toolbar will change, any screens you currently
+ have open will not change languages until you close and reopen them.
 \end_layout
 
 \begin_layout Section
@@ -1309,7 +1291,7 @@ Vet
 
 \begin_layout Standard
 The vet tab is used for entering general information about the animal's
- health and the animal's current vet.
+ health and the animal's current and owner's vet.
  The special needs box can be used to indicate that the animal has an ongoing
  or permanent health problem.
  Ticking this box will flag this when publishing to the internet and to
@@ -1812,7 +1794,9 @@ reference "cha:General-Diary"
 
 \end_inset
 
-
+.
+ Note, as in the example above, diary notes for dates in the future appear
+ with a dark blue background.
 \end_layout
 
 \begin_layout Subsection
@@ -1917,6 +1901,31 @@ Moving and Reserving Animals
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_editmovement.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 A large part of the administrative duties you will need to perform with
  Animal Shelter Manager revolve around the 
 \begin_inset Index
@@ -1957,7 +1966,9 @@ A special exception to this is reservations - since they are not actually
  a movement (the animal hasn't gone anywhere), you can have one or more
  reservations as well as an open movement.
  You should turn the reservation into an adoption movement when the animal
- is adopted and cancel any other outstanding reservations.
+ is adopted and cancel any other outstanding reservations (if it detects
+ multiple reservations, ASM will prompt and cancel other reservations for
+ you when you turn one into an adoption).
 \end_layout
 
 \begin_layout Standard
@@ -2133,6 +2144,11 @@ From Retailer
 \end_inset
 
  field to the previous retailer for you.
+\end_layout
+
+\begin_layout Standard
+If you do not want to use this functionality, you can turn off the retailer
+ feature under the System->Options screen.
 \end_layout
 
 \begin_layout Section
@@ -3335,6 +3351,31 @@ To add a new entry to the waiting list, click the new button.
  You will be presented with a waiting list entry form to complete.
  As with other screens, press the Save button at the top to save your new
  record.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_editwaitinglist.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
