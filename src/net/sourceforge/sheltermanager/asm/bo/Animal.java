@@ -1820,7 +1820,8 @@ public class Animal extends UserInfoBO {
             String sql = "UPDATE animal SET " +
                 "MostRecentEntryDate = '" + Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
                 "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
-                "AgeGroup = '" + an.calculateAgeGroup() + "' " +
+                "AgeGroup = '" + an.calculateAgeGroup() + "', " +
+                "AnimalAge = '" + an.getAge() + "' " +
                 "WHERE ID = " + an.getID();
 
             DBConnection.executeAction(sql);
