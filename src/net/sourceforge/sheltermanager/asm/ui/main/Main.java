@@ -467,6 +467,10 @@ public class Main extends ASMWindow {
         if (!Global.applet && Global.showUpdates) {
             new UpdateNotification().start();
         }
+
+        // Load the start page
+        if (!Configuration.getBoolean("DontShowStartupPage"))
+            addChild(new StartupPage());
     }
 
     /**

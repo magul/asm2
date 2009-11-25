@@ -67,6 +67,9 @@ public abstract class Report extends Thread {
     static final String FIN_PARAGRAPH = "</p>";
     static final String HORIZONTAL_RULE = "<hr>";
 
+    /** Open the report in the viewer after display */
+    protected boolean displayAfter = true;
+
     /** The actual HTML of the report we are going to build */
     protected StringBuffer report = null;
 
@@ -81,6 +84,11 @@ public abstract class Report extends Thread {
      * overridden <code>generateReport()</code> to get content. You will need to
      * override the <code>getTitle()</code> method to the report title.*/
     public Report() {
+        this(true);
+    }
+
+    public Report(boolean displayAfter) {
+        this.displayAfter = displayAfter;
     }
 
     public void run() {
@@ -92,11 +100,7 @@ public abstract class Report extends Thread {
         setStatusText(Global.i18n("reports", "Outputting_to_disk", filename));
         writeToDisk();
         setStatusText("");
-        display();
-
-        report = null;
-        filename = null;
-        tablespec = null;
+        if (displayAfter) display();
     }
 
     /** Handles all the generating of the report. Subclasses should
@@ -109,6 +113,10 @@ public abstract class Report extends Thread {
      */
     protected String getTitle() {
         return Global.i18n("reports", "Untitled_Report");
+    }
+
+    public String getFilename() {
+        return filename;
     }
 
     /** Writes the report out to a temporary
@@ -470,25 +478,29 @@ public abstract class Report extends Thread {
      * @param max The maximum status bar value
       */
     protected void setStatusBarMax(int max) {
-        net.sourceforge.sheltermanager.asm.globals.Global.mainForm.initStatusBarMax(max);
+        if (displayAfter)
+            net.sourceforge.sheltermanager.asm.globals.Global.mainForm.initStatusBarMax(max);
     }
 
     /** Sets the status bar text while generating the report
      * @param text The new status bar text
      */
     protected void setStatusText(String text) {
-        net.sourceforge.sheltermanager.asm.globals.Global.mainForm.setStatusText(text);
+        if (displayAfter)
+            net.sourceforge.sheltermanager.asm.globals.Global.mainForm.setStatusText(text);
     }
 
     /** Updates the value on the status bar to be used with this report.
      */
     protected void incrementStatusBar() {
-        net.sourceforge.sheltermanager.asm.globals.Global.mainForm.incrementStatusBar();
+        if (displayAfter)
+            net.sourceforge.sheltermanager.asm.globals.Global.mainForm.incrementStatusBar();
     }
 
     /** Resets the status bar after the report is done */
     protected void resetStatusBar() {
-        net.sourceforge.sheltermanager.asm.globals.Global.mainForm.resetStatusBar();
+        if (displayAfter)
+            net.sourceforge.sheltermanager.asm.globals.Global.mainForm.resetStatusBar();
     }
 
     /** Displays the report to the user. Uses configuration settings to

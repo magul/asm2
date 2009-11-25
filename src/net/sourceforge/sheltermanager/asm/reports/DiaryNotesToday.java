@@ -49,8 +49,18 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
                 Global.i18n("reports", "Diary_Criteria")));
     }
 
-    /** Generates the report content */
+    public DiaryNotesToday(boolean dontdisplay) {
+        super(false);
+        type = DiaryCriteria.UPTO_TODAY;
+        run();
+    }
+
     public void generateReport() {
+        generateReportFree();
+    }
+
+    /** Generates the report content in tabular format */
+    public void generateReportTable() {
         Diary diary = new Diary();
         java.util.Calendar cal = java.util.Calendar.getInstance();
         // Set the time to 23:59 to ensure all notes are picked up
@@ -138,6 +148,81 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
         tableFinish();
         addTable();
     }
+
+    /** Generate the report in free format (no tables */
+    public void generateReportFree() {
+        Diary diary = new Diary();
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        // Set the time to 23:59 to ensure all notes are picked up
+        cal.set(java.util.Calendar.HOUR_OF_DAY, 23);
+        cal.set(java.util.Calendar.MINUTE, 59);
+        cal.set(java.util.Calendar.SECOND, 59);
+
+        switch (type) {
+        case DiaryCriteria.UPTO_TODAY:
+
+            String today = net.sourceforge.sheltermanager.asm.utility.Utils.getSQLDate(cal);
+            diary.openRecordset("DiaryDateTime <= '" + today + "'" +
+                " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
+
+            break;
+
+        case DiaryCriteria.UPTO_SPECIFIED:
+            diary.openRecordset("DiaryDateTime <= '" +
+                Utils.getSQLDateOnly(dateUpto) + "'" +
+                " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
+
+            break;
+
+        case DiaryCriteria.BETWEEN_TWO:
+            diary.openRecordset("DiaryDateTime >= '" +
+                Utils.getSQLDateOnly(dateFrom) + "' AND DiaryDateTime <= '" +
+                Utils.getSQLDateOnly(dateTo) + "'" +
+                " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
+
+            break;
+        }
+
+        // If there aren't any notes, end this now
+        if (diary.getEOF()) {
+            addParagraph(Global.i18n("reports",
+                    "No_diary_notes_match_your_criteria."));
+
+            return;
+        }
+
+        setStatusBarMax((int) diary.getRecordCount());
+
+        String curName = "";
+        boolean firstTable = true;
+
+        while (!diary.getEOF()) {
+            try {
+                if (!curName.equalsIgnoreCase(diary.getDiaryForName())) {
+                    if (!firstTable) {
+                    } else {
+                        firstTable = false;
+                    }
+
+                    addLevelTwoHeader(diary.getDiaryForName());
+                    addHorizontalRule();
+                    curName = diary.getDiaryForName();
+                }
+
+                addParagraph("<i>" + Utils.formatDateTimeLong(diary.getDiaryDateTime()) + "</i><br>" +
+                    "<b>" + diary.getLinkInfoThis() + " " + diary.getSubject() + "</b>");
+                addParagraph(diary.getNote());
+                addHorizontalRule();
+
+                diary.moveNext();
+                incrementStatusBar();
+            } catch (Exception e) {
+                // Break and carry on if an exception occurs
+                break;
+            }
+        }
+    }
+
 
     /** Returns the report title */
     public String getTitle() {

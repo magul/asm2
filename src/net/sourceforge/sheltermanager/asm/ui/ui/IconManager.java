@@ -108,6 +108,7 @@ public abstract class IconManager {
     public final static String LOCK = "system-Lock-24.png";
     public final static String LOCKBIG = "system-Lock-48.png";
     public final static String ASMLOGO = "asm-Logo-64.png";
+    public final static String ASMLOGO24 = "asm-Logo-24.png";
     public final static String QUESTION = "dialog-Question-32.png";
     public final static String INFO = "dialog-Info-32.png";
     public final static String WARNING = "dialog-Warning-32.png";
@@ -358,6 +359,7 @@ public abstract class IconManager {
     public final static String SCREEN_MAIN_USER = USERSSMALL;
     public final static String SCREEN_MAIN_DB = DATABASESMALL;
     public final static String SCREEN_MAIN_AUDIT = AUDITSMALL;
+    public final static String SCREEN_STARTUPPAGE = ASMLOGO24;
     public final static String SCREEN_UPDATES = ASMLOGO;
 
     // MEDICAL package ====================================================

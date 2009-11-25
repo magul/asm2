@@ -549,6 +549,11 @@ public class Options extends ASMForm {
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Use_a_single_breed_field"), "UseSingleBreedField",
                     Configuration.getBoolean("UseSingleBreedField"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Dont_show_the_startup_page"), "DontShowStartupPage",
+                        Configuration.getBoolean("DontShowStartupPage"), false));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
