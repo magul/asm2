@@ -1035,7 +1035,13 @@ public final class UI {
 
     public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
-        TextField t = new TextField();
+        
+        TextField t = new TextField() {
+            public void paste() {
+                super.paste();
+                if (onChange != null) onChange.call();
+            }
+        };
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
@@ -1075,7 +1081,13 @@ public final class UI {
 
     public static TextArea getTextArea(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
-        TextArea t = new TextArea();
+        
+        TextArea t = new TextArea() {
+            public void paste() {
+                super.paste();
+                if (onChange != null) onChange.call();
+            }
+        };
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
