@@ -188,7 +188,7 @@ public class Chart extends Thread {
                     getTitle());
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.addChild(rv);
         } else {
-            FileTypeManager.shellExecute(filename, false);
+            FileTypeManager.shellExecute(filename);
         }
     }
 

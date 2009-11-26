@@ -1261,6 +1261,31 @@ public final class UI {
         return System.getProperty("os.name").toLowerCase().indexOf("windows") != -1;
     }
 
+    /** 
+     * Returns true if java.awt.Desktop support is available
+     */
+    public static boolean osShellExecuteAvailable() {
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop d = Desktop.getDesktop();
+                return d.isSupported(Desktop.Action.BROWSE) && d.isSupported(Desktop.Action.OPEN);
+            }
+        }
+        catch (Throwable t) {
+        }
+        return false;
+    }
+
+    public static void osBrowse(String uri) throws Exception {
+        Desktop d = Desktop.getDesktop();
+        d.browse(new java.net.URI(uri));
+    }
+
+    public static void osOpen(String file) throws Exception {
+        Desktop d = Desktop.getDesktop();
+        d.open(new java.io.File(file));
+    }
+
     public static void cursorToWait() {
         Dialog.theParent.setCursor(Cursor.getPredefinedCursor(
                 Cursor.WAIT_CURSOR));

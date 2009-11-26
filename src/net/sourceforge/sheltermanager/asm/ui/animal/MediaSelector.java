@@ -314,11 +314,14 @@ public class MediaSelector extends ASMSelector {
             return;
         }
 
-        // Open the file with it's associated app, but this time,
-        // block the current thread and wait for it to finish.
-        if (0 != FileTypeManager.shellExecute(tempdir + mediaName, true)) {
+        // Open the file with it's associated app
+        if (0 != FileTypeManager.shellExecute(tempdir + mediaName)) {
             return;
         }
+
+        // Tell the user to hit Ok when they've finished making changes
+        // and closed their application
+        Dialog.showInformation(Global.i18n("uianimal", "hit_ok_when_finished"));
 
         // Now, ask the user if they'd like to upload their changes -
         // bomb out if they say no.
@@ -444,7 +447,7 @@ public class MediaSelector extends ASMSelector {
             return;
         }
 
-        FileTypeManager.shellExecute(tempdir + mediaName, false);
+        FileTypeManager.shellExecute(tempdir + mediaName);
     }
 
     public void actionDelete() {

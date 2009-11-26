@@ -518,7 +518,7 @@ public abstract class Report extends Thread {
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.addChild(rv);
             rv.setVisible(true);
         } else {
-            FileTypeManager.shellExecute(filename, false);
+            FileTypeManager.shellExecute(filename);
         }
     }
 }

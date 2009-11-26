@@ -1028,7 +1028,7 @@ public class Publisher extends Thread {
         if (Global.useInternalReportViewer) {
             Global.mainForm.addChild(new HTMLViewer("file:///" + filename));
         } else {
-            FileTypeManager.shellExecute(filename, false);
+            FileTypeManager.shellExecute(filename);
         }
     }
 

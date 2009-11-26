@@ -181,6 +181,7 @@ public class ConfigureLocal extends ASMForm {
         txtCaptureCommand = (UI.TextField) UI.addComponent(p,
                 i18n("Video_capture_command_url"),
                 UI.getTextField(i18n("command_or_uri")));
+        txtCaptureCommand.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
         chkHotkeys = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("use_button_hotkeys"),

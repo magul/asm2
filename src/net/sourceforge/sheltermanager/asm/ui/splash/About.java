@@ -181,6 +181,6 @@ public class About extends ASMDialog {
 
     public void urlClicked() {
         // Go to shelter manager site in external browser
-        FileTypeManager.shellExecute(lblUrl.getText(), false);
+        FileTypeManager.shellExecute(lblUrl.getText());
     }
 }

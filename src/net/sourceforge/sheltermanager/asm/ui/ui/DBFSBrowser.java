@@ -328,21 +328,27 @@ public class DBFSBrowser extends JPanel implements MouseListener {
                     "An_error_occurred_retrieving_the_media_file:_") +
                 e.getMessage(), Global.i18n("uianimal", "Error"));
             Global.logException(e, getClass());
+            UI.cursorToPointer();
 
             return;
         }
 
-        // Open the file with it's associated app, but this time,
-        // block the current thread and wait for it to finish.
-        if (0 != FileTypeManager.shellExecute(tempdir + mediaName, true)) {
+        // Open the file with it's associated app
+        if (0 != FileTypeManager.shellExecute(tempdir + mediaName)) {
+            UI.cursorToPointer();
             return;
         }
+
+        // Tell the user to hit Ok when they've finished making changes
+        // and closed their application
+        Dialog.showInformation(Global.i18n("uianimal", "hit_ok_when_finished"));
 
         // Now, ask the user if they'd like to upload their changes -
         // bomb out if they say no.
         if (!Dialog.showYesNo(
-                    "Would you like to upload your changes to this media file back to the server?",
-                    "Save Changes?")) {
+                    Global.i18n("uianimal", "upload_back_to_server"),
+                    Global.i18n("uianimal", "Unsaved_Changes"))) {
+            UI.cursorToPointer();
             return;
         }
 
@@ -353,11 +359,13 @@ public class DBFSBrowser extends JPanel implements MouseListener {
             dbfs.deleteFile(mediaName);
             // Upload the new one
             dbfs.putFile(new File(tempdir + mediaName));
+            UI.cursorToPointer();
         } catch (Exception e) {
             Dialog.showError(Global.i18n("uianimal",
                     "An_error_occurred_retrieving_the_media_file:_") +
                 e.getMessage(), Global.i18n("uianimal", "Error"));
             Global.logException(e, getClass());
+            UI.cursorToPointer();
 
             return;
         }

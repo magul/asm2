@@ -179,6 +179,6 @@ public class CacheView extends ASMView {
                 1);
 
         FileTypeManager.shellExecute(Global.tempDirectory + File.separator +
-            mediaName, false);
+            mediaName);
     }
 }

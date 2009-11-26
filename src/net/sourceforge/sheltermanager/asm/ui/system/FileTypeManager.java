@@ -40,6 +40,9 @@ import java.util.Properties;
 /**
  * Manages file types and offers a Windows-style shell execute for all
  * platforms.
+ * Since Java 6, we can use Desktop integration now. shellExecute in
+ * here will detect the platform and what's available and only fall
+ * back to the internal implementation if nothing better is available
  *
  * @author Robin rawson-Tetley
  */
@@ -493,23 +496,95 @@ public class FileTypeManager {
     }
 
     /**
-     * Given a file, finds the type and opens it with the correct
-     * program - ASM will not block with this version.
+     * Given a file, this will find the type and attempt to open it with the
+     * correct program.
+     * @param file The file to open
+     * @return non-zero error code
      */
     public static int shellExecute(String file) {
-        return shellExecute(file, false);
+        if (System.getProperty("asm.shellexecute", "guess").equals("internal")) {
+            Global.logDebug("Command line forced internal ShellExecute", "FileTypeManager.shellExecute");
+            return shellExecuteInternal(file);
+        }
+        else if (UI.osIsMacOSX()) {
+            Global.logDebug("Using MacOS ShellExecute", "FileTypeManager.shellExecute");
+            return shellExecuteMacOS(file);
+        }
+        else if (UI.osShellExecuteAvailable()) {
+            Global.logDebug("Using OS integrated ShellExecute", "FileTypeManager.shellExecute");
+            return shellExecuteOS(file);
+        }
+        else {
+            Global.logDebug("Using internal ShellExecute", "FileTypeManager.shellExecute");
+            return shellExecuteInternal(file);
+        }
     }
 
     /**
-     * Given a file, this will find the type and attempt to open it with the
-     * correct program - ASM will block until the program has been
-     * closed if the correct flag is set.
-     *
-     * @param file The file to open
-     * @param wait if true, don't return until the program has closed
-     * @return A non-zero error code if an error occurred
+     * Shellexecute implementation that uses whatever OS integration we have
      */
-    public static int shellExecute(String file, boolean wait) {
+    public static int shellExecuteOS(String file) {
+        
+        try {
+            // Is our file a URL? If so, open it with the system browser
+            if (file.indexOf(":/") != -1) {
+                Global.logInfo("Browsing to: " + file, "FileTypeManager.shellExecuteOS");
+                UI.osBrowse(file);
+            }
+            else {
+                Global.logInfo("Opening: " + file, "FileTypeManager.shellExecuteOS");
+                UI.osOpen(file);
+            }
+            return 0;
+        }
+        catch (Exception e) {
+            Global.logException(e, FileTypeManager.class);
+            return 1;
+        }
+    }
+
+    /**
+     * Shellexecute implementation for MacOS - hardcoded to use the /usr/bin/open binary
+     */
+    public static int shellExecuteMacOS(String file) {
+
+        // We always use the open binary on Mac
+        String command = "/usr/bin/open";
+
+        try {
+
+            // Does the file have a space in it? It shouldn't
+            // ever really, but people can move their temp
+            // folders, so check for the same thing
+            if (file.indexOf(" ") != -1) {
+                if (!file.startsWith("\"")) {
+                    file = "\"" + file + "\"";
+                }
+            }
+
+            Global.logInfo("Executing: " + command + " " + file,
+                "FileTypeManager.shellExecuteMacOS");
+
+            Utils.execAsync(new String[] { command, file });
+
+            return 0; // success
+            
+        } catch (Exception e) {
+            Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
+                file + ": " + e.getMessage(), i18n("Bad_Command"));
+            Global.logError(i18n("Unable_to_execute_'") + command + " " + file +
+                ": " + e.getMessage(), "FileTypeManager.shellExecuteMacOS");
+            Global.logException(e, FileTypeManager.class);
+        }
+
+        return 1; // error
+
+    }
+
+    /**
+     * Shellexecute implementation that uses an internally stored list of filetypes
+     */
+    public static int shellExecuteInternal(String file) {
         // Get the filetype from the end
         if (file.indexOf(".") == -1) {
             Dialog.showError(i18n("This_file_has_no_type_extension._Animal_Shelter_Manager_cannot_open_it."),
@@ -547,7 +622,7 @@ public class FileTypeManager {
         // Bomb if none found
         if ((command.equals("")) || (command.equals(i18n("[no_entry]")))) {
             Global.logError(i18n("Animal_Shelter_Manager_has_no_registered_type_for_'") +
-                filetype + "' files.", "FileTypeManager.shellExecuteGetProcess");
+                filetype + "' files.", "FileTypeManager.shellExecuteInternal");
             Dialog.showError(i18n("Animal_Shelter_Manager_has_no_registered_type_for_'") +
                 filetype + "' files.");
 
@@ -574,20 +649,16 @@ public class FileTypeManager {
             }
 
             Global.logInfo("Executing: " + command + " " + file,
-                "FileTypeManager.shellExecuteGetProcess");
+                "FileTypeManager.shellExecuteInternal");
 
-            if (wait) {
-                return Utils.exec(new String[] { command, file });
-            } else {
-                Utils.execAsync(new String[] { command, file });
+            Utils.execAsync(new String[] { command, file });
+            return 0; // success
 
-                return 0; // success since we can't test
-            }
         } catch (Exception e) {
             Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
                 file + ": " + e.getMessage(), i18n("Bad_Command"));
             Global.logError(i18n("Unable_to_execute_'") + command + " " + file +
-                ": " + e.getMessage(), "FileTypeManager.shellExecuteGetProcess");
+                ": " + e.getMessage(), "FileTypeManager.shellExecuteInternal");
             Global.logException(e, FileTypeManager.class);
         }
 

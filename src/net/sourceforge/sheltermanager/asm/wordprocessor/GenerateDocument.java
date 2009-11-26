@@ -938,7 +938,7 @@ public abstract class GenerateDocument extends Thread
         // process to finish to make sure we pick up any
         // changes
         if (getAttachMedia()) {
-            FileTypeManager.shellExecute(localfile, true);
+            FileTypeManager.shellExecute(localfile);
         } else {
             if (getDocFileType().equals("html")) {
                 if (Global.useInternalReportViewer) {
@@ -952,7 +952,7 @@ public abstract class GenerateDocument extends Thread
                 }
             }
 
-            FileTypeManager.shellExecute(localfile, false);
+            FileTypeManager.shellExecute(localfile);
         }
     }
 

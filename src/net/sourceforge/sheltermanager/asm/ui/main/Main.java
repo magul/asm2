@@ -1492,7 +1492,14 @@ public class Main extends ASMWindow {
             mnuPreferences.add(mnuPreferencesCallGC);
         }
 
-        mnuPreferences.add(mnuPreferencesFileTypes);
+        // Only add the file type menu option if we were forced to use internal
+        // shellexecute, or we're not a mac, or os integration isn't available
+        if (System.getProperty("asm.shellexecute", "guess").equals("internal"))
+            mnuPreferences.add(mnuPreferencesFileTypes);
+        else if (!UI.osIsMacOSX() && !UI.osShellExecuteAvailable()) {
+            mnuPreferences.add(mnuPreferencesFileTypes);
+        }
+
         mnuPreferences.add(mnuPreferencesSwitchDatabase);
         mnuPreferences.add(mnuPreferencesSettings);
         mnuMenu.add(mnuPreferences);
@@ -1738,23 +1745,19 @@ public class Main extends ASMWindow {
     }
 
     public void actionHelpDonate() {
-        FileTypeManager.shellExecute("http://sourceforge.net/project/project_donations.php?group_id=82533",
-            false);
+        FileTypeManager.shellExecute("http://sourceforge.net/project/project_donations.php?group_id=82533");
     }
 
     public void actionHelpAskQuestion() {
-        FileTypeManager.shellExecute("http://answers.launchpad.net/sheltermanager",
-            false);
+        FileTypeManager.shellExecute("http://answers.launchpad.net/sheltermanager");
     }
 
     public void actionHelpReportBug() {
-        FileTypeManager.shellExecute("http://bugs.launchpad.net/sheltermanager/+filebug",
-            false);
+        FileTypeManager.shellExecute("http://bugs.launchpad.net/sheltermanager/+filebug");
     }
 
     public void actionHelpTranslate() {
-        FileTypeManager.shellExecute("http://translations.launchpad.net/sheltermanager",
-            false);
+        FileTypeManager.shellExecute("http://translations.launchpad.net/sheltermanager");
     }
 
     public void actionDiaryMedicalDiaryPrint() {
@@ -1936,7 +1939,7 @@ public class Main extends ASMWindow {
     public void actionHelpContentsPDF() {
         cursorToWait();
         FileTypeManager.shellExecute(Global.dataDirectory + File.separator +
-            "asm_en.pdf", false);
+            "asm_en.pdf");
         cursorToPointer();
     }
 

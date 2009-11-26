@@ -140,7 +140,7 @@ public class CustomUI {
                 Global.mainForm.addChild(hv);
             } else {
                 // Open it with our browser
-                FileTypeManager.shellExecute(action, false);
+                FileTypeManager.shellExecute(action);
             }
         } else {
             // Run it
