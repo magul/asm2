@@ -88,7 +88,7 @@ public class SortableTableModel extends AbstractTableModel {
         for (int i = 0; i < columnNames.length; i++) {
             String s = columnNames[i].trim();
             if (s.endsWith(":"))
-                columnNames[i] = s.substring(0, s.length() - 1);
+                s = s.substring(0, s.length() - 1);
 	    s = UI.mnemonicRemove(s);
 	    columnNames[i] = s;
         }

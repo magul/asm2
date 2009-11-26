@@ -2389,6 +2389,22 @@ public final class UI {
         public TabbedPane() {
             setTabPlacement(Global.TABALIGN);
         }
+
+        public void addTab(String title, Component c) {
+            addTab(title, null, c, null);
+        }
+
+        public void addTab(String title, Icon icon, Component c) {
+            addTab(title, icon, c, null);
+        }
+
+        public void addTab(String title, Icon icon, Component c, String tip) {
+            String s = title.trim();
+            if (s.endsWith(":"))
+                s = s.substring(0, s.length() - 1);
+	    s = UI.mnemonicRemove(s);
+            super.addTab(s, icon, c, tip);
+        }
     }
 
     public static class TextArea extends JTextArea {
