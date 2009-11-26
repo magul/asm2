@@ -44,7 +44,7 @@ import java.util.Vector;
  */
 public class ReportViewer extends ASMForm {
     private String filename = "";
-    private int baseFontSize = 10;
+    private int baseFontSize = 11;
     private String filecontents = "";
     private String reportTitle = "";
     private UI.Button btnExternal;
@@ -56,6 +56,9 @@ public class ReportViewer extends ASMForm {
     private UI.HTMLBrowser edOutput;
     private UI.ToolBar tlbPrintTools;
 
+
+    public ReportViewer() {}
+
     /**
      * Creates new form ReportViewer
      *
@@ -65,6 +68,10 @@ public class ReportViewer extends ASMForm {
      *            The text to show in the title bar
      */
     public ReportViewer(String filetoview, String reporttitle) {
+        showReport(filetoview, reporttitle);
+    }
+
+    public void showReport(String filetoview, String reporttitle) {
         filename = filetoview;
         reportTitle = reporttitle;
         init(reporttitle, IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER),

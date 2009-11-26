@@ -1,6 +1,7 @@
 package net.sourceforge.sheltermanager.asm.ui.main;
 
 import net.sourceforge.sheltermanager.asm.ui.ui.*;
+import net.sourceforge.sheltermanager.asm.ui.reportviewer.ReportViewer;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.*;
 
@@ -13,7 +14,8 @@ import java.util.*;
  */
 public class StartupPage extends ASMForm {
 
-    UI.HTMLBrowser diarynotes = null;
+    //UI.HTMLBrowser diarynotes = null;
+    ReportViewer diarynotes = null;
     UI.HTMLBrowser asmnews = null;
     UI.Label splash = null;
 
@@ -25,7 +27,8 @@ public class StartupPage extends ASMForm {
             public void run() {
                 try {
                     DiaryNotesToday d = new DiaryNotesToday(false);
-                    diarynotes.setPage("file:///" + d.getFilename());
+                    diarynotes.showReport(d.getFilename(), d.getTitle());
+                    //diarynotes.setPage("file:///" + d.getFilename());
                     asmnews.setPage(System.getProperty("asm.news", "http://sheltermanager.sf.net/startpage.html"));
                 }
                 catch (Exception e) {
@@ -47,7 +50,7 @@ public class StartupPage extends ASMForm {
 
     public void initComponents() {
         
-        diarynotes = UI.getHTMLBrowser();
+        diarynotes = new ReportViewer();
         asmnews = UI.getHTMLBrowser();
         asmnews.setPreferredSize(UI.getDimension(400, 400));
         splash = UI.getLabel(IconManager.getSplashScreen());

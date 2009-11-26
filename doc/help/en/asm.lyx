@@ -475,6 +475,8 @@ N
 .
  It is worth learning these as you will find them much quicker to use when
  you are proficient with the system.
+ Note, when running on MacOSX, ASM uses CMD instead of CTRL for shortcut
+ keys (the apple key).
 \end_layout
 
 \begin_layout Section
@@ -6087,11 +6089,8 @@ Custom reports can also be used to export data.
  By navigating to System->Export Custom Report Data, you can select one
  of your custom reports and have the data used to generate it sent to a
  CSV file instead of output as a report.
- You can also have ASM automatically open the data in whatever you have
- associated with CSV files (ASM will automatically detect and use Excel
- or OpenOffice calc for new installations, versions prior to 1.38 will have
- to be setup manually, or the file $ASM/temp/filetypes.properties deleted
- to tell ASM to detect file types again).
+ You can also have ASM automatically open the data in whatever your operating
+ system has associated with CSV files.
 \end_layout
 
 \begin_layout Chapter
@@ -8209,10 +8208,7 @@ The word processor tab allows you to choose which word processor you want
  to use.
  Typically, this will be either OpenOffice, Microsoft Office 2007 or Rich
  Text Format Compatible (works with Microsoft Word before 2007).
- ASM automatically finds and detects usable software when it is first started.
- If it misses something or gets it wrong, you can use the Preferences->Configure
- File Types screen to edit ASM's list of registered types directly, or scan
- for installed software again.
+ 
 \end_layout
 
 \begin_layout Standard
