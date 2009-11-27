@@ -349,9 +349,9 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             // Load the data
             if ((mode == MODE_FULL) || (mode == MODE_ONELINE)) {
                 txtName.setText(Utils.nullToEmptyString(theowner.getOwnerName()));
-            } 
-	    
-	    if (mode == MODE_FULL) {
+            }
+
+            if (mode == MODE_FULL) {
                 txtAddress.setText(Utils.nullToEmptyString(
                         theowner.getOwnerAddress()));
                 txtPostcode.setText(Utils.nullToEmptyString(

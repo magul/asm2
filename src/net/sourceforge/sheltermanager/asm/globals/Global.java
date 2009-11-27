@@ -279,7 +279,10 @@ public abstract class Global {
     }
 
     public static String getLanguage(String locale) {
-        if (locale.length() < 3) return locale;
+        if (locale.length() < 3) {
+            return locale;
+        }
+
         return locale.substring(0, locale.indexOf("_"));
     }
 
@@ -402,15 +405,16 @@ public abstract class Global {
     public static void setUTF8() {
         try {
             // Don't bother for English locales
-            if (settings_Locale.startsWith("en")) return;
+            if (settings_Locale.startsWith("en")) {
+                return;
+            }
 
             // We don't need to do anything special for Postgres or HSQL
             if (DBConnection.DBType == DBConnection.MYSQL) {
                 logInfo("Setting MySQL to use UTF8", "Global.setUTF8");
                 DBConnection.executeAction("SET NAMES utf8");
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logException(e, Global.class);
         }
     }

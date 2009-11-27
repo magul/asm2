@@ -56,8 +56,8 @@ public class ReportViewer extends ASMForm {
     private UI.HTMLBrowser edOutput;
     private UI.ToolBar tlbPrintTools;
 
-
-    public ReportViewer() {}
+    public ReportViewer() {
+    }
 
     /**
      * Creates new form ReportViewer

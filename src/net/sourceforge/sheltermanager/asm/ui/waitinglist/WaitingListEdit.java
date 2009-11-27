@@ -355,11 +355,13 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public boolean saveData() {
-
-        if (!isDirty) return false;
+        if (!isDirty) {
+            return false;
+        }
 
         if (!Global.currentUserObject.getSecChangeWaitingList()) {
             Dialog.showError(UI.messageNoSavePermission());
+
             return false;
         }
 
@@ -488,7 +490,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                 i18n("Description:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
-        txtReason = (UI.TextArea) UI.addComponent(pnlLeftMid, i18n("Entry_Reason:"),
+        txtReason = (UI.TextArea) UI.addComponent(pnlLeftMid,
+                i18n("Entry_Reason:"),
                 UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
         pnlLeft.add(pnlLeftMid, UI.BorderLayout.CENTER);
@@ -508,7 +511,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                     new int[] { 30, 70 }));
 
         chkCanAffordDonation = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(
-                    i18n("Donation?"), null, UI.ALIGN_LEFT, UI.fp(this, "dataChanged")));
+                    i18n("Donation?"), null, UI.ALIGN_LEFT,
+                    UI.fp(this, "dataChanged")));
 
         txtDonation = (CurrencyField) pnlRightTop.add(UI.getCurrencyField(
                     null, UI.fp(this, "dataChanged")));

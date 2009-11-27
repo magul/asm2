@@ -237,6 +237,7 @@ public class DiaryEdit extends ASMForm {
                 }
 
                 dispose();
+
                 return true;
             } catch (CursorEngineException e) {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
@@ -295,5 +296,4 @@ public class DiaryEdit extends ASMForm {
     public void actionCancel() {
         dispose();
     }
-
 }

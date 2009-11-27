@@ -503,19 +503,24 @@ public class FileTypeManager {
      */
     public static int shellExecute(String file) {
         if (System.getProperty("asm.shellexecute", "guess").equals("internal")) {
-            Global.logDebug("Command line forced internal ShellExecute", "FileTypeManager.shellExecute");
+            Global.logDebug("Command line forced internal ShellExecute",
+                "FileTypeManager.shellExecute");
+
             return shellExecuteInternal(file);
-        }
-        else if (UI.osIsMacOSX()) {
-            Global.logDebug("Using MacOS ShellExecute", "FileTypeManager.shellExecute");
+        } else if (UI.osIsMacOSX()) {
+            Global.logDebug("Using MacOS ShellExecute",
+                "FileTypeManager.shellExecute");
+
             return shellExecuteMacOS(file);
-        }
-        else if (UI.osShellExecuteAvailable()) {
-            Global.logDebug("Using OS integrated ShellExecute", "FileTypeManager.shellExecute");
+        } else if (UI.osShellExecuteAvailable()) {
+            Global.logDebug("Using OS integrated ShellExecute",
+                "FileTypeManager.shellExecute");
+
             return shellExecuteOS(file);
-        }
-        else {
-            Global.logDebug("Using internal ShellExecute", "FileTypeManager.shellExecute");
+        } else {
+            Global.logDebug("Using internal ShellExecute",
+                "FileTypeManager.shellExecute");
+
             return shellExecuteInternal(file);
         }
     }
@@ -524,21 +529,22 @@ public class FileTypeManager {
      * Shellexecute implementation that uses whatever OS integration we have
      */
     public static int shellExecuteOS(String file) {
-        
         try {
             // Is our file a URL? If so, open it with the system browser
             if (file.indexOf(":/") != -1) {
-                Global.logInfo("Browsing to: " + file, "FileTypeManager.shellExecuteOS");
+                Global.logInfo("Browsing to: " + file,
+                    "FileTypeManager.shellExecuteOS");
                 UI.osBrowse(file);
-            }
-            else {
-                Global.logInfo("Opening: " + file, "FileTypeManager.shellExecuteOS");
+            } else {
+                Global.logInfo("Opening: " + file,
+                    "FileTypeManager.shellExecuteOS");
                 UI.osOpen(file);
             }
+
             return 0;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, FileTypeManager.class);
+
             return 1;
         }
     }
@@ -547,12 +553,10 @@ public class FileTypeManager {
      * Shellexecute implementation for MacOS - hardcoded to use the /usr/bin/open binary
      */
     public static int shellExecuteMacOS(String file) {
-
         // We always use the open binary on Mac
         String command = "/usr/bin/open";
 
         try {
-
             // Does the file have a space in it? It shouldn't
             // ever really, but people can move their temp
             // folders, so check for the same thing
@@ -568,7 +572,6 @@ public class FileTypeManager {
             Utils.execAsync(new String[] { command, file });
 
             return 0; // success
-            
         } catch (Exception e) {
             Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
                 file + ": " + e.getMessage(), i18n("Bad_Command"));
@@ -578,7 +581,6 @@ public class FileTypeManager {
         }
 
         return 1; // error
-
     }
 
     /**
@@ -652,8 +654,8 @@ public class FileTypeManager {
                 "FileTypeManager.shellExecuteInternal");
 
             Utils.execAsync(new String[] { command, file });
-            return 0; // success
 
+            return 0; // success
         } catch (Exception e) {
             Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
                 file + ": " + e.getMessage(), i18n("Bad_Command"));

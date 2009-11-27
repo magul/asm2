@@ -100,7 +100,10 @@ public abstract class Report extends Thread {
         setStatusText(Global.i18n("reports", "Outputting_to_disk", filename));
         writeToDisk();
         setStatusText("");
-        if (displayAfter) display();
+
+        if (displayAfter) {
+            display();
+        }
     }
 
     /** Handles all the generating of the report. Subclasses should
@@ -478,29 +481,33 @@ public abstract class Report extends Thread {
      * @param max The maximum status bar value
       */
     protected void setStatusBarMax(int max) {
-        if (displayAfter)
+        if (displayAfter) {
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.initStatusBarMax(max);
+        }
     }
 
     /** Sets the status bar text while generating the report
      * @param text The new status bar text
      */
     protected void setStatusText(String text) {
-        if (displayAfter)
+        if (displayAfter) {
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.setStatusText(text);
+        }
     }
 
     /** Updates the value on the status bar to be used with this report.
      */
     protected void incrementStatusBar() {
-        if (displayAfter)
+        if (displayAfter) {
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.incrementStatusBar();
+        }
     }
 
     /** Resets the status bar after the report is done */
     protected void resetStatusBar() {
-        if (displayAfter)
+        if (displayAfter) {
             net.sourceforge.sheltermanager.asm.globals.Global.mainForm.resetStatusBar();
+        }
     }
 
     /** Displays the report to the user. Uses configuration settings to

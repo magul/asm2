@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-11-13 10:11+0100\n"
-"PO-Revision-Date: 2009-11-12 14:24+0000\n"
+"POT-Creation-Date: 2009-11-17 15:24+0100\n"
+"PO-Revision-Date: 2009-11-19 12:45+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-13 11:37+0000\n"
+"X-Launchpad-Export-Date: 2009-11-20 04:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2505,6 +2505,22 @@ msgstr "หมู (ฟาร์ม)"
 
 #: configuration_Organisation
 msgid "Organisation"
+msgstr ""
+
+#: configuration_AgeGroup1Name
+msgid "Baby"
+msgstr ""
+
+#: configuration_AgeGroup2Name
+msgid "Young Adult"
+msgstr ""
+
+#: configuration_AgeGroup3Name
+msgid "Adult"
+msgstr ""
+
+#: configuration_AgeGroup4Name
+msgid "Senior"
 msgstr ""
 
 #: customreport_36_001
@@ -5681,6 +5697,7 @@ msgid "This animals rabies tag"
 msgstr ""
 
 #: Entry_Reason
+#: Entry_Reason\:
 msgid "Entry Reason:"
 msgstr ""
 
@@ -6206,6 +6223,14 @@ msgstr ""
 msgid "Current Vet:"
 msgstr ""
 
+#: Estimate
+msgid "Estimate"
+msgstr ""
+
+#: is_this_date_of_birth_an_estimate
+msgid "Is this date of birth an estimate?"
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -6604,8 +6629,8 @@ msgid ""
 "with subject \"{1}\""
 msgstr ""
 
-#: View_Vet_Diary
-msgid "View Vet Diary"
+#: Edit_Vets_Diary
+msgid "Edit Vets Diary"
 msgstr ""
 
 #: edit_notes_after_creation
@@ -10137,6 +10162,30 @@ msgstr ""
 msgid "Group the animal figures report by species instead of type"
 msgstr ""
 
+#: age_groups
+msgid "Age Groups"
+msgstr ""
+
+#: age_group_1
+msgid "Age Group 1:"
+msgstr ""
+
+#: age_group_2
+msgid "Age Group 2:"
+msgstr ""
+
+#: age_group_3
+msgid "Age Group 3:"
+msgstr ""
+
+#: age_group_4
+msgid "Age Group 4:"
+msgstr ""
+
+#: age_group_5
+msgid "Age Group 5:"
+msgstr ""
+
 #. # uiuisers.properties#=========================================================================
 #: Unable_to_open_user_for_editing\:_
 msgid "Unable to open user for editing: "
@@ -10737,6 +10786,10 @@ msgstr "เอาออก"
 
 #: edit_waiting_list_title
 msgid "Edit Waiting List Entry - {0}"
+msgstr ""
+
+#: Removal_Reason\:
+msgid "Removal Reason:"
 msgstr ""
 
 #. # uiwordprocessor.properties#=========================================================================

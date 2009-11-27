@@ -469,8 +469,9 @@ public class Main extends ASMWindow {
         }
 
         // Load the start page
-        if (!Configuration.getBoolean("DontShowStartupPage"))
+        if (!Configuration.getBoolean("DontShowStartupPage")) {
             addChild(new StartupPage());
+        }
     }
 
     /**
@@ -532,12 +533,15 @@ public class Main extends ASMWindow {
 
     /** Make changes to the UI (after initComponents) to better conform to the Mac OS X interface guidelines.*/
     public void conformToMacOSXInterfaceGuidelines() {
-
         // Bail if we aren't on a Mac
-        if (!UI.osIsMacOSX()) return;
+        if (!UI.osIsMacOSX()) {
+            return;
+        }
 
         // If we're in applet mode, don't bother either
-        if (Global.applet) return;
+        if (Global.applet) {
+            return;
+        }
 
         try {
             // Generate and register the OSXAdapter, passing it a hash of all the methods we wish to
@@ -767,10 +771,9 @@ public class Main extends ASMWindow {
      * Creates the menu objects
      */
     public void initMenu() {
-
-    	if (mnuMenu == null) {
-	        mnuMenu = UI.getMenuBar();
-	}
+        if (mnuMenu == null) {
+            mnuMenu = UI.getMenuBar();
+        }
 
         mnuFile = UI.getMenu(i18n("File"));
 
@@ -1494,9 +1497,9 @@ public class Main extends ASMWindow {
 
         // Only add the file type menu option if we were forced to use internal
         // shellexecute, or we're not a mac, or os integration isn't available
-        if (System.getProperty("asm.shellexecute", "guess").equals("internal"))
+        if (System.getProperty("asm.shellexecute", "guess").equals("internal")) {
             mnuPreferences.add(mnuPreferencesFileTypes);
-        else if (!UI.osIsMacOSX() && !UI.osShellExecuteAvailable()) {
+        } else if (!UI.osIsMacOSX() && !UI.osShellExecuteAvailable()) {
             mnuPreferences.add(mnuPreferencesFileTypes);
         }
 
@@ -1532,12 +1535,12 @@ public class Main extends ASMWindow {
 
     public void reloadToolsAndMenu() {
         mnuMenu.removeAll();
-	tlbTools.removeAll();
+        tlbTools.removeAll();
         initMenu();
-	initMenuTree();
-	initToolbar();
+        initMenuTree();
+        initToolbar();
         conformToMacOSXInterfaceGuidelines();
-	refreshCustomReports();
+        refreshCustomReports();
     }
 
     public void layoutForm() {
@@ -1592,10 +1595,10 @@ public class Main extends ASMWindow {
      */
     public void initToolbar() {
         if (tlbTools == null) {
-		tlbTools = UI.getToolBar();
-		tlbTools.setPlatformToolbar(true);
-		tlbTools.setRollover(true);
-	}
+            tlbTools = UI.getToolBar();
+            tlbTools.setPlatformToolbar(true);
+            tlbTools.setRollover(true);
+        }
 
         btnAddAnimal = UI.getButton(null, i18n("Add_a_new_animal"),
                 IconManager.getIcon(IconManager.BUTTON_ADDANIMAL),
@@ -1660,8 +1663,7 @@ public class Main extends ASMWindow {
 
         tlbTools.addSeparator();
 
-        btnReservations = UI.getButton(null,
-                i18n("Reservation_Book"),
+        btnReservations = UI.getButton(null, i18n("Reservation_Book"),
                 IconManager.getIcon(IconManager.BUTTON_RESERVATIONS),
                 UI.fp(this, "actionFileAnimalReservationBook"));
 
@@ -1682,8 +1684,7 @@ public class Main extends ASMWindow {
             tlbTools.add(btnRetailerBook);
         }
 
-        btnWaitingList = UI.getButton(null,
-                i18n("Waiting_List"),
+        btnWaitingList = UI.getButton(null, i18n("Waiting_List"),
                 IconManager.getIcon(IconManager.BUTTON_WAITINGLIST),
                 UI.fp(this, "actionFileAnimalWaitingList"));
 
@@ -1701,8 +1702,7 @@ public class Main extends ASMWindow {
 
         tlbTools.add(btnViewMyDiary);
 
-        btnPrintDiary = UI.getButton(null,
-                i18n("Print_Diary_Notes"),
+        btnPrintDiary = UI.getButton(null, i18n("Print_Diary_Notes"),
                 IconManager.getIcon(IconManager.BUTTON_PRINTDIARY),
                 UI.fp(this, "actionDiaryPrintNotes"));
 
@@ -1745,19 +1745,23 @@ public class Main extends ASMWindow {
     }
 
     public void actionHelpDonate() {
-        FileTypeManager.shellExecute("http://sourceforge.net/project/project_donations.php?group_id=82533");
+        FileTypeManager.shellExecute(
+            "http://sourceforge.net/project/project_donations.php?group_id=82533");
     }
 
     public void actionHelpAskQuestion() {
-        FileTypeManager.shellExecute("http://answers.launchpad.net/sheltermanager");
+        FileTypeManager.shellExecute(
+            "http://answers.launchpad.net/sheltermanager");
     }
 
     public void actionHelpReportBug() {
-        FileTypeManager.shellExecute("http://bugs.launchpad.net/sheltermanager/+filebug");
+        FileTypeManager.shellExecute(
+            "http://bugs.launchpad.net/sheltermanager/+filebug");
     }
 
     public void actionHelpTranslate() {
-        FileTypeManager.shellExecute("http://translations.launchpad.net/sheltermanager");
+        FileTypeManager.shellExecute(
+            "http://translations.launchpad.net/sheltermanager");
     }
 
     public void actionDiaryMedicalDiaryPrint() {
@@ -2274,7 +2278,6 @@ public class Main extends ASMWindow {
             f.saveData();
         }
     }
-
 
     public void actionSystemUsers() {
         cursorToWait();

@@ -336,6 +336,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
         // Open the file with it's associated app
         if (0 != FileTypeManager.shellExecute(tempdir + mediaName)) {
             UI.cursorToPointer();
+
             return;
         }
 
@@ -345,10 +346,10 @@ public class DBFSBrowser extends JPanel implements MouseListener {
 
         // Now, ask the user if they'd like to upload their changes -
         // bomb out if they say no.
-        if (!Dialog.showYesNo(
-                    Global.i18n("uianimal", "upload_back_to_server"),
+        if (!Dialog.showYesNo(Global.i18n("uianimal", "upload_back_to_server"),
                     Global.i18n("uianimal", "Unsaved_Changes"))) {
             UI.cursorToPointer();
+
             return;
         }
 

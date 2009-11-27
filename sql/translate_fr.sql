@@ -512,7 +512,7 @@ INSERT INTO entryreason VALUES (5, 'Unsuitable Accomodation', '');
 INSERT INTO entryreason VALUES (6, 'Mort', '');
 INSERT INTO entryreason VALUES (7, 'Errant', '');
 INSERT INTO entryreason VALUES (8, 'Malade/Blessé', '');
-INSERT INTO entryreason VALUES (9, 'Ne peut assumer', '');
+INSERT INTO entryreason VALUES (9, 'Ne peut financer', '');
 INSERT INTO entryreason VALUES (10, 'Abus', '');
 INSERT INTO entryreason VALUES (11, 'Abandonné', '');
 DELETE FROM internallocation;

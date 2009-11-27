@@ -640,9 +640,11 @@ public class RescueGroupsPublisher extends Thread {
             sql.append(" AND (Archived = 0 OR ActiveMovementType = " +
                 Adoption.MOVETYPE_FOSTER + ")");
         } else {
-	    // Make sure we are on-shelter only (filter out fosters where
-	    // foster on shelter set)
-            sql.append(" AND Archived = 0 AND (ActiveMovementType Is Null OR ActiveMovementType <> " + Adoption.MOVETYPE_FOSTER + ")");
+            // Make sure we are on-shelter only (filter out fosters where
+            // foster on shelter set)
+            sql.append(
+                " AND Archived = 0 AND (ActiveMovementType Is Null OR ActiveMovementType <> " +
+                Adoption.MOVETYPE_FOSTER + ")");
         }
 
         return sql.toString();

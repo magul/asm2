@@ -154,21 +154,24 @@ public class ConfigureLocal extends ASMForm {
 
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
                 UI.getCombo(Global.getSupportedLocales()));
-        cboLocale.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        cboLocale.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
+                UI.getComboBoxHeight()));
 
         cboLabelAlign = (UI.ComboBox) UI.addComponent(p, i18n("Align_labels"),
                 UI.getCombo());
         cboLabelAlign.setToolTipText(i18n("select_where_asm_should_align_field_labels"));
         cboLabelAlign.addItem(i18n("RIGHT"));
         cboLabelAlign.addItem(i18n("LEFT"));
-        cboLabelAlign.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        cboLabelAlign.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
         cboTabAlign = (UI.ComboBox) UI.addComponent(p, i18n("Align_tabs"),
                 UI.getCombo());
         cboTabAlign.addItem(i18n("TOP"));
         cboTabAlign.addItem(i18n("BOTTOM"));
         cboTabAlign.setToolTipText(i18n("select_where_to_align_tabs"));
-        cboTabAlign.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        cboTabAlign.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
+                UI.getComboBoxHeight()));
 
         cboCaptureMethod = (UI.ComboBox) UI.addComponent(p,
                 i18n("Video_capture_method"), UI.getCombo());
@@ -176,12 +179,14 @@ public class ConfigureLocal extends ASMForm {
         cboCaptureMethod.addItem(i18n("http_capture"));
         cboCaptureMethod.addItem(i18n("command_capture"));
         cboCaptureMethod.setToolTipText(i18n("Video_capture_method_tool"));
-        cboCaptureMethod.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        cboCaptureMethod.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
         txtCaptureCommand = (UI.TextField) UI.addComponent(p,
                 i18n("Video_capture_command_url"),
                 UI.getTextField(i18n("command_or_uri")));
-        txtCaptureCommand.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        txtCaptureCommand.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
         chkHotkeys = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("use_button_hotkeys"),
@@ -291,8 +296,8 @@ public class ConfigureLocal extends ASMForm {
         // Re-read the file to load the settings in again
         net.sourceforge.sheltermanager.asm.startup.Startup.readSettings();
 
-	// Reload toolbar and menu in case language has changed
-	Global.mainForm.reloadToolsAndMenu();
+        // Reload toolbar and menu in case language has changed
+        Global.mainForm.reloadToolsAndMenu();
 
         dispose();
 

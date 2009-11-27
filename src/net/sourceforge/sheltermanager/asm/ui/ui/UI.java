@@ -106,16 +106,17 @@ public final class UI {
      */
     public static char mnemonicFromText(String text, char mnemonic) {
         int i = text.indexOf("&");
-        if (i == -1 || i == (text.length() - 1))
+
+        if ((i == -1) || (i == (text.length() - 1))) {
             return mnemonic;
-        else
+        } else {
             return text.charAt(i + 1);
+        }
     }
 
     public static String mnemonicRemove(String text) {
         return Utils.replace(text, "&", "");
     }
-
 
     // Component helpers
     public static Button getButton(String text, FunctionPointer onClick) {
@@ -150,10 +151,11 @@ public final class UI {
         }
 
         if (((mnemonic != ' ') && Global.buttonHotkeys) || (text != null)) {
-            if (text != null) 
+            if (text != null) {
                 b.setMnemonic(mnemonicFromText(text, mnemonic));
-            else
+            } else {
                 b.setMnemonic(mnemonic);
+            }
 
             if (text == null) {
                 b.setText(Character.toString(mnemonic));
@@ -207,14 +209,17 @@ public final class UI {
         if (tooltip != null) {
             c.setToolTipText(tooltip);
         }
-            
-        if (textalign == ALIGN_LEFT)
+
+        if (textalign == ALIGN_LEFT) {
             c.setHorizontalTextPosition(SwingConstants.LEADING);
+        }
 
         if (onChange != null) {
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        if (isTypedEvent(e)) onChange.call();
+                        if (isTypedEvent(e)) {
+                            onChange.call();
+                        }
                     }
                 });
             c.addMouseListener(new MouseAdapter() {
@@ -298,7 +303,9 @@ public final class UI {
         if (onChange != null) {
             d.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (isTypedEvent(evt)) onChange.call();
+                        if (isTypedEvent(evt)) {
+                            onChange.call();
+                        }
                     }
                 });
         }
@@ -398,7 +405,7 @@ public final class UI {
     public static Label getHintLabel(String text) {
         Label l = new Label("<html><center>" + text + "</center></html>");
         l.setBackground(getColor(255, 251, 192));
-	l.setForeground(Color.BLACK);
+        l.setForeground(Color.BLACK);
         l.setBorder(new LineBorder(Color.BLACK));
         l.setHorizontalAlignment(ALIGN_CENTER);
         l.setOpaque(true);
@@ -619,7 +626,9 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents) {
+                            onChange.call();
+                        }
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -627,8 +636,11 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents)
-                            if (isTypedEvent(evt)) onChange.call();
+                        if (!c.noEvents) {
+                            if (isTypedEvent(evt)) {
+                                onChange.call();
+                            }
+                        }
                     }
                 });
         }
@@ -665,7 +677,9 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents) {
+                            onChange.call();
+                        }
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -673,8 +687,11 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents)
-                            if (isTypedEvent(evt)) onChange.call();
+                        if (!c.noEvents) {
+                            if (isTypedEvent(evt)) {
+                                onChange.call();
+                            }
+                        }
                     }
                 });
         }
@@ -712,7 +729,9 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents) {
+                            onChange.call();
+                        }
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -720,8 +739,11 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (!c.noEvents)
-                            if (isTypedEvent(evt)) onChange.call();
+                        if (!c.noEvents) {
+                            if (isTypedEvent(evt)) {
+                                onChange.call();
+                            }
+                        }
                     }
                 });
         }
@@ -815,7 +837,9 @@ public final class UI {
                     }
 
                     public void popupMenuWillBecomeInvisible(PopupMenuEvent evt) {
-                        if (!c.noEvents) onChange.call();
+                        if (!c.noEvents) {
+                            onChange.call();
+                        }
                     }
 
                     public void popupMenuCanceled(PopupMenuEvent evt) {
@@ -823,7 +847,9 @@ public final class UI {
                 });
             c.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent evt) {
-                        if (isTypedEvent(evt)) onChange.call();
+                        if (isTypedEvent(evt)) {
+                            onChange.call();
+                        }
                     }
                 });
         }
@@ -831,7 +857,9 @@ public final class UI {
         if (onLostFocus != null) {
             c.addFocusListener(new FocusAdapter() {
                     public void focusLost(FocusEvent e) {
-                        if (!c.noEvents) onLostFocus.call();
+                        if (!c.noEvents) {
+                            onLostFocus.call();
+                        }
                     }
                 });
         }
@@ -920,8 +948,12 @@ public final class UI {
     public static Menu getMenu(String text, char mnemonic, Icon icon) {
         Menu m = new Menu();
         m.setText(mnemonicRemove(text));
+
         char mn = mnemonicFromText(text, mnemonic);
-        if (mn != ' ') m.setMnemonic(mn);
+
+        if (mn != ' ') {
+            m.setMnemonic(mn);
+        }
 
         if (icon != null) {
             m.setIcon(icon);
@@ -948,8 +980,12 @@ public final class UI {
         ASMAccelerator hotkey, final FunctionPointer onClick) {
         MenuItem m = new MenuItem();
         m.setText(mnemonicRemove(text));
+
         char mn = mnemonicFromText(text, mnemonic);
-        if (mn != ' ') m.setMnemonic(mn);
+
+        if (mn != ' ') {
+            m.setMnemonic(mn);
+        }
 
         if (icon != null) {
             m.setIcon(icon);
@@ -1035,13 +1071,15 @@ public final class UI {
 
     public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
-        
         TextField t = new TextField() {
-            public void paste() {
-                super.paste();
-                if (onChange != null) onChange.call();
-            }
-        };
+                public void paste() {
+                    super.paste();
+
+                    if (onChange != null) {
+                        onChange.call();
+                    }
+                }
+            };
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
@@ -1050,7 +1088,9 @@ public final class UI {
         if (onChange != null) {
             t.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        if (isTypedEvent(e)) onChange.call();
+                        if (isTypedEvent(e)) {
+                            onChange.call();
+                        }
                     }
                 });
         }
@@ -1081,13 +1121,15 @@ public final class UI {
 
     public static TextArea getTextArea(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
-        
         TextArea t = new TextArea() {
-            public void paste() {
-                super.paste();
-                if (onChange != null) onChange.call();
-            }
-        };
+                public void paste() {
+                    super.paste();
+
+                    if (onChange != null) {
+                        onChange.call();
+                    }
+                }
+            };
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
@@ -1099,7 +1141,9 @@ public final class UI {
         if (onChange != null) {
             t.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        if (isTypedEvent(e)) onChange.call();
+                        if (isTypedEvent(e)) {
+                            onChange.call();
+                        }
                     }
                 });
         }
@@ -1273,18 +1317,20 @@ public final class UI {
         return System.getProperty("os.name").toLowerCase().indexOf("windows") != -1;
     }
 
-    /** 
+    /**
      * Returns true if java.awt.Desktop support is available
      */
     public static boolean osShellExecuteAvailable() {
         try {
             if (Desktop.isDesktopSupported()) {
                 Desktop d = Desktop.getDesktop();
-                return d.isSupported(Desktop.Action.BROWSE) && d.isSupported(Desktop.Action.OPEN);
+
+                return d.isSupported(Desktop.Action.BROWSE) &&
+                d.isSupported(Desktop.Action.OPEN);
             }
+        } catch (Throwable t) {
         }
-        catch (Throwable t) {
-        }
+
         return false;
     }
 
@@ -1299,13 +1345,17 @@ public final class UI {
     }
 
     public static void cursorToWait() {
-        Dialog.theParent.setCursor(Cursor.getPredefinedCursor(
-                Cursor.WAIT_CURSOR));
+        if (Dialog.theParent != null) {
+            Dialog.theParent.setCursor(Cursor.getPredefinedCursor(
+                    Cursor.WAIT_CURSOR));
+        }
     }
 
     public static void cursorToPointer() {
-        Dialog.theParent.setCursor(Cursor.getPredefinedCursor(
-                Cursor.DEFAULT_CURSOR));
+        if (Dialog.theParent != null) {
+            Dialog.theParent.setCursor(Cursor.getPredefinedCursor(
+                    Cursor.DEFAULT_CURSOR));
+        }
     }
 
     /** Given a toolbar, generates a JPopupMenu which can be used as
@@ -1442,21 +1492,20 @@ public final class UI {
       * something.
       */
     public static boolean isTypedEvent(KeyEvent e) {
-
         // If we don't have a char, that's not typing
-        if (e.getKeyChar() == KeyEvent.CHAR_UNDEFINED) return false;
+        if (e.getKeyChar() == KeyEvent.CHAR_UNDEFINED) {
+            return false;
+        }
 
         // In fact, if anything but SHIFT is used as a modifier, that's
         // not typing
-        if (e.isControlDown() || 
-            e.isAltDown() || 
-            e.isMetaDown() || 
-            e.isAltGraphDown())
+        if (e.isControlDown() || e.isAltDown() || e.isMetaDown() ||
+                e.isAltGraphDown()) {
             return false;
+        }
 
         return true;
     }
-
 
     /** Returns the height a text component should be */
     public static int getTextBoxHeight() {
@@ -1834,6 +1883,7 @@ public final class UI {
                         } else {
                             model.setData(columnheaders, data, rows, idColumn);
                         }
+
                         setModel(model);
 
                         if (multiselect) {
@@ -1842,7 +1892,7 @@ public final class UI {
 
                         model.addMouseListenerToHeaderInTable(Table.this);
                         model.packColumns(4);
-			model.fireTableDataChanged();
+                        model.fireTableDataChanged();
 
                         // If we have a renderer, use it
                         if (renderer != null) {
@@ -1858,7 +1908,6 @@ public final class UI {
                                 column.setCellRenderer((TableCellRenderer) renderer);
                             }
                         }
-
                     }
                 });
         }
@@ -2437,9 +2486,12 @@ public final class UI {
 
         public void addTab(String title, Icon icon, Component c, String tip) {
             String s = title.trim();
-            if (s.endsWith(":"))
+
+            if (s.endsWith(":")) {
                 s = s.substring(0, s.length() - 1);
-	    s = UI.mnemonicRemove(s);
+            }
+
+            s = UI.mnemonicRemove(s);
             super.addTab(s, icon, c, tip);
         }
     }

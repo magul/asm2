@@ -111,11 +111,13 @@ public class ASMAccelerator {
         String mod = modifier.toLowerCase();
 
         if (mod.equals("ctrl")) {
-            if (UI.osIsMacOSX()) 
+            if (UI.osIsMacOSX()) {
                 // This should get us CMD instead of CTRL
-                return java.awt.Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
-            else
+                return java.awt.Toolkit.getDefaultToolkit()
+                                       .getMenuShortcutKeyMask();
+            } else {
                 return InputEvent.CTRL_MASK;
+            }
         }
 
         if (mod.equals("shift")) {

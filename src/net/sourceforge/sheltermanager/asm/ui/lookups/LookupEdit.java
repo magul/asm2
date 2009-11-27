@@ -183,12 +183,14 @@ public class LookupEdit extends ASMForm {
             rs.save(false, "");
             parent.updateList();
             dispose();
+
             return true;
         } catch (Exception e) {
             Dialog.showError(i18n("An_error_occurred_saving_the_record:_") +
                 e.getMessage());
             Global.logException(e, getClass());
         }
+
         return false;
     }
 }

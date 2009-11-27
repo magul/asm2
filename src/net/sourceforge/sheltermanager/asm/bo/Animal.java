@@ -29,11 +29,11 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
+import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
-
-import java.text.SimpleDateFormat;
 
 
 public class Animal extends UserInfoBO {
@@ -476,30 +476,31 @@ public class Animal extends UserInfoBO {
       * @return The age group
       */
     public String calculateAgeGroup() {
-
         try {
-
             int i = 1;
             double lastband = 0;
 
             // Calculate how old the animal is in days
             Calendar c = Calendar.getInstance();
             Calendar today = Calendar.getInstance();
-            c.setTime( getDateOfBirth() );
+            c.setTime(getDateOfBirth());
+
             long mins = Utils.getDateDiff(today, c);
             double days = (mins / 60) / 24;
 
             while (true) {
-
                 // Get the next band
                 double band = Configuration.getDouble("AgeGroup" + i);
-                if (band == 0) break;
+
+                if (band == 0) {
+                    break;
+                }
 
                 // Our band figure will be in years, convert it to days
                 band = band * 365;
 
                 // Does the animal's current age fall into this band?
-                if (days >= lastband && days <= band) {
+                if ((days >= lastband) && (days <= band)) {
                     return Configuration.getString("AgeGroup" + i + "Name");
                 }
 
@@ -507,15 +508,12 @@ public class Animal extends UserInfoBO {
                 lastband = band;
                 i++;
             }
-
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
         // The age didn't fit a band
         return "";
-
     }
 
     public Date getDeceasedDate() throws CursorEngineException {
@@ -1784,48 +1782,51 @@ public class Animal extends UserInfoBO {
       */
     public static void updateOnShelterVariableAnimalData() {
         try {
-
             // This only needs to be checked once per day, so see when it was
             // last run
             SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
             String today = df.format(new Date());
-            String lastrun = Configuration.getString("VariableAnimalDataUpdated", "0");
-            if (today.equals(lastrun)) return;
+            String lastrun = Configuration.getString("VariableAnimalDataUpdated",
+                    "0");
+
+            if (today.equals(lastrun)) {
+                return;
+            }
 
             Configuration.setEntry("VariableAnimalDataUpdated", today);
 
-            Global.logInfo("Updating variable animal data...", "Animal.updateOnShelterVariableAnimalData");
+            Global.logInfo("Updating variable animal data...",
+                "Animal.updateOnShelterVariableAnimalData");
+
             Animal a = new Animal();
             a.openRecordset("Archived = 0");
+
             while (!a.getEOF()) {
                 updateVariableAnimalData(a);
                 a.moveNext();
             }
+
             a.free();
             a = null;
-
-         } catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
     }
 
     /** Updates various cached animal dates that can change daily, such
-      * as time on shelter and current age 
+      * as time on shelter and current age
       * @param an The animal record to update
       */
     public static void updateVariableAnimalData(Animal an) {
-
         try {
-
-            String sql = "UPDATE animal SET " +
-                "MostRecentEntryDate = '" + Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
+            String sql = "UPDATE animal SET " + "MostRecentEntryDate = '" +
+                Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
                 "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
                 "AgeGroup = '" + an.calculateAgeGroup() + "', " +
-                "AnimalAge = '" + an.getAge() + "' " +
-                "WHERE ID = " + an.getID();
+                "AnimalAge = '" + an.getAge() + "' " + "WHERE ID = " +
+                an.getID();
 
             DBConnection.executeAction(sql);
-
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
@@ -2307,7 +2308,7 @@ public class Animal extends UserInfoBO {
         a.setBaseColourID(getBaseColourID());
         a.setBreedID(getBreedID());
         a.setBreed2ID(getBreed2ID());
-	a.setBreedName(getBreedName());
+        a.setBreedName(getBreedName());
         a.setCoatType(getCoatType());
         a.setCombiTestDate(getCombiTestDate());
         a.setCombiTested(getCombiTested());
@@ -2320,7 +2321,7 @@ public class Animal extends UserInfoBO {
         a.setHealthProblems(getHealthProblems());
         a.setHiddenAnimalDetails(getHiddenAnimalDetails());
         a.setMarkings(getMarkings());
-	a.setCurrentVetID(getCurrentVetID());
+        a.setCurrentVetID(getCurrentVetID());
         a.setOwnersVetID(getOwnersVetID());
         a.setNeutered(getNeutered());
         a.setNeuteredDate(getNeuteredDate());

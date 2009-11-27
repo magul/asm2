@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-13 10:11+0100\n"
-"PO-Revision-Date: 2009-11-12 14:22+0000\n"
+"POT-Creation-Date: 2009-11-25 15:07+0100\n"
+"PO-Revision-Date: 2009-11-25 19:30+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-13 11:36+0000\n"
+"X-Launchpad-Export-Date: 2009-11-26 04:42+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: You_must_give_the_diary_task_a_name.
@@ -2518,6 +2518,22 @@ msgstr "Kiaulė (ferma)"
 #: configuration_Organisation
 msgid "Organisation"
 msgstr "Organizacija"
+
+#: configuration_AgeGroup1Name
+msgid "Baby"
+msgstr ""
+
+#: configuration_AgeGroup2Name
+msgid "Young Adult"
+msgstr ""
+
+#: configuration_AgeGroup3Name
+msgid "Adult"
+msgstr ""
+
+#: configuration_AgeGroup4Name
+msgid "Senior"
+msgstr ""
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
@@ -5744,6 +5760,7 @@ msgid "This animals rabies tag"
 msgstr "Šio gyvūno pasiutligės ženklelio numeris"
 
 #: Entry_Reason
+#: Entry_Reason\:
 msgid "Entry Reason:"
 msgstr "Pridavimo priežastis:"
 
@@ -6284,6 +6301,18 @@ msgstr ""
 msgid "Current Vet:"
 msgstr "Gydantis veterinaras:"
 
+#: Estimate
+msgid "Estimate"
+msgstr ""
+
+#: is_this_date_of_birth_an_estimate
+msgid "Tick this box if this date of birth is an estimate?"
+msgstr ""
+
+#: Permission_Denied_Save
+msgid "You do not have permission to save this record."
+msgstr ""
+
 #. # uianimalname.properties#=========================================================================
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -6684,9 +6713,9 @@ msgstr ""
 "Please enter a date for task {0} \n"
 "with subject \"{1}\""
 
-#: View_Vet_Diary
-msgid "View Vet Diary"
-msgstr "Žiūrėti nurodymus veterinarui"
+#: Edit_Vets_Diary
+msgid "Edit Vets Diary"
+msgstr "Priminimai veterinarui"
 
 #: edit_notes_after_creation
 msgid "Edit notes after creation"
@@ -8113,6 +8142,10 @@ msgstr "Apie besibaigiančią &narystę"
 msgid "Close Active Tab"
 msgstr "Uždaryti aktyvią kortelę"
 
+#: Save_Active_Tab
+msgid "Save Active Tab"
+msgstr ""
+
 #: Configure_Database
 msgid "Confi&gure Database"
 msgstr "Kon&figūruoti duomenų bazę"
@@ -8184,6 +8217,10 @@ msgstr "Tikrinti ASM atnau&jinimus"
 #: Get_more_reports
 msgid "&Get more reports from sheltermanager.com ..."
 msgstr "Gauti daugiau ataskaitų iš sheltermanager.&com"
+
+#: Welcome
+msgid "Welcome"
+msgstr "Sveiki"
 
 #. # uimedical.properties#=========================================================================
 #: Profile_Name
@@ -9380,7 +9417,7 @@ msgid "Or"
 msgstr "Arba"
 
 #: has_this_owner_ever_been_homechecked
-msgid "Has this owner been homechecked?"
+msgid "Tick this box if this owner has been homechecked"
 msgstr ""
 
 #: Checked_By
@@ -10198,7 +10235,7 @@ msgstr "Ūkiniai gyvuliai"
 
 #: Finished_removing_breeds_and_species
 msgid "Finished removing unwanted breeds and species."
-msgstr ""
+msgstr "Nepageidaujamos veislės ir rūšys baigtos šalinti."
 
 #: mark_new_animals_not_for_adoption
 msgid "Mark new animals as not for adoption"
@@ -10272,6 +10309,35 @@ msgstr "Išjungti tarpininkavimo funkcijas"
 #: Group_the_animal_figures_report_by_species_instead_of_type
 msgid "Group the animal figures report by species instead of type"
 msgstr ""
+"Gyvūnų skaičių ataskaitą grupuoti pagal gyvūnų rūšis, o ne pagal tipą"
+
+#: age_groups
+msgid "Age Groups"
+msgstr "Amžiaus grupės"
+
+#: age_group_1
+msgid "Age Group 1:"
+msgstr "Amžiaus grupė 1:"
+
+#: age_group_2
+msgid "Age Group 2:"
+msgstr "Amžiaus grupė 2:"
+
+#: age_group_3
+msgid "Age Group 3:"
+msgstr "Amžiaus grupė 3:"
+
+#: age_group_4
+msgid "Age Group 4:"
+msgstr "Amžiaus grupė 4:"
+
+#: age_group_5
+msgid "Age Group 5:"
+msgstr "Amžiaus grupė 5:"
+
+#: Dont_show_the_startup_page
+msgid "Don't show the startup page"
+msgstr "Nerodyti paleidimo puslapio"
 
 #. # uiuisers.properties#=========================================================================
 #: Unable_to_open_user_for_editing\:_
@@ -10877,6 +10943,10 @@ msgstr "Pašalinimas"
 msgid "Edit Waiting List Entry - {0}"
 msgstr "Redaguoti laukiančiųjų vietos sąrašo įrašą - {0}"
 
+#: Removal_Reason\:
+msgid "Removal Reason:"
+msgstr "Pašalinimo priežastis:"
+
 #. # uiwordprocessor.properties#=========================================================================
 #: An_error_occurred_retrieving_the_file\:_
 msgid "An error occurred retrieving the file: "
@@ -10892,7 +10962,7 @@ msgstr "Pasirinkite dokumento šabloną"
 
 #: An_error_occurred_changing_into_the_directory\:_
 msgid "An error occurred changing into the directory: "
-msgstr ""
+msgstr "Įvyko klaida keičiant į direktoriją: "
 
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
@@ -11045,6 +11115,9 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 
 #~ msgid "Include Completed"
 #~ msgstr "Įtraukti atliktus"
+
+#~ msgid "View Vet Diary"
+#~ msgstr "Žiūrėti nurodymus veterinarui"
 
 #~ msgid "FindMeAPet.com Settings"
 #~ msgstr "FindMeAPet.com Settings"
@@ -11328,9 +11401,6 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 
 #~ msgid "Publish Animals Available For Adoption To Pets911.com"
 #~ msgstr "Publish Animals Available For Adoption To Pets911.com"
-
-#~ msgid "Edit Vets Diary"
-#~ msgstr "Priminimai veterinarui"
 
 #~ msgid "Publish Adoptable Animals to FindMeAPet.com"
 #~ msgstr "Publish Adoptable Animals to FindMeAPet.com"

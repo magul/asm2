@@ -4001,8 +4001,7 @@ public class AutoDBUpdates {
                 // Add the EstimatedDOB field
                 DBConnection.executeAction(
                     "ALTER TABLE animal ADD EstimatedDOB INTEGER NULL");
-                DBConnection.executeAction(
-                    "UPDATE animal SET EstimatedDOB = 0");
+                DBConnection.executeAction("UPDATE animal SET EstimatedDOB = 0");
             } catch (Exception e) {
                 errors.add("animal: ADD EstimatedDOB");
             }
@@ -4012,7 +4011,7 @@ public class AutoDBUpdates {
                 DBConnection.executeAction(
                     "ALTER TABLE animal ADD AgeGroup VARCHAR(255) NULL");
             } catch (Exception e) {
-                errors.add("animal: ADD AgeGroup field");                
+                errors.add("animal: ADD AgeGroup field");
             }
 
             try {
@@ -4034,7 +4033,6 @@ public class AutoDBUpdates {
                 e.getMessage());
             Global.logException(e, getClass());
         }
-
     }
 }
 

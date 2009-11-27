@@ -70,7 +70,6 @@ public class Options extends ASMForm {
     private UI.TextField txtAgeGroup5;
     private UI.TextField txtAgeGroup5Name;
 
-
     /** Creates new form Options */
     public Options() {
         init(Global.i18n("uisystem", "System_Options"),
@@ -236,6 +235,7 @@ public class Options extends ASMForm {
                 txtShortCodingFormat.getText().replace('\'', '`'));
 
             dispose();
+
             return true;
         } catch (Exception e) {
             Dialog.showError(Global.i18n("uisystem",
@@ -257,25 +257,29 @@ public class Options extends ASMForm {
         txtOrgName = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Name:"),
                 UI.getTextField(i18n("Your_organisations_name")));
-        txtOrgName.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
+        txtOrgName.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
+                UI.getTextBoxHeight()));
 
         txtOrgAddress = (UI.TextArea) UI.addComponent(pd,
                 i18n("Organisation_Address:"),
                 UI.getTextArea(i18n("Your_organisations_address")));
 
         cboOrgCountry = UI.getCombo(Global.getCountries());
-        cboOrgCountry.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
+        cboOrgCountry.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
         UI.addComponent(pd, i18n("Country:"), cboOrgCountry);
 
         txtOrgTelephone = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
-        txtOrgTelephone.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
+        txtOrgTelephone.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
         txtOrgTelephone2 = (UI.TextField) UI.addComponent(pd,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
-        txtOrgTelephone2.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
+        txtOrgTelephone2.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
         tabTabs.addTab(i18n("shelter_info"), null, pd, null);
 
@@ -318,20 +322,20 @@ public class Options extends ASMForm {
 
         // Age groups
         UI.Panel pa = UI.getPanel(UI.getTableLayout(3));
-        txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"), 
-            UI.getTextField());
+        txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
+                UI.getTextField());
         txtAgeGroup1Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup2 = (UI.TextField) UI.addComponent(pa, i18n("age_group_2"), 
-            UI.getTextField());
+        txtAgeGroup2 = (UI.TextField) UI.addComponent(pa, i18n("age_group_2"),
+                UI.getTextField());
         txtAgeGroup2Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup3 = (UI.TextField) UI.addComponent(pa, i18n("age_group_3"), 
-            UI.getTextField());
+        txtAgeGroup3 = (UI.TextField) UI.addComponent(pa, i18n("age_group_3"),
+                UI.getTextField());
         txtAgeGroup3Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup4 = (UI.TextField) UI.addComponent(pa, i18n("age_group_4"), 
-            UI.getTextField());
+        txtAgeGroup4 = (UI.TextField) UI.addComponent(pa, i18n("age_group_4"),
+                UI.getTextField());
         txtAgeGroup4Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup5 = (UI.TextField) UI.addComponent(pa, i18n("age_group_5"), 
-            UI.getTextField());
+        txtAgeGroup5 = (UI.TextField) UI.addComponent(pa, i18n("age_group_5"),
+                UI.getTextField());
         txtAgeGroup5Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
 
         tabTabs.addTab(i18n("age_groups"), null, pa, null);
@@ -552,8 +556,7 @@ public class Options extends ASMForm {
 
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Dont_show_the_startup_page"), "DontShowStartupPage",
-                        Configuration.getBoolean("DontShowStartupPage"), false));
-
+                    Configuration.getBoolean("DontShowStartupPage"), false));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -572,5 +575,4 @@ public class Options extends ASMForm {
         add(t, UI.BorderLayout.NORTH);
         add(tabTabs, UI.BorderLayout.CENTER);
     }
-
 }

@@ -209,8 +209,10 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
                     curName = diary.getDiaryForName();
                 }
 
-                addParagraph("<i>" + Utils.formatDateTimeLong(diary.getDiaryDateTime()) + "</i><br>" +
-                    "<b>" + diary.getLinkInfoThis() + " " + diary.getSubject() + "</b>");
+                addParagraph("<i>" +
+                    Utils.formatDateTimeLong(diary.getDiaryDateTime()) +
+                    "</i><br>" + "<b>" + diary.getLinkInfoThis() + " " +
+                    diary.getSubject() + "</b>");
                 addParagraph(diary.getNote());
                 addHorizontalRule();
 
@@ -222,7 +224,6 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
             }
         }
     }
-
 
     /** Returns the report title */
     public String getTitle() {

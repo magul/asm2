@@ -122,9 +122,8 @@ public class AnimalDocument extends GenerateDocument {
             addTag(Global.i18n("wordprocessor", "AgeGroup"),
                 animal.getAgeGroup());
             addTag(Global.i18n("wordprocessor", "EstimatedDOB"),
-                (animal.getEstimatedDOB().intValue() == 1 ? 
-                Global.i18n("wordprocessor", "estimated") :
-                ""));
+                ((animal.getEstimatedDOB().intValue() == 1)
+                ? Global.i18n("wordprocessor", "estimated") : ""));
             addTag(Global.i18n("wordprocessor", "AnimalID"),
                 animal.getID().toString());
             addTag(Global.i18n("wordprocessor", "IdentichipNumber"),
@@ -298,11 +297,12 @@ public class AnimalDocument extends GenerateDocument {
                 animal.getAcceptanceNumber());
 
             try {
-                addTag(Global.i18n("wordprocessor", "NumberInLitter"), 
-                    Integer.toString(DBConnection.executeForCount("SELECT NumberInLitter FROM animallitter " +
-                    "WHERE AcceptanceNumber = '" + animal.getAcceptanceNumber() + "'")));
-            }
-            catch (Exception e) {
+                addTag(Global.i18n("wordprocessor", "NumberInLitter"),
+                    Integer.toString(DBConnection.executeForCount(
+                            "SELECT NumberInLitter FROM animallitter " +
+                            "WHERE AcceptanceNumber = '" +
+                            animal.getAcceptanceNumber() + "'")));
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
 

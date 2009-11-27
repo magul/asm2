@@ -48,16 +48,18 @@ public class LocateDatabase {
 
     /** Creates a new instance of LocateDatabase */
     public LocateDatabase() {
-        
         // Check we have a local database
         checkLocalDatabase();
 
         // If we just created the local database, it's a new install - switch
         // straight to it
         if (justCreatedLocal) {
-            Global.logInfo("First time use, defaulting to local database.", "LocateDatabase.LocateDatabase");
-            jdbcURL = "jdbc:hsqldb:file:" + Global.tempDirectory + File.separator + "localdb";
+            Global.logInfo("First time use, defaulting to local database.",
+                "LocateDatabase.LocateDatabase");
+            jdbcURL = "jdbc:hsqldb:file:" + Global.tempDirectory +
+                File.separator + "localdb";
             saveJDBCUrlToConfig();
+
             return;
         }
 
@@ -237,7 +239,6 @@ public class LocateDatabase {
             // Note that we just created it, so we can default to it for
             // first time users
             justCreatedLocal = true;
-
         } catch (Exception e) {
             Global.logError("Failed creating local db: " + e.getMessage(),
                 "LocateDatabase.askUserForDatabase");
@@ -377,24 +378,23 @@ public class LocateDatabase {
      * the current database.
      */
     public void applyTranslationPatch() {
-
         String lang = Locale.getDefault().getLanguage();
 
         try {
             // Don't bother for english
-            if (lang.equals("en")) return;
+            if (lang.equals("en")) {
+                return;
+            }
 
-            Global.logInfo("Applying translation patch for language '" + 
-                lang + "'", "LocateDatabase.applyTranslationPatch");
+            Global.logInfo("Applying translation patch for language '" + lang +
+                "'", "LocateDatabase.applyTranslationPatch");
 
             DBConnection.executeFile(new File(Global.dataDirectory +
-                File.separator + "sql" + File.separator +
-                "translate_" + lang + ".sql"));
-
+                    File.separator + "sql" + File.separator + "translate_" +
+                    lang + ".sql"));
         } catch (Exception e) {
             Global.logError("Failed to apply translation patch for language '" +
-                lang + "'",
-                "LocateDatabase.applyTranslationPatch");
+                lang + "'", "LocateDatabase.applyTranslationPatch");
             Global.logException(e, getClass());
         }
     }

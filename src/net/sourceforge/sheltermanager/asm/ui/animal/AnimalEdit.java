@@ -116,9 +116,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * Determines whether the data on the form has changed since it was loaded.
      */
     private boolean isDirty = false;
+
     /** Is the form still loading */
     private boolean isLoading = false;
-
     private UI.Label lblThumbnail;
     private UI.Button btnClone;
     private UI.Button btnCopyNotes;
@@ -482,13 +482,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void setDirty(final boolean dirty) {
-    	UI.invokeLater(new Runnable() {
-	    public void run() {
-	        isDirty = dirty;
-	        btnSave.setEnabled(isDirty);
-	        if (!Global.currentUserObject.getSecChangeAnimal()) btnSave.setEnabled(false);
-	    }
-	});
+        UI.invokeLater(new Runnable() {
+                public void run() {
+                    isDirty = dirty;
+                    btnSave.setEnabled(isDirty);
+
+                    if (!Global.currentUserObject.getSecChangeAnimal()) {
+                        btnSave.setEnabled(false);
+                    }
+                }
+            });
     }
 
     /**
@@ -1210,10 +1213,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * screen.
      */
     public void enableOnShelterTabs() {
-
         // If we have some movements, there's no point doing the checks
         // as it can never be an off-shelter animal
-        if (animalmovement.hasData()) return;
+        if (animalmovement.hasData()) {
+            return;
+        }
 
         // Entry detail tabs
         txtReasonNotBroughtByOwner.setEnabled(!chkNonShelter.isSelected());
@@ -1232,18 +1236,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // If it is off the shelter, then we should automatically
         // choose the non-shelter animal type for it and disable
         // it.
-        if (chkNonShelter.isSelected() ) {
+        if (chkNonShelter.isSelected()) {
             Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
                 "AnimalType",
                 new Integer(Configuration.getInteger("AFNonShelterType")),
                 cboType);
             cboType.setEnabled(false);
-           
+
             // If we aren't loading the screen right now, generate a new code
             // for the non-shelter animal - the box must have just been ticked
-            if (!isLoading) 
+            if (!isLoading) {
                 generateAnimalCode(animal, (String) cboType.getSelectedItem());
-
+            }
         } else {
             cboType.setEnabled(true);
         }
@@ -1485,11 +1489,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public boolean saveData() {
-
-        if (!isDirty) return false;
+        if (!isDirty) {
+            return false;
+        }
 
         if (!Global.currentUserObject.getSecChangeAnimal()) {
             Dialog.showError(UI.messageNoSavePermission());
+
             return false;
         }
 
@@ -1820,7 +1826,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Notifies the form that the data has been changed. */
     public void dataChanged() {
-    	if (!isLoading) setDirty(true);
+        if (!isLoading) {
+            setDirty(true);
+        }
     }
 
     /** Runs when the crossbreed checkbox is toggled and enables the
@@ -2089,14 +2097,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         lblLastLocation = UI.getLabel(i18n("Last_Location"));
         pnlLeftFields.add(lblLastLocation);
         pnlLeftFields.add(lblLocationText);
-    
+
         txtDateOfBirth = (DateField) UI.getDateField(i18n("The_animal's_date_of_birth"),
-                    UI.fp(this, "dataChanged"), UI.fp(this, "updateAge"));
+                UI.fp(this, "dataChanged"), UI.fp(this, "updateAge"));
 
-        chkEstimatedDOB = (UI.CheckBox) UI.getCheckBox(i18n("Estimate"), i18n("is_this_date_of_birth_an_estimate"),
-            UI.fp(this, "dataChanged"));
+        chkEstimatedDOB = (UI.CheckBox) UI.getCheckBox(i18n("Estimate"),
+                i18n("is_this_date_of_birth_an_estimate"),
+                UI.fp(this, "dataChanged"));
 
-        UI.Panel pdob = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }), true);
+        UI.Panel pdob = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }),
+                true);
         pdob.add(txtDateOfBirth);
         pdob.add(chkEstimatedDOB);
 

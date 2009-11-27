@@ -541,7 +541,6 @@ public class AnimalMedical extends UserInfoBO {
      * "1 treatment" for one-offs
      */
     public String getNamedNumberOfTreatments() throws CursorEngineException {
-
         if (getTimingRule().intValue() == 0) {
             return "1 " + Global.i18n("uimedical", "treatment");
         }

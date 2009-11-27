@@ -503,12 +503,14 @@ public class CustomReportEdit extends ASMForm {
 
             // Update parent
             parent.updateList();
+
             return true;
         } catch (Exception e) {
             Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
                 e.getMessage());
             Global.logException(e, getClass());
         }
+
         return false;
     }
 }

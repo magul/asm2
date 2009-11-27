@@ -84,7 +84,8 @@ public abstract class Utils {
             while (i <= (sb.length() - find.length())) {
                 if (sb.substring(i, i + find.length()).equalsIgnoreCase(find)) {
                     sb.replace(i, i + find.length(), replacewith);
-		    i += replacewith.length();
+                    i += replacewith.length();
+
                     continue;
                 }
 
@@ -108,14 +109,16 @@ public abstract class Utils {
         while (i <= (s.length() - 1)) {
             if (s.substring(i, i + 1).equals("<")) {
                 oktoadd = false;
-		i++;
-		continue;
+                i++;
+
+                continue;
             }
 
             if (s.substring(i, i + 1).equals(">")) {
                 i++;
                 oktoadd = true;
-		continue;
+
+                continue;
             }
 
             if (oktoadd && (i <= (s.length() - 1))) {
@@ -637,7 +640,6 @@ public abstract class Utils {
     public static void setComboFromID(SQLRecordset lookup, String fieldName,
         Integer idValue, UI.ComboBox theCombo) {
         try {
-
             // Drop out if we have an empty string
             if (idValue.equals("")) {
                 return;
@@ -668,6 +670,7 @@ public abstract class Utils {
                 if (theitem.equals(lookup.getField(fieldName))) {
                     // We have a match - select it and break
                     theCombo.setSelectedIndex(i);
+
                     return;
                 }
 
@@ -675,6 +678,7 @@ public abstract class Utils {
             }
         } catch (Exception e) {
             Global.logException(e, Utils.class);
+
             return;
         }
     }

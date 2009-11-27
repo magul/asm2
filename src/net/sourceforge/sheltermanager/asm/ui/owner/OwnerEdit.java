@@ -150,6 +150,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
     /** Audit info */
     private String audit = null;
+    private OwnerFind mergeOwner = null;
 
     /** Creates new form EditOwner */
     public OwnerEdit() {
@@ -822,11 +823,13 @@ public class OwnerEdit extends ASMForm implements SearchListener,
      * database.
      */
     public boolean saveData() {
-
-        if (!isDirty) return false;
+        if (!isDirty) {
+            return false;
+        }
 
         if (!Global.currentUserObject.getSecChangeOwner()) {
             Dialog.showError(UI.messageNoSavePermission());
+
             return false;
         }
 
@@ -1493,8 +1496,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         Global.mainForm.addChild(edt);
         edt = null;
     }
-
-    private OwnerFind mergeOwner = null;
 
     public void actionMerge() {
         // Prompt for the owner record

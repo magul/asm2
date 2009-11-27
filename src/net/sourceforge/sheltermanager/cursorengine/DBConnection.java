@@ -316,9 +316,9 @@ public abstract class DBConnection {
     public synchronized static int executeUpdate(String query)
         throws Exception {
         getConnection();
+
         return executeUpdate(con, query);
     }
-
 
     /**
      * Overloaded executeAction that allows the passing of a Connection
@@ -359,7 +359,6 @@ public abstract class DBConnection {
 
         return stmt.executeUpdate(query);
     }
-
 
     public synchronized static void executeFile(File f)
         throws Exception {

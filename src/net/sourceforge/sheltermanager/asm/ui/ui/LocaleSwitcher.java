@@ -19,39 +19,38 @@
 
  Contact me by electronic mail: bobintetley@users.sourceforge.net
  */
-
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import java.util.*;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
 
-/** 
+/**
   * Small component that shows the current locale and allows a popup
   * menu to choose another locale
   */
 public class LocaleSwitcher extends JLabel {
-
     JPopupMenu pop = new JPopupMenu();
 
     public LocaleSwitcher() {
-        
         setBackground(new Color(0, 0, 82));
         setForeground(Color.WHITE);
         setOpaque(true);
         setFont(getFont().deriveFont(Font.BOLD));
         setBorder(new LineBorder(Color.WHITE));
-        
+
         addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                showMenu(e.getX(), e.getY());
-            }
-        });
+                public void mouseClicked(MouseEvent e) {
+                    showMenu(e.getX(), e.getY());
+                }
+            });
 
         loadLocales();
 
@@ -60,7 +59,6 @@ public class LocaleSwitcher extends JLabel {
     }
 
     public void loadLocales() {
-
         String[] locales = Global.getSupportedLocales();
 
         for (int i = 0; i < locales.length; i++) {
@@ -68,27 +66,26 @@ public class LocaleSwitcher extends JLabel {
             final String locale = Global.getLocaleFromString(locales[i]);
             m.setText(locales[i]);
             m.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {                
-                   
-                    // Change switcher text
-                    LocaleSwitcher.this.setText(Global.getLanguage(locale));
-                    LocaleSwitcher.this.setToolTipText(Global.getLanguageCountry(locale));
+                    public void actionPerformed(ActionEvent e) {
+                        // Change switcher text
+                        LocaleSwitcher.this.setText(Global.getLanguage(locale));
+                        LocaleSwitcher.this.setToolTipText(Global.getLanguageCountry(
+                                locale));
 
-                    // Change the locale and updated the menu/toolbar
-                    String lang = locale.substring(0, locale.indexOf("_"));
-                    String country = locale.substring(locale.indexOf("_") + 1, locale.length());
-                    Locale.setDefault(new Locale(lang, country));
-                    Global.settings_Locale = locale;
-	            Global.mainForm.reloadToolsAndMenu();
-                }
-            });
+                        // Change the locale and updated the menu/toolbar
+                        String lang = locale.substring(0, locale.indexOf("_"));
+                        String country = locale.substring(locale.indexOf("_") +
+                                1, locale.length());
+                        Locale.setDefault(new Locale(lang, country));
+                        Global.settings_Locale = locale;
+                        Global.mainForm.reloadToolsAndMenu();
+                    }
+                });
             pop.add(m);
         }
     }
 
-
     public void showMenu(int x, int y) {
         pop.show(this, x, y);
     }
-
 }

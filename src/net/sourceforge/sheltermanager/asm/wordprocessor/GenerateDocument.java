@@ -438,21 +438,24 @@ public abstract class GenerateDocument extends Thread
 
                 if (lastseparator > 0) {
                     String newdir = newfile.substring(0, lastseparator);
-		    Global.logDebug("Created directory: " + newdir, "GenerateDocument.unzip");
+                    Global.logDebug("Created directory: " + newdir,
+                        "GenerateDocument.unzip");
                     new File(newdir).mkdirs();
                 }
 
-		Global.logDebug("Calling copyInputStream", "GenerateDocument.unzip");
+                Global.logDebug("Calling copyInputStream",
+                    "GenerateDocument.unzip");
                 copyInputStream(z.getInputStream(entry),
                     new BufferedOutputStream(new FileOutputStream(newfile)),
                     true, true);
-		Global.logDebug("Exited copyInputStream", "GenerateDocument.unzip");
+                Global.logDebug("Exited copyInputStream",
+                    "GenerateDocument.unzip");
             }
 
-	    Global.logDebug("Finished unpacking zip file", "GenerateDocument.unzip");
+            Global.logDebug("Finished unpacking zip file",
+                "GenerateDocument.unzip");
             z.close();
-	    Global.logDebug("Closed zip file", "GenerateDocument.unzip");
-
+            Global.logDebug("Closed zip file", "GenerateDocument.unzip");
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -463,11 +466,13 @@ public abstract class GenerateDocument extends Thread
         byte[] buffer = new byte[1024];
         int len;
 
-	// If there's nothing in the buffer, bail out
-	if (in.available() == 0) {
-	     Global.logDebug("Empty buffer, bailing", "GenerateDocument.copyInputStream");
-	     return;
-	}
+        // If there's nothing in the buffer, bail out
+        if (in.available() == 0) {
+            Global.logDebug("Empty buffer, bailing",
+                "GenerateDocument.copyInputStream");
+
+            return;
+        }
 
         while ((len = in.read(buffer)) >= 0)
             out.write(buffer, 0, len);
@@ -614,17 +619,21 @@ public abstract class GenerateDocument extends Thread
 
             // Does image[id].jpeg exist?
             File tg = new File(target);
-            if (!tg.exists()) { 
 
+            if (!tg.exists()) {
                 // This is a hack, we should use the rels xml file - if we can't
                 // find the matching image with the right ID, then just replace 
                 // the first image file we find instead
-                tg = new File(moodir + File.separator + "word" + File.separator + "media");
+                tg = new File(moodir + File.separator + "word" +
+                        File.separator + "media");
+
                 String[] dir = tg.list();
-                for (int i=0; i < dir.length; i++) {
+
+                for (int i = 0; i < dir.length; i++) {
                     if (dir[i].indexOf(".jpeg") != -1) {
-                        target = moodir + File.separator + "word" + File.separator + "media" +
-                            File.separator + dir[i];
+                        target = moodir + File.separator + "word" +
+                            File.separator + "media" + File.separator + dir[i];
+
                         break;
                     }
                 }
@@ -653,7 +662,8 @@ public abstract class GenerateDocument extends Thread
         final String MAGIC_TAG = "draw:name=\"media\"";
         String oodir = Global.tempDirectory + File.separator + "openoffice";
 
-	Global.logDebug("Processing OpenOffice image...", "processOpenOfficeImage");
+        Global.logDebug("Processing OpenOffice image...",
+            "processOpenOfficeImage");
 
         try {
             String s = Utils.readFile(localfile);
@@ -703,7 +713,8 @@ public abstract class GenerateDocument extends Thread
             // Replace the file on the disk with this one
             Utils.writeFile(localfile, s.getBytes("UTF8"));
 
-	    Global.logDebug("Finished processing OpenOffice image.", "GenerateDocument.processOpenOfficeImage");
+            Global.logDebug("Finished processing OpenOffice image.",
+                "GenerateDocument.processOpenOfficeImage");
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());
@@ -826,8 +837,8 @@ public abstract class GenerateDocument extends Thread
 
     protected void processText(boolean markedUp, boolean displayAfterwards) {
         try {
-
-            Global.logDebug("Entering processText", "GenerateDocument.processText");
+            Global.logDebug("Entering processText",
+                "GenerateDocument.processText");
 
             // Mark up our content if the text is marked up
             if (markedUp) {
@@ -846,35 +857,42 @@ public abstract class GenerateDocument extends Thread
 
             // Work through it in a single pass
             for (int i = 0; i < (sb.length() - 9); i++) {
-                
-		foundTag = false;
-		int endMarker = -1;
-		String matchTag = "";
+                foundTag = false;
+
+                int endMarker = -1;
+                String matchTag = "";
 
                 if (markedUp) {
                     if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
                         // Find first end marker in case formatting has split it
-			endMarker = sb.indexOf("&gt;", i);
+                        endMarker = sb.indexOf("&gt;", i);
+
                         // Now find the second
-                        if (endMarker != -1) endMarker = sb.indexOf("&gt;", endMarker + 1);
+                        if (endMarker != -1) {
+                            endMarker = sb.indexOf("&gt;", endMarker + 1);
+                        }
+
                         // We have a valid end marker, grab the tag
-			if (endMarker != -1) {
+                        if (endMarker != -1) {
                             foundTag = true;
                             endMarker += 4;
-    			    matchTag = sb.substring(i, endMarker);
-			    // Word and OO can add formatting and crap in between tags - throw any of it away
-			    String bak = matchTag;
-    			    matchTag = Utils.removeHTML(matchTag);
-			    Global.logDebug(bak + " -> " + matchTag, "GenerateDocument.matchTag");
+                            matchTag = sb.substring(i, endMarker);
+
+                            // Word and OO can add formatting and crap in between tags - throw any of it away
+                            String bak = matchTag;
+                            matchTag = Utils.removeHTML(matchTag);
+                            Global.logDebug(bak + " -> " + matchTag,
+                                "GenerateDocument.matchTag");
                         }
                     }
                 } else {
                     if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
-			endMarker = sb.indexOf(">>", i);
-			if (endMarker != -1) {
+                        endMarker = sb.indexOf(">>", i);
+
+                        if (endMarker != -1) {
                             foundTag = true;
                             endMarker += 2;
-    			    matchTag = sb.substring(i, endMarker);
+                            matchTag = sb.substring(i, endMarker);
                         }
                     }
                 }
@@ -895,7 +913,7 @@ public abstract class GenerateDocument extends Thread
                         }
 
                         // Does it match?
-			if (matchTag.equalsIgnoreCase(matchs)) {
+                        if (matchTag.equalsIgnoreCase(matchs)) {
                             // Replace it
                             sb.replace(i, endMarker, st.replace);
 
@@ -911,10 +929,12 @@ public abstract class GenerateDocument extends Thread
             thefile = sb.toString();
 
             // Replace the file on the disk with this one
-            Global.logDebug("Writing update document to disk", "GenerateDocument.processText");
+            Global.logDebug("Writing update document to disk",
+                "GenerateDocument.processText");
             Utils.writeFile(localfile, thefile.getBytes("UTF8"));
 
-            Global.logDebug("Completed processText", "GenerateDocument.processText");
+            Global.logDebug("Completed processText",
+                "GenerateDocument.processText");
 
             // End this now if we aren't displaying
             if (!displayAfterwards) {
@@ -923,7 +943,7 @@ public abstract class GenerateDocument extends Thread
 
             display();
         } catch (Exception e) {
-	    Global.logException(e, getClass());
+            Global.logException(e, getClass());
             Dialog.showError("An error occurred generating the document: " +
                 e.getMessage());
         }
@@ -1055,9 +1075,10 @@ public abstract class GenerateDocument extends Thread
      * correctly. Thankfully there are only three that are necessary.
      */
     private void markUpTags() {
-    	Global.logDebug("Marking up search tags for XML", "GenerateDocument.markupTags");
+        Global.logDebug("Marking up search tags for XML",
+            "GenerateDocument.markupTags");
 
-	for (int i = 0; i < searchtags.size(); i++) {
+        for (int i = 0; i < searchtags.size(); i++) {
             SearchTag tag = (SearchTag) searchtags.get(i);
 
             // Ampersands
@@ -1075,7 +1096,9 @@ public abstract class GenerateDocument extends Thread
                 tag.replace = Utils.replace(tag.replace, ">", "&lt;");
             }
         }
-    	Global.logDebug("Finished marking up search tags for XML", "GenerateDocument.markupTags");
+
+        Global.logDebug("Finished marking up search tags for XML",
+            "GenerateDocument.markupTags");
     }
 
     public void finalize() throws Throwable {

@@ -65,22 +65,25 @@ public class Additional {
     public static void setFieldValues(int linkType, int linkID, Vector v)
         throws Exception {
         try {
-
             // Set the values
             for (int i = 0; i < v.size(); i++) {
                 Additional.Field f = (Additional.Field) v.get(i);
 
                 try {
-
                     // Try an update first
-		    int co = DBConnection.executeUpdate("UPDATE additional SET Value = '" + f.value + "' WHERE LinkType = " + linkType + " AND LinkID = " + linkID + " AND AdditionalFieldID = " + f.fieldID);
+                    int co = DBConnection.executeUpdate(
+                            "UPDATE additional SET Value = '" + f.value +
+                            "' WHERE LinkType = " + linkType +
+                            " AND LinkID = " + linkID +
+                            " AND AdditionalFieldID = " + f.fieldID);
 
-		    // If no records were updated, do an insert instead
-		    if (co == 0) 
+                    // If no records were updated, do an insert instead
+                    if (co == 0) {
                         DBConnection.executeAction("INSERT INTO additional " +
-                        "(LinkType, LinkID, AdditionalFieldID, Value) VALUES (" +
-                        linkType + ", " + linkID + ", " + f.fieldID + ", '" +
-                        f.value + "')");
+                            "(LinkType, LinkID, AdditionalFieldID, Value) VALUES (" +
+                            linkType + ", " + linkID + ", " + f.fieldID +
+                            ", '" + f.value + "')");
+                    }
                 } catch (Exception e) {
                     Global.logError("Failed adding field " + f.fieldName +
                         " with value '" + f.value + "'",
