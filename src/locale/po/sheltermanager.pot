@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-26 11:17+0100\n"
+"POT-Creation-Date: 2009-11-30 10:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3186,16 +3186,6 @@ msgstr ""
 msgid "Can't Copy"
 msgstr ""
 
-#: have_existing_local
-msgid ""
-"You already have an existing local database and must remove it to continue. "
-"Is this ok?"
-msgstr ""
-
-#: existing_local
-msgid "Existing Local"
-msgstr ""
-
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
@@ -3446,7 +3436,6 @@ msgstr ""
 msgid "Age"
 msgstr ""
 
-#. #uk.co.rtds.asm.ui.animal.AnimalMedia
 #: Yes
 msgid "Yes"
 msgstr ""
@@ -7057,6 +7046,12 @@ msgstr ""
 msgid "You need to configure your RescueGroups.org settings before publishing."
 msgstr ""
 
+#: You_need_to_setup_your_email
+msgid ""
+"You need to set up your email address and SMTP server.\n"
+" Go to System->Configure ASM Email Account"
+msgstr ""
+
 #. # uilocalcache.properties#=========================================================================
 #: View_Local_Cache
 msgid "View Local Cache"
@@ -10508,17 +10503,14 @@ msgstr ""
 msgid "Modify Animal Name Database"
 msgstr ""
 
-#. #uk.co.rtds.asm.ui.users.EditUser
 #: Bulk_Complete_Diary_Notes
 msgid "Bulk Complete Diary Notes"
 msgstr ""
 
-#. #uk.co.rtds.asm.ui.users.EditUser
 #: Bulk_Complete_Animal_Vaccinations
 msgid "Bulk Complete Animal Vaccinations"
 msgstr ""
 
-#. #uk.co.rtds.asm.ui.users.EditUser
 #: Bulk_Complete_Waiting_List_Entries
 msgid "Bulk Complete Waiting List Entries"
 msgstr ""

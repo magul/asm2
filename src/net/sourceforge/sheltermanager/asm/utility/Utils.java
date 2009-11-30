@@ -395,7 +395,7 @@ public abstract class Utils {
         } catch (Exception e) {
             Dialog.showError("Error occurred accessing media server: " +
                 e.getMessage(), "Error");
-            Global.logException(e, Email.class);
+            Global.logException(e, Utils.class);
         }
     }
 
@@ -440,7 +440,7 @@ public abstract class Utils {
         } catch (Exception e) {
             Dialog.showError("Error occurred accessing media server: " +
                 e.getMessage(), "Error");
-            Global.logException(e, Email.class);
+            Global.logException(e, Utils.class);
         }
     }
 
@@ -499,7 +499,7 @@ public abstract class Utils {
             // Copy any final file
             ftpCopyAFile(ftp, workingfile, abspath + workingfile);
         } catch (Exception e) {
-            Global.logException(e, Email.class);
+            Global.logException(e, Utils.class);
         }
     }
 
@@ -527,7 +527,7 @@ public abstract class Utils {
             out.close();
         } catch (IOException e) {
         } catch (Exception e) {
-            Global.logException(e, Email.class);
+            Global.logException(e, Utils.class);
         }
     }
 
@@ -553,7 +553,7 @@ public abstract class Utils {
                 return (Integer) rs.getField("ID");
             }
         } catch (Exception e) {
-            Global.logException(e, Email.class);
+            Global.logException(e, Utils.class);
 
             return new Integer(0);
         }

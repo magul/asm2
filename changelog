@@ -1,3 +1,10 @@
+2.7.0
+================
+
+*. Fixed database copy bug - a lock bug prevented copying from a remote
+-  database to a local database. Import was unaffected.
+*. Added translation key for "you need to setup your email"
+
 2.6.2
 ================
 

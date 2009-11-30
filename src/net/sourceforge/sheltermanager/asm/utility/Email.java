@@ -119,8 +119,8 @@ public class Email {
         try {
             local = InetAddress.getLocalHost();
         } catch (UnknownHostException ioe) {
-            System.err.println(
-                "No local IP address found - is your network up?");
+            Global.logError(
+                "No local IP address found - is your network up?", "Email.sendmsg");
             throw ioe;
         }
 
@@ -206,7 +206,7 @@ public class Email {
 
         if (!ok) {
             Dialog.showError(
-                "You need to set up your email address and SMTP Server.\nGo to System->Configure Email");
+                Global.i18n("uiinternet", "You_need_to_setup_your_email"));
         }
 
         return ok;

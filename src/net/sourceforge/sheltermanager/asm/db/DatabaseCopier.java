@@ -50,29 +50,6 @@ public class DatabaseCopier {
                 return;
             }
 
-            // Is it a local copy and we already have a local database? 
-            // If so, prompt them to remove it.
-            if (s.indexOf("hsqldb:file") != -1) {
-                File f = new File(Global.tempDirectory + File.separator +
-                        "localdb.properties");
-
-                if (f.exists()) {
-                    if (Dialog.showYesNo(Global.i18n("db", "have_existing_local"),
-                                Global.i18n("db", "existing_local"))) {
-                        f.delete();
-                        f = new File(Global.tempDirectory + File.separator +
-                                "localdb.data");
-                        f.delete();
-                        f = new File(Global.tempDirectory + File.separator +
-                                "localdb.script");
-                        f.delete();
-                        f = new File(Global.tempDirectory + File.separator +
-                                "localdb.log");
-                        f.delete();
-                    }
-                }
-            }
-
             // Make sure the user knows they have to have created
             // the schema for mysql
             if (s.indexOf("mysql") != -1) {
@@ -98,13 +75,6 @@ public class DatabaseCopier {
             // Get a connection to our new database
             Connection c = DBConnection.getConnection(s);
             byte dbType = DBConnection.getDBTypeForUrl(s);
-
-            // If it was local, create the database
-            if (s.indexOf("hsqldb:file") != -1) {
-                DBConnection.executeFile(c,
-                    new File(Global.dataDirectory + File.separator + "sql" +
-                        File.separator + "hsqldb.sql"));
-            }
 
             // Do the copy
             Copier cop = new Copier(s, c, dbType);
