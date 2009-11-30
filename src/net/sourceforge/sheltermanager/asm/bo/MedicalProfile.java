@@ -214,8 +214,7 @@ public class MedicalProfile extends UserInfoBO {
         }
 
         String out = getTotalNumberOfTreatments() + " " +
-            java.util.ResourceBundle.getBundle("locale/uimedical")
-                                    .getString("treatment_periods");
+            Global.i18n("uimedical", "treatment_periods");
 
         int no = getTimingRule().intValue();
         int fr = getTotalNumberOfTreatments().intValue();

@@ -254,15 +254,13 @@ public class AnimalWaitingList extends UserInfoBO {
             }
 
             if (getDatePutOnList() == null) {
-                throw new BOValidationException(java.util.ResourceBundle.getBundle(
-                        "locale/bo")
-                                                                        .getString("You_must_supply_the_date_this_entry_was_put_on_the_list."));
+                throw new BOValidationException(Global.i18n("bo",
+                        "You_must_supply_the_date_this_entry_was_put_on_the_list."));
             }
 
             if ((getOwnerID() == null) || (getOwnerID().intValue() == 0)) {
-                throw new BOValidationException(java.util.ResourceBundle.getBundle(
-                        "locale/bo")
-                                                                        .getString("You_must_enter_the_contact_name."));
+                throw new BOValidationException(Global.i18n("bo",
+                        "You_must_enter_the_contact_name."));
             }
         } catch (Exception e) {
             Global.logException(e, this.getClass());

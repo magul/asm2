@@ -1025,14 +1025,11 @@ public abstract class GenerateDocument extends Thread
      */
     public String getTriState(Integer value) {
         if (value.intValue() == 0) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("Yes");
+            return Global.i18n("wordprocessor", "Yes");
         } else if (value.intValue() == 1) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("No");
+            return Global.i18n("wordprocessor", "No");
         } else if (value.intValue() == 2) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("Unknown");
+            return Global.i18n("wordprocessor", "Unknown");
         }
 
         return "[Bad tristate switch: " + value + "]";
@@ -1045,14 +1042,11 @@ public abstract class GenerateDocument extends Thread
         }
 
         if (value.intValue() == 0) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("Unknown");
+            return Global.i18n("wordprocessor", "Unknown");
         } else if (value.intValue() == 1) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("Negative");
+            return Global.i18n("wordprocessor", "Negative");
         } else if (value.intValue() == 2) {
-            return java.util.ResourceBundle.getBundle("locale/wordprocessor")
-                                           .getString("Positive");
+            return Global.i18n("wordprocessor", "Positive");
         }
 
         return "[Bad test result switch: " + value + "]";

@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Removed all ResourceBundle calls from the code for neatness and
+-  consistency (using Global/i18n function instead)
 *. Fixed database copy bug - a lock bug prevented copying from a remote
 -  database to a local database. Import was unaffected.
 *. Added translation key for "you need to setup your email"

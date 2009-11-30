@@ -102,11 +102,9 @@ public class OwnerDonationDocument extends GenerateDocument {
                 owner.getLastChangedBy());
             addTag(Global.i18n("wordprocessor", "OwnerAddress"),
                 Utils.formatAddress(owner.getOwnerAddress()));
-            addTag(java.util.ResourceBundle.getBundle("locale/uiowner")
-                                           .getString("OwnerTown"),
+            addTag(Global.i18n("wordprocessor", "OwnerTown"),
                 Utils.nullToEmptyString(owner.getOwnerTown()));
-            addTag(java.util.ResourceBundle.getBundle("locale/uiowner")
-                                           .getString("OwnerCounty"),
+            addTag(Global.i18n("wordprocessor", "OwnerCounty"),
                 Utils.nullToEmptyString(owner.getOwnerCounty()));
             addTag(Global.i18n("wordprocessor", "OwnerName"),
                 owner.getOwnerName());

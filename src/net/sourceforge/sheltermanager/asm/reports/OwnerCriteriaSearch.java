@@ -218,9 +218,8 @@ public class OwnerCriteriaSearch extends Report {
                 a.openRecordset(crit.toString());
 
                 if (a.getRecordCount() == 0) {
-                    addParagraph(java.util.ResourceBundle.getBundle(
-                            "locale/reports")
-                                                         .getString("no_matches_found_for_this_owner"));
+                    addParagraph(Global.i18n("reports",
+                            "no_matches_found_for_this_owner"));
                 } else {
                     tableNew();
                     tableAddRow();

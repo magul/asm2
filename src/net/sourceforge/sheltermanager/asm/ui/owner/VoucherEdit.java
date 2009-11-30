@@ -176,9 +176,7 @@ public class VoucherEdit extends ASMForm {
 
             return true;
         } catch (CursorEngineException e) {
-            Dialog.showError(e.getMessage(),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Validation_Error"));
+            Dialog.showError(e.getMessage());
         }
 
         return false;

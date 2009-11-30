@@ -615,9 +615,7 @@ public class AnimalDocument extends GenerateDocument {
         } catch (Exception e) {
             Dialog.showError(Global.i18n("uianimal",
                     "Unable_to_create_media_database_entry:_") +
-                e.getMessage(),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Error"));
+                e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -638,9 +636,7 @@ public class AnimalDocument extends GenerateDocument {
         } catch (Exception e) {
             Dialog.showError(Global.i18n("uianimal",
                     "Error_occurred_uploading_to_media_server:_") +
-                e.getMessage(),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Error"));
+                e.getMessage());
             Global.logException(e, getClass());
 
             return;

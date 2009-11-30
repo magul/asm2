@@ -211,8 +211,7 @@ public class AnimalLitter extends NormalBO {
         al.openRecordset(
             "CachedAnimalsLeft Is Not Null And (InvalidDate Is Null)");
 
-        Global.logInfo(java.util.ResourceBundle.getBundle("locale/bo")
-                                               .getString("updating_and_cancelling_litters"),
+        Global.logInfo(Global.i18n("bo", "updating_and_cancelling_litters"),
             "AnimalLitter.updateLitters");
 
         int noCancelled = 0;
@@ -261,21 +260,19 @@ public class AnimalLitter extends NormalBO {
         try {
             // Make sure we have a date
             if (getDate() == null) {
-                throw new BOValidationException(java.util.ResourceBundle.getBundle(
-                        "locale/bo").getString("You_must_enter_a_date."));
+                throw new BOValidationException(Global.i18n("bo",
+                        "You_must_enter_a_date."));
             }
 
             // Make sure we have number
             if ((getNumberInLitter() == null) ||
                     getNumberInLitter().equals("")) {
-                throw new BOValidationException(java.util.ResourceBundle.getBundle(
-                        "locale/bo")
-                                                                        .getString("You_must_enter_the_number_of_animals_in_the_litter."));
+                throw new BOValidationException(Global.i18n("bo",
+                        "You_must_enter_the_number_of_animals_in_the_litter."));
             }
         } catch (CursorEngineException e) {
-            throw new BOValidationException(java.util.ResourceBundle.getBundle(
-                    "locale/bo")
-                                                                    .getString("An_error_occurred_while_validating_the_object:_") +
+            throw new BOValidationException(Global.i18n("bo",
+                    "An_error_occurred_while_validating_the_object:_") +
                 e.getMessage());
         }
     }

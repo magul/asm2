@@ -241,8 +241,7 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
                 Utils.formatDateLong(dateFrom), Utils.formatDateLong(dateTo));
         }
 
-        return java.util.ResourceBundle.getBundle("locale/reports")
-                                       .getString("Error");
+        return Global.i18n("reports", "Error");
     }
 
     public void dateChosen(Date from, Date to) {

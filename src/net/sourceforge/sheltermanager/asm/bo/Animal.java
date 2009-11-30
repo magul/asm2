@@ -162,17 +162,15 @@ public class Animal extends UserInfoBO {
             // Fostered
             if (fosterOnShelter) {
                 if (activeMovementType.intValue() == Adoption.MOVETYPE_FOSTER) {
-                    closeTag += (" <b>(" +
-                    java.util.ResourceBundle.getBundle("locale/reports")
-                                            .getString("fostered") + ")</b>");
+                    closeTag += (" <b>(" + Global.i18n("reports", "fostered") +
+                    ")</b>");
                 }
             }
 
             // Retailer
             if (activeMovementType.intValue() == Adoption.MOVETYPE_RETAILER) {
-                closeTag += (" <b>(" +
-                java.util.ResourceBundle.getBundle("locale/reports")
-                                        .getString("at_retailer") + ")</b>");
+                closeTag += (" <b>(" + Global.i18n("reports", "at_retailer") +
+                ")</b>");
             }
         }
 

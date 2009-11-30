@@ -105,11 +105,9 @@ public class OwnerDocument extends GenerateDocument {
                 owner.getLastChangedBy());
             addTag(Global.i18n("wordprocessor", "OwnerAddress"),
                 Utils.formatAddress(owner.getOwnerAddress()));
-            addTag(java.util.ResourceBundle.getBundle("locale/uiowner")
-                                           .getString("OwnerTown"),
+            addTag(Global.i18n("wordprocessor", "OwnerTown"),
                 Utils.nullToEmptyString(owner.getOwnerTown()));
-            addTag(java.util.ResourceBundle.getBundle("locale/uiowner")
-                                           .getString("OwnerCounty"),
+            addTag(Global.i18n("wordprocessor", "OwnerCounty"),
                 Utils.nullToEmptyString(owner.getOwnerCounty()));
             addTag(Global.i18n("wordprocessor", "OwnerName"),
                 owner.getOwnerName());
@@ -223,12 +221,9 @@ public class OwnerDocument extends GenerateDocument {
             media.setUpdatedSinceLastPublish(new Integer(0));
             media.save();
         } catch (Exception e) {
-            Dialog.showError(java.util.ResourceBundle.getBundle(
-                    "locale/uianimal")
-                                                     .getString("Unable_to_create_media_database_entry:_") +
-                e.getMessage(),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Error"));
+            Dialog.showError(Global.i18n("uianimal",
+                    "Unable_to_create_media_database_entry:_") +
+                e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -245,12 +240,9 @@ public class OwnerDocument extends GenerateDocument {
             // Update the onscreen list
             uiparent.updateList();
         } catch (Exception e) {
-            Dialog.showError(java.util.ResourceBundle.getBundle(
-                    "locale/uianimal")
-                                                     .getString("Error_occurred_uploading_to_media_server:_") +
-                e.getMessage(),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Error"));
+            Dialog.showError(Global.i18n("uianimal",
+                    "Error_occurred_uploading_to_media_server:_") +
+                e.getMessage());
             Global.logException(e, getClass());
 
             return;

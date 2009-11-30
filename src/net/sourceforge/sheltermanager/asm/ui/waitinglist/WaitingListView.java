@@ -172,9 +172,7 @@ public class WaitingListView extends ASMView {
         String[] columnheaders = {
                 i18n("Rank"), i18n("Name"), i18n("Address"), i18n("Telephone"),
                 i18n("Date_Put_On"), i18n("Date_Removed"), i18n("Urgency"),
-                i18n("Species"),
-                java.util.ResourceBundle.getBundle("locale/uianimal")
-                                        .getString("Description")
+                i18n("Species"), i18n("Description:")
             };
 
         // Build the data

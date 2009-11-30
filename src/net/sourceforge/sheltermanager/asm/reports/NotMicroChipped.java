@@ -57,9 +57,8 @@ public class NotMicroChipped extends Report {
                 " ORDER BY ShelterLocation");
 
             if (an.getEOF()) {
-                addParagraph(java.util.ResourceBundle.getBundle(
-                        "locale/reports")
-                                                     .getString("All_animals_on_the_shelter_have_been_microchipped."));
+                addParagraph(Global.i18n("reports",
+                        "All_animals_on_the_shelter_have_been_microchipped."));
 
                 return;
             }
