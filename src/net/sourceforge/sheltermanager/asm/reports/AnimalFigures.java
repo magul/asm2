@@ -722,6 +722,7 @@ public class AnimalFigures extends Report {
         // PTS Animals
         // --------------------------------------------------------------
         int[] ptsAnimals = new int[40];
+        totalPTSSummary = 0;
 
         tableAddRow();
         tableAddCell(Global.i18n("reports", "PTS"));
@@ -1455,6 +1456,7 @@ public class AnimalFigures extends Report {
         // PTS Animals
         // --------------------------------------------------------------
         int[] ptsAnimals = new int[40];
+        totalPTSSummary = 0;
 
         tableAddRow();
         tableAddCell(Global.i18n("reports", "PTS"));

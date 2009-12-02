@@ -59,6 +59,7 @@ public class JDBCDlg extends ASMDialog {
         Vector ctl = new Vector();
         ctl.add(cboType);
         ctl.add(txtHostname);
+        ctl.add(txtDatabase);
         ctl.add(txtUser);
         ctl.add(txtPassword);
         ctl.add(btnOk);
