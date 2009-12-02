@@ -97,6 +97,20 @@ public class SaveAPetPublisher extends Thread {
             return;
         }
 
+        // Make sure we have some settings for AdoptAPet
+        if (shelterId.trim().equalsIgnoreCase("")) {
+            Global.logError(Global.i18n("uiinternet",
+                    "You_need_to_set_your_save_a_pet_settings_before_publishing"),
+                "SaveAPetPublisher.run");
+
+            if (parent != null) {
+                Dialog.showError(Global.i18n("uiinternet",
+                    "You_need_to_set_your_save_a_pet_settings_before_publishing"));
+            }
+
+            return;
+        }
+
         // Connect to the remote host
         openUploadSocket();
 
