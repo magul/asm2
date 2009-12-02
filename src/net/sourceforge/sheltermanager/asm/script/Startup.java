@@ -51,7 +51,6 @@ public class Startup {
      * Program entry point.
      */
     public Startup(String[] args) {
-        
         // Turn the log off
         Global.setUsingLog(false);
 
@@ -110,7 +109,8 @@ public class Startup {
         DBConnection.loadJDBCDrivers();
 
         // Get the database
-        File props = new File(Global.tempDirectory + File.separator + "jdbc.properties");
+        File props = new File(Global.tempDirectory + File.separator +
+                "jdbc.properties");
 
         // No file - no URL!
         if (!props.exists()) {
@@ -120,6 +120,7 @@ public class Startup {
 
         // Read it
         String jdbcURL = "";
+
         try {
             FileInputStream in = new FileInputStream(props);
             Properties p = new Properties();
@@ -129,6 +130,7 @@ public class Startup {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
         if (jdbcURL.equals("")) {
             System.err.println("Blank JDBC URL");
             System.exit(1);
@@ -140,7 +142,9 @@ public class Startup {
 
         // Make sure the connection is valid
         if (!DBConnection.getConnection()) {
-            System.err.println("A connection to the database server could not be made.\nThe error was: " + DBConnection.lastError);
+            System.err.println(
+                "A connection to the database server could not be made.\nThe error was: " +
+                DBConnection.lastError);
             System.exit(1);
         }
 

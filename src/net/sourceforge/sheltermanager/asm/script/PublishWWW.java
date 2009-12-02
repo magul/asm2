@@ -187,12 +187,12 @@ public class PublishWWW {
                         System.exit(1);
                     }
                 } else {
-		    /*
-		    ignore unrecognised
+                    /*
+                    ignore unrecognised
                     Global.logError("Unrecognised option: " + args[i],
                         "PublishWWW.PublishWWW");
                     System.exit(1);
-		    */
+                    */
                 }
             }
         }

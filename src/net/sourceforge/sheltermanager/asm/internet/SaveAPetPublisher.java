@@ -105,7 +105,7 @@ public class SaveAPetPublisher extends Thread {
 
             if (parent != null) {
                 Dialog.showError(Global.i18n("uiinternet",
-                    "You_need_to_set_your_save_a_pet_settings_before_publishing"));
+                        "You_need_to_set_your_save_a_pet_settings_before_publishing"));
             }
 
             return;
