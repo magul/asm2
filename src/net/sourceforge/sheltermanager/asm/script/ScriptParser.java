@@ -43,8 +43,7 @@ public class ScriptParser {
     public ScriptParser(String[] args) {
         // Make sure we have a command
         if (args.length < 2) {
-            Global.setUsingLog(true);
-            Global.logError(Startup.usage, "ScriptParser.ScriptParser");
+            System.err.println(Startup.usage);
             System.exit(1);
         }
 
@@ -92,9 +91,7 @@ public class ScriptParser {
         else if (args[1].equalsIgnoreCase("dbfsdelete")) {
             new DeleteDBFSFile(args);
         } else {
-            Global.setUsingLog(true);
-            Global.logError("Unrecognised command: " + args[1],
-                "ScriptParser.ScriptParser");
+            System.err.println("Unrecognised command: " + args[1]);
         }
     }
 }

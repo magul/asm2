@@ -1,6 +1,8 @@
-2.7.0
+2.6.3
 ================
 
+*. Command line tool can run without X for Linux machines now, uses
+-  stderr for error message output correctly now
 *. No need for owner name/address check to move the focus any more
 *. Removed all ResourceBundle calls from the code for neatness and
 -  consistency (using Global/i18n function instead)

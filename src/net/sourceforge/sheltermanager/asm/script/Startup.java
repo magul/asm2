@@ -25,7 +25,6 @@ import net.sourceforge.sheltermanager.asm.db.LocateDatabase;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.localcache.LocalCache;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
@@ -33,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import java.util.Locale;
+import java.util.Properties;
 
 
 /**
@@ -51,8 +51,7 @@ public class Startup {
      * Program entry point.
      */
     public Startup(String[] args) {
-        UI.disableRendererMessages();
-
+        
         // Turn the log off
         Global.setUsingLog(false);
 
@@ -111,31 +110,43 @@ public class Startup {
         DBConnection.loadJDBCDrivers();
 
         // Get the database
-        LocateDatabase ldb = new LocateDatabase();
+        File props = new File(Global.tempDirectory + File.separator + "jdbc.properties");
+
+        // No file - no URL!
+        if (!props.exists()) {
+            System.err.println("No jdbc.properties file.");
+            System.exit(1);
+        }
+
+        // Read it
+        String jdbcURL = "";
+        try {
+            FileInputStream in = new FileInputStream(props);
+            Properties p = new Properties();
+            p.load(in);
+            jdbcURL = p.getProperty("JDBCURL");
+            in.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (jdbcURL.equals("")) {
+            System.err.println("Blank JDBC URL");
+            System.exit(1);
+        }
 
         // Set the JDBC URL in the cursor engine (quietly).
-        DBConnection.url = ldb.getJDBCURL();
+        DBConnection.url = jdbcURL;
         DBConnection.quiet = true;
-        ldb = null;
 
         // Make sure the connection is valid
         if (!DBConnection.getConnection()) {
-            Global.setUsingLog(true);
-            Global.logError(
-                "A connection to the database server could not be made.\nThe error was: " +
-                DBConnection.lastError, "Startup.Startup");
+            System.err.println("A connection to the database server could not be made.\nThe error was: " + DBConnection.lastError);
             System.exit(1);
         }
 
         // Update the max packet size so big media files don't upset
         // MySQL
         Global.setMaxAllowedPacket();
-
-        // Initialise the local cache
-        Global.localCache = new LocalCache();
-
-        // Initialise the File Types manager
-        FileTypeManager.initManager();
 
         // Lets parse that script!
         new ScriptParser(args);
