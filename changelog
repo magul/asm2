@@ -1,6 +1,7 @@
 2.7.0
 ================
 
+*. No need for owner name/address check to move the focus any more
 *. Removed all ResourceBundle calls from the code for neatness and
 -  consistency (using Global/i18n function instead)
 *. Fixed database copy bug - a lock bug prevented copying from a remote

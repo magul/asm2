@@ -1541,14 +1541,14 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
     public void changedName() {
         if (isNewRecord) {
-            txtAddress.grabFocus();
+            //txtAddress.grabFocus();
             checkOwner(true);
         }
     }
 
     public void changedAddress() {
         if (isNewRecord) {
-            txtPostcode.grabFocus();
+            //txtPostcode.grabFocus();
             checkOwner(false);
         }
     }
