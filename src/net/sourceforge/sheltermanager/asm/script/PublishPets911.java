@@ -148,9 +148,12 @@ public class PublishPets911 {
                         System.exit(1);
                     }
                 } else {
+		    /*
+		    ignore unrecognised
                     Global.logError("Unrecognised option: " + args[i],
                         "PublishPets911.PublishPets911");
                     System.exit(1);
+		    */
                 }
             }
         }

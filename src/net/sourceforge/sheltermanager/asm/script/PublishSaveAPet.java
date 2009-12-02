@@ -152,9 +152,12 @@ public class PublishSaveAPet {
                         System.exit(1);
                     }
                 } else {
+		    /*
+		    ignore unrecognised
                     Global.logError("Unrecognised option: " + args[i],
                         "PublishSaveAPet.PublishSaveAPet");
                     System.exit(1);
+		    */
                 }
             }
         }

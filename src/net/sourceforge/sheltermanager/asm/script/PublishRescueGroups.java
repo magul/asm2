@@ -152,9 +152,12 @@ public class PublishRescueGroups {
                         System.exit(1);
                     }
                 } else {
+		    /*
+		    ignore unrecognised
                     Global.logError("Unrecognised option: " + args[i],
                         "PublishRescueGroups.PublishRescueGroups");
                     System.exit(1);
+		    */
                 }
             }
         }

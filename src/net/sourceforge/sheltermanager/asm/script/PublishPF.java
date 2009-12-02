@@ -151,9 +151,12 @@ public class PublishPF {
                         System.exit(1);
                     }
                 } else {
+		    /*
+		    ignore unrecognised
                     Global.logError("Unrecognised option: " + args[i],
                         "PublishPF.PublishPF");
                     System.exit(1);
+		    */
                 }
             }
         }
