@@ -59,7 +59,17 @@ for x in range(2, len(sys.argv)):
                             files.append(newfile)
                     marker = s.find("\"" + token + "\"", marker+1)
                 for f in files:
-                    p.write("# " + f + "\n")
+                    # Sanitise by removing any ./net/sourceforge/sheltermanager/asm
+                    # prefix and .java suffix
+                    # If it doesn't have that prefix, don't output it as a comment -
+                    # we've coincidentally matched a string literal outside the
+                    # translatable bit of the tree
+                    x = f
+                    if x.startswith("./net/sourceforge/sheltermanager/asm"):
+                        x = x[37:]
+                        if x.endswith(".java"):
+                            x = x[0:len(x)-5]
+                        p.write("# " + x + "\n")
                 p.write(l)
         else:
             # It's not a token, ignore it
