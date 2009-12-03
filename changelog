@@ -1,6 +1,8 @@
 2.6.3
 ================
 
+*. Better date field checks when losing the focus - resets to today
+-  if a date is unparseable for any reason
 *. Ignore unknown options to publishers instead of bailing out
 *. Database box missing from tab order on locate database dialog
 *. Bug in animal figures report results in cumulative PTS totals
