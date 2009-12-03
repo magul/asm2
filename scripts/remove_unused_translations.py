@@ -36,20 +36,35 @@ for x in range(2, len(sys.argv)):
 
     for l in lines:
 
-        if l.find("=") != -1:
+        if l.find("=") != -1 and not l.startswith("#"):
             # We have a token, let's check it
             token = l[0:l.find("=")]
             token = token.replace("\\:", ":")
 
-            if s.find("\"" + token + "\"") == -1:
+            marker = s.find("\"" + token + "\"")
+            if marker == -1:
                 print "    " + token
                 totunused += 1
             else:
-                # It's used - write the line
+                # Find all occurrences of the token and write a comment
+                # for each file it appears in. We squash duplicates here too
+                files = []
+                while marker != -1:
+                    fileref = s.rfind("##FILE:", 0, marker)
+                    if fileref != -1:
+                        fileref += 7
+                        thefile = s[fileref:s.find("##", fileref)]
+                        newfile = thefile
+                        if not newfile in files:
+                            files.append(newfile)
+                    marker = s.find("\"" + token + "\"", marker+1)
+                for f in files:
+                    p.write("# " + f + "\n")
                 p.write(l)
         else:
-            # It's not a token, write it back out
-            p.write(l)
+            # It's not a token, ignore it
+            # p.write(l)
+            pass
 
     p.close()
 

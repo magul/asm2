@@ -1,6 +1,9 @@
 2.6.3
 ================
 
+*. removed_unused_translations script now adds a marker to show
+-  everywhere a translation string is used to help people in
+-  launchpad
 *. Better date field checks when losing the focus - resets to today
 -  if a date is unparseable for any reason
 *. Ignore unknown options to publishers instead of bailing out
