@@ -26,6 +26,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.event.HierarchyListener;
+import java.awt.event.HierarchyEvent;
 
 import java.util.Vector;
 
@@ -133,8 +135,6 @@ public abstract class ASMFind extends ASMForm {
         addToolbarItem(btnSearch, false);
         addToolbarItem(btnOpen, true);
 
-        // TODO:
-        //this.getRootPane().setDefaultButton(btnSearch);
         UI.Panel main = UI.getPanel(UI.getBorderLayout());
 
         leftbar = UI.getToolBar(true);
@@ -144,11 +144,12 @@ public abstract class ASMFind extends ASMForm {
         }
 
         table = UI.getTable(UI.fp(this, "actionClick"),
-                UI.fp(this, "actionDoubleClick"), hasleftbar ? leftbar : null);
+                UI.fp(this, "actionDoubleClick"), UI.fp(this, "actionDoubleClick"),
+                hasleftbar ? leftbar : null);
         UI.addComponent(main, table);
-        //main.add(table, UI.BorderLayout.CENTER);
         add(top, UI.BorderLayout.NORTH);
         add(main, UI.BorderLayout.CENTER);
+
     }
 
     public UI.Table getTable() {
@@ -158,14 +159,12 @@ public abstract class ASMFind extends ASMForm {
     public void setTableData(String[] cols, String[][] data, int rows, int IDcol) {
         table.setTableData(cols, data, rows, IDcol);
         updateButtons(false);
-        this.getRootPane().setDefaultButton(btnOpen);
     }
 
     public void setTableData(String[] cols, String[][] data, int rows,
         int maxcols, int IDcol) {
         table.setTableData(cols, data, rows, maxcols, IDcol);
         updateButtons(false);
-        this.getRootPane().setDefaultButton(btnOpen);
     }
 
     public void updateButtons(boolean enabled) {
@@ -247,9 +246,11 @@ public abstract class ASMFind extends ASMForm {
                                 btnSearch.setEnabled(true);
 
                                 // If there were some results, highlight the first row in the table
+                                // and give it the focus
                                 if (i > 0) {
                                     table.changeSelection(0, 0, false, false);
                                     updateButtons(true);
+                                    table.grabFocus();
                                 }
 
                                 UI.cursorToPointer();

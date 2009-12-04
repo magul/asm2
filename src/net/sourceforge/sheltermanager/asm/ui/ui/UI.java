@@ -1071,6 +1071,13 @@ public final class UI {
 
     public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
+        return getTextField(tooltip, onChange, onLeave, null);
+    }
+
+    public static TextField getTextField(String tooltip,
+        final FunctionPointer onChange, final FunctionPointer onLeave,
+        final FunctionPointer onEnterPressed) {
+
         TextField t = new TextField() {
                 public void paste() {
                     super.paste();
@@ -1091,6 +1098,15 @@ public final class UI {
                         if (isTypedEvent(e)) {
                             onChange.call();
                         }
+                    }
+                });
+        }
+
+        if (onEnterPressed != null) {
+            t.addKeyListener(new KeyAdapter() {
+                    public void keyPressed(KeyEvent e) {
+                        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                            onEnterPressed.call();
                     }
                 });
         }
@@ -1184,7 +1200,7 @@ public final class UI {
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick) {
-        return getTable(onClick, onDoubleClick, null, false);
+        return getTable(onClick, onDoubleClick, null, null, false);
     }
 
     public static Table getTable(FunctionPointer onClick,
@@ -1193,14 +1209,20 @@ public final class UI {
     }
 
     public static Table getTable(FunctionPointer onClick,
+        FunctionPointer onDoubleClick, FunctionPointer onEnter, ToolBar toolbar) {
+        return new Table(onClick, onDoubleClick, onEnter, toolbar, null, false);
+    }
+
+
+    public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar, boolean multiselect) {
-        return new Table(onClick, onDoubleClick, toolbar, null, multiselect);
+        return new Table(onClick, onDoubleClick, null, toolbar, null, multiselect);
     }
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar,
         ASMCellRenderer renderer, boolean multiselect) {
-        return new Table(onClick, onDoubleClick, toolbar, renderer, multiselect);
+        return new Table(onClick, onDoubleClick, null, toolbar, renderer, multiselect);
     }
 
     public static void registerTabOrder(Vector components, Object parent,
@@ -1782,15 +1804,18 @@ public final class UI {
         private boolean multiselect = false;
         private FunctionPointer onClick = null;
         private FunctionPointer onDoubleClick = null;
+        private FunctionPointer onEnter = null;
         private ASMCellRenderer renderer = null;
         private UI.ToolBar toolbar = null;
         private SortableTableModel model = null;
 
         public Table(FunctionPointer onClick, FunctionPointer onDoubleClick,
-            UI.ToolBar toolbar, ASMCellRenderer renderer, boolean isMultiSelect) {
+            FunctionPointer onEnter, UI.ToolBar toolbar, ASMCellRenderer renderer, 
+            boolean isMultiSelect) {
             multiselect = isMultiSelect;
             this.onClick = onClick;
             this.onDoubleClick = onDoubleClick;
+            this.onEnter = onEnter;
             this.renderer = renderer;
             this.toolbar = toolbar;
             addMouseListener(this);
@@ -1803,6 +1828,8 @@ public final class UI {
         }
 
         public void keyPressed(KeyEvent evt) {
+            if (onEnter != null && evt.getKeyCode() == KeyEvent.VK_ENTER)
+                onEnter.call();
         }
 
         public void keyReleased(KeyEvent evt) {

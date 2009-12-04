@@ -148,7 +148,7 @@ public class AnimalFindText extends ASMFind {
 
     public void initCriteria(UI.Panel p) {
         txtSearch = (UI.TextField) UI.addComponent(p, i18n("Search"),
-                UI.getTextField());
+                UI.getTextField(null, null, null, UI.fp(this, "actionSearch")));
     }
 
     public void initToolbar() {
