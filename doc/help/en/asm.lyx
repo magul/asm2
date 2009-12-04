@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 52 (ASM 2.6.2)
+Revision 53 (ASM 2.6.3)
 \end_layout
 
 \begin_layout Chapter*
@@ -2429,6 +2429,130 @@ The advanced find owner screen is used to search for groups of owners matching
  It works exactly the same as the advanced find animal screen, however there
  are far less criteria as Animal Shelter Manager needs to know far less
  about owners.
+\end_layout
+
+\begin_layout Standard
+A number of filters can also be applied here:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Adopters
+\series default
+ - show any owners with an adoption movement
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Animal Care Officers
+\series default
+ - show any owners with the Animal Care Officer flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Banned 
+\series default
+- show any owners with the Banned flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Donors
+\series default
+ - show any owners with the Donor flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fosterers
+\series default
+ - show any owners with the Fosters Animals flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Homechecked
+\series default
+ - show any owners with the Homechecked flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Homecheckers
+\series default
+ - show any owners with the Homechecker flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Members
+\series default
+ - show any owners with the Member flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Not Homechecked
+\series default
+ - show any owners with the Homechecked flag not set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Potential Adopters
+\series default
+ - show any owners with active criteria, but no adoption movements
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Retailers
+\series default
+ - show any owners with the Retailer flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Shelters
+\series default
+ - show any owners with the Other Animal Shelter flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Staff
+\series default
+ - show any owners with the Staff flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Vets
+\series default
+ - show any owners with the Vet flag set
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Volunteers
+\series default
+ - show any owners with the Volunteer/Dog Walker flag set
 \end_layout
 
 \begin_layout Section

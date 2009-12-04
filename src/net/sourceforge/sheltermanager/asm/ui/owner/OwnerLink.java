@@ -282,36 +282,36 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             // Do we have a filter?
             switch (filter) {
             case FILTER_ADOPTERS:
-                fo.cboFilter.setSelectedIndex(1);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_ADOPTERS);
                 fo.cboFilter.setEnabled(false);
                 break;
 
             case FILTER_FOSTERERS:
-                fo.cboFilter.setSelectedIndex(13);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_FOSTERERS);
                 fo.cboFilter.setEnabled(false);
 
                 break;
 
             case FILTER_RETAILERS:
-                fo.cboFilter.setSelectedIndex(12);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_RETAILERS);
                 fo.cboFilter.setEnabled(false);
 
                 break;
 
             case FILTER_SHELTERS:
-                fo.cboFilter.setSelectedIndex(9);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_SHELTERS);
                 fo.cboFilter.setEnabled(false);
 
                 break;
 
             case FILTER_HOMECHECKERS:
-                fo.cboFilter.setSelectedIndex(7);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_HOMECHECKERS);
                 fo.cboFilter.setEnabled(false);
 
                 break;
 
             case FILTER_VETS:
-                fo.cboFilter.setSelectedIndex(14);
+                fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_VETS);
                 fo.cboFilter.setEnabled(false);
 
                 break;

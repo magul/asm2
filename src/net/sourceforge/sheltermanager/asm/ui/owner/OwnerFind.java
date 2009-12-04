@@ -199,22 +199,40 @@ public class OwnerFind extends ASMFind {
         cboFilter = UI.getCombo();
         cboFilter.addItem(i18n("_all_owners_"));
         cboFilter.addItem(i18n("Adopters"));
-        cboFilter.addItem(i18n("Banned"));
-        cboFilter.addItem(i18n("Homechecked"));
-        cboFilter.addItem(i18n("Not_Homechecked"));
-        cboFilter.addItem(i18n("Members"));
-        cboFilter.addItem(i18n("Donors"));
-        cboFilter.addItem(i18n("Homecheckers"));
-        cboFilter.addItem(i18n("Volunteers"));
-        cboFilter.addItem(i18n("Shelters"));
         cboFilter.addItem(i18n("Animal_Care_Officers"));
-        cboFilter.addItem(i18n("Staff"));
-        cboFilter.addItem(i18n("Retailers"));
+        cboFilter.addItem(i18n("Banned"));
+        cboFilter.addItem(i18n("Donors"));
         cboFilter.addItem(i18n("Fosterers"));
+        cboFilter.addItem(i18n("Homechecked"));
+        cboFilter.addItem(i18n("Homecheckers"));
+        cboFilter.addItem(i18n("Members"));
+        cboFilter.addItem(i18n("Not_Homechecked"));
+        cboFilter.addItem(i18n("Potential_Adopters"));
+        cboFilter.addItem(i18n("Retailers"));
+        cboFilter.addItem(i18n("Shelters"));
+        cboFilter.addItem(i18n("Staff"));
         cboFilter.addItem(i18n("Vets"));
-        cboFilter.setSelectedIndex(0);
+        cboFilter.addItem(i18n("Volunteers"));
+        cboFilter.setSelectedIndex(FILTER_ALL);
         UI.addComponent(p, i18n("Show"), cboFilter);
     }
+
+    public final static int FILTER_ALL= 0;
+    public final static int FILTER_ADOPTERS= 1;
+    public final static int FILTER_ACO= 2;
+    public final static int FILTER_BANNED= 3;
+    public final static int FILTER_DONORS= 4;
+    public final static int FILTER_FOSTERERS= 5;
+    public final static int FILTER_HOMECHECKED= 6;
+    public final static int FILTER_HOMECHECKERS= 7;
+    public final static int FILTER_MEMBERS= 8;
+    public final static int FILTER_NOTHOMECHECKED= 9;
+    public final static int FILTER_POTENTIALADOPTERS= 10;
+    public final static int FILTER_RETAILERS= 11;
+    public final static int FILTER_SHELTERS= 12;
+    public final static int FILTER_STAFF= 13;
+    public final static int FILTER_VETS= 14;
+    public final static int FILTER_VOLUNTEERS = 15;
 
     public void actionPrint() {
         new OwnerSearchResults(((SortableTableModel) getTable().getModel()).getData(),
@@ -245,7 +263,7 @@ public class OwnerFind extends ASMFind {
             txtTown.setText("");
             txtCounty.setText("");
             txtMediaNotes.setText("");
-            cboFilter.setSelectedIndex(0);
+            cboFilter.setSelectedIndex(FILTER_ALL);
             txtComments.setText("");
         } catch (Exception e) {
         }
@@ -295,7 +313,7 @@ public class OwnerFind extends ASMFind {
         // If the user is searching for adopters, do a join onto the adoption
         // table
         // to find records where they adopted something
-        if (cboFilter.getSelectedIndex() == 1) {
+        if (cboFilter.getSelectedIndex() == FILTER_ADOPTERS) {
             sql = "SELECT DISTINCT owner.* FROM owner INNER JOIN adoption ON adoption.OwnerID = owner.ID WHERE ";
             addSqlCriteria("adoption.MovementType=" +
                 Adoption.MOVETYPE_ADOPTION);
@@ -303,7 +321,7 @@ public class OwnerFind extends ASMFind {
 
         // Both joins
         if ((!txtMediaNotes.getText().trim().equals("")) &&
-                (cboFilter.getSelectedIndex() == 1)) {
+                (cboFilter.getSelectedIndex() == FILTER_ADOPTERS)) {
             sql = "SELECT DISTINCT owner.* FROM owner LEFT JOIN media ON media.LinkID = owner.ID " +
                 "INNER JOIN adoption ON adoption.OwnerID = owner.ID WHERE ";
             addSqlCriteria("owner.ID > 0 AND adoption.MovementType=" +
@@ -381,56 +399,62 @@ public class OwnerFind extends ASMFind {
         // Taken care of in join above
 
         // Banned
-        if (cboFilter.getSelectedIndex() == 2) {
+        if (cboFilter.getSelectedIndex() == FILTER_BANNED) {
             addSqlCriteria("IsBanned = 1");
         }
         // Homechecked
-        else if (cboFilter.getSelectedIndex() == 3) {
+        else if (cboFilter.getSelectedIndex() == FILTER_HOMECHECKED) {
             addSqlCriteria("IDCheck = 1");
         }
         // Not homechecked
-        else if (cboFilter.getSelectedIndex() == 4) {
+        else if (cboFilter.getSelectedIndex() == FILTER_NOTHOMECHECKED) {
             addSqlCriteria("IDCheck = 0");
         }
         // Members
-        else if (cboFilter.getSelectedIndex() == 5) {
+        else if (cboFilter.getSelectedIndex() == FILTER_MEMBERS) {
             addSqlCriteria("IsMember = 1");
         }
         // Donors
-        else if (cboFilter.getSelectedIndex() == 6) {
+        else if (cboFilter.getSelectedIndex() == FILTER_DONORS) {
             addSqlCriteria("IsDonor = 1");
         }
         // Homecheckers
-        else if (cboFilter.getSelectedIndex() == 7) {
+        else if (cboFilter.getSelectedIndex() == FILTER_HOMECHECKERS) {
             addSqlCriteria("IsHomeChecker = 1");
         }
         // Volunteers
-        else if (cboFilter.getSelectedIndex() == 8) {
+        else if (cboFilter.getSelectedIndex() == FILTER_VOLUNTEERS) {
             addSqlCriteria("IsVolunteer = 1");
         }
         // Shelters
-        else if (cboFilter.getSelectedIndex() == 9) {
+        else if (cboFilter.getSelectedIndex() == FILTER_SHELTERS) {
             addSqlCriteria("IsShelter = 1");
         }
         // ACOs
-        else if (cboFilter.getSelectedIndex() == 10) {
+        else if (cboFilter.getSelectedIndex() == FILTER_ACO) {
             addSqlCriteria("IsACO = 1");
         }
         // Staff
-        else if (cboFilter.getSelectedIndex() == 11) {
+        else if (cboFilter.getSelectedIndex() == FILTER_STAFF) {
             addSqlCriteria("IsStaff = 1");
         }
         // Retailers
-        else if (cboFilter.getSelectedIndex() == 12) {
+        else if (cboFilter.getSelectedIndex() == FILTER_RETAILERS) {
             addSqlCriteria("IsRetailer = 1");
         }
         // Fosterers
-        else if (cboFilter.getSelectedIndex() == 13) {
+        else if (cboFilter.getSelectedIndex() == FILTER_FOSTERERS) {
             addSqlCriteria("IsFosterer = 1");
         }
         // Vets
-        else if (cboFilter.getSelectedIndex() == 14) {
+        else if (cboFilter.getSelectedIndex() == FILTER_VETS) {
             addSqlCriteria("IsVet = 1");
+        }
+        // Potential adopters
+        else if (cboFilter.getSelectedIndex() == FILTER_POTENTIALADOPTERS) {
+            addSqlCriteria("MatchActive = 1 AND 0 = " +
+                "(SELECT COUNT(*) FROM adoption WHERE MovementType = 1 AND " +
+                "OwnerID = owner.ID)");
         }
 
         // The comments search is a bunch of individual words, separated by
