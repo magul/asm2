@@ -517,6 +517,13 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Default_to_advanced_find_owner_screen"),
+                    "AdvancedFindOwner",
+                    Configuration.getString("AdvancedFindOwner")
+                                 .equalsIgnoreCase("Yes"), false));
+
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
                         "When_adding_animals_suggest_popular_breeds"),
                     "SuggestPopularBreeds",
                     Configuration.getString("SuggestPopularBreeds")

@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.owner;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -273,48 +274,85 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     }
 
     public void actionSearch() {
-        OwnerFind fo = new OwnerFind(this, true, false);
 
-        // Do we have a filter?
-        switch (filter) {
-        case FILTER_ADOPTERS:
-            fo.cboFilter.setSelectedIndex(1);
-            fo.cboFilter.setEnabled(false);
+        if (Configuration.getBoolean("AdvancedFindOwner")) {
+        
+            OwnerFind fo = new OwnerFind(this, true, false);
 
-            break;
+            // Do we have a filter?
+            switch (filter) {
+            case FILTER_ADOPTERS:
+                fo.cboFilter.setSelectedIndex(1);
+                fo.cboFilter.setEnabled(false);
+                break;
 
-        case FILTER_FOSTERERS:
-            fo.cboFilter.setSelectedIndex(13);
-            fo.cboFilter.setEnabled(false);
+            case FILTER_FOSTERERS:
+                fo.cboFilter.setSelectedIndex(13);
+                fo.cboFilter.setEnabled(false);
 
-            break;
+                break;
 
-        case FILTER_RETAILERS:
-            fo.cboFilter.setSelectedIndex(12);
-            fo.cboFilter.setEnabled(false);
+            case FILTER_RETAILERS:
+                fo.cboFilter.setSelectedIndex(12);
+                fo.cboFilter.setEnabled(false);
 
-            break;
+                break;
 
-        case FILTER_SHELTERS:
-            fo.cboFilter.setSelectedIndex(9);
-            fo.cboFilter.setEnabled(false);
+            case FILTER_SHELTERS:
+                fo.cboFilter.setSelectedIndex(9);
+                fo.cboFilter.setEnabled(false);
 
-            break;
+                break;
 
-        case FILTER_HOMECHECKERS:
-            fo.cboFilter.setSelectedIndex(7);
-            fo.cboFilter.setEnabled(false);
+            case FILTER_HOMECHECKERS:
+                fo.cboFilter.setSelectedIndex(7);
+                fo.cboFilter.setEnabled(false);
 
-            break;
+                break;
 
-        case FILTER_VETS:
-            fo.cboFilter.setSelectedIndex(14);
-            fo.cboFilter.setEnabled(false);
+            case FILTER_VETS:
+                fo.cboFilter.setSelectedIndex(14);
+                fo.cboFilter.setEnabled(false);
 
-            break;
+                break;
+            }
+            // Disallow switching if we have a filter
+            fo.btnSimple.setEnabled(filter == FILTER_NONE);
+            Global.mainForm.addChild(fo);
+
+        } else {
+
+            // Do we have a filter?
+            String extra = "";
+            switch (filter) {
+            case FILTER_FOSTERERS:
+                extra = "IsFosterer = 1";
+                break;
+
+            case FILTER_RETAILERS:
+                extra = "IsRetailer = 1";
+                break;
+
+            case FILTER_SHELTERS:
+                extra = "IsShelter = 1";
+                break;
+
+            case FILTER_HOMECHECKERS:
+                extra = "IsHomeChecker = 1";
+                break;
+
+            case FILTER_VETS:
+                extra = "IsVet = 1";
+                break;
+            }
+
+            OwnerFindText fo = new OwnerFindText(this, true, false);
+            fo.setExtraClause(extra);
+            // Disallow switching if we have a filter
+            fo.btnAdvanced.setEnabled(filter == FILTER_NONE);
+            Global.mainForm.addChild(fo);
         }
 
-        Global.mainForm.addChild(fo);
     }
 
     public void actionOpen() {

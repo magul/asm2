@@ -55,6 +55,7 @@ public class OwnerFind extends ASMFind {
     private UI.Button btnClear;
     private UI.Button btnMailMerge;
     public UI.Button btnPrint;
+    public UI.Button btnSimple;
     public UI.ComboBox cboFilter;
     public UI.TextField txtAddress;
     public UI.TextField txtComments;
@@ -131,6 +132,7 @@ public class OwnerFind extends ASMFind {
         ctl.add(btnClear);
         ctl.add(btnMailMerge);
         ctl.add(btnPrint);
+        ctl.add(btnSimple);
 
         return ctl;
     }
@@ -157,6 +159,12 @@ public class OwnerFind extends ASMFind {
                 IconManager.getIcon(IconManager.SCREEN_FINDOWNER_PRINT),
                 UI.fp(this, "actionPrint"));
         addToolbarItem(btnPrint, true);
+
+        btnSimple = UI.getButton(i18n("Simple"), null, 'i',
+                IconManager.getIcon(IconManager.SCREEN_FINDOWNER_SIMPLE),
+                UI.fp(this, "actionSimple"));
+        addToolbarItem(btnSimple, false);
+
     }
 
     public void initCriteria(UI.Panel p) {
@@ -220,6 +228,11 @@ public class OwnerFind extends ASMFind {
 
         // Pass the data on to the Mail Merge class for this job
         new OwnerMailMerge((SortableTableModel) getTable().getModel());
+    }
+
+    public void actionSimple() {
+        Global.mainForm.addChild(new OwnerFindText(listener, closeAfterSelection, useRetailerSelectedEvent));
+        dispose();
     }
 
     public void actionClear() {

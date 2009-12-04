@@ -457,6 +457,8 @@ public abstract class IconManager {
     public final static String SCREEN_FINDOWNER_OPEN = OPEN;
     public final static String SCREEN_FINDOWNER_CLEAR = CLEAR;
     public final static String SCREEN_FINDOWNER_PRINT = PRINT;
+    public final static String SCREEN_FINDOWNER_SIMPLE = PREVIEW;
+    public final static String SCREEN_FINDOWNER_ADVANCED = PREVIEW;
     public final static String SCREEN_OWNERDONATIONINSTALMENT = DONATIONS;
     public final static String SCREEN_OWNERLINKS_VIEW = EDIT;
     public final static String SCREEN_OWNERVOUCHERS_NEW = NEW;

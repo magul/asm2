@@ -150,7 +150,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
     /** Audit info */
     private String audit = null;
-    private OwnerFind mergeOwner = null;
 
     /** Creates new form EditOwner */
     public OwnerEdit() {
@@ -1499,8 +1498,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
     public void actionMerge() {
         // Prompt for the owner record
-        mergeOwner = new OwnerFind(this, false, false);
-        Global.mainForm.addChild(mergeOwner);
+        if (Configuration.getBoolean("AdvancedFindOwner")) {
+            Global.mainForm.addChild(new OwnerFind(this, true, false));
+        } else {
+            Global.mainForm.addChild(new OwnerFindText(this, true, false));
+        }
     }
 
     public void actionEmail() {
@@ -1806,9 +1808,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Reload the record
             this.openForEdit(owner.getID().intValue());
-
-            // Close the find owner form
-            mergeOwner.dispose();
 
             // Give a message
             Dialog.showInformation(i18n("Owner_record_successfully_merged"),

@@ -84,6 +84,7 @@ import net.sourceforge.sheltermanager.asm.ui.medical.ProfileView;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementView;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerFind;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerFindText;
 import net.sourceforge.sheltermanager.asm.ui.splash.About;
 import net.sourceforge.sheltermanager.asm.ui.splash.Credits;
 import net.sourceforge.sheltermanager.asm.ui.splash.Licence;
@@ -2241,8 +2242,14 @@ public class Main extends ASMWindow {
     }
 
     public void actionFileOwnerFindOwner() {
+        // Create a new find animal form and display it in open mode
         cursorToWait();
-        addChild(new OwnerFind());
+
+        if (Configuration.getBoolean("AdvancedFindOwner")) {
+            addChild(new OwnerFind());
+        } else {
+            addChild(new OwnerFindText());
+        }
     }
 
     public void actionFileExit() {
