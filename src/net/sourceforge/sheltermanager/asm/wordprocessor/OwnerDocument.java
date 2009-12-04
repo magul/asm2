@@ -156,7 +156,7 @@ public class OwnerDocument extends GenerateDocument {
             // Generate a document title based on the owner information
             // and the doc selected
             docTitle = templateName + " - " + owner.getOwnerName();
-        } catch (CursorEngineException e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

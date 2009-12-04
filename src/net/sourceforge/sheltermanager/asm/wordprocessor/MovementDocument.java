@@ -164,7 +164,7 @@ public class MovementDocument extends GenerateDocument {
                 movement.getAnimal().getAnimalName() +
                 Global.i18n("wordprocessor", "_to_") +
                 movement.getOwner().getOwnerName();
-        } catch (CursorEngineException e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

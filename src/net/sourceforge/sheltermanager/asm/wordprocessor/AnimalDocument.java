@@ -554,7 +554,7 @@ public class AnimalDocument extends GenerateDocument {
             // and the doc selected
             docTitle = templateName + " - " + animal.getShelterCode() + " " +
                 animal.getAnimalName();
-        } catch (CursorEngineException e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
