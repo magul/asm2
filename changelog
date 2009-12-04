@@ -1,6 +1,7 @@
 2.6.3
 ================
 
+*. Escape invalid XML chars if they appear in wordkey data
 *. Better exception catching when generating documents
 *. Potential Adopters filter for advanced owner search (identifies
 -  owners that don't have an adoption movement, but active

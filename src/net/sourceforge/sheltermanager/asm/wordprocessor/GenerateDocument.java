@@ -66,6 +66,7 @@ public abstract class GenerateDocument extends Thread
     protected String docTitle = "";
     protected String templateName = "";
     protected boolean attachMedia = false;
+    protected boolean markedUp = true;
 
     /**
      * Vector of SearchTag objects, containing information on search and
@@ -107,6 +108,11 @@ public abstract class GenerateDocument extends Thread
 
         if (getIsReady()) {
             Global.mainForm.setStatusText("Building document...");
+
+            // Determine if we need to mark up our tags - basically, we require
+            // XML escaping for everything that's not rich text
+            String wpname = Configuration.getString("DocumentWordProcessor");
+            markedUp = !wpname.equalsIgnoreCase(RICH_TEXT);
 
             generateSearchTags();
             processFile();
@@ -207,6 +213,14 @@ public abstract class GenerateDocument extends Thread
         // If replace is Null, swap it for an empty string.
         if (replace == null) {
             replace = "";
+        }
+
+        // If we're marking things up, substitute any disallowed
+        // XML characters
+        if (markedUp) {
+            replace = Utils.replace(replace, "&", "&amp;");
+            replace = Utils.replace(replace, "<", "&lt;");
+            replace = Utils.replace(replace, ">", "&gt;");
         }
 
         SearchTag tag = new SearchTag();
