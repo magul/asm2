@@ -1507,16 +1507,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     public void actionMap() {
 
         String url = Configuration.getString("MappingServiceURL", "http://maps.google.com/maps?q=");
-        String firstaddressline = txtAddress.getText();
-        String postcode = txtPostcode.getText().trim();
+        String address = txtAddress.getText().trim().replace('\n', ',').replace(' ', '+');
+        String postcode = txtPostcode.getText().trim().replace(' ', '+');
 
-        if (firstaddressline.indexOf("\n") != -1)
-            firstaddressline = firstaddressline.substring(0, firstaddressline.indexOf("\n")).trim();
-        firstaddressline = firstaddressline.replace(' ', '+');
-        postcode = postcode.replace(' ', '+');
-
-        if (!firstaddressline.equals("") || !postcode.equals(""))
-            FileTypeManager.shellExecute(url + firstaddressline + "," + postcode);
+        if (!address.equals("") || !address.equals(""))
+            FileTypeManager.shellExecute(url + address + "," + postcode);
     }
 
     public void actionMerge() {
