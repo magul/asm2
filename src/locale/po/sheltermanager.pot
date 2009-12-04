@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 11:18+0100\n"
+"POT-Creation-Date: 2009-12-04 11:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4047,6 +4047,7 @@ msgstr ""
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindText
 #. # ui/main/Logout
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
@@ -4090,6 +4091,7 @@ msgstr ""
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindText
 #. # ui/main/Logout
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
@@ -4251,6 +4253,7 @@ msgstr ""
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindText
 #. # ui/movement/MovementView
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/VaccinationView
@@ -4336,6 +4339,7 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindText
 #. # ui/lookups/LookupEdit
 #. # ui/lookups/LookupView
 #. # ui/movement/MovementEdit
@@ -4372,6 +4376,7 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
@@ -4406,6 +4411,7 @@ msgid "Non-Returned Adoptions"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
@@ -4443,6 +4449,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListView
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindText
 #. # ui/movement/MovementSelector
 #. # mailmerge/OwnerMailMerge
 #. # reports/OwnerSearchResults
@@ -4453,6 +4460,7 @@ msgid "Address"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
@@ -4465,6 +4473,7 @@ msgid "Town"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
@@ -6400,12 +6409,14 @@ msgid "Has Comments: "
 msgstr ""
 
 #. # ui/ui/UI
+#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: Search
 msgid "Search"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
@@ -6497,6 +6508,7 @@ msgid "Unreserved"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/reportviewer/ReportViewer
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
@@ -8299,16 +8311,19 @@ msgstr ""
 msgid "If this animal is a crossbreed, the secondary breed"
 msgstr ""
 
+#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: search_term_bad
 msgid "Your search term must be at least 2 letters long."
 msgstr ""
 
+#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: Advanced
 msgid "Advanced"
 msgstr ""
 
+#. # ui/owner/OwnerFind
 #. # ui/animal/AnimalFind
 #: Simple
 msgid "Simple"
@@ -10159,6 +10174,7 @@ msgid "O&ff The Shelter"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/main/Main
 #: Mail_Merge
 msgid "&Mail Merge"
@@ -10506,6 +10522,7 @@ msgid "&Vaccination Types"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/main/Main
 #: Find_Owner
 msgid "&Find Owner"
@@ -11650,6 +11667,7 @@ msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #: Work_Tel
 msgid "Work Tel"
@@ -11661,6 +11679,7 @@ msgid "Address contains:"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerEdit
 #: Homechecked
@@ -11689,6 +11708,7 @@ msgid "Select"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/main/Main
 #: Find_Owner
 msgid "Find Owner"
@@ -11700,6 +11720,7 @@ msgid "A full, or part email address for the owner"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #: Home_Tel
 msgid "Home Tel"
@@ -11835,6 +11856,7 @@ msgstr ""
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #: Banned
 msgid "Banned"
@@ -11912,12 +11934,14 @@ msgid "Animal Care Officer"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/main/Main
 #: Mail_Merge
 msgid "Mail Merge"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #: email
 msgid "Email"
@@ -12320,6 +12344,7 @@ msgid "Mobile Tel:"
 msgstr ""
 
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
 #: Mobile_Te
 msgid "Mobile Tel"
@@ -13441,6 +13466,11 @@ msgstr ""
 #. # ui/system/Options
 #: Default_to_advanced_find_animal_screen
 msgid "Default to advanced find animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_to_advanced_find_owner_screen
+msgid "Default to advanced find owner screen"
 msgstr ""
 
 #. # ui/system/ConfigureLookups
