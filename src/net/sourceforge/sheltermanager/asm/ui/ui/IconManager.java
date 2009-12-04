@@ -132,6 +132,7 @@ public abstract class IconManager {
     public final static String FORWARD = "actions-Forward-24.png";
     public final static String ZOOMIN = "actions-ZoomIn-24.png";
     public final static String ZOOMOUT = "actions-ZoomOut-24.png";
+    public final static String MAP = "actions-Map-24.png";
 
     // Screen icons ======================================================
     // These are in package/class alphabetical order
@@ -432,6 +433,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITOWNER_DIARYTASK = TASK;
     public final static String SCREEN_EDITOWNER_EMAIL = EMAIL;
     public final static String SCREEN_EDITOWNER_MERGE = CLONE;
+    public final static String SCREEN_EDITOWNER_MAP = MAP;
 
     // tabs
     public final static String SCREEN_EDITOWNER_DONATIONS = DONATIONS;

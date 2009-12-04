@@ -41,6 +41,7 @@ import net.sourceforge.sheltermanager.asm.ui.diary.DiarySelector;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryTaskExecute;
 import net.sourceforge.sheltermanager.asm.ui.log.LogSelector;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementSelector;
+import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CustomUI;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -90,6 +91,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.Button btnEmail;
     private UI.Button btnMerge;
     private UI.Button btnSave;
+    private UI.Button btnMap;
     private UI.CheckBox chkBanned;
     private UI.CheckBox chkHomeCheck;
     private UI.CheckBox chkHomeChecker;
@@ -1486,6 +1488,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MERGE),
                     UI.fp(this, "actionMerge")));
 
+        btnMap = (UI.Button) tlbTools.add(UI.getButton(null,
+                    i18n("Locate_this_owner_on_the_map"), 'm',
+                    IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MAP),
+                    UI.fp(this, "actionMap")));
+
+
         pnlTop.add(tlbTools);
         add(pnlTop, UI.BorderLayout.NORTH);
     }
@@ -1494,6 +1502,21 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         DiaryTaskExecute edt = new DiaryTaskExecute(owner, this);
         Global.mainForm.addChild(edt);
         edt = null;
+    }
+
+    public void actionMap() {
+
+        String url = Configuration.getString("MappingServiceURL", "http://maps.google.com/maps?q=");
+        String firstaddressline = txtAddress.getText();
+        String postcode = txtPostcode.getText().trim();
+
+        if (firstaddressline.indexOf("\n") != -1)
+            firstaddressline = firstaddressline.substring(0, firstaddressline.indexOf("\n")).trim();
+        firstaddressline = firstaddressline.replace(' ', '+');
+        postcode = postcode.replace(' ', '+');
+
+        if (!firstaddressline.equals("") || !postcode.equals(""))
+            FileTypeManager.shellExecute(url + firstaddressline + "," + postcode);
     }
 
     public void actionMerge() {

@@ -69,6 +69,7 @@ public class Options extends ASMForm {
     private UI.TextField txtAgeGroup4Name;
     private UI.TextField txtAgeGroup5;
     private UI.TextField txtAgeGroup5Name;
+    private UI.TextField txtMappingService;
 
     /** Creates new form Options */
     public Options() {
@@ -98,6 +99,7 @@ public class Options extends ASMForm {
         ctl.add(txtAgeGroup4Name);
         ctl.add(txtAgeGroup5);
         ctl.add(txtAgeGroup5Name);
+        ctl.add(txtMappingService);
         ctl.add(tblOptions);
 
         return ctl;
@@ -120,12 +122,19 @@ public class Options extends ASMForm {
 
     /** Loads the data and fills the boxes */
     public void loadData() {
+
+        // Waiting List
         txtUrgency.setText(Configuration.getString(
                 "WaitingListUrgencyUpdatePeriod"));
 
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
 
+        // Mapping Service
+        txtMappingService.setText(Configuration.getString(
+                "MappingServiceURL", "http://maps.google.com/maps?q="));
+
+        // Word Processor
         String docwp = Configuration.getString("DocumentWordProcessor");
 
         for (int i = 0; i < cboWordProcessor.getItemCount(); i++) {
@@ -138,22 +147,12 @@ public class Options extends ASMForm {
             }
         }
 
+        // Shelter Details
         txtOrgName.setText(Configuration.getString("Organisation"));
         txtOrgAddress.setText(Configuration.getString("OrganisationAddress"));
         txtOrgTelephone.setText(Configuration.getString("OrganisationTelephone"));
         txtOrgTelephone2.setText(Configuration.getString(
                 "OrganisationTelephone2"));
-
-        txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
-        txtAgeGroup1Name.setText(Configuration.getString("AgeGroup1Name", ""));
-        txtAgeGroup2.setText(Configuration.getString("AgeGroup2", ""));
-        txtAgeGroup2Name.setText(Configuration.getString("AgeGroup2Name", ""));
-        txtAgeGroup3.setText(Configuration.getString("AgeGroup3", ""));
-        txtAgeGroup3Name.setText(Configuration.getString("AgeGroup3Name", ""));
-        txtAgeGroup4.setText(Configuration.getString("AgeGroup4", ""));
-        txtAgeGroup4Name.setText(Configuration.getString("AgeGroup4Name", ""));
-        txtAgeGroup5.setText(Configuration.getString("AgeGroup5", ""));
-        txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
 
         int ci = Global.getCountryIndex(Configuration.getString(
                     "OrganisationCountry"));
@@ -166,6 +165,19 @@ public class Options extends ASMForm {
             cboOrgCountry.setSelectedIndex(ci);
         }
 
+        // Age Groups
+        txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
+        txtAgeGroup1Name.setText(Configuration.getString("AgeGroup1Name", ""));
+        txtAgeGroup2.setText(Configuration.getString("AgeGroup2", ""));
+        txtAgeGroup2Name.setText(Configuration.getString("AgeGroup2Name", ""));
+        txtAgeGroup3.setText(Configuration.getString("AgeGroup3", ""));
+        txtAgeGroup3Name.setText(Configuration.getString("AgeGroup3Name", ""));
+        txtAgeGroup4.setText(Configuration.getString("AgeGroup4", ""));
+        txtAgeGroup4Name.setText(Configuration.getString("AgeGroup4Name", ""));
+        txtAgeGroup5.setText(Configuration.getString("AgeGroup5", ""));
+        txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
+
+        // Animal Codes
         txtCodingFormat.setText(Configuration.getString("CodingFormat"));
         txtShortCodingFormat.setText(Configuration.getString(
                 "ShortCodingFormat"));
@@ -174,7 +186,8 @@ public class Options extends ASMForm {
     /** Saves the screen results back to the database */
     public boolean saveData() {
         try {
-            // Validate
+
+            // Validation
             if ((txtCodingFormat.getText().indexOf("U") != -1) &&
                     (txtCodingFormat.getText().indexOf("N") != -1)) {
                 Dialog.showError(i18n("Invalid_codeformat_not_allowed_both"),
@@ -191,6 +204,7 @@ public class Options extends ASMForm {
                 return false;
             }
 
+            // Options
             SelectableItem[] l = tblOptions.getSelections();
 
             for (int i = 0; i < l.length; i++) {
@@ -200,17 +214,21 @@ public class Options extends ASMForm {
                 }
             }
 
+            // Word Processor
             Configuration.setEntry("DocumentWordProcessor",
                 (String) cboWordProcessor.getSelectedItem());
+
+            // Mapping Service
+            Configuration.setEntry("MappingServiceURL",
+                txtMappingService.getText());
+
+            // Waiting List
             Configuration.setEntry("WaitingListUrgencyUpdatePeriod",
                 txtUrgency.getText());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
-            Configuration.setEntry("Organisation",
-                txtOrgName.getText().replace('\'', '`'));
-            Configuration.setEntry("OrganisationAddress",
-                txtOrgAddress.getText().replace('\'', '`'));
 
+            // Age Groups
             Configuration.setEntry("AgeGroup1", txtAgeGroup1.getText());
             Configuration.setEntry("AgeGroup1Name", txtAgeGroup1Name.getText());
             Configuration.setEntry("AgeGroup2", txtAgeGroup2.getText());
@@ -222,6 +240,7 @@ public class Options extends ASMForm {
             Configuration.setEntry("AgeGroup5", txtAgeGroup5.getText());
             Configuration.setEntry("AgeGroup5Name", txtAgeGroup5Name.getText());
 
+            // Shelter Details
             String selcountry = cboOrgCountry.getSelectedItem().toString();
             selcountry = selcountry.substring(0, selcountry.indexOf(" "));
             Configuration.setEntry("OrganisationCountry", selcountry);
@@ -229,6 +248,12 @@ public class Options extends ASMForm {
                 txtOrgTelephone.getText().replace('\'', '`'));
             Configuration.setEntry("OrganisationTelephone2",
                 txtOrgTelephone2.getText().replace('\'', '`'));
+            Configuration.setEntry("Organisation",
+                txtOrgName.getText().replace('\'', '`'));
+            Configuration.setEntry("OrganisationAddress",
+                txtOrgAddress.getText().replace('\'', '`'));
+
+            // Codes
             Configuration.setEntry("CodingFormat",
                 txtCodingFormat.getText().replace('\'', '`'));
             Configuration.setEntry("ShortCodingFormat",
@@ -319,6 +344,14 @@ public class Options extends ASMForm {
                 UI.getTextField(i18n("short_coding_format_tooltip")));
 
         tabTabs.addTab(i18n("animal_codes"), null, pc, null);
+
+        // Mapping service options
+        UI.Panel pm = UI.getPanel(UI.getTableLayout(2));
+        txtMappingService = (UI.TextField) UI.addComponent(pm,
+                i18n("mapping_service_url"),
+                UI.getTextField());
+        txtMappingService.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3, UI.getTextBoxHeight()));
+        tabTabs.addTab(i18n("mapping_service"), null, pm, null);
 
         // Age groups
         UI.Panel pa = UI.getPanel(UI.getTableLayout(3));

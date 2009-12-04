@@ -2424,10 +2424,11 @@ Find Owner Screen
 \end_layout
 
 \begin_layout Standard
-The find owner screen is used to search for groups of owners matching criteria.
- It works exactly the same as the find animal screen, however there are
- far less criteria as Animal Shelter Manager needs to know far less about
- owners.
+The advanced find owner screen is used to search for groups of owners matching
+ criteria.
+ It works exactly the same as the advanced find animal screen, however there
+ are far less criteria as Animal Shelter Manager needs to know far less
+ about owners.
 \end_layout
 
 \begin_layout Section
@@ -8201,6 +8202,14 @@ The main System->Options page allows configuring of the general preferences
 The shelter details tab allows you to enter contact information for your
  shelter.
  This is used with reporting and internet publishing.
+\end_layout
+
+\begin_layout Standard
+The mapping service tab allows you to specify a URL for a mapping service
+ to use when looking up the location of owners.
+ The default is Google Maps.
+ ASM will use the first address line and the postcode (or zipcode for US
+ users) when searching.
 \end_layout
 
 \begin_layout Standard
