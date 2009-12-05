@@ -226,8 +226,9 @@ public class OwnerFindText extends ASMFind {
         sql.append(" ").append(join);
         sql.append(" WHERE ");
 
-        if (!extraClause.equals(""))
-            sql.append(extraClause).append(" ");
+        if (!extraClause.equals("")) {
+            sql.append(extraClause).append(" AND (");
+	}
 
         for (int i = 0; i < fields.length; i++) {
             if (i > 0) {
@@ -241,6 +242,10 @@ public class OwnerFindText extends ASMFind {
                     Utils.upper(txtSearch.getText()) + "%'");
             }
         }
+
+	if (!extraClause.equals("")) {
+            sql.append(")");
+	}
     }
 
     /** Performs the search */
