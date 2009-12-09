@@ -284,7 +284,6 @@ public class Main extends ASMWindow {
     private UI.Menu mnuPreferences;
     private UI.Menu mnuReports;
     private UI.Menu mnuSystem;
-    private UI.MenuItem mnuSystemAutoInsurance;
     private UI.MenuItem mnuSystemAdditionalFields;
     private UI.MenuItem mnuSystemMediaFiles;
     private UI.MenuItem mnuSystemDBDiagnostic;
@@ -298,11 +297,8 @@ public class Main extends ASMWindow {
     private UI.Menu mnuSystemDatabaseTools;
     private UI.MenuItem mnuSystemEditReports;
     private UI.MenuItem mnuSystemExportCustomReports;
-    private UI.MenuItem mnuSystemEmail;
     private UI.Menu mnuSystemLookups;
     private UI.MenuItem mnuSystemOptions;
-    private UI.MenuItem mnuSystemAuthentication;
-    private UI.MenuItem mnuSystemReports;
     private UI.MenuItem mnuSystemUsers;
     private UI.MenuItem mnuPreferencesCallGC;
     private UI.MenuItem mnuPreferencesFileTypes;
@@ -594,12 +590,8 @@ public class Main extends ASMWindow {
         this.mnuFileOwnerFindOwner.setEnabled(Global.currentUserObject.getSecViewOwner());
         this.mnuSystem.setEnabled(Global.currentUserObject.getSecAccessSystemMenu());
         this.mnuReports.setEnabled(Global.currentUserObject.getSecViewCustomReports());
-        this.mnuSystemAutoInsurance.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
         this.mnuSystemAdditionalFields.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
         this.mnuSystemOptions.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
-        this.mnuSystemAuthentication.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
-        this.mnuSystemReports.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
-        this.mnuSystemEmail.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
         this.mnuSystemMediaFiles.setEnabled(Global.currentUserObject.getSecConfigureSystemOptions());
         this.mnuSystemUsers.setEnabled(Global.currentUserObject.getSecEditSystemUsers());
         this.mnuSystemLookups.setEnabled(Global.currentUserObject.getSecModifyLookups());
@@ -1043,10 +1035,6 @@ public class Main extends ASMWindow {
                 'r', IconManager.getIcon(IconManager.MENU_LOOKUPSREMOVEBREEDS),
                 UI.fp(this, "actionLookupsRemoveBreeds"));
 
-        mnuSystemAutoInsurance = UI.getMenuItem(i18n("Configure_Automatic_Insurance_Numbers"),
-                'a', IconManager.getIcon(IconManager.MENU_SYSTEMAUTOINSURANCE),
-                UI.fp(this, "actionSystemAutoInsurance"));
-
         mnuSystemAdditionalFields = UI.getMenuItem(i18n("Configure_Additional_Fields"),
                 'd',
                 IconManager.getIcon(IconManager.MENU_SYSTEMCONFIGUREADDITIONAL),
@@ -1064,14 +1052,6 @@ public class Main extends ASMWindow {
                 'x',
                 IconManager.getIcon(IconManager.MENU_SYSTEMEXPORTCUSTOMREPORTS),
                 UI.fp(this, "actionSystemExportCustomReports"));
-
-        mnuSystemReports = UI.getMenuItem(i18n("Configure_Defaults"), 'r',
-                IconManager.getIcon(IconManager.MENU_SYSTEMREPORTS),
-                UI.fp(this, "actionSystemReports"));
-
-        mnuSystemEmail = UI.getMenuItem(i18n("configure_email"), 'm',
-                IconManager.getIcon(IconManager.MENU_SYSTEMEMAIL),
-                UI.fp(this, "actionSystemEmail"));
 
         mnuSystemDatabaseTools = UI.getMenu(i18n("Database_Tools"), ' ',
                 IconManager.getIcon(IconManager.MENU_SYSTEMDATABASETOOLS));
@@ -1107,10 +1087,6 @@ public class Main extends ASMWindow {
         mnuSystemDBSQL = UI.getMenuItem(i18n("SQL_Interface"), 's',
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBSQL),
                 UI.fp(this, "actionSystemDBSQL"));
-
-        mnuSystemAuthentication = UI.getMenuItem(i18n("Authentication"), 'a',
-                IconManager.getIcon(IconManager.MENU_SYSTEMAUTHENTICATION),
-                UI.fp(this, "actionSystemAuthentication"));
 
         mnuSystemUsers = UI.getMenuItem(i18n("Edit_System_Users"), 'u',
                 IconManager.getIcon(IconManager.MENU_SYSTEMUSERS),
@@ -1407,13 +1383,10 @@ public class Main extends ASMWindow {
         mnuSystemLookups.add(mnuLookupsRemoveBreeds);
         mnuSystem.add(mnuSystemLookups);
         mnuSystem.add(UI.getSeparator());
-        mnuSystem.add(mnuSystemAutoInsurance);
         mnuSystem.add(mnuSystemAdditionalFields);
         mnuSystem.add(mnuSystemEditReports);
         mnuSystem.add(mnuSystemMediaFiles);
         mnuSystem.add(mnuSystemExportCustomReports);
-        mnuSystem.add(mnuSystemReports);
-        mnuSystem.add(mnuSystemEmail);
         mnuSystem.add(UI.getSeparator());
         mnuSystemDatabaseTools.add(mnuSystemDBUpdate);
         mnuSystemDatabaseTools.add(mnuSystemDBDiagnostic);
@@ -1435,13 +1408,6 @@ public class Main extends ASMWindow {
         mnuSystemDatabaseTools.add(mnuSystemDBSQL);
         mnuSystem.add(mnuSystemDatabaseTools);
         mnuSystem.add(UI.getSeparator());
-
-        // Authentication doesn't make sense with an applet
-        // user supplied, since auth is taken care of before
-        // applet page is loaded
-        if (Startup.appletUser == null) {
-            mnuSystem.add(mnuSystemAuthentication);
-        }
 
         mnuSystem.add(mnuSystemUsers);
         mnuSystem.add(mnuSystemOptions);
@@ -1884,11 +1850,6 @@ public class Main extends ASMWindow {
         LocateDatabase.switchDatabase();
     }
 
-    public void actionSystemEmail() {
-        cursorToWait();
-        addChild(new ConfigureEmail());
-    }
-
     public void actionFileAnimalFosterBook() {
         cursorToWait();
         addChild(new MovementView(MovementView.MODE_FOSTERS));
@@ -2106,11 +2067,6 @@ public class Main extends ASMWindow {
         this.dispose();
     }
 
-    public void actionSystemAutoInsurance() {
-        cursorToWait();
-        addChild(new ConfigureInsuranceNumbers());
-    }
-
     public void actionSystemAdditionalFields() {
         cursorToWait();
         addChild(new ConfigureAdditional());
@@ -2119,11 +2075,6 @@ public class Main extends ASMWindow {
     public void actionDiaryEditTasks() {
         cursorToWait();
         addChild(new DiaryTaskView());
-    }
-
-    public void actionSystemReports() {
-        cursorToWait();
-        addChild(new ConfigureReportsDefaults());
     }
 
     public void actionFileAnimalWaitingList() {
@@ -2219,11 +2170,6 @@ public class Main extends ASMWindow {
     public void actionSystemOptions() {
         cursorToWait();
         addChild(new Options());
-    }
-
-    public void actionSystemAuthentication() {
-        cursorToWait();
-        addChild(new Authentication());
     }
 
     public void actionHelpAbout() {

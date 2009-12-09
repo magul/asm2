@@ -651,9 +651,25 @@ Before doing anything else with your new ASM installation, you should now
 \end_layout
 
 \begin_layout Enumerate
+If you want to use your own animal classifications, you can use the System->Look
+ups->Animal Types to alter the standard ASM ones - ASM assumes your shelter
+ deals with dogs and cats and wants to differentiate between stray and abandoned
+ animals.
+ After doing that, select your new defaults in the correct place on the
+ defaults tab of the System->Options screen (See 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Configure-Reporting-and-Defaults"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
 Go to the System->Options screen and enter your shelter's contact information.
  You can set various behaviours for ASM and control the format of generated
- animal codes.
+ animal codes here.
  See 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -671,26 +687,6 @@ Go to System->Lookups->Remove unwanted breeds and species - Remove any unwanted
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Unwanted-Breeds-and-Species"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Go to the System->Configure Defaults screen.
- Set the default type and species.
- If you want to add your own animal classifications, then now is a good
- time to do it.
- You can use the System->Lookups->Animal Types to alter the standard ASM
- ones - ASM assumes your shelter deals with dogs and cats and wants to different
-iate between stray and abandoned animals.
- After doing that, select your new defaults in the correct place in the
- configure defaults screen.
- See 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Configure-Reporting-and-Defaults"
 
 \end_inset
 
@@ -8009,62 +8005,6 @@ Also, the internal viewer will be much faster to start up than an external
 \end_layout
 
 \begin_layout Section
-Configure Defaults
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Configure-Reporting-and-Defaults"
-
-\end_inset
-
-
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Defaults
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This screen allows configuration of the system defaults.
- These defaults are used to select starting values when finding and creating
- animals.
- 
-\end_layout
-
-\begin_layout Section
-Automatic Insurance Numbers
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Automatic Insurance Numbers
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you have an agreement with a pet insurer, Animal Shelter Manager can
- accept a range of numbers here and allow you to assign them to adoptions
- as they are made.
-\end_layout
-
-\begin_layout Standard
-Simply fill in the start/end/next values and tick the box to ensure you
- are using automatic numbers.
- When you next adopt an animal, a button will appear at the side of the
- insurance number on the movement screen, allowing you to assign an insurance
- number to that adoption.
-\end_layout
-
-\begin_layout Section
 Users
 \begin_inset Index
 status open
@@ -8097,202 +8037,6 @@ You may also create, edit and delete system users from here.
 \begin_layout Standard
 Whilst editing a user, you can choose absolutely everything that user may
  do within the system by checking the appropriate boxes.
-\end_layout
-
-\begin_layout Section
-Authentication
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Authentication
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-ASM offers a number of authentication methods (ways to allow users to log
- onto the system).
- For all of them, ASM will always need a user entry in the system users
- table, these methods simply allow different ways to verify the user.
-\end_layout
-
-\begin_layout Subsection
-Operating System
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Operating System
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-If you choose this method, ASM will look at the username of the person logged
- into the operating system.
- It will then attempt to find a user in it's own database with the same
- name.
- If one is found, the user is automatically logged in with no login screen.
- This is an appropriate method to use if you have a hot-desk type setup
- where people log into different machines.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-WARNING: If you select this method and don't have a matching ASM/Operating
- system user you will not be able to log into ASM.
-
-\series default
- You can clear this setting by opening a SQL tool on your database and running
- 
-\begin_inset Quotes eld
-\end_inset
-
-DELETE FROM configuration WHERE ItemName LIKE 'AutoLoginOSUsers';
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Database
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Database
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This the default.
- ASM will store a hashed version of a each user's password in a database
- table and prompt for a username/password on startup.
- This method is suitable for shelters where many people may use one machine
- and each user needs a different login.
-\end_layout
-
-\begin_layout Subsection
-LDAP
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-LDAP
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-ASM can also use an LDAP server to authenticate your users.
- ASM will prompt for a username and password on startup and will then search
- the LDAP tree for an entry matching the username entered.
- If it finds one, it will then attempt to bind to the tree as that user,
- using the password supplied.
- As ever, a matching ASM user must exist in the database.
-\end_layout
-
-\begin_layout Standard
-The LDAP fields asm needs are:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-LDAP URL
-\series default
-: This is the URL to the ldap server, typically something like ldap://server/,
- you can supply a port as normal (eg: If you have an ActiveDirectory domain
- you'd like to use for authentication on port 3268 - ldap://server:3268/).
- You can also use ldaps:// for SSL enabled LDAP connections.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-LDAP User
-\series default
-: The DN of a user allowed to conduct searches of the LDAP tree.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-LDAP Password
-\series default
-: The password for the user allowed to conduct searches of the LDAP tree.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-LDAP DN
-\series default
-: The base DN to conduct searches from when looking for users - eg: ou=Users,dc=
-example,dc=com
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-LDAP Filter
-\series default
-: The search filter to use when locating users.
- The {0} token will be replaced by the username the user enters when attempting
- to login.
- For example, 
-\begin_inset Quotes eld
-\end_inset
-
-(cn={0})
-\begin_inset Quotes erd
-\end_inset
-
-, to locate a user with a cn matching the username.
- ActiveDirectory users should use 
-\begin_inset Quotes eld
-\end_inset
-
-(sAMAccountName={0})
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-WARNING: If you supply an LDAP URL and don't have an LDAP server, you will
- not be able to log in to ASM.
-
-\series default
- You can clear LDAP settings by opening a SQL tool on your database and
- running 
-\begin_inset Quotes eld
-\end_inset
-
-DELETE FROM configuration WHERE ItemName Like 'LDAP%';
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -8332,8 +8076,8 @@ The shelter details tab allows you to enter contact information for your
 The mapping service tab allows you to specify a URL for a mapping service
  to use when looking up the location of owners.
  The default is Google Maps.
- ASM will use the first address line and the postcode (or zipcode for US
- users) when searching.
+ ASM will use the address field and the postcode (or zipcode for US users)
+ when searching.
 \end_layout
 
 \begin_layout Standard
@@ -8358,13 +8102,6 @@ High
 ).
  Another option is available to select the default waiting list urgency
  - this is the default start value given to new waiting list entries.
-\end_layout
-
-\begin_layout Standard
-The animal codes tab allows you to set the format that ASM uses when creating
- animal codes.
- The age groups tab allows you to control age groups of animals.
- Finally, the options tab contains controls to alter the behaviour of ASM.
 \end_layout
 
 \begin_layout Subsection
@@ -8532,6 +8269,344 @@ Coding System
 \end_inset
 
 .
+ In addition, some further options can be set on this tab:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Show Short Shelter Code on Find Animal screen:
+\series default
+ This option forces the find animal screen to either show the shortcode
+ or the full code.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Default shelter code for new animals:
+\series default
+ Setting this option will cause ASM to automatically generate a shelter
+ code when you create a new animal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Enforce animal codes entered by users conform to the selected animal coding
+ scheme:
+\series default
+ Setting this option will cause ASM to try and reparse animal codes when
+ saving an animal - if it fails, it will not allow saving of the animal's
+ record until a valid code is generated or set by the user.
+\end_layout
+
+\begin_layout Subsection
+Authentication
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Authentication
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ASM offers a number of authentication methods (ways to allow users to log
+ onto the system).
+ For all of them, ASM will always need a user entry in the system users
+ table, these methods simply allow different ways to verify the user.
+\end_layout
+
+\begin_layout Subsubsection
+Operating System
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Operating System
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you choose this method, ASM will look at the username of the person logged
+ into the operating system.
+ It will then attempt to find a user in it's own database with the same
+ name.
+ If one is found, the user is automatically logged in with no login screen.
+ This is an appropriate method to use if you have a hot-desk type setup
+ where people log into different machines.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+WARNING: If you select this method and don't have a matching ASM/Operating
+ system user you will not be able to log into ASM.
+
+\series default
+ You can clear this setting by opening a SQL tool on your database and running
+ 
+\begin_inset Quotes eld
+\end_inset
+
+DELETE FROM configuration WHERE ItemName LIKE 'AutoLoginOSUsers';
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Database
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Database
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This the default.
+ ASM will store a hashed version of a each user's password in a database
+ table and prompt for a username/password on startup.
+ This method is suitable for shelters where many people may use one machine
+ and each user needs a different login.
+\end_layout
+
+\begin_layout Subsubsection
+LDAP
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+LDAP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ASM can also use an LDAP server to authenticate your users.
+ ASM will prompt for a username and password on startup and will then search
+ the LDAP tree for an entry matching the username entered.
+ If it finds one, it will then attempt to bind to the tree as that user,
+ using the password supplied.
+ As ever, a matching ASM user must exist in the database.
+\end_layout
+
+\begin_layout Standard
+The LDAP fields asm needs are:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LDAP URL
+\series default
+: This is the URL to the ldap server, typically something like ldap://server/,
+ you can supply a port as normal (eg: If you have an ActiveDirectory domain
+ you'd like to use for authentication on port 3268 - ldap://server:3268/).
+ You can also use ldaps:// for SSL enabled LDAP connections.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LDAP User
+\series default
+: The DN of a user allowed to conduct searches of the LDAP tree.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LDAP Password
+\series default
+: The password for the user allowed to conduct searches of the LDAP tree.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LDAP DN
+\series default
+: The base DN to conduct searches from when looking for users - eg: ou=Users,dc=
+example,dc=com
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LDAP Filter
+\series default
+: The search filter to use when locating users.
+ The {0} token will be replaced by the username the user enters when attempting
+ to login.
+ For example, 
+\begin_inset Quotes eld
+\end_inset
+
+(cn={0})
+\begin_inset Quotes erd
+\end_inset
+
+, to locate a user with a cn matching the username.
+ ActiveDirectory users should use 
+\begin_inset Quotes eld
+\end_inset
+
+(sAMAccountName={0})
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+WARNING: If you supply an LDAP URL and don't have an LDAP server, you will
+ not be able to log in to ASM.
+
+\series default
+ You can clear LDAP settings by opening a SQL tool on your database and
+ running 
+\begin_inset Quotes eld
+\end_inset
+
+DELETE FROM configuration WHERE ItemName Like 'LDAP%';
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Defaults
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Configure-Reporting-and-Defaults"
+
+\end_inset
+
+
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Defaults
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This screen allows configuration of the system defaults.
+ These defaults are used to select starting values when finding and creating
+ animals.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mark new animals as not for adoption:
+\series default
+ Setting this option will cause ASM to automatically tick the 
+\begin_inset Quotes eld
+\end_inset
+
+not for adoption
+\begin_inset Quotes erd
+\end_inset
+
+ box when creating new animals.
+ This is an extra precaution - by forcing users to untick the box when necessary
+, no animal can be accidentally published.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Default today as the reservation date for new movements:
+\series default
+ Setting this option will cause ASM to automatically default the reservation
+ date to today when a new movement record is created.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Prefill new media notes with animal comments:
+\series default
+ Setting this option will cause all new media descriptions to default to
+ the animal comments.
+ This is handy for website generation as you can base the animal's description
+ on the comments already there.
+ You can use the button next to the animal comments field on the animal
+ details to copy the comments to the web preferred media record.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Default to advanced find animal screen:
+\series default
+ If ticked, the find animal screen will appear in advanced mode by default.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Default to advanced find owner screen:
+\series default
+ If ticked, the find owner screen will appear in advanced mode by default.
+\end_layout
+
+\begin_layout Subsection
+Automatic Insurance Numbers
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Automatic Insurance Numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you have an agreement with a pet insurer, Animal Shelter Manager can
+ accept a range of numbers under this tab and allow you to assign them to
+ adoptions as they are made.
+\end_layout
+
+\begin_layout Standard
+Simply fill in the start/end/next values and tick the box to ensure you
+ are using automatic numbers.
+ When you next adopt an animal, a button will appear at the side of the
+ insurance number on the movement screen, allowing you to assign an insurance
+ number to that adoption.
 \end_layout
 
 \begin_layout Subsection
@@ -8628,39 +8703,6 @@ looks like
 \end_layout
 
 \begin_layout Subsection
-Coding System
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Show Short Shelter Code on Find Animal screen:
-\series default
- This option forces the find animal screen to either show the shortcode
- or the full code.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Default shelter code for new animals:
-\series default
- Setting this option will cause ASM to automatically generate a shelter
- code when you create a new animal.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Enforce animal codes entered by users conform to the selected animal coding
- scheme:
-\series default
- Setting this option will cause ASM to try and reparse animal codes when
- saving an animal - if it fails, it will not allow saving of the animal's
- record until a valid code is generated or set by the user.
-\end_layout
-
-\begin_layout Subsection
 Format and Display
 \end_layout
 
@@ -8699,6 +8741,51 @@ Highlight animals under 6 months, reserved or dead on reports:
  on inventories etc.
  This option only applies to the built in reports, and not custom reports
  that you add to the system.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Don't filter the list of breeds according to selected species: 
+\series default
+Normally, ASM will filter the list of breeds when you change species.
+ Breeds are mapped to a single species (or available to all species) through
+ the System->Lookups->Breed Mappings screen.
+ If you enable this option, ASM will just show all breeds and allow you
+ to select one, regardless of the selected species.
+ Up until version 2.6.0, ASM did not filter the list of breeds and this was
+ the default behaviour.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+When adding animals, show most popular breeds at the top of the dropdown:
+\series default
+ Setting this option will have ASM track the most popular breeds your shelter
+ deals with and put them at the top of the breed list when adding new animals.
+ It incurs a small performance penalty and is disabled by default.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Don't show the coat type field on the animal screen:
+\series default
+ If ticked, ASM won't display the coat type dropdown on the animal editing
+ screen.
+ For some shelters, keeping coat types is unnecessary (particularly for
+ those that keep reptiles and birds!), so you can disable it here.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Don't show media thumbnails on animal or owner screens:
+\series default
+ Setting this option prevents ASM displaying thumbnail images on the detail
+ pages of the animal and owner screens.
+ This can improve performance slightly on slower database connections.
 \end_layout
 
 \begin_layout Subsection
@@ -8812,91 +8899,6 @@ Don't auto archive animal records on exit:
 System->Database Tools->Auto Archive Animal Records
 \end_layout
 
-\begin_layout Subsection
-Defaults
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Mark new animals as not for adoption:
-\series default
- Setting this option will cause ASM to automatically tick the 
-\begin_inset Quotes eld
-\end_inset
-
-not for adoption
-\begin_inset Quotes erd
-\end_inset
-
- box when creating new animals.
- This is an extra precaution - by forcing users to untick the box when necessary
-, no animal can be accidentally published.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Default today as the reservation date for new movements:
-\series default
- Setting this option will cause ASM to automatically default the reservation
- date to today when a new movement record is created.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Prefill new media notes with animal comments:
-\series default
- Setting this option will cause all new media descriptions to default to
- the animal comments.
- This is handy for website generation as you can base the animal's description
- on the comments already there.
- You can use the button next to the animal comments field on the animal
- details to copy the comments to the web preferred media record.
-\end_layout
-
-\begin_layout Subsection
-Features
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Default to advanced find animal screen:
-\series default
- If ticked, the find animal screen will appear in advanced mode by default.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Default to advanced find owner screen:
-\series default
- If ticked, the find owner screen will appear in advanced mode by default.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-When adding animals, show most popular breeds at the top of the dropdown:
-\series default
- Setting this option will have ASM track the most popular breeds your shelter
- deals with and put them at the top of the breed list when adding new animals.
- It incurs a small performance penalty and is disabled by default.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Don't show the coat type field on the animal screen:
-\series default
- If ticked, ASM won't display the coat type dropdown on the animal editing
- screen.
- For some shelters, keeping coat types is unnecessary (particularly for
- those that keep reptiles and birds!), so you can disable it here.
-\end_layout
-
 \begin_layout Itemize
 
 \series bold
@@ -8905,30 +8907,6 @@ Disable retailer functionality:
  If ticked, ASM will hide all of the functionality related to retailers
  (a system where pet shops adopt animals on behalf of the shelter).
  This will not take effect until you restart ASM.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Don't filter the list of breeds according to selected species: 
-\series default
-Normally, ASM will filter the list of breeds when you change species.
- Breeds are mapped to a single species (or available to all species) through
- the System->Lookups->Breed Mappings screen.
- If you enable this option, ASM will just show all breeds and allow you
- to select one, regardless of the selected species.
- Up until version 2.6.0, ASM did not filter the list of breeds and this was
- the default behaviour.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Don't show media thumbnails on animal or owner screens:
-\series default
- Setting this option prevents ASM displaying thumbnail images on the detail
- pages of the animal and owner screens.
- This can improve performance slightly on slower database connections.
 \end_layout
 
 \begin_layout Itemize

@@ -24,16 +24,22 @@ package net.sourceforge.sheltermanager.asm.ui.system;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableList;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.LDAP;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
+
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 
@@ -51,7 +57,9 @@ public class Options extends ASMForm {
     private UI.Panel pnlButtons;
     private UI.Panel pnlDoc;
     private SelectableList tblOptions;
-    private UI.TextField txtUrgency;
+    private SelectableList tblCodeOptions;
+    private SelectableList tblDefaultOptions;
+    private UI.Spinner spnUrgency;
     private UI.TextField txtOrgName;
     private UI.TextArea txtOrgAddress;
     private UI.ComboBox cboOrgCountry;
@@ -70,6 +78,28 @@ public class Options extends ASMForm {
     private UI.TextField txtAgeGroup5;
     private UI.TextField txtAgeGroup5Name;
     private UI.TextField txtMappingService;
+    private UI.TextField txtEmailAddress;
+    private UI.TextField txtSMTPServer;
+    private UI.ComboBox cboDefaultBreed;
+    private UI.ComboBox cboDefaultColour;
+    private UI.ComboBox cboDefaultDeath;
+    private UI.ComboBox cboDefaultEntryReason;
+    private UI.ComboBox cboDefaultInternalLocation;
+    private UI.ComboBox cboDefaultReturn;
+    private UI.ComboBox cboDefaultSize;
+    private UI.ComboBox cboNonShelter;
+    private UI.ComboBox cboDefaultSpecies;
+    private UI.ComboBox cboDefaultType;
+    private UI.CheckBox chkUseAutoInsurance;
+    private UI.Spinner spnAutoInsuranceStart;
+    private UI.Spinner spnAutoInsuranceEnd;
+    private UI.Spinner spnAutoInsuranceNext;
+    private UI.ComboBox cboMech;
+    private UI.TextField txtLDAPUrl;
+    private UI.TextField txtLDAPDN;
+    private UI.TextField txtLDAPFilter;
+    private UI.TextField txtLDAPUser;
+    private UI.TextField txtLDAPPass;
 
     /** Creates new form Options */
     public Options() {
@@ -85,10 +115,11 @@ public class Options extends ASMForm {
         ctl.add(txtOrgTelephone);
         ctl.add(txtOrgTelephone2);
         ctl.add(cboWordProcessor);
-        ctl.add(txtUrgency);
+        ctl.add(spnUrgency);
         ctl.add(cboDefaultUrgency);
         ctl.add(txtCodingFormat);
         ctl.add(txtShortCodingFormat);
+        ctl.add(tblCodeOptions);
         ctl.add(txtAgeGroup1);
         ctl.add(txtAgeGroup1Name);
         ctl.add(txtAgeGroup2);
@@ -100,7 +131,30 @@ public class Options extends ASMForm {
         ctl.add(txtAgeGroup5);
         ctl.add(txtAgeGroup5Name);
         ctl.add(txtMappingService);
+        ctl.add(txtEmailAddress);
+        ctl.add(txtSMTPServer);
+        ctl.add(cboDefaultSpecies);
+        ctl.add(cboDefaultType);
+        ctl.add(cboNonShelter);
+        ctl.add(cboDefaultInternalLocation);
+        ctl.add(cboDefaultEntryReason);
+        //ctl.add(cboDefaultBreed);
+        ctl.add(cboDefaultColour);
+        ctl.add(cboDefaultDeath);
+        ctl.add(cboDefaultReturn);
+        ctl.add(cboDefaultSize);
+        ctl.add(chkUseAutoInsurance);
+        ctl.add(spnAutoInsuranceStart);
+        ctl.add(spnAutoInsuranceEnd);
+        ctl.add(spnAutoInsuranceNext);
+        ctl.add(cboMech);
+        ctl.add(txtLDAPUrl);
+        ctl.add(txtLDAPDN);
+        ctl.add(txtLDAPFilter);
+        ctl.add(txtLDAPUser);
+        ctl.add(txtLDAPPass);
         ctl.add(tblOptions);
+
 
         return ctl;
     }
@@ -124,11 +178,17 @@ public class Options extends ASMForm {
     public void loadData() {
 
         // Waiting List
-        txtUrgency.setText(Configuration.getString(
-                "WaitingListUrgencyUpdatePeriod"));
+        spnUrgency.setValue(new Integer(Configuration.getInteger(
+                "WaitingListUrgencyUpdatePeriod")));
 
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
+
+        // Insurance Numbers
+        chkUseAutoInsurance.setSelected(Configuration.getBoolean("UseAutoInsurance"));
+        spnAutoInsuranceStart.setValue(new Integer(Configuration.getInteger("AutoInsuranceStart")));
+        spnAutoInsuranceEnd.setValue(new Integer(Configuration.getInteger("AutoInsuranceEnd")));
+        spnAutoInsuranceNext.setValue(new Integer(Configuration.getInteger("AutoInsuranceNext")));
 
         // Mapping Service
         txtMappingService.setText(Configuration.getString(
@@ -146,6 +206,10 @@ public class Options extends ASMForm {
                 break;
             }
         }
+        
+        // Email
+        txtEmailAddress.setText(Configuration.getString("EmailAddress"));
+        txtSMTPServer.setText(Configuration.getString("SMTPServer"));
 
         // Shelter Details
         txtOrgName.setText(Configuration.getString("Organisation"));
@@ -176,6 +240,69 @@ public class Options extends ASMForm {
         txtAgeGroup4Name.setText(Configuration.getString("AgeGroup4Name", ""));
         txtAgeGroup5.setText(Configuration.getString("AgeGroup5", ""));
         txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
+
+	// Defaults
+	Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
+                new Integer(Configuration.getInteger("AFDefaultSpecies")),
+                cboDefaultSpecies);
+
+	    Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
+		"AnimalType",
+		new Integer(Configuration.getInteger("AFDefaultType")),
+		cboDefaultType);
+
+	    Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
+		"AnimalType",
+		new Integer(Configuration.getInteger("AFNonShelterType")),
+		cboNonShelter);
+
+	    Utils.setComboFromID(LookupCache.getInternalLocationLookup(),
+		"LocationName",
+		new Integer(Configuration.getInteger("AFDefaultLocation")),
+		cboDefaultInternalLocation);
+
+	    Utils.setComboFromID(LookupCache.getEntryReasonLookup(),
+		"ReasonName",
+		new Integer(Configuration.getInteger("AFDefaultEntryReason")),
+		cboDefaultEntryReason);
+
+	    Utils.setComboFromID(LookupCache.getEntryReasonLookup(),
+		"ReasonName",
+		new Integer(Configuration.getInteger("AFDefaultReturnReason")),
+		cboDefaultReturn);
+
+	    Utils.setComboFromID(LookupCache.getDeathReasonLookup(),
+		"ReasonName",
+		new Integer(Configuration.getInteger("AFDefaultDeathReason")),
+		cboDefaultDeath);
+
+	    //Utils.setComboFromID("breed", "BreedName",
+	    //    new Integer(Configuration.getInteger("AFDefaultBreed")),
+	    //    cboDefaultBreed);
+	    Utils.setComboFromID(LookupCache.getBaseColourLookup(),
+		"BaseColour",
+		new Integer(Configuration.getInteger("AFDefaultColour")),
+		cboDefaultColour);
+
+	    cboDefaultSize.setSelectedIndex(Configuration.getInteger(
+		    "AFDefaultSize"));
+
+	// Authentication
+	if (Configuration.getBoolean("AutoLoginOSUsers")) {
+                // OS auth
+                cboMech.setSelectedIndex(1);
+            } else if (LDAP.isConfigured()) {
+                cboMech.setSelectedIndex(2);
+
+                Map m = LDAP.getSettings();
+                txtLDAPUrl.setText((String) m.get(LDAP.LDAP_URL));
+                txtLDAPDN.setText((String) m.get(LDAP.LDAP_DN));
+                txtLDAPFilter.setText((String) m.get(LDAP.LDAP_FILTER));
+                txtLDAPUser.setText((String) m.get(LDAP.LDAP_USER));
+                txtLDAPPass.setText((String) m.get(LDAP.LDAP_PASS));
+            } else {
+                cboMech.setSelectedIndex(0);
+            }
 
         // Animal Codes
         txtCodingFormat.setText(Configuration.getString("CodingFormat"));
@@ -224,9 +351,53 @@ public class Options extends ASMForm {
 
             // Waiting List
             Configuration.setEntry("WaitingListUrgencyUpdatePeriod",
-                txtUrgency.getText());
+                spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
+
+            // Email
+            Configuration.setEntry("EmailAddress",
+                txtEmailAddress.getText());
+            Configuration.setEntry("SMTPServer",
+                txtSMTPServer.getText());
+
+	    // Defaults
+            Configuration.setEntry("AFDefaultSpecies",
+                Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
+                    "SpeciesName", cboDefaultSpecies).toString());
+            Configuration.setEntry("AFDefaultType",
+                Utils.getIDFromCombo(LookupCache.getAnimalTypeLookup(),
+                    "AnimalType", cboDefaultType).toString());
+            Configuration.setEntry("AFNonShelterType",
+                Utils.getIDFromCombo(LookupCache.getAnimalTypeLookup(),
+                    "AnimalType", cboNonShelter).toString());
+            Configuration.setEntry("AFDefaultLocation",
+                Utils.getIDFromCombo(LookupCache.getInternalLocationLookup(),
+                    "LocationName", cboDefaultInternalLocation).toString());
+            Configuration.setEntry("AFDefaultEntryReason",
+                Utils.getIDFromCombo(LookupCache.getEntryReasonLookup(),
+                    "ReasonName", cboDefaultEntryReason).toString());
+            Configuration.setEntry("AFDefaultReturnReason",
+                Utils.getIDFromCombo(LookupCache.getEntryReasonLookup(),
+                    "ReasonName", cboDefaultReturn).toString());
+            Configuration.setEntry("AFDefaultDeathReason",
+                Utils.getIDFromCombo(LookupCache.getDeathReasonLookup(),
+                    "ReasonName", cboDefaultDeath).toString());
+            //Configuration.setEntry("AFDefaultBreed",
+            //    Utils.getIDFromCombo("breed", "BreedName", cboDefaultBreed)
+            //         .toString());
+            Configuration.setEntry("AFDefaultColour",
+                Utils.getIDFromCombo(LookupCache.getBaseColourLookup(),
+                    "BaseColour", cboDefaultColour).toString());
+            Configuration.setEntry("AFDefaultSize",
+                Integer.toString(cboDefaultSize.getSelectedIndex()));
+            l = tblDefaultOptions.getSelections();
+            for (int i = 0; i < l.length; i++) {
+                if ((l[i] != null) && (l[i].getValue() != null)) {
+                    Configuration.setEntry(l[i].getValue().toString(),
+                        (l[i].isSelected() ? "Yes" : "No"));
+                }
+            }
 
             // Age Groups
             Configuration.setEntry("AgeGroup1", txtAgeGroup1.getText());
@@ -253,11 +424,38 @@ public class Options extends ASMForm {
             Configuration.setEntry("OrganisationAddress",
                 txtOrgAddress.getText().replace('\'', '`'));
 
+            // Auto Insurance Numbers
+            Configuration.setEntry("UseAutoInsurance", chkUseAutoInsurance.isSelected() ? "Yes" : "No");
+            Configuration.setEntry("AutoInsuranceStart", spnAutoInsuranceStart.getValue().toString());
+            Configuration.setEntry("AutoInsuranceEnd", spnAutoInsuranceEnd.getValue().toString());
+            Configuration.setEntry("AutoInsuranceNext", spnAutoInsuranceNext.getValue().toString());
+
+	    // Authentication
+            Configuration.setEntry("AutoLoginOSUsers", "No");
+            DBConnection.executeAction(
+                "DELETE FROM configuration WHERE ItemName Like 'LDAP%'");
+            if (cboMech.getSelectedIndex() == 1) {
+                Configuration.setEntry("AutoLoginOSUsers", "Yes");
+            } else if (cboMech.getSelectedIndex() == 2) {
+                LDAP.setSettings(txtLDAPUrl.getText(), txtLDAPDN.getText(),
+                    txtLDAPFilter.getText(), txtLDAPUser.getText(),
+                    txtLDAPPass.getText());
+            } else {
+                // DB Auth, leave reset
+            }
+
             // Codes
             Configuration.setEntry("CodingFormat",
                 txtCodingFormat.getText().replace('\'', '`'));
             Configuration.setEntry("ShortCodingFormat",
                 txtShortCodingFormat.getText().replace('\'', '`'));
+            l = tblCodeOptions.getSelections();
+            for (int i = 0; i < l.length; i++) {
+                if ((l[i] != null) && (l[i].getValue() != null)) {
+                    Configuration.setEntry(l[i].getValue().toString(),
+                        (l[i].isSelected() ? "Yes" : "No"));
+                }
+            }
 
             dispose();
 
@@ -278,38 +476,37 @@ public class Options extends ASMForm {
         tabTabs = UI.getTabbedPane(UI.fp(this, "tabChanged"));
 
         // Shelter info
-        UI.Panel pd = UI.getPanel(UI.getTableLayout(2));
-        txtOrgName = (UI.TextField) UI.addComponent(pd,
+        UI.Panel detop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+        UI.Panel demid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+        UI.Panel debot = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+
+        txtOrgName = (UI.TextField) UI.addComponent(detop,
                 i18n("Organisation_Name:"),
                 UI.getTextField(i18n("Your_organisations_name")));
-        txtOrgName.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
-                UI.getTextBoxHeight()));
 
-        txtOrgAddress = (UI.TextArea) UI.addComponent(pd,
+        txtOrgAddress = (UI.TextArea) UI.addComponent(demid,
                 i18n("Organisation_Address:"),
                 UI.getTextArea(i18n("Your_organisations_address")));
 
         cboOrgCountry = UI.getCombo(Global.getCountries());
-        cboOrgCountry.setPreferredSize(UI.getDimension(
-                UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
-        UI.addComponent(pd, i18n("Country:"), cboOrgCountry);
+        UI.addComponent(debot, i18n("Country:"), cboOrgCountry);
 
-        txtOrgTelephone = (UI.TextField) UI.addComponent(pd,
+        txtOrgTelephone = (UI.TextField) UI.addComponent(debot,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
-        txtOrgTelephone.setPreferredSize(UI.getDimension(
-                UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
-        txtOrgTelephone2 = (UI.TextField) UI.addComponent(pd,
+        txtOrgTelephone2 = (UI.TextField) UI.addComponent(debot,
                 i18n("Organisation_Telephone:"),
                 UI.getTextField(i18n("Your_organisations_telephone")));
-        txtOrgTelephone2.setPreferredSize(UI.getDimension(
-                UI.getTextBoxWidth() * 2, UI.getTextBoxHeight()));
 
-        tabTabs.addTab(i18n("shelter_info"), null, pd, null);
+        UI.Panel details = UI.getPanel(UI.getBorderLayout());
+        details.add(detop, UI.BorderLayout.NORTH);
+        details.add(demid, UI.BorderLayout.CENTER);
+        details.add(debot, UI.BorderLayout.SOUTH);
+        tabTabs.addTab(i18n("shelter_info"), null, details, null);
 
         // Word processor options
-        UI.Panel pw = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel pw = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
 
         cboWordProcessor = UI.getCombo(new String[] {
                     GenerateDocument.OPENOFFICE_3, GenerateDocument.OPENOFFICE_2,
@@ -319,22 +516,28 @@ public class Options extends ASMForm {
                     GenerateDocument.XML, GenerateDocument.HTML
                 });
         UI.addComponent(pw, i18n("Word_Processor:"), cboWordProcessor);
-        tabTabs.addTab(i18n("word_processor"), null, pw, null);
+
+        UI.Panel wordprocessor = UI.getPanel(UI.getBorderLayout());
+        wordprocessor.add(pw, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("word_processor"), null, wordprocessor, null);
 
         // Waiting list options
-        UI.Panel pl = UI.getPanel(UI.getTableLayout(2));
-        txtUrgency = (UI.TextField) UI.addComponent(pl,
+        UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+        spnUrgency = (UI.Spinner) UI.addComponent(pl,
                 i18n("Update_Waiting_List_Period:"),
-                UI.getTextField(i18n("The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days")));
+                UI.getSpinner(0, 365, i18n("The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days"), null));
 
         cboDefaultUrgency = UI.getCombo(LookupCache.getUrgencyLookup(),
                 "Urgency");
         UI.addComponent(pl, i18n("default_waiting_list_urgency"),
             cboDefaultUrgency);
-        tabTabs.addTab(i18n("waiting_list"), null, pl, null);
+        UI.Panel waitinglist = UI.getPanel(UI.getBorderLayout());
+        waitinglist.add(pl, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("waiting_list"), null, waitinglist, null);
 
         // Animal code options
-        UI.Panel pc = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel codepanel = UI.getPanel(UI.getBorderLayout());
+        UI.Panel pc = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
         txtCodingFormat = (UI.TextField) UI.addComponent(pc,
                 i18n("coding_format"),
                 UI.getTextField(i18n("coding_format_tooltip")));
@@ -343,18 +546,45 @@ public class Options extends ASMForm {
                 i18n("short_coding_format"),
                 UI.getTextField(i18n("short_coding_format_tooltip")));
 
-        tabTabs.addTab(i18n("animal_codes"), null, pc, null);
+           
+        List l = new ArrayList();
+        l.add(new SelectableItem(Global.i18n("uisystem", "Coding_System"),
+                    null, false, true));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                        "show_short_shelter_code"), "UseShortShelterCodes",
+                    Configuration.getString("UseShortShelterCodes")
+                                 .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Check_animal_codes_entered_by_users_conform_to_selected_scheme"),
+                    "StrictAutoCodes",
+                    Configuration.getString("StrictAutoCodes")
+                                 .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                        "auto_default_shelter_code_for_new_animals"),
+                    "AutoDefaultShelterCode",
+                    Configuration.getString("AutoDefaultShelterCode")
+                                 .equalsIgnoreCase("Yes"), false));
+        tblCodeOptions = new SelectableList(l);
+        UI.addComponent(codepanel, tblCodeOptions);
+
+        codepanel.add(pc, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("animal_codes"), null, codepanel, null);
 
         // Mapping service options
-        UI.Panel pm = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel pm = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         txtMappingService = (UI.TextField) UI.addComponent(pm,
                 i18n("mapping_service_url"),
                 UI.getTextField());
         txtMappingService.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3, UI.getTextBoxHeight()));
-        tabTabs.addTab(i18n("mapping_service"), null, pm, null);
+        UI.Panel mappingservice = UI.getPanel(UI.getBorderLayout());
+        mappingservice.add(pm, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("mapping_service"), null, mappingservice, null);
 
         // Age groups
-        UI.Panel pa = UI.getPanel(UI.getTableLayout(3));
+        UI.Panel pa = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 20, 60 }));
         txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
                 UI.getTextField());
         txtAgeGroup1Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
@@ -371,11 +601,158 @@ public class Options extends ASMForm {
                 UI.getTextField());
         txtAgeGroup5Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
 
-        tabTabs.addTab(i18n("age_groups"), null, pa, null);
+        UI.Panel agegroups = UI.getPanel(UI.getBorderLayout());
+        agegroups.add(pa, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("age_groups"), null, agegroups, null);
+
+	// Email
+        UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel email = UI.getPanel(UI.getBorderLayout());
+
+        txtEmailAddress = (UI.TextField) UI.addComponent(pemail, i18n("email_address"),
+                UI.getTextField(i18n("emails_from_ASM_come_from")));
+
+        txtSMTPServer = (UI.TextField) UI.addComponent(pemail, i18n("smtp_server"),
+                UI.getTextField(i18n("address_of_smtp_server")));
+
+        email.add(pemail, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("email"), null, email, null);
+
+	// Defaults
+	UI.Panel pr = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+	UI.Panel defaults = UI.getPanel(UI.getBorderLayout());
+
+        cboDefaultSpecies = UI.getCombo(i18n("default_species"),
+                LookupCache.getSpeciesLookup(), "SpeciesName", i18n("None"));
+        UI.addComponent(pr, i18n("default_species"), cboDefaultSpecies);
+
+        cboDefaultType = UI.getCombo(i18n("default_type"),
+                LookupCache.getAnimalTypeLookup(), "AnimalType", i18n("None"));
+        UI.addComponent(pr, i18n("default_type"), cboDefaultType);
+
+        cboNonShelter = UI.getCombo(i18n("Non_Shelter_Animal_Type:"),
+                LookupCache.getAnimalTypeLookup(), "AnimalType", i18n("None"));
+        UI.addComponent(pr, i18n("Non_Shelter_Animal_Type:"), cboNonShelter);
+
+        cboDefaultInternalLocation = UI.getCombo(i18n("Default_Internal_Location:"),
+                LookupCache.getInternalLocationLookup(), "LocationName");
+        UI.addComponent(pr, i18n("Default_Internal_Location:"),
+            cboDefaultInternalLocation);
+
+        cboDefaultEntryReason = UI.getCombo(i18n("Default_Entry_Reason:"),
+                LookupCache.getEntryReasonLookup(), "ReasonName");
+        UI.addComponent(pr, i18n("Default_Entry_Reason:"), cboDefaultEntryReason);
+
+        //cboDefaultBreed = UI.getCombo(i18n("Default_Breed:"), LookupCache.getBreedLookup(), "BreedName");
+        //UI.addComponent(pd, i18n("Default_Breed:"), cboDefaultBreed);
+        cboDefaultColour = UI.getCombo(i18n("Default_Colour:"),
+                LookupCache.getBaseColourLookup(), "BaseColour");
+        UI.addComponent(pr, i18n("Default_Colour:"), cboDefaultColour);
+
+        cboDefaultDeath = UI.getCombo(i18n("Default_Death_Reason:"),
+                LookupCache.getDeathReasonLookup(), "ReasonName");
+        UI.addComponent(pr, i18n("Default_Death_Reason:"), cboDefaultDeath);
+
+        cboDefaultReturn = UI.getCombo(i18n("Default_Return_Reason:"),
+                LookupCache.getEntryReasonLookup(), "ReasonName");
+        UI.addComponent(pr, i18n("Default_Return_Reason:"), cboDefaultReturn);
+
+        cboDefaultSize = UI.getCombo(LookupCache.getSizeLookup(), "Size");
+        UI.addComponent(pr, i18n("Default_Size:"), cboDefaultSize);
+        
+        l = new ArrayList();
+        l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
+                false, true));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "mark_new_animals_not_for_adoption"),
+                "AutoNotForAdoption",
+                Configuration.getString("AutoNotForAdoption")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Default_today_as_the_reservation_date_for_new_movements"),
+                "AutoReservationDate",
+                Configuration.getString("AutoReservationDate")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Prefill_new_media_notes_with_animal_comments"),
+                "AutoMediaNotes",
+                Configuration.getString("AutoMediaNotes")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Default_to_advanced_find_animal_screen"),
+                "AdvancedFindAnimal",
+                Configuration.getString("AdvancedFindAnimal")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Default_to_advanced_find_owner_screen"),
+                "AdvancedFindOwner",
+                Configuration.getString("AdvancedFindOwner")
+                             .equalsIgnoreCase("Yes"), false));
+        tblDefaultOptions = new SelectableList(l);
+
+	defaults.add(pr, UI.BorderLayout.NORTH);
+        UI.addComponent(defaults, tblDefaultOptions);
+        tabTabs.addTab(i18n("Defaults"), null, defaults, null);
+
+        // Automatic Insurance Numbers
+        UI.Panel pins = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel insurancenumbers = UI.getPanel(UI.getBorderLayout());
+
+        chkUseAutoInsurance = (UI.CheckBox) UI.addComponent(pins, i18n("Use_Automatic_Insurance_Numbers"), 
+            UI.getCheckBox());
+
+        spnAutoInsuranceStart = (UI.Spinner) UI.addComponent(pins, i18n("Start_At:"), UI.getSpinner(0, 400000000));
+        spnAutoInsuranceEnd = (UI.Spinner) UI.addComponent(pins, i18n("End_At:"), UI.getSpinner(0, 400000000));
+        spnAutoInsuranceNext = (UI.Spinner) UI.addComponent(pins, i18n("Next:"), UI.getSpinner(0,  400000000));
+
+        insurancenumbers.add(pins, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("Automatic_Insurance_Numbers"), null, insurancenumbers, null);
+
+	// Authentication
+        UI.Panel auth = UI.getPanel(UI.getBorderLayout());
+        UI.Panel authmid = UI.getPanel(UI.getBorderLayout());
+        UI.Panel pmech = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pldap = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+
+	cboMech = UI.getCombo();
+        cboMech.addItem(i18n("Database") + " - " + i18n("Database_Desc"));
+        cboMech.addItem(i18n("Operating_System") + " - " +
+            i18n("Operating_System_Desc"));
+        cboMech.addItem(i18n("LDAP") + " - " + i18n("LDAP_Desc"));
+        cboMech.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3,
+                UI.getComboBoxHeight()));
+        UI.addComponent(pmech, i18n("Authentication"), cboMech);
+
+        pldap.setTitle(i18n("LDAP"));
+        txtLDAPUrl = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_URL"),
+                UI.getTextField());
+        txtLDAPDN = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_DN"),
+                UI.getTextField());
+        txtLDAPFilter = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_Filter"),
+                UI.getTextField());
+        txtLDAPUser = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_User"),
+                UI.getTextField());
+        txtLDAPPass = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_Pass"),
+                UI.getTextField());
+
+        authmid.add(pldap, UI.BorderLayout.NORTH);
+        auth.add(pmech, UI.BorderLayout.NORTH);
+        auth.add(authmid, UI.BorderLayout.CENTER);
+
+        // Authentication doesn't make sense with an applet
+        // user supplied, since auth is taken care of before
+        // applet page is loaded
+        if (Startup.appletUser == null) {
+            tabTabs.addTab(i18n("Authentication"), null, auth, null);
+        }
 
         // Options
-        List l = new ArrayList();
-
+        l = new ArrayList();
         try {
             // Warnings
             l.add(new SelectableItem(Global.i18n("uisystem", "Warnings"), null,
@@ -435,27 +812,6 @@ public class Options extends ASMForm {
                     Configuration.getString("OwnerAddressCheck")
                                  .equalsIgnoreCase("Yes"), false));
 
-            // Coding
-            l.add(new SelectableItem(Global.i18n("uisystem", "Coding_System"),
-                    null, false, true));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "show_short_shelter_code"), "UseShortShelterCodes",
-                    Configuration.getString("UseShortShelterCodes")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Check_animal_codes_entered_by_users_conform_to_selected_scheme"),
-                    "StrictAutoCodes",
-                    Configuration.getString("StrictAutoCodes")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "auto_default_shelter_code_for_new_animals"),
-                    "AutoDefaultShelterCode",
-                    Configuration.getString("AutoDefaultShelterCode")
-                                 .equalsIgnoreCase("Yes"), false));
-
             // Format and Display
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Format_and_Display"), null, false, true));
@@ -476,6 +832,29 @@ public class Options extends ASMForm {
                         "Highlight_animals_under_6_months,_reserved_or_dead_on_reports"),
                     "HighlightReportAnimals",
                     Configuration.getString("HighlightReportAnimals")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Dont_filter_the_list_of_breeds_to_mapped_species"),
+                    "DontFilterBreedList",
+                    Configuration.getString("DontFilterBreedList")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "When_adding_animals_suggest_popular_breeds"),
+                    "SuggestPopularBreeds",
+                    Configuration.getString("SuggestPopularBreeds")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Dont_show_the_coat_type_field"), "DontShowCoatType",
+                    Configuration.getString("DontShowCoatType")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Dont_show_media_thumbnails_on_details_screen"),
+                    "NoMediaThumbnails",
+                    Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
 
             // Database and System
@@ -517,71 +896,9 @@ public class Options extends ASMForm {
                     Configuration.getString("DontAutoArchiveOnExit")
                                  .equalsIgnoreCase("Yes"), false));
 
-            // Defaults
-            l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
-                    false, true));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "mark_new_animals_not_for_adoption"),
-                    "AutoNotForAdoption",
-                    Configuration.getString("AutoNotForAdoption")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Default_today_as_the_reservation_date_for_new_movements"),
-                    "AutoReservationDate",
-                    Configuration.getString("AutoReservationDate")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Prefill_new_media_notes_with_animal_comments"),
-                    "AutoMediaNotes",
-                    Configuration.getString("AutoMediaNotes")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            // Features
-            l.add(new SelectableItem(Global.i18n("uisystem", "Features"), null,
-                    false, true));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Default_to_advanced_find_animal_screen"),
-                    "AdvancedFindAnimal",
-                    Configuration.getString("AdvancedFindAnimal")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Default_to_advanced_find_owner_screen"),
-                    "AdvancedFindOwner",
-                    Configuration.getString("AdvancedFindOwner")
-                                 .equalsIgnoreCase("Yes"), false));
-
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "When_adding_animals_suggest_popular_breeds"),
-                    "SuggestPopularBreeds",
-                    Configuration.getString("SuggestPopularBreeds")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Dont_show_the_coat_type_field"), "DontShowCoatType",
-                    Configuration.getString("DontShowCoatType")
-                                 .equalsIgnoreCase("Yes"), false));
-
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "disable_retailer_functionality"), "DisableRetailer",
                     Configuration.getString("DisableRetailer")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Dont_filter_the_list_of_breeds_to_mapped_species"),
-                    "DontFilterBreedList",
-                    Configuration.getString("DontFilterBreedList")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Dont_show_media_thumbnails_on_details_screen"),
-                    "NoMediaThumbnails",
-                    Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
@@ -597,6 +914,9 @@ public class Options extends ASMForm {
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Dont_show_the_startup_page"), "DontShowStartupPage",
                     Configuration.getBoolean("DontShowStartupPage"), false));
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
