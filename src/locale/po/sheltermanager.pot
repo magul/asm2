@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-04 15:24+0100\n"
+"POT-Creation-Date: 2009-12-09 11:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,7 +303,7 @@ msgid "You must select an animal."
 msgstr ""
 
 #. # ui/system/ConfigureDatabase
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
 #: None
@@ -3503,10 +3503,8 @@ msgstr ""
 #. # ui/system/ConfigureLookups
 #. # ui/system/AdditionalFieldEdit
 #. # ui/system/FileTypeEdit
-#. # ui/system/Authentication
 #. # ui/system/ConfigureLocal
 #. # ui/system/ConfigureDatabase
-#. # ui/system/ConfigureReportsDefaults
 #. # ui/customreport/CustomReportEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -3555,7 +3553,7 @@ msgid "Locate Database"
 msgstr ""
 
 #. # ui/ui/JDBCDlg
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: username
 #: LDAP_User
 msgid "User:"
@@ -3570,7 +3568,7 @@ msgstr ""
 #. # ui/internet/RescueGroupsSettings
 #. # bo/Users
 #. # ui/login/Login
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: password
 #: Password\:
 #: Password
@@ -4042,7 +4040,6 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #. # wordprocessor/OwnerDocument
 #. # ui/ui/ASMConfigForm
-#. # ui/system/Authentication
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
@@ -4086,7 +4083,6 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #. # wordprocessor/OwnerDocument
 #. # ui/ui/ASMConfigForm
-#. # ui/system/Authentication
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
@@ -4597,10 +4593,8 @@ msgstr ""
 #. # ui/system/ConfigureLookups
 #. # ui/system/AdditionalFieldEdit
 #. # ui/system/FileTypeEdit
-#. # ui/system/Authentication
 #. # ui/system/ConfigureLocal
 #. # ui/system/ConfigureDatabase
-#. # ui/system/ConfigureReportsDefaults
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #. # ui/owner/VoucherEdit
@@ -5132,7 +5126,6 @@ msgstr ""
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
-#. # ui/system/Options
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # reports/SearchResults
@@ -5173,7 +5166,7 @@ msgstr ""
 #. # bo/LookupCache
 #. # bo/Animal
 #. # wordprocessor/AnimalDocument
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
@@ -6540,7 +6533,7 @@ msgstr ""
 #. # bo/LookupCache
 #. # bo/InternalLocation
 #. # ui/ui/Dialog
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/lookups/LookupView
 #. # ui/internet/InternetPublisher
 #. # ui/animal/AnimalEdit
@@ -6744,7 +6737,7 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/ui/Dialog
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # ui/lookups/LookupView
 #. # ui/lookups/BreedSpeciesMapping
@@ -7428,7 +7421,7 @@ msgstr ""
 
 #. # bo/LookupCache
 #. # bo/Breed
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/customreport/CustomReportEdit
 #. # ui/lookups/LookupView
 #. # db/Diagnostic
@@ -8411,7 +8404,6 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/system/ConfigureReportsDefaults
 #. # ui/customreport/CustomReportEdit
 #: An_error_occurred_saving_the_data\:\n
 msgid "An error occurred saving the data:\n"
@@ -8568,7 +8560,7 @@ msgstr ""
 msgid "Install Additional Reports"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #. # ui/customreport/GetReports
 #. # ui/splash/About
 #: Database
@@ -8784,7 +8776,6 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/system/ConfigureReportsDefaults
 #: An_error_occurred_loading_the_data\:\n
 msgid "An error occurred loading the data:\n"
 msgstr ""
@@ -10233,12 +10224,6 @@ msgstr ""
 msgid "View Local &Cache"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
-#. # ui/main/Main
-#: Configure_Defaults
-msgid "Configu&re Defaults"
-msgstr ""
-
 #. # ui/main/Main
 #: Preferences
 msgid "&Preferences"
@@ -10307,12 +10292,6 @@ msgstr ""
 #. # ui/main/Main
 #: Owner_Merge
 msgid "&Owner Mail Merge"
-msgstr ""
-
-#. # ui/system/ConfigureInsuranceNumbers
-#. # ui/main/Main
-#: Configure_Automatic_Insurance_Numbers
-msgid "Configure &Automatic Insurance Numbers"
 msgstr ""
 
 #. # ui/main/Main
@@ -10818,8 +10797,7 @@ msgstr ""
 msgid "&Auto Archive Animal Records"
 msgstr ""
 
-#. # ui/system/Authentication
-#. # ui/main/Main
+#. # ui/system/Options
 #: Authentication
 msgid "&Authentication"
 msgstr ""
@@ -10864,12 +10842,6 @@ msgstr ""
 #. # ui/main/Main
 #: petfinder_breed_mapping
 msgid "PetFinder &Breed Mapping"
-msgstr ""
-
-#. # ui/system/ConfigureEmail
-#. # ui/main/Main
-#: configure_email
-msgid "Configure ASM E&mail Account"
 msgstr ""
 
 #. # ui/lookups/LookupView
@@ -11940,6 +11912,7 @@ msgstr ""
 msgid "Mail Merge"
 msgstr ""
 
+#. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
@@ -12862,28 +12835,22 @@ msgstr ""
 msgid "Scanning filetypes for a Microsoft Windows based computer"
 msgstr ""
 
-#. # ui/system/ConfigureInsuranceNumbers
+#. # ui/system/Options
 #: Start_At\:
 msgid "Start At:"
 msgstr ""
 
-#. # ui/system/ConfigureInsuranceNumbers
-#. # ui/main/Main
-#: Configure_Automatic_Insurance_Numbers
-msgid "Configure Automatic Insurance Numbers"
-msgstr ""
-
-#. # ui/system/ConfigureInsuranceNumbers
+#. # ui/system/Options
 #: Use_Automatic_Insurance_Numbers
 msgid "Use Automatic Insurance Numbers"
 msgstr ""
 
-#. # ui/system/ConfigureInsuranceNumbers
+#. # ui/system/Options
 #: Next\:
 msgid "Next:"
 msgstr ""
 
-#. # ui/system/ConfigureInsuranceNumbers
+#. # ui/system/Options
 #: End_At\:
 msgid "End At:"
 msgstr ""
@@ -12924,28 +12891,22 @@ msgstr ""
 msgid "Start Maximised:"
 msgstr ""
 
-#. # ui/system/ConfigureEmail
-#. # ui/main/Main
-#: configure_email
-msgid "Configure ASM Email Account"
-msgstr ""
-
-#. # ui/system/ConfigureEmail
+#. # ui/system/Options
 #: email_address
 msgid "Email address:"
 msgstr ""
 
-#. # ui/system/ConfigureEmail
+#. # ui/system/Options
 #: emails_from_ASM_come_from
 msgid "The email address that mails sent from ASM appear to come from"
 msgstr ""
 
-#. # ui/system/ConfigureEmail
+#. # ui/system/Options
 #: smtp_server
 msgid "SMTP Server:"
 msgstr ""
 
-#. # ui/system/ConfigureEmail
+#. # ui/system/Options
 #: address_of_smtp_server
 msgid "The IP address/hostname of your SMTP Server"
 msgstr ""
@@ -12966,7 +12927,7 @@ msgid "Default Waiting List Urgency:"
 msgstr ""
 
 #. # ui/system/ConfigureDatabase
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
 #: None
@@ -12990,12 +12951,12 @@ msgstr ""
 msgid "Use Automatic Litter Identification"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Internal_Location\:
 msgid "Default Internal Location:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Entry_Reason\:
 msgid "Default Entry Reason:"
 msgstr ""
@@ -13040,32 +13001,32 @@ msgstr ""
 msgid "Tick this box to use ASMs internal report viewer"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Breed\:
 msgid "Default Breed:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Colour\:
 msgid "Default Colour:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Death_Reason\:
 msgid "Default Death Reason:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Return_Reason\:
 msgid "Default Return Reason:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Default_Size\:
 msgid "Default Size:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: Non_Shelter_Animal_Type\:
 msgid "Non-Shelter Animal Type:"
 msgstr ""
@@ -13176,48 +13137,47 @@ msgid ""
 "you want to do this?"
 msgstr ""
 
-#. # ui/system/Authentication
-#. # ui/main/Main
+#. # ui/system/Options
 #: Authentication
 msgid "Authentication"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: Operating_System
 msgid "Operating System"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: Operating_System_Desc
 msgid "Match an ASM user to the currently logged in OS user"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: Database_Desc
 msgid "Use ASM's database of usernames and passwords to log in"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: LDAP
 msgid "LDAP"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: LDAP_Desc
 msgid "Use an external LDAP server to authenticate ASM users"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: LDAP_URL
 msgid "URL:"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: LDAP_DN
 msgid "Base DN:"
 msgstr ""
 
-#. # ui/system/Authentication
+#. # ui/system/Options
 #: LDAP_Filter
 msgid "Search Filter:"
 msgstr ""
@@ -13594,20 +13554,14 @@ msgstr ""
 msgid "Tick this box to notify me of ASM updates"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: default_species
 msgid "Default Species:"
 msgstr ""
 
-#. # ui/system/ConfigureReportsDefaults
+#. # ui/system/Options
 #: default_type
 msgid "Default Type:"
-msgstr ""
-
-#. # ui/system/ConfigureReportsDefaults
-#. # ui/main/Main
-#: Configure_Defaults
-msgid "Configure Defaults"
 msgstr ""
 
 #. # ui/system/Options
@@ -13663,6 +13617,11 @@ msgstr ""
 #. # ui/system/Options
 #: mapping_service_url
 msgid "Mapping Service URL:"
+msgstr ""
+
+#. # ui/system/Options
+#: Automatic_Insurance_Numbers
+msgid "Automatic Insurance Numbers"
 msgstr ""
 
 #. # ui/users/UserView
