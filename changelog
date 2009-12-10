@@ -1,6 +1,10 @@
 2.6.3
 ================
 
+*. Fixed medical screen regenerating treatment view unnecessarily and
+-  fixed many performance problems with the screen
+*. Order medical diary by date then animal
+*. Fixed null pointer bug with medical book
 *. Moved email, defaults, authentication and insurance number 
 -  config to System->Options screen, improved layouts and
 -  moved default and code options to their tabs

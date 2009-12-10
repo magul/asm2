@@ -124,9 +124,7 @@ public class MedicalRegimeSelector extends ASMSelector {
 
     public void tableClicked() {
         mparent.regimetview.setLink(getTable().getSelectedID(), 0);
-        mparent.tview.setLink(animalID, 0);
         mparent.regimetview.updateList();
-        mparent.tview.updateList();
     }
 
     public void tableDoubleClicked() {
@@ -190,8 +188,14 @@ public class MedicalRegimeSelector extends ASMSelector {
         try {
             while (!am.getEOF()) {
                 if (animalID == 0) {
-                    datar[i][0] = am.getAnimal().getShelterCode();
-                    datar[i][1] = am.getAnimal().getAnimalName();
+		    if (am.getAnimal() != null) {
+                        datar[i][0] = am.getAnimal().getShelterCode();
+                        datar[i][1] = am.getAnimal().getAnimalName();
+		    }
+		    else {
+		        datar[i][0] = "";
+		        datar[i][1] = "";
+		    }
                     datar[i][2] = am.getTreatmentName();
                     datar[i][3] = am.getDosage();
                     datar[i][4] = am.getNamedStatus();
@@ -236,12 +240,10 @@ public class MedicalRegimeSelector extends ASMSelector {
                             mparent.regimetview.setLink(getTable()
                                                             .getSelectedID(), 0);
                             mparent.regimetview.updateList();
-                            mparent.tview.updateList();
                         } else {
                             mparent.regimetview.setLink(getTable()
                                                             .getSelectedID(), 0);
                             mparent.regimetview.updateList();
-                            mparent.tview.updateList();
                         }
                     }
                 }, 100);

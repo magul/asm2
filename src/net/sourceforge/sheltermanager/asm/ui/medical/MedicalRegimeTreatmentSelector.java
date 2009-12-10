@@ -175,7 +175,6 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
         }
 
         setTableData(columnheaders, datar, i, 6);
-        mparent.tview.updateList();
     }
 
     public void actionUptoDate() {
