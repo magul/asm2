@@ -727,6 +727,25 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 }
             }
 
+            // If this is an adoption record, see if the owner had active
+            // criteria and was looking for an animal. If so, prompt
+            // the user to disable the criteria
+            if (movement.getMovementType().intValue() == Adoption.MOVETYPE_ADOPTION) {
+                if (movement.getOwner().getMatchActive().intValue() == 1) {
+                    if (Dialog.showYesNoWarning(i18n("This_owner_has_active_match_criteria"), i18n("Active_Criteria"))) {
+                        try {
+                            DBConnection.executeAction("UPDATE owner SET MatchActive = 0, MatchExpires = '" +
+                                Utils.getSQLDate(new Date()) + "' WHERE ID = " + ownerID);
+                        }
+                        catch (Exception e) {
+                            Global.logException(e, getClass());
+                            Dialog.showError(e.getMessage());
+                        }
+                    }
+                }
+            }
+
+
             // If this is an adoption record, see if another movement
             // for the same animal has it on reservation. If it does,
             // Prompt the user to see if they want to cancel it
