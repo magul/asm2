@@ -569,7 +569,7 @@ public final class UI {
     }
 
     public static ComboBox getCombo(String description) {
-        ComboBox c = new ComboBox(description);
+        ComboBox c = new ComboBox(description, null);
         c.setEditable(false);
 
         return c;
@@ -598,7 +598,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, String sql,
         String field, final FunctionPointer onChange) {
-        final ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
 
         try {
@@ -662,7 +662,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, Vector items,
         final FunctionPointer onChange) {
-        final ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
 
         if (items != null) {
@@ -714,7 +714,7 @@ public final class UI {
 
     public static ComboBox getCombo(String description, String[] items,
         final FunctionPointer onChange) {
-        final ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
 
         if (items != null) {
@@ -813,7 +813,7 @@ public final class UI {
     public static ComboBox getCombo(String description, SQLRecordset r,
         String field, final FunctionPointer onChange,
         final FunctionPointer onLostFocus, String allstring) {
-        final ComboBox c = new ComboBox(description);
+        final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
 
         if (allstring != null) {
@@ -1999,6 +1999,7 @@ public final class UI {
 
     public static class ComboBox extends JPanel implements KeyListener {
         public boolean noEvents = false;
+        FunctionPointer onChange = null;
         JComboBox cbo = new JComboBox();
         UI.Button b = UI.getButton(null, null, ' ',
                 IconManager.getIcon(IconManager.SEARCHSMALL),
@@ -2008,11 +2009,12 @@ public final class UI {
         PopupMenuListener popupMenuListener = null;
 
         public ComboBox() {
-            this("");
+            this("", null);
         }
 
-        public ComboBox(String description) {
+        public ComboBox(String description, FunctionPointer onChange) {
             this.description = description;
+            this.onChange = onChange;
 
             if (useDefaultTooltip) {
                 cbo.setToolTipText(TOOLTIP_DEFAULT);
@@ -2074,6 +2076,16 @@ public final class UI {
 
         public void setEditable(boolean b) {
             cbo.setEditable(b);
+            // Make sure key presses are picked up for changing the combo text
+            ((JTextField) cbo.getEditor().getEditorComponent()).addKeyListener(
+                new KeyAdapter() {
+                    public void keyPressed(KeyEvent e) {
+                        // Look for a normal typed event, or the V key for a paste
+                        if (isTypedEvent(e) || e.getKeyCode() == KeyEvent.VK_V)
+                            if (onChange != null && !noEvents)
+                                onChange.call();
+                    }
+                });
         }
 
         public boolean isEditable() {
