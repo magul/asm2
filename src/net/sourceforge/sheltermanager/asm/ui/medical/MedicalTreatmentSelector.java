@@ -48,6 +48,7 @@ public class MedicalTreatmentSelector extends ASMSelector {
     private int animalID = 0;
     private UI.Button btnEdit;
     private UI.Button btnDelete;
+    private UI.Button btnRefresh;
     private UI.Button btnUptoDate;
     private UI.Button btnUptoSelected;
 
@@ -63,6 +64,11 @@ public class MedicalTreatmentSelector extends ASMSelector {
                     IconManager.SCREEN_VIEWMEDICALS_EDITTREATMENT),
                 UI.fp(this, "actionEdit"));
         addToolButton(btnEdit, true);
+
+        btnRefresh = UI.getButton(null, i18n("Refresh"), 'r',
+                IconManager.getIcon(IconManager.SCREEN_VIEWMEDICALS_REFRESH),
+                UI.fp(this, "updateList"));
+        addToolButton(btnRefresh, false);
 
         btnDelete = UI.getButton(null,
                 i18n("Delete_the_highlighted_treatment"), 'd',
