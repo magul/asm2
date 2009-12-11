@@ -391,4 +391,80 @@ $$FOOTER
 <h2>Total Animals: {COUNT.LocationName}</h2>
 FOOTER$$
 
+&&&
+Owners with Active Criteria
+###
+Owners
+###
+Any
+###
+Produces a list of all owners on file with active search criteria
+###
+en
+###
+SELECT OwnerName,
+(SELECT Name FROM lksyesno WHERE ID = MatchActive) AS Active, 
+MatchAdded, 
+MatchExpires, 
+(SELECT Sex FROM lksex WHERE ID = MatchSex - 1) AS Sex, 
+(SELECT Size FROM lksize WHERE ID = MatchSize - 1) AS Size, 
+MatchAgeFrom, 
+MatchAgeTo, 
+(SELECT AnimalType FROM animaltype WHERE ID = MatchAnimalType) AS AnimalType,
+(SELECT SpeciesName FROM species WHERE ID =MatchSpecies) AS Species, 
+(SELECT BreedName FROM breed WHERE ID = MatchBreed) AS Breed, 
+(SELECT BreedName FROM breed WHERE ID = MatchBreed2) AS OrBreed, 
+(SELECT Name FROM lksyesno WHERE ID = MatchGoodWithCats) AS GoodWithCats, 
+(SELECT Name FROM lksyesno WHERE ID = MatchGoodWithDogs) AS GoodWithDogs, 
+(SELECT Name FROM lksyesno WHERE ID = MatchGoodWithChildren) AS GoodWithChildren, 
+(SELECT Name FROM lksyesno WHERE ID = MatchHouseTrained) AS HouseTrained,
+MatchCommentsContain
+FROM owner
+WHERE MatchActive = 1
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Name</b></td>
+<td><b>Added</b></td>
+<td><b>Expires</b></td>
+<td><b>Sex</b></td>
+<td><b>Size</b></td>
+<td><b>Aged From</b></td>
+<td><b>To</b></td>
+<td><b>Type</b></td>
+<td><b>Species</b></td>
+<td><b>Breed</b></td>
+<td><b>or</b></td>
+<td><b>Good with cats</b></td>
+<td><b>Good with dogs</b></td>
+<td><b>Good with children</b></td>
+<td><b>Housetrained</b></td>
+<td><b>Comments contain</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$OWNERNAME</td>
+<td>$MATCHADDED</td>
+<td>$MATCHEXPIRES</td>
+<td>$SEX</td>
+<td>$SIZE</td>
+<td>$MATCHAGEFROM</td>
+<td>$MATCHAGETO</td>
+<td>$ANIMALTYPE</td>
+<td>$SPECIES</td>
+<td>$BREED</td>
+<td>$ORBREED</td>
+<td>$GOODWITHCATS</td>
+<td>$GOODWITHDOGS</td>
+<td>$GOODWITHCHILDREN</td>
+<td>$HOUSETRAINED</td>
+<td>$MATCHCOMMENTSCONTAIN</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
 
