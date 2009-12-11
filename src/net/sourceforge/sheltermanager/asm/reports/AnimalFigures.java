@@ -53,7 +53,7 @@ public class AnimalFigures extends Report {
     // Summary totals that get calculated along the way
     private String totalUnwantedSummary = "";
     private String totalAdoptedSummary = "";
-    private int totalPTSSummary = 0;
+    private String totalPTSSummary = "";
 
     public AnimalFigures() {
         // Request month
@@ -722,7 +722,7 @@ public class AnimalFigures extends Report {
         // PTS Animals
         // --------------------------------------------------------------
         int[] ptsAnimals = new int[40];
-        totalPTSSummary = 0;
+        totalPTSSummary = "";
 
         tableAddRow();
         tableAddCell(Global.i18n("reports", "PTS"));
@@ -730,21 +730,48 @@ public class AnimalFigures extends Report {
         // Include case to stop them disappearing from inventory
         ptsAnimals = fillRow(
                 "SELECT DeceasedDate, COUNT(ID) AS Total FROM animal WHERE " +
-                "(SpeciesID = " + speciesID + " AND DeceasedDate >= '" +
+                "SpeciesID = " + speciesID + " AND DeceasedDate >= '" +
                 sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
                 sqlLastDayOfMonth + "'" +
                 " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                " AND NonShelterAnimal = 0) OR " + "(SpeciesID = " + speciesID +
-                " AND DeceasedDate >= '" + sqlFirstDayOfMonth + "'" +
-                " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
-                " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
+                " AND NonShelterAnimal = 0" + " GROUP BY DeceasedDate",
                 "DeceasedDate", "Total");
 
+        int totalPTS = 0;
         for (int i = 1; i <= noDaysInMonth; i++) {
             // Summary totals
-            totalPTSSummary += ptsAnimals[i];
+            totalPTS += ptsAnimals[i];
             tableAddCell(Integer.toString(ptsAnimals[i]));
+        }
+
+        // Get the total for each category
+        if (totalPTS > 0) {
+            totalPTSSummary += totalPTS + " (";
+            String sql = "SELECT ReasonName, COUNT(ID) AS Total FROM animal " +
+                "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
+                "WHERE SpeciesID = " + speciesID + " AND DeceasedDate >= '" +
+                sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
+                sqlLastDayOfMonth + "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
+                "AND NonShelterAnimal = 0 " +
+                "GROUP BY ReasonName";
+            try {
+                SQLRecordset drs = new SQLRecordset();
+                drs.openRecordset(sql, "animal");
+                while (!drs.getEOF()) {
+                    if (!totalPTSSummary.endsWith("(")) totalPTSSummary += ", ";
+                    totalPTSSummary += drs.getField("Total").toString() + " " + drs.getField("ReasonName").toString();
+                    drs.moveNext();
+                }
+                drs.free();
+                totalPTSSummary += ")";
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+
+        }
+        else {
+            totalPTSSummary = "0";
         }
 
         tableFinishRow();
@@ -1456,7 +1483,7 @@ public class AnimalFigures extends Report {
         // PTS Animals
         // --------------------------------------------------------------
         int[] ptsAnimals = new int[40];
-        totalPTSSummary = 0;
+        totalPTSSummary = "";
 
         tableAddRow();
         tableAddCell(Global.i18n("reports", "PTS"));
@@ -1468,17 +1495,44 @@ public class AnimalFigures extends Report {
                 sqlFirstDayOfMonth + "'" + " AND DeceasedDate <= '" +
                 sqlLastDayOfMonth + "'" +
                 " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
-                " AND NonShelterAnimal = 0) OR " + "(AnimalTypeID = " +
-                animalTypeID + " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
-                "'" + " AND DeceasedDate <= '" + sqlLastDayOfMonth + "'" +
-                " AND PutToSleep <> 0 AND DiedOffShelter = 0" +
                 " AND NonShelterAnimal = 0)" + " GROUP BY DeceasedDate",
                 "DeceasedDate", "Total");
 
+        int totalPTS = 0;
         for (int i = 1; i <= noDaysInMonth; i++) {
             // Summary totals
-            totalPTSSummary += ptsAnimals[i];
+            totalPTS += ptsAnimals[i];
             tableAddCell(Integer.toString(ptsAnimals[i]));
+        }
+
+        // Get the total for each category
+        if (totalPTS > 0) {
+            totalPTSSummary += totalPTS + " (";
+            String sql = "SELECT ReasonName, COUNT(ID) AS Total FROM animal " +
+                "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
+                "WHERE AnimalTypeID = " + animalTypeID + " AND DeceasedDate >= '" +
+                sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
+                sqlLastDayOfMonth + "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
+                "AND NonShelterAnimal = 0 " +
+                "GROUP BY ReasonName";
+            try {
+                SQLRecordset drs = new SQLRecordset();
+                drs.openRecordset(sql, "animal");
+                while (!drs.getEOF()) {
+                    if (!totalPTSSummary.endsWith("(")) totalPTSSummary += ", ";
+                    totalPTSSummary += drs.getField("Total").toString() + " " + drs.getField("ReasonName").toString();
+                    drs.moveNext();
+                }
+                drs.free();
+                totalPTSSummary += ")";
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+
+        }
+        else {
+            totalPTSSummary = "0";
         }
 
         tableFinishRow();
