@@ -2383,45 +2383,60 @@ public class Main extends ASMWindow {
      * @param maxvalue
      *            The maximum value the status bar will go up to.
      */
-    public void initStatusBarMax(int maxvalue) {
-        progressMax = maxvalue;
-        progressValue = 0;
+    public void initStatusBarMax(final int maxvalue) {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                progressMax = maxvalue;
+                progressValue = 0;
 
-        pgStatus.setMaximum(maxvalue);
-        pgStatus.setStringPainted(true);
-        pgStatus.setString(null);
-        pgStatus.repaint();
-        // Change the mouse pointer to an hourglass
-        UI.cursorToWait();
-        thrThrob.setVisible(true);
-        pnlStatus.revalidate();
-        thrThrob.start();
+                pgStatus.setMaximum(maxvalue);
+                pgStatus.setStringPainted(true);
+                pgStatus.setString(null);
+                pgStatus.repaint();
+                // Change the mouse pointer to an hourglass
+                UI.cursorToWait();
+                thrThrob.setVisible(true);
+                pnlStatus.revalidate();
+                thrThrob.start();
+            }
+        });
     }
 
     /** Resets the status bar back to empty */
     public void resetStatusBar() {
-        pgStatus.setMaximum(100);
-        pgStatus.setValue(0);
-        pgStatus.setStringPainted(false);
-        // Change the mouse pointer back to normal
-        UI.cursorToPointer();
-        thrThrob.setVisible(false);
-        thrThrob.stop();
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                pgStatus.setMaximum(100);
+                pgStatus.setValue(0);
+                pgStatus.setStringPainted(false);
+                // Change the mouse pointer back to normal
+                UI.cursorToPointer();
+                thrThrob.setVisible(false);
+                thrThrob.stop();
+            }
+        });
     }
 
     /** Increments the status bar by one value */
     public void incrementStatusBar() {
-        progressValue++;
-
-        if (progressValue <= progressMax) {
-            pgStatus.setValue(progressValue);
-        }
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                progressValue++;
+                if (progressValue <= progressMax) {
+                    pgStatus.setValue(progressValue);
+                }
+            }
+        });
     }
 
     /** Sets the status text to the value specified */
-    public void setStatusText(String newtext) {
-        lblStatus.setText(newtext);
-        lblStatus.repaint();
+    public void setStatusText(final String newtext) {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                lblStatus.setText(newtext);
+                lblStatus.repaint();
+            }
+        });
     }
 
     public class CustomReportMenu extends UI.MenuItem {

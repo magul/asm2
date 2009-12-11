@@ -588,6 +588,10 @@ public abstract class DBConnection {
 
             // Go through each row from the DBFS, look it up
             // with it's content and flush out to the new database
+
+            if (Global.mainForm != null)
+                Global.mainForm.initStatusBarMax( (int) r.getRecordCount() );
+
             while (!r.getEOF()) {
                 SQLRecordset r2 = new SQLRecordset();
                 Global.logDebug("Copy DBFS Entry: " +
@@ -600,7 +604,13 @@ public abstract class DBConnection {
                 r2.free();
                 r2 = null;
                 r.moveNext();
+
+                if (Global.mainForm != null)
+                    Global.mainForm.incrementStatusBar();
             }
+
+            if (Global.mainForm != null)
+                Global.mainForm.resetStatusBar();
         } catch (Exception e) {
             Global.logError("Error occurred copying table: " + e.getMessage(),
                 "DBConnection.copyTable");
@@ -627,6 +637,10 @@ public abstract class DBConnection {
 
             // Go through each row from the DBFS, look it up
             // with it's content and flush out to the new database
+
+            if (Global.mainForm != null)
+                Global.mainForm.initStatusBarMax( (int) r.getRecordCount() );
+
             while (!r.getEOF()) {
                 SQLRecordset r2 = new SQLRecordset();
                 Global.logDebug("Import DBFS Entry: " +
@@ -640,7 +654,14 @@ public abstract class DBConnection {
                 r2.free();
                 r2 = null;
                 r.moveNext();
+
+                if (Global.mainForm != null)
+                    Global.mainForm.incrementStatusBar();
+
             }
+            if (Global.mainForm != null)
+                Global.mainForm.resetStatusBar();
+
         } catch (Exception e) {
             Global.logError("Error occurred copying table: " + e.getMessage(),
                 "DBConnection.copyTable");

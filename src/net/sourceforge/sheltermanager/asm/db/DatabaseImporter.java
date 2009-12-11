@@ -36,6 +36,7 @@ public class DatabaseImporter implements Runnable {
     private byte dbType = 0;
     private boolean allTables = false;
     private boolean clearBeforeCopy = false;
+    private boolean doDBFS = true;
 
     /** For the UI - asks for the target interactively */
     public void start() {
@@ -44,6 +45,8 @@ public class DatabaseImporter implements Runnable {
         if (s.equals("")) {
             return;
         }
+
+        doDBFS = Dialog.showYesNo(Global.i18n("db", "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
 
         try {
             // Connect and do the import
@@ -58,12 +61,13 @@ public class DatabaseImporter implements Runnable {
 
     /** For single-threaded callers */
     public void start(String url, Connection c, byte dbType, boolean allTables,
-        boolean clearBeforeCopy) {
+        boolean clearBeforeCopy, boolean doDBFS) {
         this.url = url;
         this.c = c;
         this.dbType = dbType;
         this.allTables = allTables;
         this.clearBeforeCopy = clearBeforeCopy;
+        this.doDBFS = doDBFS;
         run();
     }
 
@@ -127,7 +131,12 @@ public class DatabaseImporter implements Runnable {
 
         importTable(c, dbType, "vaccinationtype", false, "importtool");
         importTable(c, dbType, "voucher", false, "importtool");
-        DBConnection.importDBFS(c);
+
+        if (doDBFS) {
+            Global.mainForm.setStatusText(Global.i18n("db",
+                            "importing_table", "dbfs"));
+            DBConnection.importDBFS(c);
+        }
 
         // Run checkpoint
         DBConnection.checkpoint();

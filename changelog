@@ -1,6 +1,10 @@
 2.6.3
 ================
 
+*. Database copy dumps primarykey table on the target afterwards
+*. Fixed threading bug with progress meter
+*. Database import/copy now prompt to include media files (DBFS) and use 
+-  progress meter
 *. Allowed editable combos to pick up pasting via CTRL/CMD+V
 *. Figures report shows death reasons with PTS summary
 *. Fixed medical screen regenerating treatment view unnecessarily and

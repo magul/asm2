@@ -38,6 +38,8 @@ public class DatabaseCopier {
             return;
         }
 
+        boolean doDBFS = Dialog.showYesNo(Global.i18n("db", "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
+
         try {
             // Do we have a local database and they want to
             // copy locally?
@@ -77,7 +79,7 @@ public class DatabaseCopier {
             byte dbType = DBConnection.getDBTypeForUrl(s);
 
             // Do the copy
-            Copier cop = new Copier(s, c, dbType);
+            Copier cop = new Copier(s, c, dbType, doDBFS);
             new Thread(cop).start();
         } catch (Exception e) {
             Global.logException(e, DatabaseCopier.class);
@@ -90,11 +92,13 @@ class Copier implements Runnable {
     private String url = null;
     private Connection c = null;
     private byte dbType = 0;
+    private boolean doDBFS = true;
 
-    public Copier(String url, Connection c, byte dbType) {
+    public Copier(String url, Connection c, byte dbType, boolean doDBFS) {
         this.url = url;
         this.c = c;
         this.dbType = dbType;
+        this.doDBFS = doDBFS;
     }
 
     /**
@@ -196,7 +200,18 @@ class Copier implements Runnable {
         copyTable(c, dbType, "users", false, "copytool");
         copyTable(c, dbType, "vaccinationtype", false, "copytool");
         copyTable(c, dbType, "voucher", false, "copytool");
-        DBConnection.copyDBFS(c);
+
+        if (doDBFS) {
+            Global.mainForm.setStatusText(Global.i18n("db", "copying_table",
+                    "dbfs"));
+            DBConnection.copyDBFS(c);
+        }
+
+        // Dump the primary key table on the target so they don't get out of sync
+        try {
+            DBConnection.executeAction(c, "DELETE FROM primarykey");
+        } catch (Exception e) {
+        }
 
         try {
             c.close();
