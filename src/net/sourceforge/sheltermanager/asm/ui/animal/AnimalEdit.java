@@ -294,7 +294,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(cboSex);
         ctl.add(cboType);
         ctl.add(cboColour);
-        ctl.add(cboCoatType);
+
+        if (!Configuration.getBoolean("DontShowCoatType")) {
+            ctl.add(cboCoatType);
+        }
+
         ctl.add(cboSize);
         ctl.add(cboSpecies);
         ctl.add(cboBreed);
