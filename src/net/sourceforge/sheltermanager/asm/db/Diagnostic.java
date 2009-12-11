@@ -61,36 +61,22 @@ public class Diagnostic extends Thread {
             int omove = orphanedMovements();
             int omedia = orphanedMedia();
             int ovacc = orphanedVaccinations();
+            int omed = orphanedMedicals();
             int onm = returnedNonMovements();
             int icode = invalidCodesThisYear();
 
             if ((orepair == 0) && (omove == 0) && (omedia == 0) &&
-                    (ovacc == 0) && (icode == 0)) {
+                    (ovacc == 0) && (icode == 0) && (omed == 0)) {
                 Dialog.showInformation(Global.i18n("db",
                         "No_errors_were_found_during_diagnostics."),
                     Global.i18n("db", "Scan_complete"));
             } else {
-                Dialog.showInformation(Integer.toString(orepair) +
-                    Global.i18n("db", "_corrupted_tables_repaired") + "\n" +
-                    Integer.toString(omove) +
-                    Global.i18n("db",
-                        "_orphaned_movement_records_found_and_removed.\n") +
-                    "\n" + Integer.toString(omedia) +
-                    Global.i18n("db",
-                        "_orphaned_media_records_found_and_removed.\n") + "\n" +
-                    Integer.toString(ovacc) +
-                    Global.i18n("db",
-                        "_orphaned_vaccination_records_found_and_removed\n") +
-                    "\n" + Integer.toString(onm) +
-                    Global.i18n("db",
-                        "_returns_without_a_movement_found_and_removed") +
-                    "\n" + Integer.toString(mdate) +
-                    Global.i18n("db", "_mysql_date_columns_repaired") + "\n" +
-                    Integer.toString(icode) +
-                    Global.i18n("db",
-                        "_invalid_animal_codes_fixed_for_this_year"),
-                    Global.i18n("db", "Errors_Found_and_Repaired") + " " +
-                    Integer.toString(icode));
+                Dialog.showInformation(Global.i18n("db", "diagnostic_output",
+                    Integer.toString(orepair), Integer.toString(omove),
+                    Integer.toString(omedia), Integer.toString(ovacc),
+                    Integer.toString(omed), Integer.toString(onm),
+                    Integer.toString(mdate), Integer.toString(icode)),
+                    Global.i18n("db", "Errors_Found_and_Repaired"));
             }
         } catch (Exception e) {
             Dialog.showError(Global.i18n("db",
@@ -358,6 +344,39 @@ public class Diagnostic extends Thread {
 
         return badFound;
     }
+
+    public int orphanedMedicals() throws CursorEngineException, Exception {
+        AnimalMedical am = new AnimalMedical();
+        Animal a = new Animal();
+
+        int badFound = 0;
+        am.openRecordset("");
+
+        setStatusText(Global.i18n("db",
+                "Checking_for_orphaned_medical_records..."));
+        setStatusBarMax((int) am.getRecordCount());
+
+        while (!am.getEOF()) {
+            a.openRecordset("ID = " + am.getAnimalID());
+
+            if (a.getEOF()) {
+                badFound++;
+                DBConnection.executeAction(
+                    "DELETE FROM animalmedical WHERE ID = " + am.getID());
+                DBConnection.executeAction(
+                    "DELETE FROM animalmedicaltreatment WHERE AnimalMedicalID = " + am.getID());
+            }
+
+            incrementStatusBar();
+            am.moveNext();
+        }
+
+        resetStatusBar();
+        setStatusText("");
+
+        return badFound;
+    }
+
 
     public void recalculateMovementDonations() throws Exception {
         setStatusText(Global.i18n("db", "Recalculating_adoption_donations"));

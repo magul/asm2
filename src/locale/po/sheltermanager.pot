@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-11 11:52+0100\n"
+"POT-Creation-Date: 2009-12-11 13:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3432,18 +3432,8 @@ msgid "Scan complete"
 msgstr ""
 
 #. # db/Diagnostic
-#: _returns_without_a_movement_found_and_removed
-msgid " returns without a movement found and removed."
-msgstr ""
-
-#. # db/Diagnostic
 #: An_error_occurred_running_diagnostics\:\n
 msgid "An error occurred running diagnostics: "
-msgstr ""
-
-#. # db/Diagnostic
-#: _orphaned_vaccination_records_found_and_removed\n
-msgid " orphaned vaccination records found and removed."
 msgstr ""
 
 #. # db/Diagnostic
@@ -3452,13 +3442,13 @@ msgid "Checking for orphaned movement records..."
 msgstr ""
 
 #. # db/Diagnostic
-#: No_errors_were_found_during_diagnostics.
-msgid "No errors were found during diagnostics."
+#: Checking_for_orphaned_medical_records...
+msgid "Checking for orphaned medical records..."
 msgstr ""
 
 #. # db/Diagnostic
-#: _orphaned_movement_records_found_and_removed.\n
-msgid " orphaned movement records found and removed. "
+#: No_errors_were_found_during_diagnostics.
+msgid "No errors were found during diagnostics."
 msgstr ""
 
 #. # db/Diagnostic
@@ -3469,11 +3459,6 @@ msgstr ""
 #. # db/Diagnostic
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
-msgstr ""
-
-#. # db/Diagnostic
-#: _orphaned_media_records_found_and_removed.\n
-msgid " orphaned media records found and removed."
 msgstr ""
 
 #. # db/DBUpdate
@@ -3535,11 +3520,6 @@ msgstr ""
 #. # db/DBUpdate
 #: An_error_occurred_reading_the_file\:\n
 msgid "An error occurred reading the file:\n"
-msgstr ""
-
-#. # db/Diagnostic
-#: _corrupted_tables_repaired
-msgid " corrupted tables repaired."
 msgstr ""
 
 #. # db/Diagnostic
@@ -3735,11 +3715,6 @@ msgid ""
 msgstr ""
 
 #. # db/Diagnostic
-#: _invalid_animal_codes_fixed_for_this_year
-msgid " invalid animal codes fixed for this year."
-msgstr ""
-
-#. # db/Diagnostic
 #: Checking_for_bad_animal_codes...
 msgid "Checking for bad animal codes..."
 msgstr ""
@@ -3747,11 +3722,6 @@ msgstr ""
 #. # db/Diagnostic
 #: fixing_mysql_dates
 msgid "Fixing MySQL 5.x NULL dates"
-msgstr ""
-
-#. # db/Diagnostic
-#: _mysql_date_columns_repaired
-msgid " mysql date columns repaired."
 msgstr ""
 
 #. # db/PetFinderImport
@@ -3776,6 +3746,19 @@ msgstr ""
 #. # db/DatabaseImporter
 #: include_dbfs
 msgid "Include Media?"
+msgstr ""
+
+#. # db/Diagnostic
+#: diagnostic_output
+msgid ""
+"{0} corrupted tables repaired.\n"
+"{1} orphaned movement records found and removed.\n"
+"{2} orphaned media records found and removed.\n"
+"{3} orphaned vaccination records found and removed.\n"
+"{4} orphaned medical records found and removed.\n"
+"{5} returns without a movement found and removed.\n"
+"{6} mysql date columns repaired.\n"
+"{7} invalid animal codes fixed for this year."
 msgstr ""
 
 #. # mailmerge/OffShelterVaccinations
@@ -11201,6 +11184,7 @@ msgstr ""
 msgid "Finishes After"
 msgstr ""
 
+#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
 #: Refresh
 msgid "Refresh"
