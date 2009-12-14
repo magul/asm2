@@ -103,7 +103,7 @@ public class ConfigureDatabase extends ASMForm {
 
             return true;
         } catch (Exception e) {
-            Global.logException(e, Authentication.class);
+            Global.logException(e, ConfigureDatabase.class);
         }
 
         return false;

@@ -439,7 +439,7 @@ public class LocateDatabase {
         try {
             Connection c = DBConnection.getConnection(oldurl);
             DatabaseImporter imp = new DatabaseImporter();
-            imp.start(oldurl, c, DBConnection.HSQLDB, true, true);
+            imp.start(oldurl, c, DBConnection.HSQLDB, true, true, true);
             c.close();
             c = null;
             // Wait for lock to release
