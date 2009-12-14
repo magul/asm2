@@ -1507,15 +1507,19 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     public void actionMap() {
 
         String url = Configuration.getString("MappingServiceURL", "http://maps.google.com/maps?q=");
-        String address = txtAddress.getText().trim().replace('\n', ',').replace(' ', '+');
-        String town = Utils.nullToEmptyString( (String) cboTown.getSelectedItem()).trim().replace(' ', '+');
-        String county = Utils.nullToEmptyString( (String) cboCounty.getSelectedItem()).trim().replace(' ', '+');
-        String postcode = txtPostcode.getText().trim().replace(' ', '+');
+        String address = txtAddress.getText().trim().replace('\n', ',');
+        String town = Utils.nullToEmptyString( (String) cboTown.getSelectedItem()).trim();
+        String county = Utils.nullToEmptyString( (String) cboCounty.getSelectedItem()).trim();
+        String postcode = txtPostcode.getText().trim();
         
+        // Build the MAP URL
         String map = address;
         if (!town.trim().equals("")) map +="," + town;
         if (!county.trim().equals("")) map +="," + county;
         if (!postcode.trim().equals("")) map +="," + postcode;
+
+        // URL encode
+        map = Utils.urlEncode(map);
 
         if (!address.equals("") || !address.equals(""))
             FileTypeManager.shellExecute(url + map);

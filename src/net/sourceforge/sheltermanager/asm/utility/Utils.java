@@ -1675,6 +1675,27 @@ public abstract class Utils {
         }
     }
 
+    /** Sanitises a URL */
+    public static String urlEncode(String url) {
+        url = Utils.replace(url, "%", "%25");
+        url = Utils.replace(url, ",", "%2C");
+        url = Utils.replace(url, "\"", "%22");
+        url = Utils.replace(url, "<", "%3C");
+        url = Utils.replace(url, ">", "%3E");
+        url = Utils.replace(url, "#", "%23");
+        url = Utils.replace(url, "{", "%7B");
+        url = Utils.replace(url, "}", "%7D");
+        url = Utils.replace(url, "|", "%7C");
+        url = Utils.replace(url, "\\", "%5C");
+        url = Utils.replace(url, "^", "%5E");
+        url = Utils.replace(url, "~", "%7E");
+        url = Utils.replace(url, "[", "%5B");
+        url = Utils.replace(url, "]", "%5D");
+        url = Utils.replace(url, "`", "%60");
+        url = url.replace(' ', '+');
+        return url;
+    }
+
     /** Returns the contents of a URL as a string */
     public static String getURL(String url) throws Exception {
         Global.logDebug("Requesting " + url + " ...", "Utils.getURL");
