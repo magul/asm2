@@ -178,8 +178,8 @@ public class AnimalFigures extends Report {
                     sp.moveNext();
                 }
 
-                // 14 steps per generation
-                int maxent = 14 * (v.size());
+                // 15 steps per generation
+                int maxent = 15 * (v.size());
                 setStatusBarMax(maxent);
 
                 for (int i = 0; i < v.size(); i++) {
@@ -299,7 +299,7 @@ public class AnimalFigures extends Report {
         // Animals On Shelter
         // --------------------------------------------------------------
         tableAddRow();
-        tableAddCell(animalName);
+        tableAddCell(Global.i18n("reports", "On_Shelter"));
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
@@ -335,6 +335,26 @@ public class AnimalFigures extends Report {
 
             tableFinishRow();
         }
+
+        // --------------------------------------------------------------
+        // Litters
+        // --------------------------------------------------------------
+        tableAddRow();
+        tableAddCell(Global.i18n("reports", "Litters"));
+
+        for (int i = 1; i <= noDaysInMonth; i++) {
+            Calendar atDate = (Calendar) firstDayOfMonth.clone();
+            atDate.add(Calendar.DAY_OF_MONTH, i - 1);
+
+            int total = AnimalLitter.getNumberOfLittersOnShelter(Utils.calendarToDate(
+                        atDate), speciesID.intValue());
+            tableAddCell(Integer.toString(total));
+        }
+
+        tableFinishRow();
+
+        incrementStatusBar();
+
 
         // --------------------------------------------------------------
         // Totals and Averages
@@ -1060,7 +1080,7 @@ public class AnimalFigures extends Report {
         // Animals On Shelter
         // --------------------------------------------------------------
         tableAddRow();
-        tableAddCell(animalName);
+        tableAddCell(Global.i18n("reports", "On_Shelter"));
 
         for (int i = 1; i <= noDaysInMonth; i++) {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();

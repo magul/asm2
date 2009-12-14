@@ -134,6 +134,10 @@ public class CustomUI {
         if (action.startsWith("http")) {
             Global.logDebug("HTTP action found", "CustomUI.processAction");
 
+            // URL encode the values correctly
+            action = Utils.urlEncode(action);
+            Global.logDebug("URL encoded to " + action, "CustomUI.processAction");
+
             // Process it with the HTML viewer
             if (Global.useInternalReportViewer) {
                 HTMLViewer hv = new HTMLViewer(action);
