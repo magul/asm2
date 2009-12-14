@@ -54,7 +54,10 @@ public class LinkSelector extends ASMSelector {
     private static final int LOST_ANIMAL = 3;
     private static final int FOUND_ANIMAL = 4;
     private static final int OWNERS_VET = 5;
+    private static final int CURRENT_VET = 6;
+
     private int ownerID = 0;
+    private boolean someData = false;
     private UI.Button btnView;
 
     public LinkSelector() {
@@ -96,6 +99,7 @@ public class LinkSelector extends ASMSelector {
             Animal ao = new Animal();
             Animal ab = new Animal();
             Animal av = new Animal();
+            Animal ac = new Animal();
             AnimalWaitingList awl = new AnimalWaitingList();
             AnimalLost al = new AnimalLost();
             AnimalFound af = new AnimalFound();
@@ -104,15 +108,19 @@ public class LinkSelector extends ASMSelector {
             ao.openRecordset("OriginalOwnerID = " + ownerID);
             ab.openRecordset("BroughtInByOwnerID = " + ownerID);
             av.openRecordset("OwnersVetID = " + ownerID);
+            ac.openRecordset("CurrentVetID = " + ownerID);
             awl.openRecordset("OwnerID = " + ownerID);
             al.openRecordset("OwnerID = " + ownerID);
             af.openRecordset("OwnerID = " + ownerID);
 
-            // Build array
-            String[][] data = new String[(int) (ao.getRecordCount() +
+            int rows = (int) (ao.getRecordCount() +
                 ab.getRecordCount() + awl.getRecordCount() +
                 al.getRecordCount() + af.getRecordCount() +
-                av.getRecordCount())][6];
+                ac.getRecordCount() + av.getRecordCount());
+            someData = rows > 0;
+
+            // Build array
+            String[][] data = new String[rows][6];
 
             // Create an array of headers for the table
             String[] columnheaders = { i18n("Link_Type"), i18n("Date"), "", "" };
@@ -150,7 +158,7 @@ public class LinkSelector extends ASMSelector {
             ab.free();
             ab = null;
 
-            // Vets
+            // Owners Vets
             while (!av.getEOF()) {
                 data[i][0] = i18n("Owners_Vet");
                 data[i][1] = Utils.formatTableDate(av.getDateBroughtIn());
@@ -164,6 +172,22 @@ public class LinkSelector extends ASMSelector {
 
             av.free();
             av = null;
+
+            // Current Vets
+            while (!ac.getEOF()) {
+                data[i][0] = i18n("Current_Vet");
+                data[i][1] = Utils.formatTableDate(ac.getDateBroughtIn());
+                data[i][2] = ac.getShelterCode();
+                data[i][3] = ac.getAnimalName();
+                data[i][4] = Integer.toString(CURRENT_VET);
+                data[i][5] = ac.getID().toString();
+                i++;
+                ac.moveNext();
+            }
+
+            ac.free();
+            ac = null;
+
 
             // Waiting List
             while (!awl.getEOF()) {
@@ -217,7 +241,7 @@ public class LinkSelector extends ASMSelector {
     }
 
     public boolean hasData() {
-        return getTable().getRowCount() > 0;
+        return someData;
     }
 
     public void addToolButtons() {
@@ -248,36 +272,10 @@ public class LinkSelector extends ASMSelector {
 
         try {
             switch (linktype) {
+
             case ORIGINAL_OWNER:
-
-                try {
-                    AnimalEdit ea = new AnimalEdit();
-                    Animal a = LookupCache.getAnimalByID(new Integer(id));
-                    ea.openForEdit(a);
-                    Global.mainForm.addChild(ea);
-                    ea = null;
-                    a = null;
-                } catch (Exception e) {
-                    Global.logException(e, getClass());
-                }
-
-                break;
-
             case BROUGHT_IN_BY:
-
-                try {
-                    AnimalEdit ea = new AnimalEdit();
-                    Animal a = LookupCache.getAnimalByID(new Integer(id));
-                    ea.openForEdit(a);
-                    Global.mainForm.addChild(ea);
-                    ea = null;
-                    a = null;
-                } catch (Exception e) {
-                    Global.logException(e, getClass());
-                }
-
-                break;
-
+            case CURRENT_VET:
             case OWNERS_VET:
 
                 try {
