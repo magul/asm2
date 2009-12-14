@@ -122,8 +122,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
 
             if (Configuration.getBoolean("AutoLitterIdentification")) {
                 // Generate the ID for this litter
-                txtAcceptanceNumber.setText(AnimalLitter.getNextLitterID()
-                                                        .toString());
+                txtAcceptanceNumber.setText(litter.getID().toString());
             }
         } catch (Exception e) {
             Dialog.showError(i18n("An_error_occurred_creating_the_record:\n") +

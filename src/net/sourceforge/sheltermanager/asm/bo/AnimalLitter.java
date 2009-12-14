@@ -402,49 +402,6 @@ public class AnimalLitter extends NormalBO {
     }
 
     /**
-     * Calculates the next litter ID as MAX(animallitter.AcceptanceNumber) + 1
-     * If MAX(AcceptanceNumber) returns a non-numeric value then -1 is returned.
-     */
-    public static Integer getNextLitterID() {
-        try {
-            SQLRecordset rs = new SQLRecordset();
-            rs.openRecordset("SELECT MAX(AcceptanceNumber) AS lastid FROM animallitter",
-                "animallitter");
-
-            if (!rs.getEOF()) {
-                if (rs.getField("lastid") != null) {
-                    if (!rs.getField("lastid").equals("")) {
-                        try {
-                            String lastid = rs.getField("lastid").toString();
-                            String lid = "";
-
-                            for (int i = 0; i < lastid.length(); i++) {
-                                String dig = lastid.substring(i, i + 1);
-
-                                if ((dig.equals("0")) || (dig.equals("1")) ||
-                                        (dig.equals("2")) || (dig.equals("3")) ||
-                                        (dig.equals("4")) || (dig.equals("5")) ||
-                                        (dig.equals("6")) || (dig.equals("7")) ||
-                                        (dig.equals("8")) || (dig.equals("9"))) {
-                                    lid += dig;
-                                }
-                            }
-
-                            return new Integer(Integer.parseInt(lid) + 1);
-                        } catch (NumberFormatException e) {
-                            return new Integer(-1);
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            Global.logException(e, AnimalLitter.class);
-        }
-
-        return new Integer("1");
-    }
-
-    /**
      * Tests if a given litter ID is currently active.
      */
     public static boolean isLitterActive(String litterID) {
