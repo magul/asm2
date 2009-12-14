@@ -4361,6 +4361,93 @@ A word of warning though, depending on the amount of data involved and the
  5 and 10 minutes to generate.
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_monthlyfigures.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The top few rows show animals already on the shelter for the given type
+ or species (you can choose under System->Options whether or not to group
+ by type or species - note that litter figures are only available when grouping
+ by species).
+\end_layout
+
+\begin_layout Itemize
+If you have 
+\begin_inset Quotes eld
+\end_inset
+
+Foster as Inventory
+\begin_inset Quotes erd
+\end_inset
+
+ set in the system options, you will get a second line here to show you
+ the total animals currently on foster at each date.
+\end_layout
+
+\begin_layout Itemize
+The first bold total shows the total number of animals on the shelter of
+ that type/species on that day
+\end_layout
+
+\begin_layout Itemize
+The next group of rows shows animals entering the shelter by different means
+ (returned adoptions, coming back from fostering, etc).
+\end_layout
+
+\begin_layout Itemize
+The next bold total shows the total number of animals of the type/species
+ who entered the shelter on that day.
+\end_layout
+
+\begin_layout Itemize
+The next group of rows shows animals leaving the shelter by various means.
+\end_layout
+
+\begin_layout Itemize
+The next bold total shows the total number of animals of the type/species
+ who left the shelter on that day.
+\end_layout
+
+\begin_layout Itemize
+The day total at the bottom is a repeat of the number of animals on the
+ shelter at the top (the first row).
+ It does not include foster figures, unlike the first total line.
+\end_layout
+
+\begin_layout Itemize
+You can manually check the figures yourself by taking the day total at the
+ bottom, and then looking at the column for the next day and adding the
+ incoming animal totals, and subtracting the outgoing animal totals - this
+ should add up to the correct day total for the next day.
+\end_layout
+
+\begin_layout Itemize
+Some summary figures are also given on the lines below to give you a readable
+ summary of the figures for the whole month.
+\end_layout
+
 \begin_layout Section
 Inventories
 \end_layout
