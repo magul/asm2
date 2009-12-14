@@ -27,6 +27,9 @@ code = filename[filename.find("_")+1:filename.find(".")]
 if code.find("_") != -1:
     code = code + "_" + code.upper()
 
+# Swedish hack
+if code == "sv": code = "_sv_SE"
+
 # No lang for English as it's the template
 if code == "en": code = ""
 

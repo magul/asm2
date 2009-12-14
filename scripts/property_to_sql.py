@@ -29,6 +29,9 @@ if filename.find("_") != 1:
     if bits[0] == bits[1].lower():
         code = bits[0]
 
+# Swedish hack
+if code == "sv_SE": code = "sv"
+
 # Open the output file
 outfilename = "translate_" + code + ".sql"
 outfile = open(outputdir + "/" + outfilename, "w")

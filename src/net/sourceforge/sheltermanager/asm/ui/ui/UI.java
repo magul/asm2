@@ -365,7 +365,7 @@ public final class UI {
     public static Label getLabel(int align, String text) {
         Label l = new Label("<html><p align=\"" +
                 ((Global.GRIDLABELALIGN == ALIGN_RIGHT) ? "right" : "left") +
-                "\">" + text + "</p></html>");
+                "\">" + mnemonicRemove(text) + "</p></html>");
         l.setHorizontalAlignment(align);
 
         return l;
@@ -381,7 +381,7 @@ public final class UI {
     public static Label getLabel(Icon icon, String tooltiptext) {
         Label l = new Label();
         l.setIcon(icon);
-        l.setToolTipText(tooltiptext);
+        l.setToolTipText(mnemonicRemove(tooltiptext));
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
 
         return l;
@@ -395,7 +395,7 @@ public final class UI {
     }
 
     public static Label getTitleLabel(String text) {
-        Label l = new Label(text);
+        Label l = getLabel(text);
         l.setHorizontalAlignment(ALIGN_LEFT);
         l.setFont(l.getFont().deriveFont(Font.BOLD));
 
@@ -403,7 +403,7 @@ public final class UI {
     }
 
     public static Label getHintLabel(String text) {
-        Label l = new Label("<html><center>" + text + "</center></html>");
+        Label l = new Label("<html><center>" + mnemonicRemove(text) + "</center></html>");
         l.setBackground(getColor(255, 251, 192));
         l.setForeground(Color.BLACK);
         l.setBorder(new LineBorder(Color.BLACK));

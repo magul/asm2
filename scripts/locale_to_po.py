@@ -13,7 +13,10 @@ import sys
 locale = sys.argv[1]
 bits = locale.split("_")
 
-if bits[0] == bits[1].lower():
+# Special case for Sweden
+if locale == "sv_SE":
+    print "sv.po"
+elif bits[0] == bits[1].lower():
     print bits[0] + ".po"
 else:
     print locale + ".po"
