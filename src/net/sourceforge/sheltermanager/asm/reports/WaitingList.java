@@ -49,6 +49,7 @@ public class WaitingList extends Report {
         // Generate table header
         tableNew();
         tableAddRow();
+        tableAddCell(bold(Global.i18n("reports", "Rank")));
         tableAddCell(bold(Global.i18n("reports", "Name")));
         tableAddCell(bold(Global.i18n("reports", "Address")));
         tableAddCell(bold(Global.i18n("reports", "Telephone")));
