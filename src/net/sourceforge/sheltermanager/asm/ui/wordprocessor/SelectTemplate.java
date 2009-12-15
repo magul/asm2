@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.wordprocessor;
 
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DBFSBrowser;
@@ -105,6 +106,8 @@ public class SelectTemplate extends ASMForm implements DBFSBrowserParent {
         chkAttach = UI.getCheckBox(i18n("attach_generated_document_as_media"));
         add(browser, UI.BorderLayout.CENTER);
         add(chkAttach, UI.BorderLayout.SOUTH);
+        if (Configuration.getBoolean("AutoAttachMedia"))
+            chkAttach.setSelected(true);
     }
 
     public boolean formClosing() {

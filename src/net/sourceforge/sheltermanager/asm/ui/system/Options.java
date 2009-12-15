@@ -693,6 +693,13 @@ public class Options extends ASMForm {
                 "AdvancedFindOwner",
                 Configuration.getString("AdvancedFindOwner")
                              .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Auto_attach_generated_media"),
+                "AutoAttachMedia",
+                Configuration.getString("AutoAttachMedia")
+                             .equalsIgnoreCase("Yes"), false));
+
         tblDefaultOptions = new SelectableList(l);
 
 	defaults.add(pr, UI.BorderLayout.NORTH);
