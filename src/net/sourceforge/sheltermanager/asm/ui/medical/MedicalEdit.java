@@ -274,13 +274,25 @@ public class MedicalEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(1));
-        UI.Panel top = UI.getPanel(UI.getTableLayout(2));
+        
+        UI.Panel p = UI.getPanel(UI.getBorderLayout());
+        UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        p.add(top, UI.BorderLayout.NORTH);
+        UI.Panel freqdur = UI.getPanel(UI.getGridLayout(1));
+        UI.Panel freqwrap =  UI.getPanel(UI.getGridLayout(1));
         UI.Panel treatments = UI.getPanel(UI.getFlowLayout());
         UI.Panel frequency = UI.getPanel(UI.getFlowLayout());
+        freqwrap.add(treatments);
+        freqwrap.add(frequency);
         UI.Panel duration = UI.getPanel(UI.getFlowLayout());
-        UI.Panel comments = UI.getPanel(UI.getTableLayout(2));
+        freqdur.add(freqwrap);
+        freqdur.add(duration);
+        p.add(freqdur, UI.BorderLayout.SOUTH);
+        add(p, UI.BorderLayout.NORTH);
+        UI.Panel comments = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        add(comments, UI.BorderLayout.CENTER);
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
+        add(buttons, UI.BorderLayout.SOUTH);
 
         txtTreatmentName = (UI.TextField) UI.addComponent(top,
                 i18n("Treatment_Name:"), UI.getTextField());
@@ -292,14 +304,12 @@ public class MedicalEdit extends ASMForm {
                     i18n("Active"), i18n("Held"), i18n("Completed")
                 });
         UI.addComponent(top, i18n("Status:"), cboStatus);
-        p.add(top);
 
-        p.add(UI.getTitleLabel(i18n("Frequency")));
+        freqwrap.setTitle(i18n("Frequency"));
         radOneOff = (UI.RadioButton) treatments.add(UI.getRadioButton(i18n("One-Off"),
                     null, UI.fp(this, "selectedOneOff")));
         radMultiple = (UI.RadioButton) treatments.add(UI.getRadioButton(i18n("Multiple"),
                     null, UI.fp(this, "selectedMultiple")));
-        p.add(treatments);
 
         spnTimingRule = (UI.Spinner) frequency.add(UI.getSpinner(1, 50,
                     UI.fp(this, "enableScreenParts")));
@@ -314,9 +324,8 @@ public class MedicalEdit extends ASMForm {
                     i18n("days"), i18n("weeks"), i18n("months"), i18n("years")
                 }, UI.fp(this, "enableScreenParts"));
         frequency.add(cboTimingRuleFrequency);
-        p.add(frequency);
 
-        p.add(UI.getTitleLabel(i18n("Duration")));
+        duration.setTitle(i18n("Duration"));
         cboTreatmentRule = UI.getCombo(new String[] {
                     i18n("Ends_after"), i18n("Unspecified")
                 }, UI.fp(this, "enableScreenParts"));
@@ -328,18 +337,15 @@ public class MedicalEdit extends ASMForm {
         lblDuration = (UI.Label) duration.add(UI.getLabel(UI.ALIGN_LEFT, ""));
         lblDuration.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
                 UI.getTextBoxHeight()));
-        p.add(duration);
 
         txtComments = (UI.TextArea) UI.addComponent(comments, i18n("Comments"),
                 UI.getTextArea());
-        p.add(comments);
 
         btnOk = (UI.Button) buttons.add(UI.getButton(Global.i18n("reports", "Ok"),
                     null, 'o', null, UI.fp(this, "saveData")));
         btnCancel = (UI.Button) buttons.add(UI.getButton(Global.i18n(
                         "reports", "Cancel"), null, 'c', null,
                     UI.fp(this, "dispose")));
-        p.add(buttons);
 
         // Default values
         cboStatus.setSelectedIndex(0);
@@ -351,7 +357,6 @@ public class MedicalEdit extends ASMForm {
         spnTotalNumberOfTreatments.setValue(new Integer(1));
         lblDuration.setText(calculateTreatmentEnd());
 
-        add(p, UI.BorderLayout.CENTER);
     }
 
     public void selectedMultiple() {
