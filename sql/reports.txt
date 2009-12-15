@@ -332,7 +332,7 @@ species.SpeciesName,
 BreedName,
 AnimalAge, AgeGroup,
 internallocation.LocationName,
-lksMovementType.MovementType AS LatestMovement,
+lksmovementtype.MovementType AS LatestMovement,
 animal.ActiveMovementDate AS DateLeftShelter,
 owner.OwnerName
 FROM animal 
