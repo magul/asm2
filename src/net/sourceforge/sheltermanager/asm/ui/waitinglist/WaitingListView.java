@@ -111,6 +111,13 @@ public class WaitingListView extends ASMView {
 
     /** Fills the list according to the criteria selected */
     public void updateList() {
+
+        // Clear our cache of the waiting list, used to figure out rankings
+        if (ranks != null) {
+            ranks.free();
+            ranks = null;
+        }
+
         // Record any existing selection
         int lastSel = getTable().getSelectedRow();
 
@@ -139,16 +146,24 @@ public class WaitingListView extends ASMView {
         }
 
         // Contact name
-        crit = crit + " AND OwnerName Like '%" + txtContactName.getText() +
+        if (Configuration.getBoolean("CaseSensitiveSearch"))
+            crit = crit + " AND OwnerName Like '%" + txtContactName.getText() +
             "%'";
+        else
+            crit = crit + " AND UPPER(OwnerName) Like '%" + txtContactName.getText().toUpperCase() + "%'";
+
 
         // Contact address
-        crit = crit + " AND OwnerAddress Like '%" + txtAddress.getText() +
-            "%'";
+        if (Configuration.getBoolean("CaseSensitiveSearch"))
+            crit = crit + " AND OwnerAddress Like '%" + txtAddress.getText() + "%'";
+        else
+            crit = crit + " AND UPPER(OwnerAddress) Like '%" + txtAddress.getText().toUpperCase() + "%'";
 
         // Description
-        crit = crit + " AND AnimalDescription Like '%" +
-            txtDescription.getText() + "%'";
+        if (Configuration.getBoolean("CaseSensitiveSearch"))
+            crit = crit + " AND AnimalDescription Like '%" + txtDescription.getText() + "%'";
+        else
+            crit = crit + " AND UPPER(AnimalDescription) Like '%" + txtDescription.getText().toUpperCase() + "%'";
 
         // Sort order
         crit = crit + " ORDER BY Urgency, DatePutOnList";
@@ -180,7 +195,7 @@ public class WaitingListView extends ASMView {
 
         try {
             while (!rs.getEOF()) {
-                datar[i][0] = Integer.toString(i + 1);
+                datar[i][0] = getRank((Integer) rs.getField("ID"));
                 datar[i][1] = (String) rs.getField("OwnerName");
                 datar[i][2] = Utils.formatAddress((String) rs.getField(
                             "OwnerAddress"));
@@ -214,6 +229,40 @@ public class WaitingListView extends ASMView {
             getTable().grabFocus();
         }
     }
+
+    /**
+     * Calculates the rank (order) of any item on the waiting list
+     * - if the item is no longer on the list, an empty string is returned
+     */
+    public String getRank(Integer id) {
+        
+        try {
+            if (ranks == null) {
+                ranks = new SQLRecordset();
+                ranks.openRecordset("SELECT ID FROM animalwaitinglist " +
+                    "WHERE DateRemovedFromList Is Null ORDER BY Urgency, DatePutOnList",
+                    "animalwaitinglist");
+            }
+            else {
+                ranks.moveFirst();
+            }
+
+            int i = 1;
+            while (!ranks.getEOF()) {
+                if (ranks.getField("ID").equals(id))
+                    return Integer.toString(i);
+                i++;
+                ranks.moveNext();
+            }
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+        return "";
+
+    }
+    private SQLRecordset ranks = null;
 
     private String formatUrgencyNumberAsString(int urgency) {
         return LookupCache.getUrgencyNameForID(new Integer(urgency));

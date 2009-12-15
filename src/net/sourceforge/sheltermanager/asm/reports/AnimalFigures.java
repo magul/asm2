@@ -252,6 +252,7 @@ public class AnimalFigures extends Report {
     }
 
     public void genSpeciesFigs(Integer speciesID) throws Exception {
+        
         String animalName = "";
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;
@@ -260,10 +261,6 @@ public class AnimalFigures extends Report {
         // Load the set of death reasons
         DeathReason dr = new DeathReason();
         dr.openRecordset("ID > 0 ORDER BY ReasonName");
-
-        // Output header
-        animalName = LookupCache.getSpeciesName(speciesID);
-        addLevelTwoHeader(animalName);
 
         // Get last day of month and number of days in month
         lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
@@ -381,6 +378,20 @@ public class AnimalFigures extends Report {
         average = (average / averageitems);
         tableAddCell(bold(Double.toString(Utils.round(average, 2))));
         tableFinishRow();
+
+        // Do we actually have any data for this species? If all the 
+        // total rows are zero, then abort now and don't bother putting
+        // it on the report
+        if (average == 0) {
+           // Move the progress bar on
+           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
+           return;
+        }
+
+        // Output the species header - we can do this because tables aren't
+        // appended into the report until finishTable() is called
+        animalName = LookupCache.getSpeciesName(speciesID);
+        addLevelTwoHeader(animalName);
 
         // --------------------------------------------------------------
         // IN SECTION
@@ -1042,10 +1053,6 @@ public class AnimalFigures extends Report {
         DeathReason dr = new DeathReason();
         dr.openRecordset("ID > 0 ORDER BY ReasonName");
 
-        // Output header
-        animalName = LookupCache.getAnimalTypeName(animalTypeID);
-        addLevelTwoHeader(animalName);
-
         // Get last day of month and number of days in month
         lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
         lastDayOfMonth.add(Calendar.MONTH, 1);
@@ -1142,6 +1149,20 @@ public class AnimalFigures extends Report {
         average = (average / averageitems);
         tableAddCell(bold(Double.toString(Utils.round(average, 2))));
         tableFinishRow();
+
+        // Do we actually have any data for this type? If all the 
+        // total rows are zero, then abort now and don't bother putting
+        // it on the report
+        if (average == 0) {
+           // Move the progress bar on
+           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
+           return;
+        }
+
+        // Output the type header - we can do this because tables aren't
+        // appended into the report until finishTable() is called
+        animalName = LookupCache.getAnimalTypeName(animalTypeID);
+        addLevelTwoHeader(animalName);
 
         // --------------------------------------------------------------
         // IN SECTION
