@@ -2674,6 +2674,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         animalmovement.updateList();
         loadedLogs = true;
         log.updateList();
+
+        setDirty(false);
     }
 
     /** Lazily load contents as tabs are clicked */
