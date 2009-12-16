@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-09 11:28+0100\n"
-"PO-Revision-Date: 2009-12-13 21:06+0000\n"
+"POT-Creation-Date: 2009-12-15 14:56+0100\n"
+"PO-Revision-Date: 2009-12-15 22:21+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-14 04:39+0000\n"
+"X-Launchpad-Export-Date: 2009-12-16 05:30+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -229,6 +229,7 @@ msgstr "Atiduotas"
 #. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: On_Shelter
 msgid "On Shelter"
 msgstr "Prieglaudoje"
@@ -2640,15 +2641,15 @@ msgstr "Amazonė"
 
 #: breed_400_3
 msgid "Brotogeris"
-msgstr "Brotogeris"
+msgstr "Plonasnapė papūga"
 
 #: breed_401_3
 msgid "Budgie/Budgerigar"
-msgstr ""
+msgstr "Banguotoji papūgėlė"
 
 #: breed_402_3
 msgid "Caique"
-msgstr ""
+msgstr "Baltapilvė papūga"
 
 #: breed_403_3
 msgid "Canary"
@@ -2666,11 +2667,11 @@ msgstr "Papūga"
 
 #: breed_406_3
 msgid "Cockatoo"
-msgstr ""
+msgstr "Kakadu"
 
 #: breed_407_3
 msgid "Conure"
-msgstr ""
+msgstr "Kūgiauodegė papūga"
 
 #: breed_408_3
 #: species_8
@@ -2683,7 +2684,7 @@ msgstr "Antis"
 
 #: breed_410_3
 msgid "Eclectus"
-msgstr ""
+msgstr "Eklektusas"
 
 #: breed_411_3
 msgid "Emu"
@@ -2691,7 +2692,7 @@ msgstr "Emu"
 
 #: breed_412_3
 msgid "Finch"
-msgstr ""
+msgstr "Giesmininkas"
 
 #: breed_413_3
 #: species_17
@@ -2700,7 +2701,7 @@ msgstr "Žąsis"
 
 #: breed_414_3
 msgid "Guinea fowl"
-msgstr ""
+msgstr "Perlinė višta"
 
 #: breed_415_3
 msgid "Kakariki"
@@ -2708,39 +2709,39 @@ msgstr ""
 
 #: breed_416_3
 msgid "Lory/Lorikeet"
-msgstr ""
+msgstr "Loris"
 
 #: breed_417_3
 msgid "Lovebird"
-msgstr ""
+msgstr "Agapornis"
 
 #: breed_418_3
 msgid "Macaw"
-msgstr ""
+msgstr "Ara"
 
 #: breed_419_3
 msgid "Mynah"
-msgstr ""
+msgstr "Varnėnas"
 
 #: breed_420_3
 msgid "Ostrich"
-msgstr ""
+msgstr "Strutis"
 
 #: breed_421_3
 msgid "Parakeet (Other)"
-msgstr ""
+msgstr "Ilgauodegė papūga (kita)"
 
 #: breed_422_3
 msgid "Parrot (Other)"
-msgstr ""
+msgstr "Papūga (kita)"
 
 #: breed_423_3
 msgid "Parrotlet"
-msgstr ""
+msgstr "Žvirblinė papūgėlė"
 
 #: breed_424_3
 msgid "Peacock/Pea fowl"
-msgstr ""
+msgstr "Povas"
 
 #: breed_425_3
 msgid "Pheasant"
@@ -2752,7 +2753,7 @@ msgstr "Balandis"
 
 #: breed_427_3
 msgid "Pionus"
-msgstr ""
+msgstr "Pionas"
 
 #: breed_428_3
 msgid "Poicephalus/Senegal"
@@ -2760,7 +2761,7 @@ msgstr ""
 
 #: breed_429_3
 msgid "Quaker Parakeet"
-msgstr ""
+msgstr "Kalita"
 
 #: breed_430_3
 msgid "Rhea"
@@ -2897,6 +2898,7 @@ msgstr "Prieglaudos gyvūnų detali suvestinė"
 msgid "Animals Not Part Of A Litter"
 msgstr "Jaunikliai nepriklausantys vadai"
 
+#. # reports/AnimalFigures
 #. # db/AutoDBUpdates
 #: customreport_45_category
 #: Litters
@@ -3448,19 +3450,9 @@ msgid "Scan complete"
 msgstr "Skanavimas užbaigtas"
 
 #. # db/Diagnostic
-#: _returns_without_a_movement_found_and_removed
-msgid " returns without a movement found and removed."
-msgstr ""
-
-#. # db/Diagnostic
 #: An_error_occurred_running_diagnostics\:\n
 msgid "An error occurred running diagnostics: "
 msgstr "Įvyko klaida vykdant diagnostiką: "
-
-#. # db/Diagnostic
-#: _orphaned_vaccination_records_found_and_removed\n
-msgid " orphaned vaccination records found and removed."
-msgstr ""
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
@@ -3468,14 +3460,14 @@ msgid "Checking for orphaned movement records..."
 msgstr ""
 
 #. # db/Diagnostic
+#: Checking_for_orphaned_medical_records...
+msgid "Checking for orphaned medical records..."
+msgstr ""
+
+#. # db/Diagnostic
 #: No_errors_were_found_during_diagnostics.
 msgid "No errors were found during diagnostics."
 msgstr "Diagnostikos metu klaidų nerasta."
-
-#. # db/Diagnostic
-#: _orphaned_movement_records_found_and_removed.\n
-msgid " orphaned movement records found and removed. "
-msgstr ""
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_media_records...
@@ -3485,11 +3477,6 @@ msgstr ""
 #. # db/Diagnostic
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
-msgstr ""
-
-#. # db/Diagnostic
-#: _orphaned_media_records_found_and_removed.\n
-msgid " orphaned media records found and removed."
 msgstr ""
 
 #. # db/DBUpdate
@@ -3552,11 +3539,6 @@ msgstr "Pasirinkite duomenų bazės failą atnaujinimui:"
 #: An_error_occurred_reading_the_file\:\n
 msgid "An error occurred reading the file:\n"
 msgstr "Įvyko klaida nuskaitant failą:\n"
-
-#. # db/Diagnostic
-#: _corrupted_tables_repaired
-msgid " corrupted tables repaired."
-msgstr ""
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3755,11 +3737,6 @@ msgid ""
 msgstr ""
 
 #. # db/Diagnostic
-#: _invalid_animal_codes_fixed_for_this_year
-msgid " invalid animal codes fixed for this year."
-msgstr " šiais metais klaidingų gyvūnų kodų sutvarkyta."
-
-#. # db/Diagnostic
 #: Checking_for_bad_animal_codes...
 msgid "Checking for bad animal codes..."
 msgstr "Tikrinami netinkami gyvūnų kodai..."
@@ -3768,11 +3745,6 @@ msgstr "Tikrinami netinkami gyvūnų kodai..."
 #: fixing_mysql_dates
 msgid "Fixing MySQL 5.x NULL dates"
 msgstr "Tvarkomos MySQL 5.x NULL datos"
-
-#. # db/Diagnostic
-#: _mysql_date_columns_repaired
-msgid " mysql date columns repaired."
-msgstr ""
 
 #. # db/PetFinderImport
 #: Select_petfinder_file_to_process
@@ -3783,6 +3755,33 @@ msgstr ""
 #: Recalculating_adoption_donations
 msgid "Recalculating adoption donations..."
 msgstr "Perskaičiuojama atidavimo metu gauta parama..."
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: want_to_include_dbfs
+msgid ""
+"Do you want to include media files? If you have a lot, this operation will "
+"take longer."
+msgstr ""
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: include_dbfs
+msgid "Include Media?"
+msgstr ""
+
+#. # db/Diagnostic
+#: diagnostic_output
+msgid ""
+"{0} corrupted tables repaired.\n"
+"{1} orphaned movement records found and removed.\n"
+"{2} orphaned media records found and removed.\n"
+"{3} orphaned vaccination records found and removed.\n"
+"{4} orphaned medical records found and removed.\n"
+"{5} returns without a movement found and removed.\n"
+"{6} mysql date columns repaired.\n"
+"{7} invalid animal codes fixed for this year."
+msgstr ""
 
 #. # mailmerge/OffShelterVaccinations
 #. # reports/VaccinationDiary
@@ -4988,6 +4987,7 @@ msgid "Total "
 msgstr "Viso "
 
 #. # ui/waitinglist/WaitingListView
+#. # reports/WaitingList
 #. # reports/Stats
 #: Rank
 msgid "Rank"
@@ -8273,8 +8273,8 @@ msgstr "Paieška atlikta - rasti {0} rezultatai. "
 
 #. # ui/animal/AnimalEdit
 #: edit_animal_title
-msgid "Edit Animal - {0}, {1} ({2}) aged {3}"
-msgstr "Redaguoti gyvūną - {0}, {1} ({2}) amžiaus {3}"
+msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
+msgstr "Redaguoti gyvūną - {0}, {1} ({2} {3}) amžiaus {4}"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
@@ -8429,6 +8429,7 @@ msgstr ""
 "Pažymėkite šį laukelį, jei gyvūnas patyrė žiaurų elgesį, dėl kurio iškelta "
 "byla"
 
+#. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
 #: Current_Vet
 msgid "Current Vet:"
@@ -8437,12 +8438,12 @@ msgstr "Gydantis veterinaras:"
 #. # ui/animal/AnimalEdit
 #: Estimate
 msgid "Estimate"
-msgstr ""
+msgstr "Apytikslė"
 
 #. # ui/animal/AnimalEdit
 #: is_this_date_of_birth_an_estimate
 msgid "Tick this box if this date of birth is an estimate?"
-msgstr ""
+msgstr "Pažymėkite šį laukelį, jei tiksli gimimo data yra nežinoma."
 
 #. # ui/ui/UI
 #: Permission_Denied_Save
@@ -11286,6 +11287,7 @@ msgstr "Pasirinktus medikamentus pažymėti atliktais"
 msgid "Finishes After"
 msgstr "Gydymas baigiamas po"
 
+#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
 #: Refresh
 msgid "Refresh"
@@ -11753,6 +11755,18 @@ msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
 msgstr ""
 "Gyvūnas {0} - {1} nepriklauso prieglaudai, todėl veiksmai negali būti "
 "atliekami."
+
+#. # ui/movement/MovementEdit
+#: This_owner_has_active_match_criteria
+msgid ""
+"This owner still has active search criteria. Since they are adopting this "
+"animal, would you like to cancel it?"
+msgstr ""
+
+#. # ui/movement/MovementEdit
+#: Active_Criteria
+msgid "Active Criteria"
+msgstr ""
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
@@ -12534,6 +12548,12 @@ msgstr "Kita informacija apie asmenį"
 #: Owners_Vet
 msgid "Owner's Vet"
 msgstr "Savininko nurodytas veterinaras"
+
+#. # ui/owner/LinkSelector
+#. # ui/animal/AnimalEdit
+#: Current_Vet
+msgid "Current Vet"
+msgstr ""
 
 #. # ui/owner/DonationSelector
 #: create_a_new_donation
@@ -13772,6 +13792,11 @@ msgstr ""
 #. # ui/system/Options
 #: Automatic_Insurance_Numbers
 msgid "Automatic Insurance Numbers"
+msgstr ""
+
+#. # ui/system/Options
+#: Auto_attach_generated_media
+msgid "Automatically attach generated documents as media"
 msgstr ""
 
 #. # ui/users/UserView
@@ -15243,6 +15268,9 @@ msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 
 #~ msgid "An error occurred removing the record:\n"
 #~ msgstr "Įvyko klaida šalinant įrašą:\n"
+
+#~ msgid " invalid animal codes fixed for this year."
+#~ msgstr " šiais metais klaidingų gyvūnų kodų sutvarkyta."
 
 #~ msgid "Error Log"
 #~ msgstr "Klaidų žurnalas"

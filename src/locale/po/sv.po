@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-09 11:28+0100\n"
-"PO-Revision-Date: 2009-12-13 18:44+0000\n"
+"POT-Creation-Date: 2009-12-14 09:28+0100\n"
+"PO-Revision-Date: 2009-12-14 20:24+0000\n"
 "Last-Translator: Linn <linn@tigerharen.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-14 04:39+0000\n"
+"X-Launchpad-Export-Date: 2009-12-15 05:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -2871,14 +2871,14 @@ msgstr ""
 
 #: customreport_41_006
 msgid "Monthly Animal Figures"
-msgstr ""
+msgstr "Djurstatistik månadsvis"
 
 #. # db/AutoDBUpdates
 #: customreport_41_category
 #: customreport_42_category
 #: Figures
 msgid "Figures"
-msgstr ""
+msgstr "Statistik"
 
 #: customreport_42_007
 msgid "Long Term Animals"
@@ -3028,7 +3028,7 @@ msgstr "Donationer per månad"
 #: customreport_60_category
 #: customreport_61_category
 msgid "Financial Graphs"
-msgstr ""
+msgstr "Ekonomiska diagram"
 
 #: customreport_61_026
 msgid "Monthly Donations By Species"
@@ -3101,7 +3101,7 @@ msgstr "Allergi"
 
 #: entryreason_4
 msgid "Unable to Cope"
-msgstr ""
+msgstr "Oförmögen att ta hand om"
 
 #: entryreason_5
 msgid "Unsuitable Accomodation"
@@ -3180,7 +3180,7 @@ msgstr "Krullig"
 
 #: lkcoattype_4
 msgid "Corded"
-msgstr ""
+msgstr "Corded"
 
 #: lkcoattype_5
 msgid "Hairless"
@@ -3207,7 +3207,7 @@ msgstr ""
 #: lksmovementtype_7
 #: Released_To_Wild
 msgid "Released To Wild"
-msgstr ""
+msgstr "Släppts fri"
 
 #: lksmovementtype_10
 msgid "Cancelled Reservation"
@@ -3452,22 +3452,12 @@ msgstr "Fel hittade och reparerade"
 #. # db/Diagnostic
 #: Scan_complete
 msgid "Scan complete"
-msgstr ""
-
-#. # db/Diagnostic
-#: _returns_without_a_movement_found_and_removed
-msgid " returns without a movement found and removed."
-msgstr " återlämningar utan förflyttningar hittade och borttagna."
+msgstr "Genomsökning klar"
 
 #. # db/Diagnostic
 #: An_error_occurred_running_diagnostics\:\n
 msgid "An error occurred running diagnostics: "
-msgstr ""
-
-#. # db/Diagnostic
-#: _orphaned_vaccination_records_found_and_removed\n
-msgid " orphaned vaccination records found and removed."
-msgstr " föräldralösa vaccinationsregister hittade och borttagna."
+msgstr "Ett fel inträffade under körningen av diagnostik: "
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
@@ -3475,14 +3465,14 @@ msgid "Checking for orphaned movement records..."
 msgstr "letar efter föräldralösa förflyttningsregister..."
 
 #. # db/Diagnostic
+#: Checking_for_orphaned_medical_records...
+msgid "Checking for orphaned medical records..."
+msgstr "Letar efter föräldralösa medicinjournaler..."
+
+#. # db/Diagnostic
 #: No_errors_were_found_during_diagnostics.
 msgid "No errors were found during diagnostics."
 msgstr "Inga fel upptäcktes under diagnostiken."
-
-#. # db/Diagnostic
-#: _orphaned_movement_records_found_and_removed.\n
-msgid " orphaned movement records found and removed. "
-msgstr " föräldralösa förflyttningsregister hittade och borttagna. "
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_media_records...
@@ -3493,11 +3483,6 @@ msgstr "Letar efter föräldralösa mediaregister..."
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
 msgstr "Letar efter föräldralösa vaccinationsregister..."
-
-#. # db/Diagnostic
-#: _orphaned_media_records_found_and_removed.\n
-msgid " orphaned media records found and removed."
-msgstr " föräldralösa medaregister hittade och borttagna."
 
 #. # db/DBUpdate
 #: An_unexpected_error_occurred\:\n
@@ -3553,17 +3538,12 @@ msgstr "Ok"
 #. # db/DBUpdate
 #: Select_database_update_file_to_process\:
 msgid "Select database update file to process:"
-msgstr ""
+msgstr "Välj databasuppdateringsfil att bearbeta:"
 
 #. # db/DBUpdate
 #: An_error_occurred_reading_the_file\:\n
 msgid "An error occurred reading the file:\n"
 msgstr "Ett fel inträffade under läsningen av filen:\n"
-
-#. # db/Diagnostic
-#: _corrupted_tables_repaired
-msgid " corrupted tables repaired."
-msgstr " korrupta tabeller reparerade."
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3663,6 +3643,9 @@ msgid ""
 "from the {0} file in {1}. Select Yes if you have already done this, "
 "otherwise select No to cancel the copy."
 msgstr ""
+"Du måste redan ha skapat databasen och laddat databasstrukturen från filen "
+"{0} i {1}.Välj ja om du redan har gjort det, välj annars nej för att avbryta "
+"kopian."
 
 #. # db/DatabaseCopier
 #: continue
@@ -3766,11 +3749,6 @@ msgstr ""
 "systemadministratör för att uppdatera databasen."
 
 #. # db/Diagnostic
-#: _invalid_animal_codes_fixed_for_this_year
-msgid " invalid animal codes fixed for this year."
-msgstr " ogiltiga djurkoder för det här året har åtgärdats."
-
-#. # db/Diagnostic
 #: Checking_for_bad_animal_codes...
 msgid "Checking for bad animal codes..."
 msgstr "Letar efter ogiltiga djurkoder..."
@@ -3779,11 +3757,6 @@ msgstr "Letar efter ogiltiga djurkoder..."
 #: fixing_mysql_dates
 msgid "Fixing MySQL 5.x NULL dates"
 msgstr "Åtgärdar MySQL 5.x NULL datum"
-
-#. # db/Diagnostic
-#: _mysql_date_columns_repaired
-msgid " mysql date columns repaired."
-msgstr " mysql datumkolumner reparerade."
 
 #. # db/PetFinderImport
 #: Select_petfinder_file_to_process
@@ -3794,6 +3767,43 @@ msgstr "Välj PetFinder exportfil att bearbeta"
 #: Recalculating_adoption_donations
 msgid "Recalculating adoption donations..."
 msgstr "Räknar om adoptionsdonationer..."
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: want_to_include_dbfs
+msgid ""
+"Do you want to include media files? If you have a lot, this operation will "
+"take longer."
+msgstr ""
+"Vill du inkludera mediefiler? Om du har många kommer denna åtgärd ta längre "
+"tid."
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: include_dbfs
+msgid "Include Media?"
+msgstr "Inkludera media?"
+
+#. # db/Diagnostic
+#: diagnostic_output
+msgid ""
+"{0} corrupted tables repaired.\n"
+"{1} orphaned movement records found and removed.\n"
+"{2} orphaned media records found and removed.\n"
+"{3} orphaned vaccination records found and removed.\n"
+"{4} orphaned medical records found and removed.\n"
+"{5} returns without a movement found and removed.\n"
+"{6} mysql date columns repaired.\n"
+"{7} invalid animal codes fixed for this year."
+msgstr ""
+"{0} korrupta tabeller reparerade.\n"
+"{1} föräldralösa förflyttningsregister hittade och borttagna.\n"
+"{2} föräldralösa mediaregister hittade och borttagna.\n"
+"{3} föräldralösa vaccinationsjournaler hittade och borttagna.\n"
+"{4} föräldralösa medicinjournaler hittade och borttagna.\n"
+"{5} återlämningar utan förflyttningar hittade och borttagna.\n"
+"{6} mysql datumkolumner reparerade.\n"
+"{7} ogiltiga djurkoder åtgärdade för det här året."
 
 #. # mailmerge/OffShelterVaccinations
 #. # reports/VaccinationDiary
@@ -4460,7 +4470,7 @@ msgstr "Massutskickstyp"
 #. # mailmerge/MailMerge
 #: produce_cvs
 msgid "Create a CVS file on disk"
-msgstr ""
+msgstr "Skapa en CSV fil på datorn."
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -4687,7 +4697,7 @@ msgstr "Djurart"
 #. # reports/WaitingList
 #: Urgency
 msgid "Urgency"
-msgstr ""
+msgstr "Akut"
 
 #. # ui/waitinglist/WaitingListView
 #. # reports/WaitingList
@@ -5160,7 +5170,7 @@ msgstr "Djur sökresultat (genererat den {0}) "
 #. # reports/SearchResults
 #: Short_Code
 msgid "Short Code"
-msgstr ""
+msgstr "Snabbkod"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -5414,97 +5424,97 @@ msgstr "Långvariga djur (hos djurhemmet i 3 månader eller mer) den {0} "
 #. # reports/LongTermAnimals
 #: There_are_no_long_term_animals_on_the_shelter.
 msgid "There are no long term animals on the shelter."
-msgstr ""
+msgstr "Det finns inga långvariga djur på djurhemmet."
 
 #. # reports/InOut
 #: Animals_Adopted
 msgid "Animals Adopted"
-msgstr ""
+msgstr "Djur adopterade"
 
 #. # reports/InOut
 #: Total_Animals_Stolen_
 msgid "Total Animals Stolen: {0}"
-msgstr ""
+msgstr "Djur stulna totalt: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Brought_In_
 msgid "Total Animals Brought In: {0}"
-msgstr ""
+msgstr "Djur som lämnats in totalt: {0}"
 
 #. # reports/InOut
 #: Animals_Fostered
 msgid "Animals Fostered"
-msgstr ""
+msgstr "Djur i jourhem"
 
 #. # reports/InOut
 #: Total_Animals_Adopted_
 msgid "Total Animals Adopted: {0}"
-msgstr ""
+msgstr "Adopterade djur totalt: {0}"
 
 #. # reports/InOut
 #: Animals_Stolen
 msgid "Animals Stolen"
-msgstr ""
+msgstr "Djur stulna"
 
 #. # reports/InOut
 #: Date_Transferred
 msgid "Date Transferred"
-msgstr ""
+msgstr "Förflyttad datum"
 
 #. # reports/InOut
 #: Total_Animals_In_
 msgid "Total Animals In: {0} "
-msgstr ""
+msgstr "Djur in totalt: {0} "
 
 #. # reports/InOut
 #: Total_Animals_Transferred_
 msgid "Total Animals Transferred: {0}"
-msgstr ""
+msgstr "Totalt förflyttade djur"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Transferring_Out_
 msgid "Total Animals Returned From Transferring Out: {0}"
-msgstr ""
+msgstr "Totalt återlämnade djur efter förflyttning: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Adoption_
 msgid "Total Animals Returned From Adoption: {0}"
-msgstr ""
+msgstr "Totalt återlämnade djur från adoption: {0}"
 
 #. # reports/InOut
 #: Returned_From
 msgid "Returned From"
-msgstr ""
+msgstr "Återlämnad från"
 
 #. # reports/InOut
 #: Animals_Returned_From_Transferring_Out
 msgid "Animals Returned From Transferring Out"
-msgstr ""
+msgstr "Djur återlämnade från förflyttning ut"
 
 #. # reports/InOut
 #: Animals_Released_To_Wild
 msgid "Animals Released To Wild"
-msgstr ""
+msgstr "Djur som släppts fria"
 
 #. # reports/InOut
 #: Total_Animals_Reclaimed_
 msgid "Total Animals Reclaimed: {0}"
-msgstr ""
+msgstr "Totalt återtagna djur: {0}"
 
 #. # reports/InOut
 #: Fostered_To
 msgid "Fostered To"
-msgstr ""
+msgstr "I jourhem hos"
 
 #. # reports/InOut
 #: Adopted_To
 msgid "Adopted To"
-msgstr ""
+msgstr "Adopterad av"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Fostering_
 msgid "Total Animals Returned From Fostering: {0}"
-msgstr ""
+msgstr "Totalt återlämnade djur från jourhem: {0}"
 
 #. # bo/LookupCache
 #. # bo/OwnerDonation
@@ -5517,125 +5527,125 @@ msgstr ""
 #: Donation
 #: donation
 msgid "Donation"
-msgstr ""
+msgstr "Donation"
 
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
-msgstr ""
+msgstr "Djur förflyttade in"
 
 #. # reports/InOut
 #: Animals_Transferred
 msgid "Animals Transferred"
-msgstr ""
+msgstr "Djur förflyttade"
 
 #. # reports/InOut
 #: Date_Reclaimed
 msgid "Date Reclaimed"
-msgstr ""
+msgstr "Datum återtagen"
 
 #. # reports/InOut
 #: Returned_Date
 msgid "Returned Date"
-msgstr ""
+msgstr "Återlämningsdatum"
 
 #. # reports/TransferIn
 #. # reports/InOut
 #: Brought_In_By
 msgid "Brought In By"
-msgstr ""
+msgstr "Togs in av"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Others_
 msgid "Total Animals Returned From Others: {0}"
-msgstr ""
+msgstr "Totalt återlämnade djur från andra: {0}"
 
 #. # reports/InOut
 #: Animals_Out
 msgid "Animals Out"
-msgstr ""
+msgstr "Djur ut"
 
 #. # reports/InOut
 #: Date_Deceased
 msgid "Date Deceased"
-msgstr ""
+msgstr "Avliden datum"
 
 #. # reports/InOut
 #: Date_Fostered
 msgid "Date Fostered"
-msgstr ""
+msgstr "Datum till jourhem"
 
 #. # reports/InOut
 #: Animals_Escaped
 msgid "Animals Escaped"
-msgstr ""
+msgstr "Djur som rymt"
 
 #. # reports/InOut
 #: Daily_In/Out_Report_between_
 msgid "Daily In/Out Report between {0} and {1} "
-msgstr ""
+msgstr "Daglig in/ut-rapport mellan {0} och {1} "
 
 #. # reports/InOut
 #: Total_Animals_Out_
 msgid "Total Animals Out: {0} "
-msgstr ""
+msgstr "Djur ut totalt: {0} "
 
 #. # reports/InOut
 #: Date_Escaped
 msgid "Date Escaped"
-msgstr ""
+msgstr "Rymde datum"
 
 #. # reports/InOut
 #: Total_Animals_Died_On_Shelter_
 msgid "Total Animals Died On Shelter: {0}"
-msgstr ""
+msgstr "Djur som dött på djurhemmet totalt: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Transferred_In_
 msgid "Total Animals Transferred In: {0}"
-msgstr ""
+msgstr "Totalt förflyttade djur in: {0}"
 
 #. # reports/InOut
 #: Animals_Reclaimed
 msgid "Animals Reclaimed"
-msgstr ""
+msgstr "Djur återtagna"
 
 #. # reports/InOut
 #. # reports/Retailer
 #: Total_Donations_
 #: retailer_total_donations
 msgid "Total Donations: {0}"
-msgstr ""
+msgstr "Donationer totalt: {0}"
 
 #. # reports/InOut
 #: Date_Stolen
 msgid "Date Stolen"
-msgstr ""
+msgstr "Datum stulen"
 
 #. # reports/InOut
 #: Date_Released
 msgid "Date Released"
-msgstr ""
+msgstr "Datum utsläppt"
 
 #. # reports/InOut
 #: Returned_By
 msgid "Returned By"
-msgstr ""
+msgstr "Återlämnad av"
 
 #. # reports/InOut
 #: Animals_Returned_From_Adoption
 msgid "Animals Returned From Adoption"
-msgstr ""
+msgstr "Djur återlämnade eetr adoption"
 
 #. # reports/InOut
 #: Animals_In
 msgid "Animals In"
-msgstr ""
+msgstr "Djur in"
 
 #. # reports/InOut
 #: Animals_Brought_In
 msgid "Animals Brought In"
-msgstr ""
+msgstr "Djur inlämnade"
 
 #. # reports/InOut
 #: PTS_Reason
@@ -5645,32 +5655,32 @@ msgstr ""
 #. # reports/InOut
 #: Total_Animals_Fostered_
 msgid "Total Animals Fostered: {0}"
-msgstr ""
+msgstr "Djur i jourhem totalt: {0}"
 
 #. # reports/InOut
 #: Animals_Returned_From_Others
 msgid "Animals Returned From Others"
-msgstr ""
+msgstr "Djur återlämnade från andra"
 
 #. # reports/InOut
 #: Animals_Returned_From_Fostering
 msgid "Animals Returned From Fostering"
-msgstr ""
+msgstr "Djur återlämnade från jourhem"
 
 #. # reports/InOut
 #: Total_Animals_Released_
 msgid "Total Animals Released: {0}"
-msgstr ""
+msgstr "Totalt fri/återsläppta djur: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Escaped_
 msgid "Total Animals Escaped: {0}"
-msgstr ""
+msgstr "Totalt djur som rymt: {0}"
 
 #. # reports/InOut
 #: Animals_Died_On_The_Shelter
 msgid "Animals Died On The Shelter"
-msgstr ""
+msgstr "Djur som dött på djurhemmet"
 
 #. # bo/DiaryTaskDetail
 #. # bo/Diary
@@ -5681,43 +5691,43 @@ msgstr ""
 #. # reports/DiaryNotesToday
 #: Subject
 msgid "Subject"
-msgstr ""
+msgstr "Ämne"
 
 #. # reports/DiaryNotesToday
 #: No_diary_notes_match_your_criteria.
 msgid "No diary notes match your criteria."
-msgstr ""
+msgstr "Inga journalanteckningar matchar dina kriterier."
 
 #. # reports/DiaryNotesToday
 #: Diary_for_
 msgid "Diary for {0}"
-msgstr ""
+msgstr "Journal för {0}"
 
 #. # reports/DiaryNotesToday
 #: Diary_between_
 msgid "Diary between {0} and {1} "
-msgstr ""
+msgstr "Journal mellan {0} och {1} "
 
 #. # ui/criteria/DiaryCriteria
 #. # reports/DiaryNotesToday
 #: Diary_Criteria
 msgid "Diary Criteria"
-msgstr ""
+msgstr "Journalkriterier"
 
 #. # reports/DiaryNotesToday
 #: Diary_upto_
 msgid "Diary upto {0}"
-msgstr ""
+msgstr "Journal fram till{0}"
 
 #. # reports/AnimalReturnedPreSix
 #: Animals_returned_within_6_months_of_adoption_at_
 msgid "Animals returned within 6 months of adoption at {0} "
-msgstr ""
+msgstr "Djur som återlämnats inom 6 månader efter adoption den {0} "
 
 #. # reports/AnimalReturnedPreSix
 #: No_animals_have_been_returned_within_6_months_of_adoption.
 msgid "No animals have been returned within 6 months of adoption."
-msgstr ""
+msgstr "Inga djur har återlämnats inom 6 månader efter adoption."
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
@@ -5745,36 +5755,36 @@ msgstr ""
 #. # reports/UnneuteredSixMonths
 #: Code
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. # reports/ReturnedAnimals
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #: Date_Adopted
 msgid "Date Adopted"
-msgstr ""
+msgstr "Datum adopterad"
 
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #: Reason_for_Return
 msgid "Reason for Return"
-msgstr ""
+msgstr "Anledning till återlämning"
 
 #. # reports/AnimalReturnedPostSix
 #: No_animals_have_been_returned_after_6_months_of_adoption.
 msgid "No animals have been returned after 6 months of adoption."
-msgstr ""
+msgstr "Inga djur har återlämnats efter 6 månader efter adoption."
 
 #. # reports/AnimalReturnedPostSix
 #: Animals_returned_after_6_months_of_adoption_at_
 msgid "Animals returned after 6 months of adoption at {0} "
-msgstr ""
+msgstr "Djur återlämnade efter 6 månader efter adoption {0} "
 
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #: No_adoptions_on_file.
 msgid "No adoptions on file."
-msgstr ""
+msgstr "Inga adoptioner i arkivet."
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
@@ -5787,7 +5797,7 @@ msgstr ""
 #. # reports/AnimalReturnedPreSix
 #: Internal_Loc
 msgid "Internal Loc"
-msgstr ""
+msgstr "Intern placering"
 
 #. # ui/diary/DiaryTaskView
 #. # ui/diary/VetBookView
@@ -5818,100 +5828,102 @@ msgstr ""
 #: Type
 #: type
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. # reports/AnimalFigures
 #: Select_Month
 msgid "Select Month"
-msgstr ""
+msgstr "Välj månad"
 
 #. # reports/AnimalFigures
 #: _stolen
 msgid "{0} stolen"
-msgstr ""
+msgstr "{0} stulen"
 
 #. # reports/AnimalFigures
 #: Returned_To_Owner
 msgid "Returned To Owner"
-msgstr ""
+msgstr "Återlämnad till ägare"
 
 #. # reports/AnimalFigures
 #: April
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #. # reports/AnimalFigures
 #: To_Fostering
 msgid "To Fostering"
-msgstr ""
+msgstr "Till jourhem"
 
 #. # ui/system/ConfigureLookups
 #: Cats
 msgid "Cats"
-msgstr ""
+msgstr "Katter"
 
 #. # reports/AnimalFigures
 #: _returned_from_other_(transfers,_released,_escaped,_stolen_or_reclaimed)
 msgid ""
 "{0} returned from other (transfers, released, escaped, stolen or reclaimed)"
 msgstr ""
+"{0} återlämnade från annat (förflyttningar, frisläppt, rymt, stulen eller "
+"återtagen)"
 
 #. # reports/AnimalFigures
 #: Which_month_is_this_report_for?
 msgid "Which month is this report for?"
-msgstr ""
+msgstr "Vilken månad är den här rapporten för?"
 
 #. # reports/AnimalFigures
 #: July
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 #. # reports/AnimalFigures
 #: Summary_Totals\:
 msgid "Summary Totals:"
-msgstr ""
+msgstr "Sammanfattning totalt:"
 
 #. # reports/AnimalFigures
 #: Which_year_is_this_report_for?
 msgid "Which year is this report for?"
-msgstr ""
+msgstr "Vilket år är den här rapporten för?"
 
 #. # ui/movement/MovementSelector
 #. # reports/AnimalFigures
 #. # reports/AnimalPrint
 #: Returned
 msgid "Returned"
-msgstr ""
+msgstr "Återlämnad"
 
 #. # reports/AnimalFigures
 #: Transferred_Out
 msgid "Transferred Out"
-msgstr ""
+msgstr "Förflyttade ut"
 
 #. # reports/AnimalFigures
 #: Avg
 msgid "Avg"
-msgstr ""
+msgstr "Medeltal"
 
 #. # ui/system/ConfigureLookups
 #: Dogs
 msgid "Dogs"
-msgstr ""
+msgstr "Hundar"
 
 #. # reports/AnimalFigures
 #: Transferred_In
 msgid "Transferred In"
-msgstr ""
+msgstr "Förflyttade in"
 
 #. # reports/AnimalFigures
 #: August
 msgid "August"
-msgstr ""
+msgstr "Augusti"
 
 #. # reports/AnimalFigures
 #: PTS
 msgid "PTS"
-msgstr ""
+msgstr "Avlivade"
 
 #. # reports/ReturnedAnimals
 #. # reports/MedicalDiary
@@ -5936,93 +5948,93 @@ msgstr ""
 #. # reports/UnneuteredSixMonths
 #: An_error_occurred_generating_the_report
 msgid "An error occurred generating the report: {0}"
-msgstr ""
+msgstr "Ett fel inträffade under skapandet av rapporten: {0}"
 
 #. # reports/AnimalFigures
 #: January
 msgid "January"
-msgstr ""
+msgstr "Januari"
 
 #. # reports/AnimalFigures
 #: From_Fostering
 msgid "From Fostering"
-msgstr ""
+msgstr "Från jourhem"
 
 #. # reports/AnimalFigures
 #: February
 msgid "February"
-msgstr ""
+msgstr "Februari"
 
 #. # reports/AnimalFigures
 #: _to_foster_home
 msgid "{0} to foster home"
-msgstr ""
+msgstr "{0} till jourhem"
 
 #. # reports/AnimalFigures
 #: March
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 #. # reports/AnimalFigures
 #: Incoming
 msgid "Incoming"
-msgstr ""
+msgstr "Inkommande"
 
 #. # reports/AnimalFigures
 #: From_Other
 msgid "From Other"
-msgstr ""
+msgstr "Från annan"
 
 #. # reports/AnimalFigures
 #: November
 msgid "November"
-msgstr ""
+msgstr "November"
 
 #. # reports/AnimalFigures
 #: October
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 #. # reports/AnimalFigures
 #: Brought_to_the_Shelter
 msgid "Brought to the Shelter:"
-msgstr ""
+msgstr "Inlämnade till djurhemmet:"
 
 #. # reports/AnimalFigures
 #: _returned_to_owner
 msgid "{0} returned to owner"
-msgstr ""
+msgstr "{0} återlämnade till ägare"
 
 #. # reports/AnimalFigures
 #: June
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 #. # reports/AnimalFigures
 #: Day_Of_Month
 msgid "Day Of Month"
-msgstr ""
+msgstr "Dag i månad"
 
 #. # reports/InOut
 #. # reports/AnimalFigures
 #: Put_To_Sleep
 msgid "Put To Sleep"
-msgstr ""
+msgstr "Avlivad"
 
 #. # reports/AnimalFigures
 #: September
 msgid "September"
-msgstr ""
+msgstr "September"
 
 #. # reports/AnimalFigures
 #: _transferred_in
 msgid "{0} transferred in"
-msgstr ""
+msgstr "{0} förflyttad in"
 
 #. # reports/AnimalFigures
 #: _escaped
 msgid "{0} escaped"
-msgstr ""
+msgstr "{0} rymde"
 
 #. # reports/AnimalFigures
 #: Day_Total
@@ -8385,6 +8397,7 @@ msgstr ""
 msgid "Tick this box if this animal is a cruelty case"
 msgstr ""
 
+#. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
 #: Current_Vet
 msgid "Current Vet:"
@@ -11233,6 +11246,7 @@ msgstr ""
 msgid "Finishes After"
 msgstr ""
 
+#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
 #: Refresh
 msgid "Refresh"
@@ -11682,6 +11696,18 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: You_cannot_move_nonshelter_animals
 msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
+msgstr ""
+
+#. # ui/movement/MovementEdit
+#: This_owner_has_active_match_criteria
+msgid ""
+"This owner still has active search criteria. Since they are adopting this "
+"animal, would you like to cancel it?"
+msgstr ""
+
+#. # ui/movement/MovementEdit
+#: Active_Criteria
+msgid "Active Criteria"
 msgstr ""
 
 #. # ui/owner/OwnerFind
@@ -12450,6 +12476,12 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Owners_Vet
 msgid "Owner's Vet"
+msgstr ""
+
+#. # ui/owner/LinkSelector
+#. # ui/animal/AnimalEdit
+#: Current_Vet
+msgid "Current Vet"
 msgstr ""
 
 #. # ui/owner/DonationSelector
@@ -14472,3 +14504,24 @@ msgstr "Ett fel uppstod vid ändring i katalogen "
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr "Bifoga skapat dokument som media?"
+
+#~ msgid " returns without a movement found and removed."
+#~ msgstr " återlämningar utan förflyttningar hittade och borttagna."
+
+#~ msgid " orphaned vaccination records found and removed."
+#~ msgstr " föräldralösa vaccinationsregister hittade och borttagna."
+
+#~ msgid " corrupted tables repaired."
+#~ msgstr " korrupta tabeller reparerade."
+
+#~ msgid " orphaned movement records found and removed. "
+#~ msgstr " föräldralösa förflyttningsregister hittade och borttagna. "
+
+#~ msgid " orphaned media records found and removed."
+#~ msgstr " föräldralösa medaregister hittade och borttagna."
+
+#~ msgid " invalid animal codes fixed for this year."
+#~ msgstr " ogiltiga djurkoder för det här året har åtgärdats."
+
+#~ msgid " mysql date columns repaired."
+#~ msgstr " mysql datumkolumner reparerade."

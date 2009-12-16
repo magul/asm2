@@ -867,7 +867,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             // Outputs the title for the frame
             this.setTitle(i18n("edit_animal_title", animal.getShelterCode(),
-                    animal.getAnimalName(), animal.getSpeciesName(),
+                    animal.getAnimalName(), animal.calculateAgeGroup(), animal.getSpeciesName(),
                     animal.getAge()));
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -2618,22 +2618,23 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     public void updateAge() {
         // Recalculate the age if this is not a new record
         // and the date is valid.
+        /*
         if (!isNewRecord) {
             // Update the age field in the object
             try {
-                animal.setDateOfBirth(Utils.parseDate(txtDateOfBirth.getText()));
             } catch (Exception e) {
             }
 
             // Update the title
             showTitle();
         }
+        */
 
-        // Alter the date of birth tooltip (this works for
-        // new or existing records)
+        // Alter the date of birth tooltip and form title
         try {
-            Date d = Utils.parseDate(txtDateOfBirth.getText());
-            txtDateOfBirth.setToolTipText(Animal.getAge(d));
+            animal.setDateOfBirth(Utils.parseDate(txtDateOfBirth.getText()));
+            txtDateOfBirth.setToolTipText(animal.getAge() + " (" + animal.calculateAgeGroup() + ")");
+            showTitle();
         } catch (Exception e) {
             txtDateOfBirth.setToolTipText(null);
         }

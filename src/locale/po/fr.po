@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-09 11:28+0100\n"
-"PO-Revision-Date: 2009-12-11 23:09+0000\n"
+"POT-Creation-Date: 2009-12-15 14:56+0100\n"
+"PO-Revision-Date: 2009-12-15 00:23+0000\n"
 "Last-Translator: MakGreg <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-13 04:40+0000\n"
+"X-Launchpad-Export-Date: 2009-12-16 05:30+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -229,6 +229,7 @@ msgstr "Adopté(e)"
 #. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: On_Shelter
 msgid "On Shelter"
 msgstr "Au refuge"
@@ -2906,6 +2907,7 @@ msgstr "Inventaire détaillé du refuge"
 msgid "Animals Not Part Of A Litter"
 msgstr "Animaux ne faisant pas partie d'une portée"
 
+#. # reports/AnimalFigures
 #. # db/AutoDBUpdates
 #: customreport_45_category
 #: Litters
@@ -3457,19 +3459,9 @@ msgid "Scan complete"
 msgstr "Scan terminé"
 
 #. # db/Diagnostic
-#: _returns_without_a_movement_found_and_removed
-msgid " returns without a movement found and removed."
-msgstr " retours sans mouvement trouvés et supprimés."
-
-#. # db/Diagnostic
 #: An_error_occurred_running_diagnostics\:\n
 msgid "An error occurred running diagnostics: "
 msgstr "Une erreur est survenue durant le diagnostique : "
-
-#. # db/Diagnostic
-#: _orphaned_vaccination_records_found_and_removed\n
-msgid " orphaned vaccination records found and removed."
-msgstr " Données orphelines de vaccination trouvées et supprimées."
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
@@ -3477,14 +3469,14 @@ msgid "Checking for orphaned movement records..."
 msgstr "Vérifications des données de mouvements orphelins..."
 
 #. # db/Diagnostic
+#: Checking_for_orphaned_medical_records...
+msgid "Checking for orphaned medical records..."
+msgstr "Vérification des données médicales orphelines..."
+
+#. # db/Diagnostic
 #: No_errors_were_found_during_diagnostics.
 msgid "No errors were found during diagnostics."
 msgstr "Aucune erreur constatée durant les diagnostics."
-
-#. # db/Diagnostic
-#: _orphaned_movement_records_found_and_removed.\n
-msgid " orphaned movement records found and removed. "
-msgstr " Mouvements orphelins trouvés et supprimés. "
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_media_records...
@@ -3495,11 +3487,6 @@ msgstr "Identification des media orphelins..."
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
 msgstr "Identification des données de vaccination orphelines..."
-
-#. # db/Diagnostic
-#: _orphaned_media_records_found_and_removed.\n
-msgid " orphaned media records found and removed."
-msgstr " media orphelins trouvés et supprimés..."
 
 #. # db/DBUpdate
 #: An_unexpected_error_occurred\:\n
@@ -3561,11 +3548,6 @@ msgstr "Sélectionner le fichier de mise à jour pour la base de donnée :"
 #: An_error_occurred_reading_the_file\:\n
 msgid "An error occurred reading the file:\n"
 msgstr "Une erreur est survenue durant la lecture du fichier :\n"
-
-#. # db/Diagnostic
-#: _corrupted_tables_repaired
-msgid " corrupted tables repaired."
-msgstr " tables corrompues réparées."
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3775,11 +3757,6 @@ msgstr ""
 "mettre à jour la base de données."
 
 #. # db/Diagnostic
-#: _invalid_animal_codes_fixed_for_this_year
-msgid " invalid animal codes fixed for this year."
-msgstr " codes animaux invalides réparés pour cette année."
-
-#. # db/Diagnostic
 #: Checking_for_bad_animal_codes...
 msgid "Checking for bad animal codes..."
 msgstr "Identification des codes animaux erronés..."
@@ -3788,11 +3765,6 @@ msgstr "Identification des codes animaux erronés..."
 #: fixing_mysql_dates
 msgid "Fixing MySQL 5.x NULL dates"
 msgstr "Réparation des dates NULL MySQL 5.x"
-
-#. # db/Diagnostic
-#: _mysql_date_columns_repaired
-msgid " mysql date columns repaired."
-msgstr " colonne date mysql réparée."
 
 #. # db/PetFinderImport
 #: Select_petfinder_file_to_process
@@ -3803,6 +3775,43 @@ msgstr "Sélectionner le fichier d'export PetFinder a traiter"
 #: Recalculating_adoption_donations
 msgid "Recalculating adoption donations..."
 msgstr "Re-calcul des dons à l'adoption"
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: want_to_include_dbfs
+msgid ""
+"Do you want to include media files? If you have a lot, this operation will "
+"take longer."
+msgstr ""
+"Souhaitez-vous inclure les médias ? Suivant le nombre, cela peut prendre du "
+"temps."
+
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#: include_dbfs
+msgid "Include Media?"
+msgstr "Inclure le média ?"
+
+#. # db/Diagnostic
+#: diagnostic_output
+msgid ""
+"{0} corrupted tables repaired.\n"
+"{1} orphaned movement records found and removed.\n"
+"{2} orphaned media records found and removed.\n"
+"{3} orphaned vaccination records found and removed.\n"
+"{4} orphaned medical records found and removed.\n"
+"{5} returns without a movement found and removed.\n"
+"{6} mysql date columns repaired.\n"
+"{7} invalid animal codes fixed for this year."
+msgstr ""
+"{0} tables corrompues réparées.\n"
+"{1} mouvements orphelins trouvés et supprimés.\n"
+"{2} medias orphelins trouvés et supprimés.\n"
+"{3} vaccinations orphelines trouvées et supprimées.\n"
+"{4} données médicales orphelines trouvées et supprimées.\n"
+"{5} retours sans mouvement trouvés et supprimés.\n"
+"{6} colonnes de dates mysql réparées.\n"
+"{7} codes animaux invalides réparés pour cette année."
 
 #. # mailmerge/OffShelterVaccinations
 #. # reports/VaccinationDiary
@@ -5006,6 +5015,7 @@ msgid "Total "
 msgstr "Total "
 
 #. # ui/waitinglist/WaitingListView
+#. # reports/WaitingList
 #. # reports/Stats
 #: Rank
 msgid "Rank"
@@ -8318,8 +8328,8 @@ msgstr "Recherche terminée - {0} correspondance(s) trouvée(s). "
 
 #. # ui/animal/AnimalEdit
 #: edit_animal_title
-msgid "Edit Animal - {0}, {1} ({2}) aged {3}"
-msgstr "Édition de l'animal - {0}, {1} ({2}) âgé de {3}"
+msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
+msgstr "Édition de l''animal - {0}, {1} ({2} {3}) âgé de {4}"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
@@ -8473,6 +8483,7 @@ msgstr "Maltraitance"
 msgid "Tick this box if this animal is a cruelty case"
 msgstr "Cocher cette case si cet animal est un cas de maltraitance"
 
+#. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
 #: Current_Vet
 msgid "Current Vet:"
@@ -11360,6 +11371,7 @@ msgstr "Marquer les traitement sélectionnés comme \"à jour\""
 msgid "Finishes After"
 msgstr "Fini après"
 
+#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
 #: Refresh
 msgid "Refresh"
@@ -11827,6 +11839,20 @@ msgstr "Éditer le mouvement - [{0}, {1} ({2}) vers {3}]"
 msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
 msgstr ""
 "L'animal {0} - {1} n'est pas un animal du refuge, il ne peut être déplacé."
+
+#. # ui/movement/MovementEdit
+#: This_owner_has_active_match_criteria
+msgid ""
+"This owner still has active search criteria. Since they are adopting this "
+"animal, would you like to cancel it?"
+msgstr ""
+"Ce contact a toujours des critères de recherche actifs. Vu qu'il adopte cet "
+"animal, souhaitez-vous les annuler ?"
+
+#. # ui/movement/MovementEdit
+#: Active_Criteria
+msgid "Active Criteria"
+msgstr "Critères actifs"
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
@@ -12607,6 +12633,12 @@ msgstr "Autre information du contact"
 #: Owners_Vet
 msgid "Owner's Vet"
 msgstr "Vétérinaire du propriétaire :"
+
+#. # ui/owner/LinkSelector
+#. # ui/animal/AnimalEdit
+#: Current_Vet
+msgid "Current Vet"
+msgstr "Vétérinaire actuel"
 
 #. # ui/owner/DonationSelector
 #: create_a_new_donation
@@ -13901,6 +13933,11 @@ msgstr "URL du service de localisation :"
 #: Automatic_Insurance_Numbers
 msgid "Automatic Insurance Numbers"
 msgstr "Numéros d'assurance automatiques"
+
+#. # ui/system/Options
+#: Auto_attach_generated_media
+msgid "Automatically attach generated documents as media"
+msgstr ""
 
 #. # ui/users/UserView
 #: Unable_to_open_user_for_editing\:_
@@ -15549,11 +15586,26 @@ msgstr "Attacher le document généré en tant que média ?"
 #~ "Une base de données locale est déjà présente, elle doit être supprimée pour "
 #~ "continuer. Êtes-vous d'accord ?"
 
+#~ msgid " orphaned movement records found and removed. "
+#~ msgstr " Mouvements orphelins trouvés et supprimés. "
+
+#~ msgid " corrupted tables repaired."
+#~ msgstr " tables corrompues réparées."
+
+#~ msgid " invalid animal codes fixed for this year."
+#~ msgstr " codes animaux invalides réparés pour cette année."
+
+#~ msgid " mysql date columns repaired."
+#~ msgstr " colonne date mysql réparée."
+
 #~ msgid "Ask a question about ASM"
 #~ msgstr "Poser une question"
 
 #~ msgid "Configure ASM Email Account"
 #~ msgstr "Configurer la messagerie d'ASM"
+
+#~ msgid " orphaned media records found and removed."
+#~ msgstr " media orphelins trouvés et supprimés..."
 
 #~ msgid "Lookups"
 #~ msgstr "Requêtes"
@@ -15597,8 +15649,14 @@ msgstr "Attacher le document généré en tant que média ?"
 #~ msgid "Existing Local"
 #~ msgstr "Local existant"
 
+#~ msgid " orphaned vaccination records found and removed."
+#~ msgstr " Données orphelines de vaccination trouvées et supprimées."
+
 #~ msgid "Configure Defaults"
 #~ msgstr "Réglages par défaut"
+
+#~ msgid " returns without a movement found and removed."
+#~ msgstr " retours sans mouvement trouvés et supprimés."
 
 #~ msgid "Configure Automatic Insurance Numbers"
 #~ msgstr "Configurer la numérotation d'assurance automatique"

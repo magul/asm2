@@ -101,6 +101,7 @@ public class Options extends ASMForm {
     private UI.TextField txtLDAPFilter;
     private UI.TextField txtLDAPUser;
     private UI.TextField txtLDAPPass;
+    private UI.TextField txtVetsUser;
 
     /** Creates new form Options */
     public Options() {
@@ -121,6 +122,7 @@ public class Options extends ASMForm {
         ctl.add(txtCodingFormat);
         ctl.add(txtShortCodingFormat);
         ctl.add(tblCodeOptions);
+        ctl.add(txtVetsUser);
         ctl.add(txtAgeGroup1);
         ctl.add(txtAgeGroup1Name);
         ctl.add(txtAgeGroup2);
@@ -185,6 +187,9 @@ public class Options extends ASMForm {
 
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
+
+        // Diary
+        txtVetsUser.setText(Global.getVetsDiaryUser());
 
         // Insurance Numbers
         chkUseAutoInsurance.setSelected(Configuration.getBoolean("UseAutoInsurance"));
@@ -351,6 +356,10 @@ public class Options extends ASMForm {
             // Word Processor
             Configuration.setEntry("DocumentWordProcessor",
                 (String) cboWordProcessor.getSelectedItem());
+
+            // Diary
+            Configuration.setEntry("VetsDiaryUser",
+                txtVetsUser.getText());
 
             // Mapping Service
             Configuration.setEntry("MappingServiceURL",
@@ -533,6 +542,15 @@ public class Options extends ASMForm {
         wordprocessor.add(pw, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("word_processor"), null, wordprocessor, null);
 
+        // Diary options
+        UI.Panel pd = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        txtVetsUser = (UI.TextField) UI.addComponent(pd,
+                i18n("Vets_Diary_User:"),
+                UI.getTextField());
+        UI.Panel diary = UI.getPanel(UI.getBorderLayout());
+        diary.add(pd, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("diary"), null, diary, null);
+
         // Waiting list options
         UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
         spnUrgency = (UI.Spinner) UI.addComponent(pl,
@@ -673,9 +691,9 @@ public class Options extends ASMForm {
         cboDefaultSize = UI.getCombo(LookupCache.getSizeLookup(), "Size");
         UI.addComponent(pr, i18n("Default_Size:"), cboDefaultSize);
 
-        cboDefaultLogFilter = UI.getCombo(i18n("Show:_"),
+        cboDefaultLogFilter = UI.getCombo(
                 LookupCache.getLogTypeLookup(), "LogTypeName",
-                null, i18n("(all)"));
+                i18n("(all)"));
         UI.addComponent(pr, i18n("Default_Log_Filter:"), cboDefaultLogFilter);
 
         l = new ArrayList();
