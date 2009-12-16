@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-16 10:28+0100\n"
+"POT-Creation-Date: 2009-12-16 11:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3500,6 +3500,7 @@ msgstr ""
 #. # ui/splash/About
 #. # ui/lookups/LookupEdit
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -4600,6 +4601,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #. # ui/lookups/LookupEdit
 #. # ui/main/Logout
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -10666,6 +10668,7 @@ msgid "Locked"
 msgstr ""
 
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr ""
@@ -10968,6 +10971,32 @@ msgstr ""
 #. # ui/main/StartupPage
 #: Welcome
 msgid "Welcome"
+msgstr ""
+
+#. # ui/main/Main
+#. # ui/main/ChangePassword
+#: Change_Password
+msgid "Change &Password"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: new_passwords_dont_match
+msgid "New password and confirmation don't match"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Current_Password\:
+msgid "Current Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: New_Password\:
+msgid "New Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Confirm_Password\:
+msgid "Confirm Password:"
 msgstr ""
 
 #. # ui/medical/ProfileView

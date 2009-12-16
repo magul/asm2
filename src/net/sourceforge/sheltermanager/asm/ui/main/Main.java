@@ -49,6 +49,7 @@ import net.sourceforge.sheltermanager.asm.reports.MedicalDiary;
 import net.sourceforge.sheltermanager.asm.reports.VaccinationDiary;
 import net.sourceforge.sheltermanager.asm.reports.Vets;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
+import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
@@ -211,6 +212,7 @@ public class Main extends ASMWindow {
     private UI.Menu mnuFileFoundAnimals;
     private UI.MenuItem mnuFileFoundAnimalsAddFound;
     private UI.MenuItem mnuFileFoundAnimalsFindFound;
+    private UI.MenuItem mnuFileChangePassword;
     private UI.MenuItem mnuFileLock;
     private UI.MenuItem mnuFileLoginAgain;
     private UI.Menu mnuFileLostAndFound;
@@ -882,6 +884,10 @@ public class Main extends ASMWindow {
                 new ASMAccelerator("g", "ctrl", "shift"),
                 UI.fp(this, "actionFileLoginAgain"));
 
+        mnuFileChangePassword = UI.getMenuItem(i18n("Change_Password"), 'p',
+                IconManager.getIcon(IconManager.MENU_FILECHANGEPASSWORD),
+                UI.fp(this, "actionFileChangePassword"));
+
         mnuFileCloseTab = UI.getMenuItem(i18n("Close_Active_Tab"), ' ',
                 IconManager.getIcon(IconManager.MENU_FILECLOSETAB),
                 new ASMAccelerator("w", "ctrl", ""),
@@ -1319,12 +1325,20 @@ public class Main extends ASMWindow {
         mnuFile.add(UI.getSeparator());
 
         if (!usingOSSecurity() && !Startup.applet) {
-            // If we're using OS security, disable the lock and login again options by
+            // If we're using OS security, disable user related stuff by
             // not adding them to the menu. These options also shouldn't be available
             // for applet mode as computers should be the users personal/internet ones
             // so switching users not allowed
             mnuFile.add(mnuFileLock);
             mnuFile.add(mnuFileLoginAgain);
+
+            // Can't change LDAP passwords and we've already ruled out
+            // OS security and applets above - this should ONLY appear
+            // if they're using database security
+            if (!LDAP.isConfigured()) {
+                mnuFile.add(mnuFileChangePassword);
+            }
+
             mnuFile.add(UI.getSeparator());
         }
 
@@ -1541,8 +1555,15 @@ public class Main extends ASMWindow {
 
         UI.Label lblDB = UI.getLabel(IconManager.getIcon(
                     IconManager.SCREEN_MAIN_DB), DBConnection.getDBInfo());
-        UI.Label lblUser = UI.getLabel(IconManager.getIcon(
-                    IconManager.SCREEN_MAIN_USER), Global.currentUserName);
+
+        UI.Label lblUser = null;
+        try {
+            lblUser = UI.getLabel(IconManager.getIcon(
+                    IconManager.SCREEN_MAIN_USER), Global.currentUserName + " (" + Global.currentUserObject.getRealName() + ")");
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
         lblAudit = UI.getLabel(IconManager.getIcon(
                     IconManager.SCREEN_MAIN_AUDIT), "");
 
@@ -2061,6 +2082,10 @@ public class Main extends ASMWindow {
         dontProcessClose = true;
         this.hide();
         this.dispose();
+    }
+
+    public void actionFileChangePassword() {
+        new ChangePassword().show();
     }
 
     public void actionSystemAdditionalFields() {
