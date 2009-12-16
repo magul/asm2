@@ -183,8 +183,8 @@ public class VoucherEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel top = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel mid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel mid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
 
         cboVoucher = UI.getCombo(i18n("Voucher_Type:"),

@@ -177,7 +177,7 @@ public class DiaryTaskHeadEdit extends ASMForm {
 
     public void initComponents() {
         UI.Panel top = UI.getPanel(UI.getBorderLayout());
-        UI.Panel details = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel details = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel mid = UI.getPanel(UI.getBorderLayout());
 
         // Top panel ====================================

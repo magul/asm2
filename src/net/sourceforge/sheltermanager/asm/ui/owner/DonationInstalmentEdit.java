@@ -87,8 +87,8 @@ public class DonationInstalmentEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel top = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel mid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel mid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel but = UI.getPanel(UI.getFlowLayout());
 
         txtStartDate = (DateField) UI.addComponent(top, i18n("Start_date"),

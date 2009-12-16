@@ -147,20 +147,24 @@ public class LookupEdit extends ASMForm {
     public void initComponents() {
         setLayout(UI.getBorderLayout());
 
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
 
         txtName = (UI.TextField) UI.addComponent(p, nameDisplay,
                 UI.getTextField());
-        txtDesc = (UI.TextArea) UI.addComponent(p, descDisplay, UI.getTextArea());
+        txtDesc = (UI.TextArea) UI.addComponent(pc, descDisplay, UI.getTextArea());
 
         btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
                 UI.fp(this, "saveData"));
         btnCancel = UI.getButton(i18n("Cancel"), null, 'c', null,
                 UI.fp(this, "actionCancel"));
-        p.add(btnOk);
-        p.add(btnCancel);
+        pb.add(btnOk);
+        pb.add(btnCancel);
 
-        add(p, UI.BorderLayout.CENTER);
+        add(p, UI.BorderLayout.NORTH);
+        add(pc, UI.BorderLayout.CENTER);
+        add(pb, UI.BorderLayout.SOUTH);
     }
 
     public void actionCancel() {

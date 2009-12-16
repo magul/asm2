@@ -163,7 +163,10 @@ public class DiaryTaskDetailEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(3));
+        
+        UI.Panel p = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 60, 20 }));
+        UI.Panel pn = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 60, 20 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
 
         Users users = new Users();
         users.openRecordset("ID > 0 Order By UserName");
@@ -176,22 +179,23 @@ public class DiaryTaskDetailEdit extends ASMForm {
 
         spnPivot = (UI.Spinner) UI.addComponent(p, i18n("Diarise_For:"),
                 UI.getSpinner(0, 365));
-        p.add(UI.getLabel(i18n("days_from_today_(or_0_to_prompt)")));
+        p.add(UI.getLabel(UI.ALIGN_LEFT, i18n("days_from_today_(or_0_to_prompt)")));
 
         txtSubject = (UI.TextField) UI.addComponent(p, i18n("Subject:"),
                 UI.getTextField());
         p.add(UI.getLabel());
 
-        txtNote = (UI.TextArea) UI.addComponent(p, i18n("Note:"),
+        txtNote = (UI.TextArea) UI.addComponent(pn, i18n("Note:"),
                 UI.getTextArea());
-        p.add(UI.getLabel());
 
-        btnOk = (UI.Button) p.add(UI.getButton(i18n("Ok"), null, 'o', null,
+        btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
                     UI.fp(this, "saveData")));
-        btnCancel = (UI.Button) p.add(UI.getButton(i18n("Cancel"), null, 'c',
+        btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
                     null, UI.fp(this, "dispose")));
 
-        add(p, UI.BorderLayout.CENTER);
+        add(p, UI.BorderLayout.NORTH);
+        add(pn, UI.BorderLayout.CENTER);
+        add(pb, UI.BorderLayout.SOUTH);
     }
 
     public String getAuditInfo() {

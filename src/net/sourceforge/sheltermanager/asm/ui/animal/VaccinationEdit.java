@@ -201,8 +201,8 @@ public class VaccinationEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel top = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel comments = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel comments = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
 
         cboVaccinationType = UI.getCombo(i18n("Vaccination_Type:"),

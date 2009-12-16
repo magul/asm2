@@ -255,8 +255,8 @@ public class DiaryEdit extends ASMForm {
     public void initComponents() {
         setLayout(UI.getBorderLayout());
 
-        UI.Panel pnlTop = UI.getPanel(UI.getGridLayout(2));
-        UI.Panel pnlMid = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pnlBot = UI.getPanel(UI.getFlowLayout());
 
         add(pnlTop, UI.BorderLayout.NORTH);

@@ -158,33 +158,41 @@ public class AdditionalFieldEdit extends ASMForm {
     }
 
     public void initComponents() {
-        setLayout(UI.getTableLayout(2));
 
-        txtFieldName = (UI.TextField) UI.addComponent(this, i18n("fieldname"),
+        UI.Panel pt = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+
+        txtFieldName = (UI.TextField) UI.addComponent(pt, i18n("fieldname"),
                 UI.getTextField());
 
-        txtFieldLabel = (UI.TextField) UI.addComponent(this,
+        txtFieldLabel = (UI.TextField) UI.addComponent(pt,
                 i18n("fieldlabel"), UI.getTextField());
-
-        txtTooltip = (UI.TextArea) UI.addComponent(this, i18n("tooltip"),
-                UI.getTextArea());
 
         cboFieldLink = UI.getCombo(LookupCache.getFieldLinkLookup(), "LinkType");
         cboFieldType = UI.getCombo(LookupCache.getFieldTypeLookup(), "FieldType");
 
-        UI.addComponent(this, i18n("linktype"), cboFieldLink);
-        UI.addComponent(this, i18n("fieldtype"), cboFieldType);
-
-        txtLookupValues = (UI.TextArea) UI.addComponent(this,
-                i18n("lookupvalues"), UI.getTextArea());
+        UI.addComponent(pt, i18n("linktype"), cboFieldLink);
+        UI.addComponent(pt, i18n("fieldtype"), cboFieldType);
 
         spnDisplayIndex = UI.getSpinner(0, 0xffffff);
-        UI.addComponent(this, i18n("displayindex"), spnDisplayIndex);
+        UI.addComponent(pt, i18n("displayindex"), spnDisplayIndex);
 
-        btnOk = (UI.Button) this.add(UI.getButton(Global.i18n("uianimal", "Ok"),
+        txtTooltip = (UI.TextArea) UI.addComponent(pc, i18n("tooltip"),
+                UI.getTextArea());
+
+        txtLookupValues = (UI.TextArea) UI.addComponent(pc,
+                i18n("lookupvalues"), UI.getTextArea());
+
+
+        btnOk = (UI.Button) pb.add(UI.getButton(Global.i18n("uianimal", "Ok"),
                     null, 'o', null, UI.fp(this, "saveData")));
 
-        btnCancel = (UI.Button) this.add(UI.getButton(Global.i18n("uianimal",
+        btnCancel = (UI.Button) pb.add(UI.getButton(Global.i18n("uianimal",
                         "Cancel"), null, 'c', null, UI.fp(this, "dispose")));
+
+        add(pt, UI.BorderLayout.NORTH);
+        add(pc, UI.BorderLayout.CENTER);
+        add(pb, UI.BorderLayout.SOUTH);
     }
 }
