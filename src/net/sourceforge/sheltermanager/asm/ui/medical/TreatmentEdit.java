@@ -124,7 +124,7 @@ public class TreatmentEdit extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel pnlEntry = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlEntry = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         txtDateRequired = new DateField();
         UI.addComponent(pnlEntry, i18n("Date_Required:"), txtDateRequired);
@@ -138,7 +138,7 @@ public class TreatmentEdit extends ASMForm {
 
         add(pnlEntry, UI.BorderLayout.NORTH);
 
-        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2));
+        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         txtComments = UI.getTextArea();
         UI.addComponent(pnlComments, i18n("Comments:"), txtComments);

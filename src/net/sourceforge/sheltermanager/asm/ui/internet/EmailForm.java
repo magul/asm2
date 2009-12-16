@@ -124,8 +124,8 @@ public class EmailForm extends ASMForm {
     public void initComponents() {
         pnlTop = UI.getPanel(UI.getBorderLayout());
         pnlHead = UI.getPanel(UI.getGridLayout(1));
-        pnlTo = UI.getPanel(UI.getGridLayout(2));
-        pnlSubject = UI.getPanel(UI.getGridLayout(2));
+        pnlTo = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
+        pnlSubject = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
         pnlBody = UI.getPanel(UI.getBorderLayout());
         pnlFields = UI.getPanel(UI.getBorderLayout());
 

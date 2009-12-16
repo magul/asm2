@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.log;
 
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -194,7 +195,11 @@ public class LogSelector extends ASMSelector {
                 LookupCache.getLogTypeLookup(), "LogTypeName",
                 UI.fp(this, "updateList"), i18n("(all)"));
         UI.addComponent(getTopPanel(), i18n("Show:_"), cboLogType);
-        cboLogType.setSelectedIndex(0);
+
+        Utils.setComboFromID(LookupCache.getLogTypeLookup(),
+                "LogTypeName",
+                new Integer(Configuration.getInteger("AFDefaultLogFilter")),
+                cboLogType);
     }
 
     public void actionDelete() {

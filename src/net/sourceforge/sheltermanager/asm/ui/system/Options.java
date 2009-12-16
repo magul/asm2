@@ -85,6 +85,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultDeath;
     private UI.ComboBox cboDefaultEntryReason;
     private UI.ComboBox cboDefaultInternalLocation;
+    private UI.ComboBox cboDefaultLogFilter;
     private UI.ComboBox cboDefaultReturn;
     private UI.ComboBox cboDefaultSize;
     private UI.ComboBox cboNonShelter;
@@ -143,6 +144,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultDeath);
         ctl.add(cboDefaultReturn);
         ctl.add(cboDefaultSize);
+        ctl.add(cboDefaultLogFilter);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
         ctl.add(spnAutoInsuranceEnd);
@@ -287,6 +289,11 @@ public class Options extends ASMForm {
 	    cboDefaultSize.setSelectedIndex(Configuration.getInteger(
 		    "AFDefaultSize"));
 
+            Utils.setComboFromID(LookupCache.getLogTypeLookup(),
+                "LogTypeName",
+                new Integer(Configuration.getInteger("AFDefaultLogFilter")),
+                cboDefaultLogFilter);
+
 	// Authentication
 	if (Configuration.getBoolean("AutoLoginOSUsers")) {
                 // OS auth
@@ -391,6 +398,11 @@ public class Options extends ASMForm {
                     "BaseColour", cboDefaultColour).toString());
             Configuration.setEntry("AFDefaultSize",
                 Integer.toString(cboDefaultSize.getSelectedIndex()));
+
+            Configuration.setEntry("AFDefaultLogFilter",
+                Utils.getIDFromCombo(LookupCache.getLogTypeLookup(),
+                    "LogTypeName", cboDefaultLogFilter).toString());
+
             l = tblDefaultOptions.getSelections();
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
@@ -619,7 +631,7 @@ public class Options extends ASMForm {
         tabTabs.addTab(i18n("email"), null, email, null);
 
 	// Defaults
-	UI.Panel pr = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+	UI.Panel pr = UI.getPanel(UI.getGridLayout(4, new int[] { 15, 35, 15, 35 }));
 	UI.Panel defaults = UI.getPanel(UI.getBorderLayout());
 
         cboDefaultSpecies = UI.getCombo(i18n("default_species"),
@@ -645,6 +657,7 @@ public class Options extends ASMForm {
 
         //cboDefaultBreed = UI.getCombo(i18n("Default_Breed:"), LookupCache.getBreedLookup(), "BreedName");
         //UI.addComponent(pd, i18n("Default_Breed:"), cboDefaultBreed);
+
         cboDefaultColour = UI.getCombo(i18n("Default_Colour:"),
                 LookupCache.getBaseColourLookup(), "BaseColour");
         UI.addComponent(pr, i18n("Default_Colour:"), cboDefaultColour);
@@ -659,7 +672,12 @@ public class Options extends ASMForm {
 
         cboDefaultSize = UI.getCombo(LookupCache.getSizeLookup(), "Size");
         UI.addComponent(pr, i18n("Default_Size:"), cboDefaultSize);
-        
+
+        cboDefaultLogFilter = UI.getCombo(i18n("Show:_"),
+                LookupCache.getLogTypeLookup(), "LogTypeName",
+                null, i18n("(all)"));
+        UI.addComponent(pr, i18n("Default_Log_Filter:"), cboDefaultLogFilter);
+
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
                 false, true));

@@ -75,7 +75,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
     public VetBookView() {
         init(Global.i18n("uidiary", "Edit_Vets_Diary"),
             IconManager.getIcon(IconManager.SCREEN_VIEWVETBOOK), "uidiary",
-            true, true, new DiaryRenderer(0));
+            true, true, new DiaryRenderer(1));
         updateList();
     }
 
