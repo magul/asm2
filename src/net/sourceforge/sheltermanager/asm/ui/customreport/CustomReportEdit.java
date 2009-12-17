@@ -56,6 +56,7 @@ public class CustomReportEdit extends ASMForm {
     private UI.TextArea txtSQL;
     private UI.TextField txtTitle;
     private String audit = null;
+    private boolean dirty = false;
 
     /** Creates new form EditCustomReport */
     public CustomReportEdit(CustomReportView parent) {
@@ -67,6 +68,11 @@ public class CustomReportEdit extends ASMForm {
 
     public void setSecurity() {
         btnSave.setEnabled(Global.currentUserObject.getSecChangeCustomReports());
+    }
+
+    public void setDirty(boolean dirty) {
+        this.dirty = dirty;
+        btnSave.setEnabled(dirty);
     }
 
     public Vector getTabOrder() {
@@ -98,6 +104,15 @@ public class CustomReportEdit extends ASMForm {
     }
 
     public boolean formClosing() {
+
+        // Don't destroy if the user has unsaved changes and are not sure
+        if (dirty) {
+            if (!Dialog.showYesNoWarning(Global.i18n("uianimal",
+                            "You_have_unsaved_changes_-_are_you_sure_you_wish_to_close?"),
+                        Global.i18n("uianimal", "Unsaved_Changes"))) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -123,7 +138,9 @@ public class CustomReportEdit extends ASMForm {
             this.chkOmitCriteria.setSelected(cr.getOmitCriteria().intValue() == 1);
             audit = UI.messageAudit(cr.getCreatedDate(), cr.getCreatedBy(),
                     cr.getLastChangedDate(), cr.getLastChangedBy());
+            setDirty(false);
         } catch (Exception e) {
+            Global.logException(e, getClass());
         }
     }
 
@@ -157,6 +174,7 @@ public class CustomReportEdit extends ASMForm {
             this.cr = new CustomReport();
             cr.openRecordset("ID = 0");
             cr.addNew();
+            setDirty(true);
         } catch (Exception e) {
             Dialog.showError(i18n("Unable_to_create_new_custom_report:\n") +
                 e.getMessage());
@@ -194,17 +212,17 @@ public class CustomReportEdit extends ASMForm {
         // Fields =========================
         txtTitle = (UI.TextField) UI.addComponent(fields,
                 i18n("Report_Title:_"),
-                UI.getTextField(i18n("the_title_for_your_report")));
+                UI.getTextField(i18n("the_title_for_your_report"), UI.fp(this, "dataChanged")));
 
         cboCategory = UI.getCombo("SELECT DISTINCT Category FROM customreport " +
-                "ORDER BY Category", "Category");
+                "ORDER BY Category", "Category", UI.fp(this, "dataChanged"));
         cboCategory.setEditable(true);
         UI.addComponent(fields, i18n("category"), cboCategory);
 
         chkOmitHeaderFooter = (UI.CheckBox) fields.add(UI.getCheckBox(i18n("omit_headerfooter"),
-                    i18n("omit_headerfooter_tt")));
+                    i18n("omit_headerfooter_tt"), UI.fp(this, "dataChanged")));
         chkOmitCriteria = (UI.CheckBox) fields.add(UI.getCheckBox(i18n("omit_criteria"),
-                    i18n("omit_criteria_tt")));
+                    i18n("omit_criteria_tt"), UI.fp(this, "dataChanged")));
 
         top.add(t, UI.BorderLayout.NORTH);
         top.add(fields, UI.BorderLayout.CENTER);
@@ -214,7 +232,7 @@ public class CustomReportEdit extends ASMForm {
 
         // SQL
         txtSQL = (UI.TextArea) UI.addComponent(cols,
-                UI.getTextArea(i18n("the_sql_command")));
+                UI.getTextArea(i18n("the_sql_command"), UI.fp(this, "dataChanged")));
 
         // Table selector and display
         cboTables = UI.getCombo((Vector) null, UI.fp(this, "changedTable"));
@@ -275,9 +293,13 @@ public class CustomReportEdit extends ASMForm {
 
         // HTML
         txtHTML = (UI.TextArea) UI.addComponent(cols,
-                UI.getTextArea(i18n("the_html_for_your_report")));
+                UI.getTextArea(i18n("the_html_for_your_report"), UI.fp(this, "dataChanged")));
 
         add(cols, UI.BorderLayout.CENTER);
+    }
+
+    public void dataChanged() {
+        setDirty(true);
     }
 
     public void changedTable() {
@@ -503,6 +525,8 @@ public class CustomReportEdit extends ASMForm {
 
             // Update parent
             parent.updateList();
+
+            setDirty(false);
 
             return true;
         } catch (Exception e) {
