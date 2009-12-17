@@ -360,9 +360,21 @@ public class AnimalFigures extends Report {
         tableAddRow();
         tableAddCell(bold(Global.i18n("reports", "Total")));
 
+        boolean gotInventory = false;
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(bold(Integer.toString(animalTotal[i])));
+            if (animalTotal[i] > 0) gotInventory = true;
         }
+
+        // Do we actually have any data for this species? If all the 
+        // total rows are zero, then abort now and don't bother putting
+        // it on the report
+        if (!gotInventory) {
+           // Move the progress bar on
+           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
+           return;
+        }
+
 
         // Calculate average animal movement
         double average = 0;
@@ -378,15 +390,6 @@ public class AnimalFigures extends Report {
         average = (average / averageitems);
         tableAddCell(bold(Double.toString(Utils.round(average, 2))));
         tableFinishRow();
-
-        // Do we actually have any data for this species? If all the 
-        // total rows are zero, then abort now and don't bother putting
-        // it on the report
-        if (average == 0) {
-           // Move the progress bar on
-           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
-           return;
-        }
 
         // Output the species header - we can do this because tables aren't
         // appended into the report until finishTable() is called
@@ -778,7 +781,7 @@ public class AnimalFigures extends Report {
         // Get the total for each category
         if (totalPTS > 0) {
             totalPTSSummary += totalPTS + " (";
-            String sql = "SELECT ReasonName, COUNT(ID) AS Total FROM animal " +
+            String sql = "SELECT ReasonName, COUNT(animal.ID) AS Total FROM animal " +
                 "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
                 "WHERE SpeciesID = " + speciesID + " AND DeceasedDate >= '" +
                 sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
@@ -1131,8 +1134,19 @@ public class AnimalFigures extends Report {
         tableAddRow();
         tableAddCell(bold(Global.i18n("reports", "Total")));
 
+        boolean gotInventory = false;
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(bold(Integer.toString(animalTotal[i])));
+            if (animalTotal[i] > 0) gotInventory = true;
+        }
+
+        // Do we actually have any data for this type? If all the 
+        // total rows are zero, then abort now and don't bother putting
+        // it on the report
+        if (!gotInventory) {
+           // Move the progress bar on
+           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
+           return;
         }
 
         // Calculate average animal movement
@@ -1149,15 +1163,6 @@ public class AnimalFigures extends Report {
         average = (average / averageitems);
         tableAddCell(bold(Double.toString(Utils.round(average, 2))));
         tableFinishRow();
-
-        // Do we actually have any data for this type? If all the 
-        // total rows are zero, then abort now and don't bother putting
-        // it on the report
-        if (average == 0) {
-           // Move the progress bar on
-           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
-           return;
-        }
 
         // Output the type header - we can do this because tables aren't
         // appended into the report until finishTable() is called
@@ -1549,7 +1554,7 @@ public class AnimalFigures extends Report {
         // Get the total for each category
         if (totalPTS > 0) {
             totalPTSSummary += totalPTS + " (";
-            String sql = "SELECT ReasonName, COUNT(ID) AS Total FROM animal " +
+            String sql = "SELECT ReasonName, COUNT(animal.ID) AS Total FROM animal " +
                 "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
                 "WHERE AnimalTypeID = " + animalTypeID + " AND DeceasedDate >= '" +
                 sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
