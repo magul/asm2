@@ -68,11 +68,13 @@ public class AdditionalFieldEdit extends ASMForm {
         Vector ctl = new Vector();
         ctl.add(txtFieldName);
         ctl.add(txtFieldLabel);
-        ctl.add(txtTooltip);
         ctl.add(cboFieldLink);
         ctl.add(cboFieldType);
-        ctl.add(txtLookupValues);
         ctl.add(spnDisplayIndex);
+        ctl.add(txtTooltip);
+        ctl.add(txtLookupValues);
+        ctl.add(btnOk);
+        ctl.add(btnCancel);
 
         return ctl;
     }
