@@ -5769,6 +5769,10 @@ INNER JOIN internallocation ON
 WHERE animal.Archived = 0
 \end_layout
 
+\begin_layout LyX-Code
+ORDER BY internalLocation.LocationName
+\end_layout
+
 \begin_layout Standard
 
 \series bold
@@ -5788,7 +5792,7 @@ HEADER$$
 \end_layout
 
 \begin_layout LyX-Code
-$$GROUP_ShelterLocation
+$$GROUP_LocationName
 \end_layout
 
 \begin_layout LyX-Code
