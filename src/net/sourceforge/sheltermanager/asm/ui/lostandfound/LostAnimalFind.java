@@ -55,6 +55,7 @@ public class LostAnimalFind extends ASMFind {
     public UI.CheckBox chkIncludeReturned;
     public UI.TextField txtPostcode;
     public DateField txtTo;
+    public UI.Button btnClear;
 
     /** Creates new form FindLostAnimal */
     public LostAnimalFind() {
@@ -78,6 +79,7 @@ public class LostAnimalFind extends ASMFind {
         ctl.add(table);
         ctl.add(btnSearch);
         ctl.add(btnOpen);
+        ctl.add(btnClear);
 
         return ctl;
     }
@@ -132,7 +134,10 @@ public class LostAnimalFind extends ASMFind {
     }
 
     public void initToolbar() {
-        // No other buttons for lost/found
+        btnClear = UI.getButton(i18n("Clear"), null, 'c',
+                IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_CLEAR),
+                UI.fp(this, "actionClear"));
+        addToolbarItem(btnClear, false);
     }
 
     public void initLeftbar() {
@@ -150,6 +155,19 @@ public class LostAnimalFind extends ASMFind {
         // Attach it to the main screen
         Global.mainForm.addChild(ea);
     }
+
+    public void actionClear() {
+        txtContact.setText("");
+        txtArea.setText("");
+        txtPostcode.setText("");
+        txtDistFeat.setText("");
+        cboColour.setSelectedIndex(0);
+        cboSpecies.setSelectedIndex(0);
+        txtFrom.setText("");
+        txtTo.setText("");
+        txtNumber.setText("");
+    }
+
 
     public void runSearch() {
         SQLRecordset lostanimal = new SQLRecordset();

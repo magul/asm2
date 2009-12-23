@@ -54,6 +54,7 @@ public class FoundAnimalFind extends ASMFind {
     public UI.TextField txtNumber;
     public UI.TextField txtPostcode;
     public DateField txtTo;
+    public UI.Button btnClear;
 
     /** Creates new form FindLostAnimal */
     public FoundAnimalFind() {
@@ -76,6 +77,7 @@ public class FoundAnimalFind extends ASMFind {
         ctl.add(table);
         ctl.add(btnSearch);
         ctl.add(btnOpen);
+        ctl.add(btnClear);
 
         return ctl;
     }
@@ -126,7 +128,10 @@ public class FoundAnimalFind extends ASMFind {
     }
 
     public void initToolbar() {
-        // No other buttons for lost/found
+        btnClear = UI.getButton(i18n("Clear"), null, 'c',
+                IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_CLEAR),
+                UI.fp(this, "actionClear"));
+        addToolbarItem(btnClear, false);
     }
 
     public void initLeftbar() {
@@ -143,6 +148,18 @@ public class FoundAnimalFind extends ASMFind {
         ea.openForEdit(foundanimal);
         // Attach it to the main screen
         Global.mainForm.addChild(ea);
+    }
+
+    public void actionClear() {
+        txtContact.setText("");
+        txtArea.setText("");
+        txtPostcode.setText("");
+        txtDistFeat.setText("");
+        cboColour.setSelectedIndex(0);
+        cboSpecies.setSelectedIndex(0);
+        txtFrom.setText("");
+        txtTo.setText("");
+        txtNumber.setText("");
     }
 
     public void runSearch() {
