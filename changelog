@@ -1,6 +1,8 @@
 2.6.3
 ================
 
+*. If no non-shelter type is set, does not regenerate code or
+-  lock type field
 *. Dirty flag for save on report editing
 *. Fixed bug with save button being active if lazy loading tab
 -  contents (default) on a background thread is enabled

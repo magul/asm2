@@ -1239,18 +1239,27 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // If it is off the shelter, then we should automatically
         // choose the non-shelter animal type for it and disable
-        // it.
+        // it - assuming we have a non shelter animal type, if not, the
+        // user can do what they want
         if (chkNonShelter.isSelected()) {
-            Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
-                "AnimalType",
-                new Integer(Configuration.getInteger("AFNonShelterType")),
-                cboType);
-            cboType.setEnabled(false);
+            
+            int nsat = Configuration.getInteger("AFNonShelterType");
 
-            // If we aren't loading the screen right now, generate a new code
-            // for the non-shelter animal - the box must have just been ticked
-            if (!isLoading) {
-                generateAnimalCode(animal, (String) cboType.getSelectedItem());
+            if (nsat != 0) {
+                Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
+                    "AnimalType",
+                    new Integer(nsat),
+                    cboType);
+                cboType.setEnabled(false);
+
+                // If we aren't loading the screen right now, generate a new code
+                // for the non-shelter animal - the box must have just been ticked
+                if (!isLoading) {
+                    generateAnimalCode(animal, (String) cboType.getSelectedItem());
+                }
+            }
+            else {
+                cboType.setEnabled(true);
             }
         } else {
             cboType.setEnabled(true);
