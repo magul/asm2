@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-16 11:11+0100\n"
+"POT-Creation-Date: 2009-12-23 10:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4958,6 +4958,7 @@ msgstr ""
 msgid "Deceased Reasons"
 msgstr ""
 
+#. # reports/InOut
 #. # reports/Stats
 #: Reason
 msgid "Reason"
@@ -6348,6 +6349,13 @@ msgstr ""
 msgid "Graphs cannot be sent to stdout."
 msgstr ""
 
+#. # reports/InOut
+#. # ui/animal/LitterView
+#: Litter_ID
+#: litterid
+msgid "Litter ID"
+msgstr ""
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6888,6 +6896,7 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7213,6 +7222,7 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7644,11 +7654,6 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: litter_id
 msgid "Litter ID:"
-msgstr ""
-
-#. # ui/animal/LitterView
-#: litterid
-msgid "Litter ID"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
