@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-14 09:28+0100\n"
-"PO-Revision-Date: 2009-12-14 20:24+0000\n"
-"Last-Translator: Linn <linn@tigerharen.org>\n"
+"POT-Creation-Date: 2009-12-16 11:11+0100\n"
+"PO-Revision-Date: 2009-12-20 12:08+0000\n"
+"Last-Translator: KimBorås <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-15 05:08+0000\n"
+"X-Launchpad-Export-Date: 2009-12-21 04:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -234,6 +234,7 @@ msgstr "Adopterad"
 #. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: On_Shelter
 msgid "On Shelter"
 msgstr "På djurhemmet"
@@ -802,7 +803,7 @@ msgstr "juli"
 #. # charts/DonationsPerSpecies
 #: Aug
 msgid "Aug"
-msgstr "aug"
+msgstr "Aug"
 
 #. # charts/AdoptionsPerBlock
 #. # charts/MonthlyDonations
@@ -822,7 +823,7 @@ msgstr "Vilket år är detta diagram för?"
 #. # charts/DonationsPerSpecies
 #: Jan
 msgid "Jan"
-msgstr "jan"
+msgstr "Jan"
 
 #. # bo/Users
 #. # ui/ui/UI
@@ -840,7 +841,7 @@ msgstr "alla"
 #. # charts/DonationsPerSpecies
 #: Sep
 msgid "Sep"
-msgstr "sep"
+msgstr "Sept"
 
 #. # charts/AdoptionsPerBlock
 #. # charts/MonthlyDonations
@@ -850,7 +851,7 @@ msgstr "sep"
 #. # charts/DonationsPerSpecies
 #: Nov
 msgid "Nov"
-msgstr "nov"
+msgstr "Nov"
 
 #. # charts/AdoptionsPerBlock
 #. # charts/MonthlyDonations
@@ -861,7 +862,7 @@ msgstr "nov"
 #. # reports/AnimalFigures
 #: May
 msgid "May"
-msgstr "maj"
+msgstr "Maj"
 
 #. # charts/AdoptionsPerBlock
 #. # charts/MonthlyDonations
@@ -871,7 +872,7 @@ msgstr "maj"
 #. # charts/DonationsPerSpecies
 #: Apr
 msgid "Apr"
-msgstr "apr"
+msgstr "Apr"
 
 #. # charts/AdoptionsPerBlock
 #. # charts/MonthlyDonations
@@ -881,7 +882,7 @@ msgstr "apr"
 #. # charts/DonationsPerSpecies
 #: Dec
 msgid "Dec"
-msgstr "dec"
+msgstr "Dec"
 
 #. # charts/AdoptionsPerBlock
 #: _species)_for_
@@ -2179,7 +2180,7 @@ msgstr "Exotiskt korthår"
 
 #: breed_273_2
 msgid "Extra-Toes Cat (Hemingway Polydactyl)"
-msgstr ""
+msgstr "Skeppskatt"
 
 #: breed_274_2
 #: breed_337_7
@@ -2867,7 +2868,7 @@ msgstr "Ej kastrerade/steriliserade djur över 6 månader"
 
 #: customreport_40_005
 msgid "Cats Not Combi-Tested"
-msgstr ""
+msgstr "Ej combi-testade katter"
 
 #: customreport_41_006
 msgid "Monthly Animal Figures"
@@ -2904,6 +2905,7 @@ msgstr "Detaljerad djurhemsförteckning"
 msgid "Animals Not Part Of A Litter"
 msgstr "Djur som ej tillhör någon kull"
 
+#. # reports/AnimalFigures
 #. # db/AutoDBUpdates
 #: customreport_45_category
 #: Litters
@@ -3521,6 +3523,7 @@ msgstr "Databas uppdateringen lyckades."
 #. # ui/splash/About
 #. # ui/lookups/LookupEdit
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -4641,6 +4644,7 @@ msgstr "In/Ut sammanfattningsrapport"
 #. # ui/users/UserEdit
 #. # ui/lookups/LookupEdit
 #. # ui/main/Logout
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -4990,6 +4994,7 @@ msgid "Total "
 msgstr "Totalt "
 
 #. # ui/waitinglist/WaitingListView
+#. # reports/WaitingList
 #. # reports/Stats
 #: Rank
 msgid "Rank"
@@ -5650,7 +5655,7 @@ msgstr "Djur inlämnade"
 #. # reports/InOut
 #: PTS_Reason
 msgid "PTS Reason"
-msgstr ""
+msgstr "PTS orsak"
 
 #. # reports/InOut
 #: Total_Animals_Fostered_
@@ -6104,12 +6109,12 @@ msgstr ""
 #. # reports/AnimalFigures
 #: to_other
 msgid "To Other"
-msgstr ""
+msgstr "Till annan"
 
 #. # bo/Animal
 #: at_retailer
 msgid "At Retailer"
-msgstr ""
+msgstr "Hos återförsäljare"
 
 #. # reports/Retailer
 #: volume_of_adoptions_per_retailer_between
@@ -6119,12 +6124,12 @@ msgstr ""
 #. # reports/Retailer
 #: average_time_at_retailer
 msgid "Average Time At Retailer"
-msgstr ""
+msgstr "Genomsnittlig tid hos Återförsäljare"
 
 #. # reports/Retailer
 #: all_retailers
 msgid "All Retailers"
-msgstr ""
+msgstr "Alla Återförsäljare"
 
 #. # reports/Retailer
 #: date_entered_retailer
@@ -6159,12 +6164,12 @@ msgstr ""
 #: Diet
 #: diet
 msgid "Diet"
-msgstr ""
+msgstr "Diet"
 
 #. # reports/CustomReportExecute
 #: Voucher
 msgid "Voucher"
-msgstr ""
+msgstr "Kupong"
 
 #. # reports/MedicalDiary
 #: Medical_Diary_Criteria
@@ -6250,7 +6255,7 @@ msgstr ""
 #: GoodWithCats
 #: Good_with_cats
 msgid "Good with cats"
-msgstr ""
+msgstr "Bra med katter"
 
 #. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
@@ -6259,7 +6264,7 @@ msgstr ""
 #: GoodWithDogs
 #: Good_with_dogs
 msgid "Good with dogs"
-msgstr ""
+msgstr "Bra med hundar"
 
 #. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
@@ -6269,14 +6274,14 @@ msgstr ""
 #: Good_with_kids
 #: Good_with_children
 msgid "Good with children"
-msgstr ""
+msgstr "Bra med barn"
 
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
 #. # reports/OwnerCriteriaSearch
 #: Housetrained
 msgid "Housetrained"
-msgstr ""
+msgstr "Rumsren"
 
 #. # bo/OwnerVoucher
 #. # bo/AnimalVaccination
@@ -6313,7 +6318,7 @@ msgstr ""
 #: Comments
 #: comments
 msgid "Comments"
-msgstr ""
+msgstr "Kommentarer"
 
 #. # reports/AnimalFigures
 #: SubTotal
@@ -6323,7 +6328,7 @@ msgstr ""
 #. # reports/InOut
 #: Transferred_To
 msgid "Transferred To"
-msgstr ""
+msgstr "Förflyttad till"
 
 #. # reports/LostFoundMatch
 #: Do_you_want_to_include_the_animal_database_in_your_search
@@ -6340,7 +6345,7 @@ msgstr ""
 msgid ""
 "Do you want to filter matches to only include animals found between two "
 "dates?"
-msgstr ""
+msgstr "Vill du begränsa din sökning till djur upphittade mellan två datum?"
 
 #. # reports/LostFoundMatch
 #: Filter_Matches
@@ -6402,42 +6407,42 @@ msgstr ""
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
-msgstr ""
+msgstr "Ta bort denna kull"
 
 #. # ui/ui/UI
 #: Really_Delete
 msgid "Really Delete"
-msgstr ""
+msgstr "Ta bort permanent"
 
 #. # ui/animal/LitterView
 #: Parent
 msgid "Parent"
-msgstr ""
+msgstr "Förälder"
 
 #. # ui/animal/LitterView
 #: Remaining
 msgid "Remaining"
-msgstr ""
+msgstr "Återstående"
 
 #. # ui/animal/LitterView
 #: New_litter
 msgid "New litter"
-msgstr ""
+msgstr "Ny kull"
 
 #. # ui/animal/LitterView
 #: Edit_this_litter
 msgid "Edit this litter"
-msgstr ""
+msgstr "Ändra på denna kull"
 
 #. # ui/animal/LitterView
 #: Animal_Litters
 msgid "Animal Litters"
-msgstr ""
+msgstr "Djurkullar"
 
 #. # ui/animal/LitterView
 #: View_the_animals_in_this_litter
 msgid "View the animals in this litter"
-msgstr ""
+msgstr "Se djuren i denna kull"
 
 #. # ui/animal/LitterView
 #: Acceptance
@@ -6447,19 +6452,19 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Adoption_No\:_
 msgid "Adoption No: "
-msgstr ""
+msgstr "Adoption Nr: "
 
 #. # ui/animal/AnimalFind
 #: Has_Comments\:_
 msgid "Has Comments: "
-msgstr ""
+msgstr "Kommentarer: "
 
 #. # ui/ui/UI
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: Search
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
@@ -6469,7 +6474,7 @@ msgstr ""
 #: Clear
 #: clear
 msgid "Clear"
-msgstr ""
+msgstr "Rensa"
 
 #. # ui/animal/AnimalFind
 #: Inc._Deceased
@@ -6479,7 +6484,7 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_include_deceased_animals
 msgid "Tick this box to include deceased animals"
-msgstr ""
+msgstr "Markera detta val för att inkludera avlidna djur"
 
 #. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
@@ -6513,18 +6518,18 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Name\:_
 msgid "Name: "
-msgstr ""
+msgstr "Namn: "
 
 #. # ui/animal/AnimalFind
 #: Reserved\:_
 msgid "Reserved: "
-msgstr ""
+msgstr "Reserverad: "
 
 #. # ui/animalname/NamesEdit
 #. # ui/animal/AnimalFind
 #: Sex\:_
 msgid "Sex: "
-msgstr ""
+msgstr "Kön: "
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -6536,7 +6541,7 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Location\:_
 msgid "Location: "
-msgstr ""
+msgstr "Plats: "
 
 #. # ui/animal/AnimalFind
 #: Aged_between\:_
@@ -6546,12 +6551,12 @@ msgstr ""
 #. # ui/ui/UI
 #: Open
 msgid "Open"
-msgstr ""
+msgstr "Öppen"
 
 #. # ui/animal/AnimalFind
 #: Unreserved
 msgid "Unreserved"
-msgstr ""
+msgstr "Oreserverad"
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
@@ -6561,17 +6566,17 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Print
 msgid "Print"
-msgstr ""
+msgstr "Striv ut"
 
 #. # ui/ui/ASMFind
 #: Search_complete_-_no_matches_found.
 msgid "Search complete - no matches found."
-msgstr ""
+msgstr "Sökning färdig - inga matchande resultat."
 
 #. # ui/animal/AnimalFind
 #: and\:_
 msgid "and: "
-msgstr ""
+msgstr "Även: "
 
 #. # ui/animal/AnimalFind
 #: In_Between\:_
@@ -6600,38 +6605,39 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/ui/Dialog
 #. # ui/log/LogSelector
+#. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
 #: (all)
 msgid "(all)"
-msgstr ""
+msgstr "(alla)"
 
 #. # ui/animal/AnimalFind
 #: Insurance_No\:_
 msgid "Insurance No: "
-msgstr ""
+msgstr "Försäkrings NR: "
 
 #. # ui/main/Main
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #: Find_Animal
 msgid "Find Animal"
-msgstr ""
+msgstr "Hitta Djur"
 
 #. # ui/animal/AnimalFind
 #: Reserved
 msgid "Reserved"
-msgstr ""
+msgstr "Reserverad"
 
 #. # ui/animal/AnimalFind
 #: Species\:_
 msgid "Species: "
-msgstr ""
+msgstr "Ras: "
 
 #. # ui/ui/ASMFind
 #: Searching_the_database,_please_wait...
 msgid "Searching the database, please wait..."
-msgstr ""
+msgstr "Sökning pågår, var god vänta..."
 
 #. # ui/animal/AnimalFind
 #: Reclaimed_By_Owner
@@ -6641,23 +6647,23 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Code\:_
 msgid "Code: "
-msgstr ""
+msgstr "Kod: "
 
 #. # ui/animal/AnimalFind
 #: (both)
 msgid "(both)"
-msgstr ""
+msgstr "(båda)"
 
 #. # ui/animal/AnimalFind
 #: Identichip_No\:_
 msgid "Identichip No: "
-msgstr ""
+msgstr "Chip Nr: "
 
 #. # ui/main/Main
 #. # ui/animal/VaccinationView
 #: Vaccination_Book
 msgid "Vaccination Book"
-msgstr ""
+msgstr "Vaccinations Intyg"
 
 #. # ui/waitinglist/WaitingListView
 #. # ui/diary/DiarySelector
@@ -6666,7 +6672,7 @@ msgstr ""
 #. # ui/animal/LitterView
 #: Refresh_the_list
 msgid "Refresh the list"
-msgstr ""
+msgstr "Uppdatera listan"
 
 #. # ui/animal/VaccinationView
 #: Filling_list...
@@ -6699,11 +6705,13 @@ msgid ""
 "Notes about the animal, if you are using the internet plugin, these will be "
 "used as the animal's description"
 msgstr ""
+"Anteckningar angånde djuret, om du använder internet plugin så kommer detta "
+"användas som djurets beskrivning"
 
 #. # ui/animal/LitterEdit
 #: The_species_of_the_litter
 msgid "The species of the litter"
-msgstr ""
+msgstr "Kullens ras"
 
 #. # ui/animal/LitterEdit
 #: Edit_Litter
@@ -6718,13 +6726,13 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Select_a_mother_from_the_shelter_animals
 msgid "Select a mother from the shelter animals"
-msgstr ""
+msgstr "Välj en mamma från djurhemmet"
 
 #. # ui/movement/MovementEdit
 #. # ui/animal/LitterEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
-msgstr ""
+msgstr "Kunde inte öppna hitta djur fönstret: "
 
 #. # ui/animal/LitterEdit
 #: An_error_occurred_reading_the_record\:\n
@@ -6734,12 +6742,12 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Or_date\:
 msgid "Or date:"
-msgstr ""
+msgstr "Eller datum:"
 
 #. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
-msgstr ""
+msgstr "Skapa Ny Kull"
 
 #. # ui/diary/DiaryEdit
 #. # ui/log/LogEdit
@@ -6748,7 +6756,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Date\:
 msgid "Date:"
-msgstr ""
+msgstr "Datum:"
 
 #. # ui/animal/LitterEdit
 #: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
@@ -6760,7 +6768,7 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Mother\:
 msgid "Mother:"
-msgstr ""
+msgstr "Mamma:"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -6778,7 +6786,7 @@ msgstr ""
 #. # charts/Chart
 #: ...
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. # bo/LookupCache
 #. # bo/Species
@@ -6808,12 +6816,12 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: The_number_of_animals_in_the_litter
 msgid "The number of animals in the litter"
-msgstr ""
+msgstr "Antal djur i kullen"
 
 #. # ui/animal/LitterEdit
 #: The_date_the_litter_was_born_or_entered_the_shelter
 msgid "The date the litter was born or entered the shelter"
-msgstr ""
+msgstr "Datumet då kullen föddes eller kom in till djurhemmet"
 
 #. # ui/animal/LitterEdit
 #: The_date_this_litter_expires
@@ -6843,7 +6851,7 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: Edit_Vaccination
 msgid "Edit Vaccination"
-msgstr ""
+msgstr "Ändra Vaccination"
 
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/VaccinationSelector
@@ -6858,7 +6866,7 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: VaccinationType
 msgid "VaccinationType"
-msgstr ""
+msgstr "Typ av Vaccination"
 
 #. # ui/users/UserEdit
 #. # ui/animal/DietEdit
@@ -6887,7 +6895,7 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: New_Vaccination
 msgid "New Vaccination"
-msgstr ""
+msgstr "Ny Vaccination"
 
 #. # ui/medical/TreatmentEdit
 #. # ui/animal/VaccinationEdit
@@ -6911,12 +6919,12 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: Vaccination_Type\:
 msgid "Treatment Type:"
-msgstr ""
+msgstr "BehandlingsTyp:"
 
 #. # ui/animal/VaccinationEdit
 #: Any_comments_about_the_vaccination
 msgid "Any comments about the vaccination treatment"
-msgstr ""
+msgstr "Kommentarer angående vaccination"
 
 #. # ui/animal/VaccinationSelector
 #: New_vaccination_record
@@ -6927,7 +6935,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Location\:
 msgid "Location:"
-msgstr ""
+msgstr "Plats:"
 
 #. # ui/animal/AnimalEdit
 #: Create_a_litter_from_this_animal
@@ -6969,7 +6977,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Species\:
 msgid "Species:"
-msgstr ""
+msgstr "Ras:"
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
@@ -6977,19 +6985,19 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Type\:
 msgid "Type:"
-msgstr ""
+msgstr "Typ:"
 
 #. # ui/animal/AnimalEdit
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
-msgstr ""
+msgstr "Dolda Kommentare:"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
 #: Size\:
 msgid "Size:"
-msgstr ""
+msgstr "Storlek:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -7002,7 +7010,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Dead_On_Arrival\:
 msgid "Dead On Arrival:"
-msgstr ""
+msgstr "Död Vid Ankomst"
 
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
@@ -7014,13 +7022,13 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Neutered\:
 msgid "Neutered/Spayed:"
-msgstr ""
+msgstr "Kastrerad/Steriliserad:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Combi-Tested\:
 msgid "Combi-Tested:"
-msgstr ""
+msgstr "Kombinations-Testad:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_basic_colour
@@ -7031,12 +7039,12 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Sex\:
 msgid "Sex:"
-msgstr ""
+msgstr "Kön:"
 
 #. # ui/animal/AnimalEdit
 #: The_reason_the_animal_was_not_brought_by_its_owner
 msgid "The reason the animal was not brought in by its owner"
-msgstr ""
+msgstr "Anledning till att ägaren lämnat in djuret"
 
 #. # ui/animal/AnimalEdit
 #: The_animal_acceptance_number_from_head_office
@@ -7052,7 +7060,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Brought_In_By\:
 msgid "Brought In By:"
-msgstr ""
+msgstr "Inlämnad Av:"
 
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
@@ -7082,7 +7090,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Breed\:
 msgid "Breed:"
-msgstr ""
+msgstr "Ras:"
 
 #. # ui/animal/VaccinationSelector
 #: Unable_to_open_animal_vaccination_records\:_
@@ -7098,12 +7106,12 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Invalid_Vaccination_Details
 msgid "Invalid Vaccination Details"
-msgstr ""
+msgstr "Ogiltiga Vaccinations Detaljer"
 
 #. # ui/animal/AnimalEdit
 #: Create_New_Animal
 msgid "Create New Animal"
-msgstr ""
+msgstr "Skapa Nytt Djur"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -7114,7 +7122,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_animal_type
 msgid "The animal type"
-msgstr ""
+msgstr "Djurtyp"
 
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_died_off_the_shelter_(keep_out_of_figures)
@@ -7132,7 +7140,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_reason_the_animal_was_put_to_sleep
 msgid "The reason the animal was put to sleep"
-msgstr ""
+msgstr "Anledning till att djuret fick somna in"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
@@ -7148,13 +7156,13 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Comments\:
 msgid "Comments:"
-msgstr ""
+msgstr "Kommentarer:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Health_Problems\:
 msgid "Health Problems:"
-msgstr ""
+msgstr "Hälsoproblem:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -7170,12 +7178,12 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_animal's_name
 msgid "The animal's name"
-msgstr ""
+msgstr "Djurets Namn"
 
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_was_put_to_sleep
 msgid "Tick this box if the animal was put to sleep"
-msgstr ""
+msgstr "Markera detta alternativ om djuret fick somna in"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -7188,18 +7196,18 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Delete_this_animal
 msgid "Delete this animal"
-msgstr ""
+msgstr "Ta bort detta djur"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Put_To_Sleep\:
 msgid "Put To Sleep:"
-msgstr ""
+msgstr "Avlivad:"
 
 #. # ui/animal/AnimalEdit
 #: Generate_New_Code
 msgid "Generate New Code"
-msgstr ""
+msgstr "Generera Ny Kod"
 
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_combi-tested_if_known
@@ -7214,7 +7222,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_died
 msgid "The date the animal died"
-msgstr ""
+msgstr "Datum då djuret avled"
 
 #. # ui/animal/AnimalEdit
 #: Edit_Animal
@@ -7225,7 +7233,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Original_Owner\:
 msgid "Original Owner:"
-msgstr ""
+msgstr "Ursprunglig Ägare:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -7236,12 +7244,12 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_animal's_size
 msgid "The animal's size"
-msgstr ""
+msgstr "Djurets storlek"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_sex
 msgid "The animal's sex"
-msgstr ""
+msgstr "Djurets kön"
 
 #. # ui/animal/AnimalEdit
 #: Animal_comments_you_want_to_see_on_documents
@@ -7252,7 +7260,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Base_Colour\:
 msgid "Base Colour:"
-msgstr ""
+msgstr "Grund Färg:"
 
 #. # ui/animal/AnimalEdit
 #: Unable_to_create_new_animal_record\:_
@@ -7283,7 +7291,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Name\:
 msgid "Name:"
-msgstr ""
+msgstr "Namn:"
 
 #. # ui/animal/AnimalEdit
 #: Any_distinguishing_markings_or_features_the_animal_has
@@ -7294,7 +7302,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
-msgstr ""
+msgstr "Födelsedatum:"
 
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_neutered_if_known
@@ -7304,7 +7312,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_animal's_species
 msgid "The animal's species"
-msgstr ""
+msgstr "Djurets ras"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -7329,7 +7337,7 @@ msgstr ""
 #: Address\:
 #: Organisation_Address\:
 msgid "Address:"
-msgstr ""
+msgstr "Adress:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_breed
@@ -7358,23 +7366,23 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_animal's_date_of_birth
 msgid "The animal's date of birth"
-msgstr ""
+msgstr "Djurets födelsedatum"
 
 #. # ui/animal/AnimalEdit
 #: Any_health_problems_the_animal_has
 msgid "Any health problems the animal has"
-msgstr ""
+msgstr "Kända hälsoproblem som djuret har"
 
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
 #: Required
 msgid "Required"
-msgstr ""
+msgstr "Obligatorisk"
 
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
 msgid "The Identichip Number"
-msgstr ""
+msgstr "Chip Nr"
 
 #. # db/AutoDBUpdates
 #: UseAutoCodes
@@ -7385,7 +7393,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Code\:
 msgid "Code:"
-msgstr ""
+msgstr "Kod:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7395,7 +7403,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_was_transferred_from_another_shelter
 msgid "Tick this box if the animal was transferred from another shelter"
-msgstr ""
+msgstr "Markera detta alternativ om djuret överförts från annat djurhem"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -7407,12 +7415,13 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
-msgstr ""
+msgstr "datum då djuret ankom till djurhemmet"
 
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_was_dead_on_entry_to_the_shelter
 msgid "Tick this box if the animal was dead on entry to the shelter"
 msgstr ""
+"Markera detta alternativ om djuret var dött vid ankomst till djurhemmet"
 
 #. # ui/animal/AnimalEdit
 #: Reason_for_Entry\:
@@ -7424,7 +7433,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Invalid_Date
 msgid "Invalid Date"
-msgstr ""
+msgstr "Ogiltigt Datum"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
@@ -7447,12 +7456,12 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Generate_a_random_name_for_this_animal
 msgid "Generate a random name for this animal"
-msgstr ""
+msgstr "Generera ett slumpmässigt namn till djuret"
 
 #. # ui/animal/AnimalEdit
 #: The_reason_the_animal_was_brought_to_the_shelter
 msgid "The reason the animal was brought to the shelter"
-msgstr ""
+msgstr "Anledning till att djuret lämnades till djurhemmet"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -7471,7 +7480,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: A_date_you_entered_was_not_valid\:_
 msgid "A date you entered was not valid: "
-msgstr ""
+msgstr "Ett datum du angivit är ogiltigt: "
 
 #. # bo/LookupCache
 #. # bo/Breed
@@ -7484,7 +7493,7 @@ msgstr ""
 #. # db/DatabaseImporter
 #: breed
 msgid "breed"
-msgstr ""
+msgstr "Ras"
 
 #. # ui/animal/AnimalEdit
 #. # ui/movement/MovementEdit
@@ -7492,7 +7501,7 @@ msgstr ""
 #: PTS_Reason\:
 #: Reason\:
 msgid "Reason:"
-msgstr ""
+msgstr "Orsak:"
 
 #. # ui/animal/MediaSelector
 #: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
@@ -7507,7 +7516,7 @@ msgstr ""
 #. # ui/animal/MediaSelector
 #: Preview
 msgid "Preview"
-msgstr ""
+msgstr "Förhandsvisning"
 
 #. # ui/animal/MediaSelector
 #: Delete_this_media
@@ -7598,13 +7607,13 @@ msgstr ""
 #. # ui/animal/MediaAdd
 #: Local_File\:
 msgid "Local File:"
-msgstr ""
+msgstr "Lokal fil:"
 
 #. # ui/animal/MediaEdit
 #. # ui/animal/MediaAdd
 #: Notes\:
 msgid "Notes:"
-msgstr ""
+msgstr "Kommentarer:"
 
 #. # ui/animal/MediaAdd
 #: Add_New_Media
@@ -7614,12 +7623,12 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Hidden_Comments\:_
 msgid "Hidden Comments: "
-msgstr ""
+msgstr "Dolda Kommentarer: "
 
 #. # ui/animal/AnimalFind
 #: find_original_owner_name
 msgid "Original Owner Name:"
-msgstr ""
+msgstr "Ursprungsägarens Namn:"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
@@ -7695,12 +7704,12 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: litter_id
 msgid "Litter ID:"
-msgstr ""
+msgstr "Kull ID:"
 
 #. # ui/animal/LitterView
 #: litterid
 msgid "Litter ID"
-msgstr ""
+msgstr "Kull ID"
 
 #. # ui/animal/AnimalEdit
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
@@ -7742,7 +7751,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: find_this_animals_littermates
 msgid "Find this animal's littermates"
-msgstr ""
+msgstr "Hitta djurets kullsyskon"
 
 #. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
@@ -7764,7 +7773,7 @@ msgstr ""
 #. # ui/animal/DietSelector
 #: Start_Date
 msgid "Start Date"
-msgstr ""
+msgstr "Startdatum"
 
 #. # ui/animal/DietSelector
 #: unable_to_read_diet_records\:
@@ -7774,35 +7783,35 @@ msgstr ""
 #. # ui/animal/DietSelector
 #: Create_new_diet
 msgid "Create new diet"
-msgstr ""
+msgstr "Skapa ny diet"
 
 #. # ui/animal/DietSelector
 #: Edit_this_diet
 msgid "Edit this diet"
-msgstr ""
+msgstr "Ändra på denna diet"
 
 #. # ui/animal/DietSelector
 #: Delete_this_diet
 msgid "Delete this diet"
-msgstr ""
+msgstr "Ta bort denna diet"
 
 #. # ui/animal/DietEdit
 #. # reports/AnimalPrint
 #: Diet_Type\:
 msgid "Diet Type:"
-msgstr ""
+msgstr "Typ av Diet:"
 
 #. # ui/medical/MedicalEdit
 #. # ui/animal/DietEdit
 #. # reports/AnimalPrint
 #: Start_Date\:
 msgid "Start Date:"
-msgstr ""
+msgstr "Startdatum:"
 
 #. # ui/animal/DietEdit
 #: New_Diet
 msgid "New Diet"
-msgstr ""
+msgstr "Ny Diet"
 
 #. # ui/owner/VoucherEdit
 #. # ui/animal/DietEdit
@@ -7813,22 +7822,22 @@ msgstr ""
 #. # ui/animal/DietEdit
 #: Edit_Diet
 msgid "Edit Diet"
-msgstr ""
+msgstr "Andra på denna diet"
 
 #. # ui/animal/DietEdit
 #: The_type_of_diet
 msgid "The type of diet the animal is on"
-msgstr ""
+msgstr "Typ av diet djuret äter nu"
 
 #. # ui/animal/DietEdit
 #: The_date_the_animal_started_this_diet
 msgid "The date the animal started this diet"
-msgstr ""
+msgstr "Datumet då dieten började"
 
 #. # ui/animal/DietEdit
 #: Any_comments_about_the_diet
 msgid "Any comments about the diet"
-msgstr ""
+msgstr "Kommentarer angående dieten"
 
 #. # ui/owner/VoucherEdit
 #: Issue_Date\:
@@ -7843,7 +7852,7 @@ msgstr ""
 #. # ui/owner/VoucherEdit
 #: Voucher_Amount\:
 msgid "Voucher Amount:"
-msgstr ""
+msgstr "Kupongens Värde:"
 
 #. # ui/animal/AnimalFind
 #: Include_Non_Shelter
@@ -7876,7 +7885,7 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Move_this_animal
 msgid "Move this animal"
-msgstr ""
+msgstr "Flytta detta djur"
 
 #. # bo/Animal
 #. # wordprocessor/AnimalDocument
@@ -7884,12 +7893,12 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Declawed
 msgid "Declawed:"
-msgstr ""
+msgstr "AvKload:"
 
 #. # ui/animal/AnimalEdit
 #: tick_this_box_if_the_animal_has_been_declawed
 msgid "Check this box if this animal has been declawed"
-msgstr ""
+msgstr "Markera detta alternativ om djuret har blivit \"avkload\""
 
 #. # ui/animal/MediaSelector
 #: Save_this_media_file_to_disk
@@ -7899,7 +7908,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: view_the_current_owner_for_this_animal
 msgid "View the current owner for this animal"
-msgstr ""
+msgstr "Visa djurets aktuella ägare"
 
 #. # ui/animal/AnimalEdit
 #: are_you_sure_you_want_to_clone_this_animal
@@ -7909,7 +7918,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: sure
 msgid "Sure?"
-msgstr ""
+msgstr "Säker?"
 
 #. # ui/animal/MediaAdd
 #: Capture_from_video_source
@@ -7937,12 +7946,12 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Tattoo\:
 msgid "Tattoo:"
-msgstr ""
+msgstr "tatuering:"
 
 #. # ui/animal/AnimalEdit
 #: The_Tattoo_Number
 msgid "The Tattoo Number"
-msgstr ""
+msgstr "Tatuerings Nummer"
 
 #. # bo/Animal
 #. # wordprocessor/AnimalDocument
@@ -7950,43 +7959,46 @@ msgstr ""
 #. # reports/AnimalPrint
 #: FLVResult
 msgid "FLV Result"
-msgstr ""
+msgstr "FLV Resultat"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: FIVResult
 msgid "FIV Result"
-msgstr ""
+msgstr "FIV Resultat"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
 msgid "The date the animal was identichipped"
-msgstr ""
+msgstr "Datumet då djuret id-chippades"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_had_the_tattoo
 msgid "The date the animal had the tattoo"
-msgstr ""
+msgstr "Datumet då djuret blev id-tatuerad"
 
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_only_show_animals_who_are_good_with_children
 msgid "Tick this box to only show animals who are good with children"
 msgstr ""
+"Markera detta alternativ för att endast visa djur som funkar bra med barn"
 
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_only_show_animals_who_are_good_with_cats
 msgid "Tick this box to only show animals who are good with cats"
 msgstr ""
+"Markera detta alternativ för att endast visa djur som funkar bra med katter"
 
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_only_show_animals_who_are_good_with_dogs
 msgid "Tick this box to only show animals who are good with dogs"
 msgstr ""
+"Markera detta alternativ för att endast visa djur som funkar bra med hundar"
 
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_only_show_animals_who_are_housetrained
 msgid "Tick this box to only show animals who are housetrained"
-msgstr ""
+msgstr "Markera detta alternativ för att endast visa djur som är rumsrena"
 
 #. # ui/animal/AnimalEdit
 #: generate_a_new_animal_code
@@ -8008,25 +8020,25 @@ msgstr ""
 #. # reports/AnimalPrint
 #: good_with_cats
 msgid "Good with Cats:"
-msgstr ""
+msgstr "Bra med katter:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: good_with_dogs
 msgid "Good with Dogs:"
-msgstr ""
+msgstr "Bra med hundar:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: good_with_kids
 msgid "Good with Kids:"
-msgstr ""
+msgstr "Bra med barn:"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: housetrained
 msgid "Housetrained:"
-msgstr ""
+msgstr "Rumsren:"
 
 #. # ui/animal/AnimalEdit
 #: tick_this_box_if_this_animal_is_not_available_for_adoption
@@ -8034,6 +8046,8 @@ msgid ""
 "Tick this box if this animal is not available for adoption (exclude from "
 "publishing)"
 msgstr ""
+"Markera detta alternativ om detta djur inte är tillgänglig för "
+"adoption(publisera ej)"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
@@ -8041,7 +8055,7 @@ msgstr ""
 #: Not_for_adoption
 #: Not_Available_For_Adoption
 msgid "Not for adoption"
-msgstr ""
+msgstr "Ej för adoption"
 
 #. # ui/ui/ASMDesktop
 #. # ui/main/UpdateDialog
@@ -8049,7 +8063,7 @@ msgstr ""
 #. # ui/animal/MediaAdd
 #: Close
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #. # ui/animal/MediaAdd
 #: Video_Capture
@@ -8089,7 +8103,7 @@ msgstr ""
 #: vet
 #: Vet
 msgid "Vet"
-msgstr ""
+msgstr "Veterinär"
 
 #. # ui/animal/AnimalEdit
 #: about_vet
@@ -8101,7 +8115,7 @@ msgstr ""
 #. # db/AutoDBUpdates
 #: death
 msgid "Death"
-msgstr ""
+msgstr "Död"
 
 #. # ui/animal/AnimalEdit
 #: if_the_animal_is_deceased
@@ -8112,7 +8126,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Vaccination
 msgid "Vaccination"
-msgstr ""
+msgstr "Vaccination"
 
 #. # ui/animal/AnimalEdit
 #: animal_vaccination_information
@@ -8122,12 +8136,12 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: medical
 msgid "Medical"
-msgstr ""
+msgstr "Medicinsk"
 
 #. # ui/animal/AnimalEdit
 #: diet_information
 msgid "Diet Information"
-msgstr ""
+msgstr "Diet Information"
 
 #. # bo/Media
 #. # wordprocessor/GenerateDocument
@@ -8144,7 +8158,7 @@ msgstr ""
 #: media
 #: Media
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #. # ui/animal/AnimalEdit
 #: media_for_this_animal
@@ -8154,6 +8168,7 @@ msgstr ""
 #. # bo/Diary
 #. # ui/ui/Dialog
 #. # ui/diary/VetBookView
+#. # ui/system/Options
 #. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
@@ -8197,12 +8212,12 @@ msgstr ""
 #: log
 #: Log
 msgid "Log"
-msgstr ""
+msgstr "Logg"
 
 #. # ui/animal/AnimalEdit
 #: log_info
 msgid "Any other information about the animal"
-msgstr ""
+msgstr "Ytterligare information om djuret"
 
 #. # ui/main/Main
 #. # ui/animal/NotAdoptionView
@@ -8218,7 +8233,7 @@ msgstr ""
 #. # ui/animal/NotAdoptionView
 #: Refresh_the_list_of_animals
 msgid "Refresh the list of animals"
-msgstr ""
+msgstr "Uppdatera listan med djur"
 
 #. # ui/animal/MediaAdd
 #: File_does_not_exist
@@ -8250,7 +8265,7 @@ msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: edit_animal_title
-msgid "Edit Animal - {0}, {1} ({2}) aged {3}"
+msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
 msgstr ""
 
 #. # ui/waitinglist/WaitingListEdit
@@ -8283,12 +8298,12 @@ msgstr ""
 #. # reports/AnimalPrint
 #: special_needs
 msgid "Special Needs?"
-msgstr ""
+msgstr "Speciella Behov?"
 
 #. # ui/animal/AnimalEdit
 #: special_needs_tooltip
 msgid "Tick this box if the animal has special needs"
-msgstr ""
+msgstr "Markera detta alternativ om djuret har speciella behov"
 
 #. # ui/animal/AnimalEdit
 #: Copy_animal_comments_to_web_media_notes
@@ -8317,7 +8332,7 @@ msgstr ""
 #. # ui/animal/VaccinationView
 #: include_deceased
 msgid "Include Deceased"
-msgstr ""
+msgstr "Inkludera Avlidna"
 
 #. # ui/animal/VaccinationView
 #: include_off_shelter
@@ -8335,23 +8350,23 @@ msgstr ""
 #. # db/DatabaseImporter
 #: additional
 msgid "Additional"
-msgstr ""
+msgstr "Ytterligare"
 
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
 #: additional_info
 msgid "Additional information about the animal"
-msgstr ""
+msgstr "Ytterligare information om djuret"
 
 #. # ui/animal/AnimalEdit
 #: Crossbreed
 msgid "Crossbreed"
-msgstr ""
+msgstr "Blandras"
 
 #. # ui/animal/AnimalEdit
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
-msgstr ""
+msgstr "Markera detta alternativ om djuret är en blandras"
 
 #. # ui/animal/AnimalEdit
 #: If_the_animal_is_a_cross_the_second_breed
@@ -8362,30 +8377,30 @@ msgstr ""
 #. # ui/animal/AnimalFindText
 #: search_term_bad
 msgid "Your search term must be at least 2 letters long."
-msgstr ""
+msgstr "Din sökning måste innehålla minst två bokstäver."
 
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: Advanced
 msgid "Advanced"
-msgstr ""
+msgstr "Avancerad"
 
 #. # ui/owner/OwnerFind
 #. # ui/animal/AnimalFind
 #: Simple
 msgid "Simple"
-msgstr ""
+msgstr "Enkel"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Coat_Type
 msgid "Coat Type:"
-msgstr ""
+msgstr "PälsTyp:"
 
 #. # ui/animal/AnimalEdit
 #: The_animals_coat_type
 msgid "The animal's coat type"
-msgstr ""
+msgstr "Djurets pälstyp"
 
 #. # ui/animal/AnimalEdit
 #: Cruelty_case
@@ -8401,17 +8416,17 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Current_Vet
 msgid "Current Vet:"
-msgstr ""
+msgstr "Nuvarande Veterinär:"
 
 #. # ui/animal/AnimalEdit
 #: Estimate
 msgid "Estimate"
-msgstr ""
+msgstr "Uppskatta"
 
 #. # ui/animal/AnimalEdit
 #: is_this_date_of_birth_an_estimate
 msgid "Tick this box if this date of birth is an estimate?"
-msgstr ""
+msgstr "Markera detta alternativ om djurets födelsedag är en uppskattning?"
 
 #. # ui/ui/UI
 #: Permission_Denied_Save
@@ -8424,22 +8439,28 @@ msgstr ""
 msgid ""
 "Click OK when you have finished making your changes and saved the file."
 msgstr ""
+"Tryck på OK när du är färdig med dina ändringar och har sparat filen."
+
+#. # ui/animal/LitterEdit
+#: Expires
+msgid "Expires:"
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
-msgstr ""
+msgstr "Lägg till ett nytt djurnamn"
 
 #. # ui/animalname/NamesView
 #. # ui/main/Main
 #: Animal_Name_Database
 msgid "Animal Name Database"
-msgstr ""
+msgstr "Djurnamns databasen"
 
 #. # ui/animalname/NamesView
 #: Delete_the_highlighted_name
 msgid "Delete the highlighted name"
-msgstr ""
+msgstr "Ta bort det markerade namnet"
 
 #. # ui/ui/UI
 #: An_error_occurred_deleting_the_record\:\n
@@ -8449,7 +8470,7 @@ msgstr ""
 #. # ui/animalname/NamesView
 #: Edit_the_highlighted_name
 msgid "Edit the highlighted name"
-msgstr ""
+msgstr "Redigera det markerade namnet"
 
 #. # ui/ui/UI
 #: Really_delete_this_record?
@@ -8473,7 +8494,7 @@ msgstr ""
 #. # ui/animalname/NamesEdit
 #: Edit_Name
 msgid "Edit Name"
-msgstr ""
+msgstr "Redigera namn"
 
 #. # ui/ui/CurrencyField
 #: The_currency_figure_you_entered_was_invalid.
@@ -8484,7 +8505,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Custom_Reports
 msgid "Reports"
-msgstr ""
+msgstr "Rapporter"
 
 #. # ui/customreport/CustomReportEdit
 #: There_is_an_error_in_your_SQL\:\n
@@ -8519,7 +8540,7 @@ msgstr ""
 #. # ui/customreport/CustomReportEdit
 #: Save_changes
 msgid "Save changes"
-msgstr ""
+msgstr "Spara ändringar"
 
 #. # ui/customreport/CustomReportEdit
 #: Edit_Custom_Report
@@ -8552,7 +8573,7 @@ msgstr ""
 #. # ui/customreport/CustomReportView
 #: category
 msgid "Category"
-msgstr ""
+msgstr "Kategori"
 
 #. # ui/customreport/CustomReportExport
 #: Create_a_csv_file_and_view_in_the_default_CSV_editor
@@ -8621,7 +8642,7 @@ msgstr ""
 #. # ui/splash/About
 #: Database
 msgid "Database"
-msgstr ""
+msgstr "Databas"
 
 #. # ui/customreport/GetReports
 #. # startup/Startup
@@ -8632,12 +8653,12 @@ msgstr ""
 #. # ui/customreport/GetReports
 #: Graph
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 #. # ui/customreport/GetReports
 #: Report
 msgid "Report"
-msgstr ""
+msgstr "Rapport"
 
 #. # ui/customreport/GetReports
 #: Install_this_report
@@ -8652,7 +8673,7 @@ msgstr ""
 #. # ui/diary/DiaryEdit
 #: Close_without_saving
 msgid "Close without saving"
-msgstr ""
+msgstr "Stäng utan att spara"
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -8693,7 +8714,7 @@ msgstr ""
 #. # ui/diary/DiaryEdit
 #: Time\:
 msgid "Time:"
-msgstr ""
+msgstr "Tid:"
 
 #. # ui/diary/DiaryEdit
 #: The_date_this_reminder_should_appear
@@ -8711,13 +8732,13 @@ msgstr ""
 #: Subject\:
 #: subject
 msgid "Subject:"
-msgstr ""
+msgstr "Ämne:"
 
 #. # ui/diary/DiaryEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #: Note\:
 msgid "Note:"
-msgstr ""
+msgstr "Anteckning:"
 
 #. # ui/diary/DiaryEdit
 #: The_time_any_action_should_be_taken
@@ -8795,7 +8816,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Created_By
 msgid "Created By"
-msgstr ""
+msgstr "Skapad av"
 
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
@@ -8880,7 +8901,7 @@ msgstr ""
 #. # ui/diary/VetBookView
 #: Link
 msgid "Link"
-msgstr ""
+msgstr "Länk"
 
 #. # ui/diary/DiaryView
 #. # ui/users/UserEdit
@@ -8913,7 +8934,7 @@ msgstr ""
 #. # ui/diary/DiaryTaskExecute
 #: Enter_Date
 msgid "Enter Date"
-msgstr ""
+msgstr "Ange datum"
 
 #. # ui/diary/DiaryTaskExecute
 #: Diary_Task_Complete
@@ -9010,22 +9031,22 @@ msgstr ""
 #: Select_Species
 #: Select_species
 msgid "Select Species"
-msgstr ""
+msgstr "Valj Ras"
 
 #. # ui/ui/Dialog
 #: Select_species\:
 msgid "Select species:"
-msgstr ""
+msgstr "Välj ras:"
 
 #. # ui/ui/Dialog
 #: Select_Year
 msgid "Select Year"
-msgstr ""
+msgstr "Välj År"
 
 #. # ui/ui/Dialog
 #: select_animal_type
 msgid "Select Animal Type"
-msgstr ""
+msgstr "Välj typ av djur"
 
 #. # ui/ui/Dialog
 #: select_internal_location
@@ -9035,27 +9056,27 @@ msgstr ""
 #. # ui/ui/Dialog
 #: select_user
 msgid "Select user:"
-msgstr ""
+msgstr "Välj användare:"
 
 #. # ui/ui/Dialog
 #: Select_User_title
 msgid "Select User"
-msgstr ""
+msgstr "Välj användare"
 
 #. # ui/ui/Dialog
 #: select_diet
 msgid "Select a diet"
-msgstr ""
+msgstr "Välj en diet"
 
 #. # ui/ui/Dialog
 #: Select_a_voucher
 msgid "Select a voucher"
-msgstr ""
+msgstr "Välj en kupong"
 
 #. # ui/ui/Dialog
 #: Select_a_medical_profile
 msgid "Select a Medical Profile"
-msgstr ""
+msgstr "Välj en medicinsk profil"
 
 #. # ui/ui/Dialog
 #: select_locale
@@ -9065,12 +9086,12 @@ msgstr ""
 #. # ui/ui/Dialog
 #: Information
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
 msgid "Include Reserved Animals"
-msgstr ""
+msgstr "Inkludera reserverade djur"
 
 #. # ui/internet/InternetPublisher
 #: Include_Fostered_Animals
@@ -9109,7 +9130,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Include_Case_Animals
 msgid "Include Cruelty Case Animals"
-msgstr ""
+msgstr "Inkludera vanvårdade djur"
 
 #. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
@@ -9123,7 +9144,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Publish_Animals_Available_For_Adoption
 msgid "Publish Animals Available For Adoption"
-msgstr ""
+msgstr "Publisera Djur som är tillgängliga för adoption"
 
 #. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
@@ -9141,7 +9162,7 @@ msgstr ""
 #. # internet/SaveAPetPublisher
 #: Publishing...
 msgid "Publishing..."
-msgstr ""
+msgstr "Publicerar..."
 
 #. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
@@ -9217,7 +9238,7 @@ msgstr ""
 #: Username\:
 #: Username
 msgid "Username:"
-msgstr ""
+msgstr "Användarnamn:"
 
 #. # ui/internet/FTPSettings
 #. # ui/internet/Pets911Settings
@@ -9231,7 +9252,7 @@ msgstr ""
 #. # ui/internet/FTPSettings
 #: Root\:
 msgid "Root:"
-msgstr ""
+msgstr "Rot:"
 
 #. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
@@ -9250,37 +9271,37 @@ msgstr ""
 #. # ui/internet/EmailForm
 #: send_email
 msgid "Send Email"
-msgstr ""
+msgstr "Skicka e-post"
 
 #. # ui/internet/EmailForm
 #: to
 msgid "To:"
-msgstr ""
+msgstr "Till:"
 
 #. # ui/internet/EmailForm
 #: send
 msgid "Send"
-msgstr ""
+msgstr "Sänd"
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_to
 msgid "You must have an email address to send the message to"
-msgstr ""
+msgstr "Du måste ha en e-mail för att skicka meddelandet till"
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_subject
 msgid "You must enter a subject for the message."
-msgstr ""
+msgstr "Du måste ange ett ämne för meddelandet."
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_body
 msgid "You have not entered a message."
-msgstr ""
+msgstr "Du har inte angett ett meddelande."
 
 #. # ui/internet/EmailForm
 #: An_error_occurred_sending_the_email
 msgid "An error occurred sending your message: "
-msgstr ""
+msgstr "Ett fel uppstog vid sändning: "
 
 #. # ui/internet/EmailForm
 #: send_bulk_email
@@ -9290,7 +9311,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_PetFinder.org
 msgid "Publish Available Animals To PetFinder.com"
-msgstr ""
+msgstr "Publisera tillgängliga djur på Petfinder.com"
 
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
@@ -9301,7 +9322,7 @@ msgstr ""
 #. # ui/internet/PetFinderSettings
 #: PetFinder_Settings
 msgid "PetFinder.com Settings"
-msgstr ""
+msgstr "PetFinder.com Inställningar"
 
 #. # internet/PetFinderPublisher
 #: petfinder_publishing_complete
@@ -9402,22 +9423,22 @@ msgstr ""
 #. # ui/internet/Pets911Settings
 #: Pets911_Settings
 msgid "Pets911.com Settings"
-msgstr ""
+msgstr "Pets911.com Inställningar"
 
 #. # ui/internet/Pets911Settings
 #: Source_ID
 msgid "Source ID:"
-msgstr ""
+msgstr "Käll-ID:"
 
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_Pets911.com
 msgid "Publish Available Animals To Pets911.com"
-msgstr ""
+msgstr "Publisera tillgängliga djur på Pets911.com"
 
 #. # internet/Pets911Publisher
 #: An_error_occurred
 msgid "An error occurred:\n"
-msgstr ""
+msgstr "Ett fel uppstod:\n"
 
 #. # internet/Pets911Publisher
 #: Pets911_publishing_complete
@@ -9437,7 +9458,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Include_Without_Image
 msgid "Include Animals with no image"
-msgstr ""
+msgstr "Ikludera djur utan bild"
 
 #. # internet/SaveAPetPublisher
 #: An_error_occurred_reading_the_save_a_pet_user
@@ -9452,7 +9473,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_1800SaveAPet
 msgid "Publish Available Animals to AdoptAPet.com"
-msgstr ""
+msgstr "Publisera tillgängliga djur på AdoptAPet.com"
 
 #. # ui/internet/SaveAPetSettings
 #: SaveAPet_Settings
@@ -9472,32 +9493,32 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Upload_Options
 msgid "Upload Options"
-msgstr ""
+msgstr "Uppladdningsalternativ"
 
 #. # ui/internet/InternetPublisher
 #: Style
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 #. # ui/internet/InternetPublisher
 #: Upload_all_animal_images
 msgid "Upload all animal images"
-msgstr ""
+msgstr "Ladda upp alla djurbilder"
 
 #. # ui/internet/InternetPublisher
 #: Unlimited
 msgid "Unlimited"
-msgstr ""
+msgstr "Obegränsad"
 
 #. # ui/internet/InternetPublisher
 #: Include
 msgid "Include"
-msgstr ""
+msgstr "Inkludera"
 
 #. # ui/internet/InternetPublisher
 #: Include_colours
 msgid "Include Colours"
-msgstr ""
+msgstr "Inkludera Färger"
 
 #. # bo/AnimalMedical
 #. # bo/MedicalProfile
@@ -9507,12 +9528,12 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: weeks
 msgid "{0} weeks"
-msgstr ""
+msgstr "{0} veckor"
 
 #. # ui/internet/InternetPublisher
 #: File_Extension
 msgid "File Extension"
-msgstr ""
+msgstr "Filändelse"
 
 #. # ui/internet/InternetPublisher
 #: Force_Reupload
@@ -9576,27 +9597,27 @@ msgstr ""
 #. # ui/localcache/CacheView
 #: Filename
 msgid "Filename"
-msgstr ""
+msgstr "Filnamn"
 
 #. # ui/localcache/CacheView
 #: View_this_file
 msgid "View this file"
-msgstr ""
+msgstr "granska denna fil"
 
 #. # ui/localcache/CacheView
 #: Delete_all_files
 msgid "Delete all files"
-msgstr ""
+msgstr "Radera alla filer"
 
 #. # ui/localcache/CacheView
 #: Delete_this_file
 msgid "Delete this file"
-msgstr ""
+msgstr "Radera denna fil"
 
 #. # ui/localcache/CacheView
 #: Date/Time
 msgid "Date/Time"
-msgstr ""
+msgstr "Datum/Tid"
 
 #. # ui/localcache/LocalCache
 #: Error_reading_from_file_-_
@@ -9622,7 +9643,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Details
 msgid "Details"
-msgstr ""
+msgstr "Detaljinformation"
 
 #. # ui/log/LogSelector
 #: Unable_to_read_log_records\:
@@ -9694,33 +9715,33 @@ msgstr ""
 #. # ui/log/LogSelector
 #: Show\:_
 msgid "Show: "
-msgstr ""
+msgstr "Visa: "
 
 #. # ui/login/Login
 #: The_username_and/or_password_you_supplied_were_not_recognised.
 msgid "The username and/or password you supplied were not recognised."
-msgstr ""
+msgstr "Okänt användarnamn eller lösenord."
 
 #. # ui/main/Main
 #. # ui/login/Login
 #: Exit
 msgid "Exit"
-msgstr ""
+msgstr "Avsluta"
 
 #. # ui/login/Login
 #: Invalid_Password
 msgid "Invalid Password"
-msgstr ""
+msgstr "Ogiltigt lösenord"
 
 #. # ui/splash/About
 #: Version_
 msgid "Version "
-msgstr ""
+msgstr "Version "
 
 #. # ui/login/Login
 #: Login
 msgid "Login"
-msgstr ""
+msgstr "Inloggning"
 
 #. # ui/login/Login
 #: An_error_occurred_obtaining_a_connection_to_the_database_-_
@@ -9730,7 +9751,7 @@ msgstr ""
 #. # ui/login/Login
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
-msgstr ""
+msgstr "Djurehemmets föreståndar Login"
 
 #. # ui/login/Login
 #: default_username_password_hint
@@ -9740,12 +9761,12 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Breed_Name
 msgid "Breed Name"
-msgstr ""
+msgstr "Ras Namn"
 
 #. # ui/lookups/LookupView
 #: Colour_Description
 msgid "Colour Description"
-msgstr ""
+msgstr "Färgbeskrivning"
 
 #. # ui/lookups/LookupView
 #. # ui/main/Main
@@ -9756,18 +9777,18 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Breed_Description
 msgid "Breed Description"
-msgstr ""
+msgstr "Rasbeskrivning"
 
 #. # ui/lookups/LookupView
 #. # ui/main/Main
 #: Vaccination_Types
 msgid "Vaccination Types"
-msgstr ""
+msgstr "Vaccinationstyp"
 
 #. # ui/lookups/LookupView
 #: Species_Name
 msgid "Species Name"
-msgstr ""
+msgstr "Rasnamn"
 
 #. # ui/lookups/LookupView
 #: Invalid_lookup_type_received.
@@ -9782,7 +9803,7 @@ msgstr ""
 #. # ui/internet/PetFinderMapSpecies
 #: Edit
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #. # ui/lookups/LookupView
 #: An_error_occurred_checking_foreign-key_relations_and_this\nrecord_cannot_be_deleted\:_
@@ -9796,12 +9817,12 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Delete
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #. # ui/lookups/LookupView
 #: Animal_Type_Description
 msgid "Animal Type Description"
-msgstr ""
+msgstr "Djurtypsbeskrivning"
 
 #. # ui/lookups/LookupView
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
@@ -9814,12 +9835,12 @@ msgstr ""
 #. # ui/main/Main
 #: Breeds
 msgid "Breeds"
-msgstr ""
+msgstr "Raser"
 
 #. # ui/lookups/LookupView
 #: Base_Colours
 msgid "Base Colours"
-msgstr ""
+msgstr "Basfärger"
 
 #. # ui/lookups/LookupView
 #: Animal_Type_Name
@@ -9830,33 +9851,33 @@ msgstr ""
 #. # ui/main/Main
 #: Animal_Types
 msgid "Animal Types"
-msgstr ""
+msgstr "Djurtyper"
 
 #. # ui/lookups/LookupView
 #: Colour_Name
 msgid "Colour Name"
-msgstr ""
+msgstr "Färgnamn"
 
 #. # ui/lookups/LookupView
 #: Vaccination_Description
 msgid "Vaccination Description"
-msgstr ""
+msgstr "Vaccinationsbeskrivning"
 
 #. # ui/lookups/LookupView
 #: Location_Name
 msgid "Location Name"
-msgstr ""
+msgstr "Platsnamn"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/lookups/LookupView
 #: New
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #. # ui/lookups/LookupView
 #: Vaccination_Name
 msgid "Vaccination Name"
-msgstr ""
+msgstr "vaccinationsnamn"
 
 #. # ui/lookups/LookupView
 #: Location_Description
@@ -9866,12 +9887,12 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Species_Description
 msgid "Species Description"
-msgstr ""
+msgstr "Rasbeskrivning"
 
 #. # ui/lookups/LookupEdit
 #: Create_New_
 msgid "Create New "
-msgstr ""
+msgstr "Skapa Ny "
 
 #. # ui/lookups/LookupEdit
 #: An_error_occurred_accessing_the_record\:_
@@ -9882,7 +9903,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Description\:
 msgid "Description:"
-msgstr ""
+msgstr "Beskrivning:"
 
 #. # ui/users/UserEdit
 #. # ui/lookups/LookupEdit
@@ -9916,40 +9937,40 @@ msgstr ""
 #. # ui/main/Main
 #: Death_Reasons
 msgid "Death Reasons"
-msgstr ""
+msgstr "Dödsorsak"
 
 #. # ui/lookups/LookupView
 #: Diet_Name
 msgid "Diet Name"
-msgstr ""
+msgstr "Dietnamn"
 
 #. # ui/lookups/LookupView
 #: Diet_Description
 msgid "Diet Description"
-msgstr ""
+msgstr "DietBeskrivning"
 
 #. # ui/lookups/LookupView
 #. # ui/main/Main
 #: Diets
 msgid "Diets"
-msgstr ""
+msgstr "Dieter"
 
 #. # ui/lookups/LookupView
 #: Voucher_Name
 msgid "Voucher Name"
-msgstr ""
+msgstr "KupongNamn"
 
 #. # ui/lookups/LookupView
 #: Voucher_Description
 msgid "Voucher Description"
-msgstr ""
+msgstr "KupongBeskrivning"
 
 #. # ui/owner/OwnerEdit
 #. # ui/lookups/LookupView
 #. # ui/main/Main
 #: Vouchers
 msgid "Vouchers"
-msgstr ""
+msgstr "Kuponger"
 
 #. # ui/lookups/LookupView
 #: Log_Type_Name
@@ -9969,12 +9990,12 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: donation_type_description
 msgid "Donation Type Description"
-msgstr ""
+msgstr "Beskrivning av donationstyp"
 
 #. # ui/lookups/LookupView
 #: donation_types
 msgid "Donation Types"
-msgstr ""
+msgstr "Donations Typ"
 
 #. # ui/lookups/LookupEdit
 #: cannot_be_empty
@@ -10011,7 +10032,7 @@ msgstr ""
 #. # ui/main/Main
 #: Find_Lost_Animal
 msgid "Find Lost Animal"
-msgstr ""
+msgstr "Hitta borttappat djur"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -10023,23 +10044,23 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalFind
 #: and
 msgid "and"
-msgstr ""
+msgstr "och"
 
 #. # ui/lostandfound/LostAnimalFind
 #: Lost_Between\:
 msgid "Lost Between:"
-msgstr ""
+msgstr "Bortsprungen mellan:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #: Found_Between\:
 msgid "Found Between:"
-msgstr ""
+msgstr "Upphittad mellan:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/main/Main
 #: Find_Found_Animal
 msgid "Find Found Animal"
-msgstr ""
+msgstr "Hitta upphittat djur"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -10059,22 +10080,22 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Area
 msgid "Area"
-msgstr ""
+msgstr "Område"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Date_Lost\:
 msgid "Date Lost:"
-msgstr ""
+msgstr "Datum för försvinnande:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Create_New_Lost_Animal
 msgid "Create New Lost Animal"
-msgstr ""
+msgstr "Skapa nytt bortsprunget djur"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: The_postcode_of_the_area_the_animal_was_lost_in
 msgid "The postcode of the area the animal was lost in"
-msgstr ""
+msgstr "Postnummerområde där djuret sprungit bort"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Attempt_to_find_possible_matches_for_this_lost_animal
@@ -10084,7 +10105,7 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalEdit
 #: The_area_the_animal_was_lost_in,_eg\:_Millhouses,_Sheffield
 msgid "The area the animal was lost in, eg: Millhouses, Sheffield"
-msgstr ""
+msgstr "Område där djuret försvann, t.e.x malmö,stockholm eller mer ingånde"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Unable_to_create_new_lost_animal_record\:_
@@ -10717,6 +10738,7 @@ msgid "Locked"
 msgstr ""
 
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr ""
@@ -11019,6 +11041,32 @@ msgstr ""
 #. # ui/main/StartupPage
 #: Welcome
 msgid "Welcome"
+msgstr ""
+
+#. # ui/main/Main
+#. # ui/main/ChangePassword
+#: Change_Password
+msgid "Change &Password"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: new_passwords_dont_match
+msgid "New password and confirmation don't match"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Current_Password\:
+msgid "Current Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: New_Password\:
+msgid "New Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Confirm_Password\:
+msgid "Confirm Password:"
 msgstr ""
 
 #. # ui/medical/ProfileView
@@ -13701,6 +13749,21 @@ msgstr ""
 #. # ui/system/Options
 #: Automatic_Insurance_Numbers
 msgid "Automatic Insurance Numbers"
+msgstr ""
+
+#. # ui/system/Options
+#: Auto_attach_generated_media
+msgid "Automatically attach generated documents as media"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_Log_Filter\:
+msgid "Default Log Filter:"
+msgstr ""
+
+#. # ui/system/Options
+#: Vets_Diary_User\:
+msgid "Vets Diary User:"
 msgstr ""
 
 #. # ui/users/UserView

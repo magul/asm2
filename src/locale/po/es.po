@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-15 14:56+0100\n"
-"PO-Revision-Date: 2009-12-15 21:10+0000\n"
-"Last-Translator: Monkey <Unknown>\n"
+"POT-Creation-Date: 2009-12-16 11:11+0100\n"
+"PO-Revision-Date: 2009-12-18 16:44+0000\n"
+"Last-Translator: Ivan Garcia <capiscuas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-16 05:30+0000\n"
+"X-Launchpad-Export-Date: 2009-12-19 04:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3532,6 +3532,7 @@ msgstr "La base de datos ha sido actualizada con éxito."
 #. # ui/splash/About
 #. # ui/lookups/LookupEdit
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -4662,6 +4663,7 @@ msgstr "Informe resumen de entradas y salidas"
 #. # ui/users/UserEdit
 #. # ui/lookups/LookupEdit
 #. # ui/main/Logout
+#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
@@ -6646,6 +6648,7 @@ msgstr "LocationName"
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/ui/Dialog
 #. # ui/log/LogSelector
+#. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
 #: (all)
@@ -8243,6 +8246,7 @@ msgstr "Archivos multimedia asociados a este animal"
 #. # bo/Diary
 #. # ui/ui/Dialog
 #. # ui/diary/VetBookView
+#. # ui/system/Options
 #. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
@@ -8526,6 +8530,11 @@ msgid ""
 msgstr ""
 "Haga click en OK cuando haya terminado de hacer sus cambios y grabado el "
 "archivo."
+
+#. # ui/animal/LitterEdit
+#: Expires
+msgid "Expires:"
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -10851,6 +10860,7 @@ msgid "Locked"
 msgstr "Bloqueado"
 
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr "Contraseña incorrecta"
@@ -11154,6 +11164,32 @@ msgstr "&Obtener más informes desde sheltermanager.com ..."
 #: Welcome
 msgid "Welcome"
 msgstr "Bienvenido"
+
+#. # ui/main/Main
+#. # ui/main/ChangePassword
+#: Change_Password
+msgid "Change &Password"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: new_passwords_dont_match
+msgid "New password and confirmation don't match"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Current_Password\:
+msgid "Current Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: New_Password\:
+msgid "New Password:"
+msgstr ""
+
+#. # ui/main/ChangePassword
+#: Confirm_Password\:
+msgid "Confirm Password:"
+msgstr "Confirmar contraseña:"
 
 #. # ui/medical/ProfileView
 #: Profile_Name
@@ -13941,6 +13977,16 @@ msgstr ""
 #. # ui/system/Options
 #: Auto_attach_generated_media
 msgid "Automatically attach generated documents as media"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_Log_Filter\:
+msgid "Default Log Filter:"
+msgstr ""
+
+#. # ui/system/Options
+#: Vets_Diary_User\:
+msgid "Vets Diary User:"
 msgstr ""
 
 #. # ui/users/UserView

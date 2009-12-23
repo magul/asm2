@@ -293,7 +293,7 @@ INSERT INTO breed VALUES (252, 'Huskatt halvlång päls', '', '', 2);
 INSERT INTO breed VALUES (261, 'Huskatt korthårig', '', '', 2);
 INSERT INTO breed VALUES (271, 'Egyptisk mau', '', '', 2);
 INSERT INTO breed VALUES (272, 'Exotiskt korthår', '', '', 2);
-INSERT INTO breed VALUES (273, 'Extra-Toes Cat (Hemingway Polydactyl)', '', '', 2);
+INSERT INTO breed VALUES (273, 'Skeppskatt', '', '', 2);
 INSERT INTO breed VALUES (274, 'Havana', '', '', 2);
 INSERT INTO breed VALUES (275, 'Himalayan', '', '', 2);
 INSERT INTO breed VALUES (276, 'Japanese Bobtail', '', '', 2);
@@ -467,7 +467,7 @@ INSERT INTO customreport VALUES (36, 'Ej microchippade djur', '001', '', '', 0, 
 INSERT INTO customreport VALUES (37, 'Djur utan fotomedia', '002', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Revision');
 INSERT INTO customreport VALUES (38, 'Aldrig vaccinerade djur', '003', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Revision');
 INSERT INTO customreport VALUES (39, 'Ej kastrerade/steriliserade djur över 6 månader', '004', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Revision');
-INSERT INTO customreport VALUES (40, 'Cats Not Combi-Tested', '005', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Revision');
+INSERT INTO customreport VALUES (40, 'Ej combi-testade katter', '005', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Revision');
 INSERT INTO customreport VALUES (41, 'Djurstatistik månadsvis', '006', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistik');
 INSERT INTO customreport VALUES (42, 'Långvariga djur', '007', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Statistik');
 INSERT INTO customreport VALUES (43, 'Djurhemsförteckning/inventering', '008', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', 'Inventeringar/förteckningar');
