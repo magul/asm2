@@ -438,7 +438,7 @@ public class AnimalFindText extends ASMFind {
                 "animal.DateBroughtIn, animal.NonShelterAnimal, animal.ActiveMovementID, " +
                 "animal.HasActiveReserve, animal.ActiveMovementType, animal.ActiveMovementDate, " +
                 "animal.DeceasedDate, animal.ID AS priority " + "FROM animal " +
-                "WHERE Archived = 0");
+                "WHERE Archived = 0 ORDER BY animal.AnimalName");
         } else {
             // Build UNION query for text results
             addQuery(new String[] {
@@ -499,6 +499,9 @@ public class AnimalFindText extends ASMFind {
                 8);
             addQuery(new String[] { "lksize.Size" },
                 "INNER JOIN lksize ON animal.Size = lksize.ID", 8);
+
+	    // Ordering
+	    sql.append(" ORDER BY priority");
         }
 
         // Create an array of headers for the animals
@@ -517,9 +520,6 @@ public class AnimalFindText extends ASMFind {
         if (!usingShortCodes) {
             columnheaders[1] = i18n("Code");
         }
-
-        // Ordering
-        sql.append(" ORDER BY priority");
 
         // Search limit
         int limit = Global.getRecordSearchLimit();

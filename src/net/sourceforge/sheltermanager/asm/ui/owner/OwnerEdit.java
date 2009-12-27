@@ -1795,7 +1795,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 " WHERE BroughtInByOwnerID = " + theowner.getID();
             DBConnection.executeAction(sql);
             sql = "UPDATE animal SET OwnersVetID = " + owner.getID() +
-                " WHERE BroughtInByOwnerID = " + theowner.getID();
+                " WHERE OwnersVetID = " + theowner.getID();
+            sql = "UPDATE animal SET CurrentVetID = " + owner.getID() +
+                " WHERE CurrentVetID = " + theowner.getID();
             DBConnection.executeAction(sql);
             sql = "UPDATE animallost SET OwnerID = " + owner.getID() +
                 " WHERE OwnerID = " + theowner.getID();
@@ -1823,7 +1825,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 Media.LINKTYPE_OWNER;
             DBConnection.executeAction(sql);
             sql = "UPDATE diary SET LinkID = " + owner.getID() +
-                " WHERE LinkID = " + theowner.getID() + " AND LinkTypeID = " +
+                " WHERE LinkID = " + theowner.getID() + " AND LinkType = " +
                 Diary.LINKTYPE_OWNER;
             DBConnection.executeAction(sql);
             sql = "UPDATE log SET LinkID = " + owner.getID() +

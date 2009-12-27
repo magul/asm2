@@ -927,6 +927,8 @@ public class AnimalFind extends ASMFind {
             sql.append(" WHERE ").append(getSqlCriteria());
         }
 
+	sql.append(" ORDER BY animal.AnimalName");
+
         // Search limit
         int limit = Global.getRecordSearchLimit();
 
