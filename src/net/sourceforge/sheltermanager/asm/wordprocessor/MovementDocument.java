@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.wordprocessor;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -113,10 +114,14 @@ public class MovementDocument extends GenerateDocument {
                 movement.getAdoptionNumber());
             addTag(Global.i18n("wordprocessor", "AdoptionCreatedBy"),
                 movement.getCreatedBy());
+            addTag(Global.i18n("wordprocessor", "AdoptionCreatedByName"),
+                LookupCache.getRealName(movement.getCreatedBy()));
             addTag(Global.i18n("wordprocessor", "AdoptionCreatedDate"),
                 Utils.formatDate(movement.getCreatedDate()));
             addTag(Global.i18n("wordprocessor", "AdoptionLastChangedBy"),
                 movement.getLastChangedBy());
+            addTag(Global.i18n("wordprocessor", "AdoptionLastChangedByName"),
+                LookupCache.getRealName(movement.getLastChangedBy()));
             addTag(Global.i18n("wordprocessor", "AdoptionLastChangedDate"),
                 Utils.formatDate(movement.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "ReturnDate"),

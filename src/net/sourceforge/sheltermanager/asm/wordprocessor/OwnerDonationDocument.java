@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
 import net.sourceforge.sheltermanager.asm.bo.DonationType;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
@@ -86,6 +87,8 @@ public class OwnerDonationDocument extends GenerateDocument {
                 Utils.nullToEmptyString(owner.getComments()));
             addTag(Global.i18n("wordprocessor", "OwnerCreatedBy"),
                 owner.getCreatedBy());
+            addTag(Global.i18n("wordprocessor", "OwnerCreatedByName"),
+                LookupCache.getRealName(owner.getCreatedBy()));
             addTag(Global.i18n("wordprocessor", "OwnerCreatedDate"),
                 Utils.formatDate(owner.getCreatedDate()));
             addTag(Global.i18n("wordprocessor", "HomeTelephone"),
@@ -94,12 +97,14 @@ public class OwnerDonationDocument extends GenerateDocument {
                 owner.getID().toString());
             addTag(Global.i18n("wordprocessor", "IDCheck"),
                 (owner.getIDCheck().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "OwnerLastChangedDate"),
                 Utils.formatDate(owner.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "OwnerLastChangedBy"),
                 owner.getLastChangedBy());
+            addTag(Global.i18n("wordprocessor", "OwnerLastChangedByName"),
+                LookupCache.getRealName(owner.getLastChangedBy()));
             addTag(Global.i18n("wordprocessor", "OwnerAddress"),
                 Utils.formatAddress(owner.getOwnerAddress()));
             addTag(Global.i18n("wordprocessor", "OwnerTown"),
@@ -137,10 +142,14 @@ public class OwnerDonationDocument extends GenerateDocument {
                 od.getComments());
             addTag(Global.i18n("wordprocessor", "DonationCreatedBy"),
                 od.getCreatedBy());
+            addTag(Global.i18n("wordprocessor", "DonationCreatedByName"),
+                LookupCache.getRealName(od.getCreatedBy()));
             addTag(Global.i18n("wordprocessor", "DonationCreatedDate"),
                 Utils.formatDate(od.getCreatedDate()));
             addTag(Global.i18n("wordprocessor", "DonationLastChangedBy"),
                 od.getLastChangedBy());
+            addTag(Global.i18n("wordprocessor", "DonationLastChangedByName"),
+                LookupCache.getRealName(od.getLastChangedBy()));
             addTag(Global.i18n("wordprocessor", "DonationLastChangedDate"),
                 Utils.formatDate(od.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "DonationType"),

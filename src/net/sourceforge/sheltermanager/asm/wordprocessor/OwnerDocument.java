@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.wordprocessor;
 
 import net.sourceforge.sheltermanager.asm.bo.Additional;
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -89,6 +90,8 @@ public class OwnerDocument extends GenerateDocument {
                 Utils.nullToEmptyString(owner.getComments()));
             addTag(Global.i18n("wordprocessor", "OwnerCreatedBy"),
                 owner.getCreatedBy());
+            addTag(Global.i18n("wordprocessor", "OwnerCreatedByName"),
+                LookupCache.getRealName(owner.getCreatedBy()));
             addTag(Global.i18n("wordprocessor", "OwnerCreatedDate"),
                 Utils.formatDate(owner.getCreatedDate()));
             addTag(Global.i18n("wordprocessor", "HomeTelephone"),
@@ -97,12 +100,14 @@ public class OwnerDocument extends GenerateDocument {
                 owner.getID().toString());
             addTag(Global.i18n("wordprocessor", "IDCheck"),
                 (owner.getIDCheck().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "OwnerLastChangedDate"),
                 Utils.formatDate(owner.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "OwnerLastChangedBy"),
                 owner.getLastChangedBy());
+            addTag(Global.i18n("wordprocessor", "OwnerLastChangedByName"),
+                LookupCache.getRealName(owner.getLastChangedBy()));
             addTag(Global.i18n("wordprocessor", "OwnerAddress"),
                 Utils.formatAddress(owner.getOwnerAddress()));
             addTag(Global.i18n("wordprocessor", "OwnerTown"),
@@ -140,8 +145,8 @@ public class OwnerDocument extends GenerateDocument {
 
                     if (af.fieldType == AdditionalField.FIELDTYPE_YESNO) {
                         val = af.value.equals("1")
-                            ? Global.i18n("wordprocessor", "Yes")
-                            : Global.i18n("wordprocessor", "No");
+                            ? Global.i18n("uiwordprocessor", "Yes")
+                            : Global.i18n("uiwordprocessor", "No");
                     }
 
                     addTag(af.fieldName, val);

@@ -113,6 +113,8 @@ public class AnimalDocument extends GenerateDocument {
                 Utils.nullToEmptyString(animal.getHealthProblems()));
             addTag(Global.i18n("wordprocessor", "AnimalCreatedBy"),
                 animal.getCreatedBy());
+            addTag(Global.i18n("wordprocessor", "AnimalCreatedByName"),
+                LookupCache.getRealName(animal.getCreatedBy()));
             addTag(Global.i18n("wordprocessor", "AnimalCreatedDate"),
                 Utils.formatDate(animal.getCreatedDate()));
             addTag(Global.i18n("wordprocessor", "DateBroughtIn"),
@@ -123,29 +125,29 @@ public class AnimalDocument extends GenerateDocument {
                 animal.getAgeGroup());
             addTag(Global.i18n("wordprocessor", "EstimatedDOB"),
                 ((animal.getEstimatedDOB().intValue() == 1)
-                ? Global.i18n("wordprocessor", "estimated") : ""));
+                ? Global.i18n("uiwordprocessor", "estimated") : ""));
             addTag(Global.i18n("wordprocessor", "AnimalID"),
                 animal.getID().toString());
             addTag(Global.i18n("wordprocessor", "IdentichipNumber"),
                 Utils.nullToEmptyString(animal.getIdentichipNumber()));
             addTag(Global.i18n("wordprocessor", "Identichipped"),
                 (animal.getIdentichipped().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "IdentichipDate"),
                 Utils.formatDate(animal.getIdentichipDate()));
             addTag(Global.i18n("wordprocessor", "Tattoo"),
                 (animal.getTattoo().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "TattooDate"),
                 Utils.formatDate(animal.getTattooDate()));
             addTag(Global.i18n("wordprocessor", "TattooNumber"),
                 Utils.nullToEmptyString(animal.getTattooNumber()));
             addTag(Global.i18n("wordprocessor", "CombiTested"),
                 (animal.getCombiTested().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "CombiTestDate"),
                 Utils.formatDate(animal.getCombiTestDate()));
             addTag(Global.i18n("wordprocessor", "CombiTestResult"),
@@ -156,8 +158,8 @@ public class AnimalDocument extends GenerateDocument {
                     animal.getCombiTested().intValue() == 1));
             addTag(Global.i18n("wordprocessor", "HeartwormTested"),
                 (animal.getHeartwormTested().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "HeartwormTestDate"),
                 Utils.formatDate(animal.getHeartwormTestDate()));
             addTag(Global.i18n("wordprocessor", "HeartwormTestResult"),
@@ -167,14 +169,16 @@ public class AnimalDocument extends GenerateDocument {
                 Utils.nullToEmptyString(animal.getHiddenAnimalDetails()));
             addTag(Global.i18n("wordprocessor", "AnimalLastChangedBy"),
                 animal.getLastChangedBy());
+            addTag(Global.i18n("wordprocessor", "AnimalLastChangedByName"),
+                LookupCache.getRealName(animal.getLastChangedBy()));
             addTag(Global.i18n("wordprocessor", "AnimalLastChangedDate"),
                 Utils.formatDate(animal.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "Markings"),
                 Utils.nullToEmptyString(animal.getMarkings()));
             addTag(Global.i18n("wordprocessor", "Declawed"),
                 ((animal.getDeclawed().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No")));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No")));
             addTag(Global.i18n("wordprocessor", "RabiesTag"),
                 Utils.nullToEmptyString(animal.getRabiesTag()));
             addTag(Global.i18n("wordprocessor", "GoodWithCats"),
@@ -216,12 +220,12 @@ public class AnimalDocument extends GenerateDocument {
 
             addTag(Global.i18n("wordprocessor", "HasSpecialNeeds"),
                 (animal.isHasSpecialNeeds().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "Neutered"),
                 (animal.getNeutered().intValue() == 1)
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No"));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "NeuteredDate"),
                 Utils.formatDate(animal.getNeuteredDate()));
 
@@ -342,8 +346,8 @@ public class AnimalDocument extends GenerateDocument {
 
             // Media information
             addTag(Global.i18n("wordprocessor", "HasValidMedia"),
-                (animal.hasValidMedia() ? Global.i18n("wordprocessor", "Yes")
-                                        : Global.i18n("wordprocessor", "No")));
+                (animal.hasValidMedia() ? Global.i18n("uiwordprocessor", "Yes")
+                                        : Global.i18n("uiwordprocessor", "No")));
 
             String webMedia = "nopic.jpg";
             String webMediaNotes = "";
@@ -360,21 +364,21 @@ public class AnimalDocument extends GenerateDocument {
             addTag(Global.i18n("wordprocessor", "WebMediaFilename"), webMedia);
             addTag(Global.i18n("wordprocessor", "WebMediaNotes"), webMediaNotes);
             addTag(Global.i18n("wordprocessor", "WebMediaNew"),
-                webMediaNew ? Global.i18n("wordprocessor", "Yes")
-                            : Global.i18n("wordprocessor", "No"));
+                webMediaNew ? Global.i18n("uiwordprocessor", "Yes")
+                            : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "WebMediaUpdated"),
-                webMediaUpdated ? Global.i18n("wordprocessor", "Yes")
-                                : Global.i18n("wordprocessor", "No"));
+                webMediaUpdated ? Global.i18n("uiwordprocessor", "Yes")
+                                : Global.i18n("uiwordprocessor", "No"));
 
             // Additional location information
             addTag(Global.i18n("wordprocessor", "AnimalOnShelter"),
                 (animal.isAnimalOnShelter()
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No")));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No")));
             addTag(Global.i18n("wordprocessor", "AnimalIsReserved"),
                 (animal.isAnimalReserved()
-                ? Global.i18n("wordprocessor", "Yes")
-                : Global.i18n("wordprocessor", "No")));
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No")));
 
             // Data held in additional fields
             try {
@@ -387,8 +391,8 @@ public class AnimalDocument extends GenerateDocument {
 
                     if (af.fieldType == AdditionalField.FIELDTYPE_YESNO) {
                         val = af.value.equals("1")
-                            ? Global.i18n("wordprocessor", "Yes")
-                            : Global.i18n("wordprocessor", "No");
+                            ? Global.i18n("uiwordprocessor", "Yes")
+                            : Global.i18n("uiwordprocessor", "No");
                     }
 
                     addTag(af.fieldName, val);

@@ -1039,11 +1039,11 @@ public abstract class GenerateDocument extends Thread
      */
     public String getTriState(Integer value) {
         if (value.intValue() == 0) {
-            return Global.i18n("wordprocessor", "Yes");
+            return Global.i18n("uiwordprocessor", "Yes");
         } else if (value.intValue() == 1) {
-            return Global.i18n("wordprocessor", "No");
+            return Global.i18n("uiwordprocessor", "No");
         } else if (value.intValue() == 2) {
-            return Global.i18n("wordprocessor", "Unknown");
+            return Global.i18n("uiwordprocessor", "Unknown");
         }
 
         return "[Bad tristate switch: " + value + "]";
@@ -1056,11 +1056,11 @@ public abstract class GenerateDocument extends Thread
         }
 
         if (value.intValue() == 0) {
-            return Global.i18n("wordprocessor", "Unknown");
+            return Global.i18n("uiwordprocessor", "Unknown");
         } else if (value.intValue() == 1) {
-            return Global.i18n("wordprocessor", "Negative");
+            return Global.i18n("uiwordprocessor", "Negative");
         } else if (value.intValue() == 2) {
-            return Global.i18n("wordprocessor", "Positive");
+            return Global.i18n("uiwordprocessor", "Positive");
         }
 
         return "[Bad test result switch: " + value + "]";
