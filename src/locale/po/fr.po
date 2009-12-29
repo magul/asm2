@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-16 11:11+0100\n"
-"PO-Revision-Date: 2009-12-17 21:41+0000\n"
-"Last-Translator: MakGreg <Unknown>\n"
+"POT-Creation-Date: 2009-12-23 14:19+0100\n"
+"PO-Revision-Date: 2009-12-23 15:37+0000\n"
+"Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-18 04:37+0000\n"
+"X-Launchpad-Export-Date: 2009-12-24 04:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -4868,6 +4868,7 @@ msgstr ""
 "Tous les animaux du refuge de cette espèce sont âgés de plus de 6 mois."
 
 #. # reports/UnderSixNotLitter
+#. # reports/InOut
 #: Acceptance_Number
 msgid "Acceptance Number"
 msgstr "Numéro d'acceptation"
@@ -5028,6 +5029,7 @@ msgstr "Classement"
 msgid "Deceased Reasons"
 msgstr "Motifs de décès"
 
+#. # reports/InOut
 #. # reports/Stats
 #: Reason
 msgid "Reason"
@@ -6433,6 +6435,13 @@ msgstr "Détails de l'animal pour {0} - {1} au {2}"
 msgid "Graphs cannot be sent to stdout."
 msgstr "Les graphiques ne peuvent être envoyés vers la sortie standard."
 
+#. # reports/InOut
+#. # ui/animal/LitterView
+#: Litter_ID
+#: litterid
+msgid "Litter ID"
+msgstr "Identifiant de portée"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6495,6 +6504,8 @@ msgstr "Commentaires : "
 msgid "Search"
 msgstr "Recherche"
 
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
@@ -6981,6 +6992,7 @@ msgstr "Créer une portée depuis cet animal"
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7318,6 +7330,7 @@ msgstr "Impossible de créer un nouvel enregistrement : "
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7758,11 +7771,6 @@ msgstr "Les notes du média contiennent :"
 #: litter_id
 msgid "Litter ID:"
 msgstr "Identifiant de portée :"
-
-#. # ui/animal/LitterView
-#: litterid
-msgid "Litter ID"
-msgstr "Identifiant de portée"
 
 #. # ui/animal/AnimalEdit
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-16 11:11+0100\n"
-"PO-Revision-Date: 2009-12-18 16:44+0000\n"
-"Last-Translator: Ivan Garcia <capiscuas@gmail.com>\n"
+"POT-Creation-Date: 2009-12-23 14:19+0100\n"
+"PO-Revision-Date: 2009-12-23 17:05+0000\n"
+"Last-Translator: Sergio Cuellar Valdes <herrsergio@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-19 04:36+0000\n"
+"X-Launchpad-Export-Date: 2009-12-24 04:45+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -4874,6 +4874,7 @@ msgstr ""
 "seis meses."
 
 #. # reports/UnderSixNotLitter
+#. # reports/InOut
 #: Acceptance_Number
 msgid "Acceptance Number"
 msgstr "Número de aprobación"
@@ -5036,6 +5037,7 @@ msgstr "Puesto"
 msgid "Deceased Reasons"
 msgstr "Razones de fallecimiento"
 
+#. # reports/InOut
 #. # reports/Stats
 #: Reason
 msgid "Reason"
@@ -6447,6 +6449,13 @@ msgstr "Detalles del Animal para {0} - {1} en {2}"
 msgid "Graphs cannot be sent to stdout."
 msgstr "Las gràficas no pueden ser enviadas a stdout."
 
+#. # reports/InOut
+#. # ui/animal/LitterView
+#: Litter_ID
+#: litterid
+msgid "Litter ID"
+msgstr "Identificador de camada"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6509,6 +6518,8 @@ msgstr "Tiene comentarios: "
 msgid "Search"
 msgstr "Buscar"
 
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
@@ -6995,6 +7006,7 @@ msgstr "Crear una camada a partir de este animal"
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7328,6 +7340,7 @@ msgstr "No es posible crear un nuevo registro de animal: "
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
 #. # ui/system/FileTypes
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
@@ -7768,11 +7781,6 @@ msgstr "Notas multimedia contienen:"
 #: litter_id
 msgid "Litter ID:"
 msgstr "Identificador de camada:"
-
-#. # ui/animal/LitterView
-#: litterid
-msgid "Litter ID"
-msgstr "Identificador de camada"
 
 #. # ui/animal/AnimalEdit
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
@@ -8534,7 +8542,7 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Expires
 msgid "Expires:"
-msgstr ""
+msgstr "Caduca:"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -9699,6 +9707,7 @@ msgstr ""
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
+"Necesita establecer su configuración de AdoptAPet.com antes de publicar."
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main
@@ -11179,12 +11188,12 @@ msgstr ""
 #. # ui/main/ChangePassword
 #: Current_Password\:
 msgid "Current Password:"
-msgstr ""
+msgstr "Contraseña actual:"
 
 #. # ui/main/ChangePassword
 #: New_Password\:
 msgid "New Password:"
-msgstr ""
+msgstr "Nueva contraseña:"
 
 #. # ui/main/ChangePassword
 #: Confirm_Password\:
@@ -12781,7 +12790,7 @@ msgstr "La nueva zona de visitas"
 #. # ui/owner/OwnerEdit
 #: Locate_this_owner_on_the_map
 msgid "Locate this owner on a map"
-msgstr ""
+msgstr "Localizar este propietario en un mapa"
 
 #. # ui/owner/OwnerFind
 #: Potential_Adopters
