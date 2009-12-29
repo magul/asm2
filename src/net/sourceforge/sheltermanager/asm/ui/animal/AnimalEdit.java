@@ -1898,9 +1898,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     public void initComponents() {
         Vector testresults = new Vector();
-        testresults.add(Global.i18n("wordprocessor", "Unknown"));
-        testresults.add(Global.i18n("wordprocessor", "Negative"));
-        testresults.add(Global.i18n("wordprocessor", "Positive"));
+        testresults.add(Global.i18n("uiwordprocessor", "Unknown"));
+        testresults.add(Global.i18n("uiwordprocessor", "Negative"));
+        testresults.add(Global.i18n("uiwordprocessor", "Positive"));
 
         Vector yesnounknown = new Vector();
         yesnounknown.add(i18n("Yes"));
