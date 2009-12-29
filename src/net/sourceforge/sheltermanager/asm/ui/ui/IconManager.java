@@ -164,6 +164,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITVACCINATIONS_REFRESH = REFRESH;
     public final static String SCREEN_EDITVACCINATIONS_OPENANIMAL = ANIMAL;
     public final static String SCREEN_EDITVACCINATIONS_MARKCOMPLETE = COMPLETE;
+    public final static String SCREEN_EDITVACCINATIONS_RESCHEDULE = DIARY;
     public final static String SCREEN_VACCINATIONBOOK = BOOK;
     public final static String SCREEN_FINDANIMAL = ANIMAL;
     public final static String SCREEN_FINDANIMAL_SEARCH = SEARCH;
