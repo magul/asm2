@@ -16,6 +16,9 @@ bits = locale.split("_")
 # Special case for Sweden
 if locale == "sv_SE":
     print "sv.po"
+# Special case for Estonian
+elif locale == "et_EE":
+    print "et.po"
 elif bits[0] == bits[1].lower():
     print bits[0] + ".po"
 else:

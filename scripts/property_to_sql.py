@@ -32,6 +32,9 @@ if filename.find("_") != 1:
 # Swedish hack
 if code == "sv_SE": code = "sv"
 
+# Estonian hack
+if code == "et_EE": code = "et"
+
 # Open the output file
 outfilename = "translate_" + code + ".sql"
 outfile = open(outputdir + "/" + outfilename, "w")

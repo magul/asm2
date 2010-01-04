@@ -30,6 +30,9 @@ if code.find("_") != -1:
 # Swedish hack
 if code == "sv": code = "_sv_SE"
 
+# Estonian hack
+if code == "et": code = "_et_EE"
+
 # No lang for English as it's the template
 if code == "en": code = ""
 

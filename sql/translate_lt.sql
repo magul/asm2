@@ -156,7 +156,7 @@ INSERT INTO breed VALUES (107, 'Jugoslavų/Ilirijos aviganis (Šarplanina)', '',
 INSERT INTO breed VALUES (108, 'Airių seteris', '', '', 1);
 INSERT INTO breed VALUES (109, 'Airių terjeras', '', '', 1);
 INSERT INTO breed VALUES (110, 'Airių vandens spanielis', '', '', 1);
-INSERT INTO breed VALUES (111, 'Airių volfhaundas', '', '', 1);
+INSERT INTO breed VALUES (111, 'Airių vilkogaudis', '', '', 1);
 INSERT INTO breed VALUES (112, 'Levretė/Italų kurtas', '', '', 1);
 INSERT INTO breed VALUES (113, 'Italų spinonė', '', '', 1);
 INSERT INTO breed VALUES (114, 'Džeko Raselo terjeras', '', '', 1);

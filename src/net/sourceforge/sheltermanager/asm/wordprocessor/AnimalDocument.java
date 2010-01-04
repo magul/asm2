@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.wordprocessor;
 import net.sourceforge.sheltermanager.asm.bo.Additional;
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -199,6 +200,12 @@ public class AnimalDocument extends GenerateDocument {
                         "AddressOfPersonBroughtAnimalIn"),
                     Utils.formatAddress(animal.getBroughtInByOwner()
                                               .getOwnerAddress()));
+                addTag(Global.i18n("wordprocessor",
+                        "TownOfPersonBroughtAnimalIn"),
+                    Utils.nullToEmptyString(animal.getBroughtInByOwner().getOwnerTown()));
+                addTag(Global.i18n("wordprocessor",
+                        "CountyOfPersonBroughtAnimalIn"),
+                    Utils.nullToEmptyString(animal.getBroughtInByOwner().getOwnerCounty()));
                 addTag(Global.i18n("wordprocessor", "PostcodeOfPersonBroughtIn"),
                     Utils.nullToEmptyString(animal.getBroughtInByOwner()
                                                   .getOwnerPostcode()));
@@ -207,6 +214,8 @@ public class AnimalDocument extends GenerateDocument {
                         "NameOfPersonBroughtAnimalIn"), "");
                 addTag(Global.i18n("wordprocessor",
                         "AddressOfPersonBroughtAnimalIn"), "");
+                addTag(Global.i18n("wordprocessor", "TownOfPersonBroughtAnimalIn"), "");
+                addTag(Global.i18n("wordprocessor", "CountyOfPersonBroughtAnimalIn"), "");
                 addTag(Global.i18n("wordprocessor", "PostcodeOfPersonBroughtIn"),
                     "");
             }
@@ -253,6 +262,8 @@ public class AnimalDocument extends GenerateDocument {
                                               .getOwnerAddress()));
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerTown"),
                     Utils.formatAddress(animal.getOriginalOwner().getOwnerTown()));
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerCounty"),
+                    Utils.formatAddress(animal.getOriginalOwner().getOwnerCounty()));
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerPostcode"),
                     Utils.nullToEmptyString(animal.getOriginalOwner()
                                                   .getOwnerPostcode()));
@@ -553,6 +564,79 @@ public class AnimalDocument extends GenerateDocument {
                     uniquecount++;
                 }
             }
+
+            // Get a list of diet records for this animal
+            AnimalDiet ad = new AnimalDiet();
+            av.openRecordset("AnimalID = " + animal.getID() + " ORDER BY ID");
+
+            uniquecount = 1;
+
+            while (!ad.getEOF()) {
+                addTag(Global.i18n("wordprocessor", "DietName") +
+                    Integer.toString(uniquecount), ad.getDietName());
+                addTag(Global.i18n("wordprocessor", "DietDateStarted") +
+                    Integer.toString(uniquecount),
+                    Utils.formatDate(ad.getDateStarted()));
+                addTag(Global.i18n("wordprocessor", "DietComments") +
+                    Integer.toString(uniquecount), ad.getComments());
+                uniquecount++;
+                ad.moveNext();
+            }
+
+            // Now, lets look at our unique count to work out how many
+            // diet keys these would replace. Since we are 
+            // going to allow a nominal value of upto 100 keys, 
+            // we need to replace any not with real values, with blank
+            // ones so the ugly keys don't appear on the finished thing.
+            if (uniquecount < 100) {
+                while (uniquecount < 101) {
+                    addTag(Global.i18n("wordprocessor", "DietName") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietDateStarted") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietComments") +
+                        Integer.toString(uniquecount), "");
+                    uniquecount++;
+                }
+            }
+
+            // Get a reverse list of diets for this animal so that 
+            // people can use most recent on documents
+            ad = new AnimalDiet();
+            ad.openRecordset("AnimalID = " + animal.getID() +
+                " ORDER BY ID DESC");
+
+            uniquecount = 1;
+
+            while (!ad.getEOF()) {
+                addTag(Global.i18n("wordprocessor", "DietNameLast") +
+                    Integer.toString(uniquecount), ad.getDietName());
+                addTag(Global.i18n("wordprocessor", "DietDateStartedLast") +
+                    Integer.toString(uniquecount),
+                    Utils.formatDate(ad.getDateStarted()));
+                addTag(Global.i18n("wordprocessor", "DietCommentsLast") +
+                    Integer.toString(uniquecount), ad.getComments());
+                uniquecount++;
+                ad.moveNext();
+            }
+
+            // Now, lets look at our unique count to work out how many
+            // vaccination keys these would replace. Since we are 
+            // going to allow a nominal value of upto 100 keys, 
+            // we need to replace any not with real values, with blank
+            // ones so the ugly keys don't appear on the finished thing.
+            if (uniquecount < 100) {
+                while (uniquecount < 101) {
+                    addTag(Global.i18n("wordprocessor", "DietNameLast") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietDateStartedLast") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietCommentsLast") +
+                        Integer.toString(uniquecount), "");
+                    uniquecount++;
+                }
+            }
+
 
             // Generate a document title based on the animal information
             // and the doc selected

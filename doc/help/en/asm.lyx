@@ -10464,6 +10464,16 @@ NameOfPersonBroughtAnimalIn - The name of the person who brought the animal
 \end_layout
 
 \begin_layout Itemize
+TownOfPersonBroughtAnimalIn (CityOfPersonBroughtAnimalIn for US users) -
+ The town the person who brought the animal into the shelter lives in
+\end_layout
+
+\begin_layout Itemize
+CountyOfPersonBroughtAnimalIn (StateOfPersonBroughtAnimalIn for US users)
+ - The county the person who brought the animal into the shelter lives in
+\end_layout
+
+\begin_layout Itemize
 NumberInLitter - If this animal is part of a litter, the number of animals
  in that litter.
 \end_layout
@@ -10518,6 +10528,16 @@ OriginalOwnerAddress - The address of the animal's original owner
 
 \begin_layout Itemize
 OriginalOwnerName - The name of the animal's original owner
+\end_layout
+
+\begin_layout Itemize
+OriginalOwnerTown (OriginalOwnerCity for US users) - The town of the animal's
+ original owner
+\end_layout
+
+\begin_layout Itemize
+OriginalOwnerCounty (OriginalOwnerState for US users) - The county of the
+ animal's original owner
 \end_layout
 
 \begin_layout Itemize
@@ -10794,6 +10814,32 @@ MedicalTreatmentsRemainingX - How many treatments are remaining
 
 \begin_layout Itemize
 MedicalCommentsX - The medical comments
+\end_layout
+
+\begin_layout Itemize
+DietNameX - Where X is a number, indexing the diet records for the animal,
+ the name of the diet
+\end_layout
+
+\begin_layout Itemize
+DietStartedX - The date the diet started
+\end_layout
+
+\begin_layout Itemize
+DietCommentsX - Any comments on the diet
+\end_layout
+
+\begin_layout Itemize
+DietNameLastX - Where X is a number, indexing diet records from the most
+ recent first, the name of the diet
+\end_layout
+
+\begin_layout Itemize
+DietStartedLastX - The date the diet started
+\end_layout
+
+\begin_layout Itemize
+DietCommentsLastX - Any comments on the diet
 \end_layout
 
 \begin_layout Subsection

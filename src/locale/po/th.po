@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-23 14:19+0100\n"
-"PO-Revision-Date: 2009-12-23 15:42+0000\n"
+"POT-Creation-Date: 2009-12-29 11:22+0100\n"
+"PO-Revision-Date: 2009-12-29 12:45+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-24 04:45+0000\n"
+"X-Launchpad-Export-Date: 2009-12-30 04:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -168,8 +168,8 @@ msgstr ""
 msgid "You must enter the area the animal was found in."
 msgstr ""
 
-#. # bo/AnimalLost
 #. # bo/AnimalFound
+#. # bo/AnimalLost
 #: You_must_enter_a_contact_name.
 msgid "You must enter a contact name."
 msgstr ""
@@ -204,43 +204,43 @@ msgid "Died"
 msgstr ""
 
 #. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # db/AutoDBUpdates
+#. # wordprocessor/AnimalDocument
 #: HealthProblems
 msgid "HealthProblems"
 msgstr "ปัญหาสุขภาพ"
 
-#. # bo/Animal
-#. # wordprocessor/GenerateDocument
-#. # ui/animalname/NamesEdit
 #. # ui/animal/AnimalEdit
+#. # ui/animalname/NamesEdit
+#. # bo/Animal
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
 #. # internet/Pets911Publisher
+#. # wordprocessor/GenerateDocument
 #: Unknown
 #: lksex_2
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#. # bo/Animal
 #. # ui/animal/AnimalFind
+#. # bo/Animal
 #. # reports/AnimalFigures
 #: Adopted
 msgid "Adopted"
 msgstr ""
 
-#. # bo/Animal
-#. # bo/AnimalLost
+#. # ui/animal/AnimalFind
 #. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # bo/Animal
+#. # bo/AnimalLost
 #. # reports/AnimalFigures
 #: On_Shelter
 msgid "On Shelter"
 msgstr ""
 
-#. # bo/Animal
 #. # ui/animal/AnimalFind
+#. # bo/Animal
 #: Dead
 msgid "Dead"
 msgstr ""
@@ -284,14 +284,14 @@ msgstr ""
 msgid "You must select an owner for this type of movement."
 msgstr ""
 
+#. # bo/OwnerDonation
+#. # bo/Animal
+#. # bo/AnimalFound
+#. # bo/CustomReport
+#. # bo/Adoption
 #. # bo/OwnerVoucher
 #. # bo/AnimalLitter
-#. # bo/Animal
-#. # bo/OwnerDonation
 #. # bo/AnimalLost
-#. # bo/CustomReport
-#. # bo/AnimalFound
-#. # bo/Adoption
 #: An_error_occurred_while_validating_the_object\:_
 msgid "An error occurred while validating the object: "
 msgstr ""
@@ -309,8 +309,8 @@ msgstr "คุณต้องเลือกสัตว์."
 
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/internet/InternetPublisher
 #: None
 #: lksmovementtype_0
 #: lksdiarylink_0
@@ -386,9 +386,9 @@ msgstr ""
 msgid "Auto removed due to lack of owner contact."
 msgstr ""
 
-#. # bo/LookupCache
-#. # ui/internet/PetFinderMapSpecies
 #. # ui/animal/LitterView
+#. # ui/internet/PetFinderMapSpecies
+#. # bo/LookupCache
 #. # internet/SaveAPetPublisher
 #: Cat
 #: species_2
@@ -400,9 +400,9 @@ msgstr "แมว"
 msgid "Kittens"
 msgstr "ลูกแมว"
 
-#. # bo/LookupCache
-#. # ui/internet/PetFinderMapSpecies
 #. # ui/animal/LitterView
+#. # ui/internet/PetFinderMapSpecies
+#. # bo/LookupCache
 #. # internet/SaveAPetPublisher
 #: Dog
 #: species_1
@@ -506,40 +506,40 @@ msgstr ""
 msgid "Non-Shelter Animal"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: One_Off
 msgid "One-Off"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: treatment
 msgid "treatment"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: treatment_every
 msgid "treatments every"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: days
 msgid "days"
 msgstr "วัน"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/internet/InternetPublisher
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: weeks
 msgid "weeks"
 msgstr "สัปดาห์"
@@ -549,34 +549,34 @@ msgstr "สัปดาห์"
 msgid "monthly"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: years
 msgid "years"
 msgstr "ปี"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: months
 msgid "months"
 msgstr "เดือน"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Unspecified
 msgid "Unspecified"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: treatments
 msgid "treatments"
 msgstr ""
@@ -586,8 +586,8 @@ msgstr ""
 msgid "This medical profile is currently in use and cannot be deleted."
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: You_must_supply_a_dosage
 msgid "You must supply a dosage"
 msgstr ""
@@ -597,26 +597,26 @@ msgstr ""
 msgid "Medical profiles must have a name"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: You_must_supply_a_treatment_name
 msgid "You must supply a treatment name"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Number_of_treatments_must_be_numeric
 msgid "Number of treatments must be numeric"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Number_of_frequencies_must_be_numeric
 msgid "Number of frequencies must be numeric"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Total_number_of_treatments_must_be_numeric
 msgid "Total number of treatments must be numeric"
 msgstr ""
@@ -751,12 +751,12 @@ msgstr ""
 msgid "Monthly Adoption analysis (by species) for "
 msgstr ""
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Oct
 msgid "Oct"
 msgstr "ต.ค."
@@ -766,101 +766,101 @@ msgstr "ต.ค."
 msgid "Monthly Adoption analysis (by location, "
 msgstr ""
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Jul
 msgid "Jul"
 msgstr "ก.ค."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Aug
 msgid "Aug"
 msgstr "ส.ค."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Which_year_is_this_graph_for?
 msgid "Which year is this graph for?"
 msgstr ""
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Jan
 msgid "Jan"
 msgstr "ม.ค."
 
-#. # bo/Users
-#. # ui/ui/UI
 #. # ui/users/UserEdit
+#. # ui/ui/UI
+#. # bo/Users
 #. # charts/AdoptionsPerBlock
 #: all
 msgid "all"
 msgstr ""
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Sep
 msgid "Sep"
 msgstr "ก.ย."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Nov
 msgid "Nov"
 msgstr "พ.ย."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
+#. # reports/AnimalFigures
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
-#. # reports/AnimalFigures
 #: May
 msgid "May"
 msgstr "พ.ค."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Apr
 msgid "Apr"
 msgstr "เม.ย."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Dec
 msgid "Dec"
 msgstr "ธ.ค."
@@ -870,32 +870,32 @@ msgstr "ธ.ค."
 msgid " species) for "
 msgstr ""
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Mar
 msgid "Mar"
 msgstr "มี.ค."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Jun
 msgid "Jun"
 msgstr "มิ.ย."
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
 #. # charts/CommonReasonsEntry
+#. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #: Feb
 msgid "Feb"
 msgstr "ก.พ."
@@ -980,8 +980,8 @@ msgstr ""
 msgid "There is no data to show on the chart."
 msgstr ""
 
-#. # charts/MonthlyDonations
 #. # utility/Utils
+#. # charts/MonthlyDonations
 #: waitinglist
 msgid "Waiting List ("
 msgstr ""
@@ -3224,8 +3224,8 @@ msgstr "สัตว์ที่พบเจอ"
 #. # ui/diary/DiaryTaskView
 #. # ui/owner/OwnerEdit
 #. # ui/main/Main
-#. # ui/movement/MovementView
 #. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
 #: lksmedialink_3
@@ -3245,8 +3245,8 @@ msgstr "เจ้าของ"
 msgid "Movement"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListView
 #. # ui/system/Options
 #: lksdiarylink_5
 #: lksloglink_4
@@ -3265,15 +3265,15 @@ msgstr "ใช่/ไม่"
 msgid "Text"
 msgstr "ข้อความ"
 
-#. # ui/animal/DietSelector
 #. # ui/animal/MediaSelector
+#. # ui/animal/DietSelector
 #: lksfieldtype_2
 #: Notes
 msgid "Notes"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/LitterView
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
@@ -3282,27 +3282,27 @@ msgstr ""
 msgid "Number"
 msgstr ""
 
-#. # bo/AnimalLitter
-#. # bo/Media
-#. # bo/Log
-#. # bo/OwnerDonation
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
 #. # ui/log/LogSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #. # ui/owner/OwnerEdit
 #. # ui/owner/LinkSelector
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/animal/NotAdoptionView
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/LitterView
 #. # ui/animal/MediaSelector
-#. # reports/Vets
-#. # reports/AnimalPrint
+#. # ui/animal/NotAdoptionView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # bo/OwnerDonation
+#. # bo/Log
+#. # bo/AnimalLitter
+#. # bo/Media
 #. # reports/DiaryNotesToday
-#. # db/Diagnostic
+#. # reports/AnimalPrint
+#. # reports/Vets
 #. # db/AutoDBUpdates
+#. # db/Diagnostic
 #: lksfieldtype_4
 #: Date
 msgid "Date"
@@ -3479,37 +3479,37 @@ msgstr "อัปเดตฐานข้อมูลเรียบร้อย
 
 #. # ui/system/SQLInterface
 #. # db/DBUpdate
-#. # ui/animalname/NamesEdit
+#. # ui/log/LogEdit
+#. # ui/users/UserEdit
+#. # ui/criteria/DiaryCriteria
+#. # ui/criteria/DateFromTo
 #. # ui/ui/InputTextDialog
 #. # ui/ui/JDBCDlg
-#. # ui/ui/InputListDialog
 #. # ui/ui/DateInputDlg
 #. # ui/ui/UI
+#. # ui/ui/InputListDialog
 #. # ui/diary/DiaryEdit
 #. # ui/diary/DiaryTaskExecute
 #. # ui/diary/DiaryTaskDetailEdit
-#. # ui/log/LogEdit
-#. # ui/criteria/DiaryCriteria
-#. # ui/criteria/DateFromTo
 #. # ui/system/ConfigureLookups
+#. # ui/system/ConfigureDatabase
+#. # ui/system/ConfigureLocal
 #. # ui/system/AdditionalFieldEdit
 #. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLocal
-#. # ui/system/ConfigureDatabase
-#. # ui/customreport/CustomReportEdit
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
 #. # ui/owner/VoucherEdit
-#. # ui/users/UserEdit
-#. # ui/splash/About
-#. # ui/lookups/LookupEdit
-#. # ui/main/Locked
 #. # ui/main/ChangePassword
+#. # ui/main/Locked
+#. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
-#. # ui/animal/LitterEdit
 #. # ui/animal/MediaAdd
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#. # ui/animalname/NamesEdit
+#. # ui/splash/About
+#. # ui/lookups/LookupEdit
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/DonationEdit
 #. # ui/owner/DonationInstalmentEdit
 #. # db/Diagnostic
@@ -3546,15 +3546,15 @@ msgstr ""
 msgid "User:"
 msgstr "ชื่อผู้ใช้:"
 
-#. # ui/ui/JDBCDlg
 #. # utility/LDAP
+#. # ui/ui/JDBCDlg
 #. # ui/internet/FTPSettings
-#. # ui/internet/Pets911Settings
+#. # ui/internet/RescueGroupsSettings
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
-#. # ui/internet/RescueGroupsSettings
-#. # bo/Users
+#. # ui/internet/Pets911Settings
 #. # ui/login/Login
+#. # bo/Users
 #. # ui/system/Options
 #: password
 #: Password\:
@@ -3661,20 +3661,20 @@ msgstr "กำลังสำเนา {0}..."
 msgid "Import Database"
 msgstr "นำเข้าฐานข้อมูล"
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: import_successful
 msgid "Import completed successfully."
 msgstr "นำเข้าเสร็จเรียบร้อยแล้ว."
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: import_complete
 msgid "Import Complete"
 msgstr "นำเข้าสำเร็จ"
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: importing_table
 msgid "Importing {0}..."
 msgstr "กำลังนำเข้า {0}..."
@@ -3741,16 +3741,16 @@ msgstr ""
 msgid "Recalculating adoption donations..."
 msgstr ""
 
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
 #: want_to_include_dbfs
 msgid ""
 "Do you want to include media files? If you have a lot, this operation will "
 "take longer."
 msgstr ""
 
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
 #: include_dbfs
 msgid "Include Media?"
 msgstr ""
@@ -3768,8 +3768,8 @@ msgid ""
 "{7} invalid animal codes fixed for this year."
 msgstr ""
 
-#. # mailmerge/OffShelterVaccinations
 #. # reports/VaccinationDiary
+#. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
 msgstr "ประเภทวัคซีน"
@@ -3795,11 +3795,11 @@ msgid ""
 "Please enter the start date you would like to prepare vaccination letters for"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
-#. # mailmerge/OffShelterVaccinations
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # reports/MedicalDiary
 #. # reports/VaccinationDiary
+#. # mailmerge/OffShelterVaccinations
 #: Date_Required
 msgid "Date Required"
 msgstr ""
@@ -3815,31 +3815,31 @@ msgstr ""
 msgid "An error occurred generating the mail merge source:\n"
 msgstr ""
 
-#. # wordprocessor/MovementDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # ui/ui/DBFSBrowser
-#. # ui/ui/Dialog
-#. # ui/owner/VoucherEdit
+#. # utility/Utils
 #. # ui/users/UserView
+#. # ui/ui/Dialog
+#. # ui/ui/DBFSBrowser
+#. # ui/owner/VoucherEdit
 #. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/animal/VaccinationSelector
+#. # ui/animal/MediaSelector
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationView
 #. # ui/animal/VaccinationEdit
+#. # ui/animal/VaccinationSelector
 #. # ui/animal/MediaEdit
 #. # ui/animal/MediaAdd
-#. # ui/animal/MediaSelector
 #. # ui/login/Login
-#. # mailmerge/MailMerge
-#. # reports/MedicalDiary
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # reports/DiaryNotesToday
 #. # reports/Report
+#. # reports/MedicalDiary
 #. # reports/VaccinationDiary
 #. # reports/Vets
-#. # reports/DiaryNotesToday
-#. # utility/Utils
 #. # internet/Publisher
+#. # mailmerge/MailMerge
+#. # wordprocessor/MovementDocument
+#. # wordprocessor/OwnerDonationDocument
 #: Error
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -3869,14 +3869,14 @@ msgstr ""
 msgid "Reading data, please wait..."
 msgstr "กำลังอ่านข้อมูล, โปรดรอสักครู่..."
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
-#. # mailmerge/MailMerge
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
+#. # mailmerge/MailMerge
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: mailmerge
 msgid "mailmerge"
 msgstr ""
@@ -3920,9 +3920,9 @@ msgstr ""
 msgid "Chip Cancellation Mail Merge"
 msgstr ""
 
+#. # mailmerge/ChipCancellation
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Work_Telephone
 msgid "Work Telephone"
 msgstr "โทรศัพท์ที่ทำงาน"
@@ -3934,51 +3934,51 @@ msgid ""
 "letters for"
 msgstr ""
 
-#. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # reports/OwnerCriteriaSearch
 #: Shelter_Code
 #: Sheltercode
 msgid "Shelter Code"
 msgstr ""
 
-#. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # reports/Retailer
 #: Owner_Name
 #: owner_name
 msgid "Owner Name"
 msgstr "ชื่อเจ้าของ"
 
+#. # mailmerge/ChipCancellation
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Home_Telephone
 msgid "Home Telephone"
 msgstr "โทรศัพท์ที่บ้าน"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalFindText
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/animal/AnimalFindText
 #. # reports/SearchResults
-#. # reports/Vets
 #. # reports/LostFoundMatch
+#. # reports/Vets
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Colour
 msgid "Colour"
 msgstr "สี"
 
 #. # ui/owner/OwnerEdit
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/internet/PetFinderMapBreed
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Breed
 msgid "Breed"
 msgstr ""
@@ -3988,60 +3988,56 @@ msgstr ""
 msgid "ChipCancellations.csv"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/main/Main
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/LitterView
+#. # ui/animal/AnimalFind
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/waitinglist/WaitingListView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #. # ui/lookups/LookupView
 #. # ui/lookups/BreedSpeciesMapping
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
 #. # reports/AnimalReturnedPostSix
+#. # reports/AnimalReturnedPreSix
+#. # reports/CustomReportExecute
 #. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
 #. # reports/SearchResults
 #. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalReturnedPreSix
 #. # reports/LostFoundMatch
+#. # reports/OwnerCriteriaSearch
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Species
 msgid "Species"
 msgstr "สปีชี่ส์"
 
-#. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Microchip_Number
 msgid "Microchip Number"
 msgstr ""
 
-#. # wordprocessor/AnimalDocument
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/animal/AnimalFindText
 #. # reports/SearchResults
+#. # reports/UnCombiTestedCats
 #. # reports/InOut
 #. # reports/Vets
 #. # reports/OwnerCriteriaSearch
-#. # reports/UnCombiTestedCats
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
 msgstr "อายุ"
 
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/OwnerDocument
 #. # ui/ui/ASMConfigForm
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
@@ -4051,25 +4047,29 @@ msgstr "อายุ"
 #. # ui/main/Logout
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/Report
 #. # reports/InOut
 #. # reports/OwnerCriteriaSearch
-#. # internet/RescueGroupsPublisher
+#. # db/AutoDBUpdates
 #. # internet/Pets911Publisher
 #. # internet/Publisher
-#. # db/AutoDBUpdates
+#. # internet/RescueGroupsPublisher
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/GenerateDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
 #: Yes
 msgid "Yes"
 msgstr "ใช่"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
+#. # ui/animal/AnimalFindText
+#. # bo/Animal
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/AnimalDocument
 #: Markings
 msgid "Markings"
 msgstr ""
@@ -4081,10 +4081,6 @@ msgstr ""
 msgid "Return Date"
 msgstr ""
 
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/OwnerDocument
 #. # ui/ui/ASMConfigForm
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
@@ -4094,30 +4090,34 @@ msgstr ""
 #. # ui/main/Logout
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/Report
 #. # reports/InOut
 #. # reports/OwnerCriteriaSearch
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/Publisher
+#. # internet/RescueGroupsPublisher
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/GenerateDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
 #: No
 msgid "No"
 msgstr "ไม่"
 
 #. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/AnimalDocument
 #: Neutered
 msgid "Neutered"
 msgstr ""
 
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/Retailer
 #. # reports/InOut
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Adoption_Date
 msgid "Adoption Date"
 msgstr ""
@@ -4134,26 +4134,26 @@ msgid ""
 "letters for"
 msgstr ""
 
-#. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Date_Of_Birth
 msgid "Date Of Birth"
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/AnimalName
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/animalname/NamesView
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/animal/AnimalFindText
+#. # ui/animalname/NamesView
+#. # bo/Animal
+#. # bo/LookupCache
+#. # bo/AnimalName
 #. # reports/SearchResults
 #. # reports/InOut
 #. # reports/OwnerCriteriaSearch
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
+#. # wordprocessor/AnimalDocument
 #: Sex
 msgid "Sex"
 msgstr "เพศ"
@@ -4163,22 +4163,22 @@ msgstr "เพศ"
 msgid "There are no adoptions matching your criteria."
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Address_2
 msgid "Address 2"
 msgstr "ที่อยู่ 2"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Address_3
 msgid "Address 3"
 msgstr "ที่อยู่ 3"
@@ -4188,33 +4188,33 @@ msgstr "ที่อยู่ 3"
 msgid "Please enter the closing date of adoptions to include"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Forenames
 msgid "Forenames"
 msgstr ""
 
+#. # reports/NotMicroChipped
+#. # reports/AnimalReturnedPostSix
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/NoMediaAttached
+#. # reports/TransferIn
+#. # reports/Retailer
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/SearchResults
+#. # reports/UnCombiTestedCats
+#. # reports/InOut
+#. # reports/NeverVaccinated
+#. # reports/VaccinationDiary
+#. # mailmerge/ChipCancellation
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/Retailer
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/SearchResults
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/NoMediaAttached
-#. # reports/UnneuteredSixMonths
 #: Animal_Name
 msgid "Animal Name"
 msgstr "ชื่อสัตว์"
@@ -4224,166 +4224,166 @@ msgstr "ชื่อสัตว์"
 msgid "AdoptedNoReturn.csv"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Initials
 msgid "Initials"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Email_Address
 msgid "Email Address"
 msgstr "ที่อยู่อีเมล์"
 
-#. # bo/AnimalName
-#. # bo/Animal
-#. # bo/DiaryTaskHead
-#. # ui/animalname/NamesView
-#. # ui/waitinglist/WaitingListView
-#. # ui/diary/DiaryTaskExecute
 #. # ui/diary/DiaryTaskView
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
+#. # ui/diary/DiaryTaskExecute
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFindText
-#. # ui/movement/MovementView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # ui/animal/MediaSelector
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # reports/Vets
+#. # ui/animal/AnimalFind
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/waitinglist/WaitingListView
+#. # ui/movement/MovementView
+#. # ui/animalname/NamesView
+#. # bo/Animal
+#. # bo/AnimalName
+#. # bo/DiaryTaskHead
 #. # reports/OwnerSearchResults
-#. # reports/WaitingList
-#. # reports/OwnerCriteriaSearch
 #. # reports/Stats
 #. # reports/ShelterInventory
+#. # reports/WaitingList
+#. # reports/Vets
+#. # reports/OwnerCriteriaSearch
 #. # db/AutoDBUpdates
+#. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Name
 msgid "Name"
 msgstr "ชื่อ"
 
-#. # bo/CustomReport
-#. # ui/customreport/CustomReportExport
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OffShelterVaccinations
+#. # ui/customreport/CustomReportExport
+#. # bo/CustomReport
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Title
 msgid "Title"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Address_1
 msgid "Address 1"
 msgstr "ที่อยู่ 1"
 
-#. # bo/OwnerVoucher
-#. # bo/AnimalVaccination
-#. # bo/LookupCache
-#. # bo/AdditionalField
-#. # bo/Owner
-#. # bo/DiaryTaskDetail
-#. # bo/Voucher
-#. # bo/AnimalLitter
-#. # bo/Diary
-#. # bo/LogType
-#. # bo/AnimalDiet
-#. # bo/AnimalMedical
-#. # bo/AnimalMedicalTreatment
-#. # bo/AnimalName
-#. # bo/Diet
-#. # bo/Media
-#. # bo/Log
-#. # bo/Animal
-#. # bo/OwnerDonation
-#. # bo/DonationType
-#. # bo/VaccinationType
-#. # bo/EntryReason
-#. # bo/AnimalType
-#. # bo/AnimalLost
-#. # bo/DiaryTaskHead
-#. # bo/Breed
-#. # bo/AnimalWaitingList
-#. # bo/BaseColour
-#. # bo/DeathReason
-#. # bo/InternalLocation
-#. # bo/Users
-#. # bo/CustomReport
-#. # bo/Species
-#. # bo/AnimalFound
-#. # bo/Adoption
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
+#. # utility/Utils
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFindText
-#. # ui/lookups/LookupEdit
-#. # ui/lookups/LookupView
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/AnimalFind
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AdditionalFieldView
+#. # ui/waitinglist/WaitingListView
 #. # ui/movement/MovementEdit
 #. # ui/movement/MovementView
+#. # ui/lookups/LookupView
+#. # ui/lookups/LookupEdit
 #. # ui/internet/InternetPublisher
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/AdditionalFieldView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
+#. # bo/OwnerDonation
+#. # bo/Animal
+#. # bo/Voucher
+#. # bo/InternalLocation
+#. # bo/AnimalWaitingList
+#. # bo/Users
+#. # bo/AnimalFound
+#. # bo/BaseColour
+#. # bo/CustomReport
+#. # bo/Owner
+#. # bo/DeathReason
+#. # bo/Adoption
+#. # bo/AnimalVaccination
+#. # bo/Log
+#. # bo/OwnerVoucher
+#. # bo/AnimalDiet
+#. # bo/AnimalType
+#. # bo/MedicalProfile
+#. # bo/LookupCache
+#. # bo/Diet
+#. # bo/LogType
+#. # bo/Breed
+#. # bo/DonationType
+#. # bo/AnimalLitter
+#. # bo/Species
+#. # bo/AnimalMedical
+#. # bo/AnimalMedicalTreatment
+#. # bo/AnimalLost
+#. # bo/DiaryTaskDetail
+#. # bo/Diary
+#. # bo/AdditionalField
+#. # bo/AnimalName
+#. # bo/EntryReason
+#. # bo/Media
+#. # bo/DiaryTaskHead
+#. # bo/VaccinationType
+#. # reports/AnimalFigures
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
-#. # reports/AnimalFigures
-#. # utility/Utils
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: ID
 msgid "ID"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Address_5
 msgid "Address 5"
 msgstr "ที่อยู่ 5"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # reports/OwnerSearchResults
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Postcode
 msgid "Postcode"
 msgstr "รหัสไปรษณีย์"
@@ -4393,12 +4393,12 @@ msgstr "รหัสไปรษณีย์"
 msgid "Please enter the start date of adoptions to include"
 msgstr ""
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/ChipRegistration
+#. # mailmerge/OffShelterVaccinations
 #: Address_4
 msgid "Address 4"
 msgstr "ที่อยู่ 4"
@@ -4411,11 +4411,11 @@ msgstr ""
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
 #. # reports/OwnerSearchResults
+#. # mailmerge/Members
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ExpiringMembers
+#. # mailmerge/OffShelterVaccinations
 #: Surname
 msgid "Surname"
 msgstr "นามสกุล"
@@ -4445,41 +4445,41 @@ msgstr ""
 msgid "Bulk Email Complete"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFindText
+#. # ui/waitinglist/WaitingListView
 #. # ui/movement/MovementSelector
-#. # mailmerge/OwnerMailMerge
 #. # reports/OwnerSearchResults
 #. # reports/WaitingList
 #. # db/AutoDBUpdates
+#. # mailmerge/OwnerMailMerge
 #: Address
 msgid "Address"
 msgstr "ที่อยู่"
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
+#. # reports/OwnerSearchResults
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/ChipRegistration
 #: Town
 msgid "Town"
 msgstr "เมือง"
 
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
+#. # reports/OwnerSearchResults
 #. # mailmerge/ChipCancellation
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/ChipRegistration
 #: County
 msgid "County"
 msgstr "ประเทศ"
@@ -4581,35 +4581,35 @@ msgstr ""
 msgid "In/Out Summary Report"
 msgstr "เข้า/ออก สรุป รายงาน"
 
-#. # ui/animalname/NamesEdit
+#. # ui/log/LogEdit
+#. # ui/users/UserEdit
+#. # ui/criteria/DiaryCriteria
+#. # ui/criteria/DateFromTo
 #. # ui/ui/InputTextDialog
 #. # ui/ui/JDBCDlg
-#. # ui/ui/InputListDialog
 #. # ui/ui/DateInputDlg
 #. # ui/ui/UI
+#. # ui/ui/InputListDialog
 #. # ui/diary/DiaryEdit
 #. # ui/diary/DiaryTaskExecute
 #. # ui/diary/DiaryTaskDetailEdit
-#. # ui/log/LogEdit
-#. # ui/criteria/DiaryCriteria
-#. # ui/criteria/DateFromTo
 #. # ui/system/ConfigureLookups
+#. # ui/system/ConfigureDatabase
+#. # ui/system/ConfigureLocal
 #. # ui/system/AdditionalFieldEdit
 #. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLocal
-#. # ui/system/ConfigureDatabase
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
 #. # ui/owner/VoucherEdit
-#. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
 #. # ui/main/Logout
 #. # ui/main/ChangePassword
+#. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
-#. # ui/animal/LitterEdit
 #. # ui/animal/MediaAdd
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#. # ui/animalname/NamesEdit
+#. # ui/lookups/LookupEdit
 #. # ui/owner/DonationEdit
 #. # ui/owner/DonationInstalmentEdit
 #. # ui/internet/EmailForm
@@ -4653,11 +4653,11 @@ msgstr ""
 msgid "Animal Species"
 msgstr "สปีชี่ส์ของสัตว์"
 
-#. # bo/LookupCache
-#. # bo/AnimalWaitingList
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/system/Options
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#. # bo/AnimalWaitingList
+#. # bo/LookupCache
 #. # reports/WaitingList
 #: Urgency
 msgid "Urgency"
@@ -4714,13 +4714,13 @@ msgstr "ที่ตั้ง"
 msgid "Vet Diary upto {0} "
 msgstr ""
 
-#. # bo/CustomReport
 #. # ui/localcache/CacheView
-#. # ui/customreport/GetReports
+#. # ui/animal/DietSelector
 #. # ui/lookups/BreedSpeciesMapping
+#. # ui/customreport/GetReports
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/animal/DietSelector
+#. # bo/CustomReport
 #. # reports/Vets
 #: Description
 msgid "Description"
@@ -4951,8 +4951,8 @@ msgid "Total "
 msgstr "รวมทั้งสิ้น "
 
 #. # ui/waitinglist/WaitingListView
-#. # reports/WaitingList
 #. # reports/Stats
+#. # reports/WaitingList
 #: Rank
 msgid "Rank"
 msgstr "อันดับ"
@@ -4962,8 +4962,8 @@ msgstr "อันดับ"
 msgid "Deceased Reasons"
 msgstr ""
 
-#. # reports/InOut
 #. # reports/Stats
+#. # reports/InOut
 #: Reason
 msgid "Reason"
 msgstr "เหตุผล"
@@ -4990,31 +4990,31 @@ msgstr ""
 msgid "{0} names have been allocated to more than one animal."
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/AnimalName
-#. # bo/Animal
+#. # utility/Utils
 #. # ui/ui/JDBCDlg
-#. # ui/customreport/CustomReportExport
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/DonationSelector
 #. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
+#. # ui/owner/DonationSelector
+#. # ui/animal/AnimalFind
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # startup/Startup
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
-#. # charts/DonationsPerSpecies
-#. # charts/CustomChart
-#. # reports/CustomReportExecute
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
+#. # bo/Animal
+#. # bo/LookupCache
+#. # bo/AnimalName
 #. # reports/AnimalFigures
+#. # reports/CustomReportExecute
 #. # reports/Stats
-#. # utility/Utils
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # db/DatabaseCopier
+#. # charts/CommonReasonsEntry
+#. # charts/CustomChart
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # startup/Startup
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
 #: animal
 msgid "animal"
 msgstr "สัตว์"
@@ -5056,17 +5056,17 @@ msgstr ""
 msgid "Retrieving data..."
 msgstr "กำลังรับข้อมูล..."
 
-#. # bo/AnimalName
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/owner/DonationSelector
 #. # ui/owner/OwnerEdit
-#. # ui/movement/MovementView
+#. # ui/owner/DonationSelector
+#. # ui/animal/AnimalFind
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/AdoptedNoReturn
+#. # ui/movement/MovementView
+#. # bo/Animal
+#. # bo/AnimalName
 #. # reports/Stats
+#. # mailmerge/AdoptedNoReturn
+#. # wordprocessor/AnimalDocument
 #: AnimalName
 msgid "AnimalName"
 msgstr ""
@@ -5131,30 +5131,30 @@ msgstr ""
 msgid "Short Code"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalFindText
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # reports/SearchResults
 #. # reports/Vets
 #: Features
 msgid "Features"
 msgstr ""
 
-#. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
-#. # reports/SearchResults
-#. # reports/CustomReportExecute
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
-#. # reports/NoMediaAttached
 #. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/CustomReportExecute
+#. # reports/NoMediaAttached
+#. # reports/SearchResults
+#. # reports/UnCombiTestedCats
+#. # reports/NeverVaccinated
 #: Internal_Location
 msgid "Internal Location"
 msgstr ""
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # reports/TransferIn
 #. # reports/SearchResults
 #. # reports/InOut
@@ -5162,24 +5162,24 @@ msgstr ""
 msgid "Date Brought In"
 msgstr ""
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # reports/SearchResults
 #. # reports/InOut
 #: Identichip_No
 msgid "Identichip No"
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
+#. # bo/Animal
+#. # bo/LookupCache
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
 #: Size
 msgid "Size"
 msgstr "ขนาด"
@@ -5301,8 +5301,8 @@ msgstr "60%"
 msgid "Percentage Match"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # reports/LostFoundMatch
 #: Contact
 msgid "Contact"
@@ -5473,9 +5473,9 @@ msgstr ""
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr ""
 
-#. # bo/LookupCache
 #. # bo/OwnerDonation
 #. # bo/Adoption
+#. # bo/LookupCache
 #. # reports/Retailer
 #. # reports/InOut
 #. # db/AutoDBUpdates
@@ -5639,13 +5639,13 @@ msgstr ""
 msgid "Animals Died On The Shelter"
 msgstr ""
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
-#. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
-#. # reports/AnimalPrint
+#. # ui/diary/DiarySelector
+#. # bo/DiaryTaskDetail
+#. # bo/Diary
 #. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
 #: Subject
 msgid "Subject"
 msgstr ""
@@ -5686,37 +5686,37 @@ msgstr ""
 msgid "No animals have been returned within 6 months of adoption."
 msgstr ""
 
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #. # reports/NotMicroChipped
-#. # reports/Retailer
 #. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/Vets
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
 #. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/NoMediaAttached
+#. # reports/TransferIn
+#. # reports/Retailer
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/UnCombiTestedCats
+#. # reports/InOut
+#. # reports/ShelterInventory
+#. # reports/NeverVaccinated
+#. # reports/VaccinationDiary
+#. # reports/Vets
 #: Code
 msgid "Code"
 msgstr "โค้ด"
 
-#. # reports/ReturnedAnimals
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
+#. # reports/ReturnedAnimals
 #: Date_Adopted
 msgid "Date Adopted"
 msgstr ""
@@ -5743,45 +5743,45 @@ msgstr ""
 msgid "No adoptions on file."
 msgstr ""
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/MedicalDiary
+#. # ui/animal/AnimalFindText
 #. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/LongTermAnimals
 #. # reports/AnimalReturnedPreSix
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/InOut
+#. # reports/VaccinationDiary
 #: Internal_Loc
 msgid "Internal Loc"
 msgstr ""
 
-#. # ui/diary/DiaryTaskView
-#. # ui/diary/VetBookView
 #. # ui/log/LogSelector
-#. # ui/customreport/GetReports
-#. # ui/movement/MovementView
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/animal/VaccinationView
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
+#. # ui/movement/MovementView
+#. # ui/customreport/GetReports
 #. # reports/NotMicroChipped
 #. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/Vets
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
 #. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/NoMediaAttached
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/UnCombiTestedCats
+#. # reports/InOut
+#. # reports/ShelterInventory
+#. # reports/NeverVaccinated
+#. # reports/VaccinationDiary
+#. # reports/Vets
 #. # ui/owner/DonationEdit
-#. # ui/owner/DonationSelector
 #. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
 #: Type
 #: type
 msgid "Type"
@@ -5880,27 +5880,27 @@ msgstr "สิงหาคม"
 msgid "PTS"
 msgstr ""
 
-#. # reports/ReturnedAnimals
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
 #. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
 #. # reports/AnimalFigures
-#. # reports/AnimalPrint
-#. # reports/OwnerCriteriaSearch
-#. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
+#. # reports/UnneuteredSixMonths
+#. # reports/ReturnedAnimals
+#. # reports/UnderSixNotLitter
+#. # reports/CustomReportExecute
 #. # reports/NoMediaAttached
 #. # reports/Stats
+#. # reports/TransferIn
+#. # reports/AnimalPrint
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/UnCombiTestedCats
+#. # reports/InOut
 #. # reports/ShelterInventory
+#. # reports/NeverVaccinated
 #. # reports/LostFoundMatch
-#. # reports/UnneuteredSixMonths
+#. # reports/VaccinationDiary
+#. # reports/OwnerCriteriaSearch
 #: An_error_occurred_generating_the_report
 msgid "An error occurred generating the report: {0}"
 msgstr ""
@@ -5970,8 +5970,8 @@ msgstr "มิถุนายน"
 msgid "Day Of Month"
 msgstr "วันของเดือน"
 
-#. # reports/InOut
 #. # reports/AnimalFigures
+#. # reports/InOut
 #: Put_To_Sleep
 msgid "Put To Sleep"
 msgstr ""
@@ -6036,16 +6036,16 @@ msgstr ""
 msgid "On Foster (in figures)"
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/AnimalType
 #. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
 #. # ui/animal/AnimalFind
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # bo/AnimalType
+#. # bo/LookupCache
 #. # reports/CustomReportExecute
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/Diagnostic
 #: animaltype
 msgid "Animal Type"
 msgstr "ประเภทของสัตว์"
@@ -6100,17 +6100,17 @@ msgstr ""
 
 #. # ui/animal/DietSelector
 #. # reports/CustomReportExecute
+#. # ui/ui/Dialog
+#. # ui/animal/AnimalEdit
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # bo/Animal
 #. # bo/LookupCache
 #. # bo/Diet
-#. # bo/Animal
-#. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/Diagnostic
 #: Diet
 #: diet
 msgid "Diet"
@@ -6146,11 +6146,11 @@ msgstr ""
 msgid "Treatment Type"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileView
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileView
+#. # ui/medical/MedicalTreatmentSelector
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # reports/MedicalDiary
 #: Dosage
 msgid "Dosage"
@@ -6198,8 +6198,8 @@ msgstr ""
 msgid "No matches found for this owner's criteria."
 msgstr ""
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
 #: GoodWithCats
@@ -6207,8 +6207,8 @@ msgstr ""
 msgid "Good with cats"
 msgstr "เป็นมิตรต่อแมว"
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
 #: GoodWithDogs
@@ -6216,8 +6216,8 @@ msgstr "เป็นมิตรต่อแมว"
 msgid "Good with dogs"
 msgstr "เป็นมิตรต่อสุนัข"
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
 #: GoodWithChildren
@@ -6233,38 +6233,38 @@ msgstr "เป็นมิตรต่อเด็ก"
 msgid "Housetrained"
 msgstr ""
 
-#. # bo/OwnerVoucher
-#. # bo/AnimalVaccination
-#. # bo/Owner
-#. # bo/AnimalLitter
-#. # bo/AnimalDiet
-#. # bo/AnimalMedical
-#. # bo/AnimalMedicalTreatment
-#. # bo/Log
+#. # ui/owner/OwnerEdit
+#. # ui/animal/LitterView
+#. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileEdit
+#. # ui/medical/ProfileView
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
+#. # ui/medical/MedicalEdit
 #. # bo/OwnerDonation
-#. # bo/AnimalLost
 #. # bo/AnimalWaitingList
 #. # bo/AnimalFound
+#. # bo/Owner
 #. # bo/Adoption
+#. # bo/AnimalVaccination
+#. # bo/Log
+#. # bo/OwnerVoucher
+#. # bo/AnimalDiet
 #. # bo/MedicalProfile
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileView
-#. # ui/medical/MedicalEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/owner/OwnerEdit
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
+#. # bo/AnimalLitter
+#. # bo/AnimalMedical
+#. # bo/AnimalMedicalTreatment
+#. # bo/AnimalLost
 #. # reports/MedicalDiary
 #. # reports/VaccinationDiary
 #. # reports/OwnerCriteriaSearch
 #. # db/AutoDBUpdates
 #. # ui/owner/DonationEdit
 #. # ui/owner/VoucherSelector
-#. # ui/owner/DonationSelector
 #. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationSelector
 #: Comments
 #: comments
 msgid "Comments"
@@ -6423,12 +6423,12 @@ msgstr ""
 msgid "Search"
 msgstr "ค้นหา"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/animal/AnimalFindText
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # ui/owner/OwnerLink
 #: Clear
 #: clear
@@ -6447,17 +6447,17 @@ msgstr ""
 
 #. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
+#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Type\:_
 #: Type\:
 msgid "Type: "
 msgstr ""
 
-#. # bo/Animal
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
+#. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
 msgstr ""
@@ -6472,9 +6472,9 @@ msgstr ""
 msgid "Internal Loc: "
 msgstr ""
 
-#. # ui/animalname/NamesEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/animal/AnimalFind
+#. # ui/animalname/NamesEdit
 #: Name\:_
 msgid "Name: "
 msgstr "ชื่อ: "
@@ -6484,14 +6484,14 @@ msgstr "ชื่อ: "
 msgid "Reserved: "
 msgstr ""
 
-#. # ui/animalname/NamesEdit
 #. # ui/animal/AnimalFind
+#. # ui/animalname/NamesEdit
 #: Sex\:_
 msgid "Sex: "
 msgstr "เพศ: "
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalFind
 #: Bad_Date
 msgid "Bad Date"
@@ -6517,12 +6517,12 @@ msgstr "เปิด"
 msgid "Unreserved"
 msgstr ""
 
+#. # ui/reportviewer/ReportViewer
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/reportviewer/ReportViewer
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Print
 msgid "Print"
 msgstr "พิมพ์"
@@ -6547,26 +6547,26 @@ msgstr ""
 msgid "Features: "
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/InternalLocation
 #. # ui/ui/Dialog
 #. # ui/system/Options
-#. # ui/lookups/LookupView
-#. # ui/internet/InternetPublisher
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/lookups/LookupView
+#. # ui/internet/InternetPublisher
+#. # bo/InternalLocation
+#. # bo/LookupCache
 #: LocationName
 msgid "LocationName"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/ui/Dialog
 #. # ui/log/LogSelector
+#. # ui/ui/Dialog
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalFind
+#. # ui/waitinglist/WaitingListView
 #: (all)
 msgid "(all)"
 msgstr ""
@@ -6577,8 +6577,8 @@ msgid "Insurance No: "
 msgstr ""
 
 #. # ui/main/Main
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Find_Animal
 msgid "Find Animal"
 msgstr "ค้นหาสัตว์"
@@ -6624,11 +6624,11 @@ msgstr ""
 msgid "Vaccination Book"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#. # ui/animal/VaccinationView
+#. # ui/diary/DiarySelector
 #. # ui/animal/LitterView
+#. # ui/animal/VaccinationView
+#. # ui/waitinglist/WaitingListView
 #: Refresh_the_list
 msgid "Refresh the list"
 msgstr ""
@@ -6685,8 +6685,8 @@ msgstr ""
 msgid "Select a mother from the shelter animals"
 msgstr ""
 
-#. # ui/movement/MovementEdit
 #. # ui/animal/LitterEdit
+#. # ui/movement/MovementEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
 msgstr ""
@@ -6706,10 +6706,10 @@ msgstr ""
 msgid "Create New Litter"
 msgstr ""
 
-#. # ui/diary/DiaryEdit
 #. # ui/log/LogEdit
-#. # ui/movement/MovementEdit
+#. # ui/diary/DiaryEdit
 #. # ui/animal/LitterEdit
+#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Date\:
 msgid "Date:"
@@ -6727,12 +6727,12 @@ msgstr ""
 msgid "Mother:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lostandfound/FoundAnimalFind
-#. # ui/movement/MovementEdit
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/LitterEdit
+#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Number\:
 msgid "Number:"
@@ -6745,27 +6745,27 @@ msgstr ""
 msgid "..."
 msgstr ""
 
-#. # bo/LookupCache
-#. # bo/Species
-#. # wordprocessor/AnimalDocument
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/ui/Dialog
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/movement/MovementView
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalEdit
-#. # ui/animal/NotAdoptionView
 #. # ui/animal/LitterEdit
 #. # ui/animal/AnimalFind
-#. # charts/AdoptionsPerSpecies
+#. # ui/animal/NotAdoptionView
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#. # ui/movement/MovementView
+#. # ui/lookups/LookupView
+#. # ui/lookups/BreedSpeciesMapping
+#. # bo/LookupCache
+#. # bo/Species
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # wordprocessor/AnimalDocument
 #: SpeciesName
 msgid "SpeciesName"
 msgstr ""
@@ -6785,10 +6785,10 @@ msgstr ""
 msgid "The date this litter expires"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskView
+#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/animal/LitterEdit
+#. # ui/waitinglist/WaitingListEdit
 #: An_error_occurred_creating_the_record\:\n
 msgid "An error occurred creating the record:\n"
 msgstr ""
@@ -6817,10 +6817,10 @@ msgstr ""
 msgid "Unable to create new vaccination record: "
 msgstr ""
 
+#. # ui/animal/VaccinationEdit
+#. # ui/lookups/LookupView
 #. # bo/LookupCache
 #. # bo/VaccinationType
-#. # ui/lookups/LookupView
-#. # ui/animal/VaccinationEdit
 #: VaccinationType
 msgid "VaccinationType"
 msgstr ""
@@ -6854,15 +6854,15 @@ msgstr ""
 msgid "New Vaccination"
 msgstr ""
 
-#. # ui/medical/TreatmentEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/medical/TreatmentEdit
 #. # reports/AnimalPrint
 #: Date_Given\:
 msgid "Date Given:"
 msgstr ""
 
-#. # ui/medical/TreatmentEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/medical/TreatmentEdit
 #. # reports/AnimalPrint
 #: Date_Required\:
 msgid "Date Required:"
@@ -6899,14 +6899,14 @@ msgstr ""
 msgid "Create a litter from this animal"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/system/FileTypes
+#. # ui/owner/OwnerEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/system/FileTypes
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/movement/MovementEdit
+#. # ui/customreport/CustomReportEdit
 #: You_have_unsaved_changes_-_are_you_sure_you_wish_to_close?
 msgid "You have unsaved changes - are you sure you wish to close?"
 msgstr ""
@@ -6924,22 +6924,22 @@ msgid ""
 "this animal. Are you sure you wish to close?"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #. # reports/AnimalPrint
 #: Species\:
 msgid "Species:"
 msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
+#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Type\:
 msgid "Type:"
@@ -6970,8 +6970,8 @@ msgstr ""
 msgid "Dead On Arrival:"
 msgstr ""
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Delete_the_highlighted_vaccination_record
 msgid "Delete the selected vaccination records"
 msgstr ""
@@ -7020,21 +7020,21 @@ msgstr ""
 msgid "Brought In By:"
 msgstr ""
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Edit_the_highlighted_vaccination_record
 msgid "Edit the highlighted vaccination record"
 msgstr ""
 
+#. # ui/users/UserEdit
+#. # ui/owner/OwnerEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/OwnerEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
+#. # ui/movement/MovementEdit
 #: Save_this_record
 msgid "Save this record"
 msgstr ""
@@ -7089,8 +7089,8 @@ msgid ""
 msgstr ""
 
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Generate_a_diary_task_for_this_animal
 msgid "Generate a diary task for this animal"
 msgstr ""
@@ -7100,17 +7100,17 @@ msgstr ""
 msgid "The reason the animal was put to sleep"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/owner/OwnerEdit
+#. # ui/owner/VoucherEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/medical/TreatmentEdit
-#. # ui/owner/VoucherEdit
-#. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
 #. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
+#. # ui/medical/TreatmentEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Comments\:
 msgid "Comments:"
@@ -7143,8 +7143,8 @@ msgstr ""
 msgid "Tick this box if the animal was put to sleep"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Dist._Features\:
@@ -7225,22 +7225,22 @@ msgstr ""
 msgid "Unable to create new animal record: "
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
 #. # ui/system/FileTypes
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/movement/MovementEdit
+#. # ui/customreport/CustomReportEdit
 #: Unsaved_Changes
 msgid "Unsaved Changes"
 msgstr ""
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Given
 msgid "Given"
 msgstr ""
@@ -7273,9 +7273,9 @@ msgstr ""
 msgid "The animal's species"
 msgstr ""
 
+#. # ui/owner/VoucherEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/VoucherEdit
 #. # ui/animal/AnimalEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
@@ -7284,8 +7284,8 @@ msgid "Failed Create"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Generate_an_animal_letter/form
 msgid "Generate an animal letter/form"
 msgstr ""
@@ -7303,16 +7303,16 @@ msgstr ""
 msgid "The animal's breed"
 msgstr ""
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/OwnerLink
 #. # ui/owner/OwnerEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #: Postcode\:
 msgid "Postcode:"
 msgstr ""
@@ -7332,8 +7332,8 @@ msgstr ""
 msgid "Any health problems the animal has"
 msgstr ""
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Required
 msgid "Required"
 msgstr ""
@@ -7393,20 +7393,20 @@ msgstr ""
 msgid "Invalid Date"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
 #. # ui/log/LogEdit
 #. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
-#. # ui/movement/MovementEdit
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/movement/MovementEdit
+#. # ui/lookups/LookupEdit
 #: Validation_Error
 msgid "Validation Error"
 msgstr ""
@@ -7440,15 +7440,15 @@ msgstr ""
 msgid "A date you entered was not valid: "
 msgstr ""
 
+#. # ui/system/Options
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
 #. # bo/LookupCache
 #. # bo/Breed
-#. # ui/system/Options
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
 #: breed
 msgid "breed"
 msgstr ""
@@ -7522,20 +7522,20 @@ msgstr ""
 msgid "Unable to read media records: "
 msgstr ""
 
-#. # wordprocessor/MovementDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/OwnerDocument
 #. # ui/animal/MediaAdd
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/MovementDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
 #: Error_occurred_uploading_to_media_server\:_
 msgid "Error occurred uploading to media server: "
 msgstr ""
 
-#. # wordprocessor/MovementDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/OwnerDocument
 #. # ui/animal/MediaAdd
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/MovementDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
 #: Unable_to_create_media_database_entry\:_
 msgid "Unable to create media database entry: "
 msgstr ""
@@ -7589,8 +7589,8 @@ msgid "Original Owner Name:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: look_in_lost_animal_database
 msgid "Look for a potential match in the lost animal database"
 msgstr ""
@@ -7722,8 +7722,8 @@ msgstr ""
 msgid "Check this box if this animal is not a shelter animal"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeSelector
 #. # ui/animal/DietSelector
+#. # ui/medical/MedicalRegimeSelector
 #: Start_Date
 msgid "Start Date"
 msgstr ""
@@ -7754,8 +7754,8 @@ msgstr ""
 msgid "Diet Type:"
 msgstr ""
 
-#. # ui/medical/MedicalEdit
 #. # ui/animal/DietEdit
+#. # ui/medical/MedicalEdit
 #. # reports/AnimalPrint
 #: Start_Date\:
 msgid "Start Date:"
@@ -7822,28 +7822,28 @@ msgstr ""
 msgid "Details:"
 msgstr "รายละเอียด:"
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: generate_a_diary_note_for_this_animal
 msgid "Generate a diary note for this animal"
 msgstr ""
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Add_new_media_to_this_animal
 msgid "Add new media to this animal"
 msgstr ""
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Move_this_animal
 msgid "Move this animal"
 msgstr "ย้ายสัตว์ตัวนี้"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalEdit
+#. # bo/Animal
 #. # reports/AnimalPrint
+#. # wordprocessor/AnimalDocument
 #: Declawed
 msgid "Declawed:"
 msgstr ""
@@ -7906,10 +7906,10 @@ msgstr ""
 msgid "The Tattoo Number"
 msgstr ""
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalEdit
+#. # bo/Animal
 #. # reports/AnimalPrint
+#. # wordprocessor/AnimalDocument
 #: FLVResult
 msgid "FLV Result"
 msgstr ""
@@ -8010,8 +8010,8 @@ msgstr ""
 
 #. # ui/ui/ASMDesktop
 #. # ui/main/UpdateDialog
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/internet/InternetPublisher
 #: Close
 msgid "Close"
 msgstr "ปิด"
@@ -8094,18 +8094,18 @@ msgstr ""
 msgid "Diet Information"
 msgstr ""
 
-#. # bo/Media
-#. # wordprocessor/GenerateDocument
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
+#. # ui/customreport/CustomReportEdit
+#. # bo/Media
 #. # startup/Startup
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # db/DatabaseCopier
+#. # db/Diagnostic
+#. # wordprocessor/GenerateDocument
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #: media
 #: Media
 msgid "Media"
@@ -8116,21 +8116,21 @@ msgstr "มีเดีย"
 msgid "Media associated with this animal"
 msgstr ""
 
-#. # bo/Diary
 #. # ui/ui/Dialog
 #. # ui/diary/VetBookView
 #. # ui/system/Options
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
+#. # ui/customreport/CustomReportEdit
+#. # bo/Diary
 #. # reports/AnimalPrint
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # db/DatabaseCopier
+#. # db/Diagnostic
+#. # ui/main/Main
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/movement/MovementEdit
 #: diary
 #: Diary
@@ -8147,18 +8147,18 @@ msgstr ""
 msgid "Details of animal movement transactions"
 msgstr ""
 
-#. # bo/Log
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/animal/AnimalEdit
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # bo/Log
 #. # reports/AnimalPrint
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # db/DatabaseCopier
+#. # db/Diagnostic
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/movement/MovementEdit
 #: log
 #: Log
@@ -8219,14 +8219,14 @@ msgstr "ค้นหาเสร็จแล้ว - {0} ที่พบว่�
 msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/UI
 #. # ui/diary/DiaryEdit
 #. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/animal/AnimalEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/movement/MovementEdit
 #: created_lastchange
 msgid ""
 "Created on {0} by {1}.\n"
@@ -8290,15 +8290,15 @@ msgstr ""
 msgid "Include Off Shelter"
 msgstr ""
 
-#. # bo/Additional
 #. # ui/system/ConfigureAdditional
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
+#. # ui/customreport/CustomReportEdit
+#. # bo/Additional
 #. # reports/AnimalPrint
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/Diagnostic
 #: additional
 msgid "Additional"
 msgstr "เพิ่มเติม"
@@ -8396,13 +8396,18 @@ msgstr ""
 msgid "Expires:"
 msgstr ""
 
+#. # ui/animal/VaccinationView
+#: complete_and_reschedule_selected_vaccinations
+msgid "Complete and reschedule the selected vaccinations for next year"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
 msgstr ""
 
-#. # ui/animalname/NamesView
 #. # ui/main/Main
+#. # ui/animalname/NamesView
 #: Animal_Name_Database
 msgid "Animal Name Database"
 msgstr ""
@@ -8427,10 +8432,10 @@ msgstr ""
 msgid "Really delete this record?"
 msgstr ""
 
-#. # ui/animalname/NamesEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/animalname/NamesEdit
 #. # ui/customreport/CustomReportEdit
 #: An_error_occurred_saving_the_data\:\n
 msgid "An error occurred saving the data:\n"
@@ -8451,8 +8456,8 @@ msgstr "แก้ไขชื่อ"
 msgid "The currency figure you entered was invalid."
 msgstr ""
 
-#. # ui/customreport/CustomReportView
 #. # ui/users/UserEdit
+#. # ui/customreport/CustomReportView
 #: Custom_Reports
 msgid "Reports"
 msgstr "รายงาน"
@@ -8517,10 +8522,10 @@ msgstr ""
 msgid "The HTML to format and present your custom report"
 msgstr ""
 
-#. # ui/customreport/CustomReportExport
 #. # ui/customreport/GetReports
-#. # ui/customreport/CustomReportEdit
 #. # ui/customreport/CustomReportView
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
 #: category
 msgid "Category"
 msgstr "หมวดหมู่"
@@ -8556,8 +8561,8 @@ msgstr ""
 msgid "An error occurred generating the CSV file: "
 msgstr ""
 
-#. # ui/customreport/CustomReportExport
 #. # ui/main/Main
+#. # ui/customreport/CustomReportExport
 #: export_custom_report_data
 msgid "Export Custom Report as CSV"
 msgstr ""
@@ -8588,8 +8593,8 @@ msgid "Install Additional Reports"
 msgstr ""
 
 #. # ui/system/Options
-#. # ui/customreport/GetReports
 #. # ui/splash/About
+#. # ui/customreport/GetReports
 #: Database
 msgid "Database"
 msgstr "ฐานข้อมูล"
@@ -8705,8 +8710,8 @@ msgstr ""
 msgid "New Diary Task"
 msgstr ""
 
-#. # ui/diary/DiaryTaskView
 #. # ui/users/UserEdit
+#. # ui/diary/DiaryTaskView
 #. # ui/main/Main
 #: Edit_Diary_Tasks
 msgid "Edit Diary Tasks"
@@ -8732,50 +8737,50 @@ msgstr ""
 msgid "Create a new diary task"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Add_a_new_diary_note
 msgid "Add a new diary note"
 msgstr ""
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
-#. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
+#. # bo/DiaryTaskDetail
+#. # bo/Diary
 #. # reports/AnimalPrint
 #: Note
 msgid "Note"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiarySelector
 #. # reports/AnimalPrint
 #: For
 msgid "For"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Edit_the_selected_diary_note
 msgid "Edit the selected diary note"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #. # reports/AnimalPrint
 #: Created_By
 msgid "Created By"
 msgstr "สร้างโดย"
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: An_error_occurred_removing_the_record\:_
 msgid "An error occurred removing the record: "
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Delete_the_selected_diary_note
 msgid "Delete the selected diary note"
 msgstr ""
@@ -8800,9 +8805,9 @@ msgstr ""
 msgid "days from today (or 0 to prompt)"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/waitinglist/WaitingListEdit
 #: An_error_occurred_loading_the_data\:\n
 msgid "An error occurred loading the data:\n"
 msgstr ""
@@ -8847,26 +8852,26 @@ msgstr ""
 msgid "New task detail"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Link
 msgid "Link"
 msgstr ""
 
-#. # ui/diary/DiaryView
 #. # ui/users/UserEdit
+#. # ui/diary/DiaryView
 #: View_Diary_Notes
 msgid "View Diary Notes"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: View_the_record_this_diary_note_relates_to
 msgid "View the record this diary note relates to"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: An_error_occurred_accessing_linked_data\:\n
 msgid "An error occurred accessing linked data:\n"
 msgstr ""
@@ -8896,8 +8901,8 @@ msgstr ""
 msgid "An error occurred creating the diary notes:\n"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: complete_the_selected_diary_notes
 msgid "Complete the selected diary notes"
 msgstr ""
@@ -8907,22 +8912,22 @@ msgstr ""
 msgid "Name Like:"
 msgstr ""
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Show_Future\:
 msgid "Show Future:"
 msgstr "แสดงอนาคต:"
 
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #: Show_Completed\:
 msgid "Show Completed:"
 msgstr "แสดงที่เสร็จแล้ว:"
 
-#. # bo/AnimalMedical
-#. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/diary/DiarySelector
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
 #. # reports/AnimalPrint
 #: Completed
 msgid "Completed"
@@ -9053,10 +9058,10 @@ msgstr ""
 msgid "Generate JavaScript database"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: An_error_occurred_writing_a_file\:\n
 msgid "An error occurred writing a file:\n"
@@ -9082,10 +9087,10 @@ msgstr ""
 msgid "Include Cruelty Case Animals"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: An_error_occurred_connecting_to_the_internet_provider\:\n
 msgid "An error occurred connecting to the internet provider:\n"
@@ -9096,28 +9101,28 @@ msgstr ""
 msgid "Publish Animals Available For Adoption"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: An_error_occurred_testing_the_animals\:\n
 msgid "An error occurred testing the animals:\n"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: Publishing...
 msgid "Publishing..."
 msgstr "กำลังเผยแพร่..."
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: An_error_occurred_constructing_pages\:\n
 msgid "An error occurred constructing pages:\n"
@@ -9140,10 +9145,10 @@ msgid ""
 "Would you like to view the pages now?"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: Determining_Workload...
 msgid "Determining Workload..."
@@ -9181,20 +9186,20 @@ msgid "FTPRootDirectory"
 msgstr ""
 
 #. # ui/internet/FTPSettings
-#. # ui/internet/SaveAPetSettings
 #. # ui/internet/RescueGroupsSettings
-#. # ui/internet/Pets911Settings
+#. # ui/internet/SaveAPetSettings
 #. # ui/login/Login
+#. # ui/internet/Pets911Settings
 #: Username\:
 #: Username
 msgid "Username:"
 msgstr "ชื่อผู้ใช้:"
 
 #. # ui/internet/FTPSettings
-#. # ui/internet/Pets911Settings
+#. # ui/internet/RescueGroupsSettings
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
-#. # ui/internet/RescueGroupsSettings
+#. # ui/internet/Pets911Settings
 #: Host_URL\:
 msgid "Host URL:"
 msgstr ""
@@ -9204,10 +9209,10 @@ msgstr ""
 msgid "Root:"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #. # internet/Publisher
+#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/SaveAPetPublisher
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
@@ -9317,9 +9322,9 @@ msgstr ""
 msgid "PetFinder Mapping"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #: unmapped_petfinder_species
 msgid ""
 "You cannot export to PetFinder as there are still species on your list which "
@@ -9327,9 +9332,9 @@ msgid ""
 "Would you like to edit them now?"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #: Unmapped_Types
 msgid "Unmapped Types"
 msgstr ""
@@ -9339,9 +9344,9 @@ msgstr ""
 msgid "Map PetFinder Breeds"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #: unmapped_petfinder_breeds
 msgid ""
 "You have unmapped PetFinder breeds in your database. You will need to set "
@@ -9354,17 +9359,17 @@ msgstr ""
 msgid "PetFinder Breed Mapping"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #: not_all_your_petfinder_types_are_mapped
 msgid ""
 "Not all of your PetFinder types are mapped. Publisher cannot continue."
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
 #. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #: not_all_your_petfinder_breeds_are_mapped
 msgid ""
 "Not all of your PetFinder breeds are mapped. Publisher cannot continue."
@@ -9470,12 +9475,12 @@ msgstr ""
 msgid "Include Colours"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/internet/InternetPublisher
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: weeks
 msgid "{0} weeks"
 msgstr "{0} สัปดาห์"
@@ -9538,8 +9543,8 @@ msgstr ""
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
 
-#. # ui/localcache/CacheView
 #. # ui/main/Main
+#. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local Cache"
 msgstr ""
@@ -9584,11 +9589,11 @@ msgstr ""
 msgid "An error occurred dumping cache information:\n"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/log/LogSelector
 #. # ui/owner/OwnerEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
 #: Details
@@ -9641,8 +9646,8 @@ msgstr ""
 msgid "An error occurred saving the record:\n"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Types"
 msgstr "ประเภทของปูมบันทึก"
@@ -9718,8 +9723,8 @@ msgstr "ชื่อสายพันธุ์"
 msgid "Colour Description"
 msgstr "คำอธิบายสี"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Internal_Locations
 msgid "Internal Locations"
 msgstr ""
@@ -9729,8 +9734,8 @@ msgstr ""
 msgid "Breed Description"
 msgstr "คำอธิบายสายพันธุ์"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "Vaccination Types"
 msgstr "ประเภทวัคซีน"
@@ -9781,8 +9786,8 @@ msgid ""
 "You must remove all records using this record first."
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Breeds
 msgid "Breeds"
 msgstr "สายพันธุ์"
@@ -9797,8 +9802,8 @@ msgstr "สีพื้นฐาน"
 msgid "Animal Type Name"
 msgstr "ชื่อของประเภทสัตว์"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal Types"
 msgstr "ประเภทของสัตว์"
@@ -9849,15 +9854,15 @@ msgstr ""
 msgid "An error occurred accessing the record: "
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #: Description\:
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
 #. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
 #. # ui/movement/MovementEdit
+#. # ui/lookups/LookupEdit
 #: An_error_occurred_saving_the_record\:_
 msgid "An error occurred saving the record: "
 msgstr ""
@@ -9867,8 +9872,8 @@ msgstr ""
 msgid "An error occurred creating the record: "
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "Entry Reasons"
 msgstr ""
@@ -9883,8 +9888,8 @@ msgstr ""
 msgid "Reason Description"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "Death Reasons"
 msgstr "เหตุผลที่เสียชีวิต"
@@ -9899,8 +9904,8 @@ msgstr ""
 msgid "Diet Description"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Diets
 msgid "Diets"
 msgstr ""
@@ -9916,8 +9921,8 @@ msgid "Voucher Description"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vouchers
 msgid "Vouchers"
 msgstr ""
@@ -9952,8 +9957,8 @@ msgstr ""
 msgid "{0} cannot be empty."
 msgstr ""
 
-#. # ui/lookups/LookupEdit
 #. # ui/lookups/LookupView
+#. # ui/lookups/LookupEdit
 #: edit_x
 msgid "Edit {0}"
 msgstr ""
@@ -9978,20 +9983,20 @@ msgstr ""
 msgid "(any)"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
+#. # ui/lostandfound/LostAnimalFind
 #: Find_Lost_Animal
 msgid "Find Lost Animal"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Area_Contains\:
 msgid "Area Contains:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: and
 msgid "and"
 msgstr ""
@@ -10006,28 +10011,28 @@ msgstr ""
 msgid "Found Between:"
 msgstr ""
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/main/Main
+#. # ui/lostandfound/FoundAnimalFind
 #: Find_Found_Animal
 msgid "Find Found Animal"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Contact_contains\:
 msgid "Contact contains:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Postcode_contains\:
 msgid "Postcode contains:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Area
 msgid "Area"
 msgstr ""
@@ -10062,9 +10067,9 @@ msgstr ""
 msgid "Unable to create new lost animal record: "
 msgstr ""
 
+#. # ui/owner/OwnerEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/OwnerEdit
 #: Delete_this_record
 msgid "Delete this record"
 msgstr ""
@@ -10107,10 +10112,10 @@ msgstr ""
 msgid "Features:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Colour\:
 msgid "Colour:"
 msgstr ""
@@ -10136,15 +10141,15 @@ msgstr ""
 msgid "The area this animal was found in, eg: Dore, Sheffield"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Contact_Details\:
 msgid "Contact Details:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Reference_number_must_be_numeric
 msgid "Reference number must be numeric"
 msgstr ""
@@ -10216,8 +10221,8 @@ msgstr ""
 msgid "Find a Lost Animal"
 msgstr ""
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: System
 msgid "System"
 msgstr ""
@@ -10248,8 +10253,8 @@ msgstr ""
 msgid "Add a new animal"
 msgstr ""
 
-#. # ui/localcache/CacheView
 #. # ui/main/Main
+#. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local &Cache"
 msgstr ""
@@ -10311,8 +10316,8 @@ msgstr ""
 #. # ui/diary/DiaryTaskView
 #. # ui/owner/OwnerEdit
 #. # ui/main/Main
-#. # ui/movement/MovementView
 #. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
 #: Owner
@@ -10331,8 +10336,8 @@ msgid "&Non-Returned Adoptions"
 msgstr ""
 
 #. # ui/main/Main
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Find_Animal
 msgid "&Find Animal"
 msgstr ""
@@ -10353,8 +10358,8 @@ msgstr ""
 msgid "Off Shelter &Vaccinations"
 msgstr ""
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: About...
 msgid "&About..."
 msgstr ""
@@ -10389,8 +10394,8 @@ msgstr ""
 msgid "Add Diary &Note"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Internal_Locations
 msgid "Internal &Locations"
 msgstr ""
@@ -10405,8 +10410,8 @@ msgstr ""
 msgid "Microchip &Cancellations"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
+#. # ui/lostandfound/LostAnimalFind
 #: Find_Lost_Animal
 msgid "&Find Lost Animal"
 msgstr ""
@@ -10416,32 +10421,32 @@ msgstr ""
 msgid "Edit All Diary Notes"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/main/Main
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/LitterView
+#. # ui/animal/AnimalFind
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/waitinglist/WaitingListView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #. # ui/lookups/LookupView
 #. # ui/lookups/BreedSpeciesMapping
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
 #. # reports/AnimalReturnedPostSix
+#. # reports/AnimalReturnedPreSix
+#. # reports/CustomReportExecute
 #. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
 #. # reports/SearchResults
 #. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalReturnedPreSix
 #. # reports/LostFoundMatch
+#. # reports/OwnerCriteriaSearch
+#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #: Species
 msgid "&Species"
 msgstr ""
@@ -10451,14 +10456,14 @@ msgstr ""
 msgid "&Lost Animals"
 msgstr ""
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/main/Main
+#. # ui/lostandfound/FoundAnimalFind
 #: Find_Found_Animal
 msgid "&Find Found Animal"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal &Types"
 msgstr ""
@@ -10494,8 +10499,8 @@ msgstr ""
 msgid "&Add Owner"
 msgstr ""
 
-#. # ui/diary/DiaryTaskView
 #. # ui/users/UserEdit
+#. # ui/diary/DiaryTaskView
 #. # ui/main/Main
 #: Edit_Diary_Tasks
 msgid "Edit Diary &Tasks"
@@ -10507,8 +10512,8 @@ msgstr ""
 msgid "&Reservation Book"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Wa&iting List"
 msgstr ""
@@ -10524,8 +10529,8 @@ msgstr ""
 msgid "&Reports"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "&Vaccination Types"
 msgstr ""
@@ -10553,17 +10558,17 @@ msgstr ""
 msgid "Edit System &Users"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/main/Main
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/movement/MovementEdit
 #: Diary
 msgid "&Diary"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Breeds
 msgid "&Breeds"
 msgstr ""
@@ -10614,8 +10619,8 @@ msgstr ""
 msgid "Contents (&Printable PDF)"
 msgstr ""
 
-#. # ui/animalname/NamesView
 #. # ui/main/Main
+#. # ui/animalname/NamesView
 #: Animal_Name_Database
 msgid "Animal Name Data&base"
 msgstr ""
@@ -10650,14 +10655,14 @@ msgstr ""
 msgid "Uncategorised"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "&Death Reasons"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "&Entry Reasons"
 msgstr ""
@@ -10687,8 +10692,8 @@ msgstr ""
 msgid "Locked"
 msgstr ""
 
-#. # ui/main/Locked
 #. # ui/main/ChangePassword
+#. # ui/main/Locked
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr "รหัสผ่านไม่ถูกต้อง"
@@ -10710,21 +10715,21 @@ msgstr ""
 msgid "R&etailer Book"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Diets
 msgid "D&iets"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vouchers
 msgid "Vo&uchers"
 msgstr ""
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: Credits
 msgid "C&redits"
 msgstr ""
@@ -10739,8 +10744,8 @@ msgstr ""
 msgid "&Medical Diary"
 msgstr ""
 
-#. # ui/medical/MedicalView
 #. # ui/main/Main
+#. # ui/medical/MedicalView
 #: Medical_Book
 msgid "Medical &Book"
 msgstr ""
@@ -10811,8 +10816,8 @@ msgstr ""
 msgid "Donation T&ypes"
 msgstr ""
 
-#. # ui/customreport/CustomReportExport
 #. # ui/main/Main
+#. # ui/customreport/CustomReportExport
 #: export_custom_report_data
 msgid "E&xport Custom Report Data"
 msgstr ""
@@ -10875,8 +10880,8 @@ msgstr ""
 msgid "PetFinder &Breed Mapping"
 msgstr ""
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Ty&pes"
 msgstr ""
@@ -10987,14 +10992,14 @@ msgstr ""
 msgid "&Get more reports from sheltermanager.com ..."
 msgstr ""
 
-#. # globals/Global
 #. # ui/main/StartupPage
+#. # globals/Global
 #: Welcome
 msgid "Welcome"
 msgstr ""
 
-#. # ui/main/Main
 #. # ui/main/ChangePassword
+#. # ui/main/Main
 #: Change_Password
 msgid "Change &Password"
 msgstr ""
@@ -11024,17 +11029,17 @@ msgstr ""
 msgid "Profile Name"
 msgstr ""
 
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileView
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileView
+#. # ui/medical/MedicalTreatmentSelector
 #: Treatment_Name
 msgid "Treatment Name"
 msgstr ""
 
+#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileEdit
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
-#. # ui/medical/MedicalRegimeSelector
 #: Frequency
 msgid "Frequency"
 msgstr "ความถี่"
@@ -11116,22 +11121,22 @@ msgstr ""
 msgid "Ends after"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # bo/AnimalMedical
 #: Status
 msgid "Status"
 msgstr "สถานะ"
 
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalEdit
 #. # ui/owner/OwnerEdit
+#. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
 #: Active
 msgid "Active"
 msgstr ""
 
-#. # bo/AnimalMedical
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
 #: Held
 msgid "Held"
 msgstr ""
@@ -11171,20 +11176,20 @@ msgstr ""
 msgid "Create a new regime from a medical profile"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Edit_the_highlighted_treatment
 msgid "Edit the highlighted treatment"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Delete_the_highlighted_treatment
 msgid "Delete the highlighted treatment"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Date_Given
 msgid "Date Given"
 msgstr ""
@@ -11204,20 +11209,20 @@ msgstr ""
 msgid "Given By:"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
 msgstr ""
 
-#. # ui/medical/MedicalView
 #. # ui/main/Main
+#. # ui/medical/MedicalView
 #: Medical_Book
 msgid "Medical Book"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Sequence
 msgid "Sequence"
 msgstr ""
@@ -11232,26 +11237,26 @@ msgstr ""
 msgid "Treatment View"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_selected_treatments_upto_date
 msgid "Bring selected treatments upto date"
 msgstr ""
 
-#. # ui/medical/ProfileView
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileView
 #: Finishes_After
 msgid "Finishes After"
 msgstr ""
 
-#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
 #: Refresh
 msgid "Refresh"
 msgstr ""
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Total_Today
 msgid "Total Today"
 msgstr ""
@@ -11261,10 +11266,10 @@ msgstr ""
 msgid "Create a new manual treatment"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: treatment_periods
 msgid "Treatment Periods"
 msgstr ""
@@ -11513,8 +11518,8 @@ msgstr ""
 msgid "Movement Type"
 msgstr ""
 
-#. # ui/movement/MovementView
 #. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #: Unable_to_read_movement_records\:_
 msgid "Unable to read movement records: "
 msgstr ""
@@ -11674,8 +11679,8 @@ msgstr ""
 msgid "Phone"
 msgstr "โทร"
 
-#. # ui/owner/OwnerEdit
 #. # ui/users/UserEdit
+#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #: Donations
 msgid "Donations"
@@ -11990,8 +11995,8 @@ msgstr ""
 msgid "Email"
 msgstr "อีเมล์"
 
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/Members
+#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ExpiringMembers
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
@@ -12299,8 +12304,8 @@ msgid "View this link"
 msgstr ""
 
 #. # ui/owner/LinkSelector
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: Link_Type
 #: linktype
 msgid "Link Type"
@@ -12413,8 +12418,8 @@ msgstr ""
 msgid "Check this box if this owner is a veterinary surgery or clinic"
 msgstr ""
 
-#. # globals/Global
 #. # ui/owner/OwnerFind
+#. # globals/Global
 #: Vets
 msgid "Vets"
 msgstr ""
@@ -12614,8 +12619,8 @@ msgstr ""
 msgid "Vendor: "
 msgstr ""
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: About...
 msgid "About..."
 msgstr ""
@@ -12685,8 +12690,8 @@ msgstr "รุ่น"
 msgid "Visit the Animal Shelter Manager website"
 msgstr ""
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: Credits
 msgid "Credits"
 msgstr ""
@@ -12815,8 +12820,8 @@ msgstr ""
 msgid "Delete the selected type"
 msgstr ""
 
-#. # ui/system/FileTypeEdit
 #. # ui/system/FileTypes
+#. # ui/system/FileTypeEdit
 #: Extension
 msgid "Extension"
 msgstr ""
@@ -12831,8 +12836,8 @@ msgstr ""
 msgid "Save the list of filetypes"
 msgstr ""
 
-#. # ui/system/FileTypeEdit
 #. # ui/system/FileTypes
+#. # ui/system/FileTypeEdit
 #: Edit_File_Types
 msgid "Edit File Types"
 msgstr ""
@@ -13005,8 +13010,8 @@ msgstr ""
 
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/internet/InternetPublisher
 #: None
 msgid "[None]"
 msgstr "[ไม่มี]"
@@ -13373,10 +13378,10 @@ msgstr ""
 
 #. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # startup/Startup
 #. # reports/CustomReportExecute
-#. # db/DatabaseCopier
+#. # startup/Startup
 #. # db/LocateDatabase
+#. # db/DatabaseCopier
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -13408,26 +13413,26 @@ msgstr ""
 msgid "The field is now in use in the database and cannot be removed."
 msgstr ""
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldname
 msgid "Field Name"
 msgstr ""
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldtype
 msgid "Field Type"
 msgstr ""
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: displayindex
 msgid "Display Index"
 msgstr ""
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldlabel
 msgid "Field Label"
 msgstr ""
@@ -13942,8 +13947,8 @@ msgstr ""
 msgid "Super User: "
 msgstr ""
 
-#. # ui/users/UserEdit
 #. # ui/users/UserView
+#. # ui/users/UserEdit
 #: Real_Name
 msgid "Real Name: "
 msgstr "ชื่อจริง: "
@@ -13988,8 +13993,8 @@ msgstr ""
 msgid "Delete Diary Notes"
 msgstr ""
 
-#. # ui/users/UserEdit
 #. # ui/users/UserView
+#. # ui/users/UserEdit
 #: Username\:_
 msgid "Username: "
 msgstr "ชื่อผู้ใช้: "
@@ -14125,8 +14130,8 @@ msgstr ""
 msgid "Bulk Complete Waiting List Entries"
 msgstr ""
 
-#. # ui/customreport/CustomReportView
 #. # ui/users/UserEdit
+#. # ui/customreport/CustomReportView
 #: Custom_Reports
 msgid "Custom Reports"
 msgstr ""
@@ -14291,8 +14296,8 @@ msgstr ""
 msgid "View Owner Vouchers"
 msgstr ""
 
-#. # ui/owner/OwnerEdit
 #. # ui/users/UserEdit
+#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
 #: Donations
 msgid "Donations:"
@@ -14368,8 +14373,8 @@ msgstr ""
 msgid "Urgency:"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Waiting List"
 msgstr ""
@@ -14389,18 +14394,18 @@ msgstr ""
 msgid "A date you entered was not valid: \n"
 msgstr ""
 
+#. # ui/ui/Dialog
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/AnimalFind
+#. # ui/waitinglist/WaitingListView
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
 #. # bo/LookupCache
 #. # bo/Species
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # ui/animal/AnimalFind
-#. # db/Diagnostic
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
+#. # db/Diagnostic
 #: species
 msgid "species"
 msgstr "สปีชี่ส์"
@@ -14420,8 +14425,8 @@ msgstr "วันที่เอาออก:"
 msgid "Donation?"
 msgstr "บริจาคหรือเปล่า?"
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #: New_Waiting_List_Entry
 msgid "New Waiting List Entry"
 msgstr ""
@@ -14452,12 +14457,12 @@ msgstr ""
 msgid "Date Of Last Owner Contact:"
 msgstr ""
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # ui/waitinglist/WaitingListEdit
 #. # ui/internet/InternetPublisher
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: weeks
 msgid "weeks."
 msgstr "สัปดาห์."
@@ -14492,8 +14497,8 @@ msgstr ""
 msgid "Removal Reason:"
 msgstr ""
 
-#. # ui/wordprocessor/SelectTemplate
 #. # ui/ui/DBFSBrowser
+#. # ui/wordprocessor/SelectTemplate
 #: An_error_occurred_retrieving_the_file\:_
 msgid "An error occurred retrieving the file: "
 msgstr ""
@@ -14516,6 +14521,25 @@ msgstr ""
 #. # ui/wordprocessor/SelectTemplate
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#. # reports/Report
+#. # wordprocessor/GenerateDocument
+#: Positive
+msgid "Positive"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#. # reports/Report
+#. # wordprocessor/GenerateDocument
+#: Negative
+msgid "Negative"
+msgstr ""
+
+#. # wordprocessor/AnimalDocument
+#: estimated
+msgid "(estimated)"
 msgstr ""
 
 #~ msgid "Login Again"
