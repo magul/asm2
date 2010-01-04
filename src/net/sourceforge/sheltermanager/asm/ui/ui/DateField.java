@@ -395,9 +395,10 @@ public class DateField extends UI.Panel {
      * more than 10 years in the future, or 100 years in the past.
      */
     public void checkDateBoundaries() {
-
         // Blank date - don't do anything
-        if (txt.getText().equals("")) return;
+        if (txt.getText().equals("")) {
+            return;
+        }
 
         Calendar c = null;
         Calendar now = Calendar.getInstance();

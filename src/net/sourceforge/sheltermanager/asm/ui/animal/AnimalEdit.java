@@ -867,8 +867,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             // Outputs the title for the frame
             this.setTitle(i18n("edit_animal_title", animal.getShelterCode(),
-                    animal.getAnimalName(), animal.calculateAgeGroup(), animal.getSpeciesName(),
-                    animal.getAge()));
+                    animal.getAnimalName(), animal.calculateAgeGroup(),
+                    animal.getSpeciesName(), animal.getAge()));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1242,23 +1242,20 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // it - assuming we have a non shelter animal type, if not, the
         // user can do what they want
         if (chkNonShelter.isSelected()) {
-            
             int nsat = Configuration.getInteger("AFNonShelterType");
 
             if (nsat != 0) {
                 Utils.setComboFromID(LookupCache.getAnimalTypeLookup(),
-                    "AnimalType",
-                    new Integer(nsat),
-                    cboType);
+                    "AnimalType", new Integer(nsat), cboType);
                 cboType.setEnabled(false);
 
                 // If we aren't loading the screen right now, generate a new code
                 // for the non-shelter animal - the box must have just been ticked
                 if (!isLoading) {
-                    generateAnimalCode(animal, (String) cboType.getSelectedItem());
+                    generateAnimalCode(animal,
+                        (String) cboType.getSelectedItem());
                 }
-            }
-            else {
+            } else {
                 cboType.setEnabled(true);
             }
         } else {
@@ -2642,7 +2639,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Alter the date of birth tooltip and form title
         try {
             animal.setDateOfBirth(Utils.parseDate(txtDateOfBirth.getText()));
-            txtDateOfBirth.setToolTipText(animal.getAge() + " (" + animal.calculateAgeGroup() + ")");
+            txtDateOfBirth.setToolTipText(animal.getAge() + " (" +
+                animal.calculateAgeGroup() + ")");
             showTitle();
         } catch (Exception e) {
             txtDateOfBirth.setToolTipText(null);

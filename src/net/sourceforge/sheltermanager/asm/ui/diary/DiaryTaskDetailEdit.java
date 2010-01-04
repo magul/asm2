@@ -163,7 +163,6 @@ public class DiaryTaskDetailEdit extends ASMForm {
     }
 
     public void initComponents() {
-        
         UI.Panel p = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 60, 20 }));
         UI.Panel pn = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 60, 20 }));
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
@@ -179,7 +178,8 @@ public class DiaryTaskDetailEdit extends ASMForm {
 
         spnPivot = (UI.Spinner) UI.addComponent(p, i18n("Diarise_For:"),
                 UI.getSpinner(0, 365));
-        p.add(UI.getLabel(UI.ALIGN_LEFT, i18n("days_from_today_(or_0_to_prompt)")));
+        p.add(UI.getLabel(UI.ALIGN_LEFT,
+                i18n("days_from_today_(or_0_to_prompt)")));
 
         txtSubject = (UI.TextField) UI.addComponent(p, i18n("Subject:"),
                 UI.getTextField());

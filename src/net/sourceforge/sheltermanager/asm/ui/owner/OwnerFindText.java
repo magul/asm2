@@ -59,15 +59,16 @@ public class OwnerFindText extends ASMFind {
     public UI.TextField txtSearch;
     SearchListener listener = null;
     StringBuffer sql = null;
+
     /** Additional SQL where clause */
     String extraClause = "";
+
     /** If the call wants us to fire the retailerSelectedEvent */
     private boolean useRetailerSelectedEvent = false;
     private boolean closeAfterSelection = true;
 
-    public OwnerFindText(SearchListener thelistener, 
-            boolean closeAfterSelection,
-            boolean useRetailerSelectedEvent) {
+    public OwnerFindText(SearchListener thelistener,
+        boolean closeAfterSelection, boolean useRetailerSelectedEvent) {
         this.closeAfterSelection = closeAfterSelection;
         this.useRetailerSelectedEvent = useRetailerSelectedEvent;
         listener = thelistener;
@@ -94,7 +95,6 @@ public class OwnerFindText extends ASMFind {
     }
 
     public void setSecurity() {
-
         if (!Global.currentUserObject.getSecMailMergeOwners()) {
             btnMailMerge.setEnabled(false);
         }
@@ -135,7 +135,6 @@ public class OwnerFindText extends ASMFind {
     }
 
     public void initToolbar() {
-
         btnClear = UI.getButton(i18n("Clear"), null, 'c',
                 IconManager.getIcon(IconManager.SCREEN_FINDOWNER_CLEAR),
                 UI.fp(this, "actionClear"));
@@ -155,7 +154,6 @@ public class OwnerFindText extends ASMFind {
                 IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_ADVANCED),
                 UI.fp(this, "actionAdvanced"));
         addToolbarItem(btnAdvanced, false);
-
     }
 
     public void initLeftbar() {
@@ -176,7 +174,8 @@ public class OwnerFindText extends ASMFind {
     }
 
     public void actionAdvanced() {
-        Global.mainForm.addChild(new OwnerFind(listener, closeAfterSelection, useRetailerSelectedEvent));
+        Global.mainForm.addChild(new OwnerFind(listener, closeAfterSelection,
+                useRetailerSelectedEvent));
         dispose();
     }
 
@@ -228,7 +227,7 @@ public class OwnerFindText extends ASMFind {
 
         if (!extraClause.equals("")) {
             sql.append(extraClause).append(" AND (");
-	}
+        }
 
         for (int i = 0; i < fields.length; i++) {
             if (i > 0) {
@@ -243,9 +242,9 @@ public class OwnerFindText extends ASMFind {
             }
         }
 
-	if (!extraClause.equals("")) {
+        if (!extraClause.equals("")) {
             sql.append(")");
-	}
+        }
     }
 
     /** Performs the search */
@@ -276,7 +275,10 @@ public class OwnerFindText extends ASMFind {
         // If no term was given, do an all owner search
         if (term.length() == 0) {
             sql.append("SELECT owner.*, owner.ID AS priority FROM owner");
-            if (!extraClause.equals("")) sql.append(" WHERE ").append(extraClause);
+
+            if (!extraClause.equals("")) {
+                sql.append(" WHERE ").append(extraClause);
+            }
         } else {
             // Build UNION query for text results
             addQuery(new String[] {
@@ -285,18 +287,15 @@ public class OwnerFindText extends ASMFind {
                     "owner.HomeTelephone", "owner.WorkTelephone",
                     "owner.MobileTelephone", "owner.EmailAddress"
                 }, "", 1);
-            addQuery(new String[] { 
-                    "owner.Comments", "owner.HomeCheckAreas"
-                }, "", 2);
-            addQuery(new String[] {
-                    "ownerdonation.Comments"
-                }, "INNER JOIN ownerdonation ON ownerdonation.OwnerID = owner.ID", 2);
-            addQuery(new String[] {
-                    "ownervoucher.Comments"
-                }, "INNER JOIN ownervoucher ON ownervoucher.OwnerID = owner.ID", 2);
-            addQuery(new String[] {
-                    "log.Comments"
-                }, "INNER JOIN log ON log.LinkID = owner.ID", 2);
+            addQuery(new String[] { "owner.Comments", "owner.HomeCheckAreas" },
+                "", 2);
+            addQuery(new String[] { "ownerdonation.Comments" },
+                "INNER JOIN ownerdonation ON ownerdonation.OwnerID = owner.ID",
+                2);
+            addQuery(new String[] { "ownervoucher.Comments" },
+                "INNER JOIN ownervoucher ON ownervoucher.OwnerID = owner.ID", 2);
+            addQuery(new String[] { "log.Comments" },
+                "INNER JOIN log ON log.LinkID = owner.ID", 2);
             addQuery(new String[] { "species.SpeciesName" },
                 "INNER JOIN species ON owner.MatchSpecies = species.ID", 3);
             addQuery(new String[] { "breed.BreedName" },
@@ -304,7 +303,8 @@ public class OwnerFindText extends ASMFind {
             addQuery(new String[] { "breed.BreedName" },
                 "INNER JOIN breed ON owner.MatchBreed2 = breed.ID", 3);
             addQuery(new String[] { "animaltype.AnimalType" },
-                "INNER JOIN animaltype ON owner.MatchAnimalType = animaltype.ID", 3);
+                "INNER JOIN animaltype ON owner.MatchAnimalType = animaltype.ID",
+                3);
             addQuery(new String[] { "media.MediaNotes" }, MEDIA, 4);
             addQuery(new String[] {
                     "adoption.Comments", "adoption.InsuranceNumber",
@@ -312,7 +312,8 @@ public class OwnerFindText extends ASMFind {
                 }, ADOPTION, 5);
             addQuery(new String[] {
                     "animal.IdentichipNumber", "animal.TattooNumber",
-                    "animal.RabiesTag", "animal.ShelterCode", "animal.AnimalName"
+                    "animal.RabiesTag", "animal.ShelterCode",
+                    "animal.AnimalName"
                 }, ANIMAL, 6);
             addQuery(new String[] {
                     "animal.HiddenAnimalDetails", "animal.AnimalComments",
@@ -353,6 +354,7 @@ public class OwnerFindText extends ASMFind {
                         if (uid.get(y).equals(owner.getField("ID"))) {
                             alreadygot = true;
                             dups++;
+
                             break;
                         }
                     }
@@ -365,8 +367,7 @@ public class OwnerFindText extends ASMFind {
                 }
 
                 Global.logDebug("Removed " + dups +
-                    " duplicate records from results",
-                    "OwnerFindText.runSearch");
+                    " duplicate records from results", "OwnerFindText.runSearch");
                 owner.moveFirst();
             }
         } catch (Exception e) {
@@ -390,7 +391,6 @@ public class OwnerFindText extends ASMFind {
         int i = 0;
 
         while (!owner.getEOF()) {
-
             // Add this owner record to the table data if we haven't
             // already seen its ID before
             try {
@@ -399,17 +399,19 @@ public class OwnerFindText extends ASMFind {
                 for (int z = 0; z < i; z++) {
                     if (tabledata[z][12].equals(owner.getField("ID").toString())) {
                         seenit = true;
+
                         break;
                     }
                 }
 
                 if (seenit) {
                     owner.moveNext();
+
                     continue;
                 }
-
             } catch (Exception e) {
                 Global.logException(e, getClass());
+
                 break;
             }
 
@@ -467,5 +469,4 @@ public class OwnerFindText extends ASMFind {
         columnheaders = null;
         UI.cursorToPointer();
     }
-
 }

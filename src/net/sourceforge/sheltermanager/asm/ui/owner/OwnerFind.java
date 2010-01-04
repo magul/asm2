@@ -46,6 +46,23 @@ import java.util.Vector;
  * @version 1.0
  */
 public class OwnerFind extends ASMFind {
+    public final static int FILTER_ALL = 0;
+    public final static int FILTER_ADOPTERS = 1;
+    public final static int FILTER_ACO = 2;
+    public final static int FILTER_BANNED = 3;
+    public final static int FILTER_DONORS = 4;
+    public final static int FILTER_FOSTERERS = 5;
+    public final static int FILTER_HOMECHECKED = 6;
+    public final static int FILTER_HOMECHECKERS = 7;
+    public final static int FILTER_MEMBERS = 8;
+    public final static int FILTER_NOTHOMECHECKED = 9;
+    public final static int FILTER_POTENTIALADOPTERS = 10;
+    public final static int FILTER_RETAILERS = 11;
+    public final static int FILTER_SHELTERS = 12;
+    public final static int FILTER_STAFF = 13;
+    public final static int FILTER_VETS = 14;
+    public final static int FILTER_VOLUNTEERS = 15;
+
     /** The object listening for a selected response */
     private SearchListener listener = null;
 
@@ -164,7 +181,6 @@ public class OwnerFind extends ASMFind {
                 IconManager.getIcon(IconManager.SCREEN_FINDOWNER_SIMPLE),
                 UI.fp(this, "actionSimple"));
         addToolbarItem(btnSimple, false);
-
     }
 
     public void initCriteria(UI.Panel p) {
@@ -217,23 +233,6 @@ public class OwnerFind extends ASMFind {
         UI.addComponent(p, i18n("Show"), cboFilter);
     }
 
-    public final static int FILTER_ALL= 0;
-    public final static int FILTER_ADOPTERS= 1;
-    public final static int FILTER_ACO= 2;
-    public final static int FILTER_BANNED= 3;
-    public final static int FILTER_DONORS= 4;
-    public final static int FILTER_FOSTERERS= 5;
-    public final static int FILTER_HOMECHECKED= 6;
-    public final static int FILTER_HOMECHECKERS= 7;
-    public final static int FILTER_MEMBERS= 8;
-    public final static int FILTER_NOTHOMECHECKED= 9;
-    public final static int FILTER_POTENTIALADOPTERS= 10;
-    public final static int FILTER_RETAILERS= 11;
-    public final static int FILTER_SHELTERS= 12;
-    public final static int FILTER_STAFF= 13;
-    public final static int FILTER_VETS= 14;
-    public final static int FILTER_VOLUNTEERS = 15;
-
     public void actionPrint() {
         new OwnerSearchResults(((SortableTableModel) getTable().getModel()).getData(),
             getTable().getModel().getRowCount());
@@ -249,7 +248,8 @@ public class OwnerFind extends ASMFind {
     }
 
     public void actionSimple() {
-        Global.mainForm.addChild(new OwnerFindText(listener, closeAfterSelection, useRetailerSelectedEvent));
+        Global.mainForm.addChild(new OwnerFindText(listener,
+                closeAfterSelection, useRetailerSelectedEvent));
         dispose();
     }
 

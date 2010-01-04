@@ -135,10 +135,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Date_Brought_In")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -155,7 +158,8 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theA.getEntryReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theA.getEntryReasonID()));
                     tableAddCell(theA.getShelterCode());
                     tableAddCell(theA.getAcceptanceNumber());
                     tableAddCell(theA.getIdentichipNumber());
@@ -211,10 +215,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Date_Brought_In")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -230,7 +237,8 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theA.getEntryReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theA.getEntryReasonID()));
                     tableAddCell(theA.getShelterCode());
                     tableAddCell(theA.getAcceptanceNumber());
                     tableAddCell(theA.getIdentichipNumber());
@@ -281,10 +289,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -300,7 +311,8 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theAD.getReturnedReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theAD.getReturnedReasonID()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
@@ -344,10 +356,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -363,7 +378,8 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theAD.getReturnedReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theAD.getReturnedReasonID()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
@@ -408,10 +424,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Returned_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -427,7 +446,8 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theAD.getReturnedReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theAD.getReturnedReasonID()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
@@ -475,10 +495,13 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Returned_From")));
                 tableAddCell(bold(Global.i18n("reports", "Reason")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -494,7 +517,8 @@ public class InOut extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(theAD.getReadableMovementType());
-                    tableAddCell(LookupCache.getEntryReasonNameForID(theAD.getReturnedReasonID()));
+                    tableAddCell(LookupCache.getEntryReasonNameForID(
+                            theAD.getReturnedReasonID()));
                     tableAddCell(theAD.getAnimal().getShelterCode());
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
@@ -536,10 +560,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Adoption_Date")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -608,10 +635,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Deceased")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -678,10 +708,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Reclaimed")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -737,10 +770,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Fostered")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -797,10 +833,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Transferred")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -858,10 +897,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Escaped")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -916,10 +958,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Stolen")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));
@@ -975,10 +1020,13 @@ public class InOut extends Report {
                 tableAddRow();
                 tableAddCell(bold(Global.i18n("reports", "Date_Released")));
                 tableAddCell(bold(Global.i18n("reports", "Code")));
-                if (Configuration.getBoolean("AutoLitterIdentification"))
+
+                if (Configuration.getBoolean("AutoLitterIdentification")) {
                     tableAddCell(bold(Global.i18n("reports", "Litter_ID")));
-                else
+                } else {
                     tableAddCell(bold(Global.i18n("reports", "Acceptance_Number")));
+                }
+
                 tableAddCell(bold(Global.i18n("reports", "Identichip_No")));
                 tableAddCell(bold(Global.i18n("reports", "Animal_Name")));
                 tableAddCell(bold(Global.i18n("reports", "Type")));

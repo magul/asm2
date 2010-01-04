@@ -58,6 +58,7 @@ public class WaitingListView extends ASMView {
     private UI.TextField txtAddress;
     private UI.TextField txtContactName;
     private UI.TextField txtDescription;
+    private SQLRecordset ranks = null;
 
     /** Creates new form ViewWaitingList */
     public WaitingListView() {
@@ -111,7 +112,6 @@ public class WaitingListView extends ASMView {
 
     /** Fills the list according to the criteria selected */
     public void updateList() {
-
         // Clear our cache of the waiting list, used to figure out rankings
         if (ranks != null) {
             ranks.free();
@@ -146,24 +146,31 @@ public class WaitingListView extends ASMView {
         }
 
         // Contact name
-        if (Configuration.getBoolean("CaseSensitiveSearch"))
+        if (Configuration.getBoolean("CaseSensitiveSearch")) {
             crit = crit + " AND OwnerName Like '%" + txtContactName.getText() +
-            "%'";
-        else
-            crit = crit + " AND UPPER(OwnerName) Like '%" + txtContactName.getText().toUpperCase() + "%'";
-
+                "%'";
+        } else {
+            crit = crit + " AND UPPER(OwnerName) Like '%" +
+                txtContactName.getText().toUpperCase() + "%'";
+        }
 
         // Contact address
-        if (Configuration.getBoolean("CaseSensitiveSearch"))
-            crit = crit + " AND OwnerAddress Like '%" + txtAddress.getText() + "%'";
-        else
-            crit = crit + " AND UPPER(OwnerAddress) Like '%" + txtAddress.getText().toUpperCase() + "%'";
+        if (Configuration.getBoolean("CaseSensitiveSearch")) {
+            crit = crit + " AND OwnerAddress Like '%" + txtAddress.getText() +
+                "%'";
+        } else {
+            crit = crit + " AND UPPER(OwnerAddress) Like '%" +
+                txtAddress.getText().toUpperCase() + "%'";
+        }
 
         // Description
-        if (Configuration.getBoolean("CaseSensitiveSearch"))
-            crit = crit + " AND AnimalDescription Like '%" + txtDescription.getText() + "%'";
-        else
-            crit = crit + " AND UPPER(AnimalDescription) Like '%" + txtDescription.getText().toUpperCase() + "%'";
+        if (Configuration.getBoolean("CaseSensitiveSearch")) {
+            crit = crit + " AND AnimalDescription Like '%" +
+                txtDescription.getText() + "%'";
+        } else {
+            crit = crit + " AND UPPER(AnimalDescription) Like '%" +
+                txtDescription.getText().toUpperCase() + "%'";
+        }
 
         // Sort order
         crit = crit + " ORDER BY Urgency, DatePutOnList";
@@ -235,34 +242,32 @@ public class WaitingListView extends ASMView {
      * - if the item is no longer on the list, an empty string is returned
      */
     public String getRank(Integer id) {
-        
         try {
             if (ranks == null) {
                 ranks = new SQLRecordset();
                 ranks.openRecordset("SELECT ID FROM animalwaitinglist " +
                     "WHERE DateRemovedFromList Is Null ORDER BY Urgency, DatePutOnList",
                     "animalwaitinglist");
-            }
-            else {
+            } else {
                 ranks.moveFirst();
             }
 
             int i = 1;
+
             while (!ranks.getEOF()) {
-                if (ranks.getField("ID").equals(id))
+                if (ranks.getField("ID").equals(id)) {
                     return Integer.toString(i);
+                }
+
                 i++;
                 ranks.moveNext();
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
         return "";
-
     }
-    private SQLRecordset ranks = null;
 
     private String formatUrgencyNumberAsString(int urgency) {
         return LookupCache.getUrgencyNameForID(new Integer(urgency));

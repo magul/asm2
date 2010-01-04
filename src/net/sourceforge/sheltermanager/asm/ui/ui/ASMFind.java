@@ -26,8 +26,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
-import java.awt.event.HierarchyListener;
 import java.awt.event.HierarchyEvent;
+import java.awt.event.HierarchyListener;
 
 import java.util.Vector;
 
@@ -144,12 +144,11 @@ public abstract class ASMFind extends ASMForm {
         }
 
         table = UI.getTable(UI.fp(this, "actionClick"),
-                UI.fp(this, "actionDoubleClick"), UI.fp(this, "actionDoubleClick"),
-                hasleftbar ? leftbar : null);
+                UI.fp(this, "actionDoubleClick"),
+                UI.fp(this, "actionDoubleClick"), hasleftbar ? leftbar : null);
         UI.addComponent(main, table);
         add(top, UI.BorderLayout.NORTH);
         add(main, UI.BorderLayout.CENTER);
-
     }
 
     public UI.Table getTable() {

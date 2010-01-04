@@ -49,7 +49,6 @@ import net.sourceforge.sheltermanager.asm.reports.MedicalDiary;
 import net.sourceforge.sheltermanager.asm.reports.VaccinationDiary;
 import net.sourceforge.sheltermanager.asm.reports.Vets;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
-import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
@@ -110,6 +109,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.ui.users.UserView;
 import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListEdit;
 import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListView;
+import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.io.File;
@@ -1557,13 +1557,16 @@ public class Main extends ASMWindow {
                     IconManager.SCREEN_MAIN_DB), DBConnection.getDBInfo());
 
         UI.Label lblUser = null;
+
         try {
             lblUser = UI.getLabel(IconManager.getIcon(
-                    IconManager.SCREEN_MAIN_USER), Global.currentUserName + " (" + Global.currentUserObject.getRealName() + ")");
-        }
-        catch (Exception e) {
+                        IconManager.SCREEN_MAIN_USER),
+                    Global.currentUserName + " (" +
+                    Global.currentUserObject.getRealName() + ")");
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
+
         lblAudit = UI.getLabel(IconManager.getIcon(
                     IconManager.SCREEN_MAIN_AUDIT), "");
 
@@ -2406,58 +2409,59 @@ public class Main extends ASMWindow {
      */
     public void initStatusBarMax(final int maxvalue) {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                progressMax = maxvalue;
-                progressValue = 0;
+                public void run() {
+                    progressMax = maxvalue;
+                    progressValue = 0;
 
-                pgStatus.setMaximum(maxvalue);
-                pgStatus.setStringPainted(true);
-                pgStatus.setString(null);
-                pgStatus.repaint();
-                // Change the mouse pointer to an hourglass
-                UI.cursorToWait();
-                thrThrob.setVisible(true);
-                pnlStatus.revalidate();
-                thrThrob.start();
-            }
-        });
+                    pgStatus.setMaximum(maxvalue);
+                    pgStatus.setStringPainted(true);
+                    pgStatus.setString(null);
+                    pgStatus.repaint();
+                    // Change the mouse pointer to an hourglass
+                    UI.cursorToWait();
+                    thrThrob.setVisible(true);
+                    pnlStatus.revalidate();
+                    thrThrob.start();
+                }
+            });
     }
 
     /** Resets the status bar back to empty */
     public void resetStatusBar() {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                pgStatus.setMaximum(100);
-                pgStatus.setValue(0);
-                pgStatus.setStringPainted(false);
-                // Change the mouse pointer back to normal
-                UI.cursorToPointer();
-                thrThrob.setVisible(false);
-                thrThrob.stop();
-            }
-        });
+                public void run() {
+                    pgStatus.setMaximum(100);
+                    pgStatus.setValue(0);
+                    pgStatus.setStringPainted(false);
+                    // Change the mouse pointer back to normal
+                    UI.cursorToPointer();
+                    thrThrob.setVisible(false);
+                    thrThrob.stop();
+                }
+            });
     }
 
     /** Increments the status bar by one value */
     public void incrementStatusBar() {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                progressValue++;
-                if (progressValue <= progressMax) {
-                    pgStatus.setValue(progressValue);
+                public void run() {
+                    progressValue++;
+
+                    if (progressValue <= progressMax) {
+                        pgStatus.setValue(progressValue);
+                    }
                 }
-            }
-        });
+            });
     }
 
     /** Sets the status text to the value specified */
     public void setStatusText(final String newtext) {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                lblStatus.setText(newtext);
-                lblStatus.repaint();
-            }
-        });
+                public void run() {
+                    lblStatus.setText(newtext);
+                    lblStatus.repaint();
+                }
+            });
     }
 
     public class CustomReportMenu extends UI.MenuItem {

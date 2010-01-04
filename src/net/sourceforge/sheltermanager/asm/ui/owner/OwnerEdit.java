@@ -1493,7 +1493,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MAP),
                     UI.fp(this, "actionMap")));
 
-
         pnlTop.add(tlbTools);
         add(pnlTop, UI.BorderLayout.NORTH);
     }
@@ -1505,24 +1504,36 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void actionMap() {
-
-        String url = Configuration.getString("MappingServiceURL", "http://maps.google.com/maps?q=");
+        String url = Configuration.getString("MappingServiceURL",
+                "http://maps.google.com/maps?q=");
         String address = txtAddress.getText().trim().replace('\n', ',');
-        String town = Utils.nullToEmptyString( (String) cboTown.getSelectedItem()).trim();
-        String county = Utils.nullToEmptyString( (String) cboCounty.getSelectedItem()).trim();
+        String town = Utils.nullToEmptyString((String) cboTown.getSelectedItem())
+                           .trim();
+        String county = Utils.nullToEmptyString((String) cboCounty.getSelectedItem())
+                             .trim();
         String postcode = txtPostcode.getText().trim();
-        
+
         // Build the MAP URL
         String map = address;
-        if (!town.trim().equals("")) map +="," + town;
-        if (!county.trim().equals("")) map +="," + county;
-        if (!postcode.trim().equals("")) map +="," + postcode;
+
+        if (!town.trim().equals("")) {
+            map += ("," + town);
+        }
+
+        if (!county.trim().equals("")) {
+            map += ("," + county);
+        }
+
+        if (!postcode.trim().equals("")) {
+            map += ("," + postcode);
+        }
 
         // URL encode
         map = Utils.urlEncode(map);
 
-        if (!address.equals("") || !address.equals(""))
+        if (!address.equals("") || !address.equals("")) {
             FileTypeManager.shellExecute(url + map);
+        }
     }
 
     public void actionMerge() {

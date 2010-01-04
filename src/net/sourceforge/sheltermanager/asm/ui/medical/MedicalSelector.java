@@ -51,7 +51,7 @@ public class MedicalSelector extends UI.Panel {
 
     public void updateList() {
         regimeview.updateList();
-	tview.updateList();
+        tview.updateList();
     }
 
     public void setLink(int animalID) {

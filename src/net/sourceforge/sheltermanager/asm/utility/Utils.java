@@ -1693,6 +1693,7 @@ public abstract class Utils {
         url = Utils.replace(url, "]", "%5D");
         url = Utils.replace(url, "`", "%60");
         url = url.replace(' ', '+');
+
         return url;
     }
 

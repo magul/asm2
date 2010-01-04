@@ -274,23 +274,26 @@ public class MedicalEdit extends ASMForm {
     }
 
     public void initComponents() {
-        
         UI.Panel p = UI.getPanel(UI.getBorderLayout());
         UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
         p.add(top, UI.BorderLayout.NORTH);
+
         UI.Panel freqdur = UI.getPanel(UI.getGridLayout(1));
-        UI.Panel freqwrap =  UI.getPanel(UI.getGridLayout(1));
+        UI.Panel freqwrap = UI.getPanel(UI.getGridLayout(1));
         UI.Panel treatments = UI.getPanel(UI.getFlowLayout());
         UI.Panel frequency = UI.getPanel(UI.getFlowLayout());
         freqwrap.add(treatments);
         freqwrap.add(frequency);
+
         UI.Panel duration = UI.getPanel(UI.getFlowLayout());
         freqdur.add(freqwrap);
         freqdur.add(duration);
         p.add(freqdur, UI.BorderLayout.SOUTH);
         add(p, UI.BorderLayout.NORTH);
+
         UI.Panel comments = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
         add(comments, UI.BorderLayout.CENTER);
+
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
         add(buttons, UI.BorderLayout.SOUTH);
 
@@ -356,7 +359,6 @@ public class MedicalEdit extends ASMForm {
         cboTreatmentRule.setSelectedIndex(0);
         spnTotalNumberOfTreatments.setValue(new Integer(1));
         lblDuration.setText(calculateTreatmentEnd());
-
     }
 
     public void selectedMultiple() {

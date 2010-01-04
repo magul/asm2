@@ -46,7 +46,8 @@ public class DatabaseImporter implements Runnable {
             return;
         }
 
-        doDBFS = Dialog.showYesNo(Global.i18n("db", "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
+        doDBFS = Dialog.showYesNo(Global.i18n("db", "want_to_include_dbfs"),
+                Global.i18n("db", "include_dbfs"));
 
         try {
             // Connect and do the import
@@ -133,8 +134,8 @@ public class DatabaseImporter implements Runnable {
         importTable(c, dbType, "voucher", false, "importtool");
 
         if (doDBFS) {
-            Global.mainForm.setStatusText(Global.i18n("db",
-                            "importing_table", "dbfs"));
+            Global.mainForm.setStatusText(Global.i18n("db", "importing_table",
+                    "dbfs"));
             DBConnection.importDBFS(c);
         }
 

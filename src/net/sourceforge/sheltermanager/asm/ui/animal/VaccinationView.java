@@ -386,31 +386,31 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             // Get the ID for the selected row
             String avID = (String) tablemodel.getValueAt(selrows[i], 7);
 
-           try {
+            try {
+                // Complete the selected row
+                AnimalVaccination av = new AnimalVaccination();
+                av.openRecordset("ID = " + avID);
 
-	   	// Complete the selected row
-		AnimalVaccination av = new AnimalVaccination();
-		av.openRecordset("ID = " + avID);
-		if (!av.getEOF()) {
-		    av.setDateOfVaccination(new Date());
-		    av.save(Global.currentUserName);
-		}
+                if (!av.getEOF()) {
+                    av.setDateOfVaccination(new Date());
+                    av.save(Global.currentUserName);
+                }
 
-		// Add a new rescheduled vacc for one year ahead
-		AnimalVaccination v = new AnimalVaccination();
-		v.openRecordset("ID = 0");
-		v.addNew();
-		v.setAnimalID(av.getAnimalID());
-		Calendar c = Calendar.getInstance();
-		c.add(Calendar.YEAR, 1);
-		v.setDateRequired(c.getTime());
-		v.setVaccinationID(av.getVaccinationID());
-		v.setComments(av.getComments());
-		v.save(Global.currentUserName);
+                // Add a new rescheduled vacc for one year ahead
+                AnimalVaccination v = new AnimalVaccination();
+                v.openRecordset("ID = 0");
+                v.addNew();
+                v.setAnimalID(av.getAnimalID());
 
-		// Update the list
-		updateList();
+                Calendar c = Calendar.getInstance();
+                c.add(Calendar.YEAR, 1);
+                v.setDateRequired(c.getTime());
+                v.setVaccinationID(av.getVaccinationID());
+                v.setComments(av.getComments());
+                v.save(Global.currentUserName);
 
+                // Update the list
+                updateList();
             } catch (Exception e) {
                 Dialog.showError(i18n("an_error_occurred_completing_the_vaccination") +
                     e.getMessage());
@@ -418,7 +418,6 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             }
         }
     }
-
 
     public void tableDoubleClicked() {
         actionEdit();

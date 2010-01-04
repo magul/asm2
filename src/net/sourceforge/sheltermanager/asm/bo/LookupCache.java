@@ -391,17 +391,20 @@ public abstract class LookupCache {
     public static String getRealName(String user) {
         try {
             Users u = new Users();
-	    u.openRecordset("");
-	    while (!u.getEOF()) {
-	        if (u.getUserName().equals(user))
-		    return u.getRealName();
+            u.openRecordset("");
+
+            while (!u.getEOF()) {
+                if (u.getUserName().equals(user)) {
+                    return u.getRealName();
+                }
+
                 u.moveNext();
-	    }
-	}
-	catch (Exception e) {
-           Global.logException(e, LookupCache.class);
-	}
-	return "";
+            }
+        } catch (Exception e) {
+            Global.logException(e, LookupCache.class);
+        }
+
+        return "";
     }
 
     public static void updateAnimalCache() {

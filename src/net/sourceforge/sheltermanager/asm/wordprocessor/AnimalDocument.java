@@ -202,10 +202,12 @@ public class AnimalDocument extends GenerateDocument {
                                               .getOwnerAddress()));
                 addTag(Global.i18n("wordprocessor",
                         "TownOfPersonBroughtAnimalIn"),
-                    Utils.nullToEmptyString(animal.getBroughtInByOwner().getOwnerTown()));
+                    Utils.nullToEmptyString(animal.getBroughtInByOwner()
+                                                  .getOwnerTown()));
                 addTag(Global.i18n("wordprocessor",
                         "CountyOfPersonBroughtAnimalIn"),
-                    Utils.nullToEmptyString(animal.getBroughtInByOwner().getOwnerCounty()));
+                    Utils.nullToEmptyString(animal.getBroughtInByOwner()
+                                                  .getOwnerCounty()));
                 addTag(Global.i18n("wordprocessor", "PostcodeOfPersonBroughtIn"),
                     Utils.nullToEmptyString(animal.getBroughtInByOwner()
                                                   .getOwnerPostcode()));
@@ -214,8 +216,10 @@ public class AnimalDocument extends GenerateDocument {
                         "NameOfPersonBroughtAnimalIn"), "");
                 addTag(Global.i18n("wordprocessor",
                         "AddressOfPersonBroughtAnimalIn"), "");
-                addTag(Global.i18n("wordprocessor", "TownOfPersonBroughtAnimalIn"), "");
-                addTag(Global.i18n("wordprocessor", "CountyOfPersonBroughtAnimalIn"), "");
+                addTag(Global.i18n("wordprocessor",
+                        "TownOfPersonBroughtAnimalIn"), "");
+                addTag(Global.i18n("wordprocessor",
+                        "CountyOfPersonBroughtAnimalIn"), "");
                 addTag(Global.i18n("wordprocessor", "PostcodeOfPersonBroughtIn"),
                     "");
             }
@@ -263,7 +267,8 @@ public class AnimalDocument extends GenerateDocument {
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerTown"),
                     Utils.formatAddress(animal.getOriginalOwner().getOwnerTown()));
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerCounty"),
-                    Utils.formatAddress(animal.getOriginalOwner().getOwnerCounty()));
+                    Utils.formatAddress(animal.getOriginalOwner()
+                                              .getOwnerCounty()));
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerPostcode"),
                     Utils.nullToEmptyString(animal.getOriginalOwner()
                                                   .getOwnerPostcode()));
@@ -418,7 +423,8 @@ public class AnimalDocument extends GenerateDocument {
 
             // Get a list of vaccinations for this animal
             AnimalVaccination av = new AnimalVaccination();
-            av.openRecordset("AnimalID = " + animal.getID() + " ORDER BY ID");
+            av.openRecordset("AnimalID = " + animal.getID() +
+                " ORDER BY DateRequired");
 
             int uniquecount = 1;
 
@@ -460,7 +466,7 @@ public class AnimalDocument extends GenerateDocument {
             // people can use most recent on documents
             av = new AnimalVaccination();
             av.openRecordset("AnimalID = " + animal.getID() +
-                " ORDER BY ID DESC");
+                " ORDER BY DateRequired DESC");
 
             uniquecount = 1;
 
@@ -567,7 +573,8 @@ public class AnimalDocument extends GenerateDocument {
 
             // Get a list of diet records for this animal
             AnimalDiet ad = new AnimalDiet();
-            av.openRecordset("AnimalID = " + animal.getID() + " ORDER BY ID");
+            ad.openRecordset("AnimalID = " + animal.getID() +
+                " ORDER BY DateStarted");
 
             uniquecount = 1;
 
@@ -604,7 +611,7 @@ public class AnimalDocument extends GenerateDocument {
             // people can use most recent on documents
             ad = new AnimalDiet();
             ad.openRecordset("AnimalID = " + animal.getID() +
-                " ORDER BY ID DESC");
+                " ORDER BY DateStarted DESC");
 
             uniquecount = 1;
 
@@ -636,7 +643,6 @@ public class AnimalDocument extends GenerateDocument {
                     uniquecount++;
                 }
             }
-
 
             // Generate a document title based on the animal information
             // and the doc selected

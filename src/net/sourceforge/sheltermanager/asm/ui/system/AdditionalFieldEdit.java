@@ -160,7 +160,6 @@ public class AdditionalFieldEdit extends ASMForm {
     }
 
     public void initComponents() {
-
         UI.Panel pt = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
@@ -168,8 +167,8 @@ public class AdditionalFieldEdit extends ASMForm {
         txtFieldName = (UI.TextField) UI.addComponent(pt, i18n("fieldname"),
                 UI.getTextField());
 
-        txtFieldLabel = (UI.TextField) UI.addComponent(pt,
-                i18n("fieldlabel"), UI.getTextField());
+        txtFieldLabel = (UI.TextField) UI.addComponent(pt, i18n("fieldlabel"),
+                UI.getTextField());
 
         cboFieldLink = UI.getCombo(LookupCache.getFieldLinkLookup(), "LinkType");
         cboFieldType = UI.getCombo(LookupCache.getFieldTypeLookup(), "FieldType");
@@ -185,7 +184,6 @@ public class AdditionalFieldEdit extends ASMForm {
 
         txtLookupValues = (UI.TextArea) UI.addComponent(pc,
                 i18n("lookupvalues"), UI.getTextArea());
-
 
         btnOk = (UI.Button) pb.add(UI.getButton(Global.i18n("uianimal", "Ok"),
                     null, 'o', null, UI.fp(this, "saveData")));

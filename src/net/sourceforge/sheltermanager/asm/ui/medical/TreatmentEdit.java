@@ -138,7 +138,8 @@ public class TreatmentEdit extends ASMForm {
 
         add(pnlEntry, UI.BorderLayout.NORTH);
 
-        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 30, 70 }));
 
         txtComments = UI.getTextArea();
         UI.addComponent(pnlComments, i18n("Comments:"), txtComments);

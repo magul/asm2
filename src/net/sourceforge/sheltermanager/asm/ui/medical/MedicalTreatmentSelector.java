@@ -218,14 +218,14 @@ public class MedicalTreatmentSelector extends ASMSelector {
         try {
             while (!amt.getEOF()) {
                 if (animalID == 0) {
-		    if (amt.getAnimal() != null) {
+                    if (amt.getAnimal() != null) {
                         datar[i][0] = amt.getAnimal().getShelterCode();
                         datar[i][1] = amt.getAnimal().getAnimalName();
-		    }
-		    else {
+                    } else {
                         datar[i][0] = "";
-			datar[i][1] = "";
-		    }
+                        datar[i][1] = "";
+                    }
+
                     datar[i][2] = amt.getAnimalMedical().getTreatmentName();
                     datar[i][3] = amt.getAnimalMedical().getDosage();
                     datar[i][4] = amt.getAnimalMedical().getNamedStatus();

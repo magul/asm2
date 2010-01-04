@@ -56,15 +56,18 @@ public class ChangePassword extends ASMDialog {
         UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel bot = UI.getPanel(UI.getFlowLayout());
 
-        txtPass = (UI.PasswordField) UI.addComponent(p, i18n("Current_Password:"), UI.getPasswordField());
-        txtNew = (UI.PasswordField) UI.addComponent(p, i18n("New_Password:"), UI.getPasswordField());
-        txtConf = (UI.PasswordField) UI.addComponent(p, i18n("Confirm_Password:"), UI.getPasswordField());
+        txtPass = (UI.PasswordField) UI.addComponent(p,
+                i18n("Current_Password:"), UI.getPasswordField());
+        txtNew = (UI.PasswordField) UI.addComponent(p, i18n("New_Password:"),
+                UI.getPasswordField());
+        txtConf = (UI.PasswordField) UI.addComponent(p,
+                i18n("Confirm_Password:"), UI.getPasswordField());
 
         btnOk = (UI.Button) bot.add(UI.getButton(i18n("Ok"), null, 'o', null,
                     UI.fp(this, "actionOk")));
 
-        btnCancel = (UI.Button) bot.add(UI.getButton(i18n("Cancel"), null, 'c', null,
-                    UI.fp(this, "dispose")));
+        btnCancel = (UI.Button) bot.add(UI.getButton(i18n("Cancel"), null, 'c',
+                    null, UI.fp(this, "dispose")));
 
         add(p, UI.BorderLayout.NORTH);
         add(bot, UI.BorderLayout.SOUTH);
@@ -75,21 +78,20 @@ public class ChangePassword extends ASMDialog {
 
     public void actionOk() {
         try {
-
             // Do the two they gave us match?
-            if (!new String(txtNew.getPassword()).equals(new String(txtConf.getPassword()))) {
+            if (!new String(txtNew.getPassword()).equals(
+                        new String(txtConf.getPassword()))) {
                 Dialog.showError(i18n("new_passwords_dont_match"));
             }
             // Verify old password is correct
             else if (MD5.hash(new String(txtPass.getPassword()))
-                       .equals(Global.currentUserObject.getPassword())) {
-
+                            .equals(Global.currentUserObject.getPassword())) {
                 // It is, let's change it
-                Global.currentUserObject.setPassword(MD5.hash(new String(txtNew.getPassword())));
+                Global.currentUserObject.setPassword(MD5.hash(
+                        new String(txtNew.getPassword())));
                 Global.currentUserObject.save();
                 dispose();
-            }
-            else {
+            } else {
                 Dialog.showError(i18n("incorrect_password"));
             }
         } catch (Exception e) {

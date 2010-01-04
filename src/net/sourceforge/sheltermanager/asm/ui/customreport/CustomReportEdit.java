@@ -104,7 +104,6 @@ public class CustomReportEdit extends ASMForm {
     }
 
     public boolean formClosing() {
-
         // Don't destroy if the user has unsaved changes and are not sure
         if (dirty) {
             if (!Dialog.showYesNoWarning(Global.i18n("uianimal",
@@ -113,6 +112,7 @@ public class CustomReportEdit extends ASMForm {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -212,7 +212,8 @@ public class CustomReportEdit extends ASMForm {
         // Fields =========================
         txtTitle = (UI.TextField) UI.addComponent(fields,
                 i18n("Report_Title:_"),
-                UI.getTextField(i18n("the_title_for_your_report"), UI.fp(this, "dataChanged")));
+                UI.getTextField(i18n("the_title_for_your_report"),
+                    UI.fp(this, "dataChanged")));
 
         cboCategory = UI.getCombo("SELECT DISTINCT Category FROM customreport " +
                 "ORDER BY Category", "Category", UI.fp(this, "dataChanged"));
@@ -232,7 +233,8 @@ public class CustomReportEdit extends ASMForm {
 
         // SQL
         txtSQL = (UI.TextArea) UI.addComponent(cols,
-                UI.getTextArea(i18n("the_sql_command"), UI.fp(this, "dataChanged")));
+                UI.getTextArea(i18n("the_sql_command"),
+                    UI.fp(this, "dataChanged")));
 
         // Table selector and display
         cboTables = UI.getCombo((Vector) null, UI.fp(this, "changedTable"));
@@ -293,7 +295,8 @@ public class CustomReportEdit extends ASMForm {
 
         // HTML
         txtHTML = (UI.TextArea) UI.addComponent(cols,
-                UI.getTextArea(i18n("the_html_for_your_report"), UI.fp(this, "dataChanged")));
+                UI.getTextArea(i18n("the_html_for_your_report"),
+                    UI.fp(this, "dataChanged")));
 
         add(cols, UI.BorderLayout.CENTER);
     }

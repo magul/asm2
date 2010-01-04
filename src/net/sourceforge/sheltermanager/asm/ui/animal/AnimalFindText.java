@@ -447,9 +447,8 @@ public class AnimalFindText extends ASMFind {
                 }, "", 1);
             addQuery(new String[] { "animal.BreedName", "animal.Markings" },
                 "", 2);
-            addQuery(new String[] {
-                    "log.Comments"
-                }, "INNER JOIN log ON log.LinkID = animal.ID", 2);
+            addQuery(new String[] { "log.Comments" },
+                "INNER JOIN log ON log.LinkID = animal.ID", 2);
             addQuery(new String[] {
                     "animal.IdentichipNumber", "animal.TattooNumber",
                     "animal.RabiesTag"
@@ -500,8 +499,8 @@ public class AnimalFindText extends ASMFind {
             addQuery(new String[] { "lksize.Size" },
                 "INNER JOIN lksize ON animal.Size = lksize.ID", 8);
 
-	    // Ordering
-	    sql.append(" ORDER BY priority");
+            // Ordering
+            sql.append(" ORDER BY priority");
         }
 
         // Create an array of headers for the animals

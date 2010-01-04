@@ -55,7 +55,6 @@ public class LinkSelector extends ASMSelector {
     private static final int FOUND_ANIMAL = 4;
     private static final int OWNERS_VET = 5;
     private static final int CURRENT_VET = 6;
-
     private int ownerID = 0;
     private boolean someData = false;
     private UI.Button btnView;
@@ -113,10 +112,10 @@ public class LinkSelector extends ASMSelector {
             al.openRecordset("OwnerID = " + ownerID);
             af.openRecordset("OwnerID = " + ownerID);
 
-            int rows = (int) (ao.getRecordCount() +
-                ab.getRecordCount() + awl.getRecordCount() +
-                al.getRecordCount() + af.getRecordCount() +
-                ac.getRecordCount() + av.getRecordCount());
+            int rows = (int) (ao.getRecordCount() + ab.getRecordCount() +
+                awl.getRecordCount() + al.getRecordCount() +
+                af.getRecordCount() + ac.getRecordCount() +
+                av.getRecordCount());
             someData = rows > 0;
 
             // Build array
@@ -187,7 +186,6 @@ public class LinkSelector extends ASMSelector {
 
             ac.free();
             ac = null;
-
 
             // Waiting List
             while (!awl.getEOF()) {
@@ -272,7 +270,6 @@ public class LinkSelector extends ASMSelector {
 
         try {
             switch (linktype) {
-
             case ORIGINAL_OWNER:
             case BROUGHT_IN_BY:
             case CURRENT_VET:

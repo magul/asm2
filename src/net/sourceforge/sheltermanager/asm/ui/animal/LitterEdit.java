@@ -195,7 +195,6 @@ public class LitterEdit extends ASMForm implements SearchListener {
         UI.Panel pb = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pbut = UI.getPanel(UI.getFlowLayout());
 
-
         txtParentName = (UI.SearchTextField) UI.addComponent(pt,
                 i18n("Mother:"),
                 UI.getSearchTextField(i18n("Select_a_mother_from_the_shelter_animals"),

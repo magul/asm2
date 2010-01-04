@@ -188,14 +188,14 @@ public class MedicalRegimeSelector extends ASMSelector {
         try {
             while (!am.getEOF()) {
                 if (animalID == 0) {
-		    if (am.getAnimal() != null) {
+                    if (am.getAnimal() != null) {
                         datar[i][0] = am.getAnimal().getShelterCode();
                         datar[i][1] = am.getAnimal().getAnimalName();
-		    }
-		    else {
-		        datar[i][0] = "";
-		        datar[i][1] = "";
-		    }
+                    } else {
+                        datar[i][0] = "";
+                        datar[i][1] = "";
+                    }
+
                     datar[i][2] = am.getTreatmentName();
                     datar[i][3] = am.getDosage();
                     datar[i][4] = am.getNamedStatus();

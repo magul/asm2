@@ -403,7 +403,8 @@ public final class UI {
     }
 
     public static Label getHintLabel(String text) {
-        Label l = new Label("<html><center>" + mnemonicRemove(text) + "</center></html>");
+        Label l = new Label("<html><center>" + mnemonicRemove(text) +
+                "</center></html>");
         l.setBackground(getColor(255, 251, 192));
         l.setForeground(Color.BLACK);
         l.setBorder(new LineBorder(Color.BLACK));
@@ -1077,7 +1078,6 @@ public final class UI {
     public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave,
         final FunctionPointer onEnterPressed) {
-
         TextField t = new TextField() {
                 public void paste() {
                     super.paste();
@@ -1105,8 +1105,9 @@ public final class UI {
         if (onEnterPressed != null) {
             t.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                             onEnterPressed.call();
+                        }
                     }
                 });
         }
@@ -1213,16 +1214,17 @@ public final class UI {
         return new Table(onClick, onDoubleClick, onEnter, toolbar, null, false);
     }
 
-
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar, boolean multiselect) {
-        return new Table(onClick, onDoubleClick, null, toolbar, null, multiselect);
+        return new Table(onClick, onDoubleClick, null, toolbar, null,
+            multiselect);
     }
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar,
         ASMCellRenderer renderer, boolean multiselect) {
-        return new Table(onClick, onDoubleClick, null, toolbar, renderer, multiselect);
+        return new Table(onClick, onDoubleClick, null, toolbar, renderer,
+            multiselect);
     }
 
     public static void registerTabOrder(Vector components, Object parent,
@@ -1810,8 +1812,8 @@ public final class UI {
         private SortableTableModel model = null;
 
         public Table(FunctionPointer onClick, FunctionPointer onDoubleClick,
-            FunctionPointer onEnter, UI.ToolBar toolbar, ASMCellRenderer renderer, 
-            boolean isMultiSelect) {
+            FunctionPointer onEnter, UI.ToolBar toolbar,
+            ASMCellRenderer renderer, boolean isMultiSelect) {
             multiselect = isMultiSelect;
             this.onClick = onClick;
             this.onDoubleClick = onDoubleClick;
@@ -1828,8 +1830,9 @@ public final class UI {
         }
 
         public void keyPressed(KeyEvent evt) {
-            if (onEnter != null && evt.getKeyCode() == KeyEvent.VK_ENTER)
+            if ((onEnter != null) && (evt.getKeyCode() == KeyEvent.VK_ENTER)) {
                 onEnter.call();
+            }
         }
 
         public void keyReleased(KeyEvent evt) {
@@ -2076,14 +2079,17 @@ public final class UI {
 
         public void setEditable(boolean b) {
             cbo.setEditable(b);
+
             // Make sure key presses are picked up for changing the combo text
-            ((JTextField) cbo.getEditor().getEditorComponent()).addKeyListener(
-                new KeyAdapter() {
+            ((JTextField) cbo.getEditor().getEditorComponent()).addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
                         // Look for a normal typed event, or the V key for a paste
-                        if (isTypedEvent(e) || e.getKeyCode() == KeyEvent.VK_V)
-                            if (onChange != null && !noEvents)
+                        if (isTypedEvent(e) ||
+                                (e.getKeyCode() == KeyEvent.VK_V)) {
+                            if ((onChange != null) && !noEvents) {
                                 onChange.call();
+                            }
+                        }
                     }
                 });
         }

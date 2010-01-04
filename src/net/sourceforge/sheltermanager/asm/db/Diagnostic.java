@@ -72,10 +72,10 @@ public class Diagnostic extends Thread {
                     Global.i18n("db", "Scan_complete"));
             } else {
                 Dialog.showInformation(Global.i18n("db", "diagnostic_output",
-                    Integer.toString(orepair), Integer.toString(omove),
-                    Integer.toString(omedia), Integer.toString(ovacc),
-                    Integer.toString(omed), Integer.toString(onm),
-                    Integer.toString(mdate), Integer.toString(icode)),
+                        Integer.toString(orepair), Integer.toString(omove),
+                        Integer.toString(omedia), Integer.toString(ovacc),
+                        Integer.toString(omed), Integer.toString(onm),
+                        Integer.toString(mdate), Integer.toString(icode)),
                     Global.i18n("db", "Errors_Found_and_Repaired"));
             }
         } catch (Exception e) {
@@ -364,7 +364,8 @@ public class Diagnostic extends Thread {
                 DBConnection.executeAction(
                     "DELETE FROM animalmedical WHERE ID = " + am.getID());
                 DBConnection.executeAction(
-                    "DELETE FROM animalmedicaltreatment WHERE AnimalMedicalID = " + am.getID());
+                    "DELETE FROM animalmedicaltreatment WHERE AnimalMedicalID = " +
+                    am.getID());
             }
 
             incrementStatusBar();
@@ -376,7 +377,6 @@ public class Diagnostic extends Thread {
 
         return badFound;
     }
-
 
     public void recalculateMovementDonations() throws Exception {
         setStatusText(Global.i18n("db", "Recalculating_adoption_donations"));

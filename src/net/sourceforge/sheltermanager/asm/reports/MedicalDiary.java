@@ -82,20 +82,23 @@ public class MedicalDiary extends Report implements DiaryCriteriaListener {
                 upto.set(Calendar.MINUTE, 59);
                 upto.set(Calendar.SECOND, 59);
                 amt.openRecordset("DateGiven Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(upto) + "' ORDER BY DateRequired, AnimalID");
+                    Utils.getSQLDate(upto) +
+                    "' ORDER BY DateRequired, AnimalID");
 
                 break;
 
             case DiaryCriteria.UPTO_SPECIFIED:
                 amt.openRecordset("DateGiven Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(dateUpto) + "' ORDER BY DateRequired, AnimalID");
+                    Utils.getSQLDate(dateUpto) +
+                    "' ORDER BY DateRequired, AnimalID");
 
                 break;
 
             case DiaryCriteria.BETWEEN_TWO:
                 amt.openRecordset("DateGiven Is Null AND DateRequired >= '" +
                     Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
-                    Utils.getSQLDate(dateTo) + "' ORDER BY DateRequired, AnimalID");
+                    Utils.getSQLDate(dateTo) +
+                    "' ORDER BY DateRequired, AnimalID");
 
                 break;
             }

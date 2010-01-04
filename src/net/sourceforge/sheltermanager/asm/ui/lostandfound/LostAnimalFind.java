@@ -168,7 +168,6 @@ public class LostAnimalFind extends ASMFind {
         txtNumber.setText("");
     }
 
-
     public void runSearch() {
         SQLRecordset lostanimal = new SQLRecordset();
 

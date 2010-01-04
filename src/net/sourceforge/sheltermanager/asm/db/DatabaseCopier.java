@@ -38,7 +38,8 @@ public class DatabaseCopier {
             return;
         }
 
-        boolean doDBFS = Dialog.showYesNo(Global.i18n("db", "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
+        boolean doDBFS = Dialog.showYesNo(Global.i18n("db",
+                    "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
 
         try {
             // Do we have a local database and they want to

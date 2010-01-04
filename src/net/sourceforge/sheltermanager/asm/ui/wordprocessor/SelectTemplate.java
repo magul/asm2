@@ -106,8 +106,10 @@ public class SelectTemplate extends ASMForm implements DBFSBrowserParent {
         chkAttach = UI.getCheckBox(i18n("attach_generated_document_as_media"));
         add(browser, UI.BorderLayout.CENTER);
         add(chkAttach, UI.BorderLayout.SOUTH);
-        if (Configuration.getBoolean("AutoAttachMedia"))
+
+        if (Configuration.getBoolean("AutoAttachMedia")) {
             chkAttach.setSelected(true);
+        }
     }
 
     public boolean formClosing() {

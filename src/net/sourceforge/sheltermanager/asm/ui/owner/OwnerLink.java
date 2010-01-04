@@ -274,9 +274,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     }
 
     public void actionSearch() {
-
         if (Configuration.getBoolean("AdvancedFindOwner")) {
-        
             OwnerFind fo = new OwnerFind(this, true, false);
 
             // Do we have a filter?
@@ -284,6 +282,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             case FILTER_ADOPTERS:
                 fo.cboFilter.setSelectedIndex(OwnerFind.FILTER_ADOPTERS);
                 fo.cboFilter.setEnabled(false);
+
                 break;
 
             case FILTER_FOSTERERS:
@@ -316,33 +315,38 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
                 break;
             }
+
             // Disallow switching if we have a filter
             fo.btnSimple.setEnabled(filter == FILTER_NONE);
             Global.mainForm.addChild(fo);
-
         } else {
-
             // Do we have a filter?
             String extra = "";
+
             switch (filter) {
             case FILTER_FOSTERERS:
                 extra = "IsFosterer = 1";
+
                 break;
 
             case FILTER_RETAILERS:
                 extra = "IsRetailer = 1";
+
                 break;
 
             case FILTER_SHELTERS:
                 extra = "IsShelter = 1";
+
                 break;
 
             case FILTER_HOMECHECKERS:
                 extra = "IsHomeChecker = 1";
+
                 break;
 
             case FILTER_VETS:
                 extra = "IsVet = 1";
+
                 break;
             }
 
@@ -352,7 +356,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             fo.btnAdvanced.setEnabled(filter == FILTER_NONE);
             Global.mainForm.addChild(fo);
         }
-
     }
 
     public void actionOpen() {

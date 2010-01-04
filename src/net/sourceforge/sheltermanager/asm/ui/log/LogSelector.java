@@ -196,10 +196,9 @@ public class LogSelector extends ASMSelector {
                 UI.fp(this, "updateList"), i18n("(all)"));
         UI.addComponent(getTopPanel(), i18n("Show:_"), cboLogType);
 
-        Utils.setComboFromID(LookupCache.getLogTypeLookup(),
-                "LogTypeName",
-                new Integer(Configuration.getInteger("AFDefaultLogFilter")),
-                cboLogType);
+        Utils.setComboFromID(LookupCache.getLogTypeLookup(), "LogTypeName",
+            new Integer(Configuration.getInteger("AFDefaultLogFilter")),
+            cboLogType);
     }
 
     public void actionDelete() {

@@ -252,7 +252,6 @@ public class AnimalFigures extends Report {
     }
 
     public void genSpeciesFigs(Integer speciesID) throws Exception {
-        
         String animalName = "";
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;
@@ -352,7 +351,6 @@ public class AnimalFigures extends Report {
 
         incrementStatusBar();
 
-
         // --------------------------------------------------------------
         // Totals and Averages
         // --------------------------------------------------------------
@@ -361,20 +359,26 @@ public class AnimalFigures extends Report {
         tableAddCell(bold(Global.i18n("reports", "Total")));
 
         boolean gotInventory = false;
+
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(bold(Integer.toString(animalTotal[i])));
-            if (animalTotal[i] > 0) gotInventory = true;
+
+            if (animalTotal[i] > 0) {
+                gotInventory = true;
+            }
         }
 
         // Do we actually have any data for this species? If all the 
         // total rows are zero, then abort now and don't bother putting
         // it on the report
         if (!gotInventory) {
-           // Move the progress bar on
-           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
-           return;
-        }
+            // Move the progress bar on
+            for (int i = 0; i < 13; i++) {
+                incrementStatusBar();
+            }
 
+            return;
+        }
 
         // Calculate average animal movement
         double average = 0;
@@ -772,6 +776,7 @@ public class AnimalFigures extends Report {
                 "DeceasedDate", "Total");
 
         int totalPTS = 0;
+
         for (int i = 1; i <= noDaysInMonth; i++) {
             // Summary totals
             totalPTS += ptsAnimals[i];
@@ -780,31 +785,36 @@ public class AnimalFigures extends Report {
 
         // Get the total for each category
         if (totalPTS > 0) {
-            totalPTSSummary += totalPTS + " (";
+            totalPTSSummary += (totalPTS + " (");
+
             String sql = "SELECT ReasonName, COUNT(animal.ID) AS Total FROM animal " +
                 "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
                 "WHERE SpeciesID = " + speciesID + " AND DeceasedDate >= '" +
                 sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
-                sqlLastDayOfMonth + "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
-                "AND NonShelterAnimal = 0 " +
-                "GROUP BY ReasonName";
+                sqlLastDayOfMonth +
+                "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
+                "AND NonShelterAnimal = 0 " + "GROUP BY ReasonName";
+
             try {
                 SQLRecordset drs = new SQLRecordset();
                 drs.openRecordset(sql, "animal");
+
                 while (!drs.getEOF()) {
-                    if (!totalPTSSummary.endsWith("(")) totalPTSSummary += ", ";
-                    totalPTSSummary += drs.getField("Total").toString() + " " + drs.getField("ReasonName").toString();
+                    if (!totalPTSSummary.endsWith("(")) {
+                        totalPTSSummary += ", ";
+                    }
+
+                    totalPTSSummary += (drs.getField("Total").toString() + " " +
+                    drs.getField("ReasonName").toString());
                     drs.moveNext();
                 }
+
                 drs.free();
                 totalPTSSummary += ")";
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
-
-        }
-        else {
+        } else {
             totalPTSSummary = "0";
         }
 
@@ -1135,18 +1145,25 @@ public class AnimalFigures extends Report {
         tableAddCell(bold(Global.i18n("reports", "Total")));
 
         boolean gotInventory = false;
+
         for (int i = 1; i <= noDaysInMonth; i++) {
             tableAddCell(bold(Integer.toString(animalTotal[i])));
-            if (animalTotal[i] > 0) gotInventory = true;
+
+            if (animalTotal[i] > 0) {
+                gotInventory = true;
+            }
         }
 
         // Do we actually have any data for this type? If all the 
         // total rows are zero, then abort now and don't bother putting
         // it on the report
         if (!gotInventory) {
-           // Move the progress bar on
-           for (int i = 0; i < 13; i++) { incrementStatusBar(); }
-           return;
+            // Move the progress bar on
+            for (int i = 0; i < 13; i++) {
+                incrementStatusBar();
+            }
+
+            return;
         }
 
         // Calculate average animal movement
@@ -1545,6 +1562,7 @@ public class AnimalFigures extends Report {
                 "DeceasedDate", "Total");
 
         int totalPTS = 0;
+
         for (int i = 1; i <= noDaysInMonth; i++) {
             // Summary totals
             totalPTS += ptsAnimals[i];
@@ -1553,31 +1571,36 @@ public class AnimalFigures extends Report {
 
         // Get the total for each category
         if (totalPTS > 0) {
-            totalPTSSummary += totalPTS + " (";
+            totalPTSSummary += (totalPTS + " (");
+
             String sql = "SELECT ReasonName, COUNT(animal.ID) AS Total FROM animal " +
                 "INNER JOIN deathreason ON deathreason.ID = animal.PTSReasonID " +
-                "WHERE AnimalTypeID = " + animalTypeID + " AND DeceasedDate >= '" +
-                sqlFirstDayOfMonth + "' AND DeceasedDate <= '" +
-                sqlLastDayOfMonth + "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
-                "AND NonShelterAnimal = 0 " +
-                "GROUP BY ReasonName";
+                "WHERE AnimalTypeID = " + animalTypeID +
+                " AND DeceasedDate >= '" + sqlFirstDayOfMonth +
+                "' AND DeceasedDate <= '" + sqlLastDayOfMonth +
+                "' AND PutToSleep <> 0 AND DiedOffShelter = 0 " +
+                "AND NonShelterAnimal = 0 " + "GROUP BY ReasonName";
+
             try {
                 SQLRecordset drs = new SQLRecordset();
                 drs.openRecordset(sql, "animal");
+
                 while (!drs.getEOF()) {
-                    if (!totalPTSSummary.endsWith("(")) totalPTSSummary += ", ";
-                    totalPTSSummary += drs.getField("Total").toString() + " " + drs.getField("ReasonName").toString();
+                    if (!totalPTSSummary.endsWith("(")) {
+                        totalPTSSummary += ", ";
+                    }
+
+                    totalPTSSummary += (drs.getField("Total").toString() + " " +
+                    drs.getField("ReasonName").toString());
                     drs.moveNext();
                 }
+
                 drs.free();
                 totalPTSSummary += ")";
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
-
-        }
-        else {
+        } else {
             totalPTSSummary = "0";
         }
 
