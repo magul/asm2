@@ -243,9 +243,8 @@ public class ConfigureLocal extends ASMForm {
         }
 
         String of = "Locale = " + locale;
-        of += ("\nLabelAlignment = " +
-        cboLabelAlign.getSelectedItem().toString());
-        of += ("\nTabAlignment = " + cboTabAlign.getSelectedItem().toString());
+        of += ("\nLabelAlignment = " + cboLabelAlign.getSelectedIndex());
+        of += ("\nTabAlignment = " + cboTabAlign.getSelectedIndex());
         of += ("\nButtonHotkeys = " +
         (chkHotkeys.isSelected() ? "True" : "False"));
         of += ("\nStartMaximised = " +

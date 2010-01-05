@@ -618,13 +618,12 @@ public class Startup implements Runnable {
 
             // Label alignment for screens with grid layouts
             // =========================================================
-            String alignstring = p.getProperty("LabelAlignment",
-                    Global.i18n("uisystem", "RIGHT"));
+            String alignstring = p.getProperty("LabelAlignment", "0");
 
-            if (alignstring.equalsIgnoreCase(Global.i18n("uisystem", "LEFT"))) {
-                Global.GRIDLABELALIGN = UI.ALIGN_LEFT;
-            } else {
+            if (alignstring.equals("1")) {
                 Global.GRIDLABELALIGN = UI.ALIGN_RIGHT;
+            } else {
+                Global.GRIDLABELALIGN = UI.ALIGN_LEFT;
             }
 
             // Whether to use button accelerators
@@ -634,13 +633,12 @@ public class Startup implements Runnable {
 
             // TabAlignment - can be TOP or BOTTOM
             // =========================================================
-            alignstring = p.getProperty("TabAlignment",
-                    Global.i18n("uisystem", "TOP"));
+            alignstring = p.getProperty("TabAlignment", "0");
 
-            if (alignstring.equalsIgnoreCase(Global.i18n("uisystem", "TOP"))) {
-                Global.TABALIGN = UI.ALIGN_TOP;
-            } else {
+            if (alignstring.equalsIgnoreCase("1")) {
                 Global.TABALIGN = UI.ALIGN_BOTTOM;
+            } else {
+                Global.TABALIGN = UI.ALIGN_TOP;
             }
 
             // Internal reportviewer setting
