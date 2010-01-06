@@ -2744,7 +2744,9 @@ public class Animal extends UserInfoBO {
         try {
             cal = Utils.dateToCalendar(broughtInDate);
         } catch (Exception e) {
+	    cal = Calendar.getInstance();
         }
+	if (cal == null) cal = Calendar.getInstance();
 
         // Work out the beginning and end of the brought in year
         Calendar beginningofyear = Calendar.getInstance();
