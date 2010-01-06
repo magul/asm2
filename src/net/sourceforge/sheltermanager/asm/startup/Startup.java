@@ -620,7 +620,7 @@ public class Startup implements Runnable {
             // =========================================================
             String alignstring = p.getProperty("LabelAlignment", "0");
 
-            if (alignstring.equals("1")) {
+            if (alignstring.equals("0")) {
                 Global.GRIDLABELALIGN = UI.ALIGN_RIGHT;
             } else {
                 Global.GRIDLABELALIGN = UI.ALIGN_LEFT;
