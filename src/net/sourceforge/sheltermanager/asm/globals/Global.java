@@ -222,6 +222,17 @@ public abstract class Global {
         return cc;
     }
 
+    /** Returns true if the current language is right-to-left */
+    public static boolean isLanguageRTL() {
+        // Hebrew and Arabic are RTL
+        if (settings_Locale.startsWith("he") ||
+                settings_Locale.startsWith("ar")) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * For a given country code, returns it's position in our
      * list of countries or -1 if not found.

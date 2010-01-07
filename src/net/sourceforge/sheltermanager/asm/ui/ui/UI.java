@@ -1242,6 +1242,10 @@ public final class UI {
         }
     }
 
+    public static boolean isLTR() {
+        return !Global.isLanguageRTL();
+    }
+
     public static void setFocusManager(FlexibleFocusManager f) {
         javax.swing.FocusManager.setCurrentManager(f);
     }

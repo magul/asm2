@@ -180,7 +180,9 @@ public class PCTGridLayout implements LayoutManager {
         int ncomponents = parent.getComponentCount();
         int nrows = rows;
         int ncols = cols;
-        boolean ltr = parent.getComponentOrientation().isLeftToRight();
+
+        //boolean ltr = parent.getComponentOrientation().isLeftToRight();
+        boolean ltr = UI.isLTR();
         boolean usepct = pctwidths.length > 0;
 
         if (ncomponents == 0) {
@@ -199,47 +201,82 @@ public class PCTGridLayout implements LayoutManager {
         int h = (th - ((nrows - 1) * vgap)) / nrows;
 
         if (usepct) {
-            int[] colwidths = new int[pctwidths.length];
+            if (ltr) {
+                int[] colwidths = new int[pctwidths.length];
 
-            for (int c = 0; c < ncols; c++) {
-                double d = (double) tw;
-                d -= (hgap * (ncols - 1));
-                d = (d / 100F) * (double) pctwidths[c];
-                colwidths[c] = (int) d;
-            }
+                for (int c = 0; c < ncols; c++) {
+                    double d = (double) tw;
+                    d -= (hgap * (ncols - 1));
+                    d = (d / 100F) * (double) pctwidths[c];
+                    colwidths[c] = (int) d;
+                }
 
-            for (int c = 0, x = insets.left; c < ncols;
-                    c++, x += (colwidths[c - 1] + hgap)) {
-                for (int r = 0, y = insets.top; r < nrows;
-                        r++, y += (h + vgap)) {
-                    int i = (r * ncols) + c;
-                    w = colwidths[c];
+                for (int c = 0, x = insets.left; c < ncols;
+                        c++, x += (colwidths[c - 1] + hgap)) {
+                    for (int r = 0, y = insets.top; r < nrows;
+                            r++, y += (h + vgap)) {
+                        int i = (r * ncols) + c;
+                        w = colwidths[c];
 
-                    if (i < ncomponents) {
-                        parent.getComponent(i).setBounds(x, y, w, h);
+                        if (i < ncomponents) {
+                            parent.getComponent(i).setBounds(x, y, w, h);
+                        }
+                    }
+                }
+            } else {
+                int[] colwidths = new int[pctwidths.length];
+
+                for (int c = 0; c < ncols; c++) {
+                    double d = (double) tw;
+                    d -= (hgap * (ncols - 1));
+                    d = (d / 100F) * (double) pctwidths[c];
+                    colwidths[c] = (int) d;
+                }
+
+                for (int c = 0, x = parent.getWidth() - insets.right -
+                        colwidths[0]; c < ncols;) {
+                    for (int r = 0, y = insets.top; r < nrows;
+                            r++, y += (h + vgap)) {
+                        int i = (r * ncols) + c;
+                        w = colwidths[c];
+
+                        if (i < ncomponents) {
+                            parent.getComponent(i).setBounds(x, y, w, h);
+                        }
+                    }
+
+                    c++;
+
+                    if (c < colwidths.length) {
+                        x -= (colwidths[c] + hgap);
                     }
                 }
             }
-        } else if (ltr) {
-            for (int c = 0, x = insets.left; c < ncols; c++, x += (w + hgap)) {
-                for (int r = 0, y = insets.top; r < nrows;
-                        r++, y += (h + vgap)) {
-                    int i = (r * ncols) + c;
+        }
 
-                    if (i < ncomponents) {
-                        parent.getComponent(i).setBounds(x, y, w, h);
+        if (!usepct) {
+            if (ltr) {
+                for (int c = 0, x = insets.left; c < ncols;
+                        c++, x += (w + hgap)) {
+                    for (int r = 0, y = insets.top; r < nrows;
+                            r++, y += (h + vgap)) {
+                        int i = (r * ncols) + c;
+
+                        if (i < ncomponents) {
+                            parent.getComponent(i).setBounds(x, y, w, h);
+                        }
                     }
                 }
-            }
-        } else {
-            for (int c = 0, x = parent.getWidth() - insets.right - w;
-                    c < ncols; c++, x -= (w + hgap)) {
-                for (int r = 0, y = insets.top; r < nrows;
-                        r++, y += (h + vgap)) {
-                    int i = (r * ncols) + c;
+            } else {
+                for (int c = 0, x = parent.getWidth() - insets.right - w;
+                        c < ncols; c++, x -= (w + hgap)) {
+                    for (int r = 0, y = insets.top; r < nrows;
+                            r++, y += (h + vgap)) {
+                        int i = (r * ncols) + c;
 
-                    if (i < ncomponents) {
-                        parent.getComponent(i).setBounds(x, y, w, h);
+                        if (i < ncomponents) {
+                            parent.getComponent(i).setBounds(x, y, w, h);
+                        }
                     }
                 }
             }
