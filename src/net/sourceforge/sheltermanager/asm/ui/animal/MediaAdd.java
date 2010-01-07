@@ -357,15 +357,16 @@ public class MediaAdd extends ASMForm {
                 this.txtFileName.setText(chooser.getSelectedFile()
                                                 .getAbsolutePath());
 
-		// If notes are blank, throw the filename in there
-		if (txtNotes.getText().equals("")) {
+                // If notes are blank, throw the filename in there
+                if (txtNotes.getText().equals("")) {
                     String filename = txtFileName.getText();
-		    if (filename.indexOf(File.separator) != -1) {
-		        filename = filename.substring(filename.lastIndexOf(File.separator) + 1);
-		        txtNotes.setText(filename);
-		    }
-		}
 
+                    if (filename.indexOf(File.separator) != -1) {
+                        filename = filename.substring(filename.lastIndexOf(
+                                    File.separator) + 1);
+                        txtNotes.setText(filename);
+                    }
+                }
             }
         } catch (Exception e) {
             Global.logException(e, getClass());

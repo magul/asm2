@@ -1479,17 +1479,58 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }
         }
 
-        AnimalCode ac = Animal.fastGenerateAnimalCode(selectedtype, dbin);
-
         try {
-            // Update on-screen controls
+            // Special case - if the code is using unique values,
+            // then we only need to calculate it the first time and we
+            // can keep reusing it after that since it's unique
+            AnimalCode ac = null;
+
+            if ((Configuration.getString("CodingFormat").indexOf("U") != -1) &&
+                    (Configuration.getString("CodingFormat").indexOf("N") == -1) &&
+                    (Configuration.getString("ShortCodingFormat").indexOf("N") == -1)) {
+                Global.logDebug("Coding format is unique only, reusing existing where possible.",
+                    "AnimalEdit.generateAnimalCode");
+
+                if ((a.getUniqueCodeID() != null) &&
+                        !a.getUniqueCodeID().equals(new Integer(0))) {
+                    Global.logDebug("Got existing unique code: " +
+                        a.getUniqueCodeID() + " - reusing",
+                        "AnimalEdit.generateAnimalCode");
+                    ac = Animal.generateAnimalCode(selectedtype, dbin, 0,
+                            a.getUniqueCodeID().intValue());
+                } else {
+                    Global.logDebug("No existing unique code found for this animal, generating...",
+                        "AnimalEdit.generateAnimalCode");
+                    // We don't have a unique code yet - generate it
+                    ac = Animal.fastGenerateAnimalCode(selectedtype, dbin);
+                }
+            } else {
+                // Not using unique codes, just generate as normal
+                ac = Animal.fastGenerateAnimalCode(selectedtype, dbin);
+            }
+
+            // Update on-screen controls with the new code
             txtShelterCode.setCode(ac.code);
             txtShelterCode.setShortCode(ac.shortcode);
-
-            // Update the title for existing records
             a.setShelterCode(ac.code);
             a.setShortCode(ac.shortcode);
 
+            // Reparse the code and store the numeric portion in the
+            // id fields for later quick calculations
+            int yearid = Animal.parseAnimalCode(txtShelterCode.getCode());
+            int uniqueid = yearid;
+
+            // Reset whichever type we aren't using to zero
+            if (Configuration.getString("CodingFormat").indexOf("UUU") != -1) {
+                yearid = 0;
+            } else {
+                uniqueid = 0;
+            }
+
+            animal.setYearCodeID(new Integer(yearid));
+            animal.setUniqueCodeID(new Integer(uniqueid));
+
+            // Update the title for existing records
             if (!isNewRecord) {
                 showTitle();
             }

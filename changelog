@@ -1,6 +1,8 @@
 2.6.4
 ================
 
+*. If codes are purely unique, animal edit screen will reuse the
+-  unique portion when the type changes
 *. Default filename into notes field when attaching media if there
 -  aren't any notes
 *. Fixed bug with unparseable dates and null currentvetid column in

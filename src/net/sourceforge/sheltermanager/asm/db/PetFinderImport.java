@@ -107,21 +107,26 @@ public class PetFinderImport extends Thread {
                 a.setAnimalTypeID(new Integer(atype));
                 a.setSpeciesID(new Integer(r.species));
                 a.setBreedID(new Integer(r.breed));
-		if (r.dateofbirth == null)
-		    a.setDateOfBirth(new Date());
-		else 
+
+                if (r.dateofbirth == null) {
+                    a.setDateOfBirth(new Date());
+                } else {
                     a.setDateOfBirth(r.dateofbirth);
-		if (r.dateentered == null)
-		    a.setDateBroughtIn(new Date());
-		else 
+                }
+
+                if (r.dateentered == null) {
+                    a.setDateBroughtIn(new Date());
+                } else {
                     a.setDateBroughtIn(r.dateentered);
+                }
+
                 a.setAnimalName(r.name);
                 a.setSize(new Integer(r.size));
                 a.setSex(new Integer(r.sex));
                 a.setAnimalComments(r.notes);
                 a.setNeutered(new Integer(r.neutered ? 1 : 0));
-		a.setCurrentVetID(new Integer(0));
-		a.setOwnersVetID(new Integer(0));
+                a.setCurrentVetID(new Integer(0));
+                a.setOwnersVetID(new Integer(0));
 
                 // Generate default code for animal type
                 Animal.AnimalCode ac = a.generateAnimalCode(LookupCache.getAnimalTypeName(
@@ -227,14 +232,15 @@ class PetFinderSQLRow {
             sex = getIndex(pfsexes, sexname);
             neutered = neuteredname.indexOf("altered") != -1;
 
-	    try {
+            try {
                 dateentered = df.parse(entereddate);
-	    }
-	    catch (Exception e) {
-	        dateentered = new Date();
-	    }
-	    if (dateentered == null) dateentered = new Date();
+            } catch (Exception e) {
+                dateentered = new Date();
+            }
 
+            if (dateentered == null) {
+                dateentered = new Date();
+            }
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
