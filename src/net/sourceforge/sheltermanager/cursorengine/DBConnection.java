@@ -160,6 +160,11 @@ public abstract class DBConnection {
         }
     }
 
+    public static synchronized void testConnection(String url) throws Exception {
+        Connection c = DriverManager.getConnection(url);
+        c.close();
+    }
+
     /** Closes any connection we have open */
     public static synchronized void close() {
         try {

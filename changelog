@@ -1,6 +1,7 @@
 2.6.4
 ================
 
+*. Report local database errors instead of blindly assuming a lock
 *. Added RTL display support for Arabic and Hebrew (neither are
 -  supported yet, but translations are in progress)
 *. If codes are purely unique, animal edit screen will reuse the

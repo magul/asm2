@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.db;
 
 import net.sourceforge.sheltermanager.asm.globals.*;
+import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
@@ -185,15 +186,18 @@ public class LocateDatabase {
             "LocateDatabase.checkForLockedLocal");
 
         try {
-            DBConnection.url = jdbcURL;
-            DBConnection.con = null;
-            DBConnection.getConnection();
-            DBConnection.con.close();
+            DBConnection.testConnection(jdbcURL);
         } catch (Exception e) {
-            // It's locked, switch it for this session
-            Global.logInfo("Local database is locked, assuming share and trying hsql/localhost",
-                "LocateDatabase.checkForLockedLocal");
-            jdbcURL = "jdbc:hsqldb:hsql://localhost/asm";
+            if (e.toString().indexOf("locked") != -1) {
+                // It's locked, switch it for this session
+                Global.logInfo("Local database is locked, assuming share and trying hsql/localhost",
+                    "LocateDatabase.checkForLockedLocal");
+                jdbcURL = "jdbc:hsqldb:hsql://localhost/asm";
+            } else {
+                Global.logException(e, getClass());
+                Dialog.showError(e.getMessage());
+                Startup.terminateVM();
+            }
         }
     }
 
