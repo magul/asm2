@@ -55,30 +55,46 @@ public class AdditionalFieldView extends UI.Panel {
 
         hasData = true;
 
-        // Draw them out
+        // Draw them out - use two panels, one grid for non-textareas
+        // and one for the text areas. Arrange them so textareas fill
+        // available space
         UI.Panel p = this;
         int cols = (int) f.getRecordCount();
+        int[] colwidths = null;
+        int c = 0;
 
-        if (cols < 5) {
-            cols = 1;
-        } else if (cols < 10) {
-            cols = 2;
-        } else {
-            cols = 3;
+        if (cols < 10) {
+            c = 1;
+            colwidths = new int[] { 30, 70 };
+        } else if (cols < 20) {
+            c = 2;
+            colwidths = new int[] { 15, 35, 15, 35 };
+        } else if (cols < 30) {
+            c = 3;
+            colwidths = new int[] { 10, 23, 10, 23, 10, 24 };
+        }
+        else {
+            c = 4;
+            colwidths = new int[] { 7, 18, 7, 18, 7, 18, 7, 18 };
         }
 
-        p.setLayout(UI.getTableLayout(cols * 2));
+        p.setLayout(UI.getBorderLayout());
+        UI.Panel pf = UI.getPanel(UI.getGridLayout(c * 2, colwidths));
+        UI.Panel pt = UI.getPanel(UI.getGridLayout(c * 2, colwidths));
+        p.add(pt, UI.BorderLayout.CENTER);
+        p.add(pf, UI.BorderLayout.NORTH);
 
         try {
             f.moveFirst();
 
             while (!f.getEOF()) {
                 if (((Integer) f.getField("LinkType")).intValue() == linkType) {
-                    p.add(UI.getLabel(f.getField("FieldLabel").toString()));
+                    
 
                     switch (((Integer) f.getField("FieldType")).intValue()) {
                     case AdditionalField.FIELDTYPE_YESNO:
-
+                        
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         UI.CheckBox cb = UI.getCheckBox(null, null,
                                 onFieldChange);
                         cb.setName(f.getField("ID").toString());
@@ -88,12 +104,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(cb);
-                        p.add(cb);
+                        pf.add(cb);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_DATE:
 
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         DateField df = UI.getDateField(null, onFieldChange);
                         df.setName(f.getField("ID").toString());
 
@@ -102,12 +119,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(df);
-                        p.add(df);
+                        pf.add(df);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_MONEY:
 
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         CurrencyField mo = UI.getCurrencyField(null,
                                 onFieldChange);
                         mo.setName(f.getField("ID").toString());
@@ -117,12 +135,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(mo);
-                        p.add(mo);
+                        pf.add(mo);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_NOTES:
 
+                        pt.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         UI.TextArea no = UI.getTextArea(null, onFieldChange);
                         no.setName(f.getField("ID").toString());
 
@@ -131,12 +150,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(no);
-                        p.add(no);
+                        pt.add(no);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_TEXT:
 
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         UI.TextField te = UI.getTextField(null, onFieldChange);
                         te.setName(f.getField("ID").toString());
 
@@ -145,12 +165,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(te);
-                        p.add(te);
+                        pf.add(te);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_NUMBER:
 
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         UI.Spinner sp = UI.getSpinner(0, 0xffffff, onFieldChange);
                         sp.setName(f.getField("ID").toString());
 
@@ -159,12 +180,13 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(sp);
-                        p.add(sp);
+                        pf.add(sp);
 
                         break;
 
                     case AdditionalField.FIELDTYPE_LOOKUP:
 
+                        pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
                         UI.ComboBox cbo = UI.getCombo(onFieldChange);
                         cbo.setName(f.getField("ID").toString());
 
@@ -180,7 +202,7 @@ public class AdditionalFieldView extends UI.Panel {
                         }
 
                         additionalComponents.add(cbo);
-                        p.add(cbo);
+                        pf.add(cbo);
 
                         break;
                     }
