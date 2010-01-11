@@ -233,9 +233,18 @@ public class InternetPublisher extends ASMForm {
                     false, false));
         }
 
-        // Upload Options (for pets911 and rescuegroups)
-        if ((mode == MODE_PETS911) || (mode == MODE_RESCUEGROUPS)) {
+        // Upload Options (for pets911)
+        if (mode == MODE_PETS911) {
             l.add(new SelectableItem(i18n("Upload_Options"), null, false, true));
+            l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
+                    false, false));
+        }
+
+        // Upload Options (for rescuegroups)
+        if (mode == MODE_RESCUEGROUPS) {
+            l.add(new SelectableItem(i18n("Upload_Options"), null, false, true));
+            l.add(new SelectableItem(i18n("Upload_all_animal_images"),
+                    "UploadAllImages", false, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
         }

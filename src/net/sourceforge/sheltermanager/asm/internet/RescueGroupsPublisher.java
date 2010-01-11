@@ -215,13 +215,16 @@ public class RescueGroupsPublisher extends Thread {
                     // unique media references to cut upload times in
                     // the future.
                     String animalweb = an.getWebMedia();
+                    String animalcode = an.getShelterCode();
+                    String animalpic = animalcode + "-1.jpg";
+                    int totalimages = 0;
 
                     // Copy the animal image to the publish folder and
-                    // rename it as "<ShelterCode>.jpg"
+                    // rename it as "<ShelterCode>-1.jpg"
                     if (!animalweb.equals("")) {
                         if (debug) {
                             Global.logInfo("Retrieving image.",
-                                "RescueGroupsPublisher.run");
+                                "PetFinderPublisher.run");
                         }
 
                         try {
@@ -229,32 +232,32 @@ public class RescueGroupsPublisher extends Thread {
                                     an.getID().intValue());
 
                             try {
-                                dbfs.readFile(animalweb,
-                                    publishDir + an.getShelterCode() + ".jpg");
+                                dbfs.readFile(animalweb, publishDir +
+                                    animalpic);
 
                                 if (debug) {
                                     Global.logInfo("Retrieved image.",
-                                        "RescueGroupsPublisher.run");
+                                        "PetFinderPublisher.run");
                                 }
 
                                 // If scaling is on, scale the image
                                 if (publishCriteria.scaleImages != 1) {
-                                    scaleImage(publishDir +
-                                        an.getShelterCode() + ".jpg",
+                                    scaleImage(publishDir + animalpic,
                                         publishCriteria.scaleImages);
                                 }
 
                                 // Upload the file
                                 if (debug) {
                                     Global.logInfo("Uploading image.",
-                                        "RescueGroupsPublisher.run");
+                                        "PetFinderPublisher.run");
                                 }
 
-                                upload(an.getShelterCode() + ".jpg");
+                                upload(animalpic);
+                                totalimages++;
 
                                 if (debug) {
                                     Global.logInfo("Image uploaded.",
-                                        "RescueGroupsPublisher.run");
+                                        "PetFinderPublisher.run");
                                 }
                             }
                             // If an IO Error occurs, the file is already in the
@@ -264,14 +267,64 @@ public class RescueGroupsPublisher extends Thread {
                                 // Upload the file
                                 if (debug) {
                                     Global.logInfo("Uploading image.",
-                                        "RescueGroupsPublisher.run");
+                                        "PetFinderPublisher.run");
                                 }
 
-                                upload(an.getShelterCode() + ".jpg");
+                                upload(animalpic);
 
                                 if (debug) {
                                     Global.logInfo("Image uploaded.",
-                                        "RescueGroupsPublisher.run");
+                                        "PetFinderPublisher.run");
+                                }
+                            }
+
+                            // If the upload all option is set, grab all of
+                            // the images this animal has and save/upload them too
+                            if (publishCriteria.uploadAllImages) {
+                                int idx = 1;
+                                String[] images = dbfs.list();
+
+                                if (debug) {
+                                    Global.logInfo("Animal has " +
+                                        images.length + " media files",
+                                        "PetFinderPublisher.run");
+                                }
+
+                                for (int i = 0; i < images.length && totalimages <= 4; i++) {
+                                    // Ignore the main web media - we used that
+                                    if (!animalweb.equals(images[i]) &&
+                                            isImage(images[i])) {
+                                        idx++;
+
+                                        String otherpic = animalcode + "-" +
+                                            idx + ".jpg";
+
+                                        if (debug) {
+                                            Global.logInfo(
+                                                "Retrieving additional image: " +
+                                                otherpic + " (" + images[i] +
+                                                ")", "PetFinderPublisher.run");
+                                        }
+
+                                        dbfs.readFile(images[i],
+                                            publishDir + otherpic);
+
+                                        // If scaling is on, scale the image
+                                        if (publishCriteria.scaleImages != 1) {
+                                            scaleImage(publishDir + otherpic,
+                                                publishCriteria.scaleImages);
+                                        }
+
+                                        if (debug) {
+                                            Global.logInfo(
+                                                "Uploading additional image: " +
+                                                otherpic + " (" + images[i] +
+                                                ")", "PetFinderPublisher.run");
+                                        }
+
+                                        upload(otherpic);
+                                        totalimages++;
+                                    }
                                 }
                             }
 
@@ -284,7 +337,7 @@ public class RescueGroupsPublisher extends Thread {
                     } else {
                         if (debug) {
                             Global.logInfo("No image available.",
-                                "RescueGroupsPublisher.run");
+                                "PetFinderPublisher.run");
                         }
                     }
 
@@ -449,11 +502,19 @@ public class RescueGroupsPublisher extends Thread {
                     comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
                     // Switch quotes
                     comm = comm.replace('"', '\'');
-                    dataFile.append("\"" + comm + "\", ");
+                    dataFile.append("\"" + comm + "\"");
                     comm = null;
 
-                    // pic1 (not sure whether necessary?)
-                    dataFile.append("\"" + an.getShelterCode() + ".jpg" + "\"");
+                    // pic1 - pic4 - if we don't have a picture for it, just leave the
+                    // field blank instead
+                    for (int i = 1; i <= 4; i++) {
+                        dataFile.append(", ");
+                        if (totalimages >= i)
+                            dataFile.append("\"" + an.getShelterCode() + "-" + i + ".jpg" + "\"");
+                        else
+                            dataFile.append("\"\"");
+                    }
+
 
                     // Terminate
                     dataFile.append("\n");
@@ -487,7 +548,8 @@ public class RescueGroupsPublisher extends Thread {
         // Save the data file to our publish directory
         String csvhead = "orgID, animalID, status, lastUpdated, rescueID, name, summary, species, breed, " +
             "primaryBreed, secondaryBreed, sex, mixed, dogs, cats, kids, declawed, housetrained, age, " +
-            "specialNeeds, altered, size, uptodate, color, coatLength, pattern, courtesy, description, pic1\n";
+            "specialNeeds, altered, size, uptodate, color, coatLength, pattern, courtesy, description, pic1, " +
+            "pic2, pic3, pic4\n";
 
         saveFile(publishDir + "pets.csv", csvhead + dataFile.toString());
 
@@ -543,6 +605,12 @@ public class RescueGroupsPublisher extends Thread {
 
         // Clear up
         parent = null;
+    }
+
+    private boolean isImage(String s) {
+        s = s.toLowerCase();
+
+        return s.endsWith("jpg") || s.endsWith("jpeg") || s.endsWith("png");
     }
 
     private void outputStatusText(String text) {

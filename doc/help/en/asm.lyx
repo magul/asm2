@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 53 (ASM 2.6.3)
+Revision 54 (ASM 2.6.4)
 \end_layout
 
 \begin_layout Chapter*
@@ -7256,6 +7256,21 @@ y ftp.rescuegroups.org), along with the shelter ID and password given to you
 Once you've done that, you can choose the Publish to RescueGroups.org menu
  item.
  The options for filtering animals are the same as for the other publishers.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes eld
+\end_inset
+
+upload all images
+\begin_inset Quotes erd
+\end_inset
+
+ option will upload all animal media images, naming them CODE-X.jpg (starting
+ at 1 for the web preferred media).
+ ASM will only include upto 4 images as RescueGroups.org do not support more
+ than this.
 \end_layout
 
 \begin_layout Standard

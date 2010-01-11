@@ -42,6 +42,7 @@ import java.util.Vector;
  *              includefosters
  *              includecolors
  *              forcereupload
+ *              uploadall
  *              excludeunder=<weeks>
  *              scaleimages=<1 to 5, where:
  *                              1 = No scaling
@@ -81,6 +82,8 @@ public class PublishRescueGroups {
                     pc.includeColours = true;
                 } else if (args[i].equalsIgnoreCase("includewithoutimage")) {
                     pc.includeWithoutImage = true;
+                } else if (args[i].equalsIgnoreCase("uploadall")) {
+                    pc.uploadAllImages = true;
                 } else if (args[i].equalsIgnoreCase("forcereupload")) {
                     pc.forceReupload = true;
                 } else if (args[i].toLowerCase()
