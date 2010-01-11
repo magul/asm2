@@ -1247,8 +1247,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     i18n("check_this_box_if_this_owner_makes_donations"),
                     UI.fp(this, "dataChanged")));
 
-        chkVolunteer = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Volunteer/Dog_Walker"),
-                    i18n("Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker"),
+        chkVolunteer = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Volunteer"),
+                    i18n("Check_this_box_if_this_owner_is_a_volunteer"),
                     UI.fp(this, "dataChanged")));
 
         chkIsShelter = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("other_animal_shelter"),
@@ -1260,9 +1260,16 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         chkIsStaff = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("is_staff"),
                     null, UI.fp(this, "dataChanged")));
 
-        chkIsRetailer = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("retailer"),
+        chkIsRetailer = UI.getCheckBox(i18n("retailer"),
                     i18n("check_if_owner_is_retailer"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"));
+
+        if (Configuration.getBoolean("DisableRetailer")) {
+            pnlRightTop.add(UI.getLabel());
+        }
+        else {
+            pnlRightTop.add(chkIsRetailer);
+        }
 
         chkIsFosterer = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Fosters_Animals"),
                     i18n("check_this_box_if_this_owner_can_foster_animals"),
