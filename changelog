@@ -1,6 +1,7 @@
 2.6.4
 ================
 
+*. Pasting dates into date fields should fire update event
 *. Fixed waiting list urgency update bug that caused entries to go straight
 -  to high after the first update period passed
 *. Retailer flag disappears from owner screen if disabled
