@@ -327,8 +327,8 @@ public class AnimalWaitingList extends UserInfoBO {
                 // Update the next update to the next scheduled period
                 int updatePeriod = Configuration.getInteger(
                         "WaitingListUrgencyUpdatePeriod");
-                Calendar nextUpdate = Utils.dateToCalendar(awl.getDatePutOnList());
-                nextUpdate.add(Calendar.DAY_OF_MONTH, updatePeriod);
+                Calendar nextUpdate = Utils.dateToCalendar(awl.getUrgencyUpdateDate());
+                nextUpdate.add(Calendar.DAY_OF_YEAR, updatePeriod);
                 awl.setUrgencyUpdateDate(Utils.calendarToDate(nextUpdate));
 
                 // Bump up the urgency
