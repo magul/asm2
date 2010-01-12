@@ -397,12 +397,14 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             // Last updated to today
             awl.setUrgencyLastUpdatedDate(new Date());
 
-            // Update the next update to the next scheduled period
-            int updatePeriod = Configuration.getInteger(
-                    "WaitingListUrgencyUpdatePeriod");
-            Calendar nextUpdate = Utils.dateToCalendar(awl.getDatePutOnList());
-            nextUpdate.add(Calendar.DAY_OF_YEAR, updatePeriod);
-            awl.setUrgencyUpdateDate(Utils.calendarToDate(nextUpdate));
+            // Start the next update to the next scheduled period
+            if (awl.getUrgencyUpdateDate() == null) {
+                int updatePeriod = Configuration.getInteger(
+                        "WaitingListUrgencyUpdatePeriod");
+                Calendar nextUpdate = Utils.dateToCalendar(awl.getDatePutOnList());
+                nextUpdate.add(Calendar.DAY_OF_YEAR, updatePeriod);
+                awl.setUrgencyUpdateDate(Utils.calendarToDate(nextUpdate));
+            }
 
             // Now do the save
             try {
