@@ -63,10 +63,11 @@ public class AdditionalFieldView extends UI.Panel {
         int[] colwidths = null;
         int c = 0;
 
-        if (cols < 10) {
+        /*if (cols < 10) {
             c = 1;
             colwidths = new int[] { 30, 70 };
-        } else if (cols < 20) {
+        } else */
+        if (cols < 20) {
             c = 2;
             colwidths = new int[] { 15, 35, 15, 35 };
         } else if (cols < 30) {
