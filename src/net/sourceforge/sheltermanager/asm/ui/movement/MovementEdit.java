@@ -352,31 +352,21 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             }
         }
 
+        // Set the default return reason
+        Utils.setComboFromID(LookupCache.getEntryReasonLookup(),
+            "ReasonName",
+            new Integer(Configuration.getInteger(
+            "AFDefaultReturnReason")), cboReturnReason);
+        updateReturn();
+
         enableButtons();
         dataChanged();
-        updateReturn();
+
     }
 
     private void updateReturn() {
         cboReturnReason.setEnabled(!txtDateReturned.getText().equals(""));
         txtReason.setEnabled(!txtDateReturned.getText().equals(""));
-
-        // If the return date is populated, and the reason is still
-        // on [none], select the default.
-        if (cboReturnReason.isEnabled()) {
-            if (cboReturnReason.getSelectedIndex() == 0) {
-                try {
-                    Utils.setComboFromID(LookupCache.getEntryReasonLookup(),
-                        "ReasonName",
-                        new Integer(Configuration.getInteger(
-                                "AFDefaultReturnReason")), cboReturnReason);
-                } catch (Exception e) {
-                }
-            }
-        } else {
-            // Otherwise - clear the return reason
-            cboReturnReason.setSelectedIndex(0);
-        }
     }
 
     /**

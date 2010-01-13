@@ -1,6 +1,8 @@
 2.6.4
 ================
 
+*. Fixed bug that caused enabling of return category to reset to top
+-  of list
 *. Pasting dates into date fields should fire update event
 *. Fixed waiting list urgency update bug that caused entries to go straight
 -  to high after the first update period passed
