@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-01-04 13:26+0100\n"
-"PO-Revision-Date: 2010-01-07 12:58+0000\n"
-"Last-Translator: Margit <Unknown>\n"
+"POT-Creation-Date: 2010-01-11 13:34+0100\n"
+"PO-Revision-Date: 2010-01-14 12:29+0000\n"
+"Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-08 04:42+0000\n"
+"X-Launchpad-Export-Date: 2010-01-15 04:39+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/AnimalFound
@@ -27,11 +27,6 @@ msgstr "Bitte geben Sie an, wo das Tier gefunden wurde."
 #: You_must_enter_a_contact_name.
 msgid "You must enter a contact name."
 msgstr "Bitte eine Kontaktperson angeben."
-
-#. # bo/AnimalFound
-#: You_must_enter_the_date_the_animal_was_reported_found.
-msgid "You must enter the date the animal was reported found."
-msgstr "Bitte angeben, wann der Fund gemeldet wurde."
 
 #. # bo/AnimalFound
 #: You_must_enter_the_date_the_animal_was_found.
@@ -51,18 +46,6 @@ msgstr "Entwendet"
 #: HealthProblems
 msgid "HealthProblems"
 msgstr "Gesundheitsprobleme"
-
-#. # bo/Animal
-#. # wordprocessor/GenerateDocument
-#. # ui/animalname/NamesEdit
-#. # ui/animal/AnimalEdit
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # internet/Pets911Publisher
-#: Unknown
-#: lksex_2
-msgid "Unknown"
-msgstr "Unkekannt"
 
 #. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
@@ -128,11 +111,6 @@ msgstr ""
 "Pflegetiere aufnehmen."
 
 #. # bo/Adoption
-#: reserve_after_cancellation
-msgid "You cannot cancel a reservation before it takes effect."
-msgstr "Sie können keine Reservierung absagen, bevor sie gespeichert wurde."
-
-#. # bo/Adoption
 #: cant_reserve_with_open_movement
 msgid ""
 "This animal is currently located off the shelter and cannot be reserved."
@@ -192,14 +170,6 @@ msgstr "Jahre"
 #: months
 msgid "months"
 msgstr "Monate"
-
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Unspecified
-msgid "Unspecified"
-msgstr "Nicht angegeben"
 
 #. # bo/AnimalMedical
 #. # bo/MedicalProfile
@@ -423,6 +393,11 @@ msgstr "Bitte geben Sie die Anzahl Tiere im Wurf an."
 msgid "You must enter a date."
 msgstr "Bitte ein Datum angeben."
 
+#. # bo/AnimalFound
+#: You_must_enter_the_date_the_animal_was_reported_found.
+msgid "You must enter the date the animal was reported found."
+msgstr "Bitte angeben, wann der Fund gemeldet wurde."
+
 #. # bo/Animal
 #: You_must_enter_a_name_for_this_animal.
 msgid "You must enter a name for this animal."
@@ -434,6 +409,18 @@ msgstr "Bitte dem Tier einen Namen geben."
 #: entryreason_6
 msgid "Died"
 msgstr "Gestorben"
+
+#. # bo/Animal
+#. # wordprocessor/GenerateDocument
+#. # ui/animalname/NamesEdit
+#. # ui/animal/AnimalEdit
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # internet/Pets911Publisher
+#: Unknown
+#: lksex_2
+msgid "Unknown"
+msgstr "Unkekannt"
 
 #. # bo/Animal
 #. # ui/animal/AnimalFind
@@ -596,6 +583,11 @@ msgstr ""
 "Reservierung vorzunehmen!"
 
 #. # bo/Adoption
+#: reserve_after_cancellation
+msgid "You cannot cancel a reservation before it takes effect."
+msgstr "Sie können keine Reservierung absagen, bevor sie gespeichert wurde."
+
+#. # bo/Adoption
 #: return_without_movement
 msgid "You cannot return a movement with no exit date."
 msgstr ""
@@ -670,6 +662,14 @@ msgstr "Kein Tierheim-Tier"
 #: One_Off
 msgid "One-Off"
 msgstr "Einmalig"
+
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#: Unspecified
+msgid "Unspecified"
+msgstr "Nicht angegeben"
 
 #. # ui/medical/ProfileView
 #: This_medical_profile_is_currently_in_use_and_cannot_be_deleted
@@ -1202,7 +1202,7 @@ msgstr "Affenpinscher"
 
 #: breed_2_1
 msgid "Afghan Hound"
-msgstr "Afghane"
+msgstr "Afghanischer Windhund"
 
 #: breed_3_1
 msgid "Airedale Terrier"
@@ -1254,7 +1254,7 @@ msgstr "Australischer Kelpie"
 
 #: breed_15_1
 msgid "Australian Shepherd"
-msgstr "Australian Shepherd"
+msgstr "Australischer Schäferhund"
 
 #: breed_16_1
 msgid "Australian Terrier"
@@ -1294,11 +1294,11 @@ msgstr "Belgischer Schäferhund Laekenois"
 
 #: breed_25_1
 msgid "Belgian Shepherd Malinois"
-msgstr "Belgischer Schäferhund (Malinois)"
+msgstr "Belgischer Schäferhund Malinois"
 
 #: breed_26_1
 msgid "Belgian Shepherd Tervuren"
-msgstr "Belgischer Schäferhund (Tervuren)"
+msgstr "Belgischer Schäferhund Tervuren"
 
 #: breed_27_1
 msgid "Bernese Mountain Dog"
@@ -1314,7 +1314,7 @@ msgstr "Schwarz-Roter Waschbärenhund (Black and Tan Coonhound)"
 
 #: breed_30_1
 msgid "Black Labrador Retriever"
-msgstr "Black Labrador Retriever"
+msgstr "Schwarz Labrador Retriever"
 
 #: breed_31_1
 msgid "Black Mouth Cur"
@@ -1338,7 +1338,7 @@ msgstr "Border Terrier"
 
 #: breed_36_1
 msgid "Borzoi"
-msgstr "Borzoi"
+msgstr "Russischer Jagd Windhund"
 
 #: breed_37_1
 msgid "Boston Terrier"
@@ -1346,7 +1346,7 @@ msgstr "Boston Terrier"
 
 #: breed_38_1
 msgid "Bouvier des Flanders"
-msgstr "Bouvier des Flanders"
+msgstr "Flandrischer Treibhund"
 
 #: breed_39_1
 msgid "Boykin Spaniel"
@@ -1362,11 +1362,11 @@ msgstr "Briard"
 
 #: breed_42_1
 msgid "Brittany Spaniel"
-msgstr "Brittany Spaniel"
+msgstr "Bretonischer Spaniel"
 
 #: breed_43_1
 msgid "Brussels Griffon"
-msgstr "Brussels Griffon"
+msgstr "Brüsseler Griffon"
 
 #: breed_44_1
 msgid "Bull Terrier"
@@ -1382,11 +1382,11 @@ msgstr "Cairn Terrier"
 
 #: breed_47_1
 msgid "Canaan Dog"
-msgstr "Canaan Dog"
+msgstr "Kanaan Hund"
 
 #: breed_48_1
 msgid "Cane Corso Mastiff"
-msgstr "Cane Corso Mastiff"
+msgstr "Italienischer Corso-Hund"
 
 #: breed_49_1
 msgid "Carolina Dog"
@@ -1398,7 +1398,7 @@ msgstr "Catahoula Leopard Dog"
 
 #: breed_51_1
 msgid "Cattle Dog"
-msgstr "Cattle Dog"
+msgstr "Treibhund"
 
 #: breed_52_1
 msgid "Cavalier King Charles Spaniel"
@@ -1538,375 +1538,375 @@ msgstr "Finnischer Lapphund"
 
 #: breed_86_1
 msgid "Finnish Spitz"
-msgstr ""
+msgstr "Finnen-Spitz"
 
 #: breed_87_1
 msgid "Flat-coated Retriever"
-msgstr ""
+msgstr "Glatthaarig Retriever"
 
 #: breed_88_1
 msgid "Fox Terrier"
-msgstr ""
+msgstr "Fox Terrier"
 
 #: breed_89_1
 msgid "Foxhound"
-msgstr ""
+msgstr "Foxhound"
 
 #: breed_90_1
 msgid "French Bulldog"
-msgstr ""
+msgstr "Französiche Bulldogge"
 
 #: breed_91_1
 msgid "German Pinscher"
-msgstr ""
+msgstr "Deutscher Pinscher"
 
 #: breed_92_1
 msgid "German Shepherd Dog"
-msgstr ""
+msgstr "Deutscher Schäferhund"
 
 #: breed_93_1
 msgid "German Shorthaired Pointer"
-msgstr ""
+msgstr "Deutsch Kurzhaar"
 
 #: breed_94_1
 msgid "German Wirehaired Pointer"
-msgstr ""
+msgstr "Deutsch Drahthaar"
 
 #: breed_95_1
 msgid "Glen of Imaal Terrier"
-msgstr ""
+msgstr "Glen of Imaal Terrier"
 
 #: breed_96_1
 msgid "Golden Retriever"
-msgstr ""
+msgstr "Golden Retriever"
 
 #: breed_97_1
 msgid "Gordon Setter"
-msgstr ""
+msgstr "Gordon Setter"
 
 #: breed_98_1
 msgid "Great Dane"
-msgstr ""
+msgstr "Deutsche Dogge"
 
 #: breed_99_1
 msgid "Great Pyrenees"
-msgstr ""
+msgstr "Pyrenäen-Berghund"
 
 #: breed_100_1
 msgid "Greater Swiss Mountain Dog"
-msgstr ""
+msgstr "Grosser Schweizer Sennenhund"
 
 #: breed_101_1
 msgid "Greyhound"
-msgstr ""
+msgstr "Greyhound"
 
 #: breed_102_1
 msgid "Havanese"
-msgstr ""
+msgstr "Havaneser"
 
 #: breed_103_1
 msgid "Hound"
-msgstr ""
+msgstr "Laufhunde"
 
 #: breed_104_1
 msgid "Hovawart"
-msgstr ""
+msgstr "Hovawart"
 
 #: breed_105_1
 msgid "Husky"
-msgstr ""
+msgstr "Husky"
 
 #: breed_106_1
 msgid "Ibizan Hound"
-msgstr ""
+msgstr "Ibiza-Podenco"
 
 #: breed_107_1
 msgid "Illyrian Sheepdog"
-msgstr ""
+msgstr "Jugoslawischer Hirtenhund-Sarplaninac"
 
 #: breed_108_1
 msgid "Irish Setter"
-msgstr ""
+msgstr "Irischer Setter"
 
 #: breed_109_1
 msgid "Irish Terrier"
-msgstr ""
+msgstr "Irish Terrier"
 
 #: breed_110_1
 msgid "Irish Water Spaniel"
-msgstr ""
+msgstr "Irischer Wasserspaniel"
 
 #: breed_111_1
 msgid "Irish Wolfhound"
-msgstr ""
+msgstr "Irischer Wolfshund"
 
 #: breed_112_1
 msgid "Italian Greyhound"
-msgstr ""
+msgstr "Italienisches Windspiel"
 
 #: breed_113_1
 msgid "Italian Spinone"
-msgstr ""
+msgstr "Italienischer Rauhhaariger Vorstehhund"
 
 #: breed_114_1
 msgid "Jack Russell Terrier"
-msgstr ""
+msgstr "Jack Russell Terrier"
 
 #: breed_115_1
 msgid "Japanese Chin"
-msgstr ""
+msgstr "Japan-Chin"
 
 #: breed_116_1
 msgid "Jindo"
-msgstr ""
+msgstr "Jindo"
 
 #: breed_117_1
 msgid "Kai Dog"
-msgstr ""
+msgstr "Kai"
 
 #: breed_118_1
 msgid "Karelian Bear Dog"
-msgstr ""
+msgstr "Karelischer Bärenhund"
 
 #: breed_119_1
 msgid "Keeshond"
-msgstr ""
+msgstr "Wolfsspitz/Keeshond"
 
 #: breed_120_1
 msgid "Kerry Blue Terrier"
-msgstr ""
+msgstr "Kerry Blue Terrier"
 
 #: breed_121_1
 msgid "Kishu"
-msgstr ""
+msgstr "Kishu"
 
 #: breed_122_1
 msgid "Komondor"
-msgstr ""
+msgstr "Komondor"
 
 #: breed_123_1
 msgid "Kuvasz"
-msgstr ""
+msgstr "Kuvasz"
 
 #: breed_124_1
 msgid "Kyi Leo"
-msgstr ""
+msgstr "Kyi Leo"
 
 #: breed_125_1
 msgid "Labrador Retriever"
-msgstr ""
+msgstr "Labrador Retriever"
 
 #: breed_126_1
 msgid "Lakeland Terrier"
-msgstr ""
+msgstr "Lakeland Terrier"
 
 #: breed_127_1
 msgid "Lancashire Heeler"
-msgstr ""
+msgstr "Lancashire Heeler"
 
 #: breed_128_1
 msgid "Lhasa Apso"
-msgstr ""
+msgstr "Lhasa Apso"
 
 #: breed_129_1
 msgid "Leonberger"
-msgstr ""
+msgstr "Leonberger"
 
 #: breed_130_1
 msgid "Löwchen"
-msgstr ""
+msgstr "Löwchen"
 
 #: breed_131_1
 msgid "Maltese"
-msgstr ""
+msgstr "Malteser"
 
 #: breed_132_1
 msgid "Manchester Terrier"
-msgstr ""
+msgstr "Manchester Terrier"
 
 #: breed_133_1
 msgid "Maremma Sheepdog"
-msgstr ""
+msgstr "Maremme-Abruzzen-Schäferhund"
 
 #: breed_134_1
 msgid "Mastiff"
-msgstr ""
+msgstr "Mastiff"
 
 #: breed_135_1
 msgid "McNab"
-msgstr ""
+msgstr "McNab"
 
 #: breed_136_1
 msgid "Miniature Pinscher"
-msgstr ""
+msgstr "Zwergpinscher"
 
 #: breed_137_1
 msgid "Mountain Cur"
-msgstr ""
+msgstr "Mountain Cur"
 
 #: breed_138_1
 msgid "Mountain Dog"
-msgstr ""
+msgstr "Berghund"
 
 #: breed_139_1
 msgid "Munsterlander"
-msgstr ""
+msgstr "Münsterländer"
 
 #: breed_140_1
 msgid "Neapolitan Mastiff"
-msgstr ""
+msgstr "Mastino Napoletano"
 
 #: breed_141_1
 msgid "New Guinea Singing Dog"
-msgstr ""
+msgstr "Neuguinea-Dingo"
 
 #: breed_142_1
 msgid "Newfoundland Dog"
-msgstr ""
+msgstr "Neufundländer"
 
 #: breed_143_1
 msgid "Norfolk Terrier"
-msgstr ""
+msgstr "Norfolk Terrier"
 
 #: breed_144_1
 msgid "Norwich Terrier"
-msgstr ""
+msgstr "Norwich Terrier"
 
 #: breed_145_1
 msgid "Norwegian Buhund"
-msgstr ""
+msgstr "Norwegischer Buhund"
 
 #: breed_146_1
 msgid "Norwegian Elkhound"
-msgstr ""
+msgstr "Norwegischer Elchhund"
 
 #: breed_147_1
 msgid "Norwegian Lundehund"
-msgstr ""
+msgstr "Norwegischer Lundehund"
 
 #: breed_148_1
 msgid "Nova Scotia Duck-Tolling Retriever"
-msgstr ""
+msgstr "Nova Scotia Retriever"
 
 #: breed_149_1
 msgid "Old English Sheepdog"
-msgstr ""
+msgstr "Altenglischer Schäferhund/Bobtail"
 
 #: breed_150_1
 msgid "Otterhound"
-msgstr ""
+msgstr "Otterhund"
 
 #: breed_151_1
 msgid "Papillon"
-msgstr ""
+msgstr "Papillon"
 
 #: breed_152_1
 msgid "Patterdale Terrier (Fell Terrier)"
-msgstr ""
+msgstr "Patterdale Terrier (Fell Terrier)"
 
 #: breed_153_1
 msgid "Pekingese"
-msgstr ""
+msgstr "Pekingese"
 
 #: breed_154_1
 msgid "Peruvian Inca Orchid"
-msgstr ""
+msgstr "Peruanischer Nackthund"
 
 #: breed_155_1
 msgid "Petit Basset Griffon Vendeen"
-msgstr ""
+msgstr "Kleiner Basset Griffon Vendéen"
 
 #: breed_156_1
 msgid "Pharaoh Hound"
-msgstr ""
+msgstr "Pharaonenhund"
 
 #: breed_157_1
 msgid "Pit Bull Terrier"
-msgstr ""
+msgstr "Pit Bull Terrier"
 
 #: breed_158_1
 msgid "Plott Hound"
-msgstr ""
+msgstr "Plott Hound"
 
 #: breed_159_1
 msgid "Portugese Podengo"
-msgstr ""
+msgstr "Portugiesischer Podengo"
 
 #: breed_160_1
 msgid "Pointer"
-msgstr ""
+msgstr "Pointer"
 
 #: breed_161_1
 msgid "Polish Lowland Sheepdog"
-msgstr ""
+msgstr "Polnischer Niederungshütehund"
 
 #: breed_162_1
 msgid "Pomeranian"
-msgstr ""
+msgstr "Zwergspitz/Pomeranian"
 
 #: breed_163_1
 msgid "Poodle"
-msgstr ""
+msgstr "Pudel"
 
 #: breed_164_1
 msgid "Portuguese Water Dog"
-msgstr ""
+msgstr "Portugiesischer Wasserhund"
 
 #: breed_165_1
 msgid "Presa Canario"
-msgstr ""
+msgstr "Presa Canario"
 
 #: breed_166_1
 msgid "Pug"
-msgstr ""
+msgstr "Mops"
 
 #: breed_167_1
 msgid "Puli"
-msgstr ""
+msgstr "Puli"
 
 #: breed_168_1
 msgid "Pumi"
-msgstr ""
+msgstr "Pumi"
 
 #: breed_169_1
 msgid "Rat Terrier"
-msgstr ""
+msgstr "Rat Terrier"
 
 #: breed_170_1
 msgid "Redbone Coonhound"
-msgstr ""
+msgstr "Redbone Coonhound"
 
 #: breed_171_1
 msgid "Retriever"
-msgstr ""
+msgstr "Retriever"
 
 #: breed_172_1
 msgid "Rhodesian Ridgeback"
-msgstr ""
+msgstr "Rhodesian Ridgeback"
 
 #: breed_173_1
 msgid "Rottweiler"
-msgstr ""
+msgstr "Rottweiler"
 
 #: breed_174_1
 msgid "Saluki"
-msgstr ""
+msgstr "Saluki"
 
 #: breed_175_1
 msgid "Saint Bernard St. Bernard"
-msgstr ""
+msgstr "St.Bernhardshund"
 
 #: breed_176_1
 msgid "Samoyed"
-msgstr ""
+msgstr "Samojede"
 
 #: breed_177_1
 msgid "Schipperke"
-msgstr ""
+msgstr "Schipperke"
 
 #: breed_178_1
 msgid "Schnauzer"
-msgstr ""
+msgstr "Schnauzer"
 
 #: breed_179_1
 msgid "Scottish Deerhound"
@@ -1914,147 +1914,147 @@ msgstr ""
 
 #: breed_180_1
 msgid "Scottish Terrier Scottie"
-msgstr ""
+msgstr "Schottischer Hirschhund"
 
 #: breed_181_1
 msgid "Sealyham Terrier"
-msgstr ""
+msgstr "Sealyham Terrier"
 
 #: breed_182_1
 msgid "Setter"
-msgstr ""
+msgstr "Setter"
 
 #: breed_183_1
 msgid "Shar Pei"
-msgstr ""
+msgstr "Shar Pei"
 
 #: breed_184_1
 msgid "Sheep Dog"
-msgstr ""
+msgstr "Hütehund"
 
 #: breed_185_1
 msgid "Shepherd"
-msgstr ""
+msgstr "Schäferhund"
 
 #: breed_186_1
 msgid "Shetland Sheepdog Sheltie"
-msgstr ""
+msgstr "Shetland Sheepdog Sheltie"
 
 #: breed_187_1
 msgid "Shiba Inu"
-msgstr ""
+msgstr "Shiba Inu"
 
 #: breed_188_1
 msgid "Shih Tzu"
-msgstr ""
+msgstr "Shih Tzu"
 
 #: breed_189_1
 msgid "Siberian Husky"
-msgstr ""
+msgstr "Siberian Husky"
 
 #: breed_190_1
 msgid "Silky Terrier"
-msgstr ""
+msgstr "Silky Terrier"
 
 #: breed_191_1
 msgid "Skye Terrier"
-msgstr ""
+msgstr "Skye Terrier"
 
 #: breed_192_1
 msgid "Sloughi"
-msgstr ""
+msgstr "Arabischer Windhund"
 
 #: breed_193_1
 msgid "Smooth Fox Terrier"
-msgstr ""
+msgstr "Glatthaar-Foxterrier"
 
 #: breed_194_1
 msgid "Spaniel"
-msgstr ""
+msgstr "Spaniel"
 
 #: breed_195_1
 msgid "Spitz"
-msgstr ""
+msgstr "Spitz"
 
 #: breed_196_1
 msgid "Staffordshire Bull Terrier"
-msgstr ""
+msgstr "Staffordshire Bull Terrier"
 
 #: breed_197_1
 msgid "South Russian Ovcharka"
-msgstr ""
+msgstr "Südrussischer Ovtcharka"
 
 #: breed_198_1
 msgid "Swedish Vallhund"
-msgstr ""
+msgstr "Schwedischer Vallhund"
 
 #: breed_199_1
 msgid "Terrier"
-msgstr ""
+msgstr "Terrier"
 
 #: breed_200_1
 msgid "Thai Ridgeback"
-msgstr ""
+msgstr "Thai Ridgeback"
 
 #: breed_201_1
 msgid "Tibetan Mastiff"
-msgstr ""
+msgstr "Tibetmastiff"
 
 #: breed_202_1
 msgid "Tibetan Spaniel"
-msgstr ""
+msgstr "Tibet-Spaniel"
 
 #: breed_203_1
 msgid "Tibetan Terrier"
-msgstr ""
+msgstr "Tibet-Terrier"
 
 #: breed_204_1
 msgid "Tosa Inu"
-msgstr ""
+msgstr "Tosa Inu"
 
 #: breed_205_1
 msgid "Toy Fox Terrier"
-msgstr ""
+msgstr "Toy Fox Terrier"
 
 #: breed_206_1
 msgid "Treeing Walker Coonhound"
-msgstr ""
+msgstr "Treeing Walker Coonhound"
 
 #: breed_207_1
 msgid "Vizsla"
-msgstr ""
+msgstr "Vizsla"
 
 #: breed_208_1
 msgid "Weimaraner"
-msgstr ""
+msgstr "Weimaraner"
 
 #: breed_209_1
 msgid "Welsh Corgi"
-msgstr ""
+msgstr "Welsh Corgi"
 
 #: breed_210_1
 msgid "Welsh Terrier"
-msgstr ""
+msgstr "Welsh Terrier"
 
 #: breed_211_1
 msgid "Welsh Springer Spaniel"
-msgstr ""
+msgstr "Welsh Springer Spaniel"
 
 #: breed_212_1
 msgid "West Highland White Terrier Westie"
-msgstr ""
+msgstr "West Highland White Terrier"
 
 #: breed_213_1
 msgid "Wheaten Terrier"
-msgstr ""
+msgstr "Wheaten Terrier"
 
 #: breed_214_1
 msgid "Whippet"
-msgstr ""
+msgstr "Whippet"
 
 #: breed_215_1
 msgid "White German Shepherd"
-msgstr ""
+msgstr "Weisser Deutscher Schäferhund"
 
 #: breed_216_1
 msgid "Wire-haired Pointing Griffon"
@@ -2062,272 +2062,272 @@ msgstr ""
 
 #: breed_217_1
 msgid "Wirehaired Terrier"
-msgstr ""
+msgstr "Drahthaarig Terrier"
 
 #: breed_218_1
 msgid "Yellow Labrador Retriever"
-msgstr ""
+msgstr "Gelb Labrador Retriever"
 
 #: breed_219_1
 msgid "Yorkshire Terrier Yorkie"
-msgstr ""
+msgstr "Yorkshire Terrier"
 
 #: breed_220_1
 msgid "Xoloitzcuintle/Mexican Hairless"
-msgstr ""
+msgstr "Mexikanischer Nackthund"
 
 #: breed_221_2
 msgid "Abyssinian"
-msgstr ""
+msgstr "Abessinier"
 
 #: breed_222_2
 msgid "American Curl"
-msgstr ""
+msgstr "American Curl"
 
 #: breed_223_2
 msgid "American Shorthair"
-msgstr ""
+msgstr "Amerikanisch Kurzhaar"
 
 #: breed_224_2
 msgid "American Wirehair"
-msgstr ""
+msgstr "Amerikanisch Drahthaar"
 
 #: breed_225_2
 msgid "Applehead Siamese"
-msgstr ""
+msgstr "Apfelkopf Siam"
 
 #: breed_226_2
 msgid "Balinese"
-msgstr ""
+msgstr "Balinesen"
 
 #: breed_227_2
 msgid "Bengal"
-msgstr ""
+msgstr "Bengalkatze"
 
 #: breed_228_2
 msgid "Birman"
-msgstr ""
+msgstr "Birma"
 
 #: breed_229_2
 msgid "Bobtail"
-msgstr ""
+msgstr "Bobtail"
 
 #: breed_230_2
 msgid "Bombay"
-msgstr ""
+msgstr "Bombaykatze"
 
 #: breed_231_2
 msgid "British Shorthair"
-msgstr ""
+msgstr "Britisch Kurzhaar"
 
 #: breed_232_2
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesen"
 
 #: breed_233_2
 msgid "Burmilla"
-msgstr ""
+msgstr "Burmilla"
 
 #: breed_234_2
 msgid "Calico"
-msgstr ""
+msgstr "Dreifarbige"
 
 #: breed_235_2
 msgid "Canadian Hairless"
-msgstr ""
+msgstr "Kanadische haarlose Katze"
 
 #: breed_236_2
 msgid "Chartreux"
-msgstr ""
+msgstr "Kartäuser"
 
 #: breed_237_2
 #: breed_325_7
 #: breed_379_10
 #: species_10
 msgid "Chinchilla"
-msgstr ""
+msgstr "Chinchilla"
 
 #: breed_238_2
 msgid "Cornish Rex"
-msgstr ""
+msgstr "Cornish Rex"
 
 #: breed_239_2
 msgid "Cymric"
-msgstr ""
+msgstr "Cymric"
 
 #: breed_240_2
 msgid "Devon Rex"
-msgstr ""
+msgstr "Devon Rex"
 
 #: breed_241_2
 msgid "Dilute Calico"
-msgstr ""
+msgstr "Verdünnt dreifarbig"
 
 #: breed_242_2
 msgid "Dilute Tortoiseshell"
-msgstr ""
+msgstr "Verdünnt Schildpatt"
 
 #: breed_243_2
 msgid "Domestic Long Hair"
-msgstr ""
+msgstr "Langhaarige Hauskatze"
 
 #: breed_252_2
 msgid "Domestic Medium Hair"
-msgstr ""
+msgstr "Mittelhaarige Hauskatze"
 
 #: breed_261_2
 msgid "Domestic Short Hair"
-msgstr ""
+msgstr "Kurzhaarige Hauskatze"
 
 #: breed_271_2
 msgid "Egyptian Mau"
-msgstr ""
+msgstr "Ägyptische Mau"
 
 #: breed_272_2
 msgid "Exotic Shorthair"
-msgstr ""
+msgstr "Exotisch Kurzhaar"
 
 #: breed_273_2
 msgid "Extra-Toes Cat (Hemingway Polydactyl)"
-msgstr ""
+msgstr "Vielzehigkeit (Hemingway-Katze)"
 
 #: breed_274_2
 #: breed_337_7
 msgid "Havana"
-msgstr ""
+msgstr "Havanna"
 
 #: breed_275_2
 #: breed_338_7
 msgid "Himalayan"
-msgstr ""
+msgstr "Himalayan"
 
 #: breed_276_2
 msgid "Japanese Bobtail"
-msgstr ""
+msgstr "Japanese Bobtail"
 
 #: breed_277_2
 msgid "Javanese"
-msgstr ""
+msgstr "Javanese"
 
 #: breed_278_2
 msgid "Korat"
-msgstr ""
+msgstr "Korat"
 
 #: breed_279_2
 msgid "Maine Coon"
-msgstr ""
+msgstr "Maine Coon"
 
 #: breed_280_2
 msgid "Manx"
-msgstr ""
+msgstr "Manx"
 
 #: breed_281_2
 msgid "Munchkin"
-msgstr ""
+msgstr "Munchkin"
 
 #: breed_282_2
 msgid "Norwegian Forest Cat"
-msgstr ""
+msgstr "Norwegische Waldkatze"
 
 #: breed_283_2
 msgid "Ocicat"
-msgstr ""
+msgstr "Ocicat"
 
 #: breed_284_2
 msgid "Oriental Long Hair"
-msgstr ""
+msgstr "Orientalisches Langhaar"
 
 #: breed_285_2
 msgid "Oriental Short Hair"
-msgstr ""
+msgstr "Orientalisches Kurzhaar"
 
 #: breed_286_2
 msgid "Oriental Tabby"
-msgstr ""
+msgstr "Orientalisches Tabby"
 
 #: breed_287_2
 msgid "Persian"
-msgstr ""
+msgstr "Perser"
 
 #: breed_288_2
 msgid "Pixie-Bob"
-msgstr ""
+msgstr "Pixie-Bob"
 
 #: breed_289_2
 msgid "Ragamuffin"
-msgstr ""
+msgstr "Ragamuffin"
 
 #: breed_290_2
 msgid "Ragdoll"
-msgstr ""
+msgstr "Ragdoll"
 
 #: breed_291_2
 msgid "Russian Blue"
-msgstr ""
+msgstr "Russisch Blau"
 
 #: breed_292_2
 msgid "Scottish Fold"
-msgstr ""
+msgstr "Scottish Fold"
 
 #: breed_293_2
 msgid "Selkirk Rex"
-msgstr ""
+msgstr "Selkirk Rex"
 
 #: breed_294_2
 msgid "Siamese"
-msgstr ""
+msgstr "Siam"
 
 #: breed_295_2
 msgid "Siberian"
-msgstr ""
+msgstr "Sibirische Katze"
 
 #: breed_296_2
 msgid "Singapura"
-msgstr ""
+msgstr "Singapura"
 
 #: breed_297_2
 msgid "Snowshoe"
-msgstr ""
+msgstr "Snowshoe"
 
 #: breed_298_2
 msgid "Somali"
-msgstr ""
+msgstr "Somali"
 
 #: breed_299_2
 msgid "Sphynx (hairless cat)"
-msgstr ""
+msgstr "Sphinx (haarlose Katze)"
 
 #: breed_307_2
 msgid "Tiger"
-msgstr ""
+msgstr "Tiger"
 
 #: breed_308_2
 msgid "Tonkinese"
-msgstr ""
+msgstr "Tonkanese"
 
 #: breed_309_2
 msgid "Torbie"
-msgstr ""
+msgstr "Torbie"
 
 #: breed_310_2
 msgid "Tortoiseshell"
-msgstr ""
+msgstr "Schildpatt"
 
 #: breed_311_2
 msgid "Turkish Angora"
-msgstr ""
+msgstr "Türkische Angora"
 
 #: breed_312_2
 msgid "Turkish Van"
-msgstr ""
+msgstr "Türkisch Van"
 
 #: breed_313_2
 msgid "Tuxedo"
-msgstr ""
+msgstr "Smoking"
 
 #: breed_314_7
 msgid "American"
-msgstr ""
+msgstr "Amerikanisch"
 
 #: breed_315_7
 msgid "American Fuzzy Lop"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 #: breed_321_7
 msgid "Bunny Rabbit"
-msgstr ""
+msgstr "Karnickel"
 
 #: breed_322_7
 msgid "Californian"
@@ -2460,11 +2460,11 @@ msgstr ""
 
 #: breed_350_7
 msgid "Rex"
-msgstr ""
+msgstr "Rex"
 
 #: breed_351_7
 msgid "Rhinelander"
-msgstr ""
+msgstr "Rhinelander"
 
 #: breed_352_7
 msgid "Satin"
@@ -2472,7 +2472,7 @@ msgstr ""
 
 #: breed_353_7
 msgid "Silver"
-msgstr ""
+msgstr "Silber"
 
 #: breed_354_7
 msgid "Silver Fox"
@@ -2570,22 +2570,22 @@ msgstr ""
 #: breed_380_3
 #: species_9
 msgid "Ferret"
-msgstr ""
+msgstr "Frettchen"
 
 #: breed_381_18
 #: species_18
 msgid "Gerbil"
-msgstr ""
+msgstr "Rennmäuse"
 
 #: breed_382_20
 #: species_20
 msgid "Guinea Pig"
-msgstr ""
+msgstr "Hausmeerschweinchen"
 
 #: breed_383_22
 #: species_22
 msgid "Hamster"
-msgstr ""
+msgstr "Hamster"
 
 #: breed_384_6
 #: species_6
@@ -2595,7 +2595,7 @@ msgstr ""
 #: breed_385_4
 #: species_4
 msgid "Mouse"
-msgstr ""
+msgstr "Mäuse"
 
 #: breed_386_5
 msgid "Prairie Dog"
@@ -2604,7 +2604,7 @@ msgstr ""
 #: breed_387_5
 #: species_5
 msgid "Rat"
-msgstr ""
+msgstr "Ratte"
 
 #: breed_388_5
 msgid "Skunk"
@@ -2624,32 +2624,32 @@ msgstr ""
 
 #: breed_392_13
 msgid "Gecko"
-msgstr ""
+msgstr "Geckos"
 
 #: breed_393_13
 msgid "Iguana"
-msgstr ""
+msgstr "Iguana"
 
 #: breed_394_13
 msgid "Lizard"
-msgstr ""
+msgstr "Echse"
 
 #: breed_395_13
 #: species_11
 msgid "Snake"
-msgstr ""
+msgstr "Schlange"
 
 #: breed_396_13
 msgid "Turtle"
-msgstr ""
+msgstr "Schildkröte"
 
 #: breed_397_21
 msgid "Fish"
-msgstr ""
+msgstr "Fisch"
 
 #: breed_398_3
 msgid "African Grey"
-msgstr ""
+msgstr "Graupapagei"
 
 #: breed_399_3
 msgid "Amazon"
@@ -2661,7 +2661,7 @@ msgstr ""
 
 #: breed_401_3
 msgid "Budgie/Budgerigar"
-msgstr ""
+msgstr "Wellensittich"
 
 #: breed_402_3
 msgid "Caique"
@@ -2669,7 +2669,7 @@ msgstr ""
 
 #: breed_403_3
 msgid "Canary"
-msgstr ""
+msgstr "Kanarienvogel"
 
 #: breed_404_3
 #: species_14
@@ -2704,7 +2704,7 @@ msgstr ""
 
 #: breed_411_3
 msgid "Emu"
-msgstr ""
+msgstr "Emu"
 
 #: breed_412_3
 msgid "Finch"
@@ -2809,16 +2809,16 @@ msgstr ""
 
 #: breed_437_16
 msgid "Cow"
-msgstr ""
+msgstr "Kuh"
 
 #: breed_438_16
 #: species_16
 msgid "Goat"
-msgstr ""
+msgstr "Ziege"
 
 #: breed_439_16
 msgid "Sheep"
-msgstr ""
+msgstr "Schaf"
 
 #: breed_440_16
 #: species_27
@@ -2831,7 +2831,7 @@ msgstr ""
 
 #: configuration_Organisation
 msgid "Organisation"
-msgstr ""
+msgstr "Organisation"
 
 #: configuration_AgeGroup1Name
 msgid "Baby"
@@ -3142,60 +3142,60 @@ msgstr ""
 #: lksex_0
 #: Female
 msgid "Female"
-msgstr ""
+msgstr "Weibchen"
 
 #. # ui/animalname/NamesEdit
 #: lksex_1
 #: Male
 msgid "Male"
-msgstr ""
+msgstr "Männchen"
 
 #: lksize_0
 msgid "Very Large"
-msgstr ""
+msgstr "Sehr groß"
 
 #. # internet/Pets911Publisher
 #: lksize_1
 #: Large
 msgid "Large"
-msgstr ""
+msgstr "Groß"
 
 #. # internet/Pets911Publisher
 #: lksize_2
 #: lkurgency_3
 #: Medium
 msgid "Medium"
-msgstr ""
+msgstr "Mittel"
 
 #. # internet/Pets911Publisher
 #: lksize_3
 #: Small
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 #: lkcoattype_0
 msgid "Short"
-msgstr ""
+msgstr "Kurz"
 
 #: lkcoattype_1
 msgid "Long"
-msgstr ""
+msgstr "Lang"
 
 #: lkcoattype_2
 msgid "Rough"
-msgstr ""
+msgstr "Rau"
 
 #: lkcoattype_3
 msgid "Curly"
-msgstr ""
+msgstr "Kraus"
 
 #: lkcoattype_4
 msgid "Corded"
-msgstr ""
+msgstr "Verschnürt"
 
 #: lkcoattype_5
 msgid "Hairless"
-msgstr ""
+msgstr "Haarlos"
 
 #: lksmovementtype_1
 msgid "Adoption"
@@ -3234,7 +3234,7 @@ msgstr ""
 #: lksloglink_0
 #: Animal
 msgid "Animal"
-msgstr ""
+msgstr "Tier"
 
 #: lksmedialink_1
 #: lksdiarylink_3
@@ -3285,13 +3285,13 @@ msgstr ""
 
 #: lksfieldtype_0
 msgid "Yes/No"
-msgstr ""
+msgstr "Ja/Nein"
 
 #. # reports/DiaryNotesToday
 #: lksfieldtype_1
 #: Text
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #. # ui/animal/DietSelector
 #. # ui/animal/MediaSelector
@@ -3308,7 +3308,7 @@ msgstr ""
 #: lksfieldtype_3
 #: Number
 msgid "Number"
-msgstr ""
+msgstr "Nummer"
 
 #. # bo/AnimalLitter
 #. # bo/Media
@@ -3334,11 +3334,11 @@ msgstr ""
 #: lksfieldtype_4
 #: Date
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: lksfieldtype_5
 msgid "Money"
-msgstr ""
+msgstr "Geld"
 
 #: lksfieldtype_6
 msgid "Lookup"
@@ -3380,11 +3380,11 @@ msgstr ""
 
 #: species_3
 msgid "Bird"
-msgstr ""
+msgstr "Vogel"
 
 #: species_7
 msgid "Rabbit"
-msgstr ""
+msgstr "Kaninchen"
 
 #: species_12
 msgid "Tortoise"
@@ -3408,7 +3408,7 @@ msgstr ""
 
 #: species_24
 msgid "Horse"
-msgstr ""
+msgstr "Pferd"
 
 #: species_26
 msgid "Donkey"
@@ -3416,7 +3416,7 @@ msgstr ""
 
 #: species_28
 msgid "Pig"
-msgstr ""
+msgstr "Schwein"
 
 #: voucher_1
 msgid "Neuter/Spay"
@@ -11864,8 +11864,8 @@ msgid "Surname:"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
-msgid "Check this box if this owner is a volunteer or dog walker"
+#: Check_this_box_if_this_owner_is_a_volunteer
+msgid "Check this box if this owner is a volunteer"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
@@ -11894,8 +11894,8 @@ msgid "An error occurred reading owner information: "
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#: Volunteer/Dog_Walker
-msgid "Volunteer/Dog Walker"
+#: Volunteer
+msgid "Volunteer"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
@@ -13185,7 +13185,6 @@ msgid "Media Files"
 msgstr ""
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: LEFT
 msgid "LEFT"
 msgstr ""
@@ -13201,7 +13200,6 @@ msgid "Select how you would like ASM to align field labels."
 msgstr ""
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: RIGHT
 msgid "RIGHT"
 msgstr ""
@@ -13212,7 +13210,6 @@ msgid "Align Tabs:"
 msgstr ""
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: TOP
 msgid "TOP"
 msgstr ""

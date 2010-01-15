@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-04 13:26+0100\n"
-"PO-Revision-Date: 2010-01-09 17:25+0000\n"
+"POT-Creation-Date: 2010-01-11 13:34+0100\n"
+"PO-Revision-Date: 2010-01-12 18:27+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-10 07:21+0000\n"
+"X-Launchpad-Export-Date: 2010-01-13 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -1102,15 +1102,15 @@ msgstr "Trispalvė"
 
 #: basecolour_20
 msgid "Liver"
-msgstr "Bordinė"
+msgstr "Rausvai ruda"
 
 #: basecolour_21
 msgid "Liver and White"
-msgstr "Bordinė su balta"
+msgstr "Rausvai ruda su balta"
 
 #: basecolour_22
 msgid "White and Liver"
-msgstr "Balta su bordine"
+msgstr "Balta su rausvai ruda"
 
 #: basecolour_23
 msgid "Cream"
@@ -2046,7 +2046,7 @@ msgstr "Prancūzų šiurkščiaplaukis grifonas"
 
 #: breed_217_1
 msgid "Wirehaired Terrier"
-msgstr "Šiurkščiaplaukis terjeras"
+msgstr "Šiurkščiaplaukis foksterjeras"
 
 #: breed_218_1
 msgid "Yellow Labrador Retriever"
@@ -2946,7 +2946,7 @@ msgstr "Atidavimų apimtis pagal tarpininkus"
 #: customreport_51_category
 #: Retailers
 msgid "Retailers"
-msgstr "Tarpininkai"
+msgstr "Tarpininkus"
 
 #: customreport_50_015
 msgid "Average Time At Retailer Before Adoption"
@@ -11945,9 +11945,9 @@ msgid "Surname:"
 msgstr "Pavardė:"
 
 #. # ui/owner/OwnerEdit
-#: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
-msgid "Check this box if this owner is a volunteer or dog walker"
-msgstr "Pažymėkite šį laukelį, jei asmuo yra savanoris - šunų išvedziotojas"
+#: Check_this_box_if_this_owner_is_a_volunteer
+msgid "Check this box if this owner is a volunteer"
+msgstr ""
 
 #. # ui/owner/OwnerEdit
 #: Generate_a_document_for_this_owner
@@ -11978,9 +11978,9 @@ msgid "An error occurred reading owner information: "
 msgstr "Įvyko klaida nuskaitant informaciją apie savininką: "
 
 #. # ui/owner/OwnerEdit
-#: Volunteer/Dog_Walker
-msgid "Volunteer/Dog Walker"
-msgstr "Savanoris/Vedžioja šunis"
+#: Volunteer
+msgid "Volunteer"
+msgstr ""
 
 #. # ui/owner/OwnerEdit
 #: Suspect_Owner
@@ -12159,22 +12159,22 @@ msgstr "Būsimų gyvūnų laikymo sąlygų naujuose namuose tikrintojai"
 #. # ui/owner/OwnerFind
 #: Volunteers
 msgid "Volunteers"
-msgstr "Savanoriai"
+msgstr "Savanorius"
 
 #. # ui/owner/OwnerFind
 #: Shelters
 msgid "Shelters"
-msgstr "Prieglaudos"
+msgstr "Kitų prieglaudų atstovus"
 
 #. # ui/owner/OwnerFind
 #: Animal_Care_Officers
 msgid "Animal Care Officers"
-msgstr "Gyvūnų apsaugos specialistai"
+msgstr "Gyvūnų apsaugos specialistus"
 
 #. # ui/owner/OwnerFind
 #: Staff
 msgid "Staff"
-msgstr "Personalas"
+msgstr "Personalą"
 
 #. # ui/owner/OwnerEdit
 #: Fosters_Animals
@@ -12189,7 +12189,7 @@ msgstr "Pažymėkite šį laukelį, jei asmuo gali laikinai globoti gyvūnus"
 #. # ui/owner/OwnerFind
 #: Fosterers
 msgid "Fosterers"
-msgstr "Laikini globėjai"
+msgstr "Laikinus globėjus"
 
 #. # ui/owner/OwnerEdit
 #: town
@@ -12705,7 +12705,7 @@ msgstr "Parodyti gyvenamąją vietą žemėlapyje"
 #. # ui/owner/OwnerFind
 #: Potential_Adopters
 msgid "Potential Adopters"
-msgstr ""
+msgstr "Potencialūs šeimininkai"
 
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
@@ -13287,7 +13287,6 @@ msgid "Media Files"
 msgstr "Failai"
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: LEFT
 msgid "LEFT"
 msgstr "KAIRĖJE"
@@ -13303,7 +13302,6 @@ msgid "Select how you would like ASM to align field labels."
 msgstr "Pasirinkite, kaip norėtumėte, kad ASM išdėstytų laukų žymes."
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: RIGHT
 msgid "RIGHT"
 msgstr "DEŠINĖJE"
@@ -13314,7 +13312,6 @@ msgid "Align Tabs:"
 msgstr "Kortelių išdėstymas:"
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: TOP
 msgid "TOP"
 msgstr "VIRŠUJE"
@@ -15178,6 +15175,9 @@ msgstr "(apytikslis)"
 #~ msgid "Home Checker"
 #~ msgstr "Tikrina būsimas gyvūnų laikymo sąlygas"
 
+#~ msgid "Check this box if this owner is a volunteer or dog walker"
+#~ msgstr "Pažymėkite šį laukelį, jei asmuo yra savanoris - šunų išvedziotojas"
+
 #~ msgid ""
 #~ "WARNING: This owner has the same name as a person that brought an animal in "
 #~ "\n"
@@ -15186,6 +15186,9 @@ msgstr "(apytikslis)"
 #~ "ĮSPĖJIMAS: Šio asmens vardas ir pavardė tokie patys, kaip asmens, pridavusio "
 #~ "gyvūną į prieglaudą \n"
 #~ "(Animal "
+
+#~ msgid "Volunteer/Dog Walker"
+#~ msgstr "Savanoris/Vedžioja šunis"
 
 #~ msgid "Last Homecheck Date:"
 #~ msgstr "Paskutinio tikrinimo data:"

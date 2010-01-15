@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-04 13:26+0100\n"
-"PO-Revision-Date: 2010-01-08 15:31+0000\n"
+"POT-Creation-Date: 2010-01-11 13:34+0100\n"
+"PO-Revision-Date: 2010-01-12 19:03+0000\n"
 "Last-Translator: Hector Louzao <os390l@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-09 07:54+0000\n"
+"X-Launchpad-Export-Date: 2010-01-13 04:55+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -12048,10 +12048,9 @@ msgid "Surname:"
 msgstr "Apellidos:"
 
 #. # ui/owner/OwnerEdit
-#: Check_this_box_if_this_owner_is_a_volunteer_or_dog_walker
-msgid "Check this box if this owner is a volunteer or dog walker"
-msgstr ""
-"Marque esta casilla si el contacto es un voluntario o un paseante de perros"
+#: Check_this_box_if_this_owner_is_a_volunteer
+msgid "Check this box if this owner is a volunteer"
+msgstr "Marque esta casilla si el propietario de este es un voluntario"
 
 #. # ui/owner/OwnerEdit
 #: Generate_a_document_for_this_owner
@@ -12080,9 +12079,9 @@ msgid "An error occurred reading owner information: "
 msgstr "Se ha producido un error al leer la información del contacto: "
 
 #. # ui/owner/OwnerEdit
-#: Volunteer/Dog_Walker
-msgid "Volunteer/Dog Walker"
-msgstr "Voluntario/Paseante de perros"
+#: Volunteer
+msgid "Volunteer"
+msgstr "Voluntario"
 
 #. # ui/owner/OwnerEdit
 #: Suspect_Owner
@@ -13418,7 +13417,6 @@ msgid "Media Files"
 msgstr "Archivos multimedia"
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: LEFT
 msgid "LEFT"
 msgstr "IZQUIERDA"
@@ -13434,7 +13432,6 @@ msgid "Select how you would like ASM to align field labels."
 msgstr "Seleccione cómo desea que ASM alinee las etiquetas de los campos."
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: RIGHT
 msgid "RIGHT"
 msgstr "DERECHA"
@@ -13445,7 +13442,6 @@ msgid "Align Tabs:"
 msgstr "Alinear tabulaciones:"
 
 #. # ui/system/ConfigureLocal
-#. # startup/Startup
 #: TOP
 msgid "TOP"
 msgstr "ARRIBA"
@@ -15642,6 +15638,10 @@ msgstr "(estimado)"
 #~ "Si este contacto es un visitador, las zonas (nombres/códigos postales) de "
 #~ "las que están dispuestos a encargarse"
 
+#~ msgid "Check this box if this owner is a volunteer or dog walker"
+#~ msgstr ""
+#~ "Marque esta casilla si el contacto es un voluntario o un paseante de perros"
+
 #~ msgid ""
 #~ "WARNING: This owner has the same name as a person that brought an animal in "
 #~ "\n"
@@ -15650,6 +15650,9 @@ msgstr "(estimado)"
 #~ "ADVERTENCIA: Este contacto tiene el mismo nombre que una persona que "
 #~ "adquirió un animal en\n"
 #~ "(Animal "
+
+#~ msgid "Volunteer/Dog Walker"
+#~ msgstr "Voluntario/Paseante de perros"
 
 #~ msgid "Last Homecheck Date:"
 #~ msgstr "Última fecha de comprobación:"
