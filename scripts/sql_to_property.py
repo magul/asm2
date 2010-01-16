@@ -33,6 +33,9 @@ if code == "sv": code = "_sv_SE"
 # Estonian hack
 if code == "et": code = "_et_EE"
 
+# Hebrew hack
+if code == "he": code = "_he_IL"
+
 # No lang for English as it's the template
 if code == "en": code = ""
 
