@@ -1,6 +1,11 @@
 2.6.4
 ================
 
+*. Donation screen can now dynamically choose linking based on where
+-  it appears, so owner tabs get an animal choice and vice versa
+*. Added donation tab to animal screen for shelters that have
+-  sponsor an animal schemes (REQUIRES DB UPDATE)
+*. Removed pointless "error occurred validating object" messages
 *. Preliminary support for Hebrew/Israel
 *. Fixed bug that caused enabling of return category to reset to top
 -  of list

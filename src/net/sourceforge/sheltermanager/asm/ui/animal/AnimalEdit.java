@@ -43,6 +43,7 @@ import net.sourceforge.sheltermanager.asm.ui.diary.DiaryTaskExecute;
 import net.sourceforge.sheltermanager.asm.ui.log.LogSelector;
 import net.sourceforge.sheltermanager.asm.ui.medical.MedicalSelector;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementSelector;
+import net.sourceforge.sheltermanager.asm.ui.owner.DonationSelector;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLinkListener;
@@ -88,11 +89,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private final static int TAB_VACCINATION = 4;
     private final static int TAB_MEDICAL = 5;
     private final static int TAB_DIET = 6;
-    private final static int TAB_MEDIA = 7;
-    private final static int TAB_DIARY = 8;
-    private final static int TAB_MOVEMENT = 9;
-    private final static int TAB_LOG = 10;
-    private final static int TAB_ADDITIONAL = 11;
+    private final static int TAB_DONATIONS = 7;
+    private final static int TAB_MEDIA = 8;
+    private final static int TAB_DIARY = 9;
+    private final static int TAB_MOVEMENT = 10;
+    private final static int TAB_LOG = 11;
+    private final static int TAB_ADDITIONAL = 12;
 
     /** The form-level animal object */
     private Animal animal = null;
@@ -102,6 +104,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private DiarySelector animaldiary = null;
     private DietSelector animaldiets = null;
     private MedicalSelector medicals = null;
+    private DonationSelector donations = null;
     private LogSelector log = null;
     private AdditionalFieldView additional = null;
 
@@ -209,6 +212,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private long lastTypeCheck = 0;
     boolean loadedDiary = false;
     boolean loadedDiets = false;
+    boolean loadedDonations = false;
     boolean loadedEntry = false;
     boolean loadedLogs = false;
     boolean loadedMedia = false;
@@ -421,6 +425,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         if (!Global.currentUserObject.getSecViewAnimalDiet()) {
             tabTabs.setEnabledAt(TAB_DIET, false);
+        }
+
+        if (!Global.currentUserObject.getSecViewOwnerDonation()) {
+            tabTabs.setEnabledAt(TAB_DONATIONS, false);
         }
 
         if (!Global.currentUserObject.getSecViewAnimalMedia()) {
@@ -981,6 +989,15 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_DIET));
             }
 
+            // Donations
+            donations.setLink(animal.getID().intValue(), 0, 0);
+
+            if (ext.donations > 0) {
+                tabTabs.setIconAt(TAB_DONATIONS,
+                    IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_DONATIONS));
+            }
+
+
             // Media
             animalmedia.setLink(Media.LINKTYPE_ANIMAL, animal.getID().intValue());
 
@@ -1057,6 +1074,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         tabTabs.setEnabledAt(TAB_VACCINATION, b);
         tabTabs.setEnabledAt(TAB_MEDICAL, b);
         tabTabs.setEnabledAt(TAB_DIET, b);
+        tabTabs.setEnabledAt(TAB_DONATIONS, b);
         tabTabs.setEnabledAt(TAB_MEDIA, b);
         tabTabs.setEnabledAt(TAB_DIARY, b);
         tabTabs.setEnabledAt(TAB_MOVEMENT, b);
@@ -2445,6 +2463,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Tabs =========================================================
         medicals = new MedicalSelector();
         animaldiets = new DietSelector();
+        donations = new DonationSelector(null);
         animalmedia = new MediaSelector();
         animaldiary = new DiarySelector();
         animalmovement = new MovementSelector(this);
@@ -2474,6 +2493,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         tabTabs.addTab(Global.i18n("uianimal", "diet"), null, animaldiets,
             Global.i18n("uianimal", "diet_information"));
+
+        tabTabs.addTab(i18n("Donations"), donations);
 
         tabTabs.addTab(Global.i18n("uianimal", "media"), null, animalmedia,
             Global.i18n("uianimal", "media_for_this_animal"));
@@ -2714,6 +2735,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         medicals.updateList();
         loadedDiets = true;
         animaldiets.updateList();
+        loadedDonations = true;
+        donations.updateList();
         loadedMedia = true;
         animalmedia.updateList();
         loadedDiary = true;
@@ -2789,6 +2812,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }
 
             break;
+
+        case TAB_DONATIONS:
+
+            if (!loadedDonations) {
+                loadedDonations = true;
+                donations.updateList();
+            }
+
+            break;
+
 
         case TAB_MEDIA:
 

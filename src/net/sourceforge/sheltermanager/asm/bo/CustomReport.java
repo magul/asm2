@@ -160,9 +160,7 @@ public class CustomReport extends UserInfoBO {
                 setHTMLBody("");
             }
         } catch (CursorEngineException e) {
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_while_validating_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 }

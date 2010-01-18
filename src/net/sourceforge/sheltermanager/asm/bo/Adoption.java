@@ -840,9 +840,7 @@ public class Adoption extends UserInfoBO {
             na = null;
         } catch (Exception e) {
             Global.logException(e, this.getClass());
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_while_validating_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 

@@ -519,7 +519,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
         // Donations
         try {
-            donations.setLink(ownerID, movement.getID().intValue());
+            donations.setLink(animalID, ownerID, movement.getID().intValue());
             donations.updateList();
 
             // Flag the tab if there is content
@@ -1115,7 +1115,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 }
 
                 // Update the donation link on screen
-                donations.setLink(ownerID, movement.getID().intValue());
+                donations.setLink(animalID, ownerID, movement.getID().intValue());
 
                 // If the options are switched on, check to see if the owner
                 // is banned or not homechecked:

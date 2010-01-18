@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.owner;
 
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -41,6 +42,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class DonationSelector extends ASMSelector {
+    private boolean hasDonations = false;
+    private int animalID = 0;
     private int ownerID = 0;
     private int movementID = 0;
     private UI.Button btnDelete;
@@ -49,20 +52,17 @@ public class DonationSelector extends ASMSelector {
     private UI.Button btnEdit;
     private UI.Button btnDoc;
 
-    /** A link to the parent owner form (if there is one)
+    /** A link to the parent form (if there is one)
      *  so we can update media lists when necessary)
      */
-    private OwnerEdit uiparent;
+    private OwnerEdit ownerparent = null;
 
     public DonationSelector(OwnerEdit uiparent) {
-        this.uiparent = uiparent;
+        this.ownerparent = uiparent;
         init("uiowner", false);
     }
 
     public void setSecurity() {
-        // If we don't have an owner ID, grey out the new buttons
-        btnNew.setEnabled(ownerID != 0);
-        btnNewInstalment.setEnabled(ownerID != 0);
 
         if (!Global.currentUserObject.getSecDeleteOwnerDonation()) {
             btnDelete.setEnabled(false);
@@ -87,6 +87,13 @@ public class DonationSelector extends ASMSelector {
     }
 
     public void setLink(int ownerID, int movementID) {
+        this.animalID = 0;
+        this.ownerID = ownerID;
+        this.movementID = movementID;
+    }
+
+    public void setLink(int animalID, int ownerID, int movementID) {
+        this.animalID = animalID;
         this.ownerID = ownerID;
         this.movementID = movementID;
     }
@@ -108,7 +115,10 @@ public class DonationSelector extends ASMSelector {
         // Get the data
         if (movementID != 0) {
             od.openRecordset("MovementID = " + movementID + " ORDER BY Date");
-        } else {
+        } else if (animalID != 0) {
+            od.openRecordset("AnimalID = " + animalID + " ORDER BY Date");
+        }
+        else {
             od.openRecordset("OwnerID = " + ownerID + " ORDER BY Date");
         }
 
@@ -127,6 +137,7 @@ public class DonationSelector extends ASMSelector {
 
         try {
             while (!od.getEOF()) {
+                hasDonations = true;
                 datar[i][0] = Utils.nullToEmptyString(Utils.formatTableDate(
                             od.getDateDue()));
                 datar[i][1] = Utils.nullToEmptyString(Utils.formatTableDate(
@@ -135,27 +146,48 @@ public class DonationSelector extends ASMSelector {
                 datar[i][3] = Utils.formatCurrency(od.getDonation().doubleValue());
                 datar[i][4] = od.getDonationTypeName();
 
-                // Build the comment string - if it's an adoption donation, add
-                // a bit
-                // in the front showing the animal name/code
-                String c = "";
+                // Build the comment string
+                String c = od.getComments();
 
-                if (od.getMovementID().intValue() != 0) {
+                if (animalID != 0) {
+                    // We're on the animal details screen, show owner info
                     SQLRecordset rs = new SQLRecordset();
-                    rs.openRecordset(
-                        "SELECT AnimalName, ShelterCode FROM animal " +
-                        "INNER JOIN adoption ON adoption.AnimalID = animal.ID " +
-                        "INNER JOIN ownerdonation ON ownerdonation.MovementID = adoption.ID " +
-                        "WHERE ownerdonation.MovementID = " +
-                        od.getMovementID(), "animal");
-
+                    rs.openRecordset("SELECT OwnerName FROM owner WHERE ID = " + od.getOwnerID(), "owner");
                     if (!rs.getEOF()) {
-                        c = "[" + rs.getField("AnimalName") + " - " +
-                            rs.getField("ShelterCode") + "] " +
-                            od.getComments();
+                        c = "[" + rs.getField("OwnerName") + "]" + od.getComments();
                     }
-                } else {
-                    c = od.getComments();
+               }
+               else {
+                    // We're on an owner or movement tab - show the animal info if we have some
+                    if (od.getMovementID().intValue() != 0) {
+                        SQLRecordset rs = new SQLRecordset();
+                        rs.openRecordset(
+                            "SELECT AnimalName, ShelterCode FROM animal " +
+                            "INNER JOIN adoption ON adoption.AnimalID = animal.ID " +
+                            "INNER JOIN ownerdonation ON ownerdonation.MovementID = adoption.ID " +
+                            "WHERE ownerdonation.MovementID = " +
+                            od.getMovementID(), "animal");
+
+                        if (!rs.getEOF()) {
+                            c = "[" + rs.getField("AnimalName") + " - " +
+                                rs.getField("ShelterCode") + "] " +
+                                od.getComments();
+                        }
+                    } else if (od.getAnimalID().intValue() != 0) {
+                        // Show the animal name/code for animal sponsorship too
+                        SQLRecordset rs = new SQLRecordset();
+                        rs.openRecordset(
+                            "SELECT AnimalName, ShelterCode FROM animal " +
+                            "WHERE ID = " +
+                            od.getAnimalID(), "animal");
+
+                        if (!rs.getEOF()) {
+                            c = "[" + rs.getField("AnimalName") + " - " +
+                                rs.getField("ShelterCode") + "] " +
+                                od.getComments();
+                        }
+
+                    } 
                 }
 
                 datar[i][5] = c;
@@ -177,7 +209,7 @@ public class DonationSelector extends ASMSelector {
     }
 
     public boolean hasData() {
-        return getTable().getRowCount() > 0;
+        return hasDonations;
     }
 
     public void addToolButtons() {
@@ -219,7 +251,7 @@ public class DonationSelector extends ASMSelector {
     }
 
     public void actionNewInstalment() {
-        Global.mainForm.addChild(new DonationInstalmentEdit(this, ownerID,
+        Global.mainForm.addChild(new DonationInstalmentEdit(this, animalID, ownerID,
                 movementID));
     }
 
@@ -251,7 +283,7 @@ public class DonationSelector extends ASMSelector {
         }
 
         try {
-            DonationEdit eod = new DonationEdit(this, ownerID, movementID);
+            DonationEdit eod = new DonationEdit(this, animalID, ownerID, movementID);
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
             eod.openForEdit(od);
@@ -263,7 +295,7 @@ public class DonationSelector extends ASMSelector {
 
     public void actionNew() {
         try {
-            DonationEdit eod = new DonationEdit(this, ownerID, movementID);
+            DonationEdit eod = new DonationEdit(this, animalID, ownerID, movementID);
             eod.openForNew();
             Global.mainForm.addChild(eod);
         } catch (Exception e) {
@@ -282,8 +314,9 @@ public class DonationSelector extends ASMSelector {
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
 
+            
             OwnerDonationDocument ownerdonationdoc = new OwnerDonationDocument(od,
-                    uiparent.media);
+                    (ownerparent != null ? ownerparent.media : null));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

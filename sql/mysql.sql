@@ -878,7 +878,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2621');
+INSERT INTO configuration VALUES ('DatabaseVersion','2641');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1477,6 +1477,7 @@ CREATE TABLE owner (
 
 CREATE TABLE ownerdonation (
   ID int(11) NOT NULL ,
+  AnimalID int(11) NOT NULL ,
   OwnerID int(11) NOT NULL ,
   MovementID int(11) NOT NULL ,
   DonationTypeID int(11) NOT NULL ,

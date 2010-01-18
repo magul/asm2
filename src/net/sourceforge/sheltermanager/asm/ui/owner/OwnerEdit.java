@@ -629,7 +629,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     owner.getLastChangedBy());
 
             // Donations
-            ownerdonations.setLink(owner.getID().intValue(), 0);
+            ownerdonations.setLink(0, owner.getID().intValue(), 0);
             ownerdonations.updateList();
 
             // Flag the tab if there is content

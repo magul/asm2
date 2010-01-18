@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-11 13:34+0100\n"
+"POT-Creation-Date: 2010-01-18 14:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -278,18 +278,6 @@ msgstr ""
 #. # bo/Adoption
 #: You_must_select_an_owner_for_this_type_of_movement.
 msgid "You must select an owner for this type of movement."
-msgstr ""
-
-#. # bo/OwnerVoucher
-#. # bo/AnimalLitter
-#. # bo/Animal
-#. # bo/OwnerDonation
-#. # bo/AnimalLost
-#. # bo/CustomReport
-#. # bo/AnimalFound
-#. # bo/Adoption
-#: An_error_occurred_while_validating_the_object\:_
-msgid "An error occurred while validating the object: "
 msgstr ""
 
 #. # bo/Adoption
@@ -710,6 +698,11 @@ msgstr ""
 #. # bo/Animal
 #: You_must_select_two_different_breeds_for_a_crossbreed_animal.
 msgid "You must select two different breeds for a crossbreed animal."
+msgstr ""
+
+#. # bo/OwnerDonation
+#: donation_must_have_an_owner
+msgid "Donations must be linked to an owner."
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -3194,6 +3187,7 @@ msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
+#. # ui/owner/DonationEdit
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
 #: lksmedialink_0
@@ -3218,6 +3212,7 @@ msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
+#. # ui/owner/DonationEdit
 #. # ui/owner/OwnerEdit
 #. # ui/main/Main
 #. # ui/movement/MovementView
@@ -4993,6 +4988,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #. # ui/customreport/CustomReportExport
 #. # ui/customreport/CustomReportEdit
+#. # ui/owner/DonationEdit
 #. # ui/owner/DonationSelector
 #. # ui/owner/OwnerEdit
 #. # ui/lookups/LookupView
@@ -5056,6 +5052,7 @@ msgstr ""
 #. # bo/AnimalName
 #. # bo/Animal
 #. # wordprocessor/AnimalDocument
+#. # ui/owner/DonationEdit
 #. # ui/owner/DonationSelector
 #. # ui/owner/OwnerEdit
 #. # ui/movement/MovementView
@@ -6681,6 +6678,8 @@ msgstr ""
 msgid "Select a mother from the shelter animals"
 msgstr ""
 
+#. # ui/owner/DonationEdit
+#. # ui/owner/DonationInstalmentEdit
 #. # ui/movement/MovementEdit
 #. # ui/animal/LitterEdit
 #: Unable_to_open_find_animal_screen\:_
@@ -8390,6 +8389,14 @@ msgstr ""
 #. # ui/animal/VaccinationView
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#. # ui/users/UserEdit
+#. # ui/movement/MovementEdit
+#. # ui/animal/AnimalEdit
+#: Donations
+msgid "Donations"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -10289,6 +10296,7 @@ msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
+#. # ui/owner/DonationEdit
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
 #: Animal
@@ -10302,6 +10310,7 @@ msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
+#. # ui/owner/DonationEdit
 #. # ui/owner/OwnerEdit
 #. # ui/main/Main
 #. # ui/movement/MovementView
@@ -11303,6 +11312,8 @@ msgstr ""
 msgid "WARNING: This owner has not passed a home check."
 msgstr ""
 
+#. # ui/owner/DonationEdit
+#. # ui/owner/DonationInstalmentEdit
 #. # ui/movement/MovementEdit
 #: Select_an_animal
 msgid "Select an animal"
@@ -11357,6 +11368,7 @@ msgstr ""
 msgid "Click here if you have automatic insurance numbers to generate one"
 msgstr ""
 
+#. # ui/owner/DonationInstalmentEdit
 #. # ui/movement/MovementEdit
 #: Owner\:
 msgid "Owner:"
@@ -11471,6 +11483,7 @@ msgstr ""
 msgid "Donation:"
 msgstr ""
 
+#. # ui/owner/DonationInstalmentEdit
 #. # ui/movement/MovementEdit
 #: Animal\:
 msgid "Animal:"
@@ -11665,13 +11678,6 @@ msgstr ""
 #. # ui/movement/MovementSelector
 #: Phone
 msgid "Phone"
-msgstr ""
-
-#. # ui/owner/OwnerEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
-#: Donations
-msgid "Donations"
 msgstr ""
 
 #. # ui/movement/MovementEdit
@@ -11922,7 +11928,6 @@ msgstr ""
 msgid "Unable to create new owner donation:"
 msgstr ""
 
-#. # ui/owner/DonationEdit
 #. # ui/owner/DonationInstalmentEdit
 #: an_error_occurred_saving_data
 msgid "An error occurred saving the data:"
@@ -14283,6 +14288,7 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #. # ui/users/UserEdit
 #. # ui/movement/MovementEdit
+#. # ui/animal/AnimalEdit
 #: Donations
 msgid "Donations:"
 msgstr ""

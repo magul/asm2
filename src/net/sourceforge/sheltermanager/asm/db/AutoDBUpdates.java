@@ -53,7 +53,7 @@ public class AutoDBUpdates {
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2621;
+    public final static int LATEST_DB_VERSION = 2641;
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -624,6 +624,16 @@ public class AutoDBUpdates {
             }
 
             // 2.621
+            if (dbVer.equals("2621")) {
+                Global.logInfo("Updating database to 2.641 please wait...",
+                    "AutoDBUpdates");
+                checkUpdateAllowed();
+                update2641();
+                dbVer = Configuration.getString("DatabaseVersion");
+            }
+
+            // 2.641
+
 
             // All successful
             finish();
@@ -4034,6 +4044,31 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    private void update2641() {
+        try {
+            try {
+                // Add the AnimalID field to ownerdonation
+                DBConnection.executeAction(
+                    "ALTER TABLE ownerdonation ADD AnimalID INTEGER NULL");
+                DBConnection.executeAction("UPDATE ownerdonation SET AnimalID = 0");
+
+                // Find all adoption records with donations and update the donations
+                // to link to the animal as well
+                DBConnection.executeAction("UPDATE ownerdonation SET AnimalID = (SELECT adoption.AnimalID FROM adoption WHERE ID = ownerdonation.MovementID) WHERE MovementID > 0");
+
+            } catch (Exception e) {
+                errors.add("ownerdonation: ADD AnimalID");
+            }
+
+            Configuration.setEntry("DatabaseVersion", "2641");
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+    }
+
 }
 
 

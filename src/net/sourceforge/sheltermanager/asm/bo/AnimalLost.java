@@ -232,9 +232,7 @@ public class AnimalLost extends UserInfoBO {
                         "You_must_enter_the_area_the_animal_went_missing_from."));
             }
         } catch (CursorEngineException e) {
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_while_validating_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 

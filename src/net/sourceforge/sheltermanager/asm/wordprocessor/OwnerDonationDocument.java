@@ -174,6 +174,12 @@ public class OwnerDonationDocument extends GenerateDocument {
      * Attach the document to the owner as media.
      */
     public void attachMedia() {
+
+        if (uiparent == null) {
+            Global.logError("Attach media selected, but not MediaSelector object passed.", "OwnerDonationDocument.attachMedia");
+            return;
+        }
+
         // They do - lets add the file
         // Get the file extension from the name given
         String fileextension = localfile;

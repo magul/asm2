@@ -844,7 +844,7 @@ CREATE MEMORY TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2621');
+INSERT INTO configuration VALUES ('DatabaseVersion','2641');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1402,6 +1402,7 @@ CREATE INDEX owner_OwnerName ON owner (OwnerName);
 
 CREATE MEMORY TABLE ownerdonation (
   ID INTEGER NOT NULL PRIMARY KEY,
+  AnimalID INTEGER NOT NULL,
   OwnerID INTEGER NOT NULL,
   MovementID INTEGER NOT NULL,
   DonationTypeID INTEGER NOT NULL,

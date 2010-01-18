@@ -271,9 +271,7 @@ public class AnimalLitter extends NormalBO {
                         "You_must_enter_the_number_of_animals_in_the_litter."));
             }
         } catch (CursorEngineException e) {
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_while_validating_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 

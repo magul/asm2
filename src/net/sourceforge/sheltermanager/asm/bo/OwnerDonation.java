@@ -50,6 +50,14 @@ public class OwnerDonation extends UserInfoBO {
         rs.setField("OwnerID", newValue);
     }
 
+    public Integer getAnimalID() throws CursorEngineException {
+        return (Integer) rs.getField("AnimalID");
+    }
+
+    public void setAnimalID(Integer newValue) throws CursorEngineException {
+        rs.setField("AnimalID", newValue);
+    }
+
     public Integer getMovementID() throws CursorEngineException {
         return (Integer) rs.getField("MovementID");
     }
@@ -157,11 +165,15 @@ public class OwnerDonation extends UserInfoBO {
                 throw new BOValidationException(Global.i18n("bo",
                         "ownerdonation_must_have_at_least_one_date"));
             }
+
+            if (getOwnerID() == null || getOwnerID().intValue() == 0) {
+                throw new BOValidationException(Global.i18n("bo",
+                        "donation_must_have_an_owner"));
+            }
+
         } catch (Exception e) {
             Global.logException(e, this.getClass());
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_while_validating_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 }

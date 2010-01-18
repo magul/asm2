@@ -185,6 +185,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITANIMAL_DEATH = DEATH;
     public final static String SCREEN_EDITANIMAL_MEDICAL = MEDICAL;
     public final static String SCREEN_EDITANIMAL_DIET = DIET;
+    public final static String SCREEN_EDITANIMAL_DONATIONS = DONATIONS;
     public final static String SCREEN_EDITANIMAL_MEDIA = MEDIA;
     public final static String SCREEN_EDITANIMAL_DIARY = DIARY;
     public final static String SCREEN_EDITANIMAL_MOVEMENT = OWNERLINK;
