@@ -826,7 +826,7 @@ public class PetFinderPublisher extends Thread {
         try {
             File file = new File(filepath);
             FileOutputStream out = new FileOutputStream(file);
-            out.write(content.getBytes());
+            out.write(content.getBytes(Global.CHAR_ENCODING));
             out.flush();
             out.close();
         } catch (IOException e) {

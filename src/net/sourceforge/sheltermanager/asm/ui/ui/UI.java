@@ -1473,7 +1473,7 @@ public final class UI {
      *  width/height of choosing, retaining aspect ratio, but
      *  never going over the largest dimension.
      */
-    public static Image scaleImage(Image inImage, int width, int height) {
+    public static Image scaleImageOld(Image inImage, int width, int height) {
         int w = inImage.getWidth(null);
         int h = inImage.getHeight(null);
 
@@ -1498,6 +1498,52 @@ public final class UI {
 
         return out;
     }
+
+    /** New image scaling - uses multi step bilinear technique to obtain
+      * much smoother downscaled images 
+      * http://today.java.net/pub/a/today/2007/04/03/perils-of-image-getscaledinstance.html
+      */
+    public static Image scaleImage(Image inImage, int width, int height) {
+
+        int w = inImage.getWidth(null);
+        int h = inImage.getHeight(null);
+        int wo = w;
+        int ho = h;
+
+        if (w < h) {
+            double aspectRatio = ((double) w) / ((double) h);
+            width = (int) ((double) height * (double) aspectRatio);
+        } else {
+            double aspectRatio = ((double) h) / ((double) w);
+            height = (int) ((double) width * (double) aspectRatio);
+        }
+
+        BufferedImage ret = toBufferedImage(inImage);
+
+        do {
+            if (w > width) {
+                w /= 2;
+                if (w < width) w = width;
+            }
+            if (h > height) {
+                h /= 2;
+                if (h < height) h = height;
+            }
+
+            BufferedImage tmp = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2 = tmp.createGraphics();
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.drawImage(ret, 0, 0, w, h, null);
+            g2.dispose();
+            ret = tmp;
+        } while ( w != width || h != height);
+
+        Global.logDebug("Original: " + wo + "x" + ho + ", New: " +
+            ret.getWidth(null) + "x" + ret.getHeight(null), "UI.scaleImage");
+
+        return ret;
+    }
+
 
     public static void scaleImage(String inputfile, String outputfile,
         int width, int height) {

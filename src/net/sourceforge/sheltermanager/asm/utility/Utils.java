@@ -1459,7 +1459,7 @@ public abstract class Utils {
         bis.read(bytes);
         bis.close();
 
-        return new String(bytes, "UTF8");
+        return new String(bytes, Global.CHAR_ENCODING);
     }
 
     /**

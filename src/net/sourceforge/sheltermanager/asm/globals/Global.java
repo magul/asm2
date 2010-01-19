@@ -140,6 +140,8 @@ public abstract class Global {
     /** Video capture url/command */
     public static String videoCaptureCommand = "";
 
+    /** Character set to use when reading/writing files */
+    public final static String CHAR_ENCODING = "UTF8";
     /**
      * The number of minutes of inactivity before we automatically log a user
      * out. 0 means never logout

@@ -1,7 +1,10 @@
 2.6.4
 ================
 
-*. Encode RescueGroups.org exports as UTF-8
+*. Fixed wrong text when Email library says to configure
+*. Use UTF8 throughout for internet publishers and all output files
+*. Change image scaling to use step-down bilinear technique for quality
+*. Encode RescueGroups.org exports as UTF8
 *. Donation screen can now dynamically choose linking based on where
 -  it appears, so owner tabs get an animal choice and vice versa
 *. Added donation tab to animal screen for shelters that have

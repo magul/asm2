@@ -242,11 +242,11 @@ public class MailMerge extends Thread implements EmailFormListener {
                     }
 
                     ;
-                    out.write(new String("\"" + theData[z][i] + "\"").getBytes());
+                    out.write(new String("\"" + theData[z][i] + "\"").getBytes(Global.CHAR_ENCODING));
                 }
 
                 // Terminate row
-                out.write(new String("\n").getBytes());
+                out.write(new String("\n").getBytes(Global.CHAR_ENCODING));
 
                 incrementStatusBar();
             }

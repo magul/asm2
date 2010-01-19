@@ -448,14 +448,14 @@ public abstract class DBConnection {
         FileInputStream in = new FileInputStream(f);
         in.read(b);
 
-        // Interpret the file as UTF8
-        String s = new String(b, "UTF8");
+        // Interpret the file 
+        String s = new String(b, Global.CHAR_ENCODING);
 
         // If we have unicode escape sequences in there, reinterpret
         // the file as plain ASCII instead so that the characters
         // are substitued
         if (s.indexOf("\\u") != -1) {
-            Global.logDebug("Found ASCII unicode escape sequences in UTF8 data, substituting",
+            Global.logDebug("Found ASCII unicode escape sequences in " + Global.CHAR_ENCODING + " data, substituting",
                 "DBConnection.executeFile");
             s = Utils.unescapeUnicode(s);
         }

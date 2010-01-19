@@ -748,7 +748,7 @@ public class RescueGroupsPublisher extends Thread {
         try {
             File file = new File(filepath);
             FileOutputStream out = new FileOutputStream(file);
-            out.write(content.getBytes("UTF-8"));
+            out.write(content.getBytes(Global.CHAR_ENCODING));
             out.flush();
             out.close();
         } catch (IOException e) {
