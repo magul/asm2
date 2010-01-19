@@ -139,7 +139,7 @@ public class LocalCache {
             fin = new FileInputStream(new File(Global.tempDirectory +
                         File.separator + "cache.data"));
             in = new DataInputStream(fin);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            BufferedReader br = new BufferedReader(new InputStreamReader(in, Global.CHAR_ENCODING));
 
             String s = "";
 
