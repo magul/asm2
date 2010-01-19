@@ -587,7 +587,7 @@ public class Startup implements Runnable {
                 File file = new File(Global.tempDirectory + File.separator +
                         "asm.properties");
                 FileOutputStream out = new FileOutputStream(file);
-                out.write(s.getBytes());
+                out.write(s.getBytes(Global.CHAR_ENCODING));
                 out.flush();
                 out.close();
             } catch (Exception e) {

@@ -280,7 +280,7 @@ public class ConfigureLocal extends ASMForm {
             File f = new File(Global.tempDirectory + File.separator +
                     "asm.properties");
             FileOutputStream out = new FileOutputStream(f);
-            out.write(of.getBytes());
+            out.write(of.getBytes(Global.CHAR_ENCODING));
             out.flush();
             out.close();
         } catch (Exception e) {

@@ -506,7 +506,7 @@ public abstract class Global {
         checkLog();
 
         try {
-            log.write(m.getBytes());
+            log.write(m.getBytes(CHAR_ENCODING));
             log.flush();
 
             if (echolog) {

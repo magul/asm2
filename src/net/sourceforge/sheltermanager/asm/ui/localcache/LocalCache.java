@@ -24,10 +24,14 @@ package net.sourceforge.sheltermanager.asm.ui.localcache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 import java.util.Calendar;
 import java.util.Iterator;
@@ -126,12 +130,16 @@ public class LocalCache {
      * cache is left blank.
      */
     public void loadDataFromIndexFile() {
-        FileInputStream in = null;
+        FileInputStream fin = null;
+        DataInputStream in = null;
 
         try {
             fileEof = false;
-            in = new FileInputStream(new File(Global.tempDirectory +
+            
+            fin = new FileInputStream(new File(Global.tempDirectory +
                         File.separator + "cache.data"));
+            in = new DataInputStream(fin);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             String s = "";
 
@@ -141,9 +149,14 @@ public class LocalCache {
                 // 1. Date and Time
                 // 2. Filename
                 // 3. File description
-                String date = readline(in);
-                String filename = readline(in);
-                String description = readline(in);
+                String date = readline(br);
+                if (date == null) break;
+
+                String filename = readline(br);
+                if (filename == null) break;
+
+                String description = readline(br);
+                if (description == null) break;
 
                 theCache.add(new CacheEntry(date, filename, description));
             }
@@ -155,6 +168,7 @@ public class LocalCache {
         } finally {
             try {
                 in.close();
+                fin.close();
             } catch (Exception e) {
             }
         }
@@ -187,71 +201,22 @@ public class LocalCache {
         return theCache;
     }
 
-    /**
-     * Reads a complete line of data by reading from a passed file handle one
-     * byte at a time until it finds a Chr(13) followed by a Chr(10).
-     */
-    private String readline(FileInputStream fs) {
-        // Reads a complete line of data from a file, throwing away the
-        // Chr(13) and Chr(10)s.
-        StringBuffer sb = new StringBuffer("");
-        Integer iob;
-        int nb = -1;
-        boolean readabyte = false;
 
-        while (true) {
-            // Read next byte from stream
-            try {
-                nb = fs.read();
-            } catch (Exception e) {
-                Global.logError(Global.i18n("uilocalcache",
-                        "Error_reading_from_file_-_") + e.getMessage(),
-                    "LocalCache.readline");
-
-                return sb.toString();
-            }
-
-            // if we have a 10 and nothing else so far,
-            // simply ignore it and carry on
-            if ((nb == 10) && !readabyte) {
-                try {
-                    nb = fs.read();
-                } catch (Exception e) {
-                    return sb.toString();
-                }
-            }
-
-            // if it's a 13 or a 10, better quit and return
-            if ((nb == 13) || (nb == 10)) {
-                return sb.toString();
-            }
-
-            if (nb == -1) {
-                // no more data - return what we have and
-                // set the eof flag.
-                fileEof = true;
-
-                return sb.toString();
-            }
-
-            // Otherwise, append our jobbie into the string buffer
-            readabyte = true;
-            iob = new Integer(nb);
-
-            byte[] by = { iob.byteValue() };
-            sb.append(new String(by));
+    private String readline(BufferedReader br) throws IOException {
+        String s = br.readLine();
+        if ( s == null ) {
+            fileEof = true;
+            return null;
         }
+        return s;
     }
+
 
     /** * Writes a line of text to the outputstream specified */
     private void writeline(FileOutputStream out, String s) {
-        byte[] ba = s.getBytes();
-
         try {
+            byte[] ba = (s + "\r\n").getBytes(Global.CHAR_ENCODING);
             out.write(ba);
-
-            byte[] bb = { 13, 10 };
-            out.write(bb);
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

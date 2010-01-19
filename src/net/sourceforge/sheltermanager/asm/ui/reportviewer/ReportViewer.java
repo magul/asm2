@@ -152,7 +152,7 @@ public class ReportViewer extends ASMForm {
         }
 
         try {
-            Utils.writeFile(filename, filecontents.getBytes("UTF8"));
+            Utils.writeFile(filename, filecontents.getBytes(Global.CHAR_ENCODING));
             edOutput.setPage("file:///" + filename);
         } catch (Exception e) {
             Global.logException(e, getClass());

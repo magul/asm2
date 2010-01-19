@@ -657,7 +657,7 @@ public abstract class GenerateDocument extends Thread
             Utils.renameFile(new File(mediafile), new File(target));
 
             // Replace the file on the disk with this one
-            Utils.writeFile(localfile, s.getBytes("UTF8"));
+            Utils.writeFile(localfile, s.getBytes(Global.CHAR_ENCODING));
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());
@@ -725,7 +725,7 @@ public abstract class GenerateDocument extends Thread
                 s.substring(endhref);
 
             // Replace the file on the disk with this one
-            Utils.writeFile(localfile, s.getBytes("UTF8"));
+            Utils.writeFile(localfile, s.getBytes(Global.CHAR_ENCODING));
 
             Global.logDebug("Finished processing OpenOffice image.",
                 "GenerateDocument.processOpenOfficeImage");
@@ -833,7 +833,7 @@ public abstract class GenerateDocument extends Thread
                 s.substring(s.indexOf("</d>", tag));
 
             // Replace the file on the disk with this one
-            Utils.writeFile(localfile, s.getBytes("UTF8"));
+            Utils.writeFile(localfile, s.getBytes(Global.CHAR_ENCODING));
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());
@@ -945,7 +945,7 @@ public abstract class GenerateDocument extends Thread
             // Replace the file on the disk with this one
             Global.logDebug("Writing update document to disk",
                 "GenerateDocument.processText");
-            Utils.writeFile(localfile, thefile.getBytes("UTF8"));
+            Utils.writeFile(localfile, thefile.getBytes(Global.CHAR_ENCODING));
 
             Global.logDebug("Completed processText",
                 "GenerateDocument.processText");
