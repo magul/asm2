@@ -340,9 +340,9 @@ public abstract class Report extends Thread {
         }
 
         Vector pn = new Vector();
-        pn.add(Global.i18n("wordprocessor", "Unknown"));
-        pn.add(Global.i18n("wordprocessor", "Negative"));
-        pn.add(Global.i18n("wordprocessor", "Positive"));
+        pn.add(Global.i18n("uiwordprocessor", "Unknown"));
+        pn.add(Global.i18n("uiwordprocessor", "Negative"));
+        pn.add(Global.i18n("uiwordprocessor", "Positive"));
 
         return Utils.formatDate(dt) + " - " +
         pn.get(posneg.intValue()).toString();
