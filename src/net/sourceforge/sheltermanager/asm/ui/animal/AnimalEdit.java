@@ -1438,7 +1438,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         dataChanged();
 
         // Are we actually using the year in codes?
-        if (Configuration.getString("CodingFormat").indexOf("YYYY") == -1) {
+        if (Configuration.getString("CodingFormat").indexOf("Y") == -1 &&
+	    Configuration.getString("ShortCodingFormat").indexOf("Y") == -1) {
             // No, forget it
             return;
         }
