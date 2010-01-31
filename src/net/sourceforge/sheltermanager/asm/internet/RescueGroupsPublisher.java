@@ -411,7 +411,7 @@ public class RescueGroupsPublisher extends Thread {
                         ? "\"Yes\", " : "\"No\", ");
 
                     // housetrained
-                    dataFile.append((an.getDeclawed().intValue() != 1)
+                    dataFile.append((an.isHouseTrained().intValue() != 1)
                         ? "\"Yes\", " : "\"No\", ");
 
                     // age
