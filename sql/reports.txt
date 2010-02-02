@@ -739,6 +739,8 @@ $VAR from DATE Enter from date$
 $VAR to DATE Enter to date$
 
 SELECT ShelterCode, AnimalName, DateBroughtIn, MovementDate, 
+species.SpeciesName,
+animaltype.AnimalType AS theType,
 oo.OwnerName AS OOName, oo.OwnerAddress AS OOAddress, oo.OwnerTown AS OOTown, oo.OwnerCounty AS OOCounty, oo.OwnerPostcode AS OOPostcode,
 no.OwnerName, no.OwnerAddress,
 no.OwnerTown, no.OwnerCounty,
@@ -747,12 +749,15 @@ FROM adoption
 INNER JOIN animal ON adoption.AnimalID = animal.ID
 INNER JOIN owner no ON adoption.OwnerID = no.ID
 INNER JOIN owner oo ON animal.OriginalOwnerID = oo.ID
+INNER JOIN animaltype ON animaltype.ID = animal.AnimalTypeID
+INNER JOIN species ON species.ID = animal.SpeciesID
 WHERE MovementType = 1 AND MovementDate BETWEEN '$@from$' AND '$@to$' ORDER BY MovementDate
 ###
 $$HEADER
 <table border=1><tr>
 <td><b>Code</b></td>
 <td><b>Name</b></td>
+<td><b>Type</b></td>
 <td><b>Entered Shelter</b></td>
 <td><b>Came From</b></td>
 <td><b>Adoption Date</b></td>
@@ -763,6 +768,7 @@ HEADER$$
 $$BODY<tr>
 <td>$SHELTERCODE</td>
 <td>$ANIMALNAME</td>
+<td>$theType</td>
 <td>$DateBroughtIn</td>
 <td><i>$OOName</i><br/>
 $OOAddress<br/>
@@ -780,5 +786,77 @@ BODY$$
 
 $$FOOTER
 </table>
+FOOTER$$
+
+&&&
+Shelter Inventory with Original Owner Addresses
+###
+Inventories
+###
+Any
+###
+Produces an inventory of on shelter animals, broken down by species/location with original owner addresses.
+###
+en
+###
+SELECT ShelterCode, AnimalName, DateBroughtIn,
+TimeOnShelter,
+animaltype.AnimalType AS theType,
+species.SpeciesName,
+internallocation.LocationName,
+oo.OwnerName AS OOName, oo.OwnerAddress AS OOAddress, oo.OwnerTown AS OOTown, oo.OwnerCounty AS OOCounty, oo.OwnerPostcode AS OOPostcode
+FROM animal
+INNER JOIN animaltype ON animaltype.ID = animal.AnimalTypeID
+INNER JOIN species ON species.ID = animal.SpeciesID
+INNER JOIN internallocation ON internallocation.ID = animal.ShelterLocation
+INNER JOIN owner oo ON animal.OriginalOwnerID = oo.ID
+WHERE Archived = 0 ORDER BY LocationName, SpeciesName, DateBroughtIn
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_LocationName
+$$HEAD
+<h2>$LocationName</h2>
+$$FOOT
+<h3>Total $LocationName: {COUNT.ShelterCode}</h3>
+GROUP$$
+
+$$GROUP_SpeciesName
+$$HEAD
+<h3>$SpeciesName</h3>
+<table border=1>
+<tr>
+<td><b>Code</b></td>
+<td><b>Name</b></td>
+<td><b>Type</b></td>
+<td><b>Brought In</b></td>
+<td><b>By</b></td>
+<td><b>Time On Shelter</b></td>
+</tr>
+$$FOOT
+</table>
+<p>Total $SpeciesName: {COUNT.ShelterCode}</p>
+GROUP$$
+
+$$BODY
+<tr>
+<td>$ShelterCode</td>
+<td>$AnimalName</td>
+<td>$theType</td>
+<td>$DateBroughtIn</td>
+<td><i>$OOName</i><br />
+$OOAddress<br />
+$OOTown<br />
+$OOCounty<br />
+$OOPostcode
+</td>
+<td>$TimeOnShelter</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+<h2>Total animals on shelter: {SQL.SELECT COUNT(*) FROM animal WHERE Archived = 0}</h2>
 FOOTER$$
 

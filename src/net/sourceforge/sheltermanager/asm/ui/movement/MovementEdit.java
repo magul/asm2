@@ -667,6 +667,18 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 movement.setMovementDate(new Date());
             }
 
+            // Owners are not required for Escaped, Stolen, Reclaimed
+            // and Released To Wild
+            if ((movement.getOwnerID().intValue() == 0) &&
+                    (movement.getMovementType().intValue() != Adoption.MOVETYPE_ESCAPED) &&
+                    (movement.getMovementType().intValue() != Adoption.MOVETYPE_STOLEN) &&
+                    (movement.getMovementType().intValue() != Adoption.MOVETYPE_RECLAIMED) &&
+                    (movement.getMovementType().intValue() != Adoption.MOVETYPE_RELEASED)) {
+                Dialog.showError(Global.i18n("bo",
+                        "You_must_select_an_owner_for_this_type_of_movement."));
+                return false;
+            }
+
             // Check to see if the new owner lives in the same
             // postcode region as the original owner and warn if the
             // option is on
@@ -767,6 +779,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             Dialog.showError(i18n("An_error_occurred_validating_the_record:_") +
                 e.getMessage());
             Global.logException(e, getClass());
+            return false;
         }
 
         return true;
