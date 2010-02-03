@@ -860,3 +860,140 @@ $$FOOTER
 <h2>Total animals on shelter: {SQL.SELECT COUNT(*) FROM animal WHERE Archived = 0}</h2>
 FOOTER$$
 
+&&&
+User Activity Report
+###
+Auditing
+###
+Any
+###
+Produces an activity report (what they changed or created) for all system users between two dates.
+###
+en
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT 
+CreatedBy AS User, 
+CreatedDate AS TheDate, 
+ShelterCode AS Item1,
+AnimalName AS Item2,
+'' AS Item3, '' AS Item4, '' AS Item5, '' AS Item6,
+'Created Animal' AS Type FROM animal
+WHERE CreatedDate >= '$@from$' AND CreatedDate <= '$@to$'
+
+UNION SELECT 
+LastChangedBy AS User, 
+LastChangedDate AS TheDate, 
+ShelterCode AS Item1,
+AnimalName AS Item2,
+'' AS Item3, '' AS Item4, '' AS Item5, '' AS Item6,
+'Changed Animal' AS Type FROM animal
+WHERE LastChangedDate >= '$@from$' AND LastChangedDate <= '$@to$'
+
+UNION SELECT 
+CreatedBy AS User, 
+CreatedDate AS TheDate, 
+AdoptionNumber AS Item1,
+ShelterCode AS Item2,
+AnimalName AS Item3,
+lksmovementtype.MovementType AS Item4,
+' to ' AS Item5,
+OwnerName AS Item6,
+'Created Movement' AS Type FROM adoption
+INNER JOIN animal ON adoption.AnimalID = animal.ID
+INNER JOIN owner ON adoption.OwnerID = owner.ID
+INNER JOIN lksmovementtype ON lksmovementtype.ID = adoption.MovementType 
+WHERE CreatedDate >= '$@from$' AND CreatedDate <= '$@to$'
+
+UNION SELECT 
+LastChangedBy AS User, 
+LastChangedDate AS TheDate, 
+AdoptionNumber AS Item1,
+ShelterCode AS Item2,
+AnimalName AS Item3,
+lksmovementtype.MovementType AS Item4,
+' to ' AS Item5,
+OwnerName AS Item6,
+'Changed Movement' AS Type FROM adoption
+INNER JOIN animal ON adoption.AnimalID = animal.ID
+INNER JOIN owner ON adoption.OwnerID = owner.ID
+INNER JOIN lksmovementtype ON lksmovementtype.ID = adoption.MovementType 
+WHERE LastChangedDate >= '$@from$' AND LastChangedDate <= '$@to$'
+
+UNION SELECT 
+CreatedBy AS User, 
+CreatedDate AS TheDate, 
+OwnerName AS Item1,
+OwnerAddress AS Item2,
+OwnerTown AS Item3,
+OwnerCounty AS Item4,
+OwnerPostcode AS Item5,
+HomeTelephone AS Item6,
+'Created Owner' AS Type FROM owner
+WHERE CreatedDate >= '$@from$' AND CreatedDate <= '$@to$'
+
+UNION SELECT 
+LastChangedBy AS User, 
+LastChangedDate AS TheDate, 
+OwnerName AS Item1,
+OwnerAddress AS Item2,
+OwnerTown AS Item3,
+OwnerCounty AS Item4,
+OwnerPostcode AS Item5,
+HomeTelephone AS Item6,
+'Changed Owner' AS Type FROM owner
+WHERE LastChangedDate >= '$@from$' AND LastChangedDate <= '$@to$'
+
+UNION SELECT 
+CreatedBy AS User, 
+CreatedDate AS TheDate, 
+DiaryDateTime AS Item1,
+DiaryForName AS Item2,
+Subject AS Item3,
+Note AS Item4,
+'' AS Item5, '' AS Item6,
+'Created Diary' AS Type FROM diary
+WHERE CreatedDate >= '$@from$' AND CreatedDate <= '$@to$'
+
+UNION SELECT 
+LastChangedBy AS User, 
+LastChangedDate AS TheDate, 
+DiaryDateTime AS Item1,
+DiaryForName AS Item2,
+Subject AS Item3,
+Note AS Item4,
+'' AS Item5, '' AS Item6,
+'Changed Diary' AS Type FROM diary
+WHERE LastChangedDate >= '$@from$' AND LastChangedDate <= '$@to$'
+
+ORDER BY TheDate DESC, User
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_User
+$$HEAD
+<h2>$User</h2>
+<table border=1><tr>
+<td><b>Date</b></td>
+<td><b>Item</b></td>
+<td><b>Type</b></td>
+</tr>
+$$FOOT
+</table>
+GROUP$$
+
+$$BODY
+<tr>
+<td>$THEDATE</td>
+<td>$ITEM1 $ITEM2 $ITEM3 $ITEM4 $ITEM5 $ITEM6</td>
+<td>$TYPE</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
