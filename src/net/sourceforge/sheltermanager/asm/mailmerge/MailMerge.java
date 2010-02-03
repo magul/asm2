@@ -242,7 +242,8 @@ public class MailMerge extends Thread implements EmailFormListener {
                     }
 
                     ;
-                    out.write(new String("\"" + theData[z][i] + "\"").getBytes(Global.CHAR_ENCODING));
+                    out.write(new String("\"" + theData[z][i] + "\"").getBytes(
+                            Global.CHAR_ENCODING));
                 }
 
                 // Terminate row

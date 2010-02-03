@@ -49,13 +49,15 @@ import javax.swing.JDialog;
 public class DateField extends UI.Panel {
     DateChangedListener dateListener = null;
     UI.TextField txt = new UI.TextField() {
-        public void paste() {
-            super.paste();
-            if (dateListener != null)
-                dateListener.dateChanged(txt.getText());
+            public void paste() {
+                super.paste();
 
-        }
-    };
+                if (dateListener != null) {
+                    dateListener.dateChanged(txt.getText());
+                }
+            }
+        };
+
     UI.Button btn = null;
     DatePicker picker = new DatePicker(this);
     boolean consume = false; // synchronize consumption of key events

@@ -59,6 +59,7 @@ public class Options extends ASMForm {
     private SelectableList tblCodeOptions;
     private SelectableList tblDefaultOptions;
     private UI.Spinner spnUrgency;
+    private UI.Spinner spnCancelReserves;
     private UI.TextField txtOrgName;
     private UI.TextArea txtOrgAddress;
     private UI.ComboBox cboOrgCountry;
@@ -119,6 +120,7 @@ public class Options extends ASMForm {
         ctl.add(cboWordProcessor);
         ctl.add(spnUrgency);
         ctl.add(cboDefaultUrgency);
+        ctl.add(spnCancelReserves);
         ctl.add(txtCodingFormat);
         ctl.add(txtShortCodingFormat);
         ctl.add(tblCodeOptions);
@@ -186,6 +188,10 @@ public class Options extends ASMForm {
 
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
+
+        // Movements
+        spnCancelReserves.setValue(new Integer(Configuration.getInteger(
+                    "AutoCancelReservesDays")));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -368,6 +374,10 @@ public class Options extends ASMForm {
                 spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
+
+            // Movements
+            Configuration.setEntry("AutoCancelReservesDays",
+                spnCancelReserves.getValue().toString());
 
             // Email
             Configuration.setEntry("EmailAddress", txtEmailAddress.getText());
@@ -623,6 +633,16 @@ public class Options extends ASMForm {
         mappingservice.add(pm, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("mapping_service"), null, mappingservice, null);
 
+        // Movement options
+        UI.Panel pv = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        spnCancelReserves = (UI.Spinner) UI.addComponent(pv,
+                i18n("auto_cancel_reserves"),
+                UI.getSpinner(0, 365, i18n("auto_cancel_reserves_tooltip"), null));
+
+        UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
+        movementoptions.add(pv, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("movements"), null, movementoptions, null);
+
         // Age groups
         UI.Panel pa = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 20, 60 }));
         txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
@@ -707,7 +727,8 @@ public class Options extends ASMForm {
                 "LogTypeName", i18n("(all)"));
         UI.addComponent(pr, i18n("Default_Log_Filter:"), cboDefaultLogFilter);
 
-        cboDefaultCoatType = UI.getCombo(LookupCache.getCoatTypeLookup(), "CoatType");
+        cboDefaultCoatType = UI.getCombo(LookupCache.getCoatTypeLookup(),
+                "CoatType");
         UI.addComponent(pr, i18n("Default_Coat_Type"), cboDefaultCoatType);
 
         l = new ArrayList();
@@ -749,7 +770,8 @@ public class Options extends ASMForm {
                              .equalsIgnoreCase("Yes"), false));
 
         l.add(new SelectableItem(Global.i18n("uisystem",
-                    "Default_date_brought_in_to_today"), "DefaultDateBroughtIn",
+                    "Default_date_brought_in_to_today"),
+                "DefaultDateBroughtIn",
                 Configuration.getString("DefaultDateBroughtIn")
                              .equalsIgnoreCase("Yes"), false));
 

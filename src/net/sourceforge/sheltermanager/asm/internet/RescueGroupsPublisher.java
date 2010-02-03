@@ -290,7 +290,9 @@ public class RescueGroupsPublisher extends Thread {
                                         "PetFinderPublisher.run");
                                 }
 
-                                for (int i = 0; i < images.length && totalimages <= 4; i++) {
+                                for (int i = 0;
+                                        (i < images.length) &&
+                                        (totalimages <= 4); i++) {
                                     // Ignore the main web media - we used that
                                     if (!animalweb.equals(images[i]) &&
                                             isImage(images[i])) {
@@ -497,14 +499,16 @@ public class RescueGroupsPublisher extends Thread {
 
                     // description
                     String comm = an.getWebMediaNotes();
-                    
+
                     // No web media, use the animal comments instead
-                    if (comm.equals("")) comm = an.getAnimalComments();
-                    
+                    if (comm.equals("")) {
+                        comm = an.getAnimalComments();
+                    }
+
                     // Strip CR/LF
                     comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
                     comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
-                    
+
                     // Switch quotes
                     comm = comm.replace('"', '\'');
                     dataFile.append("\"" + comm + "\"");
@@ -514,12 +518,14 @@ public class RescueGroupsPublisher extends Thread {
                     // field blank instead
                     for (int i = 1; i <= 4; i++) {
                         dataFile.append(", ");
-                        if (totalimages >= i)
-                            dataFile.append("\"" + an.getShelterCode() + "-" + i + ".jpg" + "\"");
-                        else
-                            dataFile.append("\"\"");
-                    }
 
+                        if (totalimages >= i) {
+                            dataFile.append("\"" + an.getShelterCode() + "-" +
+                                i + ".jpg" + "\"");
+                        } else {
+                            dataFile.append("\"\"");
+                        }
+                    }
 
                     // Terminate
                     dataFile.append("\n");

@@ -436,7 +436,7 @@ public abstract class LookupCache {
                         new Animal.AnimalMarkers((Integer) r.getField("vacc"),
                             (Integer) r.getField("medi"),
                             (Integer) r.getField("diet"),
-			    (Integer) r.getField("dona"),
+                            (Integer) r.getField("dona"),
                             (Integer) r.getField("pics"),
                             (Integer) r.getField("diar"),
                             (Integer) r.getField("move"),
@@ -786,7 +786,8 @@ public abstract class LookupCache {
         return getNameForID(getDietLookup(), "DietName", ID);
     }
 
-    public static String getDietDescription(Integer ID) throws CursorEngineException {
+    public static String getDietDescription(Integer ID)
+        throws CursorEngineException {
         return getNameForID(getDietLookup(), "DietDescription", ID);
     }
 

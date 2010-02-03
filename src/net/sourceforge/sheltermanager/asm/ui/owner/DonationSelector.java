@@ -63,7 +63,6 @@ public class DonationSelector extends ASMSelector {
     }
 
     public void setSecurity() {
-
         if (!Global.currentUserObject.getSecDeleteOwnerDonation()) {
             btnDelete.setEnabled(false);
         }
@@ -117,8 +116,7 @@ public class DonationSelector extends ASMSelector {
             od.openRecordset("MovementID = " + movementID + " ORDER BY Date");
         } else if (animalID != 0) {
             od.openRecordset("AnimalID = " + animalID + " ORDER BY Date");
-        }
-        else {
+        } else {
             od.openRecordset("OwnerID = " + ownerID + " ORDER BY Date");
         }
 
@@ -152,12 +150,14 @@ public class DonationSelector extends ASMSelector {
                 if (animalID != 0) {
                     // We're on the animal details screen, show owner info
                     SQLRecordset rs = new SQLRecordset();
-                    rs.openRecordset("SELECT OwnerName FROM owner WHERE ID = " + od.getOwnerID(), "owner");
+                    rs.openRecordset("SELECT OwnerName FROM owner WHERE ID = " +
+                        od.getOwnerID(), "owner");
+
                     if (!rs.getEOF()) {
-                        c = "[" + rs.getField("OwnerName") + "]" + od.getComments();
+                        c = "[" + rs.getField("OwnerName") + "]" +
+                            od.getComments();
                     }
-               }
-               else {
+                } else {
                     // We're on an owner or movement tab - show the animal info if we have some
                     if (od.getMovementID().intValue() != 0) {
                         SQLRecordset rs = new SQLRecordset();
@@ -178,16 +178,14 @@ public class DonationSelector extends ASMSelector {
                         SQLRecordset rs = new SQLRecordset();
                         rs.openRecordset(
                             "SELECT AnimalName, ShelterCode FROM animal " +
-                            "WHERE ID = " +
-                            od.getAnimalID(), "animal");
+                            "WHERE ID = " + od.getAnimalID(), "animal");
 
                         if (!rs.getEOF()) {
                             c = "[" + rs.getField("AnimalName") + " - " +
                                 rs.getField("ShelterCode") + "] " +
                                 od.getComments();
                         }
-
-                    } 
+                    }
                 }
 
                 datar[i][5] = c;
@@ -251,8 +249,8 @@ public class DonationSelector extends ASMSelector {
     }
 
     public void actionNewInstalment() {
-        Global.mainForm.addChild(new DonationInstalmentEdit(this, animalID, ownerID,
-                movementID));
+        Global.mainForm.addChild(new DonationInstalmentEdit(this, animalID,
+                ownerID, movementID));
     }
 
     public void actionDelete() {
@@ -283,7 +281,8 @@ public class DonationSelector extends ASMSelector {
         }
 
         try {
-            DonationEdit eod = new DonationEdit(this, animalID, ownerID, movementID);
+            DonationEdit eod = new DonationEdit(this, animalID, ownerID,
+                    movementID);
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
             eod.openForEdit(od);
@@ -295,7 +294,8 @@ public class DonationSelector extends ASMSelector {
 
     public void actionNew() {
         try {
-            DonationEdit eod = new DonationEdit(this, animalID, ownerID, movementID);
+            DonationEdit eod = new DonationEdit(this, animalID, ownerID,
+                    movementID);
             eod.openForNew();
             Global.mainForm.addChild(eod);
         } catch (Exception e) {
@@ -314,9 +314,8 @@ public class DonationSelector extends ASMSelector {
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
 
-            
             OwnerDonationDocument ownerdonationdoc = new OwnerDonationDocument(od,
-                    (ownerparent != null ? ownerparent.media : null));
+                    ((ownerparent != null) ? ownerparent.media : null));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

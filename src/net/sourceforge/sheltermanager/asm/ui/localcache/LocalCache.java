@@ -30,8 +30,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import java.util.Calendar;
 import java.util.Iterator;
@@ -135,11 +135,13 @@ public class LocalCache {
 
         try {
             fileEof = false;
-            
+
             fin = new FileInputStream(new File(Global.tempDirectory +
                         File.separator + "cache.data"));
             in = new DataInputStream(fin);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in, Global.CHAR_ENCODING));
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(in,
+                        Global.CHAR_ENCODING));
 
             String s = "";
 
@@ -150,13 +152,22 @@ public class LocalCache {
                 // 2. Filename
                 // 3. File description
                 String date = readline(br);
-                if (date == null) break;
+
+                if (date == null) {
+                    break;
+                }
 
                 String filename = readline(br);
-                if (filename == null) break;
+
+                if (filename == null) {
+                    break;
+                }
 
                 String description = readline(br);
-                if (description == null) break;
+
+                if (description == null) {
+                    break;
+                }
 
                 theCache.add(new CacheEntry(date, filename, description));
             }
@@ -201,16 +212,17 @@ public class LocalCache {
         return theCache;
     }
 
-
     private String readline(BufferedReader br) throws IOException {
         String s = br.readLine();
-        if ( s == null ) {
+
+        if (s == null) {
             fileEof = true;
+
             return null;
         }
+
         return s;
     }
-
 
     /** * Writes a line of text to the outputstream specified */
     private void writeline(FileOutputStream out, String s) {

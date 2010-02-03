@@ -468,6 +468,36 @@ public class Adoption extends UserInfoBO {
         }
     }
 
+    public static void autoCancelReservations() {
+        try {
+            int cancelAfter = Configuration.getInteger("AutoCancelReservesDays");
+
+            if (cancelAfter <= 0) {
+                Global.logDebug("Auto cancellation of reservations is disabled.",
+                    "Adoption.autoCancelReservations");
+
+                return;
+            }
+
+            Date today = new Date();
+            Calendar cancel = Calendar.getInstance();
+            cancel.add(Calendar.DAY_OF_YEAR, cancelAfter * -1);
+
+            // Blanket update every reservation on the system that doesn't have a
+            // movement date and is older than our cancel after period
+            int r = DBConnection.executeUpdate(
+                    "UPDATE adoption SET ReservationCancelledDate = '" +
+                    Utils.getSQLDate(today) +
+                    "' WHERE MovementDate Is Null AND ReservationDate <= '" +
+                    Utils.getSQLDate(cancel) + "'");
+
+            Global.logDebug("Cancelled " + r + " reservations.",
+                "Adoption.autoCancelReservations");
+        } catch (Exception e) {
+            Global.logException(e, Adoption.class);
+        }
+    }
+
     /**
      * Generates a new insurance number for the movement.
      *
@@ -877,8 +907,8 @@ public class Adoption extends UserInfoBO {
             diff = (diff / 60);
             diff = (diff / 24);
             diff = (diff / 7);
+
             return Global.i18n("bo", "x_weeks", Long.toString(diff));
-            
         } else {
             // Otherwise format in months and years
             long diff = Utils.getDateDiff(returndate, adoptiondate);
@@ -896,7 +926,7 @@ public class Adoption extends UserInfoBO {
                                 // of 52 to get accurate months
 
             return Global.i18n("bo", "years_and_months", Long.toString(years),
-                    Long.toString(months));
+                Long.toString(months));
         }
     }
 }

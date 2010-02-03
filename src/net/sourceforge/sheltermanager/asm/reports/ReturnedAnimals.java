@@ -113,7 +113,8 @@ public class ReturnedAnimals extends Report {
                         tableAddRow();
                         tableAddCell(Utils.formatDateLong(ad.getMovementDate()));
                         tableAddCell(Utils.formatDateLong(ad.getReturnDate()));
-                        tableAddCell(LookupCache.getEntryReasonNameForID(ad.getReturnedReasonID()));
+                        tableAddCell(LookupCache.getEntryReasonNameForID(
+                                ad.getReturnedReasonID()));
                         tableAddCell(Utils.nullToEmptyString(
                                 ad.getReasonForReturn()));
                         tableAddCell(ad.getOwner().getOwnerName());

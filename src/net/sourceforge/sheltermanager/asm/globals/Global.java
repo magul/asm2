@@ -142,6 +142,7 @@ public abstract class Global {
 
     /** Character set to use when reading/writing files */
     public final static String CHAR_ENCODING = "UTF8";
+
     /**
      * The number of minutes of inactivity before we automatically log a user
      * out. 0 means never logout
@@ -207,11 +208,10 @@ public abstract class Global {
             getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
             getLanguageCountry("en_ZA"), getLanguageCountry("de_DE"),
             getLanguageCountry("es_ES"), getLanguageCountry("et_EE"),
-	    getLanguageCountry("he_IL"),
-            getLanguageCountry("fr_FR"), getLanguageCountry("lt_LT"),
-            getLanguageCountry("nl_NL"), getLanguageCountry("pl_PL"),
-            getLanguageCountry("ru_RU"), getLanguageCountry("sv_SE"), 
-            getLanguageCountry("th_TH")
+            getLanguageCountry("he_IL"), getLanguageCountry("fr_FR"),
+            getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL"),
+            getLanguageCountry("pl_PL"), getLanguageCountry("ru_RU"),
+            getLanguageCountry("sv_SE"), getLanguageCountry("th_TH")
         };
     }
 

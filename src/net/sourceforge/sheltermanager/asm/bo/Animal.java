@@ -2951,13 +2951,14 @@ public class Animal extends UserInfoBO {
                 Diary.LINKTYPE_ANIMAL +
                 ") AS diar, (SELECT COUNT(*) FROM adoption WHERE AnimalID = animal.ID) AS move, (SELECT COUNT(*) FROM log WHERE LinkID = animal.ID AND LinkType = " +
                 Log.LINKTYPE_ANIMAL +
-                ") AS logs, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona FROM animal WHERE animal.ID = " + id, "animal");
+                ") AS logs, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona FROM animal WHERE animal.ID = " +
+                id, "animal");
 
             return new AnimalMarkers((Integer) r.getField("vacc"),
                 (Integer) r.getField("medi"), (Integer) r.getField("diet"),
-                (Integer) r.getField("dona"),
-                (Integer) r.getField("pics"), (Integer) r.getField("diar"),
-                (Integer) r.getField("move"), (Integer) r.getField("logs"));
+                (Integer) r.getField("dona"), (Integer) r.getField("pics"),
+                (Integer) r.getField("diar"), (Integer) r.getField("move"),
+                (Integer) r.getField("logs"));
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
@@ -3003,8 +3004,8 @@ public class Animal extends UserInfoBO {
         }
 
         public AnimalMarkers(Integer vaccination, Integer medical,
-            Integer diet, Integer donations, Integer media, Integer diary, Integer movement,
-            Integer log) {
+            Integer diet, Integer donations, Integer media, Integer diary,
+            Integer movement, Integer log) {
             this.vaccination = vaccination.intValue();
             this.medical = medical.intValue();
             this.diet = diet.intValue();

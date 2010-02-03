@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-03 14:32+0100\n"
+"POT-Creation-Date: 2010-02-03 15:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2893,6 +2893,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/system/Options
 #. # ui/owner/OwnerEdit
 #. # db/AutoDBUpdates
 #: customreport_46_category
@@ -13718,7 +13719,19 @@ msgstr ""
 
 #. # ui/system/Options
 #: Default_date_brought_in_to_today
-msgid "Default the Date Brought In field of new animals to today"
+msgid "Default today as the brought in date for new animals"
+msgstr ""
+
+#. # ui/system/Options
+#: auto_cancel_reserves
+msgid "Automatically cancel unadopted reservations after days:"
+msgstr ""
+
+#. # ui/system/Options
+#: auto_cancel_reserves_tooltip
+msgid ""
+"If a reserved animal is not adopted after this many days, cancel the "
+"reservation"
 msgstr ""
 
 #. # ui/users/UserView

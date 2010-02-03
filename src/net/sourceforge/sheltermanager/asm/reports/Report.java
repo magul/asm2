@@ -197,25 +197,28 @@ public abstract class Report extends Thread {
 
     /** Return a bold version of a string */
     protected String bold(String t) {
-    	// Some headers need ampersands stripping out where Launchpad
-    	// has munged a few entries together
-    	t = UI.mnemonicRemove(t);
+        // Some headers need ampersands stripping out where Launchpad
+        // has munged a few entries together
+        t = UI.mnemonicRemove(t);
+
         return "<b>" + t + "</b>";
     }
 
     /** Return an underline version of a string */
     protected String underline(String t) {
-    	// Some headers need ampersands stripping out where Launchpad
-    	// has munged a few entries together
-    	t = UI.mnemonicRemove(t);
+        // Some headers need ampersands stripping out where Launchpad
+        // has munged a few entries together
+        t = UI.mnemonicRemove(t);
+
         return "<u>" + t + "</u>";
     }
 
     /** Return an italicised version of a string */
     protected String italic(String t) {
-    	// Some headers need ampersands stripping out where Launchpad
-    	// has munged a few entries together
-    	t = UI.mnemonicRemove(t);
+        // Some headers need ampersands stripping out where Launchpad
+        // has munged a few entries together
+        t = UI.mnemonicRemove(t);
+
         return "<i>" + t + "</i>";
     }
 

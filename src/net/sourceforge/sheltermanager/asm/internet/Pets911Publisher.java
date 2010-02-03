@@ -343,10 +343,12 @@ public class Pets911Publisher extends Thread {
 
                     // Additional_Info
                     String comm = an.getWebMediaNotes();
-                    
+
                     // No web media, use the animal comments instead
-                    if (comm.equals("")) comm = an.getAnimalComments();
-                    
+                    if (comm.equals("")) {
+                        comm = an.getAnimalComments();
+                    }
+
                     // Strip CR/LF
                     comm = comm.replaceAll(new String(new byte[] { 13, 10 }),
                             "<br/>");

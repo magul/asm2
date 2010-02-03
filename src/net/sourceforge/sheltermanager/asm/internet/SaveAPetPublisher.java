@@ -371,14 +371,16 @@ public class SaveAPetPublisher extends Thread {
 
                     // Description
                     String comm = an.getWebMediaNotes();
-                    
+
                     // No web media, use the animal comments instead
-                    if (comm.equals("")) comm = an.getAnimalComments();
-                    
+                    if (comm.equals("")) {
+                        comm = an.getAnimalComments();
+                    }
+
                     // Strip CR/LF
                     comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
                     comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
-                    
+
                     // Switch quotes
                     comm = comm.replace('"', '\'');
                     dataFile.append("\"" + comm + "\",");

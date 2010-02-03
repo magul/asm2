@@ -38,7 +38,7 @@ import java.util.Date;
  * diary notes addressed to Vets.
  *
  * The whole shebang is then broken down and ordered by internal location.
- * 
+ *
  * Diary notes assigned to the vets user that aren't linked to an animal
  * are shown in a section at the end.
  *
@@ -78,9 +78,9 @@ public class Vets extends Report implements DiaryCriteriaListener {
                 Global.getVetsDiaryUser() + "%'" +
                 " ORDER BY DiaryForName, DiaryDateTime");
             diarynol.openRecordset("DiaryDateTime <= '" + today + "'" +
-                    " AND DateCompleted Is Null AND DiaryForName Like '" +
-                    Global.getVetsDiaryUser() + "%' AND LinkType = 0 " +
-                    " ORDER BY DiaryForName, DiaryDateTime");
+                " AND DateCompleted Is Null AND DiaryForName Like '" +
+                Global.getVetsDiaryUser() + "%' AND LinkType = 0 " +
+                " ORDER BY DiaryForName, DiaryDateTime");
             av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
                 today + "'");
 
@@ -90,14 +90,14 @@ public class Vets extends Report implements DiaryCriteriaListener {
             diary.openRecordset("DiaryDateTime <= '" +
                 Utils.getSQLDate(dateUpto) + "'" + " AND LinkType = " +
                 Diary.LINKTYPE_ANIMAL +
-                " AND DateCompleted Is Null AND DiaryForName Like '" + 
+                " AND DateCompleted Is Null AND DiaryForName Like '" +
                 Global.getVetsDiaryUser() + "%'" +
                 " ORDER BY DiaryForName, DiaryDateTime");
             diarynol.openRecordset("DiaryDateTime <= '" +
-                    Utils.getSQLDate(dateUpto) + "'" +
-                    " AND DateCompleted Is Null AND DiaryForName Like '" +
-                    Global.getVetsDiaryUser() + "%' AND LinkType = 0" +
-                    " ORDER BY DiaryForName, DiaryDateTime");
+                Utils.getSQLDate(dateUpto) + "'" +
+                " AND DateCompleted Is Null AND DiaryForName Like '" +
+                Global.getVetsDiaryUser() + "%' AND LinkType = 0" +
+                " ORDER BY DiaryForName, DiaryDateTime");
             av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
                 Utils.getSQLDate(dateUpto) + "'");
 
@@ -112,11 +112,11 @@ public class Vets extends Report implements DiaryCriteriaListener {
                 Global.getVetsDiaryUser() + "%'" +
                 " ORDER BY DiaryForName, DiaryDateTime");
             diarynol.openRecordset("DiaryDateTime >= '" +
-                    Utils.getSQLDate(dateFrom) + "' AND DiaryDateTime <= '" +
-                    Utils.getSQLDate(dateTo) + "'" +
-                    " AND DateCompleted Is Null AND DiaryForName Like '" +
-                    Global.getVetsDiaryUser() + "%' AND LinkType = 0" +
-                    " ORDER BY DiaryForName, DiaryDateTime");
+                Utils.getSQLDate(dateFrom) + "' AND DiaryDateTime <= '" +
+                Utils.getSQLDate(dateTo) + "'" +
+                " AND DateCompleted Is Null AND DiaryForName Like '" +
+                Global.getVetsDiaryUser() + "%' AND LinkType = 0" +
+                " ORDER BY DiaryForName, DiaryDateTime");
             av.openRecordset("DateOfVaccination Is Null AND DateRequired >= '" +
                 Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
                 Utils.getSQLDate(dateTo) + "'");
@@ -261,29 +261,29 @@ public class Vets extends Report implements DiaryCriteriaListener {
         // Do we have some diary entries not linked to an animal/location?
         // If so, show them at the end.
         if (showNolinkDiary) {
-        	showSomething = true;
-        	addLevelTwoHeader(Global.getVetsDiaryUser());
+            showSomething = true;
+            addLevelTwoHeader(Global.getVetsDiaryUser());
             tableNew();
             tableAddRow();
             tableAddCell(bold(Global.i18n("reports", "Date")));
             tableAddCell(bold(Global.i18n("reports", "Subject")));
             tableAddCell(bold(Global.i18n("reports", "Description")));
             tableFinishRow();
-            
+
             try {
-	            while (!diarynol.getEOF()) {
-	            	tableAddRow();
-	            	tableAddCell(Utils.formatDate(diarynol.getDiaryDateTime()));
-	            	tableAddCell(diarynol.getSubject());
-	            	tableAddCell(diarynol.getNote());
-	            	tableFinishRow();
-	            	diarynol.moveNext();
-	            }
-	            tableFinish();
-	            addTable();
-            }
-            catch (Exception e) {
-            	Global.logException(e, getClass());
+                while (!diarynol.getEOF()) {
+                    tableAddRow();
+                    tableAddCell(Utils.formatDate(diarynol.getDiaryDateTime()));
+                    tableAddCell(diarynol.getSubject());
+                    tableAddCell(diarynol.getNote());
+                    tableFinishRow();
+                    diarynol.moveNext();
+                }
+
+                tableFinish();
+                addTable();
+            } catch (Exception e) {
+                Global.logException(e, getClass());
             }
         }
 

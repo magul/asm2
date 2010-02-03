@@ -160,7 +160,8 @@ public abstract class DBConnection {
         }
     }
 
-    public static synchronized void testConnection(String url) throws Exception {
+    public static synchronized void testConnection(String url)
+        throws Exception {
         Connection c = DriverManager.getConnection(url);
         c.close();
     }
@@ -455,7 +456,8 @@ public abstract class DBConnection {
         // the file as plain ASCII instead so that the characters
         // are substitued
         if (s.indexOf("\\u") != -1) {
-            Global.logDebug("Found ASCII unicode escape sequences in " + Global.CHAR_ENCODING + " data, substituting",
+            Global.logDebug("Found ASCII unicode escape sequences in " +
+                Global.CHAR_ENCODING + " data, substituting",
                 "DBConnection.executeFile");
             s = Utils.unescapeUnicode(s);
         }

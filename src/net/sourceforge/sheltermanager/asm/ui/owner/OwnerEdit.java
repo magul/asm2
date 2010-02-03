@@ -1261,13 +1261,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     null, UI.fp(this, "dataChanged")));
 
         chkIsRetailer = UI.getCheckBox(i18n("retailer"),
-                    i18n("check_if_owner_is_retailer"),
-                    UI.fp(this, "dataChanged"));
+                i18n("check_if_owner_is_retailer"), UI.fp(this, "dataChanged"));
 
         if (Configuration.getBoolean("DisableRetailer")) {
             pnlRightTop.add(UI.getLabel());
-        }
-        else {
+        } else {
             pnlRightTop.add(chkIsRetailer);
         }
 

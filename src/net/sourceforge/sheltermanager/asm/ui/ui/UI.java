@@ -1500,11 +1500,10 @@ public final class UI {
     }
 
     /** New image scaling - uses multi step bilinear technique to obtain
-      * much smoother downscaled images 
+      * much smoother downscaled images
       * http://today.java.net/pub/a/today/2007/04/03/perils-of-image-getscaledinstance.html
       */
     public static Image scaleImage(Image inImage, int width, int height) {
-
         int w = inImage.getWidth(null);
         int h = inImage.getHeight(null);
         int wo = w;
@@ -1523,27 +1522,35 @@ public final class UI {
         do {
             if (w > width) {
                 w /= 2;
-                if (w < width) w = width;
-            }
-            if (h > height) {
-                h /= 2;
-                if (h < height) h = height;
+
+                if (w < width) {
+                    w = width;
+                }
             }
 
-            BufferedImage tmp = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+            if (h > height) {
+                h /= 2;
+
+                if (h < height) {
+                    h = height;
+                }
+            }
+
+            BufferedImage tmp = new BufferedImage(w, h,
+                    BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = tmp.createGraphics();
-            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                RenderingHints.VALUE_INTERPOLATION_BILINEAR);
             g2.drawImage(ret, 0, 0, w, h, null);
             g2.dispose();
             ret = tmp;
-        } while ( w != width || h != height);
+        } while ((w != width) || (h != height));
 
         Global.logDebug("Original: " + wo + "x" + ho + ", New: " +
             ret.getWidth(null) + "x" + ret.getHeight(null), "UI.scaleImage");
 
         return ret;
     }
-
 
     public static void scaleImage(String inputfile, String outputfile,
         int width, int height) {

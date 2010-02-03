@@ -643,8 +643,6 @@ public class AutoDBUpdates {
 
             // 2.700
 
-
-
             // All successful
             finish();
 
@@ -4061,12 +4059,13 @@ public class AutoDBUpdates {
                 // Add the AnimalID field to ownerdonation
                 DBConnection.executeAction(
                     "ALTER TABLE ownerdonation ADD AnimalID INTEGER NULL");
-                DBConnection.executeAction("UPDATE ownerdonation SET AnimalID = 0");
+                DBConnection.executeAction(
+                    "UPDATE ownerdonation SET AnimalID = 0");
 
                 // Find all adoption records with donations and update the donations
                 // to link to the animal as well
-                DBConnection.executeAction("UPDATE ownerdonation SET AnimalID = (SELECT adoption.AnimalID FROM adoption WHERE ID = ownerdonation.MovementID) WHERE MovementID > 0");
-
+                DBConnection.executeAction(
+                    "UPDATE ownerdonation SET AnimalID = (SELECT adoption.AnimalID FROM adoption WHERE ID = ownerdonation.MovementID) WHERE MovementID > 0");
             } catch (Exception e) {
                 errors.add("ownerdonation: ADD AnimalID");
             }
@@ -4081,8 +4080,14 @@ public class AutoDBUpdates {
 
     private void update2700() {
         try {
+            // Turn this one on - this is what ASM historically has always
+            // done, so keep behaviour the same 
             Configuration.setEntry("DefaultDateBroughtIn", "Yes");
-            Configuration.setEntry("AutoCancelReservesDays", "14");
+
+            // DB Default is 14 days, but for people who upgraded, leave this option
+            // off just in case
+            Configuration.setEntry("AutoCancelReservesDays", "0");
+
             Configuration.setEntry("DatabaseVersion", "2700");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
@@ -4090,8 +4095,6 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
-
-
 }
 
 

@@ -612,7 +612,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             new Integer(Configuration.getInteger("AFDefaultColour")), cboColour);
         cboSize.setSelectedIndex(Configuration.getInteger("AFDefaultSize"));
         Utils.setComboFromID(LookupCache.getCoatTypeLookup(), "CoatType",
-            new Integer(Configuration.getInteger("AFDefaultCoatType")), cboCoatType);
+            new Integer(Configuration.getInteger("AFDefaultCoatType")),
+            cboCoatType);
 
         // Default shelter code (if option set)
         if (Configuration.getBoolean("AutoDefaultShelterCode")) {
@@ -999,7 +1000,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 tabTabs.setIconAt(TAB_DONATIONS,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_DONATIONS));
             }
-
 
             // Media
             animalmedia.setLink(Media.LINKTYPE_ANIMAL, animal.getID().intValue());
@@ -1441,8 +1441,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         dataChanged();
 
         // Are we actually using the year in codes?
-        if (Configuration.getString("CodingFormat").indexOf("Y") == -1 &&
-	    Configuration.getString("ShortCodingFormat").indexOf("Y") == -1) {
+        if ((Configuration.getString("CodingFormat").indexOf("Y") == -1) &&
+                (Configuration.getString("ShortCodingFormat").indexOf("Y") == -1)) {
             // No, forget it
             return;
         }
@@ -2825,7 +2825,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }
 
             break;
-
 
         case TAB_MEDIA:
 

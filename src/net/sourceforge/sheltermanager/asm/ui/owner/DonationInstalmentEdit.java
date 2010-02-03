@@ -22,11 +22,11 @@
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
+import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
+import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
@@ -50,7 +50,8 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
-public class DonationInstalmentEdit extends ASMForm implements SearchListener, OwnerLinkListener {
+public class DonationInstalmentEdit extends ASMForm implements SearchListener,
+    OwnerLinkListener {
     private DonationSelector parent = null;
     private int animalID = 0;
     private int ownerID = 0;
@@ -65,8 +66,8 @@ public class DonationInstalmentEdit extends ASMForm implements SearchListener, O
     private OwnerLink olOwner;
     private UI.SearchTextField alAnimal;
 
-    public DonationInstalmentEdit(DonationSelector parent, int animalID, int ownerID,
-        int movementID) {
+    public DonationInstalmentEdit(DonationSelector parent, int animalID,
+        int ownerID, int movementID) {
         this.animalID = animalID;
         this.ownerID = ownerID;
         this.movementID = movementID;
@@ -124,17 +125,17 @@ public class DonationInstalmentEdit extends ASMForm implements SearchListener, O
         // If we have no owner ID, allow box to choose it
         if (ownerID == 0) {
             olOwner = (OwnerLink) UI.addComponent(top, i18n("Owner:"),
-                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE,
-                    "OWNER"));
+                    new OwnerLink(OwnerLink.MODE_ONELINE,
+                        OwnerLink.FILTER_NONE, "OWNER"));
             olOwner.setParent(this);
         }
 
         // If we have no animal ID, allow box to choose it
         if (animalID == 0) {
             alAnimal = (UI.SearchTextField) UI.addComponent(top,
-                i18n("Animal:"),
-                UI.getSearchTextField(i18n("Select_an_animal"),
-                    UI.fp(this, "actionSelectAnimal")));
+                    i18n("Animal:"),
+                    UI.getSearchTextField(i18n("Select_an_animal"),
+                        UI.fp(this, "actionSelectAnimal")));
         }
 
         txtComments = (UI.TextArea) UI.addComponent(mid, i18n("comments"),
@@ -291,8 +292,7 @@ public class DonationInstalmentEdit extends ASMForm implements SearchListener, O
             if (id.equals("OWNER")) {
                 this.ownerID = ownerid;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

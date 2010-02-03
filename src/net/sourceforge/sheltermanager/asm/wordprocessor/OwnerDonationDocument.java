@@ -174,9 +174,10 @@ public class OwnerDonationDocument extends GenerateDocument {
      * Attach the document to the owner as media.
      */
     public void attachMedia() {
-
         if (uiparent == null) {
-            Global.logError("Attach media selected, but not MediaSelector object passed.", "OwnerDonationDocument.attachMedia");
+            Global.logError("Attach media selected, but not MediaSelector object passed.",
+                "OwnerDonationDocument.attachMedia");
+
             return;
         }
 
