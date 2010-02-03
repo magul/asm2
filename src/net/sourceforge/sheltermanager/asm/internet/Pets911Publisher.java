@@ -342,9 +342,20 @@ public class Pets911Publisher extends Thread {
                     dataFile.append("\"" + anSize + "\",");
 
                     // Additional_Info
-                    dataFile.append("\"" +
-                        an.getWebMediaNotes().replaceAll("\"", "&quot;") +
-                        "\",");
+                    String comm = an.getWebMediaNotes();
+                    
+                    // No web media, use the animal comments instead
+                    if (comm.equals("")) comm = an.getAnimalComments();
+                    
+                    // Strip CR/LF
+                    comm = comm.replaceAll(new String(new byte[] { 13, 10 }),
+                            "<br/>");
+                    comm = comm.replaceAll("\n", "<br/>");
+                    comm = comm.replaceAll("\r", "<br/>");
+                    comm = comm.replaceAll("\"", "&ldquo;");
+                    comm = comm.replaceAll("\'", "&lsquo;");
+                    comm = comm.replaceAll("\\`", "&lsquo;");
+                    dataFile.append("\"" + comm + "\",");
 
                     // Animal_Name
                     dataFile.append("\"" + an.getAnimalName() + "\",");

@@ -366,7 +366,7 @@ public class AnimalDocument extends GenerateDocument {
                                         : Global.i18n("uiwordprocessor", "No")));
 
             String webMedia = "nopic.jpg";
-            String webMediaNotes = "";
+            String webMediaNotes = animal.getAnimalComments();
             boolean webMediaNew = false;
             boolean webMediaUpdated = false;
 

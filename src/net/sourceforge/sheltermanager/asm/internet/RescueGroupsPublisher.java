@@ -497,9 +497,14 @@ public class RescueGroupsPublisher extends Thread {
 
                     // description
                     String comm = an.getWebMediaNotes();
+                    
+                    // No web media, use the animal comments instead
+                    if (comm.equals("")) comm = an.getAnimalComments();
+                    
                     // Strip CR/LF
                     comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
                     comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
+                    
                     // Switch quotes
                     comm = comm.replace('"', '\'');
                     dataFile.append("\"" + comm + "\"");
