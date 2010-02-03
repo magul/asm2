@@ -748,6 +748,11 @@ public class Options extends ASMForm {
                 Configuration.getString("AutoAttachMedia")
                              .equalsIgnoreCase("Yes"), false));
 
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Default_date_brought_in_to_today"), "DefaultDateBroughtIn",
+                Configuration.getString("DefaultDateBroughtIn")
+                             .equalsIgnoreCase("Yes"), false));
+
         tblDefaultOptions = new SelectableList(l);
 
         defaults.add(pr, UI.BorderLayout.NORTH);
