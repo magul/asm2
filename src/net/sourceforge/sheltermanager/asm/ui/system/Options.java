@@ -85,6 +85,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultEntryReason;
     private UI.ComboBox cboDefaultInternalLocation;
     private UI.ComboBox cboDefaultLogFilter;
+    private UI.ComboBox cboDefaultCoatType;
     private UI.ComboBox cboDefaultReturn;
     private UI.ComboBox cboDefaultSize;
     private UI.ComboBox cboNonShelter;
@@ -146,6 +147,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultReturn);
         ctl.add(cboDefaultSize);
         ctl.add(cboDefaultLogFilter);
+        ctl.add(cboDefaultCoatType);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
         ctl.add(spnAutoInsuranceEnd);
@@ -293,6 +295,10 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultLogFilter")),
             cboDefaultLogFilter);
 
+        Utils.setComboFromID(LookupCache.getCoatTypeLookup(), "CoatType",
+            new Integer(Configuration.getInteger("AFDefaultCoatType")),
+            cboDefaultCoatType);
+
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
             // OS auth
@@ -401,6 +407,10 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultLogFilter",
                 Utils.getIDFromCombo(LookupCache.getLogTypeLookup(),
                     "LogTypeName", cboDefaultLogFilter).toString());
+
+            Configuration.setEntry("AFDefaultCoatType",
+                Utils.getIDFromCombo(LookupCache.getCoatTypeLookup(),
+                    "CoatType", cboDefaultCoatType).toString());
 
             l = tblDefaultOptions.getSelections();
 
@@ -696,6 +706,9 @@ public class Options extends ASMForm {
         cboDefaultLogFilter = UI.getCombo(LookupCache.getLogTypeLookup(),
                 "LogTypeName", i18n("(all)"));
         UI.addComponent(pr, i18n("Default_Log_Filter:"), cboDefaultLogFilter);
+
+        cboDefaultCoatType = UI.getCombo(LookupCache.getCoatTypeLookup(), "CoatType");
+        UI.addComponent(pr, i18n("Default_Coat_Type"), cboDefaultCoatType);
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,

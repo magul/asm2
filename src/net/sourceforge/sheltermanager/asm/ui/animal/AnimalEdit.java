@@ -562,13 +562,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Date of birth and date brought in
         Calendar cal = Calendar.getInstance();
 
-        try {
-            txtDateBroughtIn.setText(Utils.formatDate(cal));
-            // Put these values on the object for validation purposes
-            animal.setDateBroughtIn(Utils.calendarToDate(cal));
-            animal.setMostRecentEntryDate(Utils.calendarToDate(cal));
-        } catch (Exception e) {
-            Global.logException(e, getClass());
+        if (Configuration.getBoolean("DefaultDateBroughtIn")) {
+            try {
+                txtDateBroughtIn.setText(Utils.formatDate(cal));
+                animal.setDateBroughtIn(Utils.calendarToDate(cal));
+                animal.setMostRecentEntryDate(Utils.calendarToDate(cal));
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
         }
 
         // Default species and type
@@ -610,6 +611,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         Utils.setComboFromID(LookupCache.getBaseColourLookup(), "BaseColour",
             new Integer(Configuration.getInteger("AFDefaultColour")), cboColour);
         cboSize.setSelectedIndex(Configuration.getInteger("AFDefaultSize"));
+        Utils.setComboFromID(LookupCache.getCoatTypeLookup(), "CoatType",
+            new Integer(Configuration.getInteger("AFDefaultCoatType")), cboCoatType);
 
         // Default shelter code (if option set)
         if (Configuration.getBoolean("AutoDefaultShelterCode")) {

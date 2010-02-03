@@ -878,7 +878,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2641');
+INSERT INTO configuration VALUES ('DatabaseVersion','2700');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -932,6 +932,8 @@ INSERT INTO configuration VALUES ('AgeGroup3', '7');
 INSERT INTO configuration VALUES ('AgeGroup3Name', 'Adult');
 INSERT INTO configuration VALUES ('AgeGroup4', '50');
 INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
+INSERT INTO configuration VALUES ('DefaultDateBroughtIn', 'Yes');
+INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
 
 
 

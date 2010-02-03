@@ -53,7 +53,7 @@ public class AutoDBUpdates {
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2641;
+    public final static int LATEST_DB_VERSION = 2700;
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -633,6 +633,16 @@ public class AutoDBUpdates {
             }
 
             // 2.641
+            if (dbVer.equals("2641")) {
+                Global.logInfo("Updating database to 2.700 please wait...",
+                    "AutoDBUpdates");
+                checkUpdateAllowed();
+                update2700();
+                dbVer = Configuration.getString("DatabaseVersion");
+            }
+
+            // 2.700
+
 
 
             // All successful
@@ -4068,6 +4078,19 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    private void update2700() {
+        try {
+            Configuration.setEntry("DefaultDateBroughtIn", "Yes");
+            Configuration.setEntry("AutoCancelReservesDays", "14");
+            Configuration.setEntry("DatabaseVersion", "2700");
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+    }
+
 
 }
 
