@@ -187,6 +187,12 @@ public class AnimalPrint extends Report {
         }
 
         tableFinishRow();
+        tableAddRow();
+        String littertext = Configuration.getBoolean("AutoLitterIdentification")
+            ? Global.i18n("uianimal", "litter_id") : Global.i18n("uianimal", "Acceptance_No:");
+        tableAddBoldCell(littertext);
+        tableAddCell(a.getAcceptanceNumber());
+        tableFinishRow();
         tableFinish();
         addTable();
 
