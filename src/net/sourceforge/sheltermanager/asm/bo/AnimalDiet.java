@@ -108,6 +108,10 @@ public class AnimalDiet extends UserInfoBO {
         return LookupCache.getDietName(getDietID());
     }
 
+    public String getDietDescription() throws CursorEngineException {
+        return LookupCache.getDietDescription(getDietID());
+    }
+
     public Date getDateStarted() throws CursorEngineException {
         return (Date) rs.getField("DateStarted");
     }

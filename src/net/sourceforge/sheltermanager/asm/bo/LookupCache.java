@@ -786,14 +786,13 @@ public abstract class LookupCache {
         return getNameForID(getDietLookup(), "DietName", ID);
     }
 
+    public static String getDietDescription(Integer ID) throws CursorEngineException {
+        return getNameForID(getDietLookup(), "DietDescription", ID);
+    }
+
     public static String getDonationTypeName(Integer ID)
         throws CursorEngineException {
         return getNameForID(getDonationTypeLookup(), "DonationName", ID);
-    }
-
-    public static String getDietDescription(Integer ID)
-        throws CursorEngineException {
-        return getNameForID(getDietLookup(), "DietDescription", ID);
     }
 
     public static String getVoucherName(Integer ID)

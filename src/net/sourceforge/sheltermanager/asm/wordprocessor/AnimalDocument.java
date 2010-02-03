@@ -581,6 +581,8 @@ public class AnimalDocument extends GenerateDocument {
             while (!ad.getEOF()) {
                 addTag(Global.i18n("wordprocessor", "DietName") +
                     Integer.toString(uniquecount), ad.getDietName());
+                addTag(Global.i18n("wordprocessor", "DietDescription") +
+                    Integer.toString(uniquecount), ad.getDietDescription());
                 addTag(Global.i18n("wordprocessor", "DietDateStarted") +
                     Integer.toString(uniquecount),
                     Utils.formatDate(ad.getDateStarted()));
@@ -598,6 +600,8 @@ public class AnimalDocument extends GenerateDocument {
             if (uniquecount < 100) {
                 while (uniquecount < 101) {
                     addTag(Global.i18n("wordprocessor", "DietName") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietDescription") +
                         Integer.toString(uniquecount), "");
                     addTag(Global.i18n("wordprocessor", "DietDateStarted") +
                         Integer.toString(uniquecount), "");
@@ -618,6 +622,8 @@ public class AnimalDocument extends GenerateDocument {
             while (!ad.getEOF()) {
                 addTag(Global.i18n("wordprocessor", "DietNameLast") +
                     Integer.toString(uniquecount), ad.getDietName());
+                addTag(Global.i18n("wordprocessor", "DietDescriptionLast") +
+                    Integer.toString(uniquecount), ad.getDietDescription());
                 addTag(Global.i18n("wordprocessor", "DietDateStartedLast") +
                     Integer.toString(uniquecount),
                     Utils.formatDate(ad.getDateStarted()));
@@ -635,6 +641,8 @@ public class AnimalDocument extends GenerateDocument {
             if (uniquecount < 100) {
                 while (uniquecount < 101) {
                     addTag(Global.i18n("wordprocessor", "DietNameLast") +
+                        Integer.toString(uniquecount), "");
+                    addTag(Global.i18n("wordprocessor", "DietDescriptionLast") +
                         Integer.toString(uniquecount), "");
                     addTag(Global.i18n("wordprocessor", "DietDateStartedLast") +
                         Integer.toString(uniquecount), "");
