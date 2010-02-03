@@ -877,8 +877,8 @@ public class Adoption extends UserInfoBO {
             diff = (diff / 60);
             diff = (diff / 24);
             diff = (diff / 7);
-
-            return Long.toString(diff) + Global.i18n("bo", "_weeks.");
+            return Global.i18n("bo", "x_weeks", Long.toString(diff));
+            
         } else {
             // Otherwise format in months and years
             long diff = Utils.getDateDiff(returndate, adoptiondate);
@@ -895,8 +895,8 @@ public class Adoption extends UserInfoBO {
             months = (long) mo; // Calculate weeks as a 12-based percentage
                                 // of 52 to get accurate months
 
-            return Long.toString(years) + Global.i18n("bo", "_years_and_") +
-            Long.toString(months) + Global.i18n("bo", "_months.");
+            return Global.i18n("bo", "years_and_months", Long.toString(years),
+                    Long.toString(months));
         }
     }
 }

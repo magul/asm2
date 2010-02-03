@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.reports;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -103,6 +104,7 @@ public class ReturnedAnimals extends Report {
                     tableAddCell(bold(Global.i18n("reports", "Date_Adopted")));
                     tableAddCell(bold(Global.i18n("reports", "Date_Returned")));
                     tableAddCell(bold(Global.i18n("reports", "Reason_For_Return")));
+                    tableAddCell("");
                     tableAddCell(bold(Global.i18n("reports", "Owner")));
                     tableAddCell(bold(Global.i18n("reports", "Length")));
                     tableFinishRow();
@@ -111,6 +113,7 @@ public class ReturnedAnimals extends Report {
                         tableAddRow();
                         tableAddCell(Utils.formatDateLong(ad.getMovementDate()));
                         tableAddCell(Utils.formatDateLong(ad.getReturnDate()));
+                        tableAddCell(LookupCache.getEntryReasonNameForID(ad.getReturnedReasonID()));
                         tableAddCell(Utils.nullToEmptyString(
                                 ad.getReasonForReturn()));
                         tableAddCell(ad.getOwner().getOwnerName());
