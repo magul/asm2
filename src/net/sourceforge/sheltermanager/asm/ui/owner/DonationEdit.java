@@ -248,7 +248,6 @@ public class DonationEdit extends ASMForm implements SearchListener,
                     LookupCache.getDonationTypeLookup(), "DonationName",
                     cboDonationType));
             od.setComments(txtComments.getText());
-            od.save(Global.currentUserName);
 
             // Do we have a frequency > 0, the nextcreated flag isn't set
             // and there's a datereceived and a datedue?
@@ -284,7 +283,12 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
                 // Save our next instalment
                 od2.save(Global.currentUserName);
+
+                // Update the created flag for this donation
+                od.setNextCreated(new Integer(1));
             }
+
+            od.save(Global.currentUserName);
 
             // Update parent
             parent.updateList();
