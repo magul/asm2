@@ -337,12 +337,14 @@ public class Startup implements Runnable {
             sp.incrementBar();
 
             if (!AutoDBUpdates.checkDatabaseVersion()) {
+
+                String dbVer = Configuration.getString("DatabaseVersion");
                 Dialog.showError(
                     "Your database is newer than this client and will not work correctly with it. You must update your client to version " +
-                    AutoDBUpdates.LATEST_DB_VERSION + " to continue.");
+                    dbVer + " to continue.");
                 Global.logError(
                     "Your database is newer than this client and will not work correctly with it.\nYou must update your client to version " +
-                    AutoDBUpdates.LATEST_DB_VERSION + " to continue.", "Startup");
+                    dbVer + " to continue.", "Startup");
                 clearLock();
                 terminateVM(1);
             }
