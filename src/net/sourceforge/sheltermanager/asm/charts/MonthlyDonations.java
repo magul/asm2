@@ -64,26 +64,35 @@ public class MonthlyDonations extends Chart {
     }
 
     public boolean createGraph() throws Exception {
-        // Outline model - 12 columns (Month, Year period)
-        // 3 rows (Brought In, Adoption and OwnerDonation)
-        int[][] model = new int[4][12];
 
         setStatusBarMax(12);
 
-        double totBI = 0;
-        double totAd = 0;
-        double totOd = 0;
-        double totAl = 0;
-        double totalBI = 0;
-        double totalAd = 0;
-        double totalOd = 0;
-        double totalAl = 0;
+	// Get a list of donation types used over this period
+	SQLRecordset dt = new SQLRecordset();
+	
+	Calendar firstDayOfYear = Calendar.getInstance();
+	firstDayOfYear.set(Calendar.YEAR, selectedYear);
+	firstDayOfYear.set(Calendar.MONTH, 0);
+	firstDayOfYear.set(Calendar.DAY_OF_MONTH, 1);
+	Calendar lastDayOfYear = Calendar.getInstance();
+	lastDayOfYear.set(Calendar.YEAR, selectedYear);
+	lastDayOfYear.set(Calendar.MONTH, 11);
+	lastDayOfYear.set(Calendar.DAY_OF_MONTH, 31);
+
+	dt.openRecordset("SELECT DISTINCT donationtype.ID, DonationName FROM donationtype " +
+		"INNER JOIN ownerdonation ON ownerdonation.DonationTypeID = donationtype.ID " +
+		"WHERE Date >= '" + Utils.getSQLDate(firstDayOfYear) + "' AND " +
+		"Date <= '" + Utils.getSQLDate(lastDayOfYear) + "'", "donationtype");
+	if (dt.getEOF()) return false;
+
+	String[] dtname = new String[(int) dt.getRecordCount()];
+	double[] dtot = new double[(int) dt.getRecordCount()];
+
+	// Outline model - 12 columns (Month, Year period)
+        // 3 rows (Brought In, Adoption and OwnerDonation)
+        int[][] model = new int[dtot.length][12];
 
         for (int i = 0; i < 12; i++) {
-            totBI = 0;
-            totAd = 0;
-            totOd = 0;
-            totAl = 0;
 
             // Calculate month boundaries
             Calendar firstDayOfMonth = Calendar.getInstance();
@@ -103,37 +112,20 @@ public class MonthlyDonations extends Chart {
             String lastDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
                         lastDayOfMonth));
 
-            // Get the total figures
-            totBI = DBConnection.executeForSum(
-                    "SELECT SUM(AmountDonatedOnEntry) AS Total " +
-                    "FROM animal WHERE DateBroughtIn >= '" + firstDay +
-                    "' AND " + "DateBroughtIn <= '" + lastDay +
-                    "' AND AmountDonatedOnEntry > 0");
+            // Add up donations of type
+            int col = 0;
+	    dt.moveFirst();
+	    while (!dt.getEOF()) {
 
-            totAd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
-                    "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
-                    "Date <= '" + lastDay + "' AND MovementID > 0");
-
-            totOd = DBConnection.executeForSum("SELECT SUM(Donation) AS Total " +
-                    "FROM ownerdonation WHERE Date >= '" + firstDay + "' AND " +
-                    "Date <= '" + lastDay + "' AND MovementID = 0");
-
-            totAl = DBConnection.executeForSum(
-                    "SELECT SUM(DonationSize) AS Total " +
-                    "FROM animalwaitinglist WHERE DatePutOnList >='" +
-                    firstDay + "' AND " + "DatePutOnList <= '" + lastDay +
-                    "' AND DonationSize > 0");
-
-            model[0][i] = (int) totAd;
-            model[1][i] = (int) totBI;
-            model[2][i] = (int) totOd;
-            model[3][i] = (int) totAl;
-
-            totalAd += totAd;
-            totalBI += totBI;
-            totalOd += totOd;
-            totalAl += totAl;
-
+		dtname[col] = dt.getField("DonationName").toString();
+                model[col][i] = (int) DBConnection.executeForSum("SELECT SUM(Donation) AS Total FROM ownerdonation " +
+		    "WHERE Date >= '" + firstDay + "' AND " +
+		    "Date <= '" + lastDay + "' AND " +
+		    "DonationTypeID = " + dt.getField("ID"));
+		dtot[col] += (double) model[col][i];
+		col++;
+                dt.moveNext();
+	    }
             incrementStatusBar();
         }
 
@@ -145,20 +137,11 @@ public class MonthlyDonations extends Chart {
                 Global.i18n("charts", "Sep"), Global.i18n("charts", "Oct"),
                 Global.i18n("charts", "Nov"), Global.i18n("charts", "Dec")
             };
-        String[] rows = {
-                Global.i18n("charts", "Adoptions_(") + Global.currencySymbol +
-                Double.toString(Utils.round(totalAd, 2)) + ")",
-                
-                Global.i18n("charts", "Brought_In_(") + Global.currencySymbol +
-                Double.toString(Utils.round(totalBI, 2)) + ")",
-                
-                Global.i18n("charts", "donations") + Global.currencySymbol +
-                Double.toString(Utils.round(totalOd, 2)) + ")",
-                
-                Global.i18n("charts", "waitinglist") + Global.currencySymbol +
-                Double.toString(Utils.round(totalAl, 2)) + ")",
-            };
 
+	String[] rows = new String[dtot.length];
+	for (int i = 0; i < dtot.length; i++) {
+            rows[i] = dtname[i] + " (" + Double.toString(dtot[i]) + ")";
+	}
         data = new ObjectChartDataModel(model, columns, rows);
 
         return checkModelIsNotZeroes(model, columns.length, rows.length);
