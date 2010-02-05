@@ -112,7 +112,10 @@ import java.sql.Types;
 import java.text.SimpleDateFormat;
 
 import java.util.Hashtable;
+import java.util.Locale;
 import java.util.Vector;
+
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 /**
@@ -243,7 +246,7 @@ public class SQLRecordset {
                 }
 
                 mtheFields.add(i, fd);
-                mFieldIndexes.put(fd.name.toLowerCase(), new Integer(i));
+                mFieldIndexes.put(Utils.englishLower(fd.name), new Integer(i));
                 mFieldTypes[i] = fd.type;
 
                 i++;
@@ -527,7 +530,7 @@ public class SQLRecordset {
      * Returns the index of a given field from it's name
      */
     public int getFieldIndex(String name) {
-        Object idx = mFieldIndexes.get(name.toLowerCase());
+        Object idx = mFieldIndexes.get(Utils.englishLower(name));
 
         if (idx == null) {
             return -1;
@@ -544,7 +547,7 @@ public class SQLRecordset {
      * @return True if the field exists
      */
     public boolean getFieldExists(String fieldName) {
-        return mFieldIndexes.get(fieldName.toLowerCase()) != null;
+        return mFieldIndexes.get(Utils.englishLower(fieldName)) != null;
     }
 
     /**

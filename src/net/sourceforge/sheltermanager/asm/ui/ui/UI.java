@@ -1334,15 +1334,15 @@ public final class UI {
     }
 
     public static boolean osIsMacOSX() {
-        return System.getProperty("os.name").toLowerCase().indexOf("mac os") != -1;
+        return Utils.englishLower(System.getProperty("os.name")).indexOf("mac os") != -1;
     }
 
     public static boolean osIsLinux() {
-        return System.getProperty("os.name").toLowerCase().indexOf("linux") != -1;
+        return Utils.englishLower(System.getProperty("os.name")).indexOf("linux") != -1;
     }
 
     public static boolean osIsWindows() {
-        return System.getProperty("os.name").toLowerCase().indexOf("windows") != -1;
+        return Utils.englishLower(System.getProperty("os.name")).indexOf("windows") != -1;
     }
 
     /**

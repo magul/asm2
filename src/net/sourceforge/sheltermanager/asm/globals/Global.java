@@ -27,6 +27,7 @@ import net.sourceforge.sheltermanager.asm.ui.localcache.LocalCache;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMApplet;
 import net.sourceforge.sheltermanager.asm.ui.ui.FlexibleFocusManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.io.File;
@@ -211,7 +212,8 @@ public abstract class Global {
             getLanguageCountry("he_IL"), getLanguageCountry("fr_FR"),
             getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL"),
             getLanguageCountry("pl_PL"), getLanguageCountry("ru_RU"),
-            getLanguageCountry("sv_SE"), getLanguageCountry("th_TH")
+            getLanguageCountry("sv_SE"), getLanguageCountry("th_TH"),
+            getLanguageCountry("tr_TR")
         };
     }
 
@@ -249,7 +251,7 @@ public abstract class Global {
         String[] c = getCountries();
 
         for (int i = 0; i < c.length; i++) {
-            if (c[i].toLowerCase().startsWith(cc.toLowerCase())) {
+            if (Utils.englishLower(c[i]).startsWith(Utils.englishLower(cc))) {
                 return i;
             }
         }

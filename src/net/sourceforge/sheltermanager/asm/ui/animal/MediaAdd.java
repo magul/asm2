@@ -235,8 +235,8 @@ public class MediaAdd extends ASMForm {
                 linkID + " AND WebsitePhoto = 1");
 
             if (m.getEOF()) {
-                if (fileextension.toLowerCase().equals("jpg") ||
-                        fileextension.toLowerCase().equals("jpeg")) {
+                if (Utils.englishLower(fileextension).equals("jpg") ||
+                		Utils.englishLower(fileextension).equals("jpeg")) {
                     media.setWebSitePhoto(new Integer(1));
                 } else {
                     media.setWebSitePhoto(new Integer(0));

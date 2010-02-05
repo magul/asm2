@@ -230,7 +230,7 @@ public class Diagnostic extends Thread {
             rs.openRecordset("CHECK TABLE " + tables[i], "none");
 
             if (!rs.getEOF()) {
-                if (!rs.getField("Msg_text").toString().trim().toLowerCase()
+                if (!Utils.englishLower(rs.getField("Msg_text").toString().trim())
                            .equals("ok")) {
                     badTables++;
 

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-11 13:34+0100\n"
-"PO-Revision-Date: 2010-01-12 18:27+0000\n"
+"POT-Creation-Date: 2010-02-03 15:35+0100\n"
+"PO-Revision-Date: 2010-02-03 12:00+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-13 04:54+0000\n"
+"X-Launchpad-Export-Date: 2010-02-04 04:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -179,8 +179,8 @@ msgstr "Būtina įvesti datą, kada buvo pranešta apie rastą gyvūną."
 msgid "You must enter the date the animal was found."
 msgstr "Būtina įvesti gyvūno radimo datą."
 
-#. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
+#. # ui/animal/AnimalFind
 #: Stolen
 #: lksmovementtype_6
 msgid "Stolen"
@@ -198,44 +198,44 @@ msgstr "Būtina įvesti šio gyvūno vardą."
 msgid "Died"
 msgstr "Mirė savo mirtimi"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # db/AutoDBUpdates
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
 #: HealthProblems
 msgid "HealthProblems"
 msgstr "HealthProblems"
 
-#. # bo/Animal
-#. # wordprocessor/GenerateDocument
-#. # ui/animalname/NamesEdit
-#. # ui/animal/AnimalEdit
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animalname/NamesEdit
 #. # internet/Pets911Publisher
+#. # wordprocessor/GenerateDocument
+#. # bo/Animal
 #: Unknown
 #: lksex_2
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#. # bo/Animal
-#. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
+#. # ui/animal/AnimalFind
+#. # bo/Animal
 #: Adopted
 msgid "Adopted"
 msgstr "Atiduotas"
 
-#. # bo/Animal
-#. # bo/AnimalLost
+#. # reports/AnimalFigures
 #. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/AnimalFigures
+#. # bo/AnimalLost
+#. # bo/Animal
 #: On_Shelter
 msgid "On Shelter"
 msgstr "Prieglaudoje"
 
-#. # bo/Animal
 #. # ui/animal/AnimalFind
+#. # bo/Animal
 #: Dead
 msgid "Dead"
 msgstr "Miręs"
@@ -255,8 +255,8 @@ msgstr "Būtina įvesti gyvūno gimimo datą."
 msgid "You must enter a date the animal was brought into the shelter."
 msgstr "Būtina įvesti gyvūno patekimo į prieglaudą datą."
 
-#. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
+#. # ui/animal/AnimalFind
 #: Escaped
 #: lksmovementtype_4
 msgid "Escaped"
@@ -275,22 +275,11 @@ msgid ""
 msgstr ""
 "Gyvūnas negali būti pažymėtas kaip miręs prieš jam patenkant į prieglaudą."
 
+#. # ui/movement/MovementEdit
 #. # bo/Adoption
 #: You_must_select_an_owner_for_this_type_of_movement.
 msgid "You must select an owner for this type of movement."
 msgstr "Šiam veiksmo tipui būtina nurodyti susijusį asmenį."
-
-#. # bo/OwnerVoucher
-#. # bo/AnimalLitter
-#. # bo/Animal
-#. # bo/OwnerDonation
-#. # bo/AnimalLost
-#. # bo/CustomReport
-#. # bo/AnimalFound
-#. # bo/Adoption
-#: An_error_occurred_while_validating_the_object\:_
-msgid "An error occurred while validating the object: "
-msgstr "Įvyko klaida tvirtinant objektą: "
 
 #. # bo/Adoption
 #: You_are_not_permitted_multiple_open_movement_records.
@@ -304,10 +293,10 @@ msgstr ""
 msgid "You must select an animal."
 msgstr "Būtina pasirinkti gyvūną."
 
-#. # ui/system/ConfigureDatabase
-#. # ui/system/Options
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/internet/InternetPublisher
 #: None
 #: lksmovementtype_0
 #: lksdiarylink_0
@@ -315,15 +304,15 @@ msgid "None"
 msgstr "Joks"
 
 #. # ui/animal/AnimalFind
-#. # bo/Animal
 #. # reports/ShelterInventory
+#. # bo/Animal
 #: Fostered
 #: fostered
 msgid "Fostered"
 msgstr "Globojamas namuose"
 
-#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
+#. # ui/movement/MovementEdit
 #: Reservation
 #: lksmovementtype_9
 msgid "Reservation"
@@ -389,10 +378,10 @@ msgstr "Tarpininkas"
 msgid "Auto removed due to lack of owner contact."
 msgstr "Automatiškai pašalintas dėl asmens kontaktų trūkumo."
 
-#. # bo/LookupCache
-#. # ui/internet/PetFinderMapSpecies
 #. # ui/animal/LitterView
+#. # ui/internet/PetFinderMapSpecies
 #. # internet/SaveAPetPublisher
+#. # bo/LookupCache
 #: Cat
 #: species_2
 msgid "Cat"
@@ -403,10 +392,10 @@ msgstr "Katė"
 msgid "Kittens"
 msgstr "Kačiukai"
 
-#. # bo/LookupCache
-#. # ui/internet/PetFinderMapSpecies
 #. # ui/animal/LitterView
+#. # ui/internet/PetFinderMapSpecies
 #. # internet/SaveAPetPublisher
+#. # bo/LookupCache
 #: Dog
 #: species_1
 msgid "Dog"
@@ -523,10 +512,10 @@ msgstr "Ne prieglaudos gyvūnas"
 msgid "One-Off"
 msgstr "Išjungimas po vieną"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: treatment
 msgid "treatment"
 msgstr "medikamentai"
@@ -535,22 +524,22 @@ msgstr "medikamentai"
 #. # bo/MedicalProfile
 #: treatment_every
 msgid "treatments every"
-msgstr "medikamentas(-ai) kas"
+msgstr "kartas(-ai) per dieną kas"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: days
 msgid "days"
 msgstr "dien."
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #. # ui/internet/InternetPublisher
+#. # ui/waitinglist/WaitingListEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: weeks
 msgid "weeks"
 msgstr "sav."
@@ -560,34 +549,34 @@ msgstr "sav."
 msgid "monthly"
 msgstr "Kas mėnesį"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: years
 msgid "years"
 msgstr "metus"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: months
 msgid "months"
 msgstr "mėnesius"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: Unspecified
 msgid "Unspecified"
 msgstr "Nenurodyta"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: treatments
 msgid "treatments"
 msgstr "medikamentai"
@@ -653,11 +642,13 @@ msgstr "Būtina pateikti žurnalo įrašą."
 msgid "Done."
 msgstr "Atlikta."
 
+#. # bo/Adoption
 #. # bo/Animal
 #: years_and_months
 msgid "{0} years and {1} months"
 msgstr "{0} met. ir {1} mėn."
 
+#. # bo/Adoption
 #. # bo/Animal
 #: x_weeks
 msgid "{0} weeks."
@@ -728,6 +719,11 @@ msgstr "Sąrašas negali būti sukurtas be sąrašo elementų."
 msgid "You must select two different breeds for a crossbreed animal."
 msgstr "Mišrūnui turi būti parinktos dvi skirtingos veislės."
 
+#. # bo/OwnerDonation
+#: donation_must_have_an_owner
+msgid "Donations must be linked to an owner."
+msgstr "Parama turi būti susieta su asmeniu."
+
 #. # charts/MonthlyDonations
 #: Adoptions_(
 msgid "Adoptions ("
@@ -763,12 +759,12 @@ msgstr "Gyvūnų patekimo priežastys "
 msgid "Monthly Adoption analysis (by species) for "
 msgstr "Atidavimų per mėnesį analizė (pagal rūšis) "
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Oct
 msgid "Oct"
 msgstr "Spalis"
@@ -778,101 +774,101 @@ msgstr "Spalis"
 msgid "Monthly Adoption analysis (by location, "
 msgstr "Atidavimų per mėnesį analizė (pagal vietovę, "
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Jul
 msgid "Jul"
 msgstr "Liepa"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Aug
 msgid "Aug"
 msgstr "Rugpjūtis"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Which_year_is_this_graph_for?
 msgid "Which year is this graph for?"
 msgstr "Kuriems metams skirtas šis grafikas?"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Jan
 msgid "Jan"
 msgstr "Sausis"
 
-#. # bo/Users
 #. # ui/ui/UI
 #. # ui/users/UserEdit
 #. # charts/AdoptionsPerBlock
+#. # bo/Users
 #: all
 msgid "all"
 msgstr "visi"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Sep
 msgid "Sep"
 msgstr "Rugsėjis"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Nov
 msgid "Nov"
 msgstr "Lapkritis"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
-#. # charts/CommonReasonsReturn
-#. # charts/DonationsPerSpecies
 #. # reports/AnimalFigures
+#. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: May
 msgid "May"
 msgstr "Gegužė"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Apr
 msgid "Apr"
 msgstr "Balandis"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Dec
 msgid "Dec"
 msgstr "Gruodis"
@@ -882,32 +878,32 @@ msgstr "Gruodis"
 msgid " species) for "
 msgstr " rūšis) "
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Mar
 msgid "Mar"
 msgstr "Kovas"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Jun
 msgid "Jun"
 msgstr "Birželis"
 
-#. # charts/AdoptionsPerBlock
-#. # charts/MonthlyDonations
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsReturn
+#. # charts/MonthlyDonations
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerBlock
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
 #: Feb
 msgid "Feb"
 msgstr "Vasaris"
@@ -2911,9 +2907,10 @@ msgstr "Vados"
 msgid "In/Out"
 msgstr "Į prieglaudą/Iš prieglaudos detali suvestinė"
 
-#. # ui/owner/OwnerEdit
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/system/Options
+#. # ui/owner/OwnerEdit
 #. # db/AutoDBUpdates
 #: customreport_46_category
 #: customreport_47_category
@@ -3197,8 +3194,8 @@ msgstr "Perkėlimas į kitą prieglaudą"
 msgid "Reclaimed"
 msgstr "Grįžo į namus"
 
-#. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
+#. # ui/animal/AnimalFind
 #: lksmovementtype_7
 #: Released_To_Wild
 msgid "Released To Wild"
@@ -3212,6 +3209,7 @@ msgstr "Atšaukta rezervacija"
 #. # ui/diary/DiaryTaskView
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
+#. # ui/owner/DonationEdit
 #: lksmedialink_0
 #: lksdiarylink_1
 #: lksfieldlink_0
@@ -3232,14 +3230,15 @@ msgstr "Dingęs gyvūnas"
 msgid "Found Animal"
 msgstr "Rastas gyvūnas"
 
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/owner/OwnerEdit
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiaryTaskView
+#. # ui/main/Main
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationEdit
 #: lksmedialink_3
 #: lksdiarylink_2
 #: lksfieldlink_1
@@ -3248,8 +3247,8 @@ msgstr "Rastas gyvūnas"
 msgid "Owner"
 msgstr "Asmenys"
 
-#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
+#. # ui/movement/MovementEdit
 #: lksmedialink_4
 #: lksdiarylink_6
 #: lksloglink_5
@@ -3257,8 +3256,8 @@ msgstr "Asmenys"
 msgid "Movement"
 msgstr "Veiksmas"
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListView
 #. # ui/system/Options
 #: lksdiarylink_5
 #: lksloglink_4
@@ -3277,44 +3276,44 @@ msgstr "Taip/Ne"
 msgid "Text"
 msgstr "Tekstas"
 
-#. # ui/animal/DietSelector
 #. # ui/animal/MediaSelector
+#. # ui/animal/DietSelector
 #: lksfieldtype_2
 #: Notes
 msgid "Notes"
 msgstr "Pastabos"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/LitterView
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
+#. # ui/animal/LitterView
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: lksfieldtype_3
 #: Number
 msgid "Number"
 msgstr "Skaičius"
 
-#. # bo/AnimalLitter
-#. # bo/Media
-#. # bo/Log
-#. # bo/OwnerDonation
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/log/LogSelector
-#. # ui/owner/OwnerEdit
-#. # ui/owner/LinkSelector
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/LitterView
 #. # ui/animal/MediaSelector
-#. # reports/Vets
-#. # reports/AnimalPrint
-#. # reports/DiaryNotesToday
-#. # db/Diagnostic
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
 #. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
 #: lksfieldtype_4
 #: Date
 msgid "Date"
@@ -3364,7 +3363,7 @@ msgstr "Svoris"
 
 #: species_3
 msgid "Bird"
-msgstr "Banguotoji papūgėlė"
+msgstr "Paukštis"
 
 #: species_7
 msgid "Rabbit"
@@ -3376,7 +3375,7 @@ msgstr "Sausumos vėžlys"
 
 #: species_13
 msgid "Terrapin"
-msgstr "Vandens vėžlys"
+msgstr "Roplys"
 
 #: species_15
 msgid "Owl"
@@ -3491,39 +3490,39 @@ msgstr "Duomenų bazė atnaujinta sėkmingai."
 
 #. # ui/system/SQLInterface
 #. # db/DBUpdate
-#. # ui/animalname/NamesEdit
-#. # ui/ui/InputTextDialog
-#. # ui/ui/JDBCDlg
-#. # ui/ui/InputListDialog
-#. # ui/ui/DateInputDlg
-#. # ui/ui/UI
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/log/LogEdit
-#. # ui/criteria/DiaryCriteria
-#. # ui/criteria/DateFromTo
-#. # ui/system/ConfigureLookups
-#. # ui/system/AdditionalFieldEdit
-#. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLocal
-#. # ui/system/ConfigureDatabase
-#. # ui/customreport/CustomReportEdit
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#. # ui/owner/VoucherEdit
-#. # ui/users/UserEdit
-#. # ui/splash/About
-#. # ui/lookups/LookupEdit
-#. # ui/main/Locked
-#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
+#. # ui/animal/MediaAdd
+#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
-#. # ui/animal/LitterEdit
-#. # ui/animal/MediaAdd
-#. # ui/owner/DonationEdit
+#. # ui/ui/UI
+#. # ui/ui/DateInputDlg
+#. # ui/ui/InputTextDialog
+#. # ui/ui/InputListDialog
+#. # ui/ui/JDBCDlg
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#. # ui/animalname/NamesEdit
+#. # ui/system/FileTypeEdit
+#. # ui/system/ConfigureLookups
+#. # ui/system/ConfigureDatabase
+#. # ui/system/AdditionalFieldEdit
+#. # ui/system/ConfigureLocal
+#. # ui/diary/DiaryTaskExecute
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/users/UserEdit
+#. # ui/splash/About
+#. # ui/main/ChangePassword
+#. # ui/main/Locked
+#. # ui/criteria/DateFromTo
+#. # ui/criteria/DiaryCriteria
+#. # ui/lookups/LookupEdit
+#. # ui/owner/VoucherEdit
+#. # ui/log/LogEdit
+#. # ui/customreport/CustomReportEdit
 #. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationEdit
 #. # db/Diagnostic
 #: OK
 #: Ok
@@ -3560,13 +3559,13 @@ msgstr "Naudotojas:"
 
 #. # ui/ui/JDBCDlg
 #. # utility/LDAP
+#. # ui/internet/PetFinderSettings
+#. # ui/internet/SaveAPetSettings
 #. # ui/internet/FTPSettings
 #. # ui/internet/Pets911Settings
-#. # ui/internet/SaveAPetSettings
-#. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
-#. # bo/Users
 #. # ui/login/Login
+#. # bo/Users
 #. # ui/system/Options
 #: password
 #: Password\:
@@ -3591,8 +3590,8 @@ msgid "Local (on this machine)"
 msgstr "Vietinė (šiame kompiuteryje)"
 
 #. # ui/ui/JDBCDlg
-#. # startup/Startup
 #. # db/DatabaseCopier
+#. # startup/Startup
 #: mysql
 msgid "MySQL Server"
 msgstr "MySQL Serveris"
@@ -3675,20 +3674,20 @@ msgstr "Kopijuoja {0}..."
 msgid "Import Database"
 msgstr "Importuoti duomenų bazę"
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: import_successful
 msgid "Import completed successfully."
 msgstr "Importavimas atliktas sėkmingai."
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: import_complete
 msgid "Import Complete"
 msgstr "Importavimas užbaigtas"
 
-#. # db/PetFinderImport
 #. # db/DatabaseImporter
+#. # db/PetFinderImport
 #: importing_table
 msgid "Importing {0}..."
 msgstr "Importuoja {0}..."
@@ -3757,16 +3756,16 @@ msgstr ""
 msgid "Recalculating adoption donations..."
 msgstr "Perskaičiuojama atidavimo metu gauta parama..."
 
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
 #: want_to_include_dbfs
 msgid ""
 "Do you want to include media files? If you have a lot, this operation will "
 "take longer."
 msgstr ""
 
-#. # db/DatabaseCopier
 #. # db/DatabaseImporter
+#. # db/DatabaseCopier
 #: include_dbfs
 msgid "Include Media?"
 msgstr ""
@@ -3784,8 +3783,8 @@ msgid ""
 "{7} invalid animal codes fixed for this year."
 msgstr ""
 
-#. # mailmerge/OffShelterVaccinations
 #. # reports/VaccinationDiary
+#. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
 msgstr "Vakcinacijos tipas"
@@ -3813,11 +3812,11 @@ msgstr ""
 "Prašome įvesti pradžios datą, kuriai norėtumėte paruošti laiškus apie "
 "vakcinacijas"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # mailmerge/OffShelterVaccinations
-#. # reports/MedicalDiary
 #. # reports/VaccinationDiary
+#. # reports/MedicalDiary
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
+#. # mailmerge/OffShelterVaccinations
 #: Date_Required
 msgid "Date Required"
 msgstr "Planinė data"
@@ -3835,31 +3834,31 @@ msgstr ""
 msgid "An error occurred generating the mail merge source:\n"
 msgstr "Įvyko klaida generuojant laiško komponavimo šaltinį:\n"
 
-#. # wordprocessor/MovementDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # ui/ui/DBFSBrowser
-#. # ui/ui/Dialog
-#. # ui/owner/VoucherEdit
-#. # ui/users/UserView
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/animal/VaccinationSelector
+#. # reports/VaccinationDiary
+#. # reports/MedicalDiary
+#. # reports/DiaryNotesToday
+#. # reports/Report
+#. # reports/Vets
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/MediaEdit
 #. # ui/animal/MediaAdd
 #. # ui/animal/MediaSelector
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/VaccinationEdit
+#. # ui/animal/MediaEdit
+#. # ui/ui/Dialog
+#. # ui/ui/DBFSBrowser
 #. # ui/login/Login
-#. # mailmerge/MailMerge
-#. # reports/MedicalDiary
-#. # reports/Report
-#. # reports/VaccinationDiary
-#. # reports/Vets
-#. # reports/DiaryNotesToday
-#. # utility/Utils
+#. # ui/users/UserView
+#. # ui/main/Main
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/VoucherEdit
 #. # internet/Publisher
+#. # mailmerge/MailMerge
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/MovementDocument
+#. # utility/Utils
 #: Error
 msgid "Error"
 msgstr "Klaida"
@@ -3889,14 +3888,14 @@ msgstr ""
 msgid "Reading data, please wait..."
 msgstr "Skaitomi duomenys, prašome palaukti..."
 
+#. # mailmerge/OffShelterVaccinations
+#. # mailmerge/ChipRegistration
+#. # mailmerge/Members
+#. # mailmerge/MailMerge
+#. # mailmerge/ExpiringMembers
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
-#. # mailmerge/MailMerge
-#. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipCancellation
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
 #: mailmerge
 msgid "mailmerge"
 msgstr "mailmerge"
@@ -3944,8 +3943,8 @@ msgstr ""
 msgid "Chip Cancellation Mail Merge"
 msgstr "Laiško komponavimas apie atšauktą mikroschemų registraciją"
 
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
+#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipCancellation
 #: Work_Telephone
 msgid "Work Telephone"
@@ -3976,35 +3975,35 @@ msgstr "Prieglaudos kodas"
 msgid "Owner Name"
 msgstr "Asmens vardas"
 
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
+#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipCancellation
 #: Home_Telephone
 msgid "Home Telephone"
 msgstr "Namų telefonas"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # reports/LostFoundMatch
 #. # reports/SearchResults
 #. # reports/Vets
-#. # reports/LostFoundMatch
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
 #: Colour
 msgid "Colour"
 msgstr "Spalva"
 
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/internet/PetFinderMapBreed
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/internet/PetFinderMapBreed
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/owner/OwnerEdit
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
 #: Breed
 msgid "Breed"
 msgstr "Veislė"
@@ -4014,32 +4013,32 @@ msgstr "Veislė"
 msgid "ChipCancellations.csv"
 msgstr "ChipCancellations.csv"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/internet/PetFinderMapSpecies
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/LostFoundMatch
+#. # reports/SearchResults
+#. # reports/AnimalReturnedPostSix
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/OwnerCriteriaSearch
+#. # reports/TransferIn
+#. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/LitterView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/main/Main
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/lookups/LookupView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/waitinglist/WaitingListView
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/SearchResults
-#. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalReturnedPreSix
-#. # reports/LostFoundMatch
 #: Species
 msgid "Species"
 msgstr "Rūšys"
@@ -4050,52 +4049,52 @@ msgstr "Rūšys"
 msgid "Microchip Number"
 msgstr "Mikroschemos numeris"
 
-#. # wordprocessor/AnimalDocument
+#. # reports/InOut
+#. # reports/SearchResults
+#. # reports/UnCombiTestedCats
+#. # reports/OwnerCriteriaSearch
+#. # reports/Vets
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
-#. # reports/SearchResults
-#. # reports/InOut
-#. # reports/Vets
-#. # reports/OwnerCriteriaSearch
-#. # reports/UnCombiTestedCats
+#. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
 msgstr "Amžius"
 
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/OwnerDocument
-#. # ui/ui/ASMConfigForm
-#. # ui/system/ConfigureDatabase
-#. # ui/system/Options
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindText
-#. # ui/main/Logout
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/Report
-#. # reports/InOut
-#. # reports/OwnerCriteriaSearch
-#. # internet/RescueGroupsPublisher
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
 #: Yes
 msgid "Yes"
 msgstr "Taip"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
 #: Markings
 msgid "Markings"
 msgstr "Žymės"
@@ -4107,43 +4106,43 @@ msgstr "Žymės"
 msgid "Return Date"
 msgstr "Grąžinimo data"
 
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/OwnerDocument
-#. # ui/ui/ASMConfigForm
-#. # ui/system/ConfigureDatabase
-#. # ui/system/Options
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindText
-#. # ui/main/Logout
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
-#. # reports/Report
-#. # reports/InOut
-#. # reports/OwnerCriteriaSearch
-#. # internet/RescueGroupsPublisher
-#. # internet/Pets911Publisher
-#. # internet/Publisher
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
 #: No
 msgid "No"
 msgstr "Ne"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
 #: Neutered
 msgid "Neutered"
 msgstr "Kastruotas"
 
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # reports/Retailer
 #. # reports/InOut
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
 #: Adoption_Date
 msgid "Adoption Date"
 msgstr "Atidavimo data"
@@ -4168,20 +4167,20 @@ msgstr ""
 msgid "Date Of Birth"
 msgstr "Gimimo data"
 
-#. # bo/LookupCache
-#. # bo/AnimalName
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/animalname/NamesView
-#. # ui/owner/OwnerEdit
+#. # reports/InOut
+#. # reports/SearchResults
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animalname/NamesView
+#. # ui/owner/OwnerEdit
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
-#. # reports/SearchResults
-#. # reports/InOut
-#. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
+#. # bo/LookupCache
+#. # bo/Animal
+#. # bo/AnimalName
 #: Sex
 msgid "Sex"
 msgstr "Lytis"
@@ -4191,22 +4190,22 @@ msgstr "Lytis"
 msgid "There are no adoptions matching your criteria."
 msgstr "Jūsų kriterijus atitinkančių atiduodamų gyvūnų nėra."
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Address_2
 msgid "Address 2"
 msgstr "Adresas 2"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Address_3
 msgid "Address 3"
 msgstr "Adresas 3"
@@ -4217,33 +4216,33 @@ msgid "Please enter the closing date of adoptions to include"
 msgstr ""
 "Prašome įvesti paskutinę datą, kurios duomenys apie atidavimus bus įtraukti"
 
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
 #: Forenames
 msgid "Forenames"
 msgstr "Vardai"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
+#. # reports/VaccinationDiary
+#. # reports/Retailer
+#. # reports/NoMediaAttached
+#. # reports/InOut
 #. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
-#. # reports/Retailer
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/SearchResults
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
+#. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
-#. # reports/NoMediaAttached
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
+#. # mailmerge/OffShelterVaccinations
+#. # mailmerge/ChipRegistration
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Animal_Name
 msgid "Animal Name"
 msgstr "Gyvūno vardas"
@@ -4253,166 +4252,166 @@ msgstr "Gyvūno vardas"
 msgid "AdoptedNoReturn.csv"
 msgstr "AdoptedNoReturn.csv"
 
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
 #: Initials
 msgid "Initials"
 msgstr "Inicialai"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/OwnerMailMerge
 #: Email_Address
 msgid "Email Address"
 msgstr "El. pašto adresas"
 
-#. # bo/AnimalName
-#. # bo/Animal
-#. # bo/DiaryTaskHead
+#. # reports/Stats
+#. # reports/ShelterInventory
+#. # reports/OwnerSearchResults
+#. # reports/OwnerCriteriaSearch
+#. # reports/Vets
+#. # reports/WaitingList
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/MediaSelector
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
 #. # ui/animalname/NamesView
-#. # ui/waitinglist/WaitingListView
 #. # ui/diary/DiaryTaskExecute
 #. # ui/diary/DiaryTaskView
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindText
 #. # ui/movement/MovementView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/animal/MediaSelector
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # ui/waitinglist/WaitingListView
+#. # db/AutoDBUpdates
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/Vets
-#. # reports/OwnerSearchResults
-#. # reports/WaitingList
-#. # reports/OwnerCriteriaSearch
-#. # reports/Stats
-#. # reports/ShelterInventory
-#. # db/AutoDBUpdates
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/OwnerMailMerge
+#. # bo/DiaryTaskHead
+#. # bo/Animal
+#. # bo/AnimalName
 #: Name
 msgid "Name"
 msgstr "Vardas"
 
-#. # bo/CustomReport
-#. # ui/customreport/CustomReportExport
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
-#. # mailmerge/AdoptedNoReturn
+#. # ui/customreport/CustomReportExport
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # bo/CustomReport
 #: Title
 msgid "Title"
 msgstr "Kreipinys"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Address_1
 msgid "Address 1"
 msgstr "Adresas 1"
 
-#. # bo/OwnerVoucher
-#. # bo/AnimalVaccination
-#. # bo/LookupCache
-#. # bo/AdditionalField
-#. # bo/Owner
-#. # bo/DiaryTaskDetail
-#. # bo/Voucher
-#. # bo/AnimalLitter
-#. # bo/Diary
-#. # bo/LogType
-#. # bo/AnimalDiet
-#. # bo/AnimalMedical
-#. # bo/AnimalMedicalTreatment
-#. # bo/AnimalName
-#. # bo/Diet
-#. # bo/Media
-#. # bo/Log
-#. # bo/Animal
-#. # bo/OwnerDonation
-#. # bo/DonationType
-#. # bo/VaccinationType
-#. # bo/EntryReason
-#. # bo/AnimalType
-#. # bo/AnimalLost
-#. # bo/DiaryTaskHead
-#. # bo/Breed
-#. # bo/AnimalWaitingList
-#. # bo/BaseColour
-#. # bo/DeathReason
-#. # bo/InternalLocation
-#. # bo/Users
-#. # bo/CustomReport
-#. # bo/Species
-#. # bo/AnimalFound
-#. # bo/Adoption
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
+#. # reports/AnimalFigures
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AdditionalFieldView
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindText
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/internet/InternetPublisher
 #. # ui/lookups/LookupEdit
 #. # ui/lookups/LookupView
 #. # ui/movement/MovementEdit
 #. # ui/movement/MovementView
-#. # ui/internet/InternetPublisher
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/AdditionalFieldView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # ui/waitinglist/WaitingListView
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/AnimalFigures
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #. # utility/Utils
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
+#. # bo/Voucher
+#. # bo/LookupCache
+#. # bo/AnimalLost
+#. # bo/AnimalWaitingList
+#. # bo/Diary
+#. # bo/DeathReason
+#. # bo/CustomReport
+#. # bo/AnimalVaccination
+#. # bo/LogType
+#. # bo/Media
+#. # bo/DonationType
+#. # bo/DiaryTaskHead
+#. # bo/Diet
+#. # bo/DiaryTaskDetail
+#. # bo/EntryReason
+#. # bo/AnimalMedicalTreatment
+#. # bo/Owner
+#. # bo/BaseColour
+#. # bo/Breed
+#. # bo/AnimalFound
+#. # bo/VaccinationType
+#. # bo/InternalLocation
+#. # bo/OwnerVoucher
+#. # bo/AdditionalField
+#. # bo/OwnerDonation
+#. # bo/Adoption
+#. # bo/AnimalLitter
+#. # bo/Users
+#. # bo/AnimalType
+#. # bo/AnimalDiet
+#. # bo/Animal
+#. # bo/AnimalName
+#. # bo/AnimalMedical
+#. # bo/Log
+#. # bo/Species
+#. # bo/MedicalProfile
 #: ID
 msgid "ID"
 msgstr "ID"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Address_5
 msgid "Address 5"
 msgstr "Adresas 5"
 
-#. # ui/lostandfound/LostAnimalFind
+#. # reports/OwnerSearchResults
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/ChipCancellation
 #: Postcode
 msgid "Postcode"
 msgstr "Pašto kodas"
@@ -4423,12 +4422,12 @@ msgid "Please enter the start date of adoptions to include"
 msgstr ""
 "Prašome įvesti datą, nuo kurios bus įtraukti duomenys apie atidavimus"
 
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipCancellation
+#. # mailmerge/ChipRegistration
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/ChipCancellation
 #: Address_4
 msgid "Address 4"
 msgstr "Adresas 4"
@@ -4439,13 +4438,13 @@ msgstr "Adresas 4"
 msgid "Non-Returned Adoptions"
 msgstr "Negrąžinti gyvūnai"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/AdoptedNoReturn
 #: Surname
 msgid "Surname"
 msgstr "Pavardė"
@@ -4475,41 +4474,41 @@ msgstr "Siųsti masinį el. laišką"
 msgid "Bulk Email Complete"
 msgstr "Masinio el. laiško siuntimas užbaigtas"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindText
-#. # ui/movement/MovementSelector
-#. # mailmerge/OwnerMailMerge
 #. # reports/OwnerSearchResults
 #. # reports/WaitingList
+#. # ui/movement/MovementSelector
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
+#. # mailmerge/OwnerMailMerge
 #: Address
 msgid "Address"
 msgstr "Adresas"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/ChipCancellation
 #: Town
 msgid "Town"
 msgstr "Gyvenvietė"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
-#. # reports/OwnerSearchResults
+#. # mailmerge/AdoptedNoReturn
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/ChipCancellation
 #: County
 msgid "County"
 msgstr "Savivaldybė"
@@ -4611,38 +4610,38 @@ msgstr "Įvyko klaida, atidarant ataskaitą {0}"
 msgid "In/Out Summary Report"
 msgstr "Judėjimo į prieglaudą/iš prieglaudos suvestinė ataskaita"
 
-#. # ui/animalname/NamesEdit
-#. # ui/ui/InputTextDialog
-#. # ui/ui/JDBCDlg
-#. # ui/ui/InputListDialog
-#. # ui/ui/DateInputDlg
-#. # ui/ui/UI
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/log/LogEdit
-#. # ui/criteria/DiaryCriteria
-#. # ui/criteria/DateFromTo
-#. # ui/system/ConfigureLookups
-#. # ui/system/AdditionalFieldEdit
-#. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLocal
-#. # ui/system/ConfigureDatabase
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#. # ui/owner/VoucherEdit
-#. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
-#. # ui/main/Logout
-#. # ui/main/ChangePassword
 #. # ui/animal/DietEdit
+#. # ui/animal/MediaAdd
+#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
-#. # ui/animal/LitterEdit
-#. # ui/animal/MediaAdd
-#. # ui/owner/DonationEdit
-#. # ui/owner/DonationInstalmentEdit
+#. # ui/ui/UI
+#. # ui/ui/DateInputDlg
+#. # ui/ui/InputTextDialog
+#. # ui/ui/InputListDialog
+#. # ui/ui/JDBCDlg
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#. # ui/animalname/NamesEdit
+#. # ui/system/FileTypeEdit
+#. # ui/system/ConfigureLookups
+#. # ui/system/ConfigureDatabase
+#. # ui/system/AdditionalFieldEdit
+#. # ui/system/ConfigureLocal
+#. # ui/diary/DiaryTaskExecute
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/users/UserEdit
+#. # ui/main/ChangePassword
+#. # ui/main/Logout
+#. # ui/criteria/DateFromTo
+#. # ui/criteria/DiaryCriteria
+#. # ui/lookups/LookupEdit
+#. # ui/owner/VoucherEdit
+#. # ui/log/LogEdit
 #. # ui/internet/EmailForm
+#. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationEdit
 #: Cancel
 #: cancel
 msgid "Cancel"
@@ -4683,24 +4682,24 @@ msgstr "Rastų/Dingusių gyvūnų atitikimo ataskaita"
 msgid "Animal Species"
 msgstr "Gyvūno rūšis"
 
+#. # reports/WaitingList
+#. # ui/system/Options
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #. # bo/LookupCache
 #. # bo/AnimalWaitingList
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/system/Options
-#. # reports/WaitingList
 #: Urgency
 msgid "Urgency"
 msgstr "Prioritetas"
 
-#. # ui/waitinglist/WaitingListView
 #. # reports/WaitingList
+#. # ui/waitinglist/WaitingListView
 #: Date_Removed
 msgid "Date Removed"
 msgstr "Pašalinimo data"
 
-#. # ui/waitinglist/WaitingListView
 #. # reports/WaitingList
+#. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #: Telephone
 msgid "Telephone"
@@ -4711,8 +4710,8 @@ msgstr "Telefonas"
 msgid "Waiting List (generated on {0}) "
 msgstr "Laukia vietos (suformuota {0}) "
 
-#. # ui/waitinglist/WaitingListView
 #. # reports/WaitingList
+#. # ui/waitinglist/WaitingListView
 #: Date_Put_On
 msgid "Date Put On"
 msgstr "Įtraukimo data"
@@ -4733,9 +4732,9 @@ msgstr ""
 msgid "Vet Diary between {0} and {1}"
 msgstr "Priminimai veterinarui tarp {0} ir {1}"
 
-#. # ui/diary/VetBookView
-#. # ui/animal/VaccinationView
 #. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/diary/VetBookView
 #: Location
 msgid "Location"
 msgstr "Vietovė"
@@ -4745,14 +4744,14 @@ msgstr "Vietovė"
 msgid "Vet Diary upto {0} "
 msgstr "Priminimai veterinarui iki {0} "
 
-#. # bo/CustomReport
-#. # ui/localcache/CacheView
-#. # ui/customreport/GetReports
-#. # ui/lookups/BreedSpeciesMapping
+#. # reports/Vets
+#. # ui/animal/DietSelector
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/animal/DietSelector
-#. # reports/Vets
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/localcache/CacheView
+#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Description
 msgid "Description"
 msgstr "Aprašymas"
@@ -4792,14 +4791,14 @@ msgstr "(Visus gyvūnus)"
 msgid "(On Shelter)"
 msgstr "(Prieglaudoje)"
 
-#. # ui/animal/VaccinationView
 #. # reports/VaccinationDiary
+#. # ui/animal/VaccinationView
 #: Vaccination_Diary_Criteria
 msgid "Vaccination Diary Criteria"
 msgstr "Vakcinacijų tvarkaraščio kriterijai"
 
-#. # reports/MedicalDiary
 #. # reports/VaccinationDiary
+#. # reports/MedicalDiary
 #: No_animals_match_your_criteria.
 msgid "No animals match your criteria."
 msgstr "Nėra gyvūnų, atitinkančių jūsų kriterijus."
@@ -4838,8 +4837,8 @@ msgid "All animals on the shelter of that species are older than six months."
 msgstr ""
 "Visi šios rūšies gyvūnai prieglaudoje yra vyresni nei 6 mėn. amžiaus."
 
-#. # reports/UnderSixNotLitter
 #. # reports/InOut
+#. # reports/UnderSixNotLitter
 #: Acceptance_Number
 msgid "Acceptance Number"
 msgstr "Priėmimo nr."
@@ -4889,8 +4888,8 @@ msgstr "4 savaitės"
 msgid "8 weeks"
 msgstr "8 savaitės"
 
-#. # ui/internet/InternetPublisher
 #. # reports/UnCombiTestedCats
+#. # ui/internet/InternetPublisher
 #: 1_week
 msgid "1 week"
 msgstr "1 savaitė"
@@ -4983,15 +4982,15 @@ msgstr ""
 msgid "Blank Postcodes"
 msgstr "Tušti pašto kodai"
 
-#. # reports/AnimalFigures
 #. # reports/Stats
+#. # reports/AnimalFigures
 #: Total
 msgid "Total "
 msgstr "Viso "
 
-#. # ui/waitinglist/WaitingListView
-#. # reports/WaitingList
 #. # reports/Stats
+#. # reports/WaitingList
+#. # ui/waitinglist/WaitingListView
 #: Rank
 msgid "Rank"
 msgstr "Skubumas"
@@ -5001,8 +5000,8 @@ msgstr "Skubumas"
 msgid "Deceased Reasons"
 msgstr "Mirčių priežastys"
 
-#. # reports/InOut
 #. # reports/Stats
+#. # reports/InOut
 #: Reason
 msgid "Reason"
 msgstr "Priežastis"
@@ -5029,31 +5028,32 @@ msgstr "{0} gyvūnai mirė prieglaudoje."
 msgid "{0} names have been allocated to more than one animal."
 msgstr "{0} vardai priskirti daugiau nei vienam gyvūnui."
 
-#. # bo/LookupCache
-#. # bo/AnimalName
-#. # bo/Animal
-#. # ui/ui/JDBCDlg
-#. # ui/customreport/CustomReportExport
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/DonationSelector
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
+#. # reports/Stats
+#. # reports/AnimalFigures
+#. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # startup/Startup
-#. # charts/CommonReasonsEntry
-#. # charts/AdoptionsPerSpecies
-#. # charts/DonationsPerSpecies
-#. # charts/CustomChart
-#. # reports/CustomReportExecute
-#. # reports/AnimalFigures
-#. # reports/Stats
-#. # utility/Utils
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # db/DatabaseCopier
+#. # ui/ui/JDBCDlg
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # db/DatabaseCopier
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
+#. # charts/CustomChart
+#. # utility/Utils
+#. # bo/LookupCache
+#. # bo/Animal
+#. # bo/AnimalName
+#. # startup/Startup
 #: animal
 msgid "animal"
 msgstr "gyvūnas"
@@ -5097,17 +5097,18 @@ msgstr "Vietovė pagal pašto kodą"
 msgid "Retrieving data..."
 msgstr "Gaunami duomenys..."
 
-#. # bo/AnimalName
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/owner/DonationSelector
-#. # ui/owner/OwnerEdit
-#. # ui/movement/MovementView
+#. # reports/Stats
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #. # mailmerge/AdoptedNoReturn
-#. # reports/Stats
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
+#. # bo/AnimalName
 #: AnimalName
 msgid "AnimalName"
 msgstr "Gyvūno vardas"
@@ -5172,55 +5173,55 @@ msgstr "Gyvūno paieškos rezultatai (suformuota {0}) "
 msgid "Short Code"
 msgstr "Trumpas kodas"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # reports/SearchResults
 #. # reports/Vets
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Features
 msgid "Features"
 msgstr "Požymiai"
 
+#. # reports/NoMediaAttached
 #. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
-#. # reports/SearchResults
-#. # reports/CustomReportExecute
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/UnCombiTestedCats
-#. # reports/NoMediaAttached
+#. # reports/CustomReportExecute
 #. # reports/UnneuteredSixMonths
 #: Internal_Location
 msgid "Internal Location"
 msgstr "Vidaus patalpa"
 
+#. # reports/InOut
+#. # reports/SearchResults
+#. # reports/TransferIn
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/TransferIn
-#. # reports/SearchResults
-#. # reports/InOut
 #: Date_Brought_In
 msgid "Date Brought In"
 msgstr "Patekimo data"
 
+#. # reports/InOut
+#. # reports/SearchResults
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/SearchResults
-#. # reports/InOut
 #: Identichip_No
 msgid "Identichip No"
 msgstr "Mikroschemos numeris"
 
-#. # bo/LookupCache
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/system/Options
-#. # ui/owner/OwnerEdit
+#. # reports/SearchResults
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # reports/SearchResults
-#. # reports/OwnerCriteriaSearch
+#. # ui/system/Options
+#. # ui/owner/OwnerEdit
+#. # wordprocessor/AnimalDocument
+#. # bo/LookupCache
+#. # bo/Animal
 #: Size
 msgid "Size"
 msgstr "Dydis"
@@ -5342,9 +5343,9 @@ msgstr "60%"
 msgid "Percentage Match"
 msgstr "Atitikimo procentas"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # reports/LostFoundMatch
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Contact
 msgid "Contact"
 msgstr "Kontaktinis asmuo"
@@ -5514,14 +5515,14 @@ msgstr "Atiduotas kam:"
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr "Viso grąžintų iš laikinų globėjų gyvūnų: {0}"
 
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # bo/Adoption
 #. # reports/Retailer
 #. # reports/InOut
 #. # db/AutoDBUpdates
-#. # ui/owner/DonationEdit
+#. # bo/LookupCache
+#. # bo/OwnerDonation
+#. # bo/Adoption
 #. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #: Donation
 #: donation
 msgid "Donation"
@@ -5547,8 +5548,8 @@ msgstr "Radimo data"
 msgid "Returned Date"
 msgstr "Grąžinimo data"
 
-#. # reports/TransferIn
 #. # reports/InOut
+#. # reports/TransferIn
 #: Brought_In_By
 msgid "Brought In By"
 msgstr "Pridavė"
@@ -5681,13 +5682,14 @@ msgstr "Viso pabėgusių gyvūnų: {0}"
 msgid "Animals Died On The Shelter"
 msgstr "Prieglaudoje mirę gyvūnai"
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
-#. # reports/AnimalPrint
-#. # reports/DiaryNotesToday
+#. # bo/Diary
+#. # bo/DiaryTaskDetail
 #: Subject
 msgid "Subject"
 msgstr "Tema"
@@ -5707,8 +5709,8 @@ msgstr "Priminimai {0}"
 msgid "Diary between {0} and {1} "
 msgstr "Priminimai tarp {0} ir {1} "
 
-#. # ui/criteria/DiaryCriteria
 #. # reports/DiaryNotesToday
+#. # ui/criteria/DiaryCriteria
 #: Diary_Criteria
 msgid "Diary Criteria"
 msgstr "Priminimų kriterijai"
@@ -5728,37 +5730,37 @@ msgstr "6 mėn. laikotarpiu grąžinti atiduoti gyvūnai {0} "
 msgid "No animals have been returned within 6 months of adoption."
 msgstr "6 mėn. laikotarpiu grąžintų atiduotų gyvūnų nėra."
 
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/Retailer
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
 #. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/Vets
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
+#. # reports/Retailer
 #. # reports/NoMediaAttached
 #. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #: Code
 msgid "Code"
 msgstr "Kodas"
 
-#. # reports/ReturnedAnimals
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
+#. # reports/ReturnedAnimals
 #: Date_Adopted
 msgid "Date Adopted"
 msgstr "Atidavimo data"
@@ -5785,45 +5787,45 @@ msgstr "Gyvūnai, grąžinti praėjus daugiau kaip 6 mėn. {0} "
 msgid "No adoptions on file."
 msgstr "Byloje atiduotų gyvūnų nėra."
 
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # reports/MedicalDiary
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
 #. # reports/VaccinationDiary
 #. # reports/InOut
-#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
+#. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
 #: Internal_Loc
 msgid "Internal Loc"
 msgstr "Vidaus patalpa"
 
-#. # ui/diary/DiaryTaskView
-#. # ui/diary/VetBookView
-#. # ui/log/LogSelector
-#. # ui/customreport/GetReports
-#. # ui/movement/MovementView
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationView
-#. # reports/MedicalDiary
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
 #. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/Vets
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
 #. # reports/NoMediaAttached
 #. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
-#. # ui/owner/DonationEdit
-#. # ui/owner/DonationSelector
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/VaccinationSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/movement/MovementView
+#. # ui/log/LogSelector
+#. # ui/customreport/GetReports
 #. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #: Type
 #: type
 msgid "Type"
@@ -5852,7 +5854,7 @@ msgstr "Balandis"
 #. # reports/AnimalFigures
 #: To_Fostering
 msgid "To Fostering"
-msgstr "Laikinai globojami namuose"
+msgstr "Atiduoti laikinai globai namuose"
 
 #. # ui/system/ConfigureLookups
 #: Cats
@@ -5864,7 +5866,8 @@ msgstr "Katės"
 msgid ""
 "{0} returned from other (transfers, released, escaped, stolen or reclaimed)"
 msgstr ""
-"{0} returned from other (transfers, released, escaped, stolen or reclaimed)"
+"grįžo iš kitur (iš kitų prieglaudų, po paleidimo į laisvę, dingimo, pavogimo "
+"arba grąžinimo buvusiems šeimininkams) - {0}"
 
 #. # reports/AnimalFigures
 #: Which_month_is_this_report_for?
@@ -5886,12 +5889,12 @@ msgstr "Suvestinė:"
 msgid "Which year is this report for?"
 msgstr "Kurių metų ataskaitos pageidaujate?"
 
-#. # ui/movement/MovementSelector
 #. # reports/AnimalFigures
 #. # reports/AnimalPrint
+#. # ui/movement/MovementSelector
 #: Returned
 msgid "Returned"
-msgstr "Grąžinti"
+msgstr "Grąžinimai"
 
 #. # reports/AnimalFigures
 #: Transferred_Out
@@ -5923,26 +5926,26 @@ msgstr "Rugpjūtis"
 msgid "PTS"
 msgstr "Užmigdyti"
 
-#. # reports/ReturnedAnimals
-#. # reports/MedicalDiary
+#. # reports/VaccinationDiary
+#. # reports/Stats
+#. # reports/AnimalFigures
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
 #. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/VaccinationDiary
-#. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
+#. # reports/MedicalDiary
 #. # reports/NeverVaccinated
-#. # reports/AnimalFigures
-#. # reports/AnimalPrint
-#. # reports/OwnerCriteriaSearch
+#. # reports/LostFoundMatch
+#. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
-#. # reports/NoMediaAttached
-#. # reports/Stats
-#. # reports/ShelterInventory
-#. # reports/LostFoundMatch
+#. # reports/LongTermAnimals
+#. # reports/ReturnedAnimals
+#. # reports/OwnerCriteriaSearch
+#. # reports/AnimalPrint
+#. # reports/TransferIn
+#. # reports/CustomReportExecute
 #. # reports/UnneuteredSixMonths
 #: An_error_occurred_generating_the_report
 msgid "An error occurred generating the report: {0}"
@@ -6013,8 +6016,8 @@ msgstr "Birželis"
 msgid "Day Of Month"
 msgstr "Mėnesio diena"
 
-#. # reports/InOut
 #. # reports/AnimalFigures
+#. # reports/InOut
 #: Put_To_Sleep
 msgid "Put To Sleep"
 msgstr "Užmigdyta"
@@ -6077,24 +6080,24 @@ msgstr "grąžinta - {0}"
 #. # reports/AnimalFigures
 #: on_foster_in_figures
 msgid "On Foster (in figures)"
-msgstr ""
+msgstr "Laikinai globojami namuose"
 
-#. # bo/LookupCache
-#. # bo/AnimalType
-#. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # ui/animal/AnimalFind
 #. # reports/CustomReportExecute
+#. # ui/animal/AnimalFind
+#. # ui/ui/Dialog
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
+#. # bo/LookupCache
+#. # bo/AnimalType
 #: animaltype
 msgid "Animal Type"
 msgstr "Gyvūno tipas"
 
-#. # ui/owner/OwnerEdit
 #. # reports/CustomReportExecute
+#. # ui/owner/OwnerEdit
 #: criteria
 msgid "Criteria"
 msgstr "Kriterijai"
@@ -6143,19 +6146,19 @@ msgstr ""
 "Internal reports cannot be redirected to stdout. Please select a custom "
 "report."
 
-#. # ui/animal/DietSelector
 #. # reports/CustomReportExecute
+#. # ui/animal/DietSelector
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
+#. # db/Diagnostic
+#. # db/DatabaseCopier
 #. # bo/LookupCache
 #. # bo/Diet
 #. # bo/Animal
-#. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
-#. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
 #: Diet
 #: diet
 msgid "Diet"
@@ -6191,12 +6194,12 @@ msgstr "Gydymo tvarkaraštis tarp {0} ir {1}"
 msgid "Treatment Type"
 msgstr "Gydymo tipas"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
+#. # reports/MedicalDiary
+#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/ProfileView
-#. # ui/medical/MedicalRegimeSelector
-#. # reports/MedicalDiary
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: Dosage
 msgid "Dosage"
 msgstr "Dozavimas"
@@ -6221,8 +6224,8 @@ msgstr "Nuoroda"
 msgid "{0} (plus {1})"
 msgstr "{0} (plius {1})"
 
-#. # ui/customreport/CustomReportEdit
 #. # reports/CustomReportExecute
+#. # ui/customreport/CustomReportEdit
 #: there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run
 msgid ""
 "There must be at least one SELECT query and it must be the last to run."
@@ -6244,26 +6247,26 @@ msgstr "There are no owners on file with criteria"
 msgid "No matches found for this owner's criteria."
 msgstr "Atitikimų pagal šio amens kriterijus nerasta."
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
-#. # ui/owner/OwnerEdit
+#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
+#. # ui/owner/OwnerEdit
 #: GoodWithCats
 #: Good_with_cats
 msgid "Good with cats"
 msgstr "Draugiškas su katėmis"
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
-#. # ui/owner/OwnerEdit
+#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
+#. # ui/owner/OwnerEdit
 #: GoodWithDogs
 #: Good_with_dogs
 msgid "Good with dogs"
 msgstr "Draugiškas su šunimis"
 
-#. # wordprocessor/AnimalDocument
 #. # reports/OwnerCriteriaSearch
+#. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
 #: GoodWithChildren
@@ -6272,45 +6275,45 @@ msgstr "Draugiškas su šunimis"
 msgid "Good with children"
 msgstr "Draugiškas su vaikais"
 
-#. # ui/owner/OwnerEdit
-#. # ui/animal/AnimalFind
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFind
+#. # ui/owner/OwnerEdit
 #: Housetrained
 msgid "Housetrained"
 msgstr "Dresuotas"
 
-#. # bo/OwnerVoucher
+#. # reports/VaccinationDiary
+#. # reports/MedicalDiary
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/VaccinationView
+#. # ui/animal/LitterView
+#. # ui/animal/VaccinationSelector
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
+#. # ui/medical/ProfileView
+#. # ui/medical/MedicalEdit
+#. # ui/owner/OwnerEdit
+#. # db/AutoDBUpdates
+#. # bo/AnimalLost
+#. # bo/AnimalWaitingList
 #. # bo/AnimalVaccination
+#. # bo/AnimalMedicalTreatment
 #. # bo/Owner
+#. # bo/AnimalFound
+#. # bo/OwnerVoucher
+#. # bo/OwnerDonation
+#. # bo/Adoption
 #. # bo/AnimalLitter
 #. # bo/AnimalDiet
 #. # bo/AnimalMedical
-#. # bo/AnimalMedicalTreatment
 #. # bo/Log
-#. # bo/OwnerDonation
-#. # bo/AnimalLost
-#. # bo/AnimalWaitingList
-#. # bo/AnimalFound
-#. # bo/Adoption
 #. # bo/MedicalProfile
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileView
-#. # ui/medical/MedicalEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/owner/OwnerEdit
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # reports/MedicalDiary
-#. # reports/VaccinationDiary
-#. # reports/OwnerCriteriaSearch
-#. # db/AutoDBUpdates
-#. # ui/owner/DonationEdit
-#. # ui/owner/VoucherSelector
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationEdit
+#. # ui/owner/VoucherSelector
 #: Comments
 #: comments
 msgid "Comments"
@@ -6370,7 +6373,7 @@ msgstr "{0} Total Adoptions: {1}"
 #. # reports/Retailer
 #: retailer_donations
 msgid "{0} Total Donations: {1}"
-msgstr "{0} Total Donations: {1}"
+msgstr "{0} Viso paramos: {1}"
 
 #. # reports/Retailer
 #: retailer_total_adoptions
@@ -6466,19 +6469,19 @@ msgstr "Veiksmo nr.: "
 msgid "Has Comments: "
 msgstr "Komentaruose yra: "
 
+#. # ui/animal/AnimalFindText
 #. # ui/ui/UI
 #. # ui/owner/OwnerFindText
-#. # ui/animal/AnimalFindText
 #: Search
 msgid "Search"
 msgstr "Ieškoti"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/owner/OwnerLink
 #: Clear
 #: clear
@@ -6496,18 +6499,18 @@ msgid "Tick this box to include deceased animals"
 msgstr "Pažymėkite šį laukelį, jei norite įtraukti mirusius gyvūnus."
 
 #. # ui/animal/AnimalFind
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
 #: Type\:_
 #: Type\:
 msgid "Type: "
 msgstr "Tipas: "
 
-#. # bo/Animal
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
 msgstr "Trumpas kodas"
@@ -6522,9 +6525,9 @@ msgstr "Priėmimo nr.: "
 msgid "Internal Loc: "
 msgstr "Vidaus patalpa: "
 
+#. # ui/animal/AnimalFind
 #. # ui/animalname/NamesEdit
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/animal/AnimalFind
 #: Name\:_
 msgid "Name: "
 msgstr "Vardas: "
@@ -6534,15 +6537,15 @@ msgstr "Vardas: "
 msgid "Reserved: "
 msgstr "Rezervacija: "
 
-#. # ui/animalname/NamesEdit
 #. # ui/animal/AnimalFind
+#. # ui/animalname/NamesEdit
 #: Sex\:_
 msgid "Sex: "
 msgstr "Lytis: "
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Bad_Date
 msgid "Bad Date"
 msgstr "Neteisinga data"
@@ -6567,12 +6570,12 @@ msgstr "Atidaryti"
 msgid "Unreserved"
 msgstr "Nerezervuotas"
 
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # ui/reportviewer/ReportViewer
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # ui/reportviewer/ReportViewer
 #: Print
 msgid "Print"
 msgstr "Spausdinti"
@@ -6597,26 +6600,26 @@ msgstr "Prieglaudoje tarp: "
 msgid "Features: "
 msgstr "Požymiai: "
 
-#. # bo/LookupCache
-#. # bo/InternalLocation
-#. # ui/ui/Dialog
-#. # ui/system/Options
-#. # ui/lookups/LookupView
-#. # ui/internet/InternetPublisher
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/ui/Dialog
+#. # ui/system/Options
+#. # ui/internet/InternetPublisher
+#. # ui/lookups/LookupView
+#. # bo/LookupCache
+#. # bo/InternalLocation
 #: LocationName
 msgid "LocationName"
 msgstr "LocationName"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/ui/Dialog
-#. # ui/log/LogSelector
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
-#. # ui/animal/AnimalFind
+#. # ui/log/LogSelector
+#. # ui/waitinglist/WaitingListView
 #: (all)
 msgid "(all)"
 msgstr "(visi)"
@@ -6626,9 +6629,9 @@ msgstr "(visi)"
 msgid "Insurance No: "
 msgstr "Draudimo nr: "
 
-#. # ui/main/Main
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/main/Main
 #: Find_Animal
 msgid "Find Animal"
 msgstr "Gyvūno paieška"
@@ -6668,17 +6671,17 @@ msgstr "(abu)"
 msgid "Identichip No: "
 msgstr "Mikroschemos nr: "
 
-#. # ui/main/Main
 #. # ui/animal/VaccinationView
+#. # ui/main/Main
 #: Vaccination_Book
 msgid "Vaccination Book"
 msgstr "Vakcinacijų tvarkaraštis"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
 #. # ui/animal/VaccinationView
 #. # ui/animal/LitterView
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/waitinglist/WaitingListView
 #: Refresh_the_list
 msgid "Refresh the list"
 msgstr "Atnaujinti sąrašą"
@@ -6737,8 +6740,10 @@ msgstr "Priėmimas:"
 msgid "Select a mother from the shelter animals"
 msgstr "Pasirinkti motiną iš prieglaudos gyvūnų"
 
-#. # ui/movement/MovementEdit
 #. # ui/animal/LitterEdit
+#. # ui/movement/MovementEdit
+#. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
 msgstr "Nepavyko atidaryti gyvūno kortelės: "
@@ -6758,11 +6763,11 @@ msgstr "Arba iki:"
 msgid "Create New Litter"
 msgstr "Pridėti naują vadą"
 
-#. # ui/diary/DiaryEdit
-#. # ui/log/LogEdit
-#. # ui/movement/MovementEdit
-#. # ui/animal/LitterEdit
 #. # reports/AnimalPrint
+#. # ui/animal/LitterEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
 #: Date\:
 msgid "Date:"
 msgstr "Data:"
@@ -6781,45 +6786,45 @@ msgstr ""
 msgid "Mother:"
 msgstr "Motina:"
 
+#. # reports/AnimalPrint
+#. # ui/animal/LitterEdit
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/movement/MovementEdit
-#. # ui/animal/LitterEdit
-#. # reports/AnimalPrint
 #: Number\:
 msgid "Number:"
 msgstr "Numeris:"
 
-#. # ui/ui/ASMSelector
 #. # ui/animal/VaccinationView
+#. # ui/ui/ASMSelector
 #. # charts/Chart
 #: ...
 msgid "..."
 msgstr "..."
 
-#. # bo/LookupCache
-#. # bo/Species
-#. # wordprocessor/AnimalDocument
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/ui/Dialog
 #. # ui/system/Options
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/lookups/BreedSpeciesMapping
+#. # ui/lookups/LookupView
 #. # ui/movement/MovementView
-#. # ui/animal/AnimalEdit
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/LitterEdit
-#. # ui/animal/AnimalFind
-#. # charts/AdoptionsPerSpecies
+#. # ui/owner/OwnerEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#. # wordprocessor/AnimalDocument
 #. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # bo/LookupCache
+#. # bo/Species
 #: SpeciesName
 msgid "SpeciesName"
 msgstr "RūšiesPavadinimas"
@@ -6839,10 +6844,10 @@ msgstr "Vados gimimo arba atsiradimo prieglaudoje data"
 msgid "The date this litter expires"
 msgstr "Vados galiojimo laiko pabaiga"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/LitterEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskView
-#. # ui/animal/LitterEdit
+#. # ui/waitinglist/WaitingListEdit
 #: An_error_occurred_creating_the_record\:\n
 msgid "An error occurred creating the record:\n"
 msgstr "Įvyko klaida kuriant įrašą:\n"
@@ -6873,17 +6878,17 @@ msgstr "Redaguoti vakcinaciją"
 msgid "Unable to create new vaccination record: "
 msgstr "Nepavyko sukurti naujo vakcinacijos įrašo: "
 
+#. # ui/animal/VaccinationEdit
+#. # ui/lookups/LookupView
 #. # bo/LookupCache
 #. # bo/VaccinationType
-#. # ui/lookups/LookupView
-#. # ui/animal/VaccinationEdit
 #: VaccinationType
 msgid "VaccinationType"
 msgstr "Vakcinacijos tipas"
 
-#. # ui/users/UserEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/users/UserEdit
 #: Abandon_changes_to_this_record
 msgid "Abandon changes to this record"
 msgstr "Atšaukti šio įrašo pakeitimus"
@@ -6893,9 +6898,9 @@ msgstr "Atšaukti šio įrašo pakeitimus"
 msgid "The date the animal was actually given this vaccination treatment"
 msgstr "Vakcinacijos data"
 
-#. # ui/owner/VoucherEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/owner/VoucherEdit
 #: An_error_occurred_saving_to_the_local_recordset\:_
 msgid "An error occurred saving to the local recordset: "
 msgstr "Įvyko klaida išsaugant vietinius įrašus: "
@@ -6910,16 +6915,16 @@ msgstr "Nepavyko nuskaityti įrašo apie vakcinaciją iš duomenų bazės: "
 msgid "New Vaccination"
 msgstr "Nauja vakcinacija"
 
-#. # ui/medical/TreatmentEdit
-#. # ui/animal/VaccinationEdit
 #. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/TreatmentEdit
 #: Date_Given\:
 msgid "Date Given:"
 msgstr "Atlikimo data:"
 
-#. # ui/medical/TreatmentEdit
-#. # ui/animal/VaccinationEdit
 #. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/TreatmentEdit
 #: Date_Required\:
 msgid "Date Required:"
 msgstr "Planinė data:"
@@ -6944,8 +6949,8 @@ msgstr "Komentarai apie vakcinaciją"
 msgid "Create a new vaccination treatment"
 msgstr "Naujas įrašas apie vakcinaciją"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Location\:
 msgid "Location:"
 msgstr "Patalpa:"
@@ -6955,14 +6960,14 @@ msgstr "Patalpa:"
 msgid "Create a litter from this animal"
 msgstr "Sukurti šio gyvūno vadą"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/system/FileTypes
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # ui/waitinglist/WaitingListEdit
 #: You_have_unsaved_changes_-_are_you_sure_you_wish_to_close?
 msgid "You have unsaved changes - are you sure you wish to close?"
 msgstr "Yra neišsaugotų pakeitimų - ar tikrai norite uždaryti?"
@@ -6983,23 +6988,23 @@ msgstr ""
 "Sistema vis tiek išsaugos įrašą, bet jums reiktų užpildyti informaciją apie "
 "šio gyvūno vakcinaciją. Ar tikrai norite uždaryti?"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/waitinglist/WaitingListEdit
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalEdit
-#. # ui/animal/LitterEdit
-#. # reports/AnimalPrint
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #: Species\:
 msgid "Species:"
 msgstr "Rūšis:"
 
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
 #: Type\:
 msgid "Type:"
 msgstr "Tipas:"
@@ -7009,40 +7014,40 @@ msgstr "Tipas:"
 msgid "Hidden Comments:"
 msgstr "Slepiami komentarai:"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
-#. # reports/AnimalPrint
 #: Size\:
 msgid "Size:"
 msgstr "Dydis:"
 
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: Save_Error
 msgid "Save Error"
 msgstr "Įrašymo klaida"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Dead_On_Arrival\:
 msgid "Dead On Arrival:"
 msgstr "Atvyko miręs:"
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Delete_the_highlighted_vaccination_record
 msgid "Delete the selected vaccination records"
 msgstr "Šalinti pasirinktus įrašus apie vakcinaciją"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Neutered\:
 msgid "Neutered/Spayed:"
 msgstr "Kastruotas/Sterilizuota:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Combi-Tested\:
 msgid "Combi-Tested:"
 msgstr "FLV/FIV testas:"
@@ -7052,8 +7057,8 @@ msgstr "FLV/FIV testas:"
 msgid "The animal's basic colour"
 msgstr "Gyvūno spalva"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Sex\:
 msgid "Sex:"
 msgstr "Lytis:"
@@ -7073,27 +7078,27 @@ msgstr "Gyvūno priėmimo numeris iš pagrindinio ofiso"
 msgid "Animal comments you do not want to appear on any documents"
 msgstr "Komentarai apie gyvūną, kurie nebus rodomi jokiuose dokumentuose"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Brought_In_By\:
 msgid "Brought In By:"
 msgstr "Pridavė:"
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Edit_the_highlighted_vaccination_record
 msgid "Edit the highlighted vaccination record"
 msgstr "Redaguoti pasirinktą įrašą apie vakcinaciją"
 
+#. # ui/animal/DietEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
+#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/OwnerEdit
 #. # ui/users/UserEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
+#. # ui/owner/OwnerEdit
 #: Save_this_record
 msgid "Save this record"
 msgstr "Išsaugoti šį įrašą"
@@ -7103,8 +7108,8 @@ msgstr "Išsaugoti šį įrašą"
 msgid "Create a new animal by copying this one"
 msgstr "Pridėti naują gyvūną, kopijuojant šio duomenis"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Breed\:
 msgid "Breed:"
 msgstr "Veislė:"
@@ -7114,8 +7119,8 @@ msgstr "Veislė:"
 msgid "Unable to open animal vaccination records: "
 msgstr "Nepavyko atidaryti gyvūno vakcinacijų įrašų: "
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Date_Deceased\:
 msgid "Date Deceased:"
 msgstr "Mirties data:"
@@ -7130,8 +7135,8 @@ msgstr "Klaidingi vakcinacijos duomenys"
 msgid "Create New Animal"
 msgstr "Pridėti naują gyvūną"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Entry_Donation\:
 msgid "Entry Donation:"
 msgstr "Parama atvykus:"
@@ -7161,34 +7166,35 @@ msgstr "Taikyti standartinę užduotį šiam gyvūnui"
 msgid "The reason the animal was put to sleep"
 msgstr "Mirties aplinkybės arba eutanazijos priežastis"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # reports/AnimalPrint
+#. # ui/animal/DietEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
+#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/medical/TreatmentEdit
-#. # ui/owner/VoucherEdit
-#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
-#. # reports/AnimalPrint
+#. # ui/owner/OwnerEdit
+#. # ui/owner/VoucherEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Comments\:
 msgid "Comments:"
 msgstr "Komentarai:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Health_Problems\:
 msgid "Health Problems:"
 msgstr "Sveikatos sutrikimai:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Transfer_In\:
 msgid "Transfer In:"
 msgstr "Gautas iš kitos prieglaudos:"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #: Acceptance_No\:
 msgid "Acceptance No:"
@@ -7204,10 +7210,10 @@ msgstr "Gyvūno vardas"
 msgid "Tick this box if the animal was put to sleep"
 msgstr "Pažymėkite šį laukelį, jei gyvūnui buvo atlikta eutanazija"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Dist._Features\:
 msgid "Dist. Features:"
 msgstr "Ypatingi požymiai:"
@@ -7217,8 +7223,8 @@ msgstr "Ypatingi požymiai:"
 msgid "Delete this animal"
 msgstr "Šalinti šį gyvūną"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Put_To_Sleep\:
 msgid "Put To Sleep:"
 msgstr "Atlikta eutanazija:"
@@ -7248,14 +7254,14 @@ msgstr "Gyvūno mirties data"
 msgid "Edit Animal"
 msgstr "Redaguoti gyvūną"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr "Buvęs savininkas:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Identichipped\:
 msgid "Identichipped:"
 msgstr "Turi mikroschemą:"
@@ -7275,8 +7281,8 @@ msgstr "Gyvūno lytis"
 msgid "Animal comments you want to see on documents"
 msgstr "Komentarai, kuriuos norite matyti dokumentuose"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Base_Colour\:
 msgid "Base Colour:"
 msgstr "Spalva:"
@@ -7286,29 +7292,29 @@ msgstr "Spalva:"
 msgid "Unable to create new animal record: "
 msgstr "Nepavyko sukurti naujo gyvūno įrašo: "
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
 #. # ui/system/FileTypes
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Unsaved_Changes
 msgid "Unsaved Changes"
 msgstr "Neišsaugoti pakeitimai"
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Given
 msgid "Given"
 msgstr "Atlikimo data"
 
-#. # ui/owner/OwnerLink
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerLink
 #: Name\:
 msgid "Name:"
 msgstr "Vardas:"
@@ -7318,8 +7324,8 @@ msgstr "Vardas:"
 msgid "Any distinguishing markings or features the animal has"
 msgstr "Išskirtinės gyvūno žymės ar požymiai"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
 msgstr "Gimimo data:"
@@ -7334,12 +7340,12 @@ msgstr "Kastracijos/sterilizacijos data, jei žinoma"
 msgid "The animal's species"
 msgstr "Gyvūno rūšis"
 
+#. # ui/animal/DietEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/VoucherEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
 #: Failed_Create
 msgid "Failed Create"
 msgstr "Nepavyko sukurti"
@@ -7351,8 +7357,8 @@ msgstr "Nepavyko sukurti"
 msgid "Generate an animal letter/form"
 msgstr "Formuoti gyvūno laišką/formą"
 
-#. # ui/owner/OwnerLink
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerLink
 #. # ui/system/Options
 #: Address\:
 #: Organisation_Address\:
@@ -7364,16 +7370,16 @@ msgstr "Adresas:"
 msgid "The animal's breed"
 msgstr "Gyvūno veislė"
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr "Nepavyko nuskaityti įrašų apie vakcinaciją: "
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/OwnerLink
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerLink
 #: Postcode\:
 msgid "Postcode:"
 msgstr "Pašto kodas:"
@@ -7393,8 +7399,8 @@ msgstr "Gyvūno gimimo data"
 msgid "Any health problems the animal has"
 msgstr "Gyvūno sveikatos sutrikimai"
 
-#. # ui/animal/VaccinationSelector
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: Required
 msgid "Required"
 msgstr "Planinė data"
@@ -7409,8 +7415,8 @@ msgstr "Mikroschemos numeris"
 msgid "UseAutoCodes"
 msgstr "UseAutoCodes"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Code\:
 msgid "Code:"
 msgstr "Kodas:"
@@ -7425,9 +7431,9 @@ msgstr "Unikalus gyvūno kodas prieglaudoje"
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr "Pažymėkite šį laukelį, jei gyvūnas atvyko iš kitos prieglaudos"
 
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
 msgid "Error saving to local SQLRecordset: "
 msgstr ""
@@ -7447,27 +7453,27 @@ msgstr "Pažymėkite šį laukelį, jei gyvūnas į prieglaudą atvyko miręs"
 msgid "Reason for Entry:"
 msgstr "Atvykimo priežastis:"
 
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: Invalid_Date
 msgid "Invalid Date"
 msgstr "Klaidinga data"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/DietEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
+#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/diary/DiaryEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/log/LogEdit
 #. # ui/users/UserEdit
 #. # ui/lookups/LookupEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/LitterEdit
+#. # ui/log/LogEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Validation_Error
 msgid "Validation Error"
 msgstr "Patvirtinimo klaida"
@@ -7482,41 +7488,41 @@ msgstr "Kurti vardą burtų keliu"
 msgid "The reason the animal was brought to the shelter"
 msgstr "Patekimo į prieglaudą priežastis"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Died_Off_Shelter\:
 msgid "Died Off Shelter:"
 msgstr "Mirė ne prieglaudoje:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr "Patekimo data:"
 
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: A_date_you_entered_was_not_valid\:_
 msgid "A date you entered was not valid: "
 msgstr "Jūsų įvesta data klaidinga: "
 
+#. # ui/system/Options
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # db/DatabaseCopier
 #. # bo/LookupCache
 #. # bo/Breed
-#. # ui/system/Options
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
 #: breed
 msgid "breed"
 msgstr "veislė"
 
 #. # ui/animal/AnimalEdit
-#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
+#. # ui/movement/MovementEdit
 #: PTS_Reason\:
 #: Reason\:
 msgid "Reason:"
@@ -7567,8 +7573,8 @@ msgstr "Įvyko klaida atidarant failą redagavimui: "
 msgid "View this media"
 msgstr "Žiūrėti šį failą"
 
-#. # ui/ui/DBFSBrowser
 #. # ui/animal/MediaSelector
+#. # ui/ui/DBFSBrowser
 #: An_error_occurred_retrieving_the_media_file\:_
 msgid "An error occurred retrieving the media file: "
 msgstr "Įvyko klaida gaunant failą: "
@@ -7583,20 +7589,20 @@ msgstr "Naudojimui internete"
 msgid "Unable to read media records: "
 msgstr "Nepavyko nuskaityti failų įrašų: "
 
+#. # ui/animal/MediaAdd
+#. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/MovementDocument
 #. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/OwnerDocument
-#. # ui/animal/MediaAdd
 #: Error_occurred_uploading_to_media_server\:_
 msgid "Error occurred uploading to media server: "
 msgstr "Įvyko klaida siunčiant į failų serverį: "
 
+#. # ui/animal/MediaAdd
+#. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/MovementDocument
 #. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/OwnerDocument
-#. # ui/animal/MediaAdd
 #: Unable_to_create_media_database_entry\:_
 msgid "Unable to create media database entry: "
 msgstr "Nepavyko sukurti failų duomenų bazės įrašo: "
@@ -7630,8 +7636,8 @@ msgstr "Pasirinkite bylą"
 msgid "Local File:"
 msgstr "Vietinis failas:"
 
-#. # ui/animal/MediaEdit
 #. # ui/animal/MediaAdd
+#. # ui/animal/MediaEdit
 #: Notes\:
 msgid "Notes:"
 msgstr "Pastabos:"
@@ -7668,9 +7674,9 @@ msgstr "Pasirinktus įrašus apie vakcinaciją pažymėti atliktais"
 msgid "An error occurred completing the vaccination treatment:"
 msgstr "Įvyko klaida žymint įrašą apie vakcinaciją atliktu:"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
-#. # reports/AnimalPrint
 #: Rabies_Tag
 msgid "Rabies Tag: "
 msgstr "Pasiutligės ženklelis: "
@@ -7687,20 +7693,20 @@ msgstr "Šio gyvūno pasiutligės ženklelio numeris"
 msgid "Entry Reason:"
 msgstr "Pridavimo priežastis:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Reason_not_by_owner
 msgid "Reason not from owner:"
 msgstr "Kodėl pridavė ne savininkas:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Entry_Category
 msgid "Entry Category:"
 msgstr "Pridavimo kategorija:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Death_Category
 msgid "Death Category:"
 msgstr "Mirties kategorija:"
@@ -7720,6 +7726,7 @@ msgstr "Susiję su kt.prieglaudomis"
 msgid "Media Notes Contain:"
 msgstr "Failų pastabose yra:"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/AnimalFind
@@ -7771,8 +7778,8 @@ msgstr ""
 msgid "Find this animal's littermates"
 msgstr "Rasti šio gyvūno vados brolius/seses"
 
-#. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFind
 #: Non-Shelter
 msgid "Non-Shelter"
 msgstr "Ne prieglaudos"
@@ -7787,8 +7794,8 @@ msgstr "Ne prieglaudos:"
 msgid "Check this box if this animal is not a shelter animal"
 msgstr "Pažymėkite šį laukelį, jei šis gyvūnas ne prieglaudos"
 
-#. # ui/medical/MedicalRegimeSelector
 #. # ui/animal/DietSelector
+#. # ui/medical/MedicalRegimeSelector
 #: Start_Date
 msgid "Start Date"
 msgstr "Pradžios data"
@@ -7813,15 +7820,15 @@ msgstr "Redaguoti šią dietą"
 msgid "Delete this diet"
 msgstr "Šalinti šią dietą"
 
-#. # ui/animal/DietEdit
 #. # reports/AnimalPrint
+#. # ui/animal/DietEdit
 #: Diet_Type\:
 msgid "Diet Type:"
 msgstr "Dietos tipas:"
 
-#. # ui/medical/MedicalEdit
-#. # ui/animal/DietEdit
 #. # reports/AnimalPrint
+#. # ui/animal/DietEdit
+#. # ui/medical/MedicalEdit
 #: Start_Date\:
 msgid "Start Date:"
 msgstr "Pradžios data:"
@@ -7831,8 +7838,8 @@ msgstr "Pradžios data:"
 msgid "New Diet"
 msgstr "Nauja dieta"
 
-#. # ui/owner/VoucherEdit
 #. # ui/animal/DietEdit
+#. # ui/owner/VoucherEdit
 #: unable_to_create_new_record\:
 msgid "Unable to create new record: "
 msgstr "Nepavyko sukurti naują įrašą: "
@@ -7905,10 +7912,10 @@ msgstr "Pridėti naują failą šiam gyvūnui"
 msgid "Move this animal"
 msgstr "Perkelti šį gyvūną"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
 #: Declawed
 msgid "Declawed:"
 msgstr "Pašalinti nagai:"
@@ -7962,8 +7969,8 @@ msgstr ""
 msgid "An error occurred capturing the image from the default video device."
 msgstr "Įvyko klaida imant atvaizdą iš numatytojo video įrenginio."
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Tattoo\:
 msgid "Tattoo:"
 msgstr "Turi tatuiruotę:"
@@ -7973,16 +7980,16 @@ msgstr "Turi tatuiruotę:"
 msgid "The Tattoo Number"
 msgstr "Tatuiruotės numeris"
 
-#. # bo/Animal
-#. # wordprocessor/AnimalDocument
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/AnimalDocument
+#. # bo/Animal
 #: FLVResult
 msgid "FLV Result"
 msgstr "FLV rezultatas"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: FIVResult
 msgid "FIV Result"
 msgstr "FIV rezultatas"
@@ -8025,8 +8032,8 @@ msgstr "Pažymėkite šį laukelį, jei norite matyti tik dresuotus gyvūnus"
 msgid "Generate a new animal code"
 msgstr "Generuoti naują gyvūno kodą"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Heartworm_Tested\:
 msgid "Heartworm Tested:"
 msgstr "Širdies kirmėlių testas:"
@@ -8036,26 +8043,26 @@ msgstr "Širdies kirmėlių testas:"
 msgid "The date the animal was last heartworm tested"
 msgstr "Patikrinimo data"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: good_with_cats
 msgid "Good with Cats:"
 msgstr "Draugiškas katėms:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: good_with_dogs
 msgid "Good with Dogs:"
 msgstr "Draugiškas šunims:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: good_with_kids
 msgid "Good with Kids:"
 msgstr "Draugiškas vaikams:"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: housetrained
 msgid "Housetrained:"
 msgstr "Dresuotas:"
@@ -8068,17 +8075,17 @@ msgid ""
 msgstr "Pažymėkite šį laukelį, jei gyvūnas ne atidavimui (nepublikuoti)"
 
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFind
 #: Not_for_adoption
 #: Not_Available_For_Adoption
 msgid "Not for adoption"
 msgstr "Ne atidavimui"
 
-#. # ui/ui/ASMDesktop
-#. # ui/main/UpdateDialog
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/ui/ASMDesktop
+#. # ui/internet/InternetPublisher
+#. # ui/main/UpdateDialog
 #: Close
 msgid "Close"
 msgstr "Uždaryti"
@@ -8093,8 +8100,8 @@ msgstr "Video įrašas"
 msgid "Adoptable"
 msgstr "Atiduodamas"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: animal_details
 msgid "Animal Details"
 msgstr "Gyvūno duomenys"
@@ -8104,8 +8111,8 @@ msgstr "Gyvūno duomenys"
 msgid "Basic Animal Information"
 msgstr "Pagrindinė informacija apie gyvūną"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: entry_details
 msgid "Entry Details"
 msgstr "Atvykimo duomenys"
@@ -8116,8 +8123,8 @@ msgid "Original owner information and how the animal came into the shelter"
 msgstr ""
 "Informacija apie buvusį savininką ir kaip gyvūnas pateko į prieglaudą"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #. # ui/owner/OwnerEdit
 #: vet
 #: Vet
@@ -8129,8 +8136,8 @@ msgstr "Veterinaras"
 msgid "Details of the animal's vet and any health problems"
 msgstr "Duomenys apie gyvūno veterinarą ir sveikatos būklę"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #. # db/AutoDBUpdates
 #: death
 msgid "Death"
@@ -8141,8 +8148,8 @@ msgstr "Mirtis"
 msgid "Information if the animal is deceased"
 msgstr "Informacija, jei gyvūnas mirė"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Vaccination
 msgid "Vaccination"
 msgstr "Vakcinacijos"
@@ -8162,18 +8169,18 @@ msgstr "Gydymas"
 msgid "Diet Information"
 msgstr "Informacija apie mitybą"
 
-#. # bo/Media
-#. # wordprocessor/GenerateDocument
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
-#. # startup/Startup
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # wordprocessor/GenerateDocument
+#. # bo/Media
+#. # startup/Startup
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #: media
 #: Media
 msgid "Media"
@@ -8184,22 +8191,22 @@ msgstr "Failai"
 msgid "Media associated with this animal"
 msgstr "Failai, susiję su šiuo gyvūnu"
 
-#. # bo/Diary
-#. # ui/ui/Dialog
-#. # ui/diary/VetBookView
-#. # ui/system/Options
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
+#. # ui/system/Options
+#. # ui/diary/VetBookView
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # bo/Diary
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/main/Main
 #. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListEdit
 #: diary
 #: Diary
 msgid "Diary"
@@ -8215,19 +8222,19 @@ msgstr "Susiję su šiuo gyvūnu priminimai"
 msgid "Details of animal movement transactions"
 msgstr "Duomenys apie atliktus vietos pakeitimus"
 
-#. # bo/Log
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # ui/waitinglist/WaitingListEdit
+#. # bo/Log
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListEdit
 #: log
 #: Log
 msgid "Log"
@@ -8238,8 +8245,8 @@ msgstr "Žurnalas"
 msgid "Any other information about the animal"
 msgstr "Žurnalo informacija apie gyvūną"
 
-#. # ui/main/Main
 #. # ui/animal/NotAdoptionView
+#. # ui/main/Main
 #: Not_For_Adoption_Book
 msgid "Not For Adoption Book"
 msgstr "Neatiduodamų gyvūnų sąrašas"
@@ -8266,9 +8273,9 @@ msgid ""
 msgstr ""
 "Ši byla {0}Kb dydzio. ASM nustatyta neleisti didesnių kaip {1}Kb bylų."
 
-#. # ui/owner/LinkSelector
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/owner/LinkSelector
 #: Owners_Vet
 msgid "Owner's Vet:"
 msgstr "Savininko nurodytas veterinaras:"
@@ -8286,16 +8293,16 @@ msgstr "Paieška atlikta - rasti {0} rezultatai. "
 #. # ui/animal/AnimalEdit
 #: edit_animal_title
 msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
-msgstr "Redaguoti gyvūną - {0}, {1} ({2} {3}) amžiaus {4}"
+msgstr "Redaguoti gyvūną - {0}, {1} ({2} {3}), {4} amžiaus"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/UI
 #. # ui/diary/DiaryEdit
-#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
-#. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerEdit
+#. # ui/waitinglist/WaitingListEdit
 #: created_lastchange
 msgid ""
 "Created on {0} by {1}.\n"
@@ -8309,15 +8316,15 @@ msgstr ""
 msgid "Edit this media in its associated application"
 msgstr "Redaguoti failą su juo susietoje programoje"
 
-#. # ui/ui/DBFSBrowser
 #. # ui/animal/MediaSelector
+#. # ui/ui/DBFSBrowser
 #: upload_back_to_server
 msgid ""
 "Would you like to upload your changes to this media file back to the server?"
 msgstr "Ar norėtumėte savo pakeitimus šiam failui nusiųsti atgal į serverį?"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: special_needs
 msgid "Special Needs?"
 msgstr "Ypatingi poreikiai?"
@@ -8366,21 +8373,21 @@ msgstr "Įtraukti mirusius"
 msgid "Include Off Shelter"
 msgstr "Įtraukti ne prieglaudos"
 
-#. # bo/Additional
-#. # ui/system/ConfigureAdditional
-#. # ui/customreport/CustomReportEdit
-#. # ui/owner/OwnerEdit
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/system/ConfigureAdditional
+#. # ui/owner/OwnerEdit
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
+#. # bo/Additional
 #: additional
 msgid "Additional"
 msgstr "Papildoma"
 
-#. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerEdit
 #: additional_info
 msgid "Additional information about the animal"
 msgstr "Papildoma informacija apie gyvūną"
@@ -8400,26 +8407,26 @@ msgstr "Pažymėkite šį laukelį, jei gyvūnas yra mišrūnas"
 msgid "If this animal is a crossbreed, the secondary breed"
 msgstr "Antra veislė, jei gyvūnas yra mišrūnas"
 
-#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
+#. # ui/owner/OwnerFindText
 #: search_term_bad
 msgid "Your search term must be at least 2 letters long."
 msgstr "Paieškos terminas turi būti mažiausiai iš 2 raidžių."
 
-#. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
+#. # ui/owner/OwnerFindText
 #: Advanced
 msgid "Advanced"
 msgstr "Patikslinta paieška"
 
-#. # ui/owner/OwnerFind
 #. # ui/animal/AnimalFind
+#. # ui/owner/OwnerFind
 #: Simple
 msgid "Simple"
 msgstr "Supaprastinta paieška"
 
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
 #: Coat_Type
 msgid "Coat Type:"
 msgstr "Kailio tipas:"
@@ -8441,8 +8448,8 @@ msgstr ""
 "Pažymėkite šį laukelį, jei gyvūnas patyrė žiaurų elgesį, dėl kurio iškelta "
 "byla"
 
-#. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
+#. # ui/owner/LinkSelector
 #: Current_Vet
 msgid "Current Vet:"
 msgstr "Gydantis veterinaras:"
@@ -8462,8 +8469,8 @@ msgstr "Pažymėkite šį laukelį, jei tiksli gimimo data yra nežinoma."
 msgid "You do not have permission to save this record."
 msgstr ""
 
-#. # ui/ui/DBFSBrowser
 #. # ui/animal/MediaSelector
+#. # ui/ui/DBFSBrowser
 #: hit_ok_when_finished
 msgid ""
 "Click OK when you have finished making your changes and saved the file."
@@ -8478,6 +8485,14 @@ msgstr ""
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr ""
+
+#. # ui/animal/AnimalEdit
+#. # ui/users/UserEdit
+#. # ui/movement/MovementEdit
+#. # ui/owner/OwnerEdit
+#: Donations
+msgid "Donations"
+msgstr "Parama"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8511,10 +8526,10 @@ msgid "Really delete this record?"
 msgstr "Ar tikrai norite pašalinti šį įrašą?"
 
 #. # ui/animalname/NamesEdit
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/customreport/CustomReportEdit
+#. # ui/waitinglist/WaitingListEdit
 #: An_error_occurred_saving_the_data\:\n
 msgid "An error occurred saving the data:\n"
 msgstr "Įvyko klaida išsaugant duomenis:\n"
@@ -8534,8 +8549,8 @@ msgstr "Redaguoti vardą"
 msgid "The currency figure you entered was invalid."
 msgstr "Jūsų įvestas valiutos skaičius yra klaidingas."
 
-#. # ui/customreport/CustomReportView
 #. # ui/users/UserEdit
+#. # ui/customreport/CustomReportView
 #: Custom_Reports
 msgid "Reports"
 msgstr "Ataskaitos"
@@ -8600,10 +8615,10 @@ msgstr ""
 msgid "The HTML to format and present your custom report"
 msgstr ""
 
-#. # ui/customreport/CustomReportExport
 #. # ui/customreport/GetReports
-#. # ui/customreport/CustomReportEdit
 #. # ui/customreport/CustomReportView
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
 #: category
 msgid "Category"
 msgstr "Kategorija"
@@ -8639,8 +8654,8 @@ msgstr "CSV generacija užbaigta"
 msgid "An error occurred generating the CSV file: "
 msgstr "Įvyko klaida generuojant CSV failą: "
 
-#. # ui/customreport/CustomReportExport
 #. # ui/main/Main
+#. # ui/customreport/CustomReportExport
 #: export_custom_report_data
 msgid "Export Custom Report as CSV"
 msgstr "Eksportuoti individualizuotą ataskaitą kaip CSV"
@@ -8671,8 +8686,8 @@ msgid "Install Additional Reports"
 msgstr "Įdiegti papildomas ataskaitas"
 
 #. # ui/system/Options
-#. # ui/customreport/GetReports
 #. # ui/splash/About
+#. # ui/customreport/GetReports
 #: Database
 msgid "Database"
 msgstr "Duomenų bazė"
@@ -8821,19 +8836,19 @@ msgstr "Pridėti naują standartinę užduotį"
 msgid "Add a new diary note"
 msgstr "Kurti naują priminimą"
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
+#. # reports/AnimalPrint
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
-#. # reports/AnimalPrint
+#. # bo/Diary
+#. # bo/DiaryTaskDetail
 #: Note
 msgid "Note"
 msgstr "Priminimas"
 
+#. # reports/AnimalPrint
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
-#. # reports/AnimalPrint
 #: For
 msgid "For"
 msgstr "Kam"
@@ -8844,9 +8859,9 @@ msgstr "Kam"
 msgid "Edit the selected diary note"
 msgstr "Redaguoti pasirinktą priminimą"
 
+#. # reports/AnimalPrint
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#. # reports/AnimalPrint
 #: Created_By
 msgid "Created By"
 msgstr "Sukūrė"
@@ -8883,9 +8898,9 @@ msgstr "Kurti naują standartinės užduoties darbą"
 msgid "days from today (or 0 to prompt)"
 msgstr "dienos, skaičiuojant nuo pirmojo darbo (arba 0 - pirmam darbui)"
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
+#. # ui/waitinglist/WaitingListEdit
 #: An_error_occurred_loading_the_data\:\n
 msgid "An error occurred loading the data:\n"
 msgstr "Įvyko klaida įkeliant duomenis:\n"
@@ -9002,11 +9017,11 @@ msgstr "Rodyti būsimus:"
 msgid "Show Completed:"
 msgstr "Rodyti atliktus:"
 
-#. # bo/AnimalMedical
+#. # reports/AnimalPrint
+#. # ui/medical/MedicalEdit
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#. # ui/medical/MedicalEdit
-#. # reports/AnimalPrint
+#. # bo/AnimalMedical
 #: Completed
 msgid "Completed"
 msgstr "Atlikta"
@@ -9140,11 +9155,11 @@ msgstr "Įtraukti laikinai namuose globojamus gyvūnus"
 msgid "Generate JavaScript database"
 msgstr "Generuoti JavaScript duomenų bazę"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: An_error_occurred_writing_a_file\:\n
 msgid "An error occurred writing a file:\n"
 msgstr "Įvykio klaida įrašant failą:\n"
@@ -9169,11 +9184,11 @@ msgstr "Gyvūnų puslapyje:"
 msgid "Include Cruelty Case Animals"
 msgstr "Įtraukti su bylomis dėl žiauraus elgesio susijusius gyvūnus"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: An_error_occurred_connecting_to_the_internet_provider\:\n
 msgid "An error occurred connecting to the internet provider:\n"
 msgstr "Įvyko klaida jungiantis prie interneto tiekėjo:\n"
@@ -9183,29 +9198,29 @@ msgstr "Įvyko klaida jungiantis prie interneto tiekėjo:\n"
 msgid "Publish Animals Available For Adoption"
 msgstr "Publikuoti atiduodamus gyvūnus"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: An_error_occurred_testing_the_animals\:\n
 msgid "An error occurred testing the animals:\n"
 msgstr "Įvyko klaida tikrinant gyvūnus:\n"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: Publishing...
 msgid "Publishing..."
 msgstr "Publikuojama..."
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: An_error_occurred_constructing_pages\:\n
 msgid "An error occurred constructing pages:\n"
 msgstr ""
@@ -9227,11 +9242,11 @@ msgid ""
 "Would you like to view the pages now?"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: Determining_Workload...
 msgid "Determining Workload..."
 msgstr ""
@@ -9267,8 +9282,8 @@ msgstr "Portas:"
 msgid "FTPRootDirectory"
 msgstr "FTPRootDirectory"
 
-#. # ui/internet/FTPSettings
 #. # ui/internet/SaveAPetSettings
+#. # ui/internet/FTPSettings
 #. # ui/internet/RescueGroupsSettings
 #. # ui/internet/Pets911Settings
 #. # ui/login/Login
@@ -9277,10 +9292,10 @@ msgstr "FTPRootDirectory"
 msgid "Username:"
 msgstr "Naudotojo vardas:"
 
+#. # ui/internet/PetFinderSettings
+#. # ui/internet/SaveAPetSettings
 #. # ui/internet/FTPSettings
 #. # ui/internet/Pets911Settings
-#. # ui/internet/SaveAPetSettings
-#. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
 #: Host_URL\:
 msgid "Host URL:"
@@ -9291,11 +9306,11 @@ msgstr "Serverio URL:"
 msgid "Root:"
 msgstr "Šaknis:"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
+#. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
+#. # internet/PetFinderPublisher
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
 msgstr "Gaunama gyvūnų duomenų bazė..."
@@ -9404,8 +9419,8 @@ msgstr ""
 msgid "PetFinder Mapping"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_species
 msgid ""
@@ -9414,8 +9429,8 @@ msgid ""
 "Would you like to edit them now?"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: Unmapped_Types
 msgid "Unmapped Types"
@@ -9426,8 +9441,8 @@ msgstr ""
 msgid "Map PetFinder Breeds"
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_breeds
 msgid ""
@@ -9441,16 +9456,16 @@ msgstr ""
 msgid "PetFinder Breed Mapping"
 msgstr "PetFinder Breed Mapping"
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_types_are_mapped
 msgid ""
 "Not all of your PetFinder types are mapped. Publisher cannot continue."
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
 #. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_breeds_are_mapped
 msgid ""
@@ -9557,12 +9572,12 @@ msgstr "Įtraukti"
 msgid "Include Colours"
 msgstr "Įtraukti spalvas"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #. # ui/internet/InternetPublisher
+#. # ui/waitinglist/WaitingListEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: weeks
 msgid "{0} weeks"
 msgstr "{0} sav."
@@ -9617,7 +9632,7 @@ msgstr ""
 #: You_need_to_setup_your_email
 msgid ""
 "You need to set up your email address and SMTP server.\n"
-" Go to System->Configure ASM Email Account"
+" Go to the Email tab under System->Options"
 msgstr ""
 
 #. # internet/SaveAPetPublisher
@@ -9625,8 +9640,8 @@ msgstr ""
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
 
-#. # ui/localcache/CacheView
 #. # ui/main/Main
+#. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local Cache"
 msgstr "Žiūrėti vietinį podėlį"
@@ -9657,11 +9672,6 @@ msgid "Date/Time"
 msgstr "Data/Laikas"
 
 #. # ui/localcache/LocalCache
-#: Error_reading_from_file_-_
-msgid "Error reading from file - "
-msgstr "Įvyko klaida nuskaitant iš failo - "
-
-#. # ui/localcache/LocalCache
 #: Warning\:_Local_cache_index_not_found.
 msgid "Warning: Local cache index not found."
 msgstr "Įspėjimas: Vietinio podėlio indeksas nerastas."
@@ -9671,13 +9681,13 @@ msgstr "Įspėjimas: Vietinio podėlio indeksas nerastas."
 msgid "An error occurred dumping cache information:\n"
 msgstr "Įvyko klaida šalinant podėlio informaciją:\n"
 
-#. # ui/waitinglist/WaitingListEdit
+#. # reports/AnimalPrint
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/log/LogSelector
-#. # ui/owner/OwnerEdit
 #. # ui/movement/MovementEdit
-#. # reports/AnimalPrint
+#. # ui/owner/OwnerEdit
+#. # ui/log/LogSelector
+#. # ui/waitinglist/WaitingListEdit
 #: Details
 msgid "Details"
 msgstr "Pagrindinė informacija"
@@ -9687,8 +9697,8 @@ msgstr "Pagrindinė informacija"
 msgid "Unable to read log records:\n"
 msgstr "Nepavyko nuskaityti žurnalo įrašų:\n"
 
-#. # ui/log/LogEdit
 #. # reports/AnimalPrint
+#. # ui/log/LogEdit
 #: Log_Type\:
 msgid "Log Type:"
 msgstr "Žurnalo tipas:"
@@ -9728,8 +9738,8 @@ msgstr "Nepavyko nuskaityti žurnalo įrašo:\n"
 msgid "An error occurred saving the record:\n"
 msgstr "Įvyko klaida, išsaugant įrašą:\n"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Types"
 msgstr "Žurnalų tipai"
@@ -9759,8 +9769,8 @@ msgstr "Rodyti: "
 msgid "The username and/or password you supplied were not recognised."
 msgstr "Nurodytas naudotojo vardas ir/arba slaptažodis neatpažintas."
 
-#. # ui/main/Main
 #. # ui/login/Login
+#. # ui/main/Main
 #: Exit
 msgid "Exit"
 msgstr "Išeiti"
@@ -9806,8 +9816,8 @@ msgstr "Veislės pavadinimas"
 msgid "Colour Description"
 msgstr "Spalvos aprašymas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Internal_Locations
 msgid "Internal Locations"
 msgstr "Vidaus patalpos"
@@ -9817,8 +9827,8 @@ msgstr "Vidaus patalpos"
 msgid "Breed Description"
 msgstr "Veislės aprašymas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "Vaccination Types"
 msgstr "Vakcinacijų tipai"
@@ -9833,12 +9843,12 @@ msgstr "Rūšies pavadinimas"
 msgid "Invalid lookup type received."
 msgstr "Gautas klaidingas sąrašo tipas."
 
-#. # ui/system/ConfigureAdditional
 #. # ui/system/MediaFiles
-#. # ui/lookups/LookupView
-#. # ui/lookups/BreedSpeciesMapping
+#. # ui/system/ConfigureAdditional
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/lookups/LookupView
 #: Edit
 msgid "Edit"
 msgstr "Redaguoti"
@@ -9852,8 +9862,8 @@ msgstr ""
 "An error occurred checking foreign-key relations and this\n"
 "record cannot be deleted: "
 
-#. # ui/system/ConfigureAdditional
 #. # ui/system/MediaFiles
+#. # ui/system/ConfigureAdditional
 #. # ui/lookups/LookupView
 #: Delete
 msgid "Delete"
@@ -9873,8 +9883,8 @@ msgstr ""
 "This record is currently in use in the database. \n"
 "You must remove all records using this record first."
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Breeds
 msgid "Breeds"
 msgstr "Veislės"
@@ -9889,8 +9899,8 @@ msgstr "Spalvos"
 msgid "Animal Type Name"
 msgstr "Gyvūno tipo pavadinimas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal Types"
 msgstr "Gyvūnų tipai"
@@ -9941,8 +9951,8 @@ msgstr "Kurti naują "
 msgid "An error occurred accessing the record: "
 msgstr "An error occurred accessing the record: "
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #: Description\:
 msgid "Description:"
 msgstr "Aprašymas:"
@@ -9959,8 +9969,8 @@ msgstr "Įvyko klaida išsaugant šį įrašą: "
 msgid "An error occurred creating the record: "
 msgstr "An error occurred creating the record: "
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "Entry Reasons"
 msgstr "Patekimo priežastys"
@@ -9975,8 +9985,8 @@ msgstr "Priežasties pavadinimas"
 msgid "Reason Description"
 msgstr "Priežasties aprašymas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "Death Reasons"
 msgstr "Mirčių priežastys"
@@ -9991,8 +10001,8 @@ msgstr "Dietos pavadinimas"
 msgid "Diet Description"
 msgstr "Dietos aprašymas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Diets
 msgid "Diets"
 msgstr "Dietos"
@@ -10007,9 +10017,9 @@ msgstr "Talono pavdinimas"
 msgid "Voucher Description"
 msgstr "Talono aprašymas"
 
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
 #: Vouchers
 msgid "Vouchers"
 msgstr "Talonai"
@@ -10076,14 +10086,14 @@ msgstr "(visi)"
 msgid "Find Lost Animal"
 msgstr "Dingusio gyvūno paieška"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Area_Contains\:
 msgid "Area Contains:"
 msgstr "Vietovėje yra:"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: and
 msgid "and"
 msgstr "ir"
@@ -10104,21 +10114,21 @@ msgstr "Rastas tarp:"
 msgid "Find Found Animal"
 msgstr "Rasto gyvūno paieška"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Contact_contains\:
 msgid "Contact contains:"
 msgstr "Kontaktinis asmuo:"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerFind
 #: Postcode_contains\:
 msgid "Postcode contains:"
 msgstr "Pašto kode yra:"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerEdit
 #: Area
 msgid "Area"
@@ -10199,10 +10209,10 @@ msgstr "Radimo data:"
 msgid "Features:"
 msgstr "Požymiai:"
 
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
 #: Colour\:
 msgid "Colour:"
 msgstr "Spalva:"
@@ -10228,15 +10238,15 @@ msgstr "Radimo vietovė:"
 msgid "The area this animal was found in, eg: Dore, Sheffield"
 msgstr "Vietovė, kurioje rastas gyvūnas, pvz.: Baltupiai, Telšiai"
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Contact_Details\:
 msgid "Contact Details:"
 msgstr "Kontaktinio asmens duomenys"
 
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #: Reference_number_must_be_numeric
 msgid "Reference number must be numeric"
 msgstr "Identifikacinis numeris turi būti išreikštas skaičiumi"
@@ -10286,9 +10296,9 @@ msgstr "Kurti palyginamąją dingusių ir rastų gyvūnų ataskaitą"
 msgid "O&ff The Shelter"
 msgstr "&Ne prieglaudoje (spausdinimui)"
 
+#. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/main/Main
 #: Mail_Merge
 msgid "&Mail Merge"
 msgstr "&Komponuoti laiškus"
@@ -10340,8 +10350,8 @@ msgstr "Asmens paieška"
 msgid "Add a new animal"
 msgstr "Pridėti naują gyvūną"
 
-#. # ui/localcache/CacheView
 #. # ui/main/Main
+#. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local &Cache"
 msgstr "Žiūrėti &vietinį podėlį"
@@ -10390,6 +10400,7 @@ msgstr "&Failai"
 #. # ui/diary/DiaryTaskView
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
+#. # ui/owner/DonationEdit
 #: Animal
 msgid "&Animal"
 msgstr "&Gyvūnai"
@@ -10399,14 +10410,15 @@ msgstr "&Gyvūnai"
 msgid "All Members"
 msgstr "Visiems nariams"
 
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/owner/OwnerEdit
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/diary/DiaryTaskView
+#. # ui/main/Main
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationEdit
 #: Owner
 msgid "&Owner"
 msgstr "&Asmenys"
@@ -10422,9 +10434,9 @@ msgstr "Pagal as&menų duomenis"
 msgid "&Non-Returned Adoptions"
 msgstr "&Negrąžinti gyvūnai"
 
-#. # ui/main/Main
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/main/Main
 #: Find_Animal
 msgid "&Find Animal"
 msgstr "Gyvūno pa&ieška"
@@ -10481,8 +10493,8 @@ msgstr "&Vakcinacijos"
 msgid "Add Diary &Note"
 msgstr "&Kurti priminimą"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Internal_Locations
 msgid "Internal &Locations"
 msgstr "V&idaus patalpos"
@@ -10508,32 +10520,32 @@ msgstr "Dingusio gyvūno pa&ieška"
 msgid "Edit All Diary Notes"
 msgstr "Redaguoti visus priminimus"
 
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/main/Main
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/internet/PetFinderMapSpecies
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/LostFoundMatch
+#. # reports/SearchResults
+#. # reports/AnimalReturnedPostSix
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/OwnerCriteriaSearch
+#. # reports/TransferIn
+#. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/LitterView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/main/Main
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/lookups/LookupView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/waitinglist/WaitingListView
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
-#. # reports/MedicalDiary
-#. # reports/AnimalReturnedPostSix
-#. # reports/TransferIn
-#. # reports/SearchResults
-#. # reports/InOut
-#. # reports/CustomReportExecute
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalReturnedPreSix
-#. # reports/LostFoundMatch
 #: Species
 msgid "&Species"
 msgstr "&Rūšys"
@@ -10549,8 +10561,8 @@ msgstr "&Dingę gyvūnai"
 msgid "&Find Found Animal"
 msgstr "Rasto gyvūno pa&ieška"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal &Types"
 msgstr "&Gyvūnų tipai"
@@ -10599,14 +10611,14 @@ msgstr "Redaguoti stadartines &užduotis"
 msgid "&Reservation Book"
 msgstr "&Rezervacijų sąrašas"
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Wa&iting List"
 msgstr "Redaguoti laukiančiųjų vietos &sąrašą"
 
-#. # ui/main/Main
 #. # ui/animal/VaccinationView
+#. # ui/main/Main
 #: Vaccination_Book
 msgid "Vaccination &Book"
 msgstr "Vakcinacijų &tvarkaraštis"
@@ -10616,15 +10628,15 @@ msgstr "Vakcinacijų &tvarkaraštis"
 msgid "&Reports"
 msgstr "&Ataskaitos"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "&Vaccination Types"
 msgstr "Vak&cinacijų tipai"
 
+#. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/main/Main
 #: Find_Owner
 msgid "&Find Owner"
 msgstr "&Ieškoti asmens"
@@ -10645,17 +10657,17 @@ msgstr "Apie &mikroschemų registraciją"
 msgid "Edit System &Users"
 msgstr "redaguoti sistemos naud&otojus"
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/main/Main
 #. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListEdit
 #: Diary
 msgid "&Diary"
 msgstr "&Priminimai"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Breeds
 msgid "&Breeds"
 msgstr "&Veislės"
@@ -10665,8 +10677,8 @@ msgstr "&Veislės"
 msgid "Lo&gin Again"
 msgstr "&Prisijungti iš naujo"
 
-#. # ui/main/Main
 #. # ui/login/Login
+#. # ui/main/Main
 #: Exit
 msgid "E&xit"
 msgstr "&Išeiti"
@@ -10742,14 +10754,14 @@ msgstr "Konfigūruoti &failų tipus"
 msgid "Uncategorised"
 msgstr "Nepriskirta kategorijai"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "&Death Reasons"
 msgstr "&Mirčių priežastys"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "&Entry Reasons"
 msgstr "Pate&kimo priežastys"
@@ -10779,8 +10791,8 @@ msgstr "PetFinder &rūšių žemėlapis"
 msgid "Locked"
 msgstr "Užrakinta"
 
-#. # ui/main/Locked
 #. # ui/main/ChangePassword
+#. # ui/main/Locked
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr "Neteisingas slaptažodis"
@@ -10802,15 +10814,15 @@ msgstr "Namuose &globojamų gyvūnų sąrašas"
 msgid "R&etailer Book"
 msgstr "&Tarpininkų sąrašas"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Diets
 msgid "D&iets"
 msgstr "&Dietos"
 
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
 #: Vouchers
 msgid "Vo&uchers"
 msgstr "&Talonai"
@@ -10903,8 +10915,8 @@ msgstr "Redaguoti priminimus vete&rinarui"
 msgid "Donation T&ypes"
 msgstr "&Paramos tipai"
 
-#. # ui/customreport/CustomReportExport
 #. # ui/main/Main
+#. # ui/customreport/CustomReportExport
 #: export_custom_report_data
 msgid "E&xport Custom Report Data"
 msgstr "&Eksportuoti individualizuotos ataskaitos duomenis"
@@ -10925,8 +10937,8 @@ msgstr "Gyvūnų įrašų &automatinė archyvacija"
 msgid "&Authentication"
 msgstr "&Autentifikacija"
 
-#. # ui/main/Main
 #. # ui/animal/NotAdoptionView
+#. # ui/main/Main
 #: Not_For_Adoption_Book
 msgid "&Not For Adoption Book"
 msgstr "&Neatiduodamų gyvūnų sąrašas"
@@ -10967,8 +10979,8 @@ msgstr "The new database will be used after you have restarted ASM."
 msgid "PetFinder &Breed Mapping"
 msgstr "PetFinder &veislių žemėlapis"
 
-#. # ui/lookups/LookupView
 #. # ui/main/Main
+#. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Ty&pes"
 msgstr "&Žurnalų tipai"
@@ -11079,14 +11091,14 @@ msgstr "Tikrinti ASM atnau&jinimus"
 msgid "&Get more reports from sheltermanager.com ..."
 msgstr "Gauti daugiau ataskaitų iš sheltermanager.&com"
 
-#. # globals/Global
 #. # ui/main/StartupPage
+#. # globals/Global
 #: Welcome
 msgid "Welcome"
 msgstr "Sveiki"
 
-#. # ui/main/Main
 #. # ui/main/ChangePassword
+#. # ui/main/Main
 #: Change_Password
 msgid "Change &Password"
 msgstr ""
@@ -11116,17 +11128,17 @@ msgstr ""
 msgid "Profile Name"
 msgstr "Profilio pavadinimas"
 
+#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/ProfileView
-#. # ui/medical/MedicalRegimeSelector
 #: Treatment_Name
 msgid "Treatment Name"
 msgstr "Medikamento pavadinimas"
 
 #. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
-#. # ui/medical/MedicalRegimeSelector
 #: Frequency
 msgid "Frequency"
 msgstr "Dažnumas"
@@ -11171,7 +11183,7 @@ msgstr "Medikamento pavadinimas:"
 #. # ui/medical/MedicalEdit
 #: Dosage\:
 msgid "Dosage:"
-msgstr "Dozavimas:"
+msgstr "Vienkartinė dozė:"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -11183,7 +11195,7 @@ msgstr "Vienkartinis vartojimas"
 #. # ui/medical/MedicalEdit
 #: treatments_administered_every
 msgid "treatments, administered every"
-msgstr "medikamentas(-ai), skiriami kas"
+msgstr "kartas(-ai) per dieną, skiriami kas"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -11208,22 +11220,22 @@ msgstr "Kurti naują gydymo profilį"
 msgid "Ends after"
 msgstr "Gydymas baigiamas po"
 
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # bo/AnimalMedical
 #: Status
 msgid "Status"
 msgstr "Statusas"
 
-#. # bo/AnimalMedical
 #. # ui/medical/MedicalEdit
 #. # ui/owner/OwnerEdit
+#. # bo/AnimalMedical
 #: Active
 msgid "Active"
 msgstr "Aktyvus"
 
-#. # bo/AnimalMedical
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
 #: Held
 msgid "Held"
 msgstr "Pristabdytas"
@@ -11263,20 +11275,20 @@ msgstr "Šalinti paryškintą gydymo režimą"
 msgid "Create a new regime from a medical profile"
 msgstr "Kurti naują režimą, naudojant gydymo profilį"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Edit_the_highlighted_treatment
 msgid "Edit the highlighted treatment"
 msgstr "Redaguoti paryškintą medikamentą"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Delete_the_highlighted_treatment
 msgid "Delete the highlighted treatment"
 msgstr "Šalinti paryškintą medikamentą"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Date_Given
 msgid "Date Given"
 msgstr "Atlikimo data"
@@ -11296,8 +11308,8 @@ msgstr "Redaguoti gydymo medikamentą"
 msgid "Given By:"
 msgstr "Atliko:"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
 msgstr "Visus medikamentus pažymėti atliktais"
@@ -11308,8 +11320,8 @@ msgstr "Visus medikamentus pažymėti atliktais"
 msgid "Medical Book"
 msgstr "Gydymo nurodymai"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Sequence
 msgid "Sequence"
 msgstr "Seka"
@@ -11324,26 +11336,26 @@ msgstr "Režimo vaizdas"
 msgid "Treatment View"
 msgstr "Medikamentų vaizdas"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_selected_treatments_upto_date
 msgid "Bring selected treatments upto date"
 msgstr "Pasirinktus medikamentus pažymėti atliktais"
 
-#. # ui/medical/ProfileView
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileView
 #: Finishes_After
 msgid "Finishes After"
 msgstr "Gydymas baigiamas po"
 
-#. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
 #: Refresh
 msgid "Refresh"
 msgstr "Atnaujinti"
 
-#. # ui/medical/MedicalRegimeTreatmentSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeTreatmentSelector
 #: Total_Today
 msgid "Total Today"
 msgstr "Viso šiandien"
@@ -11353,10 +11365,10 @@ msgstr "Viso šiandien"
 msgid "Create a new manual treatment"
 msgstr "Kurti naują medikamentą rankiniu būdu"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: treatment_periods
 msgid "Treatment Periods"
 msgstr "gydymo ciklo (-ų)"
@@ -11391,8 +11403,8 @@ msgstr "Žiūrėti rezervuotą gyvūną"
 msgid "An error occurred validating the record: "
 msgstr "Įvyko klaida patvirtinant įrašą: "
 
-#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
+#. # ui/movement/MovementEdit
 #: Cancelled\:
 msgid "Cancelled:"
 msgstr "Atšaukta:"
@@ -11403,6 +11415,8 @@ msgid "WARNING: This owner has not passed a home check."
 msgstr "ĮSPĖJIMAS: Nepatikrintos šio asmens būsimos gyvūno laikymo sąlygos."
 
 #. # ui/movement/MovementEdit
+#. # ui/owner/DonationInstalmentEdit
+#. # ui/owner/DonationEdit
 #: Select_an_animal
 msgid "Select an animal"
 msgstr "Pasirinkite gyvūną"
@@ -11464,6 +11478,7 @@ msgstr ""
 "sugeneruoti naują"
 
 #. # ui/movement/MovementEdit
+#. # ui/owner/DonationInstalmentEdit
 #: Owner\:
 msgid "Owner:"
 msgstr "Asmuo:"
@@ -11584,6 +11599,7 @@ msgid "Donation:"
 msgstr "Parama:"
 
 #. # ui/movement/MovementEdit
+#. # ui/owner/DonationInstalmentEdit
 #: Animal\:
 msgid "Animal:"
 msgstr "Gyvūnas:"
@@ -11618,8 +11634,8 @@ msgstr "Nepavyko atidaryti asmens kortelės: "
 msgid "Movement Type"
 msgstr "Veiksmo tipas"
 
-#. # ui/movement/MovementView
 #. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
 #: Unable_to_read_movement_records\:_
 msgid "Unable to read movement records: "
 msgstr "Nepavyko nuskaityti veiksmų įrašų: "
@@ -11721,8 +11737,8 @@ msgstr "Žiūrėti gyvūną, susijusį su šiuo tarpininkavimo veiksmu"
 msgid "View the retailer for this movement"
 msgstr "Žiūrėti šio veiksmo tarpininką"
 
-#. # ui/movement/MovementEdit
 #. # reports/AnimalPrint
+#. # ui/movement/MovementEdit
 #: from_retailer
 msgid "From Retailer:"
 msgstr "Iš tarpininko:"
@@ -11781,13 +11797,6 @@ msgstr "Žiūrėti asmenį"
 msgid "Phone"
 msgstr "Telefonas"
 
-#. # ui/owner/OwnerEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
-#: Donations
-msgid "Donations"
-msgstr "Parama"
-
 #. # ui/movement/MovementEdit
 #: Returning
 msgid "Returning"
@@ -11817,9 +11826,9 @@ msgstr ""
 msgid "Active Criteria"
 msgstr ""
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # reports/OwnerSearchResults
 #: Work_Tel
 msgid "Work Tel"
 msgstr "Darbo tel."
@@ -11829,9 +11838,9 @@ msgstr "Darbo tel."
 msgid "Address contains:"
 msgstr "Adrese yra:"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerEdit
 #: Homechecked
 #: ID_Check
@@ -11860,9 +11869,9 @@ msgstr ""
 msgid "Select"
 msgstr "Pasirinkti"
 
+#. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/main/Main
 #: Find_Owner
 msgid "Find Owner"
 msgstr "Asmens paieška"
@@ -11872,9 +11881,9 @@ msgstr "Asmens paieška"
 msgid "A full, or part email address for the owner"
 msgstr "Pilnas asmens el. pašto adresas arba jo dalis"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # reports/OwnerSearchResults
 #: Home_Tel
 msgid "Home Tel"
 msgstr "Namų tel."
@@ -11947,7 +11956,7 @@ msgstr "Pavardė:"
 #. # ui/owner/OwnerEdit
 #: Check_this_box_if_this_owner_is_a_volunteer
 msgid "Check this box if this owner is a volunteer"
-msgstr ""
+msgstr "Pažymėkite šį laukelį, jei asmuo yra savanoris"
 
 #. # ui/owner/OwnerEdit
 #: Generate_a_document_for_this_owner
@@ -11980,15 +11989,15 @@ msgstr "Įvyko klaida nuskaitant informaciją apie savininką: "
 #. # ui/owner/OwnerEdit
 #: Volunteer
 msgid "Volunteer"
-msgstr ""
+msgstr "Savanoris"
 
 #. # ui/owner/OwnerEdit
 #: Suspect_Owner
 msgid "Suspect Owner"
 msgstr "Įtartinas asmuo"
 
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
 #: Homecheck_Areas\:
 msgid "Homecheck Areas:"
 msgstr "Laikymo sąlygų tikrinimo vietovės:"
@@ -11998,8 +12007,8 @@ msgstr "Laikymo sąlygų tikrinimo vietovės:"
 msgid "Error reading configuration:\n"
 msgstr "Įvyko klaida nuskaitant konfigūraciją:\n"
 
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
 #: Email\:
 msgid "Email:"
 msgstr "El. paštas:"
@@ -12009,11 +12018,11 @@ msgstr "El. paštas:"
 msgid "Possible Matching Owners"
 msgstr "Galimai sutampantys asmenys"
 
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #: Banned
 msgid "Banned"
 msgstr "Juodasis sąrašas"
@@ -12044,7 +12053,6 @@ msgstr "Pažymėkite šį laukelį, jei asmuo remia"
 msgid "Unable to create new owner donation:"
 msgstr "Nepavyko pridėti naujos asmens paramos:"
 
-#. # ui/owner/DonationEdit
 #. # ui/owner/DonationInstalmentEdit
 #: an_error_occurred_saving_data
 msgid "An error occurred saving the data:"
@@ -12090,24 +12098,24 @@ msgstr "Prieglaudos personalas"
 msgid "Animal Care Officer"
 msgstr "Gyvūnų apsaugos specialistas"
 
+#. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/main/Main
 #: Mail_Merge
 msgid "Mail Merge"
 msgstr "Komponuoti laiškus"
 
+#. # reports/OwnerSearchResults
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # reports/OwnerSearchResults
 #: email
 msgid "Email"
 msgstr "El. paštas"
 
-#. # mailmerge/OwnerMailMerge
 #. # mailmerge/Members
 #. # mailmerge/ExpiringMembers
+#. # mailmerge/OwnerMailMerge
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
 msgstr "Asmenų, atitinkančių jūsų kriterijus, nėra."
@@ -12211,14 +12219,14 @@ msgstr "Mieste yra:"
 msgid "County contains:"
 msgstr "Rajone yra:"
 
-#. # ui/owner/DonationEdit
 #. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #: date_received
 msgid "Date Received"
 msgstr "Gavimo data"
 
-#. # ui/owner/DonationEdit
 #. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #: date_due
 msgid "Date Due"
 msgstr "Mokėjimo terminas"
@@ -12419,8 +12427,8 @@ msgid "View this link"
 msgstr "Žiūrėti šią nuorodą"
 
 #. # ui/owner/LinkSelector
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: Link_Type
 #: linktype
 msgid "Link Type"
@@ -12506,9 +12514,9 @@ msgstr "Tikrinti asmenis su panašiais adresais"
 msgid "Mobile Tel:"
 msgstr "Mobilus tel.:"
 
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # reports/OwnerSearchResults
 #: Mobile_Te
 msgid "Mobile Tel"
 msgstr "Mobilus tel."
@@ -12533,8 +12541,8 @@ msgstr "Komentaruose yra"
 msgid "Check this box if this owner is a veterinary surgery or clinic"
 msgstr "Pažymėkite šį laukelį, jei asmuo yra veterinaras ar klinika"
 
-#. # globals/Global
 #. # ui/owner/OwnerFind
+#. # globals/Global
 #: Vets
 msgid "Vets"
 msgstr "Veterinarai"
@@ -12591,18 +12599,18 @@ msgstr "Sąsajos"
 msgid "Other owner information"
 msgstr "Kita informacija apie asmenį"
 
-#. # ui/owner/LinkSelector
-#. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#. # ui/owner/LinkSelector
 #: Owners_Vet
 msgid "Owner's Vet"
 msgstr "Savininko nurodytas veterinaras"
 
-#. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
+#. # ui/owner/LinkSelector
 #: Current_Vet
 msgid "Current Vet"
-msgstr ""
+msgstr "Gydantis veterinaras"
 
 #. # ui/owner/DonationSelector
 #: create_a_new_donation
@@ -12646,8 +12654,8 @@ msgstr ""
 "ĮSPĖJIMAS: Šio asmens adresas toks pats, kaip asmens, pridavusio gyvūną į "
 "prieglaudą (Gyvūnas {0} - {1}) - ar norėtumėte pažiūrėti gyvūno įrašą?"
 
-#. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerEdit
 #: additional_info
 msgid "Additional information about the owner"
 msgstr "Papildoma informacija apie asmenį"
@@ -12735,7 +12743,7 @@ msgstr ""
 #. # ui/splash/About
 #: User_Directory\:_
 msgid "User Directory: "
-msgstr ""
+msgstr "Naudotojo katalogas: "
 
 #. # ui/splash/About
 #: Vendor\:_
@@ -12751,7 +12759,7 @@ msgstr "Apie..."
 #. # ui/splash/About
 #: User_Home\:_
 msgid "User Home: "
-msgstr ""
+msgstr "Naudotojo pradžios katalogas: "
 
 #. # ui/splash/About
 #: OS_Name\:_
@@ -12947,8 +12955,8 @@ msgstr ""
 msgid "Delete the selected type"
 msgstr ""
 
-#. # ui/system/FileTypeEdit
 #. # ui/system/FileTypes
+#. # ui/system/FileTypeEdit
 #: Extension
 msgid "Extension"
 msgstr ""
@@ -12963,8 +12971,8 @@ msgstr ""
 msgid "Save the list of filetypes"
 msgstr ""
 
-#. # ui/system/FileTypeEdit
 #. # ui/system/FileTypes
+#. # ui/system/FileTypeEdit
 #: Edit_File_Types
 msgid "Edit File Types"
 msgstr ""
@@ -13084,8 +13092,8 @@ msgstr ""
 msgid "Tick this box to start ASM in a maximised window"
 msgstr ""
 
-#. # ui/system/ConfigureLocal
 #. # ui/system/Options
+#. # ui/system/ConfigureLocal
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
 msgstr "Išsaugoti pakeitimus ir uždaryti"
@@ -13135,10 +13143,10 @@ msgstr "Laikinai namuose globojami gyvūnai skaitomi kaip prieglaudos"
 msgid "Default Waiting List Urgency:"
 msgstr "Numatytasis skubos prioritetas laukiančiųjų vietos sąraše:"
 
-#. # ui/system/ConfigureDatabase
-#. # ui/system/Options
-#. # ui/internet/InternetPublisher
 #. # ui/animal/MediaAdd
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/internet/InternetPublisher
 #: None
 msgid "[None]"
 msgstr "[Jokios]"
@@ -13503,12 +13511,12 @@ msgstr "Leisti duomenų bazės atnaujinimus:"
 msgid "Allow ASM clients to update the database if it is older than them."
 msgstr ""
 
+#. # reports/CustomReportExecute
 #. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # startup/Startup
-#. # reports/CustomReportExecute
-#. # db/DatabaseCopier
 #. # db/LocateDatabase
+#. # db/DatabaseCopier
+#. # startup/Startup
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -13542,26 +13550,26 @@ msgstr "Redaguoti papildomus laukus"
 msgid "The field is now in use in the database and cannot be removed."
 msgstr "Laukas yra naudojamas duomenų bazėje ir negali būti pašalintas."
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldname
 msgid "Field Name"
 msgstr "Lauko pavadinimas"
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldtype
 msgid "Field Type"
 msgstr "Lauko tipas"
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: displayindex
 msgid "Display Index"
 msgstr "Rodymo indeksas"
 
-#. # ui/system/AdditionalFieldEdit
 #. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
 #: fieldlabel
 msgid "Field Label"
 msgstr "Lauko žymė"
@@ -13855,6 +13863,28 @@ msgstr "Numatytasis žurnalo filtras"
 msgid "Vets Diary User:"
 msgstr ""
 
+#. # ui/system/Options
+#: Default_Coat_Type
+msgid "Default Coat Type:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_date_brought_in_to_today
+msgid "Default today as the brought in date for new animals"
+msgstr ""
+
+#. # ui/system/Options
+#: auto_cancel_reserves
+msgid "Automatically cancel unadopted reservations after days:"
+msgstr ""
+
+#. # ui/system/Options
+#: auto_cancel_reserves_tooltip
+msgid ""
+"If a reserved animal is not adopted after this many days, cancel the "
+"reservation"
+msgstr ""
+
 #. # ui/users/UserView
 #: Unable_to_open_user_for_editing\:_
 msgid "Unable to open user for editing: "
@@ -14081,8 +14111,8 @@ msgstr "Prieiti prie meniu Sistema"
 msgid "Super User: "
 msgstr "Super naudotojas: "
 
-#. # ui/users/UserEdit
 #. # ui/users/UserView
+#. # ui/users/UserEdit
 #: Real_Name
 msgid "Real Name: "
 msgstr "Tikrasis vardas: "
@@ -14127,8 +14157,8 @@ msgstr "Redaguoti man skirtus priminimus"
 msgid "Delete Diary Notes"
 msgstr "Šalinti priminimus"
 
-#. # ui/users/UserEdit
 #. # ui/users/UserView
+#. # ui/users/UserEdit
 #: Username\:_
 msgid "Username: "
 msgstr "Naudotojo vardas: "
@@ -14264,8 +14294,8 @@ msgstr "Masiškai pažymėti atliktomis gyvūnų vakcinacijas"
 msgid "Bulk Complete Waiting List Entries"
 msgstr "Masiškai šalinti laukiančiųjų vietos sąrašo įrašus"
 
-#. # ui/customreport/CustomReportView
 #. # ui/users/UserEdit
+#. # ui/customreport/CustomReportView
 #: Custom_Reports
 msgid "Custom Reports"
 msgstr "Individualizuotos ataskaitos"
@@ -14430,9 +14460,10 @@ msgstr "Žiūrėti žurnalo įrašus"
 msgid "View Owner Vouchers"
 msgstr "Žiūrėti talonus asmenims"
 
-#. # ui/owner/OwnerEdit
+#. # ui/animal/AnimalEdit
 #. # ui/users/UserEdit
 #. # ui/movement/MovementEdit
+#. # ui/owner/OwnerEdit
 #: Donations
 msgid "Donations:"
 msgstr "Parama:"
@@ -14507,8 +14538,8 @@ msgstr "An error occurred accessing external data:\n"
 msgid "Urgency:"
 msgstr "Prioritetas:"
 
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/main/Main
+#. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Waiting List"
 msgstr "Redaguoti laukiančiųjų vietos sąrašą"
@@ -14528,18 +14559,18 @@ msgstr "Įtraukimo data:"
 msgid "A date you entered was not valid: \n"
 msgstr "Jūsų įvesta data klaidinga: \n"
 
-#. # bo/LookupCache
-#. # bo/Species
-#. # ui/waitinglist/WaitingListView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/ui/Dialog
-#. # ui/customreport/CustomReportEdit
-#. # ui/lookups/LookupView
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/ui/Dialog
+#. # ui/lookups/LookupView
+#. # ui/customreport/CustomReportEdit
+#. # ui/waitinglist/WaitingListView
+#. # db/DatabaseImporter
 #. # db/Diagnostic
 #. # db/DatabaseCopier
-#. # db/DatabaseImporter
+#. # bo/LookupCache
+#. # bo/Species
 #: species
 msgid "species"
 msgstr "rūšis"
@@ -14559,8 +14590,8 @@ msgstr "Pašalinimo data:"
 msgid "Donation?"
 msgstr "Parama?"
 
-#. # ui/waitinglist/WaitingListView
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
 #: New_Waiting_List_Entry
 msgid "New Waiting List Entry"
 msgstr "Naujas laukiančiųjų vietos sąrašo įrašas"
@@ -14593,12 +14624,12 @@ msgstr ""
 msgid "Date Of Last Owner Contact:"
 msgstr "Paskutinio kontaktavimo su asmeniu data:"
 
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
-#. # ui/waitinglist/WaitingListEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #. # ui/internet/InternetPublisher
+#. # ui/waitinglist/WaitingListEdit
+#. # bo/AnimalMedical
+#. # bo/MedicalProfile
 #: weeks
 msgid "weeks."
 msgstr "sav."
@@ -14633,8 +14664,8 @@ msgstr "Redaguoti laukiančiųjų vietos sąrašo įrašą - {0}"
 msgid "Removal Reason:"
 msgstr "Pašalinimo priežastis:"
 
-#. # ui/wordprocessor/SelectTemplate
 #. # ui/ui/DBFSBrowser
+#. # ui/wordprocessor/SelectTemplate
 #: An_error_occurred_retrieving_the_file\:_
 msgid "An error occurred retrieving the file: "
 msgstr "Įvyko klaida gaunant failą: "
@@ -14659,16 +14690,16 @@ msgstr "Įvyko klaida keičiant į direktoriją: "
 msgid "Attach generated document as media?"
 msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
 
-#. # wordprocessor/GenerateDocument
-#. # ui/animal/AnimalEdit
 #. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
 #: Positive
 msgid "Positive"
 msgstr "Teigiamas"
 
-#. # wordprocessor/GenerateDocument
-#. # ui/animal/AnimalEdit
 #. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
 #: Negative
 msgid "Negative"
 msgstr "Neigiamas"
@@ -15350,6 +15381,9 @@ msgstr "(apytikslis)"
 #~ msgid "An error occurred removing the record:\n"
 #~ msgstr "Įvyko klaida šalinant įrašą:\n"
 
+#~ msgid "An error occurred while validating the object: "
+#~ msgstr "Įvyko klaida tvirtinant objektą: "
+
 #~ msgid " invalid animal codes fixed for this year."
 #~ msgstr " šiais metais klaidingų gyvūnų kodų sutvarkyta."
 
@@ -15385,6 +15419,9 @@ msgstr "(apytikslis)"
 
 #~ msgid "Get more reports from sheltermanager.com ..."
 #~ msgstr "Gauti daugiau ataskaitų iš sheltermanager.com ..."
+
+#~ msgid "Error reading from file - "
+#~ msgstr "Įvyko klaida nuskaitant iš failo - "
 
 #~ msgid "Configu&re Defaults"
 #~ msgstr "Konfigūruoti &numatytąsias nuostatas"

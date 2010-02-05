@@ -310,8 +310,8 @@ public abstract class GenerateDocument extends Thread
         String doctype = getDocFileType();
 
         if (doctype.equals("html")) {
-            if (filename.toLowerCase().endsWith("html") ||
-                    filename.toLowerCase().endsWith("htm")) {
+            if (Utils.englishLower(filename).endsWith("html") ||
+            		Utils.englishLower(filename).endsWith("htm")) {
                 return true;
             } else {
                 return false;

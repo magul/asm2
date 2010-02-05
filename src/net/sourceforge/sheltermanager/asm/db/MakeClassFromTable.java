@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.db;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
 
@@ -39,10 +40,10 @@ public class MakeClassFromTable {
 
             // Get the table
             SQLRecordset rs = new SQLRecordset();
-            rs.openRecordset("SELECT * FROM " + args[0].toLowerCase(),
-                args[0].toLowerCase());
+            rs.openRecordset("SELECT * FROM " + Utils.englishLower(args[0]),
+                Utils.englishLower(args[0]));
 
-            String cName = args[0].substring(0, 1).toUpperCase() +
+            String cName = Utils.englishUpper(args[0].substring(0, 1)) +
                 args[0].substring(1, args[0].length());
 
             out("package net.sourceforge.sheltermanager.asm.bo;\n");

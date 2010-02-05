@@ -1753,6 +1753,14 @@ public abstract class Utils {
         return b.toString();
     }
 
+    public static String englishUpper(String s) {
+        return s.toUpperCase(Locale.ENGLISH);
+    }
+
+    public static String englishLower(String s) {
+        return s.toLowerCase(Locale.ENGLISH);
+    }
+
     /**
      * Executes a command
      * @param args An array of the command and its args

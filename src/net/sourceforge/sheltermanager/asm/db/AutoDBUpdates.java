@@ -1892,7 +1892,7 @@ public class AutoDBUpdates {
                         // If so, find the first image and mark it as web
                         // preferred
                         while (!m.getEOF()) {
-                            if (m.getMediaName().toLowerCase().indexOf(".jpg") != -1) {
+                            if (Utils.englishLower(m.getMediaName()).indexOf(".jpg") != -1) {
                                 try {
                                     DBConnection.executeAction(
                                         "UPDATE media SET WebsitePhoto=1 " +

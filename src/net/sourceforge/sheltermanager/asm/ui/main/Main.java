@@ -110,6 +110,7 @@ import net.sourceforge.sheltermanager.asm.ui.users.UserView;
 import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListEdit;
 import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListView;
 import net.sourceforge.sheltermanager.asm.utility.LDAP;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.io.File;
@@ -331,7 +332,7 @@ public class Main extends ASMWindow {
         // otherwise just show the number
         String version = Global.productVersion;
 
-        if (version.toLowerCase().indexOf("dev") != -1) {
+        if (Utils.englishLower(version).indexOf("dev") != -1) {
             version = "[ " + version + " ]";
         } else {
             version = version.substring(0, version.indexOf(" "));

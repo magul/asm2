@@ -601,15 +601,15 @@ public class FileTypeManager {
         boolean isLink = false;
 
         // HTTP, HTTPS and FTP URLs
-        if ((file.toLowerCase().indexOf("http://") != -1) ||
-                (file.toLowerCase().indexOf("https://") != -1) ||
-                (file.toLowerCase().indexOf("ftp://") != -1)) {
+        if ((Utils.englishLower(file).indexOf("http://") != -1) ||
+                (Utils.englishLower(file).indexOf("https://") != -1) ||
+                (Utils.englishLower(file).indexOf("ftp://") != -1)) {
             filetype = "html";
             isLink = true;
         } else {
             // Really is a file - process it
             filetype = file.substring(file.lastIndexOf(".") + 1, file.length());
-            filetype = filetype.toLowerCase();
+            filetype = Utils.englishLower(filetype);
         }
 
         // Look up the type

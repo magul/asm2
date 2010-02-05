@@ -21,10 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.cursorengine.*;
-
 import java.util.Hashtable;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 
 /**
@@ -73,8 +75,8 @@ public class Configuration {
     public static boolean getBoolean(String key) {
         String val = getString(key);
 
-        if (val.toLowerCase().equals("yes") ||
-                val.toLowerCase().equals("true")) {
+        if (Utils.englishLower(val).equals("yes") ||
+                Utils.englishLower(val).equals("true")) {
             return true;
         } else {
             return false;

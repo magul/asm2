@@ -365,10 +365,10 @@ public class MediaSelector extends ASMSelector {
         String mediaName = tabledata[getTable().getSelectedRow()][0];
 
         // Is at a jpg, jpeg, gif or png file?
-        if ((mediaName.toLowerCase().indexOf(".jpg") == -1) &&
-                (mediaName.toLowerCase().indexOf(".gif") == -1) &&
-                (mediaName.toLowerCase().indexOf(".jpeg") == -1) &&
-                (mediaName.toLowerCase().indexOf(".png") == -1)) {
+        if ((Utils.englishLower(mediaName).indexOf(".jpg") == -1) &&
+                (Utils.englishLower(mediaName).indexOf(".gif") == -1) &&
+                (Utils.englishLower(mediaName).indexOf(".jpeg") == -1) &&
+                (Utils.englishLower(mediaName).indexOf(".png") == -1)) {
             return;
         }
 

@@ -94,7 +94,7 @@ public class PublishWWW {
                     pc.forceReupload = true;
                 } else if (args[i].equalsIgnoreCase("generatejavascriptdb")) {
                     pc.generateJavascriptDB = true;
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("excludeunder" +
                             ScriptParser.equalsSymbol)) {
                     try {
@@ -105,12 +105,12 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("ftproot" +
                             ScriptParser.equalsSymbol)) {
                     pc.ftpRoot = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("animalsperpage" +
                             ScriptParser.equalsSymbol)) {
                     try {
@@ -121,17 +121,17 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("extension" +
                             ScriptParser.equalsSymbol)) {
                     pc.extension = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("style" +
                             ScriptParser.equalsSymbol)) {
                     pc.style = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("scaleimages" +
                             ScriptParser.equalsSymbol)) {
                     try {
@@ -148,7 +148,7 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
-                } else if (args[i].toLowerCase()
+                } else if (Utils.englishLower(args[i])
                                       .startsWith("includelocations" +
                             ScriptParser.equalsSymbol)) {
                     try {

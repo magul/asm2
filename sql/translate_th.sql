@@ -559,6 +559,13 @@ INSERT INTO lksdiarylink VALUES (3, 'สัตว์ที่สูญหาย'
 INSERT INTO lksdiarylink VALUES (4, 'สัตว์ที่พบเจอ');
 INSERT INTO lksdiarylink VALUES (5, 'รายชื่อที่กำลังคอย');
 INSERT INTO lksdiarylink VALUES (6, 'Movement');
+DELETE FROM lksdonationfreq;
+INSERT INTO lksdonationfreq VALUES (0, 'One-Off');
+INSERT INTO lksdonationfreq VALUES (1, 'Weekly');
+INSERT INTO lksdonationfreq VALUES (2, 'Monthly');
+INSERT INTO lksdonationfreq VALUES (3, 'Quarterly');
+INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly');
+INSERT INTO lksdonationfreq VALUES (5, 'Annually');
 DELETE FROM lksfieldlink;
 INSERT INTO lksfieldlink VALUES (0, 'สัตว์');
 INSERT INTO lksfieldlink VALUES (1, 'เจ้าของ');

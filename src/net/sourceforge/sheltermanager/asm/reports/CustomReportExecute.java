@@ -594,7 +594,7 @@ public class CustomReportExecute extends Report {
             // matches the grouping levels. This applies
             // even if a GROUP BY clause is specified (I think!)
             if (group.length > 0) {
-                String lsql = sql.toLowerCase();
+                String lsql = Utils.englishLower(sql);
                 int startOrder = lsql.indexOf("order by");
 
                 if (startOrder == -1) {
@@ -610,7 +610,7 @@ public class CustomReportExecute extends Report {
 
                     for (int i = 0; i < group.length; i++) {
                         GroupDescriptor gd = (GroupDescriptor) group[i];
-                        lastSort = orderBy.indexOf(gd.fieldName.toLowerCase(),
+                        lastSort = orderBy.indexOf(Utils.englishLower(gd.fieldName),
                                 lastSort);
                         gd = null;
                         okSoFar = (lastSort != -1);
@@ -646,9 +646,9 @@ public class CustomReportExecute extends Report {
             String[] queries = Utils.split(sql, ";");
 
             // Make sure the last query is a SELECT or (SELECT for UNION
-            if (!queries[queries.length - 1].toLowerCase().trim()
+            if (!Utils.englishLower(queries[queries.length - 1]).trim()
                                                 .startsWith("select") &&
-                    !queries[queries.length - 1].toLowerCase().trim()
+                    !Utils.englishLower(queries[queries.length - 1]).trim()
                                                     .startsWith("(select")) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
@@ -660,11 +660,11 @@ public class CustomReportExecute extends Report {
             for (int i = 0; i < queries.length; i++) {
                 try {
                     // If it's an action query, execute it
-                    if (queries[i].trim().toLowerCase().startsWith("create") ||
-                            queries[i].trim().toLowerCase().startsWith("drop") ||
-                            queries[i].trim().toLowerCase().startsWith("insert") ||
-                            queries[i].trim().toLowerCase().startsWith("update") ||
-                            queries[i].trim().toLowerCase().startsWith("delete")) {
+                    if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
+                    		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
+                    		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
+                    		Utils.englishLower(queries[i].trim()).startsWith("update") ||
+                    		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
                         Global.logDebug("EXECUTE: " + queries[i],
                             "generateReport");
                         DBConnection.executeAction(queries[i]);
@@ -781,16 +781,16 @@ public class CustomReportExecute extends Report {
                     String value = "";
 
                     // {SQL.[sql]} - arbitrary sql command
-                    if (key.toLowerCase().startsWith("sql")) {
+                    if (Utils.englishLower(key).startsWith("sql")) {
                         String field = key.substring(4, key.length());
 
                         try {
                             // If it's an action query, execute it
-                            if (field.toLowerCase().startsWith("create") ||
-                                    field.toLowerCase().startsWith("drop") ||
-                                    field.toLowerCase().startsWith("insert") ||
-                                    field.toLowerCase().startsWith("update") ||
-                                    field.toLowerCase().startsWith("delete")) {
+                            if (Utils.englishLower(field).startsWith("create") ||
+                            		Utils.englishLower(field).startsWith("drop") ||
+                            		Utils.englishLower(field).startsWith("insert") ||
+                            		Utils.englishLower(field).startsWith("update") ||
+                            		Utils.englishLower(field).startsWith("delete")) {
                                 DBConnection.executeAction(field);
                                 value = "";
                             } else {
@@ -817,7 +817,7 @@ public class CustomReportExecute extends Report {
                     // {IMAGE.[animalid]} - retreives an animal's image from
                     // the database, saves it in the temp folder and then
                     // inserts the filename
-                    if (key.toLowerCase().startsWith("image")) {
+                    if (Utils.englishLower(key).startsWith("image")) {
                         try {
                             String body = key.substring(6, key.length());
                             String animalid = key.substring(key.indexOf(".") +
@@ -849,7 +849,7 @@ public class CustomReportExecute extends Report {
 
                     // {SUBREPORT.[title].[parentField]} - embed
                     // a subreport.
-                    if (key.toLowerCase().startsWith("subreport")) {
+                    if (Utils.englishLower(key).startsWith("subreport")) {
                         String body = key.substring(10, key.length());
 
                         // Break it up
@@ -942,7 +942,7 @@ public class CustomReportExecute extends Report {
             // Scan the queries created - if any of them made a
             // temporary table, then we should drop it now:
             for (int i = 0; i < queries.length; i++) {
-                if (queries[i].trim().toLowerCase()
+                if (Utils.englishLower(queries[i].trim())
                                   .startsWith("create temporary")) {
                     dropTemporaryTable(queries[i]);
                 }
@@ -962,12 +962,12 @@ public class CustomReportExecute extends Report {
 
     public static void dropTemporaryTable(String sqlCreate) {
         // Extract the table name
-        int tstart = sqlCreate.toLowerCase().indexOf("table");
+        int tstart = Utils.englishLower(sqlCreate).indexOf("table");
 
         if (tstart != -1) {
             tstart += 6;
 
-            int tend = sqlCreate.toLowerCase().indexOf("(", tstart);
+            int tend = Utils.englishLower(sqlCreate).indexOf("(", tstart);
             String tname = sqlCreate.substring(tstart, tend).trim();
 
             try {
@@ -1025,8 +1025,8 @@ public class CustomReportExecute extends Report {
                 rs.setAbsolutePosition(gd.lastGroupEndPosition);
 
                 // {SUM.field}
-                if (key.toLowerCase().startsWith("sum")) {
-                    String[] fields = Utils.split(key.toLowerCase(), ".");
+                if (Utils.englishLower(key).startsWith("sum")) {
+                    String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
                     int roundTo = 0;
@@ -1057,7 +1057,7 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {COUNT.field}
-                if (key.toLowerCase().startsWith("count")) {
+                if (Utils.englishLower(key).startsWith("count")) {
                     int total = 0;
 
                     // Count backwards until the key field
@@ -1076,8 +1076,8 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {AVG.field}
-                if (key.toLowerCase().startsWith("avg")) {
-                    String[] fields = Utils.split(key.toLowerCase(), ".");
+                if (Utils.englishLower(key).startsWith("avg")) {
+                    String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
                     int roundTo = 0;
@@ -1113,8 +1113,8 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {PCT.field}
-                if (key.toLowerCase().startsWith("pct")) {
-                    String[] fields = Utils.split(key.toLowerCase(), ".");
+                if (Utils.englishLower(key).startsWith("pct")) {
+                    String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
                     int roundTo = 0;
@@ -1150,7 +1150,7 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {MIN.field}
-                if (key.toLowerCase().startsWith("min")) {
+                if (Utils.englishLower(key).startsWith("min")) {
                     double min = 0;
 
                     // Count backwards until the key field
@@ -1179,7 +1179,7 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {MAX.field}
-                if (key.toLowerCase().startsWith("max")) {
+                if (Utils.englishLower(key).startsWith("max")) {
                     double max = 0;
 
                     // Count backwards until the key field
@@ -1208,7 +1208,7 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {FIRST.field}
-                if (key.toLowerCase().startsWith("first")) {
+                if (Utils.englishLower(key).startsWith("first")) {
                     String field = key.substring(6, key.length());
 
                     try {
@@ -1219,7 +1219,7 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {LAST.field}
-                if (key.toLowerCase().startsWith("last")) {
+                if (Utils.englishLower(key).startsWith("last")) {
                     String field = key.substring(5, key.length());
 
                     try {
@@ -1230,16 +1230,16 @@ public class CustomReportExecute extends Report {
                 }
 
                 // {SQL.[sql]} - arbitrary sql command
-                if (key.toLowerCase().startsWith("sql")) {
+                if (Utils.englishLower(key).startsWith("sql")) {
                     String field = key.substring(4, key.length());
 
                     try {
                         // If it's an action query, execute it
-                        if (field.toLowerCase().startsWith("create") ||
-                                field.toLowerCase().startsWith("drop") ||
-                                field.toLowerCase().startsWith("insert") ||
-                                field.toLowerCase().startsWith("update") ||
-                                field.toLowerCase().startsWith("delete")) {
+                        if (Utils.englishLower(field).startsWith("create") ||
+                        		Utils.englishLower(field).startsWith("drop") ||
+                        		Utils.englishLower(field).startsWith("insert") ||
+                        		Utils.englishLower(field).startsWith("update") ||
+                        		Utils.englishLower(field).startsWith("delete")) {
                             DBConnection.executeAction(field);
                             value = "";
                         } else {
@@ -1261,7 +1261,7 @@ public class CustomReportExecute extends Report {
 
                 // {SUBREPORT.[title].[parentField]} - embed
                 // a subreport.
-                if (key.toLowerCase().startsWith("subreport")) {
+                if (Utils.englishLower(key).startsWith("subreport")) {
                     String body = key.substring(10, key.length());
 
                     // Break it up

@@ -375,9 +375,9 @@ public class CustomReportEdit extends ASMForm {
             queries = Utils.split(removeTags(txtSQL.getText()), ";");
 
             // Make sure the last query is a SELECT or (SELECT for UNION
-            if ((!queries[queries.length - 1].toLowerCase().trim()
+            if ((!Utils.englishLower(queries[queries.length - 1]).trim()
                                                  .startsWith("select")) &&
-                    (!queries[queries.length - 1].toLowerCase().trim()
+                    (!Utils.englishLower(queries[queries.length - 1]).trim()
                                                      .startsWith("(select"))) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
@@ -388,11 +388,11 @@ public class CustomReportEdit extends ASMForm {
             // Loop through the queries, executing them/running where necessary
             for (int i = 0; i < queries.length; i++) {
                 // If it's an action query, execute it
-                if (queries[i].trim().toLowerCase().startsWith("create") ||
-                        queries[i].trim().toLowerCase().startsWith("drop") ||
-                        queries[i].trim().toLowerCase().startsWith("insert") ||
-                        queries[i].trim().toLowerCase().startsWith("update") ||
-                        queries[i].trim().toLowerCase().startsWith("delete")) {
+                if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("update") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
                     DBConnection.executeAction(queries[i]);
                 } else {
                     rs = new SQLRecordset();
@@ -439,7 +439,7 @@ public class CustomReportEdit extends ASMForm {
 
             // Clean up temporary tables
             for (int i = 0; i < queries.length; i++) {
-                if (queries[i].trim().toLowerCase()
+                if (Utils.englishLower(queries[i].trim())
                                   .startsWith("create temporary")) {
                     CustomReportExecute.dropTemporaryTable(queries[i]);
                 }
@@ -467,9 +467,9 @@ public class CustomReportEdit extends ASMForm {
             queries = Utils.split(removeTags(sql), ";");
 
             // Make sure the last query is a SELECT or (SELECT for UNION
-            if (!queries[queries.length - 1].toLowerCase().trim()
+            if (!Utils.englishLower(queries[queries.length - 1]).trim()
                                                 .startsWith("select") &&
-                    !queries[queries.length - 1].toLowerCase().trim()
+                    !Utils.englishLower(queries[queries.length - 1]).trim()
                                                     .startsWith("(select")) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
@@ -480,11 +480,11 @@ public class CustomReportEdit extends ASMForm {
             // Loop through the queries, executing them/running where necessary
             for (int i = 0; i < queries.length; i++) {
                 // If it's an action query, execute it
-                if (queries[i].trim().toLowerCase().startsWith("create") ||
-                        queries[i].trim().toLowerCase().startsWith("drop") ||
-                        queries[i].trim().toLowerCase().startsWith("insert") ||
-                        queries[i].trim().toLowerCase().startsWith("update") ||
-                        queries[i].trim().toLowerCase().startsWith("delete")) {
+                if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("update") ||
+                		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
                     DBConnection.executeAction(queries[i]);
                 } else {
                     rs = new SQLRecordset();
@@ -505,7 +505,7 @@ public class CustomReportEdit extends ASMForm {
 
             // Clean up temporary tables
             for (int i = 0; i < queries.length; i++) {
-                if (queries[i].trim().toLowerCase()
+                if (Utils.englishLower(queries[i].trim())
                                   .startsWith("create temporary")) {
                     CustomReportExecute.dropTemporaryTable(queries[i]);
                 }
