@@ -2548,7 +2548,7 @@ Vets
 \series bold
 Volunteers
 \series default
- - show any owners with the Volunteer/Dog Walker flag set
+ - show any owners with the Volunteer flag set
 \end_layout
 
 \begin_layout Section
@@ -2877,6 +2877,21 @@ Donations
 ASM also allows you to track donations from individual owners here.
  You can use this information to produce financial reports and graphs (as
  well as in your own custom reports).
+\end_layout
+
+\begin_layout Standard
+Donations can have a date due as well as a date received and can be assigned
+ a frequency.
+ If the frequency is anything but 
+\begin_inset Quotes eld
+\end_inset
+
+One-Off
+\begin_inset Quotes erd
+\end_inset
+
+, ASM will create a new donation for that frequency when you mark this one
+ as received.
 \end_layout
 
 \begin_layout Subsection
