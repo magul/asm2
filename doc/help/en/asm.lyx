@@ -6068,7 +6068,7 @@ The fieldname of each column after the label column is used to denote the
 
 \begin_layout Standard
 For example, this SQL will produce a graph that shows the amount of donations
- from animal entry each year.
+ from animal movements each year.
  Following our scheme, the Year column being first is the X axis label,
  TotalAmount is the first datapoint for that item on the X axis.
 \end_layout
@@ -6078,19 +6078,23 @@ SELECT
 \end_layout
 
 \begin_layout LyX-Code
-YEAR(DateBroughtIn) AS Year, 
+YEAR(DateReceived) AS Year, 
 \end_layout
 
 \begin_layout LyX-Code
-SUM(AmountDonatedOnEntry) AS TotalAmount 
+SUM(ownerdonation.Donation) AS TotalAmount 
 \end_layout
 
 \begin_layout LyX-Code
-FROM animal 
+FROM ownerdonation
 \end_layout
 
 \begin_layout LyX-Code
-GROUP BY YEAR(DateBroughtIn) 
+WHERE MovementID > 0
+\end_layout
+
+\begin_layout LyX-Code
+GROUP BY YEAR(DateReceived) 
 \end_layout
 
 \begin_layout LyX-Code
@@ -10297,11 +10301,6 @@ AcceptanceNumber - The acceptance number
 \begin_layout Itemize
 AddressOfPersonBroughtAnimalIn - The full address of the person who brought
  the animal in
-\end_layout
-
-\begin_layout Itemize
-AmountDonatedOnEntry - The amount donated when the animal entered the shelter
- (from the entry details tab)
 \end_layout
 
 \begin_layout Itemize

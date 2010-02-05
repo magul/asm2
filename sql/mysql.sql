@@ -110,7 +110,6 @@ CREATE TABLE animal (
   BroughtInByOwnerID int(11) NOT NULL,
   ReasonForEntry text NULL,
   ReasonNO text NULL,
-  AmountDonatedOnEntry double NULL,
   DateBroughtIn datetime NOT NULL,
   EntryReasonID int(11) NOT NULL,
   HealthProblems text NULL,
@@ -255,6 +254,7 @@ CREATE TABLE animalmedical (
   TreatmentName varchar(255) NOT NULL ,
   StartDate datetime NOT NULL,
   Dosage varchar(255) NULL,
+  Cost double NOT NULL,
   TimingRule tinyint NOT NULL ,
   TimingRuleFrequency smallint NOT NULL ,
   TimingRuleNoFrequencies smallint NOT NULL ,
@@ -373,7 +373,6 @@ CREATE TABLE animalwaitinglist (
   Comments TEXT NULL,
   UrgencyUpdateDate datetime NULL,
   UrgencyLastUpdatedDate datetime NULL,
-  DonationSize double NOT NULL ,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,
   CreatedDate datetime NOT NULL,
@@ -878,7 +877,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2701');
+INSERT INTO configuration VALUES ('DatabaseVersion','2702');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1412,6 +1411,7 @@ CREATE TABLE medicalprofile (
   ProfileName varchar(255) NOT NULL ,
   TreatmentName varchar(255) NOT NULL ,
   Dosage varchar(255) NULL,
+  Cost double NOT NULL,
   TimingRule tinyint NOT NULL ,
   TimingRuleFrequency smallint NOT NULL ,
   TimingRuleNoFrequencies smallint NOT NULL ,

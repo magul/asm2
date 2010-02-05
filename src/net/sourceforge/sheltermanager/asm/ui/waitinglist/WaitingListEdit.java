@@ -82,7 +82,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     private DateField txtDatePutOn;
     private DateField txtDateRemoved;
     private UI.TextArea txtDescription;
-    private CurrencyField txtDonation;
     private UI.TextArea txtReason;
     private UI.TextArea txtReasonForRemoval;
     private String audit = null;
@@ -119,7 +118,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
         ctl.add(txtDescription);
         ctl.add(txtReason);
         ctl.add(chkCanAffordDonation);
-        ctl.add(txtDonation.getTextField());
         ctl.add(cboUrgency);
         ctl.add(txtDateRemoved.getTextField());
         ctl.add(txtReasonForRemoval);
@@ -248,7 +246,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             txtDatePutOn.setText(Utils.formatDate(Calendar.getInstance()));
             txtDateOfLastOwnerContact.setText(Utils.formatDate(
                     Calendar.getInstance()));
-            txtDonation.setText("0");
             spnAutoRemovePolicy.setValue(new Integer(0));
             cboUrgency.setSelectedIndex(Configuration.getInteger(
                     "WaitingListDefaultUrgency"));
@@ -309,8 +306,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             txtComments.setText(Utils.nullToEmptyString(awl.getComments()));
             txtDescription.setText(Utils.nullToEmptyString(
                     awl.getAnimalDescription()));
-            txtDonation.setText(Utils.nullToEmptyString(
-                    awl.getDonationSize().toString()));
             txtReason.setText(Utils.nullToEmptyString(
                     awl.getReasonForWantingToPart()));
             txtReasonForRemoval.setText(Utils.nullToEmptyString(
@@ -376,7 +371,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                         (String) cboUrgency.getSelectedItem())));
             awl.setComments(txtComments.getText());
             awl.setAnimalDescription(txtDescription.getText());
-            awl.setDonationSize(new Double(txtDonation.getText()));
             awl.setReasonForWantingToPart(txtReason.getText());
             awl.setReasonForRemoval(txtReasonForRemoval.getText());
             awl.setAutoRemovePolicy((Integer) spnAutoRemovePolicy.getValue());
@@ -516,8 +510,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                     i18n("Donation?"), null, UI.ALIGN_LEFT,
                     UI.fp(this, "dataChanged")));
 
-        txtDonation = (CurrencyField) pnlRightTop.add(UI.getCurrencyField(
-                    null, UI.fp(this, "dataChanged")));
+        pnlRightTop.add(UI.getLabel());
 
         cboUrgency = UI.getCombo(i18n("Urgency:"),
                 LookupCache.getUrgencyLookup(), "Urgency",
@@ -607,7 +600,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             naw.setDatePutOnList(awl.getDatePutOnList());
             naw.setDateRemovedFromList(awl.getDateRemovedFromList());
             naw.setCanAffordDonation(awl.getCanAffordDonation());
-            naw.setDonationSize(awl.getDonationSize());
             naw.setSpeciesID(awl.getSpeciesID());
             naw.setUrgency(awl.getUrgency());
             naw.setComments(awl.getComments());
@@ -644,7 +636,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             a.setReasonForEntry(awl.getReasonForWantingToPart());
             a.setSpeciesID(awl.getSpeciesID());
             a.setAnimalComments(awl.getComments());
-            a.setAmountDonatedOnEntry(awl.getDonationSize());
             a.setBroughtInByOwnerID(awl.getOwnerID());
             a.setOriginalOwnerID(awl.getOwnerID());
 

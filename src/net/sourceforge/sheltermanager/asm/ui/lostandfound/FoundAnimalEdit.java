@@ -604,7 +604,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             a.setEntryReasonID(LookupCache.getFirstID(
                     LookupCache.getEntryReasonLookup()));
 
-            a.setAmountDonatedOnEntry(new Double(0));
             a.setCombiTestResult(z);
             a.setFLVTestResult(z);
             a.setGoodWithCats(z);

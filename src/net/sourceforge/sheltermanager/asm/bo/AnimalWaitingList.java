@@ -209,14 +209,6 @@ public class AnimalWaitingList extends UserInfoBO {
         rs.setField("UrgencyLastUpdatedDate", newValue);
     }
 
-    public Double getDonationSize() throws CursorEngineException {
-        return (Double) rs.getField("DonationSize");
-    }
-
-    public void setDonationSize(Double newValue) throws CursorEngineException {
-        rs.setField("DonationSize", newValue);
-    }
-
     /**
      * NB: Autoremove policy is actually the number of weeks without owner
      * contact to auto remove the record. 0 means don't use auto removal.

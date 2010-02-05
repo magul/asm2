@@ -98,7 +98,6 @@ CREATE TABLE animal (
   BroughtInByOwnerID INTEGER NOT NULL,
   ReasonForEntry VARCHAR(16384) NULL,
   ReasonNO VARCHAR(16384) NULL,
-  AmountDonatedOnEntry REAL NULL,
   DateBroughtIn TIMESTAMP NOT NULL,
   EntryReasonID INTEGER NOT NULL,
   HealthProblems VARCHAR(16384) NULL,
@@ -241,6 +240,7 @@ CREATE TABLE animalmedical (
   TreatmentName VARCHAR(255) NOT NULL,
   StartDate TIMESTAMP NOT NULL,
   Dosage VARCHAR(255) NULL,
+  Cost REAL NOT NULL,
   TimingRule INTEGER NOT NULL,
   TimingRuleFrequency INTEGER NOT NULL,
   TimingRuleNoFrequencies INTEGER NOT NULL,
@@ -354,7 +354,6 @@ CREATE TABLE animalwaitinglist (
   Comments VARCHAR(16384) NULL,
   UrgencyUpdateDate TIMESTAMP NULL,
   UrgencyLastUpdatedDate TIMESTAMP NULL,
-  DonationSize REAL NOT NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
   CreatedDate TIMESTAMP NOT NULL,
@@ -854,7 +853,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2701');
+INSERT INTO configuration VALUES ('DatabaseVersion','2702');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1363,6 +1362,7 @@ CREATE TABLE medicalprofile (
   ProfileName VARCHAR(255) NOT NULL,
   TreatmentName VARCHAR(255) NOT NULL,
   Dosage VARCHAR(255) NULL,
+  Cost REAL NOT NULL,
   TimingRule INTEGER NOT NULL,
   TimingRuleFrequency INTEGER NOT NULL,
   TimingRuleNoFrequencies INTEGER NOT NULL,

@@ -93,6 +93,7 @@ public class AnimalMedical extends UserInfoBO {
         a.setTreatmentName(getTreatmentName());
         a.setStartDate(getStartDate());
         a.setDosage(getDosage());
+        a.setCost(getCost());
         a.setTimingRule(getTimingRule());
         a.setTimingRuleFrequency(getTimingRuleFrequency());
         a.setTimingRuleNoFrequencies(getTimingRuleNoFrequencies());
@@ -222,6 +223,14 @@ public class AnimalMedical extends UserInfoBO {
 
     public void setStatus(Integer newValue) throws CursorEngineException {
         rs.setField("Status", newValue);
+    }
+
+    public Double getCost() throws CursorEngineException {
+        return (Double) rs.getField("Cost");
+    }
+
+    public void setCost(Double newValue) throws CursorEngineException {
+        rs.setField("Cost", newValue);
     }
 
     public String getComments() throws CursorEngineException {

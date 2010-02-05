@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.medical;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
@@ -49,6 +50,7 @@ public class ProfileEdit extends ASMForm {
     private UI.RadioButton radOneOff;
     private UI.TextArea txtComments;
     private UI.TextField txtDosage;
+    private CurrencyField txtCost;
     private UI.TextField txtProfileName;
     private UI.Spinner spnTimingRule;
     private UI.Spinner spnTimingRuleNoFrequencies;
@@ -67,6 +69,7 @@ public class ProfileEdit extends ASMForm {
         ctl.add(txtProfileName);
         ctl.add(txtTreatmentName);
         ctl.add(txtDosage);
+        ctl.add(txtCost.getTextField());
         ctl.add(radOneOff);
         ctl.add(radMultiple);
         ctl.add(spnTimingRule);
@@ -130,6 +133,7 @@ public class ProfileEdit extends ASMForm {
             txtProfileName.setText(mp.getProfileName());
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
+            txtCost.setValue(mp.getCost().doubleValue());
 
             if (mp.getTimingRule().intValue() == 0) {
                 radOneOff.setSelected(true);
@@ -234,6 +238,8 @@ public class ProfileEdit extends ASMForm {
                 i18n("Treatment_Name:"), UI.getTextField());
         txtDosage = (UI.TextField) UI.addComponent(top, i18n("Dosage:"),
                 UI.getTextField());
+        txtCost = (CurrencyField) UI.addComponent(top, i18n("Cost:"),
+                UI.getCurrencyField());
 
         freqwrap.setTitle(i18n("Frequency"));
         radOneOff = (UI.RadioButton) treatments.add(UI.getRadioButton(i18n("One-Off"),
@@ -323,6 +329,7 @@ public class ProfileEdit extends ASMForm {
             mp.setProfileName(txtProfileName.getText());
             mp.setTreatmentName(txtTreatmentName.getText());
             mp.setDosage(txtDosage.getText());
+            mp.setCost(new Double(txtCost.getValue()));
 
             if (radOneOff.isSelected()) {
                 mp.setTimingRule(new Integer(0));

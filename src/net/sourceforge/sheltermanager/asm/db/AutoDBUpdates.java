@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
+import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.bo.Users;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -56,7 +57,8 @@ public class AutoDBUpdates {
         1124, 1125, 1131, 1202, 1203, 1204, 1205, 1211, 1212, 1213, 1221, 1321, 1341, 
         1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
         1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
-        2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701
+        2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701,
+        2702
         };
 
     /**
@@ -3530,6 +3532,114 @@ public class AutoDBUpdates {
         }
 
     }
+
+    public void update2702() {
+        try {
+
+            try {
+                String currencyType = "FLOAT";
+                if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
+                if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
+                if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+                // Add medical cost tracking fields
+                DBConnection.executeAction("ALTER TABLE animalmedical ADD Cost " + currencyType + " NULL");
+                DBConnection.executeAction("ALTER TABLE medicalprofile ADD Cost " + currencyType + " NULL");
+                DBConnection.executeAction("UPDATE animalmedical SET Cost = 0");
+                DBConnection.executeAction("UPDATE medicalprofile SET Cost = 0");
+            }
+            catch (Exception e) {
+                errors.add("animalmedical/medicalprofile: ADD Cost");
+            }
+
+            int entrydonation = 0;
+            int wldonation = 0;
+            try {
+                // Create our donation types for entry donation and waiting list donation
+                entrydonation = DBConnection.getPrimaryKey("donationtype");
+                wldonation = DBConnection.getPrimaryKey("donationtype");
+                DBConnection.executeAction("INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
+                    entrydonation + ", 'Entry Donation')");
+                DBConnection.executeAction("INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
+                    wldonation + ", 'Waiting List Donation')");
+            }
+            catch (Exception e) {
+                errors.add("donationtype: Create defaults for Entry Donation and Waiting List Donation");
+            }
+
+            try {
+                Global.logInfo("Moving old donation records to unified ownerdonation table...", "update2702");
+                SQLRecordset ra = new SQLRecordset();
+                ra.openRecordset("SELECT ID, BroughtInByOwnerID, DateBroughtIn, AmountDonatedOnEntry FROM animal", "animal");
+                while (!ra.getEOF()) {
+                    try {
+                        if (ra.getField("BroughtInByOwnerID") != null && ((Integer)ra.getField("BroughtInByOwnerID")).intValue() > 0 &&
+                            ra.getField("AmountDonatedOnEntry") != null && ((Double)ra.getField("AmountDonatedOnEntry")).doubleValue() > 0) {
+                            OwnerDonation o = new OwnerDonation();
+                            o.openRecordset("");
+                            o.addNew();
+                            o.setAnimalID((Integer) ra.getField("ID"));
+                            o.setOwnerID((Integer) ra.getField("BroughtInByOwnerID"));
+                            o.setDonation((Double) ra.getField("AmountDonatedOnEntry"));
+                            o.setDateReceived((Date) ra.getField("DateBroughtIn"));
+                            o.setDonationTypeID(new Integer(entrydonation));
+                            o.save("update");
+                        }
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ra.moveNext();
+                }
+                ra = new SQLRecordset();
+                ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist", "animalwaitinglist");
+                while (!ra.getEOF()) {
+                    try {
+                        if (ra.getField("OwnerID") != null && ((Integer)ra.getField("OwnerID")).intValue() > 0 &&
+                            ra.getField("DonationSize") != null && ((Double)ra.getField("DonationSize")).doubleValue() > 0) {
+                            OwnerDonation o = new OwnerDonation();
+                            o.openRecordset("");
+                            o.addNew();
+                            o.setOwnerID((Integer) ra.getField("OwnerID"));
+                            o.setDonation((Double) ra.getField("DonationSize"));
+                            o.setDateReceived((Date) ra.getField("DatePutOnList"));
+                            o.setDonationTypeID(new Integer(wldonation));
+                            o.save("update");
+                        }
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    ra.moveNext();
+                }
+            }
+            catch (Exception e) {
+                errors.add("ownerdonation: Creating from old fields");
+            }
+
+            try {
+                DBConnection.executeAction("ALTER TABLE animalwaitinglist DROP DonationSize");
+            }
+            catch (Exception e) {
+                errors.add("animalwaitinglist: Remove DonationSize field");
+            }
+
+            try {
+                DBConnection.executeAction("ALTER TABLE animal DROP AmountDonatedOnEntry");
+            }
+            catch (Exception e) {
+                errors.add("animal: Remove AmountDonatedOnEntry field");
+            }
+
+
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+
+    }
+
 }
 
 

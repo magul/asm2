@@ -746,15 +746,6 @@ public class Animal extends UserInfoBO {
         rs.setField("ReasonNO", newValue);
     }
 
-    public Double getAmountDonatedOnEntry() throws CursorEngineException {
-        return (Double) rs.getField("AmountDonatedOnEntry");
-    }
-
-    public void setAmountDonatedOnEntry(Double newValue)
-        throws CursorEngineException {
-        rs.setField("AmountDonatedOnEntry", newValue);
-    }
-
     public Date getDateBroughtIn() throws CursorEngineException {
         return (Date) rs.getField("DateBroughtIn");
     }
@@ -2227,7 +2218,6 @@ public class Animal extends UserInfoBO {
         setMarkings("");
         setReasonForEntry("");
         setAnimalComments("");
-        setAmountDonatedOnEntry(new Double(0));
         setBroughtInByOwnerID(z);
         setOriginalOwnerID(z);
         setCrossBreed(z);
@@ -2297,7 +2287,6 @@ public class Animal extends UserInfoBO {
         a.openRecordset("ID = 0");
         a.addNew();
         a.setAcceptanceNumber(getAcceptanceNumber());
-        a.setAmountDonatedOnEntry(getAmountDonatedOnEntry());
         a.setAnimalComments(getAnimalComments());
         a.setAnimalName(Global.i18n("bo", "copy_of", getAnimalName()));
         a.setAnimalTypeID(getAnimalTypeID());

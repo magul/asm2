@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -53,6 +54,7 @@ public class MedicalEdit extends ASMForm {
     private UI.ComboBox cboTreatmentRule;
     private UI.Label lblDuration;
     private UI.Label lblTimingRule;
+    private CurrencyField txtCost;
     private UI.RadioButton radMultiple;
     private UI.RadioButton radOneOff;
     private UI.TextArea txtComments;
@@ -76,6 +78,7 @@ public class MedicalEdit extends ASMForm {
         ctl.add(txtTreatmentName);
         ctl.add(txtDosage);
         ctl.add(txtStartDate.getTextField());
+        ctl.add(txtCost.getTextField());
         ctl.add(cboStatus);
         ctl.add(radOneOff);
         ctl.add(radMultiple);
@@ -141,6 +144,7 @@ public class MedicalEdit extends ASMForm {
             txtStartDate.setText(Utils.formatDate(am.getStartDate()));
             txtTreatmentName.setText(am.getTreatmentName());
             txtDosage.setText(am.getDosage());
+            txtCost.setValue(am.getCost().doubleValue());
             cboStatus.setSelectedIndex(am.getStatus().intValue());
 
             if (am.getTimingRule().intValue() == 0) {
@@ -206,6 +210,7 @@ public class MedicalEdit extends ASMForm {
             // Fill on-screen boxes
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
+            txtCost.setValue(mp.getCost().doubleValue());
 
             if (mp.getTimingRule().intValue() == 0) {
                 radMultiple.setSelected(false);
@@ -301,6 +306,8 @@ public class MedicalEdit extends ASMForm {
                 i18n("Treatment_Name:"), UI.getTextField());
         txtDosage = (UI.TextField) UI.addComponent(top, i18n("Dosage:"),
                 UI.getTextField());
+        txtCost = (CurrencyField) UI.addComponent(top, i18n("Cost:"),
+                UI.getCurrencyField());
         txtStartDate = (DateField) UI.addComponent(top, i18n("Start_Date:"),
                 UI.getDateField());
         cboStatus = UI.getCombo(new String[] {
@@ -403,6 +410,7 @@ public class MedicalEdit extends ASMForm {
             am.setStatus(new Integer(cboStatus.getSelectedIndex()));
             am.setTreatmentName(txtTreatmentName.getText());
             am.setDosage(txtDosage.getText());
+            am.setCost(new Double(txtCost.getValue()));
 
             if (radOneOff.isSelected()) {
                 am.setTimingRule(new Integer(0));

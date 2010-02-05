@@ -121,7 +121,6 @@ public class InOut extends Report {
 
     private void genAnimalsBroughtIn() throws Exception {
         Animal theA = new Animal();
-        double donations = 0;
         theA.openRecordset("DateBroughtIn >= '" + sqlFrom +
             "' AND DateBroughtIn <= '" + sqlTo +
             "' AND IsTransfer = 0 AND NonShelterAnimal = 0 ORDER BY DateBroughtIn");
@@ -150,7 +149,6 @@ public class InOut extends Report {
                 tableAddCell(bold(Global.i18n("reports", "Sex")));
                 tableAddCell(bold(Global.i18n("reports", "Internal_Loc")));
                 tableAddCell(bold(Global.i18n("reports", "Brought_In_By")));
-                tableAddCell(bold(Global.i18n("reports", "Donation")));
                 tableFinishRow();
             }
 
@@ -176,12 +174,9 @@ public class InOut extends Report {
                         tableAddCell("");
                     }
 
-                    tableAddCell(Global.currencySymbol +
-                        theA.getAmountDonatedOnEntry());
                     tableFinishRow();
                 }
 
-                donations += theA.getAmountDonatedOnEntry().doubleValue();
                 theA.moveNext();
             }
 
@@ -191,9 +186,7 @@ public class InOut extends Report {
             }
 
             addParagraph(Global.i18n("reports", "Total_Animals_Brought_In_",
-                    Long.toString(theA.getRecordCount()) + "<br />" +
-                    Global.i18n("reports", "Total_Donations_",
-                        Global.currencySymbol + Double.toString(donations))));
+                    Long.toString(theA.getRecordCount())));
 
             totalAnimalsIn += (int) theA.getRecordCount();
         }

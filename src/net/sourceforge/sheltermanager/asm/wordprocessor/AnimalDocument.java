@@ -98,8 +98,6 @@ public class AnimalDocument extends GenerateDocument {
      */
     public void generateSearchTags() {
         try {
-            addTag(Global.i18n("wordprocessor", "AmountDonatedOnEntry"),
-                Global.currencySymbol + animal.getAmountDonatedOnEntry());
             addTag(Global.i18n("wordprocessor", "AnimalName"),
                 animal.getAnimalName());
             addTag(Global.i18n("wordprocessor", "AnimalTypeName"),

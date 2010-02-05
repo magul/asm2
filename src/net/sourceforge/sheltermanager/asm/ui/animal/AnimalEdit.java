@@ -182,7 +182,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.TabbedPane tabTabs;
     private UI.ToolBar tlbTools;
     private UI.TextField txtAcceptanceNumber;
-    private CurrencyField txtAmountDonatedOnEntry;
     private UI.SearchTextField txtAnimalName;
     private DateField txtCombiTested;
     private UI.TextArea txtComments;
@@ -345,7 +344,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(txtReasonNotBroughtByOwner);
         ctl.add(txtReasonForEntry);
         ctl.add(cboEntryReason);
-        ctl.add(txtAmountDonatedOnEntry);
         ctl.add(chkTransferIn);
         ctl.add(txtDateBroughtIn);
         ctl.add(txtOperator);
@@ -631,9 +629,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             chkNotForAdoption.setSelected(true);
         }
 
-        // Amount donated on entry
-        txtAmountDonatedOnEntry.setText("0");
-
         // Shouldn't be dirty until some data is entered
         setDirty(false);
 
@@ -678,8 +673,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     animal.getReasonNO()));
             this.txtAcceptanceNumber.setText(Utils.nullToEmptyString(
                     animal.getAcceptanceNumber()));
-            this.txtAmountDonatedOnEntry.setText(Utils.nullToEmptyString(
-                    animal.getAmountDonatedOnEntry().toString()));
             this.txtAnimalName.setText(Utils.nullToEmptyString(
                     animal.getAnimalName()));
             this.txtRabiesTag.setText(Utils.nullToEmptyString(
@@ -1248,8 +1241,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         txtReasonNotBroughtByOwner.setEnabled(!chkNonShelter.isSelected());
         txtReasonForEntry.setEnabled(!chkNonShelter.isSelected());
         cboEntryReason.setEnabled(!chkNonShelter.isSelected());
-        txtAmountDonatedOnEntry.getTextField()
-                               .setEnabled(!chkNonShelter.isSelected());
         chkTransferIn.setEnabled(!chkNonShelter.isSelected());
         txtDateBroughtIn.getTextField().setEnabled(!chkNonShelter.isSelected());
         embBroughtInBy.setVisible(!chkNonShelter.isSelected());
@@ -1585,8 +1576,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             animal.setReasonForEntry(txtReasonForEntry.getText());
             animal.setReasonNO(txtReasonNotBroughtByOwner.getText());
             animal.setAcceptanceNumber(txtAcceptanceNumber.getText());
-            animal.setAmountDonatedOnEntry(new Double(
-                    txtAmountDonatedOnEntry.getText()));
             animal.setAnimalName(txtAnimalName.getText());
             animal.setRabiesTag(txtRabiesTag.getText());
 
@@ -2371,11 +2360,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 i18n("Entry_Category"),
                 UI.getCombo(i18n("Entry_Category"),
                     LookupCache.getEntryReasonLookup(), "ReasonName",
-                    UI.fp(this, "dataChanged")));
-
-        txtAmountDonatedOnEntry = (CurrencyField) UI.addComponent(pnlEntryDetails,
-                i18n("Entry_Donation:"),
-                UI.getCurrencyField(i18n("The_amount_donated_when_this_animal_entered_the_shelter"),
                     UI.fp(this, "dataChanged")));
 
         pnlEntryDetails.add(UI.getLabel());
