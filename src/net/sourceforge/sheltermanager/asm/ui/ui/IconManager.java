@@ -463,13 +463,11 @@ public abstract class IconManager {
     public final static String SCREEN_FINDOWNER_PRINT = PRINT;
     public final static String SCREEN_FINDOWNER_SIMPLE = PREVIEW;
     public final static String SCREEN_FINDOWNER_ADVANCED = PREVIEW;
-    public final static String SCREEN_OWNERDONATIONINSTALMENT = DONATIONS;
     public final static String SCREEN_OWNERLINKS_VIEW = EDIT;
     public final static String SCREEN_OWNERVOUCHERS_NEW = NEW;
     public final static String SCREEN_OWNERVOUCHERS_EDIT = EDIT;
     public final static String SCREEN_OWNERVOUCHERS_DELETE = DELETE;
     public final static String SCREEN_VIEWOWNERDONATIONS_NEW = NEW;
-    public final static String SCREEN_VIEWOWNERDONATIONS_NEWINSTALMENT = CLONE;
     public final static String SCREEN_VIEWOWNERDONATIONS_EDIT = EDIT;
     public final static String SCREEN_VIEWOWNERDONATIONS_DELETE = DELETE;
     public final static String SCREEN_VIEWOWNERDONATIONS_GENERATEDOC = DOCUMENT;

@@ -50,10 +50,19 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class AutoDBUpdates {
+
+    public final static int[] updates = new int[] {
+        105, 1051, 1052, 1100, 1101, 1102, 1103, 1111, 1112, 1114, 1122, 1123, 
+        1124, 1125, 1131, 1202, 1203, 1204, 1205, 1211, 1212, 1213, 1221, 1321, 1341, 
+        1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
+        1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
+        2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701
+        };
+
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = 2700;
+    public final static int LATEST_DB_VERSION = updates[updates.length-1];
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -77,585 +86,41 @@ public class AutoDBUpdates {
      *  @return true if all is ok, false if an error occurred
      */
     public boolean runUpdates() {
-        String dbVer = "";
+        int v = 0;
+        errors = new ErrorVector();
 
         try {
-            dbVer = Configuration.getString("DatabaseVersion");
-
-            errors = new ErrorVector();
-
-            // If no dbVer is set, then we have to start from the beginning
-            if (dbVer.equals("")) {
-                dbVer = "104";
-            }
-
-            // 1.04
-            if (dbVer.equals("104")) {
-                Global.logInfo("Updating database to 1.05, please wait...",
-                    "AutoDBUpdates");
-                update105();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.05
-            if (dbVer.equals("105")) {
-                Global.logInfo("Updating database to 1.051, please wait...",
-                    "AutoDBUpdates");
-                update1051();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.051
-            if (dbVer.equals("1051")) {
-                Global.logInfo("Updating database to 1.052, please wait...",
-                    "AutoDBUpdates");
-                update1052();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.052
-            if (dbVer.equals("1052")) {
-                Global.logInfo("Updating database to 1.100, please wait...",
-                    "AutoDBUpdates");
-                update1100();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.100
-            if (dbVer.equals("1100")) {
-                Global.logInfo("Updating database to 1.101, please wait...",
-                    "AutoDBUpdates");
-                update1101();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.101
-            if (dbVer.equals("1101")) {
-                Global.logInfo("Updating database to 1.102, please wait...",
-                    "AutoDBUpdates");
-                update1102();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.102
-            if (dbVer.equals("1102")) {
-                Global.logInfo("Updating database to 1.103, please wait...",
-                    "AutoDBUpdates");
-                update1103();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.103
-            if (dbVer.equals("1103")) {
-                Global.logInfo("Updating database to 1.111, please wait...",
-                    "AutoDBUpdates");
-                update1111();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.111
-            if (dbVer.equals("1111")) {
-                Global.logInfo("Updating database to 1.112, please wait...",
-                    "AutoDBUpdates");
-                update1112();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.112
-            if (dbVer.equals("1112")) {
-                Global.logInfo("Updating database to 1.113, please wait...",
-                    "AutoDBUpdates");
-                update1113();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.113
-            if (dbVer.equals("1113")) {
-                Global.logInfo("Updating database to 1.114, please wait...",
-                    "AutoDBUpdates");
-                update1114();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.114
-            if (dbVer.equals("1114")) {
-                Global.logInfo("Updating database to 1.121, please wait...",
-                    "AutoDBUpdates");
-                update1121();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.121
-            if (dbVer.equals("1121")) {
-                Global.logInfo("Updating database to 1.122, please wait...",
-                    "AutoDBUpdates");
-                update1122();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.122
-            if (dbVer.equals("1122")) {
-                Global.logInfo("Updating database to 1.123, please wait...",
-                    "AutoDBUpdates");
-                update1123();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.122
-            if (dbVer.equals("1122")) {
-                Global.logInfo("Updating database to 1.123, please wait...",
-                    "AutoDBUpdates");
-                update1123();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.123
-            if (dbVer.equals("1123")) {
-                Global.logInfo("Updating database to 1.124, please wait...",
-                    "AutoDBUpdates");
-                update1124();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.124
-            if (dbVer.equals("1124")) {
-                Global.logInfo("Updating database to 1.125, please wait...",
-                    "AutoDBUpdates");
-                update1125();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.125
-            if (dbVer.equals("1125")) {
-                Global.logInfo("Updating database to 1.131, please wait...",
-                    "AutoDBUpdates");
-                update1131();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.131
-            if (dbVer.equals("1131")) {
-                Global.logInfo("Updating database to 1.201, please wait...",
-                    "AutoDBUpdates");
-                update1201();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.201
-            if (dbVer.equals("1201")) {
-                Global.logInfo("Updating database to 1.202, please wait...",
-                    "AutoDBUpdates");
-                update1202();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.202
-            if (dbVer.equals("1202")) {
-                Global.logInfo("Updating database to 1.203, please wait...",
-                    "AutoDBUpdates");
-                update1203();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.203
-            if (dbVer.equals("1203")) {
-                Global.logInfo("Updating database to 1.204, please wait...",
-                    "AutoDBUpdates");
-                update1204();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.204
-            if (dbVer.equals("1204")) {
-                Global.logInfo("Updating database to 1.205, please wait...",
-                    "AutoDBUpdates");
-                update1205();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.205
-            if (dbVer.equals("1205")) {
-                Global.logInfo("Updating database to 1.211, please wait...",
-                    "AutoDBUpdates");
-                update1211();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.211
-            if (dbVer.equals("1211")) {
-                Global.logInfo("Updating database to 1.212, please wait...",
-                    "AutoDBUpdates");
-                update1212();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.212
-            if (dbVer.equals("1212")) {
-                Global.logInfo("Updating database to 1.213, please wait...",
-                    "AutoDBUpdates");
-                update1213();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.213
-            if (dbVer.equals("1213")) {
-                Global.logInfo("Updating database to 1.221, please wait...",
-                    "AutoDBUpdates");
-                update1221();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.221
-            if (dbVer.equals("1221")) {
-                Global.logInfo("Updating database to 1.321 please wait...",
-                    "AutoDBUpdates");
-                update1321();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.321
-            if (dbVer.equals("1321")) {
-                Global.logInfo("Updating database to 1.341 please wait...",
-                    "AutoDBUpdates");
-                update1341();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.341
-            if (dbVer.equals("1341")) {
-                Global.logInfo("Updating database to 1.351 please wait...",
-                    "AutoDBUpdates");
-                update1351();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.351 [ and 1345 - I mucked up on a nightly build ]
-            if (dbVer.equals("1351") || dbVer.equals("1345")) {
-                Global.logInfo("Updating database to 1.352 please wait...",
-                    "AutoDBUpdates");
-                update1352();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.352
-            if (dbVer.equals("1352")) {
-                Global.logInfo("Updating database to 1.361 please wait...",
-                    "AutoDBUpdates");
-                update1361();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.361
-            if (dbVer.equals("1361")) {
-                Global.logInfo("Updating database to 1.362 please wait...",
-                    "AutoDBUpdates");
-                update1362();
-                dbVer = Configuration.getString("DatabaseVersion");
+            
+            v = Configuration.getInteger("DatabaseVersion");
+
+            // Go through every update below our current version, in order and
+            // run it:
+            for (int i = 0; i < updates.length; i++) {
+                
+                int dbv = updates[i];
+                if (v < dbv) {
+
+                    // Our current database version is below this update,
+                    // execute it if we're allowed:
+                    Global.logInfo("Updating database to " + dbv + ", please wait...", "AutoDBUpdates");
+                    checkUpdateAllowed();
+                    getClass().getMethod("update" + Integer.toString(dbv), null).invoke(this, null);
+
+                    // Update our database version to the update we just ran
+                    v = dbv;
+                    Configuration.setEntry("DatabaseVersion", Integer.toString(v));
+                }
             }
-
-            // 1.362
-            if (dbVer.equals("1362")) {
-                Global.logInfo("Updating database to 1.363 please wait...",
-                    "AutoDBUpdates");
-                update1363();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.363
-            if (dbVer.equals("1363")) {
-                Global.logInfo("Updating database to 1.364 please wait...",
-                    "AutoDBUpdates");
-                update1364();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.364
-            if (dbVer.equals("1364")) {
-                Global.logInfo("Updating database to 1.371 please wait...",
-                    "AutoDBUpdates");
-                update1371();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.371
-            if (dbVer.equals("1371")) {
-                Global.logInfo("Updating database to 1.372 please wait...",
-                    "AutoDBUpdates");
-                update1372();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.372
-            if (dbVer.equals("1372")) {
-                Global.logInfo("Updating database to 1.381 please wait...",
-                    "AutoDBUpdates");
-                update1381();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.381
-            if (dbVer.equals("1381")) {
-                Global.logInfo("Updating database to 1.382 please wait...",
-                    "AutoDBUpdates");
-                update1382();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.382
-            if (dbVer.equals("1382")) {
-                Global.logInfo("Updating database to 1.383 please wait...",
-                    "AutoDBUpdates");
-                update1383();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.383
-            if (dbVer.equals("1383")) {
-                Global.logInfo("Updating database to 1.391 please wait...",
-                    "AutoDBUpdates");
-                update1391();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.391
-            if (dbVer.equals("1391")) {
-                Global.logInfo("Updating database to 1.392 please wait...",
-                    "AutoDBUpdates");
-                update1392();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.392
-            if (dbVer.equals("1392")) {
-                Global.logInfo("Updating database to 1.393 please wait...",
-                    "AutoDBUpdates");
-                update1393();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.393
-            if (dbVer.equals("1393")) {
-                Global.logInfo("Updating database to 1.394 please wait...",
-                    "AutoDBUpdates");
-                update1394();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.394
-            if (dbVer.equals("1394")) {
-                Global.logInfo("Updating database to 1.401 please wait...",
-                    "AutoDBUpdates");
-                update1401();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.401
-            if (dbVer.equals("1401")) {
-                Global.logInfo("Updating database to 1.402 please wait...",
-                    "AutoDBUpdates");
-                update1402();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.402
-            if (dbVer.equals("1402")) {
-                Global.logInfo("Updating database to 1.411 please wait...",
-                    "AutoDBUpdates");
-                update1411();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 1.411
-            if (dbVer.equals("1411")) {
-                Global.logInfo("Updating database to 2.001 please wait...",
-                    "AutoDBUpdates");
-                update2001();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.001
-            if (dbVer.equals("2001")) {
-                Global.logInfo("Updating database to 2.021 please wait...",
-                    "AutoDBUpdates");
-                update2021();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.021
-            if (dbVer.equals("2021")) {
-                Global.logInfo("Updating database to 2.023 please wait...",
-                    "AutoDBUpdates");
-                update2023();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.023
-            if (dbVer.equals("2023")) {
-                Global.logInfo("Updating database to 2.100 please wait...",
-                    "AutoDBUpdates");
-                update2100();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.100
-            if (dbVer.equals("2100")) {
-                Global.logInfo("Updating database to 2.102 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2102();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.102
-            if (dbVer.equals("2102")) {
-                Global.logInfo("Updating database to 2.210 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2210();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.210
-            if (dbVer.equals("2210")) {
-                Global.logInfo("Updating database to 2.301 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2301();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.301 
-            if (dbVer.equals("2301")) {
-                Global.logInfo("Updating database to 2.302 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2302();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.302
-            if (dbVer.equals("2302")) {
-                Global.logInfo("Updating database to 2.303 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2303();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.303
-            if (dbVer.equals("2303")) {
-                Global.logInfo("Updating database to 2.310 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2310();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.310
-            if (dbVer.equals("2310")) {
-                Global.logInfo("Updating database to 2.350 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2350();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.350
-            if (dbVer.equals("2350")) {
-                Global.logInfo("Updating database to 2.390 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2390();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.390
-            if (dbVer.equals("2390")) {
-                Global.logInfo("Updating database to 2.500 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2500();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.500
-            if (dbVer.equals("2500")) {
-                Global.logInfo("Updating database to 2.600 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2600();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.600
-            if (dbVer.equals("2600")) {
-                Global.logInfo("Updating database to 2.601 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2601();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.601
-            if (dbVer.equals("2601")) {
-                Global.logInfo("Updating database to 2.610 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2610();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.610
-            if (dbVer.equals("2610")) {
-                Global.logInfo("Updating database to 2.611 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2611();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.611
-            if (dbVer.equals("2611")) {
-                Global.logInfo("Updating database to 2.621 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2621();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.621
-            if (dbVer.equals("2621")) {
-                Global.logInfo("Updating database to 2.641 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2641();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.641
-            if (dbVer.equals("2641")) {
-                Global.logInfo("Updating database to 2.700 please wait...",
-                    "AutoDBUpdates");
-                checkUpdateAllowed();
-                update2700();
-                dbVer = Configuration.getString("DatabaseVersion");
-            }
-
-            // 2.700
 
             // All successful
             finish();
-
             return true;
+
         } catch (Exception e) {
             Global.logException(e, getClass());
-            Dialog.showError("An error occurred checking database status: " +
-                e.getMessage());
-
+            Dialog.showError(e.getMessage());
             return false;
-        } finally {
-            dbVer = null;
-        }
+        } 
     }
 
     /**
@@ -667,40 +132,35 @@ public class AutoDBUpdates {
      *         (ie. All is ok)
      */
     public static boolean checkDatabaseVersion() {
-        String dbVer = null;
 
         try {
-            dbVer = Configuration.getString("DatabaseVersion");
-
-            int iver = Integer.parseInt(dbVer);
+            int iver = Configuration.getInteger("DatabaseVersion");
             Global.logDebug("Client DB Ver: " + LATEST_DB_VERSION +
                 ", Server DB Ver: " + iver, "AutoDBUpdates.checkDatabaseVersion");
-
             return LATEST_DB_VERSION >= iver;
+
         } catch (Exception e) {
             Global.logException(e, AutoDBUpdates.class);
-
             return false;
-        } finally {
-            dbVer = null;
         }
     }
 
     public void finish() {
         try {
-            // Check for errors and prompt to continue
+            // Check for errors and warn user
             // if there were some.
-            if (errors.toArray().length > 0) {
+            if (errors.size() > 0) {
+                String err = "";
+                for (int i = 0; i < errors.size(); i++) {
+                    err += errors.get(i).toString() + "\n";
+                }
                 try {
-                    Dialog.showError("Errors occurred updating:\n" +
-                        "You may experience some problems. If this is a CVS release, " +
-                        "please select the 'revert to stable' option and re-run this " +
-                        "update.");
+                    Dialog.showError("Errors occurred updating:\n\n" + err +                    
+                        "\nYou may experience some problems.");
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
             }
-
             errors.removeAllElements();
             errors = null;
         } catch (Exception e) {
@@ -709,7 +169,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update105() {
+    public void update105() {
         try {
             // Add flag for archived animals
             try {
@@ -742,7 +202,6 @@ public class AutoDBUpdates {
             a.free();
             a = null;
 
-            Configuration.setEntry("DatabaseVersion", "105");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -750,7 +209,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1051() {
+    public void update1051() {
         try {
             try {
                 // Add flag for owner donors
@@ -797,7 +256,6 @@ public class AutoDBUpdates {
                 errors.add("customreport: Table creation");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1051");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -805,7 +263,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1052() {
+    public void update1052() {
         try {
             // Add flags for owners
             try {
@@ -831,7 +289,6 @@ public class AutoDBUpdates {
                     "animalwaitinglist: Addition of AutoRemovePolicy and DateOfLastOwnerContact");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1052");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -839,7 +296,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1100() {
+    public void update1100() {
         try {
             try {
                 // Lookup table for Sex
@@ -985,7 +442,6 @@ public class AutoDBUpdates {
                 errors.add("owner: Addition of IsRetailer flag");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1100");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -993,7 +449,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1101() {
+    public void update1101() {
         try {
             // Add custom report category
             try {
@@ -1003,7 +459,6 @@ public class AutoDBUpdates {
                 errors.add("customreport: Addition of category field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1101");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1011,7 +466,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1102() {
+    public void update1102() {
         try {
             // Add custom report category
             try {
@@ -1042,7 +497,6 @@ public class AutoDBUpdates {
             a.free();
             a = null;
 
-            Configuration.setEntry("DatabaseVersion", "1102");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1050,7 +504,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1103() {
+    public void update1103() {
         try {
             // Change config entries for cat/dogs to primary
             // and secondary.
@@ -1115,7 +569,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Extension of Original Owner Phone");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1103");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1123,7 +576,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1111() {
+    public void update1111() {
         try {
             // Add entry reason to animal and return reason to
             // owner.
@@ -1341,7 +794,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Bulk update reason codes.");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1111");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1349,7 +801,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1112() {
+    public void update1112() {
         try {
             // Add town and county fields to owner table.
             // Also, add denormalised fields for OwnerTitle,
@@ -1401,7 +853,6 @@ public class AutoDBUpdates {
                 errors.add("owner: Bulk update owner name elements.");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1112");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1409,7 +860,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1113() {
+    public void update1113() {
         try {
             try {
                 // Add date due to owner donation table
@@ -1470,7 +921,6 @@ public class AutoDBUpdates {
                 pfBreeds = null;
             }
 
-            Configuration.setEntry("DatabaseVersion", "1113");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1478,7 +928,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1114() {
+    public void update1114() {
         try {
             // Add new field to breed table for petfinder mapping
             try {
@@ -1519,7 +969,6 @@ public class AutoDBUpdates {
             pfBreeds.removeAllElements();
             pfBreeds = null;
 
-            Configuration.setEntry("DatabaseVersion", "1114");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1527,7 +976,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1121() {
+    public void update1121() {
         try {
             // Add custom report entries for all the standard
             // reports:
@@ -1746,7 +1195,6 @@ public class AutoDBUpdates {
 
             cr.save("asmupdate");
 
-            Configuration.setEntry("DatabaseVersion", "1121");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1754,7 +1202,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1122() {
+    public void update1122() {
         try {
             try {
                 // Add retailer ID to movement table
@@ -1764,7 +1212,6 @@ public class AutoDBUpdates {
                 errors.add("adoption: Addition of RetailerID");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1122");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1772,7 +1219,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1123() {
+    public void update1123() {
         try {
             try {
                 // Add new fields to vaccination table for medical
@@ -1796,7 +1243,6 @@ public class AutoDBUpdates {
                     "animalvaccination: Updating existing medical records");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1123");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1804,7 +1250,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1124() {
+    public void update1124() {
         try {
             try {
                 // Add new fields to vaccination table for medical
@@ -1814,7 +1260,6 @@ public class AutoDBUpdates {
                 errors.add("animalvaccination: Addition of medical fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1124");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1822,7 +1267,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1125() {
+    public void update1125() {
         try {
             try {
                 // Drop all extra fields from vaccination
@@ -1840,7 +1285,6 @@ public class AutoDBUpdates {
                 errors.add("animalvaccination: Removal of medical fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1125");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -1848,7 +1292,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1131() {
+    public void update1131() {
         try {
             try {
                 // Comment fields to lost/found
@@ -1999,7 +1443,6 @@ public class AutoDBUpdates {
                 errors.add("animal lost/found wl: Removal of address fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1131");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2072,7 +1515,7 @@ public class AutoDBUpdates {
         return id;
     }
 
-    private void update1201() {
+    public void update1201() {
         try {
             try {
                 // Add diet lookup table
@@ -2155,7 +1598,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Addition of nonshelteranimal flag");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1201");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2163,7 +1605,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1202() {
+    public void update1202() {
         try {
             // All this update does is check to see if you installed
             // on 1.12 (and hence had a bad custom report set). If you
@@ -2189,7 +1631,6 @@ public class AutoDBUpdates {
                 errors.add("customreport: repair from bad 1.12");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1202");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2197,7 +1638,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1203() {
+    public void update1203() {
         try {
             try {
                 String sql = "INSERT INTO animaltype VALUES (40, 'N (Non-Shelter Animal)', NULL)";
@@ -2208,7 +1649,6 @@ public class AutoDBUpdates {
                 errors.add("config: Creation and setting of non-shelter type");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1203");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2216,7 +1656,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1204() {
+    public void update1204() {
         try {
             try {
                 String sql = "CREATE TABLE animalmedical ( " +
@@ -2284,7 +1724,6 @@ public class AutoDBUpdates {
                 errors.add("medical tables: creation");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1204");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2292,7 +1731,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1205() {
+    public void update1205() {
         try {
             try {
                 // For some bizarre reason, this table didn't
@@ -2319,7 +1758,6 @@ public class AutoDBUpdates {
                 // Ignore errors - some people will already have it
             }
 
-            Configuration.setEntry("DatabaseVersion", "1205");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2327,7 +1765,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1211() {
+    public void update1211() {
         try {
             try {
                 // Add TreatmentNumber and TotalTreatments
@@ -2340,7 +1778,6 @@ public class AutoDBUpdates {
                 errors.add("animalmedicaltreatment: x of x fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1211");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2348,7 +1785,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1212() {
+    public void update1212() {
         try {
             try {
                 String sql = "CREATE TABLE log (" +
@@ -2405,7 +1842,6 @@ public class AutoDBUpdates {
                 errors.add("log: table creation");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1212");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2413,7 +1849,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1213() {
+    public void update1213() {
         try {
             try {
                 // Filter field for diary tasks - owner/animal
@@ -2423,7 +1859,6 @@ public class AutoDBUpdates {
                 errors.add("diarytaskhead: addition of RecordType field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1213");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2431,7 +1866,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1221() {
+    public void update1221() {
         try {
             try {
                 Global.logInfo("Setting preferred media...", "AutoDBUpdates");
@@ -2486,7 +1921,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Addition of HasActiveReserve field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1221");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2494,7 +1928,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1321() {
+    public void update1321() {
         try {
             try {
                 // Declawed field
@@ -2512,7 +1946,6 @@ public class AutoDBUpdates {
                 errors.add("owner: addition of MembershipExpiryDate field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1321");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2520,7 +1953,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1341() {
+    public void update1341() {
         try {
             try {
                 // Declawed field
@@ -2530,7 +1963,6 @@ public class AutoDBUpdates {
                 errors.add("media: addition of Date field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1341");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2538,7 +1970,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1351() {
+    public void update1351() {
         try {
             try {
                 // Field to track the original retailer movement that generated
@@ -2550,7 +1982,6 @@ public class AutoDBUpdates {
                     "adoption: addition of OriginalRetailerMovementID field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1351");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2558,7 +1989,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1352() {
+    public void update1352() {
         try {
             try {
                 // Mobile phone field
@@ -2568,7 +1999,6 @@ public class AutoDBUpdates {
                 errors.add("owner: addition of MobileTelephone field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1352");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2576,7 +2006,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1361() {
+    public void update1361() {
         try {
             try {
                 // Mobile phone field
@@ -2586,7 +2016,6 @@ public class AutoDBUpdates {
                 errors.add("animal: addition of CombiTestResult field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1361");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2594,7 +2023,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1362() {
+    public void update1362() {
         try {
             // Copy the organisation name from the settings table to
             // the configuration table
@@ -2630,7 +2059,6 @@ public class AutoDBUpdates {
                 errors.add("animal: addition of tattoo fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1362");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2638,7 +2066,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1363() {
+    public void update1363() {
         try {
             try {
                 // FLV tracking field
@@ -2648,7 +2076,6 @@ public class AutoDBUpdates {
                 errors.add("animal: addition of FLVResult field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1363");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2656,7 +2083,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1364() {
+    public void update1364() {
         try {
             try {
                 // AdoptionDonation table
@@ -2724,7 +2151,6 @@ public class AutoDBUpdates {
                 errors.add("animal: identichipdate and tattoodate fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1364");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2732,7 +2158,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1371() {
+    public void update1371() {
         try {
             try {
                 String sql = "ALTER TABLE animal ADD IsGoodWithCats tinyint(4) default '0'";
@@ -2748,7 +2174,6 @@ public class AutoDBUpdates {
                     "animal: Addition of good with cats/dogs/kids/housetrained flags");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1371");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2756,7 +2181,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1372() {
+    public void update1372() {
         try {
             try {
                 String sql = "ALTER TABLE animal ADD HeartwormTested tinyint(4) NOT NULL default '0'";
@@ -2769,7 +2194,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Addition of heartworm test fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1372");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2777,7 +2201,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1381() {
+    public void update1381() {
         try {
             try {
                 String sql = "ALTER TABLE adoptiondonation ADD DonationTypeID int(11) NOT NULL default '1'";
@@ -2792,7 +2216,6 @@ public class AutoDBUpdates {
                 errors.add("donations: category fields and lookup table");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1381");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2800,7 +2223,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1382() {
+    public void update1382() {
         try {
             try {
                 // We only need to fix those fields if the user hasn't already
@@ -2831,7 +2254,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Fixing broken tri-state fields.");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1382");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2839,7 +2261,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1383() {
+    public void update1383() {
         try {
             try {
                 String sql = "ALTER TABLE owner ADD MatchSex tinyint NOT NULL default '0'";
@@ -2930,7 +2352,6 @@ public class AutoDBUpdates {
                 errors.add("customreport: Addition of new ownercriteria");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1383");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2938,7 +2359,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1391() {
+    public void update1391() {
         try {
             try {
                 String sql = "ALTER TABLE animal ADD MostRecentEntryDate datetime NOT NULL default '0000-00-00 00:00:00'";
@@ -2952,7 +2373,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Addition of MostRecentEntryDate field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1391");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2960,7 +2380,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1392() {
+    public void update1392() {
         try {
             try {
                 String sql = "CREATE TABLE dbfs ( " +
@@ -2975,7 +2395,6 @@ public class AutoDBUpdates {
                 errors.add("dbfs: table creation");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1392");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -2983,7 +2402,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1393() {
+    public void update1393() {
         try {
             try {
                 String sql = "ALTER TABLE dbfs MODIFY Content LONGTEXT";
@@ -2992,7 +2411,6 @@ public class AutoDBUpdates {
                 errors.add("dbfs: Extension of data field to 4GB");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1393");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3000,7 +2418,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1394() {
+    public void update1394() {
         try {
             try {
                 String sql = "ALTER TABLE ownerdonation ADD MovementID int NOT NULL default '0'";
@@ -3049,7 +2467,6 @@ public class AutoDBUpdates {
                     "ownerdonation: Merging with adoptiondonation records");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1394");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3057,7 +2474,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1401() {
+    public void update1401() {
         try {
             try {
                 String sql = "ALTER TABLE animal MODIFY HeartwormTestDate datetime NULL;";
@@ -3066,7 +2483,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Changing of HeartwormTestDate");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1401");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3074,7 +2490,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1402() {
+    public void update1402() {
         // Update owner records to cache name element
         try {
             try {
@@ -3106,7 +2522,6 @@ public class AutoDBUpdates {
                 errors.add("owner: Bulk update owner name elements.");
             }
 
-            Configuration.setEntry("DatabaseVersion", "1402");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3114,7 +2529,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update1411() {
+    public void update1411() {
         // Remove whitespace from media files to stop
         // new decoder being upset
         try {
@@ -3165,7 +2580,6 @@ public class AutoDBUpdates {
 
             Global.logInfo("Re-encoding complete.", "AutoDBUpdates.update1411");
 
-            Configuration.setEntry("DatabaseVersion", "1411");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3173,7 +2587,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2001() {
+    public void update2001() {
         try {
             try {
                 // Only MySQL users can upgrade to 2.001 because that was all we
@@ -3210,7 +2624,6 @@ public class AutoDBUpdates {
                 // This may fail on some installs
             }
 
-            Configuration.setEntry("DatabaseVersion", "2001");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3218,7 +2631,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2021() {
+    public void update2021() {
         try {
             try {
                 // MD5 Hash all user passwords for additional security
@@ -3235,7 +2648,6 @@ public class AutoDBUpdates {
                 errors.add("users: Password hashing");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2021");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3243,7 +2655,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2023() {
+    public void update2023() {
         try {
             try {
                 // Add two new fields to the custom report table (format ok
@@ -3258,7 +2670,6 @@ public class AutoDBUpdates {
                 errors.add("customreport: Omit fields");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2023");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3266,7 +2677,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2100() {
+    public void update2100() {
         try {
             try {
                 // Add new field to the animal table (format ok
@@ -3322,7 +2733,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Remove NameOfOwnersVet");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2100");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3330,7 +2740,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2102() {
+    public void update2102() {
         try {
             try {
                 // Set a default search limit of 100 rows
@@ -3340,7 +2750,6 @@ public class AutoDBUpdates {
                 errors.add("configuration: Set RecordSearchLimit = 100");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2102");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3348,7 +2757,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2210() {
+    public void update2210() {
         try {
             try {
                 // Set some new configuration values with defaults
@@ -3362,7 +2771,6 @@ public class AutoDBUpdates {
                 errors.add("configuration: Set new defaults");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2210");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3370,7 +2778,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2301() {
+    public void update2301() {
         try {
             try {
                 // Add the special needs flag
@@ -3387,7 +2795,6 @@ public class AutoDBUpdates {
                 errors.add("animal: set default for HasSpecialNeeds");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2301");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3395,7 +2802,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2302() {
+    public void update2302() {
         try {
             String format = null;
             String shortformat = null;
@@ -3466,7 +2873,6 @@ public class AutoDBUpdates {
                 r.moveNext();
             }
 
-            Configuration.setEntry("DatabaseVersion", "2302");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3474,7 +2880,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2303() {
+    public void update2303() {
         try {
             try {
                 // Add the publish flags
@@ -3497,7 +2903,6 @@ public class AutoDBUpdates {
                 Global.logException(e, getClass());
             }
 
-            Configuration.setEntry("DatabaseVersion", "2303");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3505,7 +2910,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2310() {
+    public void update2310() {
         try {
             try {
                 // Add the lookup tables
@@ -3546,7 +2951,6 @@ public class AutoDBUpdates {
                 Global.logException(e, getClass());
             }
 
-            Configuration.setEntry("DatabaseVersion", "2310");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3554,7 +2958,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2350() {
+    public void update2350() {
         try {
             try {
                 // Add fields for the parsed code portions
@@ -3619,7 +3023,6 @@ public class AutoDBUpdates {
                     "animal: Add code indexes and datebroughtin for non-mysql");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2350");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3627,7 +3030,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2390() {
+    public void update2390() {
         try {
             // New additional field tables - different commands for
             // different databases:
@@ -3761,7 +3164,6 @@ public class AutoDBUpdates {
                 errors.add("additionalfield/additional: Table creation");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2390");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3769,7 +3171,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2500() {
+    public void update2500() {
         try {
             try {
                 // Add the second breed ID field and Crossbreed
@@ -3801,7 +3203,6 @@ public class AutoDBUpdates {
                 errors.add("owner: Add MatchAdded/Expiry");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2500");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3809,7 +3210,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2600() {
+    public void update2600() {
         try {
             try {
                 // Add the match criteria for a second breed and type
@@ -3926,7 +3327,6 @@ public class AutoDBUpdates {
                 errors.add("media: Add published dates");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2600");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3934,7 +3334,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2601() {
+    public void update2601() {
         try {
             try {
                 // Add the cruelty case flag and set it from the old case type
@@ -3959,7 +3359,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Set default type/species");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2601");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3967,7 +3366,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2610() {
+    public void update2610() {
         try {
             try {
                 // Add the homecheckedby field
@@ -3978,7 +3377,6 @@ public class AutoDBUpdates {
                 errors.add("owner: Add HomeCheckedBy field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2610");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -3986,7 +3384,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2611() {
+    public void update2611() {
         try {
             try {
                 // Delete the old DatePerformedLastHomeCheck field
@@ -4005,7 +3403,6 @@ public class AutoDBUpdates {
                 errors.add("owner: DROP DatePerformedLastHomeCheck field");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2611");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -4013,7 +3410,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2621() {
+    public void update2621() {
         try {
             try {
                 // Add the EstimatedDOB field
@@ -4045,7 +3442,6 @@ public class AutoDBUpdates {
                 errors.add("configuration: set agegroup thresholds");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2621");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -4053,7 +3449,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2641() {
+    public void update2641() {
         try {
             try {
                 // Add the AnimalID field to ownerdonation
@@ -4070,7 +3466,6 @@ public class AutoDBUpdates {
                 errors.add("ownerdonation: ADD AnimalID");
             }
 
-            Configuration.setEntry("DatabaseVersion", "2641");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
@@ -4078,7 +3473,7 @@ public class AutoDBUpdates {
         }
     }
 
-    private void update2700() {
+    public void update2700() {
         try {
             // Turn this one on - this is what ASM historically has always
             // done, so keep behaviour the same 
@@ -4088,12 +3483,52 @@ public class AutoDBUpdates {
             // off just in case
             Configuration.setEntry("AutoCancelReservesDays", "0");
 
-            Configuration.setEntry("DatabaseVersion", "2700");
         } catch (Exception e) {
             Dialog.showError("Error occurred updating database:\n" +
                 e.getMessage());
             Global.logException(e, getClass());
         }
+    }
+
+    public void update2701() {
+        try {
+
+            try {
+                // Add fields necessary for correct handling of donation instalments
+                DBConnection.executeAction("ALTER TABLE ownerdonation ADD Frequency INTEGER NULL");
+                DBConnection.executeAction("ALTER TABLE ownerdonation ADD NextCreated INTEGER NULL");
+                DBConnection.executeAction("UPDATE ownerdonation SET Frequency = 0");
+                DBConnection.executeAction("UPDATE ownerdonation SET NextCreated = 0");
+            }
+            catch (Exception e) {
+                errors.add("ownerdonation: ADD Frequency and NextCreated");
+            }
+
+            try {
+                // Add lookup table for the frequencies
+                if (DBConnection.DBType == DBConnection.MYSQL)
+                    DBConnection.executeAction("CREATE TABLE lksdonationfreq ( ID smallint NOT NULL DEFAULT '0', Frequency varchar(50) NOT NULL, PRIMARY KEY  (ID) )");
+                else
+                    DBConnection.executeAction("CREATE TABLE lksdonationfreq ( ID INTEGER NOT NULL PRIMARY KEY, Frequency VARCHAR(50) NOT NULL )");
+
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (0, 'One-Off')");
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (1, 'Weekly')");
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (2, 'Monthly')");
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (3, 'Quarterly')");
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly')");
+                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (5, 'Annually')");
+            }
+            catch (Exception e) {
+                errors.add("lksdonationfreq: Creation");
+            }
+
+
+        } catch (Exception e) {
+            Dialog.showError("Error occurred updating database:\n" +
+                e.getMessage());
+            Global.logException(e, getClass());
+        }
+
     }
 }
 

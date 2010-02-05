@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
@@ -121,12 +122,12 @@ public class DonationSelector extends ASMSelector {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) od.getRecordCount()][7];
+        String[][] datar = new String[(int) od.getRecordCount()][8];
 
         // Create an array of headers for the table
         String[] columnheaders = {
                 i18n("date_due"), i18n("date_received"), i18n("receipt_number"),
-                i18n("donation"), i18n("type"), i18n("comments")
+                i18n("donation"), i18n("type"), i18n("frequency"), i18n("comments")
             };
 
         // Build the data
@@ -143,6 +144,7 @@ public class DonationSelector extends ASMSelector {
                 datar[i][2] = Utils.nullToEmptyString(od.getReceiptNum());
                 datar[i][3] = Utils.formatCurrency(od.getDonation().doubleValue());
                 datar[i][4] = od.getDonationTypeName();
+                datar[i][5] = LookupCache.getDonationFreqForID(od.getFrequency());
 
                 // Build the comment string
                 String c = od.getComments();
@@ -188,8 +190,8 @@ public class DonationSelector extends ASMSelector {
                     }
                 }
 
-                datar[i][5] = c;
-                datar[i][6] = od.getID().toString();
+                datar[i][6] = c;
+                datar[i][7] = od.getID().toString();
 
                 // Keep a running total of donations displayed
                 runningTotal += od.getDonation().doubleValue();
@@ -203,7 +205,7 @@ public class DonationSelector extends ASMSelector {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 6);
+        setTableData(columnheaders, datar, i, 7);
     }
 
     public boolean hasData() {
@@ -215,13 +217,6 @@ public class DonationSelector extends ASMSelector {
                 IconManager.getIcon(IconManager.SCREEN_VIEWOWNERDONATIONS_NEW),
                 UI.fp(this, "actionNew"));
         addToolButton(btnNew, false);
-
-        btnNewInstalment = UI.getButton(null,
-                i18n("create_a_new_installment_donation"), 'i',
-                IconManager.getIcon(
-                    IconManager.SCREEN_VIEWOWNERDONATIONS_NEWINSTALMENT),
-                UI.fp(this, "actionNewInstalment"));
-        addToolButton(btnNewInstalment, false);
 
         btnEdit = UI.getButton(null, i18n("edit_this_donation"), 'e',
                 IconManager.getIcon(IconManager.SCREEN_VIEWOWNERDONATIONS_EDIT),
@@ -246,11 +241,6 @@ public class DonationSelector extends ASMSelector {
 
     public void tableDoubleClicked() {
         actionEdit();
-    }
-
-    public void actionNewInstalment() {
-        Global.mainForm.addChild(new DonationInstalmentEdit(this, animalID,
-                ownerID, movementID));
     }
 
     public void actionDelete() {

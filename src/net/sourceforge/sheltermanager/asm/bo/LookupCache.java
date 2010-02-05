@@ -54,6 +54,7 @@ public abstract class LookupCache {
     private static SQLRecordset fieldtype = null;
     private static SQLRecordset fieldlink = null;
     private static SQLRecordset coattype = null;
+    private static SQLRecordset donationfreq = null;
     private static Animal activeanimals = null;
     private static HashMap animalextdata = null;
     private static HashMap breedspecies = null;
@@ -82,7 +83,8 @@ public abstract class LookupCache {
     private static final int LOOKUP_FIELDTYPE = 17;
     private static final int LOOKUP_FIELDLINK = 18;
     private static final int LOOKUP_COATTYPE = 19;
-    private static final int MAX_LOOKUPS = 19;
+    private static final int LOOKUP_DONATIONFREQ = 20;
+    private static final int MAX_LOOKUPS = 20;
 
     private static SQLRecordset getLookup(int lookuptype) {
         try {
@@ -285,6 +287,15 @@ public abstract class LookupCache {
                 }
 
                 return coattype;
+
+            case LOOKUP_DONATIONFREQ:
+
+                if (donationfreq == null) {
+                    donationfreq = new SQLRecordset();
+                    donationfreq.openRecordset("SELECT * FROM lksdonationfreq ORDER BY ID",
+                        "lksdonationfreq");
+                }
+                return donationfreq;
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -321,6 +332,7 @@ public abstract class LookupCache {
         fieldlink = null;
         fieldtype = null;
         coattype = null;
+        donationfreq = null;
         animalextdata = null;
 
         if (activeanimals != null) {
@@ -599,6 +611,20 @@ public abstract class LookupCache {
 
     public static SQLRecordset getFieldTypeLookup() {
         return getLookup(LOOKUP_FIELDTYPE);
+    }
+
+    public static SQLRecordset getDonationFreqLookup() {
+        return getLookup(LOOKUP_DONATIONFREQ);
+    }
+
+    public static String getDonationFreqForID(Integer ID) {
+        getLookup(LOOKUP_DONATIONFREQ);
+        return getNameForID(donationfreq, "Frequency", ID);
+    }
+
+    public static Integer getDonationFreqIDForName(String name) {
+        getLookup(LOOKUP_DONATIONFREQ);
+        return getIDForName(donationfreq, "Frequency", name);
     }
 
     public static String getCoatTypeForID(Integer ID) {

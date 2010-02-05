@@ -1,6 +1,10 @@
 2.7.0
 ================
 
+*. All donations can be instalment donations now with a new frequency
+-  field. Saving and receiving a donation creates the next in the
+-  sequence, so they can go on indefinitely.
+*. Refactored database update mechanism to simply development
 *. You must update your client message showed current client version
 -  instead of server version
 *. Auto reservation cancellation for reserves that go so long without

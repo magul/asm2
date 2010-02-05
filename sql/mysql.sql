@@ -878,7 +878,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2700');
+INSERT INTO configuration VALUES ('DatabaseVersion','2701');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1251,6 +1251,19 @@ INSERT INTO lksdiarylink VALUES (4, 'Found Animal');
 INSERT INTO lksdiarylink VALUES (5, 'Waiting List');
 INSERT INTO lksdiarylink VALUES (6, 'Movement');
 
+CREATE TABLE lksdonationfreq (
+  ID smallint NOT NULL DEFAULT '0',
+  Frequency varchar(50) NOT NULLa,
+  PRIMARY KEY  (ID)
+  ) Type=MyISAM;
+
+INSERT INTO lksdonationfreq VALUES (0, 'One-Off');
+INSERT INTO lksdonationfreq VALUES (1, 'Weekly');
+INSERT INTO lksdonationfreq VALUES (2, 'Monthly');
+INSERT INTO lksdonationfreq VALUES (3, 'Quarterly');
+INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly');
+INSERT INTO lksdonationfreq VALUES (5, 'Annually');
+
 CREATE TABLE lksloglink (
   ID smallint NOT NULL DEFAULT '0',
   LinkType varchar(40) NOT NULL,
@@ -1485,7 +1498,9 @@ CREATE TABLE ownerdonation (
   DonationTypeID int(11) NOT NULL ,
   Date datetime NULL,
   DateDue datetime NULL,
-  Donation double NOT NULL ,
+  Donation double NOT NULL,
+  Frequency smallint NOT NULL,
+  NextCreated tinyint(4) NOT NULL,
   Comments text NULL,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,

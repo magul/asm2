@@ -112,6 +112,8 @@ for l in lines:
         outfile.write("INSERT INTO lksmedialink VALUES (%s, '%s');\n" % (id, value))
     elif table == "lksdiarylink":
         outfile.write("INSERT INTO lksdiarylink VALUES (%s, '%s');\n" % (id, value))
+    elif table == "lksdonationfreq":
+        outfile.write("INSERT INTO lksdonationfreq VALUES (%s, '%s');\n" % (id, value))
     elif table == "lksfieldlink":
         outfile.write("INSERT INTO lksfieldlink VALUES (%s, '%s');\n" % (id, value))
     elif table == "lksfieldtype":

@@ -854,7 +854,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2700');
+INSERT INTO configuration VALUES ('DatabaseVersion','2701');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1210,6 +1210,18 @@ INSERT INTO lksdiarylink VALUES (4, 'Found Animal');
 INSERT INTO lksdiarylink VALUES (5, 'Waiting List');
 INSERT INTO lksdiarylink VALUES (6, 'Movement');
 
+CREATE TABLE lksdonationfreq (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  Frequency VARCHAR(50) NOT NULL
+  );
+
+INSERT INTO lksdonationfreq VALUES (0, 'One-Off');
+INSERT INTO lksdonationfreq VALUES (1, 'Weekly');
+INSERT INTO lksdonationfreq VALUES (2, 'Monthly');
+INSERT INTO lksdonationfreq VALUES (3, 'Quarterly');
+INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly');
+INSERT INTO lksdonationfreq VALUES (5, 'Annually');
+
 CREATE TABLE lksloglink (
   ID INTEGER NOT NULL PRIMARY KEY,
   LinkType VARCHAR(40) NOT NULL
@@ -1436,6 +1448,8 @@ CREATE TABLE ownerdonation (
   Date TIMESTAMP NULL,
   DateDue TIMESTAMP NULL,
   Donation REAL NOT NULL,
+  Frequency INTEGER NOT NULL,
+  NextCreated INTEGER NOT NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,

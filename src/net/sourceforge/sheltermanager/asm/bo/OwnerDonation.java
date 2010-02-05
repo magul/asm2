@@ -66,6 +66,22 @@ public class OwnerDonation extends UserInfoBO {
         rs.setField("MovementID", newValue);
     }
 
+    public Integer getFrequency() throws CursorEngineException {
+        return (Integer) rs.getField("Frequency");
+    }
+
+    public void setFrequency(Integer newValue) throws CursorEngineException {
+        rs.setField("Frequency", newValue);
+    }
+
+    public Integer getNextCreated() throws CursorEngineException {
+        return (Integer) rs.getField("NextCreated");
+    }
+
+    public void setNextCreated(Integer newValue) throws CursorEngineException {
+        rs.setField("NextCreated", newValue);
+    }
+
     public Integer getDonationTypeID() throws CursorEngineException {
         return (Integer) rs.getField("DonationTypeID");
     }
@@ -152,6 +168,42 @@ public class OwnerDonation extends UserInfoBO {
 
     public void setLastChangedDate(Date newValue) throws CursorEngineException {
         rs.setField("LastChangedDate", newValue);
+    }
+
+    public void addNew() throws CursorEngineException {
+        super.addNew();
+
+        final Integer z = new Integer(0);
+
+        setOwnerID(z);
+        setAnimalID(z);
+        setMovementID(z);
+        setDonationTypeID(z);
+        setFrequency(z);
+        setNextCreated(z);
+        setDonation(new Double(0));
+        setComments("");
+    }
+
+    public OwnerDonation copy() throws Exception {
+
+        OwnerDonation o = new OwnerDonation();
+        o.openRecordset("ID = 0");
+        o.addNew();
+
+        o.setOwnerID(getOwnerID());
+        o.setAnimalID(getAnimalID());
+        o.setMovementID(getMovementID());
+        o.setDonationTypeID(getDonationTypeID());
+        o.setFrequency(getFrequency());
+        o.setNextCreated(getNextCreated());
+        o.setDateReceived(getDateReceived());
+        o.setDateDue(getDateDue());
+        o.setDonation(getDonation());
+        o.setComments(getComments());
+
+        return o;
+
     }
 
     public void validate() throws BOValidationException {

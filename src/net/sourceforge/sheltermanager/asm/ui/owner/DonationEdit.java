@@ -43,6 +43,8 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -60,6 +62,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
     private int movementID = 0;
     private UI.Button btnCancel;
     private UI.Button btnOk;
+    private UI.ComboBox cboFrequency;
     private UI.TextArea txtComments;
     private DateField txtDateDue;
     private DateField txtDateReceived;
@@ -84,6 +87,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
         Vector ctl = new Vector();
         ctl.add(txtDateDue.getTextField());
         ctl.add(txtDateReceived.getTextField());
+        ctl.add(cboFrequency);
         ctl.add(txtDonation.getTextField());
         ctl.add(cboDonationType);
         ctl.add(txtComments);
@@ -115,6 +119,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             txtDateDue.setText(Utils.formatDate(od.getDateDue()));
             txtDateReceived.setText(Utils.formatDate(od.getDateReceived()));
             txtDonation.setText(od.getDonation().toString());
+            cboFrequency.setSelectedIndex(((Integer) od.getFrequency()).intValue());
             Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
                 "DonationName", od.getDonationTypeID(), cboDonationType);
             txtComments.setText(od.getComments());
@@ -181,6 +186,10 @@ public class DonationEdit extends ASMForm implements SearchListener,
         txtDonation = (CurrencyField) UI.addComponent(top, i18n("donation"),
                 UI.getCurrencyField());
 
+        cboFrequency = UI.getCombo(LookupCache.getDonationFreqLookup(), "Frequency");
+        cboFrequency.setSelectedIndex(0);
+        UI.addComponent(top, i18n("frequency"), cboFrequency);
+
         cboDonationType = UI.getCombo(i18n("type"),
                 LookupCache.getDonationTypeLookup(), "DonationName");
         UI.addComponent(top, i18n("type"), cboDonationType);
@@ -234,11 +243,48 @@ public class DonationEdit extends ASMForm implements SearchListener,
             od.setDateReceived(Utils.parseDate(txtDateReceived.getText()));
             od.setDateDue(Utils.parseDate(txtDateDue.getText()));
             od.setDonation(new Double(txtDonation.getText()));
+            od.setFrequency(new Integer(cboFrequency.getSelectedIndex()));
             od.setDonationTypeID(Utils.getIDFromCombo(
                     LookupCache.getDonationTypeLookup(), "DonationName",
                     cboDonationType));
             od.setComments(txtComments.getText());
             od.save(Global.currentUserName);
+
+            // Do we have a frequency > 0, the nextcreated flag isn't set
+            // and there's a datereceived and a datedue?
+            if (od.getDateDue() != null && od.getDateReceived() != null && 
+                ((Integer) od.getFrequency()).intValue() > 0 &&
+                ((Integer) od.getNextCreated()).intValue() == 0) {
+
+                OwnerDonation od2 = od.copy();
+
+                // Clear the date received and update the date due
+                Calendar c = Calendar.getInstance();
+                c.setTime( ((Date) od.getDateDue()) );
+                int freq = ((Integer) od.getFrequency()).intValue();
+                switch (freq) {
+                    case 1:     // weekly
+                        c.add(Calendar.WEEK_OF_YEAR, 1);
+                        break;
+                    case 2:     // monthly
+                        c.add(Calendar.MONTH, 1);
+                        break;
+                    case 3:     // quarterly
+                        c.add(Calendar.MONTH, 3);
+                        break;
+                    case 4:     // half-yearly
+                        c.add(Calendar.MONTH, 6);
+                        break;
+                    case 5:     // annually
+                        c.add(Calendar.YEAR, 1);
+                        break;
+                }
+                od2.setDateReceived(null);
+                od2.setDateDue(c.getTime());
+
+                // Save our next instalment
+                od2.save(Global.currentUserName);
+            }
 
             // Update parent
             parent.updateList();

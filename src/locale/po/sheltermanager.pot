@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-03 15:35+0100\n"
+"POT-Creation-Date: 2010-02-05 12:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -494,6 +494,7 @@ msgstr ""
 #. # bo/AnimalMedical
 #. # bo/MedicalProfile
 #: One_Off
+#: lksdonationfreq_0
 msgid "One-Off"
 msgstr ""
 
@@ -527,11 +528,6 @@ msgstr ""
 #. # bo/MedicalProfile
 #: weeks
 msgid "weeks"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: monthly
-msgid "monthly"
 msgstr ""
 
 #. # ui/medical/ProfileEdit
@@ -3250,6 +3246,26 @@ msgstr ""
 msgid "Waiting List"
 msgstr ""
 
+#: lksdonationfreq_1
+msgid "Weekly"
+msgstr ""
+
+#: lksdonationfreq_2
+msgid "Monthly"
+msgstr ""
+
+#: lksdonationfreq_3
+msgid "Quarterly"
+msgstr ""
+
+#: lksdonationfreq_4
+msgid "Half-Yearly"
+msgstr ""
+
+#: lksdonationfreq_5
+msgid "Annually"
+msgstr ""
+
 #: lksfieldtype_0
 msgid "Yes/No"
 msgstr ""
@@ -3505,7 +3521,6 @@ msgstr ""
 #. # ui/owner/VoucherEdit
 #. # ui/log/LogEdit
 #. # ui/customreport/CustomReportEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #. # db/Diagnostic
 #: OK
@@ -4607,7 +4622,6 @@ msgstr ""
 #. # ui/owner/VoucherEdit
 #. # ui/log/LogEdit
 #. # ui/internet/EmailForm
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Cancel
 #: cancel
@@ -6260,7 +6274,6 @@ msgstr ""
 #. # bo/Log
 #. # bo/MedicalProfile
 #. # ui/owner/DonationSelector
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #. # ui/owner/VoucherSelector
 #: Comments
@@ -6685,7 +6698,6 @@ msgstr ""
 
 #. # ui/animal/LitterEdit
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
@@ -11039,6 +11051,9 @@ msgstr ""
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
+#. # ui/owner/DonationEdit
+#. # bo/LookupCache
+#. # bo/OwnerDonation
 #: Frequency
 msgid "Frequency"
 msgstr ""
@@ -11315,7 +11330,6 @@ msgid "WARNING: This owner has not passed a home check."
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Select_an_animal
 msgid "Select an animal"
@@ -11371,7 +11385,6 @@ msgid "Click here if you have automatic insurance numbers to generate one"
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #: Owner\:
 msgid "Owner:"
 msgstr ""
@@ -11486,7 +11499,6 @@ msgid "Donation:"
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #: Animal\:
 msgid "Animal:"
 msgstr ""
@@ -11930,11 +11942,6 @@ msgstr ""
 msgid "Unable to create new owner donation:"
 msgstr ""
 
-#. # ui/owner/DonationInstalmentEdit
-#: an_error_occurred_saving_data
-msgid "An error occurred saving the data:"
-msgstr ""
-
 #. # ui/owner/DonationEdit
 #: new_owner_donation
 msgid "New Donation"
@@ -12104,71 +12111,6 @@ msgstr ""
 #. # ui/owner/DonationEdit
 #: date_due
 msgid "Date Due"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: create_instalment_donation
-msgid "Create Instalment Donation"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: Start_date
-msgid "First instalment date:"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: instalment_frequency
-msgid "Instalment Frequency:"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: instalment_amount
-msgid "Instalment amount:"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: weekly
-msgid "Weekly"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: monthly
-msgid "Monthly"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: annually
-msgid "Annually"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: quarterly
-msgid "Quarterly"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: half-yearly
-msgid "Half-Yearly"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: number_of_instalments
-msgid "Number of Instalments:"
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: you_must_enter_a_valid_number_for_the_number_of_instalments
-msgid "You must enter a valid number for the number of instalments."
-msgstr ""
-
-#. # ui/owner/DonationInstalmentEdit
-#: you_must_supply_a_start_date
-msgid "You must supply a start date."
-msgstr ""
-
-#. # ui/owner/DonationSelector
-#: create_a_new_installment_donation
-msgid "Create a new instalment donation"
 msgstr ""
 
 #. # ui/owner/OwnerLink
@@ -12577,6 +12519,12 @@ msgstr ""
 #. # ui/owner/OwnerFind
 #: Potential_Adopters
 msgid "Potential Adopters"
+msgstr ""
+
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: frequency
+msgid "Frequency:"
 msgstr ""
 
 #. # ui/reportviewer/ReportViewer
