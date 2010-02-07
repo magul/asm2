@@ -1504,10 +1504,17 @@ public final class UI {
       * http://today.java.net/pub/a/today/2007/04/03/perils-of-image-getscaledinstance.html
       */
     public static Image scaleImage(Image inImage, int width, int height) {
-        int w = inImage.getWidth(null);
+        
+	int w = inImage.getWidth(null);
         int h = inImage.getHeight(null);
         int wo = w;
         int ho = h;
+
+	// If the target size is bigger than the original, then
+	// we aren't scaling the image down and should use the
+	// old system
+	if (width > w || height > h)
+	    return scaleImageOld(inImage, width, height);
 
         if (w < h) {
             double aspectRatio = ((double) w) / ((double) h);

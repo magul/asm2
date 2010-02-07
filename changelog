@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Adaptive image scaling - uses old style algorithm if we are
+-  scaling the image up instead of down
 *. Costs can be allocated to medical treatments/profiles now
 *. Removed donations from animal and waiting list screens and
 -  imported to separate owner donations, this makes more sense
