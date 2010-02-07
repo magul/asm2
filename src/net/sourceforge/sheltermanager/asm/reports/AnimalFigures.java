@@ -49,6 +49,7 @@ public class AnimalFigures extends Report {
     private String monthname = "";
     private String year = "";
     private Calendar firstDayOfMonth = null;
+    private int selSpecies = 0;
 
     // Summary totals that get calculated along the way
     private String totalUnwantedSummary = "";
@@ -132,6 +133,11 @@ public class AnimalFigures extends Report {
 
         int iselyear = Integer.parseInt(selyear);
 
+	// Are we in species mode? If so, ask for a species to be chosen
+	if (Configuration.getBoolean("AnimalFiguresGroupBySpecies")) {
+            selSpecies = Dialog.getSpecies();
+	}
+
         // Set title flags
         monthname = selmonth;
         year = selyear;
@@ -178,13 +184,18 @@ public class AnimalFigures extends Report {
                     sp.moveNext();
                 }
 
-                // 15 steps per generation
-                int maxent = 15 * (v.size());
-                setStatusBarMax(maxent);
-
-                for (int i = 0; i < v.size(); i++) {
-                    genSpeciesFigs((Integer) v.get(i));
-                }
+		if (selSpecies != 0) {
+		    setStatusBarMax(15);
+                    genSpeciesFigs(new Integer(selSpecies));
+		}
+		else {
+			for (int i = 0; i < v.size(); i++) {
+			    // 15 steps per generation
+			    int maxent = 15 * (v.size());
+			    setStatusBarMax(maxent);
+			    genSpeciesFigs((Integer) v.get(i));
+			}
+		}
             } else {
                 // ANIMAL TYPES ========================================
                 // Initialise the status bar upto
