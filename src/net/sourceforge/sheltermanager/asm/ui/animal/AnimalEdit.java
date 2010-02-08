@@ -2767,6 +2767,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 try {
                     embVet.loadFromID(animal.getOwnersVetID().intValue());
                     embCurrentVet.loadFromID(animal.getCurrentVetID().intValue());
+                } catch (NullPointerException npe) {
+                    loadedVet = false;
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }

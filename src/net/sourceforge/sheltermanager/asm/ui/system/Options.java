@@ -26,6 +26,7 @@ import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
@@ -80,6 +81,7 @@ public class Options extends ASMForm {
     private UI.TextField txtMappingService;
     private UI.TextField txtEmailAddress;
     private UI.TextField txtSMTPServer;
+    private CurrencyField txtDefaultBoardingCost;
     private UI.ComboBox cboDefaultBreed;
     private UI.ComboBox cboDefaultColour;
     private UI.ComboBox cboDefaultDeath;
@@ -152,6 +154,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultLogFilter);
         ctl.add(cboDefaultCoatType);
         ctl.add(cboDefaultDonationType);
+        ctl.add(txtDefaultBoardingCost);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
         ctl.add(spnAutoInsuranceEnd);
@@ -311,6 +314,8 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultDonationType")),
             cboDefaultDonationType);
 
+        txtDefaultBoardingCost.setValue(Configuration.getDouble("DefaultDailyBoardingCost"));
+
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
             // OS auth
@@ -431,6 +436,9 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultDonationType",
                 Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
                     "DonationName", cboDefaultDonationType).toString());
+
+            Configuration.setEntry("DefaultDailyBoardingCost",
+                new Double(txtDefaultBoardingCost.getValue()).toString());
 
             l = tblDefaultOptions.getSelections();
 
@@ -744,6 +752,9 @@ public class Options extends ASMForm {
         cboDefaultDonationType = UI.getCombo(LookupCache.getDonationTypeLookup(),
                 "DonationName");
         UI.addComponent(pr, i18n("Default_Donation_Type"), cboDefaultDonationType);
+
+        txtDefaultBoardingCost = (CurrencyField) UI.addComponent(
+            pr, i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
