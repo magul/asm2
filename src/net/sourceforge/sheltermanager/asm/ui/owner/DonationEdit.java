@@ -164,6 +164,12 @@ public class DonationEdit extends ASMForm implements SearchListener,
                         movementID).toString());
             }
 
+            // Set default donation type if we have one
+            Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                "DonationName", new Integer(Configuration.getInteger("AFDefaultDonationType")),
+                cboDonationType);
+
+
             this.setTitle(i18n("new_owner_donation"));
         } catch (Exception e) {
             Dialog.showError(i18n("unable_to_create_new_ownerdonation") +

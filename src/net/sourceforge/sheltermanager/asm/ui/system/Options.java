@@ -92,6 +92,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboNonShelter;
     private UI.ComboBox cboDefaultSpecies;
     private UI.ComboBox cboDefaultType;
+    private UI.ComboBox cboDefaultDonationType;
     private UI.CheckBox chkUseAutoInsurance;
     private UI.Spinner spnAutoInsuranceStart;
     private UI.Spinner spnAutoInsuranceEnd;
@@ -150,6 +151,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultSize);
         ctl.add(cboDefaultLogFilter);
         ctl.add(cboDefaultCoatType);
+        ctl.add(cboDefaultDonationType);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
         ctl.add(spnAutoInsuranceEnd);
@@ -305,6 +307,10 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultCoatType")),
             cboDefaultCoatType);
 
+        Utils.setComboFromID(LookupCache.getDonationTypeLookup(), "DonationName",
+            new Integer(Configuration.getInteger("AFDefaultDonationType")),
+            cboDefaultDonationType);
+
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
             // OS auth
@@ -421,6 +427,10 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultCoatType",
                 Utils.getIDFromCombo(LookupCache.getCoatTypeLookup(),
                     "CoatType", cboDefaultCoatType).toString());
+
+            Configuration.setEntry("AFDefaultDonationType",
+                Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboDefaultDonationType).toString());
 
             l = tblDefaultOptions.getSelections();
 
@@ -730,6 +740,10 @@ public class Options extends ASMForm {
         cboDefaultCoatType = UI.getCombo(LookupCache.getCoatTypeLookup(),
                 "CoatType");
         UI.addComponent(pr, i18n("Default_Coat_Type"), cboDefaultCoatType);
+
+        cboDefaultDonationType = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName");
+        UI.addComponent(pr, i18n("Default_Donation_Type"), cboDefaultDonationType);
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
