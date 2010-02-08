@@ -608,7 +608,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
                 // Update the animal's denormalised data
                 // as a result of this save.
-                Animal.updateAnimalStatus(movement.getAnimalID().intValue());
+                animalID = movement.getAnimalID().intValue();
+                Animal.updateAnimalStatus(animalID);
 
                 // Record is clean
                 isNewRecord = false;
