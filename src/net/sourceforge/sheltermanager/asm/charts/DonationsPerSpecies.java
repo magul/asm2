@@ -82,13 +82,13 @@ public class DonationsPerSpecies extends Chart {
 
         SQLRecordset spec = new SQLRecordset();
         spec.openRecordset(
-            "SELECT SpeciesID, SpeciesName, SUM(adoption.Donation) AS TotOfSpecies FROM animal " +
+            "SELECT SpeciesID, SpeciesName, SUM(ownerdonation.Donation) AS TotOfSpecies FROM animal " +
+            "INNER JOIN adoption ON adoption.AnimalID = animal.ID " +
+            "INNER JOIN ownerdonation ON ownerdonation.MovementID = adoption.ID " +
             "INNER JOIN species ON animal.SpeciesID = species.ID " +
-            "INNER JOIN adoption ON animal.ID = adoption.AnimalID " +
-            "WHERE MovementDate >= '" + firstYearSql + "' AND " +
-            "MovementDate <= '" + lastYearSql + "' AND " + "MovementType = " +
-            Adoption.MOVETYPE_ADOPTION +
-            " GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
+            "WHERE ownerdonation.Date >= '" + firstYearSql + "' AND " +
+            "ownerdonation.Date <= '" + lastYearSql + "' " +
+            "GROUP BY SpeciesID, SpeciesName ORDER BY SpeciesName", "animal");
 
         if (spec.getEOF()) {
             return false;
@@ -128,12 +128,12 @@ public class DonationsPerSpecies extends Chart {
                 SQLRecordset adoption = new SQLRecordset();
 
                 model[sp][i] = DBConnection.executeForSum(
-                        "SELECT Sum(Donation) FROM adoption INNER JOIN animal " +
-                        "ON adoption.AnimalID = animal.ID WHERE " +
-                        "MovementDate >= '" + firstDay + "' AND " +
-                        "MovementDate <= '" + lastDay + "' AND " +
-                        "MovementType = " + Adoption.MOVETYPE_ADOPTION +
-                        " AND " + "SpeciesID = " + spec.getField("SpeciesID"));
+                        "SELECT Sum(Donation) FROM ownerdonation " +
+                        "INNER JOIN adoption ON adoption.ID = ownerdonation.MovementID " +
+                        "INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE " +
+                        "ownerdonation.Date >= '" + firstDay + "' AND " +
+                        "ownerdonation.Date <= '" + lastDay + "' AND " +
+                        "SpeciesID = " + spec.getField("SpeciesID"));
                 spec.moveNext();
                 sp++;
             }
