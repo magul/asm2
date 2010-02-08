@@ -1810,8 +1810,9 @@ public class Animal extends UserInfoBO {
                 Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
                 "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
                 "AgeGroup = '" + an.calculateAgeGroup() + "', " +
-                "AnimalAge = '" + an.getAge() + "' " + "WHERE ID = " +
-                an.getID();
+                "AnimalAge = '" + an.getAge() + "', " +
+                "DaysOnShelter = '" + an.getDaysOnShelter() + "' " + 
+                "WHERE ID = " + an.getID();
 
             DBConnection.executeAction(sql);
         } catch (Exception e) {
@@ -1988,15 +1989,16 @@ public class Animal extends UserInfoBO {
      * returned in years and months
      */
     public String getTimeOnShelter() throws CursorEngineException {
-        // Get animal's date of birth on calendar
+        
+        // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
 
         // Work out what 16 weeks ago was
         Calendar sixteenweeks = Calendar.getInstance();
         sixteenweeks.add(Calendar.WEEK_OF_YEAR, -16);
 
-        // If date of birth is after 16 weeks ago,
-        // format age in weeks
+        // If most recent entry is after 16 weeks ago,
+        // format time in weeks
         if (mre.after(sixteenweeks)) {
             long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
 
@@ -2026,6 +2028,19 @@ public class Animal extends UserInfoBO {
             return Global.i18n("bo", "years_and_months", Long.toString(years),
                 Long.toString(months));
         }
+    }
+
+    /**
+     * Returns the animal's time on shelter in days
+     */
+    public int getDaysOnShelter() throws CursorEngineException {
+        
+        // Get animal's most recent entry date
+        Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
+        long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
+        
+        // Diff is returned in minutes, so turn it into days
+        return (int) ((diff / 60) / 24);
     }
 
     /**

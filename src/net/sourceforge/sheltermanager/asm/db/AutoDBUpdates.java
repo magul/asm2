@@ -58,7 +58,7 @@ public class AutoDBUpdates {
         1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
         1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
         2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701,
-        2702
+        2702, 2703
         };
 
     /**
@@ -205,8 +205,6 @@ public class AutoDBUpdates {
             a = null;
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -259,8 +257,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -292,8 +288,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -445,8 +439,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -462,8 +454,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -500,8 +490,6 @@ public class AutoDBUpdates {
             a = null;
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -572,8 +560,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -797,8 +783,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -856,8 +840,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -924,8 +906,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -972,8 +952,6 @@ public class AutoDBUpdates {
             pfBreeds = null;
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1198,8 +1176,6 @@ public class AutoDBUpdates {
             cr.save("asmupdate");
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1215,8 +1191,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1246,8 +1220,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1263,8 +1235,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1288,8 +1258,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1446,8 +1414,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1601,8 +1567,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1634,8 +1598,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1652,8 +1614,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1727,8 +1687,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1761,8 +1719,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1781,8 +1737,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1845,8 +1799,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1862,8 +1814,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1924,8 +1874,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1949,8 +1897,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1966,8 +1912,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1985,8 +1929,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2002,8 +1944,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2019,8 +1959,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2062,8 +2000,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2079,8 +2015,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2154,8 +2088,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2177,8 +2109,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2197,8 +2127,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2219,8 +2147,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2257,8 +2183,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2355,8 +2279,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2376,8 +2298,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2398,8 +2318,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2414,8 +2332,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2470,8 +2386,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2486,8 +2400,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2525,8 +2437,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2583,8 +2493,6 @@ public class AutoDBUpdates {
             Global.logInfo("Re-encoding complete.", "AutoDBUpdates.update1411");
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2627,8 +2535,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2651,8 +2557,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2673,8 +2577,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2736,8 +2638,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2753,8 +2653,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2774,8 +2672,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2798,8 +2694,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2876,8 +2770,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2906,8 +2798,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -2954,8 +2844,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3026,8 +2914,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3167,8 +3053,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3206,8 +3090,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3330,8 +3212,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3362,8 +3242,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3380,8 +3258,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3406,8 +3282,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3445,8 +3319,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3469,8 +3341,6 @@ public class AutoDBUpdates {
             }
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3486,8 +3356,6 @@ public class AutoDBUpdates {
             Configuration.setEntry("AutoCancelReservesDays", "0");
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -3526,8 +3394,6 @@ public class AutoDBUpdates {
 
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -3633,13 +3499,115 @@ public class AutoDBUpdates {
 
 
         } catch (Exception e) {
-            Dialog.showError("Error occurred updating database:\n" +
-                e.getMessage());
             Global.logException(e, getClass());
         }
 
     }
 
+    public void update2703() {
+        try {
+
+            String currencyType = "FLOAT";
+            if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
+            if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
+            if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+            try {
+                // Add DaysOnShelter and DailyBoardingCost field to animal
+                DBConnection.executeAction("ALTER TABLE animal ADD DailyBoardingCost " + currencyType + " NULL");
+                DBConnection.executeAction("ALTER TABLE animal ADD DaysOnShelter INTEGER NULL");
+                DBConnection.executeAction("UPDATE animal SET DailyBoardingCost = 0, DaysOnShelter = 0");
+            }
+            catch (Exception e) {
+                errors.add("animal: Add BoardingCost and DaysOnShelter");
+            }
+
+            try {
+                // Add animalcost table and costtype lookup
+                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                    DBConnection.executeAction("CREATE MEMORY TABLE animalcost (" +
+                        "ID INTEGER NOT NULL PRIMARY KEY, " +
+                        "AnimalID INTEGER NOT NULL, " +
+                        "CostTypeID INTEGER NOT NULL, " +
+                        "CostDate TIMESTAMP NOT NULL, " +
+                        "CostAmount FLOAT NOT NULL, " +
+                        "Description VARCHAR(16384) NOT NULL, " +
+                        "RecordVersion INTEGER NOT NULL, " +
+                        "CreatedBy VARCHAR(255) NOT NULL, " +
+                        "CreatedDate TIMESTAMP NOT NULL, " +
+                        "LastChangedBy VARCHAR(255) NOT NULL, " +
+                        "LastChangedDate TIMESTAMP NOT NULL" +
+                        ")");
+                    DBConnection.executeAction("CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
+                    DBConnection.executeAction("CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
+                    DBConnection.executeAction("CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
+                    DBConnection.executeAction("CREATE MEMORY TABLE costtype (" +
+                        "ID INTEGER NOT NULL PRIMARY KEY, " +
+                        "CostTypeName VARCHAR(255) NOT NULL, " +
+                        "CostTypeDescription VARCHAR(255) NULL)");
+                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
+
+                }
+                else if (DBConnection.DBType == DBConnection.MYSQL) {
+                    DBConnection.executeAction("CREATE TABLE animalcost (" +
+                        "ID int(11) NOT NULL, " +
+                        "AnimalID int(11) NOT NULL, " +
+                        "CostDate datetime NOT NULL, " +
+                        "CostTypeID int(11) NOT NULL, " +
+                        "CostAmount double NOT NULL, " +
+                        "Description TEXT NOT NULL, " +
+                        "RecordVersion int NOT NULL, " +
+                        "CreatedBy varchar(255) NOT NULL, " +
+                        "CreatedDate datetime NOT NULL, " +
+                        "LastChangedBy varchar(255) NOT NULL, " +
+                        "LastChangedDate datetime NOT NULL, " +
+                        "PRIMARY KEY (ID), " +
+                        "KEY IX_animalcost_AnimalID (AnimalID), " +
+                        "KEY IX_animalcost_CostTypeID (CostTypeID), " +
+                        "KEY IX_animalcost_CostDate (CostDate) " +
+                        ")");
+                    DBConnection.executeAction("CREATE TABLE costtype (" +
+                        "ID int(11) NOT NULL, " +
+                        "CostTypeName VARCHAR(255) NOT NULL, " +
+                        "CostTypeDescription VARCHAR(255) NULL, " +
+                        "PRIMARY KEY (ID) )");
+                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
+                }
+                else if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                    DBConnection.executeAction("CREATE TABLE animalcost (" +
+                        "ID INTEGER NOT NULL PRIMARY KEY, " +
+                        "AnimalID INTEGER NOT NULL, " +
+                        "CostTypeID INTEGER NOT NULL, " +
+                        "CostDate TIMESTAMP NOT NULL, " +
+                        "CostAmount REAL NOT NULL, " +
+                        "Description VARCHAR(16384) NOT NULL, " +
+                        "RecordVersion INTEGER NOT NULL, " +
+                        "CreatedBy VARCHAR(255) NOT NULL, " +
+                        "CreatedDate TIMESTAMP NOT NULL, " +
+                        "LastChangedBy VARCHAR(255) NOT NULL, " +
+                        "LastChangedDate TIMESTAMP NOT NULL" +
+                        ")");
+                    DBConnection.executeAction("CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
+                    DBConnection.executeAction("CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
+                    DBConnection.executeAction("CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
+                    DBConnection.executeAction("CREATE TABLE costtype (" +
+                        "ID INTEGER NOT NULL PRIMARY KEY, " +
+                        "CostTypeName VARCHAR(255) NOT NULL, " +
+                        "CostTypeDescription VARCHAR(255) NULL)");
+                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
+                }
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+                errors.add("animalcost + costtype: creation");
+            }
+
+
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+    }
 }
 
 

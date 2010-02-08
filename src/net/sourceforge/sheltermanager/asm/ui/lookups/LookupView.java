@@ -55,6 +55,7 @@ public class LookupView extends ASMView {
     public static final int VOUCHER = 9;
     public static final int LOGTYPE = 10;
     public static final int DONATIONTYPE = 11;
+    public static final int COSTTYPE = 12;
 
     /** These values set according to edit type constant */
     private String tableName = "";
@@ -297,11 +298,26 @@ public class LookupView extends ASMView {
             descriptionDisplay = Global.i18n("uilookups",
                     "donation_type_description");
             lookupDisplay = Global.i18n("uilookups", "donation_types");
-            foreignTable = new String[] { "adoptiondonation", "ownerdonation" };
-            foreignField = new String[] { "DonationTypeID", "DonationTypeID" };
+            foreignTable = new String[] { "ownerdonation" };
+            foreignField = new String[] { "DonationTypeID" };
 
             break;
         }
+
+        case COSTTYPE: {
+            tableName = "costtype";
+            nameField = "CostTypeName";
+            descriptionField = "CostTypeDescription";
+            nameDisplay = Global.i18n("uilookups", "cost_type_name");
+            descriptionDisplay = Global.i18n("uilookups",
+                    "cost_type_description");
+            lookupDisplay = Global.i18n("uilookups", "cost_types");
+            foreignTable = new String[] { "animalcost" };
+            foreignField = new String[] { "CostTypeID" };
+
+            break;
+        }
+
 
         default:
             Dialog.showError(Global.i18n("uilookups",

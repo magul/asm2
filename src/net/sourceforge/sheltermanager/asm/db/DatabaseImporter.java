@@ -74,12 +74,13 @@ public class DatabaseImporter implements Runnable {
 
     public void run() {
         if (Global.mainForm != null) {
-            Global.mainForm.initStatusBarMax(45);
+            Global.mainForm.initStatusBarMax(47);
         }
 
         importTable(c, dbType, "additional", false, "importtool");
         importTable(c, dbType, "additionalfield", false, "importtool");
         importTable(c, dbType, "adoption", true, "importtool");
+        importTable(c, dbType, "animalcost", true, "importtool");
         importTable(c, dbType, "animaldiet", true, "importtool");
         importTable(c, dbType, "animalfound", true, "importtool");
         importTable(c, dbType, "animallitter", false, "importtool");
@@ -98,6 +99,7 @@ public class DatabaseImporter implements Runnable {
             importTable(c, dbType, "configuration", false, "importtool");
         }
 
+        importTable(c, dbType, "costtype", false, "importtool");
         importTable(c, dbType, "customreport", false, "importtool");
         importTable(c, dbType, "deathreason", false, "importtool");
         importTable(c, dbType, "diary", true, "importtool");

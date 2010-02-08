@@ -136,6 +136,8 @@ CREATE TABLE animal (
   HasActiveReserve tinyint NOT NULL,
   MostRecentEntryDate datetime NOT NULL,
   TimeOnShelter varchar(255) NULL,
+  DaysOnShelter int(11) NULL,
+  DailyBoardingCost double NULL,
   AnimalAge varchar(255) NULL,
   RecordVersion int NOT NULL,
   CreatedBy varchar(255) NOT NULL,
@@ -157,6 +159,23 @@ CREATE TABLE animal (
 ) TYPE=MyISAM;
 
 
+CREATE TABLE animalcost (
+  ID int(11) NOT NULL,
+  AnimalID int(11) NOT NULL,
+  CostTypeID int(11) NOT NULL,
+  CostDate TIMESTAMP NOT NULL, 
+  CostAmount double NOT NULL,
+  Description text NOT NULL,
+  RecordVersion int NOT NULL, 
+  CreatedBy varchar(255) NOT NULL,
+  CreatedDate datetime NOT NULL,
+  LastChangedBy varchar(255) NOT NULL,
+  LastChangedDate datetime NOT NULL,
+  PRIMARY KEY  (ID),
+  KEY IX_animalcost_AnimalID (AnimalID),
+  KEY IX_animalcost_CostTypeID (CostTypeID),
+  KEY IX_animalcost_CostDate (CostDate)
+) TYPE=MyISAM;
 
 
 
@@ -877,7 +896,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2702');
+INSERT INTO configuration VALUES ('DatabaseVersion','2703');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -936,8 +955,18 @@ INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
 
 
 
+CREATE TABLE costtype (
+  ID int(11) NOT NULL,
+  CostTypeName varchar(255) NOT NULL,
+  CostTypeDescription varchar(255) NULL,
+  PRIMARY KEY (ID)
+) Type=MyISAM;
+  
+INSERT INTO costtype VALUES (1, 'Microchip', '');
+
+
 CREATE TABLE customreport (
-  ID int(11) NOT NULL ,
+  ID int(11) NOT NULL,
   Title varchar(255) NOT NULL,
   SQLCommand text NOT NULL,
   HTMLBody text NOT NULL,
@@ -1252,7 +1281,7 @@ INSERT INTO lksdiarylink VALUES (6, 'Movement');
 
 CREATE TABLE lksdonationfreq (
   ID smallint NOT NULL DEFAULT '0',
-  Frequency varchar(50) NOT NULLa,
+  Frequency varchar(50) NOT NULL,
   PRIMARY KEY  (ID)
   ) Type=MyISAM;
 

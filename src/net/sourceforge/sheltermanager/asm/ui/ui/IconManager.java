@@ -611,6 +611,7 @@ public abstract class IconManager {
     public final static String MENU_LOOKUPSBREEDS = MENUBLANK;
     public final static String MENU_LOOKUPSBREEDMAP = MENUBLANK;
     public final static String MENU_LOOKUPSCOLOUR = MENUBLANK;
+    public final static String MENU_LOOKUPSCOSTTYPES = MENUBLANK;
     public final static String MENU_LOOKUPSDEATHREASONS = MENUBLANK;
     public final static String MENU_LOOKUPSDIETS = MENUBLANK;
     public final static String MENU_LOOKUPSDONATIONTYPES = MENUBLANK;

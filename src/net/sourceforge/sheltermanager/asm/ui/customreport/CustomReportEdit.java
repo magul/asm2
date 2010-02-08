@@ -242,6 +242,7 @@ public class CustomReportEdit extends ASMForm {
         cboTables.addItem("additionalfield");
         cboTables.addItem("adoption");
         cboTables.addItem("animal");
+        cboTables.addItem("animalcost");
         cboTables.addItem("animaldiet");
         cboTables.addItem("animalfound");
         cboTables.addItem("animallitter");
@@ -255,6 +256,7 @@ public class CustomReportEdit extends ASMForm {
         cboTables.addItem("basecolour");
         cboTables.addItem("breed");
         cboTables.addItem("configuration");
+        cboTables.addItem("costtype");
         cboTables.addItem("customreport");
         cboTables.addItem("deathreason");
         cboTables.addItem("diary");

@@ -260,6 +260,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuLookupsBreeds;
     private UI.MenuItem mnuLookupsBreedMap;
     private UI.MenuItem mnuLookupsColour;
+    private UI.MenuItem mnuLookupsCostTypes;
     private UI.MenuItem mnuLookupsDeathReasons;
     private UI.MenuItem mnuLookupsDiets;
     private UI.MenuItem mnuLookupsDonationTypes;
@@ -996,6 +997,10 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_LOOKUPSCOLOUR),
                 UI.fp(this, "actionLookupsColour"));
 
+        mnuLookupsCostTypes = UI.getMenuItem(i18n("Cost_Types"), ' ',
+                IconManager.getIcon(IconManager.MENU_LOOKUPSCOSTTYPES),
+                UI.fp(this, "actionLookupsCostTypes"));
+
         mnuLookupsDeathReasons = UI.getMenuItem(i18n("Death_Reasons"), 'd',
                 IconManager.getIcon(IconManager.MENU_LOOKUPSDEATHREASONS),
                 UI.fp(this, "actionLookupsDeathReasons"));
@@ -1381,6 +1386,7 @@ public class Main extends ASMWindow {
         mnuSystemLookups.add(mnuLookupsBreeds);
         mnuSystemLookups.add(mnuLookupsBreedMap);
         mnuSystemLookups.add(mnuLookupsColour);
+        mnuSystemLookups.add(mnuLookupsCostTypes);
         mnuSystemLookups.add(mnuLookupsDeathReasons);
         mnuSystemLookups.add(mnuLookupsDiets);
         mnuSystemLookups.add(mnuLookupsDonationTypes);
@@ -2126,6 +2132,12 @@ public class Main extends ASMWindow {
         cursorToWait();
         addChild(new LookupView(LookupView.BASECOLOUR));
     }
+
+    public void actionLookupsCostTypes() {
+        cursorToWait();
+        addChild(new LookupView(LookupView.COSTTYPE));
+    }
+
 
     public void actionLookupsBreeds() {
         cursorToWait();

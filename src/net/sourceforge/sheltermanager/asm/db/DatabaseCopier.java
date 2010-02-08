@@ -152,11 +152,12 @@ class Copier implements Runnable {
             }
         }
 
-        Global.mainForm.initStatusBarMax(46);
+        Global.mainForm.initStatusBarMax(48);
 
         copyTable(c, dbType, "additional", false, "copytool");
         copyTable(c, dbType, "additionalfield", false, "copytool");
         copyTable(c, dbType, "adoption", true, "copytool");
+        copyTable(c, dbType, "animalcost", true, "copytool");
         copyTable(c, dbType, "animaldiet", true, "copytool");
         copyTable(c, dbType, "animalfound", true, "copytool");
         copyTable(c, dbType, "animallitter", false, "copytool");
@@ -171,6 +172,7 @@ class Copier implements Runnable {
         copyTable(c, dbType, "basecolour", false, "copytool");
         copyTable(c, dbType, "breed", false, "copytool");
         copyTable(c, dbType, "configuration", false, "copytool");
+        copyTable(c, dbType, "costtype", false, "copytool");
         copyTable(c, dbType, "customreport", false, "copytool");
         copyTable(c, dbType, "deathreason", false, "copytool");
         copyTable(c, dbType, "diary", true, "copytool");

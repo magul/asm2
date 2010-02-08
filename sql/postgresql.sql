@@ -124,6 +124,8 @@ CREATE TABLE animal (
   HasActiveReserve INTEGER NOT NULL,
   MostRecentEntryDate TIMESTAMP NOT NULL,
   TimeOnShelter VARCHAR(255) NULL,
+  DaysOnShelter INTEGER NULL,
+  DailyBoardingCost REAL NULL,
   AnimalAge VARCHAR(255) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -146,6 +148,23 @@ CREATE INDEX animal_YearCodeID ON animal (YearCodeID);
 CREATE INDEX animal_DateBroughtIn ON animal (DateBroughtIn);
 
 
+CREATE TABLE animalcost (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  AnimalID INTEGER NOT NULL,
+  CostTypeID INTEGER NOT NULL,
+  CostDate TIMESTAMP NOT NULL, 
+  CostAmount FLOAT NOT NULL,
+  Description VARCHAR(16384) NOT NULL,
+  RecordVersion INTEGER NOT NULL, 
+  CreatedBy VARCHAR(255) NOT NULL,
+  CreatedDate TIMESTAMP NOT NULL,
+  LastChangedBy VARCHAR(255) NOT NULL,
+  LastChangedDate TIMESTAMP NOT NULL
+);
+
+CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID);
+CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID);
+CREATE INDEX animalcost_CostDate ON animalcost (CostDate);
 
 
 
@@ -853,7 +872,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2702');
+INSERT INTO configuration VALUES ('DatabaseVersion','2703');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -910,6 +929,14 @@ INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
 INSERT INTO configuration VALUES ('DefaultDateBroughtIn', 'Yes');
 INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
 
+
+CREATE TABLE costtype (
+  ID INTEGER NOT NULL PRIMARY KEY, 
+  CostTypeName VARCHAR(255) NOT NULL,
+  CostTypeDescription VARCHAR(255) NULL
+);
+  
+INSERT INTO costtype VALUES (1, 'Microchip', '');
 
 
 
