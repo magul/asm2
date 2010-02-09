@@ -3740,7 +3740,7 @@ public class AutoDBUpdates {
                  "LastChangedBy varchar(255) NOT NULL, " +
                  "LastChangedDate datetime NOT NULL, " +
                  "PRIMARY KEY (ID), " +
-                 "KEY IX_AccountsCode ON accounts (Code) " +
+                 "KEY IX_AccountsCode(Code) " +
                  ")",
                  "CREATE TABLE accountstrx (" +
                  "ID int(11) NOT NULL," +
@@ -3757,9 +3757,9 @@ public class AutoDBUpdates {
                  "LastChangedBy varchar(255) NOT NULL," +
                  "LastChangedDate datetime NOT NULL," +
                  "PRIMARY KEY (ID)," +
-                 "KEY IX_TrxDate ON accountstrx (TrxDate)," +
-                 "KEY IX_TrxSource ON accountstrx (SourceAccountID)," +
-                 "KEY IX_TrxDest ON accountstrx (DestinationAccountID)" +
+                 "KEY IX_TrxDate(TrxDate)," +
+                 "KEY IX_TrxSource(SourceAccountID)," +
+                 "KEY IX_TrxDest(DestinationAccountID)" +
                  ")",
                  "CREATE TABLE lksaccounttype (" +
                  "ID int(11) NOT NULL," +

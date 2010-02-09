@@ -11,7 +11,7 @@ CREATE TABLE accounts (
   LastChangedDate datetime NOT NULL,
 
   PRIMARY KEY (ID),
-  KEY IX_AccountsCode ON accounts (Code)
+  KEY IX_AccountsCode(Code)
 ) Type=MyISAM;
 
 CREATE TABLE accountstrx (
@@ -30,9 +30,9 @@ CREATE TABLE accountstrx (
   LastChangedDate datetime NOT NULL,
 
   PRIMARY KEY (ID),
-  KEY IX_TrxDate ON accountstrx (TrxDate),
-  KEY IX_TrxSource ON accountstrx (SourceAccountID),
-  KEY IX_TrxDest ON accountstrx (DestinationAccountID)
+  KEY IX_TrxDate(TrxDate),
+  KEY IX_TrxSource(SourceAccountID),
+  KEY IX_TrxDest(DestinationAccountID)
 ) Type=MyISAM;
 
 CREATE TABLE lksaccounttype (
