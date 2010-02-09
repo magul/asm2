@@ -247,11 +247,11 @@ public abstract class GenerateDocument extends Thread
         } else if (wpname.equalsIgnoreCase(ABIWORD)) {
             processAbiword();
         } else if (wpname.equalsIgnoreCase(RICH_TEXT)) {
-            processPlainText();
+            processRichText(true);
         } else if (wpname.equalsIgnoreCase(HTML)) {
-            processMarkedUpText();
+            processXMLText(true);
         } else if (wpname.equalsIgnoreCase(XML)) {
-            processMarkedUpText();
+            processXMLText(true);
         } else {
             Global.logError("Invalid word processor selection: " + wpname,
                 "GenerateDocument.processFile");
@@ -323,10 +323,13 @@ public abstract class GenerateDocument extends Thread
 
     protected void processAbiword() {
         // Switch the tags
-        processMarkedUpText();
+        processXMLText();
 
         // Switch any image
         processAbiwordImage();
+
+        // Show
+        display();
     }
 
     protected void processOpenOffice() {
@@ -348,7 +351,7 @@ public abstract class GenerateDocument extends Thread
         // any image
         localfile = oodir + File.separator + "content.xml";
         processOpenOfficeImage();
-        processText(true, false);
+        processXMLText();
 
         // Zip the file back up again
         localfile = oofile;
@@ -381,7 +384,7 @@ public abstract class GenerateDocument extends Thread
         localfile = oodir + File.separator + "word" + File.separator +
             "document.xml";
         processMOOXMLImage();
-        processText(true, false);
+        processXMLText();
 
         // Zip the file back up again
         localfile = oofile;
@@ -841,23 +844,17 @@ public abstract class GenerateDocument extends Thread
         }
     }
 
-    protected void processPlainText() {
-        processText(false);
+    protected void processRichText() {
+        processRichText(false);
     }
 
-    protected void processText(boolean markedUp) {
-        processText(markedUp, true);
-    }
-
-    protected void processText(boolean markedUp, boolean displayAfterwards) {
+    protected void processRichText(boolean displayAfterwards) {
         try {
-            Global.logDebug("Entering processText",
-                "GenerateDocument.processText");
+            Global.logDebug("Entering processRichText",
+                "GenerateDocument.processRichText");
 
-            // Mark up our content if the text is marked up
-            if (markedUp) {
-                markUpTags();
-            }
+            // Escape any unicode chars for Rich Text
+            utf7EscapeTags();
 
             // Text buffer to contain the file
             String thefile = Utils.readFile(localfile);
@@ -876,38 +873,13 @@ public abstract class GenerateDocument extends Thread
                 int endMarker = -1;
                 String matchTag = "";
 
-                if (markedUp) {
-                    if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
-                        // Find first end marker in case formatting has split it
-                        endMarker = sb.indexOf("&gt;", i);
+                if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
+                    endMarker = sb.indexOf(">>", i);
 
-                        // Now find the second
-                        if (endMarker != -1) {
-                            endMarker = sb.indexOf("&gt;", endMarker + 1);
-                        }
-
-                        // We have a valid end marker, grab the tag
-                        if (endMarker != -1) {
-                            foundTag = true;
-                            endMarker += 4;
-                            matchTag = sb.substring(i, endMarker);
-
-                            // Word and OO can add formatting and crap in between tags - throw any of it away
-                            String bak = matchTag;
-                            matchTag = Utils.removeHTML(matchTag);
-                            Global.logDebug(bak + " -> " + matchTag,
-                                "GenerateDocument.matchTag");
-                        }
-                    }
-                } else {
-                    if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
-                        endMarker = sb.indexOf(">>", i);
-
-                        if (endMarker != -1) {
-                            foundTag = true;
-                            endMarker += 2;
-                            matchTag = sb.substring(i, endMarker);
-                        }
+                    if (endMarker != -1) {
+                        foundTag = true;
+                        endMarker += 2;
+                        matchTag = sb.substring(i, endMarker);
                     }
                 }
 
@@ -919,12 +891,7 @@ public abstract class GenerateDocument extends Thread
 
                     for (int z = 0; z < tags.length; z++) {
                         st = (SearchTag) tags[z];
-
-                        if (markedUp) {
-                            matchs = "&lt;&lt;" + st.find + "&gt;&gt;";
-                        } else {
-                            matchs = "<<" + st.find + ">>";
-                        }
+                        matchs = "<<" + st.find + ">>";
 
                         // Does it match?
                         if (matchTag.equalsIgnoreCase(matchs)) {
@@ -963,8 +930,186 @@ public abstract class GenerateDocument extends Thread
         }
     }
 
-    protected void processMarkedUpText() {
-        processText(true);
+
+    protected void processPlainText() {
+        processPlainText(false);
+    }
+
+    protected void processPlainText(boolean displayAfterwards) {
+        try {
+            Global.logDebug("Entering processText",
+                "GenerateDocument.processText");
+
+            // Text buffer to contain the file
+            String thefile = Utils.readFile(localfile);
+
+            // Pump tags out to an array for faster access
+            Object[] tags = searchtags.toArray();
+
+            // Initalise a new StringBuffer for manipulating the file.
+            StringBuffer sb = new StringBuffer(thefile);
+            boolean foundTag = false;
+
+            // Work through it in a single pass
+            for (int i = 0; i < (sb.length() - 9); i++) {
+                foundTag = false;
+
+                int endMarker = -1;
+                String matchTag = "";
+
+                if (sb.substring(i, i + 2).equalsIgnoreCase("<<")) {
+                    endMarker = sb.indexOf(">>", i);
+
+                    if (endMarker != -1) {
+                        foundTag = true;
+                        endMarker += 2;
+                        matchTag = sb.substring(i, endMarker);
+                    }
+                }
+
+                // Do we have a tag?
+                if (foundTag) {
+                    // Test it against each one of our available tags
+                    SearchTag st = null;
+                    String matchs = "";
+
+                    for (int z = 0; z < tags.length; z++) {
+                        st = (SearchTag) tags[z];
+                        matchs = "<<" + st.find + ">>";
+
+                        // Does it match?
+                        if (matchTag.equalsIgnoreCase(matchs)) {
+                            // Replace it
+                            sb.replace(i, endMarker, st.replace);
+
+                            // Break out now, happy in the knowledge we've done
+                            // it
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Dump our buffer back to the file string
+            thefile = sb.toString();
+
+            // Replace the file on the disk with this one
+            Global.logDebug("Writing update document to disk",
+                "GenerateDocument.processText");
+            Utils.writeFile(localfile, thefile.getBytes(Global.CHAR_ENCODING));
+
+            Global.logDebug("Completed processText",
+                "GenerateDocument.processText");
+
+            // End this now if we aren't displaying
+            if (!displayAfterwards) {
+                return;
+            }
+
+            display();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+            Dialog.showError("An error occurred generating the document: " +
+                e.getMessage());
+        }
+    }
+
+    protected void processXMLText() {
+        processXMLText(false);
+    }
+
+    protected void processXMLText(boolean displayAfterwards) {
+        try {
+            Global.logDebug("Entering processMarkedUpText",
+                "GenerateDocument.processMarkedupText");
+
+            // Add markup to the tags for comparison
+            markUpTags();
+
+            // Text buffer to contain the file
+            String thefile = Utils.readFile(localfile);
+
+            // Pump tags out to an array for faster access
+            Object[] tags = searchtags.toArray();
+
+            // Initalise a new StringBuffer for manipulating the file.
+            StringBuffer sb = new StringBuffer(thefile);
+            boolean foundTag = false;
+
+            // Work through it in a single pass
+            for (int i = 0; i < (sb.length() - 9); i++) {
+                foundTag = false;
+
+                int endMarker = -1;
+                String matchTag = "";
+
+                if (sb.substring(i, i + 8).equalsIgnoreCase("&lt;&lt;")) {
+                    // Find first end marker in case formatting has split it
+                    endMarker = sb.indexOf("&gt;", i);
+
+                    // Now find the second
+                    if (endMarker != -1) {
+                        endMarker = sb.indexOf("&gt;", endMarker + 1);
+                    }
+
+                    // We have a valid end marker, grab the tag
+                    if (endMarker != -1) {
+                        foundTag = true;
+                        endMarker += 4;
+                        matchTag = sb.substring(i, endMarker);
+
+                        // Word and OO can add formatting and crap in between tags - throw any of it away
+                        String bak = matchTag;
+                        matchTag = Utils.removeHTML(matchTag);
+                        Global.logDebug(bak + " -> " + matchTag,
+                            "GenerateDocument.processXMLText");
+                    }
+                }
+                
+                // Do we have a tag?
+                if (foundTag) {
+                    // Test it against each one of our available tags
+                    SearchTag st = null;
+                    String matchs = "";
+
+                    for (int z = 0; z < tags.length; z++) {
+                        st = (SearchTag) tags[z];
+                        matchs = "&lt;&lt;" + st.find + "&gt;&gt;";
+
+                        // Does it match?
+                        if (matchTag.equalsIgnoreCase(matchs)) {
+                            // Replace it
+                            sb.replace(i, endMarker, st.replace);
+
+                            // Break out now, happy in the knowledge we've done
+                            // it
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Dump our buffer back to the file string
+            thefile = sb.toString();
+
+            // Replace the file on the disk with this one
+            Global.logDebug("Writing update document to disk",
+                "GenerateDocument.processXMLText");
+            Utils.writeFile(localfile, thefile.getBytes(Global.CHAR_ENCODING));
+
+            Global.logDebug("Completed processXMLText",
+                "GenerateDocument.processXMLText");
+
+            // End this now if we aren't displaying
+            if (!displayAfterwards) {
+                return;
+            }
+
+            display();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
+        }
     }
 
     protected void display() {
@@ -1075,6 +1220,32 @@ public abstract class GenerateDocument extends Thread
             justFilename = file.getName();
         } catch (Exception e) {
         }
+    }
+
+    /**
+     * Go through all the chars in each tag and substitute unicode
+     * codepoints above 127 for their escaped hex version
+     */
+    private void utf7EscapeTags() {
+        Global.logDebug("Escaping unicode chars for rich text",
+            "GenerateDocument.utf7EscapeTags");
+
+        for (int i = 0; i < searchtags.size(); i++) {
+            SearchTag tag = (SearchTag) searchtags.get(i);
+            String s = tag.replace;
+            StringBuffer o = new StringBuffer();
+            for (int z = 0; z < s.length(); z++) {
+                char c = s.charAt(z);
+                if (c > 127) 
+                    o.append("\\u").append(Integer.toHexString((int) c));
+                else
+                    o.append(c);
+            }
+            tag.replace = o.toString();
+        }
+
+        Global.logDebug("Finished escaping unicode chars for rich text",
+            "GenerateDocument.utf7EscapeTags");
     }
 
     /**

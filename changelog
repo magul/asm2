@@ -1,6 +1,7 @@
 2.7.0
 ================
 
+*. Fix for RTF to escape unicode characters correctly
 *. No need for the publisher to ever have removed existing HTML files
 -  from target FTP directory. Disabled behind publish option
 *. System option to enable/disable setting media notes to
