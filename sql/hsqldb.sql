@@ -1,3 +1,51 @@
+CREATE MEMORY TABLE accounts (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  Code VARCHAR(255) NOT NULL,
+  Description VARCHAR(255) NOT NULL,
+  AccountType INTEGER NOT NULL,
+  DonationTypeID INTEGER NULL,
+  RecordVersion INTEGER NOT NULL,
+  CreatedBy VARCHAR(255) NOT NULL,
+  CreatedDate TIMESTAMP NOT NULL,
+  LastChangedBy VARCHAR(255) NOT NULL,
+  LastChangedDate TIMESTAMP NOT NULL
+);
+CREATE UNIQUE INDEX accounts_Code ON accounts (Code);
+
+CREATE MEMORY TABLE accountstrx (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  TrxDate TIMESTAMP NOT NULL,
+  Description VARCHAR(255) NULL,
+  Reconciled INTEGER NOT NULL,
+  Amount FLOAT NOT NULL,
+  SourceAccountID INTEGER NOT NULL,
+  DestinationAccountID INTEGER NOT NULL,
+  OwnerDonationID INTEGER NULL,
+  RecordVersion INTEGER NOT NULL,
+  CreatedBy VARCHAR(255) NOT NULL,
+  CreatedDate TIMESTAMP NOT NULL,
+  LastChangedBy VARCHAR(255) NOT NULL,
+  LastChangedDate TIMESTAMP NOT NULL
+
+);
+CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate);
+CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID);
+CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID);
+
+CREATE MEMORY TABLE lksaccounttype (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  AccountType VARCHAR(255) NOT NULL
+);
+INSERT INTO lksaccounttype VALUES (1, 'Bank');
+INSERT INTO lksaccounttype VALUES (2, 'Credit Card');
+INSERT INTO lksaccounttype VALUES (3, 'Loan');
+INSERT INTO lksaccounttype VALUES (4, 'Expense');
+INSERT INTO lksaccounttype VALUES (5, 'Income');
+INSERT INTO lksaccounttype VALUES (6, 'Pension');
+INSERT INTO lksaccounttype VALUES (7, 'Shares');
+INSERT INTO lksaccounttype VALUES (8, 'Asset');
+INSERT INTO lksaccounttype VALUES (9, 'Liability');
+
 CREATE MEMORY TABLE additionalfield (
   ID INTEGER NOT NULL PRIMARY KEY,
   LinkType INTEGER NOT NULL,
@@ -18,6 +66,11 @@ CREATE MEMORY TABLE additional (
 );
 CREATE UNIQUE INDEX additional_LinkTypeIDAdd ON additional (LinkType, LinkID, AdditionalFieldID);
 CREATE INDEX additional_LinkTypeID ON additional (LinkType, LinkID);
+
+
+
+
+
 
 CREATE MEMORY TABLE adoption (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -332,6 +385,7 @@ CREATE MEMORY TABLE animalvaccination (
   VaccinationID INTEGER NOT NULL,
   DateOfVaccination TIMESTAMP NULL,
   DateRequired TIMESTAMP NOT NULL,
+  Cost FLOAT NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -861,7 +915,7 @@ CREATE MEMORY TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2703');
+INSERT INTO configuration VALUES ('DatabaseVersion','2704');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1081,7 +1135,7 @@ INSERT INTO diet VALUES (1, 'Standard', '');
 CREATE MEMORY TABLE donationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   DonationName VARCHAR(255) NOT NULL,
-  DonationDescription VARCHAR(255) NULL
+  DonationDescription VARCHAR(255) NULL,
 );
 INSERT INTO donationtype VALUES (1, 'Donation', '');
 
@@ -1406,6 +1460,7 @@ CREATE MEMORY TABLE owner (
   IsHomeChecker INTEGER NOT NULL,
   IsMember INTEGER NOT NULL,
   MembershipExpiryDate TIMESTAMP NULL,
+  MembershipNumber VARCHAR(255) NULL,
   IsDonor INTEGER NOT NULL,
   IsShelter INTEGER NOT NULL,
   IsACO INTEGER NOT NULL,

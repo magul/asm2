@@ -106,6 +106,11 @@ public class DateField extends UI.Panel {
         return txt;
     }
 
+    public void setEnabled(boolean b) {
+        getTextField().setEnabled(b);
+        btn.setEnabled(b);
+    }
+
     /**
      * Returns true if the event should be consumed
      */

@@ -58,6 +58,7 @@ public class AnimalVaccination extends UserInfoBO {
         a.setVaccinationID(getVaccinationID());
         a.setDateOfVaccination(getDateOfVaccination());
         a.setDateRequired(getDateRequired());
+        a.setCost(getCost());
         a.setComments(getComments());
 
         return a;
@@ -127,6 +128,14 @@ public class AnimalVaccination extends UserInfoBO {
 
     public void setDateRequired(Date newValue) throws CursorEngineException {
         rs.setField("DateRequired", newValue);
+    }
+
+    public Double getCost() throws CursorEngineException {
+        return (Double) rs.getField("Cost");
+    }
+
+    public void setCost(Double newValue) throws CursorEngineException {
+        rs.setField("Cost", newValue);
     }
 
     public String getComments() throws CursorEngineException {

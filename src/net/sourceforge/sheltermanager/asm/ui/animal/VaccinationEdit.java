@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -50,6 +51,7 @@ public class VaccinationEdit extends ASMForm {
     private UI.Button btnCancel;
     private UI.Button btnOk;
     private UI.ComboBox cboVaccinationType;
+    private CurrencyField txtCost;
     private UI.TextArea txtComments;
     private DateField txtDateGiven;
     private DateField txtDateRequired;
@@ -147,6 +149,7 @@ public class VaccinationEdit extends ASMForm {
             Utils.setComboFromID(LookupCache.getVaccinationTypeLookup(),
                 "VaccinationType", anivacc.getVaccinationID(),
                 cboVaccinationType);
+            this.txtCost.setValue(anivacc.getCost().doubleValue());
             this.txtComments.setText(Utils.nullToEmptyString(
                     anivacc.getComments()));
             audit = UI.messageAudit(anivacc.getCreatedDate(),
@@ -175,6 +178,7 @@ public class VaccinationEdit extends ASMForm {
                 Global.logException(e, getClass());
             }
 
+            anivacc.setCost(new Double(txtCost.getValue()));
             anivacc.setVaccinationID(Utils.getIDFromCombo(
                     LookupCache.getVaccinationTypeLookup(), "VaccinationType",
                     cboVaccinationType));
@@ -215,6 +219,9 @@ public class VaccinationEdit extends ASMForm {
 
         txtDateGiven = (DateField) UI.addComponent(top, i18n("Date_Given:"),
                 UI.getDateField(i18n("The_date_the_animal_was_actually_given_this_vaccination")));
+
+        txtCost = (CurrencyField) UI.addComponent(top, i18n("Cost:"),
+                UI.getCurrencyField());
 
         txtComments = (UI.TextArea) UI.addComponent(comments,
                 i18n("Comments:"),

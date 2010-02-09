@@ -544,6 +544,17 @@ INSERT INTO lkcoattype VALUES (3, 'Curly');
 INSERT INTO lkcoattype VALUES (4, 'Corded');
 INSERT INTO lkcoattype VALUES (5, 'Hairless');
 
+DELETE FROM lksaccounttype;
+INSERT INTO lksaccounttype VALUES (1, 'Bank');
+INSERT INTO lksaccounttype VALUES (2, 'Credit Card');
+INSERT INTO lksaccounttype VALUES (3, 'Loan');
+INSERT INTO lksaccounttype VALUES (4, 'Expense');
+INSERT INTO lksaccounttype VALUES (5, 'Income');
+INSERT INTO lksaccounttype VALUES (6, 'Pension');
+INSERT INTO lksaccounttype VALUES (7, 'Shares');
+INSERT INTO lksaccounttype VALUES (8, 'Asset');
+INSERT INTO lksaccounttype VALUES (9, 'Liability');
+
 DELETE FROM lksmovementtype;
 INSERT INTO lksmovementtype VALUES (0, 'None');
 INSERT INTO lksmovementtype VALUES (1, 'Adoption');

@@ -37,7 +37,7 @@ import java.util.Vector;
 
 
 /**
- * Generates a report showing animal inventories on the shelter.
+ * Generates a report showing animal details
  *
  * @author Robin Rawson-Tetley
  */
@@ -286,6 +286,7 @@ public class AnimalPrint extends Report {
             tableAddBoldCell(Global.i18n("uianimal", "Vaccination"));
             tableAddBoldCell(Global.i18n("uianimal", "Date_Required:"));
             tableAddBoldCell(Global.i18n("uianimal", "Date_Given:"));
+            tableAddBoldCell(Global.i18n("uianimal", "Cost:"));
             tableAddBoldCell(Global.i18n("uianimal", "Comments:"));
             tableFinishRow();
             hasvacc = true;
@@ -297,6 +298,7 @@ public class AnimalPrint extends Report {
             tableAddCell(date(av.getDateRequired()));
             tableAddCell(date(av.getDateOfVaccination()));
             tableAddCell(av.getComments());
+            tableAddCell(av.getCost().toString());
             tableFinishRow();
             av.moveNext();
         }

@@ -115,6 +115,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.TextField txtHomeTelephone;
     private UI.TextField txtMobileTelephone;
     private DateField txtMembershipExpiryDate;
+    private UI.TextField txtMembershipNumber;
     private DateField txtLastHadHomecheckDate;
     private DateField txtMatchAdded;
     private DateField txtMatchExpires;
@@ -238,6 +239,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         ctl.add(txtEmail);
         ctl.add(chkIsMember);
         ctl.add(txtMembershipExpiryDate.getTextField());
+        ctl.add(txtMembershipNumber);
         ctl.add(chkBanned);
         ctl.add(chkIsDonor);
         ctl.add(chkVolunteer);
@@ -402,6 +404,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             // Set initial values
             txtMatchAgeFrom.setText("0");
             txtMatchAgeTo.setText("0");
+            txtMembershipExpiryDate.setEnabled(false); 
+            txtMembershipNumber.setEnabled(false);
 
             // Default the most common town/county for convenience
             if (!Configuration.getBoolean("HideTownCounty")) {
@@ -494,6 +498,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             } catch (Exception e) {
             }
 
+            txtMembershipNumber.setText(Utils.nullToEmptyString(owner.getMembershipNumber()));
+            txtMembershipExpiryDate.setEnabled( chkIsMember.isSelected() );
+            txtMembershipNumber.setEnabled( chkIsMember.isSelected() );
             txtWorkTelephone.setText(Utils.nullToEmptyString(
                     owner.getWorkTelephone()));
             txtMobileTelephone.setText(Utils.nullToEmptyString(
@@ -883,6 +890,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             } catch (Exception e) {
             }
 
+            owner.setMembershipNumber(txtMembershipNumber.getText());
             owner.setIsDonor(chkIsDonor.isSelected() ? y : n);
             owner.setIsShelter(chkIsShelter.isSelected() ? y : n);
             owner.setIsACO(chkIsACO.isSelected() ? y : n);
@@ -1235,10 +1243,13 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
         chkIsMember = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Member"),
                     i18n("Check_this_box_if_this_owner_is_a_member_of_your_organisation"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "changedMember")));
         txtMembershipExpiryDate = (DateField) pnlRightTop.add(UI.getDateField(
                     i18n("if_this_owner_is_a_member_the_date_that_membership_expires"),
                     UI.fp(this, "dataChanged")));
+        txtMembershipNumber = (UI.TextField) UI.addComponent(pnlRightTop, 
+            "", UI.getTextField(i18n("if_this_owner_is_a_member_the_number"), 
+            UI.fp(this, "dataChanged")));
 
         chkBanned = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Banned"),
                     null, UI.fp(this, "dataChanged")));
@@ -1598,6 +1609,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             //txtPostcode.grabFocus();
             checkOwner(false);
         }
+    }
+
+    public void changedMember() {
+        txtMembershipExpiryDate.setEnabled( chkIsMember.isSelected() );
+        txtMembershipNumber.setEnabled( chkIsMember.isSelected() );
+        dataChanged();
     }
 
     public void actionHomecheckerChanged() {

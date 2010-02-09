@@ -1,3 +1,56 @@
+CREATE TABLE accounts (
+  ID int(11) NOT NULL,
+  Code varchar(255) NOT NULL,
+  Description varchar(255) NOT NULL,
+  AccountType smallint NOT NULL,
+  DonationTypeID int(11) NULL,
+  RecordVersion int(11) NOT NULL,
+  CreatedBy varchar(255) NOT NULL,
+  CreatedDate datetime NOT NULL,
+  LastChangedBy varchar(255) NOT NULL,
+  LastChangedDate datetime NOT NULL,
+
+  PRIMARY KEY (ID),
+  KEY IX_AccountsCode ON accounts (Code)
+) Type=MyISAM;
+
+CREATE TABLE accountstrx (
+  ID int(11) NOT NULL,
+  TrxDate datetime NOT NULL,
+  Description varchar(255) NULL,
+  Reconciled smallint NOT NULL,
+  Amount double NOT NULL,
+  SourceAccountID int(11) NOT NULL,
+  DestinationAccountID int(11) NOT NULL,
+  OwnerDonationID int(11) NULL,
+  RecordVersion int(11) NOT NULL,
+  CreatedBy varchar(255) NOT NULL,
+  CreatedDate datetime NOT NULL,
+  LastChangedBy varchar(255) NOT NULL,
+  LastChangedDate datetime NOT NULL,
+
+  PRIMARY KEY (ID),
+  KEY IX_TrxDate ON accountstrx (TrxDate),
+  KEY IX_TrxSource ON accountstrx (SourceAccountID),
+  KEY IX_TrxDest ON accountstrx (DestinationAccountID)
+) Type=MyISAM;
+
+CREATE TABLE lksaccounttype (
+  ID int(11) NOT NULL,
+  AccountType VARCHAR(255) NOT NULL,
+  PRIMARY KEY (ID)
+);
+INSERT INTO lksaccounttype VALUES (1, 'Bank');
+INSERT INTO lksaccounttype VALUES (2, 'Credit Card');
+INSERT INTO lksaccounttype VALUES (3, 'Loan');
+INSERT INTO lksaccounttype VALUES (4, 'Expense');
+INSERT INTO lksaccounttype VALUES (5, 'Income');
+INSERT INTO lksaccounttype VALUES (6, 'Pension');
+INSERT INTO lksaccounttype VALUES (7, 'Shares');
+INSERT INTO lksaccounttype VALUES (8, 'Asset');
+INSERT INTO lksaccounttype VALUES (9, 'Liability');
+
+
 CREATE TABLE additionalfield (
   ID int(11) NOT NULL,
   LinkType int(11) NOT NULL,
@@ -362,6 +415,7 @@ CREATE TABLE animalvaccination (
   VaccinationID int(11) NOT NULL ,
   DateOfVaccination datetime NULL,
   DateRequired datetime NOT NULL,
+  Cost double NULL,
   Comments text NULL,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,
@@ -896,7 +950,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2703');
+INSERT INTO configuration VALUES ('DatabaseVersion','2704');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1481,6 +1535,7 @@ CREATE TABLE owner (
   IsHomeChecker tinyint(4) NOT NULL ,
   IsMember tinyint(4) NOT NULL ,
   MembershipExpiryDate datetime NULL,
+  MembershipNumber varchar(255) NULL,
   IsDonor tinyint(4) NOT NULL ,
   IsShelter tinyint(4) NOT NULL ,
   IsACO tinyint(4) NOT NULL ,

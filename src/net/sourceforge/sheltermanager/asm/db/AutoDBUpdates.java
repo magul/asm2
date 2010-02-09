@@ -58,7 +58,7 @@ public class AutoDBUpdates {
         1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
         1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
         2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701,
-        2702, 2703
+        2702, 2703, 2704
         };
 
     /**
@@ -3608,6 +3608,193 @@ public class AutoDBUpdates {
         }
 
     }
+
+    public void update2704() {
+        try {
+
+            try {
+                String currencyType = "FLOAT";
+                if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
+                if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
+                if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+                // Add vaccination cost tracking fields
+                DBConnection.executeAction("ALTER TABLE animalvaccination ADD Cost " + currencyType + " NULL");
+                DBConnection.executeAction("UPDATE animalvaccination SET Cost = 0");
+            }
+            catch (Exception e) {
+                errors.add("animalvaccination: ADD Cost");
+            }
+
+            try {
+                DBConnection.executeAction("ALTER TABLE owner ADD MembershipNumber VARCHAR(255) NULL");
+                DBConnection.executeAction("UPDATE owner SET MembershipNumber = ''");
+            }
+            catch (Exception e) {
+                errors.add("owner: ADD MembershipNumber");
+            }
+
+            // Fields for built in double entry book keeping package
+            String[] hsqldb = { 
+                "CREATE MEMORY TABLE accounts (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "Code VARCHAR(255) NOT NULL, " +
+                "Description VARCHAR(255) NOT NULL, " +
+                "AccountType INTEGER NOT NULL, " +
+                "DonationTypeID INTEGER NULL, " +
+                "RecordVersion INTEGER NOT NULL, " +
+                "CreatedBy VARCHAR(255) NOT NULL, " +
+                "CreatedDate TIMESTAMP NOT NULL, " +
+                "LastChangedBy VARCHAR(255) NOT NULL, " +
+                "LastChangedDate TIMESTAMP NOT NULL " +
+                ")",
+                "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
+                "CREATE MEMORY TABLE accountstrx (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "TrxDate TIMESTAMP NOT NULL, " +
+                "Description VARCHAR(255) NULL, " +
+                "Reconciled INTEGER NOT NULL, " +
+                "Amount FLOAT NOT NULL, " +
+                "SourceAccountID INTEGER NOT NULL, " +
+                "DestinationAccountID INTEGER NOT NULL, " +
+                "OwnerDonationID INTEGER NULL, " +
+                "RecordVersion INTEGER NOT NULL, " +
+                "CreatedBy VARCHAR(255) NOT NULL, " +
+                "CreatedDate TIMESTAMP NOT NULL, " +
+                "LastChangedBy VARCHAR(255) NOT NULL, " +
+                "LastChangedDate TIMESTAMP NOT NULL " +
+                ")",
+                "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
+                "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
+                "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
+                "CREATE MEMORY TABLE lksaccounttype (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "AccountType VARCHAR(255) NOT NULL " +
+                ")",
+                "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+            };
+            String[] postgresql = { 
+                "CREATE TABLE accounts (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "Code VARCHAR(255) NOT NULL, " +
+                "Description VARCHAR(255) NOT NULL, " +
+                "AccountType INTEGER NOT NULL, " +
+                "DonationTypeID INTEGER NULL, " +
+                "RecordVersion INTEGER NOT NULL, " +
+                "CreatedBy VARCHAR(255) NOT NULL, " +
+                "CreatedDate TIMESTAMP NOT NULL, " +
+                "LastChangedBy VARCHAR(255) NOT NULL, " +
+                "LastChangedDate TIMESTAMP NOT NULL " +
+                ")",
+                "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
+                "CREATE TABLE accountstrx (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "TrxDate TIMESTAMP NOT NULL, " +
+                "Description VARCHAR(255) NULL, " +
+                "Reconciled INTEGER NOT NULL, " +
+                "Amount REAL NOT NULL, " +
+                "SourceAccountID INTEGER NOT NULL, " +
+                "DestinationAccountID INTEGER NOT NULL, " +
+                "OwnerDonationID INTEGER NULL, " +
+                "RecordVersion INTEGER NOT NULL, " +
+                "CreatedBy VARCHAR(255) NOT NULL, " +
+                "CreatedDate TIMESTAMP NOT NULL, " +
+                "LastChangedBy VARCHAR(255) NOT NULL, " +
+                "LastChangedDate TIMESTAMP NOT NULL " +
+                ")",
+                "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
+                "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
+                "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
+                "CREATE TABLE lksaccounttype (" +
+                "ID INTEGER NOT NULL PRIMARY KEY, " +
+                "AccountType VARCHAR(255) NOT NULL " +
+                ")",
+                "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+            };
+            String[] mysql = {
+                "CREATE TABLE accounts (" +
+                 "ID int(11) NOT NULL, " +
+                 "Code varchar(255) NOT NULL, " +
+                 "Description varchar(255) NOT NULL, " +
+                 "AccountType smallint NOT NULL, " +
+                 "DonationTypeID int(11) NULL, " +
+                 "RecordVersion int(11) NOT NULL, " +
+                 "CreatedBy varchar(255) NOT NULL, " +
+                 "CreatedDate datetime NOT NULL, " +
+                 "LastChangedBy varchar(255) NOT NULL, " +
+                 "LastChangedDate datetime NOT NULL, " +
+                 "PRIMARY KEY (ID), " +
+                 "KEY IX_AccountsCode ON accounts (Code) " +
+                 ")",
+                 "CREATE TABLE accountstrx (" +
+                 "ID int(11) NOT NULL," +
+                 "TrxDate datetime NOT NULL," +
+                 "Description varchar(255) NULL," +
+                 "Reconciled smallint NOT NULL," +
+                 "Amount double NOT NULL," +
+                 "SourceAccountID int(11) NOT NULL," +
+                 "DestinationAccountID int(11) NOT NULL," +
+                 "OwnerDonationID int(11) NULL," +
+                 "RecordVersion int(11) NOT NULL," +
+                 "CreatedBy varchar(255) NOT NULL," +
+                 "CreatedDate datetime NOT NULL," +
+                 "LastChangedBy varchar(255) NOT NULL," +
+                 "LastChangedDate datetime NOT NULL," +
+                 "PRIMARY KEY (ID)," +
+                 "KEY IX_TrxDate ON accountstrx (TrxDate)," +
+                 "KEY IX_TrxSource ON accountstrx (SourceAccountID)," +
+                 "KEY IX_TrxDest ON accountstrx (DestinationAccountID)" +
+                 ")",
+                 "CREATE TABLE lksaccounttype (" +
+                 "ID int(11) NOT NULL," +
+                 "AccountType VARCHAR(255) NOT NULL," +
+                 "PRIMARY KEY (ID)" +
+                 ")",
+                 "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                 "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                 "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                 "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                 "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                 "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                 "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                 "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                 "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+            };
+            String[] use = hsqldb;
+            if (DBConnection.DBType == DBConnection.MYSQL) use = mysql;
+            if (DBConnection.DBType == DBConnection.POSTGRESQL) use = postgresql;
+            for (int i = 0; i < use.length; i++) {
+                try {
+                    DBConnection.executeAction(use[i]);
+                }
+                catch (Exception e) {
+                    Global.logError("Failed executing: " + use[i], "AutoDBUpdates.update2704");
+                    Global.logException(e, getClass());
+                }
+            }
+
+
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+    }
+
 }
 
 

@@ -1,3 +1,50 @@
+CREATE TABLE accounts (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  Code VARCHAR(255) NOT NULL,
+  Description VARCHAR(255) NOT NULL,
+  AccountType INTEGER NOT NULL,
+  DonationTypeID INTEGER NULL,
+  RecordVersion INTEGER NOT NULL,
+  CreatedBy VARCHAR(255) NOT NULL,
+  CreatedDate TIMESTAMP NOT NULL,
+  LastChangedBy VARCHAR(255) NOT NULL,
+  LastChangedDate TIMESTAMP NOT NULL
+);
+CREATE UNIQUE INDEX accounts_Code ON accounts (Code);
+
+CREATE TABLE accountstrx (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  TrxDate TIMESTAMP NOT NULL,
+  Description VARCHAR(255) NULL,
+  Reconciled INTEGER NOT NULL,
+  Amount FLOAT NOT NULL,
+  SourceAccountID INTEGER NOT NULL,
+  DestinationAccountID INTEGER NOT NULL,
+  OwnerDonationID INTEGER NULL,
+  RecordVersion INTEGER NOT NULL,
+  CreatedBy VARCHAR(255) NOT NULL,
+  CreatedDate TIMESTAMP NOT NULL,
+  LastChangedBy VARCHAR(255) NOT NULL,
+  LastChangedDate TIMESTAMP NOT NULL
+
+);
+CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate);
+CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID);
+CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID);
+
+CREATE TABLE lksaccounttype (
+  ID INTEGER NOT NULL PRIMARY KEY,
+  AccountType VARCHAR(255) NOT NULL
+);
+INSERT INTO lksaccounttype VALUES (1, 'Bank');
+INSERT INTO lksaccounttype VALUES (2, 'Credit Card');
+INSERT INTO lksaccounttype VALUES (3, 'Loan');
+INSERT INTO lksaccounttype VALUES (4, 'Expense');
+INSERT INTO lksaccounttype VALUES (5, 'Income');
+INSERT INTO lksaccounttype VALUES (6, 'Pension');
+INSERT INTO lksaccounttype VALUES (7, 'Shares');
+INSERT INTO lksaccounttype VALUES (8, 'Asset');
+
 CREATE TABLE additionalfield (
   ID INTEGER NOT NULL PRIMARY KEY,
   LinkType INTEGER NOT NULL,
@@ -166,9 +213,6 @@ CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID);
 CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID);
 CREATE INDEX animalcost_CostDate ON animalcost (CostDate);
 
-
-
-
 CREATE TABLE animaldiet (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -183,10 +227,6 @@ CREATE TABLE animaldiet (
 );
 CREATE INDEX animaldiet_AnimalID ON animaldiet (AnimalID);
 CREATE INDEX animaldiet_DietID ON animaldiet (DietID);
-
-
-
-
 
 CREATE TABLE animalfound (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -207,10 +247,6 @@ CREATE TABLE animalfound (
   LastChangedDate TIMESTAMP NOT NULL
 );
 
-
-
-
-
 CREATE TABLE animallitter (
   ID INTEGER NOT NULL PRIMARY KEY,
   ParentAnimalID INTEGER NULL,
@@ -225,10 +261,6 @@ CREATE TABLE animallitter (
   RecordVersion INTEGER NOT NULL
 );
 CREATE INDEX animallitter_ParentAnimalID ON animallitter (ParentAnimalID);
-
-
-
-
 
 CREATE TABLE animallost (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -248,9 +280,6 @@ CREATE TABLE animallost (
   LastChangedBy VARCHAR(255) NOT NULL,
   LastChangedDate TIMESTAMP NOT NULL
 );
-
-
-
 
 CREATE TABLE animalmedical (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -278,9 +307,6 @@ CREATE TABLE animalmedical (
 CREATE INDEX animalmedical_AnimalID ON animalmedical (AnimalID);
 CREATE INDEX animalmedical_MedicalProfileID ON animalmedical (MedicalProfileID);
 
-
-
-
 CREATE TABLE animalmedicaltreatment (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -301,10 +327,6 @@ CREATE INDEX animalmedicaltreatment_AnimalID ON animalmedicaltreatment (AnimalID
 CREATE INDEX animalmedicaltreatment_AnimalMedicalID ON animalmedicaltreatment (AnimalMedicalID);
 CREATE INDEX animalmedicaltreatment_DateRequired ON animalmedicaltreatment (DateRequired);
 
-
-
-
-
 CREATE TABLE animalname (
   ID INTEGER NOT NULL PRIMARY KEY,
   Name VARCHAR(255) Not Null,
@@ -312,20 +334,11 @@ CREATE TABLE animalname (
   RecordVersion INTEGER NOT NULL
 );
 
-
-
-
-
 CREATE TABLE animaltype (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalType VARCHAR(255) NOT NULL,
   AnimalDescription VARCHAR(255) NULL
 );
-
-
-
-
-
 INSERT INTO animaltype VALUES (2,'D (Dog)',NULL);
 INSERT INTO animaltype VALUES (10, 'F (Stray Dog)', NULL);
 INSERT INTO animaltype VALUES (11,'U (Unwanted Cat)',NULL);
@@ -333,17 +346,13 @@ INSERT INTO animaltype VALUES (12,'S (Stray Cat)',NULL);
 INSERT INTO animaltype VALUES (13,'M (Miscellaneous)',NULL);
 INSERT INTO animaltype VALUES (40, 'N (Non Shelter Animal)', NULL);
 
-
-
-
-
-
 CREATE TABLE animalvaccination (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
   VaccinationID INTEGER NOT NULL,
   DateOfVaccination TIMESTAMP NULL,
   DateRequired TIMESTAMP NOT NULL,
+  Cost REAL NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -352,10 +361,6 @@ CREATE TABLE animalvaccination (
   LastChangedDate TIMESTAMP NOT NULL
 );
 CREATE INDEX animalvaccination_AnimalID ON animalvaccination (AnimalID);
-
-
-
-
 
 CREATE TABLE animalwaitinglist (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -872,7 +877,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2703');
+INSERT INTO configuration VALUES ('DatabaseVersion','2704');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1429,6 +1434,7 @@ CREATE TABLE owner (
   IsHomeChecker INTEGER NOT NULL,
   IsMember INTEGER NOT NULL,
   MembershipExpiryDate TIMESTAMP NULL,
+  MembershipNumber VARCHAR(255) NULL,
   IsDonor INTEGER NOT NULL,
   IsShelter INTEGER NOT NULL,
   IsACO INTEGER NOT NULL,

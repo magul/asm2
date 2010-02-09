@@ -1,6 +1,9 @@
 2.7.0
 ================
 
+*. Added table definitions/schema for double entry book-keeping
+*. Added vaccination cost field
+*. Added membership number field
 *. Unique check and rollover fix for code generation
 *. Added DefaultDailyBoardingCost config item
 *. Fixed null pointer changing to vet tab on new animal

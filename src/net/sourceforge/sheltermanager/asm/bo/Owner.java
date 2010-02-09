@@ -154,6 +154,15 @@ public class Owner extends UserInfoBO {
         rs.setField("MembershipExpiryDate", newValue);
     }
 
+    public String getMembershipNumber() throws CursorEngineException {
+        return (String) rs.getField("MembershipNumber");
+    }
+
+    public void setMembershipNumber(String newValue)
+        throws CursorEngineException {
+        rs.setField("MembershipNumber", newValue);
+    }
+
     public Integer getIsDonor() throws CursorEngineException {
         return (Integer) rs.getField("IsDonor");
     }
