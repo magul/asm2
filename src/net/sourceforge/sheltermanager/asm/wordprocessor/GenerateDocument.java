@@ -1224,7 +1224,8 @@ public abstract class GenerateDocument extends Thread
 
     /**
      * Go through all the chars in each tag and substitute unicode
-     * codepoints above 127 for their escaped hex version
+     * codepoints above 127 for their escaped decimal version and
+     * a fake substitution character
      */
     private void utf7EscapeTags() {
         Global.logDebug("Escaping unicode chars for rich text",
@@ -1237,7 +1238,7 @@ public abstract class GenerateDocument extends Thread
             for (int z = 0; z < s.length(); z++) {
                 char c = s.charAt(z);
                 if (c > 127) 
-                    o.append("\\u").append(Integer.toHexString((int) c));
+                    o.append("\\u").append(Integer.toString((int) c)).append("X");
                 else
                     o.append(c);
             }
