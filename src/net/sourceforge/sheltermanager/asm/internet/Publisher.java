@@ -92,7 +92,7 @@ public class Publisher extends Thread {
         }
 
         // Flush any HTML files already present on the host
-        if (publishCriteria.uploadDirectly) {
+        if (publishCriteria.uploadDirectly && publishCriteria.clearExisting) {
             clearExistingHTML();
         }
 

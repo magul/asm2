@@ -34,6 +34,7 @@ public class PublishCriteria {
     public boolean includeFosters = false;
     public boolean includeWithoutImage = false;
     public boolean includeColours = false;
+    public boolean clearExisting = false;
     public boolean uploadDirectly = false;
     public boolean uploadAllImages = false;
     public boolean forceReupload = false;
