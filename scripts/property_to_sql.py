@@ -96,6 +96,8 @@ for l in lines:
             outfile.write("INSERT INTO customreport VALUES (%s, '%s', '%s', '', '', 0, 0, 'translate', '2003-07-02 11:51:00', 'translate', '2003-07-02 11:51:00', '%s');\n" % ( id, cr_val, cr_sql, value ))
     elif table == "deathreason":
         outfile.write("INSERT INTO deathreason VALUES (%s, '%s', '');\n" % (id, value))
+    elif table == "donationtype":
+        outfile.write("INSERT INTO donationtype VALUES (%s, '%s', '');\n" % (id, value))
     elif table == "entryreason":
         outfile.write("INSERT INTO entryreason VALUES (%s, '%s', '');\n" % (id, value))
     elif table == "internallocation":

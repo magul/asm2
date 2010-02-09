@@ -32,6 +32,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.text.ParseException;
 
@@ -105,8 +106,7 @@ public class VaccinationEdit extends ASMForm {
             anivacc.addNew();
             anivacc.setAnimalID(new Integer(animalid));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_create_new_vaccination_record:_") +
-                e.getMessage(), i18n("Failed_Create"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -118,6 +118,9 @@ public class VaccinationEdit extends ASMForm {
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
+
+        // Default cost for first type
+        typeChanged();
     }
 
     /**
@@ -132,6 +135,21 @@ public class VaccinationEdit extends ASMForm {
 
         this.setTitle(i18n("Edit_Vaccination"));
         loadData();
+    }
+
+    /**
+     * Called when the type is changed - look up the most recent
+     * cost of this vaccination type
+     */
+    public void typeChanged() {
+        try {
+            int vid = Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(), "VaccinationType", cboVaccinationType).intValue();
+            double lastcost = DBConnection.executeForDouble("SELECT Cost FROM animalvaccination WHERE VaccinationID = " + vid + " ORDER BY DateOfVaccination DESC LIMIT 1");
+            txtCost.setValue(lastcost);
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     /** Loads data into the controls */
@@ -210,7 +228,8 @@ public class VaccinationEdit extends ASMForm {
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
 
         cboVaccinationType = UI.getCombo(i18n("Vaccination_Type:"),
-                LookupCache.getVaccinationTypeLookup(), "VaccinationType");
+                LookupCache.getVaccinationTypeLookup(), "VaccinationType", 
+                UI.fp(this, "typeChanged"));
         UI.addComponent(top, i18n("Vaccination_Type:"), cboVaccinationType);
 
         txtDateRequired = (DateField) UI.addComponent(top,

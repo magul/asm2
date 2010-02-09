@@ -1104,6 +1104,10 @@ CREATE TABLE donationtype (
 );
 
 INSERT INTO donationtype VALUES (1, 'Donation', '');
+INSERT INTO donationtype VALUES (2, 'Adoption Fee', '');
+INSERT INTO donationtype VALUES (3, 'Waiting List Donation', '');
+INSERT INTO donationtype VALUES (4, 'Entry Donation', '');
+INSERT INTO donationtype VALUES (5, 'Animal Sponsorship', '');
 
 
 

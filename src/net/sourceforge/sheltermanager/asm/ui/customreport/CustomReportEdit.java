@@ -238,6 +238,8 @@ public class CustomReportEdit extends ASMForm {
 
         // Table selector and display
         cboTables = UI.getCombo((Vector) null, UI.fp(this, "changedTable"));
+        cboTables.addItem("accounts");
+        cboTables.addItem("accountstrx");
         cboTables.addItem("additional");
         cboTables.addItem("additionalfield");
         cboTables.addItem("adoption");

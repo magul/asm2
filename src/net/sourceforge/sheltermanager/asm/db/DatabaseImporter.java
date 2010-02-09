@@ -74,9 +74,11 @@ public class DatabaseImporter implements Runnable {
 
     public void run() {
         if (Global.mainForm != null) {
-            Global.mainForm.initStatusBarMax(47);
+            Global.mainForm.initStatusBarMax(49);
         }
 
+        importTable(c, dbType, "accounts", true, "importtool");
+        importTable(c, dbType, "accountstrx", true, "importtool");
         importTable(c, dbType, "additional", false, "importtool");
         importTable(c, dbType, "additionalfield", false, "importtool");
         importTable(c, dbType, "adoption", true, "importtool");

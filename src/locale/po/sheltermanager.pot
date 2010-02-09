@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-08 13:53+0100\n"
+"POT-Creation-Date: 2010-02-09 10:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3047,6 +3047,36 @@ msgstr ""
 msgid "Biting"
 msgstr ""
 
+#. # reports/Retailer
+#. # reports/InOut
+#. # db/AutoDBUpdates
+#. # bo/LookupCache
+#. # bo/OwnerDonation
+#. # bo/Adoption
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: donationtype_1
+#: Donation
+#: donation
+msgid "Donation"
+msgstr ""
+
+#: donationtype_2
+msgid "Adoption Fee"
+msgstr ""
+
+#: donationtype_3
+msgid "Waiting List Donation"
+msgstr ""
+
+#: donationtype_4
+msgid "Entry Donation"
+msgstr ""
+
+#: donationtype_5
+msgid "Animal Sponsorship"
+msgstr ""
+
 #: entryreason_1
 msgid "Marriage/Relationship split"
 msgstr ""
@@ -3140,6 +3170,42 @@ msgstr ""
 
 #: lkcoattype_5
 msgid "Hairless"
+msgstr ""
+
+#: lksaccounttype_1
+msgid "Bank"
+msgstr ""
+
+#: lksaccounttype_2
+msgid "Credit Card"
+msgstr ""
+
+#: lksaccounttype_3
+msgid "Loan"
+msgstr ""
+
+#: lksaccounttype_4
+msgid "Expense"
+msgstr ""
+
+#: lksaccounttype_5
+msgid "Income"
+msgstr ""
+
+#: lksaccounttype_6
+msgid "Pension"
+msgstr ""
+
+#: lksaccounttype_7
+msgid "Shares"
+msgstr ""
+
+#: lksaccounttype_8
+msgid "Asset"
+msgstr ""
+
+#: lksaccounttype_9
+msgid "Liability"
 msgstr ""
 
 #: lksmovementtype_1
@@ -5470,19 +5536,6 @@ msgstr ""
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr ""
 
-#. # reports/Retailer
-#. # reports/InOut
-#. # db/AutoDBUpdates
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # bo/Adoption
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#: Donation
-#: donation
-msgid "Donation"
-msgstr ""
-
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
@@ -6808,13 +6861,6 @@ msgid "Edit Vaccination"
 msgstr ""
 
 #. # ui/animal/VaccinationEdit
-#. # ui/animal/VaccinationSelector
-#: Unable_to_create_new_vaccination_record\:_
-#: Unable_to_create_new_vaccination\:_
-msgid "Unable to create new vaccination record: "
-msgstr ""
-
-#. # ui/animal/VaccinationEdit
 #. # ui/lookups/LookupView
 #. # bo/LookupCache
 #. # bo/VaccinationType
@@ -7266,7 +7312,6 @@ msgstr ""
 
 #. # ui/animal/DietEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/VoucherEdit
@@ -7295,7 +7340,6 @@ msgid "The animal's breed"
 msgstr ""
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr ""
@@ -7360,6 +7404,11 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
+msgstr ""
+
+#. # ui/animal/VaccinationSelector
+#: Unable_to_create_new_vaccination\:_
+msgid "Unable to create new vaccination record: "
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -8390,6 +8439,14 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Donations
 msgid "Donations"
+msgstr ""
+
+#. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#: Cost\:
+msgid "Cost:"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -11279,12 +11336,6 @@ msgstr ""
 msgid "Treatment Periods"
 msgstr ""
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Cost\:
-msgid "Cost:"
-msgstr ""
-
 #. # ui/movement/MovementView
 #: View_the_owner_for_this_reservation
 msgid "View the owner for this reservation"
@@ -12522,6 +12573,11 @@ msgstr ""
 #. # ui/owner/DonationEdit
 #: frequency
 msgid "Frequency:"
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#: if_this_owner_is_a_member_the_number
+msgid "If this owner is a member, their membership number"
 msgstr ""
 
 #. # ui/reportviewer/ReportViewer

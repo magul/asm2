@@ -509,6 +509,13 @@ INSERT INTO deathreason VALUES (6, 'Culling', '');
 INSERT INTO deathreason VALUES (7, 'Feral', '');
 INSERT INTO deathreason VALUES (8, 'Biting', '');
 
+DELETE FROM donationtype;
+INSERT INTO donationtype VALUES (1, 'Donation', '');
+INSERT INTO donationtype VALUES (2, 'Adoption Fee', '');
+INSERT INTO donationtype VALUES (3, 'Waiting List Donation', '');
+INSERT INTO donationtype VALUES (4, 'Entry Donation', '');
+INSERT INTO donationtype VALUES (5, 'Animal Sponsorship', '');
+
 DELETE FROM entryreason;
 INSERT INTO entryreason VALUES (1, 'Marriage/Relationship split', '');
 INSERT INTO entryreason VALUES (2, 'Allergies', '');

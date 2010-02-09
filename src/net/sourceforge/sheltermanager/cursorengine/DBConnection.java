@@ -383,6 +383,10 @@ public abstract class DBConnection {
         return executeForSum(con, sql);
     }
 
+    public synchronized static double executeForDouble(String sql) throws Exception {
+        return executeForSum(sql);
+    }
+
     /**
      * Executes a sum query and returns a double of the result
      * @param c The connection
@@ -433,6 +437,10 @@ public abstract class DBConnection {
         getConnection();
 
         return executeForCount(con, sql);
+    }
+
+    public synchronized static int executeForInt(String sql) throws Exception {
+        return executeForCount(sql);
     }
 
     /**

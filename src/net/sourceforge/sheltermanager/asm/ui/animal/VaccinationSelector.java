@@ -108,7 +108,7 @@ public class VaccinationSelector extends ASMSelector
 
         // Create an array of headers for the accounts
         String[] columnheaders = {
-                i18n("Type"), i18n("Required"), i18n("Given"), i18n("Cost:"), i18n("Comments")
+                i18n("Type"), i18n("Required"), i18n("Given"), i18n("Comments")
             };
 
         // loop through the data and fill the array
@@ -126,9 +126,8 @@ public class VaccinationSelector extends ASMSelector
                 } catch (Exception e) {
                 }
 
-                vaccinationtabledata[i][3] = animalvaccinations.getCost().toString();
-                vaccinationtabledata[i][4] = Utils.nullToEmptyString(animalvaccinations.getComments());
-                vaccinationtabledata[i][5] = animalvaccinations.getID()
+                vaccinationtabledata[i][3] = Utils.nullToEmptyString(animalvaccinations.getComments());
+                vaccinationtabledata[i][4] = animalvaccinations.getID()
                                                                .toString();
                 i++;
                 animalvaccinations.moveNext();
@@ -138,7 +137,7 @@ public class VaccinationSelector extends ASMSelector
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, vaccinationtabledata, i, 5);
+        setTableData(columnheaders, vaccinationtabledata, i, 4);
     }
 
     public void updateVaccinations() {
@@ -213,7 +212,7 @@ public class VaccinationSelector extends ASMSelector
 
             for (int i = 0; i < selrows.length; i++) {
                 // Get the ID for this row
-                String avID = vaccinationtabledata[selrows[i]][5];
+                String avID = vaccinationtabledata[selrows[i]][4];
 
                 // Remove it from the database
                 try {
