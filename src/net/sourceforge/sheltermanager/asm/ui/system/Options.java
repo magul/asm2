@@ -800,6 +800,12 @@ public class Options extends ASMForm {
                 Configuration.getString("DefaultDateBroughtIn")
                              .equalsIgnoreCase("Yes"), false));
 
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                   "Default_media_notes_to_original_filename"),
+                   "DefaultMediaNotesFromFile",
+                   Configuration.getString("DefaultMediaNotesFromFile")
+                             .equalsIgnoreCase("Yes"), false));
+
         tblDefaultOptions = new SelectableList(l);
 
         defaults.add(pr, UI.BorderLayout.NORTH);

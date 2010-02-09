@@ -357,8 +357,8 @@ public class MediaAdd extends ASMForm {
                 this.txtFileName.setText(chooser.getSelectedFile()
                                                 .getAbsolutePath());
 
-                // If notes are blank, throw the filename in there
-                if (txtNotes.getText().equals("")) {
+                // If notes are blank and the option is set, throw the filename in there
+                if (txtNotes.getText().equals("") && Configuration.getBoolean("DefaultMediaNotesFromFile")) {
                     String filename = txtFileName.getText();
 
                     if (filename.indexOf(File.separator) != -1) {
