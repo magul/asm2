@@ -8,6 +8,7 @@
 #       translation:    Imports po files in src/locale/po to java properties
 #       template:       Builds a pot template from translate_en, java properties
 # 	manual:		Builds the manual
+#       scratch:        Updates the development build
 # 	cd:		Builds everything and a CD image
 # 	docs:		Generates doxygen docs
 #	jar:		Compiles ASM and makes asm.jar
@@ -117,3 +118,8 @@ win32:	manual jar
 	sh install/win32/make.sh
 	mv install/win32/sheltermanager*.exe build/sheltermanager-`cat VERSION`_i386_win32.exe
 
+scratch:
+	@echo "[scratch] ========================="
+	ant build
+	scp build/asm.jar root@rawsoaa1.miniserver.com:/var/www/sheltermanager.com/scratch/
+	scp changelog root@rawsoaa1.miniserver.com:/var/www/sheltermanager.com/scratch/
