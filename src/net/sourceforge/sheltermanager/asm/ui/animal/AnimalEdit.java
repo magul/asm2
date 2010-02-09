@@ -1534,7 +1534,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             int uniqueid = yearid;
 
             // Reset whichever type we aren't using to zero
-            if (Configuration.getString("CodingFormat").indexOf("UUU") != -1) {
+            if (Configuration.getString("CodingFormat").indexOf("U") != -1) {
                 yearid = 0;
             } else {
                 uniqueid = 0;

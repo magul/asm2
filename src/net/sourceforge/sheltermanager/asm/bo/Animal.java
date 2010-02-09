@@ -2727,7 +2727,6 @@ public class Animal extends UserInfoBO {
      * @param broughtInDate     The date the animal was brought to the shelter
      * @param highestyear       The highest code used in the year (or 0 to discover)
      * @param highestever       The highest code ever used (or 0 to discover)
-     *
      */
     public static AnimalCode generateAnimalCode(String animalType,
         Date broughtInDate, int highestyear, int highestever) {
@@ -2794,25 +2793,51 @@ public class Animal extends UserInfoBO {
             }
         }
 
-        String padyear = Utils.zeroPad(highestyear, 3);
-        String nopadyear = Integer.toString(highestyear);
-        String padever = Utils.zeroPad(highestever, 4);
-        String padbig = Utils.zeroPad(highestever, 10);
+        // Construct the code, then verify it's unique in the db. If it isn't, 
+        // increment the code by an extra one and try again. Keep going until we
+        // get a unique code.
+        boolean isUnique = false;
+        String code = "";
+        String shortcode = "";
 
-        Global.logDebug("Got code portions, type=" +
-            animalType.substring(0, 1) + ", highestyear=" + highestyear +
-            ", highestever=" + highestever + ", padyear=" + padyear +
-            ", padever=" + padever + ", padbig=" + padbig,
-            "Animal.generateAnimalCode");
+        while (!isUnique) {
+            
+            String padyear = Utils.zeroPad(highestyear, 3);
+            String nopadyear = Integer.toString(highestyear);
+            String padever = Utils.zeroPad(highestever, 4);
+            String padbig = Utils.zeroPad(highestever, 10);
 
-        // Now format the data
-        String code = substituteCodeTokens(format, cal, padbig, padever,
-                padyear, nopadyear, animalType);
-        String shortcode = substituteCodeTokens(shortformat, cal, padbig,
-                padever, padyear, nopadyear, animalType);
+            Global.logDebug("Got code portions, type=" +
+                animalType.substring(0, 1) + ", highestyear=" + highestyear +
+                ", highestever=" + highestever + ", padyear=" + padyear +
+                ", padever=" + padever + ", padbig=" + padbig,
+                "Animal.generateAnimalCode");
 
-        Global.logDebug("Code generated: code=" + code + ", shortcode=" +
-            shortcode, "Animal.generateAnimalCode");
+            // Now format the data
+            code = substituteCodeTokens(format, cal, padbig, padever,
+                    padyear, nopadyear, animalType);
+            shortcode = substituteCodeTokens(shortformat, cal, padbig,
+                    padever, padyear, nopadyear, animalType);
+
+            Global.logDebug("Code generated: code=" + code + ", shortcode=" +
+                shortcode, "Animal.generateAnimalCode");
+
+            // Test for uniqueness
+            try {
+                if (0 == DBConnection.executeForCount("SELECT COUNT(*) FROM animal WHERE ShelterCode Like '" + code + "'")) {
+                    isUnique = true;
+                }
+                else {
+                    Global.logDebug("Code already exists in database, regenerating...", "Animal.generateAnimalCode");
+                    if (highestyear > 0) highestyear++;
+                    if (highestever > 0) highestever++;
+                }
+            }
+            catch (Exception e) {
+                Global.logException(e, Animal.class);
+                break;
+            }
+        }
 
         return new AnimalCode(code, shortcode);
     }
