@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-03 15:35+0100\n"
-"PO-Revision-Date: 2010-02-04 20:12+0000\n"
+"POT-Creation-Date: 2010-02-09 14:42+0100\n"
+"PO-Revision-Date: 2010-02-09 10:04+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-05 05:06+0000\n"
+"X-Launchpad-Export-Date: 2010-02-10 04:49+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -503,6 +503,7 @@ msgstr "חיית מחמד לא מבית המחסה"
 #. # bo/AnimalMedical
 #. # bo/MedicalProfile
 #: One_Off
+#: lksdonationfreq_0
 msgid "One-Off"
 msgstr "חד־פעמית"
 
@@ -537,11 +538,6 @@ msgstr "ימים"
 #: weeks
 msgid "weeks"
 msgstr "שבועות"
-
-#. # ui/owner/DonationInstalmentEdit
-#: monthly
-msgid "monthly"
-msgstr "חודשי"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -718,19 +714,9 @@ msgid "Donations must be linked to an owner."
 msgstr "יש לקשר תרומות לבעלים."
 
 #. # charts/MonthlyDonations
-#: Adoptions_(
-msgid "Adoptions ("
-msgstr "אימוצים ("
-
-#. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
 msgstr "ניתוח תרומות חודשי (לפי סוג) עבור "
-
-#. # charts/MonthlyDonations
-#: Brought_In_(
-msgid "Brought In ("
-msgstr "הובא ב... ("
 
 #. # charts/DonationsPerSpecies
 #: Monthly_Donation_analysis_(by_species)_for_
@@ -971,17 +957,11 @@ msgstr "מצייר את התרשים..."
 msgid "Plot"
 msgstr "תרשים"
 
-#. # charts/MonthlyDonations
-#: donations
-msgid "Donations ("
-msgstr "תרומות ("
-
 #. # charts/Chart
 #: there_is_no_data_to_show_on_the_chart
 msgid "There is no data to show on the chart."
 msgstr "אין נתונים להצגה בתרשים."
 
-#. # charts/MonthlyDonations
 #. # utility/Utils
 #: waitinglist
 msgid "Waiting List ("
@@ -3076,6 +3056,36 @@ msgstr "פראות"
 msgid "Biting"
 msgstr "נשיכה"
 
+#. # reports/Retailer
+#. # reports/InOut
+#. # db/AutoDBUpdates
+#. # bo/LookupCache
+#. # bo/OwnerDonation
+#. # bo/Adoption
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: donationtype_1
+#: Donation
+#: donation
+msgid "Donation"
+msgstr ""
+
+#: donationtype_2
+msgid "Adoption Fee"
+msgstr ""
+
+#: donationtype_3
+msgid "Waiting List Donation"
+msgstr ""
+
+#: donationtype_4
+msgid "Entry Donation"
+msgstr ""
+
+#: donationtype_5
+msgid "Animal Sponsorship"
+msgstr ""
+
 #: entryreason_1
 msgid "Marriage/Relationship split"
 msgstr "קרע בנישואים/מערכת יחסים"
@@ -3171,6 +3181,42 @@ msgstr "סבוך"
 msgid "Hairless"
 msgstr "נטול שיער"
 
+#: lksaccounttype_1
+msgid "Bank"
+msgstr ""
+
+#: lksaccounttype_2
+msgid "Credit Card"
+msgstr ""
+
+#: lksaccounttype_3
+msgid "Loan"
+msgstr ""
+
+#: lksaccounttype_4
+msgid "Expense"
+msgstr ""
+
+#: lksaccounttype_5
+msgid "Income"
+msgstr ""
+
+#: lksaccounttype_6
+msgid "Pension"
+msgstr ""
+
+#: lksaccounttype_7
+msgid "Shares"
+msgstr ""
+
+#: lksaccounttype_8
+msgid "Asset"
+msgstr ""
+
+#: lksaccounttype_9
+msgid "Liability"
+msgstr ""
+
 #: lksmovementtype_1
 msgid "Adoption"
 msgstr "אימוץ"
@@ -3258,6 +3304,26 @@ msgstr "העברה"
 #: waiting_list
 msgid "Waiting List"
 msgstr "רשימת המתנה"
+
+#: lksdonationfreq_1
+msgid "Weekly"
+msgstr "בכל שבוע"
+
+#: lksdonationfreq_2
+msgid "Monthly"
+msgstr "בכל חודש"
+
+#: lksdonationfreq_3
+msgid "Quarterly"
+msgstr "בכל רבעון"
+
+#: lksdonationfreq_4
+msgid "Half-Yearly"
+msgstr "בכל חצי־שנה"
+
+#: lksdonationfreq_5
+msgid "Annually"
+msgstr "בכל שנה"
 
 #: lksfieldtype_0
 msgid "Yes/No"
@@ -3514,7 +3580,6 @@ msgstr "עדכון מסד הנתונים הצליח."
 #. # ui/owner/VoucherEdit
 #. # ui/log/LogEdit
 #. # ui/customreport/CustomReportEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #. # db/Diagnostic
 #: OK
@@ -4333,6 +4398,7 @@ msgstr "כתובת 1"
 #. # mailmerge/ExpiringMembers
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ChipCancellation
+#. # charts/MonthlyDonations
 #. # utility/Utils
 #. # bo/Voucher
 #. # bo/LookupCache
@@ -4623,7 +4689,6 @@ msgstr ""
 #. # ui/owner/VoucherEdit
 #. # ui/log/LogEdit
 #. # ui/internet/EmailForm
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Cancel
 #: cancel
@@ -5487,19 +5552,6 @@ msgstr ""
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr ""
 
-#. # reports/Retailer
-#. # reports/InOut
-#. # db/AutoDBUpdates
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # bo/Adoption
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#: Donation
-#: donation
-msgid "Donation"
-msgstr ""
-
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
@@ -6277,7 +6329,6 @@ msgstr ""
 #. # bo/Log
 #. # bo/MedicalProfile
 #. # ui/owner/DonationSelector
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #. # ui/owner/VoucherSelector
 #: Comments
@@ -6702,7 +6753,6 @@ msgstr "יש לבחור אימא מחיות המחמד שבבית המחסה"
 
 #. # ui/animal/LitterEdit
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
@@ -6825,13 +6875,6 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: Edit_Vaccination
 msgid "Edit Vaccination"
-msgstr ""
-
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/VaccinationSelector
-#: Unable_to_create_new_vaccination_record\:_
-#: Unable_to_create_new_vaccination\:_
-msgid "Unable to create new vaccination record: "
 msgstr ""
 
 #. # ui/animal/VaccinationEdit
@@ -7088,12 +7131,6 @@ msgstr ""
 msgid "Create New Animal"
 msgstr ""
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#: Entry_Donation\:
-msgid "Entry Donation:"
-msgstr ""
-
 #. # ui/animal/AnimalEdit
 #: The_animal_type
 msgid "The animal type"
@@ -7293,7 +7330,6 @@ msgstr ""
 
 #. # ui/animal/DietEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/VoucherEdit
@@ -7322,7 +7358,6 @@ msgid "The animal's breed"
 msgstr "גזע בעל החיים"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr ""
@@ -7333,11 +7368,6 @@ msgstr ""
 #. # ui/owner/OwnerLink
 #: Postcode\:
 msgid "Postcode:"
-msgstr ""
-
-#. # ui/animal/AnimalEdit
-#: The_amount_donated_when_this_animal_entered_the_shelter
-msgid "The amount donated when this animal entered the shelter"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -7392,6 +7422,11 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
+msgstr ""
+
+#. # ui/animal/VaccinationSelector
+#: Unable_to_create_new_vaccination\:_
+msgid "Unable to create new vaccination record: "
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -8423,6 +8458,14 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Donations
 msgid "Donations"
+msgstr ""
+
+#. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#: Cost\:
+msgid "Cost:"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -10002,6 +10045,23 @@ msgstr ""
 msgid "(any)"
 msgstr ""
 
+#. # ui/lookups/LookupView
+#: cost_type_name
+msgid "Cost Type Name"
+msgstr ""
+
+#. # ui/lookups/LookupView
+#: cost_type_description
+msgid "Cost Type Description"
+msgstr ""
+
+#. # ui/lookups/LookupView
+#. # ui/main/Main
+#: cost_types
+#: Cost_Types
+msgid "Cost Types"
+msgstr ""
+
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
 #: Find_Lost_Animal
@@ -11061,6 +11121,9 @@ msgstr ""
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
+#. # ui/owner/DonationEdit
+#. # bo/LookupCache
+#. # bo/OwnerDonation
 #: Frequency
 msgid "Frequency"
 msgstr ""
@@ -11337,7 +11400,6 @@ msgid "WARNING: This owner has not passed a home check."
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #. # ui/owner/DonationEdit
 #: Select_an_animal
 msgid "Select an animal"
@@ -11393,7 +11455,6 @@ msgid "Click here if you have automatic insurance numbers to generate one"
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #: Owner\:
 msgid "Owner:"
 msgstr ""
@@ -11508,7 +11569,6 @@ msgid "Donation:"
 msgstr "תרומה:"
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationInstalmentEdit
 #: Animal\:
 msgid "Animal:"
 msgstr "חיית מחמד:"
@@ -11741,7 +11801,7 @@ msgstr ""
 #. # ui/owner/OwnerFind
 #: Address_contains\:
 msgid "Address contains:"
-msgstr ""
+msgstr "הכתובת מכילה:"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -11755,111 +11815,111 @@ msgstr "עבר סקירת בית"
 #. # ui/owner/OwnerFind
 #: Comments_contain\:
 msgid "Comments contain:"
-msgstr ""
+msgstr "ההערות מכילות:"
 
 #. # ui/owner/OwnerFind
 #: Name_contains\:
 msgid "Name contains:"
-msgstr ""
+msgstr "השם מכיל:"
 
 #. # ui/owner/OwnerFind
 #: Comments_contain._Use_spaces_to_separate_individual_words
 msgid "Comments contain. Use spaces to separate individual words"
-msgstr ""
+msgstr "תכולת ההערות. יש להשתמש ברווחים כדי להפריד בין מילים"
 
 #. # ui/ui/UI
 #: Select
 msgid "Select"
-msgstr ""
+msgstr "בחירה"
 
 #. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #: Find_Owner
 msgid "Find Owner"
-msgstr ""
+msgstr "חיפוש בעלים"
 
 #. # ui/owner/OwnerFind
 #: A_full,_or_part_email_address_for_the_owner
 msgid "A full, or part email address for the owner"
-msgstr ""
+msgstr "כתובת דוא\"ל מלאה או חלקית של הבעלים"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #: Home_Tel
 msgid "Home Tel"
-msgstr ""
+msgstr "טלפון בבית"
 
 #. # ui/owner/OwnerEdit
 #: An_error_occurred_checking_the_owner_record_for_movements.
 msgid "An error occurred checking the owner record for movements."
-msgstr ""
+msgstr "ארעה שגיאה בעת בדיקת רשומת הבעלים להעברות."
 
 #. # ui/owner/OwnerEdit
 #: An_error_occurred_creating_the_owner_record\:_
 msgid "An error occurred creating the owner record: "
-msgstr ""
+msgstr "ארעה שגיאה בעת יצירת רשומת הבעלים: "
 
 #. # ui/owner/OwnerEdit
 #: Create_New_Owner
 msgid "Create New Owner"
-msgstr ""
+msgstr "יצירת בעלים חדשים"
 
 #. # ui/owner/OwnerEdit
 #: Edit_Owner
 msgid "Edit Owner"
-msgstr ""
+msgstr "עריכת בעלים"
 
 #. # ui/owner/OwnerEdit
 #: An_error_occurred_saving_the_record_to_the_database\:_
 msgid "An error occurred saving the record to the database: "
-msgstr ""
+msgstr "ארעה שגיאה בעת שמירת הרשומה למסד הנתונים: "
 
 #. # ui/owner/OwnerEdit
 #: Home_Tel\:
 msgid "Home Tel:"
-msgstr ""
+msgstr "טלפון בבית:"
 
 #. # ui/owner/OwnerEdit
 #: Check_this_box_if_this_owner_is_a_member_of_your_organisation
 msgid "Check this box if this owner is a member of your organisation"
-msgstr ""
+msgstr "יש לסמן תיבה זו אם בעלים אלו הם חברים בארגון שלך"
 
 #. # ui/owner/OwnerEdit
 #: An_error_occurred_checking_the_owner\:\n
 msgid "An error occurred checking the owner:\n"
-msgstr ""
+msgstr "ארעה שגיאה בעת בדיקת הבעלי:\n"
 
 #. # ui/owner/OwnerEdit
 #: Member
 msgid "Member"
-msgstr ""
+msgstr "חבר"
 
 #. # ui/owner/OwnerEdit
 #: NameTitle\:
 msgid "Title:"
-msgstr ""
+msgstr "כותרת:"
 
 #. # ui/owner/OwnerEdit
 #: NameInitials\:
 msgid "Initials:"
-msgstr ""
+msgstr "ראשי תיבות:"
 
 #. # ui/owner/OwnerEdit
 #: NameForenames\:
 msgid "Forenames:"
-msgstr ""
+msgstr "שמות פרטיים:"
 
 #. # ui/owner/OwnerEdit
 #: NameSurname\:
 msgid "Surname:"
-msgstr ""
+msgstr "שם משפחה:"
 
 #. # ui/owner/OwnerEdit
 #: Check_this_box_if_this_owner_is_a_volunteer
 msgid "Check this box if this owner is a volunteer"
-msgstr ""
+msgstr "יש לסמן תיבה זו אם בעלים אלו הם מתנדבים"
 
 #. # ui/owner/OwnerEdit
 #: Generate_a_document_for_this_owner
@@ -11951,11 +12011,6 @@ msgstr "יש לסמן תיבה זו אם בעלים אלו תורמים"
 #: unable_to_create_new_ownerdonation
 msgid "Unable to create new owner donation:"
 msgstr "לא ניתן ליצור תרומה חדשה של בעלים:"
-
-#. # ui/owner/DonationInstalmentEdit
-#: an_error_occurred_saving_data
-msgid "An error occurred saving the data:"
-msgstr "ארעה שגיאה בעת שמירת הנתונים:"
 
 #. # ui/owner/DonationEdit
 #: new_owner_donation
@@ -12128,71 +12183,6 @@ msgstr "התקבלו נתונים"
 #: date_due
 msgid "Date Due"
 msgstr "תאריך סיום התקופה"
-
-#. # ui/owner/DonationInstalmentEdit
-#: create_instalment_donation
-msgid "Create Instalment Donation"
-msgstr "יצירת תרומה בתשלומים"
-
-#. # ui/owner/DonationInstalmentEdit
-#: Start_date
-msgid "First instalment date:"
-msgstr "תאריך התשלום הראשון:"
-
-#. # ui/owner/DonationInstalmentEdit
-#: instalment_frequency
-msgid "Instalment Frequency:"
-msgstr "תדירות התשלומים:"
-
-#. # ui/owner/DonationInstalmentEdit
-#: instalment_amount
-msgid "Instalment amount:"
-msgstr "גובה התשלומים:"
-
-#. # ui/owner/DonationInstalmentEdit
-#: weekly
-msgid "Weekly"
-msgstr "בכל שבוע"
-
-#. # ui/owner/DonationInstalmentEdit
-#: monthly
-msgid "Monthly"
-msgstr "בכל חודש"
-
-#. # ui/owner/DonationInstalmentEdit
-#: annually
-msgid "Annually"
-msgstr "בכל שנה"
-
-#. # ui/owner/DonationInstalmentEdit
-#: quarterly
-msgid "Quarterly"
-msgstr "בכל רבעון"
-
-#. # ui/owner/DonationInstalmentEdit
-#: half-yearly
-msgid "Half-Yearly"
-msgstr "בכל חצי־שנה"
-
-#. # ui/owner/DonationInstalmentEdit
-#: number_of_instalments
-msgid "Number of Instalments:"
-msgstr "מספר התשלומים:"
-
-#. # ui/owner/DonationInstalmentEdit
-#: you_must_enter_a_valid_number_for_the_number_of_instalments
-msgid "You must enter a valid number for the number of instalments."
-msgstr "יש להזין מספר תקני עבור מספר התשלומים."
-
-#. # ui/owner/DonationInstalmentEdit
-#: you_must_supply_a_start_date
-msgid "You must supply a start date."
-msgstr "יש לציין תאריך התחלה."
-
-#. # ui/owner/DonationSelector
-#: create_a_new_installment_donation
-msgid "Create a new instalment donation"
-msgstr "יצירת תרומה חדשה בתשלומים"
 
 #. # ui/owner/OwnerLink
 #. # ui/system/Options
@@ -12607,6 +12597,17 @@ msgstr "איתור הבעלים על המפה"
 #: Potential_Adopters
 msgid "Potential Adopters"
 msgstr "מאמצים פוטנציאליים"
+
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: frequency
+msgid "Frequency:"
+msgstr "תדירות:"
+
+#. # ui/owner/OwnerEdit
+#: if_this_owner_is_a_member_the_number
+msgid "If this owner is a member, their membership number"
+msgstr ""
 
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
@@ -13776,13 +13777,28 @@ msgstr ""
 #. # ui/system/Options
 #: auto_cancel_reserves
 msgid "Automatically cancel unadopted reservations after days:"
-msgstr ""
+msgstr "ביטול אוטומטי של הזמנות שלא אומצו לאחר ימים:"
 
 #. # ui/system/Options
 #: auto_cancel_reserves_tooltip
 msgid ""
 "If a reserved animal is not adopted after this many days, cancel the "
 "reservation"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_Donation_Type
+msgid "Default Donation Type:"
+msgstr "סוג תרומה כברירת מחדל"
+
+#. # ui/system/Options
+#: Default_Daily_Boarding_Cost
+msgid "Default Daily Boarding Cost:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_media_notes_to_original_filename
+msgid "Default original filename as notes when attaching media"
 msgstr ""
 
 #. # ui/users/UserView
@@ -14608,5 +14624,44 @@ msgstr "שלילי"
 msgid "(estimated)"
 msgstr "(מוערך)"
 
+#~ msgid "monthly"
+#~ msgstr "חודשי"
+
+#~ msgid "Brought In ("
+#~ msgstr "הובא ב... ("
+
+#~ msgid "Adoptions ("
+#~ msgstr "אימוצים ("
+
+#~ msgid "Donations ("
+#~ msgstr "תרומות ("
+
 #~ msgid "An error occurred while validating the object: "
 #~ msgstr "ארעה שגיאה בעת אימות הפריט: "
+
+#~ msgid "Number of Instalments:"
+#~ msgstr "מספר התשלומים:"
+
+#~ msgid "First instalment date:"
+#~ msgstr "תאריך התשלום הראשון:"
+
+#~ msgid "Create Instalment Donation"
+#~ msgstr "יצירת תרומה בתשלומים"
+
+#~ msgid "Instalment amount:"
+#~ msgstr "גובה התשלומים:"
+
+#~ msgid "Instalment Frequency:"
+#~ msgstr "תדירות התשלומים:"
+
+#~ msgid "Create a new instalment donation"
+#~ msgstr "יצירת תרומה חדשה בתשלומים"
+
+#~ msgid "You must enter a valid number for the number of instalments."
+#~ msgstr "יש להזין מספר תקני עבור מספר התשלומים."
+
+#~ msgid "You must supply a start date."
+#~ msgstr "יש לציין תאריך התחלה."
+
+#~ msgid "An error occurred saving the data:"
+#~ msgstr "ארעה שגיאה בעת שמירת הנתונים:"
