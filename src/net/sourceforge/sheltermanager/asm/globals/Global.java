@@ -209,7 +209,7 @@ public abstract class Global {
             getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
             getLanguageCountry("en_ZA"), getLanguageCountry("de_DE"),
             getLanguageCountry("es_ES"), getLanguageCountry("et_EE"),
-            getLanguageCountry("he_IL"), getLanguageCountry("fr_FR"),
+            getLanguageCountry("iw_IL"), getLanguageCountry("fr_FR"),
             getLanguageCountry("lt_LT"), getLanguageCountry("nl_NL"),
             getLanguageCountry("pl_PL"), getLanguageCountry("ru_RU"),
             getLanguageCountry("sv_SE"), getLanguageCountry("th_TH"),
@@ -231,7 +231,7 @@ public abstract class Global {
     /** Returns true if the current language is right-to-left */
     public static boolean isLanguageRTL() {
         // Hebrew and Arabic are RTL
-        if (settings_Locale.startsWith("he") ||
+        if (settings_Locale.startsWith("iw") ||
                 settings_Locale.startsWith("ar")) {
             return true;
         }

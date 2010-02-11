@@ -20,7 +20,7 @@ if locale == "sv_SE":
 elif locale == "et_EE":
     print "et.po"
 # Special case for Hebrew
-elif locale == "he_IL":
+elif locale == "iw_IL":
     print "he.po"
 elif bits[0] == bits[1].lower():
     print bits[0] + ".po"
