@@ -950,7 +950,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2704');
+INSERT INTO configuration VALUES ('DatabaseVersion','2705');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1441,6 +1441,7 @@ CREATE TABLE media (
   MediaName varchar(255) NOT NULL ,
   MediaNotes text NULL,
   WebsitePhoto tinyint(4) NOT NULL ,
+  DocPhoto tinyint(4) NOT NULL ,
   NewSinceLastPublish tinyint(4) NULL,
   UpdatedSinceLastPublish tinyint(4) NULL,
   LastPublished timestamp NULL,

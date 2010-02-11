@@ -64,6 +64,7 @@ public class MediaSelector extends ASMSelector {
     private UI.Button btnDelete;
     private UI.Button btnEdit;
     private UI.Button btnSetWebMedia;
+    private UI.Button btnSetDocMedia;
     private UI.Button btnSave;
     private UI.Button btnView;
     private UI.Label lblPreview;
@@ -108,6 +109,7 @@ public class MediaSelector extends ASMSelector {
         if (!Global.currentUserObject.getSecChangeAnimalMedia()) {
             btnCheckOut.setEnabled(false);
             btnSetWebMedia.setEnabled(false);
+            btnSetDocMedia.setEnabled(false);
         }
     }
 
@@ -139,13 +141,13 @@ public class MediaSelector extends ASMSelector {
         // Create an array to hold the results for the table - note that we
         // have an extra column on here - the last column will actually hold
         // the ID.
-        tabledata = new String[(int) media.getRecordCount()][5];
+        tabledata = new String[(int) media.getRecordCount()][6];
 
         // Create an array of headers for the accounts (one less than
         // array because 4th col will hold ID
         String[] columnheaders = {
                 Global.i18n("uianimal", "Name"), Global.i18n("uianimal", "Date"),
-                Global.i18n("uianimal", "Web_Preferred"),
+                Global.i18n("uianimal", "Web_Preferred"), Global.i18n("uianimal", "Doc_Preferred"),
                 Global.i18n("uianimal", "Notes")
             };
 
@@ -164,8 +166,14 @@ public class MediaSelector extends ASMSelector {
                     tabledata[i][2] = Global.i18n("uianimal", "No");
                 }
 
-                tabledata[i][3] = Utils.nullToEmptyString(media.getMediaNotes());
-                tabledata[i][4] = media.getID().toString();
+                if (media.getDocPhoto().intValue() == 1) {
+                    tabledata[i][3] = Global.i18n("uianimal", "Yes");
+                } else {
+                    tabledata[i][3] = Global.i18n("uianimal", "No");
+                }
+
+                tabledata[i][4] = Utils.nullToEmptyString(media.getMediaNotes());
+                tabledata[i][5] = media.getID().toString();
                 hasMedia = true;
                 i++;
                 media.moveNext();
@@ -177,7 +185,7 @@ public class MediaSelector extends ASMSelector {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, tabledata, i, 4);
+        setTableData(columnheaders, tabledata, i, 5);
     }
 
     /** Returns true if there is some content in the list */
@@ -228,6 +236,50 @@ public class MediaSelector extends ASMSelector {
         }
     }
 
+    /**
+     * Scans through the animal media trying to locate a doc preferred photo. If
+     * none is found, the first image is set to doc preferred.
+     */
+    public void ensureDocPreferred() {
+        Media media = new Media();
+        media.openRecordset(linkType, linkID);
+
+        boolean foundDocPreferred = false;
+        int firstImage = 0;
+
+        try {
+            while (!media.getEOF()) {
+                // Is this the first image?
+                if (firstImage == 0) {
+                    if (media.getMediaName().toLowerCase().endsWith("jpg") ||
+                            media.getMediaName().toLowerCase().endsWith("jpeg")) {
+                        firstImage = media.getID().intValue();
+                    }
+                }
+
+                if (media.getDocPhoto().equals("1")) {
+                    foundDocPreferred = true;
+
+                    break;
+                }
+
+                media.moveNext();
+            }
+
+            // If no web preferred was found, and there is a first
+            // image, stamp it.
+            if (!foundDocPreferred && (firstImage != 0)) {
+                DBConnection.executeAction(
+                    "UPDATE media SET DocPhoto = 1 WHERE ID = " +
+                    firstImage);
+            }
+        } catch (Exception e) {
+            Global.logError(e.getMessage(), "AnimalMedia.ensureDocPreferred");
+            Global.logException(e, getClass());
+        }
+    }
+
+
     public void addToolButtons() {
         // Hook the preview to the right side
         lblPreview = UI.getLabel();
@@ -268,6 +320,13 @@ public class MediaSelector extends ASMSelector {
                 IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_WEBPREFERRED),
                 UI.fp(this, "actionWebMedia"));
         addToolButton(btnSetWebMedia, true);
+
+        btnSetDocMedia = UI.getButton(null,
+                i18n("Mark_this_media_as_preferred_for_use_with_documents"), 'd',
+                IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_DOCPREFERRED),
+                UI.fp(this, "actionDocMedia"));
+        addToolButton(btnSetDocMedia, true);
+
 
         btnSave = UI.getButton(null, i18n("Save_this_media_file_to_disk"), 'a',
                 IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_SAVE),
@@ -408,6 +467,34 @@ public class MediaSelector extends ASMSelector {
         }
     }
 
+    public void actionDocMedia() {
+        int mediaID = getTable().getSelectedID();
+
+        if (mediaID == -1) {
+            return;
+        }
+
+        try {
+            // Reset all media rows for this link to non-web preferred
+            String s = "UPDATE media SET DocPhoto = 0 WHERE " +
+                "LinkID = " + Integer.toString(linkID) + " AND " +
+                "LinkTypeID = " + Integer.toString(linkType);
+            DBConnection.executeAction(s);
+
+            // Set this selected row to doc preferred
+            s = "UPDATE media SET DocPhoto = 1 WHERE ID = " + mediaID;
+            DBConnection.executeAction(s);
+
+            // update the list on screen
+            this.updateList();
+        } catch (Exception e) {
+            Dialog.showError(i18n("An_error_occurred_while_setting_the_web_preferred_option:_") +
+                e.getMessage(), i18n("Error"));
+            Global.logException(e, getClass());
+        }
+    }
+
+
     public void actionView() {
         int mediaID = getTable().getSelectedID();
 
@@ -474,8 +561,9 @@ public class MediaSelector extends ASMSelector {
                 String s = "Delete From media Where ID = " + mediaID;
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
 
-                // Make sure there is still a web preferred
+                // Make sure there is still a web and doc preferred
                 ensureWebPreferred();
+                ensureDocPreferred();
 
                 // update the list
                 this.updateList();

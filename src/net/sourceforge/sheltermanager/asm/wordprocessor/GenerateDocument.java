@@ -690,6 +690,7 @@ public abstract class GenerateDocument extends Thread
 
             if (tag == -1) {
                 // No - don't bother doing anything
+                Global.logDebug("Couldn't find draw:name tag, bailing out", "processOpenOfficeImage");
                 return;
             }
 
@@ -699,6 +700,7 @@ public abstract class GenerateDocument extends Thread
 
             // Bail if we didn't have any media
             if (mediafile == null) {
+                Global.logDebug("Couldn't find any media, bailing out", "processOpenOfficeImage");
                 return;
             }
 
@@ -714,6 +716,7 @@ public abstract class GenerateDocument extends Thread
 
             // Couldn't find it, something is wrong, bail
             if (starthref == -1) {
+                Global.logDebug("Couldn't find image link, bailing out", "processOpenOfficeImage");
                 return;
             }
 
@@ -1020,8 +1023,8 @@ public abstract class GenerateDocument extends Thread
 
     protected void processXMLText(boolean displayAfterwards) {
         try {
-            Global.logDebug("Entering processMarkedUpText",
-                "GenerateDocument.processMarkedupText");
+            Global.logDebug("Entering processXMLText",
+                "GenerateDocument.processXMLText");
 
             // Add markup to the tags for comparison
             markUpTags();

@@ -150,8 +150,9 @@ public abstract class IconManager {
     public final static String SCREEN_ANIMALMEDIA_EDIT = EDIT;
     public final static String SCREEN_ANIMALMEDIA_DELETE = MEDIADELETE;
     public final static String SCREEN_ANIMALMEDIA_PREVIEW = PREVIEW;
-    public final static String SCREEN_ANIMALMEDIA_CHECKOUT = CHECKOUT;
+    public final static String SCREEN_ANIMALMEDIA_CHECKOUT = OPEN;
     public final static String SCREEN_ANIMALMEDIA_WEBPREFERRED = WEB;
+    public final static String SCREEN_ANIMALMEDIA_DOCPREFERRED = DOCUMENT;
     public final static String SCREEN_ANIMALMEDIA_SAVE = SAVE;
     public final static String SCREEN_EDITANIMALDIET = DIET;
     public final static String SCREEN_EDITANIMALVACCINATION = OPEN;

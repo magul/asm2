@@ -877,7 +877,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2704');
+INSERT INTO configuration VALUES ('DatabaseVersion','2705');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1344,6 +1344,7 @@ CREATE TABLE media (
   MediaName VARCHAR(255) NOT NULL,
   MediaNotes VARCHAR(65535) NULL,
   WebsitePhoto INTEGER NOT NULL,
+  DocPhoto INTEGER NOT NULL,
   NewSinceLastPublish INTEGER NULL,
   UpdatedSinceLastPublish INTEGER NULL,
   LastPublished TIMESTAMP NULL,

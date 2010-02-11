@@ -63,6 +63,20 @@ public class Media extends NormalBO {
             "LinkID = " + Integer.toString(linkID));
     }
 
+    public void addNew() throws CursorEngineException {
+        super.addNew();
+        Integer z = new Integer(0);
+        setLinkID(z);
+        setLinkTypeID(z);
+        setMediaName("");
+        setMediaNotes("");
+        setWebSitePhoto(z);
+        setDocPhoto(z);
+        setNewSinceLastPublish(z);
+        setUpdatedSinceLastPublish(z);
+        setDate(new Date());
+    }
+
     public Integer getID() throws CursorEngineException {
         return (Integer) rs.getField("ID");
     }
@@ -109,6 +123,14 @@ public class Media extends NormalBO {
 
     public void setWebSitePhoto(Integer newValue) throws CursorEngineException {
         rs.setField("WebsitePhoto", newValue);
+    }
+
+    public Integer getDocPhoto() throws CursorEngineException {
+        return (Integer) rs.getField("DocPhoto");
+    }
+
+    public void setDocPhoto(Integer newValue) throws CursorEngineException {
+        rs.setField("DocPhoto", newValue);
     }
 
     public Integer getNewSinceLastPublish() throws CursorEngineException {

@@ -58,7 +58,7 @@ public class AutoDBUpdates {
         1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
         1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
         2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701,
-        2702, 2703, 2704
+        2702, 2703, 2704, 2705
         };
 
     /**
@@ -3794,6 +3794,20 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    public void update2705() {
+        try {
+
+            // Add the media DocPhoto field
+            DBConnection.executeAction("ALTER TABLE media ADD DocPhoto INTEGER NULL");
+            DBConnection.executeAction("UPDATE media SET DocPhoto = 0");
+
+        } catch (Exception e) {
+            errors.add("media: ADD DocPhoto");
+            Global.logException(e, getClass());
+        }
+    }
+
 
 }
 

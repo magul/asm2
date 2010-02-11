@@ -671,7 +671,7 @@ public class AnimalDocument extends GenerateDocument {
                 return null;
             }
 
-            String medianame = animal.getWebMedia();
+            String medianame = animal.getDocMedia();
             String file = net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
                 File.separator + medianame;
             DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,

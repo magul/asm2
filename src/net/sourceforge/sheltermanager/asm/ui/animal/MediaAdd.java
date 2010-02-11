@@ -238,11 +238,14 @@ public class MediaAdd extends ASMForm {
                 if (Utils.englishLower(fileextension).equals("jpg") ||
                 		Utils.englishLower(fileextension).equals("jpeg")) {
                     media.setWebSitePhoto(new Integer(1));
+                    media.setDocPhoto(new Integer(1));
                 } else {
                     media.setWebSitePhoto(new Integer(0));
+                    media.setDocPhoto(new Integer(0));
                 }
             } else {
                 media.setWebSitePhoto(new Integer(0));
+                media.setDocPhoto(new Integer(0));
             }
 
             media.save();

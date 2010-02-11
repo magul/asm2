@@ -61,7 +61,8 @@ public class Animal extends UserInfoBO {
      */
     private static int usingReportHighlighting = 0;
     private static boolean fosterOnShelter = false;
-    private Media preferredMedia = null;
+    private Media preferredWebMedia = null;
+    private Media preferredDocMedia = null;
     private Owner originalowner = null;
     private Owner broughtinbyowner = null;
     private Owner ownersvet = null;
@@ -2136,6 +2137,42 @@ public class Animal extends UserInfoBO {
 
     /**
      * Returns the name of the file in their media directory that the animal
+     * should use for documents. If none has the doc preferred option set,
+     * the first image will be used. This information is cached within the
+     * client object 
+     */
+    public String getDocMedia() throws CursorEngineException {
+        Media med = new Media();
+        med.openRecordset("LinkID = " + getID() + " AND LinkTypeID = " +
+            Integer.toString(Media.LINKTYPE_ANIMAL) +
+            " AND (UPPER(MediaName) Like '%.JPG' " +
+            " OR UPPER(MediaName) Like '%.JPEG'" +
+            " OR UPPER(MediaName) Like '%.GIF' " +
+            " OR UPPER(MediaName) Like '%.PNG')");
+
+        if (med.getEOF()) {
+            return "";
+        }
+
+        while (!med.getEOF()) {
+            if (med.getDocPhoto().intValue() == 1) {
+                preferredDocMedia = med;
+
+                return med.getMediaName();
+            }
+
+            med.moveNext();
+        }
+
+        // No preferred was found - use the first
+        med.moveFirst();
+        preferredDocMedia = med;
+
+        return med.getMediaName();
+    }
+
+    /**
+     * Returns the name of the file in their media directory that the animal
      * should use for web publishing. If none has the web preferred option set,
      * the first image will be used. This information is cached within the
      * client object, so calling this, followed by getWebMediaNotes will return
@@ -2156,7 +2193,7 @@ public class Animal extends UserInfoBO {
 
         while (!med.getEOF()) {
             if (med.getWebSitePhoto().intValue() == 1) {
-                preferredMedia = med;
+                preferredWebMedia = med;
 
                 return med.getMediaName();
             }
@@ -2166,7 +2203,7 @@ public class Animal extends UserInfoBO {
 
         // No preferred was found - use the first
         med.moveFirst();
-        preferredMedia = med;
+        preferredWebMedia = med;
 
         return med.getMediaName();
     }
@@ -2182,45 +2219,45 @@ public class Animal extends UserInfoBO {
         }
 
         // Update the notes
-        preferredMedia.setMediaNotes(newNotes);
-        preferredMedia.save();
+        preferredWebMedia.setMediaNotes(newNotes);
+        preferredWebMedia.save();
     }
 
     /**
      * Returns the notes to accompany the last call to getWebMedia
      */
     public String getWebMediaNotes() throws CursorEngineException {
-        if (preferredMedia == null) {
+        if (preferredWebMedia == null) {
             return "";
         }
 
-        return preferredMedia.getMediaNotes();
+        return preferredWebMedia.getMediaNotes();
     }
 
     public boolean isWebMediaNew() throws CursorEngineException {
-        if (preferredMedia == null) {
+        if (preferredWebMedia == null) {
             return false;
         }
 
-        return preferredMedia.getNewSinceLastPublish().intValue() == 1;
+        return preferredWebMedia.getNewSinceLastPublish().intValue() == 1;
     }
 
     public boolean isWebMediaUpdated() throws CursorEngineException {
-        if (preferredMedia == null) {
+        if (preferredWebMedia == null) {
             return false;
         }
 
-        return preferredMedia.getUpdatedSinceLastPublish().intValue() == 1;
+        return preferredWebMedia.getUpdatedSinceLastPublish().intValue() == 1;
     }
 
     public void clearWebMediaFlags() throws CursorEngineException {
-        if (preferredMedia == null) {
+        if (preferredWebMedia == null) {
             return;
         }
 
-        preferredMedia.setNewSinceLastPublish(new Integer(0));
-        preferredMedia.setUpdatedSinceLastPublish(new Integer(0));
-        preferredMedia.save();
+        preferredWebMedia.setNewSinceLastPublish(new Integer(0));
+        preferredWebMedia.setUpdatedSinceLastPublish(new Integer(0));
+        preferredWebMedia.save();
     }
 
     public void addNew() throws CursorEngineException {
@@ -3001,10 +3038,16 @@ public class Animal extends UserInfoBO {
 
     public void free() {
         try {
-            preferredMedia.free();
-            preferredMedia = null;
+            preferredWebMedia.free();
+            preferredWebMedia = null;
         } catch (Exception e) {
         }
+        try {
+            preferredDocMedia.free();
+            preferredDocMedia = null;
+        } catch (Exception e) {
+        }
+
 
         super.free();
     }
