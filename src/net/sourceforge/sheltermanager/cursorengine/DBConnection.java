@@ -383,7 +383,8 @@ public abstract class DBConnection {
         return executeForSum(con, sql);
     }
 
-    public synchronized static double executeForDouble(String sql) throws Exception {
+    public synchronized static double executeForDouble(String sql)
+        throws Exception {
         return executeForSum(sql);
     }
 
@@ -439,7 +440,8 @@ public abstract class DBConnection {
         return executeForCount(con, sql);
     }
 
-    public synchronized static int executeForInt(String sql) throws Exception {
+    public synchronized static int executeForInt(String sql)
+        throws Exception {
         return executeForCount(sql);
     }
 

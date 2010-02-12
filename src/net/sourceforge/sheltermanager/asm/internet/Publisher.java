@@ -140,9 +140,7 @@ public class Publisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_testing_the_animals:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -445,9 +443,7 @@ public class Publisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_constructing_pages:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -538,9 +534,7 @@ public class Publisher extends Thread {
             return dbfs.readFileToString("pih.dat");
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "Error_occurred_accessing_media_server:_") +
-                    e.getMessage(), Global.i18n("uiinternet", "Error"));
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -566,9 +560,7 @@ public class Publisher extends Thread {
             return dbfs.readFileToString("pif.dat");
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "Error_occurred_accessing_media_server:_") +
-                    e.getMessage(), Global.i18n("uiinternet", "Error"));
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -594,9 +586,7 @@ public class Publisher extends Thread {
             return dbfs.readFileToString("pib.dat");
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "Error_occurred_accessing_media_server:_") +
-                    e.getMessage(), Global.i18n("uiinternet", "Error"));
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -875,9 +865,7 @@ public class Publisher extends Thread {
             out.close();
         } catch (IOException e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_writing_a_file:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -911,9 +899,7 @@ public class Publisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_connecting_to_the_internet_provider:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());

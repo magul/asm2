@@ -135,9 +135,7 @@ public class DiaryEdit extends ASMForm {
             diary.openRecordset("ID = 0");
             diary.addNew();
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uidiary",
-                    "An_error_occurred_creating_a_new_diary_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
         }
 
         // We're ready to go
@@ -201,8 +199,7 @@ public class DiaryEdit extends ASMForm {
                 this.setTitle(i18n("Edit_Diary_Note"));
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_reading_the_diary_note:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -243,9 +240,7 @@ public class DiaryEdit extends ASMForm {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("uidiary",
-                    "An_error_occurred_reading_the_diary_note:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

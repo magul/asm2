@@ -133,10 +133,10 @@ public class AnimalFigures extends Report {
 
         int iselyear = Integer.parseInt(selyear);
 
-	// Are we in species mode? If so, ask for a species to be chosen
-	if (Configuration.getBoolean("AnimalFiguresGroupBySpecies")) {
+        // Are we in species mode? If so, ask for a species to be chosen
+        if (Configuration.getBoolean("AnimalFiguresGroupBySpecies")) {
             selSpecies = Dialog.getSpecies();
-	}
+        }
 
         // Set title flags
         monthname = selmonth;
@@ -184,18 +184,17 @@ public class AnimalFigures extends Report {
                     sp.moveNext();
                 }
 
-		if (selSpecies != 0) {
-		    setStatusBarMax(15);
+                if (selSpecies != 0) {
+                    setStatusBarMax(15);
                     genSpeciesFigs(new Integer(selSpecies));
-		}
-		else {
-			for (int i = 0; i < v.size(); i++) {
-			    // 15 steps per generation
-			    int maxent = 15 * (v.size());
-			    setStatusBarMax(maxent);
-			    genSpeciesFigs((Integer) v.get(i));
-			}
-		}
+                } else {
+                    for (int i = 0; i < v.size(); i++) {
+                        // 15 steps per generation
+                        int maxent = 15 * (v.size());
+                        setStatusBarMax(maxent);
+                        genSpeciesFigs((Integer) v.get(i));
+                    }
+                }
             } else {
                 // ANIMAL TYPES ========================================
                 // Initialise the status bar upto
@@ -225,8 +224,7 @@ public class AnimalFigures extends Report {
                 }
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {
             resetStatusBar();

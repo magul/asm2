@@ -82,14 +82,8 @@ public class SaveAPetPublisher extends Thread {
             shelterId = Configuration.getString("SaveAPetFTPUser");
             ;
         } catch (Exception e) {
-            Global.logError(Global.i18n("uiinternet",
-                    "An_error_occurred_reading_the_save_a_pet_user") +
-                e.getMessage(), "SaveAPetPublisher.run");
-
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_reading_the_save_a_pet_user") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -120,13 +114,7 @@ public class SaveAPetPublisher extends Thread {
             uploadFTP.chdir("photos");
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_save_a_pet") +
-                    e.getMessage());
-            } else {
-                Global.logError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_save_a_pet") +
-                    e.getMessage(), "SaveAPetPublisher.run");
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -167,9 +155,7 @@ public class SaveAPetPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_testing_the_animals:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -461,9 +447,7 @@ public class SaveAPetPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_constructing_pages:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -506,14 +490,10 @@ public class SaveAPetPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_save_a_pet" +
-                        e.getMessage()));
-            } else {
-                Global.logError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_save_a_pet" +
-                        e.getMessage()), "SaveAPetPublisher.run");
+                Dialog.showError(e.getMessage());
             }
+
+            Global.logException(e, getClass());
         }
 
         if (parent != null) {
@@ -684,9 +664,7 @@ public class SaveAPetPublisher extends Thread {
             out.close();
         } catch (IOException e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_writing_a_file:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -715,9 +693,7 @@ public class SaveAPetPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_connecting_to_the_internet_provider:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());

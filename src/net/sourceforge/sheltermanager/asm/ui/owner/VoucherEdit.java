@@ -159,9 +159,7 @@ public class VoucherEdit extends ASMForm {
             voucher.setVoucherID(Utils.getIDFromCombo(
                     LookupCache.getVoucherLookup(), "VoucherName", cboVoucher));
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_saving_to_the_local_recordset:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

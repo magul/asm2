@@ -103,8 +103,7 @@ public class InOut extends Report {
             addLevelTwoHeader(underline(Global.i18n("reports",
                         "Total_Animals_Out_", Integer.toString(totalAnimalsOut))));
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

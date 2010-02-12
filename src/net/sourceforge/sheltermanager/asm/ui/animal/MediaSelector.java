@@ -147,7 +147,8 @@ public class MediaSelector extends ASMSelector {
         // array because 4th col will hold ID
         String[] columnheaders = {
                 Global.i18n("uianimal", "Name"), Global.i18n("uianimal", "Date"),
-                Global.i18n("uianimal", "Web_Preferred"), Global.i18n("uianimal", "Doc_Preferred"),
+                Global.i18n("uianimal", "Web_Preferred"),
+                Global.i18n("uianimal", "Doc_Preferred"),
                 Global.i18n("uianimal", "Notes")
             };
 
@@ -270,15 +271,13 @@ public class MediaSelector extends ASMSelector {
             // image, stamp it.
             if (!foundDocPreferred && (firstImage != 0)) {
                 DBConnection.executeAction(
-                    "UPDATE media SET DocPhoto = 1 WHERE ID = " +
-                    firstImage);
+                    "UPDATE media SET DocPhoto = 1 WHERE ID = " + firstImage);
             }
         } catch (Exception e) {
             Global.logError(e.getMessage(), "AnimalMedia.ensureDocPreferred");
             Global.logException(e, getClass());
         }
     }
-
 
     public void addToolButtons() {
         // Hook the preview to the right side
@@ -322,11 +321,11 @@ public class MediaSelector extends ASMSelector {
         addToolButton(btnSetWebMedia, true);
 
         btnSetDocMedia = UI.getButton(null,
-                i18n("Mark_this_media_as_preferred_for_use_with_documents"), 'd',
+                i18n("Mark_this_media_as_preferred_for_use_with_documents"),
+                'd',
                 IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_DOCPREFERRED),
                 UI.fp(this, "actionDocMedia"));
         addToolButton(btnSetDocMedia, true);
-
 
         btnSave = UI.getButton(null, i18n("Save_this_media_file_to_disk"), 'a',
                 IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_SAVE),
@@ -366,8 +365,7 @@ public class MediaSelector extends ASMSelector {
             } catch (DBFSException e) {
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -404,8 +402,7 @@ public class MediaSelector extends ASMSelector {
             } catch (DBFSException e) {
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -461,8 +458,7 @@ public class MediaSelector extends ASMSelector {
             // update the list on screen
             this.updateList();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_while_setting_the_web_preferred_option:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -476,9 +472,9 @@ public class MediaSelector extends ASMSelector {
 
         try {
             // Reset all media rows for this link to non-web preferred
-            String s = "UPDATE media SET DocPhoto = 0 WHERE " +
-                "LinkID = " + Integer.toString(linkID) + " AND " +
-                "LinkTypeID = " + Integer.toString(linkType);
+            String s = "UPDATE media SET DocPhoto = 0 WHERE " + "LinkID = " +
+                Integer.toString(linkID) + " AND " + "LinkTypeID = " +
+                Integer.toString(linkType);
             DBConnection.executeAction(s);
 
             // Set this selected row to doc preferred
@@ -488,12 +484,10 @@ public class MediaSelector extends ASMSelector {
             // update the list on screen
             this.updateList();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_while_setting_the_web_preferred_option:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
-
 
     public void actionView() {
         int mediaID = getTable().getSelectedID();
@@ -527,8 +521,7 @@ public class MediaSelector extends ASMSelector {
             } catch (Exception e) {
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -590,9 +583,7 @@ public class MediaSelector extends ASMSelector {
             MediaEdit ea = new MediaEdit(media, this);
             Global.mainForm.addChild(ea);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_ocurred_opening_the_media_entry_for_editing:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -633,8 +624,7 @@ public class MediaSelector extends ASMSelector {
                 // File already exists - who cares?
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -687,9 +677,7 @@ class ImagePreviewer extends Thread {
                 // File already exists - who cares?
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -703,9 +691,7 @@ class ImagePreviewer extends Thread {
             // Delete the temporary file
             Utils.deleteTemporaryFile(mediaName);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_scaling_and_displaying_the_preview_image:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {
             // Make the cursor normal again

@@ -247,8 +247,7 @@ public class DiaryTaskView extends ASMView {
             edth.openForEdit(dth);
             Global.mainForm.addChild(edth);
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

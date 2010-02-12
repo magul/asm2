@@ -120,8 +120,7 @@ public class AnimalReturnedPreSix extends Report {
                         "No_animals_have_been_returned_within_6_months_of_adoption."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

@@ -120,8 +120,7 @@ public class LookupEdit extends ASMForm {
 
             this.setTitle(i18n("Create_New_") + lookupDisplay);
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -138,8 +137,7 @@ public class LookupEdit extends ASMForm {
             txtDesc.setText(Utils.nullToEmptyString(
                     (String) rs.getField(descField)));
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_accessing_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -191,8 +189,7 @@ public class LookupEdit extends ASMForm {
 
             return true;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

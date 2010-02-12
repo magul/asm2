@@ -117,9 +117,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
             // Update the buttons (no selection after change)
             parent.selectionChanged(null, false);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uiwordprocessor",
-                    "An_error_occurred_reading_from_the_media_server:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -177,9 +175,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
 
                 return;
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("uiwordprocessor",
-                        "An_error_occurred_changing_into_the_directory:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 UI.cursorToPointer();
 
                 return;
@@ -212,9 +208,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
                 // Tell the caller to handle it
                 parent.selectionDoubleClicked(file);
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("uiwordprocessor",
-                        "An_error_occurred_retrieving_the_file:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             } finally {
                 UI.cursorToPointer();
@@ -324,9 +318,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
         try {
             dbfs.readFile(mediaName, tempdir + mediaName);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
             UI.cursorToPointer();
 
@@ -362,9 +354,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
             dbfs.putFile(new File(tempdir + mediaName));
             UI.cursorToPointer();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_retrieving_the_media_file:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
             UI.cursorToPointer();
 

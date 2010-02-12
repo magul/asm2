@@ -364,8 +364,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
             try {
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_removing_the_record:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }
@@ -469,8 +468,7 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 Global.mainForm.addChild(ea);
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_accessing_linked_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

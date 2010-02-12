@@ -223,8 +223,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
 
             setSecurity();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_accessing_external_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -268,8 +267,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             btnCreateAnimal.setEnabled(false);
             btnDelete.setEnabled(false);
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -335,8 +333,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             // Load satellite data
             loadExternal();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_loading_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -422,8 +419,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                 Global.logException(e, getClass());
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -610,8 +606,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             ewl.openForEdit(naw);
             Global.mainForm.addChild(ewl);
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_cloning_this_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -647,8 +642,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             a = null;
             ea = null;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_cloning_this_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

@@ -147,9 +147,7 @@ public class Pets911Publisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_testing_the_animals:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -388,9 +386,7 @@ public class Pets911Publisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_constructing_pages:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -415,12 +411,10 @@ public class Pets911Publisher extends Thread {
                 Global.logInfo("Data uploaded", "Pets911Publisher.run");
             }
         } catch (Exception e) {
-            Global.logError(Global.i18n("uiinternet", "An_error_occurred") +
-                e.getMessage(), "Pets911Publisher.run");
+            Global.logException(e, getClass());
 
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet", "An_error_occurred") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
         }
 
@@ -636,9 +630,7 @@ public class Pets911Publisher extends Thread {
             out.close();
         } catch (IOException e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_writing_a_file:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -660,9 +652,7 @@ public class Pets911Publisher extends Thread {
             uploadFTP.setType(FTPTransferType.BINARY);
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_connecting_to_the_internet_provider:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());

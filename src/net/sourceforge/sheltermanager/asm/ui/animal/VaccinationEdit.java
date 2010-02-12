@@ -143,11 +143,13 @@ public class VaccinationEdit extends ASMForm {
      */
     public void typeChanged() {
         try {
-            int vid = Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(), "VaccinationType", cboVaccinationType).intValue();
-            double lastcost = DBConnection.executeForDouble("SELECT Cost FROM animalvaccination WHERE VaccinationID = " + vid + " ORDER BY DateOfVaccination DESC LIMIT 1");
+            int vid = Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
+                    "VaccinationType", cboVaccinationType).intValue();
+            double lastcost = DBConnection.executeForDouble(
+                    "SELECT Cost FROM animalvaccination WHERE VaccinationID = " +
+                    vid + " ORDER BY DateOfVaccination DESC LIMIT 1");
             txtCost.setValue(lastcost);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
@@ -201,8 +203,7 @@ public class VaccinationEdit extends ASMForm {
                     LookupCache.getVaccinationTypeLookup(), "VaccinationType",
                     cboVaccinationType));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_saving_to_the_local_recordset:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -228,7 +229,7 @@ public class VaccinationEdit extends ASMForm {
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
 
         cboVaccinationType = UI.getCombo(i18n("Vaccination_Type:"),
-                LookupCache.getVaccinationTypeLookup(), "VaccinationType", 
+                LookupCache.getVaccinationTypeLookup(), "VaccinationType",
                 UI.fp(this, "typeChanged"));
         UI.addComponent(top, i18n("Vaccination_Type:"), cboVaccinationType);
 

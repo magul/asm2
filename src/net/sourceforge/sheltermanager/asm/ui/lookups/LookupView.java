@@ -318,11 +318,11 @@ public class LookupView extends ASMView {
             break;
         }
 
-
         default:
-            Dialog.showError(Global.i18n("uilookups",
-                    "Invalid_lookup_type_received."));
+            // Should never get here - invalid lookup type was passed
             dispose();
+
+            return;
         }
 
         this.setTitle(Global.i18n("uilookups", "edit_x", lookupDisplay));
@@ -429,9 +429,7 @@ public class LookupView extends ASMView {
                             canDelete = false;
                         }
                     } catch (Exception e) {
-                        Dialog.showError(Global.i18n("uilookups",
-                                "An_error_occurred_checking_foreign-key_relations_and_this\nrecord_cannot_be_deleted:_") +
-                            e.getMessage());
+                        Dialog.showError(e.getMessage());
                         Global.logException(e, getClass());
 
                         return;

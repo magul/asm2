@@ -125,8 +125,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
                 txtAcceptanceNumber.setText(litter.getID().toString());
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -147,8 +146,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
             txtAcceptanceNumber.setText(Utils.nullToEmptyString(
                     litter.getAcceptanceNumber()));
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_reading_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -180,8 +178,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_reading_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

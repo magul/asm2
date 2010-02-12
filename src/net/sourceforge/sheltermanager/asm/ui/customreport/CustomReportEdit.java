@@ -176,8 +176,7 @@ public class CustomReportEdit extends ASMForm {
             cr.addNew();
             setDirty(true);
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_create_new_custom_report:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -380,9 +379,9 @@ public class CustomReportEdit extends ASMForm {
 
             // Make sure the last query is a SELECT or (SELECT for UNION
             if ((!Utils.englishLower(queries[queries.length - 1]).trim()
-                                                 .startsWith("select")) &&
+                           .startsWith("select")) &&
                     (!Utils.englishLower(queries[queries.length - 1]).trim()
-                                                     .startsWith("(select"))) {
+                               .startsWith("(select"))) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
 
@@ -393,10 +392,13 @@ public class CustomReportEdit extends ASMForm {
             for (int i = 0; i < queries.length; i++) {
                 // If it's an action query, execute it
                 if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("update") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
+                        Utils.englishLower(queries[i].trim()).startsWith("drop") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("insert") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("update") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("delete")) {
                     DBConnection.executeAction(queries[i]);
                 } else {
                     rs = new SQLRecordset();
@@ -432,8 +434,7 @@ public class CustomReportEdit extends ASMForm {
             txtHTML.setText(buf.toString());
         } catch (Exception e) {
             UI.cursorToPointer();
-            Dialog.showError(i18n("Unable_to_generate_HTML:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {
             try {
@@ -444,7 +445,7 @@ public class CustomReportEdit extends ASMForm {
             // Clean up temporary tables
             for (int i = 0; i < queries.length; i++) {
                 if (Utils.englishLower(queries[i].trim())
-                                  .startsWith("create temporary")) {
+                             .startsWith("create temporary")) {
                     CustomReportExecute.dropTemporaryTable(queries[i]);
                 }
             }
@@ -472,9 +473,9 @@ public class CustomReportEdit extends ASMForm {
 
             // Make sure the last query is a SELECT or (SELECT for UNION
             if (!Utils.englishLower(queries[queries.length - 1]).trim()
-                                                .startsWith("select") &&
+                          .startsWith("select") &&
                     !Utils.englishLower(queries[queries.length - 1]).trim()
-                                                    .startsWith("(select")) {
+                              .startsWith("(select")) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
 
@@ -485,10 +486,13 @@ public class CustomReportEdit extends ASMForm {
             for (int i = 0; i < queries.length; i++) {
                 // If it's an action query, execute it
                 if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("update") ||
-                		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
+                        Utils.englishLower(queries[i].trim()).startsWith("drop") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("insert") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("update") ||
+                        Utils.englishLower(queries[i].trim())
+                                 .startsWith("delete")) {
                     DBConnection.executeAction(queries[i]);
                 } else {
                     rs = new SQLRecordset();
@@ -501,8 +505,7 @@ public class CustomReportEdit extends ASMForm {
                 i18n("Ok"));
         } catch (Exception e) {
             UI.cursorToPointer();
-            Dialog.showError(i18n("There_is_an_error_in_your_SQL:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
         } finally {
             rs.free();
             rs = null;
@@ -510,7 +513,7 @@ public class CustomReportEdit extends ASMForm {
             // Clean up temporary tables
             for (int i = 0; i < queries.length; i++) {
                 if (Utils.englishLower(queries[i].trim())
-                                  .startsWith("create temporary")) {
+                             .startsWith("create temporary")) {
                     CustomReportExecute.dropTemporaryTable(queries[i]);
                 }
             }
@@ -537,8 +540,7 @@ public class CustomReportEdit extends ASMForm {
 
             return true;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

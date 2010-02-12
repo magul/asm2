@@ -162,8 +162,7 @@ public class DietEdit extends ASMForm {
             diet.setDietID(Utils.getIDFromCombo(LookupCache.getDietLookup(),
                     "DietName", cboDiet));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_saving_to_the_local_recordset:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

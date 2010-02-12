@@ -127,7 +127,8 @@ public class DonationSelector extends ASMSelector {
         // Create an array of headers for the table
         String[] columnheaders = {
                 i18n("date_due"), i18n("date_received"), i18n("receipt_number"),
-                i18n("donation"), i18n("type"), i18n("frequency"), i18n("comments")
+                i18n("donation"), i18n("type"), i18n("frequency"),
+                i18n("comments")
             };
 
         // Build the data

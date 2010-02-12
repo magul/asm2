@@ -143,8 +143,7 @@ public class NamesEdit extends ASMForm {
 
             return true;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

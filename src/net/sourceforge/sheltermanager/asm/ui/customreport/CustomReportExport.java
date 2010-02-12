@@ -218,11 +218,8 @@ public class CustomReportExport extends ASMView {
             o.flush();
             o.close();
         } catch (Exception e) {
-            Global.logError(i18n("an_error_occurred_creating_the_csv_file") +
-                e.getMessage(), "ExportCustomReportData.generateCSV");
             Global.logException(e, getClass());
-            Dialog.showError(i18n("an_error_occurred_creating_the_csv_file") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
         }
     }
 
@@ -265,11 +262,8 @@ public class CustomReportExport extends ASMView {
             // Open it
             FileTypeManager.shellExecute(filename);
         } catch (Exception e) {
-            Global.logError(i18n("An_error_occurred_generating_the_CSV_file") +
-                e.getMessage(),
-                "ExportCustomReportData.btnGenCSVActionPerformed");
-            Dialog.showError(i18n("An_error_occurred_generating_the_CSV_file") +
-                e.getMessage());
+            Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
         } finally {
             if (cr != null) {
                 cr.free();
@@ -303,11 +297,8 @@ public class CustomReportExport extends ASMView {
             Dialog.showInformation(i18n("CSV_file_generated_at") + filename,
                 i18n("CSV_generation_complete"));
         } catch (Exception e) {
-            Global.logError(i18n("An_error_occurred_generating_the_CSV_file") +
-                e.getMessage(),
-                "ExportCustomReportData.btnGenCSVActionPerformed");
-            Dialog.showError(i18n("An_error_occurred_generating_the_CSV_file") +
-                e.getMessage());
+            Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
         } finally {
             if (cr != null) {
                 cr.free();

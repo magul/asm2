@@ -106,8 +106,7 @@ public class TransferIn extends Report {
                 addParagraph(Global.i18n("reports", "No_animals_found."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

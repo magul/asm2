@@ -404,7 +404,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             // Set initial values
             txtMatchAgeFrom.setText("0");
             txtMatchAgeTo.setText("0");
-            txtMembershipExpiryDate.setEnabled(false); 
+            txtMembershipExpiryDate.setEnabled(false);
             txtMembershipNumber.setEnabled(false);
 
             // Default the most common town/county for convenience
@@ -417,8 +417,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             enableButtons();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_owner_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -498,9 +497,10 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             } catch (Exception e) {
             }
 
-            txtMembershipNumber.setText(Utils.nullToEmptyString(owner.getMembershipNumber()));
-            txtMembershipExpiryDate.setEnabled( chkIsMember.isSelected() );
-            txtMembershipNumber.setEnabled( chkIsMember.isSelected() );
+            txtMembershipNumber.setText(Utils.nullToEmptyString(
+                    owner.getMembershipNumber()));
+            txtMembershipExpiryDate.setEnabled(chkIsMember.isSelected());
+            txtMembershipNumber.setEnabled(chkIsMember.isSelected());
             txtWorkTelephone.setText(Utils.nullToEmptyString(
                     owner.getWorkTelephone()));
             txtMobileTelephone.setText(Utils.nullToEmptyString(
@@ -569,8 +569,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             showThumbnail();
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_reading_owner_information:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -953,13 +952,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
                 return true;
             } catch (CursorEngineException e) {
-                Dialog.showError(i18n("An_error_occurred_saving_the_record_to_the_database:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_reading_owner_information:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -1141,8 +1138,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 }
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_checking_the_owner:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -1247,9 +1243,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         txtMembershipExpiryDate = (DateField) pnlRightTop.add(UI.getDateField(
                     i18n("if_this_owner_is_a_member_the_date_that_membership_expires"),
                     UI.fp(this, "dataChanged")));
-        txtMembershipNumber = (UI.TextField) UI.addComponent(pnlRightTop, 
-            "", UI.getTextField(i18n("if_this_owner_is_a_member_the_number"), 
-            UI.fp(this, "dataChanged")));
+        txtMembershipNumber = (UI.TextField) UI.addComponent(pnlRightTop, "",
+                UI.getTextField(i18n("if_this_owner_is_a_member_the_number"),
+                    UI.fp(this, "dataChanged")));
 
         chkBanned = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Banned"),
                     null, UI.fp(this, "dataChanged")));
@@ -1612,8 +1608,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void changedMember() {
-        txtMembershipExpiryDate.setEnabled( chkIsMember.isSelected() );
-        txtMembershipNumber.setEnabled( chkIsMember.isSelected() );
+        txtMembershipExpiryDate.setEnabled(chkIsMember.isSelected());
+        txtMembershipNumber.setEnabled(chkIsMember.isSelected());
         dataChanged();
     }
 
@@ -1689,7 +1685,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 return;
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_checking_the_owner_record_for_movements."));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -1762,7 +1758,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             a.free();
             a = null;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_checking_the_owner_record_for_movements."));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;

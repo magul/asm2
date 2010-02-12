@@ -311,7 +311,7 @@ public abstract class GenerateDocument extends Thread
 
         if (doctype.equals("html")) {
             if (Utils.englishLower(filename).endsWith("html") ||
-            		Utils.englishLower(filename).endsWith("htm")) {
+                    Utils.englishLower(filename).endsWith("htm")) {
                 return true;
             } else {
                 return false;
@@ -690,7 +690,9 @@ public abstract class GenerateDocument extends Thread
 
             if (tag == -1) {
                 // No - don't bother doing anything
-                Global.logDebug("Couldn't find draw:name tag, bailing out", "processOpenOfficeImage");
+                Global.logDebug("Couldn't find draw:name tag, bailing out",
+                    "processOpenOfficeImage");
+
                 return;
             }
 
@@ -700,7 +702,9 @@ public abstract class GenerateDocument extends Thread
 
             // Bail if we didn't have any media
             if (mediafile == null) {
-                Global.logDebug("Couldn't find any media, bailing out", "processOpenOfficeImage");
+                Global.logDebug("Couldn't find any media, bailing out",
+                    "processOpenOfficeImage");
+
                 return;
             }
 
@@ -716,7 +720,9 @@ public abstract class GenerateDocument extends Thread
 
             // Couldn't find it, something is wrong, bail
             if (starthref == -1) {
-                Global.logDebug("Couldn't find image link, bailing out", "processOpenOfficeImage");
+                Global.logDebug("Couldn't find image link, bailing out",
+                    "processOpenOfficeImage");
+
                 return;
             }
 
@@ -933,7 +939,6 @@ public abstract class GenerateDocument extends Thread
         }
     }
 
-
     protected void processPlainText() {
         processPlainText(false);
     }
@@ -1068,7 +1073,7 @@ public abstract class GenerateDocument extends Thread
                             "GenerateDocument.processXMLText");
                     }
                 }
-                
+
                 // Do we have a tag?
                 if (foundTag) {
                     // Test it against each one of our available tags
@@ -1238,13 +1243,17 @@ public abstract class GenerateDocument extends Thread
             SearchTag tag = (SearchTag) searchtags.get(i);
             String s = tag.replace;
             StringBuffer o = new StringBuffer();
+
             for (int z = 0; z < s.length(); z++) {
                 char c = s.charAt(z);
-                if (c > 127) 
+
+                if (c > 127) {
                     o.append("\\u").append(Integer.toString((int) c)).append("X");
-                else
+                } else {
                     o.append(c);
+                }
             }
+
             tag.replace = o.toString();
         }
 

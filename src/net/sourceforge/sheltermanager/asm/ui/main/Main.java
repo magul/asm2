@@ -2138,7 +2138,6 @@ public class Main extends ASMWindow {
         addChild(new LookupView(LookupView.COSTTYPE));
     }
 
-
     public void actionLookupsBreeds() {
         cursorToWait();
         addChild(new LookupView(LookupView.BREED));

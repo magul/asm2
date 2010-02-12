@@ -100,8 +100,7 @@ public class NotMicroChipped extends Report {
                         "All_animals_on_the_shelter_have_been_microchipped."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

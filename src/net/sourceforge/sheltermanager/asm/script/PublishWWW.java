@@ -95,7 +95,7 @@ public class PublishWWW {
                 } else if (args[i].equalsIgnoreCase("generatejavascriptdb")) {
                     pc.generateJavascriptDB = true;
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("excludeunder" +
+                                    .startsWith("excludeunder" +
                             ScriptParser.equalsSymbol)) {
                     try {
                         pc.excludeUnderWeeks = Integer.parseInt(args[i].substring(args[i].indexOf(
@@ -106,12 +106,12 @@ public class PublishWWW {
                         System.exit(1);
                     }
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("ftproot" +
+                                    .startsWith("ftproot" +
                             ScriptParser.equalsSymbol)) {
                     pc.ftpRoot = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("animalsperpage" +
+                                    .startsWith("animalsperpage" +
                             ScriptParser.equalsSymbol)) {
                     try {
                         pc.animalsPerPage = Integer.parseInt(args[i].substring(args[i].indexOf(
@@ -122,17 +122,17 @@ public class PublishWWW {
                         System.exit(1);
                     }
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("extension" +
+                                    .startsWith("extension" +
                             ScriptParser.equalsSymbol)) {
                     pc.extension = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("style" +
+                                    .startsWith("style" +
                             ScriptParser.equalsSymbol)) {
                     pc.style = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("scaleimages" +
+                                    .startsWith("scaleimages" +
                             ScriptParser.equalsSymbol)) {
                     try {
                         pc.scaleImages = Integer.parseInt(args[i].substring(args[i].indexOf(
@@ -149,7 +149,7 @@ public class PublishWWW {
                         System.exit(1);
                     }
                 } else if (Utils.englishLower(args[i])
-                                      .startsWith("includelocations" +
+                                    .startsWith("includelocations" +
                             ScriptParser.equalsSymbol)) {
                     try {
                         String locs = args[i].substring(args[i].indexOf(

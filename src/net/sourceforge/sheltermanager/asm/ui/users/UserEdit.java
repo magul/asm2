@@ -137,8 +137,7 @@ public class UserEdit extends ASMForm {
             isNew = true;
             openForEdit(user);
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_creating_a_new_user:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -359,8 +358,7 @@ public class UserEdit extends ASMForm {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

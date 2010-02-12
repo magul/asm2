@@ -21,12 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import java.util.Hashtable;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Hashtable;
 
 
 /**

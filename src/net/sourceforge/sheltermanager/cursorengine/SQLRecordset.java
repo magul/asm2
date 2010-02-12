@@ -102,6 +102,8 @@
  */
 package net.sourceforge.sheltermanager.cursorengine;
 
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,8 +116,6 @@ import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Vector;
-
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 /**

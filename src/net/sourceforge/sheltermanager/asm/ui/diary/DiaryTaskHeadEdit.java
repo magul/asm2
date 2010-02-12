@@ -103,8 +103,7 @@ public class DiaryTaskHeadEdit extends ASMForm {
             cboType.setSelectedIndex(dth.getRecordType().intValue());
             this.setTitle(i18n("edit_diary_task_title", txtName.getText()));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_loading_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -125,8 +124,7 @@ public class DiaryTaskHeadEdit extends ASMForm {
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -140,8 +138,7 @@ public class DiaryTaskHeadEdit extends ASMForm {
         try {
             dtd.openRecordset("DiaryTaskHeadID = " + dth.getID());
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_reading_the_header:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

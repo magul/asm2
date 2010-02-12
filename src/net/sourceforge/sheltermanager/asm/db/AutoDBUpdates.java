@@ -51,20 +51,20 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class AutoDBUpdates {
-
     public final static int[] updates = new int[] {
-        105, 1051, 1052, 1100, 1101, 1102, 1103, 1111, 1112, 1114, 1122, 1123, 
-        1124, 1125, 1131, 1202, 1203, 1204, 1205, 1211, 1212, 1213, 1221, 1321, 1341, 
-        1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372, 1381, 1382, 1383, 1391, 1392, 
-        1393, 1394, 1401, 1402, 1411, 2001, 2021, 2023, 2100, 2102, 2210, 2301, 2302, 
-        2303, 2310, 2350, 2390, 2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701,
-        2702, 2703, 2704, 2705
+            105, 1051, 1052, 1100, 1101, 1102, 1103, 1111, 1112, 1114, 1122,
+            1123, 1124, 1125, 1131, 1202, 1203, 1204, 1205, 1211, 1212, 1213,
+            1221, 1321, 1341, 1351, 1352, 1361, 1362, 1363, 1364, 1371, 1372,
+            1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
+            2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
+            2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
+            2704, 2705
         };
 
     /**
      * The latest database version this version of the program can deal with.
      */
-    public final static int LATEST_DB_VERSION = updates[updates.length-1];
+    public final static int LATEST_DB_VERSION = updates[updates.length - 1];
 
     /** Collection of errors occurred during update */
     private ErrorVector errors = null;
@@ -92,37 +92,39 @@ public class AutoDBUpdates {
         errors = new ErrorVector();
 
         try {
-            
             v = Configuration.getInteger("DatabaseVersion");
 
             // Go through every update below our current version, in order and
             // run it:
             for (int i = 0; i < updates.length; i++) {
-                
                 int dbv = updates[i];
-                if (v < dbv) {
 
+                if (v < dbv) {
                     // Our current database version is below this update,
                     // execute it if we're allowed:
-                    Global.logInfo("Updating database to " + dbv + ", please wait...", "AutoDBUpdates");
+                    Global.logInfo("Updating database to " + dbv +
+                        ", please wait...", "AutoDBUpdates");
                     checkUpdateAllowed();
-                    getClass().getMethod("update" + Integer.toString(dbv), null).invoke(this, null);
+                    getClass().getMethod("update" + Integer.toString(dbv), null)
+                        .invoke(this, null);
 
                     // Update our database version to the update we just ran
                     v = dbv;
-                    Configuration.setEntry("DatabaseVersion", Integer.toString(v));
+                    Configuration.setEntry("DatabaseVersion",
+                        Integer.toString(v));
                 }
             }
 
             // All successful
             finish();
-            return true;
 
+            return true;
         } catch (Exception e) {
             Global.logException(e, getClass());
             Dialog.showError(e.getMessage());
+
             return false;
-        } 
+        }
     }
 
     /**
@@ -134,15 +136,15 @@ public class AutoDBUpdates {
      *         (ie. All is ok)
      */
     public static boolean checkDatabaseVersion() {
-
         try {
             int iver = Configuration.getInteger("DatabaseVersion");
             Global.logDebug("Client DB Ver: " + LATEST_DB_VERSION +
                 ", Server DB Ver: " + iver, "AutoDBUpdates.checkDatabaseVersion");
-            return LATEST_DB_VERSION >= iver;
 
+            return LATEST_DB_VERSION >= iver;
         } catch (Exception e) {
             Global.logException(e, AutoDBUpdates.class);
+
             return false;
         }
     }
@@ -153,16 +155,19 @@ public class AutoDBUpdates {
             // if there were some.
             if (errors.size() > 0) {
                 String err = "";
+
                 for (int i = 0; i < errors.size(); i++) {
-                    err += errors.get(i).toString() + "\n";
+                    err += (errors.get(i).toString() + "\n");
                 }
+
                 try {
-                    Dialog.showError("Errors occurred updating:\n\n" + err +                    
+                    Dialog.showError("Errors occurred updating:\n\n" + err +
                         "\nYou may experience some problems.");
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
             }
+
             errors.removeAllElements();
             errors = null;
         } catch (Exception e) {
@@ -203,7 +208,6 @@ public class AutoDBUpdates {
 
             a.free();
             a = null;
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -255,7 +259,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("customreport: Table creation");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -286,7 +289,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "animalwaitinglist: Addition of AutoRemovePolicy and DateOfLastOwnerContact");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -437,7 +439,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: Addition of IsRetailer flag");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -452,7 +453,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("customreport: Addition of category field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -488,7 +488,6 @@ public class AutoDBUpdates {
 
             a.free();
             a = null;
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -558,7 +557,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Extension of Original Owner Phone");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -781,7 +779,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Bulk update reason codes.");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -838,7 +835,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: Bulk update owner name elements.");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -904,7 +900,6 @@ public class AutoDBUpdates {
                 pfBreeds.removeAllElements();
                 pfBreeds = null;
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -950,7 +945,6 @@ public class AutoDBUpdates {
 
             pfBreeds.removeAllElements();
             pfBreeds = null;
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1174,7 +1168,6 @@ public class AutoDBUpdates {
             cr.setDescription("");
 
             cr.save("asmupdate");
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1189,7 +1182,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("adoption: Addition of RetailerID");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1218,7 +1210,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "animalvaccination: Updating existing medical records");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1233,7 +1224,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animalvaccination: Addition of medical fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1256,7 +1246,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animalvaccination: Removal of medical fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1412,7 +1401,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal lost/found wl: Removal of address fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1565,7 +1553,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Addition of nonshelteranimal flag");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1596,7 +1583,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("customreport: repair from bad 1.12");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1612,7 +1598,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("config: Creation and setting of non-shelter type");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1685,7 +1670,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("medical tables: creation");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1717,7 +1701,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 // Ignore errors - some people will already have it
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1735,7 +1718,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animalmedicaltreatment: x of x fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1797,7 +1779,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("log: table creation");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1812,7 +1793,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("diarytaskhead: addition of RecordType field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1844,7 +1824,8 @@ public class AutoDBUpdates {
                         // If so, find the first image and mark it as web
                         // preferred
                         while (!m.getEOF()) {
-                            if (Utils.englishLower(m.getMediaName()).indexOf(".jpg") != -1) {
+                            if (Utils.englishLower(m.getMediaName())
+                                         .indexOf(".jpg") != -1) {
                                 try {
                                     DBConnection.executeAction(
                                         "UPDATE media SET WebsitePhoto=1 " +
@@ -1872,7 +1853,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Addition of HasActiveReserve field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1895,7 +1875,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: addition of MembershipExpiryDate field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1910,7 +1889,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("media: addition of Date field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1927,7 +1905,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "adoption: addition of OriginalRetailerMovementID field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1942,7 +1919,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: addition of MobileTelephone field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1957,7 +1933,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: addition of CombiTestResult field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -1998,7 +1973,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: addition of tattoo fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2013,7 +1987,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: addition of FLVResult field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2086,7 +2059,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: identichipdate and tattoodate fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2107,7 +2079,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "animal: Addition of good with cats/dogs/kids/housetrained flags");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2125,7 +2096,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Addition of heartworm test fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2145,7 +2115,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("donations: category fields and lookup table");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2181,7 +2150,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Fixing broken tri-state fields.");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2277,7 +2245,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("customreport: Addition of new ownercriteria");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2296,7 +2263,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Addition of MostRecentEntryDate field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2316,7 +2282,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("dbfs: table creation");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2330,7 +2295,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("dbfs: Extension of data field to 4GB");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2384,7 +2348,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "ownerdonation: Merging with adoptiondonation records");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2398,7 +2361,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Changing of HeartwormTestDate");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2435,7 +2397,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: Bulk update owner name elements.");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2491,7 +2452,6 @@ public class AutoDBUpdates {
             r = null;
 
             Global.logInfo("Re-encoding complete.", "AutoDBUpdates.update1411");
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2533,7 +2493,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 // This may fail on some installs
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2555,7 +2514,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("users: Password hashing");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2575,7 +2533,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("customreport: Omit fields");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2636,7 +2593,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Remove NameOfOwnersVet");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2651,7 +2607,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("configuration: Set RecordSearchLimit = 100");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2670,7 +2625,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("configuration: Set new defaults");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2692,7 +2646,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: set default for HasSpecialNeeds");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2768,7 +2721,6 @@ public class AutoDBUpdates {
 
                 r.moveNext();
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2796,7 +2748,6 @@ public class AutoDBUpdates {
                     "media: Default NewSinceLastPublish, UpdatedSinceLastPublish");
                 Global.logException(e, getClass());
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2842,7 +2793,6 @@ public class AutoDBUpdates {
                 errors.add("animal: Add age/time on shelter fields");
                 Global.logException(e, getClass());
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -2912,7 +2862,6 @@ public class AutoDBUpdates {
                 errors.add(
                     "animal: Add code indexes and datebroughtin for non-mysql");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3051,7 +3000,6 @@ public class AutoDBUpdates {
                 Global.logException(e, getClass());
                 errors.add("additionalfield/additional: Table creation");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3088,7 +3036,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: Add MatchAdded/Expiry");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3210,7 +3157,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("media: Add published dates");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3240,7 +3186,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("animal: Set default type/species");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3256,7 +3201,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: Add HomeCheckedBy field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3280,7 +3224,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("owner: DROP DatePerformedLastHomeCheck field");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3317,7 +3260,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("configuration: set agegroup thresholds");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3339,7 +3281,6 @@ public class AutoDBUpdates {
             } catch (Exception e) {
                 errors.add("ownerdonation: ADD AnimalID");
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3354,7 +3295,6 @@ public class AutoDBUpdates {
             // DB Default is 14 days, but for people who upgraded, leave this option
             // off just in case
             Configuration.setEntry("AutoCancelReservesDays", "0");
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3362,170 +3302,214 @@ public class AutoDBUpdates {
 
     public void update2701() {
         try {
-
             try {
                 // Add fields necessary for correct handling of donation instalments
-                DBConnection.executeAction("ALTER TABLE ownerdonation ADD Frequency INTEGER NULL");
-                DBConnection.executeAction("ALTER TABLE ownerdonation ADD NextCreated INTEGER NULL");
-                DBConnection.executeAction("UPDATE ownerdonation SET Frequency = 0");
-                DBConnection.executeAction("UPDATE ownerdonation SET NextCreated = 0");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE ownerdonation ADD Frequency INTEGER NULL");
+                DBConnection.executeAction(
+                    "ALTER TABLE ownerdonation ADD NextCreated INTEGER NULL");
+                DBConnection.executeAction(
+                    "UPDATE ownerdonation SET Frequency = 0");
+                DBConnection.executeAction(
+                    "UPDATE ownerdonation SET NextCreated = 0");
+            } catch (Exception e) {
                 errors.add("ownerdonation: ADD Frequency and NextCreated");
             }
 
             try {
                 // Add lookup table for the frequencies
-                if (DBConnection.DBType == DBConnection.MYSQL)
-                    DBConnection.executeAction("CREATE TABLE lksdonationfreq ( ID smallint NOT NULL DEFAULT '0', Frequency varchar(50) NOT NULL, PRIMARY KEY  (ID) )");
-                else
-                    DBConnection.executeAction("CREATE TABLE lksdonationfreq ( ID INTEGER NOT NULL PRIMARY KEY, Frequency VARCHAR(50) NOT NULL )");
+                if (DBConnection.DBType == DBConnection.MYSQL) {
+                    DBConnection.executeAction(
+                        "CREATE TABLE lksdonationfreq ( ID smallint NOT NULL DEFAULT '0', Frequency varchar(50) NOT NULL, PRIMARY KEY  (ID) )");
+                } else {
+                    DBConnection.executeAction(
+                        "CREATE TABLE lksdonationfreq ( ID INTEGER NOT NULL PRIMARY KEY, Frequency VARCHAR(50) NOT NULL )");
+                }
 
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (0, 'One-Off')");
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (1, 'Weekly')");
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (2, 'Monthly')");
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (3, 'Quarterly')");
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly')");
-                DBConnection.executeAction("INSERT INTO lksdonationfreq VALUES (5, 'Annually')");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (0, 'One-Off')");
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (1, 'Weekly')");
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (2, 'Monthly')");
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (3, 'Quarterly')");
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (4, 'Half-Yearly')");
+                DBConnection.executeAction(
+                    "INSERT INTO lksdonationfreq VALUES (5, 'Annually')");
+            } catch (Exception e) {
                 errors.add("lksdonationfreq: Creation");
             }
-
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
     }
 
     public void update2702() {
         try {
-
             try {
                 String currencyType = "FLOAT";
-                if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
-                if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
-                if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                    currencyType = "FLOAT";
+                }
+
+                if (DBConnection.DBType == DBConnection.MYSQL) {
+                    currencyType = "double";
+                }
+
+                if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                    currencyType = "REAL";
+                }
 
                 // Add medical cost tracking fields
-                DBConnection.executeAction("ALTER TABLE animalmedical ADD Cost " + currencyType + " NULL");
-                DBConnection.executeAction("ALTER TABLE medicalprofile ADD Cost " + currencyType + " NULL");
+                DBConnection.executeAction(
+                    "ALTER TABLE animalmedical ADD Cost " + currencyType +
+                    " NULL");
+                DBConnection.executeAction(
+                    "ALTER TABLE medicalprofile ADD Cost " + currencyType +
+                    " NULL");
                 DBConnection.executeAction("UPDATE animalmedical SET Cost = 0");
                 DBConnection.executeAction("UPDATE medicalprofile SET Cost = 0");
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 errors.add("animalmedical/medicalprofile: ADD Cost");
             }
 
             int entrydonation = 0;
             int wldonation = 0;
+
             try {
                 // Create our donation types for entry donation and waiting list donation
                 entrydonation = DBConnection.getPrimaryKey("donationtype");
                 wldonation = DBConnection.getPrimaryKey("donationtype");
-                DBConnection.executeAction("INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
+                DBConnection.executeAction(
+                    "INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
                     entrydonation + ", 'Entry Donation')");
-                DBConnection.executeAction("INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
+                DBConnection.executeAction(
+                    "INSERT INTO donationtype ( ID, DonationName ) VALUES ( " +
                     wldonation + ", 'Waiting List Donation')");
-            }
-            catch (Exception e) {
-                errors.add("donationtype: Create defaults for Entry Donation and Waiting List Donation");
+            } catch (Exception e) {
+                errors.add(
+                    "donationtype: Create defaults for Entry Donation and Waiting List Donation");
             }
 
             try {
-                Global.logInfo("Moving old donation records to unified ownerdonation table...", "update2702");
+                Global.logInfo("Moving old donation records to unified ownerdonation table...",
+                    "update2702");
+
                 SQLRecordset ra = new SQLRecordset();
-                ra.openRecordset("SELECT ID, BroughtInByOwnerID, DateBroughtIn, AmountDonatedOnEntry FROM animal", "animal");
+                ra.openRecordset("SELECT ID, BroughtInByOwnerID, DateBroughtIn, AmountDonatedOnEntry FROM animal",
+                    "animal");
+
                 while (!ra.getEOF()) {
                     try {
-                        if (ra.getField("BroughtInByOwnerID") != null && ((Integer)ra.getField("BroughtInByOwnerID")).intValue() > 0 &&
-                            ra.getField("AmountDonatedOnEntry") != null && ((Double)ra.getField("AmountDonatedOnEntry")).doubleValue() > 0) {
+                        if ((ra.getField("BroughtInByOwnerID") != null) &&
+                                (((Integer) ra.getField("BroughtInByOwnerID")).intValue() > 0) &&
+                                (ra.getField("AmountDonatedOnEntry") != null) &&
+                                (((Double) ra.getField("AmountDonatedOnEntry")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
                             o.addNew();
                             o.setAnimalID((Integer) ra.getField("ID"));
-                            o.setOwnerID((Integer) ra.getField("BroughtInByOwnerID"));
-                            o.setDonation((Double) ra.getField("AmountDonatedOnEntry"));
-                            o.setDateReceived((Date) ra.getField("DateBroughtIn"));
+                            o.setOwnerID((Integer) ra.getField(
+                                    "BroughtInByOwnerID"));
+                            o.setDonation((Double) ra.getField(
+                                    "AmountDonatedOnEntry"));
+                            o.setDateReceived((Date) ra.getField(
+                                    "DateBroughtIn"));
                             o.setDonationTypeID(new Integer(entrydonation));
                             o.save("update");
                         }
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                     ra.moveNext();
                 }
+
                 ra = new SQLRecordset();
-                ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist", "animalwaitinglist");
+                ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist",
+                    "animalwaitinglist");
+
                 while (!ra.getEOF()) {
                     try {
-                        if (ra.getField("OwnerID") != null && ((Integer)ra.getField("OwnerID")).intValue() > 0 &&
-                            ra.getField("DonationSize") != null && ((Double)ra.getField("DonationSize")).doubleValue() > 0) {
+                        if ((ra.getField("OwnerID") != null) &&
+                                (((Integer) ra.getField("OwnerID")).intValue() > 0) &&
+                                (ra.getField("DonationSize") != null) &&
+                                (((Double) ra.getField("DonationSize")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
                             o.addNew();
                             o.setOwnerID((Integer) ra.getField("OwnerID"));
                             o.setDonation((Double) ra.getField("DonationSize"));
-                            o.setDateReceived((Date) ra.getField("DatePutOnList"));
+                            o.setDateReceived((Date) ra.getField(
+                                    "DatePutOnList"));
                             o.setDonationTypeID(new Integer(wldonation));
                             o.save("update");
                         }
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                     ra.moveNext();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 errors.add("ownerdonation: Creating from old fields");
             }
 
             try {
-                DBConnection.executeAction("ALTER TABLE animalwaitinglist DROP DonationSize");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE animalwaitinglist DROP DonationSize");
+            } catch (Exception e) {
                 errors.add("animalwaitinglist: Remove DonationSize field");
             }
 
             try {
-                DBConnection.executeAction("ALTER TABLE animal DROP AmountDonatedOnEntry");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE animal DROP AmountDonatedOnEntry");
+            } catch (Exception e) {
                 errors.add("animal: Remove AmountDonatedOnEntry field");
             }
-
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
     }
 
     public void update2703() {
         try {
-
             String currencyType = "FLOAT";
-            if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
-            if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
-            if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+            if (DBConnection.DBType == DBConnection.HSQLDB) {
+                currencyType = "FLOAT";
+            }
+
+            if (DBConnection.DBType == DBConnection.MYSQL) {
+                currencyType = "double";
+            }
+
+            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                currencyType = "REAL";
+            }
 
             try {
                 // Add DaysOnShelter and DailyBoardingCost field to animal
-                DBConnection.executeAction("ALTER TABLE animal ADD DailyBoardingCost " + currencyType + " NULL");
-                DBConnection.executeAction("ALTER TABLE animal ADD DaysOnShelter INTEGER NULL");
-                DBConnection.executeAction("UPDATE animal SET DailyBoardingCost = 0, DaysOnShelter = 0");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE animal ADD DailyBoardingCost " + currencyType +
+                    " NULL");
+                DBConnection.executeAction(
+                    "ALTER TABLE animal ADD DaysOnShelter INTEGER NULL");
+                DBConnection.executeAction(
+                    "UPDATE animal SET DailyBoardingCost = 0, DaysOnShelter = 0");
+            } catch (Exception e) {
                 errors.add("animal: Add BoardingCost and DaysOnShelter");
             }
 
             try {
                 // Add animalcost table and costtype lookup
                 if (DBConnection.DBType == DBConnection.HSQLDB) {
-                    DBConnection.executeAction("CREATE MEMORY TABLE animalcost (" +
+                    DBConnection.executeAction(
+                        "CREATE MEMORY TABLE animalcost (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
                         "AnimalID INTEGER NOT NULL, " +
                         "CostTypeID INTEGER NOT NULL, " +
@@ -3536,19 +3520,20 @@ public class AutoDBUpdates {
                         "CreatedBy VARCHAR(255) NOT NULL, " +
                         "CreatedDate TIMESTAMP NOT NULL, " +
                         "LastChangedBy VARCHAR(255) NOT NULL, " +
-                        "LastChangedDate TIMESTAMP NOT NULL" +
-                        ")");
-                    DBConnection.executeAction("CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
-                    DBConnection.executeAction("CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
-                    DBConnection.executeAction("CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
+                        "LastChangedDate TIMESTAMP NOT NULL" + ")");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
                     DBConnection.executeAction("CREATE MEMORY TABLE costtype (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
                         "CostTypeName VARCHAR(255) NOT NULL, " +
                         "CostTypeDescription VARCHAR(255) NULL)");
-                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
-
-                }
-                else if (DBConnection.DBType == DBConnection.MYSQL) {
+                    DBConnection.executeAction(
+                        "INSERT INTO costtype VALUES (1, 'Microchip', '')");
+                } else if (DBConnection.DBType == DBConnection.MYSQL) {
                     DBConnection.executeAction("CREATE TABLE animalcost (" +
                         "ID int(11) NOT NULL, " +
                         "AnimalID int(11) NOT NULL, " +
@@ -3564,16 +3549,15 @@ public class AutoDBUpdates {
                         "PRIMARY KEY (ID), " +
                         "KEY IX_animalcost_AnimalID (AnimalID), " +
                         "KEY IX_animalcost_CostTypeID (CostTypeID), " +
-                        "KEY IX_animalcost_CostDate (CostDate) " +
-                        ")");
+                        "KEY IX_animalcost_CostDate (CostDate) " + ")");
                     DBConnection.executeAction("CREATE TABLE costtype (" +
                         "ID int(11) NOT NULL, " +
                         "CostTypeName VARCHAR(255) NOT NULL, " +
                         "CostTypeDescription VARCHAR(255) NULL, " +
                         "PRIMARY KEY (ID) )");
-                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
-                }
-                else if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                    DBConnection.executeAction(
+                        "INSERT INTO costtype VALUES (1, 'Microchip', '')");
+                } else if (DBConnection.DBType == DBConnection.POSTGRESQL) {
                     DBConnection.executeAction("CREATE TABLE animalcost (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
                         "AnimalID INTEGER NOT NULL, " +
@@ -3585,211 +3569,216 @@ public class AutoDBUpdates {
                         "CreatedBy VARCHAR(255) NOT NULL, " +
                         "CreatedDate TIMESTAMP NOT NULL, " +
                         "LastChangedBy VARCHAR(255) NOT NULL, " +
-                        "LastChangedDate TIMESTAMP NOT NULL" +
-                        ")");
-                    DBConnection.executeAction("CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
-                    DBConnection.executeAction("CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
-                    DBConnection.executeAction("CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
+                        "LastChangedDate TIMESTAMP NOT NULL" + ")");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID)");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID)");
+                    DBConnection.executeAction(
+                        "CREATE INDEX animalcost_CostDate ON animalcost (CostDate)");
                     DBConnection.executeAction("CREATE TABLE costtype (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
                         "CostTypeName VARCHAR(255) NOT NULL, " +
                         "CostTypeDescription VARCHAR(255) NULL)");
-                    DBConnection.executeAction("INSERT INTO costtype VALUES (1, 'Microchip', '')");
+                    DBConnection.executeAction(
+                        "INSERT INTO costtype VALUES (1, 'Microchip', '')");
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
                 errors.add("animalcost + costtype: creation");
             }
-
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
     }
 
     public void update2704() {
         try {
-
             try {
                 String currencyType = "FLOAT";
-                if (DBConnection.DBType == DBConnection.HSQLDB) currencyType = "FLOAT";
-                if (DBConnection.DBType == DBConnection.MYSQL) currencyType = "double";
-                if (DBConnection.DBType == DBConnection.POSTGRESQL) currencyType = "REAL";
+
+                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                    currencyType = "FLOAT";
+                }
+
+                if (DBConnection.DBType == DBConnection.MYSQL) {
+                    currencyType = "double";
+                }
+
+                if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                    currencyType = "REAL";
+                }
 
                 // Add vaccination cost tracking fields
-                DBConnection.executeAction("ALTER TABLE animalvaccination ADD Cost " + currencyType + " NULL");
-                DBConnection.executeAction("UPDATE animalvaccination SET Cost = 0");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE animalvaccination ADD Cost " + currencyType +
+                    " NULL");
+                DBConnection.executeAction(
+                    "UPDATE animalvaccination SET Cost = 0");
+            } catch (Exception e) {
                 errors.add("animalvaccination: ADD Cost");
             }
 
             try {
-                DBConnection.executeAction("ALTER TABLE owner ADD MembershipNumber VARCHAR(255) NULL");
-                DBConnection.executeAction("UPDATE owner SET MembershipNumber = ''");
-            }
-            catch (Exception e) {
+                DBConnection.executeAction(
+                    "ALTER TABLE owner ADD MembershipNumber VARCHAR(255) NULL");
+                DBConnection.executeAction(
+                    "UPDATE owner SET MembershipNumber = ''");
+            } catch (Exception e) {
                 errors.add("owner: ADD MembershipNumber");
             }
 
             // Fields for built in double entry book keeping package
-            String[] hsqldb = { 
-                "CREATE MEMORY TABLE accounts (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "Code VARCHAR(255) NOT NULL, " +
-                "Description VARCHAR(255) NOT NULL, " +
-                "AccountType INTEGER NOT NULL, " +
-                "DonationTypeID INTEGER NULL, " +
-                "RecordVersion INTEGER NOT NULL, " +
-                "CreatedBy VARCHAR(255) NOT NULL, " +
-                "CreatedDate TIMESTAMP NOT NULL, " +
-                "LastChangedBy VARCHAR(255) NOT NULL, " +
-                "LastChangedDate TIMESTAMP NOT NULL " +
-                ")",
-                "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
-                "CREATE MEMORY TABLE accountstrx (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "TrxDate TIMESTAMP NOT NULL, " +
-                "Description VARCHAR(255) NULL, " +
-                "Reconciled INTEGER NOT NULL, " +
-                "Amount FLOAT NOT NULL, " +
-                "SourceAccountID INTEGER NOT NULL, " +
-                "DestinationAccountID INTEGER NOT NULL, " +
-                "OwnerDonationID INTEGER NULL, " +
-                "RecordVersion INTEGER NOT NULL, " +
-                "CreatedBy VARCHAR(255) NOT NULL, " +
-                "CreatedDate TIMESTAMP NOT NULL, " +
-                "LastChangedBy VARCHAR(255) NOT NULL, " +
-                "LastChangedDate TIMESTAMP NOT NULL " +
-                ")",
-                "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
-                "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
-                "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
-                "CREATE MEMORY TABLE lksaccounttype (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "AccountType VARCHAR(255) NOT NULL " +
-                ")",
-                "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
-                "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
-                "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
-                "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
-                "INSERT INTO lksaccounttype VALUES (5, 'Income')",
-                "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
-                "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
-                "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
-                "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
-            };
-            String[] postgresql = { 
-                "CREATE TABLE accounts (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "Code VARCHAR(255) NOT NULL, " +
-                "Description VARCHAR(255) NOT NULL, " +
-                "AccountType INTEGER NOT NULL, " +
-                "DonationTypeID INTEGER NULL, " +
-                "RecordVersion INTEGER NOT NULL, " +
-                "CreatedBy VARCHAR(255) NOT NULL, " +
-                "CreatedDate TIMESTAMP NOT NULL, " +
-                "LastChangedBy VARCHAR(255) NOT NULL, " +
-                "LastChangedDate TIMESTAMP NOT NULL " +
-                ")",
-                "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
-                "CREATE TABLE accountstrx (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "TrxDate TIMESTAMP NOT NULL, " +
-                "Description VARCHAR(255) NULL, " +
-                "Reconciled INTEGER NOT NULL, " +
-                "Amount REAL NOT NULL, " +
-                "SourceAccountID INTEGER NOT NULL, " +
-                "DestinationAccountID INTEGER NOT NULL, " +
-                "OwnerDonationID INTEGER NULL, " +
-                "RecordVersion INTEGER NOT NULL, " +
-                "CreatedBy VARCHAR(255) NOT NULL, " +
-                "CreatedDate TIMESTAMP NOT NULL, " +
-                "LastChangedBy VARCHAR(255) NOT NULL, " +
-                "LastChangedDate TIMESTAMP NOT NULL " +
-                ")",
-                "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
-                "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
-                "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
-                "CREATE TABLE lksaccounttype (" +
-                "ID INTEGER NOT NULL PRIMARY KEY, " +
-                "AccountType VARCHAR(255) NOT NULL " +
-                ")",
-                "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
-                "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
-                "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
-                "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
-                "INSERT INTO lksaccounttype VALUES (5, 'Income')",
-                "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
-                "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
-                "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
-                "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
-            };
+            String[] hsqldb = {
+                    "CREATE MEMORY TABLE accounts (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "Code VARCHAR(255) NOT NULL, " +
+                    "Description VARCHAR(255) NOT NULL, " +
+                    "AccountType INTEGER NOT NULL, " +
+                    "DonationTypeID INTEGER NULL, " +
+                    "RecordVersion INTEGER NOT NULL, " +
+                    "CreatedBy VARCHAR(255) NOT NULL, " +
+                    "CreatedDate TIMESTAMP NOT NULL, " +
+                    "LastChangedBy VARCHAR(255) NOT NULL, " +
+                    "LastChangedDate TIMESTAMP NOT NULL " + ")",
+                    "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
+                    
+                    "CREATE MEMORY TABLE accountstrx (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "TrxDate TIMESTAMP NOT NULL, " +
+                    "Description VARCHAR(255) NULL, " +
+                    "Reconciled INTEGER NOT NULL, " +
+                    "Amount FLOAT NOT NULL, " +
+                    "SourceAccountID INTEGER NOT NULL, " +
+                    "DestinationAccountID INTEGER NOT NULL, " +
+                    "OwnerDonationID INTEGER NULL, " +
+                    "RecordVersion INTEGER NOT NULL, " +
+                    "CreatedBy VARCHAR(255) NOT NULL, " +
+                    "CreatedDate TIMESTAMP NOT NULL, " +
+                    "LastChangedBy VARCHAR(255) NOT NULL, " +
+                    "LastChangedDate TIMESTAMP NOT NULL " + ")",
+                    "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
+                    "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
+                    "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
+                    
+                    "CREATE MEMORY TABLE lksaccounttype (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "AccountType VARCHAR(255) NOT NULL " + ")",
+                    "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                    "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                    "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                    "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                    "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                    "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                    "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                    "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                    "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+                };
+            String[] postgresql = {
+                    "CREATE TABLE accounts (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "Code VARCHAR(255) NOT NULL, " +
+                    "Description VARCHAR(255) NOT NULL, " +
+                    "AccountType INTEGER NOT NULL, " +
+                    "DonationTypeID INTEGER NULL, " +
+                    "RecordVersion INTEGER NOT NULL, " +
+                    "CreatedBy VARCHAR(255) NOT NULL, " +
+                    "CreatedDate TIMESTAMP NOT NULL, " +
+                    "LastChangedBy VARCHAR(255) NOT NULL, " +
+                    "LastChangedDate TIMESTAMP NOT NULL " + ")",
+                    "CREATE UNIQUE INDEX accounts_Code ON accounts (Code)",
+                    
+                    "CREATE TABLE accountstrx (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "TrxDate TIMESTAMP NOT NULL, " +
+                    "Description VARCHAR(255) NULL, " +
+                    "Reconciled INTEGER NOT NULL, " + "Amount REAL NOT NULL, " +
+                    "SourceAccountID INTEGER NOT NULL, " +
+                    "DestinationAccountID INTEGER NOT NULL, " +
+                    "OwnerDonationID INTEGER NULL, " +
+                    "RecordVersion INTEGER NOT NULL, " +
+                    "CreatedBy VARCHAR(255) NOT NULL, " +
+                    "CreatedDate TIMESTAMP NOT NULL, " +
+                    "LastChangedBy VARCHAR(255) NOT NULL, " +
+                    "LastChangedDate TIMESTAMP NOT NULL " + ")",
+                    "CREATE INDEX accountstrx_TrxDate ON accountstrx (TrxDate)",
+                    "CREATE INDEX accountstrx_Source ON accountstrx (SourceAccountID)",
+                    "CREATE INDEX accountstrx_Dest ON accountstrx (DestinationAccountID)",
+                    
+                    "CREATE TABLE lksaccounttype (" +
+                    "ID INTEGER NOT NULL PRIMARY KEY, " +
+                    "AccountType VARCHAR(255) NOT NULL " + ")",
+                    "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                    "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                    "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                    "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                    "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                    "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                    "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                    "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                    "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+                };
             String[] mysql = {
-                "CREATE TABLE accounts (" +
-                 "ID int(11) NOT NULL, " +
-                 "Code varchar(255) NOT NULL, " +
-                 "Description varchar(255) NOT NULL, " +
-                 "AccountType smallint NOT NULL, " +
-                 "DonationTypeID int(11) NULL, " +
-                 "RecordVersion int(11) NOT NULL, " +
-                 "CreatedBy varchar(255) NOT NULL, " +
-                 "CreatedDate datetime NOT NULL, " +
-                 "LastChangedBy varchar(255) NOT NULL, " +
-                 "LastChangedDate datetime NOT NULL, " +
-                 "PRIMARY KEY (ID), " +
-                 "KEY IX_AccountsCode(Code) " +
-                 ")",
-                 "CREATE TABLE accountstrx (" +
-                 "ID int(11) NOT NULL," +
-                 "TrxDate datetime NOT NULL," +
-                 "Description varchar(255) NULL," +
-                 "Reconciled smallint NOT NULL," +
-                 "Amount double NOT NULL," +
-                 "SourceAccountID int(11) NOT NULL," +
-                 "DestinationAccountID int(11) NOT NULL," +
-                 "OwnerDonationID int(11) NULL," +
-                 "RecordVersion int(11) NOT NULL," +
-                 "CreatedBy varchar(255) NOT NULL," +
-                 "CreatedDate datetime NOT NULL," +
-                 "LastChangedBy varchar(255) NOT NULL," +
-                 "LastChangedDate datetime NOT NULL," +
-                 "PRIMARY KEY (ID)," +
-                 "KEY IX_TrxDate(TrxDate)," +
-                 "KEY IX_TrxSource(SourceAccountID)," +
-                 "KEY IX_TrxDest(DestinationAccountID)" +
-                 ")",
-                 "CREATE TABLE lksaccounttype (" +
-                 "ID int(11) NOT NULL," +
-                 "AccountType VARCHAR(255) NOT NULL," +
-                 "PRIMARY KEY (ID)" +
-                 ")",
-                 "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
-                 "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
-                 "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
-                 "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
-                 "INSERT INTO lksaccounttype VALUES (5, 'Income')",
-                 "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
-                 "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
-                 "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
-                 "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
-            };
+                    "CREATE TABLE accounts (" + "ID int(11) NOT NULL, " +
+                    "Code varchar(255) NOT NULL, " +
+                    "Description varchar(255) NOT NULL, " +
+                    "AccountType smallint NOT NULL, " +
+                    "DonationTypeID int(11) NULL, " +
+                    "RecordVersion int(11) NOT NULL, " +
+                    "CreatedBy varchar(255) NOT NULL, " +
+                    "CreatedDate datetime NOT NULL, " +
+                    "LastChangedBy varchar(255) NOT NULL, " +
+                    "LastChangedDate datetime NOT NULL, " +
+                    "PRIMARY KEY (ID), " + "KEY IX_AccountsCode(Code) " + ")",
+                    
+                    "CREATE TABLE accountstrx (" + "ID int(11) NOT NULL," +
+                    "TrxDate datetime NOT NULL," +
+                    "Description varchar(255) NULL," +
+                    "Reconciled smallint NOT NULL," +
+                    "Amount double NOT NULL," +
+                    "SourceAccountID int(11) NOT NULL," +
+                    "DestinationAccountID int(11) NOT NULL," +
+                    "OwnerDonationID int(11) NULL," +
+                    "RecordVersion int(11) NOT NULL," +
+                    "CreatedBy varchar(255) NOT NULL," +
+                    "CreatedDate datetime NOT NULL," +
+                    "LastChangedBy varchar(255) NOT NULL," +
+                    "LastChangedDate datetime NOT NULL," + "PRIMARY KEY (ID)," +
+                    "KEY IX_TrxDate(TrxDate)," +
+                    "KEY IX_TrxSource(SourceAccountID)," +
+                    "KEY IX_TrxDest(DestinationAccountID)" + ")",
+                    
+                    "CREATE TABLE lksaccounttype (" + "ID int(11) NOT NULL," +
+                    "AccountType VARCHAR(255) NOT NULL," + "PRIMARY KEY (ID)" +
+                    ")", "INSERT INTO lksaccounttype VALUES (1, 'Bank')",
+                    "INSERT INTO lksaccounttype VALUES (2, 'Credit Card')",
+                    "INSERT INTO lksaccounttype VALUES (3, 'Loan')",
+                    "INSERT INTO lksaccounttype VALUES (4, 'Expense')",
+                    "INSERT INTO lksaccounttype VALUES (5, 'Income')",
+                    "INSERT INTO lksaccounttype VALUES (6, 'Pension')",
+                    "INSERT INTO lksaccounttype VALUES (7, 'Shares')",
+                    "INSERT INTO lksaccounttype VALUES (8, 'Asset')",
+                    "INSERT INTO lksaccounttype VALUES (9, 'Liability')"
+                };
             String[] use = hsqldb;
-            if (DBConnection.DBType == DBConnection.MYSQL) use = mysql;
-            if (DBConnection.DBType == DBConnection.POSTGRESQL) use = postgresql;
+
+            if (DBConnection.DBType == DBConnection.MYSQL) {
+                use = mysql;
+            }
+
+            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                use = postgresql;
+            }
+
             for (int i = 0; i < use.length; i++) {
                 try {
                     DBConnection.executeAction(use[i]);
-                }
-                catch (Exception e) {
-                    Global.logError("Failed executing: " + use[i], "AutoDBUpdates.update2704");
+                } catch (Exception e) {
+                    Global.logError("Failed executing: " + use[i],
+                        "AutoDBUpdates.update2704");
                     Global.logException(e, getClass());
                 }
             }
-
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -3797,18 +3786,15 @@ public class AutoDBUpdates {
 
     public void update2705() {
         try {
-
             // Add the media DocPhoto field
-            DBConnection.executeAction("ALTER TABLE media ADD DocPhoto INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE media ADD DocPhoto INTEGER NULL");
             DBConnection.executeAction("UPDATE media SET DocPhoto = 0");
-
         } catch (Exception e) {
             errors.add("media: ADD DocPhoto");
             Global.logException(e, getClass());
         }
     }
-
-
 }
 
 

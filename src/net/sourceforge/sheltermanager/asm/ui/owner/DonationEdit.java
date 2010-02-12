@@ -166,9 +166,9 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
             // Set default donation type if we have one
             Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
-                "DonationName", new Integer(Configuration.getInteger("AFDefaultDonationType")),
+                "DonationName",
+                new Integer(Configuration.getInteger("AFDefaultDonationType")),
                 cboDonationType);
-
 
             this.setTitle(i18n("new_owner_donation"));
         } catch (Exception e) {
@@ -192,7 +192,8 @@ public class DonationEdit extends ASMForm implements SearchListener,
         txtDonation = (CurrencyField) UI.addComponent(top, i18n("donation"),
                 UI.getCurrencyField());
 
-        cboFrequency = UI.getCombo(LookupCache.getDonationFreqLookup(), "Frequency");
+        cboFrequency = UI.getCombo(LookupCache.getDonationFreqLookup(),
+                "Frequency");
         cboFrequency.setSelectedIndex(0);
         UI.addComponent(top, i18n("frequency"), cboFrequency);
 
@@ -257,33 +258,44 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
             // Do we have a frequency > 0, the nextcreated flag isn't set
             // and there's a datereceived and a datedue?
-            if (od.getDateDue() != null && od.getDateReceived() != null && 
-                ((Integer) od.getFrequency()).intValue() > 0 &&
-                ((Integer) od.getNextCreated()).intValue() == 0) {
-
+            if ((od.getDateDue() != null) && (od.getDateReceived() != null) &&
+                    (((Integer) od.getFrequency()).intValue() > 0) &&
+                    (((Integer) od.getNextCreated()).intValue() == 0)) {
                 OwnerDonation od2 = od.copy();
 
                 // Clear the date received and update the date due
                 Calendar c = Calendar.getInstance();
-                c.setTime( ((Date) od.getDateDue()) );
+                c.setTime(((Date) od.getDateDue()));
+
                 int freq = ((Integer) od.getFrequency()).intValue();
+
                 switch (freq) {
-                    case 1:     // weekly
-                        c.add(Calendar.WEEK_OF_YEAR, 1);
-                        break;
-                    case 2:     // monthly
-                        c.add(Calendar.MONTH, 1);
-                        break;
-                    case 3:     // quarterly
-                        c.add(Calendar.MONTH, 3);
-                        break;
-                    case 4:     // half-yearly
-                        c.add(Calendar.MONTH, 6);
-                        break;
-                    case 5:     // annually
-                        c.add(Calendar.YEAR, 1);
-                        break;
+                case 1: // weekly
+                    c.add(Calendar.WEEK_OF_YEAR, 1);
+
+                    break;
+
+                case 2: // monthly
+                    c.add(Calendar.MONTH, 1);
+
+                    break;
+
+                case 3: // quarterly
+                    c.add(Calendar.MONTH, 3);
+
+                    break;
+
+                case 4: // half-yearly
+                    c.add(Calendar.MONTH, 6);
+
+                    break;
+
+                case 5: // annually
+                    c.add(Calendar.YEAR, 1);
+
+                    break;
                 }
+
                 od2.setDateReceived(null);
                 od2.setDateDue(c.getTime());
 

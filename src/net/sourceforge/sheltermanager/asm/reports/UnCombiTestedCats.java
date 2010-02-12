@@ -142,8 +142,7 @@ public class UnCombiTestedCats extends Report {
                         "No_cats_matching_your_criteria_were_found_on_the_shelter."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

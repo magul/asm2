@@ -250,8 +250,7 @@ public class DateFromTo extends ASMForm {
             // Destroy this form 
             dispose();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_opening_the_report") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

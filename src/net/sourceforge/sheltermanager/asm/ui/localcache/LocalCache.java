@@ -201,9 +201,7 @@ public class LocalCache {
 
             out.close();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uilocalcache",
-                    "An_error_occurred_dumping_cache_information:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

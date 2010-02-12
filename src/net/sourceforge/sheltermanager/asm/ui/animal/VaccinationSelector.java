@@ -29,8 +29,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -181,7 +181,6 @@ public class VaccinationSelector extends ASMSelector
                     IconManager.SCREEN_EDITVACCINATIONS_RESCHEDULE),
                 UI.fp(this, "actionReschedule"));
         addToolButton(btnReschedule, true);
-
     }
 
     public void actionAdd() {
@@ -333,5 +332,4 @@ public class VaccinationSelector extends ASMSelector
             }
         }
     }
-
 }

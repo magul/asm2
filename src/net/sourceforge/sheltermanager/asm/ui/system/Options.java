@@ -310,11 +310,13 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultCoatType")),
             cboDefaultCoatType);
 
-        Utils.setComboFromID(LookupCache.getDonationTypeLookup(), "DonationName",
+        Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+            "DonationName",
             new Integer(Configuration.getInteger("AFDefaultDonationType")),
             cboDefaultDonationType);
 
-        txtDefaultBoardingCost.setValue(Configuration.getDouble("DefaultDailyBoardingCost"));
+        txtDefaultBoardingCost.setValue(Configuration.getDouble(
+                "DefaultDailyBoardingCost"));
 
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
@@ -517,8 +519,7 @@ public class Options extends ASMForm {
 
             return true;
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uisystem",
-                    "An_error_occurred_saving_the_data:_") + e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -751,10 +752,11 @@ public class Options extends ASMForm {
 
         cboDefaultDonationType = UI.getCombo(LookupCache.getDonationTypeLookup(),
                 "DonationName");
-        UI.addComponent(pr, i18n("Default_Donation_Type"), cboDefaultDonationType);
+        UI.addComponent(pr, i18n("Default_Donation_Type"),
+            cboDefaultDonationType);
 
-        txtDefaultBoardingCost = (CurrencyField) UI.addComponent(
-            pr, i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());
+        txtDefaultBoardingCost = (CurrencyField) UI.addComponent(pr,
+                i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
@@ -801,9 +803,9 @@ public class Options extends ASMForm {
                              .equalsIgnoreCase("Yes"), false));
 
         l.add(new SelectableItem(Global.i18n("uisystem",
-                   "Default_media_notes_to_original_filename"),
-                   "DefaultMediaNotesFromFile",
-                   Configuration.getString("DefaultMediaNotesFromFile")
+                    "Default_media_notes_to_original_filename"),
+                "DefaultMediaNotesFromFile",
+                Configuration.getString("DefaultMediaNotesFromFile")
                              .equalsIgnoreCase("Yes"), false));
 
         tblDefaultOptions = new SelectableList(l);

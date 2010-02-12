@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Removed 81 unnecessary translation strings relating to error
+-  message prefixes ("an error occurred doing X:")
 *. Removed unnecessary keys from template for WarnMultipleReserves
 -  and WarnBannedOwner
 *. Fix to ensure that date fields don't include hotkeys in the box

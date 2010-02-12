@@ -610,8 +610,8 @@ public class CustomReportExecute extends Report {
 
                     for (int i = 0; i < group.length; i++) {
                         GroupDescriptor gd = (GroupDescriptor) group[i];
-                        lastSort = orderBy.indexOf(Utils.englishLower(gd.fieldName),
-                                lastSort);
+                        lastSort = orderBy.indexOf(Utils.englishLower(
+                                    gd.fieldName), lastSort);
                         gd = null;
                         okSoFar = (lastSort != -1);
 
@@ -647,9 +647,9 @@ public class CustomReportExecute extends Report {
 
             // Make sure the last query is a SELECT or (SELECT for UNION
             if (!Utils.englishLower(queries[queries.length - 1]).trim()
-                                                .startsWith("select") &&
+                          .startsWith("select") &&
                     !Utils.englishLower(queries[queries.length - 1]).trim()
-                                                    .startsWith("(select")) {
+                              .startsWith("(select")) {
                 Dialog.showError(Global.i18n("reports",
                         "there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run"));
 
@@ -660,11 +660,16 @@ public class CustomReportExecute extends Report {
             for (int i = 0; i < queries.length; i++) {
                 try {
                     // If it's an action query, execute it
-                    if (Utils.englishLower(queries[i].trim()).startsWith("create") ||
-                    		Utils.englishLower(queries[i].trim()).startsWith("drop") ||
-                    		Utils.englishLower(queries[i].trim()).startsWith("insert") ||
-                    		Utils.englishLower(queries[i].trim()).startsWith("update") ||
-                    		Utils.englishLower(queries[i].trim()).startsWith("delete")) {
+                    if (Utils.englishLower(queries[i].trim())
+                                 .startsWith("create") ||
+                            Utils.englishLower(queries[i].trim())
+                                     .startsWith("drop") ||
+                            Utils.englishLower(queries[i].trim())
+                                     .startsWith("insert") ||
+                            Utils.englishLower(queries[i].trim())
+                                     .startsWith("update") ||
+                            Utils.englishLower(queries[i].trim())
+                                     .startsWith("delete")) {
                         Global.logDebug("EXECUTE: " + queries[i],
                             "generateReport");
                         DBConnection.executeAction(queries[i]);
@@ -673,9 +678,7 @@ public class CustomReportExecute extends Report {
                         rs.openRecordset(queries[i], "animal");
                     }
                 } catch (Exception e) {
-                    Dialog.showError(Global.i18n("reports",
-                            "An_error_occurred_generating_the_report",
-                            e.getMessage()));
+                    Dialog.showError(e.getMessage());
                     Global.logException(e, getClass());
                 }
             }
@@ -787,10 +790,13 @@ public class CustomReportExecute extends Report {
                         try {
                             // If it's an action query, execute it
                             if (Utils.englishLower(field).startsWith("create") ||
-                            		Utils.englishLower(field).startsWith("drop") ||
-                            		Utils.englishLower(field).startsWith("insert") ||
-                            		Utils.englishLower(field).startsWith("update") ||
-                            		Utils.englishLower(field).startsWith("delete")) {
+                                    Utils.englishLower(field).startsWith("drop") ||
+                                    Utils.englishLower(field)
+                                             .startsWith("insert") ||
+                                    Utils.englishLower(field)
+                                             .startsWith("update") ||
+                                    Utils.englishLower(field)
+                                             .startsWith("delete")) {
                                 DBConnection.executeAction(field);
                                 value = "";
                             } else {
@@ -943,7 +949,7 @@ public class CustomReportExecute extends Report {
             // temporary table, then we should drop it now:
             for (int i = 0; i < queries.length; i++) {
                 if (Utils.englishLower(queries[i].trim())
-                                  .startsWith("create temporary")) {
+                             .startsWith("create temporary")) {
                     dropTemporaryTable(queries[i]);
                 }
             }
@@ -973,9 +979,7 @@ public class CustomReportExecute extends Report {
             try {
                 DBConnection.executeAction("DROP TABLE " + tname);
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("reports",
-                        "An_error_occurred_dropping_temporary_table_", tname,
-                        e.getMessage()));
+                Dialog.showError(e.getMessage());
             }
         }
     }
@@ -1236,10 +1240,10 @@ public class CustomReportExecute extends Report {
                     try {
                         // If it's an action query, execute it
                         if (Utils.englishLower(field).startsWith("create") ||
-                        		Utils.englishLower(field).startsWith("drop") ||
-                        		Utils.englishLower(field).startsWith("insert") ||
-                        		Utils.englishLower(field).startsWith("update") ||
-                        		Utils.englishLower(field).startsWith("delete")) {
+                                Utils.englishLower(field).startsWith("drop") ||
+                                Utils.englishLower(field).startsWith("insert") ||
+                                Utils.englishLower(field).startsWith("update") ||
+                                Utils.englishLower(field).startsWith("delete")) {
                             DBConnection.executeAction(field);
                             value = "";
                         } else {

@@ -284,9 +284,7 @@ public class ConfigureLocal extends ASMForm {
             out.flush();
             out.close();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uisystem",
-                    "An_error_occurred_saving_changes_to_localsettings.conf:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return false;

@@ -236,7 +236,7 @@ public class MediaAdd extends ASMForm {
 
             if (m.getEOF()) {
                 if (Utils.englishLower(fileextension).equals("jpg") ||
-                		Utils.englishLower(fileextension).equals("jpeg")) {
+                        Utils.englishLower(fileextension).equals("jpeg")) {
                     media.setWebSitePhoto(new Integer(1));
                     media.setDocPhoto(new Integer(1));
                 } else {
@@ -361,7 +361,8 @@ public class MediaAdd extends ASMForm {
                                                 .getAbsolutePath());
 
                 // If notes are blank and the option is set, throw the filename in there
-                if (txtNotes.getText().equals("") && Configuration.getBoolean("DefaultMediaNotesFromFile")) {
+                if (txtNotes.getText().equals("") &&
+                        Configuration.getBoolean("DefaultMediaNotesFromFile")) {
                     String filename = txtFileName.getText();
 
                     if (filename.indexOf(File.separator) != -1) {

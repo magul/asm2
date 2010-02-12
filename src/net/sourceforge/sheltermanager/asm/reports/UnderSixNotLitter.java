@@ -111,8 +111,7 @@ public class UnderSixNotLitter extends Report {
                         "All_animals_on_the_shelter_of_the_selected_species_are_part_of_a_litter."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

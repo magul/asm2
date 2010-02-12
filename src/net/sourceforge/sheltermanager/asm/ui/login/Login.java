@@ -323,9 +323,7 @@ public class Login extends ASMWindow {
             Global.logException(ex, Login.class);
 
             // Show the error to the user
-            Dialog.showError(Global.i18n("uilogin",
-                    "An_error_occurred_obtaining_a_connection_to_the_database_-_") +
-                ex.getMessage(), Global.i18n("uilogin", "Error"));
+            Dialog.showError(ex.getMessage());
         }
     }
 }

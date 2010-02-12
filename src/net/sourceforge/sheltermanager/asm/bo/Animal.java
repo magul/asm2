@@ -1811,9 +1811,8 @@ public class Animal extends UserInfoBO {
                 Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
                 "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
                 "AgeGroup = '" + an.calculateAgeGroup() + "', " +
-                "AnimalAge = '" + an.getAge() + "', " +
-                "DaysOnShelter = '" + an.getDaysOnShelter() + "' " + 
-                "WHERE ID = " + an.getID();
+                "AnimalAge = '" + an.getAge() + "', " + "DaysOnShelter = '" +
+                an.getDaysOnShelter() + "' " + "WHERE ID = " + an.getID();
 
             DBConnection.executeAction(sql);
         } catch (Exception e) {
@@ -1990,7 +1989,6 @@ public class Animal extends UserInfoBO {
      * returned in years and months
      */
     public String getTimeOnShelter() throws CursorEngineException {
-        
         // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
 
@@ -2035,11 +2033,10 @@ public class Animal extends UserInfoBO {
      * Returns the animal's time on shelter in days
      */
     public int getDaysOnShelter() throws CursorEngineException {
-        
         // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
         long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
-        
+
         // Diff is returned in minutes, so turn it into days
         return (int) ((diff / 60) / 24);
     }
@@ -2139,7 +2136,7 @@ public class Animal extends UserInfoBO {
      * Returns the name of the file in their media directory that the animal
      * should use for documents. If none has the doc preferred option set,
      * the first image will be used. This information is cached within the
-     * client object 
+     * client object
      */
     public String getDocMedia() throws CursorEngineException {
         Media med = new Media();
@@ -2838,7 +2835,6 @@ public class Animal extends UserInfoBO {
         String shortcode = "";
 
         while (!isUnique) {
-            
             String padyear = Utils.zeroPad(highestyear, 3);
             String nopadyear = Integer.toString(highestyear);
             String padever = Utils.zeroPad(highestever, 4);
@@ -2851,27 +2847,35 @@ public class Animal extends UserInfoBO {
                 "Animal.generateAnimalCode");
 
             // Now format the data
-            code = substituteCodeTokens(format, cal, padbig, padever,
+            code = substituteCodeTokens(format, cal, padbig, padever, padyear,
+                    nopadyear, animalType);
+            shortcode = substituteCodeTokens(shortformat, cal, padbig, padever,
                     padyear, nopadyear, animalType);
-            shortcode = substituteCodeTokens(shortformat, cal, padbig,
-                    padever, padyear, nopadyear, animalType);
 
             Global.logDebug("Code generated: code=" + code + ", shortcode=" +
                 shortcode, "Animal.generateAnimalCode");
 
             // Test for uniqueness
             try {
-                if (0 == DBConnection.executeForCount("SELECT COUNT(*) FROM animal WHERE ShelterCode Like '" + code + "'")) {
+                if (0 == DBConnection.executeForCount(
+                            "SELECT COUNT(*) FROM animal WHERE ShelterCode Like '" +
+                            code + "'")) {
                     isUnique = true;
+                } else {
+                    Global.logDebug("Code already exists in database, regenerating...",
+                        "Animal.generateAnimalCode");
+
+                    if (highestyear > 0) {
+                        highestyear++;
+                    }
+
+                    if (highestever > 0) {
+                        highestever++;
+                    }
                 }
-                else {
-                    Global.logDebug("Code already exists in database, regenerating...", "Animal.generateAnimalCode");
-                    if (highestyear > 0) highestyear++;
-                    if (highestever > 0) highestever++;
-                }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, Animal.class);
+
                 break;
             }
         }
@@ -3042,12 +3046,12 @@ public class Animal extends UserInfoBO {
             preferredWebMedia = null;
         } catch (Exception e) {
         }
+
         try {
             preferredDocMedia.free();
             preferredDocMedia = null;
         } catch (Exception e) {
         }
-
 
         super.free();
     }

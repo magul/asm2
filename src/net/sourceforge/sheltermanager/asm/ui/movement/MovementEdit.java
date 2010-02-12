@@ -279,8 +279,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             movement.openRecordset("ID = 0");
             movement.addNew();
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_create_new_movement:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -630,8 +629,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 Dialog.showError(e.getMessage(), i18n("Validation_Error"));
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -769,15 +767,14 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                                     a.moveNext();
                                 }
                             } catch (Exception e) {
-                                Dialog.showError(i18n("An_error_occurred_cancelling_the_existing_reservation(s)._The_records_were_not_saved_and_you_will_have_to_remove_these_reservations_manually."));
+                                Global.logException(e, getClass());
                             }
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_validating_the_record:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return false;
@@ -1160,8 +1157,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 dataChanged();
                 enableButtons();
             } catch (Exception e) {
-                Dialog.showError(i18n("Unable_to_open_find_owner_screen:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         } else if (id.equals("RETAILER")) {
@@ -1170,8 +1166,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 selectedRetailerID = ownerid;
                 dataChanged();
             } catch (Exception e) {
-                Dialog.showError(i18n("Unable_to_open_find_owner_screen:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }
@@ -1197,8 +1192,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             dataChanged();
             enableButtons();
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_open_find_animal_screen:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

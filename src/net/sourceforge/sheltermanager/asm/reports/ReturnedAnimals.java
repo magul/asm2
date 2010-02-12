@@ -140,8 +140,7 @@ public class ReturnedAnimals extends Report {
                         "No_animals_have_entered_the_shelter_and_been_returned_in_this_period."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

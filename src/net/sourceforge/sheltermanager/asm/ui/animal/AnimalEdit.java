@@ -1880,8 +1880,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             newanimal = null;
             ea = null;
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "An_error_occurred_cloning_the_animal:_") + e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

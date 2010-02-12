@@ -212,8 +212,7 @@ public class EmailForm extends ASMForm {
             email = null;
             dispose();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_sending_the_email") +
-                "\n" + e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

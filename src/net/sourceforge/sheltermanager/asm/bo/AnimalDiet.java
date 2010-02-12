@@ -172,9 +172,7 @@ public class AnimalDiet extends UserInfoBO {
                         "You_must_select_a_diet_type"));
             }
         } catch (CursorEngineException e) {
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_accessing_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 }

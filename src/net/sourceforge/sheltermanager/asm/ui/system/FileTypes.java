@@ -118,8 +118,7 @@ public class FileTypes extends ASMView {
             dirty = false;
             enableButtons();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_reading_the_list_of_system_filetypes:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -213,8 +212,7 @@ public class FileTypes extends ASMView {
 
             return true;
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_updating_the_file_types:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

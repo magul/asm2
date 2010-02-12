@@ -353,8 +353,7 @@ public class DiarySelector extends ASMSelector {
                 break;
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_accessing_linked_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -382,9 +381,7 @@ public class DiarySelector extends ASMSelector {
             try {
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
-                Dialog.showError(Global.i18n("uidiary",
-                        "An_error_occurred_removing_the_record:_") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }

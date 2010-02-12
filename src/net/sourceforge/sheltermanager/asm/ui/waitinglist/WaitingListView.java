@@ -409,8 +409,7 @@ public class WaitingListView extends ASMView {
             try {
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
-                Dialog.showError(i18n("An_error_occurred_completing_the_record") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }

@@ -74,12 +74,8 @@ public class DBUpdate extends Thread {
             // Reload the lookup cache
             LookupCache.invalidate();
             LookupCache.fill();
-        } catch (IOException e) {
-            Dialog.showError(Global.i18n("db",
-                    "An_error_occurred_reading_the_file:\n") + e.getMessage());
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("db", "An_unexpected_error_occurred:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
         }
     }
 }

@@ -79,9 +79,7 @@ public class Diagnostic extends Thread {
                     Global.i18n("db", "Errors_Found_and_Repaired"));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("db",
-                    "An_error_occurred_running_diagnostics:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
         }
     }
 
@@ -231,7 +229,7 @@ public class Diagnostic extends Thread {
 
             if (!rs.getEOF()) {
                 if (!Utils.englishLower(rs.getField("Msg_text").toString().trim())
-                           .equals("ok")) {
+                              .equals("ok")) {
                     badTables++;
 
                     Global.logInfo("MySQL says table '" + tables[i] +

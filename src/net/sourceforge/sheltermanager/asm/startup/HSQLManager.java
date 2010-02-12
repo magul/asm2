@@ -1,8 +1,8 @@
 package net.sourceforge.sheltermanager.asm.startup;
 
-import java.io.File;
-
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.io.File;
 
 
 /** This class starts the HSQLDB manager on the local database */
@@ -35,7 +35,7 @@ public class HSQLManager {
         StringBuffer s = new StringBuffer();
 
         boolean isWin = (Utils.englishLower(System.getProperty("os.name"))
-                               .indexOf("windows") != -1);
+                              .indexOf("windows") != -1);
 
         // Base exe
         String javabin = (isWin ? "javaw.exe" : "java");

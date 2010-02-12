@@ -142,9 +142,7 @@ public class SelectTemplate extends ASMForm implements DBFSBrowserParent {
             listener.templateSelected(f, selection.getName(),
                 chkAttach.isSelected());
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uiwordprocessor",
-                    "An_error_occurred_retrieving_the_file:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {
             UI.cursorToPointer();

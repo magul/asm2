@@ -107,8 +107,7 @@ public class LongTermAnimals extends Report {
                         "There_are_no_long_term_animals_on_the_shelter."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

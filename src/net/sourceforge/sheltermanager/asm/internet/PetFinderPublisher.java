@@ -107,14 +107,8 @@ public class PetFinderPublisher extends Thread {
         try {
             shelterId = Configuration.getString("PetFinderFTPUser");
         } catch (Exception e) {
-            Global.logError(Global.i18n("uiinternet",
-                    "An_error_occurred_reading_the_Petfinder_shelter_id") +
-                e.getMessage(), "PetFinderPublisher.run");
-
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_reading_the_Petfinder_shelter_id") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -132,13 +126,7 @@ public class PetFinderPublisher extends Thread {
             currentFTPDirectory = "import/photos";
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_petfinder_org") +
-                    e.getMessage());
-            } else {
-                Global.logError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_petfinder_org") +
-                    e.getMessage(), "PetFinderPublisher.run");
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -179,9 +167,7 @@ public class PetFinderPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_testing_the_animals:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -527,9 +513,7 @@ public class PetFinderPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_constructing_pages:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -583,14 +567,10 @@ public class PetFinderPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_petfinder.org" +
-                        e.getMessage()));
-            } else {
-                Global.logError(Global.i18n("uiinternet",
-                        "an_error_occurred_contacting_petfinder.org" +
-                        e.getMessage()), "PetFinderPublisher.run");
+                Dialog.showError(e.getMessage());
             }
+
+            Global.logException(e, getClass());
         }
 
         if (parent != null) {
@@ -837,9 +817,7 @@ public class PetFinderPublisher extends Thread {
             out.close();
         } catch (IOException e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_writing_a_file:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());
@@ -865,9 +843,7 @@ public class PetFinderPublisher extends Thread {
             }
         } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(Global.i18n("uiinternet",
-                        "An_error_occurred_connecting_to_the_internet_provider:\n") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
             }
 
             Global.logException(e, getClass());

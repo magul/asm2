@@ -111,8 +111,7 @@ public class NeverVaccinated extends Report {
                         "No_animals_on_the_shelter_have_never_been_vaccinated."));
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

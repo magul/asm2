@@ -150,8 +150,7 @@ public class LogEdit extends ASMForm {
             log.setLogTypeID(Utils.getIDFromCombo(
                     LookupCache.getLogTypeLookup(), "LogTypeName", cboLogType));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_record:") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

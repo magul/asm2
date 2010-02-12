@@ -201,8 +201,7 @@ public class DiaryTaskExecute extends ASMForm {
 
             dispose();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_diary_notes:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -312,8 +311,7 @@ public class DiaryTaskExecute extends ASMForm {
 
             dispose();
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_diary_notes:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

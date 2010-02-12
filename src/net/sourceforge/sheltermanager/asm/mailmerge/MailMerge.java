@@ -153,12 +153,7 @@ public class MailMerge extends Thread implements EmailFormListener {
             resetStatusBar();
             setStatusText("");
         } catch (Exception e) {
-            Global.logError(Global.i18n("mailmerge",
-                    "An_error_occurred_generating_the_mail_merge_source:\n") +
-                e.getMessage(), "MailMerge.run");
-            Dialog.showError(Global.i18n("mailmerge",
-                    "An_error_occurred_generating_the_mail_merge_source:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
             resetStatusBar();
             setStatusText("");
@@ -256,12 +251,8 @@ public class MailMerge extends Thread implements EmailFormListener {
 
             out.close();
         } catch (Exception e) {
-            Global.logError(Global.i18n("mailmerge",
-                    "Unable_to_write_output_file_") + getFileName() + ": " +
-                e.getMessage(), "MailMerge.writeToDisk");
-            Dialog.showError(Global.i18n("mailmerge",
-                    "Unable_to_write_output_file_") + getFileName() + ": " +
-                e.getMessage(), Global.i18n("mailmerge", "Error"));
+            Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
         }
     }
 

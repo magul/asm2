@@ -83,7 +83,6 @@ public class MedicalProfile extends UserInfoBO {
         rs.setField("Cost", newValue);
     }
 
-
     /**
      * The number of timing rule frequencies. Eg: Timing rule = 4 (4 treatments
      * on frequency) TimingRuleNoFrequencies = 5 TimingRuleFrequency = Week (so

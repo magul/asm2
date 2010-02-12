@@ -95,8 +95,7 @@ public class DiaryTaskDetailEdit extends ASMForm {
             dtd.addNew();
             dtd.setDiaryTaskHeadID(new Integer(theHeaderID));
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_creating_the_record:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -130,8 +129,7 @@ public class DiaryTaskDetailEdit extends ASMForm {
             txtSubject.setText(dtd.getSubject());
             txtNote.setText(dtd.getNote());
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_loading_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -154,8 +152,7 @@ public class DiaryTaskDetailEdit extends ASMForm {
                 Global.logException(e, getClass());
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("An_error_occurred_saving_the_data:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

@@ -265,8 +265,7 @@ public class OwnerCriteriaSearch extends Report {
                 o.moveNext();
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "An_error_occurred_generating_the_report", e.getMessage()));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

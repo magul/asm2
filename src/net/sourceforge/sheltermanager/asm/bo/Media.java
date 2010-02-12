@@ -65,6 +65,7 @@ public class Media extends NormalBO {
 
     public void addNew() throws CursorEngineException {
         super.addNew();
+
         Integer z = new Integer(0);
         setLinkID(z);
         setLinkTypeID(z);

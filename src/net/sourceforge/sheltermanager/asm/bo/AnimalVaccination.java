@@ -186,9 +186,7 @@ public class AnimalVaccination extends UserInfoBO {
             }
         } catch (Exception e) {
             Global.logException(e, this.getClass());
-            throw new BOValidationException(Global.i18n("bo",
-                    "An_error_occurred_accessing_the_object:_") +
-                e.getMessage());
+            throw new BOValidationException(e.getMessage());
         }
     }
 

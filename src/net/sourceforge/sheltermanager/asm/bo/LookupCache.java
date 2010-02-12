@@ -295,6 +295,7 @@ public abstract class LookupCache {
                     donationfreq.openRecordset("SELECT * FROM lksdonationfreq ORDER BY ID",
                         "lksdonationfreq");
                 }
+
                 return donationfreq;
             }
         } catch (Exception e) {
@@ -619,11 +620,13 @@ public abstract class LookupCache {
 
     public static String getDonationFreqForID(Integer ID) {
         getLookup(LOOKUP_DONATIONFREQ);
+
         return getNameForID(donationfreq, "Frequency", ID);
     }
 
     public static Integer getDonationFreqIDForName(String name) {
         getLookup(LOOKUP_DONATIONFREQ);
+
         return getIDForName(donationfreq, "Frequency", name);
     }
 

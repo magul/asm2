@@ -64,36 +64,39 @@ public class MonthlyDonations extends Chart {
     }
 
     public boolean createGraph() throws Exception {
-
         setStatusBarMax(12);
 
-	// Get a list of donation types used over this period
-	SQLRecordset dt = new SQLRecordset();
-	
-	Calendar firstDayOfYear = Calendar.getInstance();
-	firstDayOfYear.set(Calendar.YEAR, selectedYear);
-	firstDayOfYear.set(Calendar.MONTH, 0);
-	firstDayOfYear.set(Calendar.DAY_OF_MONTH, 1);
-	Calendar lastDayOfYear = Calendar.getInstance();
-	lastDayOfYear.set(Calendar.YEAR, selectedYear);
-	lastDayOfYear.set(Calendar.MONTH, 11);
-	lastDayOfYear.set(Calendar.DAY_OF_MONTH, 31);
+        // Get a list of donation types used over this period
+        SQLRecordset dt = new SQLRecordset();
 
-	dt.openRecordset("SELECT DISTINCT donationtype.ID, DonationName FROM donationtype " +
-		"INNER JOIN ownerdonation ON ownerdonation.DonationTypeID = donationtype.ID " +
-		"WHERE Date >= '" + Utils.getSQLDate(firstDayOfYear) + "' AND " +
-		"Date <= '" + Utils.getSQLDate(lastDayOfYear) + "'", "donationtype");
-	if (dt.getEOF()) return false;
+        Calendar firstDayOfYear = Calendar.getInstance();
+        firstDayOfYear.set(Calendar.YEAR, selectedYear);
+        firstDayOfYear.set(Calendar.MONTH, 0);
+        firstDayOfYear.set(Calendar.DAY_OF_MONTH, 1);
 
-	String[] dtname = new String[(int) dt.getRecordCount()];
-	double[] dtot = new double[(int) dt.getRecordCount()];
+        Calendar lastDayOfYear = Calendar.getInstance();
+        lastDayOfYear.set(Calendar.YEAR, selectedYear);
+        lastDayOfYear.set(Calendar.MONTH, 11);
+        lastDayOfYear.set(Calendar.DAY_OF_MONTH, 31);
 
-	// Outline model - 12 columns (Month, Year period)
+        dt.openRecordset(
+            "SELECT DISTINCT donationtype.ID, DonationName FROM donationtype " +
+            "INNER JOIN ownerdonation ON ownerdonation.DonationTypeID = donationtype.ID " +
+            "WHERE Date >= '" + Utils.getSQLDate(firstDayOfYear) + "' AND " +
+            "Date <= '" + Utils.getSQLDate(lastDayOfYear) + "'", "donationtype");
+
+        if (dt.getEOF()) {
+            return false;
+        }
+
+        String[] dtname = new String[(int) dt.getRecordCount()];
+        double[] dtot = new double[(int) dt.getRecordCount()];
+
+        // Outline model - 12 columns (Month, Year period)
         // 3 rows (Brought In, Adoption and OwnerDonation)
         int[][] model = new int[dtot.length][12];
 
         for (int i = 0; i < 12; i++) {
-
             // Calculate month boundaries
             Calendar firstDayOfMonth = Calendar.getInstance();
             firstDayOfMonth.set(Calendar.YEAR, selectedYear);
@@ -114,18 +117,20 @@ public class MonthlyDonations extends Chart {
 
             // Add up donations of type
             int col = 0;
-	    dt.moveFirst();
-	    while (!dt.getEOF()) {
+            dt.moveFirst();
 
-		dtname[col] = dt.getField("DonationName").toString();
-                model[col][i] = (int) DBConnection.executeForSum("SELECT SUM(Donation) AS Total FROM ownerdonation " +
-		    "WHERE Date >= '" + firstDay + "' AND " +
-		    "Date <= '" + lastDay + "' AND " +
-		    "DonationTypeID = " + dt.getField("ID"));
-		dtot[col] += (double) model[col][i];
-		col++;
+            while (!dt.getEOF()) {
+                dtname[col] = dt.getField("DonationName").toString();
+                model[col][i] = (int) DBConnection.executeForSum(
+                        "SELECT SUM(Donation) AS Total FROM ownerdonation " +
+                        "WHERE Date >= '" + firstDay + "' AND " + "Date <= '" +
+                        lastDay + "' AND " + "DonationTypeID = " +
+                        dt.getField("ID"));
+                dtot[col] += (double) model[col][i];
+                col++;
                 dt.moveNext();
-	    }
+            }
+
             incrementStatusBar();
         }
 
@@ -138,10 +143,12 @@ public class MonthlyDonations extends Chart {
                 Global.i18n("charts", "Nov"), Global.i18n("charts", "Dec")
             };
 
-	String[] rows = new String[dtot.length];
-	for (int i = 0; i < dtot.length; i++) {
+        String[] rows = new String[dtot.length];
+
+        for (int i = 0; i < dtot.length; i++) {
             rows[i] = dtname[i] + " (" + Double.toString(dtot[i]) + ")";
-	}
+        }
+
         data = new ObjectChartDataModel(model, columns, rows);
 
         return checkModelIsNotZeroes(model, columns.length, rows.length);

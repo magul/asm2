@@ -186,7 +186,6 @@ public class OwnerDonation extends UserInfoBO {
     }
 
     public OwnerDonation copy() throws Exception {
-
         OwnerDonation o = new OwnerDonation();
         o.openRecordset("ID = 0");
         o.addNew();
@@ -203,7 +202,6 @@ public class OwnerDonation extends UserInfoBO {
         o.setComments(getComments());
 
         return o;
-
     }
 
     public void validate() throws BOValidationException {
