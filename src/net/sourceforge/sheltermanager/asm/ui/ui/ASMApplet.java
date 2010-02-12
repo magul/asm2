@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.startup.Startup;
+import net.sourceforge.sheltermanager.asm.ui.main.ShutdownThread;
 import net.sourceforge.sheltermanager.dbfs.Base64;
 
 import java.awt.*;
@@ -67,6 +68,16 @@ public class ASMApplet extends JApplet {
         getRootPane().repaint();
     }
 
+    public void start() {
+        super.start();
+    }
+
     public void stop() {
+        super.stop();
+    }
+
+    public void destroy() {
+        new ShutdownThread().run();
+        super.destroy();
     }
 }

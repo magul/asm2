@@ -120,6 +120,7 @@ public class DateField extends UI.Panel {
         // Today
         if (evt.getKeyChar() == 't') {
             try {
+                evt.consume();
                 txt.setText(Utils.formatDate(Calendar.getInstance()));
 
                 if (dateListener != null) {
@@ -146,6 +147,7 @@ public class DateField extends UI.Panel {
             return false;
         } catch (NumberFormatException e) {
             if (dateListener != null) {
+                evt.consume();
                 dateListener.dateChanged(txt.getText());
             }
 

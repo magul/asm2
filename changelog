@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Fix to ensure that date fields don't include hotkeys in the box
+-  if a date change prompts a dialog
 *. Added vaccination complete and reschedule buttons to animal tab
 *. Fixed to use deprecated Java hebrew code (iw)
 *. Document preferred flag for media when generating docs

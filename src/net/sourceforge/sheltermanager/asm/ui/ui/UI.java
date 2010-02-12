@@ -328,7 +328,7 @@ public final class UI {
 
     public static DateField getDateField(String tooltiptext,
         final FunctionPointer onChange, final FunctionPointer onLostFocus) {
-        DateField d = new DateField();
+        final DateField d = new DateField();
 
         if (tooltiptext != null) {
             d.setToolTipText(tooltiptext);
@@ -343,6 +343,7 @@ public final class UI {
             d.setDateChangedListener(new DateChangedListener() {
                     public void dateChanged(String newdate) {
                         onChange.call();
+                        d.setText(newdate);
                     }
                 });
         }
