@@ -266,6 +266,7 @@ public class InternetPublisher extends ASMForm {
         if (mode == MODE_HTML) {
             l.add(new SelectableItem(i18n("File_Extension"), null, false, true));
             l.add(new SelectableItem(".html", "exthtml", true, false, "ext"));
+            l.add(new SelectableItem(".xml", "extxml", false, false, "ext"));
             l.add(new SelectableItem(".cgi", "extcgi", false, false, "ext"));
             l.add(new SelectableItem(".php", "extphp", false, false, "ext"));
             l.add(new SelectableItem(".py", "extpy", false, false, "ext"));
