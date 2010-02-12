@@ -364,8 +364,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             try {
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
-                Dialog.showError(i18n("an_error_occurred_completing_the_vaccination") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }
@@ -412,8 +411,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 // Update the list
                 updateList();
             } catch (Exception e) {
-                Dialog.showError(i18n("an_error_occurred_completing_the_vaccination") +
-                    e.getMessage());
+                Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
             }
         }

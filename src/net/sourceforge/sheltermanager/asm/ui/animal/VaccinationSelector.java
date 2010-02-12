@@ -26,10 +26,14 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -41,6 +45,8 @@ public class VaccinationSelector extends ASMSelector
     private UI.Button btnAdd;
     private UI.Button btnEdit;
     private UI.Button btnDelete;
+    private UI.Button btnComplete;
+    private UI.Button btnReschedule;
 
     public VaccinationSelector() {
         init("uianimal", false);
@@ -161,6 +167,21 @@ public class VaccinationSelector extends ASMSelector
                 IconManager.getIcon(IconManager.SCREEN_EDITVACCINATIONS_DELETE),
                 UI.fp(this, "actionDelete"));
         addToolButton(btnDelete, true);
+
+        btnComplete = UI.getButton(null,
+                i18n("complete_selected_vaccinations"), 'c',
+                IconManager.getIcon(
+                    IconManager.SCREEN_EDITVACCINATIONS_MARKCOMPLETE),
+                UI.fp(this, "actionComplete"));
+        addToolButton(btnComplete, true);
+
+        btnReschedule = UI.getButton(null,
+                i18n("complete_and_reschedule_selected_vaccinations"), 'r',
+                IconManager.getIcon(
+                    IconManager.SCREEN_EDITVACCINATIONS_RESCHEDULE),
+                UI.fp(this, "actionReschedule"));
+        addToolButton(btnReschedule, true);
+
     }
 
     public void actionAdd() {
@@ -228,4 +249,89 @@ public class VaccinationSelector extends ASMSelector
             updateList();
         }
     }
+
+    public void actionComplete() {
+        int id = getTable().getSelectedID();
+
+        if (id == -1) {
+            return;
+        }
+
+        int[] selrows = getTable().getSelectedRows();
+        SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                 .getModel();
+
+        for (int i = 0; i < selrows.length; i++) {
+            // Get the ID for the selected row
+            String avID = (String) tablemodel.getValueAt(selrows[i], 4);
+
+            String sql = "UPDATE animalvaccination SET DateOfVaccination = '" +
+                Utils.getSQLDateOnly(Calendar.getInstance()) + "' " +
+                "WHERE ID = " + avID;
+
+            // Update the onscreen value
+            try {
+                tablemodel.setValueAt(Utils.formatTableDate(
+                        Calendar.getInstance()), selrows[i], 2);
+            } catch (Exception e) {
+            }
+
+            getTable().updateRow(selrows[i]);
+
+            try {
+                DBConnection.executeAction(sql);
+            } catch (Exception e) {
+                Dialog.showError(e.getMessage());
+                Global.logException(e, getClass());
+            }
+        }
+    }
+
+    public void actionReschedule() {
+        int id = getTable().getSelectedID();
+
+        if (id == -1) {
+            return;
+        }
+
+        int[] selrows = getTable().getSelectedRows();
+        SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                 .getModel();
+
+        for (int i = 0; i < selrows.length; i++) {
+            // Get the ID for the selected row
+            String avID = (String) tablemodel.getValueAt(selrows[i], 4);
+
+            try {
+                // Complete the selected row
+                AnimalVaccination av = new AnimalVaccination();
+                av.openRecordset("ID = " + avID);
+
+                if (!av.getEOF()) {
+                    av.setDateOfVaccination(new Date());
+                    av.save(Global.currentUserName);
+                }
+
+                // Add a new rescheduled vacc for one year ahead
+                AnimalVaccination v = new AnimalVaccination();
+                v.openRecordset("ID = 0");
+                v.addNew();
+                v.setAnimalID(av.getAnimalID());
+
+                Calendar c = Calendar.getInstance();
+                c.add(Calendar.YEAR, 1);
+                v.setDateRequired(c.getTime());
+                v.setVaccinationID(av.getVaccinationID());
+                v.setComments(av.getComments());
+                v.save(Global.currentUserName);
+
+                // Update the list
+                updateList();
+            } catch (Exception e) {
+                Dialog.showError(e.getMessage());
+                Global.logException(e, getClass());
+            }
+        }
+    }
+
 }
