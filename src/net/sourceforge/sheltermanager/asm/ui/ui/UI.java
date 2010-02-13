@@ -349,7 +349,7 @@ public final class UI {
         }
 
         if (onLostFocus != null) {
-            d.addFocusListener(new FocusAdapter() {
+            d.getTextField().addFocusListener(new FocusAdapter() {
                     public void focusLost(FocusEvent e) {
                         onLostFocus.call();
                     }

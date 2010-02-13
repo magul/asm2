@@ -1424,12 +1424,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }, 500);
     }
 
+    private long lastCheckedDate = 0;
+
     /**
      * Called when the animal's brought in date has changed
      */
     public void checkDateBroughtIn() {
         // It's a change
         dataChanged();
+
+	// Have we done one of these very recently? Like in the last 5 seconds?
+	if (System.currentTimeMillis() - lastCheckedDate <= 5000) return;
+	lastCheckedDate = System.currentTimeMillis();
 
         // Are we actually using the year in codes?
         if ((Configuration.getString("CodingFormat").indexOf("Y") == -1) &&
@@ -2370,7 +2376,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         txtDateBroughtIn = (DateField) UI.addComponent(pnlEntryDetails,
                 i18n("Date_Brought_In:"),
                 UI.getDateField(i18n("The_date_the_animal_was_brought_into_the_shelter"),
-                    UI.fp(this, "checkDateBroughtIn")));
+                    UI.fp(this, "checkDateBroughtIn"), UI.fp(this, "checkDateBroughtIn")));
 
         pnlEntryRight.add(pnlEntryDetails, UI.BorderLayout.SOUTH);
 
