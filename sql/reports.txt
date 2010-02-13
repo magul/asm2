@@ -474,6 +474,136 @@ $$FOOTER
 FOOTER$$
 
 &&&
+Cage Cards (all on shelter animals)
+###
+Auditing
+###
+Any
+###
+Animal cage cards with images for all on shelter animals (print from external browser for page break).
+###
+en
+###
+SELECT
+animal.activeMovementType,
+animal.activeMovementID,
+animal.animalname,
+animal.ShelterCode,
+animal.speciesID,
+animal.breedID,
+animal.basecolourID,
+animal.shelterLocation,
+animal.animalTypeID,
+animal.Markings,
+lksize.Size,
+animal.AnimalComments,
+animal.datebroughtin,
+animal.dateofbirth,
+animal.id,
+animalvaccination.animalid,
+animalvaccination.vaccinationid,
+vaccinationtype.vaccinationType,
+entryreason.reasonname,
+(SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithDogs) AS WithDogs,
+(SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithCats) AS WithCats,
+(SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithChildren) AS WithChildren,
+(SELECT Name FROM lksynun WHERE ID = animal.IsHouseTrained) AS HouseTrained,
+(SELECT Sex FROM lksex WHERE ID = animal.sex) AS TheSex,
+(SELECT Name FROM lksyesno WHERE ID = animal.neutered) AS altered,
+(SELECT NAME FROM lksyesno WHERE ID = animal.HasActiveReserve) AS reserved,
+animal.breedname,
+species.speciesName,
+basecolour.basecolour,
+internallocation.LocationName,
+animaltype.animalType,
+internallocation.LocationName AS TheLocation,
+internallocation.LocationName AS CurrentLocation,
+animal.TimeOnShelter AS OnShelterTime
+
+FROM animal
+INNER JOIN species ON species.ID=animal.speciesID
+INNER JOIN internallocation ON internallocation.id=animal.shelterlocation
+INNER JOIN breed ON breed.ID=animal.breedID
+INNER JOIN basecolour ON basecolour.ID=animal.basecolourID
+INNER JOIN animaltype ON animaltype.ID=animal.animalTypeID
+INNER JOIN lksize ON
+lksize.ID=animal.Size
+INNER JOIN entryreason ON
+entryreason.ID=animal.entryreasonid
+LEFT OUTER JOIN animalvaccination ON
+animalvaccination.animalID=animal.ID
+LEFT OUTER JOIN vaccinationtype ON
+vaccinationtype.ID=animalvaccination.vaccinationID
+WHERE Archived = 0
+ORDER BY animal.AnimalName
+###
+$$HEADER
+HEADER$$
+
+$$BODY
+<table width="700" border="0">
+<tr>
+<td width="46"></td>
+<td width="654"><div align="center"><font size=4><B>
+Your Humane Society</B></font><br /><br />
+<font size=2> Please ask for assistance.<br />
+Dogs do not display true personality in kennels.<br />
+Please evaluate dogs in Dog Park.<br />
+Do not open cages without permission</font><br />
+</p>
+</div></td>
+</tr>
+</table>
+<table width="700" border="1">
+<tr>
+<td width="350" colspan="2">Name:<br />
+<font size="10">$animalname<br />
+</td></font></span>
+<td width="350" colspan="2"><font size="5">Code: <B>$sheltercode</B></font><br />
+<font size="3"> Location: <B>$thelocation</B></font><br />
+</td></span>
+</tr>
+<tr>
+<td width="175">Admitted:<br />
+<font size="5">$datebroughtin</font><br />
+</td>
+<td width="175">Approximate Date of Birth:<br /><font size="5">$dateofbirth<br /></font>
+</td>
+<td width="175">Sex:<br /> <font size=5>$thesex<br /></font>
+</td>
+<td width="175">Fixed:<br /> <font size=5>$altered<br /></font>
+</td>
+</tr>
+<tr>
+<td width="350" colspan="2"><img height="200" width="300" src="{IMAGE.$ID}" />
+</td>
+<td width="350" colspan="2"><font size="3"> Breed: <B>$BreedName</B><br />
+Color: <B>$BaseColour</B><br /></font>
+<font size="2">Markings: <B>$Markings</B><br /></font>
+<font size="3">Size: <B>$Size</B><br />
+Housetrained? <B>$HouseTrained</B><br />
+Good With Dogs? <B>$WithDogs</B><br />
+Good With Cats? <B>$WithCats</B><br />
+Good With Children? <B>$WithChildren</B><br />
+Vaccination Type: <B>$vaccinationtype</B><br />
+</td></font>
+</tr>
+<tr>
+<td width="700" colspan="4"><font size="5">Comments:<br />
+$AnimalComments</td></font>
+</tr>
+<tr>
+<td width="700" colspan="4"><font size="3">MYM Type:<br />$animalType
+</td></font>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr style="page-break-after: always;" />
+BODY$$
+$$FOOTER
+FOOTER$$
+
+&&&
 Shelter Inventory at Date
 ###
 Inventories
