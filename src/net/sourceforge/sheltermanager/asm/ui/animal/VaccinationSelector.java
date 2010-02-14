@@ -322,6 +322,7 @@ public class VaccinationSelector extends ASMSelector
                 v.setDateRequired(c.getTime());
                 v.setVaccinationID(av.getVaccinationID());
                 v.setComments(av.getComments());
+		v.setCost(av.getCost());
                 v.save(Global.currentUserName);
 
                 // Update the list
