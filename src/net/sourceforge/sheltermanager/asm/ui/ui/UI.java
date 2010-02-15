@@ -1683,6 +1683,14 @@ public final class UI {
         return Global.i18n("uianimalname", "Cancel");
     }
 
+    public static String messageYes() {
+        return Global.i18n("uianimalname", "Yes");
+    }
+
+    public static String messageNo() {
+        return Global.i18n("uianimalname", "No");
+    }
+    
     public static String messageDeleteConfirm() {
         return Global.i18n("uianimalname", "Really_delete_this_record?");
     }

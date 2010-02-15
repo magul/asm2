@@ -1,6 +1,7 @@
 2.7.0
 ================
 
+*. Fix to make sure Java confirmation dialogs use correct locale
 *. Include cost when rescheduling vaccinations (fixes NPE bug)
 *. Trap date brought in checking for the code on lost focus as
 -  well as on the firing of datechanged

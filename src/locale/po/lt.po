@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-05 16:32+0100\n"
-"PO-Revision-Date: 2010-02-05 17:36+0000\n"
-"Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
+"POT-Creation-Date: 2010-02-12 13:47+0100\n"
+"PO-Revision-Date: 2010-02-13 18:27+0000\n"
+"Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-06 04:57+0000\n"
+"X-Launchpad-Export-Date: 2010-02-14 05:05+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -106,12 +106,6 @@ msgstr "Būtina nurodyti šio įrašo įtraukimo į sąrašą datą"
 #: You_must_enter_the_contact_name.
 msgid "You must enter the contact name."
 msgstr "Būtina įvesti kontaktinio asmens vardą."
-
-#. # bo/AnimalVaccination
-#. # bo/AnimalDiet
-#: An_error_occurred_accessing_the_object\:_
-msgid "An error occurred accessing the object: "
-msgstr "Įvyko klaida jungiantis prie objekto: "
 
 #. # bo/AnimalVaccination
 #: Date_Required_is_mandatory.
@@ -511,7 +505,7 @@ msgstr "Ne prieglaudos gyvūnas"
 #: One_Off
 #: lksdonationfreq_0
 msgid "One-Off"
-msgstr "Išjungimas po vieną"
+msgstr "Vienkartinis"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -721,19 +715,9 @@ msgid "Donations must be linked to an owner."
 msgstr "Parama turi būti susieta su asmeniu."
 
 #. # charts/MonthlyDonations
-#: Adoptions_(
-msgid "Adoptions ("
-msgstr "Atidavimai ("
-
-#. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
 msgstr "Mėnesio paramos analizė (pagal tipą) "
-
-#. # charts/MonthlyDonations
-#: Brought_In_(
-msgid "Brought In ("
-msgstr "Pateko ("
 
 #. # charts/DonationsPerSpecies
 #: Monthly_Donation_analysis_(by_species)_for_
@@ -974,17 +958,11 @@ msgstr "Ruošiamas grafikas..."
 msgid "Plot"
 msgstr "Taškinė diagrama"
 
-#. # charts/MonthlyDonations
-#: donations
-msgid "Donations ("
-msgstr "Parama ("
-
 #. # charts/Chart
 #: there_is_no_data_to_show_on_the_chart
 msgid "There is no data to show on the chart."
 msgstr "Nėra duomenų rodymui diagramoje."
 
-#. # charts/MonthlyDonations
 #. # utility/Utils
 #: waitinglist
 msgid "Waiting List ("
@@ -3079,6 +3057,36 @@ msgstr "Sulaukėjus"
 msgid "Biting"
 msgstr "Įkando"
 
+#. # reports/Retailer
+#. # reports/InOut
+#. # db/AutoDBUpdates
+#. # bo/LookupCache
+#. # bo/OwnerDonation
+#. # bo/Adoption
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: donationtype_1
+#: Donation
+#: donation
+msgid "Donation"
+msgstr "Parama"
+
+#: donationtype_2
+msgid "Adoption Fee"
+msgstr ""
+
+#: donationtype_3
+msgid "Waiting List Donation"
+msgstr "Parama už įtraukimą į laukiančiųjų sąrašą"
+
+#: donationtype_4
+msgid "Entry Donation"
+msgstr "Parama už priėmimą"
+
+#: donationtype_5
+msgid "Animal Sponsorship"
+msgstr ""
+
 #: entryreason_1
 msgid "Marriage/Relationship split"
 msgstr "Skyrybos"
@@ -3113,7 +3121,7 @@ msgstr "Paliktas be priežiūros"
 
 #: internallocation_1
 msgid "No Locations"
-msgstr "SOS gyvūnų namelis"
+msgstr "Jokių patalpų"
 
 #. # ui/animalname/NamesEdit
 #: lksex_0
@@ -3173,6 +3181,42 @@ msgstr "Virvėmis"
 #: lkcoattype_5
 msgid "Hairless"
 msgstr "Beplaukis"
+
+#: lksaccounttype_1
+msgid "Bank"
+msgstr ""
+
+#: lksaccounttype_2
+msgid "Credit Card"
+msgstr ""
+
+#: lksaccounttype_3
+msgid "Loan"
+msgstr ""
+
+#: lksaccounttype_4
+msgid "Expense"
+msgstr ""
+
+#: lksaccounttype_5
+msgid "Income"
+msgstr ""
+
+#: lksaccounttype_6
+msgid "Pension"
+msgstr ""
+
+#: lksaccounttype_7
+msgid "Shares"
+msgstr ""
+
+#: lksaccounttype_8
+msgid "Asset"
+msgstr ""
+
+#: lksaccounttype_9
+msgid "Liability"
+msgstr ""
 
 #: lksmovementtype_1
 msgid "Adoption"
@@ -3465,11 +3509,6 @@ msgid "Scan complete"
 msgstr "Skanavimas užbaigtas"
 
 #. # db/Diagnostic
-#: An_error_occurred_running_diagnostics\:\n
-msgid "An error occurred running diagnostics: "
-msgstr "Įvyko klaida vykdant diagnostiką: "
-
-#. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
 msgid "Checking for orphaned movement records..."
 msgstr ""
@@ -3493,11 +3532,6 @@ msgstr ""
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
 msgstr ""
-
-#. # db/DBUpdate
-#: An_unexpected_error_occurred\:\n
-msgid "An unexpected error occurred:\n"
-msgstr "Įvyko nenumatyta klaida:\n"
 
 #. # db/DBUpdate
 #: Database_update_was_successful.
@@ -3549,11 +3583,6 @@ msgstr "Gerai"
 #: Select_database_update_file_to_process\:
 msgid "Select database update file to process:"
 msgstr "Pasirinkite duomenų bazės failą atnaujinimui:"
-
-#. # db/DBUpdate
-#: An_error_occurred_reading_the_file\:\n
-msgid "An error occurred reading the file:\n"
-msgstr "Įvyko klaida nuskaitant failą:\n"
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3844,17 +3873,11 @@ msgstr ""
 "Prašome įvesti pabaigos datą, kuriai norėtumėte paruošti laiškus apie "
 "vakcinacijas"
 
-#. # mailmerge/MailMerge
-#: An_error_occurred_generating_the_mail_merge_source\:\n
-msgid "An error occurred generating the mail merge source:\n"
-msgstr "Įvyko klaida generuojant laiško komponavimo šaltinį:\n"
-
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # reports/DiaryNotesToday
 #. # reports/Report
 #. # reports/Vets
-#. # ui/animal/DietEdit
 #. # ui/animal/VaccinationView
 #. # ui/animal/MediaAdd
 #. # ui/animal/MediaSelector
@@ -3862,15 +3885,10 @@ msgstr "Įvyko klaida generuojant laiško komponavimo šaltinį:\n"
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
 #. # ui/ui/Dialog
-#. # ui/ui/DBFSBrowser
-#. # ui/login/Login
 #. # ui/users/UserView
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
-#. # ui/owner/VoucherEdit
-#. # internet/Publisher
-#. # mailmerge/MailMerge
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/MovementDocument
 #. # utility/Utils
@@ -3891,11 +3909,6 @@ msgstr "Nėra įrašų, kuriems galima pridėti laiško komponavimo šaltinį."
 #. # mailmerge/MailMerge
 #: Outputting_to_disk...
 msgid "Outputting to disk..."
-msgstr ""
-
-#. # mailmerge/MailMerge
-#: Unable_to_write_output_file_
-msgid "Unable to write output file "
 msgstr ""
 
 #. # mailmerge/MailMerge
@@ -4364,6 +4377,7 @@ msgstr "Adresas 1"
 #. # mailmerge/ExpiringMembers
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ChipCancellation
+#. # charts/MonthlyDonations
 #. # utility/Utils
 #. # bo/Voucher
 #. # bo/LookupCache
@@ -4614,11 +4628,6 @@ msgstr "Gyvūnai, grąžinti 6 mėn. laikotarpiu"
 #: In/Out_Report
 msgid "In/Out Report"
 msgstr "Priėmimų/Atidavimų ataskaita"
-
-#. # ui/criteria/DateFromTo
-#: An_error_occurred_opening_the_report
-msgid "An error occurred opening the report {0}"
-msgstr "Įvyko klaida, atidarant ataskaitą {0}"
 
 #. # ui/criteria/DateFromTo
 #: In/Out_Summary_Report
@@ -5529,19 +5538,6 @@ msgstr "Atiduotas kam:"
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr "Viso grąžintų iš laikinų globėjų gyvūnų: {0}"
 
-#. # reports/Retailer
-#. # reports/InOut
-#. # db/AutoDBUpdates
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # bo/Adoption
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#: Donation
-#: donation
-msgid "Donation"
-msgstr "Parama"
-
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
@@ -5939,31 +5935,6 @@ msgstr "Rugpjūtis"
 #: PTS
 msgid "PTS"
 msgstr "Užmigdyti"
-
-#. # reports/VaccinationDiary
-#. # reports/Stats
-#. # reports/AnimalFigures
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/LostFoundMatch
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/ReturnedAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalPrint
-#. # reports/TransferIn
-#. # reports/CustomReportExecute
-#. # reports/UnneuteredSixMonths
-#: An_error_occurred_generating_the_report
-msgid "An error occurred generating the report: {0}"
-msgstr "An error occurred generating the report: {0}"
 
 #. # reports/AnimalFigures
 #: January
@@ -6754,16 +6725,10 @@ msgid "Select a mother from the shelter animals"
 msgstr "Pasirinkti motiną iš prieglaudos gyvūnų"
 
 #. # ui/animal/LitterEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
 msgstr "Nepavyko atidaryti gyvūno kortelės: "
-
-#. # ui/animal/LitterEdit
-#: An_error_occurred_reading_the_record\:\n
-msgid "An error occurred reading the record:\n"
-msgstr "Įvyko klaida nuskaitant įrašą:\n"
 
 #. # ui/animal/LitterEdit
 #: Or_date\:
@@ -6857,14 +6822,6 @@ msgid "The date this litter expires"
 msgstr "Vados galiojimo laiko pabaiga"
 
 #. # ui/animal/LitterEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_creating_the_record\:\n
-msgid "An error occurred creating the record:\n"
-msgstr "Įvyko klaida kuriant įrašą:\n"
-
-#. # ui/animal/LitterEdit
 #: Abandon_this_record
 msgid "Abandon this record"
 msgstr "Atšaukti šį įrašą"
@@ -6882,13 +6839,6 @@ msgstr ""
 #: Edit_Vaccination
 msgid "Edit Vaccination"
 msgstr "Redaguoti vakcinaciją"
-
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/VaccinationSelector
-#: Unable_to_create_new_vaccination_record\:_
-#: Unable_to_create_new_vaccination\:_
-msgid "Unable to create new vaccination record: "
-msgstr "Nepavyko sukurti naujo vakcinacijos įrašo: "
 
 #. # ui/animal/VaccinationEdit
 #. # ui/lookups/LookupView
@@ -6909,13 +6859,6 @@ msgstr "Atšaukti šio įrašo pakeitimus"
 #: The_date_the_animal_was_actually_given_this_vaccination
 msgid "The date the animal was actually given this vaccination treatment"
 msgstr "Vakcinacijos data"
-
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/owner/VoucherEdit
-#: An_error_occurred_saving_to_the_local_recordset\:_
-msgid "An error occurred saving to the local recordset: "
-msgstr "Įvyko klaida išsaugant vietinius įrašus: "
 
 #. # ui/animal/VaccinationEdit
 #: Unable_to_read_vaccination_record_from_the_database\:_
@@ -7246,11 +7189,6 @@ msgid "The date the animal was combi-tested if known"
 msgstr "FLV/FIV testo atlikimo data, jei žinoma"
 
 #. # ui/animal/AnimalEdit
-#: An_error_occurred_cloning_the_animal\:_
-msgid "An error occurred cloning the animal: "
-msgstr "Įvyko klaida kopijuojant gyvūno duomenis: "
-
-#. # ui/animal/AnimalEdit
 #: The_date_the_animal_died
 msgid "The date the animal died"
 msgstr "Gyvūno mirties data"
@@ -7348,7 +7286,6 @@ msgstr "Gyvūno rūšis"
 
 #. # ui/animal/DietEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/VoucherEdit
@@ -7377,7 +7314,6 @@ msgid "The animal's breed"
 msgstr "Gyvūno veislė"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr "Nepavyko nuskaityti įrašų apie vakcinaciją: "
@@ -7443,6 +7379,11 @@ msgstr ""
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
 msgstr "Gyvūno patekimo į prieglaudą data"
+
+#. # ui/animal/VaccinationSelector
+#: Unable_to_create_new_vaccination\:_
+msgid "Unable to create new vaccination record: "
+msgstr "Nepavyko sukurti naujo vakcinacijos įrašo: "
 
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_was_dead_on_entry_to_the_shelter
@@ -7530,11 +7471,6 @@ msgid "Reason:"
 msgstr "Priežastis:"
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
-msgid "An error occurred scaling and displaying the preview image:\n"
-msgstr "Įvyko klaida nustatant mastelį ir rodant anonso atvaizdą:\n"
-
-#. # ui/animal/MediaSelector
 #: Attach_new_media
 msgid "Attach new media"
 msgstr "Pridėti naują failą"
@@ -7555,30 +7491,14 @@ msgid "Edit this media entry"
 msgstr "Redaguoti šį failo įrašą"
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_while_setting_the_web_preferred_option\:_
-msgid "An error occurred while setting the web preferred option: "
-msgstr "Įvyko klaida nustatant pageidavimą naudojimui internete: "
-
-#. # ui/animal/MediaSelector
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
 msgstr "Pažymėkite šį failą kaip pageidaujamą naudoti internete"
 
 #. # ui/animal/MediaSelector
-#: An_error_ocurred_opening_the_media_entry_for_editing\:_
-msgid "An error ocurred opening the media entry for editing: "
-msgstr "Įvyko klaida atidarant failą redagavimui: "
-
-#. # ui/animal/MediaSelector
 #: View_this_media
 msgid "View this media"
 msgstr "Žiūrėti šį failą"
-
-#. # ui/animal/MediaSelector
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_retrieving_the_media_file\:_
-msgid "An error occurred retrieving the media file: "
-msgstr "Įvyko klaida gaunant failą: "
 
 #. # ui/animal/MediaSelector
 #: Web_Preferred
@@ -7666,14 +7586,10 @@ msgid "Look for a potential match in the lost animal database"
 msgstr "Ieškoti galimų sutapimų dingusių gyvūnų duomenų bazėje"
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_selected_vaccinations
 msgid "Complete the selected vaccination treatments"
 msgstr "Pasirinktus įrašus apie vakcinaciją pažymėti atliktais"
-
-#. # ui/animal/VaccinationView
-#: an_error_occurred_completing_the_vaccination
-msgid "An error occurred completing the vaccination treatment:"
-msgstr "Įvyko klaida žymint įrašą apie vakcinaciją atliktu:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
@@ -8483,6 +8399,7 @@ msgid "Expires:"
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr ""
@@ -8494,6 +8411,24 @@ msgstr ""
 #: Donations
 msgid "Donations"
 msgstr "Parama"
+
+#. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#: Cost\:
+msgid "Cost:"
+msgstr "Išlaidos:"
+
+#. # ui/animal/MediaSelector
+#: Doc_Preferred
+msgid "Doc Preferred"
+msgstr ""
+
+#. # ui/animal/MediaSelector
+#: Mark_this_media_as_preferred_for_use_with_documents
+msgid "Mark this media as preferred for use with documents"
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8527,15 +8462,6 @@ msgid "Really delete this record?"
 msgstr "Ar tikrai norite pašalinti šį įrašą?"
 
 #. # ui/animalname/NamesEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/customreport/CustomReportEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_saving_the_data\:\n
-msgid "An error occurred saving the data:\n"
-msgstr "Įvyko klaida išsaugant duomenis:\n"
-
-#. # ui/animalname/NamesEdit
 #: Unable_to_create_new_animal_name\:\n
 msgid "Unable to create new animal name:\n"
 msgstr "Nepavyko sukurti naujo gyvūno vardo:\n"
@@ -8557,11 +8483,6 @@ msgid "Reports"
 msgstr "Ataskaitos"
 
 #. # ui/customreport/CustomReportEdit
-#: There_is_an_error_in_your_SQL\:\n
-msgid "There is an error in your SQL:\n"
-msgstr "Jūsų SQL yra klaida:\n"
-
-#. # ui/customreport/CustomReportEdit
 #: SQL_is_syntactically_correct.
 msgid "SQL is syntactically correct."
 msgstr "SQL yra sintaksiškai teisingas."
@@ -8570,16 +8491,6 @@ msgstr "SQL yra sintaksiškai teisingas."
 #: Report_Title\:_
 msgid "Report Title: "
 msgstr "Ataskaitos pavadinimas: "
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_create_new_custom_report\:\n
-msgid "Unable to create new custom report:\n"
-msgstr "Nepavyko sukurti naujos individualizuotos ataskaitos:\n"
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_generate_HTML\:\n
-msgid "Unable to generate HTML:\n"
-msgstr "Nepavyko sugeneruoti HTML:\n"
 
 #. # ui/customreport/CustomReportEdit
 #: Auto-generate_HTML_from_SQL
@@ -8636,11 +8547,6 @@ msgid "Generate a CSV file from this report"
 msgstr "Generuoti CSV failą pagal šią ataskaitą"
 
 #. # ui/customreport/CustomReportExport
-#: an_error_occurred_creating_the_csv_file
-msgid "An error occurred creating the CSV file: "
-msgstr "Įvyko klaida kuriant CSV failą: "
-
-#. # ui/customreport/CustomReportExport
 #: CSV_file_generated_at
 msgid "CSV file generated at: "
 msgstr "CSV failas sugeneruotas: "
@@ -8649,11 +8555,6 @@ msgstr "CSV failas sugeneruotas: "
 #: CSV_generation_complete
 msgid "CSV Generation Complete"
 msgstr "CSV generacija užbaigta"
-
-#. # ui/customreport/CustomReportExport
-#: An_error_occurred_generating_the_CSV_file
-msgid "An error occurred generating the CSV file: "
-msgstr "Įvyko klaida generuojant CSV failą: "
 
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
@@ -8715,11 +8616,6 @@ msgid "Install this report"
 msgstr "Įdiegti šią ataskaitą"
 
 #. # ui/diary/DiaryEdit
-#: An_error_occurred_creating_a_new_diary_record\:_
-msgid "An error occurred creating a new diary record: "
-msgstr "Įvyko klaida kuriant naują priminimą: "
-
-#. # ui/diary/DiaryEdit
 #: Close_without_saving
 msgid "Close without saving"
 msgstr "Uždaryti neišsaugant"
@@ -8728,11 +8624,6 @@ msgstr "Uždaryti neišsaugant"
 #: The_subject_of_the_note
 msgid "The subject of the note"
 msgstr "Priminimo tema"
-
-#. # ui/diary/DiaryEdit
-#: An_error_occurred_reading_the_diary_note\:_
-msgid "An error occurred reading the diary note: "
-msgstr "Įvyko klaida nuskaitant priminimą: "
 
 #. # ui/diary/DiaryEdit
 #: Create_New_Diary_Note
@@ -8869,12 +8760,6 @@ msgstr "Sukūrė"
 
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#: An_error_occurred_removing_the_record\:_
-msgid "An error occurred removing the record: "
-msgstr "Įvyko klaida šalinant įrašą: "
-
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
 #: Delete_the_selected_diary_note
 msgid "Delete the selected diary note"
 msgstr "Šalinti pasirinktą priminimą"
@@ -8900,13 +8785,6 @@ msgid "days from today (or 0 to prompt)"
 msgstr "dienos, skaičiuojant nuo pirmojo darbo (arba 0 - pirmam darbui)"
 
 #. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_loading_the_data\:\n
-msgid "An error occurred loading the data:\n"
-msgstr "Įvyko klaida įkeliant duomenis:\n"
-
-#. # ui/diary/DiaryTaskDetailEdit
 #: Edit_Diary_Task_Detail
 msgid "Edit Diary Task Detail"
 msgstr "Redaguoti standartinės užduoties darbą"
@@ -8930,11 +8808,6 @@ msgstr "Šalinti šią standartinę užduotį"
 #: Day_Pivot
 msgid "Day Pivot"
 msgstr "Dienų seka"
-
-#. # ui/diary/DiaryTaskHeadEdit
-#: An_error_occurred_reading_the_header\:\n
-msgid "An error occurred reading the header:\n"
-msgstr "An error occurred reading the header:\n"
 
 #. # ui/diary/DiaryTaskHeadEdit
 #: Save_the_header
@@ -8964,12 +8837,6 @@ msgstr "Žiūrėti priminimus"
 msgid "View the record this diary note relates to"
 msgstr "Žiūrėti įrašą, su kuriuo susijęs šis priminimas"
 
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#: An_error_occurred_accessing_linked_data\:\n
-msgid "An error occurred accessing linked data:\n"
-msgstr "An error occurred accessing linked data:\n"
-
 #. # ui/diary/DiaryTaskExecute
 #: Execute_Diary_Task
 msgid "Execute Diary Task"
@@ -8989,11 +8856,6 @@ msgstr "Įvedimo data"
 #: Diary_Task_Complete
 msgid "Diary Task Complete"
 msgstr "Užduotis atlikta"
-
-#. # ui/diary/DiaryTaskExecute
-#: An_error_occurred_creating_the_diary_notes\:\n
-msgid "An error occurred creating the diary notes:\n"
-msgstr "Įvyko klaida kuriant priminimus:\n"
 
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
@@ -9156,15 +9018,6 @@ msgstr "Įtraukti laikinai namuose globojamus gyvūnus"
 msgid "Generate JavaScript database"
 msgstr "Generuoti JavaScript duomenų bazę"
 
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_writing_a_file\:\n
-msgid "An error occurred writing a file:\n"
-msgstr "Įvykio klaida įrašant failą:\n"
-
 #. # ui/internet/InternetPublisher
 #: Publish
 msgid "Publish"
@@ -9185,15 +9038,6 @@ msgstr "Gyvūnų puslapyje:"
 msgid "Include Cruelty Case Animals"
 msgstr "Įtraukti su bylomis dėl žiauraus elgesio susijusius gyvūnus"
 
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_connecting_to_the_internet_provider\:\n
-msgid "An error occurred connecting to the internet provider:\n"
-msgstr "Įvyko klaida jungiantis prie interneto tiekėjo:\n"
-
 #. # ui/internet/InternetPublisher
 #: Publish_Animals_Available_For_Adoption
 msgid "Publish Animals Available For Adoption"
@@ -9204,27 +9048,9 @@ msgstr "Publikuoti atiduodamus gyvūnus"
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
 #. # internet/PetFinderPublisher
-#: An_error_occurred_testing_the_animals\:\n
-msgid "An error occurred testing the animals:\n"
-msgstr "Įvyko klaida tikrinant gyvūnus:\n"
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
 #: Publishing...
 msgid "Publishing..."
 msgstr "Publikuojama..."
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_constructing_pages\:\n
-msgid "An error occurred constructing pages:\n"
-msgstr ""
 
 #. # ui/internet/InternetPublisher
 #: Upload_directly_to_the_internet
@@ -9256,11 +9082,6 @@ msgstr ""
 #: Scale_Images\:
 msgid "Scale Images:"
 msgstr "Nustatyti atvaizdų mastelį:"
-
-#. # internet/Publisher
-#: Error_occurred_accessing_media_server\:_
-msgid "Error occurred accessing media server: "
-msgstr ""
 
 #. # ui/internet/InternetPublisher
 #: Include_Animals_In_Location\:
@@ -9352,11 +9173,6 @@ msgid "You have not entered a message."
 msgstr "Neįvedėte pranešimo teksto."
 
 #. # ui/internet/EmailForm
-#: An_error_occurred_sending_the_email
-msgid "An error occurred sending your message: "
-msgstr "Įvyko klaida siunčiant pranešimą: "
-
-#. # ui/internet/EmailForm
 #: send_bulk_email
 msgid "Send Bulk Email"
 msgstr "Siųsti masinį el. laišką"
@@ -9367,7 +9183,6 @@ msgid "Publish Available Animals To PetFinder.com"
 msgstr ""
 
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #: an_error_occurred_contacting_petfinder.org
 msgid "An error occurred contacting PetFinder.com: "
 msgstr ""
@@ -9385,11 +9200,6 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: petfinder_upload_complete
 msgid "PetFinder.com Upload Complete"
-msgstr ""
-
-#. # internet/PetFinderPublisher
-#: An_error_occurred_reading_the_Petfinder_shelter_id
-msgid "An error occurred reading the Petfinder Shelter ID:"
 msgstr ""
 
 #. # ui/internet/PetFinderSettings
@@ -9489,11 +9299,6 @@ msgid "Publish Available Animals To Pets911.com"
 msgstr ""
 
 #. # internet/Pets911Publisher
-#: An_error_occurred
-msgid "An error occurred:\n"
-msgstr "Įvyko klaida:\n"
-
-#. # internet/Pets911Publisher
 #: Pets911_publishing_complete
 msgid "Pets911.com publishing complete."
 msgstr ""
@@ -9511,16 +9316,6 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Include_Without_Image
 msgid "Include Animals with no image"
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: An_error_occurred_reading_the_save_a_pet_user
-msgid "An error occurred reading the AdoptAPet.com user: "
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: an_error_occurred_contacting_save_a_pet
-msgid "An error occurred contacting the server for AdoptAPet.com: "
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9591,16 +9386,6 @@ msgstr "Failo plėtinys"
 #. # ui/internet/InternetPublisher
 #: Force_Reupload
 msgid "Force reupload of animal images"
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: An_error_occurred_reading_the_rescue_groups_user
-msgid "An error occurred reading the RescueGroups.org user: "
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: an_error_occurred_contacting_rescue_groups
-msgid "An error occurred contacting the server for RescueGroups.org: "
 msgstr ""
 
 #. # internet/RescueGroupsPublisher
@@ -9677,11 +9462,6 @@ msgstr "Data/Laikas"
 msgid "Warning: Local cache index not found."
 msgstr "Įspėjimas: Vietinio podėlio indeksas nerastas."
 
-#. # ui/localcache/LocalCache
-#: An_error_occurred_dumping_cache_information\:\n
-msgid "An error occurred dumping cache information:\n"
-msgstr "Įvyko klaida šalinant podėlio informaciją:\n"
-
 #. # reports/AnimalPrint
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -9733,11 +9513,6 @@ msgstr "Redaguoti žurnalą"
 #: Unable_to_read_log_record\:
 msgid "Unable to read log record:\n"
 msgstr "Nepavyko nuskaityti žurnalo įrašo:\n"
-
-#. # ui/log/LogEdit
-#: An_error_occurred_saving_the_record\:
-msgid "An error occurred saving the record:\n"
-msgstr "Įvyko klaida, išsaugant įrašą:\n"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -9792,11 +9567,6 @@ msgid "Login"
 msgstr "Prisijungti"
 
 #. # ui/login/Login
-#: An_error_occurred_obtaining_a_connection_to_the_database_-_
-msgid "An error occurred obtaining a connection to the database - "
-msgstr ""
-
-#. # ui/login/Login
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
 msgstr "Prisijungimas prie Animal Shelter Manager"
@@ -9839,11 +9609,6 @@ msgstr "Vakcinacijų tipai"
 msgid "Species Name"
 msgstr "Rūšies pavadinimas"
 
-#. # ui/lookups/LookupView
-#: Invalid_lookup_type_received.
-msgid "Invalid lookup type received."
-msgstr "Gautas klaidingas sąrašo tipas."
-
 #. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
 #. # ui/internet/PetFinderMapBreed
@@ -9853,15 +9618,6 @@ msgstr "Gautas klaidingas sąrašo tipas."
 #: Edit
 msgid "Edit"
 msgstr "Redaguoti"
-
-#. # ui/lookups/LookupView
-#: An_error_occurred_checking_foreign-key_relations_and_this\nrecord_cannot_be_deleted\:_
-msgid ""
-"An error occurred checking foreign-key relations and this\n"
-"record cannot be deleted: "
-msgstr ""
-"An error occurred checking foreign-key relations and this\n"
-"record cannot be deleted: "
 
 #. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
@@ -9947,28 +9703,11 @@ msgstr "Rūšies aprašymas"
 msgid "Create New "
 msgstr "Kurti naują "
 
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_accessing_the_record\:_
-msgid "An error occurred accessing the record: "
-msgstr "An error occurred accessing the record: "
-
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
 #: Description\:
 msgid "Description:"
 msgstr "Aprašymas:"
-
-#. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
-#. # ui/movement/MovementEdit
-#: An_error_occurred_saving_the_record\:_
-msgid "An error occurred saving the record: "
-msgstr "Įvyko klaida išsaugant šį įrašą: "
-
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_creating_the_record\:_
-msgid "An error occurred creating the record: "
-msgstr "An error occurred creating the record: "
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -10080,6 +9819,23 @@ msgstr "Priskirti šią veislę visoms rūšims"
 #: any
 msgid "(any)"
 msgstr "(visi)"
+
+#. # ui/lookups/LookupView
+#: cost_type_name
+msgid "Cost Type Name"
+msgstr "Išlaidų tipo pavadinimas"
+
+#. # ui/lookups/LookupView
+#: cost_type_description
+msgid "Cost Type Description"
+msgstr "Išlaidų tipo aprašymas"
+
+#. # ui/lookups/LookupView
+#. # ui/main/Main
+#: cost_types
+#: Cost_Types
+msgid "Cost Types"
+msgstr "Išlaidų tipai"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
@@ -11377,12 +11133,6 @@ msgstr "Kurti naują medikamentą rankiniu būdu"
 msgid "Treatment Periods"
 msgstr "gydymo ciklo (-ų)"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Cost\:
-msgid "Cost:"
-msgstr ""
-
 #. # ui/movement/MovementView
 #: View_the_owner_for_this_reservation
 msgid "View the owner for this reservation"
@@ -11407,11 +11157,6 @@ msgstr "Pridėti naują rezervaciją"
 #: View_the_animal_for_this_reservation
 msgid "View the animal for this reservation"
 msgstr "Žiūrėti rezervuotą gyvūną"
-
-#. # ui/movement/MovementEdit
-#: An_error_occurred_validating_the_record\:_
-msgid "An error occurred validating the record: "
-msgstr "Įvyko klaida patvirtinant įrašą: "
 
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
@@ -11450,11 +11195,6 @@ msgid "The reference number of this movement"
 msgstr "Identifikacinis veiksmo numeris"
 
 #. # ui/movement/MovementEdit
-#: Unable_to_open_find_owner_screen\:_
-msgid "Unable to open find owner screen: "
-msgstr "Unable to open find owner screen: "
-
-#. # ui/movement/MovementEdit
 #: The_reason_the_animal_was_returned
 msgid "The reason the animal was returned"
 msgstr "Gyvūno grąžinimo priežastis"
@@ -11463,11 +11203,6 @@ msgstr "Gyvūno grąžinimo priežastis"
 #: Unchecked_Owner
 msgid "Unchecked Owner"
 msgstr "Netikrintas asmuo"
-
-#. # ui/movement/MovementEdit
-#: Unable_to_create_new_movement\:_
-msgid "Unable to create new movement: "
-msgstr "Nepavyko sukurti naujo veiksmo: "
 
 #. # ui/movement/MovementEdit
 #: WARNING\:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(
@@ -11532,15 +11267,6 @@ msgid "Still Reserved"
 msgstr "Iki šiol rezervuotas"
 
 #. # ui/movement/MovementEdit
-#: An_error_occurred_cancelling_the_existing_reservation(s)._The_records_were_not_saved_and_you_will_have_to_remove_these_reservations_manually.
-msgid ""
-"An error occurred cancelling the existing reservation(s). The records were "
-"not saved and you will have to remove these reservations manually."
-msgstr ""
-"Įvyko klaida atšaukiant esančią(-ias) rezervaciją(-as). Įrašai nebuvo "
-"išsaugoti, todėl jums reikės pašalinti šias rezervacijas rankiniu būdu."
-
-#. # ui/movement/MovementEdit
 #: Generate_a_document_for_this_movement
 msgid "Generate a document for this movement"
 msgstr "Sugeneruoti dokumentą šiam veiksmui"
@@ -11565,12 +11291,6 @@ msgstr "Veiksmo data"
 msgid "The reservation date"
 msgstr "Rezervacijos data"
 
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnBannedOwner
-msgid "WarnBannedOwner"
-msgstr "WarnBannedOwner"
-
 #. # ui/movement/MovementEdit
 #: Already_Insured
 msgid "Already Insured"
@@ -11580,12 +11300,6 @@ msgstr "Jau apdraustas"
 #: (none)
 msgid "(none)"
 msgstr "(joks)"
-
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnMultipleReserves
-msgid "WarnMultipleReserves"
-msgstr "WarnMultipleReserves"
 
 #. # ui/movement/MovementEdit
 #: This_animal_is_still_reserved_to_another_owner(s)._Would_you_like_to_cancel_these_reservations_now?
@@ -11896,16 +11610,6 @@ msgid "Home Tel"
 msgstr "Namų tel."
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner_record_for_movements.
-msgid "An error occurred checking the owner record for movements."
-msgstr "Įvyko klaida tikrinant asmens įrašą dėl veiksmų."
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_creating_the_owner_record\:_
-msgid "An error occurred creating the owner record: "
-msgstr "Įvyko klaida pridedant naujo asmens įrašą: "
-
-#. # ui/owner/OwnerEdit
 #: Create_New_Owner
 msgid "Create New Owner"
 msgstr "Pridėti naują asmenį"
@@ -11916,11 +11620,6 @@ msgid "Edit Owner"
 msgstr "Redaguoti asmenį"
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_saving_the_record_to_the_database\:_
-msgid "An error occurred saving the record to the database: "
-msgstr "Įvyko klaida išsaugant įrašą duomenų bazėje: "
-
-#. # ui/owner/OwnerEdit
 #: Home_Tel\:
 msgid "Home Tel:"
 msgstr "Namų tel.:"
@@ -11929,11 +11628,6 @@ msgstr "Namų tel.:"
 #: Check_this_box_if_this_owner_is_a_member_of_your_organisation
 msgid "Check this box if this owner is a member of your organisation"
 msgstr "Pažymėkite šį laukelį, jei asmuo yra organizacijos narys"
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner\:\n
-msgid "An error occurred checking the owner:\n"
-msgstr "Įvyko klaida tikrinant asmenį:\n"
 
 #. # ui/owner/OwnerEdit
 #: Member
@@ -11987,11 +11681,6 @@ msgstr ""
 #: Work_Tel\:
 msgid "Work Tel:"
 msgstr "Darbo tel.:"
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_reading_owner_information\:_
-msgid "An error occurred reading owner information: "
-msgstr "Įvyko klaida nuskaitant informaciją apie savininką: "
 
 #. # ui/owner/OwnerEdit
 #: Volunteer
@@ -12656,6 +12345,11 @@ msgstr "Potencialūs šeimininkai"
 #. # ui/owner/DonationEdit
 #: frequency
 msgid "Frequency:"
+msgstr "Dažnumas:"
+
+#. # ui/owner/OwnerEdit
+#: if_this_owner_is_a_member_the_number
+msgid "If this owner is a member, their membership number"
 msgstr ""
 
 #. # ui/reportviewer/ReportViewer
@@ -12826,11 +12520,6 @@ msgid "Highlight animals under 6 months, reserved or dead on reports"
 msgstr ""
 
 #. # ui/system/Options
-#: An_error_occurred_saving_the_data\:_
-msgid "An error occurred saving the data: "
-msgstr ""
-
-#. # ui/system/Options
 #: Use_optimistic_record_locking_on_animal_database
 msgid "Use optimistic record locking on database"
 msgstr ""
@@ -12889,11 +12578,6 @@ msgid "Add a new file type"
 msgstr ""
 
 #. # ui/system/FileTypes
-#: An_error_occurred_updating_the_file_types\:\n
-msgid "An error occurred updating the file types:\n"
-msgstr ""
-
-#. # ui/system/FileTypes
 #: Delete_the_selected_type
 msgid "Delete the selected type"
 msgstr ""
@@ -12902,11 +12586,6 @@ msgstr ""
 #. # ui/system/FileTypeEdit
 #: Extension
 msgid "Extension"
-msgstr ""
-
-#. # ui/system/FileTypes
-#: An_error_occurred_reading_the_list_of_system_filetypes\:\n
-msgid "An error occurred reading the list of system filetypes:\n"
 msgstr ""
 
 #. # ui/system/FileTypes
@@ -13040,11 +12719,6 @@ msgstr ""
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
 msgstr "Išsaugoti pakeitimus ir uždaryti"
-
-#. # ui/system/ConfigureLocal
-#: An_error_occurred_saving_changes_to_localsettings.conf\:\n
-msgid "An error occurred saving changes to asm.properties:\n"
-msgstr "Įvyko klaida išsaugant pakeitimus į asm.properties:\n"
 
 #. # ui/system/ConfigureLocal
 #: Start_Maximised\:
@@ -13601,12 +13275,12 @@ msgstr ""
 #. # ui/system/Options
 #: Default_to_advanced_find_animal_screen
 msgid "Default to advanced find animal screen"
-msgstr ""
+msgstr "Numatyti patikslintą gyvūnų paiešką"
 
 #. # ui/system/Options
 #: Default_to_advanced_find_owner_screen
 msgid "Default to advanced find owner screen"
-msgstr ""
+msgstr "Numatyti patikslintą asmenų paiešką"
 
 #. # ui/system/ConfigureLookups
 #: Remove_unwanted_breeds_and_species
@@ -13804,22 +13478,22 @@ msgstr "Numatytasis žurnalo filtras"
 #. # ui/system/Options
 #: Vets_Diary_User\:
 msgid "Vets Diary User:"
-msgstr ""
+msgstr "Priminimų veterinarui naudotojas:"
 
 #. # ui/system/Options
 #: Default_Coat_Type
 msgid "Default Coat Type:"
-msgstr ""
+msgstr "Numatytasis kailio tipas:"
 
 #. # ui/system/Options
 #: Default_date_brought_in_to_today
 msgid "Default today as the brought in date for new animals"
-msgstr ""
+msgstr "Naujiems gyvūnams numatyti šiandienos patekimo datą"
 
 #. # ui/system/Options
 #: auto_cancel_reserves
 msgid "Automatically cancel unadopted reservations after days:"
-msgstr ""
+msgstr "Automatiškai atšaukti neatiduotų gyvūnų rezervacijas po dienų:"
 
 #. # ui/system/Options
 #: auto_cancel_reserves_tooltip
@@ -13827,6 +13501,24 @@ msgid ""
 "If a reserved animal is not adopted after this many days, cancel the "
 "reservation"
 msgstr ""
+"Jei rezervuotas gyvūnas neatiduodamas po nurodyto skaičiaus dienų, "
+"rezervaciją atšaukti"
+
+#. # ui/system/Options
+#: Default_Donation_Type
+msgid "Default Donation Type:"
+msgstr "Numatytasis paramos tipas:"
+
+#. # ui/system/Options
+#: Default_Daily_Boarding_Cost
+msgid "Default Daily Boarding Cost:"
+msgstr "Numatytosios kasdienės išlaidos vieno gyvūno išlaikymui"
+
+#. # ui/system/Options
+#: Default_media_notes_to_original_filename
+msgid "Default original filename as notes when attaching media"
+msgstr ""
+"Pridedant failus, numatyti originalius failų pavadinimus kaip pastabas"
 
 #. # ui/users/UserView
 #: Unable_to_open_user_for_editing\:_
@@ -14028,11 +13720,6 @@ msgstr "Redaguoti laukiančiųjų vietos sąrašo įrašus"
 #: Owners\:
 msgid "Owners:"
 msgstr "Asmenys:"
-
-#. # ui/users/UserEdit
-#: An_error_occurred_creating_a_new_user\:_
-msgid "An error occurred creating a new user: "
-msgstr "Įvyko klaida pridedant naują naudotoją: "
 
 #. # ui/users/UserEdit
 #: Edit_Completed_Diary_Notes
@@ -14472,11 +14159,6 @@ msgid "Edit this entry"
 msgstr "Redaguoti šį įrašą"
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_accessing_external_data\:\n
-msgid "An error occurred accessing external data:\n"
-msgstr "An error occurred accessing external data:\n"
-
-#. # ui/waitinglist/WaitingListEdit
 #: Urgency\:
 msgid "Urgency:"
 msgstr "Prioritetas:"
@@ -14519,11 +14201,6 @@ msgid "species"
 msgstr "rūšis"
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_cloning_this_record\:\n
-msgid "An error occurred cloning this record:\n"
-msgstr "An error occurred cloning this record:\n"
-
-#. # ui/waitinglist/WaitingListEdit
 #: Date_Removed\:
 msgid "Date Removed:"
 msgstr "Pašalinimo data:"
@@ -14543,11 +14220,6 @@ msgstr "Naujas laukiančiųjų vietos sąrašo įrašas"
 #: complete_the_selected_waiting_list_entries
 msgid "Complete the selected waiting list entries"
 msgstr "Šalinti pasirinktą sąrašo įrašą"
-
-#. # ui/waitinglist/WaitingListView
-#: An_error_occurred_completing_the_record
-msgid "An error occurred completing the record: "
-msgstr "An error occurred completing the record: "
 
 #. # ui/waitinglist/WaitingListEdit
 #: remove_this_entry_after
@@ -14607,26 +14279,10 @@ msgstr "Redaguoti laukiančiųjų vietos sąrašo įrašą - {0}"
 msgid "Removal Reason:"
 msgstr "Pašalinimo priežastis:"
 
-#. # ui/ui/DBFSBrowser
-#. # ui/wordprocessor/SelectTemplate
-#: An_error_occurred_retrieving_the_file\:_
-msgid "An error occurred retrieving the file: "
-msgstr "Įvyko klaida gaunant failą: "
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_reading_from_the_media_server\:_
-msgid "An error occurred reading from the media server: "
-msgstr "Įvyko klaida nuskaitant iš failų serverio: "
-
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
 msgstr "Pasirinkite dokumento šabloną"
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_changing_into_the_directory\:_
-msgid "An error occurred changing into the directory: "
-msgstr "Įvyko klaida keičiant į direktoriją: "
 
 #. # ui/wordprocessor/SelectTemplate
 #: attach_generated_document_as_media
@@ -14664,6 +14320,9 @@ msgstr "(apytikslis)"
 #~ msgid "Schipperkev"
 #~ msgstr "Šiperkė"
 
+#~ msgid "An error occurred opening the report {0}"
+#~ msgstr "Įvyko klaida, atidarant ataskaitą {0}"
+
 #~ msgid "Puppies: "
 #~ msgstr "Šuniukai: "
 
@@ -14700,6 +14359,9 @@ msgstr "(apytikslis)"
 #~ msgid " released"
 #~ msgstr " paleisti"
 
+#~ msgid "An error occurred generating the report: {0}"
+#~ msgstr "An error occurred generating the report: {0}"
+
 #~ msgid "DOGS"
 #~ msgstr "ŠUNYS"
 
@@ -14723,6 +14385,9 @@ msgstr "(apytikslis)"
 
 #~ msgid "Expires in:"
 #~ msgstr "Baigiasi:"
+
+#~ msgid "An error occurred reading the record:\n"
+#~ msgstr "Įvyko klaida nuskaitant įrašą:\n"
 
 #~ msgid "The mother's name (if known)"
 #~ msgstr "Motinos vardas (jei žinomas)"
@@ -14794,8 +14459,14 @@ msgstr "(apytikslis)"
 #~ "You are about to permanently delete this record. Are you sure you want to do "
 #~ "this?"
 
+#~ msgid "An error occurred reading the header:\n"
+#~ msgstr "An error occurred reading the header:\n"
+
 #~ msgid "View All Diary Notes"
 #~ msgstr "Žiūrėti visus priminimus"
+
+#~ msgid "An error occurred accessing linked data:\n"
+#~ msgstr "An error occurred accessing linked data:\n"
 
 #~ msgid "View Completed Diary Notes"
 #~ msgstr "Žiūrėti atliktus darbus"
@@ -14815,8 +14486,24 @@ msgstr "(apytikslis)"
 #~ msgid "The type of log entry"
 #~ msgstr "Žurnalo įrašo tipas"
 
+#~ msgid "An error occurred saving the record:\n"
+#~ msgstr "Įvyko klaida, išsaugant įrašą:\n"
+
+#~ msgid ""
+#~ "An error occurred checking foreign-key relations and this\n"
+#~ "record cannot be deleted: "
+#~ msgstr ""
+#~ "An error occurred checking foreign-key relations and this\n"
+#~ "record cannot be deleted: "
+
 #~ msgid "View Lookup"
 #~ msgstr "Ziureti sarasa"
+
+#~ msgid "An error occurred accessing the record: "
+#~ msgstr "An error occurred accessing the record: "
+
+#~ msgid "An error occurred creating the record: "
+#~ msgstr "An error occurred creating the record: "
 
 #~ msgid "Edit Lookup"
 #~ msgstr "Redaguoti sarasa"
@@ -15128,11 +14815,20 @@ msgstr "(apytikslis)"
 #~ msgid "The donation amount"
 #~ msgstr "Paramos kiekis"
 
+#~ msgid "Unable to open find owner screen: "
+#~ msgstr "Unable to open find owner screen: "
+
 #~ msgid "Select an owner"
 #~ msgstr "Pasirinkite asmenį"
 
+#~ msgid "WarnBannedOwner"
+#~ msgstr "WarnBannedOwner"
+
 #~ msgid "(None)"
 #~ msgstr "(Joks)"
+
+#~ msgid "WarnMultipleReserves"
+#~ msgstr "WarnMultipleReserves"
 
 #~ msgid "Edit Movement Donation"
 #~ msgstr "Redaguoti su veiksmu susijusią paramą"
@@ -15189,11 +14885,23 @@ msgstr "(apytikslis)"
 #~ msgstr ""
 #~ "An error occurred while updating the urgencies of the waiting list entries:\n"
 
+#~ msgid "An error occurred accessing external data:\n"
+#~ msgstr "An error occurred accessing external data:\n"
+
+#~ msgid "An error occurred cloning this record:\n"
+#~ msgstr "An error occurred cloning this record:\n"
+
+#~ msgid "An error occurred completing the record: "
+#~ msgstr "An error occurred completing the record: "
+
 #~ msgid "monthly"
 #~ msgstr "Kas mėnesį"
 
 #~ msgid "Hidden Comments"
 #~ msgstr "Slepiami komentarai"
+
+#~ msgid "An error occurred saving to the local recordset: "
+#~ msgstr "Įvyko klaida išsaugant vietinius įrašus: "
 
 #~ msgid ""
 #~ "Another user has submitted changes to this record whilst you were editing "
@@ -15204,8 +14912,23 @@ msgstr "(apytikslis)"
 #~ "Siekiant išsaugoti anksčiau pateiktą informaciją, jūsų duomenys turi būti "
 #~ "atšaukti. Animal Shelter Manager dabar įkels naujausią įrašo versiją."
 
+#~ msgid "An error occurred cloning the animal: "
+#~ msgstr "Įvyko klaida kopijuojant gyvūno duomenis: "
+
 #~ msgid "A database error ocurred checking record locks: "
 #~ msgstr "Įvyko duomenų bazės klaida tikrinant įrašų šliuzus: "
+
+#~ msgid "An error occurred scaling and displaying the preview image:\n"
+#~ msgstr "Įvyko klaida nustatant mastelį ir rodant anonso atvaizdą:\n"
+
+#~ msgid "An error occurred while setting the web preferred option: "
+#~ msgstr "Įvyko klaida nustatant pageidavimą naudojimui internete: "
+
+#~ msgid "An error ocurred opening the media entry for editing: "
+#~ msgstr "Įvyko klaida atidarant failą redagavimui: "
+
+#~ msgid "An error occurred retrieving the media file: "
+#~ msgstr "Įvyko klaida gaunant failą: "
 
 #~ msgid "Unable to remove file from FTP server: "
 #~ msgstr "Nepavyko pašalinti failo iš FTP serverio: "
@@ -15237,14 +14960,42 @@ msgstr "(apytikslis)"
 #~ msgid "SQL Interface"
 #~ msgstr "SQL sąsaja"
 
+#~ msgid "An error occurred validating the record: "
+#~ msgstr "Įvyko klaida patvirtinant įrašą: "
+
+#~ msgid "Unable to create new movement: "
+#~ msgstr "Nepavyko sukurti naujo veiksmo: "
+
+#~ msgid ""
+#~ "An error occurred cancelling the existing reservation(s). The records were "
+#~ "not saved and you will have to remove these reservations manually."
+#~ msgstr ""
+#~ "Įvyko klaida atšaukiant esančią(-ias) rezervaciją(-as). Įrašai nebuvo "
+#~ "išsaugoti, todėl jums reikės pašalinti šias rezervacijas rankiniu būdu."
+
 #~ msgid "If this is an adoption from a retailer, select the retailer"
 #~ msgstr "Jei gyvūną atidavė tarpininkas, pasirinkite tarpininką"
 
 #~ msgid "Unable to create new movement donation: "
 #~ msgstr "Nepavyko pridėti naujos su veiksmu susijusios paramos: "
 
+#~ msgid "An error occurred checking the owner record for movements."
+#~ msgstr "Įvyko klaida tikrinant asmens įrašą dėl veiksmų."
+
+#~ msgid "An error occurred creating the owner record: "
+#~ msgstr "Įvyko klaida pridedant naujo asmens įrašą: "
+
+#~ msgid "An error occurred saving the record to the database: "
+#~ msgstr "Įvyko klaida išsaugant įrašą duomenų bazėje: "
+
+#~ msgid "An error occurred checking the owner:\n"
+#~ msgstr "Įvyko klaida tikrinant asmenį:\n"
+
 #~ msgid "An error occurred deleting the record: "
 #~ msgstr "Įvyko klaida trinant įrašą: "
+
+#~ msgid "An error occurred reading owner information: "
+#~ msgstr "Įvyko klaida nuskaitant informaciją apie savininką: "
 
 #~ msgid "An error occurred saving the data:"
 #~ msgstr "Įvyko klaida išsaugant duomenis:"
@@ -15282,6 +15033,21 @@ msgstr "(apytikslis)"
 #~ msgid "Daily"
 #~ msgstr "Kasdien"
 
+#~ msgid "An error occurred reading the diary note: "
+#~ msgstr "Įvyko klaida nuskaitant priminimą: "
+
+#~ msgid "An error occurred creating a new diary record: "
+#~ msgstr "Įvyko klaida kuriant naują priminimą: "
+
+#~ msgid "An error occurred creating the diary notes:\n"
+#~ msgstr "Įvyko klaida kuriant priminimus:\n"
+
+#~ msgid "Invalid lookup type received."
+#~ msgstr "Gautas klaidingas sąrašo tipas."
+
+#~ msgid "An error occurred accessing the object: "
+#~ msgstr "Įvyko klaida jungiantis prie objekto: "
+
 #~ msgid ""
 #~ "If this owner is a homechecker, the areas (names/postcodes) they are willing "
 #~ "to check"
@@ -15296,8 +15062,47 @@ msgstr "(apytikslis)"
 #~ msgid "Common Animal Adoption Areas"
 #~ msgstr "Populiariausios gyvūnų atidavimo vietovės"
 
+#~ msgid "Adoptions ("
+#~ msgstr "Atidavimai ("
+
+#~ msgid "Donations ("
+#~ msgstr "Parama ("
+
+#~ msgid "An unexpected error occurred:\n"
+#~ msgstr "Įvyko nenumatyta klaida:\n"
+
+#~ msgid "An error occurred reading the file:\n"
+#~ msgstr "Įvyko klaida nuskaitant failą:\n"
+
+#~ msgid "An error occurred creating the record:\n"
+#~ msgstr "Įvyko klaida kuriant įrašą:\n"
+
 #~ msgid "Really Delete?"
 #~ msgstr "Ar tikrai ištrinti?"
+
+#~ msgid "An error occurred saving the data:\n"
+#~ msgstr "Įvyko klaida išsaugant duomenis:\n"
+
+#~ msgid "There is an error in your SQL:\n"
+#~ msgstr "Jūsų SQL yra klaida:\n"
+
+#~ msgid "Unable to generate HTML:\n"
+#~ msgstr "Nepavyko sugeneruoti HTML:\n"
+
+#~ msgid "An error occurred removing the record: "
+#~ msgstr "Įvyko klaida šalinant įrašą: "
+
+#~ msgid "An error occurred loading the data:\n"
+#~ msgstr "Įvyko klaida įkeliant duomenis:\n"
+
+#~ msgid "An error occurred writing a file:\n"
+#~ msgstr "Įvykio klaida įrašant failą:\n"
+
+#~ msgid "An error occurred testing the animals:\n"
+#~ msgstr "Įvyko klaida tikrinant gyvūnus:\n"
+
+#~ msgid "An error occurred saving the record: "
+#~ msgstr "Įvyko klaida išsaugant šį įrašą: "
 
 #~ msgid "Configure Defaults"
 #~ msgstr "Konfigūruoti numatytąsias nuostatas"
@@ -15348,6 +15153,18 @@ msgstr "(apytikslis)"
 #~ msgid "Export Custom Report Data"
 #~ msgstr "Eksportuoti individualizuotos ataskaitos duomenis"
 
+#~ msgid "Unable to create new custom report:\n"
+#~ msgstr "Nepavyko sukurti naujos individualizuotos ataskaitos:\n"
+
+#~ msgid "An error occurred creating a new user: "
+#~ msgstr "Įvyko klaida pridedant naują naudotoją: "
+
+#~ msgid "Brought In ("
+#~ msgstr "Pateko ("
+
+#~ msgid "An error occurred generating the mail merge source:\n"
+#~ msgstr "Įvyko klaida generuojant laiško komponavimo šaltinį:\n"
+
 #~ msgid "Configure ASM Email Account"
 #~ msgstr "Konfigūruoti ASM el. pašto paskyrą"
 
@@ -15359,6 +15176,24 @@ msgstr "(apytikslis)"
 
 #~ msgid "An error occurred removing the record:\n"
 #~ msgstr "Įvyko klaida šalinant įrašą:\n"
+
+#~ msgid "An error occurred generating the CSV file: "
+#~ msgstr "Įvyko klaida generuojant CSV failą: "
+
+#~ msgid "An error occurred creating the CSV file: "
+#~ msgstr "Įvyko klaida kuriant CSV failą: "
+
+#~ msgid "An error occurred connecting to the internet provider:\n"
+#~ msgstr "Įvyko klaida jungiantis prie interneto tiekėjo:\n"
+
+#~ msgid "An error occurred sending your message: "
+#~ msgstr "Įvyko klaida siunčiant pranešimą: "
+
+#~ msgid "An error occurred retrieving the file: "
+#~ msgstr "Įvyko klaida gaunant failą: "
+
+#~ msgid "An error occurred reading from the media server: "
+#~ msgstr "Įvyko klaida nuskaitant iš failų serverio: "
 
 #~ msgid "An error occurred while validating the object: "
 #~ msgstr "Įvyko klaida tvirtinant objektą: "
@@ -15372,8 +15207,14 @@ msgstr "(apytikslis)"
 #~ msgid "File"
 #~ msgstr "Failai"
 
+#~ msgid "An error occurred saving changes to asm.properties:\n"
+#~ msgstr "Įvyko klaida išsaugant pakeitimus į asm.properties:\n"
+
 #~ msgid "Configure Additional Fields"
 #~ msgstr "Konfigūruoti papildomus laukus"
+
+#~ msgid "An error occurred dumping cache information:\n"
+#~ msgstr "Įvyko klaida šalinant podėlio informaciją:\n"
 
 #~ msgid "Breed Mappings"
 #~ msgstr "Veislių priskyrimas rūšims"
@@ -15399,6 +15240,12 @@ msgstr "(apytikslis)"
 #~ msgid "Get more reports from sheltermanager.com ..."
 #~ msgstr "Gauti daugiau ataskaitų iš sheltermanager.com ..."
 
+#~ msgid "An error occurred running diagnostics: "
+#~ msgstr "Įvyko klaida vykdant diagnostiką: "
+
+#~ msgid "An error occurred:\n"
+#~ msgstr "Įvyko klaida:\n"
+
 #~ msgid "Error reading from file - "
 #~ msgstr "Įvyko klaida nuskaitant iš failo - "
 
@@ -15407,3 +15254,9 @@ msgstr "(apytikslis)"
 
 #~ msgid "Configure &Automatic Insurance Numbers"
 #~ msgstr "&Konfigūruoti automatinius draudimo numerius"
+
+#~ msgid "An error occurred completing the vaccination treatment:"
+#~ msgstr "Įvyko klaida žymint įrašą apie vakcinaciją atliktu:"
+
+#~ msgid "An error occurred changing into the directory: "
+#~ msgstr "Įvyko klaida keičiant į direktoriją: "

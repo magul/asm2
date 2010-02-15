@@ -37,6 +37,7 @@ import java.util.Calendar;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public abstract class Dialog {
@@ -64,6 +65,13 @@ public abstract class Dialog {
         }
     }
 
+    private static void setOptionPaneStrings() {
+        UIManager.put("OptionPane.yesButtonText", UI.messageYes());
+        UIManager.put("OptionPane.noButtonText", UI.messageNo());
+        UIManager.put("OptionPane.cancelButtonText", UI.messageCancel());
+        UIManager.put("OptionPane.okButtonText", UI.messageOK());
+    }
+
     /** Wraps a message by replacing spaces with line breaks */
     private static String wordWrap(String s) {
         final int WRAP = 100; // No chars to wrap at
@@ -84,6 +92,7 @@ public abstract class Dialog {
     }
 
     public static void showError(String message, String title) {
+    	setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.ERROR_MESSAGE);
 
@@ -93,6 +102,7 @@ public abstract class Dialog {
     }
 
     public static void showError(String message) {
+    	setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message),
             Global.i18n("uierror", "Error"), JOptionPane.ERROR_MESSAGE);
 
@@ -102,10 +112,12 @@ public abstract class Dialog {
     }
 
     public static void showInformation(String message) {
+    	setOptionPaneStrings();
         showInformation(message, Global.i18n("uierror", "Information"));
     }
 
     public static void showInformation(String message, String title) {
+    	setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.INFORMATION_MESSAGE);
 
@@ -115,6 +127,7 @@ public abstract class Dialog {
     }
 
     public static void showWarning(String message, String title) {
+    	setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.WARNING_MESSAGE);
 
@@ -124,6 +137,7 @@ public abstract class Dialog {
     }
 
     public static boolean showYesNo(String message, String title) {
+    	setOptionPaneStrings();
         int answer = JOptionPane.showConfirmDialog(theParent,
                 wordWrap(message), title, JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
@@ -132,6 +146,7 @@ public abstract class Dialog {
     }
 
     public static boolean showYesNoWarning(String message, String title) {
+    	setOptionPaneStrings();
         int answer = JOptionPane.showConfirmDialog(theParent,
                 wordWrap(message), title, JOptionPane.YES_NO_OPTION,
                 JOptionPane.WARNING_MESSAGE);

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-09 14:42+0100\n"
-"PO-Revision-Date: 2010-02-09 10:04+0000\n"
+"POT-Creation-Date: 2010-02-12 13:47+0100\n"
+"PO-Revision-Date: 2010-02-14 22:47+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-10 04:49+0000\n"
+"X-Launchpad-Export-Date: 2010-02-15 04:54+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -111,12 +111,6 @@ msgstr "יש לציין את התאריך בו נוספה הערה זו לרשי
 #: You_must_enter_the_contact_name.
 msgid "You must enter the contact name."
 msgstr "יש להזין שם ליצירת קשר."
-
-#. # bo/AnimalVaccination
-#. # bo/AnimalDiet
-#: An_error_occurred_accessing_the_object\:_
-msgid "An error occurred accessing the object: "
-msgstr "אירעה שגיאה במהלך נסיון לגשת לפריט: "
 
 #. # bo/AnimalVaccination
 #: Date_Required_is_mandatory.
@@ -3508,11 +3502,6 @@ msgid "Scan complete"
 msgstr "הסריקה הושלמה"
 
 #. # db/Diagnostic
-#: An_error_occurred_running_diagnostics\:\n
-msgid "An error occurred running diagnostics: "
-msgstr "ארעה שגיאה בעת הפעלת הניתוח: "
-
-#. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
 msgid "Checking for orphaned movement records..."
 msgstr "מתבצע חיפוש אחר רשומות העברה יתומות..."
@@ -3536,11 +3525,6 @@ msgstr "מתבצע חיפוש אחר רשומות מדיה יתומות..."
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
 msgstr "מתבצע חיפוש אחר רשומות חיסון יתומות..."
-
-#. # db/DBUpdate
-#: An_unexpected_error_occurred\:\n
-msgid "An unexpected error occurred:\n"
-msgstr "ארעה שגיאה בלתי צפויה:\n"
 
 #. # db/DBUpdate
 #: Database_update_was_successful.
@@ -3592,11 +3576,6 @@ msgstr "אישור"
 #: Select_database_update_file_to_process\:
 msgid "Select database update file to process:"
 msgstr "יש לבחור את קובץ עדכון מסד הנתונים לעיבוד:"
-
-#. # db/DBUpdate
-#: An_error_occurred_reading_the_file\:\n
-msgid "An error occurred reading the file:\n"
-msgstr "ארעה שגיאה בעת קריאת הקובץ:\n"
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3887,17 +3866,11 @@ msgid ""
 "Please enter the end date you would like to prepare vaccination letters for"
 msgstr ""
 
-#. # mailmerge/MailMerge
-#: An_error_occurred_generating_the_mail_merge_source\:\n
-msgid "An error occurred generating the mail merge source:\n"
-msgstr "ארעה שגיאה בעת ייצור מקור מיזוג הדואר:\n"
-
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # reports/DiaryNotesToday
 #. # reports/Report
 #. # reports/Vets
-#. # ui/animal/DietEdit
 #. # ui/animal/VaccinationView
 #. # ui/animal/MediaAdd
 #. # ui/animal/MediaSelector
@@ -3905,15 +3878,10 @@ msgstr "ארעה שגיאה בעת ייצור מקור מיזוג הדואר:\n"
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
 #. # ui/ui/Dialog
-#. # ui/ui/DBFSBrowser
-#. # ui/login/Login
 #. # ui/users/UserView
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
-#. # ui/owner/VoucherEdit
-#. # internet/Publisher
-#. # mailmerge/MailMerge
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/MovementDocument
 #. # utility/Utils
@@ -3935,11 +3903,6 @@ msgstr "אין רשומות להוספה למקור מיזוג הדואר."
 #: Outputting_to_disk...
 msgid "Outputting to disk..."
 msgstr "מתבצע ייצוא אל הכונן..."
-
-#. # mailmerge/MailMerge
-#: Unable_to_write_output_file_
-msgid "Unable to write output file "
-msgstr "לא ניתן לכתוב את קובץ הפלט "
 
 #. # mailmerge/MailMerge
 #: Reading_data,_please_wait...
@@ -4648,11 +4611,6 @@ msgstr "חיות מחמד שהוחזרו בתוך חצי שנה"
 #: In/Out_Report
 msgid "In/Out Report"
 msgstr "יומן כניסה/יציאה"
-
-#. # ui/criteria/DateFromTo
-#: An_error_occurred_opening_the_report
-msgid "An error occurred opening the report {0}"
-msgstr "ארעה שגיאה בעת פתיחת היומן {0}"
 
 #. # ui/criteria/DateFromTo
 #: In/Out_Summary_Report
@@ -5947,31 +5905,6 @@ msgstr ""
 msgid "PTS"
 msgstr ""
 
-#. # reports/VaccinationDiary
-#. # reports/Stats
-#. # reports/AnimalFigures
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/LostFoundMatch
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/ReturnedAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalPrint
-#. # reports/TransferIn
-#. # reports/CustomReportExecute
-#. # reports/UnneuteredSixMonths
-#: An_error_occurred_generating_the_report
-msgid "An error occurred generating the report: {0}"
-msgstr ""
-
 #. # reports/AnimalFigures
 #: January
 msgid "January"
@@ -6334,7 +6267,7 @@ msgstr ""
 #: Comments
 #: comments
 msgid "Comments"
-msgstr ""
+msgstr "הערות"
 
 #. # reports/AnimalFigures
 #: SubTotal
@@ -6752,15 +6685,9 @@ msgid "Select a mother from the shelter animals"
 msgstr "יש לבחור אימא מחיות המחמד שבבית המחסה"
 
 #. # ui/animal/LitterEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
-msgstr ""
-
-#. # ui/animal/LitterEdit
-#: An_error_occurred_reading_the_record\:\n
-msgid "An error occurred reading the record:\n"
 msgstr ""
 
 #. # ui/animal/LitterEdit
@@ -6853,14 +6780,6 @@ msgid "The date this litter expires"
 msgstr ""
 
 #. # ui/animal/LitterEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_creating_the_record\:\n
-msgid "An error occurred creating the record:\n"
-msgstr ""
-
-#. # ui/animal/LitterEdit
 #: Abandon_this_record
 msgid "Abandon this record"
 msgstr ""
@@ -6895,13 +6814,6 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: The_date_the_animal_was_actually_given_this_vaccination
 msgid "The date the animal was actually given this vaccination treatment"
-msgstr ""
-
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/owner/VoucherEdit
-#: An_error_occurred_saving_to_the_local_recordset\:_
-msgid "An error occurred saving to the local recordset: "
 msgstr ""
 
 #. # ui/animal/VaccinationEdit
@@ -7008,7 +6920,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
-msgstr ""
+msgstr "הערות חבויות:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
@@ -7168,7 +7080,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Comments\:
 msgid "Comments:"
-msgstr ""
+msgstr "הערות:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
@@ -7225,11 +7137,6 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_combi-tested_if_known
 msgid "The date the animal was combi-tested if known"
-msgstr ""
-
-#. # ui/animal/AnimalEdit
-#: An_error_occurred_cloning_the_animal\:_
-msgid "An error occurred cloning the animal: "
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -7515,11 +7422,6 @@ msgid "Reason:"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
-msgid "An error occurred scaling and displaying the preview image:\n"
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: Attach_new_media
 msgid "Attach new media"
 msgstr ""
@@ -7540,29 +7442,13 @@ msgid "Edit this media entry"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_while_setting_the_web_preferred_option\:_
-msgid "An error occurred while setting the web preferred option: "
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_ocurred_opening_the_media_entry_for_editing\:_
-msgid "An error ocurred opening the media entry for editing: "
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: View_this_media
 msgid "View this media"
-msgstr ""
-
-#. # ui/animal/MediaSelector
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_retrieving_the_media_file\:_
-msgid "An error occurred retrieving the media file: "
 msgstr ""
 
 #. # ui/animal/MediaSelector
@@ -7634,7 +7520,7 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #: Hidden_Comments\:_
 msgid "Hidden Comments: "
-msgstr ""
+msgstr "הערות חבויות: "
 
 #. # ui/animal/AnimalFind
 #: find_original_owner_name
@@ -7649,13 +7535,9 @@ msgid "Look for a potential match in the lost animal database"
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_selected_vaccinations
 msgid "Complete the selected vaccination treatments"
-msgstr ""
-
-#. # ui/animal/VaccinationView
-#: an_error_occurred_completing_the_vaccination
-msgid "An error occurred completing the vaccination treatment:"
 msgstr ""
 
 #. # reports/AnimalPrint
@@ -7844,7 +7726,7 @@ msgstr ""
 #. # ui/animal/DietEdit
 #: Any_comments_about_the_diet
 msgid "Any comments about the diet"
-msgstr ""
+msgstr "כל ההערות על הדיאטה"
 
 #. # ui/owner/VoucherEdit
 #: Issue_Date\:
@@ -8448,6 +8330,7 @@ msgid "Expires:"
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr ""
@@ -8466,6 +8349,16 @@ msgstr ""
 #. # ui/medical/MedicalEdit
 #: Cost\:
 msgid "Cost:"
+msgstr ""
+
+#. # ui/animal/MediaSelector
+#: Doc_Preferred
+msgid "Doc Preferred"
+msgstr ""
+
+#. # ui/animal/MediaSelector
+#: Mark_this_media_as_preferred_for_use_with_documents
+msgid "Mark this media as preferred for use with documents"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -8500,15 +8393,6 @@ msgid "Really delete this record?"
 msgstr ""
 
 #. # ui/animalname/NamesEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/customreport/CustomReportEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_saving_the_data\:\n
-msgid "An error occurred saving the data:\n"
-msgstr ""
-
-#. # ui/animalname/NamesEdit
 #: Unable_to_create_new_animal_name\:\n
 msgid "Unable to create new animal name:\n"
 msgstr ""
@@ -8530,11 +8414,6 @@ msgid "Reports"
 msgstr ""
 
 #. # ui/customreport/CustomReportEdit
-#: There_is_an_error_in_your_SQL\:\n
-msgid "There is an error in your SQL:\n"
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
 #: SQL_is_syntactically_correct.
 msgid "SQL is syntactically correct."
 msgstr ""
@@ -8542,16 +8421,6 @@ msgstr ""
 #. # ui/customreport/CustomReportEdit
 #: Report_Title\:_
 msgid "Report Title: "
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_create_new_custom_report\:\n
-msgid "Unable to create new custom report:\n"
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_generate_HTML\:\n
-msgid "Unable to generate HTML:\n"
 msgstr ""
 
 #. # ui/customreport/CustomReportEdit
@@ -8609,11 +8478,6 @@ msgid "Generate a CSV file from this report"
 msgstr ""
 
 #. # ui/customreport/CustomReportExport
-#: an_error_occurred_creating_the_csv_file
-msgid "An error occurred creating the CSV file: "
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
 #: CSV_file_generated_at
 msgid "CSV file generated at: "
 msgstr ""
@@ -8621,11 +8485,6 @@ msgstr ""
 #. # ui/customreport/CustomReportExport
 #: CSV_generation_complete
 msgid "CSV Generation Complete"
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
-#: An_error_occurred_generating_the_CSV_file
-msgid "An error occurred generating the CSV file: "
 msgstr ""
 
 #. # ui/main/Main
@@ -8664,7 +8523,7 @@ msgstr ""
 #. # ui/customreport/GetReports
 #: Database
 msgid "Database"
-msgstr ""
+msgstr "מסד נתונים"
 
 #. # ui/customreport/GetReports
 #. # startup/Startup
@@ -8688,11 +8547,6 @@ msgid "Install this report"
 msgstr ""
 
 #. # ui/diary/DiaryEdit
-#: An_error_occurred_creating_a_new_diary_record\:_
-msgid "An error occurred creating a new diary record: "
-msgstr ""
-
-#. # ui/diary/DiaryEdit
 #: Close_without_saving
 msgid "Close without saving"
 msgstr ""
@@ -8700,11 +8554,6 @@ msgstr ""
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
 msgid "The subject of the note"
-msgstr ""
-
-#. # ui/diary/DiaryEdit
-#: An_error_occurred_reading_the_diary_note\:_
-msgid "An error occurred reading the diary note: "
 msgstr ""
 
 #. # ui/diary/DiaryEdit
@@ -8842,12 +8691,6 @@ msgstr ""
 
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#: An_error_occurred_removing_the_record\:_
-msgid "An error occurred removing the record: "
-msgstr ""
-
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
 #: Delete_the_selected_diary_note
 msgid "Delete the selected diary note"
 msgstr ""
@@ -8873,13 +8716,6 @@ msgid "days from today (or 0 to prompt)"
 msgstr ""
 
 #. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_loading_the_data\:\n
-msgid "An error occurred loading the data:\n"
-msgstr ""
-
-#. # ui/diary/DiaryTaskDetailEdit
 #: Edit_Diary_Task_Detail
 msgid "Edit Diary Task Detail"
 msgstr ""
@@ -8902,11 +8738,6 @@ msgstr ""
 #. # ui/diary/DiaryTaskHeadEdit
 #: Day_Pivot
 msgid "Day Pivot"
-msgstr ""
-
-#. # ui/diary/DiaryTaskHeadEdit
-#: An_error_occurred_reading_the_header\:\n
-msgid "An error occurred reading the header:\n"
 msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
@@ -8937,12 +8768,6 @@ msgstr ""
 msgid "View the record this diary note relates to"
 msgstr ""
 
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#: An_error_occurred_accessing_linked_data\:\n
-msgid "An error occurred accessing linked data:\n"
-msgstr ""
-
 #. # ui/diary/DiaryTaskExecute
 #: Execute_Diary_Task
 msgid "Execute Diary Task"
@@ -8961,11 +8786,6 @@ msgstr ""
 #. # ui/diary/DiaryTaskExecute
 #: Diary_Task_Complete
 msgid "Diary Task Complete"
-msgstr ""
-
-#. # ui/diary/DiaryTaskExecute
-#: An_error_occurred_creating_the_diary_notes\:\n
-msgid "An error occurred creating the diary notes:\n"
 msgstr ""
 
 #. # ui/diary/DiarySelector
@@ -9078,104 +8898,77 @@ msgstr ""
 #. # ui/ui/Dialog
 #: select_user
 msgid "Select user:"
-msgstr ""
+msgstr "בחירת משתמש:"
 
 #. # ui/ui/Dialog
 #: Select_User_title
 msgid "Select User"
-msgstr ""
+msgstr "בחירת משתמש"
 
 #. # ui/ui/Dialog
 #: select_diet
 msgid "Select a diet"
-msgstr ""
+msgstr "בחירת דיאטה"
 
 #. # ui/ui/Dialog
 #: Select_a_voucher
 msgid "Select a voucher"
-msgstr ""
+msgstr "בחירת שובר"
 
 #. # ui/ui/Dialog
 #: Select_a_medical_profile
 msgid "Select a Medical Profile"
-msgstr ""
+msgstr "בחירת פרופיל רפואי"
 
 #. # ui/ui/Dialog
 #: select_locale
 msgid "Select Locale"
-msgstr ""
+msgstr "בחירת שפה"
 
 #. # ui/ui/Dialog
 #: Information
 msgid "Information"
-msgstr ""
+msgstr "נתונים"
 
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
 msgid "Include Reserved Animals"
-msgstr ""
+msgstr "הכללת חיות מחמד שהוזמנו"
 
 #. # ui/internet/InternetPublisher
 #: Include_Fostered_Animals
 msgid "Include Fostered Animals"
-msgstr ""
+msgstr "הכללת חיות מחמד שבאימוץ זמני"
 
 #. # ui/internet/InternetPublisher
 #: Generate_JavaScript_database
 msgid "Generate JavaScript database"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_writing_a_file\:\n
-msgid "An error occurred writing a file:\n"
-msgstr ""
+msgstr "יצירת מסד נתונים ב־JavaScript"
 
 #. # ui/internet/InternetPublisher
 #: Publish
 msgid "Publish"
-msgstr ""
+msgstr "פרסום"
 
 #. # internet/Publisher
 #: View_Site?
 msgid "View Site?"
-msgstr ""
+msgstr "צפייה באתר?"
 
 #. # ui/internet/InternetPublisher
 #: Animals_Per_Page\:
 msgid "Animals Per Page:"
-msgstr ""
+msgstr "חיות מחמד בעמוד:"
 
 #. # ui/internet/InternetPublisher
 #: Include_Case_Animals
 msgid "Include Cruelty Case Animals"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_connecting_to_the_internet_provider\:\n
-msgid "An error occurred connecting to the internet provider:\n"
-msgstr ""
+msgstr "הכללת חיות מחמד שעברו התעללות"
 
 #. # ui/internet/InternetPublisher
 #: Publish_Animals_Available_For_Adoption
 msgid "Publish Animals Available For Adoption"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_testing_the_animals\:\n
-msgid "An error occurred testing the animals:\n"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9184,26 +8977,17 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: Publishing...
 msgid "Publishing..."
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_constructing_pages\:\n
-msgid "An error occurred constructing pages:\n"
-msgstr ""
+msgstr "מתבצע פרסום..."
 
 #. # ui/internet/InternetPublisher
 #: Upload_directly_to_the_internet
 msgid "Upload directly to the internet"
-msgstr ""
+msgstr "העלאה ישירות אל האינטרנט"
 
 #. # ui/internet/InternetPublisher
 #: Exclude_animals_aged_under\:
 msgid "Exclude animals aged under:"
-msgstr ""
+msgstr "הפרדת חיות מחמד שגילן קטן מ־:"
 
 #. # internet/Publisher
 #: Web_site_creation_completed.\nWould_you_like_to_view_the_pages_now?
@@ -9211,6 +8995,8 @@ msgid ""
 "Web site creation completed.\n"
 "Would you like to view the pages now?"
 msgstr ""
+"יצירת אתר האינטרנט הושלמה.\n"
+"האם ברצונך לצפות בעמודים כעת?"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9219,32 +9005,27 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: Determining_Workload...
 msgid "Determining Workload..."
-msgstr ""
+msgstr "מתבצעת בדיקה של מעמסת הביצוע..."
 
 #. # ui/internet/InternetPublisher
 #: Scale_Images\:
 msgid "Scale Images:"
-msgstr ""
-
-#. # internet/Publisher
-#: Error_occurred_accessing_media_server\:_
-msgid "Error occurred accessing media server: "
-msgstr ""
+msgstr "שינוי גודל התמונות:"
 
 #. # ui/internet/InternetPublisher
 #: Include_Animals_In_Location\:
 msgid "Include Animals In Location:"
-msgstr ""
+msgstr "הכללת חיות מחמד במיקום:"
 
 #. # ui/internet/FTPSettings
 #: Internet_Site_FTP_Settings
 msgid "Internet Site FTP Settings"
-msgstr ""
+msgstr "הגדרות ה־FTP של אתר האינטרנט"
 
 #. # ui/internet/FTPSettings
 #: Port\:
 msgid "Port:"
-msgstr ""
+msgstr "פתחה:"
 
 #. # ui/internet/FTPSettings
 #. # internet/Publisher
@@ -9260,7 +9041,7 @@ msgstr ""
 #: Username\:
 #: Username
 msgid "Username:"
-msgstr ""
+msgstr "שם המשתמש:"
 
 #. # ui/internet/PetFinderSettings
 #. # ui/internet/SaveAPetSettings
@@ -9269,12 +9050,12 @@ msgstr ""
 #. # ui/internet/RescueGroupsSettings
 #: Host_URL\:
 msgid "Host URL:"
-msgstr ""
+msgstr "כתובת המארח:"
 
 #. # ui/internet/FTPSettings
 #: Root\:
 msgid "Root:"
-msgstr ""
+msgstr "תיקיית על:"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9283,47 +9064,42 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
-msgstr ""
+msgstr "מתבצעת הורדה של מסד הנתונים של חיות המחמד..."
 
 #. # internet/Publisher
 #: retrieving_page_templates
 msgid "Retrieving internet page templates..."
-msgstr ""
+msgstr "מתבצעת הורדה של תבניות עמודי אינטרנט..."
 
 #. # ui/internet/EmailForm
 #: send_email
 msgid "Send Email"
-msgstr ""
+msgstr "שליחת דוא\"ל"
 
 #. # ui/internet/EmailForm
 #: to
 msgid "To:"
-msgstr ""
+msgstr "אל:"
 
 #. # ui/internet/EmailForm
 #: send
 msgid "Send"
-msgstr ""
+msgstr "שליחה"
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_to
 msgid "You must have an email address to send the message to"
-msgstr ""
+msgstr "עליך לציין כתובת דוא\"ל אליה תשלח ההודעה"
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_subject
 msgid "You must enter a subject for the message."
-msgstr ""
+msgstr "יש להזין נושא להודעה."
 
 #. # ui/internet/EmailForm
 #: you_must_supply_a_body
 msgid "You have not entered a message."
-msgstr ""
-
-#. # ui/internet/EmailForm
-#: An_error_occurred_sending_the_email
-msgid "An error occurred sending your message: "
-msgstr ""
+msgstr "לא נכתבה הודעה."
 
 #. # ui/internet/EmailForm
 #: send_bulk_email
@@ -9333,61 +9109,55 @@ msgstr "שליחת הודעה מרובת נמענים"
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_PetFinder.org
 msgid "Publish Available Animals To PetFinder.com"
-msgstr ""
+msgstr "פרסום חיות זמינות אל האתר PetFinder.com"
 
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #: an_error_occurred_contacting_petfinder.org
 msgid "An error occurred contacting PetFinder.com: "
-msgstr ""
+msgstr "ארעה שגיאה בעת יצירת קשר עם PetFinder.com: "
 
 #. # ui/internet/PetFinderSettings
 #: PetFinder_Settings
 msgid "PetFinder.com Settings"
-msgstr ""
+msgstr "הגדרות PetFinder.com"
 
 #. # internet/PetFinderPublisher
 #: petfinder_publishing_complete
 msgid "Publishing to PetFinder.com is complete."
-msgstr ""
+msgstr "הפרסום אל PetFinder.com הושלם."
 
 #. # internet/PetFinderPublisher
 #: petfinder_upload_complete
 msgid "PetFinder.com Upload Complete"
-msgstr ""
-
-#. # internet/PetFinderPublisher
-#: An_error_occurred_reading_the_Petfinder_shelter_id
-msgid "An error occurred reading the Petfinder Shelter ID:"
-msgstr ""
+msgstr "ההעלאה אל PetFinder.com הושלמה"
 
 #. # ui/internet/PetFinderSettings
 #: ShelterId
 msgid "Shelter ID:"
-msgstr ""
+msgstr "מס' הזיהוי של בית המחסה:"
 
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
 #: PetFinder
 msgid "PetFinder"
-msgstr ""
+msgstr "PetFinder"
 
 #. # ui/internet/PetFinderMapSpecies
 #: Map_PetFinder_Species
 msgid "Map PetFinder Types to Species"
-msgstr ""
+msgstr "מיפוי סוגים של PetFinder לזנים"
 
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
 #: Select_petfinder_type
 msgid "Select the PetFinder type"
-msgstr ""
+msgstr "בחירת סוג ה־PetFinder"
 
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
 #: PetFinder_mapping
 msgid "PetFinder Mapping"
-msgstr ""
+msgstr "מיפוי PetFinder"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9398,18 +9168,21 @@ msgid ""
 "have not been mapped to the correct PetFinder types.\n"
 "Would you like to edit them now?"
 msgstr ""
+"לא ניתן לייצר אל PetFinder כיוון שישנם זנים ברשימה שלך שלא מופו אל הסוגים "
+"הנכונים ב־PetFinder.\n"
+"האם ברצונך לערוך אותם כעת?"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: Unmapped_Types
 msgid "Unmapped Types"
-msgstr ""
+msgstr "סוגים שאינם ממופים"
 
 #. # ui/internet/PetFinderMapBreed
 #: Map_PetFinder_Breeds
 msgid "Map PetFinder Breeds"
-msgstr ""
+msgstr "מיפוי גזעים של PetFinder"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9420,11 +9193,14 @@ msgid ""
 "these before publishing to PetFinder.\n"
 "Would you like to do this now?"
 msgstr ""
+"במסד הנתונים שלך ישנם זנים של PetFinder שאינם ממופים. יהיה עליך להגדיר את "
+"אלו בטרם הפרסום אל PetFinder.\n"
+"האם ברצונך לעשות זאת כעת?"
 
 #. # ui/main/Main
 #: petfinder_breed_mapping
 msgid "PetFinder Breed Mapping"
-msgstr ""
+msgstr "מיפוי גזעים של PetFinder"
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9432,7 +9208,7 @@ msgstr ""
 #: not_all_your_petfinder_types_are_mapped
 msgid ""
 "Not all of your PetFinder types are mapped. Publisher cannot continue."
-msgstr ""
+msgstr "לא כל הסוגים שהוגדרו ב־PetFinder ממופות. המפרסם לא יכול להמשיך."
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
@@ -9440,107 +9216,92 @@ msgstr ""
 #: not_all_your_petfinder_breeds_are_mapped
 msgid ""
 "Not all of your PetFinder breeds are mapped. Publisher cannot continue."
-msgstr ""
+msgstr "לא כל הגזעים שהוגדרו ב־PetFinder ממופות. המפרסם לא יכול להמשיך."
 
 #. # ui/internet/Pets911Settings
 #: Pets911_Settings
 msgid "Pets911.com Settings"
-msgstr ""
+msgstr "הגדרות Pets911.com"
 
 #. # ui/internet/Pets911Settings
 #: Source_ID
 msgid "Source ID:"
-msgstr ""
+msgstr "מס' הזיהוי המקורי:"
 
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_Pets911.com
 msgid "Publish Available Animals To Pets911.com"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#: An_error_occurred
-msgid "An error occurred:\n"
-msgstr ""
+msgstr "פרסום חיות זמינות באתר Pets911.com"
 
 #. # internet/Pets911Publisher
 #: Pets911_publishing_complete
 msgid "Pets911.com publishing complete."
-msgstr ""
+msgstr "הפרסום אל האתר Pets911.com הושלם."
 
 #. # internet/Pets911Publisher
 #: Pets911_upload_complete
 msgid "Pets911.com upload complete"
-msgstr ""
+msgstr "ההעלאה אל Pets911.com הושלמה"
 
 #. # internet/Pets911Publisher
 #: You_need_to_set_your_Pets911_settings_before_publishing
 msgid "You need to configure your Pets911 settings before publishing."
-msgstr ""
+msgstr "יש להגדיר את תצורת האתר Pets911 בטרם הפרסום."
 
 #. # ui/internet/InternetPublisher
 #: Include_Without_Image
 msgid "Include Animals with no image"
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: An_error_occurred_reading_the_save_a_pet_user
-msgid "An error occurred reading the AdoptAPet.com user: "
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: an_error_occurred_contacting_save_a_pet
-msgid "An error occurred contacting the server for AdoptAPet.com: "
-msgstr ""
+msgstr "הכללת חיות מחמד ללא תמונה"
 
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_1800SaveAPet
 msgid "Publish Available Animals to AdoptAPet.com"
-msgstr ""
+msgstr "פרסום חיות מחמד זמינות אל האתר AdoptAPet.com"
 
 #. # ui/internet/SaveAPetSettings
 #: SaveAPet_Settings
 msgid "AdoptAPet.com Settings"
-msgstr ""
+msgstr "הגדרות AdoptAPet.com"
 
 #. # internet/SaveAPetPublisher
 #: saveapet_publishing_complete
 msgid "AdoptAPet.com Publishing Complete."
-msgstr ""
+msgstr "הפרסום אל האתר AdoptAPet.com הושלם."
 
 #. # internet/SaveAPetPublisher
 #: saveapet_upload_complete
 msgid "AdoptAPet.com Upload Complete"
-msgstr ""
+msgstr "ההעלאה אל האתר AdoptAPet.com הושלמה"
 
 #. # ui/internet/InternetPublisher
 #: Upload_Options
 msgid "Upload Options"
-msgstr ""
+msgstr "אפשרויות ההעלאה"
 
 #. # ui/internet/InternetPublisher
 #: Style
 msgid "Style"
-msgstr ""
+msgstr "סגנון"
 
 #. # ui/internet/InternetPublisher
 #: Upload_all_animal_images
 msgid "Upload all animal images"
-msgstr ""
+msgstr "העלאת כל תמונות חיות המחמד"
 
 #. # ui/internet/InternetPublisher
 #: Unlimited
 msgid "Unlimited"
-msgstr ""
+msgstr "בלתי מוגבל"
 
 #. # ui/internet/InternetPublisher
 #: Include
 msgid "Include"
-msgstr ""
+msgstr "הכללה"
 
 #. # ui/internet/InternetPublisher
 #: Include_colours
 msgid "Include Colours"
-msgstr ""
+msgstr "הכללת צבעים"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -9550,53 +9311,43 @@ msgstr ""
 #. # bo/MedicalProfile
 #: weeks
 msgid "{0} weeks"
-msgstr ""
+msgstr "{0} שבועות"
 
 #. # ui/internet/InternetPublisher
 #: File_Extension
 msgid "File Extension"
-msgstr ""
+msgstr "סיומת הקובץ"
 
 #. # ui/internet/InternetPublisher
 #: Force_Reupload
 msgid "Force reupload of animal images"
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: An_error_occurred_reading_the_rescue_groups_user
-msgid "An error occurred reading the RescueGroups.org user: "
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: an_error_occurred_contacting_rescue_groups
-msgid "An error occurred contacting the server for RescueGroups.org: "
-msgstr ""
+msgstr "אילוץ להעלאה מחדש של תמונות של חיות המחמד"
 
 #. # internet/RescueGroupsPublisher
 #: rescue_groups_publishing_complete
 msgid "RescueGroups.org Publishing Complete."
-msgstr ""
+msgstr "הפרסום באתר RescueGroups.org הושלם."
 
 #. # internet/RescueGroupsPublisher
 #: rescue_groups_upload_complete
 msgid "RescueGroups.org Upload Complete"
-msgstr ""
+msgstr "ההעלאה אל האתר RescueGroups.org הושלמה"
 
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_RescueGroups
 msgid "Publish Available Animals to RescueGroups.org"
-msgstr ""
+msgstr "פרסום חיות מחמד זמינות אל האתר RescueGroups.org"
 
 #. # ui/internet/RescueGroupsSettings
 #: RescueGroups_Settings
 msgid "RescueGroups.org Settings"
-msgstr ""
+msgstr "הגדרות RescueGroups.org"
 
 #. # internet/RescueGroupsPublisher
 #: You_need_to_set_your_RescueGroups_settings_before_publishing
 msgid ""
 "You need to configure your RescueGroups.org settings before publishing."
-msgstr ""
+msgstr "יש להגדיר את תצורת האתר RescueGroups.org בטרם הפרסום."
 
 #. # utility/Email
 #: You_need_to_setup_your_email
@@ -9604,52 +9355,49 @@ msgid ""
 "You need to set up your email address and SMTP server.\n"
 " Go to the Email tab under System->Options"
 msgstr ""
+"יש להגדיר את כתובת הדוא\"ל שלך ואת שרת ה־SMTP.\n"
+" יש לגשת אל הלשונית דוא\"ל תחת מערכת -> אפשרויות"
 
 #. # internet/SaveAPetPublisher
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
-msgstr ""
+msgstr "יש להגדיר את תצורת האתר AdoptAPet.com בטרם הפרסום."
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local Cache"
-msgstr ""
+msgstr "צפייה במטמון המקומי"
 
 #. # ui/localcache/CacheView
 #: Filename
 msgid "Filename"
-msgstr ""
+msgstr "שם הקובץ"
 
 #. # ui/localcache/CacheView
 #: View_this_file
 msgid "View this file"
-msgstr ""
+msgstr "צפייה בקובץ זה"
 
 #. # ui/localcache/CacheView
 #: Delete_all_files
 msgid "Delete all files"
-msgstr ""
+msgstr "מחיקת כל הקבצים"
 
 #. # ui/localcache/CacheView
 #: Delete_this_file
 msgid "Delete this file"
-msgstr ""
+msgstr "מחיקת קובץ זה"
 
 #. # ui/localcache/CacheView
 #: Date/Time
 msgid "Date/Time"
-msgstr ""
+msgstr "תאריך/שעה"
 
 #. # ui/localcache/LocalCache
 #: Warning\:_Local_cache_index_not_found.
 msgid "Warning: Local cache index not found."
-msgstr ""
-
-#. # ui/localcache/LocalCache
-#: An_error_occurred_dumping_cache_information\:\n
-msgid "An error occurred dumping cache information:\n"
-msgstr ""
+msgstr "אזהרה: אינדקס המטמון המקומי לא נמצא."
 
 #. # reports/AnimalPrint
 #. # ui/lostandfound/LostAnimalEdit
@@ -9660,12 +9408,12 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Details
 msgid "Details"
-msgstr ""
+msgstr "פרטים"
 
 #. # ui/log/LogSelector
 #: Unable_to_read_log_records\:
 msgid "Unable to read log records:\n"
-msgstr ""
+msgstr "לא ניתן לקרוא את הרשומות ברישום:\n"
 
 #. # reports/AnimalPrint
 #. # ui/log/LogEdit
@@ -9676,12 +9424,12 @@ msgstr "סוג רישום:"
 #. # ui/log/LogEdit
 #: The_date_of_log_the_entry
 msgid "The date of the log entry"
-msgstr ""
+msgstr "תאריך הרשומה ברישום"
 
 #. # ui/log/LogEdit
 #: The_text_of_the_log_entry
 msgid "The text of the log entry"
-msgstr ""
+msgstr "טקסט הרשומה שברישום"
 
 #. # ui/log/LogEdit
 #: New_Log
@@ -9691,89 +9439,79 @@ msgstr "רישום חדש"
 #. # ui/log/LogEdit
 #: Unable_to_create_new_log_entry\:
 msgid "Unable to create new log entry:\n"
-msgstr ""
+msgstr "לא ניתן ליצור רשומה חדשה ברישום:\n"
 
 #. # ui/log/LogEdit
 #: Edit_Log
 msgid "Edit Log"
-msgstr ""
+msgstr "עריכת הרישום"
 
 #. # ui/log/LogEdit
 #: Unable_to_read_log_record\:
 msgid "Unable to read log record:\n"
-msgstr ""
-
-#. # ui/log/LogEdit
-#: An_error_occurred_saving_the_record\:
-msgid "An error occurred saving the record:\n"
-msgstr ""
+msgstr "לא ניתן לקרוא את הרשומה ברישום:\n"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Types"
-msgstr ""
+msgstr "סוגי הרישום"
 
 #. # ui/log/LogSelector
 #: Create_new_log_entry
 msgid "Create new log entry"
-msgstr ""
+msgstr "יצירת רשומה חדשה ברישום"
 
 #. # ui/log/LogSelector
 #: Edit_this_log_entry
 msgid "Edit this log entry"
-msgstr ""
+msgstr "עריכת רשומה זו ברישום"
 
 #. # ui/log/LogSelector
 #: Delete_this_log_entry
 msgid "Delete this log entry"
-msgstr ""
+msgstr "מחיקת רשומה זו ברישום"
 
 #. # ui/log/LogSelector
 #: Show\:_
 msgid "Show: "
-msgstr ""
+msgstr "הצגה: "
 
 #. # ui/login/Login
 #: The_username_and/or_password_you_supplied_were_not_recognised.
 msgid "The username and/or password you supplied were not recognised."
-msgstr ""
+msgstr "שם המשתמש ו/או הסיסמה שסופקו לא זוהו."
 
 #. # ui/login/Login
 #. # ui/main/Main
 #: Exit
 msgid "Exit"
-msgstr ""
+msgstr "יציאה"
 
 #. # ui/login/Login
 #: Invalid_Password
 msgid "Invalid Password"
-msgstr ""
+msgstr "הסיסמה שגויה"
 
 #. # ui/splash/About
 #: Version_
 msgid "Version "
-msgstr ""
+msgstr "גירסה "
 
 #. # ui/login/Login
 #: Login
 msgid "Login"
-msgstr ""
-
-#. # ui/login/Login
-#: An_error_occurred_obtaining_a_connection_to_the_database_-_
-msgid "An error occurred obtaining a connection to the database - "
-msgstr ""
+msgstr "כניסה"
 
 #. # ui/login/Login
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
-msgstr ""
+msgstr "התחברות למנהל בתי המחסה לחיות מחמד (ASM)"
 
 #. # ui/login/Login
 #: default_username_password_hint
 msgid "The default username is \"user\" with password \"letmein\""
-msgstr ""
+msgstr "פרטי הכניסה כברירת המחדל הם \"user\" עם הסיסמה \"letmein\""
 
 #. # ui/lookups/LookupView
 #: Breed_Name
@@ -9783,7 +9521,7 @@ msgstr "שם הגזע"
 #. # ui/lookups/LookupView
 #: Colour_Description
 msgid "Colour Description"
-msgstr ""
+msgstr "תיאור הצבע"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -9800,17 +9538,12 @@ msgstr "תיאור הגזע"
 #. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "Vaccination Types"
-msgstr ""
+msgstr "סוגי החיסונים"
 
 #. # ui/lookups/LookupView
 #: Species_Name
 msgid "Species Name"
-msgstr ""
-
-#. # ui/lookups/LookupView
-#: Invalid_lookup_type_received.
-msgid "Invalid lookup type received."
-msgstr ""
+msgstr "שם הזן"
 
 #. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
@@ -9820,26 +9553,19 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Edit
 msgid "Edit"
-msgstr ""
-
-#. # ui/lookups/LookupView
-#: An_error_occurred_checking_foreign-key_relations_and_this\nrecord_cannot_be_deleted\:_
-msgid ""
-"An error occurred checking foreign-key relations and this\n"
-"record cannot be deleted: "
-msgstr ""
+msgstr "עריכה"
 
 #. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
 #. # ui/lookups/LookupView
 #: Delete
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #. # ui/lookups/LookupView
 #: Animal_Type_Description
 msgid "Animal Type Description"
-msgstr ""
+msgstr "תיאור סוג חיית המחמד"
 
 #. # ui/lookups/LookupView
 #: This_record_is_currently_in_use_in_the_database._\nYou_must_remove_all_records_using_this_record_first.
@@ -9847,6 +9573,8 @@ msgid ""
 "This record is currently in use in the database. \n"
 "You must remove all records using this record first."
 msgstr ""
+"רשומה זו נמצאת בשימוש במסד הנתונים. \n"
+"יש להסיר את כל הרשומות העושות שימוש ברשומה זו תחילה."
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -9857,339 +9585,322 @@ msgstr "גזעים"
 #. # ui/lookups/LookupView
 #: Base_Colours
 msgid "Base Colours"
-msgstr ""
+msgstr "צבעי בסיס"
 
 #. # ui/lookups/LookupView
 #: Animal_Type_Name
 msgid "Animal Type Name"
-msgstr ""
+msgstr "שם סוג חיית המחמד"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal Types"
-msgstr ""
+msgstr "סוגי חיות המחמד"
 
 #. # ui/lookups/LookupView
 #: Colour_Name
 msgid "Colour Name"
-msgstr ""
+msgstr "שם הצבע"
 
 #. # ui/lookups/LookupView
 #: Vaccination_Description
 msgid "Vaccination Description"
-msgstr ""
+msgstr "תיאור החיסון"
 
 #. # ui/lookups/LookupView
 #: Location_Name
 msgid "Location Name"
-msgstr ""
+msgstr "שם המיקום"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/lookups/LookupView
 #: New
 msgid "New"
-msgstr ""
+msgstr "חדש"
 
 #. # ui/lookups/LookupView
 #: Vaccination_Name
 msgid "Vaccination Name"
-msgstr ""
+msgstr "שם החיסון"
 
 #. # ui/lookups/LookupView
 #: Location_Description
 msgid "Location Description"
-msgstr ""
+msgstr "תיאור המיקום"
 
 #. # ui/lookups/LookupView
 #: Species_Description
 msgid "Species Description"
-msgstr ""
+msgstr "תיאור הזן"
 
 #. # ui/lookups/LookupEdit
 #: Create_New_
 msgid "Create New "
-msgstr ""
-
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_accessing_the_record\:_
-msgid "An error occurred accessing the record: "
-msgstr ""
+msgstr "יצירת חדש "
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
 #: Description\:
 msgid "Description:"
-msgstr ""
-
-#. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
-#. # ui/movement/MovementEdit
-#: An_error_occurred_saving_the_record\:_
-msgid "An error occurred saving the record: "
-msgstr ""
-
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_creating_the_record\:_
-msgid "An error occurred creating the record: "
-msgstr ""
+msgstr "תיאור:"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "Entry Reasons"
-msgstr ""
+msgstr "סיבות הכניסה"
 
 #. # ui/lookups/LookupView
 #: Reason_Name
 msgid "Reason Name"
-msgstr ""
+msgstr "שם הסיבה"
 
 #. # ui/lookups/LookupView
 #: Reason_Description
 msgid "Reason Description"
-msgstr ""
+msgstr "תיאור הסיבה"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "Death Reasons"
-msgstr ""
+msgstr "סיבות המוות"
 
 #. # ui/lookups/LookupView
 #: Diet_Name
 msgid "Diet Name"
-msgstr ""
+msgstr "שם הדיאטה"
 
 #. # ui/lookups/LookupView
 #: Diet_Description
 msgid "Diet Description"
-msgstr ""
+msgstr "תיאור הדיאטה"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Diets
 msgid "Diets"
-msgstr ""
+msgstr "דיאטות"
 
 #. # ui/lookups/LookupView
 #: Voucher_Name
 msgid "Voucher Name"
-msgstr ""
+msgstr "שם השובר"
 
 #. # ui/lookups/LookupView
 #: Voucher_Description
 msgid "Voucher Description"
-msgstr ""
+msgstr "תיאור השובר"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
 #: Vouchers
 msgid "Vouchers"
-msgstr ""
+msgstr "שוברים"
 
 #. # ui/lookups/LookupView
 #: Log_Type_Name
 msgid "Log Type Name"
-msgstr ""
+msgstr "שם סוג הרישום"
 
 #. # ui/lookups/LookupView
 #: Log_Type_Description
 msgid "Log Type Description"
-msgstr ""
+msgstr "תיאור סוג הרישום"
 
 #. # ui/lookups/LookupView
 #: donation_type_name
 msgid "Donation Type Name"
-msgstr ""
+msgstr "שם סוג התרומה"
 
 #. # ui/lookups/LookupView
 #: donation_type_description
 msgid "Donation Type Description"
-msgstr ""
+msgstr "תיאור סוג התרומה"
 
 #. # ui/lookups/LookupView
 #: donation_types
 msgid "Donation Types"
-msgstr ""
+msgstr "סוגי התרומות"
 
 #. # ui/lookups/LookupEdit
 #: cannot_be_empty
 msgid "{0} cannot be empty."
-msgstr ""
+msgstr "{0} לא יכול להשאר ריק."
 
 #. # ui/lookups/LookupEdit
 #. # ui/lookups/LookupView
 #: edit_x
 msgid "Edit {0}"
-msgstr ""
+msgstr "עריכת {0}"
 
 #. # ui/lookups/BreedSpeciesMapping
 #: Map_Breeds_to_Species
 msgid "Map Breeds to Species"
-msgstr ""
+msgstr "מיפוי גזעים לזנים"
 
 #. # ui/lookups/BreedSpeciesMapping
 #: Species_mapping
 msgid "Species Mapping"
-msgstr ""
+msgstr "מיפוי זנים"
 
 #. # ui/lookups/BreedSpeciesMapping
 #: Map_to_all_species
 msgid "Map this breed to all species"
-msgstr ""
+msgstr "מיפוי גזע זה לכל הזנים"
 
 #. # ui/lookups/BreedSpeciesMapping
 #: any
 msgid "(any)"
-msgstr ""
+msgstr "(כלשהו)"
 
 #. # ui/lookups/LookupView
 #: cost_type_name
 msgid "Cost Type Name"
-msgstr ""
+msgstr "שם סוג העלות"
 
 #. # ui/lookups/LookupView
 #: cost_type_description
 msgid "Cost Type Description"
-msgstr ""
+msgstr "תיאור סוג העלות"
 
 #. # ui/lookups/LookupView
 #. # ui/main/Main
 #: cost_types
 #: Cost_Types
 msgid "Cost Types"
-msgstr ""
+msgstr "סוגי העלויות"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
 #: Find_Lost_Animal
 msgid "Find Lost Animal"
-msgstr ""
+msgstr "חיפוש חיית מחמד שנמצאה"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: Area_Contains\:
 msgid "Area Contains:"
-msgstr ""
+msgstr "האזור מכיל:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: and
 msgid "and"
-msgstr ""
+msgstr "וגם"
 
 #. # ui/lostandfound/LostAnimalFind
 #: Lost_Between\:
 msgid "Lost Between:"
-msgstr ""
+msgstr "אבד בין התאריכים:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #: Found_Between\:
 msgid "Found Between:"
-msgstr ""
+msgstr "נמצא בין התאריכים:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/main/Main
 #: Find_Found_Animal
 msgid "Find Found Animal"
-msgstr ""
+msgstr "חיפוש חיית מחמד שנמצאה"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: Contact_contains\:
 msgid "Contact contains:"
-msgstr ""
+msgstr "פרטי הקשר מכילים:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerFind
 #: Postcode_contains\:
 msgid "Postcode contains:"
-msgstr ""
+msgstr "המיקוד מכיל:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerEdit
 #: Area
 msgid "Area"
-msgstr ""
+msgstr "אזור"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Date_Lost\:
 msgid "Date Lost:"
-msgstr ""
+msgstr "התאריך בו אבד:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Create_New_Lost_Animal
 msgid "Create New Lost Animal"
-msgstr ""
+msgstr "יצירת חיית מחמד חדשה שאבדה"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: The_postcode_of_the_area_the_animal_was_lost_in
 msgid "The postcode of the area the animal was lost in"
-msgstr ""
+msgstr "המיקוד באזור בו חיית המחמד הלכה לאיבוד"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Attempt_to_find_possible_matches_for_this_lost_animal
 msgid "Attempt to find possible matches for this lost animal"
-msgstr ""
+msgstr "ניסיון למצוא התאמות אפשריות לחיית מחמד זו שאבדה"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: The_area_the_animal_was_lost_in,_eg\:_Millhouses,_Sheffield
 msgid "The area the animal was lost in, eg: Millhouses, Sheffield"
-msgstr ""
+msgstr "האזור בו חיית המחמד אבדה, לדוגמה: תל גיבורים, חולון"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Unable_to_create_new_lost_animal_record\:_
 msgid "Unable to create new lost animal record: "
-msgstr ""
+msgstr "לא ניתן ליצור רשומה חדשה לחיית מחמד שאבדה: "
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/OwnerEdit
 #: Delete_this_record
 msgid "Delete this record"
-msgstr ""
+msgstr "מחיקת רשומה זו"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Date_Reported\:
 msgid "Date Reported:"
-msgstr ""
+msgstr "תאריך הדיווח:"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Create_New_Found_Animal
 msgid "Create New Found Animal"
-msgstr ""
+msgstr "יצירת חיית מחמד חדשה שנמצאה"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Match_to_lost_animals
 msgid "Match to lost animals"
-msgstr ""
+msgstr "התאמה לחיות מחמד שאבדו"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: The_postcode_area_the_animal_was_found_in
 msgid "The postcode area the animal was found in"
-msgstr ""
+msgstr "אזור המיקוד בו נמצאה חיית המחמד"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Unable_to_create_new_found_animal_record\:_
 msgid "Unable to create new found animal record: "
-msgstr ""
+msgstr "לא ניתן ליצור רשומה חדשה לחיית מחמד שנמצאה : "
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Date_Found\:
 msgid "Date Found:"
-msgstr ""
+msgstr "התאריך בו היא נמצאה:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Features\:
 msgid "Features:"
-msgstr ""
+msgstr "מאפיינים:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
@@ -10197,186 +9908,186 @@ msgstr ""
 #. # ui/lostandfound/FoundAnimalEdit
 #: Colour\:
 msgid "Colour:"
-msgstr ""
+msgstr "צבע:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: The_date_this_animal_was_returned_to_its_owner
 msgid "The date this animal was returned to its owner"
-msgstr ""
+msgstr "התאריך בו חיית מחמד זו הוחזרה לבעליה"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Returned\:
 msgid "Returned:"
-msgstr ""
+msgstr "הוחזר:"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Area_Found\:
 msgid "Area Found:"
-msgstr ""
+msgstr "אזור בו נמצא:"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: The_area_this_animal_was_found_in,_eg\:_Dore,_Sheffield
 msgid "The area this animal was found in, eg: Dore, Sheffield"
-msgstr ""
+msgstr "האזור בו נמצאה חיית מחמד זו, לדוגמה: ז'בוטינסקי, תל אביב"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/waitinglist/WaitingListEdit
 #: Contact_Details\:
 msgid "Contact Details:"
-msgstr ""
+msgstr "פרטי איש הקשר:"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: Reference_number_must_be_numeric
 msgid "Reference number must be numeric"
-msgstr ""
+msgstr "על מספר ההפנייה להיות מספרי בלבד"
 
 #. # ui/lostandfound/LostAnimalFind
 #: include_returned_animals
 msgid "Include returned animals"
-msgstr ""
+msgstr "הכללת חיות מחמד שהוחזרו"
 
 #. # ui/lostandfound/LostAnimalFind
 #: include_animals_who_have_been_returned_to_their_owners
 msgid "Include animals who have been returned to their owners"
-msgstr ""
+msgstr "הכללת חיות מחמד שהוחזרו לבעליהן"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: edit_found_animal_title
 msgid "Edit Found Animal - {0}"
-msgstr ""
+msgstr "עריכת חיית מחמד שנמצאה - {0}"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: edit_lost_animal_title
 msgid "Edit Lost Animal - {0}"
-msgstr ""
+msgstr "עריכת חיית מחמד שאבדה - {0}"
 
 #. # ui/ui/ASMFind
 #: search_complete
 msgid "Search complete - {0} matches found."
-msgstr ""
+msgstr "החיפוש הושלם - נמצאו {0} תוצאות."
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Create_animal_record_from_this_record
 msgid "Create a new animal record from this record"
-msgstr ""
+msgstr "יצירת רשומת חיית מחמד חדשה מרשומה זו"
 
 #. # ui/lostandfound/LostAnimalEdit
 #: Area_Lost\:
 msgid "Area Lost:"
-msgstr ""
+msgstr "אזור בו אבד:"
 
 #. # ui/main/Main
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
-msgstr ""
+msgstr "יצירת דוח התואם לחיות שאבדו ונמצאו"
 
 #. # ui/main/Main
 #: Off_The_Shelter
 msgid "O&ff The Shelter"
-msgstr ""
+msgstr "&מחוץ לבית המחסה"
 
 #. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #: Mail_Merge
 msgid "&Mail Merge"
-msgstr ""
+msgstr "&מיזוג דואר"
 
 #. # ui/main/Main
 #: Find_an_Animal
 msgid "Find an Animal"
-msgstr ""
+msgstr "חיפוש חיית מחמד"
 
 #. # ui/main/Main
 #: Options
 msgid "&Options"
-msgstr ""
+msgstr "&אפשרויות"
 
 #. # ui/main/Main
 #: Find_a_Lost_Animal
 msgid "Find a Lost Animal"
-msgstr ""
+msgstr "חיפוש חיית מחמד שאבדה"
 
 #. # ui/splash/About
 #. # ui/main/Main
 #: System
 msgid "System"
-msgstr ""
+msgstr "מערכת"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Match_Lost_and_Found_Animals
 msgid "Match Lost and Found Animals"
-msgstr ""
+msgstr "התאמה לחיות מחמד שאבדו ונמצאו"
 
 #. # ui/main/Main
 #: Print_Vets_Diary
 msgid "Print Vets Diar&y"
-msgstr ""
+msgstr "הדפסת יומן ה&ווטרינר"
 
 #. # ui/main/Main
 #: Run_Database_Diagnostic
 msgid "Run Database Diagn&ostic"
-msgstr ""
+msgstr "הרצת &ניתוח של מסד הנתונים"
 
 #. # ui/main/Main
 #: Find_an_Owner
 msgid "Find an Owner"
-msgstr ""
+msgstr "חיפוש בעלים"
 
 #. # ui/main/Main
 #: Add_a_new_animal
 msgid "Add a new animal"
-msgstr ""
+msgstr "הוספת חיית מחמד חדשה"
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
 #: View_Local_Cache
 msgid "View Local &Cache"
-msgstr ""
+msgstr "&צפייה במטמון המקומי"
 
 #. # ui/main/Main
 #: Preferences
 msgid "&Preferences"
-msgstr ""
+msgstr "ה&עדפות"
 
 #. # ui/main/Main
 #: Lost_and_Found
 msgid "&Lost and Found"
-msgstr ""
+msgstr "א&בידות ומציאות"
 
 #. # ui/main/Main
 #: Lookups
 msgid "&Lookups"
-msgstr ""
+msgstr "א&בידות ומציאות"
 
 #. # ui/main/Main
 #: Animals_On_The_Shelter
 msgid "Animals &On The Shelter"
-msgstr ""
+msgstr "חיות מחמד ש&בבית המחסה"
 
 #. # ui/main/Main
 #: Internet
 msgid "&Internet"
-msgstr ""
+msgstr "&אינטרנט"
 
 #. # ui/main/Main
 #: Run_Database_Update
 msgid "Run Database U&pdate"
-msgstr ""
+msgstr "הרצת &עדכון מסד הנתונים"
 
 #. # ui/main/Main
 #: Colours
 msgid "&Colours"
-msgstr ""
+msgstr "&צבעים"
 
 #. # ui/main/Main
 #: File
 msgid "&File"
-msgstr ""
+msgstr "&קובץ"
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
@@ -10385,12 +10096,12 @@ msgstr ""
 #. # ui/owner/DonationEdit
 #: Animal
 msgid "&Animal"
-msgstr ""
+msgstr "&חיית מחמד"
 
 #. # ui/main/Main
 #: All_Members
 msgid "All Members"
-msgstr ""
+msgstr "כל החברים"
 
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
@@ -10403,77 +10114,77 @@ msgstr ""
 #. # ui/owner/DonationEdit
 #: Owner
 msgid "&Owner"
-msgstr ""
+msgstr "&בעלים"
 
 #. # ui/main/Main
 #: Owner_Merge
 msgid "&Owner Mail Merge"
-msgstr ""
+msgstr "מיזוג דואר &בעלים"
 
 #. # ui/main/Main
 #. # mailmerge/AdoptedNoReturn
 #: Non-Returned_Adoptions
 msgid "&Non-Returned Adoptions"
-msgstr ""
+msgstr "אימוצים ש&לא הוחזרו"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/main/Main
 #: Find_Animal
 msgid "&Find Animal"
-msgstr ""
+msgstr "חיפוש חיית &מחמד"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Print_Diary_Notes
 msgid "&Print Diary Notes"
-msgstr ""
+msgstr "ה&דפסת הערות היומן"
 
 #. # ui/main/Main
 #: Database_Tools
 msgid "Database Tools"
-msgstr ""
+msgstr "כלי מסדי הנתונים"
 
 #. # ui/main/Main
 #: Off_Shelter_Vaccinations
 msgid "Off Shelter &Vaccinations"
-msgstr ""
+msgstr "חיסונים לחיות מ&חוץ לבית המחסה"
 
 #. # ui/splash/About
 #. # ui/main/Main
 #: About...
 msgid "&About..."
-msgstr ""
+msgstr "&אודות..."
 
 #. # ui/main/Main
 #: Add_a_Found_Animal
 msgid "Add a Found Animal"
-msgstr ""
+msgstr "הוספת חיית מחמד שנמצאה"
 
 #. # ui/main/Main
 #: Copy_Database
 msgid "&Copy Database"
-msgstr ""
+msgstr "ה&עתקת מסד הנתונים"
 
 #. # ui/main/Main
 #: Import_Database
 msgid "&Import Database"
-msgstr ""
+msgstr "יי&בוא מסד נתונים"
 
 #. # ui/main/Main
 #: Add_Animal
 msgid "&Add Animal"
-msgstr ""
+msgstr "הוספת &חיית מחמד"
 
 #. # ui/main/Main
 #: Vaccination_Diary
 msgid "&Vaccination Diary"
-msgstr ""
+msgstr "&יומן החיסונים"
 
 #. # ui/main/Main
 #: Add_Diary_Note
 msgid "Add Diary &Note"
-msgstr ""
+msgstr "הוספת ה&ערה ביומן"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -10484,23 +10195,23 @@ msgstr ""
 #. # ui/main/Main
 #: FTP_Settings
 msgid "Website &FTP Settings"
-msgstr ""
+msgstr "ה&גדרות ה־FTP של האתר"
 
 #. # ui/main/Main
 #: Microchip_Cancellations
 msgid "Microchip &Cancellations"
-msgstr ""
+msgstr "&ביטולים של שבבים"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
 #: Find_Lost_Animal
 msgid "&Find Lost Animal"
-msgstr ""
+msgstr "חיפוש חיית מחמד ש&אבדה"
 
 #. # ui/users/UserEdit
 #: Edit_All_Diary_Notes
 msgid "Edit All Diary Notes"
-msgstr ""
+msgstr "עריכת כל ההערות ביומן"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
@@ -10530,114 +10241,114 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Species
 msgid "&Species"
-msgstr ""
+msgstr "&זנים"
 
 #. # ui/main/Main
 #: Lost_Animals
 msgid "&Lost Animals"
-msgstr ""
+msgstr "חיות מחמד ש&אבדו"
 
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/main/Main
 #: Find_Found_Animal
 msgid "&Find Found Animal"
-msgstr ""
+msgstr "חיפוש חיות מחמד ש&נמצאו"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Animal_Types
 msgid "Animal &Types"
-msgstr ""
+msgstr "סו&גי חיות המחמד"
 
 #. # ui/main/Main
 #: Add_Lost_Animal
 msgid "&Add Lost Animal"
-msgstr ""
+msgstr "הוספת חיית מחמד שא&בדה"
 
 #. # ui/main/Main
 #. # ui/movement/MovementView
 #: Reservation_Book
 msgid "Reservation Book"
-msgstr ""
+msgstr "ספר ההזמנות"
 
 #. # ui/main/Main
 #: Help
 msgid "&Help"
-msgstr ""
+msgstr "ע&זרה"
 
 #. # ui/main/Main
 #: Contents
 msgid "&Contents"
-msgstr ""
+msgstr "&תכנים"
 
 #. # ui/main/Main
 #: Add_New_Waiting_List_Entry
 msgid "Add New &Waiting List Entry"
-msgstr ""
+msgstr "הוספת &רשומה חדשה ברשימת ההמתנה"
 
 #. # ui/main/Main
 #: Add_Owner
 msgid "&Add Owner"
-msgstr ""
+msgstr "&הוספת בעלים"
 
 #. # ui/diary/DiaryTaskView
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Edit_Diary_Tasks
 msgid "Edit Diary &Tasks"
-msgstr ""
+msgstr "הוספת &משימות ליומן"
 
 #. # ui/main/Main
 #. # ui/movement/MovementView
 #: Reservation_Book
 msgid "&Reservation Book"
-msgstr ""
+msgstr "&ספר ההזמנות"
 
 #. # ui/main/Main
 #. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Wa&iting List"
-msgstr ""
+msgstr "ערי&כת רשימת ההמתנה"
 
 #. # ui/animal/VaccinationView
 #. # ui/main/Main
 #: Vaccination_Book
 msgid "Vaccination &Book"
-msgstr ""
+msgstr "ספר ה&חיסונים"
 
 #. # ui/main/Main
 #: Reports
 msgid "&Reports"
-msgstr ""
+msgstr "&דוחות"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Vaccination_Types
 msgid "&Vaccination Types"
-msgstr ""
+msgstr "&סוגי החיסונים"
 
 #. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #: Find_Owner
 msgid "&Find Owner"
-msgstr ""
+msgstr "&חיפוש בעלים"
 
 #. # ui/main/Main
 #: Publish_Animals_Available_for_Adoption
 msgid "Publish &Animals Available for Adoption"
-msgstr ""
+msgstr "פרסום &חיות מחמד הזמינות לאימוץ"
 
 #. # ui/main/Main
 #: Microchip_Registration
 msgid "Microchip Re&gistration"
-msgstr ""
+msgstr "&רישום שבב"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Edit_System_Users
 msgid "Edit System &Users"
-msgstr ""
+msgstr "&עריכת משתמשי המערכת"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -10646,7 +10357,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Diary
 msgid "&Diary"
-msgstr ""
+msgstr "&יומן"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -10657,59 +10368,59 @@ msgstr "&גזעים"
 #. # ui/main/Main
 #: Login_Again
 msgid "Lo&gin Again"
-msgstr ""
+msgstr "&כניסה מחדש"
 
 #. # ui/login/Login
 #. # ui/main/Main
 #: Exit
 msgid "E&xit"
-msgstr ""
+msgstr "י&ציאה"
 
 #. # ui/main/Main
 #: Litter_Logger
 msgid "&Litter Logger"
-msgstr ""
+msgstr "רישום הה&מלטות"
 
 #. # ui/main/Main
 #: All_Animals
 msgid "&All Animals"
-msgstr ""
+msgstr "&כל חיות המחמד"
 
 #. # ui/main/Main
 #: Adoption_Merge
 msgid "&Adoption Mail Merge"
-msgstr ""
+msgstr "&מיזוג דואר אימוץ"
 
 #. # ui/main/Main
 #: Found_Animals
 msgid "&Found Animals"
-msgstr ""
+msgstr "חיות מחמד ש&נמצאו"
 
 #. # ui/main/Main
 #: Add_an_Owner
 msgid "Add an Owner"
-msgstr ""
+msgstr "הוספת בעלים"
 
 #. # ui/main/Main
 #: Add_Found_Animal
 msgid "&Add Found Animal"
-msgstr ""
+msgstr "הו&ספת חיית מחמד שנמצאה"
 
 #. # ui/main/Main
 #: Contents_PDF
 msgid "Contents (&Printable PDF)"
-msgstr ""
+msgstr "תכנים (PDF לה&דפסה)"
 
 #. # ui/animalname/NamesView
 #. # ui/main/Main
 #: Animal_Name_Database
 msgid "Animal Name Data&base"
-msgstr ""
+msgstr "מסד הנתונים של &שמות חיות המחמד"
 
 #. # ui/main/Main
 #: Settings
 msgid "&Settings"
-msgstr ""
+msgstr "ה&גדרות"
 
 #. # ui/main/Main
 #: collect_garbage_now
@@ -10719,253 +10430,253 @@ msgstr ""
 #. # ui/main/Main
 #: Licence
 msgid "&Licence Information"
-msgstr ""
+msgstr "נ&תוני הרישוי"
 
 #. # ui/main/Main
 #: edit_custom_reports
 msgid "Edit Re&ports"
-msgstr ""
+msgstr "עריכת ה&דוחות"
 
 #. # ui/main/Main
 #: ConfigureFiletypes
 msgid "Configure File &Types"
-msgstr ""
+msgstr "הגדרת סוגי ה&קבצים"
 
 #. # ui/main/Main
 #: uncategorised
 msgid "Uncategorised"
-msgstr ""
+msgstr "ללא קטגוריה"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Death_Reasons
 msgid "&Death Reasons"
-msgstr ""
+msgstr "סיבות ה&מוות"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Entry_Reasons
 msgid "&Entry Reasons"
-msgstr ""
+msgstr "סיבות ה&כניסה"
 
 #. # ui/main/Main
 #: publish_available_animals_to_petfinder
 msgid "Publish Adoptable Animals To PetFinder.com"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ באתר PetFinder.com"
 
 #. # ui/main/Main
 #: Publish_animals_available_for_adoption_to_PetFinder.org
 msgid "&Publish Animals Available For Adoption To PetFinder.com"
-msgstr ""
+msgstr "&פרסום חיות מחמד הזמינות לאימוץ באתר PetFinder.com"
 
 #. # ui/main/Main
 #: petfinder.org_settings
 msgid "PetFinder.com Se&ttings"
-msgstr ""
+msgstr "הג&דרות PetFinder.com"
 
 #. # ui/main/Main
 #: PetFinder_Species_Mappings
 msgid "PetFinder &Species Mappings"
-msgstr ""
+msgstr "מיפוי ה&זנים של PetFinder"
 
 #. # ui/main/Locked
 #: Locked
 msgid "Locked"
-msgstr ""
+msgstr "נעול"
 
 #. # ui/main/ChangePassword
 #. # ui/main/Locked
 #: incorrect_password
 msgid "Incorrect Password"
-msgstr ""
+msgstr "סיסמה שגויה"
 
 #. # ui/main/Main
 #: Lock_ASM
 msgid "Loc&k"
-msgstr ""
+msgstr "&נעילה"
 
 #. # ui/main/Main
 #. # ui/movement/MovementView
 #: Foster_Book
 msgid "&Foster Book"
-msgstr ""
+msgstr "ספר \"אימוץ &זמני\""
 
 #. # ui/main/Main
 #. # ui/movement/MovementView
 #: Retailer_Book
 msgid "R&etailer Book"
-msgstr ""
+msgstr "ספר \"&קמעונאות\""
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Diets
 msgid "D&iets"
-msgstr ""
+msgstr "&דיאטות"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
 #: Vouchers
 msgid "Vo&uchers"
-msgstr ""
+msgstr "&שוברים"
 
 #. # ui/splash/About
 #. # ui/main/Main
 #: Credits
 msgid "C&redits"
-msgstr ""
+msgstr "&תודות"
 
 #. # ui/main/Main
 #: Edit_Medical_Profiles
 msgid "Edit &Medical Profiles"
-msgstr ""
+msgstr "עריכת הפרופילים ה&רפואיים"
 
 #. # ui/main/Main
 #: Medical_Diary
 msgid "&Medical Diary"
-msgstr ""
+msgstr "&יומן רפואי"
 
 #. # ui/medical/MedicalView
 #. # ui/main/Main
 #: Medical_Book
 msgid "Medical &Book"
-msgstr ""
+msgstr "&ספר רפואי"
 
 #. # ui/main/Main
 #: Print_Medical_Diary
 msgid "&Print Medical Diary"
-msgstr ""
+msgstr "ה&דפסת היומן הרפואי"
 
 #. # ui/main/Main
 #: Donate_to_ASM!
 msgid "&Donate to ASM!"
-msgstr ""
+msgstr "&תרומה ל־ASM!"
 
 #. # ui/main/Main
 #: Edit_Diary_Notes
 msgid "&Edit Diary Notes"
-msgstr ""
+msgstr "ע&ריכת הערות ביומן"
 
 #. # ui/main/Logout
 #: Do_you_want_to_logout_or_close_ASM?
 msgid "Do you want to log out or close ASM?"
-msgstr ""
+msgstr "האם להתנתק או לסגור את ASM?"
 
 #. # ui/main/Logout
 #: Dont_ask_me_again
 msgid "Don't ask me again."
-msgstr ""
+msgstr "אין להציג שאלה זו שוב."
 
 #. # ui/main/Logout
 #: Logout_or_close
 msgid "Logout or Close"
-msgstr ""
+msgstr "ניתוק או סגירה"
 
 #. # ui/main/Logout
 #: Logout
 msgid "Logout"
-msgstr ""
+msgstr "ניתוק"
 
 #. # ui/main/Logout
 #: Close_ASM
 msgid "Close ASM"
-msgstr ""
+msgstr "סגירת ASM"
 
 #. # ui/main/Main
 #: Publish_adoptable_animals_to_pets911.com
 msgid "Publish Adoptable Animals to Pets911.com"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ באתר Pets911.com"
 
 #. # ui/main/Main
 #: Pets911.com_Settings
 msgid "Pets911.com &Settings"
-msgstr ""
+msgstr "ה&גדרות Pets911.com"
 
 #. # ui/main/Main
 #: Publish_Animals_Available_For_Adoption_To_Pets911.com
 msgid "&Publish Animals Available For Adoption To Pets911.com"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ באתר Pets911.com"
 
 #. # ui/diary/VetBookView
 #. # ui/main/Main
 #: Edit_Vets_Diary
 msgid "Edit &Vets Diary"
-msgstr ""
+msgstr "עריכת יומן ה&ווטרינר"
 
 #. # ui/main/Main
 #: Donation_Types
 msgid "Donation T&ypes"
-msgstr ""
+msgstr "&סוגי תרומות"
 
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
 #: export_custom_report_data
 msgid "E&xport Custom Report Data"
-msgstr ""
+msgstr "&ייצוא נתוני דוח מותאם אישית"
 
 #. # ui/system/MediaFiles
 #. # ui/main/Main
 #: media_files
 msgid "Media &Files"
-msgstr ""
+msgstr "קובצי &מדיה"
 
 #. # ui/main/Main
 #: Auto_Archive_Animal_Records
 msgid "&Auto Archive Animal Records"
-msgstr ""
+msgstr "שמירת רשומות של חיות מחמד ב&ארכיון אוטומטית"
 
 #. # ui/system/Options
 #: Authentication
 msgid "&Authentication"
-msgstr ""
+msgstr "&אימות"
 
 #. # ui/animal/NotAdoptionView
 #. # ui/main/Main
 #: Not_For_Adoption_Book
 msgid "&Not For Adoption Book"
-msgstr ""
+msgstr "ספר \"&לא לאימוץ\""
 
 #. # ui/main/Main
 #: Publish_adoptable_animals_to_SaveAPet.com
 msgid "Publish adoptable animals to AdoptAPet.com"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ באתר AdoptAPet.com"
 
 #. # ui/main/Main
 #: Publish_Animals_Available_For_Adoption_To_SaveAPet.com
 msgid "&Publish Animals Available For Adoption To AdoptAPet.com"
-msgstr ""
+msgstr "&פרסום חיות מחמד הזמינות לאימוץ באתר AdoptAPet.com"
 
 #. # ui/main/Main
 #: SaveAPet.com_Settings
 msgid "AdoptAPet.com &Settings"
-msgstr ""
+msgstr "ה&גדרות AdoptAPet.com"
 
 #. # ui/main/Locked
 #: please_enter_password_for
 msgid "Please enter the password for:"
-msgstr ""
+msgstr "יש להזין את הסיסמה עבור:"
 
 #. # ui/main/Main
 #. # db/LocateDatabase
 #: switch_database
 msgid "Switch &Database"
-msgstr ""
+msgstr "ה&חלפת מסד נתונים"
 
 #. # db/LocateDatabase
 #: switch_database_asm_restart
 msgid "The new database will be used after you have restarted ASM."
-msgstr ""
+msgstr "מסד הנתונים החדש יהיה בשימוש לאחר הפעלת ASM מחדש."
 
 #. # ui/main/Main
 #: petfinder_breed_mapping
 msgid "PetFinder &Breed Mapping"
-msgstr ""
+msgstr "מיפוי &גזעים של PetFinder"
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
 #: Log_Types
 msgid "Log Ty&pes"
-msgstr ""
+msgstr "&סוגי הדוחות"
 
 #. # ui/main/Main
 #. # mailmerge/ExpiringMembers
@@ -10976,146 +10687,146 @@ msgstr ""
 #. # ui/main/Main
 #: Close_Active_Tab
 msgid "Close Active Tab"
-msgstr ""
+msgstr "סגירת הלשונית הפעילה"
 
 #. # ui/main/Main
 #: Save_Active_Tab
 msgid "Save Active Tab"
-msgstr ""
+msgstr "שמירת הלשונית הפעילה"
 
 #. # ui/main/Main
 #: Configure_Database
 msgid "Confi&gure Database"
-msgstr ""
+msgstr "הג&דרת מסד הנתונים"
 
 #. # ui/main/Main
 #: SQL_Interface
 msgid "&SQL Interface"
-msgstr ""
+msgstr "מ&נשק SQL"
 
 #. # ui/main/Main
 #: Error_Log
 msgid "Err&or Log"
-msgstr ""
+msgstr "דוח &שגיאות"
 
 #. # ui/main/Main
 #: Configure_Additional_Fields
 msgid "Configure A&dditional Fields"
-msgstr ""
+msgstr "תצורת שדות &נוספים"
 
 #. # ui/main/Main
 #: Import_PetFinder
 msgid "Import &PetFinder Data"
-msgstr ""
+msgstr "ייבוא &נתונים מ־PetFinder"
 
 #. # ui/main/Main
 #: All_Members
 msgid "&All Members"
-msgstr ""
+msgstr "&כל החברים"
 
 #. # ui/main/Main
 #: Remove_unwanted_breeds
 msgid "&Remove unwanted breeds and species"
-msgstr ""
+msgstr "ה&סרת גזעים וזנים שאינם רצויים"
 
 #. # ui/main/Main
 #: Publish_adoptable_animals_to_RescueGroups.org
 msgid "Publish adoptable animals to RescueGroups.org"
-msgstr ""
+msgstr "פרסום חיות מחמד לאימוץ באתר RescueGroups.org"
 
 #. # ui/main/Main
 #: Publish_Animals_Available_For_Adoption_To_RescueGroups.org
 msgid "&Publish Animals Available For Adoption to RescueGroups.org"
-msgstr ""
+msgstr "פרסום חיות מחמד הזמינות לאימוץ באתר RescueGroups.org"
 
 #. # ui/main/Main
 #: RescueGroups.org_Settings
 msgid "RescueGroups.org &Settings"
-msgstr ""
+msgstr "ה&גדרות RescueGroups.org"
 
 #. # ui/main/Main
 #: Breed_Mappings
 msgid "Breed &Mappings"
-msgstr ""
+msgstr "מיפוי &גזעים"
 
 #. # ui/main/Main
 #: Ask_a_question
 msgid "Ask a &question about ASM"
-msgstr ""
+msgstr "שאלו &שאלה אודות ASM"
 
 #. # ui/main/Main
 #: Report_a_bug
 msgid "Report a &bug in ASM"
-msgstr ""
+msgstr "דיווח על &תקלה ב־ASM"
 
 #. # ui/main/Main
 #: Translate_ASM
 msgid "Help &translate ASM"
-msgstr ""
+msgstr "עזרה בת&רגום ASM"
 
 #. # ui/main/UpdateDialog
 #: Updates
 msgid "Updates"
-msgstr ""
+msgstr "עדכונים"
 
 #. # ui/main/UpdateDialog
 #: show_updates_in_future
 msgid "Show me updates in future"
-msgstr ""
+msgstr "הצגת עדכונים בעתיד"
 
 #. # ui/main/Main
 #: Check_For_Updates
 msgid "Check for ASM &updates"
-msgstr ""
+msgstr "בדיקה אחר &עדכוני ASM"
 
 #. # ui/main/Main
 #: Get_more_reports
 msgid "&Get more reports from sheltermanager.com ..."
-msgstr ""
+msgstr "&אחזור דוחות נוספים מ־sheltermanager.com ..."
 
 #. # ui/main/StartupPage
 #. # globals/Global
 #: Welcome
 msgid "Welcome"
-msgstr ""
+msgstr "ברוכים הבאים"
 
 #. # ui/main/ChangePassword
 #. # ui/main/Main
 #: Change_Password
 msgid "Change &Password"
-msgstr ""
+msgstr "שינוי &סיסמה"
 
 #. # ui/main/ChangePassword
 #: new_passwords_dont_match
 msgid "New password and confirmation don't match"
-msgstr ""
+msgstr "הסיסמה החדשה אינה תואמת לסיסמת האימות"
 
 #. # ui/main/ChangePassword
 #: Current_Password\:
 msgid "Current Password:"
-msgstr ""
+msgstr "הסיסמה הנוכחית:"
 
 #. # ui/main/ChangePassword
 #: New_Password\:
 msgid "New Password:"
-msgstr ""
+msgstr "סיסמה חדשה:"
 
 #. # ui/main/ChangePassword
 #: Confirm_Password\:
 msgid "Confirm Password:"
-msgstr ""
+msgstr "אישור הסיסמה:"
 
 #. # ui/medical/ProfileView
 #: Profile_Name
 msgid "Profile Name"
-msgstr ""
+msgstr "שם הפרופיל"
 
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/ProfileView
 #: Treatment_Name
 msgid "Treatment Name"
-msgstr ""
+msgstr "שם הטיפול"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalRegimeSelector
@@ -11126,55 +10837,55 @@ msgstr ""
 #. # bo/OwnerDonation
 #: Frequency
 msgid "Frequency"
-msgstr ""
+msgstr "תדירות"
 
 #. # ui/medical/ProfileView
 #: Medical_Profiles
 msgid "Medical Profiles"
-msgstr ""
+msgstr "פרופילים רפואיים"
 
 #. # ui/medical/ProfileView
 #: Edit_the_highlighted_profile
 msgid "Edit the highlighted profile"
-msgstr ""
+msgstr "עריכת הפרופיל המודגש"
 
 #. # ui/medical/ProfileView
 #: Add_a_new_profile
 msgid "Add a new profile"
-msgstr ""
+msgstr "הוספת פרופיל חדש"
 
 #. # ui/medical/ProfileView
 #: Delete_the_highlighted_profile
 msgid "Delete the highlighted profile"
-msgstr ""
+msgstr "מחיקת הפרופיל המודגש"
 
 #. # ui/medical/ProfileEdit
 #: Edit_Medical_Profile
 msgid "Edit Medical Profile"
-msgstr ""
+msgstr "ערכית הפרופיל הרפואי"
 
 #. # ui/medical/ProfileEdit
 #: Profile_Name\:
 msgid "Profile Name:"
-msgstr ""
+msgstr "שם הפרופיל:"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #: Treatment_Name\:
 msgid "Treatment Name:"
-msgstr ""
+msgstr "שם הטיפול:"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #: Dosage\:
 msgid "Dosage:"
-msgstr ""
+msgstr "מינון:"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #: One-Off
 msgid "Single Treatment"
-msgstr ""
+msgstr "טיפול חד־פעמי"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -11186,38 +10897,38 @@ msgstr ""
 #. # ui/medical/MedicalEdit
 #: Duration
 msgid "Duration"
-msgstr ""
+msgstr "משך"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #: Multiple
 msgid "Multiple Treatments"
-msgstr ""
+msgstr "מספר טיפולים"
 
 #. # ui/medical/ProfileEdit
 #: Create_New_Medical_Profile
 msgid "Create New Medical Profile"
-msgstr ""
+msgstr "יצירת פרופיל רפואי חדש"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
 #: Ends_after
 msgid "Ends after"
-msgstr ""
+msgstr "מסתיים לאחר"
 
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # bo/AnimalMedical
 #: Status
 msgid "Status"
-msgstr ""
+msgstr "מצב"
 
 #. # ui/medical/MedicalEdit
 #. # ui/owner/OwnerEdit
 #. # bo/AnimalMedical
 #: Active
 msgid "Active"
-msgstr ""
+msgstr "פעיל"
 
 #. # ui/medical/MedicalEdit
 #. # bo/AnimalMedical
@@ -11233,7 +10944,7 @@ msgstr ""
 #. # ui/medical/MedicalEdit
 #: Status\:
 msgid "Status:"
-msgstr ""
+msgstr "מצב:"
 
 #. # ui/medical/MedicalEdit
 #: Create_New_Medical_Regime
@@ -11264,52 +10975,52 @@ msgstr ""
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Edit_the_highlighted_treatment
 msgid "Edit the highlighted treatment"
-msgstr ""
+msgstr "עריכת הטיפול המסומן"
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Delete_the_highlighted_treatment
 msgid "Delete the highlighted treatment"
-msgstr ""
+msgstr "מחיקת הטיפול המודגש"
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Date_Given
 msgid "Date Given"
-msgstr ""
+msgstr "התאריך שניתן"
 
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Given_By
 msgid "Given By"
-msgstr ""
+msgstr "ניתן על ידי"
 
 #. # ui/medical/TreatmentEdit
 #: Edit_Medical_Treatment
 msgid "Edit Medical Treatment"
-msgstr ""
+msgstr "עריכת טיפול רפואי"
 
 #. # ui/medical/TreatmentEdit
 #: Given_By\:
 msgid "Given By:"
-msgstr ""
+msgstr "ניתן על ידי:"
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_all_treatments_upto_date
 msgid "Bring all treatments upto date"
-msgstr ""
+msgstr "הצגת כל הטיפולים עד כה"
 
 #. # ui/medical/MedicalView
 #. # ui/main/Main
 #: Medical_Book
 msgid "Medical Book"
-msgstr ""
+msgstr "ספר רפואי"
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Sequence
 msgid "Sequence"
-msgstr ""
+msgstr "רצף"
 
 #. # ui/medical/MedicalSelector
 #: Regime_View
@@ -11325,30 +11036,30 @@ msgstr ""
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Bring_selected_treatments_upto_date
 msgid "Bring selected treatments upto date"
-msgstr ""
+msgstr "הצגת הטיפולים הנבחרים עד היום"
 
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
 #: Finishes_After
 msgid "Finishes After"
-msgstr ""
+msgstr "מסתיים לאחר"
 
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #: Refresh
 msgid "Refresh"
-msgstr ""
+msgstr "רענון"
 
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: Total_Today
 msgid "Total Today"
-msgstr ""
+msgstr "סך הכל להיום"
 
 #. # ui/medical/MedicalRegimeTreatmentSelector
 #: create_new_treatment
 msgid "Create a new manual treatment"
-msgstr ""
+msgstr "יצירת טיפול ידני חדש"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -11356,91 +11067,76 @@ msgstr ""
 #. # bo/MedicalProfile
 #: treatment_periods
 msgid "Treatment Periods"
-msgstr ""
+msgstr "תדירות הטיפולים"
 
 #. # ui/movement/MovementView
 #: View_the_owner_for_this_reservation
 msgid "View the owner for this reservation"
-msgstr ""
+msgstr "צפייה בבעלים עבור הזמנה זו"
 
 #. # ui/movement/MovementView
 #: View_the_movement_record_for_this_reservation
 msgid "View the movement record for this reservation"
-msgstr ""
+msgstr "צפייה ברשומת ההעברה עבור הזמנה זו"
 
 #. # ui/movement/MovementView
 #: Refresh_the_list_of_reservations
 msgid "Refresh the list of reservations"
-msgstr ""
+msgstr "רענון רשימת ההזמנות"
 
 #. # ui/movement/MovementView
 #: Create_a_new_reservation
 msgid "Create a new reservation"
-msgstr ""
+msgstr "יצירת הזמנה חדשה"
 
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_reservation
 msgid "View the animal for this reservation"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: An_error_occurred_validating_the_record\:_
-msgid "An error occurred validating the record: "
-msgstr ""
+msgstr "צפייה בחיית המחמד עבור הזמנה זו"
 
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
 #: Cancelled\:
 msgid "Cancelled:"
-msgstr ""
+msgstr "בוטל:"
 
 #. # ui/movement/MovementEdit
 #: WARNING\:_This_owner_has_not_passed_a_home_check.
 msgid "WARNING: This owner has not passed a home check."
-msgstr ""
+msgstr "אזהרה: ביתם של בעלים אלה לא נסקר."
 
 #. # ui/movement/MovementEdit
 #. # ui/owner/DonationEdit
 #: Select_an_animal
 msgid "Select an animal"
-msgstr ""
+msgstr "בחירת חיית מחמד"
 
 #. # ui/movement/MovementEdit
 #: This_movement_record_already_has_an_insurance_number._Remove_it_if_you_wish_to_generate_another.
 msgid ""
 "This movement record already has an insurance number. Remove it if you wish "
 "to generate another."
-msgstr ""
+msgstr "לרשומת העברה זו כבר יש מספר ביטוח. יש להסיר אותו כדי לייצר אחד אחד."
 
 #. # ui/movement/MovementEdit
 #: WARNING\:_This_owner_is_banned_from_adopting_animals.
 msgid "WARNING: This owner is banned from adopting animals."
-msgstr ""
+msgstr "אזהרה: בעלים אלו חסומים ואינם יכולים לאמץ חיות מחמד."
 
 #. # ui/movement/MovementEdit
 #: The_reference_number_of_this_movement
 msgid "The reference number of this movement"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: Unable_to_open_find_owner_screen\:_
-msgid "Unable to open find owner screen: "
-msgstr ""
+msgstr "מספר ההפניה להעברה זו"
 
 #. # ui/movement/MovementEdit
 #: The_reason_the_animal_was_returned
 msgid "The reason the animal was returned"
-msgstr ""
+msgstr "הסיבה שבגללה הוחזרה חיית המחמד"
 
 #. # ui/movement/MovementEdit
 #: Unchecked_Owner
 msgid "Unchecked Owner"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: Unable_to_create_new_movement\:_
-msgid "Unable to create new movement: "
-msgstr ""
+msgstr "בעלים שלא נבדקו"
 
 #. # ui/movement/MovementEdit
 #: WARNING\:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(
@@ -11448,26 +11144,28 @@ msgid ""
 "WARNING: The new owner lives in the same postcode as this \n"
 "animal's original owner ("
 msgstr ""
+"אזהרה: הבעלים החדשים חיים באותו המיקוד כמו \n"
+"הבעלים המקוריים של חיית מחמד זו ("
 
 #. # ui/movement/MovementEdit
 #: Click_here_if_you_have_automatic_insurance_numbers_to_generate_one
 msgid "Click here if you have automatic insurance numbers to generate one"
-msgstr ""
+msgstr "יש ללחוץ כאן אם יש לך מספרי ביטוח אוטומטיים כדי לייצר אחד"
 
 #. # ui/movement/MovementEdit
 #: Owner\:
 msgid "Owner:"
-msgstr ""
+msgstr "בעלים:"
 
 #. # ui/movement/MovementEdit
 #: The_insurance_reference_number
 msgid "The insurance reference number"
-msgstr ""
+msgstr "מספר ההפניה של הביטוח"
 
 #. # ui/movement/MovementEdit
 #: Postcode_Warning
 msgid "Postcode Warning"
-msgstr ""
+msgstr "אזהרת מיקוד"
 
 #. # ui/movement/MovementEdit
 #: This_animal_already_has_an_uncancelled_reservation,_are_you_sure_you_wish_to_continue_with_this_record?\nClicking_NO_will_close_this_screen_and_abandon_the_current_record.
@@ -11476,80 +11174,63 @@ msgid ""
 "continue with this record?\n"
 "Clicking NO will close this screen and abandon the current record."
 msgstr ""
+"לחיית מחמד זו ישנה הזמנה שאינה מבוטלת, האם להמשיך עם רשומה זו?\n"
+"לחיצה על \"לא\" תסגור מסך זה ותתעלם מהרשומה הנוכחית."
 
 #. # ui/movement/MovementEdit
 #: The_date_the_reservation_was_cancelled
 msgid "The date the reservation was cancelled"
-msgstr ""
+msgstr "התאריך בו בוטלה ההזמנה"
 
 #. # ui/movement/MovementEdit
 #: The_date_the_animal_was_returned_to_the_shelter
 msgid "The date the animal was returned to the shelter"
-msgstr ""
+msgstr "התאריך בו הוחזרה חיית המחמד אל בית המחסה"
 
 #. # ui/movement/MovementEdit
 #: Existing_Reservation
 msgid "Existing Reservation"
-msgstr ""
+msgstr "הזמנות קיימות"
 
 #. # ui/movement/MovementEdit
 #: Still_Reserved
 msgid "Still Reserved"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: An_error_occurred_cancelling_the_existing_reservation(s)._The_records_were_not_saved_and_you_will_have_to_remove_these_reservations_manually.
-msgid ""
-"An error occurred cancelling the existing reservation(s). The records were "
-"not saved and you will have to remove these reservations manually."
-msgstr ""
+msgstr "עדיין בהזמנה"
 
 #. # ui/movement/MovementEdit
 #: Generate_a_document_for_this_movement
 msgid "Generate a document for this movement"
-msgstr ""
+msgstr "יצירת מסמך עבור העברה זו"
 
 #. # ui/movement/MovementEdit
 #: Edit_Movement
 msgid "Edit Movement"
-msgstr ""
+msgstr "עריכת העברה"
 
 #. # ui/movement/MovementEdit
 #: Insurance\:
 msgid "Insurance:"
-msgstr ""
+msgstr "ביטוח:"
 
 #. # ui/movement/MovementEdit
 #: The_movement_date
 msgid "The movement date"
-msgstr ""
+msgstr "תאריך ההעברה"
 
 #. # ui/movement/MovementEdit
 #: The_reservation_date
 msgid "The reservation date"
-msgstr ""
-
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnBannedOwner
-msgid "WarnBannedOwner"
-msgstr ""
+msgstr "תאריך ההזמנה"
 
 #. # ui/movement/MovementEdit
 #: Already_Insured
 msgid "Already Insured"
-msgstr ""
+msgstr "כבר מבוטח"
 
 #. # ui/movement/MovementEdit
 #: (none)
 msgid "(none)"
-msgstr ""
-
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnMultipleReserves
-msgid "WarnMultipleReserves"
-msgstr ""
+msgstr "(אין)"
 
 #. # ui/movement/MovementEdit
 #: This_animal_is_still_reserved_to_another_owner(s)._Would_you_like_to_cancel_these_reservations_now?
@@ -11557,11 +11238,12 @@ msgid ""
 "This animal is still reserved to another owner(s). Would you like to cancel "
 "these reservations now?"
 msgstr ""
+"חיית מחמד זו עדיין מזומנת לבעלים אחרים. האם ברצונך לבטל הזמנות אלו כעת?"
 
 #. # ui/movement/MovementEdit
 #: Banned_Owner
 msgid "Banned Owner"
-msgstr ""
+msgstr "בעלים חסומים"
 
 #. # reports/AnimalPrint
 #: Donation\:
@@ -11576,74 +11258,74 @@ msgstr "חיית מחמד:"
 #. # ui/movement/MovementEdit
 #: Create_New_Movement
 msgid "Create New Movement"
-msgstr ""
+msgstr "יצירת העברה חדשה"
 
 #. # ui/movement/MovementSelector
 #: View_the_animal
 msgid "View the animal"
-msgstr ""
+msgstr "צפייה בבעלי החיים"
 
 #. # ui/movement/MovementSelector
 #: Add_a_new_movement
 msgid "Add a new movement"
-msgstr ""
+msgstr "הוספת העברה חדשה"
 
 #. # ui/movement/MovementSelector
 #: Adoption_No
 msgid "Adoption No"
-msgstr ""
+msgstr "מספר האימוץ"
 
 #. # ui/movement/MovementSelector
 #: Unable_to_open_owner\:_
 msgid "Unable to open owner: "
-msgstr ""
+msgstr "לא ניתן לפתוח את הבעלים: "
 
 #. # ui/movement/MovementSelector
 #: Movement_Type
 msgid "Movement Type"
-msgstr ""
+msgstr "סוג ההעברה"
 
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #: Unable_to_read_movement_records\:_
 msgid "Unable to read movement records: "
-msgstr ""
+msgstr "לא ניתן לקרוא את רשומות ההעברה: "
 
 #. # ui/movement/MovementSelector
 #: (no_owner)
 msgid "(no owner)"
-msgstr ""
+msgstr "(חסר בעלים)"
 
 #. # ui/movement/MovementSelector
 #: Delete_this_movement
 msgid "Delete this movement"
-msgstr ""
+msgstr "מחיקת העברה זו"
 
 #. # ui/movement/MovementSelector
 #: Edit_this_movement
 msgid "Edit this movement"
-msgstr ""
+msgstr "עריכת העברה זו"
 
 #. # ui/movement/MovementSelector
 #: Create_a_document_for_this_movement
 msgid "Create a document for this movement"
-msgstr ""
+msgstr "יצירת מסמך עבור העברה זו"
 
 #. # ui/movement/MovementSelector
 #: View_the_owner
 msgid "View the owner"
-msgstr ""
+msgstr "צפייה בבעלים"
 
 #. # ui/main/Main
 #. # ui/movement/MovementView
 #: Foster_Book
 msgid "Foster Book"
-msgstr ""
+msgstr "ספר האימוץ הזמני"
 
 #. # ui/movement/MovementEdit
 #: Return_Category
 msgid "Return Category:"
-msgstr ""
+msgstr "קטגוריית ההחזרה:"
 
 #. # db/Diagnostic
 #: none
@@ -11659,58 +11341,58 @@ msgstr "ספר קמעוני"
 #. # ui/movement/MovementView
 #: Refresh_the_list_of_fosters
 msgid "Refresh the list of fosters"
-msgstr ""
+msgstr "רענון רשימת המאמצים הזמניים"
 
 #. # ui/movement/MovementView
 #: Create_a_new_foster
 msgid "Create a new foster"
-msgstr ""
+msgstr "יצירת מאמץ זמני חדש"
 
 #. # ui/movement/MovementView
 #: View_the_movement_record_for_this_foster
 msgid "View the movement record for this foster"
-msgstr ""
+msgstr "צפייה ברשומת ההעברה עבור מאמץ זמני זה"
 
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_foster
 msgid "View the animal for this foster"
-msgstr ""
+msgstr "צפייה בחיית המחמד עבור אימוץ זמני זה"
 
 #. # ui/movement/MovementView
 #: View_the_owner_for_this_foster
 msgid "View the owner for this foster"
-msgstr ""
+msgstr "צפייה בבעלים עבור אימוץ זמני זה"
 
 #. # ui/movement/MovementView
 #: Refresh_the_list_of_retailer_movements
 msgid "Refresh the list of retailer movements"
-msgstr ""
+msgstr "רענון רשימת ההעברות הקמעונאיות"
 
 #. # ui/movement/MovementView
 #: Create_a_new_retailer_movement
 msgid "Create a new retailer movement"
-msgstr ""
+msgstr "יצירת העברה קמעונאית חדשה"
 
 #. # ui/movement/MovementView
 #: View_this_retailer_movement
 msgid "View this retailer movement"
-msgstr ""
+msgstr "צפייה בהעברה קמעונאית זו"
 
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_retailer_movement
 msgid "View the animal for this retailer movement"
-msgstr ""
+msgstr "צפייה בחיית המחמד עבור העברה קמעונאית זו"
 
 #. # ui/movement/MovementView
 #: View_the_retailer_for_this_movement
 msgid "View the retailer for this movement"
-msgstr ""
+msgstr "צפייה בקמעונאי של ההעברה הזו"
 
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
 #: from_retailer
 msgid "From Retailer:"
-msgstr ""
+msgstr "מקמעונאי:"
 
 #. # ui/movement/MovementEdit
 #: this_animal_was_previously_at_a_retailer_do_you_want_to_mark_this_movement_as_an_adoption_from_that_retailer?
@@ -11718,66 +11400,68 @@ msgid ""
 "This animal was previously at a retailer. Do you want to\n"
 "mark this movement as an adoption from that retailer?"
 msgstr ""
+"חיית מחמד זו הייתה בעברה אצל קמעונאי. האם ברצונך\n"
+"לסמן את ההעברה הזו כאימוץ מקמעונאי?"
 
 #. # ui/movement/MovementEdit
 #: retailer_adoption
 msgid "Retailer Adoption"
-msgstr ""
+msgstr "אימוץ קמעונאי"
 
 #. # ui/movement/MovementView
 #: return_this_movement_and_create_a_new_one
 msgid "Return the selected movement and create a new one for that animal"
-msgstr ""
+msgstr "החזרת ההעברה הנבחרת ויצירת העברה חדשה עבור חיית מחמד זו"
 
 #. # ui/movement/MovementView
 #: enter_the_return_date
 msgid "Enter the return date"
-msgstr ""
+msgstr "נא להזין את תאריך ההחזרה"
 
 #. # ui/movement/MovementView
 #: return_movement
 msgid "Return Movement"
-msgstr ""
+msgstr "העברה חזרה"
 
 #. # ui/movement/MovementView
 #: this_movement_is_already_returned
 msgid "This movement has already been returned."
-msgstr ""
+msgstr "העברה זו כבר הוחזרה."
 
 #. # ui/movement/MovementEdit
 #: Movement_Details
 msgid "Movement Details"
-msgstr ""
+msgstr "פרטי ההעברה"
 
 #. # ui/movement/MovementEdit
 #: view_animal
 msgid "View animal"
-msgstr ""
+msgstr "צפייה בחיית המחמד"
 
 #. # ui/movement/MovementEdit
 #: View_owner
 msgid "View owner"
-msgstr ""
+msgstr "צפייה בבעלים"
 
 #. # ui/movement/MovementSelector
 #: Phone
 msgid "Phone"
-msgstr ""
+msgstr "טלפון"
 
 #. # ui/movement/MovementEdit
 #: Returning
 msgid "Returning"
-msgstr ""
+msgstr "חוזר"
 
 #. # ui/movement/MovementEdit
 #: edit_movement_title
 msgid "Edit Movement - [{0}, {1} ({2}) to {3}]"
-msgstr ""
+msgstr "עריכת העברה - [{0}, {1} ({2}) אל {3}]"
 
 #. # ui/movement/MovementEdit
 #: You_cannot_move_nonshelter_animals
 msgid "Animal {0} - {1} is a non-shelter animal and cannot be moved."
-msgstr ""
+msgstr "חיית המחמד {0} - {1} אינה שייכת לבית המחסה ולכן לא ניתן להעבירה."
 
 #. # ui/movement/MovementEdit
 #: This_owner_has_active_match_criteria
@@ -11785,18 +11469,20 @@ msgid ""
 "This owner still has active search criteria. Since they are adopting this "
 "animal, would you like to cancel it?"
 msgstr ""
+"לבעלים אלו עדיין ישנם קריטריוני חיפוש פעילים. מאחר שהם מאמצים חיית מחמד זו, "
+"האם ברצונך לבטל אותם?"
 
 #. # ui/movement/MovementEdit
 #: Active_Criteria
 msgid "Active Criteria"
-msgstr ""
+msgstr "קריטריונים פעילים"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #: Work_Tel
 msgid "Work Tel"
-msgstr ""
+msgstr "טלפון בעבודה"
 
 #. # ui/owner/OwnerFind
 #: Address_contains\:
@@ -11852,16 +11538,6 @@ msgid "Home Tel"
 msgstr "טלפון בבית"
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner_record_for_movements.
-msgid "An error occurred checking the owner record for movements."
-msgstr "ארעה שגיאה בעת בדיקת רשומת הבעלים להעברות."
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_creating_the_owner_record\:_
-msgid "An error occurred creating the owner record: "
-msgstr "ארעה שגיאה בעת יצירת רשומת הבעלים: "
-
-#. # ui/owner/OwnerEdit
 #: Create_New_Owner
 msgid "Create New Owner"
 msgstr "יצירת בעלים חדשים"
@@ -11872,11 +11548,6 @@ msgid "Edit Owner"
 msgstr "עריכת בעלים"
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_saving_the_record_to_the_database\:_
-msgid "An error occurred saving the record to the database: "
-msgstr "ארעה שגיאה בעת שמירת הרשומה למסד הנתונים: "
-
-#. # ui/owner/OwnerEdit
 #: Home_Tel\:
 msgid "Home Tel:"
 msgstr "טלפון בבית:"
@@ -11885,11 +11556,6 @@ msgstr "טלפון בבית:"
 #: Check_this_box_if_this_owner_is_a_member_of_your_organisation
 msgid "Check this box if this owner is a member of your organisation"
 msgstr "יש לסמן תיבה זו אם בעלים אלו הם חברים בארגון שלך"
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner\:\n
-msgid "An error occurred checking the owner:\n"
-msgstr "ארעה שגיאה בעת בדיקת הבעלי:\n"
 
 #. # ui/owner/OwnerEdit
 #: Member
@@ -11940,11 +11606,6 @@ msgstr "יש לסמן תיסה זו אם בעלים אלו הינם סוקרי �
 #: Work_Tel\:
 msgid "Work Tel:"
 msgstr "טלפון בעבודה:"
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_reading_owner_information\:_
-msgid "An error occurred reading owner information: "
-msgstr "ארעה שגיאה בעת קריאת נתוני הבעלים: "
 
 #. # ui/owner/OwnerEdit
 #: Volunteer
@@ -12775,11 +12436,6 @@ msgstr ""
 "יש להדגיש בדוחות חיות מחמד שגילן אינו עולה על חצי שנה, שהוזמנו או שמתו"
 
 #. # ui/system/Options
-#: An_error_occurred_saving_the_data\:_
-msgid "An error occurred saving the data: "
-msgstr "ארעה שגיאה בשמירת הנתונים: "
-
-#. # ui/system/Options
 #: Use_optimistic_record_locking_on_animal_database
 msgid "Use optimistic record locking on database"
 msgstr "שימוש בנעילת רשומות אופטימית במסד הנתונים"
@@ -12839,11 +12495,6 @@ msgid "Add a new file type"
 msgstr "הוספת סוג קובץ חדש"
 
 #. # ui/system/FileTypes
-#: An_error_occurred_updating_the_file_types\:\n
-msgid "An error occurred updating the file types:\n"
-msgstr "ארעה שגיאה בעת עדכון סוגי הקבצים:\n"
-
-#. # ui/system/FileTypes
 #: Delete_the_selected_type
 msgid "Delete the selected type"
 msgstr "מחיקת הסוג שנבחר"
@@ -12853,11 +12504,6 @@ msgstr "מחיקת הסוג שנבחר"
 #: Extension
 msgid "Extension"
 msgstr "סיומת"
-
-#. # ui/system/FileTypes
-#: An_error_occurred_reading_the_list_of_system_filetypes\:\n
-msgid "An error occurred reading the list of system filetypes:\n"
-msgstr "ארעה שגיאה בעת קריאת רשימת סוגי הקבצים של המערכת:\n"
 
 #. # ui/system/FileTypes
 #: Save_the_list_of_filetypes
@@ -12994,11 +12640,6 @@ msgstr "יש לסמן תיבה זו כדי להפעיל את ASM בחלון מו
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
 msgstr "יציאה תוך שמירת השינויים"
-
-#. # ui/system/ConfigureLocal
-#: An_error_occurred_saving_changes_to_localsettings.conf\:\n
-msgid "An error occurred saving changes to asm.properties:\n"
-msgstr "ארעה שגיאה בעת שמירת השינויים לקובץ asm.properties\n"
 
 #. # ui/system/ConfigureLocal
 #: Start_Maximised\:
@@ -13188,8 +12829,8 @@ msgid ""
 "will not work until you install and setup an office suite and file type "
 "handlers in ASM."
 msgstr ""
-"ASM לא הצליחה לאתר תוכנת כלים משרדיים (כגון אופן אופיס) במחשבך. יצור מסמכים "
-"לא יעבוד עד להתקנת והגדרת חבילת תוכנות משרדיות והגדרת הטיפול בסוגי הקבצים "
+"ASM לא הצליחה לאתר תוכנת כלים משרדיים (כגון אופן אופיס) במחשבך. יצירת מסמכים "
+"לא תפעל עד להתקנת והגדרת חבילת תוכנות משרדיות והגדרת הטיפול בסוגי הקבצים "
 "ב־ASM."
 
 #. # ui/system/MediaFiles
@@ -13767,7 +13408,7 @@ msgstr "המשתמש ביומן הווטרינר:"
 #. # ui/system/Options
 #: Default_Coat_Type
 msgid "Default Coat Type:"
-msgstr ""
+msgstr "סוג הפרווה כברירת המחדל:"
 
 #. # ui/system/Options
 #: Default_date_brought_in_to_today
@@ -14001,11 +13642,6 @@ msgstr "שינוי רשומות ברשימת ההמתנה"
 #: Owners\:
 msgid "Owners:"
 msgstr "בעלים:"
-
-#. # ui/users/UserEdit
-#: An_error_occurred_creating_a_new_user\:_
-msgid "An error occurred creating a new user: "
-msgstr "אירעה שגיאה במהלך יצירת משתמש חדש: "
 
 #. # ui/users/UserEdit
 #: Edit_Completed_Diary_Notes
@@ -14445,11 +14081,6 @@ msgid "Edit this entry"
 msgstr "עריכת רשומה זו"
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_accessing_external_data\:\n
-msgid "An error occurred accessing external data:\n"
-msgstr "ארעה שגיאה בעת גישה לנתונים חיצוניים:\n"
-
-#. # ui/waitinglist/WaitingListEdit
 #: Urgency\:
 msgid "Urgency:"
 msgstr "דחיפות:"
@@ -14492,11 +14123,6 @@ msgid "species"
 msgstr "זן"
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_cloning_this_record\:\n
-msgid "An error occurred cloning this record:\n"
-msgstr "ארעה שגיאה בעת שכפול רשומה זו:\n"
-
-#. # ui/waitinglist/WaitingListEdit
 #: Date_Removed\:
 msgid "Date Removed:"
 msgstr "תאריך ההסרה:"
@@ -14516,11 +14142,6 @@ msgstr "רשומה חדשה ברשימת ההמתנה"
 #: complete_the_selected_waiting_list_entries
 msgid "Complete the selected waiting list entries"
 msgstr "השלמת הרשומות הנבחרות ברשימת ההמתנה"
-
-#. # ui/waitinglist/WaitingListView
-#: An_error_occurred_completing_the_record
-msgid "An error occurred completing the record: "
-msgstr "ארעה שגיאה בעת השלמת הרשומה: "
 
 #. # ui/waitinglist/WaitingListEdit
 #: remove_this_entry_after
@@ -14579,26 +14200,10 @@ msgstr "עריכת רשומה ברשימת ההמתנה - {0}"
 msgid "Removal Reason:"
 msgstr "סיבת הסרה:"
 
-#. # ui/ui/DBFSBrowser
-#. # ui/wordprocessor/SelectTemplate
-#: An_error_occurred_retrieving_the_file\:_
-msgid "An error occurred retrieving the file: "
-msgstr "ארעה שגיאה בעת קבלת הקובץ: "
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_reading_from_the_media_server\:_
-msgid "An error occurred reading from the media server: "
-msgstr "ארעה שגיאה בעת קריאה משרת המדיה: "
-
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
 msgstr "יש לבחור תבנית למסמך"
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_changing_into_the_directory\:_
-msgid "An error occurred changing into the directory: "
-msgstr "ארעה שגיאה בעת ההחלפה אל התיקייה: "
 
 #. # ui/wordprocessor/SelectTemplate
 #: attach_generated_document_as_media
@@ -14636,8 +14241,62 @@ msgstr "(מוערך)"
 #~ msgid "Donations ("
 #~ msgstr "תרומות ("
 
+#~ msgid "An error occurred accessing the object: "
+#~ msgstr "אירעה שגיאה במהלך נסיון לגשת לפריט: "
+
 #~ msgid "An error occurred while validating the object: "
 #~ msgstr "ארעה שגיאה בעת אימות הפריט: "
+
+#~ msgid "An error occurred creating a new user: "
+#~ msgstr "אירעה שגיאה במהלך יצירת משתמש חדש: "
+
+#~ msgid "An error occurred running diagnostics: "
+#~ msgstr "ארעה שגיאה בעת הפעלת הניתוח: "
+
+#~ msgid "An unexpected error occurred:\n"
+#~ msgstr "ארעה שגיאה בלתי צפויה:\n"
+
+#~ msgid "An error occurred reading the file:\n"
+#~ msgstr "ארעה שגיאה בעת קריאת הקובץ:\n"
+
+#~ msgid "An error occurred generating the mail merge source:\n"
+#~ msgstr "ארעה שגיאה בעת ייצור מקור מיזוג הדואר:\n"
+
+#~ msgid "Unable to write output file "
+#~ msgstr "לא ניתן לכתוב את קובץ הפלט "
+
+#~ msgid "An error occurred opening the report {0}"
+#~ msgstr "ארעה שגיאה בעת פתיחת היומן {0}"
+
+#~ msgid "An error occurred retrieving the file: "
+#~ msgstr "ארעה שגיאה בעת קבלת הקובץ: "
+
+#~ msgid "An error occurred reading from the media server: "
+#~ msgstr "ארעה שגיאה בעת קריאה משרת המדיה: "
+
+#~ msgid "An error occurred changing into the directory: "
+#~ msgstr "ארעה שגיאה בעת ההחלפה אל התיקייה: "
+
+#~ msgid "An error occurred cloning this record:\n"
+#~ msgstr "ארעה שגיאה בעת שכפול רשומה זו:\n"
+
+#~ msgid "An error occurred completing the record: "
+#~ msgstr "ארעה שגיאה בעת השלמת הרשומה: "
+
+#~ msgid "An error occurred accessing external data:\n"
+#~ msgstr "ארעה שגיאה בעת גישה לנתונים חיצוניים:\n"
+
+#~ msgid "An error occurred saving changes to asm.properties:\n"
+#~ msgstr "ארעה שגיאה בעת שמירת השינויים לקובץ asm.properties\n"
+
+#~ msgid "An error occurred reading the list of system filetypes:\n"
+#~ msgstr "ארעה שגיאה בעת קריאת רשימת סוגי הקבצים של המערכת:\n"
+
+#~ msgid "An error occurred updating the file types:\n"
+#~ msgstr "ארעה שגיאה בעת עדכון סוגי הקבצים:\n"
+
+#~ msgid "An error occurred saving the data: "
+#~ msgstr "ארעה שגיאה בשמירת הנתונים: "
 
 #~ msgid "Number of Instalments:"
 #~ msgstr "מספר התשלומים:"
@@ -14665,3 +14324,18 @@ msgstr "(מוערך)"
 
 #~ msgid "An error occurred saving the data:"
 #~ msgstr "ארעה שגיאה בעת שמירת הנתונים:"
+
+#~ msgid "An error occurred reading owner information: "
+#~ msgstr "ארעה שגיאה בעת קריאת נתוני הבעלים: "
+
+#~ msgid "An error occurred saving the record to the database: "
+#~ msgstr "ארעה שגיאה בעת שמירת הרשומה למסד הנתונים: "
+
+#~ msgid "An error occurred checking the owner:\n"
+#~ msgstr "ארעה שגיאה בעת בדיקת הבעלי:\n"
+
+#~ msgid "An error occurred creating the owner record: "
+#~ msgstr "ארעה שגיאה בעת יצירת רשומת הבעלים: "
+
+#~ msgid "An error occurred checking the owner record for movements."
+#~ msgstr "ארעה שגיאה בעת בדיקת רשומת הבעלים להעברות."

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-05 16:32+0100\n"
-"PO-Revision-Date: 2010-02-05 17:37+0000\n"
-"Last-Translator: electroweak <atillacay@gmail.com>\n"
+"POT-Creation-Date: 2010-02-12 13:47+0100\n"
+"PO-Revision-Date: 2010-02-12 23:24+0000\n"
+"Last-Translator: Serdar KAHYA <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-06 04:57+0000\n"
+"X-Launchpad-Export-Date: 2010-02-14 05:05+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -111,12 +111,6 @@ msgstr "Bu kaydınlisteye girdiği tarihi yazmalısınız."
 #: You_must_enter_the_contact_name.
 msgid "You must enter the contact name."
 msgstr "Bağlantı için isim girmelisiniz."
-
-#. # bo/AnimalVaccination
-#. # bo/AnimalDiet
-#: An_error_occurred_accessing_the_object\:_
-msgid "An error occurred accessing the object: "
-msgstr "Nesneye ulaşırken hata oluştu: "
 
 #. # bo/AnimalVaccination
 #: Date_Required_is_mandatory.
@@ -270,7 +264,7 @@ msgstr "Kaçak"
 #. # reports/InOut
 #: DOA
 msgid "DOA"
-msgstr ""
+msgstr "DOA"
 
 #. # bo/Animal
 #: An_animal_cannot_be_marked_as_deceased_before_it_was_brought_into_the_shelter.
@@ -720,19 +714,9 @@ msgid "Donations must be linked to an owner."
 msgstr ""
 
 #. # charts/MonthlyDonations
-#: Adoptions_(
-msgid "Adoptions ("
-msgstr "Evlat Edinmeler ("
-
-#. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
 msgstr "Aylık Bağış analizi (bağış türüne göre) "
-
-#. # charts/MonthlyDonations
-#: Brought_In_(
-msgid "Brought In ("
-msgstr "Getirilmiş ("
 
 #. # charts/DonationsPerSpecies
 #: Monthly_Donation_analysis_(by_species)_for_
@@ -973,17 +957,11 @@ msgstr "Grafik Oluşturuyor..."
 msgid "Plot"
 msgstr "Çizim"
 
-#. # charts/MonthlyDonations
-#: donations
-msgid "Donations ("
-msgstr "Bağışlar ("
-
 #. # charts/Chart
 #: there_is_no_data_to_show_on_the_chart
 msgid "There is no data to show on the chart."
 msgstr "Tabloda gösterilecek veri yok."
 
-#. # charts/MonthlyDonations
 #. # utility/Utils
 #: waitinglist
 msgid "Waiting List ("
@@ -3078,6 +3056,36 @@ msgstr "Yabani"
 msgid "Biting"
 msgstr "Isırma"
 
+#. # reports/Retailer
+#. # reports/InOut
+#. # db/AutoDBUpdates
+#. # bo/LookupCache
+#. # bo/OwnerDonation
+#. # bo/Adoption
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
+#: donationtype_1
+#: Donation
+#: donation
+msgid "Donation"
+msgstr ""
+
+#: donationtype_2
+msgid "Adoption Fee"
+msgstr ""
+
+#: donationtype_3
+msgid "Waiting List Donation"
+msgstr ""
+
+#: donationtype_4
+msgid "Entry Donation"
+msgstr ""
+
+#: donationtype_5
+msgid "Animal Sponsorship"
+msgstr ""
+
 #: entryreason_1
 msgid "Marriage/Relationship split"
 msgstr "Evlilik/İlişki Bölünmesi"
@@ -3172,6 +3180,42 @@ msgstr "Çizgili"
 #: lkcoattype_5
 msgid "Hairless"
 msgstr "Tüysüz"
+
+#: lksaccounttype_1
+msgid "Bank"
+msgstr ""
+
+#: lksaccounttype_2
+msgid "Credit Card"
+msgstr ""
+
+#: lksaccounttype_3
+msgid "Loan"
+msgstr ""
+
+#: lksaccounttype_4
+msgid "Expense"
+msgstr ""
+
+#: lksaccounttype_5
+msgid "Income"
+msgstr ""
+
+#: lksaccounttype_6
+msgid "Pension"
+msgstr ""
+
+#: lksaccounttype_7
+msgid "Shares"
+msgstr ""
+
+#: lksaccounttype_8
+msgid "Asset"
+msgstr ""
+
+#: lksaccounttype_9
+msgid "Liability"
+msgstr ""
 
 #: lksmovementtype_1
 msgid "Adoption"
@@ -3464,11 +3508,6 @@ msgid "Scan complete"
 msgstr "Tarama tamamlandı"
 
 #. # db/Diagnostic
-#: An_error_occurred_running_diagnostics\:\n
-msgid "An error occurred running diagnostics: "
-msgstr "Tanıları çalıştırırken birhata oluştu: "
-
-#. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
 msgid "Checking for orphaned movement records..."
 msgstr "Bağlantısız hareket kayıtlarını inceliyor..."
@@ -3492,11 +3531,6 @@ msgstr "Bağlantısız medya kayıtları inceleniyor..."
 #: Checking_for_orphaned_vaccination_records...
 msgid "Checking for orphaned vaccination records..."
 msgstr "Bağlantısız aşı kayıtları inceleniyor..."
-
-#. # db/DBUpdate
-#: An_unexpected_error_occurred\:\n
-msgid "An unexpected error occurred:\n"
-msgstr "Beklenmedik hata oluştu:\n"
 
 #. # db/DBUpdate
 #: Database_update_was_successful.
@@ -3548,11 +3582,6 @@ msgstr "Tamam"
 #: Select_database_update_file_to_process\:
 msgid "Select database update file to process:"
 msgstr "Veritabanı güncellem dosyası seçin:"
-
-#. # db/DBUpdate
-#: An_error_occurred_reading_the_file\:\n
-msgid "An error occurred reading the file:\n"
-msgstr "Dosyayı okurken bir hata oluştu:\n"
 
 #. # db/Diagnostic
 #: checking_for_corrupted_tables
@@ -3853,17 +3882,11 @@ msgid ""
 "Please enter the end date you would like to prepare vaccination letters for"
 msgstr "Aşı mektupları için bir sonlandırma tarihi girin"
 
-#. # mailmerge/MailMerge
-#: An_error_occurred_generating_the_mail_merge_source\:\n
-msgid "An error occurred generating the mail merge source:\n"
-msgstr "Mail birleştirme kaynağını oluştururken bir hata oluştu:\n"
-
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # reports/DiaryNotesToday
 #. # reports/Report
 #. # reports/Vets
-#. # ui/animal/DietEdit
 #. # ui/animal/VaccinationView
 #. # ui/animal/MediaAdd
 #. # ui/animal/MediaSelector
@@ -3871,15 +3894,10 @@ msgstr "Mail birleştirme kaynağını oluştururken bir hata oluştu:\n"
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
 #. # ui/ui/Dialog
-#. # ui/ui/DBFSBrowser
-#. # ui/login/Login
 #. # ui/users/UserView
 #. # ui/main/Main
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
-#. # ui/owner/VoucherEdit
-#. # internet/Publisher
-#. # mailmerge/MailMerge
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/MovementDocument
 #. # utility/Utils
@@ -3901,11 +3919,6 @@ msgstr "Mail birleştirme kaynağına eklenecek kayıt yok."
 #: Outputting_to_disk...
 msgid "Outputting to disk..."
 msgstr "Diske çıktı gönderiyor..."
-
-#. # mailmerge/MailMerge
-#: Unable_to_write_output_file_
-msgid "Unable to write output file "
-msgstr "Çıktı dosyasını yazamıyor "
 
 #. # mailmerge/MailMerge
 #: Reading_data,_please_wait...
@@ -4364,6 +4377,7 @@ msgstr "Adres 1"
 #. # mailmerge/ExpiringMembers
 #. # mailmerge/AdoptedNoReturn
 #. # mailmerge/ChipCancellation
+#. # charts/MonthlyDonations
 #. # utility/Utils
 #. # bo/Voucher
 #. # bo/LookupCache
@@ -4614,11 +4628,6 @@ msgstr "Altı Ay İçinde Geri Dönen Hayvanlar"
 #: In/Out_Report
 msgid "In/Out Report"
 msgstr "Giriş/Çıkış Raporu"
-
-#. # ui/criteria/DateFromTo
-#: An_error_occurred_opening_the_report
-msgid "An error occurred opening the report {0}"
-msgstr "Raporu açarken birhata oluştu {0}"
 
 #. # ui/criteria/DateFromTo
 #: In/Out_Summary_Report
@@ -5521,19 +5530,6 @@ msgstr ""
 msgid "Total Animals Returned From Fostering: {0}"
 msgstr ""
 
-#. # reports/Retailer
-#. # reports/InOut
-#. # db/AutoDBUpdates
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # bo/Adoption
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#: Donation
-#: donation
-msgid "Donation"
-msgstr ""
-
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
@@ -5927,31 +5923,6 @@ msgstr ""
 #. # reports/AnimalFigures
 #: PTS
 msgid "PTS"
-msgstr ""
-
-#. # reports/VaccinationDiary
-#. # reports/Stats
-#. # reports/AnimalFigures
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/LostFoundMatch
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/ReturnedAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalPrint
-#. # reports/TransferIn
-#. # reports/CustomReportExecute
-#. # reports/UnneuteredSixMonths
-#: An_error_occurred_generating_the_report
-msgid "An error occurred generating the report: {0}"
 msgstr ""
 
 #. # reports/AnimalFigures
@@ -6734,15 +6705,9 @@ msgid "Select a mother from the shelter animals"
 msgstr ""
 
 #. # ui/animal/LitterEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/DonationEdit
 #: Unable_to_open_find_animal_screen\:_
 msgid "Unable to open find animal screen: "
-msgstr ""
-
-#. # ui/animal/LitterEdit
-#: An_error_occurred_reading_the_record\:\n
-msgid "An error occurred reading the record:\n"
 msgstr ""
 
 #. # ui/animal/LitterEdit
@@ -6835,14 +6800,6 @@ msgid "The date this litter expires"
 msgstr ""
 
 #. # ui/animal/LitterEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_creating_the_record\:\n
-msgid "An error occurred creating the record:\n"
-msgstr ""
-
-#. # ui/animal/LitterEdit
 #: Abandon_this_record
 msgid "Abandon this record"
 msgstr ""
@@ -6857,13 +6814,6 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: Edit_Vaccination
 msgid "Edit Vaccination"
-msgstr ""
-
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/VaccinationSelector
-#: Unable_to_create_new_vaccination_record\:_
-#: Unable_to_create_new_vaccination\:_
-msgid "Unable to create new vaccination record: "
 msgstr ""
 
 #. # ui/animal/VaccinationEdit
@@ -6884,13 +6834,6 @@ msgstr ""
 #. # ui/animal/VaccinationEdit
 #: The_date_the_animal_was_actually_given_this_vaccination
 msgid "The date the animal was actually given this vaccination treatment"
-msgstr ""
-
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/owner/VoucherEdit
-#: An_error_occurred_saving_to_the_local_recordset\:_
-msgid "An error occurred saving to the local recordset: "
 msgstr ""
 
 #. # ui/animal/VaccinationEdit
@@ -7217,11 +7160,6 @@ msgid "The date the animal was combi-tested if known"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
-#: An_error_occurred_cloning_the_animal\:_
-msgid "An error occurred cloning the animal: "
-msgstr ""
-
-#. # ui/animal/AnimalEdit
 #: The_date_the_animal_died
 msgid "The date the animal died"
 msgstr ""
@@ -7319,7 +7257,6 @@ msgstr ""
 
 #. # ui/animal/DietEdit
 #. # ui/animal/AnimalEdit
-#. # ui/animal/VaccinationEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/VoucherEdit
@@ -7348,7 +7285,6 @@ msgid "The animal's breed"
 msgstr ""
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
 #: Unable_to_read_vaccination_records\:_
 msgid "Unable to read vaccination records: "
 msgstr ""
@@ -7413,6 +7349,11 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
+msgstr ""
+
+#. # ui/animal/VaccinationSelector
+#: Unable_to_create_new_vaccination\:_
+msgid "Unable to create new vaccination record: "
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -7501,11 +7442,6 @@ msgid "Reason:"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_scaling_and_displaying_the_preview_image\:\n
-msgid "An error occurred scaling and displaying the preview image:\n"
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: Attach_new_media
 msgid "Attach new media"
 msgstr ""
@@ -7526,29 +7462,13 @@ msgid "Edit this media entry"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_occurred_while_setting_the_web_preferred_option\:_
-msgid "An error occurred while setting the web preferred option: "
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: Mark_this_media_as_preferred_for_use_with_the_web
 msgid "Mark this media as preferred for use with the web"
 msgstr ""
 
 #. # ui/animal/MediaSelector
-#: An_error_ocurred_opening_the_media_entry_for_editing\:_
-msgid "An error ocurred opening the media entry for editing: "
-msgstr ""
-
-#. # ui/animal/MediaSelector
 #: View_this_media
 msgid "View this media"
-msgstr ""
-
-#. # ui/animal/MediaSelector
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_retrieving_the_media_file\:_
-msgid "An error occurred retrieving the media file: "
 msgstr ""
 
 #. # ui/animal/MediaSelector
@@ -7635,13 +7555,9 @@ msgid "Look for a potential match in the lost animal database"
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_selected_vaccinations
 msgid "Complete the selected vaccination treatments"
-msgstr ""
-
-#. # ui/animal/VaccinationView
-#: an_error_occurred_completing_the_vaccination
-msgid "An error occurred completing the vaccination treatment:"
 msgstr ""
 
 #. # reports/AnimalPrint
@@ -8434,6 +8350,7 @@ msgid "Expires:"
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/VaccinationSelector
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr ""
@@ -8444,6 +8361,24 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Donations
 msgid "Donations"
+msgstr ""
+
+#. # reports/AnimalPrint
+#. # ui/animal/VaccinationEdit
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
+#: Cost\:
+msgid "Cost:"
+msgstr ""
+
+#. # ui/animal/MediaSelector
+#: Doc_Preferred
+msgid "Doc Preferred"
+msgstr ""
+
+#. # ui/animal/MediaSelector
+#: Mark_this_media_as_preferred_for_use_with_documents
+msgid "Mark this media as preferred for use with documents"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -8478,15 +8413,6 @@ msgid "Really delete this record?"
 msgstr ""
 
 #. # ui/animalname/NamesEdit
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/customreport/CustomReportEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_saving_the_data\:\n
-msgid "An error occurred saving the data:\n"
-msgstr ""
-
-#. # ui/animalname/NamesEdit
 #: Unable_to_create_new_animal_name\:\n
 msgid "Unable to create new animal name:\n"
 msgstr ""
@@ -8508,11 +8434,6 @@ msgid "Reports"
 msgstr ""
 
 #. # ui/customreport/CustomReportEdit
-#: There_is_an_error_in_your_SQL\:\n
-msgid "There is an error in your SQL:\n"
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
 #: SQL_is_syntactically_correct.
 msgid "SQL is syntactically correct."
 msgstr ""
@@ -8520,16 +8441,6 @@ msgstr ""
 #. # ui/customreport/CustomReportEdit
 #: Report_Title\:_
 msgid "Report Title: "
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_create_new_custom_report\:\n
-msgid "Unable to create new custom report:\n"
-msgstr ""
-
-#. # ui/customreport/CustomReportEdit
-#: Unable_to_generate_HTML\:\n
-msgid "Unable to generate HTML:\n"
 msgstr ""
 
 #. # ui/customreport/CustomReportEdit
@@ -8587,11 +8498,6 @@ msgid "Generate a CSV file from this report"
 msgstr ""
 
 #. # ui/customreport/CustomReportExport
-#: an_error_occurred_creating_the_csv_file
-msgid "An error occurred creating the CSV file: "
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
 #: CSV_file_generated_at
 msgid "CSV file generated at: "
 msgstr ""
@@ -8599,11 +8505,6 @@ msgstr ""
 #. # ui/customreport/CustomReportExport
 #: CSV_generation_complete
 msgid "CSV Generation Complete"
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
-#: An_error_occurred_generating_the_CSV_file
-msgid "An error occurred generating the CSV file: "
 msgstr ""
 
 #. # ui/main/Main
@@ -8666,11 +8567,6 @@ msgid "Install this report"
 msgstr ""
 
 #. # ui/diary/DiaryEdit
-#: An_error_occurred_creating_a_new_diary_record\:_
-msgid "An error occurred creating a new diary record: "
-msgstr ""
-
-#. # ui/diary/DiaryEdit
 #: Close_without_saving
 msgid "Close without saving"
 msgstr ""
@@ -8678,11 +8574,6 @@ msgstr ""
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
 msgid "The subject of the note"
-msgstr ""
-
-#. # ui/diary/DiaryEdit
-#: An_error_occurred_reading_the_diary_note\:_
-msgid "An error occurred reading the diary note: "
 msgstr ""
 
 #. # ui/diary/DiaryEdit
@@ -8820,12 +8711,6 @@ msgstr ""
 
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#: An_error_occurred_removing_the_record\:_
-msgid "An error occurred removing the record: "
-msgstr ""
-
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
 #: Delete_the_selected_diary_note
 msgid "Delete the selected diary note"
 msgstr ""
@@ -8851,13 +8736,6 @@ msgid "days from today (or 0 to prompt)"
 msgstr ""
 
 #. # ui/diary/DiaryTaskDetailEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_loading_the_data\:\n
-msgid "An error occurred loading the data:\n"
-msgstr ""
-
-#. # ui/diary/DiaryTaskDetailEdit
 #: Edit_Diary_Task_Detail
 msgid "Edit Diary Task Detail"
 msgstr ""
@@ -8880,11 +8758,6 @@ msgstr ""
 #. # ui/diary/DiaryTaskHeadEdit
 #: Day_Pivot
 msgid "Day Pivot"
-msgstr ""
-
-#. # ui/diary/DiaryTaskHeadEdit
-#: An_error_occurred_reading_the_header\:\n
-msgid "An error occurred reading the header:\n"
 msgstr ""
 
 #. # ui/diary/DiaryTaskHeadEdit
@@ -8915,12 +8788,6 @@ msgstr ""
 msgid "View the record this diary note relates to"
 msgstr ""
 
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#: An_error_occurred_accessing_linked_data\:\n
-msgid "An error occurred accessing linked data:\n"
-msgstr ""
-
 #. # ui/diary/DiaryTaskExecute
 #: Execute_Diary_Task
 msgid "Execute Diary Task"
@@ -8939,11 +8806,6 @@ msgstr ""
 #. # ui/diary/DiaryTaskExecute
 #: Diary_Task_Complete
 msgid "Diary Task Complete"
-msgstr ""
-
-#. # ui/diary/DiaryTaskExecute
-#: An_error_occurred_creating_the_diary_notes\:\n
-msgid "An error occurred creating the diary notes:\n"
 msgstr ""
 
 #. # ui/diary/DiarySelector
@@ -9103,15 +8965,6 @@ msgstr ""
 msgid "Generate JavaScript database"
 msgstr ""
 
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_writing_a_file\:\n
-msgid "An error occurred writing a file:\n"
-msgstr ""
-
 #. # ui/internet/InternetPublisher
 #: Publish
 msgid "Publish"
@@ -9132,15 +8985,6 @@ msgstr ""
 msgid "Include Cruelty Case Animals"
 msgstr ""
 
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_connecting_to_the_internet_provider\:\n
-msgid "An error occurred connecting to the internet provider:\n"
-msgstr ""
-
 #. # ui/internet/InternetPublisher
 #: Publish_Animals_Available_For_Adoption
 msgid "Publish Animals Available For Adoption"
@@ -9151,26 +8995,8 @@ msgstr ""
 #. # internet/Publisher
 #. # internet/SaveAPetPublisher
 #. # internet/PetFinderPublisher
-#: An_error_occurred_testing_the_animals\:\n
-msgid "An error occurred testing the animals:\n"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
 #: Publishing...
 msgid "Publishing..."
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: An_error_occurred_constructing_pages\:\n
-msgid "An error occurred constructing pages:\n"
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9202,11 +9028,6 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Scale_Images\:
 msgid "Scale Images:"
-msgstr ""
-
-#. # internet/Publisher
-#: Error_occurred_accessing_media_server\:_
-msgid "Error occurred accessing media server: "
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9299,11 +9120,6 @@ msgid "You have not entered a message."
 msgstr ""
 
 #. # ui/internet/EmailForm
-#: An_error_occurred_sending_the_email
-msgid "An error occurred sending your message: "
-msgstr ""
-
-#. # ui/internet/EmailForm
 #: send_bulk_email
 msgid "Send Bulk Email"
 msgstr ""
@@ -9314,7 +9130,6 @@ msgid "Publish Available Animals To PetFinder.com"
 msgstr ""
 
 #. # internet/Pets911Publisher
-#. # internet/PetFinderPublisher
 #: an_error_occurred_contacting_petfinder.org
 msgid "An error occurred contacting PetFinder.com: "
 msgstr ""
@@ -9332,11 +9147,6 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: petfinder_upload_complete
 msgid "PetFinder.com Upload Complete"
-msgstr ""
-
-#. # internet/PetFinderPublisher
-#: An_error_occurred_reading_the_Petfinder_shelter_id
-msgid "An error occurred reading the Petfinder Shelter ID:"
 msgstr ""
 
 #. # ui/internet/PetFinderSettings
@@ -9436,11 +9246,6 @@ msgid "Publish Available Animals To Pets911.com"
 msgstr ""
 
 #. # internet/Pets911Publisher
-#: An_error_occurred
-msgid "An error occurred:\n"
-msgstr ""
-
-#. # internet/Pets911Publisher
 #: Pets911_publishing_complete
 msgid "Pets911.com publishing complete."
 msgstr ""
@@ -9458,16 +9263,6 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Include_Without_Image
 msgid "Include Animals with no image"
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: An_error_occurred_reading_the_save_a_pet_user
-msgid "An error occurred reading the AdoptAPet.com user: "
-msgstr ""
-
-#. # internet/SaveAPetPublisher
-#: an_error_occurred_contacting_save_a_pet
-msgid "An error occurred contacting the server for AdoptAPet.com: "
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9538,16 +9333,6 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Force_Reupload
 msgid "Force reupload of animal images"
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: An_error_occurred_reading_the_rescue_groups_user
-msgid "An error occurred reading the RescueGroups.org user: "
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: an_error_occurred_contacting_rescue_groups
-msgid "An error occurred contacting the server for RescueGroups.org: "
 msgstr ""
 
 #. # internet/RescueGroupsPublisher
@@ -9624,11 +9409,6 @@ msgstr ""
 msgid "Warning: Local cache index not found."
 msgstr ""
 
-#. # ui/localcache/LocalCache
-#: An_error_occurred_dumping_cache_information\:\n
-msgid "An error occurred dumping cache information:\n"
-msgstr ""
-
 #. # reports/AnimalPrint
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
@@ -9679,11 +9459,6 @@ msgstr ""
 #. # ui/log/LogEdit
 #: Unable_to_read_log_record\:
 msgid "Unable to read log record:\n"
-msgstr ""
-
-#. # ui/log/LogEdit
-#: An_error_occurred_saving_the_record\:
-msgid "An error occurred saving the record:\n"
 msgstr ""
 
 #. # ui/main/Main
@@ -9739,11 +9514,6 @@ msgid "Login"
 msgstr ""
 
 #. # ui/login/Login
-#: An_error_occurred_obtaining_a_connection_to_the_database_-_
-msgid "An error occurred obtaining a connection to the database - "
-msgstr ""
-
-#. # ui/login/Login
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
 msgstr ""
@@ -9785,11 +9555,6 @@ msgstr ""
 msgid "Species Name"
 msgstr ""
 
-#. # ui/lookups/LookupView
-#: Invalid_lookup_type_received.
-msgid "Invalid lookup type received."
-msgstr ""
-
 #. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
 #. # ui/internet/PetFinderMapBreed
@@ -9798,13 +9563,6 @@ msgstr ""
 #. # ui/lookups/LookupView
 #: Edit
 msgid "Edit"
-msgstr ""
-
-#. # ui/lookups/LookupView
-#: An_error_occurred_checking_foreign-key_relations_and_this\nrecord_cannot_be_deleted\:_
-msgid ""
-"An error occurred checking foreign-key relations and this\n"
-"record cannot be deleted: "
 msgstr ""
 
 #. # ui/system/MediaFiles
@@ -9889,27 +9647,10 @@ msgstr ""
 msgid "Create New "
 msgstr ""
 
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_accessing_the_record\:_
-msgid "An error occurred accessing the record: "
-msgstr ""
-
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
 #: Description\:
 msgid "Description:"
-msgstr ""
-
-#. # ui/users/UserEdit
-#. # ui/lookups/LookupEdit
-#. # ui/movement/MovementEdit
-#: An_error_occurred_saving_the_record\:_
-msgid "An error occurred saving the record: "
-msgstr ""
-
-#. # ui/lookups/LookupEdit
-#: An_error_occurred_creating_the_record\:_
-msgid "An error occurred creating the record: "
 msgstr ""
 
 #. # ui/main/Main
@@ -10021,6 +9762,23 @@ msgstr ""
 #. # ui/lookups/BreedSpeciesMapping
 #: any
 msgid "(any)"
+msgstr ""
+
+#. # ui/lookups/LookupView
+#: cost_type_name
+msgid "Cost Type Name"
+msgstr ""
+
+#. # ui/lookups/LookupView
+#: cost_type_description
+msgid "Cost Type Description"
+msgstr ""
+
+#. # ui/lookups/LookupView
+#. # ui/main/Main
+#: cost_types
+#: Cost_Types
+msgid "Cost Types"
 msgstr ""
 
 #. # ui/lostandfound/LostAnimalFind
@@ -11319,12 +11077,6 @@ msgstr ""
 msgid "Treatment Periods"
 msgstr ""
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Cost\:
-msgid "Cost:"
-msgstr ""
-
 #. # ui/movement/MovementView
 #: View_the_owner_for_this_reservation
 msgid "View the owner for this reservation"
@@ -11348,11 +11100,6 @@ msgstr ""
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_reservation
 msgid "View the animal for this reservation"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: An_error_occurred_validating_the_record\:_
-msgid "An error occurred validating the record: "
 msgstr ""
 
 #. # reports/AnimalPrint
@@ -11390,11 +11137,6 @@ msgid "The reference number of this movement"
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#: Unable_to_open_find_owner_screen\:_
-msgid "Unable to open find owner screen: "
-msgstr ""
-
-#. # ui/movement/MovementEdit
 #: The_reason_the_animal_was_returned
 msgid "The reason the animal was returned"
 msgstr ""
@@ -11402,11 +11144,6 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: Unchecked_Owner
 msgid "Unchecked Owner"
-msgstr ""
-
-#. # ui/movement/MovementEdit
-#: Unable_to_create_new_movement\:_
-msgid "Unable to create new movement: "
 msgstr ""
 
 #. # ui/movement/MovementEdit
@@ -11465,13 +11202,6 @@ msgid "Still Reserved"
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#: An_error_occurred_cancelling_the_existing_reservation(s)._The_records_were_not_saved_and_you_will_have_to_remove_these_reservations_manually.
-msgid ""
-"An error occurred cancelling the existing reservation(s). The records were "
-"not saved and you will have to remove these reservations manually."
-msgstr ""
-
-#. # ui/movement/MovementEdit
 #: Generate_a_document_for_this_movement
 msgid "Generate a document for this movement"
 msgstr ""
@@ -11496,12 +11226,6 @@ msgstr ""
 msgid "The reservation date"
 msgstr ""
 
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnBannedOwner
-msgid "WarnBannedOwner"
-msgstr ""
-
 #. # ui/movement/MovementEdit
 #: Already_Insured
 msgid "Already Insured"
@@ -11510,12 +11234,6 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: (none)
 msgid "(none)"
-msgstr ""
-
-#. # ui/system/Options
-#. # ui/movement/MovementEdit
-#: WarnMultipleReserves
-msgid "WarnMultipleReserves"
 msgstr ""
 
 #. # ui/movement/MovementEdit
@@ -11819,16 +11537,6 @@ msgid "Home Tel"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner_record_for_movements.
-msgid "An error occurred checking the owner record for movements."
-msgstr ""
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_creating_the_owner_record\:_
-msgid "An error occurred creating the owner record: "
-msgstr ""
-
-#. # ui/owner/OwnerEdit
 #: Create_New_Owner
 msgid "Create New Owner"
 msgstr ""
@@ -11839,11 +11547,6 @@ msgid "Edit Owner"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
-#: An_error_occurred_saving_the_record_to_the_database\:_
-msgid "An error occurred saving the record to the database: "
-msgstr ""
-
-#. # ui/owner/OwnerEdit
 #: Home_Tel\:
 msgid "Home Tel:"
 msgstr ""
@@ -11851,11 +11554,6 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Check_this_box_if_this_owner_is_a_member_of_your_organisation
 msgid "Check this box if this owner is a member of your organisation"
-msgstr ""
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_checking_the_owner\:\n
-msgid "An error occurred checking the owner:\n"
 msgstr ""
 
 #. # ui/owner/OwnerEdit
@@ -11906,11 +11604,6 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Work_Tel\:
 msgid "Work Tel:"
-msgstr ""
-
-#. # ui/owner/OwnerEdit
-#: An_error_occurred_reading_owner_information\:_
-msgid "An error occurred reading owner information: "
 msgstr ""
 
 #. # ui/owner/OwnerEdit
@@ -12564,6 +12257,11 @@ msgstr ""
 msgid "Frequency:"
 msgstr ""
 
+#. # ui/owner/OwnerEdit
+#: if_this_owner_is_a_member_the_number
+msgid "If this owner is a member, their membership number"
+msgstr ""
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -12728,11 +12426,6 @@ msgid "Highlight animals under 6 months, reserved or dead on reports"
 msgstr ""
 
 #. # ui/system/Options
-#: An_error_occurred_saving_the_data\:_
-msgid "An error occurred saving the data: "
-msgstr ""
-
-#. # ui/system/Options
 #: Use_optimistic_record_locking_on_animal_database
 msgid "Use optimistic record locking on database"
 msgstr ""
@@ -12791,11 +12484,6 @@ msgid "Add a new file type"
 msgstr ""
 
 #. # ui/system/FileTypes
-#: An_error_occurred_updating_the_file_types\:\n
-msgid "An error occurred updating the file types:\n"
-msgstr ""
-
-#. # ui/system/FileTypes
 #: Delete_the_selected_type
 msgid "Delete the selected type"
 msgstr ""
@@ -12804,11 +12492,6 @@ msgstr ""
 #. # ui/system/FileTypeEdit
 #: Extension
 msgid "Extension"
-msgstr ""
-
-#. # ui/system/FileTypes
-#: An_error_occurred_reading_the_list_of_system_filetypes\:\n
-msgid "An error occurred reading the list of system filetypes:\n"
 msgstr ""
 
 #. # ui/system/FileTypes
@@ -12941,11 +12624,6 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
-msgstr ""
-
-#. # ui/system/ConfigureLocal
-#: An_error_occurred_saving_changes_to_localsettings.conf\:\n
-msgid "An error occurred saving changes to asm.properties:\n"
 msgstr ""
 
 #. # ui/system/ConfigureLocal
@@ -13720,6 +13398,21 @@ msgid ""
 "reservation"
 msgstr ""
 
+#. # ui/system/Options
+#: Default_Donation_Type
+msgid "Default Donation Type:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_Daily_Boarding_Cost
+msgid "Default Daily Boarding Cost:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_media_notes_to_original_filename
+msgid "Default original filename as notes when attaching media"
+msgstr ""
+
 #. # ui/users/UserView
 #: Unable_to_open_user_for_editing\:_
 msgid "Unable to open user for editing: "
@@ -13919,11 +13612,6 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Owners\:
 msgid "Owners:"
-msgstr ""
-
-#. # ui/users/UserEdit
-#: An_error_occurred_creating_a_new_user\:_
-msgid "An error occurred creating a new user: "
 msgstr ""
 
 #. # ui/users/UserEdit
@@ -14364,11 +14052,6 @@ msgid "Edit this entry"
 msgstr ""
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_accessing_external_data\:\n
-msgid "An error occurred accessing external data:\n"
-msgstr ""
-
-#. # ui/waitinglist/WaitingListEdit
 #: Urgency\:
 msgid "Urgency:"
 msgstr ""
@@ -14411,11 +14094,6 @@ msgid "species"
 msgstr ""
 
 #. # ui/waitinglist/WaitingListEdit
-#: An_error_occurred_cloning_this_record\:\n
-msgid "An error occurred cloning this record:\n"
-msgstr ""
-
-#. # ui/waitinglist/WaitingListEdit
 #: Date_Removed\:
 msgid "Date Removed:"
 msgstr ""
@@ -14434,11 +14112,6 @@ msgstr ""
 #. # ui/waitinglist/WaitingListView
 #: complete_the_selected_waiting_list_entries
 msgid "Complete the selected waiting list entries"
-msgstr ""
-
-#. # ui/waitinglist/WaitingListView
-#: An_error_occurred_completing_the_record
-msgid "An error occurred completing the record: "
 msgstr ""
 
 #. # ui/waitinglist/WaitingListEdit
@@ -14497,25 +14170,9 @@ msgstr ""
 msgid "Removal Reason:"
 msgstr ""
 
-#. # ui/ui/DBFSBrowser
-#. # ui/wordprocessor/SelectTemplate
-#: An_error_occurred_retrieving_the_file\:_
-msgid "An error occurred retrieving the file: "
-msgstr ""
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_reading_from_the_media_server\:_
-msgid "An error occurred reading from the media server: "
-msgstr ""
-
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
-msgstr ""
-
-#. # ui/ui/DBFSBrowser
-#: An_error_occurred_changing_into_the_directory\:_
-msgid "An error occurred changing into the directory: "
 msgstr ""
 
 #. # ui/wordprocessor/SelectTemplate
@@ -14542,8 +14199,38 @@ msgstr ""
 msgid "(estimated)"
 msgstr ""
 
+#~ msgid "An error occurred accessing the object: "
+#~ msgstr "Nesneye ulaşırken hata oluştu: "
+
 #~ msgid "An error occurred while validating the object: "
 #~ msgstr "Nesneyi onaylarken bir hata oluştu: "
 
 #~ msgid "monthly"
 #~ msgstr "aylık"
+
+#~ msgid "Brought In ("
+#~ msgstr "Getirilmiş ("
+
+#~ msgid "Adoptions ("
+#~ msgstr "Evlat Edinmeler ("
+
+#~ msgid "Donations ("
+#~ msgstr "Bağışlar ("
+
+#~ msgid "An error occurred running diagnostics: "
+#~ msgstr "Tanıları çalıştırırken birhata oluştu: "
+
+#~ msgid "An unexpected error occurred:\n"
+#~ msgstr "Beklenmedik hata oluştu:\n"
+
+#~ msgid "An error occurred reading the file:\n"
+#~ msgstr "Dosyayı okurken bir hata oluştu:\n"
+
+#~ msgid "An error occurred generating the mail merge source:\n"
+#~ msgstr "Mail birleştirme kaynağını oluştururken bir hata oluştu:\n"
+
+#~ msgid "Unable to write output file "
+#~ msgstr "Çıktı dosyasını yazamıyor "
+
+#~ msgid "An error occurred opening the report {0}"
+#~ msgstr "Raporu açarken birhata oluştu {0}"
