@@ -23,7 +23,7 @@ package net.sourceforge.sheltermanager.asm.reports;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
-import net.sourceforge.sheltermanager.asm.bo.DeathReason;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -214,8 +214,8 @@ public class Stats extends Report {
     }
 
     private void statsDeceasedReasons() throws Exception {
-        DeathReason er = new DeathReason();
-        er.openRecordset("ID > 0 ORDER BY ReasonName");
+        SQLRecordset er = LookupCache.getEntryReasonLookup();
+	er.moveFirst();
 
         setStatusBarMax((int) er.getRecordCount());
 
@@ -231,7 +231,7 @@ public class Stats extends Report {
             SQLRecordset rs = new SQLRecordset();
             rs.openRecordset(
                 "SELECT COUNT(*) AS Tot FROM animal WHERE DeceasedDate Is Not Null AND " +
-                "DiedOffShelter = 0 AND PTSReasonID = " + er.getID(), "animal");
+                "DiedOffShelter = 0 AND PTSReasonID = " + er.getField("ID"), "animal");
 
             int total = 0;
 
@@ -246,7 +246,7 @@ public class Stats extends Report {
             cumtotal += total;
 
             tableAddRow();
-            tableAddCell(er.getReasonName());
+            tableAddCell(er.getField("ReasonName").toString());
             tableAddCell(Integer.toString(total));
             tableFinishRow();
 

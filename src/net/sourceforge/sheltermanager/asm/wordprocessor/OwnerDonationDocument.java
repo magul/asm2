@@ -21,7 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
-import net.sourceforge.sheltermanager.asm.bo.DonationType;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -46,7 +45,6 @@ import java.util.Date;
 public class OwnerDonationDocument extends GenerateDocument {
     /** The owner object */
     Owner owner = null;
-    DonationType dt = null;
     OwnerDonation od = null;
 
     /** The parent component in case we add things as media */
@@ -64,13 +62,6 @@ public class OwnerDonationDocument extends GenerateDocument {
             owner = new Owner();
             owner.openRecordset("ID = " + od.getOwnerID());
             this.od = od;
-            dt = new DonationType();
-
-            try {
-                dt.openRecordset("ID = " + od.getDonationTypeID());
-            } catch (CursorEngineException e) {
-                Global.logException(e, getClass());
-            }
 
             generateDocument();
         } catch (Exception e) {
@@ -153,7 +144,7 @@ public class OwnerDonationDocument extends GenerateDocument {
             addTag(Global.i18n("wordprocessor", "DonationLastChangedDate"),
                 Utils.formatDate(od.getLastChangedDate()));
             addTag(Global.i18n("wordprocessor", "DonationType"),
-                dt.getDonationName());
+                LookupCache.getDonationTypeName(od.getDonationTypeID()));
             addTag(Global.i18n("wordprocessor", "ReceiptNum"),
                 od.getReceiptNum());
 

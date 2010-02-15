@@ -25,7 +25,6 @@ import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.DeathReason;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -265,10 +264,6 @@ public class AnimalFigures extends Report {
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;
         boolean fosterOnShelter = Configuration.getBoolean("FosterOnShelter");
-
-        // Load the set of death reasons
-        DeathReason dr = new DeathReason();
-        dr.openRecordset("ID > 0 ORDER BY ReasonName");
 
         // Get last day of month and number of days in month
         lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
@@ -1070,10 +1065,6 @@ public class AnimalFigures extends Report {
         Calendar lastDayOfMonth = null;
         int noDaysInMonth = 0;
         boolean fosterOnShelter = Configuration.getBoolean("FosterOnShelter");
-
-        // Load the set of death reasons
-        DeathReason dr = new DeathReason();
-        dr.openRecordset("ID > 0 ORDER BY ReasonName");
 
         // Get last day of month and number of days in month
         lastDayOfMonth = (Calendar) firstDayOfMonth.clone();

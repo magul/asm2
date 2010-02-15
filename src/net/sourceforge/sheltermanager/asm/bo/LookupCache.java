@@ -55,6 +55,7 @@ public abstract class LookupCache {
     private static SQLRecordset fieldlink = null;
     private static SQLRecordset coattype = null;
     private static SQLRecordset donationfreq = null;
+    private static SQLRecordset costtype = null;
     private static Animal activeanimals = null;
     private static HashMap animalextdata = null;
     private static HashMap breedspecies = null;
@@ -84,7 +85,8 @@ public abstract class LookupCache {
     private static final int LOOKUP_FIELDLINK = 18;
     private static final int LOOKUP_COATTYPE = 19;
     private static final int LOOKUP_DONATIONFREQ = 20;
-    private static final int MAX_LOOKUPS = 20;
+    private static final int LOOKUP_COSTTYPE = 21;
+    private static final int MAX_LOOKUPS = 21;
 
     private static SQLRecordset getLookup(int lookuptype) {
         try {
@@ -297,6 +299,17 @@ public abstract class LookupCache {
                 }
 
                 return donationfreq;
+
+            case LOOKUP_COSTTYPE:
+
+                if (costtype == null) {
+                    costtype = new SQLRecordset();
+                    costtype.openRecordset("SELECT * FROM costtype ORDER BY CostTypeName",
+                        "costtype");
+                }
+
+                return costtype;
+
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -334,6 +347,7 @@ public abstract class LookupCache {
         fieldtype = null;
         coattype = null;
         donationfreq = null;
+	costtype = null;
         animalextdata = null;
 
         if (activeanimals != null) {
@@ -556,6 +570,10 @@ public abstract class LookupCache {
 
     public static SQLRecordset getCoatTypeLookup() {
         return getLookup(LOOKUP_COATTYPE);
+    }
+
+    public static SQLRecordset getCostTypeLookup() {
+        return getLookup(LOOKUP_COSTTYPE);
     }
 
     public static SQLRecordset getSexLookup() {
@@ -813,6 +831,10 @@ public abstract class LookupCache {
 
     public static String getDietName(Integer ID) throws CursorEngineException {
         return getNameForID(getDietLookup(), "DietName", ID);
+    }
+
+    public static String getCostTypeName(Integer ID) throws CursorEngineException {
+        return getNameForID(getCostTypeLookup(), "CostTypeName", ID);
     }
 
     public static String getDietDescription(Integer ID)

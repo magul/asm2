@@ -760,6 +760,16 @@ public class Animal extends UserInfoBO {
         rs.setField("MostRecentEntryDate", newValue);
     }
 
+    public Double getDailyBoardingCost() throws CursorEngineException {
+        return (Double) rs.getField("DailyBoardingCost");
+    }
+
+    public void setDailyBoardingCost(Double newValue)
+        throws CursorEngineException {
+        rs.setField("DailyBoardingCost", newValue);
+    }
+
+
     public void setDateBroughtIn(Date newValue) throws CursorEngineException {
         rs.setField("DateBroughtIn", newValue);
     }
@@ -2434,6 +2444,16 @@ public class Animal extends UserInfoBO {
             m.generateTreatments();
             med.moveNext();
         }
+
+	// costs
+	AnimalCost cost = new AnimalCost();
+	cost.openRecordset("AnimalID = " + getID());
+	while (!cost.getEOF()) {
+            AnimalCost c = cost.copy();
+	    c.setAnimalID(a.getID());
+	    c.save(Global.currentUserName);
+	    cost.moveNext();
+	}
 
         // diet
         AnimalDiet diet = new AnimalDiet();

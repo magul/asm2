@@ -24,7 +24,7 @@ package net.sourceforge.sheltermanager.asm.charts;
 import de.progra.charting.model.ObjectChartDataModel;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
-import net.sourceforge.sheltermanager.asm.bo.EntryReason;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -61,8 +61,7 @@ public class CommonReasonsReturn extends Chart {
     public boolean createGraph() throws Exception {
         // Outline model - 12 columns (Month, Year period)
         // rows = record count of entry reasons
-        EntryReason er = new EntryReason();
-        er.openRecordset("ID > 0 ORDER BY ReasonName");
+	SQLRecordset er = LookupCache.getEntryReasonLookup();
 
         int[][] model = new int[(int) er.getRecordCount()][12];
 
@@ -97,7 +96,7 @@ public class CommonReasonsReturn extends Chart {
                 SQLRecordset rs = new SQLRecordset();
                 rs.openRecordset("SELECT COUNT(*) AS Tot FROM adoption WHERE " +
                     "ReturnDate >= '" + firstDay + "' AND ReturnDate <= '" +
-                    lastDay + "' AND ReturnedReasonID = " + er.getID() +
+                    lastDay + "' AND ReturnedReasonID = " + er.getField("ID") +
                     " AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
                     " AND ReturnDate Is Not Null", "adoption");
 
@@ -132,7 +131,7 @@ public class CommonReasonsReturn extends Chart {
         String[] rows = new String[(int) er.getRecordCount()];
 
         while (!er.getEOF()) {
-            rows[eri] = er.getReasonName();
+            rows[eri] = er.getField("ReasonName").toString();
             er.moveNext();
             eri++;
         }
