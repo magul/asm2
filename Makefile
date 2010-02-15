@@ -76,6 +76,7 @@ template:
 	scripts/remove_unused_translations.sh
 	scripts/database_to_java_en.sh
 	scripts/java_to_pot.sh
+	scripts/pot_to_en_gb.py
 
 translation:
 	@echo "[translation] ====================="
