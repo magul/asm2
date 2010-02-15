@@ -80,7 +80,11 @@ public abstract class IconManager {
     public final static String ANIMALFOUNDSEARCH = "animal-Found-Search-24.png";
     public final static String ANIMALLOST = "animal-Lost-24.png";
     public final static String ANIMALFOUND = "animal-Found-24.png";
+    public final static String ADDITIONALFIELD = "actions-Info-24.png";
+    public final static String DEATH = "actions-Death-24.png";
+    public final static String VET = "actions-Vet-24.png";
     public final static String LOG = "actions-Log-24.png";
+    public final static String VACCINATION = "actions-Vaccination-24.png";
     public final static String LINK = "actions-Link-24.png";
     public final static String MEDICAL = "actions-Medical-24.png";
     public final static String VIDEO = "actions-Video-24.png";
@@ -98,7 +102,6 @@ public abstract class IconManager {
     public final static String MATCH = "actions-Match-24.png";
     public final static String DIARY = "diary-View-24.png";
     public final static String DIARYPRINT = "diary-Print-24.png";
-    public final static String DEATH = CLOSE;
     public final static String COMPLETE = "actions-Complete-24.png";
     public final static String RANDOM = "actions-Random-24.png";
     public final static String RANDOMSMALL = "actions-Random-16.png";
@@ -154,11 +157,9 @@ public abstract class IconManager {
     public final static String SCREEN_ANIMALMEDIA_WEBPREFERRED = WEB;
     public final static String SCREEN_ANIMALMEDIA_DOCPREFERRED = DOCUMENT;
     public final static String SCREEN_ANIMALMEDIA_SAVE = SAVE;
-    public final static String SCREEN_EDITANIMALDIET = DIET;
-    public final static String SCREEN_EDITANIMALVACCINATION = OPEN;
     public final static String SCREEN_EDITLITTER = LITTER;
     public final static String SCREEN_EDITMEDIAENTRY = MEDIA;
-    public final static String SCREEN_EDITVACCINATIONS = OPEN;
+    public final static String SCREEN_EDITVACCINATIONS = VACCINATION;
     public final static String SCREEN_EDITVACCINATIONS_NEW = NEW;
     public final static String SCREEN_EDITVACCINATIONS_EDIT = EDIT;
     public final static String SCREEN_EDITVACCINATIONS_DELETE = DELETE;
@@ -182,8 +183,12 @@ public abstract class IconManager {
     public final static String SCREEN_FINDANIMAL_LOSTFOUND = MATCH;
     public final static String SCREEN_FINDANIMAL_ADDMEDIA = MEDIAADD;
     public final static String SCREEN_FINDANIMAL_MOVEANIMAL = OWNERADD;
+
+    // icons on tabs
     public final static String SCREEN_EDITANIMAL = ANIMAL;
     public final static String SCREEN_EDITANIMAL_DEATH = DEATH;
+    public final static String SCREEN_EDITANIMAL_VET = VET;
+    public final static String SCREEN_EDITANIMAL_VACCINATION = VACCINATION;
     public final static String SCREEN_EDITANIMAL_MEDICAL = MEDICAL;
     public final static String SCREEN_EDITANIMAL_DIET = DIET;
     public final static String SCREEN_EDITANIMAL_DONATIONS = DONATIONS;
@@ -191,6 +196,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITANIMAL_DIARY = DIARY;
     public final static String SCREEN_EDITANIMAL_MOVEMENT = OWNERLINK;
     public final static String SCREEN_EDITANIMAL_LOG = LOG;
+    public final static String SCREEN_EDITANIMAL_ADDITIONAL = ADDITIONALFIELD;
 
     // buttons, top row
     public final static String SCREEN_EDITANIMAL_SAVE = SAVE;

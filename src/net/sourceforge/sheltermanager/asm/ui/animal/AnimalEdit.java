@@ -781,6 +781,20 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             this.chkHasSpecialNeeds.setSelected(animal.isHasSpecialNeeds()
                                                       .equals(y));
 
+            // Set icon for vet data if we have some
+	    try {
+  	        if (animal.isHasSpecialNeeds().equals(y) ||
+	            animal.getCurrentVetID().intValue() > 0 ||
+		    animal.getOwnersVetID().intValue() > 0 ||
+		    Utils.nullToEmptyString((String) animal.getHealthProblems()).length() > 0 || 
+		    Utils.nullToEmptyString((String) animal.getRabiesTag()).length() > 0)
+	    	    tabTabs.setIconAt(TAB_VET, IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VET));
+	    }
+	    catch (Exception e) {
+                Global.logException(e, getClass());
+	    }
+
+
             // sort out location
             checkLocation();
 
@@ -967,7 +981,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             if (ext.vaccination > 0) {
                 tabTabs.setIconAt(TAB_VACCINATION,
                     IconManager.getIcon(
-                        IconManager.SCREEN_EDITANIMALVACCINATION));
+                        IconManager.SCREEN_EDITANIMAL_VACCINATION));
             }
 
             // Medicals
