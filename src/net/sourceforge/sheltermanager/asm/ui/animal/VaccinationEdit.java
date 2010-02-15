@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -60,7 +61,7 @@ public class VaccinationEdit extends ASMForm {
 
     public VaccinationEdit(VaccinationParent ea) {
         editanimal = ea;
-        init("", IconManager.getIcon(IconManager.SCREEN_EDITANIMALVACCINATION),
+        init("", IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VACCINATION),
             "uianimal");
     }
 
@@ -110,10 +111,18 @@ public class VaccinationEdit extends ASMForm {
             Global.logException(e, getClass());
         }
 
-        // Date required
-        Calendar cal = Calendar.getInstance();
+        try {
+            Utils.setComboFromID(LookupCache.getVaccinationTypeLookup(),
+	        "VaccinationType", new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
+		cboVaccinationType);
+	}
+	catch (Exception e) {
+            Global.logException(e, getClass());
+	}
 
         try {
+            // Date required
+            Calendar cal = Calendar.getInstance();
             txtDateRequired.setText(Utils.formatDate(cal));
         } catch (Exception e) {
             Global.logException(e, getClass());

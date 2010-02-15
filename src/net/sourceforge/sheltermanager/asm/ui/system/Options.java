@@ -95,6 +95,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultSpecies;
     private UI.ComboBox cboDefaultType;
     private UI.ComboBox cboDefaultDonationType;
+    private UI.ComboBox cboDefaultVaccinationType;
     private UI.CheckBox chkUseAutoInsurance;
     private UI.Spinner spnAutoInsuranceStart;
     private UI.Spinner spnAutoInsuranceEnd;
@@ -154,6 +155,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultLogFilter);
         ctl.add(cboDefaultCoatType);
         ctl.add(cboDefaultDonationType);
+        ctl.add(cboDefaultVaccinationType);
         ctl.add(txtDefaultBoardingCost);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
@@ -315,6 +317,12 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultDonationType")),
             cboDefaultDonationType);
 
+        Utils.setComboFromID(LookupCache.getVaccinationTypeLookup(),
+            "VaccinationType",
+            new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
+            cboDefaultVaccinationType);
+
+
         txtDefaultBoardingCost.setValue(Configuration.getDouble(
                 "DefaultDailyBoardingCost"));
 
@@ -438,6 +446,10 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultDonationType",
                 Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
                     "DonationName", cboDefaultDonationType).toString());
+
+            Configuration.setEntry("AFDefaultVaccinationType",
+                Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
+                    "VaccinationType", cboDefaultVaccinationType).toString());
 
             Configuration.setEntry("DefaultDailyBoardingCost",
                 new Double(txtDefaultBoardingCost.getValue()).toString());
@@ -754,6 +766,11 @@ public class Options extends ASMForm {
                 "DonationName");
         UI.addComponent(pr, i18n("Default_Donation_Type"),
             cboDefaultDonationType);
+
+        cboDefaultVaccinationType = UI.getCombo(LookupCache.getVaccinationTypeLookup(),
+                "VaccinationType");
+        UI.addComponent(pr, i18n("Default_Vaccination_Type"),
+            cboDefaultVaccinationType);
 
         txtDefaultBoardingCost = (CurrencyField) UI.addComponent(pr,
                 i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());

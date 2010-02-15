@@ -57,7 +57,7 @@ public class DietEdit extends ASMForm {
 
     public DietEdit(DietSelector animaldiets) {
         this.animaldiets = animaldiets;
-        init("", IconManager.getIcon(IconManager.SCREEN_EDITANIMALDIET),
+        init("", IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_DIET),
             "uianimal");
     }
 
