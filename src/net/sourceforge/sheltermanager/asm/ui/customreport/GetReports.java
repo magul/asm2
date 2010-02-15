@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
+import java.util.Collections;
 import java.util.Vector;
 
 
@@ -164,6 +165,9 @@ public class GetReports extends ASMView {
 
                 // Done with custom report list now
                 cr.free();
+
+		// Sort our final list of reports
+		Collections.sort(reports);
             }
 
             // Create an array to hold the results for the table
@@ -247,7 +251,7 @@ public class GetReports extends ASMView {
 }
 
 
-class InstallableReport {
+class InstallableReport implements Comparable {
     public String name;
     public String category;
     public String database;
@@ -255,4 +259,8 @@ class InstallableReport {
     public String locale;
     public String sql;
     public String html;
+    public int compareTo(Object o) {
+        return name.compareTo(((InstallableReport) o).name);
+    }
+
 }

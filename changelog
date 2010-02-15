@@ -1,6 +1,7 @@
 2.7.0
 ================
 
+*. Sort list of available reports for download alphabetically
 *. Removed unnecessary classes for lookups. In doing so, forces
 -  all db access to lookups through the cache class, reducing
 -  database calls for slow links
