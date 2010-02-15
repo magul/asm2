@@ -24,7 +24,6 @@ package net.sourceforge.sheltermanager.asm.internet;
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.Settings;
 import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
 import net.sourceforge.sheltermanager.asm.ftp.FTPException;
 import net.sourceforge.sheltermanager.asm.ftp.FTPTransferType;
@@ -659,12 +658,10 @@ public class Publisher extends Thread {
         output = Utils.replace(output, "$$VERSION$$", Global.productVersion);
 
         // $$REGISTEREDTO$$ tag //
-        Settings settings = new Settings();
-
+        output = Utils.replace(output, "$$REGISTEREDTO$$",
+        		Configuration.getString("Organisation"));
+        
         try {
-            output = Utils.replace(output, "$$REGISTEREDTO$$",
-                    settings.getRegisteredTo());
-
             // $$USER$$ tag //
             if ((Global.currentUserName != null) &&
                     (Global.currentUserObject != null)) {

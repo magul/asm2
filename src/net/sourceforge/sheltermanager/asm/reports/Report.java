@@ -476,14 +476,8 @@ public abstract class Report extends Thread {
                 net.sourceforge.sheltermanager.asm.globals.Global.currentUserName);
 
         // $$REGISTEREDTO$$ tag //
-        Settings settings = new Settings();
-
-        try {
-            output = Utils.replace(output, "$$REGISTEREDTO$$",
-                    settings.getRegisteredTo());
-        } catch (Exception e) {
-            Global.logException(e, getClass());
-        }
+        output = Utils.replace(output, "$$REGISTEREDTO$$",
+                Configuration.getString("Organisation"));
 
         return output;
     }

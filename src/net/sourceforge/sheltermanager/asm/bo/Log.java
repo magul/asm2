@@ -50,33 +50,11 @@ public class Log extends UserInfoBO {
     }
 
     public String getLogTypeName() throws CursorEngineException {
-        LogType lt = new LogType();
-        lt.openRecordset("ID = " + getLogTypeID());
-
-        if (lt.getEOF()) {
-            return "0";
-        }
-
-        String ltname = lt.getLogTypeName();
-        lt.free();
-        lt = null;
-
-        return ltname;
+    	return LookupCache.getLogTypeName(getLogTypeID());
     }
-
+    
     public String getLogTypeDescription() throws CursorEngineException {
-        LogType lt = new LogType();
-        lt.openRecordset("ID = " + getLogTypeID());
-
-        if (lt.getEOF()) {
-            return "0";
-        }
-
-        String ltdesc = lt.getLogTypeDescription();
-        lt.free();
-        lt = null;
-
-        return ltdesc;
+    	return LookupCache.getLogTypeDescription(getLogTypeID());
     }
 
     public Integer getLinkID() throws CursorEngineException {

@@ -27,7 +27,6 @@ import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.bo.Settings;
 import net.sourceforge.sheltermanager.asm.db.BackToProduction;
 import net.sourceforge.sheltermanager.asm.db.DBUpdate;
 import net.sourceforge.sheltermanager.asm.db.DatabaseCopier;
@@ -320,14 +319,7 @@ public class Main extends ASMWindow {
 
         // Display the title based on who the product is
         // registered to.
-        Settings settings = new Settings();
-        String registeredTo = "";
-
-        try {
-            registeredTo = settings.getRegisteredTo();
-        } catch (Exception e) {
-            Dialog.showError(e.getMessage(), Global.i18n("uimain", "Error"));
-        }
+        String registeredTo = Configuration.getString("Organisation");
 
         // Read the version - if it's a dev build, output it all, 
         // otherwise just show the number

@@ -21,7 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.internet;
 
-import net.sourceforge.sheltermanager.asm.bo.Breed;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.db.DBPetFinder;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Vector;
 
@@ -66,10 +67,10 @@ public class PetFinderMapBreed extends ASMView {
 
     public void updateList() {
         // Get the data
-        Breed breed = new Breed();
+        SQLRecordset breed = LookupCache.getBreedLookup();
 
         try {
-            breed.openRecordset("ID > 0 ORDER BY BreedName");
+        	breed.moveFirst();
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -87,10 +88,10 @@ public class PetFinderMapBreed extends ASMView {
 
         try {
             while (!breed.getEOF()) {
-                datar[i][0] = breed.getBreedName();
-                datar[i][1] = Utils.nullToEmptyString(breed.getBreedDescription());
-                datar[i][2] = Utils.nullToEmptyString(breed.getPetFinderBreed());
-                datar[i][3] = breed.getID().toString();
+                datar[i][0] = breed.getField("BreedName").toString();
+                datar[i][1] = Utils.nullToEmptyString((String) breed.getField("BreedDescription"));
+                datar[i][2] = Utils.nullToEmptyString((String) breed.getField("PetFinderBreed"));
+                datar[i][3] = breed.getField("ID").toString();
 
                 i++;
                 breed.moveNext();

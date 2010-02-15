@@ -21,12 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.bo.AnimalType;
-import net.sourceforge.sheltermanager.asm.bo.Diet;
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
-import net.sourceforge.sheltermanager.asm.bo.Species;
-import net.sourceforge.sheltermanager.asm.bo.Voucher;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
@@ -207,11 +203,11 @@ public abstract class Dialog {
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
-            Species species = new Species();
-            species.openRecordset("ID > 0 ORDER BY SpeciesName");
+        	SQLRecordset species = LookupCache.getSpeciesLookup();
+            species.moveFirst();
 
             while (!species.getEOF()) {
-                theList.add(species.getSpeciesName());
+                theList.add(species.getField("SpeciesName").toString());
                 species.moveNext();
             }
 
@@ -313,11 +309,11 @@ public abstract class Dialog {
         }
 
         try {
-            AnimalType at = new AnimalType();
-            at.openRecordset("ID > 0 ORDER BY AnimalType");
+            SQLRecordset at = LookupCache.getAnimalTypeLookup();
+            at.moveFirst();
 
             while (!at.getEOF()) {
-                theList.add(at.getAnimalType());
+                theList.add(at.getField("AnimalType").toString());
                 at.moveNext();
             }
 
@@ -352,11 +348,11 @@ public abstract class Dialog {
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
-            InternalLocation il = new InternalLocation();
-            il.openRecordset("ID > 0 ORDER BY LocationName");
+            SQLRecordset il = LookupCache.getInternalLocationLookup();
+            il.moveFirst();
 
             while (!il.getEOF()) {
-                theList.add(il.getLocationName());
+                theList.add(il.getField("LocationName"));
                 il.moveNext();
             }
 
@@ -392,11 +388,11 @@ public abstract class Dialog {
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
-            Diet d = new Diet();
-            d.openRecordset("ID > 0 ORDER BY DietName");
+            SQLRecordset d = LookupCache.getDietLookup();
+            d.moveFirst();
 
             while (!d.getEOF()) {
-                theList.add(d.getDietName());
+                theList.add(d.getField("DietName"));
                 d.moveNext();
             }
 
@@ -430,11 +426,11 @@ public abstract class Dialog {
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
-            Voucher v = new Voucher();
-            v.openRecordset("ID > 0 ORDER BY VoucherName");
+            SQLRecordset v = LookupCache.getVoucherLookup();
+            v.moveFirst();
 
             while (!v.getEOF()) {
-                theList.add(v.getVoucherName());
+                theList.add(v.getField("VoucherName").toString());
                 v.moveNext();
             }
 

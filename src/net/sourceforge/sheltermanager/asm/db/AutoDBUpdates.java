@@ -23,7 +23,6 @@ package net.sourceforge.sheltermanager.asm.db;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.Breed;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.Media;
@@ -872,8 +871,8 @@ public class AutoDBUpdates {
                 Global.logInfo("Merging breeds...", "AutoDBUpdates");
 
                 Iterator i = pfBreeds.iterator();
-                Breed b = new Breed();
-                b.openRecordset("ID = 0");
+                SQLRecordset b = new SQLRecordset();
+                b.openRecordset("SELECT * FROM breed WHERE ID = 0", "breed");
 
                 while (i.hasNext()) {
                     String breed = (String) i.next();
@@ -886,7 +885,8 @@ public class AutoDBUpdates {
 
                     if (rs.getEOF()) {
                         b.addNew();
-                        b.setBreedName(breed);
+                        b.setField("ID", new Integer(DBConnection.getPrimaryKey("breed")));
+                        b.setField("BreedName", breed);
                     }
 
                     breed = null;
@@ -894,7 +894,7 @@ public class AutoDBUpdates {
                     rs = null;
                 }
 
-                b.save();
+                b.save(false, "");
                 b.free();
                 b = null;
                 pfBreeds.removeAllElements();
@@ -921,25 +921,12 @@ public class AutoDBUpdates {
             Global.logInfo("Mapping breeds...", "AutoDBUpdates");
 
             Iterator i = pfBreeds.iterator();
-
             while (i.hasNext()) {
                 String breed = (String) i.next();
                 breed = breed.replace('\'', '`');
-
-                Breed b = new Breed();
-                b.openRecordset("BreedName Like '" + breed + "'");
-
-                if (!b.getEOF()) {
-                    try {
-                        b.setPetFinderBreed(breed);
-                        b.save();
-                    } catch (Exception e) {
-                        Global.logException(e, getClass());
-                    }
-                }
-
-                b.free();
-                b = null;
+                
+                DBConnection.executeAction("UPDATE breed SET PetFinderBreed = 'breed' " +
+                	"WHERE BreedName Like '" + breed + "'");
                 breed = null;
             }
 

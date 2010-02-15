@@ -21,11 +21,12 @@
 */
 package net.sourceforge.sheltermanager.asm.script;
 
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.Pets911Publisher;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Vector;
 
@@ -118,21 +119,21 @@ public class PublishPets911 {
                         String[] locnames = Utils.split(locs, ",");
 
                         Vector locations = new Vector();
-                        InternalLocation il = new InternalLocation();
+                        SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {
-                            il.openRecordset("LocationName Like '" +
-                                locnames[z] + "%'");
+                            il.openRecordset("SELECT * FROM internallocation WHERE LocationName Like '" +
+                                locnames[z] + "%'", "internallocation");
 
                             if (il.getEOF()) {
                                 Global.logError(
                                     "Could not find a location matching '" +
-                                    locnames[z] + "'", "PublishWWW.PublishWWW");
+                                    locnames[z] + "'", "PublishPets911.PublishPets911");
                                 System.exit(1);
                             }
 
                             while (!il.getEOF()) {
-                                locations.add(il.getID());
+                                locations.add((Integer) il.getField("ID"));
                                 il.moveNext();
                             }
                         }

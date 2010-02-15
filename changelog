@@ -1,6 +1,9 @@
 2.7.0
 ================
 
+*. Removed unnecessary classes for lookups. In doing so, forces
+-  all db access to lookups through the cache class, reducing
+-  database calls for slow links
 *. Script to generate en_GB po file from GB template (hey, it's 
 -  my language) and to stop people trying to translate it
 -  unnecessarily in Launchpad

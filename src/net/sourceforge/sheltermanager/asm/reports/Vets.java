@@ -24,11 +24,12 @@ package net.sourceforge.sheltermanager.asm.reports;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteria;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteriaListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Date;
 
@@ -125,8 +126,13 @@ public class Vets extends Report implements DiaryCriteriaListener {
         }
 
         // Get a list of all internal locations to enumerate through
-        InternalLocation il = new InternalLocation();
-        il.openRecordset("ID > 0 Order By LocationName");
+        SQLRecordset il = LookupCache.getInternalLocationLookup();
+        try {
+        	il.moveFirst();
+        }
+        catch (Exception e) {
+        	Global.logException(e, getClass());
+        }
 
         setStatusBarMax((int) il.getRecordCount());
 
@@ -158,9 +164,9 @@ public class Vets extends Report implements DiaryCriteriaListener {
                     Animal a = new Animal();
                     a.openRecordset("ID = " + diary.getLinkID());
 
-                    if (a.getShelterLocation().equals(il.getID())) {
+                    if (a.getShelterLocation().equals(il.getField("ID"))) {
                         if (!startedDisplay) {
-                            addLevelTwoHeader(il.getLocationName());
+                            addLevelTwoHeader(il.getField("LocationName").toString());
                             tableNew();
                             tableAddRow();
                             tableAddCell(bold(Global.i18n("reports", "Date")));
@@ -201,10 +207,10 @@ public class Vets extends Report implements DiaryCriteriaListener {
                 while (!av.getEOF()) {
                     Animal a = av.getAnimal();
 
-                    if (a.getShelterLocation().equals(il.getID())) {
+                    if (a.getShelterLocation().equals(il.getField("ID"))) {
                         if (a.getAnimalLocationAtDate(new Date()) == Animal.ONSHELTER) {
                             if (!startedDisplay) {
-                                addLevelTwoHeader(il.getLocationName());
+                                addLevelTwoHeader(il.getField("LocationName").toString());
                                 tableNew();
                                 tableAddRow();
                                 tableAddCell(bold(Global.i18n("reports", "Date")));

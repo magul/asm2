@@ -24,10 +24,8 @@ package net.sourceforge.sheltermanager.asm.internet;
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
-import net.sourceforge.sheltermanager.asm.bo.Breed;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.bo.Species;
 import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
 import net.sourceforge.sheltermanager.asm.ftp.FTPException;
 import net.sourceforge.sheltermanager.asm.ftp.FTPTransferType;
@@ -37,6 +35,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
@@ -615,8 +614,8 @@ public class PetFinderPublisher extends Thread {
         boolean retval = false;
 
         try {
-            Species s = new Species();
-            s.openRecordset("PetFinderSpecies Is Null OR PetFinderSpecies = ''");
+            SQLRecordset s = new SQLRecordset();
+            s.openRecordset("PetFinderSpecies Is Null OR PetFinderSpecies = ''", "species");
             retval = s.getEOF();
             s.free();
             s = null;
@@ -650,8 +649,8 @@ public class PetFinderPublisher extends Thread {
         boolean retval = false;
 
         try {
-            Breed b = new Breed();
-            b.openRecordset("PetFinderBreed Is Null OR PetFinderBreed = ''");
+            SQLRecordset b = new SQLRecordset();
+            b.openRecordset("PetFinderBreed Is Null OR PetFinderBreed = ''", "breed");
             retval = b.getEOF();
             b.free();
             b = null;

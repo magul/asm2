@@ -112,6 +112,15 @@ public class AnimalVaccination extends UserInfoBO {
     public String getVaccinationTypeName() throws CursorEngineException {
         return LookupCache.getVaccinationTypeName(getVaccinationID());
     }
+    
+
+    public String getVaccinationName() {
+        try {
+        	return getVaccinationTypeName();
+        } catch (Exception e) {
+        	return "";
+        }
+    }
 
     public Date getDateOfVaccination() throws CursorEngineException {
         return (Date) rs.getField("DateOfVaccination");
@@ -190,17 +199,4 @@ public class AnimalVaccination extends UserInfoBO {
         }
     }
 
-    public String getVaccinationName() {
-        try {
-            VaccinationType vt = new VaccinationType();
-            vt.openRecordset("ID = " + this.getVaccinationID());
-
-            if (!vt.getEOF()) {
-                return vt.getVaccinationType();
-            }
-        } catch (Exception e) {
-        }
-
-        return "";
-    }
 }

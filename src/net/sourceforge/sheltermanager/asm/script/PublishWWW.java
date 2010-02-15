@@ -21,11 +21,11 @@
 */
 package net.sourceforge.sheltermanager.asm.script;
 
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
 import net.sourceforge.sheltermanager.asm.internet.Publisher;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Vector;
 
@@ -156,12 +156,13 @@ public class PublishWWW {
                                     ScriptParser.equalsSymbol) + 1)
                                              .replace('*', '%');
                         String[] locnames = Utils.split(locs, ",");
+                        
                         Vector locations = new Vector();
-                        InternalLocation il = new InternalLocation();
+                        SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {
-                            il.openRecordset("LocationName Like '" +
-                                locnames[z] + "%'");
+                            il.openRecordset("SELECT * FROM internallocation WHERE LocationName Like '" +
+                                locnames[z] + "%'", "internallocation");
 
                             if (il.getEOF()) {
                                 Global.logError(
@@ -171,7 +172,7 @@ public class PublishWWW {
                             }
 
                             while (!il.getEOF()) {
-                                locations.add(il.getID());
+                                locations.add((Integer) il.getField("ID"));
                                 il.moveNext();
                             }
                         }

@@ -21,7 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.lookups;
 
-import net.sourceforge.sheltermanager.asm.bo.Breed;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.db.DBPetFinder;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -64,10 +63,10 @@ public class BreedSpeciesMapping extends ASMView {
 
     public void updateList() {
         // Get the data
-        Breed breed = new Breed();
+        SQLRecordset breed = LookupCache.getBreedLookup();
 
         try {
-            breed.openRecordset("ID > 0 ORDER BY BreedName");
+        	breed.moveFirst();
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -85,17 +84,17 @@ public class BreedSpeciesMapping extends ASMView {
 
         try {
             while (!breed.getEOF()) {
-                datar[i][0] = breed.getBreedName();
-                datar[i][1] = Utils.nullToEmptyString(breed.getBreedDescription());
+                datar[i][0] = breed.getField("BreedName").toString();
+                datar[i][1] = Utils.nullToEmptyString((String) breed.getField("BreedDescription"));
 
-                String bname = LookupCache.getSpeciesName(breed.getSpeciesID());
+                String bname = LookupCache.getSpeciesName((Integer) breed.getField("SpeciesID"));
 
                 if (bname.equals("")) {
                     bname = i18n("any");
                 }
 
                 datar[i][2] = bname;
-                datar[i][3] = breed.getID().toString();
+                datar[i][3] = breed.getField("ID").toString();
 
                 i++;
                 breed.moveNext();

@@ -25,8 +25,7 @@ import de.progra.charting.model.ObjectChartDataModel;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
-import net.sourceforge.sheltermanager.asm.bo.Species;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -59,9 +58,7 @@ public class AdoptionsPerBlock extends Chart {
         // Look up the name
         if (speciesID != 0) {
             try {
-                Species s = new Species();
-                s.openRecordset("ID = " + speciesID);
-                speciesName = s.getSpeciesName();
+            	speciesName = LookupCache.getSpeciesName(new Integer(speciesID));
             } catch (Exception e) {
             }
         }
@@ -80,8 +77,7 @@ public class AdoptionsPerBlock extends Chart {
     public boolean createGraph() throws Exception {
         // Outline model - 12 columns (Month, Year period)
         // 1 row for each internal location
-        InternalLocation il = new InternalLocation();
-        il.openRecordset("ID > 0 ORDER BY LocationName");
+    	SQLRecordset il = LookupCache.getInternalLocationLookup();
 
         int[][] model = new int[(int) il.getRecordCount()][12];
 
@@ -134,7 +130,7 @@ public class AdoptionsPerBlock extends Chart {
                     "MovementDate >= '" + firstDay + "' AND " +
                     "MovementDate <= '" + lastDay + "' AND " +
                     "MovementType = " + Adoption.MOVETYPE_ADOPTION + " AND " +
-                    "ShelterLocation = " + il.getID() +
+                    "ShelterLocation = " + il.getField("ID") +
                     ((speciesID != 0) ? (" AND SpeciesID = " + speciesID) : ""),
                     "adoption");
 
@@ -165,7 +161,7 @@ public class AdoptionsPerBlock extends Chart {
         int i = 0;
 
         while (!il.getEOF()) {
-            rows[i] = il.getLocationName() + " (" +
+            rows[i] = il.getField("LocationName").toString() + " (" +
                 Integer.toString(locationTotals[i]) + ")";
             il.moveNext();
             i++;

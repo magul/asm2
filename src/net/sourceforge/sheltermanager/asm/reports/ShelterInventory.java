@@ -23,11 +23,8 @@ package net.sourceforge.sheltermanager.asm.reports;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalType;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.InternalLocation;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.bo.Species;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -78,14 +75,14 @@ public class ShelterInventory extends Report {
 
     /** Generates normal shelter inventory */
     private void generate() throws Exception {
-        AnimalType theAT = new AnimalType();
-        theAT.openRecordset("");
+        SQLRecordset theAT = LookupCache.getAnimalTypeLookup();
+        theAT.moveFirst();
 
-        InternalLocation theIL = new InternalLocation();
-        theIL.openRecordset("");
+        SQLRecordset theIL = LookupCache.getInternalLocationLookup();
+        theIL.moveFirst();
 
-        Species theS = new Species();
-        theS.openRecordset("");
+        SQLRecordset theS = LookupCache.getSpeciesLookup();
+        theS.moveFirst();
 
         int totalAnimals = 0;
         int currentAnimals = 0;
@@ -102,12 +99,13 @@ public class ShelterInventory extends Report {
 
             while (!theS.getEOF()) {
                 currentAnimals = Animal.getNumberOfAnimalsOnShelter(new Date(),
-                        theS.getID().intValue(), 0, theIL.getID().intValue(),
+                        ((Integer) theS.getField("ID")).intValue(), 0, 
+                        ((Integer) theIL.getField("ID")).intValue(),
                         Animal.ALLAGES);
                 totalAnimals += currentAnimals;
 
                 if (currentAnimals > 0) {
-                    spectype += (theS.getSpeciesName() + ": " +
+                    spectype += (theS.getField("SpeciesName").toString() + ": " +
                     Integer.toString(currentAnimals) + "<br>");
                 }
 
@@ -115,7 +113,7 @@ public class ShelterInventory extends Report {
             }
 
             if (totalAnimals > 0) {
-                addLevelTwoHeader(theIL.getLocationName());
+                addLevelTwoHeader(theIL.getField("LocationName").toString());
                 addParagraph(spectype);
             }
 
@@ -134,11 +132,11 @@ public class ShelterInventory extends Report {
 
             while (!theS.getEOF()) {
                 currentAnimals = Animal.getNumberOfAnimalsOnFoster(new Date(),
-                        theS.getID().intValue(), 0);
+                        ((Integer) theS.getField("ID")).intValue(), 0);
                 totalAnimals += currentAnimals;
 
                 if (currentAnimals > 0) {
-                    spectype += (theS.getSpeciesName() + ": " +
+                    spectype += (theS.getField("SpeciesName").toString() + ": " +
                     Integer.toString(currentAnimals) + "<br />");
                 }
 
@@ -161,8 +159,8 @@ public class ShelterInventory extends Report {
         addLevelTwoHeader(Global.i18n("reports",
                 "Animal_Breakdown_by_Location_and_Species"));
 
-        InternalLocation theIL = new InternalLocation();
-        theIL.openRecordset("");
+        SQLRecordset theIL = LookupCache.getInternalLocationLookup();
+        theIL.moveFirst();
         setStatusBarMax((int) theIL.getRecordCount());
 
         int totalAnimalsAtLocation = 0;
@@ -171,11 +169,11 @@ public class ShelterInventory extends Report {
         boolean fosterOnShelter = Configuration.getBoolean("FosterOnShelter");
 
         while (!theIL.getEOF()) {
-            Species theS = new Species();
-            theS.openRecordset("");
+            SQLRecordset theS = LookupCache.getSpeciesLookup();
+            theS.moveFirst();
 
             // Add the location
-            addLevelTwoHeader(theIL.getLocationName());
+            addLevelTwoHeader(theIL.getField("LocationName").toString());
 
             totalAnimalsAtLocation = 0;
 
@@ -185,8 +183,8 @@ public class ShelterInventory extends Report {
                 // Get all the animals of this species at this location
                 // (excluding dead ones)
                 Animal theA = new Animal();
-                theA.openRecordset("SpeciesID = " + theS.getID() +
-                    " AND ShelterLocation = " + theIL.getID() +
+                theA.openRecordset("SpeciesID = " + theS.getField("ID") +
+                    " AND ShelterLocation = " + theIL.getField("ID") +
                     " AND DeceasedDate Is Null AND Archived = 0  AND NonShelterAnimal = 0");
 
                 // Build the list of animals
@@ -290,14 +288,14 @@ public class ShelterInventory extends Report {
                 // If there actually were some animals, add the
                 // section to the report
                 if (totalAnimalsOfSpecies > 0) {
-                    addLevelThreeHeader(theS.getSpeciesName() +
-                        (((theS.getSpeciesDescription() == null) ||
-                        (theS.getSpeciesDescription().equals(""))) ? ""
+                    addLevelThreeHeader(theS.getField("SpeciesName") +
+                        (((theS.getField("SpeciesDescription") == null) ||
+                        (theS.getField("SpeciesDescription").toString().equals(""))) ? ""
                                                                    : ("(" +
-                        theS.getSpeciesDescription() + ")")));
+                        theS.getField("SpeciesDescription").toString() + ")")));
                     addTable();
                     addParagraph(Global.i18n("reports", "Total_",
-                            theS.getSpeciesName(),
+                            theS.getField("SpeciesName").toString(),
                             Integer.toString(totalAnimalsOfSpecies)));
                     totalAnimalsAtLocation += totalAnimalsOfSpecies;
                 }
@@ -308,7 +306,7 @@ public class ShelterInventory extends Report {
 
             // Location total
             addParagraph(bold(Global.i18n("reports", "Total_",
-                        theIL.getLocationName(),
+                        theIL.getField("LocationName").toString(),
                         Integer.toString(totalAnimalsAtLocation))));
 
             incrementStatusBar();

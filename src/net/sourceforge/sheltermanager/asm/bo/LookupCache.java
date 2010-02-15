@@ -653,6 +653,16 @@ public abstract class LookupCache {
 
         return getNameForID(coattype, "CoatType", ID);
     }
+    
+    public static String getLogTypeName(Integer ID) {
+    	getLookup(LOOKUP_LOGTYPES);
+    	return getNameForID(logtype, "LogTypeName", ID);
+    }
+    
+    public static String getLogTypeDescription(Integer ID) {
+    	getLookup(LOOKUP_LOGTYPES);
+    	return getNameForID(logtype, "LogTypeDescription", ID);
+    }
 
     public static String getFieldTypeForID(Integer ID) {
         getLookup(LOOKUP_FIELDTYPE);
