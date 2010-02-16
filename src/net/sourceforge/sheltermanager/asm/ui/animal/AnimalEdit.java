@@ -88,17 +88,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private final static int TAB_VACCINATION = 4;
     private final static int TAB_MEDICAL = 5;
     private final static int TAB_DIET = 6;
-    private final static int TAB_DONATIONS = 7;
-    private final static int TAB_MEDIA = 8;
-    private final static int TAB_DIARY = 9;
-    private final static int TAB_MOVEMENT = 10;
-    private final static int TAB_LOG = 11;
-    private final static int TAB_ADDITIONAL = 12;
+    private final static int TAB_COSTS = 7;
+    private final static int TAB_DONATIONS = 8;
+    private final static int TAB_MEDIA = 9;
+    private final static int TAB_DIARY = 10;
+    private final static int TAB_MOVEMENT = 11;
+    private final static int TAB_LOG = 12;
+    private final static int TAB_ADDITIONAL = 13;
 
-    /** The form-level animal object */
-    private Animal animal = null;
+    public Animal animal = null;
     public MediaSelector animalmedia = null;
     public VaccinationSelector animalvaccinations = null;
+    public CostSelector animalcosts = null;
     private MovementSelector animalmovement = null;
     private DiarySelector animaldiary = null;
     private DietSelector animaldiets = null;
@@ -208,6 +209,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     /** Whether we've added any custom buttons to the screen */
     private boolean addedCustomButtons = false;
     private long lastTypeCheck = 0;
+    boolean loadedCosts = false;
     boolean loadedDiary = false;
     boolean loadedDiets = false;
     boolean loadedDonations = false;
@@ -252,6 +254,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         try {
+            animalcosts.dispose();
+        } catch (Exception e) {
+        }
+
+        try {
             animaldiets.dispose();
         } catch (Exception e) {
         }
@@ -274,6 +281,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         animal = null;
         animalvaccinations = null;
         animalmedia = null;
+        animalcosts = null;
         animaldiary = null;
         animalmovement = null;
         animaldiets = null;
@@ -424,6 +432,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             tabTabs.setEnabledAt(TAB_DIET, false);
         }
 
+        if (!Global.currentUserObject.getSecViewAnimalCost()) {
+            tabTabs.setEnabledAt(TAB_COSTS, false);
+        }
+
         if (!Global.currentUserObject.getSecViewOwnerDonation()) {
             tabTabs.setEnabledAt(TAB_DONATIONS, false);
         }
@@ -548,9 +560,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             animal.addNew();
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_create_new_animal_record:_") + e.getMessage(),
-                Global.i18n("uianimal", "Failed_Create"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -991,6 +1001,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_MEDICAL));
             }
 
+            // Costs
+            animalcosts.setLink(animal.getID().intValue(), 0);
+
+            if (ext.costs > 0) {
+                tabTabs.setIconAt(TAB_COSTS,
+                    IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_COSTS));
+            }
+
             // Diet
             animaldiets.setLink(animal.getID().intValue(), 0);
 
@@ -1083,6 +1101,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         tabTabs.setEnabledAt(TAB_VACCINATION, b);
         tabTabs.setEnabledAt(TAB_MEDICAL, b);
         tabTabs.setEnabledAt(TAB_DIET, b);
+        tabTabs.setEnabledAt(TAB_COSTS, b);
         tabTabs.setEnabledAt(TAB_DONATIONS, b);
         tabTabs.setEnabledAt(TAB_MEDIA, b);
         tabTabs.setEnabledAt(TAB_DIARY, b);
@@ -1839,6 +1858,17 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             animal.save(Global.currentUserName);
 
+
+            // If it wasn't a new record, save the boarding cost
+            if (!isNewRecord) {
+                try {
+                    animalcosts.saveBoardingCost();
+                }
+                catch (Exception e) {
+                    Global.logException(e, getClass());
+                }
+            }
+
             // If it wasn't a new record, try and save the additional fields
             if (!isNewRecord) {
                 additional.saveFields(animal.getID().intValue(),
@@ -2469,6 +2499,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Tabs =========================================================
         medicals = new MedicalSelector();
         animaldiets = new DietSelector();
+        animalcosts = new CostSelector(this);
         donations = new DonationSelector(null);
         animalmedia = new MediaSelector();
         animaldiary = new DiarySelector();
@@ -2500,6 +2531,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         tabTabs.addTab(Global.i18n("uianimal", "diet"), null, animaldiets,
             Global.i18n("uianimal", "diet_information"));
 
+        tabTabs.addTab(i18n("Costs"), animalcosts);
         tabTabs.addTab(i18n("Donations"), donations);
 
         tabTabs.addTab(Global.i18n("uianimal", "media"), null, animalmedia,
@@ -2741,6 +2773,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         medicals.updateList();
         loadedDiets = true;
         animaldiets.updateList();
+        loadedCosts = true;
+        animalcosts.updateList();
         loadedDonations = true;
         donations.updateList();
         loadedMedia = true;
@@ -2817,6 +2851,15 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             if (!loadedDiets) {
                 loadedDiets = true;
                 animaldiets.updateList();
+            }
+
+            break;
+
+        case TAB_COSTS:
+
+            if (!loadedCosts) {
+                loadedCosts = true;
+                animalcosts.updateList();
             }
 
             break;

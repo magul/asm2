@@ -450,7 +450,7 @@ public abstract class LookupCache {
                 // active animal
                 SQLRecordset r = new SQLRecordset();
                 r.openRecordset(
-                    "SELECT animal.ID, (SELECT COUNT(*) FROM animalvaccination WHERE AnimalID = animal.ID) AS vacc, (SELECT COUNT(*) FROM animalmedical WHERE AnimalID = animal.ID) AS medi, (SELECT COUNT(*) FROM animaldiet WHERE AnimalID = animal.ID) AS diet, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, (SELECT COUNT(*) FROM media WHERE LinkID = animal.ID AND LinkTypeID = " +
+                    "SELECT animal.ID, (SELECT COUNT(*) FROM animalvaccination WHERE AnimalID = animal.ID) AS vacc, (SELECT COUNT(*) FROM animalmedical WHERE AnimalID = animal.ID) AS medi, (SELECT COUNT(*) FROM animaldiet WHERE AnimalID = animal.ID) AS diet, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, (SELECT COUNT(*) FROM animalcost WHERE AnimalID = animal.ID) AS cost, (SELECT COUNT(*) FROM media WHERE LinkID = animal.ID AND LinkTypeID = " +
                     Media.LINKTYPE_ANIMAL +
                     ") AS pics, (SELECT COUNT(*) FROM diary WHERE LinkID = animal.ID AND LinkType = " +
                     Diary.LINKTYPE_ANIMAL +
@@ -463,6 +463,7 @@ public abstract class LookupCache {
                         new Animal.AnimalMarkers((Integer) r.getField("vacc"),
                             (Integer) r.getField("medi"),
                             (Integer) r.getField("diet"),
+                            (Integer) r.getField("cost"),
                             (Integer) r.getField("dona"),
                             (Integer) r.getField("pics"),
                             (Integer) r.getField("diar"),

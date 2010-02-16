@@ -119,6 +119,7 @@ public abstract class IconManager {
     public final static String CREATERETURN = "actions-CreateReturn-24.png";
     public final static String BOOK = "actions-Book-24.png";
     public final static String DONATIONS = "donations-Basic-24.png";
+    public final static String COSTS = "donations-Basic-24.png";
     public final static String USERS = "system-Users-24.png";
     public final static String USERSSMALL = "system-Users-16.png";
     public final static String WAITINGLIST = "actions-WaitingList-24.png";
@@ -148,6 +149,10 @@ public abstract class IconManager {
     public final static String SCREEN_ANIMALDIETS_NEW = NEW;
     public final static String SCREEN_ANIMALDIETS_EDIT = EDIT;
     public final static String SCREEN_ANIMALDIETS_DELETE = DELETE;
+    public final static String SCREEN_ANIMALCOSTS = COSTS;
+    public final static String SCREEN_ANIMALCOSTS_NEW = NEW;
+    public final static String SCREEN_ANIMALCOSTS_EDIT = EDIT;
+    public final static String SCREEN_ANIMALCOSTS_DELETE = DELETE;
     public final static String SCREEN_ANIMALMEDIA = MEDIA;
     public final static String SCREEN_ANIMALMEDIA_NEW = MEDIAADD;
     public final static String SCREEN_ANIMALMEDIA_EDIT = EDIT;
@@ -187,6 +192,7 @@ public abstract class IconManager {
     // icons on tabs
     public final static String SCREEN_EDITANIMAL = ANIMAL;
     public final static String SCREEN_EDITANIMAL_DEATH = DEATH;
+    public final static String SCREEN_EDITANIMAL_COSTS = COSTS;
     public final static String SCREEN_EDITANIMAL_VET = VET;
     public final static String SCREEN_EDITANIMAL_VACCINATION = VACCINATION;
     public final static String SCREEN_EDITANIMAL_MEDICAL = MEDICAL;

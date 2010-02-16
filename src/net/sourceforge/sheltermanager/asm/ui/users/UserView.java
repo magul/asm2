@@ -90,8 +90,7 @@ public class UserView extends ASMView {
 
             setTableData(columnheaders, data, i, 2);
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_access_system_user_list:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -196,8 +195,7 @@ public class UserView extends ASMView {
                 Global.mainForm.addChild(eu);
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_open_user_for_editing:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
@@ -234,8 +232,7 @@ public class UserView extends ASMView {
                 }
             }
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_open_user_for_editing:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

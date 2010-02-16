@@ -226,9 +226,7 @@ public class OwnerDocument extends GenerateDocument {
             media.setUpdatedSinceLastPublish(new Integer(0));
             media.save();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_create_media_database_entry:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -245,9 +243,7 @@ public class OwnerDocument extends GenerateDocument {
             // Update the onscreen list
             uiparent.updateList();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Error_occurred_uploading_to_media_server:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;

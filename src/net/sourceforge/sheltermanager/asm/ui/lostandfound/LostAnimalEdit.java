@@ -170,8 +170,7 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
         try {
             animal.addNew();
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_create_new_lost_animal_record:_") +
-                e.getMessage(), i18n("Failed_Create"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

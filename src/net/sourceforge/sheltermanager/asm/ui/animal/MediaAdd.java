@@ -250,9 +250,7 @@ public class MediaAdd extends ASMForm {
 
             media.save();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_create_media_database_entry:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -273,9 +271,7 @@ public class MediaAdd extends ASMForm {
             // Destroy this form
             dispose();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Error_occurred_uploading_to_media_server:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;

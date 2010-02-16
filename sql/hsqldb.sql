@@ -915,7 +915,7 @@ CREATE MEMORY TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2705');
+INSERT INTO configuration VALUES ('DatabaseVersion','2706');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -971,6 +971,9 @@ INSERT INTO configuration VALUES ('AgeGroup4', '50');
 INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
 INSERT INTO configuration VALUES ('DefaultDateBroughtIn', 'Yes');
 INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
+INSERT INTO configuration VALUES ('CreateBoardingCostOnAdoption', 'Yes');
+INSERT INTO configuration VALUES ('BoardingCostType', '1');
+INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '20');
 
 
 CREATE MEMORY TABLE costtype (
@@ -979,7 +982,7 @@ CREATE MEMORY TABLE costtype (
   CostTypeDescription VARCHAR(255) NULL
 );
   
-INSERT INTO costtype VALUES (1, 'Microchip', '');
+INSERT INTO costtype VALUES (1, 'Board and Food', '');
 
 
 

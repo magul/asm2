@@ -162,8 +162,7 @@ public class LogSelector extends ASMSelector {
                 log.moveNext();
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uilog", "Unable_to_read_log_records:") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

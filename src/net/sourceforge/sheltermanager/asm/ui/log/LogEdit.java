@@ -89,8 +89,7 @@ public class LogEdit extends ASMForm {
             log.setLinkID(new Integer(linkID));
             log.setLinkType(new Integer(linkTypeID));
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_create_new_log_entry:") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

@@ -100,8 +100,7 @@ public class NamesEdit extends ASMForm {
             an.openRecordset("ID = 0");
             an.addNew();
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_create_new_animal_name:\n") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

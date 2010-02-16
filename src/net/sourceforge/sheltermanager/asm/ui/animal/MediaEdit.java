@@ -131,8 +131,7 @@ public class MediaEdit extends ASMForm {
 
             return true;
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_save_media_entry_to_database:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

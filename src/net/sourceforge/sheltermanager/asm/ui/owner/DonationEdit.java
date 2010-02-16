@@ -339,8 +339,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             alAnimal.setText(theanimal.getShelterCode() + " - " +
                 theanimal.getAnimalName());
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_open_find_animal_screen:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

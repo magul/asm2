@@ -138,9 +138,7 @@ public abstract class Report extends Thread {
             // the cache.
             Global.localCache.addEntry(f.getName(), "Report - " + getTitle());
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "Unable_to_write_temporary_HTML_file_", filename,
-                    e.getMessage()), Global.i18n("reports", "Error"));
+            Dialog.showError(e.getMessage());
         }
     }
 

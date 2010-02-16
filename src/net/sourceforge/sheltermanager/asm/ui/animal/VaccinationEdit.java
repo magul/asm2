@@ -185,8 +185,7 @@ public class VaccinationEdit extends ASMForm {
                     anivacc.getCreatedBy(), anivacc.getLastChangedDate(),
                     anivacc.getLastChangedBy());
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_read_vaccination_record_from_the_database:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

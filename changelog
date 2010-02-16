@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Animal costs tab added
+*. More pointless error messages removed from translation strings
 *. Sort list of available reports for download alphabetically
 *. Removed unnecessary classes for lookups. In doing so, forces
 -  all db access to lookups through the cache class, reducing

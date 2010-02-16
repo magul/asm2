@@ -274,9 +274,7 @@ public class MovementView extends ASMView implements MovementParent {
                 rs.moveNext();
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uimovement",
-                    "Unable_to_read_movement_records:_") + e.getMessage(),
-                Global.i18n("uimovement", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

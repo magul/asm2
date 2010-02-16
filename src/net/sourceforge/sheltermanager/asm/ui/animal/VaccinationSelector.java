@@ -101,9 +101,7 @@ public class VaccinationSelector extends ASMSelector
         try {
             animalvaccinations.openRecordset("AnimalID = " + animalid);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_open_animal_vaccination_records:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -191,8 +189,7 @@ public class VaccinationSelector extends ASMSelector
             Global.mainForm.addChild(ea);
             ea = null;
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_create_new_vaccination:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

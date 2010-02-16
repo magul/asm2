@@ -243,9 +243,7 @@ public class MovementDocument extends GenerateDocument {
             media.setUpdatedSinceLastPublish(new Integer(0));
             media.save();
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_create_media_database_entry:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;
@@ -264,9 +262,7 @@ public class MovementDocument extends GenerateDocument {
                 uiparent.updateList();
             }
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Error_occurred_uploading_to_media_server:_") +
-                e.getMessage(), Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return;

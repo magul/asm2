@@ -280,8 +280,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             String[][] vaccinationtabledata = data.toTableData();
             setTableData(columnheaders, vaccinationtabledata, data.size(), 7);
         } catch (CursorEngineException e) {
-            Dialog.showError(i18n("Unable_to_read_vaccination_records:_") +
-                e.getMessage(), i18n("Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {
             Global.mainForm.resetStatusBar();

@@ -180,9 +180,7 @@ public class MediaSelector extends ASMSelector {
                 media.moveNext();
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Unable_to_read_media_records:_") + e.getMessage(),
-                Global.i18n("uianimal", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

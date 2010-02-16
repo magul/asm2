@@ -3041,14 +3041,15 @@ public class Animal extends UserInfoBO {
                 Diary.LINKTYPE_ANIMAL +
                 ") AS diar, (SELECT COUNT(*) FROM adoption WHERE AnimalID = animal.ID) AS move, (SELECT COUNT(*) FROM log WHERE LinkID = animal.ID AND LinkType = " +
                 Log.LINKTYPE_ANIMAL +
-                ") AS logs, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona FROM animal WHERE animal.ID = " +
+                ") AS logs, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, " +
+                "(SELECT COUNT(*) FROM animalcost WHERE AnimalID = animal.ID) AS cost FROM animal WHERE animal.ID = " +
                 id, "animal");
 
             return new AnimalMarkers((Integer) r.getField("vacc"),
                 (Integer) r.getField("medi"), (Integer) r.getField("diet"),
-                (Integer) r.getField("dona"), (Integer) r.getField("pics"),
-                (Integer) r.getField("diar"), (Integer) r.getField("move"),
-                (Integer) r.getField("logs"));
+                (Integer) r.getField("cost"), (Integer) r.getField("dona"), 
+                (Integer) r.getField("pics"), (Integer) r.getField("diar"), 
+                (Integer) r.getField("move"), (Integer) r.getField("logs"));
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
@@ -3090,6 +3091,7 @@ public class Animal extends UserInfoBO {
         public int vaccination = 0;
         public int medical = 0;
         public int diet = 0;
+        public int costs = 0;
         public int donations = 0;
         public int media = 0;
         public int diary = 0;
@@ -3100,11 +3102,12 @@ public class Animal extends UserInfoBO {
         }
 
         public AnimalMarkers(Integer vaccination, Integer medical,
-            Integer diet, Integer donations, Integer media, Integer diary,
+            Integer diet, Integer costs, Integer donations, Integer media, Integer diary,
             Integer movement, Integer log) {
             this.vaccination = vaccination.intValue();
             this.medical = medical.intValue();
             this.diet = diet.intValue();
+            this.costs = costs.intValue();
             this.donations = donations.intValue();
             this.media = media.intValue();
             this.diary = diary.intValue();

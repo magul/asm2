@@ -219,9 +219,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
                 movement.moveNext();
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uimovement",
-                    "Unable_to_read_movement_records:_") + e.getMessage(),
-                Global.i18n("uimovement", "Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
@@ -366,8 +364,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
             ea.openForEdit(animal);
             Global.mainForm.addChild(ea);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("uimovement", "Unable_to_open_owner:_") +
-                e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 

@@ -573,10 +573,7 @@ public class FileTypeManager {
 
             return 0; // success
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
-                file + ": " + e.getMessage(), i18n("Bad_Command"));
-            Global.logError(i18n("Unable_to_execute_'") + command + " " + file +
-                ": " + e.getMessage(), "FileTypeManager.shellExecuteMacOS");
+            Dialog.showError(e.getMessage());
             Global.logException(e, FileTypeManager.class);
         }
 
@@ -657,10 +654,7 @@ public class FileTypeManager {
 
             return 0; // success
         } catch (Exception e) {
-            Dialog.showError(i18n("Unable_to_execute_'") + command + " " +
-                file + ": " + e.getMessage(), i18n("Bad_Command"));
-            Global.logError(i18n("Unable_to_execute_'") + command + " " + file +
-                ": " + e.getMessage(), "FileTypeManager.shellExecuteInternal");
+            Dialog.showError(e.getMessage());
             Global.logException(e, FileTypeManager.class);
         }
 
@@ -682,9 +676,7 @@ public class FileTypeManager {
             FileOutputStream out = new FileOutputStream(f);
             types.store(out, null);
         } catch (Exception e) {
-            Global.logError(i18n("Unable_to_save_filetype_registry_to_disk."),
-                "FileTypeManager.saveTypes");
-            Dialog.showError(i18n("Unable_to_save_filetype_registry_to_disk."));
+            Dialog.showError(e.getMessage());
             Global.logException(e, FileTypeManager.class);
         }
     }

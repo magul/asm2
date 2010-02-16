@@ -57,7 +57,7 @@ public class AutoDBUpdates {
             1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
-            2704, 2705
+            2704, 2705, 2706
         };
 
     /**
@@ -3782,6 +3782,25 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    public void update2706() {
+        try {
+
+            // Change that default cost type to Board and Food
+            DBConnection.executeAction(
+                "UPDATE costtype SET CostTypeName = 'Board and Food' WHERE ID = 1");
+
+            // Set some default options for animal costs
+            Configuration.setEntry("CreateBoardingCostOnAdoption", "Yes");
+            Configuration.setEntry("BoardingCostType", "1");
+            Configuration.setEntry("DefaultDailyBoardingCost", "20");
+
+        } catch (Exception e) {
+            errors.add("media: ADD DocPhoto");
+            Global.logException(e, getClass());
+        }
+    }
+
 }
 
 

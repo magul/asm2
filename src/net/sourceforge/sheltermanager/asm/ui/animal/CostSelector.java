@@ -21,23 +21,24 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
+import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.Vector;
 
 
-/**
- * Class for embedding media facilities in a frame.
- */
-public class DietSelector extends ASMSelector {
+public class CostSelector extends ASMSelector {
+    
     /** The animal ID for the link */
     public int animalID = 0;
 
@@ -47,14 +48,21 @@ public class DietSelector extends ASMSelector {
     /**
      * A flag to say whether there is anything interesting in this control
      */
-    private boolean hasDiet = false;
+    private boolean hasCost = false;
+    private double totalsheltercost;
+
     private UI.Button btnAdd;
     private UI.Button btnDelete;
     private UI.Button btnEdit;
+    private AnimalEdit parent = null;
 
-    /** Creates new form BeanForm */
-    public DietSelector() {
-        init("uianimal", false);
+    private CurrencyField txtBoardingCost;
+    private UI.Label lblTotal;
+
+    public CostSelector(AnimalEdit parent) {
+        this.parent = parent;
+        init("uianimal", true);
+        addBoardBar();
     }
 
     public Vector getTabOrder() {
@@ -70,16 +78,16 @@ public class DietSelector extends ASMSelector {
      * do.
      */
     public void setSecurity() {
-        if (!Global.currentUserObject.getSecAddAnimalDiet()) {
+        if (!Global.currentUserObject.getSecAddAnimalCost()) {
             btnAdd.setEnabled(false);
         }
 
-        if (!Global.currentUserObject.getSecChangeAnimalDiet()) {
+        if (!Global.currentUserObject.getSecChangeAnimalCost()) {
             btnEdit.setEnabled(false);
             disableDoubleClick = true;
         }
 
-        if (!Global.currentUserObject.getSecDeleteAnimalDiet()) {
+        if (!Global.currentUserObject.getSecDeleteAnimalCost()) {
             btnDelete.setEnabled(false);
         }
     }
@@ -92,48 +100,85 @@ public class DietSelector extends ASMSelector {
      * @param linkType ignored
      */
     public void setLink(int animalID, int linkType) {
+        
         this.animalID = animalID;
+        
+        // Calculate and show the boarding bar
+        Animal a = new Animal();
+        a.openRecordset("ID = " + animalID);
+
+        try {
+            if (a.getArchived().intValue() == 0) {
+                txtBoardingCost.setValue( a.getDailyBoardingCost().doubleValue() );
+                totalsheltercost = a.getDailyBoardingCost().doubleValue() * (double) a.getDaysOnShelter();
+                lblTotal.setText( i18n("On_shelter_days_total_cost", Integer.toString(a.getDaysOnShelter()),
+                    Utils.formatCurrency(totalsheltercost) ));
+                getTopPanel().setVisible(true);
+                invalidate();
+            }
+            else {
+                getTopPanel().setVisible(false);
+                invalidate();
+            }
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
     }
 
     public void dispose() {
         tabledata = null;
     }
 
+    public double getDailyBoardingCost() {
+        return txtBoardingCost.getValue();
+    }
+
+    public double getOnShelterCost() {
+        return totalsheltercost;
+    }
+
+    public void saveBoardingCost() throws Exception {
+        DBConnection.executeAction("UPDATE animal SET DailyBoardingCost = " + txtBoardingCost.getValue() + " WHERE ID = " + animalID);
+    }
+
     /**
      * Fills the table with the diet entries for the passed link.
      */
     public void updateList() {
-        AnimalDiet animaldiet = new AnimalDiet();
-        animaldiet.openRecordset("AnimalID = " + animalID);
+
+        AnimalCost ac = new AnimalCost();
+        ac.openRecordset("AnimalID = " + animalID);
 
         // Create an array to hold the results for the table - note that we
         // have an extra column on here - the last column will actually hold
         // the ID.
-        tabledata = new String[(int) animaldiet.getRecordCount()][5];
+        tabledata = new String[(int) ac.getRecordCount()][5];
 
         // Create an array of headers for the accounts (one less than
         // array because 4th col will hold ID
         String[] columnheaders = {
-                Global.i18n("uianimal", "Start_Date"),
-                Global.i18n("uianimal", "Diet"),
-                Global.i18n("uianimal", "Description"),
-                Global.i18n("uianimal", "Notes")
+                Global.i18n("uianimal", "Date"),
+                Global.i18n("uianimal", "Type"),
+                Global.i18n("uianimal", "Amount"),
+                Global.i18n("uianimal", "Description")
             };
 
         // loop through the data and fill the array
         int i = 0;
 
         try {
-            while (!animaldiet.getEOF()) {
+            while (!ac.getEOF()) {
                 tabledata[i][0] = Utils.nullToEmptyString(Utils.formatTableDate(
-                            animaldiet.getDateStarted()));
-                tabledata[i][1] = animaldiet.getDietName();
-                tabledata[i][2] = LookupCache.getDietDescription(animaldiet.getDietID());
-                tabledata[i][3] = Utils.nullToEmptyString(animaldiet.getComments());
-                tabledata[i][4] = animaldiet.getID().toString();
-                hasDiet = true;
+                            ac.getCostDate()));
+                tabledata[i][1] = ac.getCostTypeName();
+                tabledata[i][2] = Utils.formatCurrency(ac.getCostAmount().doubleValue());
+                tabledata[i][3] = ac.getDescription();
+                tabledata[i][4] = ac.getID().toString();
+                hasCost = true;
                 i++;
-                animaldiet.moveNext();
+                ac.moveNext();
             }
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
@@ -145,22 +190,35 @@ public class DietSelector extends ASMSelector {
 
     /** Returns true if there is some content in the list */
     public boolean hasData() {
-        return hasDiet;
+        return hasCost;
     }
 
     public void addToolButtons() {
-        btnAdd = addToolButton(UI.getButton(null, i18n("Create_new_diet"), 'n',
-                    IconManager.getIcon(IconManager.SCREEN_ANIMALDIETS_NEW),
+        btnAdd = addToolButton(UI.getButton(null, i18n("Create_new_cost"), 'n',
+                    IconManager.getIcon(IconManager.SCREEN_ANIMALCOSTS_NEW),
                     UI.fp(this, "actionAdd")), false);
 
-        btnEdit = addToolButton(UI.getButton(null, i18n("Edit_this_diet"), 'e',
-                    IconManager.getIcon(IconManager.SCREEN_ANIMALDIETS_EDIT),
+        btnEdit = addToolButton(UI.getButton(null, i18n("Edit_this_cost"), 'e',
+                    IconManager.getIcon(IconManager.SCREEN_ANIMALCOSTS_EDIT),
                     UI.fp(this, "actionEdit")), true);
 
-        btnDelete = addToolButton(UI.getButton(null, i18n("Delete_this_diet"),
+        btnDelete = addToolButton(UI.getButton(null, i18n("Delete_this_cost"),
                     'd',
-                    IconManager.getIcon(IconManager.SCREEN_ANIMALDIETS_DELETE),
+                    IconManager.getIcon(IconManager.SCREEN_ANIMALCOSTS_DELETE),
                     UI.fp(this, "actionDelete")), true);
+    }
+
+    public void addBoardBar() {
+        UI.Panel t = getTopPanel();
+        t.setVisible(false);
+        txtBoardingCost = UI.getCurrencyField(i18n("The_daily_cost_food_and_board"), UI.fp(this, "changedCost"));
+        lblTotal = UI.getLabel();
+        UI.addComponent(t, i18n("daily_board_cost"), txtBoardingCost);
+        UI.addComponent(t, lblTotal);
+    }
+
+    public void changedCost() {
+        parent.dataChanged();
     }
 
     public void tableClicked() {
@@ -182,10 +240,9 @@ public class DietSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
-                String s = "Delete From animaldiet Where ID = " + id;
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
-                // update the list
-                this.updateList();
+                String s = "Delete From animalcost Where ID = " + id;
+                DBConnection.executeAction(s);
+                updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
@@ -202,17 +259,17 @@ public class DietSelector extends ASMSelector {
         }
 
         try {
-            DietEdit ed = new DietEdit(this);
-            ed.openForEdit(Integer.toString(id));
-            Global.mainForm.addChild(ed);
+            CostEdit ce = new CostEdit(this);
+            ce.openForEdit(Integer.toString(id));
+            Global.mainForm.addChild(ce);
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
 
     public void actionAdd() {
-        DietEdit ed = new DietEdit(this);
-        ed.openForNew(animalID);
-        Global.mainForm.addChild(ed);
+        CostEdit ce = new CostEdit(this);
+        ce.openForNew(animalID);
+        Global.mainForm.addChild(ce);
     }
 }

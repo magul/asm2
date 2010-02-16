@@ -66,6 +66,10 @@ import net.sourceforge.sheltermanager.cursorengine.*;
  * ChangeAnimalDiet             dcad
  * DeleteAnimalDiet             ddad
  * ViewAnimalDiet               dvad
+ * AddAnimalCost                caad
+ * ChangeAnimalCost             ccad
+ * DeleteAnimalCost             cdad
+ * ViewAnimalCost               cvad
  * AddAnimalMovements           aamv
  * ChangeAnimalMovements        camv
  * ViewAnimalMovements          vamv
@@ -331,6 +335,22 @@ public class Users extends NormalBO {
 
     public boolean getSecViewAnimalDiet() {
         return getSecurityFlag("dvad");
+    }
+
+    public boolean getSecAddAnimalCost() {
+        return getSecurityFlag("caad");
+    }
+
+    public boolean getSecChangeAnimalCost() {
+        return getSecurityFlag("ccad");
+    }
+    
+    public boolean getSecDeleteAnimalCost() {
+        return getSecurityFlag("cdad");
+    }
+
+    public boolean getSecViewAnimalCost() {
+        return getSecurityFlag("cvad");
     }
 
     public boolean getSecAddOwnerVoucher() {
