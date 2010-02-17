@@ -588,6 +588,36 @@ public class SQLRecordset {
         }
     }
 
+    public double getDouble(String fieldName) throws CursorEngineException {
+        Double d = (Double) getField(fieldName);
+
+        if (d == null) {
+            return 0;
+        }
+
+        return d.doubleValue();
+    }
+
+    public double getInteger(String fieldName) throws CursorEngineException {
+        Integer i = (Integer) getField(fieldName);
+
+        if (i == null) {
+            return 0;
+        }
+
+        return i.intValue();
+    }
+
+    public String getString(String fieldName) throws CursorEngineException {
+        String s = (String) getField(fieldName);
+
+        if (s == null) {
+            return "";
+        }
+
+        return s.toString();
+    }
+
     /**
      * Sets the contents of a field by it's name.
      *

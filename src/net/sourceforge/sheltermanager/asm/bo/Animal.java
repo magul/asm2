@@ -769,7 +769,6 @@ public class Animal extends UserInfoBO {
         rs.setField("DailyBoardingCost", newValue);
     }
 
-
     public void setDateBroughtIn(Date newValue) throws CursorEngineException {
         rs.setField("DateBroughtIn", newValue);
     }
@@ -2445,15 +2444,16 @@ public class Animal extends UserInfoBO {
             med.moveNext();
         }
 
-	// costs
-	AnimalCost cost = new AnimalCost();
-	cost.openRecordset("AnimalID = " + getID());
-	while (!cost.getEOF()) {
+        // costs
+        AnimalCost cost = new AnimalCost();
+        cost.openRecordset("AnimalID = " + getID());
+
+        while (!cost.getEOF()) {
             AnimalCost c = cost.copy();
-	    c.setAnimalID(a.getID());
-	    c.save(Global.currentUserName);
-	    cost.moveNext();
-	}
+            c.setAnimalID(a.getID());
+            c.save(Global.currentUserName);
+            cost.moveNext();
+        }
 
         // diet
         AnimalDiet diet = new AnimalDiet();
@@ -3047,8 +3047,8 @@ public class Animal extends UserInfoBO {
 
             return new AnimalMarkers((Integer) r.getField("vacc"),
                 (Integer) r.getField("medi"), (Integer) r.getField("diet"),
-                (Integer) r.getField("cost"), (Integer) r.getField("dona"), 
-                (Integer) r.getField("pics"), (Integer) r.getField("diar"), 
+                (Integer) r.getField("cost"), (Integer) r.getField("dona"),
+                (Integer) r.getField("pics"), (Integer) r.getField("diar"),
                 (Integer) r.getField("move"), (Integer) r.getField("logs"));
         } catch (Exception e) {
             Global.logException(e, Animal.class);
@@ -3102,8 +3102,8 @@ public class Animal extends UserInfoBO {
         }
 
         public AnimalMarkers(Integer vaccination, Integer medical,
-            Integer diet, Integer costs, Integer donations, Integer media, Integer diary,
-            Integer movement, Integer log) {
+            Integer diet, Integer costs, Integer donations, Integer media,
+            Integer diary, Integer movement, Integer log) {
             this.vaccination = vaccination.intValue();
             this.medical = medical.intValue();
             this.diet = diet.intValue();

@@ -88,7 +88,7 @@ public abstract class Dialog {
     }
 
     public static void showError(String message, String title) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.ERROR_MESSAGE);
 
@@ -98,7 +98,7 @@ public abstract class Dialog {
     }
 
     public static void showError(String message) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message),
             Global.i18n("uierror", "Error"), JOptionPane.ERROR_MESSAGE);
 
@@ -108,12 +108,12 @@ public abstract class Dialog {
     }
 
     public static void showInformation(String message) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
         showInformation(message, Global.i18n("uierror", "Information"));
     }
 
     public static void showInformation(String message, String title) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.INFORMATION_MESSAGE);
 
@@ -123,7 +123,7 @@ public abstract class Dialog {
     }
 
     public static void showWarning(String message, String title) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,
             JOptionPane.WARNING_MESSAGE);
 
@@ -133,7 +133,8 @@ public abstract class Dialog {
     }
 
     public static boolean showYesNo(String message, String title) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
+
         int answer = JOptionPane.showConfirmDialog(theParent,
                 wordWrap(message), title, JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
@@ -142,7 +143,8 @@ public abstract class Dialog {
     }
 
     public static boolean showYesNoWarning(String message, String title) {
-    	setOptionPaneStrings();
+        setOptionPaneStrings();
+
         int answer = JOptionPane.showConfirmDialog(theParent,
                 wordWrap(message), title, JOptionPane.YES_NO_OPTION,
                 JOptionPane.WARNING_MESSAGE);
@@ -203,7 +205,7 @@ public abstract class Dialog {
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
-        	SQLRecordset species = LookupCache.getSpeciesLookup();
+            SQLRecordset species = LookupCache.getSpeciesLookup();
             species.moveFirst();
 
             while (!species.getEOF()) {
@@ -211,7 +213,6 @@ public abstract class Dialog {
                 species.moveNext();
             }
 
-            species.free();
             species = null;
         } catch (Exception e) {
             return 0;
@@ -317,7 +318,6 @@ public abstract class Dialog {
                 at.moveNext();
             }
 
-            at.free();
             at = null;
         } catch (Exception e) {
             return 0;
@@ -356,7 +356,6 @@ public abstract class Dialog {
                 il.moveNext();
             }
 
-            il.free();
             il = null;
         } catch (Exception e) {
             return 0;
@@ -396,7 +395,6 @@ public abstract class Dialog {
                 d.moveNext();
             }
 
-            d.free();
             d = null;
         } catch (Exception e) {
             return 0;
@@ -434,7 +432,6 @@ public abstract class Dialog {
                 v.moveNext();
             }
 
-            v.free();
             v = null;
         } catch (Exception e) {
             return 0;

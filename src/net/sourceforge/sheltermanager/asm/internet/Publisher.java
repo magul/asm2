@@ -659,8 +659,8 @@ public class Publisher extends Thread {
 
         // $$REGISTEREDTO$$ tag //
         output = Utils.replace(output, "$$REGISTEREDTO$$",
-        		Configuration.getString("Organisation"));
-        
+                Configuration.getString("Organisation"));
+
         try {
             // $$USER$$ tag //
             if ((Global.currentUserName != null) &&

@@ -309,7 +309,6 @@ public abstract class LookupCache {
                 }
 
                 return costtype;
-
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -347,7 +346,7 @@ public abstract class LookupCache {
         fieldtype = null;
         coattype = null;
         donationfreq = null;
-	costtype = null;
+        costtype = null;
         animalextdata = null;
 
         if (activeanimals != null) {
@@ -654,15 +653,17 @@ public abstract class LookupCache {
 
         return getNameForID(coattype, "CoatType", ID);
     }
-    
+
     public static String getLogTypeName(Integer ID) {
-    	getLookup(LOOKUP_LOGTYPES);
-    	return getNameForID(logtype, "LogTypeName", ID);
+        getLookup(LOOKUP_LOGTYPES);
+
+        return getNameForID(logtype, "LogTypeName", ID);
     }
-    
+
     public static String getLogTypeDescription(Integer ID) {
-    	getLookup(LOOKUP_LOGTYPES);
-    	return getNameForID(logtype, "LogTypeDescription", ID);
+        getLookup(LOOKUP_LOGTYPES);
+
+        return getNameForID(logtype, "LogTypeDescription", ID);
     }
 
     public static String getFieldTypeForID(Integer ID) {
@@ -844,7 +845,8 @@ public abstract class LookupCache {
         return getNameForID(getDietLookup(), "DietName", ID);
     }
 
-    public static String getCostTypeName(Integer ID) throws CursorEngineException {
+    public static String getCostTypeName(Integer ID)
+        throws CursorEngineException {
         return getNameForID(getCostTypeLookup(), "CostTypeName", ID);
     }
 

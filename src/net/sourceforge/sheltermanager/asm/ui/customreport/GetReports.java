@@ -166,8 +166,8 @@ public class GetReports extends ASMView {
                 // Done with custom report list now
                 cr.free();
 
-		// Sort our final list of reports
-		Collections.sort(reports);
+                // Sort our final list of reports
+                Collections.sort(reports);
             }
 
             // Create an array to hold the results for the table
@@ -259,8 +259,8 @@ class InstallableReport implements Comparable {
     public String locale;
     public String sql;
     public String html;
+
     public int compareTo(Object o) {
         return name.compareTo(((InstallableReport) o).name);
     }
-
 }

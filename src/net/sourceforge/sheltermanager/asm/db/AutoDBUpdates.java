@@ -885,7 +885,8 @@ public class AutoDBUpdates {
 
                     if (rs.getEOF()) {
                         b.addNew();
-                        b.setField("ID", new Integer(DBConnection.getPrimaryKey("breed")));
+                        b.setField("ID",
+                            new Integer(DBConnection.getPrimaryKey("breed")));
                         b.setField("BreedName", breed);
                     }
 
@@ -921,12 +922,14 @@ public class AutoDBUpdates {
             Global.logInfo("Mapping breeds...", "AutoDBUpdates");
 
             Iterator i = pfBreeds.iterator();
+
             while (i.hasNext()) {
                 String breed = (String) i.next();
                 breed = breed.replace('\'', '`');
-                
-                DBConnection.executeAction("UPDATE breed SET PetFinderBreed = 'breed' " +
-                	"WHERE BreedName Like '" + breed + "'");
+
+                DBConnection.executeAction(
+                    "UPDATE breed SET PetFinderBreed = 'breed' " +
+                    "WHERE BreedName Like '" + breed + "'");
                 breed = null;
             }
 
@@ -3785,7 +3788,6 @@ public class AutoDBUpdates {
 
     public void update2706() {
         try {
-
             // Change that default cost type to Board and Food
             DBConnection.executeAction(
                 "UPDATE costtype SET CostTypeName = 'Board and Food' WHERE ID = 1");
@@ -3794,13 +3796,11 @@ public class AutoDBUpdates {
             Configuration.setEntry("CreateBoardingCostOnAdoption", "Yes");
             Configuration.setEntry("BoardingCostType", "1");
             Configuration.setEntry("DefaultDailyBoardingCost", "20");
-
         } catch (Exception e) {
             errors.add("media: ADD DocPhoto");
             Global.logException(e, getClass());
         }
     }
-
 }
 
 

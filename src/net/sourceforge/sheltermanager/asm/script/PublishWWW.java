@@ -156,12 +156,13 @@ public class PublishWWW {
                                     ScriptParser.equalsSymbol) + 1)
                                              .replace('*', '%');
                         String[] locnames = Utils.split(locs, ",");
-                        
+
                         Vector locations = new Vector();
                         SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {
-                            il.openRecordset("SELECT * FROM internallocation WHERE LocationName Like '" +
+                            il.openRecordset(
+                                "SELECT * FROM internallocation WHERE LocationName Like '" +
                                 locnames[z] + "%'", "internallocation");
 
                             if (il.getEOF()) {

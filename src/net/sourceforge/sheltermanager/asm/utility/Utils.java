@@ -149,6 +149,20 @@ public abstract class Utils {
         return nf.format(amount);
     }
 
+    public static String formatCurrency(Double amount) {
+        return formatCurrency(amount.doubleValue());
+    }
+
+    public static String formatCurrency(Object o) {
+        if (o instanceof Double) {
+            if (o != null) {
+                return formatCurrency((Double) o);
+            }
+        }
+
+        return "";
+    }
+
     /**
      * Returns the currency string as a double value
      * @param currency

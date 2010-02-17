@@ -122,13 +122,15 @@ public class PublishPets911 {
                         SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {
-                            il.openRecordset("SELECT * FROM internallocation WHERE LocationName Like '" +
+                            il.openRecordset(
+                                "SELECT * FROM internallocation WHERE LocationName Like '" +
                                 locnames[z] + "%'", "internallocation");
 
                             if (il.getEOF()) {
                                 Global.logError(
                                     "Could not find a location matching '" +
-                                    locnames[z] + "'", "PublishPets911.PublishPets911");
+                                    locnames[z] + "'",
+                                    "PublishPets911.PublishPets911");
                                 System.exit(1);
                             }
 

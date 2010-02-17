@@ -153,6 +153,7 @@ public abstract class IconManager {
     public final static String SCREEN_ANIMALCOSTS_NEW = NEW;
     public final static String SCREEN_ANIMALCOSTS_EDIT = EDIT;
     public final static String SCREEN_ANIMALCOSTS_DELETE = DELETE;
+    public final static String SCREEN_ANIMALCOSTS_REFRESH = REFRESH;
     public final static String SCREEN_ANIMALMEDIA = MEDIA;
     public final static String SCREEN_ANIMALMEDIA_NEW = MEDIAADD;
     public final static String SCREEN_ANIMALMEDIA_EDIT = EDIT;

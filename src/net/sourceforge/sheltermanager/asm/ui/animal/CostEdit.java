@@ -32,6 +32,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.text.ParseException;
 
@@ -125,16 +126,16 @@ public class CostEdit extends ASMForm {
     public void loadData() {
         try {
             try {
-                txtCostDate.setText(Utils.formatDate(
-                        cost.getCostDate()));
+                txtCostDate.setText(Utils.formatDate(cost.getCostDate()));
             } catch (Exception e) {
                 Global.logException(e, getClass());
             }
 
-            Utils.setComboFromID(LookupCache.getCostTypeLookup(), "CostTypeName",
-                cost.getCostTypeID(), cboCostType);
+            Utils.setComboFromID(LookupCache.getCostTypeLookup(),
+                "CostTypeName", cost.getCostTypeID(), cboCostType);
             txtCostAmount.setValue(cost.getCostAmount().doubleValue());
-            txtDescription.setText(Utils.nullToEmptyString(cost.getDescription()));
+            txtDescription.setText(Utils.nullToEmptyString(
+                    cost.getDescription()));
             audit = UI.messageAudit(cost.getCreatedDate(), cost.getCreatedBy(),
                     cost.getLastChangedDate(), cost.getLastChangedBy());
         } catch (CursorEngineException e) {
@@ -143,7 +144,7 @@ public class CostEdit extends ASMForm {
     }
 
     /**
-     * Saves data from the controls to the database 
+     * Saves data from the controls to the database
      */
     public boolean saveData() {
         try {
@@ -154,8 +155,9 @@ public class CostEdit extends ASMForm {
             } catch (ParseException e) {
                 Global.logException(e, getClass());
             }
-            cost.setCostTypeID(Utils.getIDFromCombo(LookupCache.getCostTypeLookup(),
-                    "CostTypeName", cboCostType));
+
+            cost.setCostTypeID(Utils.getIDFromCombo(
+                    LookupCache.getCostTypeLookup(), "CostTypeName", cboCostType));
             cost.setCostAmount(new Double(txtCostAmount.getValue()));
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
@@ -178,13 +180,31 @@ public class CostEdit extends ASMForm {
         return false;
     }
 
+    /**
+     * Called when the type is changed - look up the most recent
+     * cost of this type
+     */
+    public void typeChanged() {
+        try {
+            int cid = Utils.getIDFromCombo(LookupCache.getCostTypeLookup(),
+                    "CostTypeName", cboCostType).intValue();
+            double lastcost = DBConnection.executeForDouble(
+                    "SELECT CostAmount FROM animalcost WHERE CostTypeID = " +
+                    cid + " ORDER BY CostDate DESC LIMIT 1");
+            txtCostAmount.setValue(lastcost);
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+    }
+
     public void initComponents() {
         UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel mid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel bot = UI.getPanel(UI.getFlowLayout());
 
-        cboCostType = UI.getCombo(i18n("Type:"), LookupCache.getCostTypeLookup(),
-                "CostTypeName");
+        cboCostType = UI.getCombo(i18n("Type:"),
+                LookupCache.getCostTypeLookup(), "CostTypeName",
+                UI.fp(this, "typeChanged"));
         UI.addComponent(top, i18n("Type:"), cboCostType);
 
         txtCostDate = UI.getDateField();

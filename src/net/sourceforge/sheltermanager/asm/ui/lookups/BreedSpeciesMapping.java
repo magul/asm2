@@ -66,7 +66,7 @@ public class BreedSpeciesMapping extends ASMView {
         SQLRecordset breed = LookupCache.getBreedLookup();
 
         try {
-        	breed.moveFirst();
+            breed.moveFirst();
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -85,9 +85,11 @@ public class BreedSpeciesMapping extends ASMView {
         try {
             while (!breed.getEOF()) {
                 datar[i][0] = breed.getField("BreedName").toString();
-                datar[i][1] = Utils.nullToEmptyString((String) breed.getField("BreedDescription"));
+                datar[i][1] = Utils.nullToEmptyString((String) breed.getField(
+                            "BreedDescription"));
 
-                String bname = LookupCache.getSpeciesName((Integer) breed.getField("SpeciesID"));
+                String bname = LookupCache.getSpeciesName((Integer) breed.getField(
+                            "SpeciesID"));
 
                 if (bname.equals("")) {
                     bname = i18n("any");

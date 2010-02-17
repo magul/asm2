@@ -875,6 +875,56 @@ public class Adoption extends UserInfoBO {
     }
 
     /**
+     * Creates a boarding cost record for this adoption.
+     * Does nothing if:
+     *    System options are disable
+     *    it's not an adoption
+     *    We already created this record
+     */
+    public void createAdoptionBoardingCost() throws Exception {
+        // Bail if system option isn't on
+        if (!Configuration.getBoolean("CreateBoardingCostOnAdoption")) {
+            return;
+        }
+
+        // Is this an adoption? Bail if not
+        if (getMovementType().intValue() != MOVETYPE_ADOPTION) {
+            return;
+        }
+
+        // We need a movement date
+        if (getMovementDate() == null) {
+            return;
+        }
+
+        // Have we already created this record?
+        int costtype = Configuration.getInteger("BoardingCostType");
+
+        if (0 == DBConnection.executeForCount(
+                    "SELECT COUNT(*) FROM animalcost WHERE AnimalID = " +
+                    getAnimalID() + " AND CostDate = '" +
+                    Utils.getSQLDate(getMovementDate()) + "' AND " +
+                    "CostTypeID = " + costtype)) {
+            // Nope - let's create it
+            AnimalCost c = new AnimalCost();
+            c.openRecordset("ID = 0");
+            c.addNew();
+
+            // Calculate on shelter cost for this animal
+            double cost = DBConnection.executeForSum(
+                    "SELECT (DaysOnShelter * DailyBoardingCost) " +
+                    "FROM animal WHERE ID = " + getAnimalID());
+
+            c.setAnimalID(getAnimalID());
+            c.setCostDate(getMovementDate());
+            c.setCostAmount(new Double(cost));
+            c.setCostTypeID(new Integer(costtype));
+            c.setDescription(getAnimal().getTimeOnShelter());
+            c.save(Global.currentUserName);
+        }
+    }
+
+    /**
      * Returns the length of time an animal was adopted for, before being
      * returned. If the animal has not been returned, it returns an empty
      * string.

@@ -405,7 +405,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 v.setDateRequired(c.getTime());
                 v.setVaccinationID(av.getVaccinationID());
                 v.setComments(av.getComments());
-		v.setCost(av.getCost());
+                v.setCost(av.getCost());
                 v.save(Global.currentUserName);
 
                 // Update the list

@@ -77,8 +77,8 @@ public class MedicalEdit extends ASMForm {
         Vector ctl = new Vector();
         ctl.add(txtTreatmentName);
         ctl.add(txtDosage);
-        ctl.add(txtStartDate.getTextField());
         ctl.add(txtCost.getTextField());
+        ctl.add(txtStartDate.getTextField());
         ctl.add(cboStatus);
         ctl.add(radOneOff);
         ctl.add(radMultiple);

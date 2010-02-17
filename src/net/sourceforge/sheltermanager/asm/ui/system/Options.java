@@ -82,6 +82,8 @@ public class Options extends ASMForm {
     private UI.TextField txtEmailAddress;
     private UI.TextField txtSMTPServer;
     private CurrencyField txtDefaultBoardingCost;
+    private UI.CheckBox chkCreateBoardingCostAdoption;
+    private UI.ComboBox cboBoardingType;
     private UI.ComboBox cboDefaultBreed;
     private UI.ComboBox cboDefaultColour;
     private UI.ComboBox cboDefaultDeath;
@@ -142,6 +144,9 @@ public class Options extends ASMForm {
         ctl.add(txtMappingService);
         ctl.add(txtEmailAddress);
         ctl.add(txtSMTPServer);
+        ctl.add(txtDefaultBoardingCost);
+        ctl.add(chkCreateBoardingCostAdoption);
+        ctl.add(cboBoardingType);
         ctl.add(cboDefaultSpecies);
         ctl.add(cboDefaultType);
         ctl.add(cboNonShelter);
@@ -202,6 +207,15 @@ public class Options extends ASMForm {
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
+
+        // Costs
+        txtDefaultBoardingCost.setValue(Configuration.getDouble(
+                "DefaultDailyBoardingCost"));
+        chkCreateBoardingCostAdoption.setSelected(Configuration.getBoolean(
+                "CreateBoardingCostOnAdoption"));
+        Utils.setComboFromID(LookupCache.getCostTypeLookup(), "CostTypeName",
+            new Integer(Configuration.getInteger("BoardingCostType")),
+            cboBoardingType);
 
         // Insurance Numbers
         chkUseAutoInsurance.setSelected(Configuration.getBoolean(
@@ -322,10 +336,6 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
             cboDefaultVaccinationType);
 
-
-        txtDefaultBoardingCost.setValue(Configuration.getDouble(
-                "DefaultDailyBoardingCost"));
-
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
             // OS auth
@@ -390,6 +400,14 @@ public class Options extends ASMForm {
             Configuration.setEntry("MappingServiceURL",
                 txtMappingService.getText());
 
+            // Costs
+            Configuration.setEntry("DefaultDailyBoardingCost",
+                new Double(txtDefaultBoardingCost.getValue()).toString());
+            Configuration.setEntry("CreateBoardingCostOnAdoption",
+                chkCreateBoardingCostAdoption.isSelected() ? "Yes" : "No");
+            Utils.getIDFromCombo(LookupCache.getCostTypeLookup(),
+                "CostTypeName", cboBoardingType);
+
             // Waiting List
             Configuration.setEntry("WaitingListUrgencyUpdatePeriod",
                 spnUrgency.getValue().toString());
@@ -450,9 +468,6 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultVaccinationType",
                 Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboDefaultVaccinationType).toString());
-
-            Configuration.setEntry("DefaultDailyBoardingCost",
-                new Double(txtDefaultBoardingCost.getValue()).toString());
 
             l = tblDefaultOptions.getSelections();
 
@@ -674,6 +689,22 @@ public class Options extends ASMForm {
         movementoptions.add(pv, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("movements"), null, movementoptions, null);
 
+        // Costs
+        UI.Panel pcost = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+
+        txtDefaultBoardingCost = (CurrencyField) UI.addComponent(pcost,
+                i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());
+        UI.addComponent(pcost, UI.getLabel());
+        chkCreateBoardingCostAdoption = (UI.CheckBox) UI.addComponent(pcost,
+                UI.getCheckBox(i18n("Create_boarding_cost_on_adoption")));
+        cboBoardingType = (UI.ComboBox) UI.addComponent(pcost,
+                i18n("boarding_cost_type"),
+                UI.getCombo(LookupCache.getCostTypeLookup(), "CostTypeName"));
+
+        UI.Panel costoptions = UI.getPanel(UI.getBorderLayout());
+        costoptions.add(pcost, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("costs"), null, costoptions, null);
+
         // Age groups
         UI.Panel pa = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 20, 60 }));
         txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
@@ -771,9 +802,6 @@ public class Options extends ASMForm {
                 "VaccinationType");
         UI.addComponent(pr, i18n("Default_Vaccination_Type"),
             cboDefaultVaccinationType);
-
-        txtDefaultBoardingCost = (CurrencyField) UI.addComponent(pr,
-                i18n("Default_Daily_Boarding_Cost"), UI.getCurrencyField());
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,

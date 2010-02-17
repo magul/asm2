@@ -69,7 +69,7 @@ public class PetFinderMapSpecies extends ASMView {
         SQLRecordset species = LookupCache.getSpeciesLookup();
 
         try {
-        	species.moveFirst();
+            species.moveFirst();
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -88,8 +88,10 @@ public class PetFinderMapSpecies extends ASMView {
         try {
             while (!species.getEOF()) {
                 datar[i][0] = species.getField("SpeciesName").toString();
-                datar[i][1] = Utils.nullToEmptyString((String) species.getField("SpeciesDescription"));
-                datar[i][2] = Utils.nullToEmptyString((String) species.getField("PetFinderSpecies"));
+                datar[i][1] = Utils.nullToEmptyString((String) species.getField(
+                            "SpeciesDescription"));
+                datar[i][2] = Utils.nullToEmptyString((String) species.getField(
+                            "PetFinderSpecies"));
                 datar[i][3] = species.getField("ID").toString();
 
                 i++;

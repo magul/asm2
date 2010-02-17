@@ -99,14 +99,14 @@ public class ShelterInventory extends Report {
 
             while (!theS.getEOF()) {
                 currentAnimals = Animal.getNumberOfAnimalsOnShelter(new Date(),
-                        ((Integer) theS.getField("ID")).intValue(), 0, 
+                        ((Integer) theS.getField("ID")).intValue(), 0,
                         ((Integer) theIL.getField("ID")).intValue(),
                         Animal.ALLAGES);
                 totalAnimals += currentAnimals;
 
                 if (currentAnimals > 0) {
-                    spectype += (theS.getField("SpeciesName").toString() + ": " +
-                    Integer.toString(currentAnimals) + "<br>");
+                    spectype += (theS.getField("SpeciesName").toString() +
+                    ": " + Integer.toString(currentAnimals) + "<br>");
                 }
 
                 theS.moveNext();
@@ -136,8 +136,8 @@ public class ShelterInventory extends Report {
                 totalAnimals += currentAnimals;
 
                 if (currentAnimals > 0) {
-                    spectype += (theS.getField("SpeciesName").toString() + ": " +
-                    Integer.toString(currentAnimals) + "<br />");
+                    spectype += (theS.getField("SpeciesName").toString() +
+                    ": " + Integer.toString(currentAnimals) + "<br />");
                 }
 
                 theS.moveNext();
@@ -290,8 +290,9 @@ public class ShelterInventory extends Report {
                 if (totalAnimalsOfSpecies > 0) {
                     addLevelThreeHeader(theS.getField("SpeciesName") +
                         (((theS.getField("SpeciesDescription") == null) ||
-                        (theS.getField("SpeciesDescription").toString().equals(""))) ? ""
-                                                                   : ("(" +
+                        (theS.getField("SpeciesDescription").toString()
+                             .equals(""))) ? ""
+                                           : ("(" +
                         theS.getField("SpeciesDescription").toString() + ")")));
                     addTable();
                     addParagraph(Global.i18n("reports", "Total_",

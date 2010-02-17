@@ -127,11 +127,11 @@ public class Vets extends Report implements DiaryCriteriaListener {
 
         // Get a list of all internal locations to enumerate through
         SQLRecordset il = LookupCache.getInternalLocationLookup();
+
         try {
-        	il.moveFirst();
-        }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
+            il.moveFirst();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
         }
 
         setStatusBarMax((int) il.getRecordCount());
@@ -166,7 +166,8 @@ public class Vets extends Report implements DiaryCriteriaListener {
 
                     if (a.getShelterLocation().equals(il.getField("ID"))) {
                         if (!startedDisplay) {
-                            addLevelTwoHeader(il.getField("LocationName").toString());
+                            addLevelTwoHeader(il.getField("LocationName")
+                                                .toString());
                             tableNew();
                             tableAddRow();
                             tableAddCell(bold(Global.i18n("reports", "Date")));
@@ -210,7 +211,8 @@ public class Vets extends Report implements DiaryCriteriaListener {
                     if (a.getShelterLocation().equals(il.getField("ID"))) {
                         if (a.getAnimalLocationAtDate(new Date()) == Animal.ONSHELTER) {
                             if (!startedDisplay) {
-                                addLevelTwoHeader(il.getField("LocationName").toString());
+                                addLevelTwoHeader(il.getField("LocationName")
+                                                    .toString());
                                 tableNew();
                                 tableAddRow();
                                 tableAddCell(bold(Global.i18n("reports", "Date")));

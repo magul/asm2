@@ -215,7 +215,7 @@ public class Stats extends Report {
 
     private void statsDeceasedReasons() throws Exception {
         SQLRecordset er = LookupCache.getEntryReasonLookup();
-	er.moveFirst();
+        er.moveFirst();
 
         setStatusBarMax((int) er.getRecordCount());
 
@@ -231,7 +231,8 @@ public class Stats extends Report {
             SQLRecordset rs = new SQLRecordset();
             rs.openRecordset(
                 "SELECT COUNT(*) AS Tot FROM animal WHERE DeceasedDate Is Not Null AND " +
-                "DiedOffShelter = 0 AND PTSReasonID = " + er.getField("ID"), "animal");
+                "DiedOffShelter = 0 AND PTSReasonID = " + er.getField("ID"),
+                "animal");
 
             int total = 0;
 

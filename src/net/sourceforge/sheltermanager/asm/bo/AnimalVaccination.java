@@ -112,13 +112,12 @@ public class AnimalVaccination extends UserInfoBO {
     public String getVaccinationTypeName() throws CursorEngineException {
         return LookupCache.getVaccinationTypeName(getVaccinationID());
     }
-    
 
     public String getVaccinationName() {
         try {
-        	return getVaccinationTypeName();
+            return getVaccinationTypeName();
         } catch (Exception e) {
-        	return "";
+            return "";
         }
     }
 
@@ -198,5 +197,4 @@ public class AnimalVaccination extends UserInfoBO {
             throw new BOValidationException(e.getMessage());
         }
     }
-
 }

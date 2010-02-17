@@ -50,11 +50,11 @@ public class Log extends UserInfoBO {
     }
 
     public String getLogTypeName() throws CursorEngineException {
-    	return LookupCache.getLogTypeName(getLogTypeID());
+        return LookupCache.getLogTypeName(getLogTypeID());
     }
-    
+
     public String getLogTypeDescription() throws CursorEngineException {
-    	return LookupCache.getLogTypeDescription(getLogTypeID());
+        return LookupCache.getLogTypeDescription(getLogTypeID());
     }
 
     public Integer getLinkID() throws CursorEngineException {

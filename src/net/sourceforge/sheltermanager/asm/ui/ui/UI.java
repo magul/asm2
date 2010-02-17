@@ -1690,7 +1690,7 @@ public final class UI {
     public static String messageNo() {
         return Global.i18n("uianimalname", "No");
     }
-    
+
     public static String messageDeleteConfirm() {
         return Global.i18n("uianimalname", "Really_delete_this_record?");
     }

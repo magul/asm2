@@ -344,7 +344,7 @@ public class Users extends NormalBO {
     public boolean getSecChangeAnimalCost() {
         return getSecurityFlag("ccad");
     }
-    
+
     public boolean getSecDeleteAnimalCost() {
         return getSecurityFlag("cdad");
     }

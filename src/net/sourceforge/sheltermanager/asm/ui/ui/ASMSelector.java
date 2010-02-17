@@ -207,4 +207,9 @@ public abstract class ASMSelector extends UI.Panel {
         String arg4, String arg5) {
         return Global.i18n(i18nKey, key, arg1, arg2, arg3, arg4, arg5);
     }
+
+    public String i18n(String key, String arg1, String arg2, String arg3,
+        String arg4, String arg5, String arg6) {
+        return Global.i18n(i18nKey, key, arg1, arg2, arg3, arg4, arg5, arg6);
+    }
 }

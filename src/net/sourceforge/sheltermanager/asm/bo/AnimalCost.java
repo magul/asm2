@@ -50,8 +50,9 @@ public class AnimalCost extends UserInfoBO {
         a.setAnimalID(getAnimalID());
         a.setCostTypeID(getCostTypeID());
         a.setCostDate(getCostDate());
-	a.setCostAmount(getCostAmount());
-	a.setDescription(getDescription());
+        a.setCostAmount(getCostAmount());
+        a.setDescription(getDescription());
+
         return a;
     }
 
@@ -159,16 +160,15 @@ public class AnimalCost extends UserInfoBO {
 
     public void validate() throws BOValidationException {
         try {
-
             if (getCostDate() == null) {
                 throw new BOValidationException(Global.i18n("bo",
-		    "you_must_supply_a_date_for_the_cost"));
-	    }
+                        "you_must_supply_a_date_for_the_cost"));
+            }
 
-	    if (getDescription() == null || getDescription().equals("")) {
+            if ((getDescription() == null) || getDescription().equals("")) {
                 throw new BOValidationException(Global.i18n("bo",
-		    "you_must_supply_a_description_for_the_cost"));
-	    }
+                        "you_must_supply_a_description_for_the_cost"));
+            }
         } catch (CursorEngineException e) {
             throw new BOValidationException(e.getMessage());
         }

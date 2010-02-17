@@ -95,7 +95,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private final static int TAB_MOVEMENT = 11;
     private final static int TAB_LOG = 12;
     private final static int TAB_ADDITIONAL = 13;
-
     public Animal animal = null;
     public MediaSelector animalmedia = null;
     public VaccinationSelector animalvaccinations = null;
@@ -220,6 +219,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     boolean loadedMovements = false;
     boolean loadedVaccinations = false;
     boolean loadedVet = false;
+    private long lastCheckedDate = 0;
 
     /** Creates new form EditAnimal */
     public AnimalEdit() {
@@ -586,6 +586,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             new Integer(Configuration.getInteger("AFDefaultSpecies")),
             cboSpecies);
 
+        // Default daily boarding cost
+        try {
+            animal.setDailyBoardingCost(new Double(Configuration.getDouble(
+                        "DefaultDailyBoardingCost")));
+            animalcosts.setDailyBoardingCost(Configuration.getDouble(
+                    "DefaultDailyBoardingCost"));
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
         // Set the breed choices based on default species
         checkBreed();
 
@@ -791,18 +801,20 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                                                       .equals(y));
 
             // Set icon for vet data if we have some
-	    try {
-  	        if (animal.isHasSpecialNeeds().equals(y) ||
-	            animal.getCurrentVetID().intValue() > 0 ||
-		    animal.getOwnersVetID().intValue() > 0 ||
-		    Utils.nullToEmptyString((String) animal.getHealthProblems()).length() > 0 || 
-		    Utils.nullToEmptyString((String) animal.getRabiesTag()).length() > 0)
-	    	    tabTabs.setIconAt(TAB_VET, IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VET));
-	    }
-	    catch (Exception e) {
+            try {
+                if (animal.isHasSpecialNeeds().equals(y) ||
+                        (animal.getCurrentVetID().intValue() > 0) ||
+                        (animal.getOwnersVetID().intValue() > 0) ||
+                        (Utils.nullToEmptyString(
+                            (String) animal.getHealthProblems()).length() > 0) ||
+                        (Utils.nullToEmptyString((String) animal.getRabiesTag())
+                                  .length() > 0)) {
+                    tabTabs.setIconAt(TAB_VET,
+                        IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VET));
+                }
+            } catch (Exception e) {
                 Global.logException(e, getClass());
-	    }
-
+            }
 
             // sort out location
             checkLocation();
@@ -1281,6 +1293,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         tabTabs.setEnabledAt(TAB_MOVEMENT, !chkNonShelter.isSelected());
         cboLocation.setEnabled(!chkNonShelter.isSelected());
 
+        // Disable cost tabs for non-shelter
+        tabTabs.setEnabledAt(TAB_COSTS, !chkNonShelter.isSelected());
+
         // If it is off the shelter, then we should automatically
         // choose the non-shelter animal type for it and disable
         // it - assuming we have a non shelter animal type, if not, the
@@ -1456,8 +1471,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             }, 500);
     }
 
-    private long lastCheckedDate = 0;
-
     /**
      * Called when the animal's brought in date has changed
      */
@@ -1465,9 +1478,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // It's a change
         dataChanged();
 
-	// Have we done one of these very recently? Like in the last 5 seconds?
-	if (System.currentTimeMillis() - lastCheckedDate <= 5000) return;
-	lastCheckedDate = System.currentTimeMillis();
+        // Have we done one of these very recently? Like in the last 5 seconds?
+        if ((System.currentTimeMillis() - lastCheckedDate) <= 5000) {
+            return;
+        }
+
+        lastCheckedDate = System.currentTimeMillis();
 
         // Are we actually using the year in codes?
         if ((Configuration.getString("CodingFormat").indexOf("Y") == -1) &&
@@ -1858,13 +1874,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             animal.save(Global.currentUserName);
 
-
             // If it wasn't a new record, save the boarding cost
             if (!isNewRecord) {
                 try {
                     animalcosts.saveBoardingCost();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
             }
@@ -2419,7 +2433,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         txtDateBroughtIn = (DateField) UI.addComponent(pnlEntryDetails,
                 i18n("Date_Brought_In:"),
                 UI.getDateField(i18n("The_date_the_animal_was_brought_into_the_shelter"),
-                    UI.fp(this, "checkDateBroughtIn"), UI.fp(this, "checkDateBroughtIn")));
+                    UI.fp(this, "checkDateBroughtIn"),
+                    UI.fp(this, "checkDateBroughtIn")));
 
         pnlEntryRight.add(pnlEntryDetails, UI.BorderLayout.SOUTH);
 

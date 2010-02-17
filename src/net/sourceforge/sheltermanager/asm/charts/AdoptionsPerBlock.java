@@ -58,7 +58,7 @@ public class AdoptionsPerBlock extends Chart {
         // Look up the name
         if (speciesID != 0) {
             try {
-            	speciesName = LookupCache.getSpeciesName(new Integer(speciesID));
+                speciesName = LookupCache.getSpeciesName(new Integer(speciesID));
             } catch (Exception e) {
             }
         }
@@ -77,7 +77,7 @@ public class AdoptionsPerBlock extends Chart {
     public boolean createGraph() throws Exception {
         // Outline model - 12 columns (Month, Year period)
         // 1 row for each internal location
-    	SQLRecordset il = LookupCache.getInternalLocationLookup();
+        SQLRecordset il = LookupCache.getInternalLocationLookup();
 
         int[][] model = new int[(int) il.getRecordCount()][12];
 

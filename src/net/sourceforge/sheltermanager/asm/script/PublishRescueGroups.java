@@ -127,13 +127,15 @@ public class PublishRescueGroups {
                         SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {
-                            il.openRecordset("SELECT * FROM internallocation WHERE LocationName Like '" +
+                            il.openRecordset(
+                                "SELECT * FROM internallocation WHERE LocationName Like '" +
                                 locnames[z] + "%'", "internallocation");
 
                             if (il.getEOF()) {
                                 Global.logError(
                                     "Could not find a location matching '" +
-                                    locnames[z] + "'", "PublishRescueGroups.PublishRescueGroups");
+                                    locnames[z] + "'",
+                                    "PublishRescueGroups.PublishRescueGroups");
                                 System.exit(1);
                             }
 

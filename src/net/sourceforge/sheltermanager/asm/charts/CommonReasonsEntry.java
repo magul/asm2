@@ -60,7 +60,7 @@ public class CommonReasonsEntry extends Chart {
     public boolean createGraph() throws Exception {
         // Outline model - 12 columns (Month, Year period)
         // rows = record count of entry reasons
-	SQLRecordset er = LookupCache.getEntryReasonLookup();
+        SQLRecordset er = LookupCache.getEntryReasonLookup();
 
         int[][] model = new int[(int) er.getRecordCount()][12];
 

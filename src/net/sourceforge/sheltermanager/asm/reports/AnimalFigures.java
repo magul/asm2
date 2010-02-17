@@ -167,26 +167,26 @@ public class AnimalFigures extends Report {
             // Based on Species
             if (Configuration.getBoolean("AnimalFiguresGroupBySpecies")) {
                 // SPECIES ==============================================
-                SQLRecordset sp = LookupCache.getSpeciesLookup();
-                sp.moveFirst();
-
-                // Compile list of species for which we have animal data
-                Vector v = new Vector();
-
-                while (!sp.getEOF()) {
-                    if (0 < DBConnection.executeForCount(
-                                "SELECT COUNT(ID) FROM animal WHERE SpeciesID = " +
-                                sp.getField("ID"))) {
-                        v.add(sp.getField("ID"));
-                    }
-
-                    sp.moveNext();
-                }
-
                 if (selSpecies != 0) {
                     setStatusBarMax(15);
                     genSpeciesFigs(new Integer(selSpecies));
                 } else {
+                    SQLRecordset sp = LookupCache.getSpeciesLookup();
+                    sp.moveFirst();
+
+                    // Compile list of species for which we have animal data
+                    Vector v = new Vector();
+
+                    while (!sp.getEOF()) {
+                        if (0 < DBConnection.executeForCount(
+                                    "SELECT COUNT(ID) FROM animal WHERE SpeciesID = " +
+                                    sp.getField("ID"))) {
+                            v.add(sp.getField("ID"));
+                        }
+
+                        sp.moveNext();
+                    }
+
                     for (int i = 0; i < v.size(); i++) {
                         // 15 steps per generation
                         int maxent = 15 * (v.size());
@@ -223,8 +223,8 @@ public class AnimalFigures extends Report {
                 }
             }
         } catch (Exception e) {
-            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
         } finally {
             resetStatusBar();
         }

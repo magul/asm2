@@ -61,7 +61,8 @@ public class VaccinationEdit extends ASMForm {
 
     public VaccinationEdit(VaccinationParent ea) {
         editanimal = ea;
-        init("", IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VACCINATION),
+        init("",
+            IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VACCINATION),
             "uianimal");
     }
 
@@ -70,6 +71,7 @@ public class VaccinationEdit extends ASMForm {
         ctl.add(cboVaccinationType);
         ctl.add(txtDateRequired.getTextField());
         ctl.add(txtDateGiven.getTextField());
+        ctl.add(txtCost.getTextField());
         ctl.add(txtComments);
         ctl.add(btnOk);
         ctl.add(btnCancel);
@@ -113,12 +115,12 @@ public class VaccinationEdit extends ASMForm {
 
         try {
             Utils.setComboFromID(LookupCache.getVaccinationTypeLookup(),
-	        "VaccinationType", new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
-		cboVaccinationType);
-	}
-	catch (Exception e) {
+                "VaccinationType",
+                new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
+                cboVaccinationType);
+        } catch (Exception e) {
             Global.logException(e, getClass());
-	}
+        }
 
         try {
             // Date required
