@@ -49,7 +49,6 @@ public class DonationSelector extends ASMSelector {
     private int movementID = 0;
     private UI.Button btnDelete;
     private UI.Button btnNew;
-    private UI.Button btnNewInstalment;
     private UI.Button btnEdit;
     private UI.Button btnDoc;
 
@@ -75,10 +74,6 @@ public class DonationSelector extends ASMSelector {
 
         if (!Global.currentUserObject.getSecAddOwnerDonation()) {
             btnNew.setEnabled(false);
-        }
-
-        if (!Global.currentUserObject.getSecAddOwnerDonation()) {
-            btnNewInstalment.setEnabled(false);
         }
 
         if (!Global.currentUserObject.getSecGenerateAnimalForms()) {
