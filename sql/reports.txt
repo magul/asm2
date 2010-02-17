@@ -63,12 +63,15 @@ SELECT ShelterCode, AnimalName, DateBroughtIn,
 TimeOnShelter,
 animaltype.AnimalType AS theType,
 species.SpeciesName,
-oo.OwnerName AS OOName, oo.OwnerAddress AS OOAddress, oo.OwnerTown AS OOTown, oo.OwnerCounty AS OOCounty, oo.OwnerPostcode AS OOPostcode
+oo.OwnerName AS OOName, oo.OwnerAddress AS OOAddress, oo.OwnerTown AS OOTown, oo.OwnerCounty AS OOCounty, oo.OwnerPostcode AS OOPostcode,
+bb.OwnerName AS BBName, bb.OwnerAddress AS BBAddress, bb.OwnerTown AS BBTown,
+bb.OwnerCounty AS BBCounty, bb.OwnerPostcode AS BBPostcode
 FROM animal
 INNER JOIN animaltype ON animaltype.ID = animal.AnimalTypeID
 INNER JOIN species ON species.ID = animal.SpeciesID
 INNER JOIN internallocation ON internallocation.ID = animal.ShelterLocation
 INNER JOIN owner oo ON animal.OriginalOwnerID = oo.ID
+INNER JOIN owner bb ON animal.BroughtInByOwnerID = bb.ID
 WHERE DateBroughtIn >= '$@from$' AND DateBroughtIn <= '$@to$'
 ORDER BY SpeciesName, DateBroughtIn
 ###
@@ -85,6 +88,7 @@ $$HEAD
 <td><b>Type</b></td>
 <td><b>Brought In</b></td>
 <td><b>By</b></td>
+<td><b>Owner</b></td>
 <td><b>Time On Shelter</b></td>
 </tr>
 $$FOOT
@@ -98,6 +102,12 @@ $$BODY
 <td>$AnimalName</td>
 <td>$theType</td>
 <td>$DateBroughtIn</td>
+<td><i>$BBName</i><br />
+$BBAddress<br />
+$BBTown<br />
+$BBCounty<br />
+$BBPostcode
+</td>
 <td><i>$OOName</i><br />
 $OOAddress<br />
 $OOTown<br />
