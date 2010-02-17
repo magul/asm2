@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Foster and Retailer books filter out movements with return dates 
+-  after today instead of with a return date at all
 *. Removed references to unused instalment donation button
 *. Coat type can be searched via simple screen
 *. Fixed bug with dialogs freeing cached lookups
