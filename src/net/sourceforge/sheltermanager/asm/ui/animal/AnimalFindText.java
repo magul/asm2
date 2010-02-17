@@ -498,6 +498,8 @@ public class AnimalFindText extends ASMFind {
                 8);
             addQuery(new String[] { "lksize.Size" },
                 "INNER JOIN lksize ON animal.Size = lksize.ID", 8);
+            addQuery(new String[] { "lkcoattype.CoatType" },
+                "INNER JOIN lkcoattype ON animal.CoatType = lkcoattype.ID", 8);
 
             // Ordering
             sql.append(" ORDER BY priority");
