@@ -1138,7 +1138,7 @@ INSERT INTO diet VALUES (1, 'Standard', '');
 CREATE MEMORY TABLE donationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   DonationName VARCHAR(255) NOT NULL,
-  DonationDescription VARCHAR(255) NULL,
+  DonationDescription VARCHAR(255) NULL
 );
 INSERT INTO donationtype VALUES (1, 'Donation', '');
 INSERT INTO donationtype VALUES (2, 'Adoption Fee', '');
