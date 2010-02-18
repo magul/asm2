@@ -93,7 +93,7 @@ Adoption history facilities, allowing full animal tracking
 
 \begin_layout Itemize
 Advanced media facilities for attaching photographs, documents, spreadsheets,
- videos and sounds etc.
+ videos and sounds.
 \end_layout
 
 \begin_layout Itemize
@@ -119,7 +119,7 @@ on cards etc.
 
 \begin_layout Itemize
 Web site generation to allow a wider audience to see your animals, including
- integration to PetFinder.com
+ integration to PetFinder.com and other major US adoption websites.
 \end_layout
 
 \begin_layout Itemize
@@ -128,7 +128,12 @@ Lost and found database facilities with intelligent matching system
 
 \begin_layout Itemize
 Easy-maintenance database with low resource requirements for easy backing
- up using backup tapes, zip drives and CD writers
+ up using backup tapes, zip drives and CD writers.
+\end_layout
+
+\begin_layout Itemize
+Owner and donation management, including UK Gift Aid support, homechecking,
+ banned owners, etc.
 \end_layout
 
 \begin_layout Itemize
@@ -1427,6 +1432,69 @@ Diet
 The diet tab is used for capturing information about the animal's diet.
  You can set up as many different diet types (under System->Lookups->Diets)
  as you like, and then log them here when the animal's diet changes.
+\end_layout
+
+\begin_layout Subsection
+Costs
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Costs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_costs.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The costs tab allows you to track costs associated with looking after an
+ animal whilst it is in your care.
+ You can assign a daily boarding cost, and ASM will automatically keep track
+ of how many days the animal has been on your shelter and how much it has
+ cost.
+\end_layout
+
+\begin_layout Standard
+In addition, you can add cost types through the System->Lookups->Cost Types
+ menu and allocate costs for anything else your shelter has spent on the
+ animal (eg: Microchipping).
+ Vaccinations and medical treatments have a cost field that you can set
+ for each treatment and they will be automatically totalled up at the bottom
+ of the costs screen along with a current running cost for all time and
+ a balance, calculated from total costs less any donations allocated to
+ the animal.
+\end_layout
+
+\begin_layout Standard
+By default, when the animal is adopted, ASM will automatically convert the
+ current boarding cost/time into a separate cost record so it can be preserved.
 \end_layout
 
 \begin_layout Subsection
@@ -6821,6 +6889,8 @@ Style:
 ASM can support multiple templates when publishing.
  It will discover which templates are available and list them here for you
  to choose.
+ You can create your own by copying an existing one in the media /internet
+ folder and modifying it.
 \end_layout
 
 \begin_layout Section
@@ -8246,6 +8316,14 @@ The movement tab allows a number of days to be set to automatically cancel
  If an animal is reserved for this period of time and it does not result
  in an adoption (or any kind of movement), ASM will automatically cancel
  the reservation for you after this time.
+\end_layout
+
+\begin_layout Standard
+The costs tab allows you to specify a default daily boarding cost for new
+ animals (this value can be modified on the animal's cost tab).
+ You can also set whether to convert the boarding cost to a fixed cost record
+ when the animal is adopted (this is the default behaviour) and which cost
+ type that should be booked to.
 \end_layout
 
 \begin_layout Subsection
@@ -10186,7 +10264,9 @@ To get the other machines on your network talking to your server, install
  ASM will search for (and after a short wait) and find your database server
  and fill in the details for you.
  You can then hit Ok to connect.
- 
+ If you have a large network, or are familiar with hostnames and IP addresses
+ and know where to find your server machine, then you can fill in the hostname
+ and save the time scanning.
 \end_layout
 
 \begin_layout Standard
@@ -11010,7 +11090,8 @@ Owner Keys
 
 \begin_layout Standard
 Owner keys are available for documents generated from the owner and movement
- screens.
+ screens, they are also available for documents generated from the donation
+ tab.
 \end_layout
 
 \begin_layout Itemize
@@ -11116,8 +11197,7 @@ Donation Keys
 \end_layout
 
 \begin_layout Standard
-Donation keys are available for documents generated from the donation tab
- of the owner/movement screens.
+Donation keys are available for documents generated from the donation tab.
 \end_layout
 
 \begin_layout Itemize
