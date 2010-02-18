@@ -1566,4 +1566,50 @@ $$FOOTER
 </table>
 FOOTER$$
 
+&&&
+Gift Aid Claim
+###
+Financials
+###
+2707/Any
+###
+Produces a list of all donations qualifying for gift aid between two dates.
+###
+en_GB
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
 
+SELECT OwnerName, OwnerAddress, OwnerTown, OwnerCounty, OwnerPostcode, HomeTelephone, Donation, ownerdonation.Date
+FROM ownerdonation
+INNER JOIN owner ON ownerdonation.OwnerID = owner.ID
+WHERE ownerdonation.IsGiftAid = 1 AND
+ownerdonation.Date >= '$@from$' AND ownerdonation.Date <= '$@to$'
+###
+$$HEADER
+<table border=1><tr>
+<td><b>DATE</b></td>
+<td><b>Name</b></td>
+<td><b>Address</b></td>
+<td><b>Telephone</b></td>
+<td><b>Amount</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$DATE</td>
+<td>$OWNERNAME</td>
+<td>$OWNERADDRESS<br/>
+$OWNERTOWN<br/>
+$OWNERCOUNTY<br/>
+$OWNERPOSTCODE<br/>
+</td>
+<td>$HOMETELEPHONE</td>
+<td>&pound;$DONATION</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+<p>Total qualifying for gift aid in period: <b>&pound;{SUM.DONATION.2}</b></p>
+FOOTER$$
