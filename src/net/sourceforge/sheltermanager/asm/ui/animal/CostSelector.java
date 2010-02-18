@@ -173,9 +173,9 @@ public class CostSelector extends ASMSelector {
             double ta = tv + tm + tc + totalboardcost;
             String s = i18n("cost_totals", Utils.formatCurrency(tv),
                     Utils.formatCurrency(tm), Utils.formatCurrency(tc),
-                    Utils.formatCurrency(ta)) + "<br />" +
+                    "<b>" + Utils.formatCurrency(ta)) + "</b><br />" +
                 i18n("cost_balance", Utils.formatCurrency(td),
-                    Utils.formatCurrency(td - ta));
+                    "<b>" + Utils.formatCurrency(td - ta) + "</b>");
             lblTotals.setText(s);
         } catch (Exception e) {
             Global.logException(e, getClass());

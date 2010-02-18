@@ -112,7 +112,7 @@ public class OwnerDonation extends UserInfoBO {
     }
 
     public Double getDonation() throws CursorEngineException {
-        return (Double) rs.getField("Donation");
+        return new Double(rs.getDouble("Donation"));
     }
 
     public void setDonation(Double newValue) throws CursorEngineException {

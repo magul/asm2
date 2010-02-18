@@ -1780,6 +1780,7 @@ public final class UI {
             this.onHyperlinkClick = onHyperlinkClick;
             this.setContentType("text/html");
             this.setEditable(false);
+            this.setOpaque(true);
             addHyperlinkListener(this);
         }
 

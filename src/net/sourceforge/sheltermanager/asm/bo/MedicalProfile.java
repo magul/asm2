@@ -76,7 +76,7 @@ public class MedicalProfile extends UserInfoBO {
     }
 
     public Double getCost() throws CursorEngineException {
-        return (Double) rs.getField("Cost");
+        return new Double(rs.getDouble("Cost"));
     }
 
     public void setCost(Double newValue) throws CursorEngineException {

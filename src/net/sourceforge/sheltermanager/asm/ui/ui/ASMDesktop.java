@@ -167,6 +167,7 @@ public class ASMDesktop extends JPanel {
         currentview = f;
         newTabSelected(f);
         revalidate();
+        repaint();
     }
 }
 

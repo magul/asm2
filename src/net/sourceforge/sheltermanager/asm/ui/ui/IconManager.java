@@ -119,7 +119,7 @@ public abstract class IconManager {
     public final static String CREATERETURN = "actions-CreateReturn-24.png";
     public final static String BOOK = "actions-Book-24.png";
     public final static String DONATIONS = "donations-Basic-24.png";
-    public final static String COSTS = "donations-Basic-24.png";
+    public final static String COSTS = "actions-Costs-24.png";
     public final static String USERS = "system-Users-24.png";
     public final static String USERSSMALL = "system-Users-16.png";
     public final static String WAITINGLIST = "actions-WaitingList-24.png";

@@ -1,6 +1,12 @@
 2.7.0
 ================
 
+*. Removed weird question mark from estimated checkbox tooltip
+*. Changed Dead to Deceased as it's apparently less upsetting
+*. Fix to business layer to make sure monetary values cannot 
+-  come back as null after failed updates
+*. Judicious use of repaint calls and opacity to try and fix OSX 10.5.8 
+-  painting issues when switching tabs from reports sometimes
 *. Foster and Retailer books filter out movements with return dates 
 -  after today instead of with a return date at all
 *. Removed references to unused instalment donation button

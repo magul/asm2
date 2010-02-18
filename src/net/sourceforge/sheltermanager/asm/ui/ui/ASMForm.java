@@ -129,6 +129,7 @@ public abstract class ASMForm extends JPanel {
     public void init(String title, Icon icon, String i18nKey) {
         UI.cursorToWait();
         this.i18nKey = i18nKey;
+        setOpaque(true);
         setTitle(title);
         setFrameIcon(icon);
         initComponents();
