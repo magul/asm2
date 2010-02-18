@@ -53,8 +53,8 @@ public class AnimalPrint extends Report {
         try {
             generate();
         } catch (Exception e) {
-            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
         }
     }
 
@@ -343,6 +343,108 @@ public class AnimalPrint extends Report {
         }
 
         ad.free();
+
+        // Costs
+        AnimalCost ac = new AnimalCost();
+        ac.openRecordset("AnimalID = " + a.getID() + " ORDER BY CostDate");
+
+        addLevelTwoHeader(Global.i18n("uianimal", "Costs"));
+
+        boolean hascost = false;
+        if (!ac.getEOF()) {
+            tableNew(true);
+            tableAddRow();
+            tableAddBoldCell(Global.i18n("uianimal", "Date"));
+            tableAddBoldCell(Global.i18n("uianimal", "Type"));
+            tableAddBoldCell(Global.i18n("uianimal", "Amount"));
+            tableAddBoldCell(Global.i18n("uianimal", "Description"));
+            tableFinishRow();
+            hascost = true;
+        }
+        while (!ac.getEOF()) {
+            tableAddRow();
+            tableAddCell(date(ac.getCostDate()));
+            tableAddCell(ac.getCostTypeName());
+            tableAddCell(Utils.formatCurrency(ac.getCostAmount()));
+            tableAddCell(ac.getDescription());
+            tableFinishRow();
+            ac.moveNext();
+        }
+
+        if (hascost) {
+            tableFinish();
+            addTable();
+        }
+
+        // Days on shelter, board line
+        double tb = 0;
+        if (a.getArchived().intValue() == 0) {
+            tb = a.getDaysOnShelter() * a.getDailyBoardingCost().doubleValue();
+            String sboard = Global.i18n("uianimal", "On_shelter_days_total_cost",
+                Integer.toString(a.getDaysOnShelter()),
+                Utils.formatCurrency(tb));
+            addParagraph(sboard);
+        }
+
+        // Total costs of vaccinations and medicals with total balance and donations
+        SQLRecordset tots = new SQLRecordset();
+        tots.openRecordset("SELECT " +
+            "(SELECT SUM(Cost) FROM animalvaccination WHERE AnimalID = animal.ID) AS totvacc, " +
+            "(SELECT SUM(Cost) FROM animalmedical WHERE AnimalID = animal.ID) AS totmed, " +
+            "(SELECT SUM(CostAmount) FROM animalcost WHERE AnimalID = animal.ID) AS totcost, " +
+            "(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID) AS totdon " +
+            "FROM animal WHERE ID = " + a.getID(), "animal");
+        double tv = tots.getDouble("totvacc");
+        double tm = tots.getDouble("totmed");
+        double tc = tots.getDouble("totcost");
+        double td = tots.getDouble("totdon");
+        double ta = tv + tm + tc + tb;
+        String scost = Global.i18n("uianimal", "cost_totals", Utils.formatCurrency(tv),
+                Utils.formatCurrency(tm), Utils.formatCurrency(tc),
+                "<b>" + Utils.formatCurrency(ta)) + "</b><br />" +
+                Global.i18n("uianimal", "cost_balance", Utils.formatCurrency(td),
+                "<b>" + Utils.formatCurrency(td - ta) + "</b>");
+        addParagraph(scost);
+
+        // Donations
+        OwnerDonation od = new OwnerDonation();
+        od.openRecordset("AnimalID = " + a.getID() + " ORDER BY Date");
+
+        addLevelTwoHeader(Global.i18n("uianimal", "Donations"));
+
+        boolean hasdon = false;
+        if (!od.getEOF()) {
+            tableNew(true);
+            tableAddRow();
+            tableAddBoldCell(Global.i18n("uiowner", "date_due"));
+            tableAddBoldCell(Global.i18n("uiowner", "date_received"));
+            tableAddBoldCell(Global.i18n("uiowner", "Name"));
+            tableAddBoldCell(Global.i18n("uiowner", "receipt_number"));
+            tableAddBoldCell(Global.i18n("uiowner", "donation"));
+            tableAddBoldCell(Global.i18n("uiowner", "type"));
+            tableAddBoldCell(Global.i18n("uiowner", "frequency"));
+            tableAddBoldCell(Global.i18n("uiowner", "comments"));
+            tableFinishRow();
+            hasdon = true;
+        }
+        while (!od.getEOF()) {
+            tableAddRow();
+            tableAddCell(date(od.getDateDue()));
+            tableAddCell(date(od.getDateReceived()));
+            tableAddCell(od.getOwner().getOwnerName());
+            tableAddCell(Utils.nullToEmptyString(od.getReceiptNum()));
+            tableAddCell(Utils.formatCurrency(od.getDonation().doubleValue()));
+            tableAddCell(od.getDonationTypeName());
+            tableAddCell(LookupCache.getDonationFreqForID(od.getFrequency()));
+            tableAddCell(od.getComments());
+            tableFinishRow();
+            od.moveNext();
+        }
+
+        if (hasdon) {
+            tableFinish();
+            addTable();
+        }
 
         // Diary
         Diary di = new Diary();

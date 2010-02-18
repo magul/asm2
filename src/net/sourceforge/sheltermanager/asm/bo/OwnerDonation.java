@@ -50,6 +50,28 @@ public class OwnerDonation extends UserInfoBO {
         rs.setField("OwnerID", newValue);
     }
 
+    private Owner owner = null;
+    public Owner getOwner() throws CursorEngineException {
+        // Do we have an owner?
+        if (owner != null) {
+            // Is it the correct one?
+            if (owner.getID().equals(getOwnerID())) {
+                // It is - return it
+                return owner;
+            }
+        }
+
+        // We don't have one or it isn't valid, look it up
+        owner = new Owner();
+        owner.openRecordset("ID = " + getOwnerID());
+
+        if (owner.getEOF()) {
+            return null;
+        } else {
+            return owner;
+        }
+    }
+
     public Integer getAnimalID() throws CursorEngineException {
         return (Integer) rs.getField("AnimalID");
     }
