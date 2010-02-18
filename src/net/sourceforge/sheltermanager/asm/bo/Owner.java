@@ -187,6 +187,14 @@ public class Owner extends UserInfoBO {
         rs.setField("IsACO", newValue);
     }
 
+    public Integer getIsGiftAid() throws CursorEngineException {
+        return (Integer) rs.getField("IsGiftAid");
+    }
+
+    public void setIsGiftAid(Integer newValue) throws CursorEngineException {
+        rs.setField("IsGiftAid", newValue);
+    }
+
     public Integer getIsStaff() throws CursorEngineException {
         return (Integer) rs.getField("IsStaff");
     }

@@ -147,6 +147,11 @@ public class OwnerDonationDocument extends GenerateDocument {
                 LookupCache.getDonationTypeName(od.getDonationTypeID()));
             addTag(Global.i18n("wordprocessor", "ReceiptNum"),
                 od.getReceiptNum());
+            addTag(Global.i18n("wordprocessor", "DonationGiftAid"),
+                (owner.getIsGiftAid().intValue() == 1)
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
+
 
             // Generate a document title based on the owner information
             // and the doc selected

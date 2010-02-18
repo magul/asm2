@@ -40,6 +40,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
@@ -61,6 +62,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
     private int movementID = 0;
     private UI.Button btnCancel;
     private UI.Button btnOk;
+    private UI.CheckBox chkGiftAid;
     private UI.ComboBox cboFrequency;
     private UI.TextArea txtComments;
     private DateField txtDateDue;
@@ -89,6 +91,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
         ctl.add(cboFrequency);
         ctl.add(txtDonation.getTextField());
         ctl.add(cboDonationType);
+        ctl.add(chkGiftAid);
         ctl.add(txtComments);
         ctl.add(btnOk);
         ctl.add(btnCancel);
@@ -119,6 +122,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             txtDateReceived.setText(Utils.formatDate(od.getDateReceived()));
             txtDonation.setText(od.getDonation().toString());
             cboFrequency.setSelectedIndex(((Integer) od.getFrequency()).intValue());
+            chkGiftAid.setSelected( od.getIsGiftAid().intValue() == 1 );
             Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
                 "DonationName", od.getDonationTypeID(), cboDonationType);
             txtComments.setText(od.getComments());
@@ -169,6 +173,11 @@ public class DonationEdit extends ASMForm implements SearchListener,
                 new Integer(Configuration.getInteger("AFDefaultDonationType")),
                 cboDonationType);
 
+            // Set gift aid from registered flag if locale is UK
+            if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+                chkGiftAid.setSelected( DBConnection.executeForInt("SELECT IsGiftAid FROM owner WHERE ID = " + ownerID) == 1 );
+            }
+
             this.setTitle(i18n("new_owner_donation"));
         } catch (Exception e) {
             Dialog.showError(i18n("unable_to_create_new_ownerdonation") +
@@ -199,6 +208,12 @@ public class DonationEdit extends ASMForm implements SearchListener,
         cboDonationType = UI.getCombo(i18n("type"),
                 LookupCache.getDonationTypeLookup(), "DonationName");
         UI.addComponent(top, i18n("type"), cboDonationType);
+
+        chkGiftAid = UI.getCheckBox(i18n("Gift_Aid"));
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+            top.add(UI.getLabel());
+            top.add(chkGiftAid);
+        }
 
         // If we have no owner ID, allow box to choose it
         if (ownerID == 0) {
@@ -250,6 +265,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             od.setDateDue(Utils.parseDate(txtDateDue.getText()));
             od.setDonation(new Double(txtDonation.getText()));
             od.setFrequency(new Integer(cboFrequency.getSelectedIndex()));
+            od.setIsGiftAid(new Integer(chkGiftAid.isSelected() ? 1 : 0));
             od.setDonationTypeID(Utils.getIDFromCombo(
                     LookupCache.getDonationTypeLookup(), "DonationName",
                     cboDonationType));

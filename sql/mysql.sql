@@ -950,7 +950,7 @@ CREATE TABLE configuration (
   ItemValue varchar(255) NOT NULL 
 ) TYPE=MyISAM;
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2706');
+INSERT INTO configuration VALUES ('DatabaseVersion','2707');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1551,6 +1551,7 @@ CREATE TABLE owner (
   IsFosterer tinyint(4) NOT NULL ,
   IsRetailer tinyint(4) NOT NULL ,
   IsVet tinyint(4) NOT NULL ,
+  IsGiftAid tinyint(4) NOT NULL,
   HomeCheckAreas text NULL,
   DateLastHomeChecked datetime NULL,
   HomeCheckedBy int(11) NULL,
@@ -1591,6 +1592,7 @@ CREATE TABLE ownerdonation (
   Date datetime NULL,
   DateDue datetime NULL,
   Donation double NOT NULL,
+  IsGiftAid tinyint(4) NOT NULL,
   Frequency smallint NOT NULL,
   NextCreated tinyint(4) NOT NULL,
   Comments text NULL,

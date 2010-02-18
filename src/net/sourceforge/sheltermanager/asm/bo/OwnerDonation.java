@@ -152,6 +152,14 @@ public class OwnerDonation extends UserInfoBO {
         return newnum;
     }
 
+    public Integer getIsGiftAid() throws CursorEngineException {
+        return (Integer) rs.getField("IsGiftAid");
+    }
+
+    public void setIsGiftAid(Integer newValue) throws CursorEngineException {
+        rs.setField("IsGiftAid", newValue);
+    }
+
     public String getComments() throws CursorEngineException {
         return (String) rs.getField("Comments");
     }
@@ -202,6 +210,7 @@ public class OwnerDonation extends UserInfoBO {
         setMovementID(z);
         setDonationTypeID(z);
         setFrequency(z);
+        setIsGiftAid(z);
         setNextCreated(z);
         setDonation(new Double(0));
         setComments("");

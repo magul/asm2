@@ -2670,6 +2670,12 @@ The owner screen is also grouped into separate tabbed sections (similarly
  mistakes.
 \end_layout
 
+\begin_layout Standard
+Note the gift aid registered flag for people in the UK, setting this will
+ default the gift aid flag when creating donations for this owner (they
+ can be unticked where necessary) for tracking gift aid claims to HMRC.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset Index
 status open
@@ -11235,6 +11241,10 @@ DonationCreatedBy (DonationCreatedByName)
 
 \begin_layout Itemize
 DonationCreatedDate
+\end_layout
+
+\begin_layout Itemize
+DonationGiftAid - (en_GB only), if the donation qualified for gift aid
 \end_layout
 
 \begin_layout Itemize

@@ -1809,34 +1809,25 @@ public final class UI {
         }
 
         public void setPage(final String iurl) throws IOException {
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    // Mac and Windows go a bit weird with file URLs if they
-                    // aren't prefixed with exactly three forward slashes.
-                    // I can understand the Mac since the third is the root
-                    // of the filesystem, but Windows??? Anyway, we do a
-                    // check here and make sure there are enough.
-                    String url = iurl;
-                    if ((url.startsWith("file://") || url.startsWith("file:/")) &&
-                            !url.startsWith("file:///")) {
-                        if (url.startsWith("file://")) {
-                            url = "file:///" + url.substring("file://".length());
-                        } else if (url.startsWith("file:/")) {
-                            url = "file:///" + url.substring("file:/".length());
-                        }
-                    }
-
-                    // This is needed to prevent URL caching if we want to update
-                    // the page we're looking at by going there again
-                    getDocument().putProperty(Document.StreamDescriptionProperty, null);
-                    try {
-                        HTMLBrowser.super.setPage(url);
-                    }
-                    catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            // Mac and Windows go a bit weird with file URLs if they
+            // aren't prefixed with exactly three forward slashes.
+            // I can understand the Mac since the third is the root
+            // of the filesystem, but Windows??? Anyway, we do a
+            // check here and make sure there are enough.
+            String url = iurl;
+            if ((url.startsWith("file://") || url.startsWith("file:/")) &&
+                    !url.startsWith("file:///")) {
+                if (url.startsWith("file://")) {
+                    url = "file:///" + url.substring("file://".length());
+                } else if (url.startsWith("file:/")) {
+                    url = "file:///" + url.substring("file:/".length());
                 }
-            });
+            }
+
+            // This is needed to prevent URL caching if we want to update
+            // the page we're looking at by going there again
+            getDocument().putProperty(Document.StreamDescriptionProperty, null);
+            HTMLBrowser.super.setPage(url);
         }
 
         public int print(Graphics g, PageFormat pf, int pageIndex)

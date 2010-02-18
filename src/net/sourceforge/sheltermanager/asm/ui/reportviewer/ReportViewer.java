@@ -154,7 +154,16 @@ public class ReportViewer extends ASMForm {
         try {
             Utils.writeFile(filename,
                 filecontents.getBytes(Global.CHAR_ENCODING));
-            edOutput.setPage("file:///" + filename);
+            UI.invokeLater(new Runnable() {
+                public void run() {
+                    try {
+                        edOutput.setPage("file:///" + filename);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

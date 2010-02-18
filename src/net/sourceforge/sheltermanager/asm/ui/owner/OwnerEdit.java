@@ -92,6 +92,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.Button btnMerge;
     private UI.Button btnSave;
     private UI.Button btnMap;
+    private UI.CheckBox chkGiftAid;
     private UI.CheckBox chkBanned;
     private UI.CheckBox chkHomeCheck;
     private UI.CheckBox chkHomeChecker;
@@ -240,6 +241,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         ctl.add(chkIsMember);
         ctl.add(txtMembershipExpiryDate.getTextField());
         ctl.add(txtMembershipNumber);
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+            ctl.add(chkGiftAid);
+        }
         ctl.add(chkBanned);
         ctl.add(chkIsDonor);
         ctl.add(chkVolunteer);
@@ -473,6 +477,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             txtAddress.setText(Utils.nullToEmptyString(owner.getOwnerAddress()));
 
             Integer y = new Integer(1);
+            chkGiftAid.setSelected(owner.getIsGiftAid().equals(y));
             chkBanned.setSelected(owner.getIsBanned().equals(y));
             chkHomeCheck.setSelected(owner.getIDCheck().equals(y));
             chkVolunteer.setSelected(owner.getIsVolunteer().equals(y));
@@ -865,6 +870,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             Integer y = new Integer(1);
             Integer n = new Integer(0);
 
+            owner.setIsGiftAid(chkGiftAid.isSelected() ? y : n);
             owner.setIsBanned(chkBanned.isSelected() ? y : n);
             owner.setIDCheck(chkHomeCheck.isSelected() ? y : n);
 
@@ -1246,6 +1252,15 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         txtMembershipNumber = (UI.TextField) UI.addComponent(pnlRightTop, "",
                 UI.getTextField(i18n("if_this_owner_is_a_member_the_number"),
                     UI.fp(this, "dataChanged")));
+
+
+        chkGiftAid = UI.getCheckBox(i18n("Gift_Aid_Registered"),
+                    null, UI.fp(this, "dataChanged"));
+
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+            pnlRightTop.add(UI.getLabel());
+            pnlRightTop.add(chkGiftAid);
+        }
 
         chkBanned = (UI.CheckBox) pnlRightTop.add(UI.getCheckBox(i18n("Banned"),
                     null, UI.fp(this, "dataChanged")));

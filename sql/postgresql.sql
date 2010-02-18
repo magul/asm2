@@ -877,7 +877,7 @@ CREATE TABLE configuration (
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2706');
+INSERT INTO configuration VALUES ('DatabaseVersion','2707');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -1450,6 +1450,7 @@ CREATE TABLE owner (
   IsFosterer INTEGER NOT NULL,
   IsRetailer INTEGER NOT NULL,
   IsVet INTEGER NOT NULL,
+  IsGiftAid INTEGER NOT NULL,
   HomeCheckAreas VARCHAR(16384) NULL,
   DateLastHomeChecked TIMESTAMP NULL,
   HomeCheckedBy INTEGER NULL,
@@ -1489,6 +1490,7 @@ CREATE TABLE ownerdonation (
   Date TIMESTAMP NULL,
   DateDue TIMESTAMP NULL,
   Donation REAL NOT NULL,
+  IsGiftAid INTEGER NOT NULL,
   Frequency INTEGER NOT NULL,
   NextCreated INTEGER NOT NULL,
   Comments VARCHAR(16384) NULL,

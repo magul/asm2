@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-02-18 09:53+0000\n"
+"PO-Revision-Date: 2010-02-18 14:25+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3054,6 +3054,7 @@ msgstr "Biting"
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #. # bo/Adoption
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
 #: donationtype_1
@@ -4270,6 +4271,7 @@ msgstr "Email Address"
 #. # reports/ShelterInventory
 #. # reports/OwnerSearchResults
 #. # reports/OwnerCriteriaSearch
+#. # reports/AnimalPrint
 #. # reports/Vets
 #. # reports/WaitingList
 #. # ui/animal/VaccinationView
@@ -4738,6 +4740,7 @@ msgstr "Location"
 msgid "Vet Diary upto {0} "
 msgstr "Vet Diary upto {0} "
 
+#. # reports/AnimalPrint
 #. # reports/Vets
 #. # ui/animal/DietSelector
 #. # ui/animal/CostSelector
@@ -5018,6 +5021,7 @@ msgstr "{0} names have been allocated to more than one animal."
 
 #. # reports/Stats
 #. # reports/AnimalFigures
+#. # reports/AnimalPrint
 #. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
@@ -5780,6 +5784,7 @@ msgstr "Internal Loc"
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
 #. # reports/LongTermAnimals
+#. # reports/AnimalPrint
 #. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
 #. # reports/Vets
@@ -6246,6 +6251,7 @@ msgstr "Housetrained"
 #. # bo/AnimalMedical
 #. # bo/Log
 #. # bo/MedicalProfile
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
 #. # ui/owner/VoucherSelector
@@ -8267,6 +8273,7 @@ msgstr "Expires:"
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr "Complete and reschedule the selected vaccinations for next year"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/users/UserEdit
 #. # ui/movement/MovementEdit
@@ -8294,6 +8301,7 @@ msgstr "Doc Preferred"
 msgid "Mark this media as preferred for use with documents"
 msgstr "Mark this media as preferred for use with documents"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/system/Options
 #: Costs
@@ -8326,6 +8334,7 @@ msgstr "Daily Board Cost:"
 msgid "The daily cost of food and board for this animal"
 msgstr "The daily cost of food and board for this animal"
 
+#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
 #: On_shelter_days_total_cost
 msgid "On shelter for {0} days. Total cost: {1}"
@@ -8348,17 +8357,20 @@ msgstr "Edit Cost"
 msgid "Description:"
 msgstr "Description:"
 
+#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
 #: Amount
 msgid "Amount"
 msgstr "Amount"
 
+#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
 #: cost_totals
 msgid ""
 "Vaccinations: {0}, Medical Treatments: {1}, Costs: {2}, Total Costs: {3}"
 msgstr ""
 
+#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
@@ -11763,12 +11775,14 @@ msgstr "Town contains:"
 msgid "County contains:"
 msgstr "County contains:"
 
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
 #: date_received
 msgid "Date Received"
 msgstr "Date Received"
 
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
 #: date_due
@@ -12033,6 +12047,7 @@ msgstr "Mobile:"
 msgid "Generate Document/Receipt"
 msgstr "Generate Document/Receipt"
 
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #: receipt_number
 msgid "Receipt Number"
@@ -12183,6 +12198,7 @@ msgstr "Locate this owner on a map"
 msgid "Potential Adopters"
 msgstr "Potential Adopters"
 
+#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
 #: frequency
@@ -12193,6 +12209,16 @@ msgstr "Frequency:"
 #: if_this_owner_is_a_member_the_number
 msgid "If this owner is a member, their membership number"
 msgstr "If this owner is a member, their membership number"
+
+#. # ui/owner/OwnerEdit
+#: Gift_Aid_Registered
+msgid "Gift Aid Registered"
+msgstr "Gift Aid Registered"
+
+#. # ui/owner/DonationEdit
+#: Gift_Aid
+msgid "Gift Aid"
+msgstr "Gift Aid"
 
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
@@ -13904,6 +13930,7 @@ msgstr "View Log Entries"
 msgid "View Owner Vouchers"
 msgstr "View Owner Vouchers"
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/users/UserEdit
 #. # ui/movement/MovementEdit
