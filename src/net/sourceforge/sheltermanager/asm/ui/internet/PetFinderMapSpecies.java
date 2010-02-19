@@ -101,7 +101,6 @@ public class PetFinderMapSpecies extends ASMView {
             Global.logException(e, getClass());
         }
 
-        species.free();
         species = null;
 
         setTableData(columnheaders, datar, i, 3);

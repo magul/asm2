@@ -102,7 +102,6 @@ public class PetFinderMapBreed extends ASMView {
             Global.logException(e, getClass());
         }
 
-        breed.free();
         breed = null;
 
         setTableData(columnheaders, datar, i, 3);
