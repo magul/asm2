@@ -294,6 +294,10 @@ public class SaveAPetPublisher extends Thread {
                     String pfBMap = LookupCache.getBreedPetFinderMapping(an.getBreedID());
                     dataFile.append("\"" + pfBMap + "\",");
 
+                    // Breed2
+                    String pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
+                    dataFile.append("\"" + pfBMap2 + "\",");
+
                     // Age
                     /*
                      * -- Enum of | Adult | | Baby | | Senior | | Young |
@@ -888,25 +892,109 @@ public class SaveAPetPublisher extends Thread {
             "Tabby - black=Domestic Shorthair\n" +
             "Tiger=Domestic Shorthair\n" + "Torbie=Domestic Shorthair\n" +
             "Tortoiseshell=Domestic Shorthair\n" +
-            "Tuxedo=Domestic Shorthair\n" + "#4:Age=Age\n" + "#5:Name=Name\n" +
-            "#6:Size=Size\n" + "#7:Sex=Sex\n";
+            "Tuxedo=Domestic Shorthair\n" + 
+            "#4:Breed2=Breed2\n" +
+            "Appenzell Mountain Dog=Shepherd (Unknown Type)\n" +
+            "Australian Cattle Dog/Blue Heeler=Australian Cattle Dog\n" +
+            "Belgian Shepherd Dog Sheepdog=Belgian Shepherd\n" +
+            "Belgian Shepherd Tervuren=Belgian Tervuren\n" +
+            "Belgian Shepherd Malinois=Belgian Malinois\n" +
+            "Black Labrador Retriever=Labrador Retriever\n" +
+            "Brittany Spaniel=Brittany\n" + "Cane Corso Mastiff=Cane Corso\n" +
+            "Chinese Crested Dog=Chinese Crested\n" +
+            "Chinese Foo Dog=Shepherd (Unknown Type)\n" +
+            "Dandi Dinmont Terrier=Dandie Dinmont Terrier\n" +
+            "English Cocker Spaniel=Cocker Spaniel\n" +
+            "English Coonhound=English (Redtick) Coonhound\n" +
+            "Flat-coated Retriever=Flat-Coated Retriever\n" +
+            "Fox Terrier=Fox Terrier (Smooth)\n" +
+            "Hound=Hound (Unknown Type)\n" +
+            "Illyrian Sheepdog=Shepherd (Unknown Type)\n" +
+            "McNab =Shepherd (Unknown Type)\n" +
+            "New Guinea Singing Dog=Shepherd (Unknown Type)\n" +
+            "Newfoundland Dog=Newfoundland\n" +
+            "Norweigan Lundehund=Shepherd (Unknown Type)\n" +
+            "Peruvian Inca Orchid=Shepherd (Unknown Type)\n" +
+            "Poodle=Poodle (Standard)\n" +
+            "Retriever=Retriever (Unknown Type)\n" +
+            "Saint Bernard St. Bernard=St. Bernard\n" +
+            "Schipperkev=Schipperke\n" + "Schnauzer=Schnauzer (Standard)\n" +
+            "Scottish Terrier Scottie=Scottie, Scottish Terrier\n" +
+            "Setter=Setter (Unknown Type)\n" +
+            "Sheep Dog=Old English Sheepdog\n" +
+            "Shepherd=Shepherd (Unknown Type)\n" +
+            "Shetland Sheepdog Sheltie=Sheltie, Shetland Sheepdog\n" +
+            "Spaniel=Spaniel (Unknown Type)\n" +
+            "Spitz=Spitz (Unknown Type, Medium)\n" +
+            "South Russian Ovcharka=Shepherd (Unknown Type)\n" +
+            "Terrier=Terrier (Unknown Type, Small)\n" +
+            "West Highland White Terrier Westie=Westie, West Highland White Terrier\n" +
+            "White German Shepherd=German Shepherd Dog\n" +
+            "Wire-haired Pointing Griffon=Wirehaired Pointing Griffon\n" +
+            "Wirehaired Terrier=Terrier (Unknown Type, Medium)\n" +
+            "Yellow Labrador Retriever=Labrador Retriever\n" +
+            "Yorkshire Terrier Yorkie=Yorkie, Yorkshire Terrier\n" +
+            "American Siamese=Siamese\n" + "Bobtail=American Bobtail\n" +
+            "Burmilla=Burmese\n" + "Canadian Hairless=Sphynx\n" +
+            "Dilute Calico=Calico\n" +
+            "Dilute Tortoiseshell=Domestic Shorthair\n" +
+            "Domestic Long Hair=Domestic Longhair\n" +
+            "Domestic Long Hair-black=Domestic Longhair\n" +
+            "Domestic Long Hair - buff=Domestic Longhair\n" +
+            "Domestic Long Hair-gray=Domestic Longhair\n" +
+            "Domestic Long Hair - orange=Domestic Longhair\n" +
+            "Domestic Long Hair - orange and white=Domestic Longhair\n" +
+            "Domestic Long Hair - gray and white=Domestic Longhair\n" +
+            "Domestic Long Hair-white=Domestic Longhair\n" +
+            "Domestic Long Hair-black and white=Domestic Longhair\n" +
+            "Domestic Medium Hair=Domestic Mediumhair\n" +
+            "Domestic Medium Hair - buff=Domestic Mediumhair\n" +
+            "Domestic Medium Hair - gray and white=Domestic Mediumhair\n" +
+            "Domestic Medium Hair-white=Domestic Mediumhair\n" +
+            "Domestic Medium Hair-orange=Domestic Mediumhair\n" +
+            "Domestic Medium Hair - orange and white=Domestic Mediumhair\n" +
+            "Domestic Medium Hair -black and white=Domestic Mediumhair\n" +
+            "Domestic Short Hair=Domestic Shorthair\n" +
+            "Domestic Short Hair - buff=Domestic Shorthair\n" +
+            "Domestic Short Hair - gray and white=Domestic Shorthair\n" +
+            "Domestic Short Hair-white=Domestic Shorthair\n" +
+            "Domestic Short Hair-orange=Domestic Shorthair\n" +
+            "Domestic Short Hair - orange and white=Domestic Shorthair\n" +
+            "Domestic Short Hair -black and white=Domestic Shorthair\n" +
+            "Exotic Shorthair=Exotic\n" +
+            "Extra-Toes Cat (Hemingway Polydactyl)=Hemingway/Polydactyl\n" +
+            "Havana=Havana Brown\n" + "Oriental Long Hair=Oriental\n" +
+            "Oriental Short Hair=Oriental\n" + "Oriental Tabby=Oriental\n" +
+            "Pixie-Bob=Domestic Shorthair\n" +
+            "Sphynx (hairless cat)=Sphynx\n" + "Tabby=Domestic Shorthair\n" +
+            "Tabby - Orange=Domestic Shorthair\n" +
+            "Tabby - Grey=Domestic Shorthair\n" +
+            "Tabby - Brown=Domestic Shorthair\n" +
+            "Tabby - white=Domestic Shorthair\n" +
+            "Tabby - buff=Domestic Shorthair\n" +
+            "Tabby - black=Domestic Shorthair\n" +
+            "Tiger=Domestic Shorthair\n" + "Torbie=Domestic Shorthair\n" +
+            "Tortoiseshell=Domestic Shorthair\n" +
+            "Tuxedo=Domestic Shorthair\n" +
+            "#5:Age=Age\n" + "#6:Name=Name\n" +
+            "#7:Size=Size\n" + "#8:Sex=Sex\n";
 
         if (!includeColours) {
-            defmap += ("#8:Description=Description\n" + "#9:Status=Status\n" +
-            "#10:GoodWKids=GoodWKids\n" + "#11:GoodWCats=GoodWCats\n" +
-            "#12:GoodWDogs=GoodWDogs\n" +
-            "#13:SpayedNeutered=SpayedNeutered\n" +
-            "#14:ShotsCurrent=ShotsCurrent\n" +
-            "#15:Housetrained=Housetrained\n" + "#16:Declawed=Declawed\n" +
-            "#17:SpecialNeeds=SpecialNeeds");
-        } else {
-            defmap += ("#8:Color=Color\n" + "#9:Description=Description\n" +
-            "#10:Status=Status\n" + "#11:GoodWKids=GoodWKids\n" +
-            "#12:GoodWCats=GoodWCats\n" + "#13:GoodWDogs=GoodWDogs\n" +
+            defmap += ("#9:Description=Description\n" + "#10:Status=Status\n" +
+            "#11:GoodWKids=GoodWKids\n" + "#12:GoodWCats=GoodWCats\n" +
+            "#13:GoodWDogs=GoodWDogs\n" +
             "#14:SpayedNeutered=SpayedNeutered\n" +
             "#15:ShotsCurrent=ShotsCurrent\n" +
             "#16:Housetrained=Housetrained\n" + "#17:Declawed=Declawed\n" +
             "#18:SpecialNeeds=SpecialNeeds");
+        } else {
+            defmap += ("#9:Color=Color\n" + "#10:Description=Description\n" +
+            "#11:Status=Status\n" + "#12:GoodWKids=GoodWKids\n" +
+            "#13:GoodWCats=GoodWCats\n" + "#14:GoodWDogs=GoodWDogs\n" +
+            "#15:SpayedNeutered=SpayedNeutered\n" +
+            "#16:ShotsCurrent=ShotsCurrent\n" +
+            "#17:Housetrained=Housetrained\n" + "#18:Declawed=Declawed\n" +
+            "#19:SpecialNeeds=SpecialNeeds");
         }
 
         // Try to read the mappings from the file
