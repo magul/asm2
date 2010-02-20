@@ -500,7 +500,7 @@ INSERT INTO deathreason VALUES (2, 'Mirė savo mirtimi', '');
 INSERT INTO deathreason VALUES (3, 'Sveikas', '');
 INSERT INTO deathreason VALUES (4, 'Serga/Sužeistas', '');
 INSERT INTO deathreason VALUES (5, 'Pagal prašymą', '');
-INSERT INTO deathreason VALUES (6, 'Pasirinkimas(?)', '');
+INSERT INTO deathreason VALUES (6, 'Populiacijos mažinimas', '');
 INSERT INTO deathreason VALUES (7, 'Sulaukėjus', '');
 INSERT INTO deathreason VALUES (8, 'Įkando', '');
 DELETE FROM donationtype;
