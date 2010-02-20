@@ -1,6 +1,8 @@
 2.7.0
 ================
 
+*. Fixed non-sorting ID bug in vaccination book that could cause
+-  animal IDs to get out of sync with screen after sort
 *. Publishes second breed field for adoptapet.com
 *. Support for UK gift aid, donation DonationGiftAid wordkey
 *. Improved threading in loading of content to internal report

@@ -98,9 +98,14 @@ public abstract class ASMView extends ASMForm {
         return table;
     }
 
-    public void setTableData(String[] columns, String[][] data, int rows,
-        int idColumn) {
-        table.setTableData(columns, data, rows, idColumn);
+    public void setTableData(String[] cols, String[][] data, int rows, int IDcol) {
+        table.setTableData(cols, data, rows, IDcol);
+        updateToolButtons(false);
+    }
+
+    public void setTableData(String[] cols, String[][] data, int rows,
+        int maxcols, int IDcol) {
+        table.setTableData(cols, data, rows, maxcols, IDcol);
         updateToolButtons(false);
     }
 

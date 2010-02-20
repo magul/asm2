@@ -241,8 +241,8 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 }
 
                 row.set(6, Utils.nullToEmptyString(av.getComments()));
-                row.set(7, av.getID().toString());
-                row.set(8, av.getAnimalID().toString());
+                row.set(7, av.getAnimalID().toString());
+                row.set(8, av.getID().toString());
 
                 // If the animal is off shelter or deceased and the box isn't
                 // ticked, don't add it to the list
@@ -276,9 +276,8 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                     i18n("Code"), i18n("Name"), i18n("Location"), i18n("Type"),
                     i18n("Required"), i18n("Given"), i18n("Comments")
                 };
+            setTableData(columnheaders, data.toTableData(), data.size(), 9, 8);
 
-            String[][] vaccinationtabledata = data.toTableData();
-            setTableData(columnheaders, vaccinationtabledata, data.size(), 7);
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -345,7 +344,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
         for (int i = 0; i < selrows.length; i++) {
             // Get the ID for the selected row
-            String avID = (String) tablemodel.getValueAt(selrows[i], 7);
+            String avID = (String) tablemodel.getValueAt(selrows[i], 8);
 
             String sql = "UPDATE animalvaccination SET DateOfVaccination = '" +
                 Utils.getSQLDateOnly(Calendar.getInstance()) + "' " +
@@ -382,7 +381,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
         for (int i = 0; i < selrows.length; i++) {
             // Get the ID for the selected row
-            String avID = (String) tablemodel.getValueAt(selrows[i], 7);
+            String avID = (String) tablemodel.getValueAt(selrows[i], 8);
 
             try {
                 // Complete the selected row
@@ -433,7 +432,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
         id = Integer.parseInt((String) getTable().getModel()
                                            .getValueAt(getTable()
-                                                           .getSelectedRow(), 8));
+                                                           .getSelectedRow(), 7));
 
         UI.cursorToWait();
 
@@ -464,7 +463,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             for (int i = 0; i < selrows.length; i++) {
                 // Get the ID for the selected row
-                String avID = (String) tablemodel.getValueAt(selrows[i], 7);
+                String avID = (String) tablemodel.getValueAt(selrows[i], 8);
 
                 String sql = "Delete From animalvaccination Where ID = " +
                     avID;
