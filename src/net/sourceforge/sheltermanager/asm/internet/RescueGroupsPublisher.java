@@ -215,7 +215,7 @@ public class RescueGroupsPublisher extends Thread {
                     if (!animalweb.equals("")) {
                         if (debug) {
                             Global.logInfo("Retrieving image.",
-                                "PetFinderPublisher.run");
+                                "RescueGroupsPublisher.run");
                         }
 
                         try {
@@ -228,7 +228,7 @@ public class RescueGroupsPublisher extends Thread {
 
                                 if (debug) {
                                     Global.logInfo("Retrieved image.",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
 
                                 // If scaling is on, scale the image
@@ -240,7 +240,7 @@ public class RescueGroupsPublisher extends Thread {
                                 // Upload the file
                                 if (debug) {
                                     Global.logInfo("Uploading image.",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
 
                                 upload(animalpic);
@@ -248,7 +248,7 @@ public class RescueGroupsPublisher extends Thread {
 
                                 if (debug) {
                                     Global.logInfo("Image uploaded.",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
                             }
                             // If an IO Error occurs, the file is already in the
@@ -258,14 +258,14 @@ public class RescueGroupsPublisher extends Thread {
                                 // Upload the file
                                 if (debug) {
                                     Global.logInfo("Uploading image.",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
 
                                 upload(animalpic);
 
                                 if (debug) {
                                     Global.logInfo("Image uploaded.",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
                             }
 
@@ -278,7 +278,7 @@ public class RescueGroupsPublisher extends Thread {
                                 if (debug) {
                                     Global.logInfo("Animal has " +
                                         images.length + " media files",
-                                        "PetFinderPublisher.run");
+                                        "RescueGroupsPublisher.run");
                                 }
 
                                 for (int i = 0;
@@ -296,7 +296,7 @@ public class RescueGroupsPublisher extends Thread {
                                             Global.logInfo(
                                                 "Retrieving additional image: " +
                                                 otherpic + " (" + images[i] +
-                                                ")", "PetFinderPublisher.run");
+                                                ")", "RescueGroupsPublisher.run");
                                         }
 
                                         dbfs.readFile(images[i],
@@ -312,7 +312,7 @@ public class RescueGroupsPublisher extends Thread {
                                             Global.logInfo(
                                                 "Uploading additional image: " +
                                                 otherpic + " (" + images[i] +
-                                                ")", "PetFinderPublisher.run");
+                                                ")", "RescueGroupsPublisher.run");
                                         }
 
                                         upload(otherpic);
@@ -330,7 +330,7 @@ public class RescueGroupsPublisher extends Thread {
                     } else {
                         if (debug) {
                             Global.logInfo("No image available.",
-                                "PetFinderPublisher.run");
+                                "RescueGroupsPublisher.run");
                         }
                     }
 
@@ -777,7 +777,7 @@ public class RescueGroupsPublisher extends Thread {
             if (parent == null) {
                 Global.logError(Global.i18n("uiinternet",
                         "not_all_your_petfinder_types_are_mapped"),
-                    "PetFinderPublisher.checkMappedSpecies");
+                    "RescueGroupsPublisher.checkMappedSpecies");
                 System.exit(1);
             }
 
@@ -812,7 +812,7 @@ public class RescueGroupsPublisher extends Thread {
             if (parent == null) {
                 Global.logError(Global.i18n("uiinternet",
                         "not_all_your_petfinder_breeds_are_mapped"),
-                    "PetFinderPublisher.checkMappedBreeds");
+                    "RescueGroupsPublisher.checkMappedBreeds");
                 System.exit(1);
             }
 
