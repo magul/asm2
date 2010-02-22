@@ -244,7 +244,7 @@ public class InternetPublisher extends ASMForm {
         if (mode == MODE_RESCUEGROUPS) {
             l.add(new SelectableItem(i18n("Upload_Options"), null, false, true));
             l.add(new SelectableItem(i18n("Upload_all_animal_images"),
-                    "UploadAllImages", false, false));
+                    "UploadAllImages", true, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
         }
