@@ -3805,8 +3805,10 @@ public class AutoDBUpdates {
     public void update2707() {
         try {
             // Change that default cost type to Board and Food
-            DBConnection.executeAction("ALTER TABLE owner ADD IsGiftAid INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE ownerdonation ADD IsGiftAid INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE owner ADD IsGiftAid INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE ownerdonation ADD IsGiftAid INTEGER NULL");
             DBConnection.executeAction("UPDATE owner SET IsGiftAid = 0");
             DBConnection.executeAction("UPDATE ownerdonation SET IsGiftAid = 0");
         } catch (Exception e) {

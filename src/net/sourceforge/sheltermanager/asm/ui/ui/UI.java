@@ -1815,6 +1815,7 @@ public final class UI {
             // of the filesystem, but Windows??? Anyway, we do a
             // check here and make sure there are enough.
             String url = iurl;
+
             if ((url.startsWith("file://") || url.startsWith("file:/")) &&
                     !url.startsWith("file:///")) {
                 if (url.startsWith("file://")) {

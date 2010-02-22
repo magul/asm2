@@ -30,6 +30,8 @@ import java.util.Date;
 
 
 public class OwnerDonation extends UserInfoBO {
+    private Owner owner = null;
+
     public OwnerDonation() {
         tableName = "ownerdonation";
     }
@@ -50,7 +52,6 @@ public class OwnerDonation extends UserInfoBO {
         rs.setField("OwnerID", newValue);
     }
 
-    private Owner owner = null;
     public Owner getOwner() throws CursorEngineException {
         // Do we have an owner?
         if (owner != null) {

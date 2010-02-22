@@ -152,7 +152,6 @@ public class OwnerDonationDocument extends GenerateDocument {
                 ? Global.i18n("uiwordprocessor", "Yes")
                 : Global.i18n("uiwordprocessor", "No"));
 
-
             // Generate a document title based on the owner information
             // and the doc selected
             docTitle = templateName + " - " + owner.getOwnerName();

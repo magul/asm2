@@ -615,7 +615,8 @@ public class PetFinderPublisher extends Thread {
 
         try {
             SQLRecordset s = new SQLRecordset();
-            s.openRecordset("SELECT * FROM species WHERE PetFinderSpecies Is Null OR PetFinderSpecies = ''", "species");
+            s.openRecordset("SELECT * FROM species WHERE PetFinderSpecies Is Null OR PetFinderSpecies = ''",
+                "species");
             retval = s.getEOF();
             s.free();
             s = null;

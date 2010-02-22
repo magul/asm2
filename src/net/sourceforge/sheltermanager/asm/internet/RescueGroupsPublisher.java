@@ -765,7 +765,8 @@ public class RescueGroupsPublisher extends Thread {
 
         try {
             SQLRecordset s = new SQLRecordset();
-            s.openRecordset("SELECT * FROM species WHERE PetFinderSpecies Is Null OR PetFinderSpecies = ''", "species");
+            s.openRecordset("SELECT * FROM species WHERE PetFinderSpecies Is Null OR PetFinderSpecies = ''",
+                "species");
             retval = s.getEOF();
             s.free();
             s = null;
@@ -800,7 +801,8 @@ public class RescueGroupsPublisher extends Thread {
 
         try {
             SQLRecordset b = new SQLRecordset();
-            b.openRecordset("SELECT * FROM breed WHERE PetFinderBreed Is Null OR PetFinderBreed = ''", "breed");
+            b.openRecordset("SELECT * FROM breed WHERE PetFinderBreed Is Null OR PetFinderBreed = ''",
+                "breed");
             retval = b.getEOF();
             b.free();
             b = null;

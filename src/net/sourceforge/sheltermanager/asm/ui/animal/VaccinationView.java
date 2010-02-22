@@ -277,7 +277,6 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                     i18n("Required"), i18n("Given"), i18n("Comments")
                 };
             setTableData(columnheaders, data.toTableData(), data.size(), 9, 8);
-
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());

@@ -187,8 +187,8 @@ public class MovementView extends ASMView implements MovementParent {
                     "WHERE adoption.MovementDate Is Not Null AND " +
                     "adoption.MovementType = " + Adoption.MOVETYPE_RETAILER +
                     " " + "AND animal.DeceasedDate Is Null AND ((" +
-                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" + 
-		    Utils.getSQLDate(new Date()) + "') OR " +
+                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
+                    Utils.getSQLDate(new Date()) + "') OR " +
                     "(adoption.LastChangedDate BETWEEN '" + minsAgo +
                     "' AND '" + now + "' " +
                     "AND adoption.LastChangedBy Like '" +
@@ -216,8 +216,8 @@ public class MovementView extends ASMView implements MovementParent {
                     "WHERE adoption.MovementDate Is Not Null AND " +
                     "adoption.MovementType = " + Adoption.MOVETYPE_FOSTER +
                     " " + "AND animal.DeceasedDate Is Null AND ((" +
-                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" + 
-		    Utils.getSQLDate(new Date()) + "') OR " +
+                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
+                    Utils.getSQLDate(new Date()) + "') OR " +
                     "(adoption.LastChangedDate BETWEEN '" + minsAgo +
                     "' AND '" + now + "' " +
                     "AND adoption.LastChangedBy Like '" +

@@ -351,6 +351,7 @@ public class AnimalPrint extends Report {
         addLevelTwoHeader(Global.i18n("uianimal", "Costs"));
 
         boolean hascost = false;
+
         if (!ac.getEOF()) {
             tableNew(true);
             tableAddRow();
@@ -361,6 +362,7 @@ public class AnimalPrint extends Report {
             tableFinishRow();
             hascost = true;
         }
+
         while (!ac.getEOF()) {
             tableAddRow();
             tableAddCell(date(ac.getCostDate()));
@@ -378,11 +380,14 @@ public class AnimalPrint extends Report {
 
         // Days on shelter, board line
         double tb = 0;
+
         if (a.getArchived().intValue() == 0) {
             tb = a.getDaysOnShelter() * a.getDailyBoardingCost().doubleValue();
-            String sboard = Global.i18n("uianimal", "On_shelter_days_total_cost",
-                Integer.toString(a.getDaysOnShelter()),
-                Utils.formatCurrency(tb));
+
+            String sboard = Global.i18n("uianimal",
+                    "On_shelter_days_total_cost",
+                    Integer.toString(a.getDaysOnShelter()),
+                    Utils.formatCurrency(tb));
             addParagraph(sboard);
         }
 
@@ -394,15 +399,17 @@ public class AnimalPrint extends Report {
             "(SELECT SUM(CostAmount) FROM animalcost WHERE AnimalID = animal.ID) AS totcost, " +
             "(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID) AS totdon " +
             "FROM animal WHERE ID = " + a.getID(), "animal");
+
         double tv = tots.getDouble("totvacc");
         double tm = tots.getDouble("totmed");
         double tc = tots.getDouble("totcost");
         double td = tots.getDouble("totdon");
         double ta = tv + tm + tc + tb;
-        String scost = Global.i18n("uianimal", "cost_totals", Utils.formatCurrency(tv),
-                Utils.formatCurrency(tm), Utils.formatCurrency(tc),
-                "<b>" + Utils.formatCurrency(ta)) + "</b><br />" +
-                Global.i18n("uianimal", "cost_balance", Utils.formatCurrency(td),
+        String scost = Global.i18n("uianimal", "cost_totals",
+                Utils.formatCurrency(tv), Utils.formatCurrency(tm),
+                Utils.formatCurrency(tc), "<b>" + Utils.formatCurrency(ta)) +
+            "</b><br />" +
+            Global.i18n("uianimal", "cost_balance", Utils.formatCurrency(td),
                 "<b>" + Utils.formatCurrency(td - ta) + "</b>");
         addParagraph(scost);
 
@@ -413,6 +420,7 @@ public class AnimalPrint extends Report {
         addLevelTwoHeader(Global.i18n("uianimal", "Donations"));
 
         boolean hasdon = false;
+
         if (!od.getEOF()) {
             tableNew(true);
             tableAddRow();
@@ -427,6 +435,7 @@ public class AnimalPrint extends Report {
             tableFinishRow();
             hasdon = true;
         }
+
         while (!od.getEOF()) {
             tableAddRow();
             tableAddCell(date(od.getDateDue()));

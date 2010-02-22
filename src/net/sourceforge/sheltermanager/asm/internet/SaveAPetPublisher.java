@@ -892,8 +892,7 @@ public class SaveAPetPublisher extends Thread {
             "Tabby - black=Domestic Shorthair\n" +
             "Tiger=Domestic Shorthair\n" + "Torbie=Domestic Shorthair\n" +
             "Tortoiseshell=Domestic Shorthair\n" +
-            "Tuxedo=Domestic Shorthair\n" + 
-            "#4:Breed2=Breed2\n" +
+            "Tuxedo=Domestic Shorthair\n" + "#4:Breed2=Breed2\n" +
             "Appenzell Mountain Dog=Shepherd (Unknown Type)\n" +
             "Australian Cattle Dog/Blue Heeler=Australian Cattle Dog\n" +
             "Belgian Shepherd Dog Sheepdog=Belgian Shepherd\n" +
@@ -975,8 +974,7 @@ public class SaveAPetPublisher extends Thread {
             "Tabby - black=Domestic Shorthair\n" +
             "Tiger=Domestic Shorthair\n" + "Torbie=Domestic Shorthair\n" +
             "Tortoiseshell=Domestic Shorthair\n" +
-            "Tuxedo=Domestic Shorthair\n" +
-            "#5:Age=Age\n" + "#6:Name=Name\n" +
+            "Tuxedo=Domestic Shorthair\n" + "#5:Age=Age\n" + "#6:Name=Name\n" +
             "#7:Size=Size\n" + "#8:Sex=Sex\n";
 
         if (!includeColours) {

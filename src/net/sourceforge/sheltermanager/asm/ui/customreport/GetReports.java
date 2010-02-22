@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
+import net.sourceforge.sheltermanager.asm.db.AutoDBUpdates;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -154,6 +155,22 @@ public class GetReports extends ASMView {
                     if (Global.settings_Locale.indexOf(r.locale) == -1) {
                         Global.logDebug("Skipping, wrong locale (" + r.locale +
                             ")", "GetReports.updateListThread");
+
+                        continue;
+                    }
+
+                    // Skip if the database version is too new for us
+                    int dbver = 0;
+
+                    if (r.database.indexOf("/") != -1) {
+                        dbver = Integer.parseInt(r.database.substring(0,
+                                    r.database.indexOf("/")));
+                    }
+
+                    if (dbver > AutoDBUpdates.LATEST_DB_VERSION) {
+                        Global.logDebug(
+                            "Skipping, database too old for this report (" +
+                            r.database + ")", "GetReports.updateListThread");
 
                         continue;
                     }

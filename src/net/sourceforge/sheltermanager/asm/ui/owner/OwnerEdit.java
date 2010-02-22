@@ -241,9 +241,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         ctl.add(chkIsMember);
         ctl.add(txtMembershipExpiryDate.getTextField());
         ctl.add(txtMembershipNumber);
+
         if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
             ctl.add(chkGiftAid);
         }
+
         ctl.add(chkBanned);
         ctl.add(chkIsDonor);
         ctl.add(chkVolunteer);
@@ -1253,9 +1255,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 UI.getTextField(i18n("if_this_owner_is_a_member_the_number"),
                     UI.fp(this, "dataChanged")));
 
-
-        chkGiftAid = UI.getCheckBox(i18n("Gift_Aid_Registered"),
-                    null, UI.fp(this, "dataChanged"));
+        chkGiftAid = UI.getCheckBox(i18n("Gift_Aid_Registered"), null,
+                UI.fp(this, "dataChanged"));
 
         if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
             pnlRightTop.add(UI.getLabel());

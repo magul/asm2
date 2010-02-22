@@ -122,7 +122,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             txtDateReceived.setText(Utils.formatDate(od.getDateReceived()));
             txtDonation.setText(od.getDonation().toString());
             cboFrequency.setSelectedIndex(((Integer) od.getFrequency()).intValue());
-            chkGiftAid.setSelected( od.getIsGiftAid().intValue() == 1 );
+            chkGiftAid.setSelected(od.getIsGiftAid().intValue() == 1);
             Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
                 "DonationName", od.getDonationTypeID(), cboDonationType);
             txtComments.setText(od.getComments());
@@ -175,7 +175,8 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
             // Set gift aid from registered flag if locale is UK
             if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
-                chkGiftAid.setSelected( DBConnection.executeForInt("SELECT IsGiftAid FROM owner WHERE ID = " + ownerID) == 1 );
+                chkGiftAid.setSelected(DBConnection.executeForInt(
+                        "SELECT IsGiftAid FROM owner WHERE ID = " + ownerID) == 1);
             }
 
             this.setTitle(i18n("new_owner_donation"));
@@ -210,6 +211,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
         UI.addComponent(top, i18n("type"), cboDonationType);
 
         chkGiftAid = UI.getCheckBox(i18n("Gift_Aid"));
+
         if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
             top.add(UI.getLabel());
             top.add(chkGiftAid);

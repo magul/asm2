@@ -114,8 +114,8 @@ public abstract class ASMSelector extends UI.Panel {
         updateToolButtons(false);
     }
 
-    public void setTableData(String[] columns, String[][] data, int rows, int cols,
-        int idColumn) {
+    public void setTableData(String[] columns, String[][] data, int rows,
+        int cols, int idColumn) {
         // Truncate any fields that are longer than 80 chars
         // to stop them shoving other fields off screen
         for (int row = 0; row < data.length; row++) {
@@ -131,7 +131,6 @@ public abstract class ASMSelector extends UI.Panel {
         table.setTableData(columns, data, rows, cols, idColumn);
         updateToolButtons(false);
     }
-
 
     private void updateToolButtons(boolean enable) {
         for (int i = 0; i < selectionButtons.size(); i++) {
