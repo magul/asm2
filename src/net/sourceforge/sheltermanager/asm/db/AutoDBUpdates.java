@@ -3505,7 +3505,7 @@ public class AutoDBUpdates {
                         "CostTypeID INTEGER NOT NULL, " +
                         "CostDate TIMESTAMP NOT NULL, " +
                         "CostAmount FLOAT NOT NULL, " +
-                        "Description VARCHAR(16384) NOT NULL, " +
+                        "Description VARCHAR(16384) NULL, " +
                         "RecordVersion INTEGER NOT NULL, " +
                         "CreatedBy VARCHAR(255) NOT NULL, " +
                         "CreatedDate TIMESTAMP NOT NULL, " +
@@ -3530,7 +3530,7 @@ public class AutoDBUpdates {
                         "CostDate datetime NOT NULL, " +
                         "CostTypeID int(11) NOT NULL, " +
                         "CostAmount double NOT NULL, " +
-                        "Description TEXT NOT NULL, " +
+                        "Description varchar(255) NULL, " +
                         "RecordVersion int NOT NULL, " +
                         "CreatedBy varchar(255) NOT NULL, " +
                         "CreatedDate datetime NOT NULL, " +
@@ -3554,7 +3554,7 @@ public class AutoDBUpdates {
                         "CostTypeID INTEGER NOT NULL, " +
                         "CostDate TIMESTAMP NOT NULL, " +
                         "CostAmount REAL NOT NULL, " +
-                        "Description VARCHAR(16384) NOT NULL, " +
+                        "Description VARCHAR(16384) NULL, " +
                         "RecordVersion INTEGER NOT NULL, " +
                         "CreatedBy VARCHAR(255) NOT NULL, " +
                         "CreatedDate TIMESTAMP NOT NULL, " +
