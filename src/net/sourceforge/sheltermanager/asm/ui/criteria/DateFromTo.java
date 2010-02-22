@@ -120,8 +120,6 @@ public class DateFromTo extends ASMForm {
             break;
 
         default:
-            setTitle(i18n("Unknown_Report"));
-
             break;
         }
     }
@@ -242,8 +240,6 @@ public class DateFromTo extends ASMForm {
                 break;
 
             default:
-                Dialog.showError(i18n("An_invalid_report_handle_was_passed."));
-
                 break;
             }
 
