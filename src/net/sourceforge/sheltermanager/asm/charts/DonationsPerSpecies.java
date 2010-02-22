@@ -128,7 +128,7 @@ public class DonationsPerSpecies extends Chart {
                 SQLRecordset adoption = new SQLRecordset();
 
                 model[sp][i] = DBConnection.executeForSum(
-                        "SELECT Sum(Donation) FROM ownerdonation " +
+                        "SELECT Sum(ownerdonation.Donation) FROM ownerdonation " +
                         "INNER JOIN adoption ON adoption.ID = ownerdonation.MovementID " +
                         "INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE " +
                         "ownerdonation.Date >= '" + firstDay + "' AND " +
