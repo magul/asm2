@@ -122,5 +122,5 @@ win32:	manual jar
 scratch:
 	@echo "[scratch] ========================="
 	ant build
-	scp build/asm.jar root@rawsoaa1.miniserver.com:/var/www/sheltermanager.com/scratch/
-	scp changelog root@rawsoaa1.miniserver.com:/var/www/sheltermanager.com/scratch/
+	scp build/asm.jar root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/scratch/
+	scp changelog root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/scratch/
