@@ -2332,6 +2332,7 @@ public class Animal extends UserInfoBO {
         setHasSpecialNeeds(z);
 
         setArchived(z);
+	setDailyBoardingCost(new Double(0));
         setActiveMovementID(z);
         setHasActiveReserve(z);
     }
@@ -2357,6 +2358,7 @@ public class Animal extends UserInfoBO {
         a.setCombiTested(getCombiTested());
         a.setCrossBreed(getCrossBreed());
         a.setCrueltyCase(getCrueltyCase());
+	a.setDailyBoardingCost(getDailyBoardingCost());
         a.setDateBroughtIn(getDateBroughtIn());
         a.setDateOfBirth(getDateOfBirth());
         a.setEstimatedDOB(getEstimatedDOB());
