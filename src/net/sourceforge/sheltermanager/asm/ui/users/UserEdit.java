@@ -197,11 +197,11 @@ public class UserEdit extends ASMForm {
             createBox(i18n("Change_Animal_Diets"), "dcad");
             createBox(i18n("Delete_Animal_Diets:"), "ddad");
             createBox(i18n("View_Animal_Diets"), "dvad");
-	    createLabel(i18n("Costs:"));
-	    createBox(i18n("Add_Animal_Cost"), "caad");
-	    createBox(i18n("Change_Animal_Cost"), "ccad");
-	    createBox(i18n("Delete_Animal_Cost"), "cdad");
-	    createBox(i18n("View_Animal_Cost"), "cvad");
+            createLabel(i18n("Costs:"));
+            createBox(i18n("Add_Animal_Cost"), "caad");
+            createBox(i18n("Change_Animal_Cost"), "ccad");
+            createBox(i18n("Delete_Animal_Cost"), "cdad");
+            createBox(i18n("View_Animal_Cost"), "cvad");
             createLabel(i18n("Movements:"));
             createBox(i18n("Add_Animal_Movements"), "aamv");
             createBox(i18n("Change_Animal_Movements"), "camv");

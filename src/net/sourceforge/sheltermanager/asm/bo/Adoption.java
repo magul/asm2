@@ -916,7 +916,9 @@ public class Adoption extends UserInfoBO {
                     "FROM animal WHERE ID = " + getAnimalID());
 
             // Is the cost zero? Bail out if so
-            if (cost == 0) return;
+            if (cost == 0) {
+                return;
+            }
 
             c.setAnimalID(getAnimalID());
             c.setCostDate(getMovementDate());

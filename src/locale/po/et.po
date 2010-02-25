@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-02-18 14:25+0100\n"
-"PO-Revision-Date: 2010-02-19 14:47+0000\n"
+"PO-Revision-Date: 2010-02-20 19:24+0000\n"
 "Last-Translator: muti <triinupriks@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-20 04:48+0000\n"
+"X-Launchpad-Export-Date: 2010-02-21 05:01+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -716,12 +716,12 @@ msgstr "Annetused peavad loomaomanikuga olema seotud."
 #. # bo/AnimalCost
 #: you_must_supply_a_date_for_the_cost
 msgid "You must supply a date for the cost."
-msgstr ""
+msgstr "Pead lisama kulule kuupäeva."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_description_for_the_cost
 msgid "You must supply a description for the cost."
-msgstr ""
+msgstr "Ped lisama kulule kirjelduse."
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -6612,7 +6612,7 @@ msgstr "Omadused: "
 #. # bo/LookupCache
 #: LocationName
 msgid "LocationName"
-msgstr ""
+msgstr "AsukohaNimi"
 
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -9572,7 +9572,7 @@ msgstr "Logi sisse"
 #. # ui/login/Login
 #: Animal_Shelter_Manager_Login
 msgid "Animal Shelter Manager Login"
-msgstr ""
+msgstr "Animal Shelter Manager Login"
 
 #. # ui/login/Login
 #: default_username_password_hint
@@ -9639,6 +9639,8 @@ msgid ""
 "This record is currently in use in the database. \n"
 "You must remove all records using this record first."
 msgstr ""
+"See kirje on hetkel andmebaasis kasutusel. \n"
+"Sa pead esmalt eemaldama kõik kirjed, mis seda kasutavad."
 
 #. # ui/main/Main
 #. # ui/lookups/LookupView
@@ -12483,12 +12485,12 @@ msgstr ""
 #. # ui/system/Options
 #: Warn_when_adopting_to_a_banned_owner
 msgid "Warn when adopting to a banned owner"
-msgstr ""
+msgstr "Hoiata kui hakkan loovutama loomapidamiskeeluga omanikule"
 
 #. # ui/system/Options
 #: Highlight_animals_under_6_months,_reserved_or_dead_on_reports
 msgid "Highlight animals under 6 months, reserved or dead on reports"
-msgstr ""
+msgstr "Tõsta aruannetes esile alla 6-kuused loomad, broneeritud ja surnud."
 
 #. # ui/system/Options
 #: Use_optimistic_record_locking_on_animal_database
@@ -12498,12 +12500,12 @@ msgstr ""
 #. # ui/system/Options
 #: When_entering_new_owners,_check_for_similar_names
 msgid "When entering new owners, check for similar names"
-msgstr ""
+msgstr "Kui lisad uusi omanikke, kontrolli sarnaseid nimesid"
 
 #. # ui/system/Options
 #: Warn_and_cancel_additional_reservations_when_an_animal_is_adopted
 msgid "Warn and cancel additional reservations when an animal is adopted"
-msgstr ""
+msgstr "Hoiata ja tühista broneeringud kui loom loovutatakse."
 
 #. # ui/system/Options
 #: The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days
@@ -12514,12 +12516,13 @@ msgstr ""
 #. # ui/system/Options
 #: When_entering_new_owners,_check_for_similar_addresses
 msgid "When entering new owners, check for similar addresses"
-msgstr ""
+msgstr "Kui lisad uusi omanikke, kontrolli sarnaseid aadresse"
 
 #. # ui/system/Options
 #: Warn_on_close_if_an_animal_has_no_pending_vaccinations
 msgid "Warn on close if an animal has no pending vaccinations"
 msgstr ""
+"Hoiata sulgemisel kui loomale ei ole lisatud tulevaid vaktsineerimisi"
 
 #. # ui/system/Options
 #: Show_Internal_Location_of_animals_who_have_left_the_shelter_as_logical_location_instead
@@ -12546,29 +12549,29 @@ msgstr ""
 #. # ui/system/FileTypes
 #: Add_a_new_file_type
 msgid "Add a new file type"
-msgstr ""
+msgstr "Lisa uus failitüüp"
 
 #. # ui/system/FileTypes
 #: Delete_the_selected_type
 msgid "Delete the selected type"
-msgstr ""
+msgstr "Kustuta valitud tüüp"
 
 #. # ui/system/FileTypes
 #. # ui/system/FileTypeEdit
 #: Extension
 msgid "Extension"
-msgstr ""
+msgstr "Laiend"
 
 #. # ui/system/FileTypes
 #: Save_the_list_of_filetypes
 msgid "Save the list of filetypes"
-msgstr ""
+msgstr "Salvesta failitüüpide nimekiri"
 
 #. # ui/system/FileTypes
 #. # ui/system/FileTypeEdit
 #: Edit_File_Types
 msgid "Edit File Types"
-msgstr ""
+msgstr "Muuda faili tüüpe"
 
 #. # ui/system/FileTypeManager
 #: No_HTML_Viewer
@@ -12633,7 +12636,7 @@ msgstr ""
 #. # ui/system/Options
 #: Start_At\:
 msgid "Start At:"
-msgstr ""
+msgstr "Algus:"
 
 #. # ui/system/Options
 #: Use_Automatic_Insurance_Numbers
@@ -12643,7 +12646,7 @@ msgstr ""
 #. # ui/system/Options
 #: Next\:
 msgid "Next:"
-msgstr ""
+msgstr "Järgmine:"
 
 #. # ui/system/Options
 #: End_At\:
@@ -12668,13 +12671,13 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: Tick_this_box_to_start_ASM_in_a_maximised_window
 msgid "Tick this box to start ASM in a maximised window"
-msgstr ""
+msgstr "Märgi see kastike, et ASm avaneks suurendatud aknas"
 
 #. # ui/system/Options
 #. # ui/system/ConfigureLocal
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
-msgstr ""
+msgstr "Salvesta muudatused ja välju"
 
 #. # ui/system/ConfigureLocal
 #: Start_Maximised\:
@@ -12684,7 +12687,7 @@ msgstr ""
 #. # ui/system/Options
 #: email_address
 msgid "Email address:"
-msgstr ""
+msgstr "E-posti aadress:"
 
 #. # ui/system/Options
 #: emails_from_ASM_come_from
@@ -12709,7 +12712,7 @@ msgstr ""
 #. # ui/system/Options
 #: foster_as_on_shelter
 msgid "Fostered animals are shelter inventory"
-msgstr ""
+msgstr "Hoiukodus olevad loomad on varjupaiga omand"
 
 #. # ui/system/Options
 #: default_waiting_list_urgency
@@ -12722,7 +12725,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: None
 msgid "[None]"
-msgstr ""
+msgstr "[Puudub]"
 
 #. # ui/system/Options
 #: auto_default_shelter_code_for_new_animals
@@ -12739,17 +12742,17 @@ msgstr ""
 #. # ui/system/Options
 #: Automatic_Litter_Identification
 msgid "Use Automatic Litter Identification"
-msgstr ""
+msgstr "Kasuta automaatset pesakondade identifitseerijat"
 
 #. # ui/system/Options
 #: Default_Internal_Location\:
 msgid "Default Internal Location:"
-msgstr ""
+msgstr "Sisemine asukoht vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Entry_Reason\:
 msgid "Default Entry Reason:"
-msgstr ""
+msgstr "Sisenemise põhjus vaikimisi:"
 
 #. # ui/system/Options
 #: Default_today_as_the_reservation_date_for_new_movements
@@ -12764,7 +12767,7 @@ msgstr ""
 #. # ui/system/Options
 #: Warnings
 msgid "Warnings"
-msgstr ""
+msgstr "Hoiatused"
 
 #. # ui/system/Options
 #: Format_and_Display
@@ -12774,12 +12777,12 @@ msgstr ""
 #. # ui/system/Options
 #: Database_and_System
 msgid "Database and System"
-msgstr ""
+msgstr "Andmebaas ja süsteem"
 
 #. # ui/system/Options
 #: Defaults
 msgid "Defaults"
-msgstr ""
+msgstr "Vaikimisi"
 
 #. # ui/system/ConfigureLocal
 #: use_internal_report_viewer
@@ -12794,32 +12797,32 @@ msgstr ""
 #. # ui/system/Options
 #: Default_Breed\:
 msgid "Default Breed:"
-msgstr ""
+msgstr "Tõug vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Colour\:
 msgid "Default Colour:"
-msgstr ""
+msgstr "Värv vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Death_Reason\:
 msgid "Default Death Reason:"
-msgstr ""
+msgstr "Surma põhjus vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Return_Reason\:
 msgid "Default Return Reason:"
-msgstr ""
+msgstr "Tagasi toomise põhjus vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Size\:
 msgid "Default Size:"
-msgstr ""
+msgstr "Suurus vaikimisi:"
 
 #. # ui/system/Options
 #: Non_Shelter_Animal_Type\:
 msgid "Non-Shelter Animal Type:"
-msgstr ""
+msgstr "Mitte-varjupaiga looma tüüp:"
 
 #. # ui/system/Options
 #: Dont_keep_separate_town_and_county_information
@@ -12829,22 +12832,22 @@ msgstr ""
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
-msgstr ""
+msgstr "Rakendus"
 
 #. # ui/system/Options
 #: Organisation_Name\:
 msgid "Organisation Name:"
-msgstr ""
+msgstr "Organisatsiooni nimi:"
 
 #. # ui/system/Options
 #: Your_organisations_name
 msgid "Your organisation's name"
-msgstr ""
+msgstr "Teie organisatsiooni nimi"
 
 #. # ui/system/ConfigureLocal
 #: automatic_logout
 msgid "Automatic logout:"
-msgstr ""
+msgstr "Automaatne väljalogimine:"
 
 #. # ui/system/ConfigureLocal
 #: automatically_log_the_current_user_out_after_minutes_of_inactivity
@@ -12852,6 +12855,8 @@ msgid ""
 "Automatically log the current user out after this many minutes of inactivity "
 "or 0 to never logout"
 msgstr ""
+"Logi kasutaja automaatselt välja peale nii mitme minutilist tegevusetust või "
+"0 kui ei logi kunagi"
 
 #. # ui/system/FileTypeManager
 #: ASM_could_not_locate_an_office_suite_on_your_computer
@@ -12865,57 +12870,57 @@ msgstr ""
 #. # ui/main/Main
 #: media_files
 msgid "Media Files"
-msgstr ""
+msgstr "Meediafailid"
 
 #. # ui/system/ConfigureLocal
 #: LEFT
 msgid "LEFT"
-msgstr ""
+msgstr "VASAK"
 
 #. # ui/system/ConfigureLocal
 #: Align_labels
 msgid "Align Labels:"
-msgstr ""
+msgstr "Joonda sildid:"
 
 #. # ui/system/ConfigureLocal
 #: select_where_asm_should_align_field_labels
 msgid "Select how you would like ASM to align field labels."
-msgstr ""
+msgstr "Vali, kuidas ASM joondab väljade sildid."
 
 #. # ui/system/ConfigureLocal
 #: RIGHT
 msgid "RIGHT"
-msgstr ""
+msgstr "PAREM"
 
 #. # ui/system/ConfigureLocal
 #: Align_tabs
 msgid "Align Tabs:"
-msgstr ""
+msgstr "Joonda sakid:"
 
 #. # ui/system/ConfigureLocal
 #: TOP
 msgid "TOP"
-msgstr ""
+msgstr "ÜLEVAL"
 
 #. # ui/system/ConfigureLocal
 #: BOTTOM
 msgid "BOTTOM"
-msgstr ""
+msgstr "ALL"
 
 #. # ui/system/ConfigureLocal
 #: select_where_to_align_tabs
 msgid "Select where tabs should be aligned"
-msgstr ""
+msgstr "Vali, kuhu joondada sakid"
 
 #. # ui/system/FileTypes
 #: Automatically_determine_filetypes_from_installed_programs
 msgid "Automatically scan filetypes from installed programs"
-msgstr ""
+msgstr "Skänni automaatselt installitud programmide failitüüpe"
 
 #. # ui/system/FileTypes
 #: Overwrite_existing_types
 msgid "Overwrite existing types?"
-msgstr ""
+msgstr "Kas kirjutan olemasolevad tüübid üle?"
 
 #. # ui/system/FileTypes
 #: Warning_overwrite_existing_types
@@ -12927,12 +12932,12 @@ msgstr ""
 #. # ui/system/Options
 #: Authentication
 msgid "Authentication"
-msgstr ""
+msgstr "Autentimine"
 
 #. # ui/system/Options
 #: Operating_System
 msgid "Operating System"
-msgstr ""
+msgstr "Operatsioonisüsteem"
 
 #. # ui/system/Options
 #: Operating_System_Desc
@@ -12957,7 +12962,7 @@ msgstr ""
 #. # ui/system/Options
 #: LDAP_URL
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #. # ui/system/Options
 #: LDAP_DN
@@ -12967,7 +12972,7 @@ msgstr ""
 #. # ui/system/Options
 #: LDAP_Filter
 msgid "Search Filter:"
-msgstr ""
+msgstr "Otsingufilter:"
 
 #. # ui/system/ConfigureLocal
 #: single_instance
@@ -12992,22 +12997,22 @@ msgstr ""
 #. # ui/system/Options
 #: Your_organisations_address
 msgid "Your organisation's address"
-msgstr ""
+msgstr "Teie organisatsiooni aadress"
 
 #. # ui/system/Options
 #: Your_organisations_telephone
 msgid "Your organisation's telephone number"
-msgstr ""
+msgstr "Teie organisatsiooni telefoninumber"
 
 #. # ui/system/Options
 #: coding_format
 msgid "Animal code format:"
-msgstr ""
+msgstr "Looma koodi formaat:"
 
 #. # ui/system/Options
 #: short_coding_format
 msgid "Animal shortcode format:"
-msgstr ""
+msgstr "Looma lühikoodi formaat:"
 
 #. # ui/system/Options
 #: coding_format_tooltip
@@ -13034,7 +13039,7 @@ msgstr ""
 #. # ui/system/ConfigureDatabase
 #: configure_database
 msgid "Configure Database"
-msgstr ""
+msgstr "Andmebaasi seadistamine"
 
 #. # ui/system/ConfigureDatabase
 #: record_search_limit
@@ -13063,13 +13068,13 @@ msgstr ""
 #. # ui/system/ConfigureDatabase
 #: max_media_file_size
 msgid "Max Media File Size:"
-msgstr ""
+msgstr "Meediafaili maksimumsuurus:"
 
 #. # ui/system/ConfigureDatabase
 #: max_media_file_size_tooltip
 msgid ""
 "The maximum allowed size for a media file in kilobytes (or 0 for no limit)"
-msgstr ""
+msgstr "Meediafaili maksimumsuurus kilobaitides (või 0 kui ei ole limiiti)"
 
 #. # ui/system/ConfigureDatabase
 #: allow_db_updates
@@ -13089,7 +13094,7 @@ msgstr ""
 #. # startup/Startup
 #: sql
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #. # ui/system/SQLInterface
 #: execute_sql
@@ -13106,7 +13111,7 @@ msgstr ""
 #. # ui/system/Options
 #: Invalid_codeformat
 msgid "Invalid Format"
-msgstr ""
+msgstr "Vigane vorming"
 
 #. # ui/system/ConfigureAdditional
 #: edit_additional_fields
@@ -13116,19 +13121,19 @@ msgstr ""
 #. # ui/system/ConfigureAdditional
 #: field_is_in_use
 msgid "The field is now in use in the database and cannot be removed."
-msgstr ""
+msgstr "Väli on nüüd kasutusel andmebaasis ja seda ei saa eemaldada."
 
 #. # ui/system/ConfigureAdditional
 #. # ui/system/AdditionalFieldEdit
 #: fieldname
 msgid "Field Name"
-msgstr ""
+msgstr "Välja nimi"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/system/AdditionalFieldEdit
 #: fieldtype
 msgid "Field Type"
-msgstr ""
+msgstr "Välja tüüp"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/system/AdditionalFieldEdit
@@ -13140,12 +13145,12 @@ msgstr ""
 #. # ui/system/AdditionalFieldEdit
 #: fieldlabel
 msgid "Field Label"
-msgstr ""
+msgstr "Välja silt"
 
 #. # ui/system/AdditionalFieldEdit
 #: tooltip
 msgid "Tooltip"
-msgstr ""
+msgstr "Vihje"
 
 #. # ui/system/AdditionalFieldEdit
 #: new_additional_field
@@ -13198,7 +13203,7 @@ msgstr ""
 #: When_adding_animals_suggest_popular_breeds
 msgid ""
 "When adding animals, show most popular breeds at the top of the dropdown"
-msgstr ""
+msgstr "Loomade lisamisel näita populaarsemaid tõugusid rippmenüü esiotsas"
 
 #. # ui/system/Options
 #: Dont_show_media_thumbnails_on_details_screen
@@ -13233,78 +13238,78 @@ msgstr ""
 #. # ui/system/ConfigureLookups
 #: Remove_unwanted_breeds_and_species
 msgid "Remove Unwanted Breeds and Species"
-msgstr ""
+msgstr "Eemalda soovimatud tõud ja liigid"
 
 #. # ui/system/ConfigureLookups
 #: Rabbits
 msgid "Rabbits"
-msgstr ""
+msgstr "Jänesed"
 
 #. # ui/system/ConfigureLookups
 #: Horses_Ponies
 msgid "Horses and Ponies"
-msgstr ""
+msgstr "Hobused ja ponid"
 
 #. # ui/system/ConfigureLookups
 #: Small_Furry
 msgid "Small and Furry"
-msgstr ""
+msgstr "Väiksed ja karvased"
 
 #. # ui/system/ConfigureLookups
 #: Pigs
 msgid "Pigs"
-msgstr ""
+msgstr "Sead"
 
 #. # ui/system/ConfigureLookups
 #: Amphibians_Reptiles
 msgid "Reptiles and Amphibians"
-msgstr ""
+msgstr "Roomajad ja amfiibid"
 
 #. # ui/system/ConfigureLookups
 #: Birds
 msgid "Birds"
-msgstr ""
+msgstr "Linnud"
 
 #. # ui/system/ConfigureLookups
 #. # ui/internet/PetFinderMapSpecies
 #: Barnyard
 msgid "Barnyard Animals"
-msgstr ""
+msgstr "Põllumajandusloomad"
 
 #. # ui/system/ConfigureLookups
 #: Finished_removing_breeds_and_species
 msgid "Finished removing unwanted breeds and species."
-msgstr ""
+msgstr "Soovimatute tõugude ja liikide eemaldamine valmis."
 
 #. # ui/system/Options
 #: mark_new_animals_not_for_adoption
 msgid "Mark new animals as not for adoption"
-msgstr ""
+msgstr "Märgi uued loomad kui mitteloovutatavad"
 
 #. # ui/system/Options
 #: shelter_info
 msgid "Shelter Details"
-msgstr ""
+msgstr "Varjupaiga üksikasjad"
 
 #. # ui/system/Options
 #: word_processor
 msgid "Word Processor"
-msgstr ""
+msgstr "Tekstitöötlus"
 
 #. # ui/system/Options
 #: animal_codes
 msgid "Animal Codes"
-msgstr ""
+msgstr "Loomade koodid"
 
 #. # ui/system/Options
 #: options
 msgid "Options"
-msgstr ""
+msgstr "Valikud"
 
 #. # ui/system/Options
 #: Country\:
 msgid "Country:"
-msgstr ""
+msgstr "Maakond:"
 
 #. # ui/system/AdditionalFieldEdit
 #: lookupvalues
@@ -13314,7 +13319,7 @@ msgstr ""
 #. # ui/system/Options
 #: Case_sensitive_searching
 msgid "Case sensitive searching"
-msgstr ""
+msgstr "Suurtähetundlik otsing"
 
 #. # ui/system/ConfigureLookups
 #: untick_the_animal_groups_you_do_not_want_and_hit_ok
@@ -13334,67 +13339,67 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
-msgstr ""
+msgstr "Näita uuendusi"
 
 #. # ui/system/ConfigureLocal
 #: Tick_this_box_to_notify_me_of_asm_updates
 msgid "Tick this box to notify me of ASM updates"
-msgstr ""
+msgstr "Märgi see kastike kui soovid ASM uuenduste kohta meeldetuletust"
 
 #. # ui/system/Options
 #: default_species
 msgid "Default Species:"
-msgstr ""
+msgstr "Liik vaikimisi:"
 
 #. # ui/system/Options
 #: default_type
 msgid "Default Type:"
-msgstr ""
+msgstr "Tüüp vaikimisi:"
 
 #. # ui/system/Options
 #: disable_retailer_functionality
 msgid "Disable Retailer Functionality"
-msgstr ""
+msgstr "Eemalda vahendaja võimalus"
 
 #. # ui/system/Options
 #: Group_the_animal_figures_report_by_species_instead_of_type
 msgid "Group the animal figures report by species instead of type"
-msgstr ""
+msgstr "Grupeeri aruandes loomad liigiti mitte tüübiti"
 
 #. # ui/system/Options
 #: age_groups
 msgid "Age Groups"
-msgstr ""
+msgstr "Vanusegrupid"
 
 #. # ui/system/Options
 #: age_group_1
 msgid "Age Group 1:"
-msgstr ""
+msgstr "Vanusegrupp 1:"
 
 #. # ui/system/Options
 #: age_group_2
 msgid "Age Group 2:"
-msgstr ""
+msgstr "Vanusegrupp 2:"
 
 #. # ui/system/Options
 #: age_group_3
 msgid "Age Group 3:"
-msgstr ""
+msgstr "Vanusegrupp 3:"
 
 #. # ui/system/Options
 #: age_group_4
 msgid "Age Group 4:"
-msgstr ""
+msgstr "Vanusegrupp 4:"
 
 #. # ui/system/Options
 #: age_group_5
 msgid "Age Group 5:"
-msgstr ""
+msgstr "Vanusegrupp 5:"
 
 #. # ui/system/Options
 #: Dont_show_the_startup_page
 msgid "Don't show the startup page"
-msgstr ""
+msgstr "Ära näita sissejuhatavat lehekülge"
 
 #. # ui/system/Options
 #: mapping_service
@@ -13429,17 +13434,17 @@ msgstr ""
 #. # ui/system/Options
 #: Default_Coat_Type
 msgid "Default Coat Type:"
-msgstr ""
+msgstr "Karvatüüp vaikimisi:"
 
 #. # ui/system/Options
 #: Default_date_brought_in_to_today
 msgid "Default today as the brought in date for new animals"
-msgstr ""
+msgstr "Märgi vaikimisi uute loomade sissetulekupäevaks tänane"
 
 #. # ui/system/Options
 #: auto_cancel_reserves
 msgid "Automatically cancel unadopted reservations after days:"
-msgstr ""
+msgstr "Tühista automaatselt broneeringud peale nii mitut päeva:"
 
 #. # ui/system/Options
 #: auto_cancel_reserves_tooltip
@@ -13447,11 +13452,13 @@ msgid ""
 "If a reserved animal is not adopted after this many days, cancel the "
 "reservation"
 msgstr ""
+"Kui broneeritud loom ei ole loovtutatud nii mitme päeva pärast, tühista "
+"broneering"
 
 #. # ui/system/Options
 #: Default_Donation_Type
 msgid "Default Donation Type:"
-msgstr ""
+msgstr "Annetuse tüüp vaikimisi:"
 
 #. # ui/system/Options
 #: Default_Daily_Boarding_Cost
@@ -13466,7 +13473,7 @@ msgstr ""
 #. # ui/system/Options
 #: Default_Vaccination_Type
 msgid "Default Vaccination Type:"
-msgstr ""
+msgstr "Vaktsineerimise tüüp vaikimisi:"
 
 #. # ui/system/Options
 #: Create_boarding_cost_on_adoption
@@ -13481,27 +13488,27 @@ msgstr ""
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
-msgstr ""
+msgstr "Lisa uus kasutaja"
 
 #. # ui/users/UserView
 #: System_Users
 msgid "System Users"
-msgstr ""
+msgstr "Süsteemi kasutajad"
 
 #. # ui/users/UserView
 #: Delete_the_highlighted_user
 msgid "Delete the highlighted user"
-msgstr ""
+msgstr "Kustuta esiletõstetud kasutaja"
 
 #. # ui/users/UserView
 #: Edit_the_highlighted_user
 msgid "Edit the highlighted user"
-msgstr ""
+msgstr "Muuda esiletõstetud kasutajat"
 
 #. # ui/users/UserEdit
 #: Delete_Animal_Movements
 msgid "Delete Animal Movements"
-msgstr ""
+msgstr "Kustuta looma liikumised"
 
 #. # ui/users/UserEdit
 #: Mail_Merge_(Adoption_Data)
@@ -13516,12 +13523,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Animals\:
 msgid "Animals:"
-msgstr ""
+msgstr "Loomad:"
 
 #. # ui/users/UserEdit
 #: Add_Found_Animals
 msgid "Add Found Animals"
-msgstr ""
+msgstr "Lisa leitud loomad"
 
 #. # ui/users/UserEdit
 #: Litter_Logging\:
@@ -13531,47 +13538,47 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Delete_Animal_Vaccinations
 msgid "Delete Animal Vaccinations"
-msgstr ""
+msgstr "Kustuta looma vaktsineerimised"
 
 #. # ui/users/UserEdit
 #: Clone_Animals
 msgid "Clone Animals"
-msgstr ""
+msgstr "Klooni loomi"
 
 #. # ui/users/UserEdit
 #: Print_Vaccination_Diary
 msgid "Print Vaccination Diary"
-msgstr ""
+msgstr "Prindi vaktsineerimise päevik"
 
 #. # ui/users/UserEdit
 #: Movements\:
 msgid "Movements:"
-msgstr ""
+msgstr "Liikumised:"
 
 #. # ui/users/UserEdit
 #: Diary\:
 msgid "Diary:"
-msgstr ""
+msgstr "Päevik:"
 
 #. # ui/users/UserEdit
 #: Password\:_
 msgid "Password: "
-msgstr ""
+msgstr "Parool: "
 
 #. # ui/users/UserEdit
 #: Edit_User
 msgid "Edit User"
-msgstr ""
+msgstr "Muuda kasutajat"
 
 #. # ui/users/UserEdit
 #: Add_Diary_Notes
 msgid "Add Diary Notes"
-msgstr ""
+msgstr "Lisa päeviku märkused"
 
 #. # ui/users/UserEdit
 #: Vaccinations\:
 msgid "Vaccinations:"
-msgstr ""
+msgstr "Vaktsineerimised:"
 
 #. # ui/users/UserEdit
 #: Run_Database_Updates
@@ -13581,12 +13588,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Delete_Found_Animals
 msgid "Delete Found Animals"
-msgstr ""
+msgstr "Kustuta leitud loomad"
 
 #. # ui/users/UserEdit
 #: View_Animal_Movements
 msgid "View Animal Movements"
-msgstr ""
+msgstr "Vaata looma liikumisi"
 
 #. # ui/users/UserEdit
 #: Modify_Lookups
@@ -13596,12 +13603,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Lost_Animals
 msgid "Add Lost Animals"
-msgstr ""
+msgstr "Lisa kadunud loomad"
 
 #. # ui/users/UserEdit
 #: Change_Lost_Animals
 msgid "Change Lost Animals"
-msgstr ""
+msgstr "Muuda kadunud loomad"
 
 #. # ui/users/UserEdit
 #: Delete_Litter_Log
@@ -13611,12 +13618,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Owners
 msgid "View Owners"
-msgstr ""
+msgstr "Vaata omanikke"
 
 #. # ui/users/UserEdit
 #: Waiting_List\:
 msgid "Waiting List:"
-msgstr ""
+msgstr "Ootenimekiri:"
 
 #. # ui/users/UserEdit
 #: Mail_Merge_(Owner_Data)
@@ -13626,7 +13633,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Found_Animals
 msgid "Change Found Animals"
-msgstr ""
+msgstr "Muuda leitud loomad"
 
 #. # ui/users/UserEdit
 #: Add_Animal_Media
@@ -13636,7 +13643,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Animals
 msgid "Add Animals"
-msgstr ""
+msgstr "Lisa loomi"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
@@ -13647,7 +13654,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: System\:
 msgid "System:"
-msgstr ""
+msgstr "Süsteem:"
 
 #. # ui/users/UserEdit
 #: Run_Database_Diagnostics
@@ -13662,22 +13669,22 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Waiting_List_Entries
 msgid "Change Waiting List Entries"
-msgstr ""
+msgstr "Muuda ootenimekirja sissekandeid"
 
 #. # ui/users/UserEdit
 #: Owners\:
 msgid "Owners:"
-msgstr ""
+msgstr "Omanikud:"
 
 #. # ui/users/UserEdit
 #: Edit_Completed_Diary_Notes
 msgid "Edit Completed Diary Notes"
-msgstr ""
+msgstr "Muuda lõpetatud päeviku märkusi"
 
 #. # ui/users/UserEdit
 #: Add_Animal_Vaccinations
 msgid "Add Animal Vaccinations"
-msgstr ""
+msgstr "Lisa looma vaktsineerimised"
 
 #. # ui/users/UserEdit
 #: Access_System_Menu
@@ -13693,12 +13700,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Real_Name
 msgid "Real Name: "
-msgstr ""
+msgstr "Päris nimi: "
 
 #. # ui/users/UserEdit
 #: Add_Owners
 msgid "Add Owners"
-msgstr ""
+msgstr "Lisa omanikke"
 
 #. # ui/users/UserEdit
 #: Add_Litter_Log
@@ -13718,28 +13725,28 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Animal_Movements
 msgid "Change Animal Movements"
-msgstr ""
+msgstr "Muuda looma liikumisi"
 
 #. # ui/users/UserEdit
 #: View_Animals
 msgid "View Animals"
-msgstr ""
+msgstr "Vaata loomi"
 
 #. # ui/users/UserEdit
 #: Edit_My_Diary_Notes
 msgid "Edit My Diary Notes"
-msgstr ""
+msgstr "Muuda mu päeviku märkmeid"
 
 #. # ui/users/UserEdit
 #: Delete_Diary_Notes
 msgid "Delete Diary Notes"
-msgstr ""
+msgstr "Kustuta päeviku märkmed"
 
 #. # ui/users/UserView
 #. # ui/users/UserEdit
 #: Username\:_
 msgid "Username: "
-msgstr ""
+msgstr "Kasutajanimi: "
 
 #. # ui/users/UserEdit
 #: Change_Animal_Media
@@ -13749,7 +13756,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Delete_Waiting_List_Entries
 msgid "Delete Waiting List Entries"
-msgstr ""
+msgstr "Kustuta ootenimekirja sissekanded"
 
 #. # ui/users/UserEdit
 #: Use_SQL_Interface
@@ -13759,28 +13766,28 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Owners
 msgid "Change Owners"
-msgstr ""
+msgstr "Muuda omanikke"
 
 #. # ui/users/UserEdit
 #: View_Animal_Vaccinations
 msgid "View Animal Vaccinations"
-msgstr ""
+msgstr "Vaata looma vaktsineerimisi"
 
 #. # ui/users/UserEdit
 #: Delete_Lost_Animals
 msgid "Delete Lost Animals"
-msgstr ""
+msgstr "Kustuta kadunud loomad"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Print_Diary_Notes
 msgid "Print Diary Notes"
-msgstr ""
+msgstr "Prindi päeviku märkmed"
 
 #. # ui/users/UserEdit
 #: Change_Animal_Vaccinations
 msgid "Change Animal Vaccinations"
-msgstr ""
+msgstr "Muuda looma vaktsineerimisi"
 
 #. # ui/users/UserEdit
 #: Delete_Animal_Media
@@ -13790,27 +13797,27 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Waiting_List
 msgid "View Waiting List"
-msgstr ""
+msgstr "Vaata ootenimekirja"
 
 #. # ui/users/UserEdit
 #: Delete_Owners
 msgid "Delete Owners"
-msgstr ""
+msgstr "Kustuta omanikud"
 
 #. # ui/users/UserEdit
 #: Delete_Animals
 msgid "Delete Animals"
-msgstr ""
+msgstr "Kustuta loomad"
 
 #. # ui/users/UserEdit
 #: Lost_and_Found_Animals\:
 msgid "Lost and Found Animals:"
-msgstr ""
+msgstr "Kadunud ja leitud loomad:"
 
 #. # ui/users/UserEdit
 #: Internet_Publishing\:
 msgid "Internet Publishing:"
-msgstr ""
+msgstr "Internetis avaldamine:"
 
 #. # ui/users/UserEdit
 #: Mail_Merging\:
@@ -13820,7 +13827,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Media\:
 msgid "Media:"
-msgstr ""
+msgstr "Meedia:"
 
 #. # ui/users/UserEdit
 #: Use_Internet_Publisher
@@ -13835,12 +13842,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Animals
 msgid "Change Animals"
-msgstr ""
+msgstr "Muuda loomi"
 
 #. # ui/users/UserEdit
 #: Add_Animal_Movements
 msgid "Add Animal Movements"
-msgstr ""
+msgstr "Lisa looma liikumised"
 
 #. # ui/users/UserEdit
 #: View_Litter_Log
@@ -13855,7 +13862,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Modify_Animal_Name_Database
 msgid "Modify Animal Name Database"
-msgstr ""
+msgstr "Modifitseeri loomanimede andmebaasi"
 
 #. # ui/users/UserEdit
 #: Bulk_Complete_Diary_Notes
@@ -13876,7 +13883,7 @@ msgstr ""
 #. # ui/customreport/CustomReportView
 #: Custom_Reports
 msgid "Custom Reports"
-msgstr ""
+msgstr "Kohandatud aruanded"
 
 #. # ui/users/UserEdit
 #: Add_Custom_Report
@@ -13901,52 +13908,52 @@ msgstr ""
 #. # ui/users/UserEdit
 #: clone
 msgid "Clone"
-msgstr ""
+msgstr "Klooni"
 
 #. # ui/users/UserEdit
 #: create_a_new_user_by_cloning_this_user
 msgid "Create a new user by cloning this user"
-msgstr ""
+msgstr "Loo uus kasutaja seda kasutajat kloonides"
 
 #. # ui/users/UserEdit
 #: Diets\:
 msgid "Diets:"
-msgstr ""
+msgstr "Dieedid:"
 
 #. # ui/users/UserEdit
 #: Add_Animal_Diets
 msgid "Add Animal Diets"
-msgstr ""
+msgstr "Lisa looma dieedid"
 
 #. # ui/users/UserEdit
 #: Change_Animal_Diets
 msgid "Change Animal Diets"
-msgstr ""
+msgstr "Muuda looma dieedid"
 
 #. # ui/users/UserEdit
 #: Delete_Animal_Diets\:
 msgid "Delete Animal Diets"
-msgstr ""
+msgstr "Kustuta looma dieedid"
 
 #. # ui/users/UserEdit
 #: Owner_Vouchers
 msgid "Owner Vouchers:"
-msgstr ""
+msgstr "Omaniku vautšerid:"
 
 #. # ui/users/UserEdit
 #: Add_Owner_Vouchers
 msgid "Add Owner Vouchers"
-msgstr ""
+msgstr "Lisa omaniku vautšerid"
 
 #. # ui/users/UserEdit
 #: Change_Owner_Vouchers
 msgid "Change Owner Vouchers"
-msgstr ""
+msgstr "Muuda omaniku vautšereid"
 
 #. # ui/users/UserEdit
 #: Delete_Owner_Vouchers
 msgid "Delete Owner Vouchers"
-msgstr ""
+msgstr "Kustuta omaniku vautšerid"
 
 #. # ui/users/UserEdit
 #: Medical\:
@@ -13956,17 +13963,17 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Animal_Medical_Records
 msgid "Add Animal Medical Records"
-msgstr ""
+msgstr "Lisa looma meditsiinikirjed"
 
 #. # ui/users/UserEdit
 #: Change_Animal_Medical_Records
 msgid "Change Animal Medical Records"
-msgstr ""
+msgstr "Muuda looma meditsiinikirjeid"
 
 #. # ui/users/UserEdit
 #: Delete_Animal_Medical_Records
 msgid "Delete Animal Medical Records"
-msgstr ""
+msgstr "Kustuta looma meditsiinikirjed"
 
 #. # ui/users/UserEdit
 #: Bulk_Complete_Animal_Medical_Records
@@ -13976,7 +13983,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Merge_Owners
 msgid "Merge Owners"
-msgstr ""
+msgstr "Liida omanikud"
 
 #. # ui/users/UserEdit
 #: Log_Entries\:
@@ -14006,27 +14013,27 @@ msgstr ""
 #. # ui/users/UserView
 #: Enter_new_password
 msgid "Enter new password"
-msgstr ""
+msgstr "Sisesta uus parool"
 
 #. # ui/users/UserView
 #: Password_updated
 msgid "Password updated."
-msgstr ""
+msgstr "Parool uuendatud."
 
 #. # ui/users/UserEdit
 #: View_Animal_Vet
 msgid "View Animal Vet"
-msgstr ""
+msgstr "Vaata looma veterinaari"
 
 #. # ui/users/UserEdit
 #: View_Animal_Medical_Records
 msgid "View Animal Medical Records"
-msgstr ""
+msgstr "Vaata looma meditsiinikirjeid"
 
 #. # ui/users/UserEdit
 #: View_Animal_Diets
 msgid "View Animal Diets"
-msgstr ""
+msgstr "Vaata looma dieete"
 
 #. # ui/users/UserEdit
 #: View_Log_Entries
@@ -14036,7 +14043,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Owner_Vouchers
 msgid "View Owner Vouchers"
-msgstr ""
+msgstr "Vaata omaniku vautšereid"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
@@ -14045,32 +14052,32 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: Donations
 msgid "Donations:"
-msgstr ""
+msgstr "Annetused:"
 
 #. # ui/users/UserEdit
 #: Add_Owner_Donations
 msgid "Add Owner Donations"
-msgstr ""
+msgstr "Lisa omaniku annetused"
 
 #. # ui/users/UserEdit
 #: Change_Owner_Donations
 msgid "Change Owner Donations"
-msgstr ""
+msgstr "Muuda omaniku annetusi"
 
 #. # ui/users/UserEdit
 #: Delete_Owner_Donations
 msgid "Delete Owner Donations"
-msgstr ""
+msgstr "Kustuta omaniku annetused"
 
 #. # ui/users/UserEdit
 #: View_Owner_Donations
 msgid "View Owner Donations"
-msgstr ""
+msgstr "Vaata omaniku annetusi"
 
 #. # ui/users/UserEdit
 #: View_Owner_Links
 msgid "View Owner Links"
-msgstr ""
+msgstr "Vaata omaniku linke"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
@@ -14080,22 +14087,22 @@ msgstr ""
 #. # ui/waitinglist/WaitingListView
 #: Name_Contains\:
 msgid "Name Contains:"
-msgstr ""
+msgstr "Nimi sisaldab:"
 
 #. # ui/waitinglist/WaitingListView
 #: Delete_this_entry
 msgid "Delete this entry"
-msgstr ""
+msgstr "Kustuta see kirje"
 
 #. # ui/waitinglist/WaitingListView
 #: Show_Removed\:
 msgid "Show Removed:"
-msgstr ""
+msgstr "Näita eemaldatud:"
 
 #. # ui/waitinglist/WaitingListView
 #: Print_the_current_view_of_the_waiting_list
 msgid "Print the current view of the waiting list"
-msgstr ""
+msgstr "Prindi ootenimekirja hetkevaade"
 
 #. # ui/waitinglist/WaitingListView
 #: Priority_Floor\:
@@ -14105,7 +14112,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListView
 #: Edit_this_entry
 msgid "Edit this entry"
-msgstr ""
+msgstr "Muuda seda kirjet"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Urgency\:
@@ -14116,12 +14123,12 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Edit_Waiting_List
 msgid "Edit Waiting List"
-msgstr ""
+msgstr "Muuda ootenimekirja"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Clone_this_record
 msgid "Clone this record"
-msgstr ""
+msgstr "Klooni see kirje"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Date_Put_On\:
@@ -14131,7 +14138,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: A_date_you_entered_was_not_valid\:_\n
 msgid "A date you entered was not valid: \n"
-msgstr ""
+msgstr "Sisestatud kuupäev pole kehtiv: \n"
 
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -14148,44 +14155,46 @@ msgstr ""
 #. # bo/LookupCache
 #: species
 msgid "species"
-msgstr ""
+msgstr "liik"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Date_Removed\:
 msgid "Date Removed:"
-msgstr ""
+msgstr "Eemaldamise kuupäev"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Donation?
 msgid "Donation?"
-msgstr ""
+msgstr "Annetus?"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
 #: New_Waiting_List_Entry
 msgid "New Waiting List Entry"
-msgstr ""
+msgstr "Uus ootenimekirja sissekanne"
 
 #. # ui/waitinglist/WaitingListView
 #: complete_the_selected_waiting_list_entries
 msgid "Complete the selected waiting list entries"
-msgstr ""
+msgstr "Lõpeta valitud ootenimekirja sissekanded"
 
 #. # ui/waitinglist/WaitingListEdit
 #: remove_this_entry_after
 msgid "Remove this entry after"
-msgstr ""
+msgstr "Eemalda see sissekanne pärast"
 
 #. # ui/waitinglist/WaitingListEdit
 #: automatically_remove_this_entry_after_x_weeks_without_owner_contact
 msgid ""
 "Automatically remove this entry after weeks (or 0 to never auto remove)"
 msgstr ""
+"Eemalda see sissekanne automatselt peale nii mitut nädalat (või 0 kui ei "
+"eemalda automatselt kunagi)"
 
 #. # ui/waitinglist/WaitingListEdit
 #: date_of_last_owner_contact
 msgid "Date Of Last Owner Contact:"
-msgstr ""
+msgstr "Viimane kontakti kuupäev omanikuga:"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -14195,17 +14204,17 @@ msgstr ""
 #. # bo/MedicalProfile
 #: weeks
 msgid "weeks."
-msgstr ""
+msgstr "nädalat."
 
 #. # ui/waitinglist/WaitingListView
 #: Address_Contains\:
 msgid "Address Contains:"
-msgstr ""
+msgstr "Aadress sisaldab:"
 
 #. # ui/waitinglist/WaitingListView
 #: Description_Contains\:
 msgid "Description Contains:"
-msgstr ""
+msgstr "Kirjeldus sisaldab:"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Create_an_animal_from_this_record
@@ -14215,22 +14224,22 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Removal
 msgid "Removal"
-msgstr ""
+msgstr "Eemaldamine"
 
 #. # ui/waitinglist/WaitingListEdit
 #: edit_waiting_list_title
 msgid "Edit Waiting List Entry - {0}"
-msgstr ""
+msgstr "Muuda ootenimekirja sissekannet - {0}"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Removal_Reason\:
 msgid "Removal Reason:"
-msgstr ""
+msgstr "eemaldamise põhjus:"
 
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
-msgstr ""
+msgstr "Vali dokumendipõhi"
 
 #. # ui/wordprocessor/SelectTemplate
 #: attach_generated_document_as_media
@@ -14242,19 +14251,19 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #: Positive
 msgid "Positive"
-msgstr ""
+msgstr "Positiivne"
 
 #. # reports/Report
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/GenerateDocument
 #: Negative
 msgid "Negative"
-msgstr ""
+msgstr "Negatiivne"
 
 #. # wordprocessor/AnimalDocument
 #: estimated
 msgid "(estimated)"
-msgstr ""
+msgstr "(eeldatav)"
 
 #~ msgid "An error occurred accessing the object: "
 #~ msgstr "Tekkis tõrge sisenemisel: "
