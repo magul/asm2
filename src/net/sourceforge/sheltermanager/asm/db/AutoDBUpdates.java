@@ -3400,7 +3400,11 @@ public class AutoDBUpdates {
                                 (((Double) ra.getField("AmountDonatedOnEntry")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
-                            o.addNew();
+			    try {
+                                 o.addNew();
+	                    }
+			    catch (Exception e) {
+			    }
                             o.setAnimalID((Integer) ra.getField("ID"));
                             o.setOwnerID((Integer) ra.getField(
                                     "BroughtInByOwnerID"));

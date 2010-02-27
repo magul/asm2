@@ -211,10 +211,10 @@ public class OwnerDonation extends UserInfoBO {
         setMovementID(z);
         setDonationTypeID(z);
         setFrequency(z);
-        setIsGiftAid(z);
         setNextCreated(z);
         setDonation(new Double(0));
         setComments("");
+        setIsGiftAid(z);
     }
 
     public OwnerDonation copy() throws Exception {
