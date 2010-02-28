@@ -55,9 +55,8 @@ public class Credits {
         "<li>Gregory Simon [mak_greg@hotmail.com]</li>" + "</ul>" +
         "<h2>Lithuanian, Polish and Russian Translation:</h2><ul>" +
         "<li>Ruta Kudelyte [mycredo@gmail.com]</li>" + "</ul>" +
-	"<h2>Hebrew Translation:</h2><ul>" +
-	"<li>Yaron Shahrabani</li>" + "<li>Liel Fridman</li>" +
-	"<li>Dor Dankner</li>" + "</ul>" +
+        "<h2>Hebrew Translation:</h2><ul>" + "<li>Yaron Shahrabani</li>" +
+        "<li>Liel Fridman</li>" + "<li>Dor Dankner</li>" + "</ul>" +
         "<h2>Other Free software used by ASM:</h2>" + "<ul>" +
         "<li><a href=\"http://www.hqldb.org\">Hypersonic SQL DB</a></li>" +
         "<li><a href=\"http://www.postgresql.org\">PostgreSQL</a></li>" +
