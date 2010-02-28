@@ -1,8 +1,11 @@
-2.7.1
+2.7.0.1
 ================
 
+*. Credits for Hebrew translators
+*. Look for translation patch based on language and country if just
+-  language can't be found (auto apply Hebrew patch)
 *. Rearranged 2702 update to set gift aid last in case field
--  hasn't been created yet
+-  hasn't been created yet (causes data loss urgent fix)
 
 2.7.0
 ================

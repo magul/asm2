@@ -383,6 +383,7 @@ public class LocateDatabase {
      */
     public void applyTranslationPatch() {
         String lang = Locale.getDefault().getLanguage();
+	String country = Locale.getDefault().getCountry();
 
         try {
             // Don't bother for english
@@ -393,9 +394,11 @@ public class LocateDatabase {
             Global.logInfo("Applying translation patch for language '" + lang +
                 "'", "LocateDatabase.applyTranslationPatch");
 
-            DBConnection.executeFile(new File(Global.dataDirectory +
-                    File.separator + "sql" + File.separator + "translate_" +
-                    lang + ".sql"));
+            File flang = new File(Global.dataDirectory + File.separator + "sql" + File.separator + "translate_" + lang + ".sql");
+	    File flangcountry = new File(Global.dataDirectory + File.separator + "sql" + File.separator + "translate_" + lang + "_" + country + ".sql");
+	    File f = flang.exists() ? flang : flangcountry;
+
+            DBConnection.executeFile(f);
         } catch (Exception e) {
             Global.logError("Failed to apply translation patch for language '" +
                 lang + "'", "LocateDatabase.applyTranslationPatch");
