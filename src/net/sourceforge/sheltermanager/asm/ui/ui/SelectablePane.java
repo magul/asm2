@@ -39,6 +39,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -74,9 +75,7 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
             if (items[i].isHeader()) {
                 p.add(UI.getTitleLabel(items[i].getDisplay()));
             } else {
-                final UI.CheckBox c = new UI.CheckBox();
-                c.setText(items[i].getDisplay());
-
+                final UI.CheckBox c = UI.getCheckBox(items[i].getDisplay());
                 final int idx = i;
                 final String group = items[i].getGroup();
                 c.addKeyListener(new KeyAdapter() {
