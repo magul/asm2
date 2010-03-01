@@ -2019,7 +2019,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         yesnounknown.add(i18n("Unknown"));
 
         // Toolbar =============================
-        tlbTools = new UI.ToolBar();
+        tlbTools = UI.getToolBar();
 
         btnSave = (UI.Button) tlbTools.add(UI.getButton(null,
                     i18n("Save_this_record"), 's',
@@ -3054,7 +3054,7 @@ class AnimalCodeField extends UI.Panel {
 
         UI.ToolBar t = UI.getToolBar();
         t.add(btn);
-        add(t, UI.BorderLayout.EAST);
+        add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     }
 
     public String getCode() {

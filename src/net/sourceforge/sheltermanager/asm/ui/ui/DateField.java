@@ -24,14 +24,8 @@ package net.sourceforge.sheltermanager.asm.ui.ui;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.*;
+import java.awt.event.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -351,6 +345,8 @@ public class DateField extends UI.Panel {
                 IconManager.getIcon(IconManager.DATEPICKER),
                 UI.fp(this, "showPicker"));
 
+        if (!UI.isLTR()) txt.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
         txt.addFocusListener(new java.awt.event.FocusAdapter() {
                 public void focusLost(java.awt.event.FocusEvent evt) {
                     txt_focusLost(evt);
@@ -383,7 +379,7 @@ public class DateField extends UI.Panel {
 
         UI.ToolBar t = UI.getToolBar();
         t.add(btn);
-        add(t, UI.BorderLayout.EAST);
+        add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     }
 
     public void showPicker() {

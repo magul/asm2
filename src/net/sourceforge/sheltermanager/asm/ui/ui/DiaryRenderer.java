@@ -24,8 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.ui;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
-import java.awt.Color;
-import java.awt.Component;
+import java.awt.*;
 
 import java.text.ParseException;
 
@@ -44,6 +43,7 @@ public class DiaryRenderer extends DefaultTableCellRenderer
     public DiaryRenderer(int datecolumn) {
         super();
         this.datecolumn = datecolumn;
+        if (!UI.isLTR()) this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     }
 
     public void setTableModel(SortableTableModel tablemodel) {

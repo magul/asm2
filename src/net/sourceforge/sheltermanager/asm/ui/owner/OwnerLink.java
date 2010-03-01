@@ -214,7 +214,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
             setLayout(UI.getBorderLayout());
             add(p, UI.BorderLayout.CENTER);
-            add(t, UI.BorderLayout.EAST);
+            add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
         } else if (mode == MODE_ONELINE) {
             setLayout(UI.getBorderLayout());
 
@@ -251,7 +251,7 @@ public class OwnerLink extends UI.Panel implements SearchListener {
                             IconManager.SCREEN_EMBEDOWNERSMALL_CLEAR),
                         UI.fp(this, "actionClear")));
 
-            add(t, UI.BorderLayout.EAST);
+            add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
         }
     }
 

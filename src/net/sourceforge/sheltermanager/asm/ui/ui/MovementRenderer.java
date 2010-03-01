@@ -21,8 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import java.awt.Color;
-import java.awt.Component;
+import java.awt.*;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -36,6 +35,7 @@ public class MovementRenderer extends DefaultTableCellRenderer
     public MovementRenderer(int deathColumn) {
         super();
         this.deathColumn = deathColumn;
+        if (!UI.isLTR()) this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     }
 
     public void setTableModel(SortableTableModel tablemodel) {

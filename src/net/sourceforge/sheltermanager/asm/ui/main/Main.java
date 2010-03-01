@@ -1547,7 +1547,7 @@ public class Main extends ASMWindow {
         UI.Panel pnlStatusLeft = UI.getPanel(UI.getFlowLayout());
         pnlStatusLeft.add(lblStatus);
         pnlStatus.add(pnlStatusLeft, UI.BorderLayout.CENTER);
-        pnlStatus.add(thrThrob, UI.BorderLayout.WEST);
+        pnlStatus.add(thrThrob, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
 
         UI.Panel pnlStatusRight = UI.getPanel(UI.getFlowLayout());
         pnlStatusRight.add(pgStatus);
@@ -1573,7 +1573,7 @@ public class Main extends ASMWindow {
         pnlStatusRight.add(lblDB);
         pnlStatusRight.add(lblUser);
         pnlStatusRight.add(new LocaleSwitcher());
-        pnlStatus.add(pnlStatusRight, UI.BorderLayout.EAST);
+        pnlStatus.add(pnlStatusRight, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     }
 
     /**

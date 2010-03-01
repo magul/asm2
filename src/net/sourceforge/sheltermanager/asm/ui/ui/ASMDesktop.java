@@ -52,6 +52,7 @@ public class ASMDesktop extends JPanel {
     public void init() {
         tabs = new JPanel();
         tabs.setLayout(new GridLayout(1, 0, 2, 2));
+        if (!UI.isLTR()) tabs.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         viewer = new JPanel();
         viewlayout = new CardLayout();
         viewer.setLayout(viewlayout);
@@ -213,16 +214,20 @@ class ASMTab extends JPanel implements MouseListener {
 
     public void init() {
         setLayout(new BorderLayout());
+        if (!UI.isLTR()) setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         label = new JLabel(title);
         this.foreground = label.getForeground();
         label.addMouseListener(this);
         label.setToolTipText(tooltip);
+        if (!UI.isLTR()) label.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         iconlabel = new JLabel(icon);
         iconlabel.addMouseListener(this);
         iconlabel.setToolTipText(tooltip);
+        if (!UI.isLTR()) iconlabel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         button = new JLabel(IconManager.getIcon(IconManager.CLOSE));
         button.setToolTipText(Global.i18n("uianimal", "Close"));
+        if (!UI.isLTR()) button.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         button.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     if (!form.formClosing()) {
@@ -239,9 +244,9 @@ class ASMTab extends JPanel implements MouseListener {
                 }
             });
 
-        add(iconlabel, BorderLayout.WEST);
+        add(iconlabel, UI.isLTR() ? BorderLayout.WEST : BorderLayout.EAST);
         add(label, BorderLayout.CENTER);
-        add(button, BorderLayout.EAST);
+        add(button, UI.isLTR() ? BorderLayout.EAST : BorderLayout.WEST);
     }
 
     public void setTitle(String s) {
