@@ -88,10 +88,16 @@ lbl_data:
   File ..\..\sql\translate_de.sql
   File ..\..\sql\translate_en.sql
   File ..\..\sql\translate_es.sql
+  File ..\..\sql\translate_et.sql
   File ..\..\sql\translate_fr.sql
+  File ..\..\sql\translate_iw_IL.sql
   File ..\..\sql\translate_lt.sql
   File ..\..\sql\translate_nl.sql
+  File ..\..\sql\translate_pl.sql
+  File ..\..\sql\translate_ru.sql
+  File ..\..\sql\translate_sv.sql
   File ..\..\sql\translate_th.sql
+  File ..\..\sql\translate_tr.sql
   SetOutPath $INSTDIR\data
   File ..\..\build\asm_en.pdf
   File ..\..\build\manual_html_en.zip
