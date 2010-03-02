@@ -284,7 +284,7 @@ public class DiaryEdit extends ASMForm {
         pnlBot.add(btnOk);
 
         btnCancel = UI.getButton(i18n("Cancel"), i18n("Close_without_saving"),
-                'o', null, UI.fp(this, "actionCancel"));
+                'c', null, UI.fp(this, "actionCancel"));
         pnlBot.add(btnCancel);
     }
 
