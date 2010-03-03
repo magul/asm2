@@ -11409,6 +11409,118 @@ placeholder.jpg
 \end_layout
 
 \begin_layout Section
+System Properties
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+System Properties
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Certain system properties can be set that change the behaviour of ASM at
+ the system level.
+ These do not have options in the user interface as they are not things
+ user should generally be changing or aware of.
+\end_layout
+
+\begin_layout Standard
+To set these, they need to placed after the call to Java when ASM starts
+ up.
+\end_layout
+
+\begin_layout Standard
+For Windows, you will need to edit the asm.bat file in Program Files
+\backslash
+ASM.
+ Eg:
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Quotes eld
+\end_inset
+
+C:
+\backslash
+Program Files
+\backslash
+ASM
+\backslash
+Java
+\backslash
+bin
+\backslash
+java.exe
+\begin_inset Quotes erd
+\end_inset
+
+ -Dasm.log.debug=true -cp (etc.)
+\end_layout
+
+\begin_layout Standard
+For Linux/Unix, you'll need to edit the run.sh bash script in the asm directory
+ (it can be found in /usr/share/asm for Debian packages).
+\end_layout
+
+\begin_layout Standard
+For MacOSX, you'll need to use the terminal application and edit the asm
+ script in /Applications/ASM.app/Content/MacOS
+\end_layout
+
+\begin_layout Standard
+The system properties are:
+\end_layout
+
+\begin_layout Itemize
+-Dasm.log.debug=true - Enables additional debug logging in $HOME/.asm/asm.log.
+ Also, turns on the System->Database Tools->Database Copy facility to allow
+ moving an ASM database between different types/servers.
+\end_layout
+
+\begin_layout Itemize
+-Dasm.fontsize.textarea=[size] - Changes the size of the font in text area
+ fields (these are the large edit boxes on various screens).
+ Set [size] to a font size in points.
+\end_layout
+
+\begin_layout Itemize
+-Dasm.shellexecute=internal - ASM will figure out if the OS knows how to
+ open the correct program for a file.
+ If you set this system option to 
+\begin_inset Quotes eld
+\end_inset
+
+internal
+\begin_inset Quotes erd
+\end_inset
+
+, ASM will let you keep a separate list of filetypes and what program to
+ open them with.
+ A 
+\begin_inset Quotes eld
+\end_inset
+
+Configure File Types
+\begin_inset Quotes erd
+\end_inset
+
+ menu option will appear under the Preferences menu.
+\end_layout
+
+\begin_layout Itemize
+-Dasm.swingdefault=true - ASM will not attempt to set the Java Swing Look
+ and Feel to the current platform if this is set to true.
+ ASM will use the normal Java Metal LAF (which is very fast) or whatever
+ you have set at the VM level if you prefer a different Swing LAF.
+ This option is handy for diagnosing some UI issues.
+\end_layout
+
+\begin_layout Section
 Available Icons
 \begin_inset Index
 status open

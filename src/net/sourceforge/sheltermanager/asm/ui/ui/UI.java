@@ -1194,6 +1194,16 @@ public final class UI {
             t.setToolTipText(tooltip);
         }
 
+        if (!System.getProperty("asm.fontsize.textarea", "UNSET").equals("UNSET")) {
+            try {
+                float newsize = Float.parseFloat(System.getProperty("asm.fontsize.textarea"));
+                t.setFont(t.getFont().deriveFont(newsize));
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         t.setLineWrap(true);
         t.setWrapStyleWord(true);
 
