@@ -191,7 +191,7 @@ public class HTMLViewer extends ASMForm {
                 UI.fp(this, "actionRefresh")));
 
         p.add(txtAddress, UI.BorderLayout.CENTER);
-        p.add(t, UI.BorderLayout.WEST);
+        p.add(t, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
 
         add(p, UI.BorderLayout.NORTH);
         UI.addComponent(this, ed);

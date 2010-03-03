@@ -77,11 +77,7 @@ public class JDBCDlg extends ASMDialog {
     }
 
     public void initComponents() {
-        UI.TableLayout t = UI.getTableLayout(2);
-        t.setMargin(5);
-
-        UI.Panel p = UI.getPanel(t);
-
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         cboType = (UI.ComboBox) UI.addComponent(p, i18n("databasetype"),
                 UI.getCombo(UI.fp(this, "changeType")));
 
@@ -123,7 +119,7 @@ public class JDBCDlg extends ASMDialog {
         // Put a database icon down the side
         UI.Label pic = UI.getLabel(IconManager.getIcon(
                     IconManager.SCREEN_JDBCDLG_DATABASE));
-        add(pic, UI.BorderLayout.WEST);
+        add(pic, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
 
         setSize(450, 240);
         getRootPane().setDefaultButton(btnOk);

@@ -62,7 +62,7 @@ public class StartupPage extends ASMForm {
         //p.add(asmnews, UI.BorderLayout.CENTER);
         UI.addComponent(this, diarynotes);
         //add(diarynotes, UI.BorderLayout.CENTER);
-        add(p, UI.BorderLayout.EAST);
+        add(p, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     }
 
     public void loadData() {

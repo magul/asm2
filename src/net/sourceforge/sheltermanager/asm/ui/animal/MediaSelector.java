@@ -284,7 +284,7 @@ public class MediaSelector extends ASMSelector {
         lblPreview.setToolTipText(i18n("Preview"));
         lblPreview.setVerticalAlignment(UI.ALIGN_TOP);
         lblPreview.setVerticalTextPosition(UI.ALIGN_TOP);
-        add(lblPreview, UI.BorderLayout.EAST);
+        add(lblPreview, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
 
         btnAdd = UI.getButton(null, i18n("Attach_new_media"), 'n',
                 IconManager.getIcon(IconManager.SCREEN_ANIMALMEDIA_NEW),

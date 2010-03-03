@@ -213,7 +213,7 @@ INSERT INTO breed VALUES (164, 'Portuguese Water Dog', '', '', 1);
 INSERT INTO breed VALUES (165, 'Presa Canario', '', '', 1);
 INSERT INTO breed VALUES (166, 'פאג', '', '', 1);
 INSERT INTO breed VALUES (167, 'Puli', '', '', 1);
-INSERT INTO breed VALUES (168, 'Pumi', '', '', 1);
+INSERT INTO breed VALUES (168, 'פומי', '', '', 1);
 INSERT INTO breed VALUES (169, 'Rat Terrier', '', '', 1);
 INSERT INTO breed VALUES (170, 'Redbone Coonhound', '', '', 1);
 INSERT INTO breed VALUES (171, 'Retriever', '', '', 1);

@@ -150,7 +150,8 @@ public class ConfigureLocal extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
                 UI.getCombo(Global.getSupportedLocales()));
@@ -188,27 +189,30 @@ public class ConfigureLocal extends ASMForm {
         txtCaptureCommand.setPreferredSize(UI.getDimension(
                 UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
+        p.add(UI.getLabel());
         chkHotkeys = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("use_button_hotkeys"),
                     i18n("Tick_this_box_to_assign_hotkeys_to_buttons")));
 
+        p.add(UI.getLabel());
         chkMaximised = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("Start_Maximised:"),
                     i18n("Tick_this_box_to_start_ASM_in_a_maximised_window")));
 
+        p.add(UI.getLabel());
         chkUseInternal = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("use_internal_report_viewer"),
                     i18n("Tick_this_box_to_use_ASMs_internal_report_viewer")));
 
+        p.add(UI.getLabel());
         chkOneInstance = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("single_instance"),
                     i18n("Tick_this_box_to_only_allow_one_instance")));
 
+        p.add(UI.getLabel());
         chkShowUpdates = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("show_updates"),
                     i18n("Tick_this_box_to_notify_me_of_asm_updates")));
-
-        p.add(UI.getLabel());
 
         txtAutologout = (UI.TextField) UI.addComponent(p,
                 i18n("automatic_logout"),
@@ -219,15 +223,17 @@ public class ConfigureLocal extends ASMForm {
                 UI.getTextField(i18n("heartbeat_interval_tooltip")));
 
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+
         btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"),
                     i18n("Save_your_changes_and_exit"), 'o', null,
                     UI.fp(this, "saveData")));
-        btnOk = (UI.Button) pb.add(UI.getButton(i18n("Cancel"),
+
+        btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"),
                     i18n("Discard_changes_and_exit"), 'c', null,
                     UI.fp(this, "actionCancel")));
-        p.add(pb);
 
-        add(p, UI.BorderLayout.CENTER);
+        add(pb, UI.BorderLayout.SOUTH);
+        add(p, UI.BorderLayout.NORTH);
     }
 
     public void actionCancel() {

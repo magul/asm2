@@ -1327,12 +1327,12 @@ public final class UI {
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
                 c instanceof List) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else if (c instanceof Table) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
@@ -1356,12 +1356,12 @@ public final class UI {
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
                 c instanceof List) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else if (c instanceof Table) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
@@ -1385,12 +1385,12 @@ public final class UI {
         // Put components in scrollpanes
         if (c instanceof TextArea || c instanceof HTMLBrowser ||
                 c instanceof List) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
         } else if (c instanceof Table) {
-            JScrollPane s = new JScrollPane(c);
+            ScrollPane s = UI.getScrollPane(c);
             s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             container.add(s);
@@ -1830,6 +1830,13 @@ public final class UI {
         return s;
     }
 
+    public static ScrollPane getScrollPane(Component c) {
+        ScrollPane s = new ScrollPane(c);
+        if (!isLTR()) s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        return s;
+    }
+
+
     public static BoxLayout getBoxLayout(UI.Panel p, int axis) {
         return new BoxLayout(p, axis);
     }
@@ -1837,6 +1844,9 @@ public final class UI {
     public static class ScrollPane extends JScrollPane {
         public ScrollPane(UI.Panel p) {
             super(p);
+        }
+        public ScrollPane(Component c) {
+            super(c);
         }
     }
 

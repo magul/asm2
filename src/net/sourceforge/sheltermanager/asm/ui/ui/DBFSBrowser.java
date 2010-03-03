@@ -26,8 +26,7 @@ import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
-import java.awt.Component;
-import java.awt.Cursor;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -63,6 +62,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
         this.parent = parent;
 
         lst = new JList();
+        if (!UI.isLTR()) lst.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         scr = new JScrollPane(lst);
         setLayout(UI.getBorderLayout());
         add(scr, UI.BorderLayout.CENTER);

@@ -23,14 +23,8 @@ package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.*;
+import java.awt.event.*;
 
 import java.util.List;
 
@@ -54,6 +48,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class SelectablePane extends UI.Panel implements SelectableComponent {
     SelectableItem[] items = null;
 
+    public SelectablePane() {
+        super();
+        if (!UI.isLTR()) setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+    }
+
     public void setItems(List l) {
         SelectableItem[] its = new SelectableItem[l.size()];
 
@@ -65,11 +64,11 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
 
     public void setItems(SelectableItem[] items) {
         this.items = items;
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setBorder(new EtchedBorder());
 
         UI.Panel p = UI.getPanel();
-        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+        p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
 
         for (int i = 0; i < items.length; i++) {
             if (items[i].isHeader()) {
