@@ -1139,6 +1139,17 @@ public class Animal extends UserInfoBO {
     }
 
     /**
+     * Calculates the old AmountDonatedOnEntry field - this is done by totalling
+     * all donations that are within a few days of the brought in date 
+     * and attached to this animal
+     */
+    public double getAmountDonatedOnEntry() throws Exception {
+        return DBConnection.executeForDouble("SELECT SUM(Donation) FROM ownerdonation " +
+            "WHERE AnimalID = " + getID() + " AND " +
+            "Date = '" + Utils.getSQLDate(getDateBroughtIn()) + "'");
+    }
+
+    /**
      * Determines if this animal is on the shelter.
      *
      * @return True if the animal is on the shelter.
