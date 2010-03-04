@@ -1642,7 +1642,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
-(SELECT Donation FROM ownerdonation WHERE AnimalID = animal.ID AND Date = animal.DateBroughtIn) AS donation,
+(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID AND Date = animal.DateBroughtIn) AS donation,
 'Animals Brought In' AS CategoryName,
 'Animals In' AS InOut
 FROM animal
@@ -1659,7 +1659,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
-(SELECT Donation FROM ownerdonation WHERE AnimalID = animal.ID AND Date = animal.DateBroughtIn) AS donation,
+(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID AND Date = animal.DateBroughtIn) AS donation,
 'Animals Transferred In' AS CategoryName,
 'Animals In' AS InOut
 FROM animal
@@ -1676,7 +1676,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
-(SELECT Donation FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.ReturnDate) AS donation,
+(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.ReturnDate) AS donation,
 'Animals Returned From Adoption' AS CategoryName,
 'Animals In' AS InOut
 FROM animal
@@ -1748,7 +1748,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
-(SELECT Donation FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.MovementDate) AS donation,
+(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.MovementDate) AS donation,
 'Animals Adopted' AS CategoryName,
 'Animals Out' AS InOut
 FROM animal
@@ -1824,7 +1824,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
-(SELECT Donation FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.MovementDate) AS donation,
+(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID AND Date = adoption.MovementDate) AS donation,
 'Animals Reclaimed' AS CategoryName,
 'Animals Out' AS InOut
 FROM animal
