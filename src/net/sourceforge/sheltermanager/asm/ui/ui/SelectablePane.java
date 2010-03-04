@@ -28,12 +28,7 @@ import java.awt.event.*;
 
 import java.util.List;
 
-import javax.swing.BoxLayout;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JCheckBox;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -67,7 +62,8 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setBorder(new EtchedBorder());
 
-        UI.Panel p = UI.getPanel();
+        ScrollPanel p = new ScrollPanel();
+        if (!UI.isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
 
         for (int i = 0; i < items.length; i++) {
@@ -99,7 +95,7 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
                 50, UI.getTextBoxHeight()));
         p.add(spacer);
 
-        JScrollPane s = new JScrollPane(p);
+        UI.ScrollPane s = UI.getScrollPane(p);
         add(s, UI.BorderLayout.CENTER);
     }
 
@@ -131,3 +127,19 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
         return items;
     }
 }
+
+class ScrollPanel extends JPanel implements Scrollable {
+    public ScrollPanel() { super(); }
+    public int getScrollableUnitIncrement(Rectangle rect, int orientation, int direction) {
+        return 15;
+    }
+    public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
+        return 50;
+    }
+    public Dimension getPreferredScrollableViewportSize() {
+        return getPreferredSize();
+    }
+    public boolean getScrollableTracksViewportWidth() { return true; }
+    public boolean getScrollableTracksViewportHeight() { return false; }
+}
+

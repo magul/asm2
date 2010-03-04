@@ -1213,6 +1213,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     }
 
     public void dateChanged(String newDate) {
-        updateReturn();
+        returnDateChanged();
     }
 }
