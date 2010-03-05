@@ -86,6 +86,7 @@ public class ASMDesktop extends JPanel {
                         JScrollPane jsr = new JScrollPane(f,
                                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+                        if (!UI.isLTR()) jsr.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
                         f.setScroller(jsr);
                         viewer.add(jsr, f.toString());
                     } else {

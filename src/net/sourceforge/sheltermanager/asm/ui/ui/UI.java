@@ -567,7 +567,7 @@ public final class UI {
     }
 
     public static FlowLayout getFlowLayout(boolean left) {
-        return new FlowLayout(FlowLayout.LEFT);
+        return new FlowLayout(FlowLayout.LEADING);
     }
 
     public static FlowLayout getFlowLayout(int orientation) {
