@@ -3435,7 +3435,12 @@ public class AutoDBUpdates {
                                 (((Double) ra.getField("DonationSize")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
-                            o.addNew();
+                            
+                            try {
+                                o.addNew();
+                            } catch (Exception e) {
+                            }
+
                             o.setOwnerID((Integer) ra.getField("OwnerID"));
                             o.setDonation((Double) ra.getField("DonationSize"));
                             o.setDateReceived((Date) ra.getField(
