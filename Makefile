@@ -119,8 +119,8 @@ win32:	manual jar
 	sh install/win32/make.sh
 	mv install/win32/sheltermanager*.exe build/sheltermanager-`cat VERSION`_i386_win32.exe
 
-scratch:
+scratch: pgapplet
 	@echo "[scratch] ========================="
-	ant build
 	scp build/asm.jar root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/scratch/
 	scp changelog root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/scratch/
+	scp build/asm-applet.jar root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/applet/development/
