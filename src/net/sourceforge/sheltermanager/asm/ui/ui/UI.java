@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import com.sun.image.codec.jpeg.*;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -37,6 +35,8 @@ import java.io.*;
 
 import java.util.Date;
 import java.util.Vector;
+
+import javax.imageio.ImageIO;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -1729,6 +1729,17 @@ public final class UI {
 
     public static void saveImageAsJpeg(String file, Image image) {
         try {
+            ImageIO.write(toBufferedImage(image), "jpg", new File(file));
+	}
+	catch (Exception e) {
+	    Global.logException(e, UI.class);
+	}
+    }
+
+    /*
+     * Old code that relied on com.sun.image.jpeg.JPEGImageEncoder
+    public static void saveImageAsJpeg(String file, Image image) {
+        try {
             BufferedImage bimage = toBufferedImage(image);
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             JPEGImageEncoder enc = JPEGCodec.createJPEGEncoder(out);
@@ -1741,6 +1752,7 @@ public final class UI {
             Global.logException(e, UI.class);
         }
     }
+    */
 
     public static String messageOK() {
         return Global.i18n("uianimalname", "Ok");
