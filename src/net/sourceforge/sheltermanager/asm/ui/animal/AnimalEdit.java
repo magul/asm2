@@ -1618,10 +1618,20 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         try {
-            animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
-            animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
-            animal.setOwnersVetID(new Integer(embVet.getID()));
-            animal.setCurrentVetID(new Integer(embCurrentVet.getID()));
+	    // If we never loaded the entry details tab, these fields would
+	    // end up being cleared, so only save if they were loaded and
+	    // therefore changed in the first place or this is a new record
+	    if (loadedEntry || isNewRecord) {
+                animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
+                animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
+	    }
+
+            // Same rules apply to vet tab
+	    if (loadedVet || isNewRecord) {
+                animal.setOwnersVetID(new Integer(embVet.getID()));
+                animal.setCurrentVetID(new Integer(embCurrentVet.getID()));
+	    }
+
             animal.setAnimalComments(txtComments.getText());
             animal.setHealthProblems(txtHealthProblems.getText());
             animal.setHiddenAnimalDetails(txtHiddenAnimalComments.getText());

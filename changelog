@@ -1,6 +1,9 @@
 2.7.1
 ================
 
+*. Fix in lazy loading to stop vet and brought in/original owner
+-  fields being cleared if the tabs aren't visited and the 
+-  record saved.
 *. Use ImageIO instead of old com.sun.image.jpeg classes
 *. scratch Makefile target includes sm.com dev applet
 *. Gift aid flag carries through now on regular donations
