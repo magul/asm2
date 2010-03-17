@@ -432,7 +432,7 @@ public class Diagnostic extends Thread {
      */
     public int invalidCodesThisYear() throws CursorEngineException, Exception {
         // Type based system
-        String format = Global.getCodingFormat();
+        String format = Configuration.getString("CodingFormat");
         boolean typeBased = format.indexOf("T") != -1;
 
         // Year based system
