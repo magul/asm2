@@ -2656,7 +2656,8 @@ public final class UI {
             add(t, UI.BorderLayout.CENTER);
             btn = UI.getButton(null,
                     ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
-                    icon, onSearch);
+                    icon != null ? icon : IconManager.getIcon(IconManager.SEARCHSMALL),
+                    onSearch);
 
             UI.ToolBar t = UI.getToolBar();
             t.add(btn);
