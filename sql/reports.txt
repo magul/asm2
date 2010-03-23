@@ -379,9 +379,6 @@ animal.AnimalComments,
 animal.datebroughtin,
 animal.dateofbirth,
 animal.id,
-animalvaccination.animalid,
-animalvaccination.vaccinationid,
-vaccinationtype.vaccinationType,
 entryreason.reasonname,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithDogs) AS WithDogs,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithCats) AS WithCats,
@@ -409,10 +406,6 @@ INNER JOIN lksize ON
 lksize.ID=animal.Size
 INNER JOIN entryreason ON
 entryreason.ID=animal.entryreasonid
-LEFT OUTER JOIN animalvaccination ON
-animalvaccination.animalID=animal.ID
-LEFT OUTER JOIN vaccinationtype ON
-vaccinationtype.ID=animalvaccination.vaccinationID
 
 WHERE ShelterCode = '$ASK STRING Enter Animal Code:$'
 
@@ -465,8 +458,7 @@ Color: <B>$BaseColour</B><br /></font>
 Housetrained? <B>$HouseTrained</B><br />
 Good With Dogs? <B>$WithDogs</B><br />
 Good With Cats? <B>$WithCats</B><br />
-Good With Children? <B>$WithChildren</B><br />
-Vaccination Type: <B>$vaccinationtype</B><br />
+Good With Children? <B>$WithChildren</B>
 </td></font>
 </tr>
 <tr>
@@ -510,9 +502,6 @@ animal.AnimalComments,
 animal.datebroughtin,
 animal.dateofbirth,
 animal.id,
-animalvaccination.animalid,
-animalvaccination.vaccinationid,
-vaccinationtype.vaccinationType,
 entryreason.reasonname,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithDogs) AS WithDogs,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithCats) AS WithCats,
@@ -540,10 +529,6 @@ INNER JOIN lksize ON
 lksize.ID=animal.Size
 INNER JOIN entryreason ON
 entryreason.ID=animal.entryreasonid
-LEFT OUTER JOIN animalvaccination ON
-animalvaccination.animalID=animal.ID
-LEFT OUTER JOIN vaccinationtype ON
-vaccinationtype.ID=animalvaccination.vaccinationID
 WHERE Archived = 0
 ORDER BY animal.AnimalName
 ###
@@ -594,8 +579,7 @@ Color: <B>$BaseColour</B><br /></font>
 Housetrained? <B>$HouseTrained</B><br />
 Good With Dogs? <B>$WithDogs</B><br />
 Good With Cats? <B>$WithCats</B><br />
-Good With Children? <B>$WithChildren</B><br />
-Vaccination Type: <B>$vaccinationtype</B><br />
+Good With Children? <B>$WithChildren</B>
 </td></font>
 </tr>
 <tr>
