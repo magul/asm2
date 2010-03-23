@@ -1,0 +1,101 @@
+Cost Breakdown by Animal
+###
+Financial
+###
+2707/Any
+###
+Produces a list of costs between two dates, broken down by animal.
+###
+en
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT * FROM (
+
+SELECT 
+animalcost.CostDate AS date,
+animal.AnimalName AS name,
+animal.ShelterCode AS code,
+species.SpeciesName AS speciesname,
+animalcost.CostAmount AS amt,
+costtype.CostTypeName AS description
+FROM animal
+INNER JOIN animalcost ON animal.ID = animalcost.AnimalID
+INNER JOIN costtype ON animalcost.CostTypeID = costtype.ID
+INNER JOIN species ON species.ID = animal.SpeciesID
+WHERE 
+(ActiveMovementDate Is Null OR (ActiveMovementDate >= '$@from$' AND ActiveMovementDate <= '$@to$')) 
+AND animalcost.CostAmount > 0
+AND CostDate >= '$@from$' AND CostDate <= '$@to$'
+
+UNION SELECT
+animal.DateBroughtIn AS date,
+animal.AnimalName AS name,
+animal.ShelterCode AS code,
+species.SpeciesName AS speciesname,
+animal.DaysOnShelter * animal.DailyBoardingCost AS amt,
+'Board and Food' AS description
+FROM animal
+INNER JOIN species ON species.ID = animal.SpeciesID
+WHERE Archived = 0
+AND DailyBoardingCost > 0
+
+UNION SELECT
+animalvaccination.DateOfVaccination AS date,
+animal.AnimalName AS name,
+animal.ShelterCode AS code,
+species.SpeciesName AS speciesname,
+animalvaccination.Cost AS amt,
+vaccinationtype.VaccinationType AS description
+FROM animal
+INNER JOIN species ON species.ID = animal.SpeciesID
+INNER JOIN animalvaccination ON animalvaccination.AnimalID = animal.ID
+INNER JOIN vaccinationtype ON animalvaccination.VaccinationID = vaccinationtype.ID
+WHERE (ActiveMovementDate Is Null OR (ActiveMovementDate >= '$@from$' AND ActiveMovementDate <= '$@to$')) 
+AND animalvaccination.Cost > 0
+AND DateOfVaccination >= '$@from$' AND DateOfVaccination <= '$@to$'
+
+UNION SELECT
+animalmedical.StartDate AS date,
+animal.AnimalName AS name,
+animal.ShelterCode AS code,
+species.SpeciesName AS speciesname,
+animalmedical.Cost AS amt,
+animalmedical.TreatmentName AS description
+FROM animal
+INNER JOIN species ON species.ID = animal.SpeciesID
+INNER JOIN animalmedical ON animalmedical.AnimalID = animal.ID
+WHERE (ActiveMovementDate Is Null OR (ActiveMovementDate >= '$@from$' AND ActiveMovementDate <= '$@to$'))
+AND animalmedical.Cost > 0
+AND StartDate >= '$@from$' AND StartDate <= '$@to$'
+
+) dummy ORDER BY code, date DESC
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_code
+$$HEAD
+<h2>$code - $name</h2>
+<table border=1><tr>
+<td><b>Date</b></td>
+<td><b>Species</b></td>
+<td><b>Amount</b></td>
+<td><b>Description</b></td>
+</tr>
+$$FOOT
+</table>
+<p>Total $code - $name <b>{SUM.AMT.2}</b></p>
+GROUP$$
+
+$$BODY<tr>
+<td>$DATE</td>
+<td>$SPECIESNAME</td>
+<td>$AMT</td>
+<td>$DESCRIPTION</td>
+</tr>
+BODY$$
+
+$$FOOTER
+FOOTER$$

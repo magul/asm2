@@ -1,0 +1,47 @@
+Find Adopters By Date
+###
+Movements
+###
+Any
+###
+Simple report that accepts a date range and produces a list of all owners who adopted an animal in that time period.
+###
+en_US
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT OwnerName, OwnerAddress, OwnerTown, OwnerCounty, OwnerPostcode, HomeTelephone, WorkTelephone, MobileTelephone, ShelterCode, AnimalName, MovementDate FROM owner INNER JOIN adoption ON adoption.OwnerID = owner.ID INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE MovementType = 1 AND MovementDate BETWEEN '$@from$' AND '$@to$' ORDER BY MovementDate
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Name</b></td>
+<td><b>Address</b></td>
+<td><b>Zipcode</b></td>
+<td><b>Home</b></td>
+<td><b>Work</b></td>
+<td><b>Cell</b></td>
+<td><b>Code</b></td>
+<td><b>Animal</b></td>
+<td><b>Date</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$ownername</td>
+<td>$owneraddress, $ownertown $ownercounty</td>
+<td>$ownerpostcode</td>
+<td>$hometelephone</td>
+<td>$worktelephone</td>
+<td>$mobiletelephone</td>
+<td>$sheltercode</td>
+<td>$animalname</td>
+<td>$movementdate</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
+

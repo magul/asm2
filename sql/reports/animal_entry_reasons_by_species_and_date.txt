@@ -1,0 +1,48 @@
+Animal Entry Reasons by Species and Date
+###
+Auditing
+###
+Any
+###
+Report that shows the number of animals of each species who entered the shelter for each entry category.
+###
+en
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT COUNT(ID) AS TotalEntry, ReasonName, SpeciesName
+FROM animal
+INNER JOIN species ON species.ID = animal.SpeciesID
+INNER JOIN entryreason ON entryreason.ID = animal.EntryReasonID
+WHERE 
+DateBroughtIn >= '$@from$' AND DateBroughtIn <= '$@to$'
+GROUP BY SpeciesName, ReasonName
+ORDER BY SpeciesName, ReasonName
+###
+$$HEADER
+HEADER$$
+
+$$GROUP_SpeciesName
+$$HEAD
+<h2>$SPECIESNAME</h2>
+<table border="0">
+$$FOOT
+<tr>
+<td><b>Total for $SpeciesName:</b></td> <td><b>{SUM.TOTALENTRY.0}</b></td>
+</tr>
+</table>
+GROUP$$
+
+$$BODY
+<tr>
+<td>$REASONNAME:</td>
+<td>$TOTALENTRY</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
+
