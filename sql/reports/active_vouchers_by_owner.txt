@@ -9,11 +9,11 @@ A list of all active vouchers issued on the system.
 en
 ###
 SELECT OwnerName, OwnerAddress, OwnerTown, OwnerCounty, OwnerPostcode, HomeTelephone, WorkTelephone, VoucherName, ownervoucher.ID AS Number, DateIssued, DateExpired, Value, ownervoucher.Comments
-
 FROM owner
 INNER JOIN ownervoucher ON ownervoucher.OwnerID = owner.ID
 INNER JOIN voucher ON ownervoucher.VoucherID = voucher.ID
 WHERE DateIssued < NOW AND DateExpired > NOW
+ORDER BY DateIssued
 ###
 $$HEADER
 <table border=1><tr>
@@ -22,7 +22,7 @@ $$HEADER
 <td><b>Type</b></td>
 <td><b>Number</b></td>
 <td><b>Issued</b></td>
-<td><b>Expired</b></td>
+<td><b>Expires</b></td>
 <td><b>Value</b></td>
 <td><b>Comments</b></td>
 </tr>
