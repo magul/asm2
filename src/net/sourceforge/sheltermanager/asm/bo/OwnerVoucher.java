@@ -74,6 +74,16 @@ public class OwnerVoucher extends UserInfoBO {
         rs.setField("DateExpired", newValue);
     }
 
+    /**
+     * Returns the ID formatted with padded zeroes to make a number.
+     */
+    public String getNumber() throws CursorEngineException {
+        String pad = "0000000000";
+        String newnum = getID().toString();
+        newnum = pad.substring(0, 9 - newnum.length()) + newnum;
+        return newnum;
+    }
+
     public Double getValue() throws CursorEngineException {
         return (Double) rs.getField("Value");
     }

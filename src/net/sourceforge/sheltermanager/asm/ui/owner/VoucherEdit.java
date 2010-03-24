@@ -57,6 +57,7 @@ public class VoucherEdit extends ASMForm {
     private DateField txtExpiryDate;
     private DateField txtIssueDate;
     private String audit = null;
+    private UI.Label lblID;
 
     /** Creates new form EditAnimalVaccination */
     public VoucherEdit(VoucherSelector ownervouchers) {
@@ -101,6 +102,7 @@ public class VoucherEdit extends ASMForm {
         try {
             voucher.addNew();
             voucher.setOwnerID(new Integer(ownerid));
+            lblID.setText(voucher.getNumber());
         } catch (CursorEngineException e) {
             Dialog.showError(Global.i18n("uianimal",
                     "unable_to_create_new_record:") + e.getMessage(),
@@ -136,6 +138,7 @@ public class VoucherEdit extends ASMForm {
             this.txtAmount.setText(voucher.getValue().toString());
             this.txtComments.setText(Utils.nullToEmptyString(
                     voucher.getComments()));
+            this.lblID.setText(voucher.getNumber());
             audit = UI.messageAudit(voucher.getCreatedDate(),
                     voucher.getCreatedBy(), voucher.getLastChangedDate(),
                     voucher.getLastChangedBy());
@@ -184,6 +187,10 @@ public class VoucherEdit extends ASMForm {
         UI.Panel top = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel mid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
+
+        lblID = UI.getLabel(UI.ALIGN_LEFT, "");
+        lblID.setForeground(UI.getColor(255, 0, 0));
+        UI.addComponent(top, i18n("Number:"), lblID);
 
         cboVoucher = UI.getCombo(i18n("Voucher_Type:"),
                 LookupCache.getVoucherLookup(), "VoucherName");

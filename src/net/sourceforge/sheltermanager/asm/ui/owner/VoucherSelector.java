@@ -98,41 +98,33 @@ public class VoucherSelector extends ASMSelector {
         OwnerVoucher ov = new OwnerVoucher();
         ov.openRecordset("OwnerID = " + ownerID);
 
-        // Create an array to hold the results for the table - note that we
-        // have an extra column on here - the last column will actually hold
-        // the ID.
-        tabledata = new String[(int) ov.getRecordCount()][5];
-
-        // Create an array of headers for the accounts (one less than
-        // array because 4th col will hold ID
+        tabledata = new String[(int) ov.getRecordCount()][6];
         String[] columnheaders = {
-                i18n("Issue_Date"), i18n("Expiry_Date"), i18n("Voucher_Type"),
-                i18n("comments")
+                i18n("Issue_Date"), i18n("Expiry_Date"), i18n("Number"), 
+                i18n("Voucher_Type"), i18n("comments")
             };
 
-        // loop through the data and fill the array
         int i = 0;
-
         try {
             while (!ov.getEOF()) {
                 tabledata[i][0] = Utils.nullToEmptyString(Utils.formatTableDate(
                             ov.getDateIssued()));
                 tabledata[i][1] = Utils.nullToEmptyString(Utils.formatTableDate(
                             ov.getDateExpired()));
-                tabledata[i][2] = LookupCache.getVoucherName(ov.getVoucherID());
-                tabledata[i][3] = Utils.nullToEmptyString(ov.getComments());
-                tabledata[i][4] = ov.getID().toString();
+                tabledata[i][2] = ov.getNumber();
+                tabledata[i][3] = LookupCache.getVoucherName(ov.getVoucherID());
+                tabledata[i][4] = Utils.nullToEmptyString(ov.getComments());
+                tabledata[i][5] = ov.getID().toString();
                 hasVoucher = true;
                 i++;
                 ov.moveNext();
             }
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uiowner",
-                    "unable_to_read_voucher_records:") + e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, tabledata, i, 4);
+        setTableData(columnheaders, tabledata, i, 5);
     }
 
     public boolean hasData() {
