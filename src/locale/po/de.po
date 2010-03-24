@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-22 21:41+0100\n"
-"PO-Revision-Date: 2010-02-28 18:54+0000\n"
-"Last-Translator: Matthias <Unknown>\n"
+"POT-Creation-Date: 2010-03-06 15:45+0100\n"
+"PO-Revision-Date: 2010-03-14 14:17+0000\n"
+"Last-Translator: Fly_82 <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-01 05:06+0000\n"
+"X-Launchpad-Export-Date: 2010-03-15 04:55+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/AnimalFound
@@ -39,13 +39,6 @@ msgstr "Bitte das Funddatum angeben."
 #: lksmovementtype_6
 msgid "Stolen"
 msgstr "Entwendet"
-
-#. # bo/Animal
-#. # db/AutoDBUpdates
-#. # wordprocessor/AnimalDocument
-#: HealthProblems
-msgid "HealthProblems"
-msgstr "Gesundheitsprobleme"
 
 #. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
@@ -220,6 +213,7 @@ msgstr "Erledigt."
 msgid "{0} years and {1} months"
 msgstr "{0} Jahre und {1} Monate"
 
+#. # ui/internet/InternetPublisher
 #. # bo/Animal
 #. # bo/Adoption
 #: x_weeks
@@ -241,13 +235,8 @@ msgstr "Warteliste: {0}"
 msgid "You must select two different breeds for a crossbreed animal."
 msgstr "Sie müssen zwei unterschiedliche Rassen für eine Kreuzung auswählen."
 
-#. # ui/users/UserEdit
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/CostEdit
-#: Abandon_changes_to_this_record
-msgid "Abandon changes to this record"
-msgstr "CostEdit"
+#~ msgid "HealthProblems"
+#~ msgstr "Gesundheitsprobleme"
 
 #~ msgid "monthly"
 #~ msgstr "monatlich"
@@ -255,9 +244,7 @@ msgstr "CostEdit"
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
 msgid "You must give the diary task a name."
-msgstr ""
-"Sie müssen der Aufgabenreihe einen Namen geben (z.B. Ausführen - Reinigen - "
-"Füttern)"
+msgstr "Ausführen"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_who_the_task_is_for
@@ -6776,6 +6763,14 @@ msgstr ""
 msgid "Edit Vaccination"
 msgstr "Impfung bearbeiten"
 
+#. # ui/users/UserEdit
+#. # ui/animal/DietEdit
+#. # ui/animal/VaccinationEdit
+#. # ui/animal/CostEdit
+#: Abandon_changes_to_this_record
+msgid "Abandon changes to this record"
+msgstr "CostEdit"
+
 #. # ui/animal/VaccinationEdit
 #: The_date_the_animal_was_actually_given_this_vaccination
 msgid "The date the animal was actually given this vaccination treatment"
@@ -9300,16 +9295,6 @@ msgstr "Inklusive"
 #: Include_colours
 msgid "Include Colours"
 msgstr "Farben einschliessen"
-
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/internet/InternetPublisher
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#: weeks
-msgid "{0} weeks"
-msgstr "{0} Woche(n)"
 
 #. # ui/internet/InternetPublisher
 #: File_Extension
@@ -12488,11 +12473,6 @@ msgstr "Datensätze von Tieren beim schliessen nicht automatisch speichern"
 msgid "Handler"
 msgstr "Handler"
 
-#. # bo/Configuration
-#: ItemValue
-msgid "ItemValue"
-msgstr "Wert"
-
 #. # ui/system/FileTypes
 #: Add_a_new_file_type
 msgid "Add a new file type"
@@ -14422,6 +14402,9 @@ msgstr "voraussichtlich"
 #~ msgid "An error occurred updating the file types:\n"
 #~ msgstr "Fehler beim Update der Dateierweiterungen:\n"
 
+#~ msgid "ItemValue"
+#~ msgstr "Wert"
+
 #~ msgid "An error occurred validating the record: "
 #~ msgstr "Bei der Prüfung des Datensatzes ist ein Fehler aufgetreten: "
 
@@ -14476,3 +14459,6 @@ msgstr "voraussichtlich"
 
 #~ msgid "VaccinationType"
 #~ msgstr "Art der Impfung"
+
+#~ msgid "{0} weeks"
+#~ msgstr "{0} Woche(n)"

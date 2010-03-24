@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-22 21:41+0100\n"
-"PO-Revision-Date: 2010-02-25 11:46+0000\n"
-"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
+"POT-Creation-Date: 2010-03-06 15:45+0100\n"
+"PO-Revision-Date: 2010-03-14 14:53+0000\n"
+"Last-Translator: Hector Louzao <os390l@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-26 04:56+0000\n"
+"X-Launchpad-Export-Date: 2010-03-15 04:55+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -100,7 +100,7 @@ msgstr "Enlace de dueño erróneo"
 #. # bo/AnimalWaitingList
 #: You_must_supply_the_date_this_entry_was_put_on_the_list.
 msgid "You must supply the date this entry was put on the list."
-msgstr ""
+msgstr "Debe proporcionar la fecha de esta entrada que se puso en la  lista."
 
 #. # bo/AnimalWaitingList
 #: You_must_enter_the_contact_name.
@@ -194,13 +194,6 @@ msgstr "Debe introducir un nombre para este animal"
 msgid "Died"
 msgstr "Muerto"
 
-#. # bo/Animal
-#. # db/AutoDBUpdates
-#. # wordprocessor/AnimalDocument
-#: HealthProblems
-msgid "HealthProblems"
-msgstr "Problemas de salud?"
-
 #. # ui/animal/AnimalEdit
 #. # ui/animalname/NamesEdit
 #. # bo/Animal
@@ -234,7 +227,7 @@ msgstr "En refugio"
 #. # bo/Animal
 #: Dead
 msgid "Deceased"
-msgstr ""
+msgstr "Fallecido"
 
 #. # ui/animal/AnimalFind
 #: Transferred
@@ -645,6 +638,7 @@ msgstr "Hecho."
 msgid "{0} years and {1} months"
 msgstr "{0} años y {1} meses"
 
+#. # ui/internet/InternetPublisher
 #. # bo/Animal
 #. # bo/Adoption
 #: x_weeks
@@ -726,12 +720,12 @@ msgstr "Las donaciones deben estar vinculadas a un propietario"
 #. # bo/AnimalCost
 #: you_must_supply_a_date_for_the_cost
 msgid "You must supply a date for the cost."
-msgstr ""
+msgstr "Debe proporcionar una fecha de los gastos."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_description_for_the_cost
 msgid "You must supply a description for the cost."
-msgstr ""
+msgstr "Debe proporcionar una descripción de los gastos."
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -3093,19 +3087,19 @@ msgstr "Donación"
 
 #: donationtype_2
 msgid "Adoption Fee"
-msgstr ""
+msgstr "Honorario de la adopción"
 
 #: donationtype_3
 msgid "Waiting List Donation"
-msgstr ""
+msgstr "Lista de espera de donación"
 
 #: donationtype_4
 msgid "Entry Donation"
-msgstr ""
+msgstr "Entrada Donación"
 
 #: donationtype_5
 msgid "Animal Sponsorship"
-msgstr ""
+msgstr "Patrocinio de los animales"
 
 #: entryreason_1
 msgid "Marriage/Relationship split"
@@ -3204,39 +3198,39 @@ msgstr "Sin pelo"
 
 #: lksaccounttype_1
 msgid "Bank"
-msgstr ""
+msgstr "Banco"
 
 #: lksaccounttype_2
 msgid "Credit Card"
-msgstr ""
+msgstr "Tarjeta de Crédito"
 
 #: lksaccounttype_3
 msgid "Loan"
-msgstr ""
+msgstr "Préstamo"
 
 #: lksaccounttype_4
 msgid "Expense"
-msgstr ""
+msgstr "Gasto"
 
 #: lksaccounttype_5
 msgid "Income"
-msgstr ""
+msgstr "Ingreso"
 
 #: lksaccounttype_6
 msgid "Pension"
-msgstr ""
+msgstr "Pension"
 
 #: lksaccounttype_7
 msgid "Shares"
-msgstr ""
+msgstr "Compartidos"
 
 #: lksaccounttype_8
 msgid "Asset"
-msgstr ""
+msgstr "Activo"
 
 #: lksaccounttype_9
 msgid "Liability"
-msgstr ""
+msgstr "Pasivo"
 
 #: lksmovementtype_1
 msgid "Adoption"
@@ -8280,7 +8274,7 @@ msgstr "Estimado"
 #. # ui/animal/AnimalEdit
 #: is_this_date_of_birth_an_estimate
 msgid "Tick this box if this date of birth is an estimate"
-msgstr ""
+msgstr "Marque esta casilla si esta fecha de nacimiento es una estimación"
 
 #. # ui/ui/UI
 #: Permission_Denied_Save
@@ -8324,17 +8318,17 @@ msgstr "Donaciones"
 #. # reports/AnimalPrint
 #: Cost\:
 msgid "Cost:"
-msgstr ""
+msgstr "Gasto:"
 
 #. # ui/animal/MediaSelector
 #: Doc_Preferred
 msgid "Doc Preferred"
-msgstr ""
+msgstr "Doc. preferente"
 
 #. # ui/animal/MediaSelector
 #: Mark_this_media_as_preferred_for_use_with_documents
 msgid "Mark this media as preferred for use with documents"
-msgstr ""
+msgstr "Marcar este medio como preferido para el uso con los documentos"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -8342,48 +8336,48 @@ msgstr ""
 #: Costs
 #: costs
 msgid "Costs"
-msgstr ""
+msgstr "Gastos"
 
 #. # ui/animal/CostSelector
 #: Create_new_cost
 msgid "Create new cost"
-msgstr ""
+msgstr "Crear un nuevo gasto"
 
 #. # ui/animal/CostSelector
 #: Edit_this_cost
 msgid "Edit this cost"
-msgstr ""
+msgstr "Editar este gasto"
 
 #. # ui/animal/CostSelector
 #: Delete_this_cost
 msgid "Delete this cost"
-msgstr ""
+msgstr "Eliminar este gasto"
 
 #. # ui/animal/CostSelector
 #: daily_board_cost
 msgid "Daily Board Cost:"
-msgstr ""
+msgstr "Junta de gasto diario"
 
 #. # ui/animal/CostSelector
 #: The_daily_cost_food_and_board
 msgid "The daily cost of food and board for this animal"
-msgstr ""
+msgstr "El gasto diario de alimentos y alimentación de este animal"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
 #: On_shelter_days_total_cost
 msgid "On shelter for {0} days. Total cost: {1}"
-msgstr ""
+msgstr "El refugio para {0} días. Gasto total: {1}"
 
 #. # ui/animal/CostEdit
 #: New_Cost
 msgid "New Cost"
-msgstr ""
+msgstr "Nuevo gasto"
 
 #. # ui/animal/CostEdit
 #: Edit_Cost
 msgid "Edit Cost"
-msgstr ""
+msgstr "Editar gasto"
 
 #. # ui/animal/CostEdit
 #. # ui/waitinglist/WaitingListEdit
@@ -8396,7 +8390,7 @@ msgstr "Descripción:"
 #. # reports/AnimalPrint
 #: Amount
 msgid "Amount"
-msgstr ""
+msgstr "Cantidad"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
@@ -8404,12 +8398,13 @@ msgstr ""
 msgid ""
 "Vaccinations: {0}, Medical Treatments: {1}, Costs: {2}, Total Costs: {3}"
 msgstr ""
+"Vacunas: {0{, tratamientos médicos: {1{, Gastos: {2}, los gastos totales: {3}"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
-msgstr ""
+msgstr "Total de Donaciones: {0}, Saldo: {1}"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -9353,16 +9348,6 @@ msgstr "Incluir"
 msgid "Include Colours"
 msgstr "Incluir Colores"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/internet/InternetPublisher
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#: weeks
-msgid "{0} weeks"
-msgstr "{0} semanas"
-
 #. # ui/internet/InternetPublisher
 #: File_Extension
 msgid "File Extension"
@@ -9797,19 +9782,19 @@ msgstr "(cualquiera)"
 #. # ui/lookups/LookupView
 #: cost_type_name
 msgid "Cost Type Name"
-msgstr ""
+msgstr "Nombre Tipo de Gasto"
 
 #. # ui/lookups/LookupView
 #: cost_type_description
 msgid "Cost Type Description"
-msgstr ""
+msgstr "Descripción tipo de gasto"
 
 #. # ui/lookups/LookupView
 #. # ui/main/Main
 #: cost_types
 #: Cost_Types
 msgid "Cost Types"
-msgstr ""
+msgstr "Tipos de gastos"
 
 #. # ui/main/Main
 #. # ui/lostandfound/LostAnimalFind
@@ -12304,12 +12289,12 @@ msgstr "Adoptadores potenciales"
 #. # reports/AnimalPrint
 #: frequency
 msgid "Frequency:"
-msgstr ""
+msgstr "Frecuencia:"
 
 #. # ui/owner/OwnerEdit
 #: if_this_owner_is_a_member_the_number
 msgid "If this owner is a member, their membership number"
-msgstr ""
+msgstr "Si este propietario es un miembro, su número de socio"
 
 #. # ui/owner/OwnerEdit
 #: Gift_Aid_Registered
@@ -12543,11 +12528,6 @@ msgstr "No archivar automáticamente registros de animales al salir"
 #: Handler
 msgid "Handler"
 msgstr "Manejador"
-
-#. # bo/Configuration
-#: ItemValue
-msgid "ItemValue"
-msgstr "ItemValue"
 
 #. # ui/system/FileTypes
 #: Add_a_new_file_type
@@ -13496,6 +13476,8 @@ msgstr ""
 #: auto_cancel_reserves
 msgid "Automatically cancel unadopted reservations after days:"
 msgstr ""
+"Automáticamente cancelar las reservas pendientes de aprobación después de "
+"los días:"
 
 #. # ui/system/Options
 #: auto_cancel_reserves_tooltip
@@ -13503,16 +13485,18 @@ msgid ""
 "If a reserved animal is not adopted after this many days, cancel the "
 "reservation"
 msgstr ""
+"Si un animal reservados no se ha adoptado después de esto muchos días, "
+"cancelar la reserva"
 
 #. # ui/system/Options
 #: Default_Donation_Type
 msgid "Default Donation Type:"
-msgstr ""
+msgstr "Defecto Donación Tipo:"
 
 #. # ui/system/Options
 #: Default_Daily_Boarding_Cost
 msgid "Default Daily Boarding Cost:"
-msgstr ""
+msgstr "Gasto diario por defecto de embarque:"
 
 #. # ui/system/Options
 #: Default_media_notes_to_original_filename
@@ -14131,27 +14115,27 @@ msgstr "Visualizar enlaces del contacto"
 #. # ui/users/UserEdit
 #: Costs\:
 msgid "Costs:"
-msgstr ""
+msgstr "Gasto:"
 
 #. # ui/users/UserEdit
 #: Add_Animal_Cost
 msgid "Add Animal Cost"
-msgstr ""
+msgstr "Añadir Gasto del animal"
 
 #. # ui/users/UserEdit
 #: Change_Animal_Cost
 msgid "Change Animal Cost"
-msgstr ""
+msgstr "Cambiar gasto del animal"
 
 #. # ui/users/UserEdit
 #: Delete_Animal_Cost
 msgid "Delete Animal Cost"
-msgstr ""
+msgstr "Eliminar Gasto del animal"
 
 #. # ui/users/UserEdit
 #: View_Animal_Cost
 msgid "View Animal Cost"
-msgstr ""
+msgstr "Ver gasto del animal"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
@@ -15516,6 +15500,9 @@ msgstr "(estimado)"
 #~ msgid "Media Server Settings"
 #~ msgstr "Configuración del servidor multimedia"
 
+#~ msgid "ItemValue"
+#~ msgstr "ItemValue"
+
 #~ msgid "An error occurred updating the file types:\n"
 #~ msgstr "Se ha producido un error al actualizar los tipos de archivo:\n"
 
@@ -15876,6 +15863,9 @@ msgstr "(estimado)"
 #~ msgid "An error occurred loading the data:\n"
 #~ msgstr "Ha ocurrido un error al cargar los datos:\n"
 
+#~ msgid "{0} weeks"
+#~ msgstr "{0} semanas"
+
 #~ msgid "Configure Defaults"
 #~ msgstr "Configurar valores por defecto"
 
@@ -15946,3 +15936,6 @@ msgstr "(estimado)"
 
 #~ msgid "An error occurred accessing the object: "
 #~ msgstr "Ha ocurrido un error accediendo al objeto "
+
+#~ msgid "HealthProblems"
+#~ msgstr "Problemas de salud?"
