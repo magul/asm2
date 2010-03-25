@@ -1557,6 +1557,11 @@ Use the toolbar to create and modify items in the list.
  You will be reminded of outstanding vaccinations via the Vaccination Diary.
 \end_layout
 
+\begin_layout Standard
+Vaccinations can also have a cost attached for use with reporting.
+ The cost is for the individual vaccination.
+\end_layout
+
 \begin_layout Subsection
 Medical
 \begin_inset Index
@@ -1635,6 +1640,13 @@ You can view all outstanding medical treatments at any one time by visiting
 Diary->Medical Diary->Medical Book
 \series default
 , you can also print currently outstanding treatments from here.
+\end_layout
+
+\begin_layout Standard
+Medical records can also have a cost associated with them for reporting.
+ The cost is for the whole medical item (ie.
+ If it's a course of tablets, then the cost should reflect the whole cost
+ of all treatments, it is not per treatment).
 \end_layout
 
 \begin_layout Subsection
@@ -8314,6 +8326,9 @@ High
 ).
  Another option is available to select the default waiting list urgency
  - this is the default start value given to new waiting list entries.
+ You can also choose hold separate rankings for species on the waiting list.
+ This makes sense if your shelter takes dogs and cats for example and whether
+ you can take a cat is independent of how many dogs are on the shelter.
 \end_layout
 
 \begin_layout Standard

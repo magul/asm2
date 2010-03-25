@@ -83,6 +83,7 @@ public class Options extends ASMForm {
     private UI.TextField txtSMTPServer;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
+    private UI.CheckBox chkRankBySpecies;
     private UI.ComboBox cboBoardingType;
     private UI.ComboBox cboDefaultBreed;
     private UI.ComboBox cboDefaultColour;
@@ -126,6 +127,7 @@ public class Options extends ASMForm {
         ctl.add(cboWordProcessor);
         ctl.add(spnUrgency);
         ctl.add(cboDefaultUrgency);
+        ctl.add(chkRankBySpecies);
         ctl.add(spnCancelReserves);
         ctl.add(txtCodingFormat);
         ctl.add(txtShortCodingFormat);
@@ -200,6 +202,8 @@ public class Options extends ASMForm {
 
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
+
+        chkRankBySpecies.setSelected(Configuration.getBoolean("WaitingListRankBySpecies"));
 
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
@@ -413,6 +417,8 @@ public class Options extends ASMForm {
                 spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
+            Configuration.setEntry("WaitingListRankBySpecies", 
+                chkRankBySpecies.isSelected() ? "Yes" : "No");
 
             // Movements
             Configuration.setEntry("AutoCancelReservesDays",
@@ -626,6 +632,9 @@ public class Options extends ASMForm {
                 "Urgency");
         UI.addComponent(pl, i18n("default_waiting_list_urgency"),
             cboDefaultUrgency);
+
+        chkRankBySpecies = UI.getCheckBox(i18n("separate_the_ranks_by_species"));
+        UI.addComponent(pl, "", chkRankBySpecies);
 
         UI.Panel waitinglist = UI.getPanel(UI.getBorderLayout());
         waitinglist.add(pl, UI.BorderLayout.NORTH);

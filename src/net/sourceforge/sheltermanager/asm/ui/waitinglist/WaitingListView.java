@@ -245,16 +245,33 @@ public class WaitingListView extends ASMView {
         try {
             if (ranks == null) {
                 ranks = new SQLRecordset();
-                ranks.openRecordset("SELECT ID FROM animalwaitinglist " +
-                    "WHERE DateRemovedFromList Is Null ORDER BY Urgency, DatePutOnList",
-                    "animalwaitinglist");
+
+                if (!Configuration.getBoolean("WaitingListRankBySpecies"))
+                    ranks.openRecordset("SELECT ID FROM animalwaitinglist " +
+                        "WHERE DateRemovedFromList Is Null ORDER BY Urgency, DatePutOnList",
+                        "animalwaitinglist");
+                else
+                    ranks.openRecordset("SELECT SpeciesID, ID FROM animalwaitinglist " +
+                        "WHERE DateRemovedFromList Is Null ORDER BY SpeciesID, Urgency, DatePutOnList",
+                        "animalwaitinglist");
+
             } else {
                 ranks.moveFirst();
             }
 
             int i = 1;
+            Integer lastspecies = new Integer(0);
 
             while (!ranks.getEOF()) {
+
+                // If we're ranking by species, reset when the species changes
+                if (Configuration.getBoolean("WaitingListRankBySpecies")) {
+                    if (!lastspecies.equals(ranks.getField("SpeciesID"))) {
+                        lastspecies = (Integer) ranks.getField("SpeciesID");
+                        i = 1;
+                    }
+                }
+
                 if (ranks.getField("ID").equals(id)) {
                     return Integer.toString(i);
                 }
