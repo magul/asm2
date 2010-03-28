@@ -187,7 +187,7 @@ public class AnimalFindText extends ASMFind {
         addLeftbarItem(btnHotDiaryNote, true);
 
         btnHotLostFound = UI.getButton(null,
-                i18n("look_in_lost_animal_database"), 'l',
+                i18n("look_in_lost_animal_database"), 'n',
                 IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_LOSTFOUND),
                 UI.fp(this, "actionMatchLost"));
         addLeftbarItem(btnHotLostFound, true);
