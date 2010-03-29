@@ -1439,7 +1439,14 @@ public final class UI {
 
     public static void osOpen(String file) throws Exception {
         Desktop d = Desktop.getDesktop();
-        d.open(new java.io.File(file));
+        try {
+            d.edit(new java.io.File(file));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            // Fall back to Open if we can't edit
+            d.open(new java.io.File(file));
+        }
     }
 
     public static void cursorToWait() {
