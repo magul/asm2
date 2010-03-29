@@ -285,7 +285,8 @@ public class OwnerFindText extends ASMFind {
                     "owner.OwnerName", "owner.OwnerAddress", "owner.OwnerTown",
                     "owner.OwnerCounty", "owner.OwnerPostcode",
                     "owner.HomeTelephone", "owner.WorkTelephone",
-                    "owner.MobileTelephone", "owner.EmailAddress"
+                    "owner.MobileTelephone", "owner.EmailAddress",
+                    "owner.MembershipNumber"
                 }, "", 1);
             addQuery(new String[] { "owner.Comments", "owner.HomeCheckAreas" },
                 "", 2);
