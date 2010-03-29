@@ -3389,15 +3389,13 @@ public class AutoDBUpdates {
                     "update2702");
 
                 SQLRecordset ra = new SQLRecordset();
-                ra.openRecordset("SELECT ID, BroughtInByOwnerID, DateBroughtIn, AmountDonatedOnEntry FROM animal",
+                ra.openRecordset("SELECT ID, BroughtInByOwnerID, DateBroughtIn, AmountDonatedOnEntry " +
+		    "FROM animal WHERE BroughtInByOwnerID Is Not Null AND BroughtInByOwnerID > 0 AND " +
+		    "AmountDonatedOnEntry > 0",
                     "animal");
 
                 while (!ra.getEOF()) {
                     try {
-                        if ((ra.getField("BroughtInByOwnerID") != null) &&
-                                (((Integer) ra.getField("BroughtInByOwnerID")).intValue() > 0) &&
-                                (ra.getField("AmountDonatedOnEntry") != null) &&
-                                (((Double) ra.getField("AmountDonatedOnEntry")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
 
@@ -3415,7 +3413,7 @@ public class AutoDBUpdates {
                                     "DateBroughtIn"));
                             o.setDonationTypeID(new Integer(entrydonation));
                             o.save("update");
-                        }
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -3424,15 +3422,12 @@ public class AutoDBUpdates {
                 }
 
                 ra = new SQLRecordset();
-                ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist",
+                ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist " +
+		    "WHERE OwnerID Is Not Null AND OwnerID > 0 AND DonationSize > 0",
                     "animalwaitinglist");
 
                 while (!ra.getEOF()) {
                     try {
-                        if ((ra.getField("OwnerID") != null) &&
-                                (((Integer) ra.getField("OwnerID")).intValue() > 0) &&
-                                (ra.getField("DonationSize") != null) &&
-                                (((Double) ra.getField("DonationSize")).doubleValue() > 0)) {
                             OwnerDonation o = new OwnerDonation();
                             o.openRecordset("");
                             
@@ -3447,7 +3442,6 @@ public class AutoDBUpdates {
                                     "DatePutOnList"));
                             o.setDonationTypeID(new Integer(wldonation));
                             o.save("update");
-                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
