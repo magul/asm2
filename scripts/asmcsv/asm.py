@@ -447,6 +447,7 @@ class Owner:
     IsHomeChecker = 0
     IsMember = 0
     MembershipExpiryDate = None
+    MembershipNumber = ""
     IsDonor = 0
     IsShelter = 0
     IsACO = 0
@@ -504,6 +505,7 @@ class Owner:
             ( "IsHomeChecker", di(self.IsHomeChecker) ),
             ( "IsMember", di(self.IsMember) ),
             ( "MembershipExpiryDate", dd(self.MembershipExpiryDate) ),
+	    ( "MembershipNumber", ds(self.MembershipNumber) ),
             ( "IsDonor", di(self.IsDonor) ),
             ( "IsShelter", di(self.IsShelter) ),
             ( "IsACO", di(self.IsACO) ),
