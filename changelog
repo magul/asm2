@@ -1,6 +1,8 @@
 2.7.1
 ================
 
+*. Made 2702 update quicker by reducing set size instead of trying to
+-  open all animal records simultaneously in one set
 *. Simple owner search includes membership numbers
 *. Changed OS open action to edit (causing RO issue in Word and
 -  some odd OpenOffice issues on Ubuntu)
