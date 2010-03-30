@@ -146,7 +146,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.ComboBox cboPTSReason;
     private UI.ComboBox cboSex;
     private UI.ComboBox cboSize;
-    private UI.ComboBox cboSpecies;
+    public UI.ComboBox cboSpecies;
     private UI.ComboBox cboType;
     private UI.ComboBox cboGoodCats;
     private UI.ComboBox cboGoodDogs;
@@ -565,6 +565,23 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         // Set some default values
+        setDefaults();
+
+        // Shouldn't be dirty until some data is entered
+        setDirty(false);
+
+        // Deactivate vaccinations, media and movements until they
+        // have saved
+        enableNonAnimalTabs(false);
+
+        // Update the death panel
+        updateDeath();
+
+        // Set buttons
+        enableButtons();
+    }
+
+    public void setDefaults() {
 
         // Date of birth and date brought in
         Calendar cal = Calendar.getInstance();
@@ -595,7 +612,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
         // Set the breed choices based on default species
         checkBreed();
 
@@ -647,19 +663,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         if (Configuration.getBoolean("AutoNotForAdoption")) {
             chkNotForAdoption.setSelected(true);
         }
-
-        // Shouldn't be dirty until some data is entered
-        setDirty(false);
-
-        // Deactivate vaccinations, media and movements until they
-        // have saved
-        enableNonAnimalTabs(false);
-
-        // Update the death panel
-        updateDeath();
-
-        // Set buttons
-        enableButtons();
     }
 
     public void loadData() {

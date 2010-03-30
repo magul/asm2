@@ -2292,6 +2292,7 @@ public class Animal extends UserInfoBO {
         setCrossBreed(z);
         setCoatType(z);
 
+        setCurrentVetID(z);
         setOwnersVetID(z);
         setDateOfBirth(new Date());
         setEstimatedDOB(z);

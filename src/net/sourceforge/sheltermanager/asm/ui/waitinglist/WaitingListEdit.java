@@ -636,7 +636,16 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             // Make a new animal screen and use it
             AnimalEdit ea = new AnimalEdit();
             ea.openForEdit(a, false);
+
+            // Load the default lookup values
+            ea.setDefaults();
+
+            // Reapply the species
+            Utils.setComboFromID(LookupCache.getSpeciesLookup(), 
+               "SpeciesName", awl.getSpeciesID(), ea.cboSpecies); 
+
             Global.mainForm.addChild(ea);
+
 
             a = null;
             ea = null;
