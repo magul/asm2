@@ -3394,61 +3394,77 @@ public class AutoDBUpdates {
 		    "AmountDonatedOnEntry > 0",
                     "animal");
 
+                SQLRecordset o = new SQLRecordset();
+                o.openRecordset("SELECT * FROM ownerdonation WHERE ID = 0", "ownerdonation");
+                boolean entrydonations = !ra.getEOF();
+
                 while (!ra.getEOF()) {
                     try {
-                            OwnerDonation o = new OwnerDonation();
-                            o.openRecordset("");
-
-                            try {
-                                o.addNew();
-                            } catch (Exception e) {
-                            }
-
-                            o.setAnimalID((Integer) ra.getField("ID"));
-                            o.setOwnerID((Integer) ra.getField(
-                                    "BroughtInByOwnerID"));
-                            o.setDonation((Double) ra.getField(
-                                    "AmountDonatedOnEntry"));
-                            o.setDateReceived((Date) ra.getField(
-                                    "DateBroughtIn"));
-                            o.setDonationTypeID(new Integer(entrydonation));
-                            o.save("update");
-
+                        o.addNew();
+                        o.setField("ID", new Integer(DBConnection.getPrimaryKey("ownerdonation")));
+                        o.setField("AnimalID", ra.getField("ID"));
+                        o.setField("OwnerID",  ra.getField("BroughtInByOwnerID"));
+                        o.setField("Donation", ra.getField("AmountDonatedOnEntry"));
+                        o.setField("Date", ra.getField("DateBroughtIn"));
+                        o.setField("DonationTypeID", new Integer(entrydonation));
+                        o.setField("Comments", "");
+                        o.setField("RecordVersion", new Integer(0));
+                        o.setField("NextCreated", new Integer(0));
+                        o.setField("Frequency", new Integer(0));
+                        o.setField("MovementID", new Integer(0));
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Global.logException(e, getClass());
                     }
-
                     ra.moveNext();
                 }
+
+                if (entrydonations) {
+                    o.save(true, "update");
+                    o.free();
+                }
+                o = null;
 
                 ra = new SQLRecordset();
                 ra.openRecordset("SELECT DatePutOnList, OwnerID, DonationSize FROM animalwaitinglist " +
 		    "WHERE OwnerID Is Not Null AND OwnerID > 0 AND DonationSize > 0",
                     "animalwaitinglist");
 
+                o = new SQLRecordset();
+                o.openRecordset("SELECT * FROM ownerdonation WHERE ID = 0", "ownerdonation");
+                boolean wldonations = !ra.getEOF();
+
                 while (!ra.getEOF()) {
                     try {
-                            OwnerDonation o = new OwnerDonation();
-                            o.openRecordset("");
-                            
-                            try {
-                                o.addNew();
-                            } catch (Exception e) {
-                            }
 
-                            o.setOwnerID((Integer) ra.getField("OwnerID"));
-                            o.setDonation((Double) ra.getField("DonationSize"));
-                            o.setDateReceived((Date) ra.getField(
-                                    "DatePutOnList"));
-                            o.setDonationTypeID(new Integer(wldonation));
-                            o.save("update");
+                        o.addNew();
+                        o.setField("ID", new Integer(DBConnection.getPrimaryKey("ownerdonation")));
+                        o.setField("OwnerID",  ra.getField("OwnerID"));
+                        o.setField("Donation", ra.getField("DonationSize"));
+                        o.setField("Date", ra.getField("DatePutOnList"));
+                        o.setField("DonationTypeID", new Integer(wldonation));
+                        o.setField("Comments", "");
+                        o.setField("RecordVersion", new Integer(0));
+                        o.setField("NextCreated", new Integer(0));
+                        o.setField("Frequency", new Integer(0));
+                        o.setField("MovementID", new Integer(0));
+                        o.setField("AnimalID", new Integer(0));
+
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Global.logException(e, getClass());
                     }
 
                     ra.moveNext();
                 }
+
+                if (wldonations) {
+                    o.save(true, "update");
+                    o.free();
+                }
+                o = null;
+
+
             } catch (Exception e) {
+                Global.logException(e, getClass());
                 errors.add("ownerdonation: Creating from old fields");
             }
 
