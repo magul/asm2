@@ -34,6 +34,8 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDonationDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -51,6 +53,7 @@ public class DonationSelector extends ASMSelector {
     private UI.Button btnNew;
     private UI.Button btnEdit;
     private UI.Button btnDoc;
+    private UI.Button btnReceive;
 
     /** A link to the parent form (if there is one)
      *  so we can update media lists when necessary)
@@ -69,6 +72,7 @@ public class DonationSelector extends ASMSelector {
 
         if (!Global.currentUserObject.getSecChangeOwnerDonation()) {
             btnEdit.setEnabled(false);
+            btnReceive.setEnabled(false);
             disableDoubleClick = true;
         }
 
@@ -230,6 +234,14 @@ public class DonationSelector extends ASMSelector {
                     IconManager.SCREEN_VIEWOWNERDONATIONS_GENERATEDOC),
                 UI.fp(this, "actionDocument"));
         addToolButton(btnDoc, true);
+
+        btnReceive = UI.getButton(null, i18n("mark_this_donation_received"), 'r',
+                IconManager.getIcon(
+                    IconManager.SCREEN_VIEWOWNERDONATIONS_RECEIVE),
+                UI.fp(this, "actionReceive"));
+        addToolButton(btnReceive, true);
+
+
     }
 
     public void tableClicked() {
@@ -302,6 +314,78 @@ public class DonationSelector extends ASMSelector {
 
             OwnerDonationDocument ownerdonationdoc = new OwnerDonationDocument(od,
                     ((ownerparent != null) ? ownerparent.media : null));
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+    }
+
+    public void actionReceive() {
+        try {
+            int id = getTable().getSelectedID();
+
+            if (id == -1) {
+                return;
+            }
+
+            OwnerDonation od = new OwnerDonation();
+            od.openRecordset("ID = " + id);
+            od.setDateReceived(new Date());
+
+            // Do we have a frequency > 0, the nextcreated flag isn't set
+            // and there's a datereceived and a datedue?
+            if ((od.getDateDue() != null) && (od.getDateReceived() != null) &&
+                    (((Integer) od.getFrequency()).intValue() > 0) &&
+                    (((Integer) od.getNextCreated()).intValue() == 0)) {
+                OwnerDonation od2 = od.copy();
+
+                // Clear the date received and update the date due
+                Calendar c = Calendar.getInstance();
+                c.setTime(((Date) od.getDateDue()));
+
+                int freq = ((Integer) od.getFrequency()).intValue();
+
+                switch (freq) {
+                case 1: // weekly
+                    c.add(Calendar.WEEK_OF_YEAR, 1);
+
+                    break;
+
+                case 2: // monthly
+                    c.add(Calendar.MONTH, 1);
+
+                    break;
+
+                case 3: // quarterly
+                    c.add(Calendar.MONTH, 3);
+
+                    break;
+
+                case 4: // half-yearly
+                    c.add(Calendar.MONTH, 6);
+
+                    break;
+
+                case 5: // annually
+                    c.add(Calendar.YEAR, 1);
+
+                    break;
+                }
+
+                od2.setDateReceived(null);
+                od2.setDateDue(c.getTime());
+
+                // Save our next instalment
+                od2.save(Global.currentUserName);
+
+                // Update the created flag for this donation
+                od.setNextCreated(new Integer(1));
+            }
+
+            od.save(Global.currentUserName);
+
+            // Update our list
+            updateList();
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

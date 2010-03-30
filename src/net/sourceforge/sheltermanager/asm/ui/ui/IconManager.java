@@ -485,6 +485,7 @@ public abstract class IconManager {
     public final static String SCREEN_VIEWOWNERDONATIONS_EDIT = EDIT;
     public final static String SCREEN_VIEWOWNERDONATIONS_DELETE = DELETE;
     public final static String SCREEN_VIEWOWNERDONATIONS_GENERATEDOC = DOCUMENT;
+    public final static String SCREEN_VIEWOWNERDONATIONS_RECEIVE = COMPLETE;
 
     // REPORTVIEWER package
     // ==========================================================
