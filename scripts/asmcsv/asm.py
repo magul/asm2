@@ -442,6 +442,7 @@ class Owner:
     EmailAddress = ""
     IDCheck = 0
     Comments = ""
+    IsGiftAid = 0
     IsBanned = 0
     IsVolunteer = 0
     IsHomeChecker = 0
@@ -457,7 +458,7 @@ class Owner:
     IsVet = 0
     HomeCheckAreas = ""
     DateLastHomeChecked = None
-    DatePerformedLastHomeCheck = None
+    HomeCheckedBy = 0
     MatchAdded = None
     MatchExpires = None
     MatchActive = 0
@@ -500,6 +501,7 @@ class Owner:
             ( "EmailAddress", ds(self.EmailAddress) ),
             ( "IDCheck", di(self.IDCheck) ),
             ( "Comments", ds(self.Comments) ),
+            ( "IsGiftAid", di(self.IsGiftAid) ),
             ( "IsBanned", di(self.IsBanned) ),
             ( "IsVolunteer", di(self.IsVolunteer) ),
             ( "IsHomeChecker", di(self.IsHomeChecker) ),
@@ -515,7 +517,7 @@ class Owner:
             ( "IsVet", di(self.IsVet) ),
             ( "HomeCheckAreas", ds(self.HomeCheckAreas) ),
             ( "DateLastHomeChecked", dd(self.DateLastHomeChecked) ),
-            ( "DatePerformedLastHomeCheck", dd(self.DatePerformedLastHomeCheck) ),
+            ( "HomeCheckedBy", di(self.HomeCheckedBy) ),
             ( "MatchAdded", dd(self.MatchAdded) ),
             ( "MatchExpires", dd(self.MatchExpires) ),
             ( "MatchActive", di(self.MatchActive) ),

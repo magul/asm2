@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import asm
+import codecs
 
 f = open("ruta.txt", "r")
 lines = f.readlines()
@@ -24,4 +25,4 @@ for l in lines:
 		o.OwnerSurname = spsplit[2]
 	o.OwnerName = o.OwnerForeNames + " " + o.OwnerSurname
 	o.IsDonor = 1
-	print o
+        print o
