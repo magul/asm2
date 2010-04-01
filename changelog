@@ -1,6 +1,9 @@
 2.7.1
 ================
 
+*. /dotasm dbfs folder can be used to store any files you want put in
+-  the .asm folder of all clients (useful for custom.properties or
+-  even asm.properties for locale, etc).
 *. Made 2702 update quicker by reducing set size instead of trying to
 -  open all animal records simultaneously in one set, rewrote to not
 -  use business object so that it always maps to the correct db version

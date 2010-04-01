@@ -237,8 +237,7 @@ public class DBFS {
                 throw new DBFSException("File does not exist: " + file);
             }
 
-            String ofile = Global.tempDirectory + File.separator +
-                rs.getField("Name");
+            String ofile = Global.tempDirectory + File.separator + file;
             byte[] filecontent = Base64.decode(rs.getField("Content").toString()
                                                  .toCharArray());
             File f = new File(ofile);
@@ -252,7 +251,7 @@ public class DBFS {
 
             return f;
         } catch (Exception e) {
-            throw new DBFSException("Fault writing to file", e);
+            throw new DBFSException("Fault reading file", e);
         }
     }
 

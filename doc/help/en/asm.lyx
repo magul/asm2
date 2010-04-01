@@ -10121,6 +10121,40 @@ button.
 \end_layout
 
 \begin_layout Section
+dotasm
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+dotasm
+\end_layout
+
+\end_inset
+
+ dbfs folder
+\end_layout
+
+\begin_layout Standard
+You may want to set the custom.properties mentioned above on a system wide
+ basis for users (or some of the other settings configured through files
+ in the .asm folder).
+\end_layout
+
+\begin_layout Standard
+If you create a folder called 
+\begin_inset Quotes eld
+\end_inset
+
+dotasm
+\begin_inset Quotes erd
+\end_inset
+
+ at the root level under System->Media Files, you can put any files there
+ that you would like to appear in the .asm folder of any client machine (they
+ will download them each time ASM starts).
+\end_layout
+
+\begin_layout Section
 Importing Data From PetFinder.com
 \begin_inset Index
 status open
