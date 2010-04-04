@@ -105,10 +105,10 @@ public class AdoptionsPerBlock extends Chart {
             firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1);
             firstDayOfMonth.set(Calendar.HOUR, 0);
             firstDayOfMonth.set(Calendar.MINUTE, 0);
+            firstDayOfMonth.set(Calendar.SECOND, 0);
 
             Calendar lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
             lastDayOfMonth.add(Calendar.MONTH, 1);
-            lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
 
             // Get SQL dates
             String firstDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
@@ -128,7 +128,7 @@ public class AdoptionsPerBlock extends Chart {
                     "SELECT AnimalID FROM adoption INNER JOIN animal " +
                     "ON adoption.AnimalID = animal.ID WHERE " +
                     "MovementDate >= '" + firstDay + "' AND " +
-                    "MovementDate <= '" + lastDay + "' AND " +
+                    "MovementDate < '" + lastDay + "' AND " +
                     "MovementType = " + Adoption.MOVETYPE_ADOPTION + " AND " +
                     "ShelterLocation = " + il.getField("ID") +
                     ((speciesID != 0) ? (" AND SpeciesID = " + speciesID) : ""),

@@ -104,10 +104,10 @@ public class MonthlyDonations extends Chart {
             firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1);
             firstDayOfMonth.set(Calendar.HOUR, 0);
             firstDayOfMonth.set(Calendar.MINUTE, 0);
+            firstDayOfMonth.set(Calendar.SECOND, 0);
 
             Calendar lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
             lastDayOfMonth.add(Calendar.MONTH, 1);
-            lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
 
             // Get SQL dates
             String firstDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
@@ -123,7 +123,7 @@ public class MonthlyDonations extends Chart {
                 dtname[col] = dt.getField("DonationName").toString();
                 model[col][i] = (int) DBConnection.executeForSum(
                         "SELECT SUM(Donation) AS Total FROM ownerdonation " +
-                        "WHERE Date >= '" + firstDay + "' AND " + "Date <= '" +
+                        "WHERE Date >= '" + firstDay + "' AND " + "Date < '" +
                         lastDay + "' AND " + "DonationTypeID = " +
                         dt.getField("ID"));
                 dtot[col] += (double) model[col][i];

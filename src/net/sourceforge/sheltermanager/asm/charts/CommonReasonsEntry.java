@@ -74,10 +74,10 @@ public class CommonReasonsEntry extends Chart {
             firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1);
             firstDayOfMonth.set(Calendar.HOUR, 0);
             firstDayOfMonth.set(Calendar.MINUTE, 0);
+            firstDayOfMonth.set(Calendar.SECOND, 0);
 
             Calendar lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
             lastDayOfMonth.add(Calendar.MONTH, 1);
-            lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
 
             // Get SQL dates
             String firstDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
@@ -95,7 +95,7 @@ public class CommonReasonsEntry extends Chart {
                 SQLRecordset rs = new SQLRecordset();
                 rs.openRecordset(
                     "SELECT COUNT(*) AS Tot FROM animal WHERE DateBroughtIn >= '" +
-                    firstDay + "' AND " + "DateBroughtIn <= '" + lastDay +
+                    firstDay + "' AND " + "DateBroughtIn < '" + lastDay +
                     "' AND EntryReasonID = " + er.getField("ID"), "animal");
 
                 try {

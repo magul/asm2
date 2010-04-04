@@ -75,10 +75,10 @@ public class CommonReasonsReturn extends Chart {
             firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1);
             firstDayOfMonth.set(Calendar.HOUR, 0);
             firstDayOfMonth.set(Calendar.MINUTE, 0);
+            firstDayOfMonth.set(Calendar.SECOND, 0);
 
             Calendar lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
             lastDayOfMonth.add(Calendar.MONTH, 1);
-            lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
 
             // Get SQL dates
             String firstDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
@@ -95,7 +95,7 @@ public class CommonReasonsReturn extends Chart {
                 // Get the total figures
                 SQLRecordset rs = new SQLRecordset();
                 rs.openRecordset("SELECT COUNT(*) AS Tot FROM adoption WHERE " +
-                    "ReturnDate >= '" + firstDay + "' AND ReturnDate <= '" +
+                    "ReturnDate >= '" + firstDay + "' AND ReturnDate < '" +
                     lastDay + "' AND ReturnedReasonID = " + er.getField("ID") +
                     " AND MovementType = " + Adoption.MOVETYPE_ADOPTION +
                     " AND ReturnDate Is Not Null", "adoption");

@@ -108,10 +108,10 @@ public class DonationsPerSpecies extends Chart {
             firstDayOfMonth.set(Calendar.DAY_OF_MONTH, 1);
             firstDayOfMonth.set(Calendar.HOUR, 0);
             firstDayOfMonth.set(Calendar.MINUTE, 0);
+            firstDayOfMonth.set(Calendar.SECOND, 0);
 
             Calendar lastDayOfMonth = (Calendar) firstDayOfMonth.clone();
             lastDayOfMonth.add(Calendar.MONTH, 1);
-            lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
 
             // Get SQL dates
             String firstDay = SQLRecordset.getSQLRepresentationOfDate(Utils.calendarToDate(
@@ -132,7 +132,7 @@ public class DonationsPerSpecies extends Chart {
                         "INNER JOIN adoption ON adoption.ID = ownerdonation.MovementID " +
                         "INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE " +
                         "ownerdonation.Date >= '" + firstDay + "' AND " +
-                        "ownerdonation.Date <= '" + lastDay + "' AND " +
+                        "ownerdonation.Date < '" + lastDay + "' AND " +
                         "SpeciesID = " + spec.getField("SpeciesID"));
                 spec.moveNext();
                 sp++;
