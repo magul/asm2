@@ -158,7 +158,7 @@ public class VaccinationEdit extends ASMForm {
                     "VaccinationType", cboVaccinationType).intValue();
             double lastcost = DBConnection.executeForDouble(
                     "SELECT Cost FROM animalvaccination WHERE VaccinationID = " +
-                    vid + " ORDER BY DateOfVaccination DESC LIMIT 1");
+                    vid + " AND Cost > 0 ORDER BY DateOfVaccination DESC LIMIT 1");
             txtCost.setValue(lastcost);
         } catch (Exception e) {
             Global.logException(e, getClass());

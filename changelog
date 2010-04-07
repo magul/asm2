@@ -1,6 +1,7 @@
 2.7.1
 ================
 
+*. When vaccinations look up previous cost value, ignores zero costs
 *. Chart filters missing data from last day of month and the first day
 -  if run in the first 999ms of the month (thanks to Chris)
 *. /dotasm dbfs folder can be used to store any files you want put in
