@@ -1,0 +1,33 @@
+Average Time On Shelter
+###
+Statistics
+###
+Any
+###
+Shows the average time spent on shelter for all animals by year.
+###
+en
+###
+SELECT
+YEAR(DateBroughtIn) AS biyear,
+AVG(DaysOnShelter) AS avtimeonshelter
+FROM animal
+WHERE DaysOnShelter > 0
+GROUP BY YEAR(DateBroughtIn)
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Year</b></td>
+<td><b>AverageTime On Shelter (days)</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$BIYEAR</td>
+<td>$AVTIMEONSHELTER</td>
+</tr>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$

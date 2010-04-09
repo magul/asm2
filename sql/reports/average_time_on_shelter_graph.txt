@@ -1,0 +1,18 @@
+Average Time On Shelter Graph
+###
+Movement Graphs
+###
+Any
+###
+Shows the average time spent on shelter for all animals by year.
+###
+en
+###
+SELECT
+YEAR(DateBroughtIn) AS biyear,
+AVG(DaysOnShelter) AS TimeOnShelter
+FROM animal
+WHERE DaysOnShelter > 0
+GROUP BY YEAR(DateBroughtIn)
+###
+GRAPH
