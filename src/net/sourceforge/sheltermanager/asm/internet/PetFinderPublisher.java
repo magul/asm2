@@ -421,9 +421,12 @@ public class PetFinderPublisher extends Thread {
                             "<br/>");
                     comm = comm.replaceAll("\n", "<br/>");
                     comm = comm.replaceAll("\r", "<br/>");
+		    /*
+		    TODO: Why was this put here?
                     comm = comm.replaceAll("\"", "&ldquo;");
                     comm = comm.replaceAll("\'", "&lsquo;");
                     comm = comm.replaceAll("\\`", "&lsquo;");
+		    */
                     dataFile.append("\"" + comm + "\",");
                     comm = null;
 
