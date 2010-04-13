@@ -8544,6 +8544,18 @@ Enforce animal codes entered by users conform to the selected animal coding
  record until a valid code is generated or set by the user.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Once assigned, codes cannot be changed:
+\series default
+ Setting this option will make ASM lock the shelter code fields, as well
+ as the type and brought in date once an animal record has been saved for
+ the first time.
+ This is to guarantee that once an animal code has been handed out, it cannot
+ be changed.
+\end_layout
+
 \begin_layout Subsection
 Authentication
 \begin_inset Index

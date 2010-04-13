@@ -431,6 +431,11 @@ public class Diagnostic extends Thread {
      * @throws Exception
      */
     public int invalidCodesThisYear() throws CursorEngineException, Exception {
+
+        // If the codes are locked, don't do anything
+        if (Configuration.getBoolean("LockCodes"))
+            return 0;
+
         // Type based system
         String format = Configuration.getString("CodingFormat");
         boolean typeBased = format.indexOf("T") != -1;

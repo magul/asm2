@@ -496,6 +496,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableButtons();
         enableOnShelterTabs();
         updateDeath();
+        lockAnimalCodes();
         showThumbnail();
         setSecurity();
         isLoading = false;
@@ -1104,6 +1105,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableNonAnimalTabs(true);
         enableOnShelterTabs();
         enableButtons();
+    }
+
+    /** 
+     * Locks the animal code and any fields that influence it
+     * if the option is set
+     */
+    public void lockAnimalCodes() {
+        if (Configuration.getBoolean("LockCodes")) {
+            txtShelterCode.setEnabled(false);
+            txtDateBroughtIn.setEnabled(false);
+            cboType.setEnabled(false);
+        }
     }
 
     /**
@@ -1908,6 +1921,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             // Allow editing of satellite data if this was a new record
             if (isNewRecord) {
                 loadExternal();
+                lockAnimalCodes();
                 isNewRecord = false;
             }
 
@@ -3045,6 +3059,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 class AnimalCodeField extends UI.Panel {
     UI.TextField code = null;
     UI.TextField shortcode = null;
+    UI.Button btn = null;
 
     public AnimalCodeField(FunctionPointer onGenerate,
         FunctionPointer onChange, String buttontooltip, String tooltip,
@@ -3060,7 +3075,7 @@ class AnimalCodeField extends UI.Panel {
         bits.add(code);
         bits.add(shortcode);
 
-        UI.Button btn = UI.getButton(null,
+        btn = UI.getButton(null,
                 ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
                 IconManager.getIcon(IconManager.SEARCHSMALL), onGenerate);
         add(bits, UI.BorderLayout.CENTER);
@@ -3092,6 +3107,12 @@ class AnimalCodeField extends UI.Panel {
 
     public UI.TextField getShortCodeField() {
         return shortcode;
+    }
+
+    public void setEnabled(boolean b) {
+        btn.setEnabled(b);
+        code.setEnabled(b);
+        shortcode.setEnabled(b);
     }
 
     public void clear() {

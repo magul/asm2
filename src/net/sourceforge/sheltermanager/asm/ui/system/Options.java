@@ -671,6 +671,13 @@ public class Options extends ASMForm {
                 "AutoDefaultShelterCode",
                 Configuration.getString("AutoDefaultShelterCode")
                              .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "once_assigned_codes_cannot_be_changed"),
+                    "LockCodes",
+                    Configuration.getString("LockCodes")
+                            .equalsIgnoreCase("Yes"), false));
+
         tblCodeOptions = new SelectableList(l);
         UI.addComponent(codepanel, tblCodeOptions);
 
