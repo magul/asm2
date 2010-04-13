@@ -346,6 +346,9 @@ public class PetFinderPublisher extends Thread {
                     String pfBMap = LookupCache.getBreedPetFinderMapping(an.getBreedID());
                     dataFile.append("\"" + pfBMap + "\",");
 
+                    String pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
+                    dataFile.append("\"" + pfBMap2 + "\",");
+
                     // Age
                     /*
                      * -- Enum of | Adult | | Baby | | Senior | | Young |
@@ -527,13 +530,13 @@ public class PetFinderPublisher extends Thread {
             "; Animal Shelter Manager. http://sheltermanager.sf.net\n" +
             "; The FREE, open source solution for animal sanctuaries and rescue shelters.\n\n" +
             "#SHELTERID:" + shelterId + "\n" + "#0:Animal=Animal\n" +
-            "#1:Breed=Breed\n" + "#2:Age=Age\n" + "#3:Name=Name\n" +
-            "#4:Size=Size\n" + "#5:Sex=Sex\n" + "Female=F\n" + "Male=M\n" +
-            "#6:Description=Dsc\n" + "#7:SpecialNeeds=SpecialNeeds\n" +
-            "#8:HasShots=HasShots\n" + "#9:Altered=Altered\n" +
-            "#10:NoDogs=NoDogs\n" + "#11:NoCats=NoCats\n" +
-            "#12:NoKids=NoKids\n" + "#13:Declawed=Declawed\n" +
-            "#14:HouseBroken=HouseBroken\n" + "#15:Id=Id\n" +
+            "#1:Breed=Breed\n" + "#2:Breed2=Breed2\n" +"#3:Age=Age\n" + "#4:Name=Name\n" +
+            "#5:Size=Size\n" + "#6:Sex=Sex\n" + "Female=F\n" + "Male=M\n" +
+            "#7:Description=Dsc\n" + "#8:SpecialNeeds=SpecialNeeds\n" +
+            "#9:HasShots=HasShots\n" + "#10:Altered=Altered\n" +
+            "#11:NoDogs=NoDogs\n" + "#12:NoCats=NoCats\n" +
+            "#13:NoKids=NoKids\n" + "#14:Declawed=Declawed\n" +
+            "#15:HouseBroken=HouseBroken\n" + "#16:Id=Id\n" +
             "#ALLOWUPDATE:Y\n" + "#HEADER:N";
         saveFile(publishDir + shelterId + "import.cfg", petFinderMap);
 
