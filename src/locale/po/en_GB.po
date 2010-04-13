@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-03-30 11:48+0000\n"
+"PO-Revision-Date: 2010-04-13 11:16+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -10659,6 +10659,7 @@ msgstr "Treatment Name"
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/DonationEdit
+#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #: Frequency
@@ -13232,6 +13233,11 @@ msgstr "Boarding Cost Type:"
 #: separate_the_ranks_by_species
 msgid "Separate waiting list rank by species"
 msgstr "Separate waiting list rank by species"
+
+#. # ui/system/Options
+#: once_assigned_codes_cannot_be_changed
+msgid "Once assigned, codes cannot be changed"
+msgstr "Once assigned, codes cannot be changed"
 
 #. # ui/users/UserView
 #: Add_a_new_user
