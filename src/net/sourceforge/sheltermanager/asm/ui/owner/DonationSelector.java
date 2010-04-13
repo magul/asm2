@@ -329,6 +329,13 @@ public class DonationSelector extends ASMSelector {
 
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
+
+            // Does this donation already have a date received? If so, don't
+            // do anything
+            if (od.getDateReceived() != null)
+                return;
+
+            // Set the date received to today
             od.setDateReceived(new Date());
 
             // Do we have a frequency > 0, the nextcreated flag isn't set

@@ -126,6 +126,11 @@ public abstract class ASMForm extends JPanel {
     /** Return true to cancel the close */
     public abstract boolean formClosing();
 
+    /** Return true if the form wants to cancel being opened */
+    public boolean formOpening() {
+        return false;
+    }
+
     public void init(String title, Icon icon, String i18nKey) {
         UI.cursorToWait();
         this.i18nKey = i18nKey;

@@ -8263,6 +8263,14 @@ Whilst editing a user, you can choose absolutely everything that user may
  do within the system by checking the appropriate boxes.
 \end_layout
 
+\begin_layout Standard
+If you set an owner record for the user, they will be forbidden from opening
+ that owner record.
+ The idea is to prevent them from viewing their own record.
+ You can also set the user permission to forbid them opening any staff owner
+ record if you wish to lock staff from opening any staff records.
+\end_layout
+
 \begin_layout Section
 System Options
 \begin_inset Index

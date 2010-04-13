@@ -78,6 +78,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
  * AddOwner                     ao
  * ChangeOwner                  co
  * ViewOwners                   vo
+ * ViewStaffOwners              vso
  * DeleteOwner                  do
  * MergeOwner                   mo
  * AddOwnerVoucher              vaov
@@ -178,6 +179,14 @@ public class Users extends NormalBO {
 
     public void setSuperUser(Integer newValue) throws CursorEngineException {
         rs.setField("SuperUser", newValue);
+    }
+
+    public Integer getOwnerID() throws CursorEngineException {
+        return (Integer) rs.getField("OwnerID");
+    }
+
+    public void setOwnerID(Integer newValue) throws CursorEngineException {
+        rs.setField("OwnerID", newValue);
     }
 
     public String getSecurityMap() throws CursorEngineException {
@@ -419,6 +428,10 @@ public class Users extends NormalBO {
 
     public boolean getSecViewOwner() {
         return getSecurityFlag("vo");
+    }
+
+    public boolean getSecViewStaffOwners() {
+        return getSecurityFlag("vso");
     }
 
     public boolean getSecDeleteOwner() {

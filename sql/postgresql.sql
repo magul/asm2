@@ -388,19 +388,11 @@ CREATE INDEX animalwaitinglist_SpeciesID ON animalwaitinglist (SpeciesID);
 CREATE INDEX animalwaitinglist_Urgency ON animalwaitinglist (Urgency);
 CREATE INDEX animalwaitinglist_DatePutOnList ON animalwaitinglist (DatePutOnList);
 
-
-
-
-
 CREATE TABLE basecolour (
   ID INTEGER NOT NULL PRIMARY KEY,
   BaseColour VARCHAR(255) NOT NULL,
   BaseColourDescription VARCHAR(255) NULL
 );
-
-
-
-
 
 INSERT INTO basecolour VALUES (1,'Black',NULL);
 INSERT INTO basecolour VALUES (2,'White',NULL);
@@ -441,10 +433,6 @@ INSERT INTO basecolour VALUES (38,'Yellow and Grey','');
 INSERT INTO basecolour VALUES (39,'Various',NULL);
 INSERT INTO basecolour VALUES (40,'White and Brown','');
 INSERT INTO basecolour VALUES (41,'Green','');
-
-
-
-
 
 CREATE TABLE breed (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -865,19 +853,12 @@ INSERT INTO breed VALUES (439,'Sheep','','Sheep', 16);
 INSERT INTO breed VALUES (440,'Llama','','Llama', 16);
 INSERT INTO breed VALUES (441,'Pig (Farm)','','Pig (Farm)', 28);
 
-
-
-
-
-
-
-
 CREATE TABLE configuration (
   ItemName VARCHAR(255) NOT NULL,
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2707');
+INSERT INTO configuration VALUES ('DatabaseVersion','2708');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -946,8 +927,6 @@ CREATE TABLE costtype (
   
 INSERT INTO costtype VALUES (1, 'Board and Food', '');
 
-
-
 CREATE TABLE customreport (
   ID INTEGER NOT NULL PRIMARY KEY,
   Title VARCHAR(255) NOT NULL,
@@ -963,10 +942,6 @@ CREATE TABLE customreport (
   Category VARCHAR(100) NULL
 );
 CREATE INDEX customreport_Title ON customreport (Title);
-
-
-
-
 
 INSERT INTO customreport VALUES (36,'Non-Microchipped Animals','001','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
 INSERT INTO customreport VALUES (37,'Animals Without Photo Media','002','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
@@ -1000,10 +975,6 @@ INSERT INTO customreport VALUES (64,'Animal Entry Reasons','029','','',0,0,'asmu
 INSERT INTO customreport VALUES (65,'Animal Return Reasons','030','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Movement Graphs');
 INSERT INTO customreport VALUES (66,'Owner Criteria Matching','031','','',0,0,'asmupdate','2005-08-02 12:33:00','asmupdate','2005-08-02 12:33:00','Inventories');
 
-
-
-
-
 CREATE TABLE dbfs (
   ID INTEGER NOT NULL PRIMARY KEY,
   Path VARCHAR(255) NOT NULL,
@@ -1013,19 +984,11 @@ CREATE TABLE dbfs (
 CREATE INDEX dbfs_Path ON dbfs (Path);
 CREATE INDEX dbfs_Name ON dbfs (Name);
 
-
-
-
-
-
 CREATE TABLE deathreason (
   ID INTEGER NOT NULL PRIMARY KEY,
   ReasonName VARCHAR(255) NOT NULL,
   ReasonDescription VARCHAR(255) NULL
 );
-
-
-
 
 INSERT INTO deathreason VALUES (1, 'Dead On Arrival', '');
 INSERT INTO deathreason VALUES (2, 'Died', '');
@@ -1035,11 +998,6 @@ INSERT INTO deathreason VALUES (5, 'Requested', '');
 INSERT INTO deathreason VALUES (6, 'Culling', '');
 INSERT INTO deathreason VALUES (7, 'Feral', '');
 INSERT INTO deathreason VALUES (8, 'Biting', '');
-
-
-
-
-
 
 CREATE TABLE diary (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1058,10 +1016,6 @@ CREATE TABLE diary (
 );
 CREATE INDEX diary_DiaryForName ON diary (DiaryForName);
 
-
-
-
-
 CREATE TABLE diarytaskdetail (
   ID INTEGER NOT NULL PRIMARY KEY,
   DiaryTaskHeadID INTEGER NOT NULL,
@@ -1073,20 +1027,12 @@ CREATE TABLE diarytaskdetail (
 );
 CREATE INDEX diarytaskdetail_DiaryTaskHeadID ON diarytaskdetail (DiaryTaskHeadID);
 
-
-
-
-
 CREATE TABLE diarytaskhead (
   ID INTEGER NOT NULL PRIMARY KEY,
   Name VARCHAR(50) NOT NULL,
   RecordType INTEGER NOT NULL,
   RecordVersion INTEGER NOT NULL
 );
-
-
-
-
 
 CREATE TABLE diet (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1095,10 +1041,6 @@ CREATE TABLE diet (
 );
 
 INSERT INTO diet VALUES (1, 'Standard', '');
-
-
-
-
 
 CREATE TABLE donationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1112,19 +1054,11 @@ INSERT INTO donationtype VALUES (3, 'Waiting List Donation', '');
 INSERT INTO donationtype VALUES (4, 'Entry Donation', '');
 INSERT INTO donationtype VALUES (5, 'Animal Sponsorship', '');
 
-
-
-
-
-
 CREATE TABLE entryreason (
   ID INTEGER NOT NULL PRIMARY KEY,
   ReasonName VARCHAR(255) NOT NULL,
   ReasonDescription VARCHAR(255) NULL
 );
-
-
-
 
 INSERT INTO entryreason VALUES (1, 'Marriage/Relationship split', '');
 INSERT INTO entryreason VALUES (2, 'Allergies', '');
@@ -1138,22 +1072,13 @@ INSERT INTO entryreason VALUES (9, 'Unable to Afford', '');
 INSERT INTO entryreason VALUES (10, 'Abuse', '');
 INSERT INTO entryreason VALUES (11, 'Abandoned', '');
 
-
-
-
-
 CREATE TABLE internallocation (
   ID INTEGER NOT NULL PRIMARY KEY,
   LocationName VARCHAR(255) NOT NULL,
   LocationDescription VARCHAR(255) NULL
 );
 
-
-
-
-
 INSERT INTO internallocation VALUES (1,'No Locations','');
-
 
 CREATE TABLE lkcoattype (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1165,7 +1090,6 @@ INSERT INTO lkcoattype VALUES (2, 'Rough');
 INSERT INTO lkcoattype VALUES (3, 'Curly');
 INSERT INTO lkcoattype VALUES (4, 'Corded');
 INSERT INTO lkcoattype VALUES (5, 'Hairless');
-
 
 CREATE TABLE lksex (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1323,9 +1247,6 @@ CREATE TABLE log (
 CREATE INDEX log_LogTypeID ON log (LogTypeID);
 CREATE INDEX log_LinkID ON log (LinkID);
 
-
-
-
 CREATE TABLE logtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   LogTypeName VARCHAR(255) NOT NULL,
@@ -1336,11 +1257,6 @@ INSERT INTO logtype VALUES (1, 'Bite', '');
 INSERT INTO logtype VALUES (2, 'Complaint', '');
 INSERT INTO logtype VALUES (3, 'History', '');
 INSERT INTO logtype VALUES (4, 'Weight', '');
-
-
-
-
-
 
 CREATE TABLE media (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1362,9 +1278,6 @@ CREATE TABLE media (
 );
 CREATE INDEX media_LinkID ON media (LinkID);
 
-
-
-
 CREATE TABLE medicalpayment (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalMedicalID INTEGER NOT NULL,
@@ -1383,9 +1296,6 @@ CREATE INDEX medicalpayment_MedicalPaymentTypeID ON medicalpayment (MedicalPayme
 CREATE INDEX medicalpayment_AnimalMedicalID ON medicalpayment (AnimalMedicalID);
 CREATE INDEX medicalpayment_OwnerDonationID ON medicalpayment (OwnerDonationID);
 
-
-
-
 CREATE TABLE medicalpaymenttype (
   ID INTEGER NOT NULL PRIMARY KEY,
   MedicalPaymentTypeName VARCHAR(255) NOT NULL,
@@ -1393,9 +1303,6 @@ CREATE TABLE medicalpaymenttype (
 );
 
 INSERT INTO medicalpaymenttype VALUES ('1', 'Fee', '');
-
-
-
 
 CREATE TABLE medicalprofile (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1415,10 +1322,6 @@ CREATE TABLE medicalprofile (
   LastChangedBy VARCHAR(255) NOT NULL,
   LastChangedDate TIMESTAMP NOT NULL
 );
-
-
-
-
 
 CREATE TABLE owner (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1478,9 +1381,6 @@ CREATE TABLE owner (
 );
 CREATE INDEX owner_OwnerName ON owner (OwnerName);
 
-
-
-
 CREATE TABLE ownerdonation (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -1503,9 +1403,6 @@ CREATE TABLE ownerdonation (
 CREATE INDEX ownerdonation_OwnerID ON ownerdonation (OwnerID);
 CREATE INDEX ownerdonation_Date ON ownerdonation (Date);
 
-
-
-
 CREATE TABLE ownervoucher (
   ID INTEGER NOT NULL PRIMARY KEY,
   OwnerID INTEGER NOT NULL,
@@ -1524,19 +1421,11 @@ CREATE INDEX ownervoucher_OwnerID ON ownervoucher (OwnerID);
 CREATE INDEX ownervoucher_VoucherID ON ownervoucher (VoucherID);
 CREATE INDEX ownervoucher_DateExpired ON ownervoucher (DateExpired);
 
-
-
-
-
 CREATE TABLE primarykey (
   TableName VARCHAR(255) NOT NULL,
   NextID INTEGER NOT NULL
 );
 CREATE INDEX primarykey_TableName ON primarykey (TableName);
-
-
-
-
 
 CREATE TABLE species (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1544,11 +1433,6 @@ CREATE TABLE species (
   SpeciesDescription VARCHAR(255) NULL,
   PetFinderSpecies VARCHAR(100) NULL
 );
-
-
-
-
-
 INSERT INTO species VALUES (1,'Dog','', 'Dog');
 INSERT INTO species VALUES (2,'Cat','', 'Cat');
 INSERT INTO species VALUES (3,'Bird','', 'Bird');
@@ -1578,31 +1462,20 @@ INSERT INTO species VALUES (26, 'Donkey', '', 'Horse');
 INSERT INTO species VALUES (27, 'Llama', '', 'Horse');
 INSERT INTO species VALUES (28, 'Pig', '', 'Barnyard');
 
-
-
-
-
 CREATE TABLE users (
   ID INTEGER NOT NULL PRIMARY KEY,
   UserName VARCHAR(255) NOT NULL,
   RealName VARCHAR(255) NULL,
   Password VARCHAR(255) NOT NULL,
   SuperUser INTEGER NOT NULL,
+  OwnerID INTEGER NULL,
   SecurityMap VARCHAR(16384) NOT NULL,
   RecordVersion INTEGER NOT NULL
 );
 CREATE INDEX users_UserName ON users (UserName);
 
-
-
-
-
-INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,'', 0);
-INSERT INTO users VALUES (2,'guest','Default guest user', 'guest',0,'84e0343a0486ff05530df6c705c8bb4', 0);
-
-
-
-
+INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
+INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
 CREATE TABLE voucher (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1612,19 +1485,11 @@ CREATE TABLE voucher (
 
 INSERT INTO voucher VALUES (1, 'Neuter/Spay', '');
 
-
-
-
-
 CREATE TABLE vaccinationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   VaccinationType VARCHAR(255) NOT NULL,
   VaccinationDescription VARCHAR(255) NULL
 );
-
-
-
-
 
 INSERT INTO vaccinationtype VALUES (1,'Temporary Vaccination','');
 INSERT INTO vaccinationtype VALUES (2,'First Vaccination','');

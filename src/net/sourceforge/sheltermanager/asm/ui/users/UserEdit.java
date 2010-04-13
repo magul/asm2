@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.users;
 
 import net.sourceforge.sheltermanager.asm.bo.Users;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -63,6 +64,7 @@ public class UserEdit extends ASMForm {
     private UI.TextField txtPassword;
     private UI.TextField txtUserName;
     private UI.TextField txtRealName;
+    private OwnerLink olOwnerRecord;
 
     /** Creates new form EditUser */
     public UserEdit(UserView theparent) {
@@ -156,6 +158,7 @@ public class UserEdit extends ASMForm {
             txtUserName.setText(user.getUserName());
             txtRealName.setText(Utils.nullToEmptyString(user.getRealName()));
             chkIsSuper.setSelected(user.getSuperUser().equals(new Integer(1)));
+            if (user.getOwnerID() != null) olOwnerRecord.setID(user.getOwnerID().intValue());
 
             // If it's an existing record, hide the password field - has to
             // be set externally once the user is created.
@@ -211,6 +214,7 @@ public class UserEdit extends ASMForm {
             createBox(i18n("Add_Owners"), "ao");
             createBox(i18n("Change_Owners"), "co");
             createBox(i18n("View_Owners"), "vo");
+            createBox(i18n("View_Staff_Owner_Records"), "vso");
             createBox(i18n("Delete_Owners"), "do");
             createBox(i18n("Merge_Owners"), "mo");
             createBox(i18n("View_Owner_Links"), "volk");
@@ -335,6 +339,8 @@ public class UserEdit extends ASMForm {
                 user.setSuperUser(new Integer(0));
             }
 
+            user.setOwnerID(new Integer(olOwnerRecord.getID()));
+
             // Enumerate the check box controls and set the
             // appropriate flags.
 
@@ -383,6 +389,9 @@ public class UserEdit extends ASMForm {
 
         lblPassword = (UI.Label) p.add(UI.getLabel(i18n("Password:_")));
         txtPassword = (UI.TextField) p.add(UI.getTextField());
+        
+        olOwnerRecord = (OwnerLink) UI.addComponent(p, i18n("Owner_Record"),
+                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE, "LINK"));
 
         chkIsSuper = (UI.CheckBox) p.add(UI.getCheckBox(i18n("Super_User:_")));
 

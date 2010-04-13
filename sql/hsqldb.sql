@@ -67,11 +67,6 @@ CREATE MEMORY TABLE additional (
 CREATE UNIQUE INDEX additional_LinkTypeIDAdd ON additional (LinkType, LinkID, AdditionalFieldID);
 CREATE INDEX additional_LinkTypeID ON additional (LinkType, LinkID);
 
-
-
-
-
-
 CREATE MEMORY TABLE adoption (
   ID INTEGER NOT NULL PRIMARY KEY,
   AdoptionNumber VARCHAR(255) NOT NULL,
@@ -194,7 +189,6 @@ CREATE INDEX animal_UniqueCodeID ON animal (UniqueCodeID);
 CREATE INDEX animal_YearCodeID ON animal (YearCodeID);
 CREATE INDEX animal_DateBroughtIn ON animal (DateBroughtIn);
 
-
 CREATE MEMORY TABLE animalcost (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -213,7 +207,6 @@ CREATE INDEX animalcost_AnimalID ON animalcost (AnimalID);
 CREATE INDEX animalcost_CostTypeID ON animalcost (CostTypeID);
 CREATE INDEX animalcost_CostDate ON animalcost (CostDate);
 
-
 CREATE MEMORY TABLE animaldiet (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -228,10 +221,6 @@ CREATE MEMORY TABLE animaldiet (
 );
 CREATE INDEX animaldiet_AnimalID ON animaldiet (AnimalID);
 CREATE INDEX animaldiet_DietID ON animaldiet (DietID);
-
-
-
-
 
 CREATE MEMORY TABLE animalfound (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -252,9 +241,6 @@ CREATE MEMORY TABLE animalfound (
   LastChangedDate TIMESTAMP NOT NULL
 );
 
-
-
-
 CREATE MEMORY TABLE animallitter (
   ID INTEGER NOT NULL PRIMARY KEY,
   ParentAnimalID INTEGER NULL,
@@ -269,10 +255,6 @@ CREATE MEMORY TABLE animallitter (
   RecordVersion INTEGER NOT NULL
 );
 CREATE INDEX animallitter_ParentAnimalID ON animallitter (ParentAnimalID);
-
-
-
-
 
 CREATE MEMORY TABLE animallost (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -292,8 +274,6 @@ CREATE MEMORY TABLE animallost (
   LastChangedBy VARCHAR(255) NOT NULL,
   LastChangedDate TIMESTAMP NOT NULL
 );
-
-
 
 CREATE MEMORY TABLE animalmedical (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -321,9 +301,6 @@ CREATE MEMORY TABLE animalmedical (
 CREATE INDEX animalmedical_AnimalID ON animalmedical (AnimalID);
 CREATE INDEX animalmedical_MedicalProfileID ON animalmedical (MedicalProfileID);
 
-
-
-
 CREATE MEMORY TABLE animalmedicaltreatment (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -344,10 +321,6 @@ CREATE INDEX animalmedicaltreatment_AnimalID ON animalmedicaltreatment (AnimalID
 CREATE INDEX animalmedicaltreatment_AnimalMedicalID ON animalmedicaltreatment (AnimalMedicalID);
 CREATE INDEX animalmedicaltreatment_DateRequired ON animalmedicaltreatment (DateRequired);
 
-
-
-
-
 CREATE MEMORY TABLE animalname (
   ID INTEGER NOT NULL PRIMARY KEY,
   Name VARCHAR(255) Not Null,
@@ -355,17 +328,11 @@ CREATE MEMORY TABLE animalname (
   RecordVersion INTEGER NOT NULL
 );
 
-
-
-
 CREATE MEMORY TABLE animaltype (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalType VARCHAR(255) NOT NULL,
   AnimalDescription VARCHAR(255) NULL
 );
-
-
-
 
 INSERT INTO animaltype VALUES (2,'D (Dog)',NULL);
 INSERT INTO animaltype VALUES (10, 'F (Stray Dog)', NULL);
@@ -373,11 +340,6 @@ INSERT INTO animaltype VALUES (11,'U (Unwanted Cat)',NULL);
 INSERT INTO animaltype VALUES (12,'S (Stray Cat)',NULL);
 INSERT INTO animaltype VALUES (13,'M (Miscellaneous)',NULL);
 INSERT INTO animaltype VALUES (40, 'N (Non Shelter Animal)', NULL);
-
-
-
-
-
 
 CREATE MEMORY TABLE animalvaccination (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -394,10 +356,6 @@ CREATE MEMORY TABLE animalvaccination (
   LastChangedDate TIMESTAMP NOT NULL
 );
 CREATE INDEX animalvaccination_AnimalID ON animalvaccination (AnimalID);
-
-
-
-
 
 CREATE MEMORY TABLE animalwaitinglist (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -425,18 +383,11 @@ CREATE INDEX animalwaitinglist_SpeciesID ON animalwaitinglist (SpeciesID);
 CREATE INDEX animalwaitinglist_Urgency ON animalwaitinglist (Urgency);
 CREATE INDEX animalwaitinglist_DatePutOnList ON animalwaitinglist (DatePutOnList);
 
-
-
-
-
 CREATE MEMORY TABLE basecolour (
   ID INTEGER NOT NULL PRIMARY KEY,
   BaseColour VARCHAR(255) NOT NULL,
   BaseColourDescription VARCHAR(255) NULL
 );
-
-
-
 
 INSERT INTO basecolour VALUES (1,'Black',NULL);
 INSERT INTO basecolour VALUES (2,'White',NULL);
@@ -478,10 +429,6 @@ INSERT INTO basecolour VALUES (39,'Various',NULL);
 INSERT INTO basecolour VALUES (40,'White and Brown','');
 INSERT INTO basecolour VALUES (41,'Green','');
 
-
-
-
-
 CREATE MEMORY TABLE breed (
   ID INTEGER NOT NULL PRIMARY KEY,
   BreedName VARCHAR(255) NOT NULL,
@@ -489,10 +436,6 @@ CREATE MEMORY TABLE breed (
   PetFinderBreed VARCHAR(255) NULL,
   SpeciesID INTEGER NULL
 );
-
---
--- Dumping data for table 'breed'
---
 
 INSERT INTO breed VALUES (1,'Affenpinscher','','Affenpinscher', 1);
 INSERT INTO breed VALUES (2,'Afghan Hound','','Afghan Hound', 1);
@@ -905,17 +848,12 @@ INSERT INTO breed VALUES (439,'Sheep','','Sheep', 16);
 INSERT INTO breed VALUES (440,'Llama','','Llama', 16);
 INSERT INTO breed VALUES (441,'Pig (Farm)','','Pig (Farm)', 28);
 
-
-
-
-
-
 CREATE MEMORY TABLE configuration (
   ItemName VARCHAR(255) NOT NULL,
   ItemValue VARCHAR(255) NOT NULL
 );
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2707');
+INSERT INTO configuration VALUES ('DatabaseVersion','2708');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -975,7 +913,6 @@ INSERT INTO configuration VALUES ('CreateBoardingCostOnAdoption', 'Yes');
 INSERT INTO configuration VALUES ('BoardingCostType', '1');
 INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '20');
 
-
 CREATE MEMORY TABLE costtype (
   ID INTEGER NOT NULL PRIMARY KEY, 
   CostTypeName VARCHAR(255) NOT NULL,
@@ -983,8 +920,6 @@ CREATE MEMORY TABLE costtype (
 );
   
 INSERT INTO costtype VALUES (1, 'Board and Food', '');
-
-
 
 CREATE MEMORY TABLE customreport (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1001,10 +936,6 @@ CREATE MEMORY TABLE customreport (
   Category VARCHAR(100) NULL
 );
 CREATE INDEX customreport_Title ON customreport (Title);
-
-
-
-
 
 INSERT INTO customreport VALUES (36,'Non-Microchipped Animals','001','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
 INSERT INTO customreport VALUES (37,'Animals Without Photo Media','002','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
@@ -1038,10 +969,6 @@ INSERT INTO customreport VALUES (64,'Animal Entry Reasons','029','','',0,0,'asmu
 INSERT INTO customreport VALUES (65,'Animal Return Reasons','030','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Movement Graphs');
 INSERT INTO customreport VALUES (66,'Owner Criteria Matching','031','','',0,0,'asmupdate','2005-08-02 12:33:00','asmupdate','2005-08-02 12:33:00','Inventories');
 
-
-
-
-
 CREATE CACHED TABLE dbfs (
   ID INTEGER NOT NULL PRIMARY KEY,
   Path VARCHAR(255) NOT NULL,
@@ -1051,18 +978,11 @@ CREATE CACHED TABLE dbfs (
 CREATE INDEX dbfs_Path ON dbfs (Path);
 CREATE INDEX dbfs_Name ON dbfs (Name);
 
-
-
-
-
-
 CREATE MEMORY TABLE deathreason (
   ID INTEGER NOT NULL PRIMARY KEY,
   ReasonName VARCHAR(255) NOT NULL,
   ReasonDescription VARCHAR(255) NULL
 );
-
-
 
 INSERT INTO deathreason VALUES (1, 'Dead On Arrival', '');
 INSERT INTO deathreason VALUES (2, 'Died', '');
@@ -1072,11 +992,6 @@ INSERT INTO deathreason VALUES (5, 'Requested', '');
 INSERT INTO deathreason VALUES (6, 'Culling', '');
 INSERT INTO deathreason VALUES (7, 'Feral', '');
 INSERT INTO deathreason VALUES (8, 'Biting', '');
-
-
-
-
-
 
 CREATE MEMORY TABLE diary (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1095,10 +1010,6 @@ CREATE MEMORY TABLE diary (
 );
 CREATE INDEX diary_DiaryForName ON diary (DiaryForName);
 
-
-
-
-
 CREATE MEMORY TABLE diarytaskdetail (
   ID INTEGER NOT NULL PRIMARY KEY,
   DiaryTaskHeadID INTEGER NOT NULL,
@@ -1110,10 +1021,6 @@ CREATE MEMORY TABLE diarytaskdetail (
 );
 CREATE INDEX diarytaskdetail_DiaryTaskHeadID ON diarytaskdetail (DiaryTaskHeadID);
 
-
-
-
-
 CREATE MEMORY TABLE diarytaskhead (
   ID INTEGER NOT NULL PRIMARY KEY,
   Name VARCHAR(50) NOT NULL,
@@ -1121,19 +1028,12 @@ CREATE MEMORY TABLE diarytaskhead (
   RecordVersion INTEGER NOT NULL
 );
 
-
-
-
 CREATE MEMORY TABLE diet (
   ID INTEGER NOT NULL PRIMARY KEY,
   DietName VARCHAR(255) NOT NULL,
   DietDescription VARCHAR(255) NULL
 );
 INSERT INTO diet VALUES (1, 'Standard', '');
-
-
-
-
 
 CREATE MEMORY TABLE donationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1146,18 +1046,11 @@ INSERT INTO donationtype VALUES (3, 'Waiting List Donation', '');
 INSERT INTO donationtype VALUES (4, 'Entry Donation', '');
 INSERT INTO donationtype VALUES (5, 'Animal Sponsorship', '');
 
-
-
-
-
-
 CREATE MEMORY TABLE entryreason (
   ID INTEGER NOT NULL PRIMARY KEY,
   ReasonName VARCHAR(255) NOT NULL,
   ReasonDescription VARCHAR(255) NULL
 );
-
-
 
 INSERT INTO entryreason VALUES (1, 'Marriage/Relationship split', '');
 INSERT INTO entryreason VALUES (2, 'Allergies', '');
@@ -1171,21 +1064,12 @@ INSERT INTO entryreason VALUES (9, 'Unable to Afford', '');
 INSERT INTO entryreason VALUES (10, 'Abuse', '');
 INSERT INTO entryreason VALUES (11, 'Abandoned', '');
 
-
-
-
-
 CREATE MEMORY TABLE internallocation (
   ID INTEGER NOT NULL PRIMARY KEY,
   LocationName VARCHAR(255) NOT NULL,
   LocationDescription VARCHAR(255) NULL
 );
-
-
-
-
 INSERT INTO internallocation VALUES (1,'No Locations','');
-
 
 CREATE MEMORY TABLE lkcoattype (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1352,9 +1236,6 @@ CREATE MEMORY TABLE log (
 CREATE INDEX log_LogTypeID ON log (LogTypeID);
 CREATE INDEX log_LinkID ON log (LinkID);
 
-
-
-
 CREATE MEMORY TABLE logtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   LogTypeName VARCHAR(255) NOT NULL,
@@ -1365,11 +1246,6 @@ INSERT INTO logtype VALUES (1, 'Bite', '');
 INSERT INTO logtype VALUES (2, 'Complaint', '');
 INSERT INTO logtype VALUES (3, 'History', '');
 INSERT INTO logtype VALUES (4, 'Weight', '');
-
-
-
-
-
 
 CREATE MEMORY TABLE media (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1391,8 +1267,6 @@ CREATE MEMORY TABLE media (
 );
 CREATE INDEX media_LinkID ON media (LinkID);
 
-
-
 CREATE MEMORY TABLE medicalpayment (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalMedicalID INTEGER NOT NULL,
@@ -1411,18 +1285,12 @@ CREATE INDEX medicalpayment_MedicalPaymentTypeID ON medicalpayment (MedicalPayme
 CREATE INDEX medicalpayment_AnimalMedicalID ON medicalpayment (AnimalMedicalID);
 CREATE INDEX medicalpayment_OwnerDonationID ON medicalpayment (OwnerDonationID);
 
-
-
-
 CREATE MEMORY TABLE medicalpaymenttype (
   ID INTEGER NOT NULL PRIMARY KEY,
   MedicalPaymentTypeName VARCHAR(255) NOT NULL,
   MedicalPaymentTypeDescription VARCHAR(255) NULL
 );
 INSERT INTO medicalpaymenttype VALUES ('1', 'Fee', '');
-
-
-
 
 CREATE MEMORY TABLE medicalprofile (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1442,9 +1310,6 @@ CREATE MEMORY TABLE medicalprofile (
   LastChangedBy VARCHAR(255) NOT NULL,
   LastChangedDate TIMESTAMP NOT NULL
 );
-
-
-
 
 CREATE MEMORY TABLE owner (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1504,9 +1369,6 @@ CREATE MEMORY TABLE owner (
 );
 CREATE INDEX owner_OwnerName ON owner (OwnerName);
 
-
-
-
 CREATE MEMORY TABLE ownerdonation (
   ID INTEGER NOT NULL PRIMARY KEY,
   AnimalID INTEGER NOT NULL,
@@ -1529,9 +1391,6 @@ CREATE MEMORY TABLE ownerdonation (
 CREATE INDEX ownerdonation_OwnerID ON ownerdonation (OwnerID);
 CREATE INDEX ownerdonation_Date ON ownerdonation (Date);
 
-
-
-
 CREATE MEMORY TABLE ownervoucher (
   ID INTEGER NOT NULL PRIMARY KEY,
   OwnerID INTEGER NOT NULL,
@@ -1550,19 +1409,11 @@ CREATE INDEX ownervoucher_OwnerID ON ownervoucher (OwnerID);
 CREATE INDEX ownervoucher_VoucherID ON ownervoucher (VoucherID);
 CREATE INDEX ownervoucher_DateExpired ON ownervoucher (DateExpired);
 
-
-
-
-
 CREATE TABLE primarykey (
   TableName VARCHAR(255) NOT NULL,
   NextID INTEGER NOT NULL
 );
 CREATE INDEX primarykey_TableName ON primarykey (TableName);
-
-
-
-
 
 CREATE MEMORY TABLE species (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1570,9 +1421,6 @@ CREATE MEMORY TABLE species (
   SpeciesDescription VARCHAR(255) NULL,
   PetFinderSpecies VARCHAR(100) NULL
 );
-
-
-
 
 INSERT INTO species VALUES (1,'Dog','', 'Dog');
 INSERT INTO species VALUES (2,'Cat','', 'Cat');
@@ -1603,31 +1451,20 @@ INSERT INTO species VALUES (26, 'Donkey', '', 'Horse');
 INSERT INTO species VALUES (27, 'Llama', '', 'Horse');
 INSERT INTO species VALUES (28, 'Pig', '', 'Barnyard');
 
-
-
-
-
 CREATE MEMORY TABLE users (
   ID INTEGER NOT NULL PRIMARY KEY,
   UserName VARCHAR(255) NOT NULL,
   RealName VARCHAR(255) NULL,
   Password VARCHAR(255) NOT NULL,
   SuperUser INTEGER NOT NULL,
+  OwnerID INTEGER NULL,
   SecurityMap VARCHAR(16384) NOT NULL,
   RecordVersion INTEGER NOT NULL
 );
 CREATE INDEX users_UserName ON users (UserName);
 
-
-
-
-
-INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,'', 0);
-INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,'', 0);
-
-
-
-
+INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
+INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
 CREATE MEMORY TABLE voucher (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -1636,18 +1473,11 @@ CREATE MEMORY TABLE voucher (
 );
 INSERT INTO voucher VALUES (1, 'Neuter/Spay', '');
 
-
-
-
-
 CREATE MEMORY TABLE vaccinationtype (
   ID INTEGER NOT NULL PRIMARY KEY,
   VaccinationType VARCHAR(255) NOT NULL,
   VaccinationDescription VARCHAR(255) NULL
 );
-
-
-
 
 INSERT INTO vaccinationtype VALUES (1,'Temporary Vaccination','');
 INSERT INTO vaccinationtype VALUES (2,'First Vaccination','');

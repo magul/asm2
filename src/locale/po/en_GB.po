@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-04-13 11:16+0000\n"
+"PO-Revision-Date: 2010-04-13 14:17+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12084,6 +12084,16 @@ msgstr "Gift Aid"
 msgid "Mark this donation as received"
 msgstr "Mark this donation as received"
 
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_your_owner_record
+msgid "You are not allowed to view your owner record."
+msgstr "You are not allowed to view your owner record."
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_staff_records
+msgid "You are not allowed to view staff records."
+msgstr "You are not allowed to view staff records."
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -13857,6 +13867,16 @@ msgstr "Delete Animal Cost"
 #: View_Animal_Cost
 msgid "View Animal Cost"
 msgstr "View Animal Cost"
+
+#. # ui/users/UserEdit
+#: Owner_Record
+msgid "Owner Record:"
+msgstr "Owner Record:"
+
+#. # ui/users/UserEdit
+#: View_Staff_Owner_Records
+msgid "View Staff Owner Records"
+msgstr "View Staff Owner Records"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer

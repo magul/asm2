@@ -2365,6 +2365,10 @@ public class Main extends ASMWindow {
     public void addChild(ASMForm form) {
         cursorToWait();
 
+        // Ask the form if it's ok to be added - some forms want to
+        // cancel based on permissions
+        if (form.formOpening()) return;
+
         // If we're using autologout, note the time as this is
         // activity.
         resetAutoLogout();
