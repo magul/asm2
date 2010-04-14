@@ -31,13 +31,15 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  */
 public class SearchResults extends Report {
     private String[][] searchResults = null;
+    private String searchTerm;
     private int max = 0;
 
-    public SearchResults(String[][] theSearchResults, int max) {
+    public SearchResults(String[][] searchResults, int max, String searchTerm) {
         this.max = max;
-        searchResults = theSearchResults;
+        this.searchResults = searchResults;
+	this.searchTerm = searchTerm;
 
-        if (theSearchResults == null) {
+        if (searchResults == null) {
             return;
         }
 
@@ -57,6 +59,9 @@ public class SearchResults extends Report {
         // too and switching these columns causes HTML to appear on
         // the search form
         flipNames();
+
+	if (searchTerm != null && !searchTerm.equals(""))
+            addParagraph(Global.i18n("reports", "criteria") + ": " + searchTerm);
 
         tableNew();
 
@@ -96,6 +101,8 @@ public class SearchResults extends Report {
 
         tableFinish();
         addTable();
+
+        addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
 
         // Flip the names back again so the search form goes back to
         // normal and so we can do the report again.

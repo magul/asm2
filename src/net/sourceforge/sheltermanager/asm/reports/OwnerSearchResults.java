@@ -30,18 +30,19 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  * search results.
  *
  * @author Robin Rawson-Tetley
- * @version 1.0
  */
 public class OwnerSearchResults extends Report {
     private String[][] searchResults = null;
+    private String searchTerm;
     private int max = 0;
 
     /** Creates a new instance of SearchResults */
-    public OwnerSearchResults(String[][] theSearchResults, int theMax) {
-        max = theMax;
-        searchResults = theSearchResults;
+    public OwnerSearchResults(String[][] searchResults, int max, String searchTerm) {
+        this.max = max;
+        this.searchResults = searchResults;
+	this.searchTerm = searchTerm;
 
-        if (theSearchResults == null) {
+        if (searchResults == null) {
             return;
         }
 
@@ -54,6 +55,10 @@ public class OwnerSearchResults extends Report {
     }
 
     public void generateReport() {
+
+        if (searchTerm != null && !searchTerm.equals(""))
+            addParagraph(Global.i18n("reports", "criteria") + ": " + searchTerm);
+
         tableNew();
 
         String[] headers = {
@@ -92,5 +97,7 @@ public class OwnerSearchResults extends Report {
 
         tableFinish();
         addTable();
+
+        addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
     }
 }

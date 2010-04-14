@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.LostFoundMatch;
+import net.sourceforge.sheltermanager.asm.reports.SearchResults;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryEdit;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryTaskExecute;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementEdit;
@@ -96,6 +97,7 @@ public class AnimalFind extends ASMFind {
     public UI.TextField txtRabiesTag;
     public UI.TextField txtShelterCode;
     SearchListener listener = null;
+    StringBuffer pt = null;
 
     public AnimalFind(SearchListener thelistener) {
         listener = thelistener;
@@ -513,8 +515,9 @@ public class AnimalFind extends ASMFind {
 
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-        new net.sourceforge.sheltermanager.asm.reports.SearchResults(tablemodel.getData(),
-            tablemodel.getRowCount());
+        new SearchResults(tablemodel.getData(),
+            tablemodel.getRowCount(),
+	    "");
 
         tablemodel = null;
     }
@@ -583,6 +586,7 @@ public class AnimalFind extends ASMFind {
     /** Performs the search */
     public void runSearch() {
         SQLRecordset animal = new SQLRecordset();
+	pt = new StringBuffer();
 
         // Reads all the criteria fields and performs the search
 

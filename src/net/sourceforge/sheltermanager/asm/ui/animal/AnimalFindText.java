@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.LostFoundMatch;
+import net.sourceforge.sheltermanager.asm.reports.SearchResults;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryEdit;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryTaskExecute;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementEdit;
@@ -331,8 +332,9 @@ public class AnimalFindText extends ASMFind {
 
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-        new net.sourceforge.sheltermanager.asm.reports.SearchResults(tablemodel.getData(),
-            tablemodel.getRowCount());
+        new SearchResults(tablemodel.getData(),
+            tablemodel.getRowCount(),
+	    txtSearch.getText());
 
         tablemodel = null;
     }

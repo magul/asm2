@@ -493,7 +493,7 @@ public class PetFinderPublisher extends Thread {
                     // Id
                     dataFile.append("\"" + an.getShelterCode() + "\",");
 
-                    // Second breed 
+                    // Breed 2
                     String pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
                     dataFile.append("\"" + pfBMap2 + "\"");
 
