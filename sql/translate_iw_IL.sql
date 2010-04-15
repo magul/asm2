@@ -438,7 +438,7 @@ INSERT INTO breed VALUES (420, 'יען', '', '', 3);
 INSERT INTO breed VALUES (421, 'דררה (אחר)', '', '', 3);
 INSERT INTO breed VALUES (422, 'תוכי (אחר)', '', '', 3);
 INSERT INTO breed VALUES (423, 'Parrotlet', '', '', 3);
-INSERT INTO breed VALUES (424, 'Peacock/Pea fowl', '', '', 3);
+INSERT INTO breed VALUES (424, 'טווס', '', '', 3);
 INSERT INTO breed VALUES (425, 'פסיון', '', '', 3);
 INSERT INTO breed VALUES (426, 'Pigeon', '', '', 3);
 INSERT INTO breed VALUES (427, 'פיונוס', '', '', 3);

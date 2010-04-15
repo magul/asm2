@@ -549,7 +549,7 @@ INSERT INTO lksmovementtype VALUES (4, 'Сбежало');
 INSERT INTO lksmovementtype VALUES (5, 'Reclaimed');
 INSERT INTO lksmovementtype VALUES (6, 'Похищено');
 INSERT INTO lksmovementtype VALUES (7, 'Released To Wild');
-INSERT INTO lksmovementtype VALUES (8, 'Retailer');
+INSERT INTO lksmovementtype VALUES (8, 'Посредник');
 INSERT INTO lksmovementtype VALUES (9, 'Резервация');
 INSERT INTO lksmovementtype VALUES (10, 'Отменена резервация');
 DELETE FROM lksmedialink;

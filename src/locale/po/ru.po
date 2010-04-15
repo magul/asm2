@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-03-03 15:09+0100\n"
-"PO-Revision-Date: 2010-03-03 13:18+0000\n"
+"POT-Creation-Date: 2010-03-30 11:48+0100\n"
+"PO-Revision-Date: 2010-04-07 08:39+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-04 04:57+0000\n"
+"X-Launchpad-Export-Date: 2010-04-08 07:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -40,12 +40,12 @@ msgstr "Вы должны задать предмет"
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_day_pivot.
 msgid "You must set a day pivot."
-msgstr ""
+msgstr "Вы должны установить основной день."
 
 #. # bo/Diary
 #: You_must_set_the_diary_note_for_someone's_attention.
 msgid "You must set the diary note for someone's attention."
-msgstr "Сделайте заметку в дневнике, для того чтобы привлечь внимание"
+msgstr ""
 
 #. # bo/Diary
 #: Bad_lost_animal_link
@@ -176,7 +176,7 @@ msgstr "Введите, когда было сообщено о нахожден
 #. # bo/AnimalFound
 #: You_must_enter_the_date_the_animal_was_found.
 msgid "You must enter the date the animal was found."
-msgstr "Введите, когда было найдно животное."
+msgstr "Введите, когда было найдeно животное."
 
 #. # reports/AnimalFigures
 #. # ui/animal/AnimalFind
@@ -230,7 +230,7 @@ msgstr "В приюте"
 #. # bo/Animal
 #: Dead
 msgid "Deceased"
-msgstr ""
+msgstr "Усыплено"
 
 #. # ui/animal/AnimalFind
 #: Transferred
@@ -360,7 +360,7 @@ msgstr ""
 #: lksmovementtype_8
 #: Retailer
 msgid "Retailer"
-msgstr ""
+msgstr "Посредник"
 
 #. # bo/AnimalWaitingList
 #: auto_removed_due_to_owner_contact
@@ -606,12 +606,12 @@ msgstr "Введите дату"
 #. # bo/Log
 #: You_must_supply_a_log_type
 msgid "You must supply a log type."
-msgstr ""
+msgstr "Введите тип журнала."
 
 #. # bo/Log
 #: You_must_supply_the_log_entry
 msgid "You must supply the log entry."
-msgstr ""
+msgstr "Введите запись журнала."
 
 #. # bo/Animal
 #: Done.
@@ -669,7 +669,7 @@ msgstr "Пропавшее животное: {0}"
 #. # bo/Diary
 #: owner_link
 msgid "Owner: {0}"
-msgstr "Владелец: {0}"
+msgstr "Лицо: {0}"
 
 #. # bo/Animal
 #: copy_of
@@ -699,7 +699,7 @@ msgstr ""
 #. # bo/OwnerDonation
 #: donation_must_have_an_owner
 msgid "Donations must be linked to an owner."
-msgstr ""
+msgstr "Пожертвования должны относится к лицу."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_date_for_the_cost
@@ -3346,6 +3346,7 @@ msgstr "Примечания"
 #. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/owner/VoucherSelector
 #: lksfieldtype_3
 #: Number
 msgid "Number"
@@ -6635,6 +6636,7 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/movement/MovementEdit
+#. # ui/owner/VoucherEdit
 #: Number\:
 msgid "Number:"
 msgstr ""
@@ -11744,11 +11746,6 @@ msgstr ""
 msgid "Voucher Type"
 msgstr ""
 
-#. # ui/owner/VoucherSelector
-#: unable_to_read_voucher_records\:
-msgid "Unable to read voucher records: "
-msgstr ""
-
 #. # ui/owner/VoucherEdit
 #: Voucher_Type\:
 msgid "Voucher Type:"
@@ -12098,6 +12095,11 @@ msgstr ""
 msgid "Gift Aid"
 msgstr ""
 
+#. # ui/owner/DonationSelector
+#: mark_this_donation_received
+msgid "Mark this donation as received"
+msgstr ""
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -12307,11 +12309,6 @@ msgstr ""
 #. # ui/system/FileTypes
 #: Handler
 msgid "Handler"
-msgstr ""
-
-#. # bo/Configuration
-#: ItemValue
-msgid "ItemValue"
 msgstr ""
 
 #. # ui/system/FileTypes
@@ -13249,6 +13246,11 @@ msgstr ""
 msgid "Boarding Cost Type:"
 msgstr ""
 
+#. # ui/system/Options
+#: separate_the_ranks_by_species
+msgid "Separate waiting list rank by species"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -13944,7 +13946,7 @@ msgstr ""
 #. # bo/LookupCache
 #: species
 msgid "species"
-msgstr ""
+msgstr "виды"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Date_Removed\:
@@ -13954,7 +13956,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Donation?
 msgid "Donation?"
-msgstr ""
+msgstr "Пожертвование?"
 
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
@@ -13991,17 +13993,17 @@ msgstr ""
 #. # bo/MedicalProfile
 #: weeks
 msgid "weeks."
-msgstr ""
+msgstr "недель."
 
 #. # ui/waitinglist/WaitingListView
 #: Address_Contains\:
 msgid "Address Contains:"
-msgstr ""
+msgstr "В адресе есть:"
 
 #. # ui/waitinglist/WaitingListView
 #: Description_Contains\:
 msgid "Description Contains:"
-msgstr ""
+msgstr "В описании есть:"
 
 #. # ui/waitinglist/WaitingListEdit
 #: Create_an_animal_from_this_record
@@ -14038,14 +14040,14 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #: Positive
 msgid "Positive"
-msgstr ""
+msgstr "Положительный"
 
 #. # reports/Report
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/GenerateDocument
 #: Negative
 msgid "Negative"
-msgstr ""
+msgstr "Отрицательный"
 
 #. # wordprocessor/AnimalDocument
 #: estimated
