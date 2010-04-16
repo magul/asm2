@@ -99,12 +99,14 @@ public class VoucherSelector extends ASMSelector {
         ov.openRecordset("OwnerID = " + ownerID);
 
         tabledata = new String[(int) ov.getRecordCount()][6];
+
         String[] columnheaders = {
-                i18n("Issue_Date"), i18n("Expiry_Date"), i18n("Number"), 
+                i18n("Issue_Date"), i18n("Expiry_Date"), i18n("Number"),
                 i18n("Voucher_Type"), i18n("comments")
             };
 
         int i = 0;
+
         try {
             while (!ov.getEOF()) {
                 tabledata[i][0] = Utils.nullToEmptyString(Utils.formatTableDate(

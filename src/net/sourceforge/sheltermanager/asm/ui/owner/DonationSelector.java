@@ -235,13 +235,12 @@ public class DonationSelector extends ASMSelector {
                 UI.fp(this, "actionDocument"));
         addToolButton(btnDoc, true);
 
-        btnReceive = UI.getButton(null, i18n("mark_this_donation_received"), 'r',
+        btnReceive = UI.getButton(null, i18n("mark_this_donation_received"),
+                'r',
                 IconManager.getIcon(
                     IconManager.SCREEN_VIEWOWNERDONATIONS_RECEIVE),
                 UI.fp(this, "actionReceive"));
         addToolButton(btnReceive, true);
-
-
     }
 
     public void tableClicked() {
@@ -332,8 +331,9 @@ public class DonationSelector extends ASMSelector {
 
             // Does this donation already have a date received? If so, don't
             // do anything
-            if (od.getDateReceived() != null)
+            if (od.getDateReceived() != null) {
                 return;
+            }
 
             // Set the date received to today
             od.setDateReceived(new Date());
@@ -392,7 +392,6 @@ public class DonationSelector extends ASMSelector {
 
             // Update our list
             updateList();
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

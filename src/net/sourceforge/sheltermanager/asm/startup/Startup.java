@@ -580,22 +580,34 @@ public class Startup implements Runnable {
      */
     public static void downloadDefaultFiles() {
         try {
-            Global.logInfo("Downloading default .asm files from dbfs", "downloadDefaultFiles");
+            Global.logInfo("Downloading default .asm files from dbfs",
+                "downloadDefaultFiles");
+
             DBFS d = new DBFS();
+
             if (!d.exists("dotasm")) {
-                Global.logInfo("No default files found in dbfs.", "downloadDefaultFiles");
+                Global.logInfo("No default files found in dbfs.",
+                    "downloadDefaultFiles");
+
                 return;
             }
+
             d.chdir("dotasm");
+
             String[] l = d.list();
-            if (l.length > 0)
-                Global.logInfo("Found " + l.length + " default files in dbfs, downloading...", "downloadDefaultFiles");
+
+            if (l.length > 0) {
+                Global.logInfo("Found " + l.length +
+                    " default files in dbfs, downloading...",
+                    "downloadDefaultFiles");
+            }
+
             for (int i = 0; i < l.length; i++) {
-                Global.logDebug("Downloading new .asm file: " + l[i], "downloadDefaultFiles");
+                Global.logDebug("Downloading new .asm file: " + l[i],
+                    "downloadDefaultFiles");
                 d.readFile(l[i]);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, Startup.class);
         }
     }

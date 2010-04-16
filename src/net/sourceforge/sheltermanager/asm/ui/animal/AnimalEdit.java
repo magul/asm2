@@ -583,7 +583,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void setDefaults() {
-
         // Date of birth and date brought in
         Calendar cal = Calendar.getInstance();
 
@@ -613,6 +612,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
+
         // Set the breed choices based on default species
         checkBreed();
 
@@ -1107,7 +1107,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableButtons();
     }
 
-    /** 
+    /**
      * Locks the animal code and any fields that influence it
      * if the option is set
      */
@@ -1634,19 +1634,19 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         try {
-	    // If we never loaded the entry details tab, these fields would
-	    // end up being cleared, so only save if they were loaded and
-	    // therefore changed in the first place or this is a new record
-	    if (loadedEntry || isNewRecord) {
+            // If we never loaded the entry details tab, these fields would
+            // end up being cleared, so only save if they were loaded and
+            // therefore changed in the first place or this is a new record
+            if (loadedEntry || isNewRecord) {
                 animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
                 animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
-	    }
+            }
 
             // Same rules apply to vet tab
-	    if (loadedVet || isNewRecord) {
+            if (loadedVet || isNewRecord) {
                 animal.setOwnersVetID(new Integer(embVet.getID()));
                 animal.setCurrentVetID(new Integer(embCurrentVet.getID()));
-	    }
+            }
 
             animal.setAnimalComments(txtComments.getText());
             animal.setHealthProblems(txtHealthProblems.getText());

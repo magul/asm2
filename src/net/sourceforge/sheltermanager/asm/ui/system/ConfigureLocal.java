@@ -150,7 +150,6 @@ public class ConfigureLocal extends ASMForm {
     }
 
     public void initComponents() {
-
         UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),

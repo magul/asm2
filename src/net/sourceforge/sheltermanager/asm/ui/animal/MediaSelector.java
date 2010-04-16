@@ -595,11 +595,13 @@ public class MediaSelector extends ASMSelector {
 
         // Read the highlighted table record and get the file name
         String mediaName = tabledata[getTable().getSelectedRow()][0];
-        String defaultFile = Utils.getDefaultDocumentPath() + File.separator + mediaName;
+        String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
+            mediaName;
 
         // Prompt user for where they'd like to save it to
         UI.FileChooser fc = UI.getFileChooser();
         fc.setSelectedFile(new File(defaultFile));
+
         int result = fc.showSaveDialog(this);
 
         // Cancel if they cancelled

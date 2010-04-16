@@ -37,10 +37,11 @@ public class OwnerSearchResults extends Report {
     private int max = 0;
 
     /** Creates a new instance of SearchResults */
-    public OwnerSearchResults(String[][] searchResults, int max, String searchTerm) {
+    public OwnerSearchResults(String[][] searchResults, int max,
+        String searchTerm) {
         this.max = max;
         this.searchResults = searchResults;
-	this.searchTerm = searchTerm;
+        this.searchTerm = searchTerm;
 
         if (searchResults == null) {
             return;
@@ -55,9 +56,10 @@ public class OwnerSearchResults extends Report {
     }
 
     public void generateReport() {
-
-        if (searchTerm != null && !searchTerm.equals(""))
-            addParagraph(Global.i18n("reports", "criteria") + ": " + searchTerm);
+        if ((searchTerm != null) && !searchTerm.equals("")) {
+            addParagraph(Global.i18n("reports", "criteria") + ": " +
+                searchTerm);
+        }
 
         tableNew();
 

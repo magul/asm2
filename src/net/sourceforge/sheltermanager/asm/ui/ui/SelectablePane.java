@@ -45,7 +45,10 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
 
     public SelectablePane() {
         super();
-        if (!UI.isLTR()) setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!UI.isLTR()) {
+            setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
     }
 
     public void setItems(List l) {
@@ -63,7 +66,11 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
         setBorder(new EtchedBorder());
 
         ScrollPanel p = new ScrollPanel();
-        if (!UI.isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!UI.isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
 
         for (int i = 0; i < items.length; i++) {
@@ -128,18 +135,31 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
     }
 }
 
+
 class ScrollPanel extends JPanel implements Scrollable {
-    public ScrollPanel() { super(); }
-    public int getScrollableUnitIncrement(Rectangle rect, int orientation, int direction) {
+    public ScrollPanel() {
+        super();
+    }
+
+    public int getScrollableUnitIncrement(Rectangle rect, int orientation,
+        int direction) {
         return 15;
     }
-    public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
+
+    public int getScrollableBlockIncrement(Rectangle visibleRect,
+        int orientation, int direction) {
         return 50;
     }
+
     public Dimension getPreferredScrollableViewportSize() {
         return getPreferredSize();
     }
-    public boolean getScrollableTracksViewportWidth() { return true; }
-    public boolean getScrollableTracksViewportHeight() { return false; }
-}
 
+    public boolean getScrollableTracksViewportWidth() {
+        return true;
+    }
+
+    public boolean getScrollableTracksViewportHeight() {
+        return false;
+    }
+}

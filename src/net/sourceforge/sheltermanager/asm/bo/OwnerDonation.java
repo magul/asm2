@@ -231,7 +231,7 @@ public class OwnerDonation extends UserInfoBO {
         o.setDateReceived(getDateReceived());
         o.setDateDue(getDateDue());
         o.setDonation(getDonation());
-	o.setIsGiftAid(getIsGiftAid());
+        o.setIsGiftAid(getIsGiftAid());
         o.setComments(getComments());
 
         return o;

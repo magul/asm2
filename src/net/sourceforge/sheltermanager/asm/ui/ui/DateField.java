@@ -345,7 +345,9 @@ public class DateField extends UI.Panel {
                 IconManager.getIcon(IconManager.DATEPICKER),
                 UI.fp(this, "showPicker"));
 
-        if (!UI.isLTR()) txt.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        if (!UI.isLTR()) {
+            txt.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         txt.addFocusListener(new java.awt.event.FocusAdapter() {
                 public void focusLost(java.awt.event.FocusEvent evt) {

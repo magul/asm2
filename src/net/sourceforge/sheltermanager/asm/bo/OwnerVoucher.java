@@ -81,6 +81,7 @@ public class OwnerVoucher extends UserInfoBO {
         String pad = "0000000000";
         String newnum = getID().toString();
         newnum = pad.substring(0, 9 - newnum.length()) + newnum;
+
         return newnum;
     }
 

@@ -161,14 +161,14 @@ public class InternetPublisher extends ASMForm {
         // Aged under
         l.add(new SelectableItem(i18n("Exclude_animals_aged_under:"), null,
                 false, true));
-        l.add(new SelectableItem(i18n("x_weeks", "52"), "under52", false, false,
-                "weeks"));
+        l.add(new SelectableItem(i18n("x_weeks", "52"), "under52", false,
+                false, "weeks"));
         l.add(new SelectableItem(i18n("x_weeks", "26"), "under26", true, false,
                 "weeks"));
-        l.add(new SelectableItem(i18n("x_weeks", "20"), "under20", false, false,
-                "weeks"));
-        l.add(new SelectableItem(i18n("x_weeks", "16"), "under16", false, false,
-                "weeks"));
+        l.add(new SelectableItem(i18n("x_weeks", "20"), "under20", false,
+                false, "weeks"));
+        l.add(new SelectableItem(i18n("x_weeks", "16"), "under16", false,
+                false, "weeks"));
         l.add(new SelectableItem(i18n("x_weeks", "8"), "under8", false, false,
                 "weeks"));
         l.add(new SelectableItem(i18n("1_week"), "under1", false, false, "weeks"));

@@ -141,7 +141,11 @@ public final class UI {
     public static Button getButton(String text, String tooltiptext,
         char mnemonic, Icon icon, final FunctionPointer onClick) {
         Button b = new Button();
-        if (!isLTR()) b.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            b.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         if (text != null) {
             b.setText(mnemonicRemove(text));
         }
@@ -201,7 +205,10 @@ public final class UI {
     public static CheckBox getCheckBox(String text, String tooltip,
         int textalign, final FunctionPointer onChange) {
         CheckBox c = new CheckBox();
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (text != null) {
             c.setText(text);
@@ -259,7 +266,10 @@ public final class UI {
     public static RadioButton getRadioButton(String text, String tooltip,
         char mnemonic, final FunctionPointer onChange) {
         RadioButton b = new RadioButton();
-        if (!isLTR()) b.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            b.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (text != null) {
             b.setText(text);
@@ -297,7 +307,10 @@ public final class UI {
     public static CurrencyField getCurrencyField(String tooltiptext,
         final FunctionPointer onChange) {
         CurrencyField d = new CurrencyField();
-        if (!isLTR()) d.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            d.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (tooltiptext != null) {
             d.setToolTipText(tooltiptext);
@@ -332,7 +345,10 @@ public final class UI {
     public static DateField getDateField(String tooltiptext,
         final FunctionPointer onChange, final FunctionPointer onLostFocus) {
         final DateField d = new DateField();
-        if (!isLTR()) d.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            d.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (tooltiptext != null) {
             d.setToolTipText(tooltiptext);
@@ -372,14 +388,21 @@ public final class UI {
                 ((Global.GRIDLABELALIGN == ALIGN_RIGHT) ? "right" : "left") +
                 "\">" + mnemonicRemove(text) + "</p></html>");
         l.setHorizontalAlignment(align);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         return l;
     }
 
     public static Label getLabel(Icon icon) {
         Label l = new Label(icon);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
 
         return l;
@@ -388,7 +411,11 @@ public final class UI {
     public static Label getLabel(Icon icon, String tooltiptext) {
         Label l = new Label();
         l.setIcon(icon);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         l.setToolTipText(mnemonicRemove(tooltiptext));
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
 
@@ -398,14 +425,21 @@ public final class UI {
     public static Label getLabel() {
         Label l = new Label();
         l.setHorizontalAlignment(Global.GRIDLABELALIGN);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         return l;
     }
 
     public static Label getTitleLabel(String text) {
         Label l = getLabel(text);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         l.setHorizontalAlignment(ALIGN_LEFT);
         l.setFont(l.getFont().deriveFont(Font.BOLD));
 
@@ -415,7 +449,11 @@ public final class UI {
     public static Label getHintLabel(String text) {
         Label l = new Label("<html><center>" + mnemonicRemove(text) +
                 "</center></html>");
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         l.setBackground(getColor(255, 251, 192));
         l.setForeground(Color.BLACK);
         l.setBorder(new LineBorder(Color.BLACK));
@@ -446,7 +484,11 @@ public final class UI {
     public static Label getURLLabel(String text, String tooltiptext,
         final String url) {
         Label l = new Label(text);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         l.setToolTipText(tooltiptext);
         l.setForeground(getColor(0, 0, 255));
         l.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -471,13 +513,20 @@ public final class UI {
     public static List getList(FunctionPointer onDoubleClick,
         FunctionPointer onClick) {
         List l = new List(onDoubleClick, onClick);
-        if (!isLTR()) l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return l;
     }
 
     public static Panel getPanel(int bordersize) {
         Panel p = new Panel(bordersize);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -488,7 +537,10 @@ public final class UI {
 
     public static Panel getPanel() {
         Panel p = new Panel(4);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -499,7 +551,10 @@ public final class UI {
 
     public static Panel getPanel(boolean noborder) {
         Panel p = new Panel(noborder);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -510,7 +565,10 @@ public final class UI {
 
     public static Panel getPanel(LayoutManager l) {
         Panel p = new Panel(l);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -521,7 +579,10 @@ public final class UI {
 
     public static Panel getPanel(LayoutManager l, int bordersize) {
         Panel p = new Panel(l, bordersize);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -532,7 +593,10 @@ public final class UI {
 
     public static Panel getPanel(LayoutManager l, boolean noborder) {
         Panel p = new Panel(l, noborder);
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (useDefaultTooltip) {
             p.setToolTipText(TOOLTIP_DEFAULT);
@@ -585,7 +649,10 @@ public final class UI {
     public static ComboBox getCombo() {
         ComboBox c = new ComboBox();
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         return c;
     }
@@ -593,7 +660,10 @@ public final class UI {
     public static ComboBox getCombo(String description) {
         ComboBox c = new ComboBox(description, null);
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         return c;
     }
@@ -623,7 +693,10 @@ public final class UI {
         String field, final FunctionPointer onChange) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         try {
             SQLRecordset r = new SQLRecordset();
@@ -688,7 +761,10 @@ public final class UI {
         final FunctionPointer onChange) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (items != null) {
             for (int i = 0; i < items.size(); i++) {
@@ -741,7 +817,10 @@ public final class UI {
         final FunctionPointer onChange) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (items != null) {
             for (int i = 0; i < items.length; i++) {
@@ -841,7 +920,10 @@ public final class UI {
         final FunctionPointer onLostFocus, String allstring) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
-        if (!isLTR()) c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (allstring != null) {
             c.addItem(allstring);
@@ -961,13 +1043,21 @@ public final class UI {
     public static HTMLBrowser getHTMLBrowser(Label status,
         FunctionPointer onHyperlinkClick) {
         HTMLBrowser h = new HTMLBrowser(status, onHyperlinkClick);
-        if (!isLTR()) h.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            h.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return h;
     }
 
     public static MenuBar getMenuBar() {
         MenuBar m = new MenuBar();
-        if (!isLTR()) m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return m;
     }
 
@@ -977,7 +1067,11 @@ public final class UI {
 
     public static Menu getMenu(String text, char mnemonic, Icon icon) {
         Menu m = new Menu();
-        if (!isLTR()) m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         m.setText(mnemonicRemove(text));
 
         char mn = mnemonicFromText(text, mnemonic);
@@ -1010,7 +1104,11 @@ public final class UI {
     public static MenuItem getMenuItem(String text, char mnemonic, Icon icon,
         ASMAccelerator hotkey, final FunctionPointer onClick) {
         MenuItem m = new MenuItem();
-        if (!isLTR()) m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            m.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         m.setText(mnemonicRemove(text));
 
         char mn = mnemonicFromText(text, mnemonic);
@@ -1044,19 +1142,31 @@ public final class UI {
 
     public static ProgressBar getProgressBar() {
         ProgressBar p = new ProgressBar();
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return p;
     }
 
     public static PasswordField getPasswordField() {
         PasswordField p = new PasswordField();
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return p;
     }
 
     public static PasswordField getPasswordField(String tooltip) {
         PasswordField p = new PasswordField();
-        if (!isLTR()) p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         p.setToolTipText(tooltip);
 
         return p;
@@ -1075,27 +1185,40 @@ public final class UI {
     public static SearchTextField getSearchTextField(String tooltip,
         String buttontooltip, boolean enabled, FunctionPointer onSearch,
         FunctionPointer onChange) {
-        return getSearchTextField(tooltip, buttontooltip, enabled, null, onSearch,
-            onChange);
+        return getSearchTextField(tooltip, buttontooltip, enabled, null,
+            onSearch, onChange);
     }
 
     public static SearchTextField getSearchTextField(String tooltip,
         String buttontooltip, boolean enabled, Icon icon,
         FunctionPointer onSearch, FunctionPointer onChange) {
-        SearchTextField s = new SearchTextField(tooltip, buttontooltip, enabled, icon, onSearch, onChange);
-        if (!isLTR()) s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        SearchTextField s = new SearchTextField(tooltip, buttontooltip,
+                enabled, icon, onSearch, onChange);
+
+        if (!isLTR()) {
+            s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return s;
     }
 
     public static TextField getTextField() {
         TextField t = new TextField();
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return t;
     }
 
     public static TextField getTextField(String tooltip) {
         TextField t = new TextField();
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         t.setToolTipText(tooltip);
 
         return t;
@@ -1127,7 +1250,10 @@ public final class UI {
                     }
                 }
             };
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
@@ -1188,7 +1314,10 @@ public final class UI {
                     }
                 }
             };
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);
@@ -1196,10 +1325,10 @@ public final class UI {
 
         if (!System.getProperty("asm.fontsize.textarea", "UNSET").equals("UNSET")) {
             try {
-                float newsize = Float.parseFloat(System.getProperty("asm.fontsize.textarea"));
+                float newsize = Float.parseFloat(System.getProperty(
+                            "asm.fontsize.textarea"));
                 t.setFont(t.getFont().deriveFont(newsize));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -1230,7 +1359,11 @@ public final class UI {
 
     public static TabbedPane getTabbedPane() {
         TabbedPane t = new TabbedPane();
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return t;
     }
 
@@ -1241,22 +1374,32 @@ public final class UI {
                     onChange.call();
                 }
             });
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
 
         return t;
     }
 
     public static ToolBar getToolBar() {
         ToolBar t = new ToolBar();
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return t;
     }
 
     public static ToolBar getToolBar(boolean vertical) {
         ToolBar t = new ToolBar(vertical);
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        return t;
 
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
+        return t;
     }
 
     public static Table getTable(FunctionPointer onClick,
@@ -1271,28 +1414,39 @@ public final class UI {
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, FunctionPointer onEnter, ToolBar toolbar) {
-        Table t = new Table(onClick, onDoubleClick, onEnter, toolbar, null, false);
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        Table t = new Table(onClick, onDoubleClick, onEnter, toolbar, null,
+                false);
+
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return t;
     }
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar, boolean multiselect) {
         Table t = new Table(onClick, onDoubleClick, null, toolbar, null,
-            multiselect);
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        return t;
+                multiselect);
 
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
+        return t;
     }
 
     public static Table getTable(FunctionPointer onClick,
         FunctionPointer onDoubleClick, ToolBar toolbar,
         ASMCellRenderer renderer, boolean multiselect) {
         Table t = new Table(onClick, onDoubleClick, null, toolbar, renderer,
-            multiselect);
-        if (!isLTR()) t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        return t;
+                multiselect);
 
+        if (!isLTR()) {
+            t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
+        return t;
     }
 
     public static void registerTabOrder(Vector components, Object parent,
@@ -1439,10 +1593,10 @@ public final class UI {
 
     public static void osOpen(String file) throws Exception {
         Desktop d = Desktop.getDesktop();
+
         try {
             d.edit(new java.io.File(file));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             // Fall back to Open if we can't edit
             d.open(new java.io.File(file));
@@ -1737,10 +1891,9 @@ public final class UI {
     public static void saveImageAsJpeg(String file, Image image) {
         try {
             ImageIO.write(toBufferedImage(image), "jpg", new File(file));
-	}
-	catch (Exception e) {
-	    Global.logException(e, UI.class);
-	}
+        } catch (Exception e) {
+            Global.logException(e, UI.class);
+        }
     }
 
     /*
@@ -1760,7 +1913,6 @@ public final class UI {
         }
     }
     */
-
     public static String messageOK() {
         return Global.i18n("uianimalname", "Ok");
     }
@@ -1831,7 +1983,11 @@ public final class UI {
     public static Spinner getSpinner(int min, int max, String tooltip,
         FunctionPointer onChange) {
         Spinner s = new Spinner(min, max, tooltip, onChange);
-        if (!isLTR()) s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return s;
     }
 
@@ -1845,16 +2001,23 @@ public final class UI {
 
     public static ScrollPane getScrollPane(UI.Panel p) {
         ScrollPane s = new ScrollPane(p);
-        if (!isLTR()) s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return s;
     }
 
     public static ScrollPane getScrollPane(Component c) {
         ScrollPane s = new ScrollPane(c);
-        if (!isLTR()) s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!isLTR()) {
+            s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         return s;
     }
-
 
     public static BoxLayout getBoxLayout(UI.Panel p, int axis) {
         return new BoxLayout(p, axis);
@@ -1864,6 +2027,7 @@ public final class UI {
         public ScrollPane(UI.Panel p) {
             super(p);
         }
+
         public ScrollPane(Component c) {
             super(c);
         }
@@ -2205,7 +2369,10 @@ public final class UI {
 
             cbo.addKeyListener(this);
 
-            if (!UI.isLTR()) cbo.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+            if (!UI.isLTR()) {
+                cbo.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+            }
+
             setLayout(getBorderLayout());
             add(cbo, UI.BorderLayout.CENTER);
 
@@ -2663,8 +2830,9 @@ public final class UI {
             add(t, UI.BorderLayout.CENTER);
             btn = UI.getButton(null,
                     ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
-                    icon != null ? icon : IconManager.getIcon(IconManager.SEARCHSMALL),
-                    onSearch);
+                    (icon != null) ? icon
+                                   : IconManager.getIcon(
+                        IconManager.SEARCHSMALL), onSearch);
 
             UI.ToolBar t = UI.getToolBar();
             t.add(btn);

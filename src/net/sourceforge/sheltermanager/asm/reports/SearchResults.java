@@ -37,7 +37,7 @@ public class SearchResults extends Report {
     public SearchResults(String[][] searchResults, int max, String searchTerm) {
         this.max = max;
         this.searchResults = searchResults;
-	this.searchTerm = searchTerm;
+        this.searchTerm = searchTerm;
 
         if (searchResults == null) {
             return;
@@ -60,8 +60,10 @@ public class SearchResults extends Report {
         // the search form
         flipNames();
 
-	if (searchTerm != null && !searchTerm.equals(""))
-            addParagraph(Global.i18n("reports", "criteria") + ": " + searchTerm);
+        if ((searchTerm != null) && !searchTerm.equals("")) {
+            addParagraph(Global.i18n("reports", "criteria") + ": " +
+                searchTerm);
+        }
 
         tableNew();
 

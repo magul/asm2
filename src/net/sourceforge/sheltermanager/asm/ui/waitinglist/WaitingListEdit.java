@@ -641,11 +641,10 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             ea.setDefaults();
 
             // Reapply the species
-            Utils.setComboFromID(LookupCache.getSpeciesLookup(), 
-               "SpeciesName", awl.getSpeciesID(), ea.cboSpecies); 
+            Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
+                awl.getSpeciesID(), ea.cboSpecies);
 
             Global.mainForm.addChild(ea);
-
 
             a = null;
             ea = null;

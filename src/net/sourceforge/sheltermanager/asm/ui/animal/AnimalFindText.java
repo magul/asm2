@@ -332,9 +332,8 @@ public class AnimalFindText extends ASMFind {
 
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-        new SearchResults(tablemodel.getData(),
-            tablemodel.getRowCount(),
-	    txtSearch.getText());
+        new SearchResults(tablemodel.getData(), tablemodel.getRowCount(),
+            txtSearch.getText());
 
         tablemodel = null;
     }

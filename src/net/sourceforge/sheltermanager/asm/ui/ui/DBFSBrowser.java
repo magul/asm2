@@ -62,7 +62,11 @@ public class DBFSBrowser extends JPanel implements MouseListener {
         this.parent = parent;
 
         lst = new JList();
-        if (!UI.isLTR()) lst.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!UI.isLTR()) {
+            lst.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
         scr = new JScrollPane(lst);
         setLayout(UI.getBorderLayout());
         add(scr, UI.BorderLayout.CENTER);

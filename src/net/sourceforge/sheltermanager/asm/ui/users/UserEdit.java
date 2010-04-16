@@ -158,7 +158,10 @@ public class UserEdit extends ASMForm {
             txtUserName.setText(user.getUserName());
             txtRealName.setText(Utils.nullToEmptyString(user.getRealName()));
             chkIsSuper.setSelected(user.getSuperUser().equals(new Integer(1)));
-            if (user.getOwnerID() != null) olOwnerRecord.setID(user.getOwnerID().intValue());
+
+            if (user.getOwnerID() != null) {
+                olOwnerRecord.setID(user.getOwnerID().intValue());
+            }
 
             // If it's an existing record, hide the password field - has to
             // be set externally once the user is created.
@@ -389,9 +392,10 @@ public class UserEdit extends ASMForm {
 
         lblPassword = (UI.Label) p.add(UI.getLabel(i18n("Password:_")));
         txtPassword = (UI.TextField) p.add(UI.getTextField());
-        
+
         olOwnerRecord = (OwnerLink) UI.addComponent(p, i18n("Owner_Record"),
-                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE, "LINK"));
+                new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE,
+                    "LINK"));
 
         chkIsSuper = (UI.CheckBox) p.add(UI.getCheckBox(i18n("Super_User:_")));
 

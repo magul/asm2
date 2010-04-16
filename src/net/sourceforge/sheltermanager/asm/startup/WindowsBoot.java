@@ -43,15 +43,19 @@ public class WindowsBoot {
         String ram = System.getProperty("asm.ram", "256");
         s.append("-Xmx" + ram + "m ");
 
-	// System properties passthrough
-	String[] props = { "asm.log.debug", "asm.fontsize.textarea",
-	    "asm.swingdefault", "asm.shellexecute" };
-	for (int i = 0; i < props.length; i++) {
+        // System properties passthrough
+        String[] props = {
+                "asm.log.debug", "asm.fontsize.textarea", "asm.swingdefault",
+                "asm.shellexecute"
+            };
+
+        for (int i = 0; i < props.length; i++) {
             String p = System.getProperty(props[i], "");
-	    if (!p.equals("")) {
+
+            if (!p.equals("")) {
                 s.append("-D" + props[i] + "=" + p + " ");
-	    }
-	}
+            }
+        }
 
         // Garbage collection (use conc mark and sweep)
         s.append("-XX:+UseConcMarkSweepGC ");

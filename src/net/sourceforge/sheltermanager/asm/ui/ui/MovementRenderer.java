@@ -35,7 +35,10 @@ public class MovementRenderer extends DefaultTableCellRenderer
     public MovementRenderer(int deathColumn) {
         super();
         this.deathColumn = deathColumn;
-        if (!UI.isLTR()) this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        if (!UI.isLTR()) {
+            this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
     }
 
     public void setTableModel(SortableTableModel tablemodel) {

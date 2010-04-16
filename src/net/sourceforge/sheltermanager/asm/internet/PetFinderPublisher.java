@@ -46,7 +46,7 @@ import java.util.Calendar;
 
 
 /**
- * The actual class that does the PetFinder publishing work. 
+ * The actual class that does the PetFinder publishing work.
  * @author Robin Rawson-Tetley
  */
 public class PetFinderPublisher extends Thread {
@@ -418,7 +418,7 @@ public class PetFinderPublisher extends Thread {
                             "<br/>");
                     comm = comm.replaceAll("\n", "<br/>");
                     comm = comm.replaceAll("\r", "<br/>");
-		    // Use HTML entities for single/double quotes
+                    // Use HTML entities for single/double quotes
                     comm = comm.replaceAll("\"", "&#34;");
                     comm = comm.replaceAll("\'", "&#39;");
                     comm = comm.replaceAll("`", "&#39;");
@@ -536,8 +536,7 @@ public class PetFinderPublisher extends Thread {
             "#10:NoDogs=NoDogs\n" + "#11:NoCats=NoCats\n" +
             "#12:NoKids=NoKids\n" + "#13:Declawed=Declawed\n" +
             "#14:HouseBroken=HouseBroken\n" + "#15:Id=Id\n" +
-	    "#16:Breed2=Breed2\n" +
-            "#ALLOWUPDATE:Y\n" + "#HEADER:N";
+            "#16:Breed2=Breed2\n" + "#ALLOWUPDATE:Y\n" + "#HEADER:N";
 
         saveFile(publishDir + shelterId + "import.cfg", petFinderMap);
 

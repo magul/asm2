@@ -515,9 +515,7 @@ public class AnimalFind extends ASMFind {
 
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-        new SearchResults(tablemodel.getData(),
-            tablemodel.getRowCount(),
-	    "");
+        new SearchResults(tablemodel.getData(), tablemodel.getRowCount(), "");
 
         tablemodel = null;
     }
@@ -586,7 +584,7 @@ public class AnimalFind extends ASMFind {
     /** Performs the search */
     public void runSearch() {
         SQLRecordset animal = new SQLRecordset();
-	pt = new StringBuffer();
+        pt = new StringBuffer();
 
         // Reads all the criteria fields and performs the search
 

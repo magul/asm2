@@ -1547,7 +1547,8 @@ public class Main extends ASMWindow {
         UI.Panel pnlStatusLeft = UI.getPanel(UI.getFlowLayout());
         pnlStatusLeft.add(lblStatus);
         pnlStatus.add(pnlStatusLeft, UI.BorderLayout.CENTER);
-        pnlStatus.add(thrThrob, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
+        pnlStatus.add(thrThrob,
+            UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
 
         UI.Panel pnlStatusRight = UI.getPanel(UI.getFlowLayout());
         pnlStatusRight.add(pgStatus);
@@ -1573,7 +1574,8 @@ public class Main extends ASMWindow {
         pnlStatusRight.add(lblDB);
         pnlStatusRight.add(lblUser);
         pnlStatusRight.add(new LocaleSwitcher());
-        pnlStatus.add(pnlStatusRight, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
+        pnlStatus.add(pnlStatusRight,
+            UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     }
 
     /**
@@ -2367,7 +2369,9 @@ public class Main extends ASMWindow {
 
         // Ask the form if it's ok to be added - some forms want to
         // cancel based on permissions
-        if (form.formOpening()) return;
+        if (form.formOpening()) {
+            return;
+        }
 
         // If we're using autologout, note the time as this is
         // activity.

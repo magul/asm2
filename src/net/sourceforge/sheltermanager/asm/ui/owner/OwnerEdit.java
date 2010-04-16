@@ -155,6 +155,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     /** Audit info */
     private String audit = null;
 
+    /** This is used to prevent the form opening if there's a permissions problem */
+    private boolean stopOpening = false;
+
     /** Creates new form EditOwner */
     public OwnerEdit() {
         init(Global.i18n("uiowner", "Edit_Owner"),
@@ -465,29 +468,26 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         }
     }
 
-    /** This is used to prevent the form opening if there's a permissions problem */
-    private boolean stopOpening = false;
     public boolean formOpening() {
         return stopOpening;
     }
 
     public void loadData() {
-
-
         try {
-
             // Is this owner set as the record for the current user?
             if (owner.getID().equals(Global.currentUserObject.getOwnerID())) {
                 Dialog.showError(i18n("you_cannot_edit_your_owner_record"));
                 stopOpening = true;
+
                 return;
             }
 
             // Is this owner a staff member, does our user have permission?
-            if (owner.getIsStaff().intValue() == 1 && 
-                !Global.currentUserObject.getSecViewStaffOwners()) {
+            if ((owner.getIsStaff().intValue() == 1) &&
+                    !Global.currentUserObject.getSecViewStaffOwners()) {
                 Dialog.showError(i18n("you_cannot_edit_staff_records"));
                 stopOpening = true;
+
                 return;
             }
 

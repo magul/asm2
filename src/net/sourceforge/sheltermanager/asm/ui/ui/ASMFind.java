@@ -140,7 +140,8 @@ public abstract class ASMFind extends ASMForm {
         leftbar = UI.getToolBar(true);
 
         if (hasleftbar) {
-            main.add(leftbar, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
+            main.add(leftbar,
+                UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
         }
 
         table = UI.getTable(UI.fp(this, "actionClick"),

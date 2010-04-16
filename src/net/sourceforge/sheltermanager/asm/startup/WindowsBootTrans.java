@@ -46,15 +46,19 @@ public class WindowsBootTrans {
         String ram = System.getProperty("asm.ram", "96");
         s.append("-Xmx" + ram + "m ");
 
-	// System properties passthrough
-	String[] props = { "asm.log.debug", "asm.fontsize.textarea",
-	    "asm.swingdefault", "asm.shellexecute" };
-	for (int i = 0; i < props.length; i++) {
+        // System properties passthrough
+        String[] props = {
+                "asm.log.debug", "asm.fontsize.textarea", "asm.swingdefault",
+                "asm.shellexecute"
+            };
+
+        for (int i = 0; i < props.length; i++) {
             String p = System.getProperty(props[i], "");
-	    if (!p.equals("")) {
+
+            if (!p.equals("")) {
                 s.append("-D" + props[i] + "=" + p + " ");
-	    }
-	}
+            }
+        }
 
         // Classpath
         s.append("-cp \"" + d + ";" + d + "lib\\charting-0.94.jar;" + d +

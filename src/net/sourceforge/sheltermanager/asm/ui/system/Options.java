@@ -203,7 +203,8 @@ public class Options extends ASMForm {
         cboDefaultUrgency.setSelectedIndex(Configuration.getInteger(
                 "WaitingListDefaultUrgency"));
 
-        chkRankBySpecies.setSelected(Configuration.getBoolean("WaitingListRankBySpecies"));
+        chkRankBySpecies.setSelected(Configuration.getBoolean(
+                "WaitingListRankBySpecies"));
 
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
@@ -417,7 +418,7 @@ public class Options extends ASMForm {
                 spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
-            Configuration.setEntry("WaitingListRankBySpecies", 
+            Configuration.setEntry("WaitingListRankBySpecies",
                 chkRankBySpecies.isSelected() ? "Yes" : "No");
 
             // Movements
@@ -673,10 +674,9 @@ public class Options extends ASMForm {
                              .equalsIgnoreCase("Yes"), false));
 
         l.add(new SelectableItem(Global.i18n("uisystem",
-                    "once_assigned_codes_cannot_be_changed"),
-                    "LockCodes",
-                    Configuration.getString("LockCodes")
-                            .equalsIgnoreCase("Yes"), false));
+                    "once_assigned_codes_cannot_be_changed"), "LockCodes",
+                Configuration.getString("LockCodes").equalsIgnoreCase("Yes"),
+                false));
 
         tblCodeOptions = new SelectableList(l);
         UI.addComponent(codepanel, tblCodeOptions);
