@@ -2540,24 +2540,45 @@ public class Animal extends UserInfoBO {
     }
 
     /**
-     * Parses the year from a code with a YYYY portion
+     * Parses the year from a code with a YYYY or YY portion
      */
     public static int parseAnimalCodeYear(String code) {
-        int npos = Configuration.getString("CodingFormat").indexOf("YYYY");
+        
+        String cf = Configuration.getString("CodingFormat");
+        int year = 0;
 
-        // If it's outside the bounds of the string, forget it
-        if ((npos + 4) >= code.length()) {
-            return 0;
+        // 4 digit year
+        int npos = cf.indexOf("YYYY");
+        if (npos != -1 && npos + 4 <= code.length()) {
+            try {
+                year = Integer.parseInt(code.substring(npos, npos + 4));
+                Global.logDebug("Parsed year " + year + " from code " + code, 
+                    "Animal.parseAnimalCodeYear");
+                return year;
+            } catch (Exception e) {
+                Global.logError("Failed parsing YYYY portion of " + code,
+                    "Animal.parseAnimalCodeYear");
+            }
         }
 
-        try {
-            return Integer.parseInt(code.substring(npos, npos + 4));
-        } catch (Exception e) {
-            Global.logError("Failed parsing YYYY portion of " + code,
-                "Animal.parseAnimalCodeYear");
-
-            return 0;
+        // 2 digit year
+        npos = cf.indexOf("YY");
+        if (npos != -1 && npos + 2 <= code.length()) {
+            try {
+                year = Integer.parseInt(code.substring(npos, npos + 2));
+                // Use the pivot to modify the year
+                year += 100 * ( (year < Global.PIVOT_YEAR) ? 
+                    Integer.parseInt(Global.BELOW_PIVOT) : 
+                    Integer.parseInt(Global.AFTER_PIVOT));
+                Global.logDebug("Parsed year " + year + " from code " + code, 
+                    "Animal.parseAnimalCodeYear");
+            } catch (Exception e) {
+                Global.logError("Failed parsing YY portion of " + code,
+                    "Animal.parseAnimalCodeYear");
+            }
         }
+
+        return year;
     }
 
     /**

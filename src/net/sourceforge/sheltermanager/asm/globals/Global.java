@@ -189,7 +189,7 @@ public abstract class Global {
      * Pivot point at which 2 digit years are changed This could be made into a
      * user configurable option at some point.
      */
-    public static int PIVOT_YEAR = 15;
+    public static int PIVOT_YEAR = 50;
 
     /** The 2 digit prefix if we are below the pivot */
     public static String BELOW_PIVOT = "20";
