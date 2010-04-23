@@ -175,6 +175,28 @@ public class GetReports extends ASMView {
                         continue;
                     }
 
+                    // Skip if the database type is wrong
+                    if (r.database.indexOf("Any") == -1) {
+                        if (DBConnection.DBType == DBConnection.HSQLDB) {
+                            if (r.database.indexOf("HSQLDB") == -1) {
+                                Global.logDebug("Skipping, report not HSQLDB", "GetReports.updateListThread");
+                                continue;
+                            }
+                        }
+                        if (DBConnection.DBType == DBConnection.MYSQL) {
+                            if (r.database.indexOf("MySQL") == -1) {
+                                Global.logDebug("Skipping, report not MySQL", "GetReports.updateListThread");
+                                continue;
+                            }
+                        }
+                        if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                            if (r.database.indexOf("PostgreSQL") == -1) {
+                                Global.logDebug("Skipping, report not HSQLDB", "GetReports.updateListThread");
+                                continue;
+                            }
+                        }
+                    }
+
                     r.sql = b[5].trim();
                     r.html = b[6].trim();
                     reports.add(r);
