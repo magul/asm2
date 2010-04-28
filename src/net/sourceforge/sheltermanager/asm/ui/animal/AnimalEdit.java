@@ -3032,6 +3032,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 s = "Delete From animal Where ID = " + animal.getID();
                 DBConnection.executeAction(s);
 
+                // Remove the DBFS directory for the animal
+                DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL, animal.getID().intValue());
+                dbfs.chdir("..");
+                dbfs.deleteDir(animal.getID().toString());
+
                 dispose();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
