@@ -205,7 +205,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
         txtDate = (DateField) UI.addComponent(pt, i18n("Date:"),
                 UI.getDateField(i18n("The_date_the_litter_was_born_or_entered_the_shelter")));
 
-        txtNumber = (UI.TextField) UI.addComponent(pt, i18n("Number:"),
+        txtNumber = (UI.TextField) UI.addComponent(pt, i18n("Number_in_litter"),
                 UI.getTextField(i18n("The_number_of_animals_in_the_litter")));
 
         txtComments = (UI.TextArea) UI.addComponent(pc, i18n("Comments:"),

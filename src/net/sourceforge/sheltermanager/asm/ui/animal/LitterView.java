@@ -115,7 +115,7 @@ public class LitterView extends ASMView {
 
         // Create an array of headers for the table
         String[] columnheaders = {
-                i18n("Parent"), i18n("Species"), i18n("Date"), i18n("Number"),
+                i18n("Parent"), i18n("Species"), i18n("Date"), i18n("Number_in_litter"),
                 header, i18n("Remaining"), i18n("Comments")
             };
 

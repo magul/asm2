@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-04-13 14:17+0000\n"
+"PO-Revision-Date: 2010-04-29 08:46+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3331,7 +3331,6 @@ msgstr "Notes"
 
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
-#. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
@@ -4921,6 +4920,8 @@ msgstr "5 weeks"
 msgid "6 weeks"
 msgstr "6 weeks"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
@@ -5967,6 +5968,8 @@ msgstr "On Foster (in figures)"
 msgid "Animal Type"
 msgstr "Animal Type"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/CustomReportExecute
 #. # ui/owner/OwnerEdit
 #: criteria
@@ -6618,7 +6621,6 @@ msgid "Mother:"
 msgstr "Mother:"
 
 #. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -8248,6 +8250,12 @@ msgstr ""
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
 msgstr "Total Donations: {0}, Balance: {1}"
+
+#. # ui/animal/LitterView
+#. # ui/animal/LitterEdit
+#: Number_in_litter
+msgid "Number in litter:"
+msgstr "Number in litter:"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
