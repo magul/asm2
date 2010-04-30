@@ -418,10 +418,15 @@ public class PetFinderPublisher extends Thread {
                             "<br/>");
                     comm = comm.replaceAll("\n", "<br/>");
                     comm = comm.replaceAll("\r", "<br/>");
-                    // Use HTML entities for single/double quotes
+                    // Escape double quotes
+                    comm = comm.replaceAll("\"", "\"\"");
+                    /* 
+                     * No longer necessary
+                     * Use HTML entities for single/double quotes
                     comm = comm.replaceAll("\"", "&#34;");
                     comm = comm.replaceAll("\'", "&#39;");
                     comm = comm.replaceAll("`", "&#39;");
+                    */
                     dataFile.append("\"" + comm + "\",");
                     comm = null;
 
