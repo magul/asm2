@@ -206,8 +206,8 @@ public class TreatmentEdit extends ASMForm {
             // Update parent
             // If our regime is complete as a result,
             // we need to update the whole list
-            if (am.getStatus()
-                      .equals(Integer.toString(AnimalMedical.STATUS_COMPLETED))) {
+            if (am.getStatus().intValue() ==
+                      AnimalMedical.STATUS_COMPLETED) {
                 parent.regimeview.updateList();
             } else {
                 parent.regimetview.updateList();
