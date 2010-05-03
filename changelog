@@ -1,6 +1,8 @@
 2.7.2
 ================
 
+*. Fixed problem with static mediatrackers and adding the same image
+-  as media multiple times without restarting ASM (David McKerlie)
 *. Medical Book should only show on shelter animals with treatments
 *. Use double, double quotes for escaping to PetFinder
 *. Fixed for check for completing parent when the last treatment is

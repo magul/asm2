@@ -1796,6 +1796,7 @@ public final class UI {
             Image inImage = UI.loadImage(inputfile);
             Image outImage = UI.scaleImage(inImage, width, height);
             UI.saveImageAsJpeg(outputfile, outImage);
+	    inImage.flush();
             inImage = null;
             outImage = null;
         } catch (Exception e) {
