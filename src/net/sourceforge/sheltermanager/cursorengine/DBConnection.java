@@ -458,6 +458,7 @@ public abstract class DBConnection {
         byte[] b = new byte[(int) f.length()];
         FileInputStream in = new FileInputStream(f);
         in.read(b);
+	in.close();
 
         // Interpret the file 
         String s = new String(b, Global.CHAR_ENCODING);

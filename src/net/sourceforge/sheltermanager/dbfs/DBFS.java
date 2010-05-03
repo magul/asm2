@@ -133,7 +133,7 @@ public class DBFS {
     public String[] list(String mask) {
         try {
             SQLRecordset rs = new SQLRecordset();
-            mask.replace('*', '%');
+            mask = mask.replace('*', '%');
             rs.openRecordset("SELECT Name FROM dbfs WHERE Path Like '" +
                 currentPath + "' AND Name Like '" + mask + "'", "dbfs");
 

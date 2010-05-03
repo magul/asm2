@@ -654,8 +654,8 @@ public abstract class Utils {
     public static void setComboFromID(SQLRecordset lookup, String fieldName,
         Integer idValue, UI.ComboBox theCombo) {
         try {
-            // Drop out if we have an empty string
-            if (idValue.equals("")) {
+            // Drop out for invalid ID
+            if (idValue == null) {
                 return;
             }
 
@@ -1792,7 +1792,7 @@ public abstract class Utils {
      */
     public static int exec(String[] args, File wd) {
         try {
-            Global.logDebug("Exec: " + args, "Utils.exec");
+            Global.logDebug("Exec: " + args[0], "Utils.exec");
 
             Runtime r = Runtime.getRuntime();
             Process p = null;
@@ -1826,7 +1826,7 @@ public abstract class Utils {
      */
     public static void execAsync(String[] args) {
         try {
-            Global.logDebug("Exec: " + args, "Utils.execAsync");
+            Global.logDebug("Exec: " + args[0], "Utils.execAsync");
 
             Runtime r = Runtime.getRuntime();
             r.exec(args);

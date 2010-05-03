@@ -52,8 +52,6 @@ public class LookupEdit extends ASMForm {
     private UI.TextArea txtDesc;
     private UI.TextField txtName;
     private UI.Button btnOk;
-    private UI.Label jLabel2;
-    private UI.Label jLabel1;
 
     /** Creates new form EditLookup */
     public LookupEdit(String tableName, String nameField, String descField,
@@ -172,9 +170,8 @@ public class LookupEdit extends ASMForm {
 
     public boolean saveData() {
         if (txtName.getText().equals("")) {
-            Dialog.showError(i18n("cannot_be_empty", jLabel1.getText()),
+            Dialog.showError(i18n("cannot_be_empty", nameDisplay), 
                 i18n("Validation_Error"));
-
             return false;
         }
 

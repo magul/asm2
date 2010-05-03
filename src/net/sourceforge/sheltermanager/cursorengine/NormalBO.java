@@ -362,10 +362,6 @@ public abstract class NormalBO {
         }
     }
 
-    public void finalize() throws Throwable {
-        free();
-    }
-
     public void free() {
         rs.free();
         rs = null;

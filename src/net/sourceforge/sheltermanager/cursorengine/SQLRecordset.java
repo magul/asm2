@@ -1045,13 +1045,6 @@ public class SQLRecordset {
         return s.replace('\'', '`');
     }
 
-    /**
-     * Make sure objects get freed
-     */
-    public void finalize() throws Throwable {
-        free();
-    }
-
     public void free() {
         try {
             mtheRows.removeAllElements();

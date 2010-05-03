@@ -87,7 +87,7 @@ public class OwnerCheck extends ASMForm {
             while (!ownerlist.getEOF()) {
                 datar[i][0] = ownerlist.getOwnerName();
                 datar[i][1] = Utils.formatAddress(ownerlist.getOwnerAddress());
-                datar[i][2] = ownerlist.getIsBanned().equals("1") ? "Yes" : "No";
+                datar[i][2] = ownerlist.getIsBanned().intValue() == 1 ? "Yes" : "No";
                 datar[i][3] = ownerlist.getID().toString();
 
                 i++;

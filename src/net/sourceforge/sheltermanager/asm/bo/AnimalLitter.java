@@ -265,8 +265,7 @@ public class AnimalLitter extends NormalBO {
             }
 
             // Make sure we have number
-            if ((getNumberInLitter() == null) ||
-                    getNumberInLitter().equals("")) {
+            if ((getNumberInLitter() == null)) {
                 throw new BOValidationException(Global.i18n("bo",
                         "You_must_enter_the_number_of_animals_in_the_litter."));
             }

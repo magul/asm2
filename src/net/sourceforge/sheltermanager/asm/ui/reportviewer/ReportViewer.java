@@ -48,11 +48,9 @@ public class ReportViewer extends ASMForm {
     private String filecontents = "";
     private String reportTitle = "";
     private UI.Button btnExternal;
-    private UI.Button btnPage;
     private UI.Button btnPrint;
     private UI.Button btnZoomIn;
     private UI.Button btnZoomOut;
-    private UI.ComboBox cboScaling;
     private UI.HTMLBrowser edOutput;
     private UI.ToolBar tlbPrintTools;
 
@@ -172,10 +170,7 @@ public class ReportViewer extends ASMForm {
         Vector ctl = new Vector();
         ctl.add(edOutput);
         ctl.add(btnPrint);
-        ctl.add(btnPage);
         ctl.add(btnExternal);
-        ctl.add(cboScaling);
-
         return ctl;
     }
 

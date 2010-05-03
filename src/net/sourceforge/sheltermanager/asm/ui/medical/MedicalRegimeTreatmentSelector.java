@@ -206,8 +206,7 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
 
             // If our regime is complete as a result,
             // we need to update the whole list
-            if (am.getStatus()
-                      .equals(Integer.toString(AnimalMedical.STATUS_COMPLETED))) {
+            if (am.getStatus().intValue() == AnimalMedical.STATUS_COMPLETED) {
                 mparent.regimeview.updateList();
                 // Return the medical entry back to the last selected one
                 mparent.regimeview.getTable()

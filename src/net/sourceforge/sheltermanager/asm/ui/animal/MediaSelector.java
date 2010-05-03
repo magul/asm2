@@ -213,7 +213,7 @@ public class MediaSelector extends ASMSelector {
                     }
                 }
 
-                if (media.getWebSitePhoto().equals("1")) {
+                if (media.getWebSitePhoto().intValue() == 1) {
                     foundWebPreferred = true;
 
                     break;
@@ -256,9 +256,8 @@ public class MediaSelector extends ASMSelector {
                     }
                 }
 
-                if (media.getDocPhoto().equals("1")) {
+                if (media.getDocPhoto().intValue() == 1) {
                     foundDocPreferred = true;
-
                     break;
                 }
 

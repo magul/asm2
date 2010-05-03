@@ -217,7 +217,7 @@ public class MedicalProfile extends UserInfoBO {
      * "Unspecified" or "21 Treatment Periods (52 treatments)"
      */
     public String getNamedNumberOfTreatments() throws CursorEngineException {
-        if (getTreatmentRule().equals("1")) {
+        if (getTreatmentRule().intValue() == 1) {
             return Global.i18n("bo", "Unspecified");
         }
 

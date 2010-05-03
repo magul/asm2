@@ -1293,10 +1293,6 @@ public abstract class GenerateDocument extends Thread
             "GenerateDocument.markupTags");
     }
 
-    public void finalize() throws Throwable {
-        free();
-    }
-
     public void free() {
         try {
             searchtags.removeAllElements();

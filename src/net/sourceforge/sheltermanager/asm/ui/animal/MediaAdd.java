@@ -383,7 +383,7 @@ public class MediaAdd extends ASMForm {
     }
 
     public class VideoCaptureWindow extends ASMDialog {
-        UI.Label image = UI.getLabel(UI.ALIGN_CENTER, null);
+        UI.Label image = UI.getLabel(UI.ALIGN_CENTER, "");
 
         public VideoCaptureWindow() {
             super();

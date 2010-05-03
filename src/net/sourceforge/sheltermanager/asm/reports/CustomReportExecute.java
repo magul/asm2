@@ -1357,10 +1357,8 @@ public class CustomReportExecute extends Report {
      */
     private String roundToDP(BigDecimal value, int dp) {
         final String zeroes = "00000000000000000000000000000000000000000";
-        value.setScale(dp, BigDecimal.ROUND_HALF_UP);
-
+        value = value.setScale(dp, BigDecimal.ROUND_HALF_UP);
         DecimalFormat df = new DecimalFormat("0." + zeroes.substring(0, dp));
-
         return df.format(value.doubleValue());
     }
 

@@ -3093,10 +3093,6 @@ public class Animal extends UserInfoBO {
         return new AnimalMarkers();
     }
 
-    public void finalize() throws Throwable {
-        free();
-    }
-
     public void free() {
         try {
             preferredWebMedia.free();

@@ -651,9 +651,9 @@ public class AutoDBUpdates {
                         int animalDeathReasonID = 0;
 
                         if (a.getDeceasedDate() != null) {
-                            if (a.getIsDOA().equals("1")) {
+                            if (a.getIsDOA().intValue() == 1) {
                                 animalDeathReasonID = 1;
-                            } else if (a.getPutToSleep().equals("0")) {
+                            } else if (a.getPutToSleep().intValue() == 0) {
                                 animalDeathReasonID = 2;
                             } else if (a.getPTSReason().indexOf("healthy") != -1) {
                                 animalDeathReasonID = 3;
@@ -682,9 +682,9 @@ public class AutoDBUpdates {
                         int entryReasonID = 0;
                         String fld = a.getReasonForEntry();
 
-                        if (a.getAnimalTypeID()
-                                 .equals(Configuration.getString(
-                                        "AFCaseAnimalType"))) {
+                        if (a.getAnimalTypeID().intValue() ==
+                                 Configuration.getInteger(
+                                        "AFCaseAnimalType")) {
                             entryReasonID = 10;
                         } else if ((fld.indexOf("marriage") != -1) ||
                                 (fld.indexOf("relation") != -1)) {

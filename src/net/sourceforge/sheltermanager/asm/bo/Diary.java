@@ -182,6 +182,7 @@ public class Diary extends UserInfoBO {
             switch (linkType) {
             case LINKTYPE_NONE:
                 output = Global.i18n("bo", "No_link.");
+		break;
 
             case LINKTYPE_ANIMAL:
 

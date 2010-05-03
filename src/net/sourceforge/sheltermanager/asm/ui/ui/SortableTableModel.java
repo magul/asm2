@@ -236,10 +236,6 @@ public class SortableTableModel extends AbstractTableModel {
         col.setPreferredWidth(width);
     }
 
-    public void finalize() throws Throwable {
-        free();
-    }
-
     public void free() {
         columnNames = null;
         data = null;

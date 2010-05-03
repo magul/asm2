@@ -302,4 +302,8 @@ class InstallableReport implements Comparable {
     public int compareTo(Object o) {
         return name.compareTo(((InstallableReport) o).name);
     }
+
+    public boolean equals(Object o) {
+        return name.equals(((InstallableReport) o).name);
+    }
 }
