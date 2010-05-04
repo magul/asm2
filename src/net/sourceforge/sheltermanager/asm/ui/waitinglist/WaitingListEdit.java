@@ -207,6 +207,9 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
                         IconManager.SCREEN_EDITWAITINGLIST_MEDIA));
             }
 
+            // Make sure media is enabled
+            tabTabs.setEnabledAt(3, true);
+
             // Log
             log.setLink(awl.getID().intValue(), Log.LINKTYPE_WAITINGLIST);
             log.updateList();
