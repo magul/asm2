@@ -2,7 +2,7 @@ Cost Breakdown by Amount
 ###
 Financial
 ###
-2707/MySQL+PostgreSQL
+2707/PostgreSQL
 ###
 Produces a list of animals and their costs between two dates in descending order of size.
 ###
@@ -174,3 +174,92 @@ $$FOOTER
 <td>{SUM.TOTAL.2}</td>
 </table>
 FOOTER$$
+&&&
+Cost Breakdown by Amount
+###
+Financial
+###
+2707/MySQL
+###
+Produces a list of animals and their costs between two dates in descending order of size.
+###
+en
+###
+$VAR from DATE Enter from date$
+$VAR to DATE Enter to date$
+
+SELECT *, COALESCE(med, null, 0, med) + COALESCE(vacc, null, 0, vacc) + COALESCE(board, null, 0, board) + COALESCE(cost, null, 0, cost) AS total FROM (
+
+SELECT 
+ShelterCode,
+AnimalName,
+SpeciesName,
+
+(SELECT 
+SUM(animalcost.CostAmount)
+FROM animal
+INNER JOIN animalcost ON animal.ID = animalcost.AnimalID
+WHERE 
+animal.ID = a.ID
+AND animalcost.CostAmount > 0
+AND CostDate >= '$@from$' AND CostDate <= '$@to$') AS cost,
+(SELECT
+0.5 * ((DATEDIFF(DATE('$@to$'), DATE('$@from$')) + DaysOnShelter) - ABS(DATEDIFF(DATE('$@to$'), DATE('$@from$')) - DaysOnShelter)) * animal.DailyBoardingCost
+FROM animal
+WHERE 
+animal.ID = a.ID
+AND Archived = 0
+AND DailyBoardingCost > 0) AS board,
+
+(SELECT
+SUM(animalvaccination.Cost)
+FROM animal
+INNER JOIN animalvaccination ON animalvaccination.AnimalID = animal.ID
+WHERE 
+animal.ID = a.ID 
+AND animalvaccination.Cost > 0
+AND DateOfVaccination >= '$@from$' AND DateOfVaccination <= '$@to$') AS vacc,
+
+(SELECT
+SUM(animalmedical.Cost)
+FROM animal
+INNER JOIN animalmedical ON animalmedical.AnimalID = animal.ID
+WHERE 
+animal.ID = a.ID
+AND animalmedical.Cost > 0
+AND StartDate >= '$@from$' AND StartDate <= '$@to$') AS med
+
+FROM animal a
+INNER JOIN species ON a.SpeciesID = species.ID
+WHERE (ActiveMovementDate Is Null OR (ActiveMovementDate >= '$@from$' AND ActiveMovementDate <= '$@to$')) 
+
+) dummy
+WHERE cost > 0 OR med > 0 OR vacc > 0 OR board > 0
+ORDER BY total DESC
+###
+$$HEADER
+<table border=1><tr>
+<td><b>Code</b></td>
+<td><b>Animal</b></td>
+<td><b>Species</b></td>
+<td><b>Cost</b></td>
+</tr>
+HEADER$$
+
+$$BODY<tr>
+<td>$SHELTERCODE</td>
+<td>$ANIMALNAME</td>
+<td>$SPECIESNAME</td>
+<td>$TOTAL</td>
+</tr>
+BODY$$
+
+$$FOOTER
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>{SUM.TOTAL.2}</td>
+</table>
+FOOTER$$
+
