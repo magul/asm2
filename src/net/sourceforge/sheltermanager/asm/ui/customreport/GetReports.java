@@ -128,18 +128,20 @@ public class GetReports extends ASMView {
 
                     // Skip if we've installed this one already
                     boolean installed = false;
-                    cr.moveFirst();
+                    if (cr.getRecordCount() > 0) {
+                        cr.moveFirst();
 
-                    while (!cr.getEOF()) {
-                        if (cr.getTitle().equalsIgnoreCase(r.name)) {
-                            Global.logDebug("Skipping, already installed.",
-                                "GetReports.updateListThread");
-                            installed = true;
+                        while (!cr.getEOF()) {
+                            if (cr.getTitle().equalsIgnoreCase(r.name)) {
+                                Global.logDebug("Skipping, already installed.",
+                                    "GetReports.updateListThread");
+                                installed = true;
 
-                            break;
+                                break;
+                            }
+
+                            cr.moveNext();
                         }
-
-                        cr.moveNext();
                     }
 
                     if (installed) {
