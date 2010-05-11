@@ -160,7 +160,7 @@ public class CostSelector extends ASMSelector {
             // Show the totals for vaccinations, medicals, costs and all 3 at the bottom
             SQLRecordset tots = new SQLRecordset();
             tots.openRecordset("SELECT " +
-                "(SELECT SUM(Cost) FROM animalvaccination WHERE AnimalID = animal.ID) AS totvacc, " +
+                "(SELECT SUM(Cost) FROM animalvaccination WHERE AnimalID = animal.ID AND DateOfVaccination Is Not Null) AS totvacc, " +
                 "(SELECT SUM(Cost) FROM animalmedical WHERE AnimalID = animal.ID) AS totmed, " +
                 "(SELECT SUM(CostAmount) FROM animalcost WHERE AnimalID = animal.ID) AS totcost, " +
                 "(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID) AS totdon " +
