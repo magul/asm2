@@ -1397,12 +1397,17 @@ public class Main extends ASMWindow {
         mnuSystem.add(mnuSystemMediaFiles);
         mnuSystem.add(mnuSystemExportCustomReports);
         mnuSystem.add(UI.getSeparator());
-        mnuSystemDatabaseTools.add(mnuSystemDBUpdate);
+
+	// Debug mode only - run database update script
+        if (Global.showDebug) {
+            mnuSystemDatabaseTools.add(mnuSystemDBUpdate);
+	}
+
         mnuSystemDatabaseTools.add(mnuSystemDBDiagnostic);
         mnuSystemDatabaseTools.add(mnuSystemDBArchive);
         mnuSystemDatabaseTools.add(mnuSystemDBPFImporter);
 
-        // Debug mode only
+        // Debug mode only - copy a database
         if (Global.showDebug) {
             mnuSystemDatabaseTools.add(mnuSystemDBCopy);
         }
