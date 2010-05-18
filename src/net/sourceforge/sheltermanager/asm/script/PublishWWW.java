@@ -42,6 +42,7 @@ import java.util.Vector;
  *              includefosters
  *              excludeunder=<weeks>
  *              animalsperpage=<number to show on a page>
+ *		ftproot=<override stored ftp root>
  *              forcereupload
  *              uploaddirectly
  *              uploadall
