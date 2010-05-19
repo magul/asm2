@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 55 (ASM 2.7.1)
+Revision 56 (ASM 2.7.2)
 \end_layout
 
 \begin_layout Chapter*
@@ -11547,8 +11547,10 @@ The system properties are:
 
 \begin_layout Itemize
 -Dasm.log.debug=true - Enables additional debug logging in $HOME/.asm/asm.log.
- Also, turns on the System->Database Tools->Database Copy facility to allow
- moving an ASM database between different types/servers.
+ Also, turns on various advanced options, such as the System->Database Tools->Da
+tabase Copy facility to allow moving an ASM database between different types/ser
+vers, The System->Database Tools->Database Update tool for running batch
+ scripts and facilities to run the Java garbage collector.
 \end_layout
 
 \begin_layout Itemize
@@ -11558,8 +11560,8 @@ The system properties are:
 \end_layout
 
 \begin_layout Itemize
--Dasm.shellexecute=internal - ASM will figure out if the OS knows how to
- open the correct program for a file.
+-Dasm.shellexecute=internal - Normally, ASM will figure out if the OS knows
+ how to open the correct program for a file.
  If you set this system option to 
 \begin_inset Quotes eld
 \end_inset
@@ -11578,15 +11580,19 @@ Configure File Types
 \begin_inset Quotes erd
 \end_inset
 
- menu option will appear under the Preferences menu.
+ menu option will appear under the Preferences menu to allow editing of
+ them.
 \end_layout
 
 \begin_layout Itemize
--Dasm.swingdefault=true - ASM will not attempt to set the Java Swing Look
- and Feel to the current platform if this is set to true.
- ASM will use the normal Java Metal LAF (which is very fast) or whatever
- you have set at the VM level if you prefer a different Swing LAF.
- This option is handy for diagnosing some UI issues.
+-Dasm.font=[fontname] - Overrides the font used by the ASM UI to [fontname]
+\end_layout
+
+\begin_layout Itemize
+-Dasm.skin=[ default | metal | platform | gtk ] - Overrides the skin used
+ by the ASM UI.
+ metal/default is the Java default, platform uses your native platform widget
+ set, and gtk is for Linux users not using GNOME, but who still want GTK.
 \end_layout
 
 \begin_layout Section

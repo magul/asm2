@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.font.*;
 import java.awt.image.*;
 import java.awt.print.*;
 
@@ -42,6 +43,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.event.*;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.plaf.FontUIResource;
 import javax.swing.table.*;
 import javax.swing.text.*;
 
@@ -60,30 +62,121 @@ public final class UI {
     public final static int ALIGN_BOTTOM = SwingConstants.BOTTOM;
 
     static {
-        try {
-            // Make sure AWT honours font rendering
-            System.setProperty("awt.useSystemAAFontSettings", "on");
-
-            // This setting allows users to override the Swing renderer at
-            // the command line, otherwise ASM tries to use whatever native
-            // support Swing might have for the platform
-            if (!System.getProperty("asm.swingdefault", "false").equals("true")) {
-                // If we're on Linux, then try to use GTK - it only picks
-                // it up if the WM is GNOME, irrespective of GTK being available
-                // and Metal is hideous
-                if (System.getProperty("os.name").equalsIgnoreCase("Linux")) {
-                    UIManager.setLookAndFeel(
-                        "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-                } else {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Make sure AWT honours font rendering
+        System.setProperty("awt.useSystemAAFontSettings", "on");
+	// Set our UI defaults
+        swingSetLAF();
     }
 
     private UI() {
+    }
+
+    public static void swingSetLAF() {
+        
+        // Override our platform specific behaviour with VM switches
+	final int REGULAR = 0;
+	String usefont = System.getProperty("asm.font", "");
+	String useskin = System.getProperty("asm.skin", "default");
+
+	if (!usefont.equals("")) {
+            swingSetDefaultFontName(usefont, -1);
+	}
+
+	if (useskin.equals("metal")) swingSetMetalLAF();
+	if (useskin.equals("platform")) swingSetPlatformLAF();
+	if (useskin.equals("gtk")) swingSetGTKLAF();
+
+	// If a value was overridden, we're done
+	if (!usefont.equals("") || !useskin.equals("default")) return;
+
+	// Windows
+	if (osIsWindows()) {
+	    swingSetMetalLAF();
+	}
+
+	// Mac OSX
+	if (osIsMacOSX()) {
+	    swingSetPlatformLAF();
+	}
+
+	// Linux, Solaris and others
+	if (osIsLinux() || osIsSolaris()) {
+	   
+	    swingSetMetalLAF();
+
+	    // Try a better font - Java default is hideous and everything
+	    // is in bold, which is nasty
+            if (swingIsFontAvailable("Bitstream Vera Sans"))
+                swingSetDefaultFontName("Bitstream Vera Sans", REGULAR);
+            else if (swingIsFontAvailable("DejaVu Sans"))
+                swingSetDefaultFontName("DejaVu Sans",  REGULAR);
+            else if (swingIsFontAvailable("Sans"))
+                swingSetDefaultFontName("Sans",  REGULAR);
+            else if (swingIsFontAvailable("Arial"))
+                swingSetDefaultFontName("Arial", REGULAR);
+	}
+
+    }
+
+    public static void swingSetMetalLAF() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        }
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+
+    }
+
+    public static void swingSetPlatformLAF() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+
+    }
+
+    public static void swingSetGTKLAF() {
+        try {
+            UIManager.setLookAndFeel(
+                "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+        }
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+    }
+
+    public static boolean swingIsFontAvailable(String fontname) {
+        try {
+	    Font f = new Font(fontname, 12, 0);
+	    return f.getFontName().equals(fontname);
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+	return false;
+    }
+
+    /**
+     * Goes through the default font for every swing component and changes
+     * the face to match
+     * @param fontname The name of the font to use
+     * @param style The font style to set - use a negative number to leave unchanged
+     */
+    public static void swingSetDefaultFontName(String fontname, int style) {
+	java.util.Enumeration keys = UIManager.getDefaults().keys();
+	while (keys.hasMoreElements()) {
+	    Object key = keys.nextElement();
+	    Object value = UIManager.get (key);
+	    if (value instanceof FontUIResource) {
+		FontUIResource f = 
+		    (FontUIResource) UIManager.get(key);
+		UIManager.put (key, new FontUIResource(
+		    fontname, style < 0 ? f.getStyle() : style, f.getSize()));
+	    }
+	}
     }
 
     public static FunctionPointer fp(Object instance, String method) {
@@ -1563,6 +1656,12 @@ public final class UI {
     public static boolean osIsLinux() {
         return Utils.englishLower(System.getProperty("os.name")).indexOf("linux") != -1;
     }
+
+    public static boolean osIsSolaris() {
+        return Utils.englishLower(System.getProperty("os.name")).indexOf("solaris") != -1 ||
+               Utils.englishLower(System.getProperty("os.name")).indexOf("sunos") != -1;
+    }
+
 
     public static boolean osIsWindows() {
         return Utils.englishLower(System.getProperty("os.name"))
