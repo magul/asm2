@@ -49,6 +49,8 @@ import java.util.Vector;
  *              generatejavascriptdb
  *              extension=<file extension - html is the default>
  *              style=<style dir or . for base>
+ *              order=<0 or 1, where 0 = most recent asc, 1 = desc>
+ *              limit=<0 or a number of records to limit animals to>
  *              scaleimages=<1 to 7, where:
  *                              1 = No scaling
  *                              2 = 320x200
@@ -149,6 +151,42 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
+                } else if (Utils.englishLower(args[i])
+                                    .startsWith("order" +
+                            ScriptParser.equalsSymbol)) {
+                    try {
+                        pc.order = Integer.parseInt(args[i].substring(args[i].indexOf(
+                                        ScriptParser.equalsSymbol) + 1));
+
+                        if ((pc.order < 1) || (pc.limit > 2)) {
+                            Global.logError("Invalid 'order' value supplied.",
+                                "PublishWWW.PublishWWW");
+                            System.exit(1);
+                        }
+                    } catch (NumberFormatException e) {
+                        Global.logError("Invalid 'order' value supplied.",
+                            "PublishWWW.PublishWWW");
+                        System.exit(1);
+                    }
+
+                } else if (Utils.englishLower(args[i])
+                                    .startsWith("limit" +
+                            ScriptParser.equalsSymbol)) {
+                    try {
+                        pc.limit = Integer.parseInt(args[i].substring(args[i].indexOf(
+                                        ScriptParser.equalsSymbol) + 1));
+
+                        if ((pc.limit < 0)) {
+                            Global.logError("Invalid 'limit' value supplied.",
+                                "PublishWWW.PublishWWW");
+                            System.exit(1);
+                        }
+                    } catch (NumberFormatException e) {
+                        Global.logError("Invalid 'limit' value supplied.",
+                            "PublishWWW.PublishWWW");
+                        System.exit(1);
+                    }
+
                 } else if (Utils.englishLower(args[i])
                                     .startsWith("includelocations" +
                             ScriptParser.equalsSymbol)) {

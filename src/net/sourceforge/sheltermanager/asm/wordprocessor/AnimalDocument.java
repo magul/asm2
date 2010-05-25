@@ -98,6 +98,8 @@ public class AnimalDocument extends GenerateDocument {
      */
     public void generateSearchTags() {
         try {
+            addTag(Global.i18n("wordprocessor", "TotalAnimals"),
+                Long.toString(animal.getRecordCount()));
             addTag(Global.i18n("wordprocessor", "AnimalName"),
                 animal.getAnimalName());
             addTag(Global.i18n("wordprocessor", "AnimalTypeName"),

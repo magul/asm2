@@ -275,6 +275,24 @@ public class InternetPublisher extends ASMForm {
             l.add(new SelectableItem(".aspx", "extaspx", false, false, "ext"));
         }
 
+        // Order option (only valid for html)
+        if (mode == MODE_HTML) {
+            l.add(new SelectableItem(i18n("Order"), null, false, true));
+            l.add(new SelectableItem(i18n("Most_recent_ascending"), "ordmrasc", true, false, "ord"));
+            l.add(new SelectableItem(i18n("Most_recent_descending"), "ordmrdesc", false, false, "ord"));
+        }
+
+        // Limit option (only valid for html)
+        if (mode == MODE_HTML) {
+            l.add(new SelectableItem(i18n("Limit"), null, false, true));
+            l.add(new SelectableItem(i18n("None"), "limit0", true, false, "limit"));
+            l.add(new SelectableItem("3", "limit3", false, false, "limit"));
+            l.add(new SelectableItem("5", "limit5", false, false, "limit"));
+            l.add(new SelectableItem("10", "limit10", false, false, "limit"));
+            l.add(new SelectableItem("20", "limit20", false, false, "limit"));
+            l.add(new SelectableItem("50", "limit50", false, false, "limit"));
+        }
+
         // Image scaling options
         l.add(new SelectableItem(i18n("Scale_Images:"), null, false, true));
         l.add(new SelectableItem(i18n("None"), "scaleNone", true, false, "scale"));
@@ -403,6 +421,25 @@ public class InternetPublisher extends ASMForm {
                 if (s[i].isSelected()) {
                     String val = s[i].getValue().toString().substring(5);
                     pc.style = val;
+                }
+            }
+
+            // Order
+            if (s[i].getValue().toString().startsWith("ord")) {
+                if (s[i].isSelected()) {
+                    if (s[i].getValue().toString().indexOf("mrasc") != -1)
+                        pc.order = 1;
+                    else
+                        pc.order = 2;
+                }
+            }
+
+            // Limit
+            if (s[i].getValue().toString().startsWith("limit")) {
+                if (s[i].isSelected()) {
+                    int val = Integer.parseInt(s[i].getValue().toString()
+                                                   .substring(5));
+                    pc.limit = val;
                 }
             }
 

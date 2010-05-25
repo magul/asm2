@@ -1,6 +1,10 @@
 2.7.2
 ================
 
+*. $$TOTAL$$ publisher key to show animals output
+*. Order and Limit parameters for web publisher to allow users to say
+-  whether animals are in descending/ascending order of newness and
+-  how many animals to output.
 *. Default to metal (for speed and looks with Java 6), but use better
 -  fonts for X11 systems, added config parameters
 *. ftproot parameter to publishwww to override stored ftp root

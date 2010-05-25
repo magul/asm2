@@ -39,8 +39,14 @@ public class PublishCriteria {
     public boolean uploadAllImages = false;
     public boolean forceReupload = false;
     public boolean generateJavascriptDB = false;
+    /** How to order animal data - 
+        1 = Ascending order of entry to shelter
+        2 = Descending order of entry to shelter
+    */
+    public int order = 1;
     public int excludeUnderWeeks = 52;
     public int animalsPerPage = 20;
+    public int limit = 0;
 
     /** Which HTML style to use (dir under internet in dbfs) */
     public String style = ".";

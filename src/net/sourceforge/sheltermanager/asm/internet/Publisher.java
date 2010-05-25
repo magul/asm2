@@ -69,6 +69,9 @@ public class Publisher extends Thread {
     /** The navigation bar HTML */
     private String navBar = "";
 
+    /** The number of animals to be published */
+    private int totalAnimals = 0;
+
     /**
      * Date representing age that animals must be older than (dob must be
      * before) to qualify
@@ -129,10 +132,12 @@ public class Publisher extends Thread {
             while (!an.getEOF()) {
                 if (checkAnimal(an)) {
                     noAnimals++;
+                    if (publishCriteria.limit > 0 && noAnimals > publishCriteria.limit) {
+                        break;
+                    }
                 }
 
                 an.moveNext();
-
                 if (parent != null) {
                     Global.mainForm.incrementStatusBar();
                 }
@@ -141,12 +146,11 @@ public class Publisher extends Thread {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
-
             Global.logException(e, getClass());
-
             return;
         }
 
+        totalAnimals = noAnimals;
         int animalsPerPage = publishCriteria.animalsPerPage;
 
         // Calculate the number of pages required
@@ -208,6 +212,13 @@ public class Publisher extends Thread {
                 // Make sure that animal is valid
                 if (checkAnimal(an)) {
                     anCount++;
+
+                    // If a limit was set and we hit it, stop now
+                    if (publishCriteria.limit > 0 && anCount > publishCriteria.limit) {
+                        Global.logInfo("Hit publish limit of " + publishCriteria.limit + 
+                            ", stopping.", "Publisher.run");
+                        break;
+                    }
 
                     if (debug) {
                         Global.logInfo("Processing: " + an.getShelterCode() +
@@ -652,6 +663,9 @@ public class Publisher extends Thread {
                 page + "</a>", Integer.toString(page));
         output = Utils.replace(output, "$$NAV$$", navThisPage);
 
+        // $$TOTAL$$ tag
+        output = Utils.replace(output, "$$TOTAL$$", Integer.toString(totalAnimals));
+
         // $$DATE$$ tag //
         output = Utils.replace(output, "$$DATE$$", todaysdate);
         // $$VERSION$$ tag //
@@ -801,7 +815,18 @@ public class Publisher extends Thread {
                 Adoption.MOVETYPE_FOSTER + ")");
         }
 
-        sql.append(" ORDER BY MostRecentEntryDate");
+        // Ordering mode
+        switch (publishCriteria.order) {
+            case 0:
+                sql.append(" ORDER BY MostRecentEntryDate");
+                break;
+            case 1:
+                sql.append(" ORDER BY MostRecentEntryDate DESC");
+                break;
+            default:
+                sql.append(" ORDER BY MostRecentEntryDate");
+                break;
+        };
 
         return sql.toString();
     }
