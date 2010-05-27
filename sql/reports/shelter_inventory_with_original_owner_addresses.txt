@@ -12,6 +12,7 @@ SELECT ShelterCode, AnimalName, DateBroughtIn,
 TimeOnShelter,
 animaltype.AnimalType AS theType,
 species.SpeciesName,
+animal.BreedName,
 internallocation.LocationName,
 oo.OwnerName AS OOName, oo.OwnerAddress AS OOAddress, oo.OwnerTown AS OOTown, oo.OwnerCounty AS OOCounty, oo.OwnerPostcode AS OOPostcode
 FROM animal
@@ -39,6 +40,7 @@ $$HEAD
 <td><b>Code</b></td>
 <td><b>Name</b></td>
 <td><b>Type</b></td>
+<td><b>Breed</b></td>
 <td><b>Brought In</b></td>
 <td><b>By</b></td>
 <td><b>Time On Shelter</b></td>
@@ -53,6 +55,7 @@ $$BODY
 <td>$ShelterCode</td>
 <td>$AnimalName</td>
 <td>$theType</td>
+<td>$BreedName</td>
 <td>$DateBroughtIn</td>
 <td><i>$OOName</i><br />
 $OOAddress<br />
