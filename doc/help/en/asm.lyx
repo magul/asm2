@@ -9064,17 +9064,6 @@ When adding animals, show most popular breeds at the top of the dropdown:
 \begin_layout Itemize
 
 \series bold
-Don't show the coat type field on the animal screen:
-\series default
- If ticked, ASM won't display the coat type dropdown on the animal editing
- screen.
- For some shelters, keeping coat types is unnecessary (particularly for
- those that keep reptiles and birds!), so you can disable it here.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
 Don't show media thumbnails on animal or owner screens:
 \series default
  Setting this option prevents ASM displaying thumbnail images on the detail
@@ -9140,7 +9129,7 @@ Use Automatic Litter Identification:
 \series default
  Setting this option will cause ASM to automatically assign an ID to newly
  created litters, and allow a litter ID on animal records (replacing the
- acceptance number field - only useful to UK RSPCA shelters).
+ acceptance number field, which was only useful to UK RSPCA shelters).
  A button appears on the edit animal screen, allowing users to assign an
  animal to an active litter.
 \end_layout
@@ -9184,9 +9173,10 @@ Don't auto archive animal records on exit:
  and update various records to make sure that various copies of internal
  records are correct.
  This is only really necessary if another process has modified the database
- that ASM doesn't know about.
- You can therefore turn this feature off and save some time when closing
- the program.
+ that ASM doesn't know about, or you book out adoptions more than a day
+ in advance.
+ If you don't do either of these things, you can turn this feature off and
+ save some time when closing the program.
  You can manually force auto archiving by selecting it from the menu under
  
 \series bold
@@ -9201,17 +9191,6 @@ Disable retailer functionality:
  If ticked, ASM will hide all of the functionality related to retailers
  (a system where pet shops adopt animals on behalf of the shelter).
  This will not take effect until you restart ASM.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Don't keep town and county (city and state) information:
-\series default
- Setting this option will prevent ASM from presenting the user with additional
- fields to store the city and state information.
- These are handy for group owner searches, but not all shelters want or
- need them and prefer to keep the complete address in the address box.
 \end_layout
 
 \begin_layout Itemize
@@ -9244,6 +9223,117 @@ Don't show the startup page
 : By default, ASM shows a startup page with today's diary notes and the
  latest news from the ASM website.
  This option disables it.
+\end_layout
+
+\begin_layout Subsection
+Remove Unwanted Fields
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the town/county (city and state) fields from the owner screen:
+\series default
+ Setting this option will prevent ASM from presenting the user with additional
+ fields to store the city and state information.
+ These are handy for group owner searches, but not all shelters want or
+ need them and prefer to keep the complete address in the address box.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the coat type field from the animal screen:
+\series default
+ If ticked, ASM won't display the coat type dropdown on the animal editing
+ screen.
+ For some shelters, keeping coat types is unnecessary (particularly for
+ those that keep reptiles and birds!), so you can disable it here.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the microchip fields from the animal screen:
+\series default
+ If ticked, ASM won't display the microchip indicator, number and date fields.
+ For shelters that don't keep microchipped animals (eg: Reptiles and birds).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the tattoo fields from the animal screen:
+\series default
+ If ticked, ASM won't display the tattoo indicator, number and date fields.
+ Useful for shelters that don't keep animals with ear tattoos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the spay/neutered fields from the animal screen:
+\series default
+ If ticked, ASM won't display the neutered/spayed flag and date.
+ Useful for shelters that keep animals that do not require neutering (small
+ mammals, birds, reptiles, horses, etc).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the declawed field from the animal screen:
+\series default
+ If ticked, ASM won't display the declawed flag.
+ Useful for shelters that don't keep cats, or for countries where declawing
+ is illegal (such as the UK).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the heartworm test fields from the animal screen:
+\series default
+ If ticked, ASM won't display the heartworm test fields.
+ Useful for shelters with animals that do not require heartworm tests.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the Combi/FIV/L test fields from the animal screen:
+\series default
+ If ticked, ASM won't display the Combi test or FIV/FLV test fields (depending
+ on your locale).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the 
+\begin_inset Quotes eld
+\end_inset
+
+Good With...
+\begin_inset Quotes erd
+\end_inset
+
+ and Housetrained fields from the animal screen:
+\series default
+ If ticked, ASM won't display the good with cats/dogs/children and housetrained
+ fields.
+ Useful for shelters that don't keep cats and dogs.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Remove the Litter ID/Acceptance Number field from the animal screen:
+\series default
+ If ticked, ASM won't display the Litter ID or Acceptance Number field at
+ the top of the details screen.
+ If your shelter does not track litters, or is not a UK RSPCA shelter, you
+ can turn this off and save some space on the screen.
 \end_layout
 
 \begin_layout Section

@@ -227,9 +227,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             IconManager.getIcon(IconManager.SCREEN_EDITANIMAL), "uianimal");
     }
 
-    /**
-     * Deallocate class-level object references
-     */
     public void dispose() {
         if (!Global.isCacheActiveAnimals()) {
             try {
@@ -299,7 +296,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(chkCrueltyCase);
         ctl.add(txtShelterCode.getCodeField());
         ctl.add(txtShelterCode.getShortCodeField());
-        ctl.add(txtAcceptanceNumber);
+
+        if (!Configuration.getBoolean("DontShowLitterID")) {
+            ctl.add(txtAcceptanceNumber);
+        }
+
         ctl.add(txtAnimalName.getTextField());
         ctl.add(cboSex);
         ctl.add(cboType);
@@ -321,33 +322,55 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(cboLocation);
         ctl.add(txtDateOfBirth);
         ctl.add(chkEstimatedDOB);
-        ctl.add(chkIdentichipped);
-        ctl.add(txtIdentichipDate);
-        ctl.add(txtIdentichipNo);
-        ctl.add(chkTattoo);
-        ctl.add(txtTattooDate);
-        ctl.add(txtTattooNumber);
-        ctl.add(chkNeutered);
-        ctl.add(txtNeutered);
-        ctl.add(chkDeclawed);
-        ctl.add(chkHeartwormTested);
-        ctl.add(txtHeartwormTestDate);
-        ctl.add(cboHeartwormTestResult);
-        ctl.add(chkCombiTested);
-        ctl.add(txtCombiTested);
-        ctl.add(cboCombiTestResult);
 
-        if (Locale.getDefault().equals(Locale.US)) {
-            ctl.add(cboFLVTestResult);
+        if (!Configuration.getBoolean("DontShowMicrochip")) {
+            ctl.add(chkIdentichipped);
+            ctl.add(txtIdentichipDate);
+            ctl.add(txtIdentichipNo);
+        }
+
+        if (!Configuration.getBoolean("DontShowTattoo")) {
+            ctl.add(chkTattoo);
+            ctl.add(txtTattooDate);
+            ctl.add(txtTattooNumber);
+        }
+
+        if (!Configuration.getBoolean("DontShowNeutered")) {
+            ctl.add(chkNeutered);
+            ctl.add(txtNeutered);
+        }
+
+        if (!Configuration.getBoolean("DontShowDeclawed")) {
+            ctl.add(chkDeclawed);
+        }
+
+        if (!Configuration.getBoolean("DontShowHeartworm")) {
+            ctl.add(chkHeartwormTested);
+            ctl.add(txtHeartwormTestDate);
+            ctl.add(cboHeartwormTestResult);
+        }
+
+        if (!Configuration.getBoolean("DontShowCombi")) {
+            ctl.add(chkCombiTested);
+            ctl.add(txtCombiTested);
+            ctl.add(cboCombiTestResult);
+
+            if (Locale.getDefault().equals(Locale.US)) {
+                ctl.add(cboFLVTestResult);
+            }
         }
 
         ctl.add(txtMarkings);
         ctl.add(txtHiddenAnimalComments);
         ctl.add(txtComments);
-        ctl.add(cboGoodCats);
-        ctl.add(cboGoodDogs);
-        ctl.add(cboGoodKids);
-        ctl.add(cboHouseTrained);
+
+        if (!Configuration.getBoolean("DontShowGoodWith")) {
+            ctl.add(cboGoodCats);
+            ctl.add(cboGoodDogs);
+            ctl.add(cboGoodKids);
+            ctl.add(cboHouseTrained);
+        }
+
         ctl.add(txtReasonNotBroughtByOwner);
         ctl.add(txtReasonForEntry);
         ctl.add(cboEntryReason);
@@ -2154,10 +2177,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             ? i18n("the_litter_identifier_if_this_animal_is_part_of_a_litter")
             : i18n("The_animal_acceptance_number_from_head_office");
 
-        txtAcceptanceNumber = (UI.TextField) UI.addComponent(pnlLeftFields,
-                littertext,
-                UI.getTextField(littertooltip, UI.fp(this, "litterIDChanged")));
+        txtAcceptanceNumber = UI.getTextField(littertooltip, UI.fp(this, "litterIDChanged"));
         txtAcceptanceNumber.setForeground(UI.getColor(0, 204, 51));
+        if (!Configuration.getBoolean("DontShowLitterID")) {
+            UI.addComponent(pnlLeftFields, littertext, txtAcceptanceNumber);
+        }
 
         /*
         txtAnimalName = (UI.TextField) UI.addComponent(pnlLeftFields,
@@ -2278,95 +2302,132 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Top panel
 
         // Row 1
-        chkIdentichipped = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Identichipped:"),
+        chkIdentichipped = UI.getCheckBox(i18n("Identichipped:"),
                     i18n("the_date_the_animal_was_identichipped"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"));
 
-        txtIdentichipDate = (DateField) pnlRightTop.add(UI.getDateField(i18n("the_date_the_animal_was_identichipped"),
-                    UI.fp(this, "dataChanged")));
+        txtIdentichipDate = UI.getDateField(i18n("the_date_the_animal_was_identichipped"),
+                    UI.fp(this, "dataChanged"));
 
-        txtIdentichipNo = (UI.TextField) pnlRightTop.add(UI.getTextField(i18n("The_Identichip_Number"),
-                    UI.fp(this, "dataChanged")));
+        txtIdentichipNo = UI.getTextField(i18n("The_Identichip_Number"),
+                    UI.fp(this, "dataChanged"));
+
+        if (!Configuration.getBoolean("DontShowMicrochip")) {
+            UI.addComponent(pnlRightTop, chkIdentichipped);
+            pnlRightTop.add(txtIdentichipDate);
+            pnlRightTop.add(txtIdentichipNo);
+        }
 
         // Row 2
-        chkTattoo = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Tattoo:"), null, UI.fp(this, "dataChanged")));
+        chkTattoo = UI.getCheckBox(i18n("Tattoo:"), null, UI.fp(this, "dataChanged"));
 
-        txtTattooDate = (DateField) pnlRightTop.add(UI.getDateField(i18n("the_date_the_animal_had_the_tattoo"),
-                    UI.fp(this, "dataChanged")));
+        txtTattooDate = UI.getDateField(i18n("the_date_the_animal_had_the_tattoo"),
+                    UI.fp(this, "dataChanged"));
 
-        txtTattooNumber = (UI.TextField) pnlRightTop.add(UI.getTextField(i18n("The_Tattoo_Number"),
-                    UI.fp(this, "dataChanged")));
+        txtTattooNumber = UI.getTextField(i18n("The_Tattoo_Number"),
+                    UI.fp(this, "dataChanged"));
+
+        if (!Configuration.getBoolean("DontShowTattoo")) {
+            UI.addComponent(pnlRightTop, chkTattoo);
+            pnlRightTop.add(txtTattooDate);
+            pnlRightTop.add(txtTattooNumber);
+        }       
 
         // Row 3
-        chkNeutered = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Neutered:"), null,
-                    UI.fp(this, "dataChanged")));
+        chkNeutered = UI.getCheckBox(i18n("Neutered:"), null,
+                    UI.fp(this, "dataChanged"));
 
-        txtNeutered = (DateField) pnlRightTop.add(UI.getDateField(i18n("The_date_the_animal_was_neutered_if_known"),
-                    UI.fp(this, "dataChanged")));
+        txtNeutered = UI.getDateField(i18n("The_date_the_animal_was_neutered_if_known"),
+                    UI.fp(this, "dataChanged"));
 
-        chkDeclawed = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Declawed"),
+        if (!Configuration.getBoolean("DontShowNeutered")) {
+            UI.addComponent(pnlRightTop, chkNeutered);
+            pnlRightTop.add(txtNeutered);
+        }
+
+        chkDeclawed = UI.getCheckBox(i18n("Declawed"),
                     i18n("tick_this_box_if_the_animal_has_been_declawed"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"));
 
-        // Row 4
-        chkHeartwormTested = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Heartworm_Tested:"), null,
-                    UI.fp(this, "dataChanged")));
+        if (!Configuration.getBoolean("DontShowDeclawed")) {
+            UI.addComponent(pnlRightTop, chkDeclawed);
+        }
 
-        txtHeartwormTestDate = (DateField) pnlRightTop.add(UI.getDateField(i18n("the_date_the_animal_was_last_heartworm_tested"),
-                    UI.fp(this, "dataChanged")));
-
-        cboHeartwormTestResult = (UI.ComboBox) pnlRightTop.add(UI.getCombo(
-                    testresults, UI.fp(this, "dataChanged")));
-
-        // Row 5
-        chkCombiTested = (UI.CheckBox) UI.addComponent(pnlRightTop,
-                UI.getCheckBox(i18n("Combi-Tested:"), null,
-                    UI.fp(this, "dataChanged")));
-
-        txtCombiTested = (DateField) pnlRightTop.add(UI.getDateField(i18n("The_date_the_animal_was_combi-tested_if_known"),
-                    UI.fp(this, "dataChanged")));
-
-        // For the US, we drop the FIV Result to a separate line and label it
-        // to avoid confusion since they can have FIV and FLV results
-        if (Locale.getDefault().equals(Locale.US)) {
+        // We need to add some padding now if neutered or declawed is disabled - 
+        // neutered ON, declawed OFF = 1 space
+        // neutered OFF, declawed ON = 2 spaces
+        if (Configuration.getBoolean("DontShowDeclawed") && !Configuration.getBoolean("DontShowNeutered")) {
             pnlRightTop.add(UI.getLabel());
-            pnlRightTop.add(UI.getLabel(i18n("FIVResult")));
+        }
+        else if (!Configuration.getBoolean("DontShowDeclawed") && Configuration.getBoolean("DontShowNeutered")) {
+            pnlRightTop.add(UI.getLabel());
             pnlRightTop.add(UI.getLabel());
         }
 
-        cboCombiTestResult = (UI.ComboBox) pnlRightTop.add(UI.getCombo(
-                    testresults, UI.fp(this, "dataChanged")));
+        // Row 4
+        chkHeartwormTested = UI.getCheckBox(i18n("Heartworm_Tested:"), null,
+                    UI.fp(this, "dataChanged"));
 
-        // For the US, output a separate FLV Result field too
-        if (Locale.getDefault().equals(Locale.US)) {
-            pnlRightTop.add(UI.getLabel(i18n("FLVResult")));
-            pnlRightTop.add(UI.getLabel());
-            cboFLVTestResult = (UI.ComboBox) pnlRightTop.add(UI.getCombo(
-                        testresults, UI.fp(this, "dataChanged")));
+        txtHeartwormTestDate = UI.getDateField(i18n("the_date_the_animal_was_last_heartworm_tested"),
+                    UI.fp(this, "dataChanged"));
+
+        cboHeartwormTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
+
+        if (!Configuration.getBoolean("DontShowHeartworm")) {
+            UI.addComponent(pnlRightTop, chkHeartwormTested);
+            pnlRightTop.add(txtHeartwormTestDate);
+            pnlRightTop.add(cboHeartwormTestResult);
+        }
+
+        // Row 5
+        chkCombiTested = UI.getCheckBox(i18n("Combi-Tested:"), null,
+                    UI.fp(this, "dataChanged"));
+
+        txtCombiTested = UI.getDateField(i18n("The_date_the_animal_was_combi-tested_if_known"),
+                    UI.fp(this, "dataChanged"));
+
+        cboCombiTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
+
+        cboFLVTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
+
+        if (!Configuration.getBoolean("DontShowCombi")) {
+
+            UI.addComponent(pnlRightTop, chkCombiTested);
+            pnlRightTop.add(txtCombiTested);
+
+            // For the US, we drop the FIV Result to a separate line and label it
+            // to avoid confusion since they can have FIV and FLV results
+            if (Locale.getDefault().equals(Locale.US)) {
+                pnlRightTop.add(UI.getLabel());
+                pnlRightTop.add(UI.getLabel(i18n("FIVResult")));
+                pnlRightTop.add(UI.getLabel());
+            }
+
+            pnlRightTop.add(cboCombiTestResult);
+
+            // For the US, output a separate FLV Result field too
+            if (Locale.getDefault().equals(Locale.US)) {
+                pnlRightTop.add(UI.getLabel(i18n("FLVResult")));
+                pnlRightTop.add(UI.getLabel());
+                pnlRightTop.add(cboFLVTestResult);
+            }
         }
 
         // Bottom panel
+        cboGoodCats = UI.getCombo(yesnounknown, UI.fp(this, "dataChanged"));
+        cboGoodDogs = UI.getCombo(yesnounknown, UI.fp(this, "dataChanged"));
+        cboGoodKids = UI.getCombo(yesnounknown, UI.fp(this, "dataChanged"));
+        cboHouseTrained = UI.getCombo(yesnounknown, UI.fp(this, "dataChanged"));
 
-        // Row 6
-        cboGoodCats = (UI.ComboBox) UI.addComponent(pnlRightBot,
-                i18n("good_with_cats"),
-                UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
-        cboGoodDogs = (UI.ComboBox) UI.addComponent(pnlRightBot,
-                i18n("good_with_dogs"),
-                UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
+        if (!Configuration.getBoolean("DontShowGoodWith")) {
+            // Row 6
+            UI.addComponent(pnlRightBot, i18n("good_with_cats"), cboGoodCats);
+            UI.addComponent(pnlRightBot, i18n("good_with_dogs"), cboGoodDogs);
 
-        // Row 7
-        cboGoodKids = (UI.ComboBox) UI.addComponent(pnlRightBot,
-                i18n("good_with_kids"),
-                UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
-        cboHouseTrained = (UI.ComboBox) UI.addComponent(pnlRightBot,
-                i18n("housetrained"),
-                UI.getCombo(yesnounknown, UI.fp(this, "dataChanged")));
+            // Row 7
+            UI.addComponent(pnlRightBot, i18n("good_with_kids"), cboGoodKids);
+            UI.addComponent(pnlRightBot, i18n("housetrained"), cboHouseTrained);
+        }
 
         // Comments panel
         UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2,

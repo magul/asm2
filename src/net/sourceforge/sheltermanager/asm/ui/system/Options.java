@@ -1028,15 +1028,11 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Dont_show_the_coat_type_field"), "DontShowCoatType",
-                    Configuration.getString("DontShowCoatType")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Dont_show_media_thumbnails_on_details_screen"),
                     "NoMediaThumbnails",
                     Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
+
 
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",
@@ -1083,18 +1079,73 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
-                        "Dont_keep_separate_town_and_county_information"),
-                    "HideTownCounty",
-                    Configuration.getString("HideTownCounty")
-                                 .equalsIgnoreCase("Yes"), false));
-
-            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Use_a_single_breed_field"), "UseSingleBreedField",
                     Configuration.getBoolean("UseSingleBreedField"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Dont_show_the_startup_page"), "DontShowStartupPage",
                     Configuration.getBoolean("DontShowStartupPage"), false));
+
+            // Remove unwanted fields
+            l.add(new SelectableItem(Global.i18n("uisystem", 
+                        "Remove_unwanted_fields"), null, false, true));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_town_and_county_fields"),
+                    "HideTownCounty",
+                    Configuration.getString("HideTownCounty")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_coattype_field"), "DontShowCoatType",
+                    Configuration.getString("DontShowCoatType")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_microchip_fields"), "DontShowMicrochip",
+                    Configuration.getString("DontShowMicrochip")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_tattoo_fields"), "DontShowTattoo",
+                    Configuration.getString("DontShowTattoo")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_neutered_fields"), "DontShowNeutered",
+                    Configuration.getString("DontShowNeutered")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_declawed_field"), "DontShowDeclawed",
+                    Configuration.getString("DontShowDeclawed")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_heartworm_fields"), "DontShowHeartworm",
+                    Configuration.getString("DontShowHeartworm")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_combitest_fields"), "DontShowCombi",
+                    Configuration.getString("DontShowCombi")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_goodwith_fields"), "DontShowGoodWith",
+                    Configuration.getString("DontShowGoodWith")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_litter_field"), "DontShowLitterID",
+                    Configuration.getString("DontShowLitterID")
+                                 .equalsIgnoreCase("Yes"), false));
+
+
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

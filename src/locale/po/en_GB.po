@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-03 08:29+0000\n"
+"PO-Revision-Date: 2010-06-03 09:36+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12590,11 +12590,6 @@ msgstr "Default Size:"
 msgid "Non-Shelter Animal Type:"
 msgstr "Non-Shelter Animal Type:"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "Don't keep separate town and county information"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13095,11 +13090,6 @@ msgstr "Deselect the animal groups you want to remove from your database:"
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "Don't filter the list of breeds according to selected species"
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "Don't show the coat type field on the animal screen"
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13256,6 +13246,62 @@ msgstr "Separate waiting list rank by species"
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
 msgstr "Once assigned, codes cannot be changed"
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr "Remove Unwanted Fields"
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr "Remove the town/county fields from the owner screen"
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr "Remove the coat type field from the animal screen"
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr "Remove the microchip fields from the animal screen"
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr "Remove the tattoo fields from the animal screen"
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr "Remove the spay/neuter fields from the animal screen"
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr "Remove the declawed field from the animal screen"
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr "Remove the heartworm test fields from the animal screen"
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr "Remove the Combi/FIV/L test fields from the animal screen"
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr "Remove the Litter ID/Acceptance Number field from the animal screen"
 
 #. # ui/users/UserView
 #: Add_a_new_user
