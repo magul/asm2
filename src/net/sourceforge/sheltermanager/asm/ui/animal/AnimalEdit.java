@@ -136,7 +136,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.Button btnPrint;
     private UI.ComboBox cboBreed;
     private UI.ComboBox cboBreed2;
-    private UI.ComboBox cboColour;
+    public UI.ComboBox cboColour;
     private UI.ComboBox cboCoatType;
     private UI.ComboBox cboCombiTestResult;
     private UI.ComboBox cboHeartwormTestResult;

@@ -625,7 +625,17 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             a.setHasSpecialNeeds(z);
 
             AnimalEdit ae = new AnimalEdit();
-            ae.openForEdit(a, true);
+            ae.openForEdit(a, false);
+
+            // Load the default lookup values
+            ae.setDefaults();
+
+            // Reapply the species and colour
+            Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
+                animal.getSpeciesID(), ae.cboSpecies);
+            Utils.setComboFromID(LookupCache.getBaseColourLookup(), "BaseColour",
+                animal.getBaseColourID(), ae.cboColour);
+
             Global.mainForm.addChild(ae);
         } catch (Exception e) {
             Global.logException(e, getClass());
