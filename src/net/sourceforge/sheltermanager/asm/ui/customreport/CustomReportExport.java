@@ -253,9 +253,24 @@ public class CustomReportExport extends ASMView {
             cr = new CustomReport();
             cr.openRecordset("ID = " + id);
 
-            // Make a file to put the CSV in and generate it
-            String filename = Global.tempDirectory + File.separator +
+            // The default name for the file
+            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
                 cr.getTitle().replace(' ', '_') + ".csv";
+
+            // Prompt user for where they'd like to save it to
+            UI.FileChooser fc = UI.getFileChooser();
+            fc.setSelectedFile(new File(defaultFile));
+            int result = fc.showSaveDialog(Global.mainForm);
+
+            // Cancel if they cancelled
+            if (result != UI.FileChooser.APPROVE_OPTION) {
+                return;
+            }
+
+            // Get the location
+            String filename = fc.getSelectedFile().getAbsolutePath();
+
+            // Make a file to put the CSV in and generate it
             File f = new File(filename);
             generateCSV(cr, f);
 
@@ -285,17 +300,27 @@ public class CustomReportExport extends ASMView {
             cr = new CustomReport();
             cr.openRecordset("ID = " + id);
 
-            // Make a file to put the CSV in and generate it
-            String filename = Global.tempDirectory + File.separator +
+            // The default name for the file
+            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
                 cr.getTitle().replace(' ', '_') + ".csv";
+
+            // Prompt user for where they'd like to save it to
+            UI.FileChooser fc = UI.getFileChooser();
+            fc.setSelectedFile(new File(defaultFile));
+            int result = fc.showSaveDialog(Global.mainForm);
+
+            // Cancel if they cancelled
+            if (result != UI.FileChooser.APPROVE_OPTION) {
+                return;
+            }
+
+            // Get the location
+            String filename = fc.getSelectedFile().getAbsolutePath();
+
+            // Make a file to put the CSV in and generate it
             File f = new File(filename);
             generateCSV(cr, f);
 
-            // Tell the user
-            Global.logInfo(i18n("CSV_file_generated_at") + filename,
-                "ExportCustomReportData.btnGenCSVActionPerformed");
-            Dialog.showInformation(i18n("CSV_file_generated_at") + filename,
-                i18n("CSV_generation_complete"));
         } catch (Exception e) {
             Global.logException(e, getClass());
             Dialog.showError(e.getMessage());

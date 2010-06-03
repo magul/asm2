@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.mailmerge;
 import net.sourceforge.sheltermanager.asm.globals.*;
 import net.sourceforge.sheltermanager.asm.ui.internet.*;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.*;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
@@ -88,30 +89,15 @@ public class MailMerge extends Thread implements EmailFormListener {
             }
 
             if (choice.equals(Global.i18n("mailmerge", "produce_cvs"))) {
-                // Output the CVS file
+                // Output the CSV file
                 setStatusText(Global.i18n("mailmerge", "Outputting_to_disk..."));
                 writeToDisk();
-
-                // Output finished message
                 setStatusText("");
-                Global.logInfo(Global.i18n("mailmerge",
-                        "Successfully_built_mail_merge_source_as_file:") +
-                    Global.tempDirectory + File.separator +
-                    Global.i18n("mailmerge", "mailmerge") + File.separator +
-                    getFileName(), "MailMerge.run");
-                Dialog.showInformation(Global.i18n("mailmerge",
-                        "Successfully_built_mail_merge_source_as_file:") +
-                    Global.tempDirectory + File.separator +
-                    Global.i18n("mailmerge", "mailmerge") + File.separator +
-                    getFileName(),
-                    Global.i18n("mailmerge", "Mail_Merge_Source_Generated"));
-
                 theData = null;
             } else {
                 // Verify we are set up
                 if (!Email.isSetup()) {
                     theData = null;
-
                     return;
                 }
 
@@ -121,7 +107,6 @@ public class MailMerge extends Thread implements EmailFormListener {
                         "MailMerge.run");
                     Dialog.showError(
                         "Internal error - no email column in data.");
-
                     return;
                 }
 
@@ -213,11 +198,26 @@ public class MailMerge extends Thread implements EmailFormListener {
         File file = null;
 
         try {
-            // Create file handle and output stream
-            file = new File(Global.tempDirectory + File.separator +
-                    Global.i18n("mailmerge", "mailmerge") + File.separator +
-                    getFileName());
 
+            // The default name for the file
+            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
+                getFileName();
+
+            // Prompt user for where they'd like to save it to
+            UI.FileChooser fc = UI.getFileChooser();
+            fc.setSelectedFile(new File(defaultFile));
+            int result = fc.showSaveDialog(Global.mainForm);
+
+            // Cancel if they cancelled
+            if (result != UI.FileChooser.APPROVE_OPTION) {
+                return;
+            }
+
+            // Get the location
+            String path = fc.getSelectedFile().getAbsolutePath();
+
+            // Create file handle and output stream
+            file = new File(path);
             FileOutputStream out = new FileOutputStream(file);
 
             // Now output the data ------------
@@ -258,13 +258,13 @@ public class MailMerge extends Thread implements EmailFormListener {
 
     /**
      * Ensures there is a "mailmerge" directory off the local machine's temp
-     * folder to store output from the mail merge.
+     * folder to store output from the mail merge (although it's down to the
+     * user's choice now).
      */
     private void checkMailMergeDirectory() {
         // Make sure we have a mailmerge directory
         // in the temp folder
-        File file = new File(Global.tempDirectory + File.separator +
-                Global.i18n("mailmerge", "mailmerge"));
+        File file = new File(Global.tempDirectory + File.separator + "mailmerge");
 
         if (file.exists()) {
         } else {
