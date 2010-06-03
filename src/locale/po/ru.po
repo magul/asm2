@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-03-30 11:48+0100\n"
-"PO-Revision-Date: 2010-04-07 08:39+0000\n"
-"Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
+"POT-Creation-Date: 2010-04-29 08:46+0100\n"
+"PO-Revision-Date: 2010-05-02 20:04+0000\n"
+"Last-Translator: Andrey Smetanin <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-08 07:24+0000\n"
+"X-Launchpad-Export-Date: 2010-05-03 04:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
 msgid "You must give the diary task a name."
-msgstr "Вы должны дать дневниковой задаче название"
+msgstr "Вы должны поставить в дневнике имя задачи"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_who_the_task_is_for
@@ -35,7 +35,7 @@ msgstr "Вы должны вписать текст заметки"
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_subject.
 msgid "You must set a subject."
-msgstr "Вы должны задать предмет"
+msgstr "Вы должны задать тему"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_day_pivot.
@@ -45,12 +45,12 @@ msgstr "Вы должны установить основной день."
 #. # bo/Diary
 #: You_must_set_the_diary_note_for_someone's_attention.
 msgid "You must set the diary note for someone's attention."
-msgstr ""
+msgstr "Вы должны установить в дневнике предупреждающею заметку"
 
 #. # bo/Diary
 #: Bad_lost_animal_link
 msgid "Bad lost animal link"
-msgstr ""
+msgstr "Ссылка на потерянное животное неверна"
 
 #. # bo/Diary
 #: Bad_waiting_list_link
@@ -115,12 +115,12 @@ msgstr "Введите имя контактного лица"
 #. # bo/AnimalVaccination
 #: Date_Required_is_mandatory.
 msgid "Date Required is mandatory."
-msgstr ""
+msgstr "Дата обязательно является обязательным."
 
 #. # bo/AnimalLost
 #: Shelter_Animal_
 msgid "Shelter Animal "
-msgstr ""
+msgstr "Приют для животных "
 
 #. # bo/AnimalLost
 #: You_must_enter_the_area_the_animal_went_missing_from.
@@ -140,7 +140,7 @@ msgstr "Введите дату, когда было сообщено о про�
 #. # bo/AnimalLitter
 #: No_litters_cancelled.
 msgid "No litters cancelled."
-msgstr "Весь приплод уцелел"
+msgstr "Нет пометов умерших"
 
 #. # bo/AnimalLitter
 #: litters_cancelled
@@ -314,7 +314,7 @@ msgstr "Резервация"
 #. # bo/AnimalLitter
 #: updating_and_cancelling_litters
 msgid "Updating and cancelling animal litters..."
-msgstr ""
+msgstr "Обновление и отмена пометов животных"
 
 #. # bo/Animal
 #: auto_archiving_records
@@ -346,6 +346,8 @@ msgid ""
 "The owner you have selected is an animal retailer and can only have retailer "
 "movements."
 msgstr ""
+"Владелец выбранного животного розничной торговли и может иметь только "
+"розничной движений."
 
 #. # bo/Adoption
 #: retailer_movement_non_retailer_owner
@@ -353,6 +355,7 @@ msgid ""
 "The owner you have selected is not an animal retailer and cannot have "
 "retailer movements."
 msgstr ""
+"Владелец вы выбрали, не животное продавца и не может быть розничной движений."
 
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
@@ -406,37 +409,43 @@ msgid ""
 "The owner you have selected is not an animal fosterer and cannot have foster "
 "movements."
 msgstr ""
+"владелец вы выбрали, не животное няни и не может быть способствовать "
+"движений."
 
 #. # bo/Adoption
 #: cancel_reserve_without_reserve
 msgid "You have entered a reservation cancelled date without a reserve!"
-msgstr ""
+msgstr "Вы ввели бронирование отменено дату без резерва!"
 
 #. # bo/Adoption
 #: reserve_after_cancellation
 msgid "You cannot cancel a reservation before it takes effect."
-msgstr ""
+msgstr "Вы не можете отменить бронирование до его вступления в силу."
 
 #. # bo/Adoption
 #: cant_reserve_with_open_movement
 msgid ""
 "This animal is currently located off the shelter and cannot be reserved."
 msgstr ""
+"его животного в настоящее время находится от жилья и не могут быть "
+"зарезервированы."
 
 #. # bo/Adoption
 #: return_without_movement
 msgid "You cannot return a movement with no exit date."
-msgstr ""
+msgstr "Вы не можете вернуться движения без выхода даты."
 
 #. # bo/Adoption
 #: cannot_return_before_movement
 msgid "You cannot return a movement before its exit date."
-msgstr ""
+msgstr "Вы не можете вернуться движения до даты ее выхода."
 
 #. # bo/OwnerDonation
 #: ownerdonation_must_have_at_least_one_date
 msgid "A donation record must have at least a date due or a date received."
 msgstr ""
+"Пожертвование запись должна иметь по крайней мере из-за даты или даты "
+"получения."
 
 #. # bo/Adoption
 #: movement_clashes_with_existing
@@ -444,6 +453,7 @@ msgid ""
 "This movement clashes with the date range of an existing movement for this "
 "animal."
 msgstr ""
+"Это движение столкновения с даты спектр существующих движение этого животного"
 
 #. # bo/Adoption
 #: You_have_marked_this_movement_as_from_a_retailer_but_this_animal_has_no_prior_retailer_movements
@@ -451,36 +461,38 @@ msgid ""
 "You have marked this movement as from a retailer, but this animal has no "
 "prior retailer movements."
 msgstr ""
+"Вы отметили это движение как с продавца, но это животное не имеет "
+"предварительного движения розничной торговли."
 
 #. # bo/Adoption
 #: you_cant_have_a_from_retailer_on_a_non_adoption_movement
 msgid "You cannot have a retailer on a non-adoption movement."
-msgstr ""
+msgstr "Вы не можете иметь продавца на непринятие движения"
 
 #. # bo/AnimalDiet
 #: You_must_select_a_diet_type
 msgid "You must select a diet type."
-msgstr "Выберите тип диеты"
+msgstr "Вы должны выбрать диету"
 
 #. # bo/AnimalDiet
 #: you_must_supply_a_start_date_for_the_diet
 msgid "You must supply a start date for the diet."
-msgstr "Введите дату начала диеты"
+msgstr "Вы должны указать дату начала диеты."
 
 #. # bo/OwnerVoucher
 #: voucher_must_have_an_issue_date
 msgid "A voucher must have an issue date."
-msgstr ""
+msgstr "Ваучеры должны иметь даты выпуска."
 
 #. # bo/OwnerVoucher
 #: a_voucher_must_have_an_expiry_date
 msgid "A voucher must have an expiry date."
-msgstr ""
+msgstr "Ваучера должны иметь даты окончания."
 
 #. # bo/OwnerVoucher
 #: You_must_select_a_voucher_type
 msgid "You must select a voucher type."
-msgstr ""
+msgstr "Выберите тип ваучера"
 
 #. # bo/Animal
 #: Non-Shelter_Animal
@@ -562,6 +574,7 @@ msgstr "лечение"
 #: This_medical_profile_is_currently_in_use_and_cannot_be_deleted
 msgid "This medical profile is currently in use and cannot be deleted."
 msgstr ""
+"Этот медицинский профиль используется в данный момент и не может быть удален."
 
 #. # bo/AnimalMedical
 #. # bo/MedicalProfile
@@ -640,6 +653,7 @@ msgstr "Приютский код {0} уже используется, заня�
 #: code_does_not_match_your_selected_coding_scheme_of
 msgid "{0}: does not match the system selected animal coding scheme of {1}"
 msgstr ""
+"{0}:не соответствует выбранной системы кодирования животных схема  {1}"
 
 #. # bo/Adoption
 #: reference_number_used
@@ -689,12 +703,12 @@ msgstr "Названия полей не могут содержать проб�
 #. # bo/AdditionalField
 #: lookup_type_needs_values
 msgid "You cannot create a lookup without some lookup items."
-msgstr ""
+msgstr "Вы не можете создавать поиска без некоторых поиска предметов."
 
 #. # bo/Animal
 #: You_must_select_two_different_breeds_for_a_crossbreed_animal.
 msgid "You must select two different breeds for a crossbreed animal."
-msgstr ""
+msgstr "Вы должны выбрать две различные породы для скрещивания животных."
 
 #. # bo/OwnerDonation
 #: donation_must_have_an_owner
@@ -704,37 +718,37 @@ msgstr "Пожертвования должны относится к лицу."
 #. # bo/AnimalCost
 #: you_must_supply_a_date_for_the_cost
 msgid "You must supply a date for the cost."
-msgstr ""
+msgstr "Вы должны указать дату расходов."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_description_for_the_cost
 msgid "You must supply a description for the cost."
-msgstr ""
+msgstr "Вы должны указать описание для покрытия расходов."
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
-msgstr ""
+msgstr "Ежемесячный анализ Пожертвование (по типу) для "
 
 #. # charts/DonationsPerSpecies
 #: Monthly_Donation_analysis_(by_species)_for_
 msgid "Monthly Donation analysis (by species) for "
-msgstr ""
+msgstr "Ежемесячный анализ Пожертвование (по видам) для "
 
 #. # charts/CommonReasonsReturn
 #: Adoption_Return_Reasons_for_
 msgid "Adoption Return Reasons for "
-msgstr ""
+msgstr "Утверждение Вернуться Причины "
 
 #. # charts/CommonReasonsEntry
 #: Animal_Entry_Reasons_for_
 msgid "Animal Entry Reasons for "
-msgstr ""
+msgstr "Вступление животных Причины "
 
 #. # charts/AdoptionsPerSpecies
 #: Monthly_Adoption_analysis_(by_species)_for_
 msgid "Monthly Adoption analysis (by species) for "
-msgstr ""
+msgstr "Ежемесячный анализ Усыновление (по видам) для "
 
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
@@ -749,7 +763,7 @@ msgstr "Окт"
 #. # charts/AdoptionsPerBlock
 #: Monthly_Adoption_analysis_(by_location,_
 msgid "Monthly Adoption analysis (by location, "
-msgstr ""
+msgstr "Ежемесячный анализ Усыновление (по месту нахождения "
 
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
@@ -779,7 +793,7 @@ msgstr "Авг"
 #. # charts/CommonReasonsEntry
 #: Which_year_is_this_graph_for?
 msgid "Which year is this graph for?"
-msgstr ""
+msgstr "Какой год это граф?"
 
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
@@ -853,7 +867,7 @@ msgstr "Дек"
 #. # charts/AdoptionsPerBlock
 #: _species)_for_
 msgid " species) for "
-msgstr ""
+msgstr " видов) для "
 
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
@@ -888,52 +902,52 @@ msgstr "Фев"
 #. # charts/Chart
 #: Generating_Graph_-_
 msgid "Generating Graph - "
-msgstr ""
+msgstr "Создание графика "
 
 #. # charts/Chart
 #: What_type_of_graph_would_you_like_to_generate?
 msgid "What type of graph would you like to generate?"
-msgstr ""
+msgstr "Какой график Вы хотели бы генерировать?"
 
 #. # charts/Chart
 #: Graph_Type
 msgid "Graph Type"
-msgstr ""
+msgstr "Тип графика"
 
 #. # charts/Chart
 #: Interpolation
 msgid "Interpolation"
-msgstr ""
+msgstr "Интерполяция"
 
 #. # charts/Chart
 #: Chart_-_
 msgid "Chart - "
-msgstr ""
+msgstr "Диаграмма "
 
 #. # charts/Chart
 #: Plot_Chart
 msgid "Plot Chart"
-msgstr ""
+msgstr "Участок диаграммы"
 
 #. # charts/Chart
 #: Line_Chart
 msgid "Line Chart"
-msgstr ""
+msgstr "Линии диаграмм"
 
 #. # charts/Chart
 #: Line
 msgid "Line"
-msgstr ""
+msgstr "Линия"
 
 #. # charts/Chart
 #: Bar_Chart
 msgid "Bar Chart"
-msgstr ""
+msgstr "Столбцовая диаграмма"
 
 #. # charts/Chart
 #: Unknown_chart_type_'
 msgid "Unknown chart type '"
-msgstr ""
+msgstr "Неизвестный тип диаграммы"
 
 #. # charts/Chart
 #: Pie
@@ -943,27 +957,27 @@ msgstr "Круговая"
 #. # charts/Chart
 #: Bar
 msgid "Bar"
-msgstr ""
+msgstr "Бар"
 
 #. # charts/Chart
 #: Rendering_Graph...
 msgid "Rendering Graph..."
-msgstr ""
+msgstr "Оказание График"
 
 #. # charts/Chart
 #: Plot
 msgid "Plot"
-msgstr ""
+msgstr "Диаграмма"
 
 #. # charts/Chart
 #: there_is_no_data_to_show_on_the_chart
 msgid "There is no data to show on the chart."
-msgstr ""
+msgstr "Существует нет данных, чтобы показать на карте"
 
 #. # utility/Utils
 #: waitinglist
 msgid "Waiting List ("
-msgstr ""
+msgstr "Лист ожидания"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -971,23 +985,23 @@ msgstr "С (Собака)"
 
 #: animaltype_10
 msgid "F (Stray Dog)"
-msgstr ""
+msgstr "F(Бродячая собака"
 
 #: animaltype_11
 msgid "U (Unwanted Cat)"
-msgstr ""
+msgstr "U (Не найденная кошка"
 
 #: animaltype_12
 msgid "S (Stray Cat)"
-msgstr ""
+msgstr "S (Бродячая кошка"
 
 #: animaltype_13
 msgid "M (Miscellaneous)"
-msgstr ""
+msgstr "M (Разное)"
 
 #: animaltype_40
 msgid "N (Non Shelter Animal)"
-msgstr ""
+msgstr "N (Номера приюта для животных)"
 
 #: basecolour_1
 msgid "Black"
@@ -1241,7 +1255,7 @@ msgstr "Бельгийская овчарка"
 
 #: breed_24_1
 msgid "Belgian Shepherd Laekenois"
-msgstr ""
+msgstr "Бельгийский Laekenois Шеперд"
 
 #: breed_25_1
 msgid "Belgian Shepherd Malinois"
@@ -2278,23 +2292,23 @@ msgstr "Смокинг"
 
 #: breed_314_7
 msgid "American"
-msgstr ""
+msgstr "Американский"
 
 #: breed_315_7
 msgid "American Fuzzy Lop"
-msgstr ""
+msgstr "Американский Нечеткие Лоп"
 
 #: breed_316_7
 msgid "American Sable"
-msgstr ""
+msgstr "Американский Соболь"
 
 #: breed_317_7
 msgid "Angora Rabbit"
-msgstr ""
+msgstr "Ангорский кролик"
 
 #: breed_318_7
 msgid "Belgian Hare"
-msgstr ""
+msgstr "Бельгийский Заяц"
 
 #: breed_319_7
 msgid "Beveren"
@@ -2310,7 +2324,7 @@ msgstr "Кролик"
 
 #: breed_322_7
 msgid "Californian"
-msgstr ""
+msgstr "Калифорния"
 
 #: breed_323_7
 msgid "Champagne DArgent"
@@ -2318,11 +2332,11 @@ msgstr ""
 
 #: breed_324_7
 msgid "Checkered Giant"
-msgstr ""
+msgstr "Гигантские шашечками"
 
 #: breed_326_7
 msgid "Cinnamon"
-msgstr ""
+msgstr "Корица"
 
 #: breed_327_7
 msgid "Crème DArgent"
@@ -2330,15 +2344,15 @@ msgstr ""
 
 #: breed_328_7
 msgid "Dutch"
-msgstr ""
+msgstr "Голландский"
 
 #: breed_329_7
 msgid "Dwarf"
-msgstr ""
+msgstr "Гном"
 
 #: breed_330_7
 msgid "Dwarf Eared"
-msgstr ""
+msgstr "Карликовые Ушастые"
 
 #: breed_331_7
 msgid "English Lop"
@@ -2378,7 +2392,7 @@ msgstr ""
 
 #: breed_342_7
 msgid "Lilac"
-msgstr ""
+msgstr "Лилак"
 
 #: breed_343_7
 msgid "Lop Eared"
@@ -2398,40 +2412,40 @@ msgstr ""
 
 #: breed_347_7
 msgid "New Zealand"
-msgstr ""
+msgstr "Новая Зеландия"
 
 #: breed_348_7
 #: breed_368_24
 msgid "Palomino"
-msgstr ""
+msgstr "Паломино"
 
 #: breed_349_7
 msgid "Polish"
-msgstr ""
+msgstr "Польский"
 
 #: breed_350_7
 msgid "Rex"
-msgstr ""
+msgstr "Рекс"
 
 #: breed_351_7
 msgid "Rhinelander"
-msgstr ""
+msgstr "Райнлендер"
 
 #: breed_352_7
 msgid "Satin"
-msgstr ""
+msgstr "Сатин"
 
 #: breed_353_7
 msgid "Silver"
-msgstr ""
+msgstr "Серебро"
 
 #: breed_354_7
 msgid "Silver Fox"
-msgstr ""
+msgstr "Серебристая лиса"
 
 #: breed_355_7
 msgid "Silver Marten"
-msgstr ""
+msgstr "Серебряный Мартен"
 
 #: breed_357_24
 msgid "Appaloosa"
@@ -2447,11 +2461,11 @@ msgstr ""
 
 #: breed_360_26
 msgid "Donkey/Mule"
-msgstr ""
+msgstr "Осел / Мул"
 
 #: breed_361_24
 msgid "Draft"
-msgstr ""
+msgstr "Черновик"
 
 #: breed_362_24
 msgid "Gaited"
@@ -2459,11 +2473,11 @@ msgstr ""
 
 #: breed_363_24
 msgid "Grade"
-msgstr ""
+msgstr "Класс"
 
 #: breed_364_24
 msgid "Missouri Foxtrotter"
-msgstr ""
+msgstr "Миссури Фокстроттер"
 
 #: breed_365_24
 msgid "Morgan"
@@ -2471,48 +2485,48 @@ msgstr ""
 
 #: breed_366_24
 msgid "Mustang"
-msgstr ""
+msgstr "Мустанг"
 
 #: breed_367_24
 msgid "Paint/Pinto"
-msgstr ""
+msgstr "Краска / Пинто"
 
 #: breed_369_24
 msgid "Paso Fino"
-msgstr ""
+msgstr "Пасо Фино"
 
 #: breed_370_24
 msgid "Percheron"
-msgstr ""
+msgstr "Першерон"
 
 #: breed_371_24
 msgid "Peruvian Paso"
-msgstr ""
+msgstr "Перуанских Пасо"
 
 #: breed_372_25
 #: species_25
 msgid "Pony"
-msgstr ""
+msgstr "Пони"
 
 #: breed_373_25
 msgid "Quarterhorse"
-msgstr ""
+msgstr "Куортерхорс"
 
 #: breed_374_24
 msgid "Saddlebred"
-msgstr ""
+msgstr "Садлбред"
 
 #: breed_375_24
 msgid "Standardbred"
-msgstr ""
+msgstr "Стандардбред"
 
 #: breed_376_24
 msgid "Thoroughbred"
-msgstr ""
+msgstr "Породистый"
 
 #: breed_377_24
 msgid "Tennessee Walker"
-msgstr ""
+msgstr "Теннесси Уолкер"
 
 #: breed_378_24
 msgid "Warmblood"
@@ -2550,7 +2564,7 @@ msgstr "Мышь"
 
 #: breed_386_5
 msgid "Prairie Dog"
-msgstr ""
+msgstr "Степная собачка"
 
 #: breed_387_5
 #: species_5
@@ -2559,19 +2573,19 @@ msgstr "Крыса"
 
 #: breed_388_5
 msgid "Skunk"
-msgstr ""
+msgstr "Скунс"
 
 #: breed_389_5
 msgid "Sugar Glider"
-msgstr ""
+msgstr "Сахарный поссум"
 
 #: breed_390_28
 msgid "Pot Bellied"
-msgstr ""
+msgstr "Пот пузатые"
 
 #: breed_391_28
 msgid "Vietnamese Pot Bellied"
-msgstr ""
+msgstr "Вьетнамский Пот пузатые"
 
 #: breed_392_13
 msgid "Gecko"
@@ -2638,7 +2652,7 @@ msgstr "Какаду"
 
 #: breed_407_3
 msgid "Conure"
-msgstr ""
+msgstr "Попугай"
 
 #: breed_408_3
 #: species_8
@@ -2651,7 +2665,7 @@ msgstr "Утка"
 
 #: breed_410_3
 msgid "Eclectus"
-msgstr ""
+msgstr "Благородный"
 
 #: breed_411_3
 msgid "Emu"
@@ -2668,7 +2682,7 @@ msgstr "Гусь"
 
 #: breed_414_3
 msgid "Guinea fowl"
-msgstr ""
+msgstr "Цесарка"
 
 #: breed_415_3
 msgid "Kakariki"
@@ -2688,7 +2702,7 @@ msgstr "Ара"
 
 #: breed_419_3
 msgid "Mynah"
-msgstr ""
+msgstr "Майна"
 
 #: breed_420_3
 msgid "Ostrich"
@@ -2696,11 +2710,11 @@ msgstr "Страус"
 
 #: breed_421_3
 msgid "Parakeet (Other)"
-msgstr ""
+msgstr "Попугай (прочие)"
 
 #: breed_422_3
 msgid "Parrot (Other)"
-msgstr ""
+msgstr "Попугай (прочие)"
 
 #: breed_423_3
 msgid "Parrotlet"
@@ -2708,7 +2722,7 @@ msgstr "Воробьиный попугайчик"
 
 #: breed_424_3
 msgid "Peacock/Pea fowl"
-msgstr ""
+msgstr "Павлин / Пи птицы"
 
 #: breed_425_3
 msgid "Pheasant"
@@ -2724,19 +2738,19 @@ msgstr "Kрасногузый попугай"
 
 #: breed_428_3
 msgid "Poicephalus/Senegal"
-msgstr ""
+msgstr "Poicephalus / Сенегал"
 
 #: breed_429_3
 msgid "Quaker Parakeet"
-msgstr ""
+msgstr "Квакер попугай"
 
 #: breed_430_3
 msgid "Rhea"
-msgstr ""
+msgstr "Рея"
 
 #: breed_431_3
 msgid "Ringneck/Psittacula"
-msgstr ""
+msgstr "Рингнек / Psittacula"
 
 #: breed_432_3
 msgid "Rosella"
@@ -2774,11 +2788,11 @@ msgstr "Овца"
 #: breed_440_16
 #: species_27
 msgid "Llama"
-msgstr ""
+msgstr "Лама"
 
 #: breed_441_28
 msgid "Pig (Farm)"
-msgstr ""
+msgstr "Свинья (ферма)"
 
 #: configuration_Organisation
 msgid "Organisation"
@@ -2798,11 +2812,11 @@ msgstr "Взрослoe"
 
 #: configuration_AgeGroup4Name
 msgid "Senior"
-msgstr ""
+msgstr "Старший"
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
-msgstr ""
+msgstr "Номера для микрочипом животных"
 
 #. # db/AutoDBUpdates
 #: customreport_36_category
@@ -2812,42 +2826,42 @@ msgstr ""
 #: customreport_40_category
 #: Auditing
 msgid "Auditing"
-msgstr ""
+msgstr "Аудит"
 
 #: customreport_37_002
 msgid "Animals Without Photo Media"
-msgstr ""
+msgstr "Фото животных без Media"
 
 #: customreport_38_003
 msgid "Animals Never Vaccinated"
-msgstr ""
+msgstr "Животные никогда не вакцинированных"
 
 #: customreport_39_004
 msgid "Non-Neutered/Spayed Animals Aged Over 6 Months"
-msgstr ""
+msgstr "Non-Neutered/Spayed животных в возрасте старше 6 месяцев"
 
 #: customreport_40_005
 msgid "Cats Not Combi-Tested"
-msgstr ""
+msgstr "Кошки не Combi-Tested"
 
 #: customreport_41_006
 msgid "Monthly Animal Figures"
-msgstr ""
+msgstr "Ежемесячный данные о животных"
 
 #. # db/AutoDBUpdates
 #: customreport_41_category
 #: customreport_42_category
 #: Figures
 msgid "Figures"
-msgstr ""
+msgstr "Данные"
 
 #: customreport_42_007
 msgid "Long Term Animals"
-msgstr ""
+msgstr "Долгосрочные животных"
 
 #: customreport_43_008
 msgid "Shelter Inventory"
-msgstr ""
+msgstr "Укрытие инвентаризации"
 
 #. # db/AutoDBUpdates
 #: customreport_43_category
@@ -2855,11 +2869,11 @@ msgstr ""
 #: customreport_66_category
 #: Inventories
 msgid "Inventories"
-msgstr ""
+msgstr "Запасы"
 
 #: customreport_44_009
 msgid "Detailed Shelter Inventory"
-msgstr ""
+msgstr "Подробная инвентаризация жилья"
 
 #: customreport_45_010
 msgid "Animals Not Part Of A Litter"
@@ -2870,13 +2884,13 @@ msgstr ""
 #: customreport_45_category
 #: Litters
 msgid "Litters"
-msgstr ""
+msgstr "Пометы"
 
 #. # db/AutoDBUpdates
 #: customreport_46_011
 #: In/Out
 msgid "In/Out"
-msgstr ""
+msgstr "Вход /Выход"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
@@ -2893,19 +2907,19 @@ msgstr "Перемещения"
 
 #: customreport_47_012
 msgid "In/Out Summary"
-msgstr ""
+msgstr "Вход /Выход      Резюме"
 
 #. # ui/criteria/DateFromTo
 #: customreport_48_013
 #: Transfer_In_Report
 msgid "Transfer In Report"
-msgstr ""
+msgstr "Трансфер В Докладе"
 
 #. # ui/criteria/DateFromTo
 #: customreport_49_014
 #: volume_of_adoptions_per_retailer
 msgid "Volume Of Adoptions Per Retailer"
-msgstr ""
+msgstr "Объем розничного За усыновления"
 
 #. # ui/owner/OwnerFind
 #. # db/AutoDBUpdates
@@ -2918,19 +2932,19 @@ msgstr ""
 
 #: customreport_50_015
 msgid "Average Time At Retailer Before Adoption"
-msgstr ""
+msgstr "Средняя продолжительность пребывания на Продавец до принятия"
 
 #. # reports/Retailer
 #: customreport_51_016
 #: retailer_inventory
 msgid "Retailer Inventory"
-msgstr ""
+msgstr "Продавец инвентаризации"
 
 #. # ui/criteria/DateFromTo
 #: customreport_52_017
 #: Returned_Animals_Report
 msgid "Returned Animals Report"
-msgstr ""
+msgstr "Возвращается животных доклад"
 
 #. # db/AutoDBUpdates
 #: customreport_52_category
@@ -2938,19 +2952,19 @@ msgstr ""
 #: customreport_54_category
 #: Returns
 msgid "Returns"
-msgstr ""
+msgstr "Возвращает"
 
 #: customreport_53_018
 msgid "Animals Returned Within 6 Months"
-msgstr ""
+msgstr "Животные возвращены в течение 6 месяцев"
 
 #: customreport_54_019
 msgid "Animals Returned After 6 Months"
-msgstr ""
+msgstr "Животные возвращены после 6 месяцев"
 
 #: customreport_55_020
 msgid "Most Common Name"
-msgstr ""
+msgstr "Наиболее распространенные Название"
 
 #. # db/AutoDBUpdates
 #: customreport_55_category
@@ -2960,77 +2974,77 @@ msgstr ""
 #: customreport_59_category
 #: Statistics
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 #: customreport_56_021
 msgid "Animal Death Reasons"
-msgstr ""
+msgstr "Причины смерти животных"
 
 #. # reports/Stats
 #: customreport_57_022
 #: Most_Common_Animal_Entry_Areas
 msgid "Most Common Animal Entry Areas"
-msgstr ""
+msgstr "Самые общие Вступление животных"
 
 #. # reports/Stats
 #: customreport_58_023
 #: Most_Common_Animal_Adoption_Areas
 msgid "Most Common Animal Adoption Areas"
-msgstr ""
+msgstr "Самые общие животных Утверждение"
 
 #. # reports/Stats
 #: customreport_59_024
 #: Average_Time_On_Waiting_List
 msgid "Average Time On Waiting List"
-msgstr ""
+msgstr "Средняя продолжительность пребывания на учете"
 
 #: customreport_60_025
 msgid "Monthly Donations"
-msgstr ""
+msgstr "Ежемесячный Пожертвования"
 
 #: customreport_60_category
 #: customreport_61_category
 msgid "Financial Graphs"
-msgstr ""
+msgstr "Финансовые графики"
 
 #: customreport_61_026
 msgid "Monthly Donations By Species"
-msgstr ""
+msgstr "Ежемесячные пожертвования видов"
 
 #: customreport_62_027
 msgid "Monthly Adoptions By Species"
-msgstr ""
+msgstr "Ежемесячный усыновления по видам"
 
 #: customreport_62_category
 #: customreport_63_category
 #: customreport_64_category
 #: customreport_65_category
 msgid "Movement Graphs"
-msgstr ""
+msgstr "Движение график"
 
 #: customreport_63_028
 msgid "Monthly Adoptions By Location"
-msgstr ""
+msgstr "Ежемесячный усыновления По местонахождению"
 
 #: customreport_64_029
 msgid "Animal Entry Reasons"
-msgstr ""
+msgstr "Причины животных Вступление"
 
 #: customreport_65_030
 msgid "Animal Return Reasons"
-msgstr ""
+msgstr "Причины возврата животных"
 
 #: customreport_66_031
 msgid "Owner Criteria Matching"
-msgstr ""
+msgstr "Соответствия по критериям лиц"
 
 #: deathreason_1
 msgid "Dead On Arrival"
-msgstr ""
+msgstr "Неработоспособный при поступлении"
 
 #: deathreason_3
 msgid "Healthy"
-msgstr ""
+msgstr "Здоровый"
 
 #: deathreason_4
 #: entryreason_8
@@ -3039,11 +3053,11 @@ msgstr "Больное/Раненое"
 
 #: deathreason_5
 msgid "Requested"
-msgstr ""
+msgstr "Запрошено"
 
 #: deathreason_6
 msgid "Culling"
-msgstr ""
+msgstr "Выбраковка"
 
 #: deathreason_7
 msgid "Feral"
@@ -3067,23 +3081,23 @@ msgstr "Укус"
 #: Donation
 #: donation
 msgid "Donation"
-msgstr ""
+msgstr "Пожертвование"
 
 #: donationtype_2
 msgid "Adoption Fee"
-msgstr ""
+msgstr "Утверждение оплаты"
 
 #: donationtype_3
 msgid "Waiting List Donation"
-msgstr ""
+msgstr "Список ожидания Пожертвование"
 
 #: donationtype_4
 msgid "Entry Donation"
-msgstr ""
+msgstr "Вступление Пожертвование"
 
 #: donationtype_5
 msgid "Animal Sponsorship"
-msgstr ""
+msgstr "Спонсорство животных"
 
 #: entryreason_1
 msgid "Marriage/Relationship split"
@@ -3103,11 +3117,11 @@ msgstr "Неподходящее место житья"
 
 #: entryreason_7
 msgid "Stray"
-msgstr ""
+msgstr "Паразитный"
 
 #: entryreason_9
 msgid "Unable to Afford"
-msgstr ""
+msgstr "Не могут позволить себе"
 
 #: entryreason_10
 msgid "Abuse"
@@ -3115,11 +3129,11 @@ msgstr "Жестокое обращение"
 
 #: entryreason_11
 msgid "Abandoned"
-msgstr "Оставлен без присмотра"
+msgstr "Оставленo без присмотра"
 
 #: internallocation_1
 msgid "No Locations"
-msgstr ""
+msgstr "Нет страна"
 
 #. # ui/animalname/NamesEdit
 #: lksex_0
@@ -3182,43 +3196,43 @@ msgstr "Безшерстная"
 
 #: lksaccounttype_1
 msgid "Bank"
-msgstr ""
+msgstr "Банк"
 
 #: lksaccounttype_2
 msgid "Credit Card"
-msgstr ""
+msgstr "Кредитная карта"
 
 #: lksaccounttype_3
 msgid "Loan"
-msgstr ""
+msgstr "Заем"
 
 #: lksaccounttype_4
 msgid "Expense"
-msgstr ""
+msgstr "Расходы"
 
 #: lksaccounttype_5
 msgid "Income"
-msgstr ""
+msgstr "Доход"
 
 #: lksaccounttype_6
 msgid "Pension"
-msgstr ""
+msgstr "Пенсия"
 
 #: lksaccounttype_7
 msgid "Shares"
-msgstr ""
+msgstr "Акции"
 
 #: lksaccounttype_8
 msgid "Asset"
-msgstr ""
+msgstr "Активы"
 
 #: lksaccounttype_9
 msgid "Liability"
-msgstr ""
+msgstr "Задолженность"
 
 #: lksmovementtype_1
 msgid "Adoption"
-msgstr ""
+msgstr "Принятие"
 
 #: lksmovementtype_2
 msgid "Foster"
@@ -3226,18 +3240,18 @@ msgstr "Временная опека в домашних условиях"
 
 #: lksmovementtype_3
 msgid "Transfer"
-msgstr ""
+msgstr "Передача"
 
 #: lksmovementtype_5
 msgid "Reclaimed"
-msgstr ""
+msgstr "Восстановленный"
 
 #. # reports/AnimalFigures
 #. # ui/animal/AnimalFind
 #: lksmovementtype_7
 #: Released_To_Wild
 msgid "Released To Wild"
-msgstr ""
+msgstr "Дата выхода диких"
 
 #: lksmovementtype_10
 msgid "Cancelled Reservation"
@@ -3283,7 +3297,7 @@ msgstr "Найденое животное"
 #: lksloglink_1
 #: Owner
 msgid "Owner"
-msgstr ""
+msgstr "Лицо"
 
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
@@ -3302,7 +3316,7 @@ msgstr "Перемещение"
 #: Waiting_List
 #: waiting_list
 msgid "Waiting List"
-msgstr ""
+msgstr "Лист ожидания"
 
 #: lksdonationfreq_1
 msgid "Weekly"
@@ -3322,7 +3336,7 @@ msgstr "Каждые пол года"
 
 #: lksdonationfreq_5
 msgid "Annually"
-msgstr ""
+msgstr "Ежегодно"
 
 #: lksfieldtype_0
 msgid "Yes/No"
@@ -3343,14 +3357,13 @@ msgstr "Примечания"
 
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
-#. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
 #: lksfieldtype_3
 #: Number
 msgid "Number"
-msgstr ""
+msgstr "Номер"
 
 #. # reports/DiaryNotesToday
 #. # reports/AnimalPrint
@@ -3377,11 +3390,11 @@ msgstr ""
 #: lksfieldtype_4
 #: Date
 msgid "Date"
-msgstr ""
+msgstr "День"
 
 #: lksfieldtype_5
 msgid "Money"
-msgstr ""
+msgstr "Деньги"
 
 #: lksfieldtype_6
 msgid "Lookup"
@@ -3407,15 +3420,15 @@ msgstr "Низшая"
 
 #: logtype_1
 msgid "Bite"
-msgstr ""
+msgstr "Укус"
 
 #: logtype_2
 msgid "Complaint"
-msgstr ""
+msgstr "Жалоба"
 
 #: logtype_3
 msgid "History"
-msgstr ""
+msgstr "История"
 
 #: logtype_4
 msgid "Weight"
@@ -3431,35 +3444,35 @@ msgstr "Кролик"
 
 #: species_12
 msgid "Tortoise"
-msgstr ""
+msgstr "Черепаха"
 
 #: species_13
 msgid "Terrapin"
-msgstr ""
+msgstr "амфибии"
 
 #: species_15
 msgid "Owl"
-msgstr ""
+msgstr "Сова"
 
 #: species_21
 msgid "Goldfish"
-msgstr ""
+msgstr "Золотая рыбка"
 
 #: species_23
 msgid "Camel"
-msgstr ""
+msgstr "Верблюд"
 
 #: species_24
 msgid "Horse"
-msgstr ""
+msgstr "Лошадь"
 
 #: species_26
 msgid "Donkey"
-msgstr ""
+msgstr "Ослик"
 
 #: species_28
 msgid "Pig"
-msgstr ""
+msgstr "Свинья"
 
 #: voucher_1
 msgid "Neuter/Spay"
@@ -3467,19 +3480,19 @@ msgstr "Кастрация/Стерилизация"
 
 #: vaccinationtype_1
 msgid "Temporary Vaccination"
-msgstr ""
+msgstr "Временные вакцинации"
 
 #: vaccinationtype_2
 msgid "First Vaccination"
-msgstr ""
+msgstr "Первая вакцинация"
 
 #: vaccinationtype_3
 msgid "Second Vaccination"
-msgstr ""
+msgstr "Вторая вакцинация"
 
 #: vaccinationtype_4
 msgid "Booster"
-msgstr ""
+msgstr "Ракета-носитель"
 
 #: vaccinationtype_5
 msgid "Leukaemia"
@@ -3506,7 +3519,7 @@ msgstr ""
 #. # db/Diagnostic
 #: Scan_complete
 msgid "Scan complete"
-msgstr ""
+msgstr "Сканирование завершено"
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
@@ -3578,7 +3591,7 @@ msgstr ""
 #: Ok
 #: ok
 msgid "Ok"
-msgstr ""
+msgstr "Хорошо"
 
 #. # db/DBUpdate
 #: Select_database_update_file_to_process\:
@@ -3600,7 +3613,7 @@ msgstr ""
 #: username
 #: LDAP_User
 msgid "User:"
-msgstr ""
+msgstr "Пользователь:"
 
 #. # ui/ui/JDBCDlg
 #. # utility/LDAP
@@ -3617,12 +3630,12 @@ msgstr ""
 #: Password
 #: LDAP_Pass
 msgid "Password:"
-msgstr ""
+msgstr "Пароль:"
 
 #. # ui/ui/JDBCDlg
 #: hostname
 msgid "Hostname:"
-msgstr ""
+msgstr "Имя узла:"
 
 #. # ui/ui/JDBCDlg
 #: databasetype
@@ -3639,23 +3652,23 @@ msgstr ""
 #. # startup/Startup
 #: mysql
 msgid "MySQL Server"
-msgstr ""
+msgstr "Сервер MySQL"
 
 #. # ui/ui/JDBCDlg
 #: postgresql
 msgid "PostgreSQL Server"
-msgstr ""
+msgstr "Сервер PostgreSQL"
 
 #. # ui/ui/JDBCDlg
 #. # startup/Startup
 #: hsqldb
 msgid "HSQLDB Server"
-msgstr ""
+msgstr "Сервер HSQLDB"
 
 #. # ui/ui/JDBCDlg
 #: smcom
 msgid "Sheltermanager.com"
-msgstr ""
+msgstr "Sheltermanager.com"
 
 #. # db/DatabaseCopier
 #: copy_database
@@ -3685,7 +3698,7 @@ msgstr ""
 #. # db/DatabaseCopier
 #: continue
 msgid "Continue?"
-msgstr ""
+msgstr "Продолжить?"
 
 #. # db/DatabaseCopier
 #: copy_successful
@@ -3715,19 +3728,19 @@ msgstr ""
 #. # db/DatabaseImporter
 #: import_database
 msgid "Import Database"
-msgstr ""
+msgstr "Импорт базы данных"
 
 #. # db/DatabaseImporter
 #. # db/PetFinderImport
 #: import_successful
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Импортирование успешно завершено"
 
 #. # db/DatabaseImporter
 #. # db/PetFinderImport
 #: import_complete
 msgid "Import Complete"
-msgstr ""
+msgstr "Импортирование завершено"
 
 #. # db/DatabaseImporter
 #. # db/PetFinderImport
@@ -3738,7 +3751,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #: smcom
 msgid "sheltermanager.com"
-msgstr ""
+msgstr "sheltermanager.com"
 
 #. # ui/ui/JDBCDlg
 #: couldntconnectmess
@@ -3753,7 +3766,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #: scan
 msgid "Scan"
-msgstr ""
+msgstr "Сканировать"
 
 #. # ui/ui/JDBCDlg
 #. # startup/Startup
@@ -3767,7 +3780,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #: database
 msgid "Database:"
-msgstr ""
+msgstr "База данных:"
 
 #. # db/AutoDBUpdates
 #: no_allowdbautoupdates
@@ -3828,12 +3841,12 @@ msgstr ""
 #. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
-msgstr ""
+msgstr "Тип вакцинации"
 
 #. # mailmerge/OffShelterVaccinations
 #: OffShelterVaccinations.csv
 msgid "OffShelterVaccinations.csv"
-msgstr ""
+msgstr "OffShelterVaccinations.csv"
 
 #. # mailmerge/OffShelterVaccinations
 #: Off-Shelter_Vaccination_Mail_Merge
@@ -3858,7 +3871,7 @@ msgstr ""
 #. # mailmerge/OffShelterVaccinations
 #: Date_Required
 msgid "Date Required"
-msgstr ""
+msgstr "Плановая дата"
 
 #. # mailmerge/OffShelterVaccinations
 #: Please_enter_the_end_date_you_would_like_to_prepare_vaccination_letters_for
@@ -3877,7 +3890,7 @@ msgstr ""
 #. # utility/Utils
 #: Error
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #. # mailmerge/MailMerge
 #: Mail_Merge_Source_Generated
@@ -3943,7 +3956,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Work_Telephone
 msgid "Work Telephone"
-msgstr ""
+msgstr "Рабочий телефон"
 
 #. # mailmerge/ChipCancellation
 #: Please_enter_the_start_date_you_would_like_to_prepare_chip_cancellation_letters_for
@@ -3966,14 +3979,14 @@ msgstr ""
 #: Owner_Name
 #: owner_name
 msgid "Owner Name"
-msgstr ""
+msgstr "Имя лица"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
 #. # mailmerge/ChipCancellation
 #: Home_Telephone
 msgid "Home Telephone"
-msgstr ""
+msgstr "Домашний телефон"
 
 #. # reports/LostFoundMatch
 #. # reports/SearchResults
@@ -3986,7 +3999,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Colour
 msgid "Colour"
-msgstr ""
+msgstr "Цвет"
 
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
@@ -3999,12 +4012,12 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Breed
 msgid "Breed"
-msgstr ""
+msgstr "Порода"
 
 #. # mailmerge/ChipCancellation
 #: ChipCancellations.csv
 msgid "ChipCancellations.csv"
-msgstr ""
+msgstr "ChipCancellations.csv"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
@@ -4034,7 +4047,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Species
 msgid "Species"
-msgstr ""
+msgstr "Вид"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4054,7 +4067,7 @@ msgstr ""
 #. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
-msgstr ""
+msgstr "Возраст"
 
 #. # reports/InOut
 #. # reports/Report
@@ -4081,7 +4094,7 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #: Yes
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
@@ -4098,7 +4111,7 @@ msgstr ""
 #: Return_Date
 #: return_date
 msgid "Return Date"
-msgstr ""
+msgstr "Дата возврата"
 
 #. # reports/InOut
 #. # reports/Report
@@ -4124,7 +4137,7 @@ msgstr ""
 #. # wordprocessor/GenerateDocument
 #: No
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4158,7 +4171,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Date_Of_Birth
 msgid "Date Of Birth"
-msgstr ""
+msgstr "Дата рождения"
 
 #. # reports/InOut
 #. # reports/SearchResults
@@ -4176,7 +4189,7 @@ msgstr ""
 #. # bo/AnimalName
 #: Sex
 msgid "Sex"
-msgstr ""
+msgstr "Пол"
 
 #. # mailmerge/AdoptedNoReturn
 #: There_are_no_adoptions_matching_your_criteria.
@@ -4191,7 +4204,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Address_2
 msgid "Address 2"
-msgstr ""
+msgstr "Адрес 2"
 
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipRegistration
@@ -4201,7 +4214,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Address_3
 msgid "Address 3"
-msgstr ""
+msgstr "Адрес 3"
 
 #. # mailmerge/AdoptedNoReturn
 #: Please_enter_the_closing_date_of_adoptions_to_include
@@ -4214,7 +4227,7 @@ msgstr ""
 #. # mailmerge/AdoptedNoReturn
 #: Forenames
 msgid "Forenames"
-msgstr ""
+msgstr "Имена"
 
 #. # reports/VaccinationDiary
 #. # reports/Retailer
@@ -4237,12 +4250,12 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Animal_Name
 msgid "Animal Name"
-msgstr ""
+msgstr "Имя животного"
 
 #. # mailmerge/AdoptedNoReturn
 #: AdoptedNoReturn.csv
 msgid "AdoptedNoReturn.csv"
-msgstr ""
+msgstr "AdoptedNoReturn.csv"
 
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
@@ -4250,7 +4263,7 @@ msgstr ""
 #. # mailmerge/AdoptedNoReturn
 #: Initials
 msgid "Initials"
-msgstr ""
+msgstr "Инициалы"
 
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/Members
@@ -4259,7 +4272,7 @@ msgstr ""
 #. # mailmerge/OwnerMailMerge
 #: Email_Address
 msgid "Email Address"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 #. # reports/Stats
 #. # reports/ShelterInventory
@@ -4294,7 +4307,7 @@ msgstr ""
 #. # bo/AnimalName
 #: Name
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
@@ -4306,7 +4319,7 @@ msgstr ""
 #. # bo/CustomReport
 #: Title
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipRegistration
@@ -4316,7 +4329,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Address_1
 msgid "Address 1"
-msgstr ""
+msgstr "Адрес 1"
 
 #. # reports/Stats
 #. # reports/AnimalFigures
@@ -4385,7 +4398,7 @@ msgstr ""
 #. # bo/MedicalProfile
 #: ID
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. # mailmerge/OffShelterVaccinations
 #. # mailmerge/ChipRegistration
@@ -4395,7 +4408,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Address_5
 msgid "Address 5"
-msgstr ""
+msgstr "Адрес 5"
 
 #. # reports/OwnerSearchResults
 #. # ui/lostandfound/FoundAnimalFind
@@ -4426,7 +4439,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Address_4
 msgid "Address 4"
-msgstr ""
+msgstr "Адрес 4"
 
 #. # ui/main/Main
 #. # mailmerge/AdoptedNoReturn
@@ -4443,7 +4456,7 @@ msgstr ""
 #. # mailmerge/AdoptedNoReturn
 #: Surname
 msgid "Surname"
-msgstr ""
+msgstr "Фамилия"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
@@ -4481,7 +4494,7 @@ msgstr ""
 #. # mailmerge/OwnerMailMerge
 #: Address
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -4494,7 +4507,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Town
 msgid "Town"
-msgstr ""
+msgstr "Город"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -4507,7 +4520,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: County
 msgid "County"
-msgstr ""
+msgstr "Округ"
 
 #. # mailmerge/MailMerge
 #: error_occurred_sending_mail_to
@@ -4534,12 +4547,12 @@ msgstr ""
 #. # mailmerge/ExpiringMembers
 #: ExpiringMembers.csv
 msgid "ExpiringMembers.csv"
-msgstr ""
+msgstr "ExpiringMembers.csv"
 
 #. # mailmerge/Members
 #: Members.csv
 msgid "Members.csv"
-msgstr ""
+msgstr "Members.csv"
 
 #. # ui/criteria/DiaryCriteria
 #: Show_everything_upto_this_date\:
@@ -4636,7 +4649,7 @@ msgstr ""
 #: Cancel
 #: cancel
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #. # ui/criteria/DateFromTo
 #: Date_From\:
@@ -4661,7 +4674,7 @@ msgstr ""
 #. # reports/WaitingList
 #: Animal_Species
 msgid "Animal Species"
-msgstr ""
+msgstr "Вид животного"
 
 #. # reports/WaitingList
 #. # ui/system/Options
@@ -4671,7 +4684,7 @@ msgstr ""
 #. # bo/AnimalWaitingList
 #: Urgency
 msgid "Urgency"
-msgstr ""
+msgstr "Срочность"
 
 #. # reports/WaitingList
 #. # ui/waitinglist/WaitingListView
@@ -4684,7 +4697,7 @@ msgstr ""
 #. # db/AutoDBUpdates
 #: Telephone
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 #. # reports/WaitingList
 #: Waiting_List_generated_on_
@@ -4717,7 +4730,7 @@ msgstr ""
 #. # ui/diary/VetBookView
 #: Location
 msgid "Location"
-msgstr ""
+msgstr "Местонахождение"
 
 #. # reports/Vets
 #: Vet_Diary_upto_
@@ -4737,7 +4750,7 @@ msgstr ""
 #. # bo/AnimalCost
 #: Description
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #. # reports/Vets
 #: Vet_Diary_Criteria
@@ -4747,7 +4760,7 @@ msgstr ""
 #. # reports/VaccinationDiary
 #: (Off_Shelter)
 msgid "(Off Shelter)"
-msgstr ""
+msgstr "(не в приюте)"
 
 #. # reports/VaccinationDiary
 #: Vaccination_Diary_for
@@ -4767,12 +4780,12 @@ msgstr ""
 #. # reports/VaccinationDiary
 #: (All_Animals)
 msgid "(All Animals)"
-msgstr ""
+msgstr "(все животные)"
 
 #. # reports/VaccinationDiary
 #: (On_Shelter)
 msgid "(On Shelter)"
-msgstr ""
+msgstr "(в приюте)"
 
 #. # reports/VaccinationDiary
 #. # ui/animal/VaccinationView
@@ -4829,22 +4842,22 @@ msgstr ""
 #. # reports/UnCombiTestedCats
 #: 9_weeks
 msgid "9 weeks"
-msgstr ""
+msgstr "9 недель"
 
 #. # reports/UnCombiTestedCats
 #: 12_weeks
 msgid "12 weeks"
-msgstr ""
+msgstr "12 недель"
 
 #. # reports/UnCombiTestedCats
 #: 52_weeks
 msgid "52 weeks"
-msgstr ""
+msgstr "52 недели"
 
 #. # reports/UnCombiTestedCats
 #: 15_weeks
 msgid "15 weeks"
-msgstr ""
+msgstr "15 недель"
 
 #. # reports/UnCombiTestedCats
 #: Include_cats_aged_how_many_weeks_and_above?
@@ -4854,28 +4867,28 @@ msgstr ""
 #. # reports/UnCombiTestedCats
 #: 10_weeks
 msgid "10 weeks"
-msgstr ""
+msgstr "10 недель"
 
 #. # reports/UnCombiTestedCats
 #: 4_weeks
 msgid "4 weeks"
-msgstr ""
+msgstr "4 недели"
 
 #. # reports/UnCombiTestedCats
 #: 8_weeks
 msgid "8 weeks"
-msgstr ""
+msgstr "8 недель"
 
 #. # reports/UnCombiTestedCats
 #. # ui/internet/InternetPublisher
 #: 1_week
 msgid "1 week"
-msgstr ""
+msgstr "1 неделя"
 
 #. # reports/UnCombiTestedCats
 #: 16_weeks
 msgid "16 weeks"
-msgstr ""
+msgstr "16 недель"
 
 #. # reports/UnCombiTestedCats
 #: No_cats_matching_your_criteria_were_found_on_the_shelter.
@@ -4885,12 +4898,12 @@ msgstr ""
 #. # reports/UnCombiTestedCats
 #: 2_weeks
 msgid "2 weeks"
-msgstr ""
+msgstr "2 недели"
 
 #. # reports/UnCombiTestedCats
 #: 13_weeks
 msgid "13 weeks"
-msgstr ""
+msgstr "13 недель"
 
 #. # reports/UnCombiTestedCats
 #: Cats_not_combi-tested_on_the_shelter_aged_
@@ -4900,42 +4913,44 @@ msgstr ""
 #. # reports/UnCombiTestedCats
 #: 7_weeks
 msgid "7 weeks"
-msgstr ""
+msgstr "7 недель"
 
 #. # reports/UnCombiTestedCats
 #: 14_weeks
 msgid "14 weeks"
-msgstr ""
+msgstr "14 недель"
 
 #. # reports/UnCombiTestedCats
 #: 26_weeks
 msgid "26 weeks"
-msgstr ""
+msgstr "26 недель"
 
 #. # reports/UnCombiTestedCats
 #: 11_weeks
 msgid "11 weeks"
-msgstr ""
+msgstr "11 недель"
 
 #. # reports/UnCombiTestedCats
 #: 3_weeks
 msgid "3 weeks"
-msgstr ""
+msgstr "3 недель"
 
 #. # reports/UnCombiTestedCats
 #: 5_weeks
 msgid "5 weeks"
-msgstr ""
+msgstr "5 недель"
 
 #. # reports/UnCombiTestedCats
 #: 6_weeks
 msgid "6 weeks"
-msgstr ""
+msgstr "5 недель"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
-msgstr ""
+msgstr "Всего: {0}"
 
 #. # reports/TransferIn
 #: Animals_Transferred_In_between_
@@ -4961,14 +4976,14 @@ msgstr ""
 #. # reports/AnimalFigures
 #: Total
 msgid "Total "
-msgstr ""
+msgstr "Всего "
 
 #. # reports/Stats
 #. # reports/WaitingList
 #. # ui/waitinglist/WaitingListView
 #: Rank
 msgid "Rank"
-msgstr ""
+msgstr "Категория"
 
 #. # reports/Stats
 #: Deceased_Reasons
@@ -4979,7 +4994,7 @@ msgstr ""
 #. # reports/InOut
 #: Reason
 msgid "Reason"
-msgstr ""
+msgstr "Основание"
 
 #. # reports/Stats
 #: Most_Common_Animal_Names
@@ -5043,7 +5058,7 @@ msgstr ""
 #. # reports/ShelterInventory
 #: Total_
 msgid "Total {0}: {1}"
-msgstr ""
+msgstr "Всего {0}: {1}"
 
 #. # reports/ShelterInventory
 #: Animal_Breakdown_by_Location_and_Species
@@ -5108,7 +5123,7 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalFind
 #: Features
 msgid "Features"
-msgstr ""
+msgstr "Особенности"
 
 #. # reports/NoMediaAttached
 #. # reports/UnderSixNotLitter
@@ -5120,7 +5135,7 @@ msgstr ""
 #. # reports/UnneuteredSixMonths
 #: Internal_Location
 msgid "Internal Location"
-msgstr ""
+msgstr "Внутреннее местоположение"
 
 #. # reports/InOut
 #. # reports/SearchResults
@@ -5151,7 +5166,7 @@ msgstr ""
 #. # bo/Animal
 #: Size
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #. # reports/ReturnedAnimals
 #: No_animals_have_entered_the_shelter_and_been_returned_in_this_period.
@@ -5161,7 +5176,7 @@ msgstr ""
 #. # reports/ReturnedAnimals
 #: Length
 msgid "Length"
-msgstr ""
+msgstr "Длительность"
 
 #. # reports/ReturnedAnimals
 #: Reason_For_Return
@@ -5978,6 +5993,8 @@ msgstr ""
 msgid "Animal Type"
 msgstr ""
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/CustomReportExecute
 #. # ui/owner/OwnerEdit
 #: criteria
@@ -6630,7 +6647,6 @@ msgid "Mother:"
 msgstr ""
 
 #. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -8261,6 +8277,12 @@ msgstr ""
 #. # ui/animal/CostSelector
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
+msgstr ""
+
+#. # ui/animal/LitterView
+#. # ui/animal/LitterEdit
+#: Number_in_litter
+msgid "Number in litter:"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -10676,6 +10698,7 @@ msgstr ""
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/DonationEdit
+#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #: Frequency
@@ -12100,6 +12123,16 @@ msgstr ""
 msgid "Mark this donation as received"
 msgstr ""
 
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_your_owner_record
+msgid "You are not allowed to view your owner record."
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_staff_records
+msgid "You are not allowed to view staff records."
+msgstr ""
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -13251,6 +13284,11 @@ msgstr ""
 msgid "Separate waiting list rank by species"
 msgstr ""
 
+#. # ui/system/Options
+#: once_assigned_codes_cannot_be_changed
+msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -13868,6 +13906,16 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Animal_Cost
 msgid "View Animal Cost"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Owner_Record
+msgid "Owner Record:"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Staff_Owner_Records
+msgid "View Staff Owner Records"
 msgstr ""
 
 #. # ui/ui/HTMLViewer

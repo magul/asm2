@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-03-24 09:59+0100\n"
-"PO-Revision-Date: 2010-03-24 10:57+0000\n"
+"POT-Creation-Date: 2010-04-13 14:17+0100\n"
+"PO-Revision-Date: 2010-04-15 23:18+0000\n"
 "Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-25 05:02+0000\n"
+"X-Launchpad-Export-Date: 2010-04-17 04:27+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/AnimalFound
@@ -10793,6 +10793,7 @@ msgstr "Name der Behandlung"
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/DonationEdit
+#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #: Frequency
@@ -12247,6 +12248,21 @@ msgstr "Registrierter Spender"
 msgid "Gift Aid"
 msgstr "Beihilfe"
 
+#. # ui/owner/DonationSelector
+#: mark_this_donation_received
+msgid "Mark this donation as received"
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_your_owner_record
+msgid "You are not allowed to view your owner record."
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_staff_records
+msgid "You are not allowed to view staff records."
+msgstr ""
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -13442,6 +13458,16 @@ msgstr ""
 msgid "Boarding Cost Type:"
 msgstr "Aufenthaltskosten Typ:"
 
+#. # ui/system/Options
+#: separate_the_ranks_by_species
+msgid "Separate waiting list rank by species"
+msgstr ""
+
+#. # ui/system/Options
+#: once_assigned_codes_cannot_be_changed
+msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -14059,6 +14085,16 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Animal_Cost
 msgid "View Animal Cost"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Owner_Record
+msgid "Owner Record:"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Staff_Owner_Records
+msgid "View Staff Owner Records"
 msgstr ""
 
 #. # ui/ui/HTMLViewer

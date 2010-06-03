@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-30 11:48+0100\n"
-"PO-Revision-Date: 2010-04-01 16:45+0000\n"
+"POT-Creation-Date: 2010-04-13 14:17+0100\n"
+"PO-Revision-Date: 2010-04-15 23:13+0000\n"
 "Last-Translator: Benedictus Lambrechts <lambrechts.benedictus@gmail.com>\n"
 "Language-Team: Benedictus\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-02 03:47+0000\n"
+"X-Launchpad-Export-Date: 2010-04-17 04:27+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: nl\n"
 
@@ -10804,6 +10804,7 @@ msgstr "Behandelingsnaam"
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/DonationEdit
+#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #: Frequency
@@ -12250,6 +12251,16 @@ msgstr "Hulpgift"
 msgid "Mark this donation as received"
 msgstr "Duidt deze gift aan als ontvangen"
 
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_your_owner_record
+msgid "You are not allowed to view your owner record."
+msgstr ""
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_staff_records
+msgid "You are not allowed to view staff records."
+msgstr ""
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -13450,6 +13461,11 @@ msgstr "Verblijfskosttype:"
 msgid "Separate waiting list rank by species"
 msgstr "Scheid wachtlijstrang per soort"
 
+#. # ui/system/Options
+#: once_assigned_codes_cannot_be_changed
+msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -14068,6 +14084,16 @@ msgstr "Verwijder dierkost"
 #: View_Animal_Cost
 msgid "View Animal Cost"
 msgstr "Bekijk dierkost"
+
+#. # ui/users/UserEdit
+#: Owner_Record
+msgid "Owner Record:"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Staff_Owner_Records
+msgid "View Staff Owner Records"
+msgstr ""
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
