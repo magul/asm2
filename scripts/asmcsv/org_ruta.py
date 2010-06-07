@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# Import script for Ruta Kudelyte, owners list
+# March 30, 2010
+
 import asm
 import codecs
 

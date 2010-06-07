@@ -58,6 +58,10 @@ def getid(table = "animal"):
         ids[table] = nextid + 1
         return nextid
 
+def setid(table, nextid):
+    global ids
+    ids[table] = nextid
+
 class AnimalType:
     ID = 0
     Name = ""

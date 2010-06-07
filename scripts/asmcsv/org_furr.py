@@ -2,6 +2,8 @@
 
 import asm, csv, sys, datetime
 
+# Import script for FuRR, October 15, 2009
+
 # Collection of converted owner, animal and movement objects so far
 owners = []
 animals = []
