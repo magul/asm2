@@ -209,6 +209,7 @@ class Animal:
     AnimalTypeID = 1
     AnimalName = ""
     NonShelterAnimal = 0
+    CrueltyCase = 0
     BaseColourID = 0
     SpeciesID = 1
     BreedID = 1
@@ -223,6 +224,7 @@ class Animal:
     YearCodeID = 0
     AcceptanceNumber = ""
     DateOfBirth = today()
+    EstimatedDOB = 0
     DeceasedDate = None
     Sex = 0
     Identichipped = 0
@@ -244,11 +246,11 @@ class Animal:
     HiddenAnimalDetails = ""
     AnimalComments = ""
     OwnersVetID = 0
+    CurrentVetID = 0
     OriginalOwnerID = 0
     BroughtInByOwnerID = 0
     ReasonForEntry = ""
     ReasonNO = ""
-    AmountDonatedOnEntry = 0.0
     DateBroughtIn = today()
     EntryReasonID = 1
     HealthProblems = ""
@@ -302,6 +304,7 @@ class Animal:
             ( "AnimalTypeID", di(self.AnimalTypeID) ),
             ( "AnimalName", ds(self.AnimalName) ),
             ( "NonShelterAnimal", di(self.NonShelterAnimal) ),
+            ( "CrueltyCase", di(self.CrueltyCase) ),
             ( "BaseColourID", di(self.BaseColourID) ),
             ( "SpeciesID", di(self.SpeciesID) ),
             ( "BreedID", di(self.BreedID) ),
@@ -316,6 +319,7 @@ class Animal:
             ( "YearCodeID", di(self.YearCodeID) ),
             ( "AcceptanceNumber", ds(self.AcceptanceNumber) ),
             ( "DateOfBirth", dd(self.DateOfBirth) ),
+            ( "EstimatedDOB", di(self.EstimatedDOB) ),
             ( "DeceasedDate", dd(self.DeceasedDate) ),
             ( "Sex", di(self.Sex) ),
             ( "Identichipped", di(self.Identichipped) ),
@@ -337,11 +341,11 @@ class Animal:
             ( "HiddenAnimalDetails", ds(self.HiddenAnimalDetails) ),
             ( "AnimalComments", ds(self.AnimalComments) ),
             ( "OwnersVetID", di(self.OwnersVetID) ),
+            ( "CurrentVetID", di(self.CurrentVetID) ),
             ( "OriginalOwnerID", di(self.OriginalOwnerID) ),
             ( "BroughtInByOwnerID", di(self.BroughtInByOwnerID) ),
             ( "ReasonForEntry", ds(self.ReasonForEntry) ),
             ( "ReasonNO", ds(self.ReasonNO) ),
-            ( "AmountDonatedOnEntry", df(self.AmountDonatedOnEntry) ),
             ( "DateBroughtIn", dd(self.DateBroughtIn) ),
             ( "EntryReasonID", di(self.EntryReasonID) ),
             ( "HealthProblems", ds(self.HealthProblems) ),

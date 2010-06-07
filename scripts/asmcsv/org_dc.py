@@ -138,9 +138,9 @@ def getcolour(s):
 
 # For use with fields that just contain the sex
 def getsexmf(s):
-    if s.find("M"):
+    if s.find("M") != -1:
         return 1
-    elif s.find("F"):
+    elif s.find("F") != -1:
         return 0
     else:
         return 2
@@ -185,9 +185,6 @@ def tocurrency(s):
 
 # --- START OF CONVERSION ---
 
-# Clear anything from previous runs
-print "DELETE FROM animal;"
-
 # Create a single owner for all movements
 o = asm.Owner()
 o.OwnerName = "Owner"
@@ -196,6 +193,10 @@ print o
 # Starting IDs
 asm.setid("animal", 1000)
 asm.setid("adoption", 1000)
+
+# List of codes we've seen to animals so far - if we already
+# have an animal we can add movements to it
+codes = {}
 
 # Readable references to CSV columns in the file
 CODE = 0
@@ -218,30 +219,39 @@ for row in reader:
     # Not enough data for row
     if row[1].strip() == "": break
 
-    # New animal record 
-    a = asm.Animal()
-    a.ShelterCode = row[CODE]
-    a.ShortCode = row[CODE][2:]
-    a.AnimalName = row[NAME]
-    a.Sex = getsexmf(row[SEX])
-    a.Markings = row[DESCRIPTION]
-    a.SpeciesID = getspecies(row[SPECIES])
-    a.AnimalTypeID = gettype(row[SPECIES])
-    a.BaseColourID = getcolour(row[DESCRIPTION])
-    a.ShelterLocation = 1
-    a.Breed = getbreed(row[DESCRIPTION])
-    a.BreedName = getbreedname(a.Breed)
-    if row[DATEOFBIRTH].strip() != "": a.DateOfBirth = getdate(row[DATEOFBIRTH])
-    if row[DATEIN].strip() != "": a.DateBroughtIn = getdate(row[DATEIN])
-    if row[DIED].strip() != "": a.DeceasedDate = getdate(row[DIED])
-    print a
+    # New animal record if we haven't seen this code before
+    code = row[CODE].strip()
+    aid = 0
+    if not codes.has_key(code):
+        a = asm.Animal()
+        aid = a.ID
+        codes[code] = aid
+        a.ShelterCode = row[CODE]
+        a.ShortCode = row[CODE][2:]
+        a.AnimalName = row[NAME]
+        a.Sex = getsexmf(row[SEX])
+        a.Size = 2
+        a.Markings = row[DESCRIPTION]
+        a.SpeciesID = getspecies(row[SPECIES])
+        a.AnimalTypeID = gettype(row[SPECIES])
+        a.BaseColourID = getcolour(row[DESCRIPTION])
+        a.ShelterLocation = 1
+        a.BreedID = getbreed(row[DESCRIPTION])
+        a.Breed2ID = getbreed(row[DESCRIPTION])
+        a.BreedName = getbreedname(a.BreedID)
+        if row[DATEOFBIRTH].strip() != "": a.DateOfBirth = getdate(row[DATEOFBIRTH])
+        if row[DATEIN].strip() != "": a.DateBroughtIn = getdate(row[DATEIN])
+        if row[DIED].strip() != "": a.DeceasedDate = getdate(row[DIED])
+        print a
+    else:
+        aid = codes[code]
 
     # Movements
 
     if row[ADOPTED].strip() != "":
         am = asm.Movement()
         am.OwnerID = o.ID
-        am.AnimalID = a.ID
+        am.AnimalID = aid
         am.MovementDate = getdate(row[ADOPTED])
         am.MovementType = 1
         if row[RETURNEDTO].strip() != "":
@@ -251,7 +261,7 @@ for row in reader:
     elif row[TRANSFERRED].strip() != "":
         am = asm.Movement()
         am.OwnerID = o.ID
-        am.AnimalID = a.ID
+        am.AnimalID = aid
         am.MovementDate = getdate(row[TRANSFERRED])
         am.MovementType = 3
         if row[RETURNEDTO].strip() != "":
@@ -261,7 +271,7 @@ for row in reader:
     elif row[RECLAIMED].strip() != "":
         am = asm.Movement()
         am.OwnerID = o.ID
-        am.AnimalID = a.ID
+        am.AnimalID = aid
         am.MovementDate = getdate(row[RECLAIMED])
         am.MovementType = 5
         if row[RETURNEDTO].strip() != "":
@@ -271,7 +281,7 @@ for row in reader:
     elif row[ESCAPED].strip() != "":
         am = asm.Movement()
         am.OwnerID = o.ID
-        am.AnimalID = a.ID
+        am.AnimalID = aid
         am.MovementDate = getdate(row[ESCAPED])
         am.MovementType = 4
         if row[RETURNEDTO].strip() != "":
