@@ -232,6 +232,7 @@ for row in reader:
         a.Sex = getsexmf(row[SEX])
         a.Size = 2
         a.Markings = row[DESCRIPTION]
+        a.Neutered = 1
         a.SpeciesID = getspecies(row[SPECIES])
         a.AnimalTypeID = gettype(row[SPECIES])
         a.BaseColourID = getcolour(row[DESCRIPTION])
