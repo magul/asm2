@@ -185,14 +185,16 @@ def tocurrency(s):
 
 # --- START OF CONVERSION ---
 
+# Starting IDs
+asm.setid("animal", 128)
+asm.setid("adoption", 36)
+asm.setid("owner", 11)
+
 # Create a single owner for all movements
 o = asm.Owner()
 o.OwnerName = "Owner"
 print o
 
-# Starting IDs
-asm.setid("animal", 1000)
-asm.setid("adoption", 1000)
 
 # List of codes we've seen to animals so far - if we already
 # have an animal we can add movements to it

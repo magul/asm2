@@ -38,6 +38,7 @@
 		       debug="on"
 		       source="1.4"
 		       target="1.4"
+                       includeAntRuntime="false"
 		       verbose="off">
 		       <classpath>
                                <path location="lib/hsqldb.jar"/>
