@@ -278,14 +278,17 @@ public class InternetPublisher extends ASMForm {
         // Order option (only valid for html)
         if (mode == MODE_HTML) {
             l.add(new SelectableItem(i18n("Order"), null, false, true));
-            l.add(new SelectableItem(i18n("Most_recent_ascending"), "ordmrasc", true, false, "ord"));
-            l.add(new SelectableItem(i18n("Most_recent_descending"), "ordmrdesc", false, false, "ord"));
+            l.add(new SelectableItem(i18n("Most_recent_ascending"), "ordmrasc",
+                    true, false, "ord"));
+            l.add(new SelectableItem(i18n("Most_recent_descending"),
+                    "ordmrdesc", false, false, "ord"));
         }
 
         // Limit option (only valid for html)
         if (mode == MODE_HTML) {
             l.add(new SelectableItem(i18n("Limit"), null, false, true));
-            l.add(new SelectableItem(i18n("None"), "limit0", true, false, "limit"));
+            l.add(new SelectableItem(i18n("None"), "limit0", true, false,
+                    "limit"));
             l.add(new SelectableItem("3", "limit3", false, false, "limit"));
             l.add(new SelectableItem("5", "limit5", false, false, "limit"));
             l.add(new SelectableItem("10", "limit10", false, false, "limit"));
@@ -427,10 +430,11 @@ public class InternetPublisher extends ASMForm {
             // Order
             if (s[i].getValue().toString().startsWith("ord")) {
                 if (s[i].isSelected()) {
-                    if (s[i].getValue().toString().indexOf("mrasc") != -1)
+                    if (s[i].getValue().toString().indexOf("mrasc") != -1) {
                         pc.order = 1;
-                    else
+                    } else {
                         pc.order = 2;
+                    }
                 }
             }
 

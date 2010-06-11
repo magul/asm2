@@ -39,7 +39,8 @@ public class PublishCriteria {
     public boolean uploadAllImages = false;
     public boolean forceReupload = false;
     public boolean generateJavascriptDB = false;
-    /** How to order animal data - 
+
+    /** How to order animal data -
         1 = Ascending order of entry to shelter
         2 = Descending order of entry to shelter
     */

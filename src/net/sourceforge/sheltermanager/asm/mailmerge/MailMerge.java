@@ -98,6 +98,7 @@ public class MailMerge extends Thread implements EmailFormListener {
                 // Verify we are set up
                 if (!Email.isSetup()) {
                     theData = null;
+
                     return;
                 }
 
@@ -107,6 +108,7 @@ public class MailMerge extends Thread implements EmailFormListener {
                         "MailMerge.run");
                     Dialog.showError(
                         "Internal error - no email column in data.");
+
                     return;
                 }
 
@@ -198,14 +200,14 @@ public class MailMerge extends Thread implements EmailFormListener {
         File file = null;
 
         try {
-
             // The default name for the file
-            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
-                getFileName();
+            String defaultFile = Utils.getDefaultDocumentPath() +
+                File.separator + getFileName();
 
             // Prompt user for where they'd like to save it to
             UI.FileChooser fc = UI.getFileChooser();
             fc.setSelectedFile(new File(defaultFile));
+
             int result = fc.showSaveDialog(Global.mainForm);
 
             // Cancel if they cancelled
@@ -218,6 +220,7 @@ public class MailMerge extends Thread implements EmailFormListener {
 
             // Create file handle and output stream
             file = new File(path);
+
             FileOutputStream out = new FileOutputStream(file);
 
             // Now output the data ------------
@@ -264,7 +267,8 @@ public class MailMerge extends Thread implements EmailFormListener {
     private void checkMailMergeDirectory() {
         // Make sure we have a mailmerge directory
         // in the temp folder
-        File file = new File(Global.tempDirectory + File.separator + "mailmerge");
+        File file = new File(Global.tempDirectory + File.separator +
+                "mailmerge");
 
         if (file.exists()) {
         } else {

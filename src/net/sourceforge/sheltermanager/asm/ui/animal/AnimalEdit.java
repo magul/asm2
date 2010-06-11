@@ -2177,8 +2177,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             ? i18n("the_litter_identifier_if_this_animal_is_part_of_a_litter")
             : i18n("The_animal_acceptance_number_from_head_office");
 
-        txtAcceptanceNumber = UI.getTextField(littertooltip, UI.fp(this, "litterIDChanged"));
+        txtAcceptanceNumber = UI.getTextField(littertooltip,
+                UI.fp(this, "litterIDChanged"));
         txtAcceptanceNumber.setForeground(UI.getColor(0, 204, 51));
+
         if (!Configuration.getBoolean("DontShowLitterID")) {
             UI.addComponent(pnlLeftFields, littertext, txtAcceptanceNumber);
         }
@@ -2303,14 +2305,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Row 1
         chkIdentichipped = UI.getCheckBox(i18n("Identichipped:"),
-                    i18n("the_date_the_animal_was_identichipped"),
-                    UI.fp(this, "dataChanged"));
+                i18n("the_date_the_animal_was_identichipped"),
+                UI.fp(this, "dataChanged"));
 
         txtIdentichipDate = UI.getDateField(i18n("the_date_the_animal_was_identichipped"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         txtIdentichipNo = UI.getTextField(i18n("The_Identichip_Number"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowMicrochip")) {
             UI.addComponent(pnlRightTop, chkIdentichipped);
@@ -2319,26 +2321,27 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         // Row 2
-        chkTattoo = UI.getCheckBox(i18n("Tattoo:"), null, UI.fp(this, "dataChanged"));
+        chkTattoo = UI.getCheckBox(i18n("Tattoo:"), null,
+                UI.fp(this, "dataChanged"));
 
         txtTattooDate = UI.getDateField(i18n("the_date_the_animal_had_the_tattoo"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         txtTattooNumber = UI.getTextField(i18n("The_Tattoo_Number"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowTattoo")) {
             UI.addComponent(pnlRightTop, chkTattoo);
             pnlRightTop.add(txtTattooDate);
             pnlRightTop.add(txtTattooNumber);
-        }       
+        }
 
         // Row 3
         chkNeutered = UI.getCheckBox(i18n("Neutered:"), null,
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         txtNeutered = UI.getDateField(i18n("The_date_the_animal_was_neutered_if_known"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowNeutered")) {
             UI.addComponent(pnlRightTop, chkNeutered);
@@ -2346,8 +2349,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         chkDeclawed = UI.getCheckBox(i18n("Declawed"),
-                    i18n("tick_this_box_if_the_animal_has_been_declawed"),
-                    UI.fp(this, "dataChanged"));
+                i18n("tick_this_box_if_the_animal_has_been_declawed"),
+                UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowDeclawed")) {
             UI.addComponent(pnlRightTop, chkDeclawed);
@@ -2356,22 +2359,24 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // We need to add some padding now if neutered or declawed is disabled - 
         // neutered ON, declawed OFF = 1 space
         // neutered OFF, declawed ON = 2 spaces
-        if (Configuration.getBoolean("DontShowDeclawed") && !Configuration.getBoolean("DontShowNeutered")) {
+        if (Configuration.getBoolean("DontShowDeclawed") &&
+                !Configuration.getBoolean("DontShowNeutered")) {
             pnlRightTop.add(UI.getLabel());
-        }
-        else if (!Configuration.getBoolean("DontShowDeclawed") && Configuration.getBoolean("DontShowNeutered")) {
+        } else if (!Configuration.getBoolean("DontShowDeclawed") &&
+                Configuration.getBoolean("DontShowNeutered")) {
             pnlRightTop.add(UI.getLabel());
             pnlRightTop.add(UI.getLabel());
         }
 
         // Row 4
         chkHeartwormTested = UI.getCheckBox(i18n("Heartworm_Tested:"), null,
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         txtHeartwormTestDate = UI.getDateField(i18n("the_date_the_animal_was_last_heartworm_tested"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
-        cboHeartwormTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
+        cboHeartwormTestResult = UI.getCombo(testresults,
+                UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowHeartworm")) {
             UI.addComponent(pnlRightTop, chkHeartwormTested);
@@ -2381,17 +2386,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Row 5
         chkCombiTested = UI.getCheckBox(i18n("Combi-Tested:"), null,
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         txtCombiTested = UI.getDateField(i18n("The_date_the_animal_was_combi-tested_if_known"),
-                    UI.fp(this, "dataChanged"));
+                UI.fp(this, "dataChanged"));
 
         cboCombiTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
 
         cboFLVTestResult = UI.getCombo(testresults, UI.fp(this, "dataChanged"));
 
         if (!Configuration.getBoolean("DontShowCombi")) {
-
             UI.addComponent(pnlRightTop, chkCombiTested);
             pnlRightTop.add(txtCombiTested);
 
@@ -3094,7 +3098,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 DBConnection.executeAction(s);
 
                 // Remove the DBFS directory for the animal
-                DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL, animal.getID().intValue());
+                DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
+                        animal.getID().intValue());
                 dbfs.chdir("..");
                 dbfs.deleteDir(animal.getID().toString());
 

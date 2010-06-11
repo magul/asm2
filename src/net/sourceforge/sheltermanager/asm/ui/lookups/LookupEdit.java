@@ -170,8 +170,9 @@ public class LookupEdit extends ASMForm {
 
     public boolean saveData() {
         if (txtName.getText().equals("")) {
-            Dialog.showError(i18n("cannot_be_empty", nameDisplay), 
+            Dialog.showError(i18n("cannot_be_empty", nameDisplay),
                 i18n("Validation_Error"));
+
             return false;
         }
 

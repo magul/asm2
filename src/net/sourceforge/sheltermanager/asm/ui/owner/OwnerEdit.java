@@ -877,10 +877,18 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 txtNameInitials.getText(), txtNameForenames.getText(),
                 txtNameSurname.getText());
             owner.setOwnerAddress(txtAddress.getText());
+
             Object town = cboTown.getSelectedItem();
             Object county = cboCounty.getSelectedItem();
-            if (town != null) owner.setOwnerTown(town.toString());
-            if (county != null) owner.setOwnerCounty(county.toString());
+
+            if (town != null) {
+                owner.setOwnerTown(town.toString());
+            }
+
+            if (county != null) {
+                owner.setOwnerCounty(county.toString());
+            }
+
             owner.setOwnerPostcode(txtPostcode.getText());
 
             try {

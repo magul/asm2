@@ -757,7 +757,8 @@ public abstract class IconManager {
     public static ImageIcon getThumbnail(String path, int width, int height) {
         Image inImage = new ImageIcon(path).getImage();
         Image outImage = UI.scaleImage(inImage, width, height);
-	inImage.flush();
+        inImage.flush();
+
         return new ImageIcon(outImage);
     }
 

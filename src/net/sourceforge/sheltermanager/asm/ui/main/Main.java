@@ -1398,10 +1398,10 @@ public class Main extends ASMWindow {
         mnuSystem.add(mnuSystemExportCustomReports);
         mnuSystem.add(UI.getSeparator());
 
-	// Debug mode only - run database update script
+        // Debug mode only - run database update script
         if (Global.showDebug) {
             mnuSystemDatabaseTools.add(mnuSystemDBUpdate);
-	}
+        }
 
         mnuSystemDatabaseTools.add(mnuSystemDBDiagnostic);
         mnuSystemDatabaseTools.add(mnuSystemDBArchive);

@@ -140,12 +140,11 @@ public class MedicalTreatmentSelector extends ASMSelector {
         if (animalID != 0) {
             amt.openRecordset("AnimalID = " + animalID);
         } else {
-            
-	    // Show all active entries
+            // Show all active entries
             AnimalMedical am = new AnimalMedical();
             am.openRecordset("Status = " + AnimalMedical.STATUS_ACTIVE +
-            " AND EXISTS(SELECT Archived FROM animal WHERE " +
-	    "ID = animalmedical.AnimalID AND Archived = 0)");
+                " AND EXISTS(SELECT Archived FROM animal WHERE " +
+                "ID = animalmedical.AnimalID AND Archived = 0)");
 
             // Build a list of IDs
             StringBuffer idList = new StringBuffer();

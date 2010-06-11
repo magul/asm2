@@ -254,12 +254,13 @@ public class CustomReportExport extends ASMView {
             cr.openRecordset("ID = " + id);
 
             // The default name for the file
-            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
-                cr.getTitle().replace(' ', '_') + ".csv";
+            String defaultFile = Utils.getDefaultDocumentPath() +
+                File.separator + cr.getTitle().replace(' ', '_') + ".csv";
 
             // Prompt user for where they'd like to save it to
             UI.FileChooser fc = UI.getFileChooser();
             fc.setSelectedFile(new File(defaultFile));
+
             int result = fc.showSaveDialog(Global.mainForm);
 
             // Cancel if they cancelled
@@ -301,12 +302,13 @@ public class CustomReportExport extends ASMView {
             cr.openRecordset("ID = " + id);
 
             // The default name for the file
-            String defaultFile = Utils.getDefaultDocumentPath() + File.separator +
-                cr.getTitle().replace(' ', '_') + ".csv";
+            String defaultFile = Utils.getDefaultDocumentPath() +
+                File.separator + cr.getTitle().replace(' ', '_') + ".csv";
 
             // Prompt user for where they'd like to save it to
             UI.FileChooser fc = UI.getFileChooser();
             fc.setSelectedFile(new File(defaultFile));
+
             int result = fc.showSaveDialog(Global.mainForm);
 
             // Cancel if they cancelled
@@ -320,7 +322,6 @@ public class CustomReportExport extends ASMView {
             // Make a file to put the CSV in and generate it
             File f = new File(filename);
             generateCSV(cr, f);
-
         } catch (Exception e) {
             Global.logException(e, getClass());
             Dialog.showError(e.getMessage());

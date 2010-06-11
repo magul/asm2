@@ -1033,7 +1033,6 @@ public class Options extends ASMForm {
                     Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
 
-
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Database_and_System"), null, false, true));
@@ -1087,12 +1086,11 @@ public class Options extends ASMForm {
                     Configuration.getBoolean("DontShowStartupPage"), false));
 
             // Remove unwanted fields
-            l.add(new SelectableItem(Global.i18n("uisystem", 
+            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Remove_unwanted_fields"), null, false, true));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
-                        "remove_town_and_county_fields"),
-                    "HideTownCounty",
+                        "remove_town_and_county_fields"), "HideTownCounty",
                     Configuration.getString("HideTownCounty")
                                  .equalsIgnoreCase("Yes"), false));
 
@@ -1140,12 +1138,6 @@ public class Options extends ASMForm {
                         "remove_litter_field"), "DontShowLitterID",
                     Configuration.getString("DontShowLitterID")
                                  .equalsIgnoreCase("Yes"), false));
-
-
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

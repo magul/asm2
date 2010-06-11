@@ -159,7 +159,7 @@ public class ChipCancellation extends MailMerge {
                 theData[row][15] = an.getSpeciesName();
                 theData[row][16] = an.getBreedName();
                 theData[row][17] = an.getSexName();
-                theData[row][18] = (an.getNeutered().intValue() == 0
+                theData[row][18] = ((an.getNeutered().intValue() == 0)
                     ? Global.i18n("mailmerge", "No")
                     : Global.i18n("mailmerge", "Yes"));
                 theData[row][19] = Utils.formatDateLong(an.getDateOfBirth());

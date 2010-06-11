@@ -171,6 +171,7 @@ public class ReportViewer extends ASMForm {
         ctl.add(edOutput);
         ctl.add(btnPrint);
         ctl.add(btnExternal);
+
         return ctl;
     }
 

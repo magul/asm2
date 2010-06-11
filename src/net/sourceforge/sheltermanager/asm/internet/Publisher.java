@@ -132,12 +132,15 @@ public class Publisher extends Thread {
             while (!an.getEOF()) {
                 if (checkAnimal(an)) {
                     noAnimals++;
-                    if (publishCriteria.limit > 0 && noAnimals > publishCriteria.limit) {
+
+                    if ((publishCriteria.limit > 0) &&
+                            (noAnimals > publishCriteria.limit)) {
                         break;
                     }
                 }
 
                 an.moveNext();
+
                 if (parent != null) {
                     Global.mainForm.incrementStatusBar();
                 }
@@ -146,11 +149,14 @@ public class Publisher extends Thread {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
+
             Global.logException(e, getClass());
+
             return;
         }
 
         totalAnimals = noAnimals;
+
         int animalsPerPage = publishCriteria.animalsPerPage;
 
         // Calculate the number of pages required
@@ -214,9 +220,12 @@ public class Publisher extends Thread {
                     anCount++;
 
                     // If a limit was set and we hit it, stop now
-                    if (publishCriteria.limit > 0 && anCount > publishCriteria.limit) {
-                        Global.logInfo("Hit publish limit of " + publishCriteria.limit + 
-                            ", stopping.", "Publisher.run");
+                    if ((publishCriteria.limit > 0) &&
+                            (anCount > publishCriteria.limit)) {
+                        Global.logInfo("Hit publish limit of " +
+                            publishCriteria.limit + ", stopping.",
+                            "Publisher.run");
+
                         break;
                     }
 
@@ -664,7 +673,8 @@ public class Publisher extends Thread {
         output = Utils.replace(output, "$$NAV$$", navThisPage);
 
         // $$TOTAL$$ tag
-        output = Utils.replace(output, "$$TOTAL$$", Integer.toString(totalAnimals));
+        output = Utils.replace(output, "$$TOTAL$$",
+                Integer.toString(totalAnimals));
 
         // $$DATE$$ tag //
         output = Utils.replace(output, "$$DATE$$", todaysdate);
@@ -817,16 +827,23 @@ public class Publisher extends Thread {
 
         // Ordering mode
         switch (publishCriteria.order) {
-            case 0:
-                sql.append(" ORDER BY MostRecentEntryDate");
-                break;
-            case 1:
-                sql.append(" ORDER BY MostRecentEntryDate DESC");
-                break;
-            default:
-                sql.append(" ORDER BY MostRecentEntryDate");
-                break;
-        };
+        case 0:
+            sql.append(" ORDER BY MostRecentEntryDate");
+
+            break;
+
+        case 1:
+            sql.append(" ORDER BY MostRecentEntryDate DESC");
+
+            break;
+
+        default:
+            sql.append(" ORDER BY MostRecentEntryDate");
+
+            break;
+        }
+
+        ;
 
         return sql.toString();
     }

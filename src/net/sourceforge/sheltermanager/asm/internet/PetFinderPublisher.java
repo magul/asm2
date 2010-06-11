@@ -420,7 +420,7 @@ public class PetFinderPublisher extends Thread {
                     comm = comm.replaceAll("\r", "<br/>");
                     // Escape double quotes
                     comm = comm.replaceAll("\"", "\"\"");
-                    /* 
+                    /*
                      * No longer necessary
                      * Use HTML entities for single/double quotes
                     comm = comm.replaceAll("\"", "&#34;");

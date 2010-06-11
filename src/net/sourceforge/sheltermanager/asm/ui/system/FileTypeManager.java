@@ -75,7 +75,7 @@ public class FileTypeManager {
             // Attempt to load it
             Properties p = new Properties();
             p.load(in);
-	    in.close();
+            in.close();
 
             // If it loaded ok the file is there, so everything
             // is fine.
@@ -676,7 +676,7 @@ public class FileTypeManager {
                     "filetypes.properties");
             FileOutputStream out = new FileOutputStream(f);
             types.store(out, null);
-	    out.close();
+            out.close();
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, FileTypeManager.class);

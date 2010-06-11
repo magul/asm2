@@ -682,9 +682,8 @@ public class AutoDBUpdates {
                         int entryReasonID = 0;
                         String fld = a.getReasonForEntry();
 
-                        if (a.getAnimalTypeID().intValue() ==
-                                 Configuration.getInteger(
-                                        "AFCaseAnimalType")) {
+                        if (a.getAnimalTypeID().intValue() == Configuration.getInteger(
+                                    "AFCaseAnimalType")) {
                             entryReasonID = 10;
                         } else if ((fld.indexOf("marriage") != -1) ||
                                 (fld.indexOf("relation") != -1)) {

@@ -258,6 +258,7 @@ public class MediaSelector extends ASMSelector {
 
                 if (media.getDocPhoto().intValue() == 1) {
                     foundDocPreferred = true;
+
                     break;
                 }
 

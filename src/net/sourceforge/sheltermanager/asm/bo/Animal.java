@@ -2010,17 +2010,16 @@ public class Animal extends UserInfoBO {
      * returned in years and months
      */
     public String getTimeOnShelter() throws CursorEngineException {
-        
-	// Get animal's most recent entry date
+        // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
 
-	// Stop counting at today
-	Calendar stopat = Calendar.getInstance();
+        // Stop counting at today
+        Calendar stopat = Calendar.getInstance();
 
         // If the animal is dead, stop counting at the date of death instead
-	if (getDeceasedDate() != null) {
-	    stopat.setTime(getDeceasedDate());
-	}
+        if (getDeceasedDate() != null) {
+            stopat.setTime(getDeceasedDate());
+        }
 
         // Work out what 16 weeks from stop point was
         Calendar sixteenweeks = (Calendar) stopat.clone();
@@ -2063,17 +2062,17 @@ public class Animal extends UserInfoBO {
      * Returns the animal's time on shelter in days
      */
     public int getDaysOnShelter() throws CursorEngineException {
-
         // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
 
         // Stop counting at today
-	Calendar stopat = Calendar.getInstance();
+        Calendar stopat = Calendar.getInstance();
 
         // If the animal is dead, stop counting at the date of death instead
-	if (getDeceasedDate() != null) {
-	    stopat.setTime(getDeceasedDate());
-	}
+        if (getDeceasedDate() != null) {
+            stopat.setTime(getDeceasedDate());
+        }
+
         long diff = Utils.getDateDiff(stopat, mre);
 
         // Diff is returned in minutes, so turn it into days
@@ -2092,12 +2091,12 @@ public class Animal extends UserInfoBO {
         Calendar adob = Utils.dateToCalendar(dateOfBirth);
 
         // Stop counting at today
-	Calendar stopat = Calendar.getInstance();
+        Calendar stopat = Calendar.getInstance();
 
         // If the animal is dead, stop counting at the date of death instead
-	if (deceasedDate != null) {
-	    stopat.setTime(deceasedDate);
-	}
+        if (deceasedDate != null) {
+            stopat.setTime(deceasedDate);
+        }
 
         // Work out what 16 weeks from stop point was
         Calendar sixteenweeks = (Calendar) stopat.clone();
@@ -2571,17 +2570,18 @@ public class Animal extends UserInfoBO {
      * Parses the year from a code with a YYYY or YY portion
      */
     public static int parseAnimalCodeYear(String code) {
-        
         String cf = Configuration.getString("CodingFormat");
         int year = 0;
 
         // 4 digit year
         int npos = cf.indexOf("YYYY");
-        if (npos != -1 && npos + 4 <= code.length()) {
+
+        if ((npos != -1) && ((npos + 4) <= code.length())) {
             try {
                 year = Integer.parseInt(code.substring(npos, npos + 4));
-                Global.logDebug("Parsed year " + year + " from code " + code, 
+                Global.logDebug("Parsed year " + year + " from code " + code,
                     "Animal.parseAnimalCodeYear");
+
                 return year;
             } catch (Exception e) {
                 Global.logError("Failed parsing YYYY portion of " + code,
@@ -2591,14 +2591,15 @@ public class Animal extends UserInfoBO {
 
         // 2 digit year
         npos = cf.indexOf("YY");
-        if (npos != -1 && npos + 2 <= code.length()) {
+
+        if ((npos != -1) && ((npos + 2) <= code.length())) {
             try {
                 year = Integer.parseInt(code.substring(npos, npos + 2));
                 // Use the pivot to modify the year
-                year += 100 * ( (year < Global.PIVOT_YEAR) ? 
-                    Integer.parseInt(Global.BELOW_PIVOT) : 
-                    Integer.parseInt(Global.AFTER_PIVOT));
-                Global.logDebug("Parsed year " + year + " from code " + code, 
+                year += (100 * ((year < Global.PIVOT_YEAR)
+                ? Integer.parseInt(Global.BELOW_PIVOT)
+                : Integer.parseInt(Global.AFTER_PIVOT)));
+                Global.logDebug("Parsed year " + year + " from code " + code,
                     "Animal.parseAnimalCodeYear");
             } catch (Exception e) {
                 Global.logError("Failed parsing YY portion of " + code,

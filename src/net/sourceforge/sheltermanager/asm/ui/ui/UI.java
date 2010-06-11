@@ -64,7 +64,7 @@ public final class UI {
     static {
         // Make sure AWT honours font rendering
         System.setProperty("awt.useSystemAAFontSettings", "on");
-	// Set our UI defaults
+        // Set our UI defaults
         swingSetLAF();
     }
 
@@ -72,91 +72,95 @@ public final class UI {
     }
 
     public static void swingSetLAF() {
-        
         // Override our platform specific behaviour with VM switches
-	final int REGULAR = 0;
-	String usefont = System.getProperty("asm.font", "");
-	String useskin = System.getProperty("asm.skin", "default");
+        final int REGULAR = 0;
+        String usefont = System.getProperty("asm.font", "");
+        String useskin = System.getProperty("asm.skin", "default");
 
-	if (!usefont.equals("")) {
+        if (!usefont.equals("")) {
             swingSetDefaultFontName(usefont, -1);
-	}
+        }
 
-	if (useskin.equals("metal")) swingSetMetalLAF();
-	if (useskin.equals("platform")) swingSetPlatformLAF();
-	if (useskin.equals("gtk")) swingSetGTKLAF();
+        if (useskin.equals("metal")) {
+            swingSetMetalLAF();
+        }
 
-	// If a value was overridden, we're done
-	if (!usefont.equals("") || !useskin.equals("default")) return;
+        if (useskin.equals("platform")) {
+            swingSetPlatformLAF();
+        }
 
-	// Windows
-	if (osIsWindows()) {
-	    swingSetMetalLAF();
-	}
+        if (useskin.equals("gtk")) {
+            swingSetGTKLAF();
+        }
 
-	// Mac OSX
-	if (osIsMacOSX()) {
-	    swingSetPlatformLAF();
-	}
+        // If a value was overridden, we're done
+        if (!usefont.equals("") || !useskin.equals("default")) {
+            return;
+        }
 
-	// Linux, Solaris and others
-	if (osIsLinux() || osIsSolaris()) {
-	   
-	    swingSetMetalLAF();
+        // Windows
+        if (osIsWindows()) {
+            swingSetMetalLAF();
+        }
 
-	    // Try a better font - Java default is hideous and everything
-	    // is in bold, which is nasty
-            if (swingIsFontAvailable("Bitstream Vera Sans"))
+        // Mac OSX
+        if (osIsMacOSX()) {
+            swingSetPlatformLAF();
+        }
+
+        // Linux, Solaris and others
+        if (osIsLinux() || osIsSolaris()) {
+            swingSetMetalLAF();
+
+            // Try a better font - Java default is hideous and everything
+            // is in bold, which is nasty
+            if (swingIsFontAvailable("Bitstream Vera Sans")) {
                 swingSetDefaultFontName("Bitstream Vera Sans", REGULAR);
-            else if (swingIsFontAvailable("DejaVu Sans"))
-                swingSetDefaultFontName("DejaVu Sans",  REGULAR);
-            else if (swingIsFontAvailable("Sans"))
-                swingSetDefaultFontName("Sans",  REGULAR);
-            else if (swingIsFontAvailable("Arial"))
+            } else if (swingIsFontAvailable("DejaVu Sans")) {
+                swingSetDefaultFontName("DejaVu Sans", REGULAR);
+            } else if (swingIsFontAvailable("Sans")) {
+                swingSetDefaultFontName("Sans", REGULAR);
+            } else if (swingIsFontAvailable("Arial")) {
                 swingSetDefaultFontName("Arial", REGULAR);
-	}
-
+            }
+        }
     }
 
     public static void swingSetMetalLAF() {
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-	catch (Exception e) {
-	    e.printStackTrace();
-	}
-
     }
 
     public static void swingSetPlatformLAF() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-	catch (Exception e) {
-	    e.printStackTrace();
-	}
-
     }
 
     public static void swingSetGTKLAF() {
         try {
             UIManager.setLookAndFeel(
                 "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-	catch (Exception e) {
-	    e.printStackTrace();
-	}
     }
 
     public static boolean swingIsFontAvailable(String fontname) {
         try {
-	    Font f = new Font(fontname, 12, 0);
-	    return f.getFontName().equals(fontname);
-	}
-	catch (Exception e) {
-	    e.printStackTrace();
-	}
-	return false;
+            Font f = new Font(fontname, 12, 0);
+
+            return f.getFontName().equals(fontname);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     /**
@@ -166,17 +170,19 @@ public final class UI {
      * @param style The font style to set - use a negative number to leave unchanged
      */
     public static void swingSetDefaultFontName(String fontname, int style) {
-	java.util.Enumeration keys = UIManager.getDefaults().keys();
-	while (keys.hasMoreElements()) {
-	    Object key = keys.nextElement();
-	    Object value = UIManager.get (key);
-	    if (value instanceof FontUIResource) {
-		FontUIResource f = 
-		    (FontUIResource) UIManager.get(key);
-		UIManager.put (key, new FontUIResource(
-		    fontname, style < 0 ? f.getStyle() : style, f.getSize()));
-	    }
-	}
+        java.util.Enumeration keys = UIManager.getDefaults().keys();
+
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+
+            if (value instanceof FontUIResource) {
+                FontUIResource f = (FontUIResource) UIManager.get(key);
+                UIManager.put(key,
+                    new FontUIResource(fontname,
+                        (style < 0) ? f.getStyle() : style, f.getSize()));
+            }
+        }
     }
 
     public static FunctionPointer fp(Object instance, String method) {
@@ -1658,10 +1664,10 @@ public final class UI {
     }
 
     public static boolean osIsSolaris() {
-        return Utils.englishLower(System.getProperty("os.name")).indexOf("solaris") != -1 ||
-               Utils.englishLower(System.getProperty("os.name")).indexOf("sunos") != -1;
+        return (Utils.englishLower(System.getProperty("os.name"))
+                     .indexOf("solaris") != -1) ||
+        (Utils.englishLower(System.getProperty("os.name")).indexOf("sunos") != -1);
     }
-
 
     public static boolean osIsWindows() {
         return Utils.englishLower(System.getProperty("os.name"))
@@ -1895,7 +1901,7 @@ public final class UI {
             Image inImage = UI.loadImage(inputfile);
             Image outImage = UI.scaleImage(inImage, width, height);
             UI.saveImageAsJpeg(outputfile, outImage);
-	    inImage.flush();
+            inImage.flush();
             inImage = null;
             outImage = null;
         } catch (Exception e) {

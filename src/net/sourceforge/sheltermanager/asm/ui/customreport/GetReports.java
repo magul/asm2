@@ -128,6 +128,7 @@ public class GetReports extends ASMView {
 
                     // Skip if we've installed this one already
                     boolean installed = false;
+
                     if (cr.getRecordCount() > 0) {
                         cr.moveFirst();
 
@@ -181,19 +182,27 @@ public class GetReports extends ASMView {
                     if (r.database.indexOf("Any") == -1) {
                         if (DBConnection.DBType == DBConnection.HSQLDB) {
                             if (r.database.indexOf("HSQLDB") == -1) {
-                                Global.logDebug("Skipping, report not HSQLDB", "GetReports.updateListThread");
+                                Global.logDebug("Skipping, report not HSQLDB",
+                                    "GetReports.updateListThread");
+
                                 continue;
                             }
                         }
+
                         if (DBConnection.DBType == DBConnection.MYSQL) {
                             if (r.database.indexOf("MySQL") == -1) {
-                                Global.logDebug("Skipping, report not MySQL", "GetReports.updateListThread");
+                                Global.logDebug("Skipping, report not MySQL",
+                                    "GetReports.updateListThread");
+
                                 continue;
                             }
                         }
+
                         if (DBConnection.DBType == DBConnection.POSTGRESQL) {
                             if (r.database.indexOf("PostgreSQL") == -1) {
-                                Global.logDebug("Skipping, report not HSQLDB", "GetReports.updateListThread");
+                                Global.logDebug("Skipping, report not HSQLDB",
+                                    "GetReports.updateListThread");
+
                                 continue;
                             }
                         }

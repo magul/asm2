@@ -101,7 +101,7 @@ public class FilePreviewPane extends UI.Panel implements PropertyChangeListener,
             Image scaled = UI.scaleImage(im, 131, 103);
 
             // Dump the source image
-	    im.flush();
+            im.flush();
 
             // Shove it back into the image icon so we can display it
             imic.setImage(scaled);

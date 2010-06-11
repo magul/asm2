@@ -646,7 +646,8 @@ public class AnimalFindText extends ASMFind {
                 datar[i][5] = LookupCache.getSexNameForID((Integer) animal.getField(
                             "Sex"));
                 datar[i][6] = Animal.getAge((Date) animal.getField(
-                            "DateOfBirth"), (Date) animal.getField("DeceasedDate"));
+                            "DateOfBirth"),
+                        (Date) animal.getField("DeceasedDate"));
                 datar[i][7] = LookupCache.getSizeNameForID((Integer) animal.getField(
                             "Size"));
                 datar[i][8] = LookupCache.getBaseColourName((Integer) animal.getField(

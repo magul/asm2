@@ -42,7 +42,7 @@ import java.util.Vector;
  *              includefosters
  *              excludeunder=<weeks>
  *              animalsperpage=<number to show on a page>
- *		ftproot=<override stored ftp root>
+ *                ftproot=<override stored ftp root>
  *              forcereupload
  *              uploaddirectly
  *              uploadall
@@ -168,7 +168,6 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
-
                 } else if (Utils.englishLower(args[i])
                                     .startsWith("limit" +
                             ScriptParser.equalsSymbol)) {
@@ -186,7 +185,6 @@ public class PublishWWW {
                             "PublishWWW.PublishWWW");
                         System.exit(1);
                     }
-
                 } else if (Utils.englishLower(args[i])
                                     .startsWith("includelocations" +
                             ScriptParser.equalsSymbol)) {
