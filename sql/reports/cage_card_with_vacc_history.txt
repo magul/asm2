@@ -23,7 +23,7 @@ lksize.Size,
 animal.AnimalComments,
 animal.datebroughtin,
 animal.dateofbirth,
-animal.id,
+animal.id AS animalid,
 entryreason.reasonname,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithDogs) AS WithDogs,
 (SELECT Name FROM lksynun WHERE ID = animal.IsGoodWithCats) AS WithCats,
@@ -101,7 +101,7 @@ Do not open cages without permission</font><br />
 </td>
 </tr>
 <tr>
-<td width="350" colspan="2"><img height="200" width="300" src="{IMAGE.$ID}" />
+<td width="350" colspan="2"><img height="200" width="300" src="{IMAGE.$animalid}" />
 </td>
 <td width="350" colspan="2"><font size="3"> Breed: <B>$BreedName</B><br />
 Color: <B>$BaseColour</B><br /></font>

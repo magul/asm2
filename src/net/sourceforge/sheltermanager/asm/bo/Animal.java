@@ -2010,17 +2010,26 @@ public class Animal extends UserInfoBO {
      * returned in years and months
      */
     public String getTimeOnShelter() throws CursorEngineException {
-        // Get animal's most recent entry date
+        
+	// Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
 
-        // Work out what 16 weeks ago was
-        Calendar sixteenweeks = Calendar.getInstance();
+	// Stop counting at today
+	Calendar stopat = Calendar.getInstance();
+
+        // If the animal is dead, stop counting at the date of death instead
+	if (getDeceasedDate() != null) {
+	    stopat.setTime(getDeceasedDate());
+	}
+
+        // Work out what 16 weeks from stop point was
+        Calendar sixteenweeks = (Calendar) stopat.clone();
         sixteenweeks.add(Calendar.WEEK_OF_YEAR, -16);
 
         // If most recent entry is after 16 weeks ago,
         // format time in weeks
         if (mre.after(sixteenweeks)) {
-            long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
+            long diff = Utils.getDateDiff(stopat, mre);
 
             // It's currently returned in minutes, so calculate weeks
             // by dividing by 60 (hours), 24 (day), 7 (week)
@@ -2031,7 +2040,7 @@ public class Animal extends UserInfoBO {
             return Global.i18n("bo", "x_weeks", Long.toString(diff));
         } else {
             // Otherwise format in months and years
-            long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
+            long diff = Utils.getDateDiff(stopat, mre);
             // It's currently returned in minutes, so calculate weeks
             // by dividing by 60 (hours), 24 (day), 7 (week)
             diff = (diff / 60);
@@ -2054,9 +2063,18 @@ public class Animal extends UserInfoBO {
      * Returns the animal's time on shelter in days
      */
     public int getDaysOnShelter() throws CursorEngineException {
+
         // Get animal's most recent entry date
         Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
-        long diff = Utils.getDateDiff(Calendar.getInstance(), mre);
+
+        // Stop counting at today
+	Calendar stopat = Calendar.getInstance();
+
+        // If the animal is dead, stop counting at the date of death instead
+	if (getDeceasedDate() != null) {
+	    stopat.setTime(getDeceasedDate());
+	}
+        long diff = Utils.getDateDiff(stopat, mre);
 
         // Diff is returned in minutes, so turn it into days
         return (int) ((diff / 60) / 24);
@@ -2065,20 +2083,30 @@ public class Animal extends UserInfoBO {
     /**
      * Returns the animal's age as a formatted string. If it is under 6 months,
      * the age is returned in weeks, otherwise it is returned in years and
-     * months
+     * months. If the animal is dead, the age stops there.
+     * @param dateOfBirth The animal's date of birth
+     * @param deceasedDate The date the animal died
      */
-    public static String getAge(Date dateOfBirth) {
+    public static String getAge(Date dateOfBirth, Date deceasedDate) {
         // Get animal's date of birth on calendar
         Calendar adob = Utils.dateToCalendar(dateOfBirth);
 
-        // Work out what 16 weeks ago was
-        Calendar sixteenweeks = Calendar.getInstance();
+        // Stop counting at today
+	Calendar stopat = Calendar.getInstance();
+
+        // If the animal is dead, stop counting at the date of death instead
+	if (deceasedDate != null) {
+	    stopat.setTime(deceasedDate);
+	}
+
+        // Work out what 16 weeks from stop point was
+        Calendar sixteenweeks = (Calendar) stopat.clone();
         sixteenweeks.add(Calendar.WEEK_OF_YEAR, -16);
 
         // If date of birth is after 16 weeks ago,
         // format age in weeks
         if (adob.after(sixteenweeks)) {
-            long diff = Utils.getDateDiff(Calendar.getInstance(), adob);
+            long diff = Utils.getDateDiff(stopat, adob);
 
             // It's currently returned in minutes, so calculate weeks
             // by dividing by 60 (hours), 24 (day), 7 (week)
@@ -2089,7 +2117,7 @@ public class Animal extends UserInfoBO {
             return Global.i18n("bo", "x_weeks", Long.toString(diff));
         } else {
             // Otherwise format in months and years
-            long diff = Utils.getDateDiff(Calendar.getInstance(), adob);
+            long diff = Utils.getDateDiff(stopat, adob);
             // It's currently returned in minutes, so calculate weeks
             // by dividing by 60 (hours), 24 (day), 7 (week)
             diff = (diff / 60);
@@ -2114,7 +2142,7 @@ public class Animal extends UserInfoBO {
      * months
      */
     public String getAge() throws CursorEngineException {
-        return getAge(getDateOfBirth());
+        return getAge(getDateOfBirth(), getDeceasedDate());
     }
 
     /**
