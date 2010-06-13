@@ -91,17 +91,11 @@ public class FileTypeManager {
         // Initialise
         types = new Properties();
 
+	Global.logInfo("Scanning file types for " + System.getProperty("os.name"), "FileTypeManager.initManager");
         // Scan for the right platform
         if (UI.osIsWindows()) {
-            Global.logInfo(i18n("About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait..."),
-                "FileTypeManager.initManager");
             scanWin32();
         } else {
-            Global.logInfo(i18n("About_to_scan_filetypes_for_your_") +
-                System.getProperty("os.name") +
-                i18n("_based_computer._Press_Ok_and_please_wait..."),
-                "FileTypeManager.initManager");
-
             if (UI.osIsMacOSX()) {
                 scanMacOSX();
             } else {
@@ -335,9 +329,7 @@ public class FileTypeManager {
         // Warn if no office suite found
         // ========================================
         if ((msoPath == null) && (ooPath == null)) {
-            Global.logError(i18n("ASM_could_not_locate_an_office_suite_on_your_computer"),
-                "FileTypeManager.scanWin32");
-            Dialog.showError(i18n("ASM_could_not_locate_an_office_suite_on_your_computer"));
+            Global.logWarning("ASM could not find an office suite.", "FileTypeManager.scanWin32");
         }
 
         // PDF Viewer
@@ -347,10 +339,8 @@ public class FileTypeManager {
         }
 
         if (acrobatPath == null) {
-            Global.logWarning(i18n("No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager."),
+            Global.logWarning("ASM could not find a PDF viewer", 
                 "FileTypeManager.scanWin32");
-            Dialog.showWarning(i18n("No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager."),
-                i18n("No_image_viewer"));
         }
     }
 
@@ -460,9 +450,8 @@ public class FileTypeManager {
         // Warn the user if no word processor found
         // ===========================================
         if ((writer == null) && (abiword == null)) {
-            Global.logError("Couldn't find an office suite, searched for openoffice and abiword",
+            Global.logWarning("Couldn't find an office suite, searched for openoffice and abiword",
                 "FileTypeManager.scanUNIX");
-            Dialog.showError(i18n("ASM_could_not_locate_an_office_suite_on_your_computer"));
         }
 
         // HTML and Internet document files
@@ -475,10 +464,8 @@ public class FileTypeManager {
             ((browser != null) ? browser : blank));
 
         if (browser == null) {
-            Global.logWarning(i18n("No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager."),
+            Global.logWarning("ASM could not find an HTML viewer", 
                 "FileTypeManager.scanUNIX");
-            Dialog.showWarning(i18n("No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager."),
-                i18n("No_HTML_Viewer"));
         }
 
         // PDF, PS files
@@ -489,10 +476,8 @@ public class FileTypeManager {
         add(new String[] { "pdf", "ps" }, ((pdf != null) ? pdf : blank));
 
         if (pdf == null) {
-            Global.logWarning(i18n("No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager."),
+            Global.logWarning("ASM could not find a PDF viewer", 
                 "FileTypeManager.scanUNIX");
-            Dialog.showWarning(i18n("No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager."),
-                i18n("No_image_viewer"));
         }
     }
 
