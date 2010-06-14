@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-03 09:36+0000\n"
+"PO-Revision-Date: 2010-06-14 14:12+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,6 +199,8 @@ msgstr "Died"
 #. # bo/Animal
 #: Unknown
 #: lksex_2
+#: lksynun_2
+#: lksposneg_0
 msgid "Unknown"
 msgstr "Unknown"
 
@@ -952,6 +954,46 @@ msgstr "There is no data to show on the chart."
 #: waitinglist
 msgid "Waiting List ("
 msgstr "Waiting List ("
+
+#: accounts_1_5_1_code
+msgid "Income::Donation"
+msgstr "Income::Donation"
+
+#: accounts_1_desc
+msgid "Incoming donations (misc)"
+msgstr "Incoming donations (misc)"
+
+#: accounts_2_5_2_code
+msgid "Income::Adoption"
+msgstr "Income::Adoption"
+
+#: accounts_2_desc
+msgid "Adoption fee donations"
+msgstr "Adoption fee donations"
+
+#: accounts_3_5_3_code
+msgid "Income::WaitingList"
+msgstr "Income::WaitingList"
+
+#: accounts_3_desc
+msgid "Waiting list donations"
+msgstr "Waiting list donations"
+
+#: accounts_4_5_4_code
+msgid "Income::EntryDonation"
+msgstr "Income::EntryDonation"
+
+#: accounts_4_desc
+msgid "Donations for animals entering the shelter"
+msgstr "Donations for animals entering the shelter"
+
+#: accounts_5_5_5_code
+msgid "Income::Sponsorship"
+msgstr "Income::Sponsorship"
+
+#: accounts_5_desc
+msgid "Sponsorship donations"
+msgstr "Sponsorship donations"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -2788,6 +2830,10 @@ msgstr "Adult"
 msgid "Senior"
 msgstr "Senior"
 
+#: costtype_1
+msgid "Board and Food"
+msgstr "Board and Food"
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Non-Microchipped Animals"
@@ -3041,6 +3087,10 @@ msgstr "Feral"
 #: entryreason_3
 msgid "Biting"
 msgstr "Biting"
+
+#: diet_1
+msgid "Standard"
+msgstr "Standard"
 
 #. # reports/Retailer
 #. # reports/InOut
@@ -3373,6 +3423,79 @@ msgstr "Money"
 #: lksfieldtype_6
 msgid "Lookup"
 msgstr "Lookup"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_0
+#: lksynun_1
+#: No
+msgid "No"
+msgstr "No"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_1
+#: lksynun_0
+#: Yes
+msgid "Yes"
+msgstr "Yes"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_1
+#: Negative
+msgid "Negative"
+msgstr "Negative"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_2
+#: Positive
+msgid "Positive"
+msgstr "Positive"
 
 #. # bo/AnimalWaitingList
 #: lkurgency_1
@@ -4034,33 +4157,6 @@ msgstr "Microchip Number"
 msgid "Age"
 msgstr "Age"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: Yes
-msgid "Yes"
-msgstr "Yes"
-
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
@@ -4077,32 +4173,6 @@ msgstr "Markings"
 #: return_date
 msgid "Return Date"
 msgstr "Return Date"
-
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: No
-msgid "No"
-msgstr "No"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4339,6 +4409,7 @@ msgstr "Address 1"
 #. # bo/LookupCache
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
+#. # bo/Account
 #. # bo/Diary
 #. # bo/CustomReport
 #. # bo/AnimalVaccination
@@ -4357,6 +4428,7 @@ msgstr "Address 1"
 #. # bo/AnimalDiet
 #. # bo/Animal
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #. # bo/AnimalName
 #. # bo/AnimalMedical
 #. # bo/Log
@@ -4711,8 +4783,10 @@ msgstr "Vet Diary upto {0} "
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
+#. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #: Description
 msgid "Description"
 msgstr "Description"
@@ -5642,6 +5716,7 @@ msgstr "No animals have been returned within 6 months of adoption."
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
+#. # bo/Account
 #: Code
 msgid "Code"
 msgstr "Code"
@@ -8224,6 +8299,7 @@ msgstr "Description:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # bo/AccountTrx
 #: Amount
 msgid "Amount"
 msgstr "Amount"
@@ -12341,38 +12417,9 @@ msgid "Edit File Types"
 msgstr "Edit File Types"
 
 #. # ui/system/FileTypeManager
-#: No_HTML_Viewer
-msgid "No HTML Viewer"
-msgstr "No HTML Viewer"
-
-#. # ui/system/FileTypeManager
-#: _based_computer._Press_Ok_and_please_wait...
-msgid " based computer"
-msgstr " based computer"
-
-#. # ui/system/FileTypeManager
-#: No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager.
-msgid ""
-"No valid HTML viewer could be found. External reports will not be viewable "
-"from Animal Shelter Manager."
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_your_
-msgid "Scanning filetypes for your "
-msgstr "Scanning filetypes for your "
-
-#. # ui/system/FileTypeManager
 #: Animal_Shelter_Manager_has_no_registered_type_for_'
 msgid "Animal Shelter Manager has no registered type for '"
 msgstr "Animal Shelter Manager has no registered type for '"
-
-#. # ui/system/FileTypeManager
-#: No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager.
-msgid ""
-"No pdf/postscript viewer could be found. Printable help files will not\n"
-"be viewable in Animal Shelter Manager."
-msgstr ""
 
 #. # ui/system/FileTypeManager
 #: [no_entry]
@@ -12388,16 +12435,6 @@ msgstr "This file has no type extension. Animal Shelter Manager cannot open it."
 #: No_type
 msgid "No type"
 msgstr "No type"
-
-#. # ui/system/FileTypeManager
-#: No_image_viewer
-msgid "No image viewer"
-msgstr "No image viewer"
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait...
-msgid "Scanning filetypes for a Microsoft Windows based computer"
-msgstr "Scanning filetypes for a Microsoft Windows based computer"
 
 #. # ui/system/Options
 #: Start_At\:
@@ -12615,14 +12652,6 @@ msgstr "Automatic logout:"
 msgid ""
 "Automatically log the current user out after this many minutes of inactivity "
 "or 0 to never logout"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: ASM_could_not_locate_an_office_suite_on_your_computer
-msgid ""
-"ASM could not locate an office suite on your computer. Document generation "
-"will not work until you install and setup an office suite and file type "
-"handlers in ASM."
 msgstr ""
 
 #. # ui/system/MediaFiles
@@ -13302,6 +13331,11 @@ msgstr ""
 #: remove_litter_field
 msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
 msgstr "Remove the Litter ID/Acceptance Number field from the animal screen"
+
+#. # ui/system/Options
+#: disable_accounts_functionality
+msgid "Disable Accounts Functionality"
+msgstr "Disable Accounts Functionality"
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14095,20 +14129,6 @@ msgstr "Select a Document Template"
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr "Attach generated document as media?"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Positive
-msgid "Positive"
-msgstr "Positive"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Negative
-msgid "Negative"
-msgstr "Negative"
 
 #. # wordprocessor/AnimalDocument
 #: estimated

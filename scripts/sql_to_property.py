@@ -102,6 +102,15 @@ for l in lines:
             if v.endswith("'"): v = v[0:len(v)-1]
             nextline = "configuration_" + id.replace("'", "") + "=" + v
             outfile.write(nextline + "\n\n")
+        elif currentTable == "accounts":
+            v = values[1].strip().replace("'", "")
+            desc = values[2].strip().replace("'", "")
+            atype = values[3].strip().replace("'", "")
+            dontype = values[4].strip().replace("'", "")
+            nextline = keyprefix + "_" + atype + "_" + dontype + "_code=" + v
+            outfile.write(nextline + "\n\n")
+            nextline = keyprefix + "_desc=" + desc
+            outfile.write(nextline + "\n\n")
         else:
             # Must be a single value translation
             v = values[1].strip()

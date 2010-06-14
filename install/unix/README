@@ -10,7 +10,10 @@ symlinked to /usr/bin/zip and /usr/bin/unzip
 
 If you want to use MySQL/PostgreSQL, scripts can be found in
 data/sql to set up the database. Otherwise, ASM will auto-create
-an HSQLDB for you in ~/.asm/localdb.*
+an HSQLDB for you in ~/.asm/localdb.* 
+
+Note that you need to run both the database schema script, followed
+by a language-specific translation file (eg: translate_en.sql for English)
 
 You can then use the run.sh script to start ASM. Symlink this script
 to /usr/bin/asm ( ln -s run.sh /usr/bin/asm ) so you can just use

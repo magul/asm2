@@ -81,7 +81,14 @@ for l in lines:
         else:
             outfile.write("DELETE FROM %s;\n" % table)
 
-    if table == "animaltype":
+    if table == "accounts":
+        if not kb[2].startswith("desc"):
+            acode = value
+            atype = kb[2]
+            dtype = kb[3]
+        else:
+            outfile.write("INSERT INTO accounts VALUES (%s, '%s', '%s', %s, %s, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');\n" % ( id, acode, value, atype, dtype ))
+    elif table == "animaltype":
         outfile.write("INSERT INTO animaltype VALUES (%s, '%s', NULL);\n" % (id, value))
     elif table == "basecolour":
         outfile.write("INSERT INTO basecolour VALUES (%s, '%s', NULL);\n" % (id, value))

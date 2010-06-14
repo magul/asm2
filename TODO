@@ -8,8 +8,9 @@
                    can double click transaction to edit
                    multi-select with reconcile button
    3. Need db update to:
-        create the default set of accounts and 
+        create the default set of accounts (leave out first 5 of stock) and 
         create accounts matching existing donation type table
+        because of the new update, we need to move the db version on one
    4. OwnerDonation.updateAccountTrx should delete and recreate matching 
       trx from donation record
    5. DONE: DonationEdit should call updateAccountTrx
@@ -17,3 +18,4 @@
    7. DONE: AccountTrx.saveTransaction should update the donation record
    8. Default donation destination account needs to be configured
    9. Manual documenting it all
+   10. Balance sheet and P&L custom reports

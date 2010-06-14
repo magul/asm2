@@ -1,3 +1,23 @@
+DELETE FROM accounts;
+INSERT INTO accounts VALUES (1, 'Income::Donation', 'Incoming donations (misc)', 5, 1, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (2, 'Income::Adoption', 'Adoption fee donations', 5, 2, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (3, 'Income::WaitingList', 'Waiting list donations', 5, 3, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (4, 'Income::EntryDonation', 'Donations for animals entering the shelter', 5, 4, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (5, 'Income::Sponsorship', 'Sponsorship donations', 5, 5, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (6, 'Income::Shop', 'Income from an on-site shop', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (7, 'Income::Interest', 'Bank account interest', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (8, 'Bank::Current', 'Bank current account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (9, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (10, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (11, 'Asset::Premises', 'Premises', 8, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (12, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (13, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (14, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (15, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (16, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (17, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+INSERT INTO accounts VALUES (18, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00');
+
 DELETE FROM animaltype;
 INSERT INTO animaltype VALUES (2,'D (Dog)',NULL);
 INSERT INTO animaltype VALUES (10, 'F (Stray Dog)', NULL);
@@ -466,6 +486,9 @@ INSERT INTO configuration VALUES ('AgeGroup2Name', 'Young Adult');
 INSERT INTO configuration VALUES ('AgeGroup3Name', 'Adult');
 INSERT INTO configuration VALUES ('AgeGroup4Name', 'Senior');
 
+DELETE FROM costtype;
+INSERT INTO costtype VALUES (1, 'Board and Food', '');
+
 DELETE FROM customreport;
 INSERT INTO customreport VALUES (36,'Non-Microchipped Animals','001','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
 INSERT INTO customreport VALUES (37,'Animals Without Photo Media','002','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Auditing');
@@ -476,7 +499,7 @@ INSERT INTO customreport VALUES (41,'Monthly Animal Figures','006','','',0,0,'as
 INSERT INTO customreport VALUES (42,'Long Term Animals','007','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Figures');
 INSERT INTO customreport VALUES (43,'Shelter Inventory','008','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Inventories');
 INSERT INTO customreport VALUES (44,'Detailed Shelter Inventory','009','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Inventories');
-INSERT INTO customreport VALUES (45,'Animals Not Part Of A Litter','010','','',0,0,'asmupdate','2003-07-02 11:51:00','Adam','2003-07-02 11:56:00','Litters');
+INSERT INTO customreport VALUES (45,'Animals Not Part Of A Litter','010','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:56:00','Litters');
 INSERT INTO customreport VALUES (46,'In/Out','011','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Movements');
 INSERT INTO customreport VALUES (47,'In/Out Summary','012','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Movements');
 INSERT INTO customreport VALUES (48,'Transfer In Report','013','','',0,0,'asmupdate','2003-07-02 11:51:00','asmupdate','2003-07-02 11:51:00','Movements');
@@ -508,6 +531,9 @@ INSERT INTO deathreason VALUES (5, 'Requested', '');
 INSERT INTO deathreason VALUES (6, 'Culling', '');
 INSERT INTO deathreason VALUES (7, 'Feral', '');
 INSERT INTO deathreason VALUES (8, 'Biting', '');
+
+DELETE FROM diet;
+INSERT INTO diet VALUES (1, 'Standard', '');
 
 DELETE FROM donationtype;
 INSERT INTO donationtype VALUES (1, 'Donation', '');
@@ -619,6 +645,20 @@ INSERT INTO lksloglink VALUES (2, 'Lost Animal');
 INSERT INTO lksloglink VALUES (3, 'Found Animal');
 INSERT INTO lksloglink VALUES (4, 'Waiting List');
 INSERT INTO lksloglink VALUES (5, 'Movement');
+
+DELETE FROM lksyesno;
+INSERT INTO lksyesno VALUES (0, 'No');
+INSERT INTO lksyesno VALUES (1, 'Yes');
+
+DELETE FROM lksynun;
+INSERT INTO lksynun VALUES (0, 'Yes');
+INSERT INTO lksynun VALUES (1, 'No');
+INSERT INTO lksynun VALUES (2, 'Unknown');
+
+DELETE FROM lksposneg;
+INSERT INTO lksposneg VALUES (0, 'Unknown');
+INSERT INTO lksposneg VALUES (1, 'Negative');
+INSERT INTO lksposneg VALUES (2, 'Positive');
 
 DELETE FROM lkurgency;
 INSERT INTO lkurgency VALUES (1, 'Urgent');

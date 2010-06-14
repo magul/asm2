@@ -11,10 +11,8 @@ DATABASE
 Install MySQL or PostgreSQL
 
 Use the appropriate script in the sql directory to create the database
-(mysql.sql or postgresql.sql)
-
-If you want to use a different language for the database, run one of the
-translation patches also included in the sql directory.
+(mysql.sql or postgresql.sql), followed by an appropriate translation
+file for your language (translate_en.sql for English)
 
 WEBSERVER
 =======================
