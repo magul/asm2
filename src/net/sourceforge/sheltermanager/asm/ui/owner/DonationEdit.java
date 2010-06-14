@@ -323,7 +323,13 @@ public class DonationEdit extends ASMForm implements SearchListener,
                 od.setNextCreated(new Integer(1));
             }
 
+            // Save the record
             od.save(Global.currentUserName);
+
+            // Update the accounting system
+            if (!Configuration.getBoolean("DisableAccounts")) {
+                od.updateAccountTrx();
+            }
 
             // Update parent
             parent.updateList();

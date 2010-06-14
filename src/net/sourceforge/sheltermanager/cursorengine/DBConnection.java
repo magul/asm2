@@ -388,6 +388,14 @@ public abstract class DBConnection {
         return executeForSum(sql);
     }
 
+    public synchronized static String executeForString(String sql) throws Exception {
+        return executeForString(con, sql);
+    }
+
+    public synchronized static java.util.Date executeForDate(String sql) throws Exception {
+        return executeForDate(con, sql);
+    }
+
     /**
      * Executes a sum query and returns a double of the result
      * @param c The connection
@@ -406,6 +414,44 @@ public abstract class DBConnection {
             return 0;
         }
     }
+
+    /**
+     * Executes a query and returns a string of the first result
+     * @param c The connection
+     * @param sql
+     * @return A string containing the result, or "" if the result was null
+     */
+    public synchronized static String executeForString(Connection c, String sql) throws Exception {
+        Statement stmt = c.createStatement();
+        ResultSet r = stmt.executeQuery(sql);
+
+        if (r.next()) {
+            return r.getString(1);
+        }
+        else {
+            return "";
+        }
+    }
+
+    /**
+     * Executes a query and returns a date of the first result
+     * @param c The connection
+     * @param sql
+     * @return A date containing the result, or null if the result was null
+     */
+    public synchronized static java.util.Date executeForDate(Connection c, String sql) throws Exception {
+        Statement stmt = c.createStatement();
+        ResultSet r = stmt.executeQuery(sql);
+
+        if (r.next()) {
+            Timestamp t = r.getTimestamp(1);
+            return new java.util.Date(t.getTime());
+        }
+        else {
+            return null;
+        }
+    }
+
 
     /**
      * Executes a count query and returns an integer of the result

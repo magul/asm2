@@ -1078,6 +1078,11 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
+                        "disable_accounts_functionality"), "DisableAccounts",
+                    Configuration.getString("DisableAccounts")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Use_a_single_breed_field"), "UseSingleBreedField",
                     Configuration.getBoolean("UseSingleBreedField"), false));
 

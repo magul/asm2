@@ -236,6 +236,24 @@ public class OwnerDonation extends UserInfoBO {
 
         return o;
     }
+    
+    /** Should be called after saving a donation - creates the matching
+     *  transaction in the accounts package
+     */
+    public void updateAccountTrx() throws CursorEngineException {
+
+        // TODO:
+
+        // Delete the existing account transaction
+
+        // Find the account for the donation type
+
+        // Create the transaction
+
+        // Destination account needs to be configured, source is 
+        // matching donation account (they're all income accounts)
+
+    }
 
     public void validate() throws BOValidationException {
         try {
