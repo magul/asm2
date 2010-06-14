@@ -57,7 +57,7 @@ public class AutoDBUpdates {
             1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
-            2704, 2705, 2706, 2707, 2708
+            2704, 2705, 2706, 2707, 2708, 2720
         };
 
     /**
@@ -3856,6 +3856,75 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    public void update2720() {
+        try {
+
+            try {
+                // Add the default accounts to the table
+                Global.logInfo("Creating default account set...", "AutoDBUpdates");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (6, 'Income::Shop', 'Income from an on-site shop', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (7, 'Income::Interest', 'Bank account interest', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (8, 'Bank::Current', 'Bank current account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (9, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (10, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (11, 'Asset::Premises', 'Premises', 8, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (12, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (13, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (14, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (15, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (16, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (17, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (18, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+            }
+            catch (Exception e) {
+                errors.add("accounts: add default accounts");
+                Global.logException(e, getClass());
+            }
+
+            // Generate new accounts from the existing donation types
+            SQLRecordset dt = new SQLRecordset();
+            dt.openRecordset("SELECT * FROM donationtype", "donationtype");
+            Global.logInfo("Creating trx from donations (" + 
+                dt.getRecordCount() + " accounts, " + 
+                DBConnection.executeForInt("SELECT COUNT(ID) FROM ownerdonation") +
+                " trx)...", "AutoDBUpdates");
+
+            while (!dt.getEOF()) {
+
+                int aid = DBConnection.getPrimaryKey(DBConnection.con, "accounts");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (" +
+                    aid + ", 'Income::" + dt.getField("DonationName") + "', '" +
+                    dt.getField("DonationDescription") + "', 5, " +
+                    dt.getField("ID") + ", 0, " +
+                    "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
+                    Utils.getSQLDate(new Date()) + "')");
+
+                // Generate new transactions for the donations with bank current account
+                // set as being the target
+                SQLRecordset d = new SQLRecordset();
+                d.openRecordset("SELECT * FROM ownerdonation WHERE DonationTypeID = " + dt.getField("ID"), "ownerdonation");
+                while (!d.getEOF()) {
+
+                    int id = DBConnection.getPrimaryKey(DBConnection.con, "accountstrx");
+                    DBConnection.executeAction("INSERT INTO accountstrx VALUES (" +
+                        id + ", '" + Utils.getSQLDate((Date) d.getField("Date")) + "', '', 0, " +
+                        d.getField("Donation") + ", " + aid + ", 8, " + d.getField("ID") + ", 0, " +
+                        "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
+                        Utils.getSQLDate(new Date()) + "')");
+
+                    d.moveNext();
+                }
+                dt.moveNext();
+            }
+        } catch (Exception e) {
+            errors.add("ownerdonation: add trx for donations");
+            Global.logException(e, getClass());
+        }
+    }
+
+
+
 }
 
 
