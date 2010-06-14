@@ -7,7 +7,7 @@
                    view transactions with add at bottom
                    can double click transaction to edit
                    multi-select with reconcile button
-   3. Need db update to:
+   3. DONE: Need db update to:
         create the default set of accounts (leave out first 5 of stock) and 
         create accounts matching existing donation type table
         because of the new update, we need to move the db version on one
