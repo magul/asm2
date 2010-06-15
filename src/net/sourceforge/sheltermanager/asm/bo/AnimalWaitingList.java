@@ -28,12 +28,17 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.*;
 
 
-public class AnimalWaitingList extends UserInfoBO {
+public class AnimalWaitingList extends UserInfoBO<AnimalWaitingList> {
     /** Cached owner */
     private Owner owner = null;
 
     public AnimalWaitingList() {
         tableName = "animalwaitinglist";
+    }
+
+    public AnimalWaitingList(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

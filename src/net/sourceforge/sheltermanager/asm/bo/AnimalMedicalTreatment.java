@@ -28,12 +28,17 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class AnimalMedicalTreatment extends UserInfoBO {
+public class AnimalMedicalTreatment extends UserInfoBO<AnimalMedicalTreatment> {
     Animal animal = null;
     AnimalMedical animalmedical = null;
 
     public AnimalMedicalTreatment() {
         tableName = "animalmedicaltreatment";
+    }
+
+    public AnimalMedicalTreatment(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

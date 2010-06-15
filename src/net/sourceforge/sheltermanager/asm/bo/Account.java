@@ -27,7 +27,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 
 import java.util.Date;
 
-public class Account extends UserInfoBO {
+public class Account extends UserInfoBO<Account> {
 
     public static final int BANK = 1;
     public static final int CREDITCARD = 2;
@@ -42,6 +42,11 @@ public class Account extends UserInfoBO {
    public Account() {
        tableName = "accounts";
    }
+
+    public Account(String where) {
+        this();
+        openRecordset(where);
+    }
 
     public void addNew() throws CursorEngineException {
         super.addNew();

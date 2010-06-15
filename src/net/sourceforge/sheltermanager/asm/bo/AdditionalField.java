@@ -27,7 +27,7 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.NormalBO;
 
 
-public class AdditionalField extends NormalBO {
+public class AdditionalField extends NormalBO<AdditionalField> {
     public final static int LINKTYPE_ANIMAL = 0;
     public final static int LINKTYPE_OWNER = 1;
     public final static int FIELDTYPE_YESNO = 0;
@@ -40,6 +40,11 @@ public class AdditionalField extends NormalBO {
 
     public AdditionalField() {
         tableName = "additionalfield";
+    }
+
+    public AdditionalField(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

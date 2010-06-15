@@ -28,7 +28,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.*;
 
 
-public class AnimalLost extends UserInfoBO {
+public class AnimalLost extends UserInfoBO<AnimalLost> {
     /**
      * The number of match points needed for a 100% match when matching lost to
      * found
@@ -40,6 +40,11 @@ public class AnimalLost extends UserInfoBO {
 
     public AnimalLost() {
         tableName = "animallost";
+    }
+
+    public AnimalLost(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

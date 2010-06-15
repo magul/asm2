@@ -28,9 +28,14 @@ import java.util.Date;
 import java.util.Vector;
 
 
-public class Owner extends UserInfoBO {
+public class Owner extends UserInfoBO<Owner> {
     public Owner() {
         tableName = "owner";
+    }
+
+    public Owner(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

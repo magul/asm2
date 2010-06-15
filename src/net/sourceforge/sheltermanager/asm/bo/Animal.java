@@ -36,7 +36,7 @@ import java.util.Date;
 import java.util.Vector;
 
 
-public class Animal extends UserInfoBO {
+public class Animal extends UserInfoBO<Animal> {
     public static final int UNDERSIXMONTHS = 0;
     public static final int OVERSIXMONTHS = 1;
     public static final int ALLAGES = 2;
@@ -69,6 +69,11 @@ public class Animal extends UserInfoBO {
 
     public Animal() {
         tableName = "animal";
+    }
+
+    public Animal(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

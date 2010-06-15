@@ -29,9 +29,14 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class MedicalProfile extends UserInfoBO {
+public class MedicalProfile extends UserInfoBO<MedicalProfile> {
     public MedicalProfile() {
         tableName = "medicalprofile";
+    }
+
+    public MedicalProfile(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

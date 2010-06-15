@@ -29,9 +29,14 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class OwnerVoucher extends UserInfoBO {
+public class OwnerVoucher extends UserInfoBO<OwnerVoucher> {
     public OwnerVoucher() {
         tableName = "ownervoucher";
+    }
+
+    public OwnerVoucher(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

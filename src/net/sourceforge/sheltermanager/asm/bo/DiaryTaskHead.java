@@ -25,12 +25,17 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
 
-public class DiaryTaskHead extends NormalBO {
+public class DiaryTaskHead extends NormalBO<DiaryTaskHead> {
     public final static int RECORDTYPE_ANIMAL = 0;
     public final static int RECORDTYPE_OWNER = 1;
 
     public DiaryTaskHead() {
         tableName = "diarytaskhead";
+    }
+
+    public DiaryTaskHead(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

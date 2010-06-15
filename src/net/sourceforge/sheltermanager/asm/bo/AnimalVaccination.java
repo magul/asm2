@@ -27,7 +27,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.Date;
 
 
-public class AnimalVaccination extends UserInfoBO {
+public class AnimalVaccination extends UserInfoBO<AnimalVaccination> {
     public final static String VACCINATION = "0";
     public final static String TREATMENT = "1";
 
@@ -36,6 +36,11 @@ public class AnimalVaccination extends UserInfoBO {
 
     public AnimalVaccination() {
         tableName = "animalvaccination";
+    }
+
+    public AnimalVaccination(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

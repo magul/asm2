@@ -27,9 +27,14 @@ import net.sourceforge.sheltermanager.cursorengine.NormalBO;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 
-public class AnimalName extends NormalBO {
+public class AnimalName extends NormalBO<AnimalName> {
     public AnimalName() {
         tableName = "animalname";
+    }
+
+    public AnimalName(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

@@ -416,20 +416,15 @@ public abstract class LookupCache {
 
     public static String getRealName(String user) {
         try {
-            Users u = new Users();
-            u.openRecordset("");
 
-            while (!u.getEOF()) {
+            for (Users u : new Users("")) {
                 if (u.getUserName().equals(user)) {
                     return u.getRealName();
                 }
-
-                u.moveNext();
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
-
         return "";
     }
 
@@ -447,28 +442,25 @@ public abstract class LookupCache {
                 // Check all animal satellite data in one query and build
                 // a map from it - much faster than testing each individual
                 // active animal
-                SQLRecordset r = new SQLRecordset();
-                r.openRecordset(
+                for (SQLRecordset r : new SQLRecordset(
                     "SELECT animal.ID, (SELECT COUNT(*) FROM animalvaccination WHERE AnimalID = animal.ID) AS vacc, (SELECT COUNT(*) FROM animalmedical WHERE AnimalID = animal.ID) AS medi, (SELECT COUNT(*) FROM animaldiet WHERE AnimalID = animal.ID) AS diet, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, (SELECT COUNT(*) FROM animalcost WHERE AnimalID = animal.ID) AS cost, (SELECT COUNT(*) FROM media WHERE LinkID = animal.ID AND LinkTypeID = " +
                     Media.LINKTYPE_ANIMAL +
                     ") AS pics, (SELECT COUNT(*) FROM diary WHERE LinkID = animal.ID AND LinkType = " +
                     Diary.LINKTYPE_ANIMAL +
                     ") AS diar, (SELECT COUNT(*) FROM adoption WHERE AnimalID = animal.ID) AS move, (SELECT COUNT(*) FROM log WHERE LinkID = animal.ID AND LinkType = " +
                     Log.LINKTYPE_ANIMAL +
-                    ") AS logs FROM animal WHERE animal.Archived = 0", "animal");
+                    ") AS logs FROM animal WHERE animal.Archived = 0", "animal")) {
 
-                while (!r.getEOF()) {
-                    animalextdata.put((Integer) r.getField("ID"),
-                        new Animal.AnimalMarkers((Integer) r.getField("vacc"),
-                            (Integer) r.getField("medi"),
-                            (Integer) r.getField("diet"),
-                            (Integer) r.getField("cost"),
-                            (Integer) r.getField("dona"),
-                            (Integer) r.getField("pics"),
-                            (Integer) r.getField("diar"),
-                            (Integer) r.getField("move"),
-                            (Integer) r.getField("logs")));
-                    r.moveNext();
+                    animalextdata.put(r.getInt("ID"),
+                        new Animal.AnimalMarkers(r.getInt("vacc"),
+                            r.getInt("medi"),
+                            r.getInt("diet"),
+                            r.getInt("cost"),
+                            r.getInt("dona"),
+                            r.getInt("pics"),
+                            r.getInt("diar"),
+                            r.getInt("move"),
+                            r.getInt("logs")));
                 }
             } catch (Exception e) {
                 Global.logException(e, LookupCache.class);
@@ -490,17 +482,13 @@ public abstract class LookupCache {
         }
 
         try {
-            activeanimals.moveFirst();
-
-            while (!activeanimals.getEOF()) {
-                if (activeanimals.getID().equals(id)) {
+            activeanimals.first();
+            for (Animal a : activeanimals) {
+                if (a.getID().equals(id)) {
                     Global.logDebug("CACHE: HIT for animal id " + id,
                         "LookupCache.getAnimalByID");
-
-                    return activeanimals;
+                    return a;
                 }
-
-                activeanimals.moveNext();
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -759,38 +747,30 @@ public abstract class LookupCache {
     private static String getNameForID(SQLRecordset rs, String nameFieldName,
         Integer ID) {
         try {
-            rs.moveFirst();
-
-            while (!rs.getEOF()) {
-                if (rs.getField("ID").equals(ID)) {
-                    return (String) rs.getField(nameFieldName);
+            rs.first();
+            for (SQLRecordset r : rs) {
+                if (r.getInt("ID") == ID.intValue()) {
+                    return rs.getString(nameFieldName);
                 }
-
-                rs.moveNext();
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
-
         return "";
     }
 
     private static Integer getIDForName(SQLRecordset rs, String nameFieldName,
         String name) {
         try {
-            rs.moveFirst();
-
-            while (!rs.getEOF()) {
-                if (rs.getField(nameFieldName).toString().equalsIgnoreCase(name)) {
-                    return (Integer) rs.getField("ID");
+            rs.first();
+            for (SQLRecordset r : rs) {
+                if (r.getString(nameFieldName).equalsIgnoreCase(name)) {
+                    return rs.getInt("ID");
                 }
-
-                rs.moveNext();
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
-
         return null;
     }
 

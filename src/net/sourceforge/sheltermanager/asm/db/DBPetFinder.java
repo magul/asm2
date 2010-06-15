@@ -32,8 +32,8 @@ import java.util.*;
  * @author  Robin Rawson-Tetley
  */
 public abstract class DBPetFinder {
-    public static Vector getBreeds() {
-        Vector pfBreeds = new Vector();
+    public static ArrayList<String> getBreeds() {
+        ArrayList<String> pfBreeds = new ArrayList<String>();
         pfBreeds.add("Affenpinscher");
         pfBreeds.add("Afghan Hound");
         pfBreeds.add("Airedale Terrier");
@@ -475,7 +475,6 @@ public abstract class DBPetFinder {
         pfBreeds.add("Sheep");
         pfBreeds.add("Llama");
         pfBreeds.add("Pig (Farm)");
-
         return pfBreeds;
     }
 }

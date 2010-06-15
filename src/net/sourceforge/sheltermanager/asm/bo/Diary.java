@@ -27,7 +27,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.Date;
 
 
-public class Diary extends UserInfoBO {
+public class Diary extends UserInfoBO<Diary> {
     public static final int LINKTYPE_NONE = 0;
     public static final int LINKTYPE_ANIMAL = 1;
     public static final int LINKTYPE_OWNER = 2;
@@ -38,6 +38,11 @@ public class Diary extends UserInfoBO {
 
     public Diary() {
         tableName = "diary";
+    }
+
+    public Diary(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

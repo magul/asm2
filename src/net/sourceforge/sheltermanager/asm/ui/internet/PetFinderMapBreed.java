@@ -32,6 +32,7 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -57,7 +58,6 @@ public class PetFinderMapBreed extends ASMView {
         Vector ctl = new Vector();
         ctl.add(btnView);
         ctl.add(getTable());
-
         return ctl;
     }
 
@@ -159,10 +159,8 @@ public class PetFinderMapBreed extends ASMView {
                 2);
 
         // Prompt the user to change it
-        Vector petFinderBreeds = DBPetFinder.getBreeds();
+        ArrayList<String> petFinderBreeds = DBPetFinder.getBreeds();
         Object[] breeds = petFinderBreeds.toArray();
-        petFinderBreeds.removeAllElements();
-        petFinderBreeds = null;
         existingMap = (String) Dialog.getInput(i18n("Select_petfinder_type"),
                 i18n("PetFinder_mapping"), breeds, existingMap);
 

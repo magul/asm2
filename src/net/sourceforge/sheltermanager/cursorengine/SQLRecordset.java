@@ -3,7 +3,7 @@
  *  SQLRecordset Disconnected Recordset functionality
  *  and client-side cursor engine.
  *
- *  Copyright (C) 2002  Robin Rawson-Tetley
+ *  Copyright (C) 2002-2010 Robin Rawson-Tetley
  *
  *  www.rawsontetley.org
  *
@@ -25,81 +25,7 @@
  *
  *  <robin@rawsontetley.org>
  *
- *
- *  Change Log:
- *
- *        $Log: SQLRecordset.java,v $
- *        Revision 1.15  2006/03/11 15:02:16  bobintetley
- *        Fixes for DB copying
- *
- *        Revision 1.14  2006/03/11 10:01:12  bobintetley
- *        Database copying fix
- *
- *        Revision 1.13  2006/03/04 21:20:29  bobintetley
- *        Database copying code
- *
- *        Revision 1.12  2006/03/04 10:15:07  bobintetley
- *        PostgreSQL and HSQLDB scripts and new startup menu
- *
- *        Revision 1.11  2006/03/03 14:17:32  bobintetley
- *        UI uses new typed business layer correctly now. Version bumped to 2.0.0,
- *        removed apostrophes around tokens in localised strings to fix MessageFormat
- *        bug. Added Postgres and HSQLDB drivers
- *
- *        Revision 1.10  2006/03/02 14:08:16  bobintetley
- *        New typed bo API
- *
- *        Revision 1.9  2006/03/01 16:50:11  bobintetley
- *        Typed database handling and Animal/Adoption done
- *
- *        Revision 1.8  2005/01/24 16:19:56  bobintetley
- *        Bug fix to enable case insensitivity for custom reports again (broke
- *        internal functions), and for correct decimal place rounding in SUM/PCT
- *
- *        Revision 1.7  2005/01/21 08:29:28  bobintetley
- *        Defect list cleared
- *
- *        Revision 1.6  2004/12/15 16:49:45  bobintetley
- *        Data layer optimisations
- *
- *        Revision 1.4  2004/12/08 08:39:44  bobintetley
- *        Editing diary task allows viewing of the notes after creation, fix to bug
- *        that meant horizontal scrollbars appeared on the ownervet box, good with
- *        cats/kids/dogs/housetrained are now tri-state, cloning an animal now
- *        clones it's movements as well
- *
- *        Revision 1.3  2003/08/22 10:00:00  bobintetley
- *
- *        Fix to allow Turkish to work.
- *
- *        Revision 1.2  2003/08/05 10:32:01  bobintetley
- *        Bug fix to 1.20 update path (bad apostrophes). Altered how licence
- *        and credits are displayed.
- *
- *        Revision 1.1.1.1  2003/06/03 06:54:28  bobintetley
- *        Initial
- *
- *
- *        Revision 1.4  2003/05/01 13:32:16 robin
- *        Fixed bug where setting absolute position
- *        doesn't update BOF/EOF flags
- *        MovePrevious has never worked properly
- *
- *        Revision 1.3  2003/03/08 12:25:36 robin
- *        Improved memory handling
- *
- *        Revision 1.2  2003/01/03 09:25:49  robinrt
- *        Improved error handling
- *
- *        Revision 1.1  2002/09/24 09:50:48  robinrt
- *        Memory improvements on SQLRowData to only use
- *        as much as necessary. Also fixes when building
- *        SQL to not use concatenated strings (wasteful
- *        of memory again).
- *
- *        Revision 1.0  2002/05/11 17:18:03  robinrt
- *        Initial Release
- */
+  */
 package net.sourceforge.sheltermanager.cursorengine;
 
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -113,10 +39,11 @@ import java.sql.Types;
 
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Locale;
-import java.util.Vector;
-
 
 /**
  * This class contains all the actual cursor routines and is used to manipulate
@@ -126,23 +53,36 @@ import java.util.Vector;
  * @see net.sourceforge.sheltermanager.cursorengine.SQLRowData
  * @see net.sourceforge.sheltermanager.cursorengine.SQLFieldDescriptor
  * @author Robin Rawson-Tetley
- * @version 3.0
+ * @version 3.2
  */
-public class SQLRecordset {
+public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecordset> {
+
     private boolean mEOF = false;
     private boolean mBOF = false;
     private int mCurrentRecord = 0;
-    private Vector mtheRows = null;
-    private Vector mtheFields = null;
-    private Hashtable mFieldIndexes = null;
+    private ArrayList<SQLRowData> mtheRows = null;
+    private ArrayList<SQLFieldDescriptor> mtheFields = null;
+    private Hashtable<String, Integer> mFieldIndexes = null;
     private byte[] mFieldTypes = null;
     private int mNoFields = 0;
     private int mNoRows = 0;
     private String mTableName = "";
 
-    public void openRecordset(String SQLStatement, String BaseTableName)
+    public SQLRecordset() {}
+
+    /** Create a recordset and open it from the sql given */
+    public SQLRecordset(String sql) throws Exception {
+        openRecordset(sql, "");
+    }
+
+    /** Create a recordset and open it from the sql given */
+    public SQLRecordset(String sql, String table) throws Exception {
+        openRecordset(sql, table);
+    }
+
+    public void openRecordset(String sql, String table)
         throws Exception {
-        openRecordset(DBConnection.con, SQLStatement, BaseTableName);
+        openRecordset(DBConnection.con, sql, table);
     }
 
     /**
@@ -155,12 +95,12 @@ public class SQLRecordset {
      * @param BaseTableName
      *            The name of the table this recordset updates.
      */
-    public void openRecordset(Connection c, String SQLStatement,
-        String BaseTableName) throws Exception {
+    public void openRecordset(Connection c, String sql,
+        String table) throws Exception {
         int i;
 
         // Remember the table
-        mTableName = BaseTableName;
+        mTableName = table;
 
         // Open a forward-only resultset using JDBC
         Statement stmt = null;
@@ -168,7 +108,7 @@ public class SQLRecordset {
 
         try {
             stmt = DBConnection.getStatement(c);
-            rs = DBConnection.openResultset(c, stmt, SQLStatement);
+            rs = DBConnection.openResultset(c, stmt, sql);
         } catch (Exception e) {
             // Throw error to parent caller
             throw e;
@@ -179,9 +119,9 @@ public class SQLRecordset {
         try {
             // Field header information
             mNoFields = rs.getMetaData().getColumnCount();
-            mtheFields = new Vector(mNoFields + 1);
-            mtheFields.add(0, new Object());
-            mFieldIndexes = new Hashtable(mNoFields + 1);
+            mtheFields = new ArrayList<SQLFieldDescriptor>(mNoFields + 1);
+            mtheFields.add(0, new SQLFieldDescriptor());
+            mFieldIndexes = new Hashtable<String, Integer>(mNoFields + 1);
 
             SQLFieldDescriptor fd = null;
             i = 1;
@@ -254,11 +194,11 @@ public class SQLRecordset {
 
             // Initialise row data
             if (!rs.last()) {
-                mtheRows = new Vector(rs.getRow() + 1);
-                mtheRows.add(0, new Object());
+                mtheRows = new ArrayList<SQLRowData>(rs.getRow() + 1);
+                mtheRows.add(0, new SQLRowData(0));
             } else {
-                mtheRows = new Vector();
-                mtheRows.add(0, new Object());
+                mtheRows = new ArrayList<SQLRowData>();
+                mtheRows.add(0, new SQLRowData(0));
             }
 
             // See if we actually have some data. Set our BOF/EOF
@@ -347,6 +287,10 @@ public class SQLRecordset {
         mCurrentRecord = mNoRows;
     }
 
+    public void add() {
+        addNew();
+    }
+
     /**
      * Flags a record for deletion and hides it from the set. It is not removed
      * until the save method is called.
@@ -401,6 +345,78 @@ public class SQLRecordset {
         return mNoRows;
     }
 
+    public void first() throws CursorEngineException {
+        moveFirst();
+    }
+
+    public void last() throws CursorEngineException {
+        moveLast();
+    }
+
+    /** Returns the number of rows */
+    public int size() {
+        return (int) getRecordCount();
+    }
+
+    /** Returns a specific row */
+    public SQLRecordset get(int index) {
+        try {
+            setAbsolutePosition(index - 1);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+    /** Iterator::hasNext */
+    public boolean hasNext() {
+        try {
+            if (getAbsolutePosition() == size()) {
+                firstIterated = true;
+                return false;
+            }
+            return true;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /** Forces a moveFirst for the first next() call */
+    private boolean firstIterated = true;
+
+    /** Iterator::next */
+    public SQLRecordset next() {
+        try {
+            if (firstIterated) {
+                firstIterated = false;
+                return this;    
+            }
+            moveNext();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this; 
+    }
+
+    /** Iterable::iterator */
+    public Iterator<SQLRecordset> iterator() {
+        return this;
+    }
+
+    /** Iterator::remove */
+    public void remove() {
+        try {
+            delete();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Returns true if the cursor is before the beginning of the set
      *
@@ -426,6 +442,7 @@ public class SQLRecordset {
      *             if no records are available
      */
     public void moveFirst() throws CursorEngineException {
+        firstIterated = true;
         if (mNoRows == 0) {
             throw new CursorEngineException(
                 "SQLRecordset.moveFirst - no records in set.");
@@ -551,16 +568,14 @@ public class SQLRecordset {
     }
 
     /**
-     * Retrieves the contents of a field by its name. Note that a returned value
-     * of ##NULL## is an SQL NULL value.
+     * Retrieves the contents of a field by its name. 
      *
      * @param fieldName
      *            The name of the field to retrieve the value of
-     * @return The value of the field named as a String - a String containing
-     *         ##NULL## is returned from NULL values.
+     * @return The value of the field, use getDouble, getInteger, getString
+     *         instead of this function if possible
      * @throws CursorEngineException
      *             if BOF/EOF is true or the field does not exist.
-     *
      */
     public Object getField(String fieldName) throws CursorEngineException {
         // Make sure we have a record
@@ -598,7 +613,7 @@ public class SQLRecordset {
         return d.doubleValue();
     }
 
-    public double getInteger(String fieldName) throws CursorEngineException {
+    public int getInteger(String fieldName) throws CursorEngineException {
         Integer i = (Integer) getField(fieldName);
 
         if (i == null) {
@@ -606,6 +621,10 @@ public class SQLRecordset {
         }
 
         return i.intValue();
+    }
+
+    public int getInt(String fieldName) throws CursorEngineException {
+        return getInteger(fieldName);
     }
 
     public String getString(String fieldName) throws CursorEngineException {
@@ -616,6 +635,10 @@ public class SQLRecordset {
         }
 
         return s.toString();
+    }
+
+    public Date getDate(String fieldName) throws CursorEngineException {
+        return (Date) getField(fieldName);
     }
 
     /**
@@ -691,7 +714,7 @@ public class SQLRecordset {
 
     /**
      * Submits all changes that have been made to the recordset to the data
-     * source in the form of ANSI-Compliant action queries.
+     * source in the form of action queries.
      *
      * @param c
      *            The database connection to write out to
@@ -904,7 +927,7 @@ public class SQLRecordset {
      * @return The cursor engine version.
      */
     public static String getCursorVersion() {
-        return "SQLRecordset 3.1 (190308)";
+        return "SQLRecordset 3.2 (150610)";
     }
 
     /**
@@ -1047,8 +1070,8 @@ public class SQLRecordset {
 
     public void free() {
         try {
-            mtheRows.removeAllElements();
-            mtheFields.removeAllElements();
+            mtheRows.clear();
+            mtheFields.clear();
             mFieldIndexes.clear();
         } catch (Exception e) {
         }

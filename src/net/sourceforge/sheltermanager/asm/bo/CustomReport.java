@@ -29,9 +29,14 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class CustomReport extends UserInfoBO {
+public class CustomReport extends UserInfoBO<CustomReport> {
     public CustomReport() {
         tableName = "customreport";
+    }
+
+    public CustomReport(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

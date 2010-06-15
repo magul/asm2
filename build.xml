@@ -36,10 +36,11 @@
 		       deprecation="on"
 		       nowarn="on"
 		       debug="on"
-		       source="1.4"
-		       target="1.4"
+		       source="5"
+		       target="5"
                        includeAntRuntime="false"
 		       verbose="off">
+                       <compilerarg value="-Xlint:unchecked"/>
 		       <classpath>
                                <path location="lib/hsqldb.jar"/>
 			       <path location="lib/charting-0.94.jar"/>

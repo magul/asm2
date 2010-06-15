@@ -28,7 +28,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.*;
 
 
-public class AnimalMedical extends UserInfoBO {
+public class AnimalMedical extends UserInfoBO<AnimalMedical> {
     public final static int STATUS_ACTIVE = 0;
     public final static int STATUS_HELD = 1;
     public final static int STATUS_COMPLETED = 2;
@@ -40,6 +40,11 @@ public class AnimalMedical extends UserInfoBO {
 
     public AnimalMedical() {
         tableName = "animalmedical";
+    }
+
+    public AnimalMedical(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

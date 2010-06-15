@@ -29,11 +29,16 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class OwnerDonation extends UserInfoBO {
+public class OwnerDonation extends UserInfoBO<OwnerDonation> {
     private Owner owner = null;
 
     public OwnerDonation() {
         tableName = "ownerdonation";
+    }
+
+    public OwnerDonation(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

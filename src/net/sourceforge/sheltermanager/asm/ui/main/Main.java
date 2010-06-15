@@ -667,16 +667,16 @@ public class Main extends ASMWindow {
      * Reads the list of custom reports and loads them into the menu
      */
     public void refreshCustomReports() {
-        CustomReport cr = new CustomReport();
+        
         CustomReportMenu crm = null;
         String curcategory = "";
-        HashMap menus = new HashMap();
+        HashMap<String, UI.Menu> menus = new HashMap<String, UI.Menu>();
 
         try {
-            cr.openRecordset("ID > 0 ORDER BY Category, Title");
             mnuReports.removeAll();
 
-            while (!cr.getEOF()) {
+            for (CustomReport cr : new CustomReport("ID > 0 ORDER BY Category, Title")) {
+
                 // Is this a subreport? If so, don't bother
                 // doing anything.
                 if (!cr.isSubReport()) {
@@ -698,7 +698,6 @@ public class Main extends ASMWindow {
                         crm = new CustomReportMenu(cr.getID().toString(),
                                 cr.getTitle());
                         mnu.add(crm);
-                        crm = null;
                         added = true;
                     }
 
@@ -714,11 +713,8 @@ public class Main extends ASMWindow {
                         crm = new CustomReportMenu(cr.getID().toString(),
                                 cr.getTitle());
                         mnu.add(crm);
-                        crm = null;
                     }
                 }
-
-                cr.moveNext();
             }
 
             // Add an extra menu item for get more reports
@@ -735,11 +731,9 @@ public class Main extends ASMWindow {
         } catch (Exception e) {
             Global.logException(e, getClass());
         } finally {
-            cr.free();
             curcategory = null;
             menus.clear();
             menus = null;
-            cr = null;
             crm = null;
         }
     }

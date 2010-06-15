@@ -26,7 +26,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.Date;
 
 
-public class Media extends NormalBO {
+public class Media extends NormalBO<Media> {
     /** Constant for a link to an Animal record */
     public static final int LINKTYPE_ANIMAL = 0;
 
@@ -47,6 +47,11 @@ public class Media extends NormalBO {
 
     public Media() {
         tableName = "media";
+    }
+
+    public Media(String where) {
+        this();
+        openRecordset(where);
     }
 
     /**

@@ -38,6 +38,7 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.io.ByteArrayOutputStream;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Vector;
@@ -865,7 +866,8 @@ public class AutoDBUpdates {
                         "PetFinder breed listings,\nwhich are more complete than ASM's original set. \n" +
                         "I can merge them in to your existing breeds - \nwould you like to do this?",
                         "Additional Breeds")) {
-                Vector pfBreeds = DBPetFinder.getBreeds();
+                
+                ArrayList<String> pfBreeds = DBPetFinder.getBreeds();
 
                 Global.logInfo("Merging breeds...", "AutoDBUpdates");
 
@@ -873,8 +875,8 @@ public class AutoDBUpdates {
                 SQLRecordset b = new SQLRecordset();
                 b.openRecordset("SELECT * FROM breed WHERE ID = 0", "breed");
 
-                while (i.hasNext()) {
-                    String breed = (String) i.next();
+                for (String breed : pfBreeds) {
+                    
                     breed = breed.replace('\'', '`');
 
                     SQLRecordset rs = new SQLRecordset();
@@ -889,7 +891,6 @@ public class AutoDBUpdates {
                         b.setField("BreedName", breed);
                     }
 
-                    breed = null;
                     rs.free();
                     rs = null;
                 }
@@ -897,8 +898,6 @@ public class AutoDBUpdates {
                 b.save(false, "");
                 b.free();
                 b = null;
-                pfBreeds.removeAllElements();
-                pfBreeds = null;
             }
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -916,24 +915,14 @@ public class AutoDBUpdates {
             }
 
             // Map PetFinder Breeds to Existing Breeds
-            Vector pfBreeds = DBPetFinder.getBreeds();
+            ArrayList<String> pfBreeds = DBPetFinder.getBreeds();
 
             Global.logInfo("Mapping breeds...", "AutoDBUpdates");
-
-            Iterator i = pfBreeds.iterator();
-
-            while (i.hasNext()) {
-                String breed = (String) i.next();
-                breed = breed.replace('\'', '`');
-
+            for (String breed : pfBreeds) {
                 DBConnection.executeAction(
                     "UPDATE breed SET PetFinderBreed = 'breed' " +
-                    "WHERE BreedName Like '" + breed + "'");
-                breed = null;
+                    "WHERE BreedName Like '" + breed.replace('\'', '`') + "'");
             }
-
-            pfBreeds.removeAllElements();
-            pfBreeds = null;
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

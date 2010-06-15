@@ -25,67 +25,19 @@
  *
  *  <robin@rawsontetley.org>
  *
- *
- *  Change Log:
- *
- *        $Log: NormalBO.java,v $
- *        Revision 1.9  2006/03/03 14:17:32  bobintetley
- *        UI uses new typed business layer correctly now. Version bumped to 2.0.0,
- *        removed apostrophes around tokens in localised strings to fix MessageFormat
- *        bug. Added Postgres and HSQLDB drivers
- *
- *        Revision 1.8  2006/03/02 14:08:16  bobintetley
- *        New typed bo API
- *
- *        Revision 1.7  2006/03/01 16:50:11  bobintetley
- *        Typed database handling and Animal/Adoption done
- *
- *        Revision 1.6  2005/01/21 08:29:28  bobintetley
- *        Defect list cleared
- *
- *        Revision 1.5  2004/12/08 08:39:44  bobintetley
- *        Editing diary task allows viewing of the notes after creation, fix to bug
- *        that meant horizontal scrollbars appeared on the ownervet box, good with
- *        cats/kids/dogs/housetrained are now tri-state, cloning an animal now
- *        clones it's movements as well
- *
- *        Revision 1.4  2003/08/22 10:00:00  bobintetley
- *
- *        Fix to allow Turkish to work.
- *
- *        Revision 1.3  2003/07/07 07:59:17  bobintetley
- *        Feature request added to enforce coding schemes for manually entered codes.
- *        Also, discovered a bug in the cursor engine that could cause lock errors
- *        when validation failed.
- *
- *        Revision 1.2  2003/06/10 14:18:33  bobintetley
- *
- *        Feature request to formalise entry reasons on animal/movement records and
- *        death reasons. They can now be edited as lookups, allowing shelters to
- *        customise their own entry/death categories.
- *
- *        Revision 1.1.1.1  2003/06/03 06:54:28  bobintetley
- *        Initial
- *
- *
- *        Revision 1.2 2003/03/08 12:27:27 robin
- *        Improved memory handling
- *
- *        Revision 1.1.1.1  2002/11/10 19:33:07  robin
- *
- *        Revision 1.0  2002/05/11 17:18:03  robinrt
- *        Initial Release
- */
+  */
 package net.sourceforge.sheltermanager.cursorengine;
 
 import net.sourceforge.sheltermanager.asm.bo.*;
+
+import java.util.Iterator;
 
 
 /**
  * A normal business object superclass. All business objects
  * which do not require stampable user info should extend this class.
  */
-public abstract class NormalBO {
+public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** The name of the table this object represents */
     protected String tableName = "";
 
@@ -130,10 +82,63 @@ public abstract class NormalBO {
         rs.setField("ID", new Integer(DBConnection.getPrimaryKey(tableName)));
     }
 
+    public void add() throws CursorEngineException {
+        addNew();
+    }
+
+    /** Iterable::iterator */
+    public Iterator<T> iterator() {
+        return this;
+    }
+
+    /** Iterator::hasNext */
+    public boolean hasNext() {
+        try {
+            if (rs.getAbsolutePosition() == size()) {
+                firstIterated = true;
+                return false;
+            }
+            return true;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /** Forces a moveFirst for the first next() call */
+    private boolean firstIterated = true;
+
+    /** Iterator::next */
+    public T next() {
+        try {
+            if (firstIterated) {
+                firstIterated = false;
+                return (T) this;    
+            }
+            moveNext();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (T) this; 
+    }
+
+    /** Iterator::remove */
+    public void remove() {
+        try {
+            delete();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /** Wraps recordset functionality */
     public void moveNext() throws CursorEngineException {
         rs.moveNext();
     }
+
 
     /** Wraps recordset functionality */
     public void movePrevious() throws CursorEngineException {
@@ -147,12 +152,25 @@ public abstract class NormalBO {
 
     /** Wraps recordset functionality */
     public void moveFirst() throws CursorEngineException {
+        firstIterated = true;
         rs.moveFirst();
     }
 
     /** Wraps recordset functionality */
     public long getRecordCount() {
         return rs.getRecordCount();
+    }
+
+    public void first() throws CursorEngineException {
+        moveFirst();
+    }
+
+    public void last() throws CursorEngineException {
+        moveLast();
+    }
+
+    public int size() {
+        return rs.size();
     }
 
     /** Wraps recordset functionality */

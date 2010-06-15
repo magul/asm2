@@ -25,9 +25,14 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
 
-public class DiaryTaskDetail extends NormalBO {
+public class DiaryTaskDetail extends NormalBO<DiaryTaskDetail> {
     public DiaryTaskDetail() {
         tableName = "diarytaskdetail";
+    }
+
+    public DiaryTaskDetail(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

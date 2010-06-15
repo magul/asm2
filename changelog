@@ -1,6 +1,13 @@
 2.7.2
 ================
 
+*. Default constructors for business objects, getDate()/Double()/String()/Int()
+-  recordset methods, use of generics/iterable for SQLRecordset and all NormalBO
+-  descendants so that recordsets can be iterated (much neater), recordset
+-  add()/size() methods to match Java lists, and shorter 
+-  first/last() methods (includes business objects too)
+-  refactored most of LookupCache and Main.refreshCustomReports to test
+*. ASM now requires Java 5
 *. Default set of accounts and update procedure that generates 
 -  transactions/accounts for existing donation records
 *. Use English translation patch, remove duplicate data from .sql files,

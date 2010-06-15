@@ -11,8 +11,9 @@
         create the default set of accounts (leave out first 5 of stock) and 
         create accounts matching existing donation type table
         because of the new update, we need to move the db version on one
-   4. OwnerDonation.updateAccountTrx should delete and recreate matching 
-      trx from donation record
+   4. OwnerDonation.updateAccountTrx should find and update or create matching 
+      trx from donation record. The important bits are the source account
+      (mapped from donation type), amount and date received.
    5. DONE: DonationEdit should call updateAccountTrx
    6. Creating a new donationtype creates a matching account record
    7. DONE: AccountTrx.saveTransaction should update the donation record

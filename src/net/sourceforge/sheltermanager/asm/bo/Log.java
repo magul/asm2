@@ -8,7 +8,7 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 import java.util.Date;
 
 
-public class Log extends UserInfoBO {
+public class Log extends UserInfoBO<Log> {
     public static final int LINKTYPE_ANIMAL = 0;
     public static final int LINKTYPE_OWNER = 1;
     public static final int LINKTYPE_LOSTANIMAL = 2;
@@ -18,6 +18,11 @@ public class Log extends UserInfoBO {
 
     public Log() {
         tableName = "log";
+    }
+
+    public Log(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

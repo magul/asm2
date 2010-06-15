@@ -28,11 +28,16 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.*;
 
 
-public class AnimalLitter extends NormalBO {
+public class AnimalLitter extends NormalBO<AnimalLitter> {
     private Animal animal = null;
 
     public AnimalLitter() {
         tableName = "animallitter";
+    }
+
+    public AnimalLitter(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

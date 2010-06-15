@@ -27,12 +27,17 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.Date;
 
 
-public class AnimalCost extends UserInfoBO {
+public class AnimalCost extends UserInfoBO<AnimalCost> {
     /** Cached copy of animal the current cost belongs to */
     private Animal animal = null;
 
     public AnimalCost() {
         tableName = "animalcost";
+    }
+
+    public AnimalCost(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

@@ -3,7 +3,7 @@
  *  SQLRecordset Disconnected Recordset functionality
  *  and client-side cursor engine.
  *
- *  Copyright (C) 2002  Robin Rawson-Tetley
+ *  Copyright (C) 2002-2010  Robin Rawson-Tetley
  *
  *  www.rawsontetley.org
  *

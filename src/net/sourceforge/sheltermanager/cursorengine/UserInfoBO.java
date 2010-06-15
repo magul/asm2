@@ -24,32 +24,7 @@
  *  Bug fixes, suggestions and comments should be sent to:
  *
  *  <robin@rawsontetley.org>
- *
- *
- *  Change Log:
- *
- *        $Log: UserInfoBO.java,v $
- *        Revision 1.3  2004/12/08 08:39:44  bobintetley
- *        Editing diary task allows viewing of the notes after creation, fix to bug
- *        that meant horizontal scrollbars appeared on the ownervet box, good with
- *        cats/kids/dogs/housetrained are now tri-state, cloning an animal now
- *        clones it's movements as well
- *
- *        Revision 1.2  2003/07/07 07:59:17  bobintetley
- *        Feature request added to enforce coding schemes for manually entered codes.
- *        Also, discovered a bug in the cursor engine that could cause lock errors
- *        when validation failed.
- *
- *        Revision 1.1.1.1  2003/06/03 06:54:28  bobintetley
- *        Initial
- *
- *        Revision 1.1.1.1  2002/11/10 19:33:07  robin
- *
- *
- *
- *        Revision 1.0  2002/05/11 17:18:03  robinrt
- *        Initial Release
- */
+  */
 package net.sourceforge.sheltermanager.cursorengine;
 
 
@@ -59,7 +34,7 @@ package net.sourceforge.sheltermanager.cursorengine;
  * Note that this class neatly extends the NormalBO class and
  * overloads the save method to allow the stampable user info.
  */
-public abstract class UserInfoBO extends NormalBO {
+public abstract class UserInfoBO<T> extends NormalBO<T> {
     public void save(String currentUserName) throws CursorEngineException {
         try {
             validate();

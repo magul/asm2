@@ -136,9 +136,14 @@ import net.sourceforge.sheltermanager.cursorengine.*;
  * ChangeCustomReports          hcr
  * DeleteCustomReports          dcr
  */
-public class Users extends NormalBO {
+public class Users extends NormalBO<Users> {
     public Users() {
         tableName = "users";
+    }
+
+    public Users(String where) {
+        this();
+        openRecordset(where);
     }
 
     public Integer getID() throws CursorEngineException {

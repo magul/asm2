@@ -28,7 +28,7 @@ import net.sourceforge.sheltermanager.cursorengine.*;
 import java.util.*;
 
 
-public class Adoption extends UserInfoBO {
+public class Adoption extends UserInfoBO<Adoption> {
     public static final int MOVETYPE_NONE = 0;
     public static final int MOVETYPE_ADOPTION = 1;
     public static final int MOVETYPE_FOSTER = 2;
@@ -55,6 +55,11 @@ public class Adoption extends UserInfoBO {
 
     public Adoption() {
         tableName = "adoption";
+    }
+
+    public Adoption(String where) {
+        this();
+        openRecordset(where);
     }
 
     public void free() {

@@ -25,15 +25,20 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Vector;
 
-public class AccountTrx extends UserInfoBO {
+public class AccountTrx extends UserInfoBO<AccountTrx> {
 
    public AccountTrx() {
        tableName = "accountstrx";
    }
+
+    public AccountTrx(String where) {
+        this();
+        openRecordset(where);
+    }
 
    public void addNew() throws CursorEngineException {
         super.addNew();
@@ -181,9 +186,9 @@ public class AccountTrx extends UserInfoBO {
      * @param accountId The account ID
      * @param num The number to get, or 0 for all
      */
-    public static Vector getTransactions(Integer accountId, int num) throws Exception {
+    public static ArrayList<Trx> getTransactions(Integer accountId, int num) throws Exception {
 
-        Vector v = new Vector();
+        ArrayList<Trx> v = new ArrayList<Trx>();
         Date cutoff = new Date();
 
         // If the num is 0, we want to view all transactions, so set
@@ -216,7 +221,6 @@ public class AccountTrx extends UserInfoBO {
             balance = x.balance;
             t.moveNext();
         }
-
         return v;
     }
 
