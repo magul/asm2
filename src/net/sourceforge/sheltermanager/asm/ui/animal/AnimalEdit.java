@@ -1219,7 +1219,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             Calendar cal = Calendar.getInstance();
             vacc.openRecordset("AnimalID = " + animal.getID() +
                 " AND DateOfVaccination Is Null And DateRequired > '" +
-                Utils.getSQLDateOnly(cal) + "'");
+                Utils.getSQLDate(cal) + "'");
 
             if (vacc.getEOF()) {
                 vacc = null;

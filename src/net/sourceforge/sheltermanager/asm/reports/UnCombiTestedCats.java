@@ -85,7 +85,7 @@ public class UnCombiTestedCats extends Report {
             Calendar weeksBefore = Calendar.getInstance();
             weeksBefore.add(Calendar.WEEK_OF_YEAR, -weeksOld);
 
-            String theDate = Utils.getSQLDateOnly(weeksBefore);
+            String theDate = Utils.getSQLDate(weeksBefore);
 
             // Get cat species
             Integer catSpecies = null;

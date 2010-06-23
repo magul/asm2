@@ -262,7 +262,7 @@ public class VaccinationSelector extends ASMSelector
             String avID = (String) tablemodel.getValueAt(selrows[i], 4);
 
             String sql = "UPDATE animalvaccination SET DateOfVaccination = '" +
-                Utils.getSQLDateOnly(Calendar.getInstance()) + "' " +
+                Utils.getSQLDate(Calendar.getInstance()) + "' " +
                 "WHERE ID = " + avID;
 
             // Update the onscreen value

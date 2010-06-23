@@ -317,18 +317,6 @@ public abstract class Utils {
         return SQLRecordset.getSQLRepresentationOfDate(d);
     }
 
-    public static String getSQLDateOnly(Date d) {
-        return SQLRecordset.getSQLRepresentationOfDateOnly(d);
-    }
-
-    public static String getSQLDateOnly(Calendar c) {
-        return SQLRecordset.getSQLRepresentationOfDateOnly(calendarToDate(c));
-    }
-
-    public static String getSQLDateOnly(String d) throws ParseException {
-        return SQLRecordset.getSQLRepresentationOfDateOnly(parseDate(d));
-    }
-
     /** Returns an SQL date from the Calendar given */
     public static String getSQLDate(Calendar c) {
         return SQLRecordset.getSQLRepresentationOfDate(calendarToDate(c));

@@ -174,20 +174,20 @@ public class VaccinationView extends ASMView implements VaccinationParent,
         switch (type) {
         case DiaryCriteria.UPTO_TODAY:
             av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDateOnly(Calendar.getInstance()) + "'");
+                Utils.getSQLDate(Calendar.getInstance()) + "'");
 
             break;
 
         case DiaryCriteria.UPTO_SPECIFIED:
             av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDateOnly(dateUpto) + "'");
+                Utils.getSQLDate(dateUpto) + "'");
 
             break;
 
         case DiaryCriteria.BETWEEN_TWO:
             av.openRecordset("DateOfVaccination Is Null AND DateRequired >= '" +
-                Utils.getSQLDateOnly(dateFrom) + "' AND DateRequired <= '" +
-                Utils.getSQLDateOnly(dateTo) + "'");
+                Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
+                Utils.getSQLDate(dateTo) + "'");
 
             break;
         }
@@ -346,7 +346,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             String avID = (String) tablemodel.getValueAt(selrows[i], 8);
 
             String sql = "UPDATE animalvaccination SET DateOfVaccination = '" +
-                Utils.getSQLDateOnly(Calendar.getInstance()) + "' " +
+                Utils.getSQLDate(Calendar.getInstance()) + "' " +
                 "WHERE ID = " + avID;
 
             // Update the onscreen value

@@ -46,8 +46,8 @@ public class TransferIn extends Report {
     public TransferIn(Date from, Date to) {
         this.from = from;
         this.to = to;
-        sqlFrom = Utils.getSQLDateOnly(from);
-        sqlTo = Utils.getSQLDateOnly(to);
+        sqlFrom = Utils.getSQLDate(from);
+        sqlTo = Utils.getSQLDate(to);
         this.start();
     }
 

@@ -128,8 +128,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class Main extends ASMWindow {
-    /** HSQLDB Database checkpointer (30 seconds) */
-    private final static long CHECKPOINT_TIME = 30000;
+    /** HSQLDB Database checkpointer (10 minutes) */
+    private final static long CHECKPOINT_TIME = 600000;
 
     /** Cache updater (10 minutes) */
     private final static long CACHEUPDATE_TIME = 600000;

@@ -57,7 +57,7 @@ public class UnderSixNotLitter extends Report {
             Calendar sixMonthsBefore = Calendar.getInstance();
             sixMonthsBefore.add(Calendar.MONTH, -6);
 
-            String theDate = Utils.getSQLDateOnly(sixMonthsBefore);
+            String theDate = Utils.getSQLDate(sixMonthsBefore);
 
             Animal an = new Animal();
             an.openRecordset(((speciesID != 0)

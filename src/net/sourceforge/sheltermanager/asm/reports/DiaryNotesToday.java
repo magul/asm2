@@ -79,15 +79,15 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
 
         case DiaryCriteria.UPTO_SPECIFIED:
             diary.openRecordset("DiaryDateTime <= '" +
-                Utils.getSQLDateOnly(dateUpto) + "'" +
+                Utils.getSQLDate(dateUpto) + "'" +
                 " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
 
             break;
 
         case DiaryCriteria.BETWEEN_TWO:
             diary.openRecordset("DiaryDateTime >= '" +
-                Utils.getSQLDateOnly(dateFrom) + "' AND DiaryDateTime <= '" +
-                Utils.getSQLDateOnly(dateTo) + "'" +
+                Utils.getSQLDate(dateFrom) + "' AND DiaryDateTime <= '" +
+                Utils.getSQLDate(dateTo) + "'" +
                 " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
 
             break;
@@ -169,15 +169,15 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
 
         case DiaryCriteria.UPTO_SPECIFIED:
             diary.openRecordset("DiaryDateTime <= '" +
-                Utils.getSQLDateOnly(dateUpto) + "'" +
+                Utils.getSQLDate(dateUpto) + "'" +
                 " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
 
             break;
 
         case DiaryCriteria.BETWEEN_TWO:
             diary.openRecordset("DiaryDateTime >= '" +
-                Utils.getSQLDateOnly(dateFrom) + "' AND DiaryDateTime <= '" +
-                Utils.getSQLDateOnly(dateTo) + "'" +
+                Utils.getSQLDate(dateFrom) + "' AND DiaryDateTime <= '" +
+                Utils.getSQLDate(dateTo) + "'" +
                 " AND DateCompleted Is Null ORDER BY DiaryForName, DiaryDateTime");
 
             break;

@@ -672,11 +672,11 @@ public class AnimalFind extends ASMFind {
                 !txtDateTo.getText().equals("")) {
             try {
                 addSqlCriteria("((DateBroughtIn BETWEEN '" +
-                    Utils.getSQLDateOnly(txtDateFrom.getText()) + "' AND '" +
-                    Utils.getSQLDateOnly(txtDateTo.getText()) + "') OR (" +
+                    Utils.getSQLDate(txtDateFrom.getText()) + "' AND '" +
+                    Utils.getSQLDate(txtDateTo.getText()) + "') OR (" +
                     "ActiveMovementReturn BETWEEN '" +
-                    Utils.getSQLDateOnly(txtDateFrom.getText()) + "' AND '" +
-                    Utils.getSQLDateOnly(txtDateTo.getText()) + "'))");
+                    Utils.getSQLDate(txtDateFrom.getText()) + "' AND '" +
+                    Utils.getSQLDate(txtDateTo.getText()) + "'))");
             } catch (ParseException e) {
                 Dialog.showError(e.getMessage(), i18n("Bad_Date"));
 
@@ -721,10 +721,10 @@ public class AnimalFind extends ASMFind {
         if (!txtAgeFrom.getText().equals("") && !txtAgeTo.getText().equals("")) {
             try {
                 // Get the dates from and to as today
-                String yearfrom = Utils.getSQLDateOnly(Utils.subtractYears(
+                String yearfrom = Utils.getSQLDate(Utils.subtractYears(
                             Calendar.getInstance(),
                             Float.parseFloat(txtAgeFrom.getText())));
-                String yearto = Utils.getSQLDateOnly(Utils.subtractYears(
+                String yearto = Utils.getSQLDate(Utils.subtractYears(
                             Calendar.getInstance(),
                             Float.parseFloat(txtAgeTo.getText())));
                 addSqlCriteria("DateOfBirth BETWEEN '" + yearto + "' AND '" +

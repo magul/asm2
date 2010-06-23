@@ -53,7 +53,7 @@ public class ExpiringMembers extends MailMerge {
         }
 
         try {
-            cutoffDate = Utils.getSQLDateOnly(cdate);
+            cutoffDate = Utils.getSQLDate(cdate);
         } catch (Exception e) {
             return;
         }

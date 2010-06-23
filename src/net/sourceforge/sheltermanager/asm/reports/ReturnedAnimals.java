@@ -49,8 +49,8 @@ public class ReturnedAnimals extends Report {
     public ReturnedAnimals(Date from, Date to) {
         this.from = from;
         this.to = to;
-        this.sqlFrom = Utils.getSQLDateOnly(from);
-        this.sqlTo = Utils.getSQLDateOnly(to);
+        this.sqlFrom = Utils.getSQLDate(from);
+        this.sqlTo = Utils.getSQLDate(to);
         this.start();
     }
 

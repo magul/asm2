@@ -179,10 +179,10 @@ public class OwnerCriteriaSearch extends Report {
 
                     try {
                         // Get the dates from and to as today
-                        String yearfrom = Utils.getSQLDateOnly(Utils.subtractYears(
+                        String yearfrom = Utils.getSQLDate(Utils.subtractYears(
                                     Calendar.getInstance(),
                                     (float) o.getMatchAgeFrom().doubleValue()));
-                        String yearto = Utils.getSQLDateOnly(Utils.subtractYears(
+                        String yearto = Utils.getSQLDate(Utils.subtractYears(
                                     Calendar.getInstance(),
                                     (float) o.getMatchAgeTo().doubleValue()));
                         crit.append("DateOfBirth BETWEEN '" + yearto +

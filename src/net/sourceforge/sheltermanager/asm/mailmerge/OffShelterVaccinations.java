@@ -70,8 +70,8 @@ public class OffShelterVaccinations extends MailMerge {
         }
 
         try {
-            theLDate = Utils.getSQLDateOnly(ldate);
-            theUDate = Utils.getSQLDateOnly(udate);
+            theLDate = Utils.getSQLDate(ldate);
+            theUDate = Utils.getSQLDate(udate);
         } catch (ParseException e) {
             Dialog.showError(e.getMessage());
 

@@ -179,8 +179,8 @@ public class MedicalTreatmentSelector extends ASMSelector {
                 // were done today.
                 amt.openRecordset("AnimalMedicalID In (" + idList.toString() +
                     ") AND DateGiven Is Null Or (DateGiven >= '" +
-                    Utils.getSQLDateOnly(date1) + "' AND DateGiven <= '" +
-                    Utils.getSQLDateOnly(date2) + "')");
+                    Utils.getSQLDate(date1) + "' AND DateGiven <= '" +
+                    Utils.getSQLDate(date2) + "')");
             } else {
                 amt.openRecordset("ID = 0");
             }

@@ -1686,7 +1686,7 @@ public class Animal extends UserInfoBO<Animal> {
                 DBConnection.executeAction(sql);
             } else {
                 String sql = "UPDATE animal SET ActiveMovementReturn = '" +
-                    Utils.getSQLDateOnly(ad.getReturnDate()) + "' WHERE ID = " +
+                    Utils.getSQLDate(ad.getReturnDate()) + "' WHERE ID = " +
                     animalID;
                 DBConnection.executeAction(sql);
             }
@@ -1834,7 +1834,7 @@ public class Animal extends UserInfoBO<Animal> {
     public static void updateVariableAnimalData(Animal an) {
         try {
             String sql = "UPDATE animal SET " + "MostRecentEntryDate = '" +
-                Utils.getSQLDateOnly(an.getMostRecentEntry()) + "', " +
+                Utils.getSQLDate(an.getMostRecentEntry()) + "', " +
                 "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
                 "AgeGroup = '" + an.calculateAgeGroup() + "', " +
                 "AnimalAge = '" + an.getAge() + "', " + "DaysOnShelter = '" +
@@ -1884,9 +1884,9 @@ public class Animal extends UserInfoBO<Animal> {
              */
             adoption.openRecordset("AnimalID = " + getID() +
                 " AND (ReturnDate Is Null Or ReturnDate > '" +
-                Utils.getSQLDateOnly(atdate) + "')" +
+                Utils.getSQLDate(atdate) + "')" +
                 " AND (MovementType > 0 AND MovementDate <= '" +
-                Utils.getSQLDateOnly(atdate) +
+                Utils.getSQLDate(atdate) +
                 "' AND MovementDate Is Not Null)");
 
             if (!adoption.getEOF()) {

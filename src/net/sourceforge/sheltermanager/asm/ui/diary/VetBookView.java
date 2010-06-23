@@ -195,10 +195,10 @@ public class VetBookView extends ASMView implements VaccinationParent {
             Calendar threeAgo = Calendar.getInstance();
             threeAgo.add(Calendar.MONTH, -1);
             critDiary.append("(DateCompleted Is Null OR DateCompleted >= '" +
-                Utils.getSQLDateOnly(threeAgo) + "')");
+                Utils.getSQLDate(threeAgo) + "')");
             critVacc.append(
                 "(DateOfVaccination Is Null OR DateOfVaccination >= '" +
-                Utils.getSQLDateOnly(threeAgo) + "')");
+                Utils.getSQLDate(threeAgo) + "')");
         }
 
         String sql = "SELECT diary.CreatedBy, DiaryDateTime, DateCompleted, " +

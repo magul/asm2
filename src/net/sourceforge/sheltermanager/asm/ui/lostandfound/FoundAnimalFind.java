@@ -222,8 +222,8 @@ public class FoundAnimalFind extends ASMFind {
         if (!txtFrom.getText().equals("") && !txtTo.getText().equals("")) {
             try {
                 addSqlCriteria("DateFound BETWEEN '" +
-                    Utils.getSQLDateOnly(txtFrom.getText()) + "' AND '" +
-                    Utils.getSQLDateOnly(txtTo.getText()) + "'");
+                    Utils.getSQLDate(txtFrom.getText()) + "' AND '" +
+                    Utils.getSQLDate(txtTo.getText()) + "'");
             } catch (ParseException e) {
                 Dialog.showError(e.getMessage(), i18n("Bad_Date"));
 

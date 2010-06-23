@@ -420,7 +420,7 @@ public class WaitingListView extends ASMView {
             String wlID = tablemodel.getIDAt(selrows[i]);
 
             String sql = "UPDATE animalwaitinglist SET DateRemovedFromList = '" +
-                Utils.getSQLDateOnly(Calendar.getInstance()) + "' " +
+                Utils.getSQLDate(Calendar.getInstance()) + "' " +
                 "WHERE ID = " + wlID;
 
             try {
