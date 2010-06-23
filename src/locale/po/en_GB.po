@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-23 12:06+0000\n"
+"PO-Revision-Date: 2010-06-23 14:40+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5820,6 +5820,7 @@ msgstr "No animals have been returned within 6 months of adoption."
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
 #. # ui/movement/MovementSelector
@@ -6512,6 +6513,7 @@ msgstr "Edit the transactions for this account"
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
 #. # ui/movement/MovementSelector
@@ -13576,6 +13578,11 @@ msgstr "Remove the Litter ID/Acceptance Number field from the animal screen"
 #: disable_accounts_functionality
 msgid "Disable Accounts Functionality"
 msgstr "Disable Accounts Functionality"
+
+#. # ui/system/Options
+#: Donation_destination_account
+msgid "Donation destination account:"
+msgstr "Donation destination account:"
 
 #. # ui/users/UserView
 #: Add_a_new_user

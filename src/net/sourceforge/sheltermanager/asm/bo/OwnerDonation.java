@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.bo;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.BOValidationException;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 import java.util.Date;
@@ -242,21 +243,42 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         return o;
     }
     
-    /** Should be called after saving a donation - creates the matching
+    /** Should be called after saving a donation - (re)creates the matching
      *  transaction in the accounts package
      */
-    public void updateAccountTrx() throws CursorEngineException {
+    public void updateAccountTrx() throws Exception {
 
-        // TODO:
+        // Delete the existing account transaction for this
+    	// donation if there is one
+    	DBConnection.executeAction("DELETE FROM accountstrx WHERE OwnerDonationID = " + getID());
 
-        // Delete the existing account transaction
+        // Find the source account for the donation type
+    	int source = DBConnection.executeForInt("SELECT ID FROM accounts WHERE DonationTypeID = " + getDonationTypeID());
+    	if (source == 0) {
+    		// There isn't one - this shouldn't ever happen but since there's
+    		// nothing we can do, log it and bail out
+    		Global.logError("No matching account for donation type ID=" + getDonationTypeID(), "OwnerDonation.updateAccountTrx");
+    		return;
+    	}
 
-        // Find the account for the donation type
-
+    	// Now grab the target account for donations
+    	int target = Configuration.getInteger("DonationTargetAccount");
+    	
+    	// If no target is configured, look for the first bank account on file
+    	if (target == 0) {
+    		target = DBConnection.executeForInt("SELECT ID FROM accounts WHERE AccountType = 1");
+    	}
+    	
         // Create the transaction
-
-        // Destination account needs to be configured, source is 
-        // matching donation account (they're all income accounts)
+    	AccountTrx t = new AccountTrx("ID = 0");
+    	t.add();
+    	t.setAmount(getDonation());
+    	t.setDescription(getComments());
+    	t.setSourceAccountID(new Integer(source));
+    	t.setDestinationAccountID(new Integer(target));
+    	t.setOwnerDonationID(getID());
+    	t.setTrxDate(getDateReceived());
+    	t.save(Global.currentUserName);
 
     }
 

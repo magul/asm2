@@ -1,6 +1,8 @@
 2.7.2
 ================
 
+*. Configuration item on Defaults tab for target ac on donation trx
+*. Creating donation creates/recreates matching accounting transactions
 *. Removed getSQLDateOnly methods as they were being used with timestamp
 -  fields (no problem for MySQL/PostgreSQL but mismatched for HSQLDB)
 *. Default to much slower 10 minute checkpoint time, previous 30 seconds

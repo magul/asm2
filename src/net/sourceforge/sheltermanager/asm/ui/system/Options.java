@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -64,6 +65,7 @@ public class Options extends ASMForm {
     private UI.TextField txtOrgName;
     private UI.TextArea txtOrgAddress;
     private UI.ComboBox cboOrgCountry;
+    private UI.ComboBox cboDonationTargetAccount;
     private UI.TextField txtOrgTelephone;
     private UI.TextField txtOrgTelephone2;
     private UI.TextField txtCodingFormat;
@@ -163,6 +165,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultCoatType);
         ctl.add(cboDefaultDonationType);
         ctl.add(cboDefaultVaccinationType);
+        ctl.add(cboDonationTargetAccount);
         ctl.add(txtDefaultBoardingCost);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
@@ -340,6 +343,11 @@ public class Options extends ASMForm {
             "VaccinationType",
             new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
             cboDefaultVaccinationType);
+        
+        Utils.setComboFromID(LookupCache.getAccountsLookup(), 
+        		"Code", 
+        		new Integer(Configuration.getInteger("DonationTargetAccount")), 
+        		cboDonationTargetAccount);
 
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
@@ -475,6 +483,10 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultVaccinationType",
                 Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboDefaultVaccinationType).toString());
+            
+            Configuration.setEntry("DonationTargetAccount",
+            	Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+            		"Code", cboDonationTargetAccount).toString());
 
             l = tblDefaultOptions.getSelections();
 
@@ -818,6 +830,10 @@ public class Options extends ASMForm {
                 "VaccinationType");
         UI.addComponent(pr, i18n("Default_Vaccination_Type"),
             cboDefaultVaccinationType);
+        
+        cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
+        		"Code");
+        UI.addComponent(pr, i18n("Donation_destination_account"), cboDonationTargetAccount);
 
         l = new ArrayList();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,

@@ -326,10 +326,9 @@ public class DonationEdit extends ASMForm implements SearchListener,
             // Save the record
             od.save(Global.currentUserName);
 
-            // Update the accounting system
-            if (!Configuration.getBoolean("DisableAccounts")) {
-                od.updateAccountTrx();
-            }
+            // Update the accounting system - regardless of whether it's
+            // enabled or not so that things are kept correctly in sync
+            od.updateAccountTrx();
 
             // Update parent
             parent.updateList();
