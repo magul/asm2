@@ -137,9 +137,20 @@ public abstract class IconManager {
     public final static String ZOOMIN = "actions-ZoomIn-24.png";
     public final static String ZOOMOUT = "actions-ZoomOut-24.png";
     public final static String MAP = "actions-Map-24.png";
+    public final static String ACCOUNT = "accounts-Basic-24.png";
 
     // Screen icons ======================================================
     // These are in package/class alphabetical order
+
+    // ACCOUNT package ===================================================
+    public final static String SCREEN_ACCOUNT = ACCOUNT;
+    public final static String SCREEN_ACCOUNT_NEW = NEW;
+    public final static String SCREEN_ACCOUNT_EDIT = EDIT;
+    public final static String SCREEN_ACCOUNT_DELETE = DELETE;
+    public final static String SCREEN_ACCOUNT_REFRESH = REFRESH;
+    public final static String SCREEN_ACCOUNT_RECONCILE = UNDO;
+    public final static String SCREEN_ACCOUNT_TRX = ACCOUNT;
+    public final static String SCREEN_EDITACCOUNT = ACCOUNT;
 
     // ANIMAL package ====================================================
     public final static String SCREEN_ADDMEDIA = MEDIAADD;
@@ -578,6 +589,7 @@ public abstract class IconManager {
     public final static String MENUBLANK = "actions-Blank-16.png";
     public final static String MENU_REVERTTOPRODUCTION = MENUBLANK;
     public final static String MENU_REPORT = MENUBLANK;
+    public final static String MENU_FILEACCOUNTS = "accounts-Basic-16.png";
     public final static String MENU_FILEANIMAL = "animal-Basic-16.png";
     public final static String MENU_FILEANIMALADDANIMAL = "animal-Add-16.png";
     public final static String MENU_FILEANIMALFINDANIMAL = "animal-Search-16.png";
@@ -701,6 +713,7 @@ public abstract class IconManager {
     public final static String MENU_HELPABOUT = "actions-HelpAbout-16.png";
 
     // Toolbar ================================================================
+    public final static String BUTTON_ACCOUNT = "accounts-Basic-32.png";
     public final static String BUTTON_ADDANIMAL = "animal-Add-32.png";
     public final static String BUTTON_FINDANIMAL = "animal-Search-32.png";
     public final static String BUTTON_ADDOWNER = "owner-Add-32.png";

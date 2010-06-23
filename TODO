@@ -2,11 +2,12 @@
    0. DONE: Option to turn off accounting package (on by default) 
       DONE: "DisableAccounts"
    1. AccountsTrx.Trx class is used for UI screens (getTransactions)
-   2. UI screens - browse accounts,  (Account.getAllAccounts())
-                   double click account to view transactions, refresh
+   2. UI screens - 
+                   DONE: browse accounts,  (Account.getAllAccounts())
+                   DONE: multi-select with reconcile button accounts
                    view transactions with add at bottom
                    can double click transaction to edit
-                   multi-select with reconcile button
+                   multi-select with reconcile button trx
    3. DONE: Need db update to:
         create the default set of accounts (leave out first 5 of stock) and 
         create accounts matching existing donation type table

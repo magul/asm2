@@ -172,6 +172,12 @@ public class UserEdit extends ASMForm {
             }
 
             // Create checkboxes and load them with appropriate value
+            createLabel(i18n("Accounts:"));
+            createBox(i18n("Add_Accounts"), "aac");
+            createBox(i18n("View_Accounts"), "vac");
+            createBox(i18n("Change_Accounts"), "cac");
+            createBox(i18n("Change_Transactions"), "ctrx");
+            createBox(i18n("Delete_Accounts"), "dac");
             createLabel(i18n("Animals:"));
             createBox(i18n("Add_Animals"), "aa");
             createBox(i18n("Change_Animals"), "ca");

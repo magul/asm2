@@ -75,7 +75,7 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
 
         for (int i = 0; i < items.length; i++) {
             if (items[i].isHeader()) {
-                p.add(UI.getTitleLabel(items[i].getDisplay()));
+                p.add(UI.getTitleLabelPanel(items[i].getDisplay()));
             } else {
                 final UI.CheckBox c = UI.getCheckBox(items[i].getDisplay());
                 final int idx = i;

@@ -75,6 +75,11 @@ import net.sourceforge.sheltermanager.cursorengine.*;
  * ViewAnimalMovements          vamv
  * DeleteAnimalMovements        damv
  * ModifyAnimalNameDatabase     mand
+ * AddAccount					aac
+ * ViewAccount					vac
+ * ChangeAccount				cac
+ * ChangeTransactions			ctrx
+ * DeleteAccount				dac
  * AddOwner                     ao
  * ChangeOwner                  co
  * ViewOwners                   vo
@@ -626,4 +631,25 @@ public class Users extends NormalBO<Users> {
     public boolean getSecDeleteCustomReports() {
         return getSecurityFlag("dcr");
     }
+    
+    public boolean getSecAddAccount() {
+    	return getSecurityFlag("aac");
+    }
+    
+    public boolean getSecViewAccount() {
+    	return getSecurityFlag("vac");
+    }
+    
+    public boolean getSecChangeAccount() {
+    	return getSecurityFlag("cac");
+    }
+    
+    public boolean getSecChangeTransactions() {
+    	return getSecurityFlag("ctrx");
+    }
+    
+    public boolean getSecDeleteAccount() {
+    	return getSecurityFlag("dac");
+    }
+    
 }

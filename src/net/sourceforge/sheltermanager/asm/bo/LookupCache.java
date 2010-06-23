@@ -56,6 +56,7 @@ public abstract class LookupCache {
     private static SQLRecordset coattype = null;
     private static SQLRecordset donationfreq = null;
     private static SQLRecordset costtype = null;
+    private static SQLRecordset accounttype = null;
     private static Animal activeanimals = null;
     private static HashMap animalextdata = null;
     private static HashMap breedspecies = null;
@@ -86,7 +87,8 @@ public abstract class LookupCache {
     private static final int LOOKUP_COATTYPE = 19;
     private static final int LOOKUP_DONATIONFREQ = 20;
     private static final int LOOKUP_COSTTYPE = 21;
-    private static final int MAX_LOOKUPS = 21;
+    private static final int LOOKUP_ACCOUNTTYPE = 22;
+    private static final int MAX_LOOKUPS = 22;
 
     private static SQLRecordset getLookup(int lookuptype) {
         try {
@@ -309,6 +311,13 @@ public abstract class LookupCache {
                 }
 
                 return costtype;
+                
+            case LOOKUP_ACCOUNTTYPE:
+            	if (accounttype == null) {
+            		accounttype = new SQLRecordset();
+            		accounttype.openRecordset("SELECT * FROM lksaccounttype ORDER BY AccountType", "lksaccounttype");
+            	}
+            	return accounttype;
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -347,6 +356,7 @@ public abstract class LookupCache {
         coattype = null;
         donationfreq = null;
         costtype = null;
+        accounttype = null;
         animalextdata = null;
 
         if (activeanimals != null) {
@@ -551,6 +561,10 @@ public abstract class LookupCache {
     public static SQLRecordset getBaseColourLookup() {
         return getLookup(LOOKUP_BASECOLOUR);
     }
+    
+    public static SQLRecordset getAccountTypeLookup() {
+    	return getLookup(LOOKUP_ACCOUNTTYPE);
+    }
 
     public static SQLRecordset getAnimalTypeLookup() {
         return getLookup(LOOKUP_ANIMALTYPE);
@@ -742,6 +756,16 @@ public abstract class LookupCache {
         getLookup(LOOKUP_ANIMALTYPE);
 
         return getIDForName(animaltype, "AnimalType", Name);
+    }
+    
+    public static String getAccountTypeNameForID(Integer ID) {
+    	getLookup(LOOKUP_ACCOUNTTYPE);
+    	return getNameForID(accounttype, "AccountType", ID);
+    }
+    
+    public static Integer getAccountTypeIDForName(String Name) {
+    	getLookup(LOOKUP_ACCOUNTTYPE);
+    	return getIDForName(accounttype, "AccountType", Name);
     }
 
     private static String getNameForID(SQLRecordset rs, String nameFieldName,

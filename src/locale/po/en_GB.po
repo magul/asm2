@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-14 14:12+0000\n"
+"PO-Revision-Date: 2010-06-23 12:06+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -994,6 +994,110 @@ msgstr "Income::Sponsorship"
 #: accounts_5_desc
 msgid "Sponsorship donations"
 msgstr "Sponsorship donations"
+
+#: accounts_6_5_0_code
+msgid "Income::Shop"
+msgstr "Income::Shop"
+
+#: accounts_6_desc
+msgid "Income from an on-site shop"
+msgstr "Income from an on-site shop"
+
+#: accounts_7_5_0_code
+msgid "Income::Interest"
+msgstr "Income::Interest"
+
+#: accounts_7_desc
+msgid "Bank account interest"
+msgstr "Bank account interest"
+
+#: accounts_8_1_0_code
+msgid "Bank::Current"
+msgstr "Bank::Current"
+
+#: accounts_8_desc
+msgid "Bank current account"
+msgstr "Bank current account"
+
+#: accounts_9_1_0_code
+msgid "Bank::Deposit"
+msgstr "Bank::Deposit"
+
+#: accounts_9_desc
+msgid "Bank deposit account"
+msgstr "Bank deposit account"
+
+#: accounts_10_1_0_code
+msgid "Bank::Savings"
+msgstr "Bank::Savings"
+
+#: accounts_10_desc
+msgid "Bank savings account"
+msgstr "Bank savings account"
+
+#: accounts_11_8_0_code
+msgid "Asset::Premises"
+msgstr "Asset::Premises"
+
+#: accounts_11_desc
+msgid "Premises"
+msgstr "Premises"
+
+#: accounts_12_4_0_code
+msgid "Expenses::Phone"
+msgstr "Expenses::Phone"
+
+#: accounts_12_desc
+msgid "Telephone Bills"
+msgstr "Telephone Bills"
+
+#: accounts_13_4_0_code
+msgid "Expenses::Electricity"
+msgstr "Expenses::Electricity"
+
+#: accounts_13_desc
+msgid "Electricity Bills"
+msgstr "Electricity Bills"
+
+#: accounts_14_4_0_code
+msgid "Expenses::Water"
+msgstr "Expenses::Water"
+
+#: accounts_14_desc
+msgid "Water Bills"
+msgstr "Water Bills"
+
+#: accounts_15_4_0_code
+msgid "Expenses::Gas"
+msgstr "Expenses::Gas"
+
+#: accounts_15_desc
+msgid "Gas Bills"
+msgstr "Gas Bills"
+
+#: accounts_16_4_0_code
+msgid "Expenses::Postage"
+msgstr "Expenses::Postage"
+
+#: accounts_16_desc
+msgid "Postage costs"
+msgstr "Postage costs"
+
+#: accounts_17_4_0_code
+msgid "Expenses::Stationary"
+msgstr "Expenses::Stationary"
+
+#: accounts_17_desc
+msgid "Stationary costs"
+msgstr "Stationary costs"
+
+#: accounts_18_4_0_code
+msgid "Expenses::Food"
+msgstr "Expenses::Food"
+
+#: accounts_18_desc
+msgid "Animal food costs"
+msgstr "Animal food costs"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -4780,6 +4884,8 @@ msgstr "Vet Diary upto {0} "
 #. # ui/animal/CostSelector
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
@@ -5714,6 +5820,8 @@ msgstr "No animals have been returned within 6 months of adoption."
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # bo/Account
@@ -5785,6 +5893,8 @@ msgstr "Internal Loc"
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
 #. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
@@ -6344,6 +6454,173 @@ msgstr "Graphs cannot be sent to stdout."
 msgid "Litter ID"
 msgstr "Litter ID"
 
+#. # ui/account/AccountView
+#: Add_a_new_account
+msgid "Add a new account"
+msgstr "Add a new account"
+
+#. # ui/account/AccountView
+#: Edit_the_selected_account
+msgid "Edit the selected account"
+msgstr "Edit the selected account"
+
+#. # ui/account/AccountView
+#: Delete_the_selected_accounts
+msgid "Delete the selected accounts"
+msgstr "Delete the selected accounts"
+
+#. # ui/animal/VaccinationView
+#. # ui/animal/LitterView
+#. # ui/animal/CostSelector
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/AccountView
+#. # ui/waitinglist/WaitingListView
+#: Refresh_the_list
+msgid "Refresh the list"
+msgstr "Refresh the list"
+
+#. # ui/account/AccountView
+#: Mark_everything_in_the_selected_accounts_reconciled_to_today
+msgid "Mark everything in the selected accounts reconciled to today"
+msgstr "Mark everything in the selected accounts reconciled to today"
+
+#. # ui/account/AccountView
+#: Edit_the_transactions_for_this_account
+msgid "Edit the transactions for this account"
+msgstr "Edit the transactions for this account"
+
+#. # reports/VaccinationDiary
+#. # reports/Retailer
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # bo/Account
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#: Code
+#: Code\:
+msgid "Code:"
+msgstr "Code:"
+
+#. # reports/VaccinationDiary
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/AnimalPrint
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/CostSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/movement/MovementView
+#. # ui/log/LogSelector
+#. # ui/customreport/GetReports
+#. # ui/animal/AnimalEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/movement/MovementEdit
+#: Type
+#: Type\:
+msgid "Type:"
+msgstr "Type:"
+
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/DietSelector
+#. # ui/animal/CostSelector
+#. # ui/internet/PetFinderMapBreed
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/localcache/CacheView
+#. # ui/customreport/GetReports
+#. # bo/Account
+#. # bo/CustomReport
+#. # bo/AnimalCost
+#. # bo/AccountTrx
+#. # ui/animal/CostEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#: Description
+#: Description\:
+msgid "Description:"
+msgstr "Description:"
+
+#. # ui/account/AccountView
+#. # bo/AccountTrx
+#: Reconciled
+msgid "Reconciled"
+msgstr "Reconciled"
+
+#. # ui/account/AccountView
+#: Balance
+msgid "Balance"
+msgstr "Balance"
+
+#. # ui/account/AccountView
+#. # ui/main/Main
+#: Accounts
+msgid "Accounts"
+msgstr "Accounts"
+
+#. # ui/account/AccountEdit
+#: Create_New_Account
+msgid "Create New Account"
+msgstr "Create New Account"
+
+#. # ui/account/AccountEdit
+#: edit_account
+msgid "Edit Account - {0}"
+msgstr "Edit Account - {0}"
+
+#. # ui/account/AccountEdit
+#: Save_this_account_and_exit
+msgid "Save this account and exit"
+msgstr "Save this account and exit"
+
+#. # ui/diary/DiaryEdit
+#. # ui/account/AccountEdit
+#: Close_without_saving
+msgid "Close without saving"
+msgstr "Close without saving"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6597,16 +6874,6 @@ msgid "Vaccination Book"
 msgstr "Vaccination Book"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # ui/animal/CostSelector
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/waitinglist/WaitingListView
-#: Refresh_the_list
-msgid "Refresh the list"
-msgstr "Refresh the list"
-
-#. # ui/animal/VaccinationView
 #: Filling_list...
 msgid "Filling list..."
 msgstr "Filling list..."
@@ -6835,15 +7102,6 @@ msgstr ""
 #: Species\:
 msgid "Species:"
 msgstr "Species:"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
-#: Type\:
-msgid "Type:"
-msgstr "Type:"
 
 #. # ui/animal/AnimalEdit
 #: Hidden_Comments\:
@@ -7207,12 +7465,6 @@ msgstr "Required"
 #: The_Identichip_Number
 msgid "The Identichip Number"
 msgstr "The Identichip Number"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#: Code\:
-msgid "Code:"
-msgstr "Code:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -8290,13 +8542,6 @@ msgstr "New Cost"
 msgid "Edit Cost"
 msgstr "Edit Cost"
 
-#. # ui/animal/CostEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#: Description\:
-msgid "Description:"
-msgstr "Description:"
-
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
 #. # bo/AccountTrx
@@ -8492,11 +8737,6 @@ msgstr "Report"
 #: Install_this_report
 msgid "Install this report"
 msgstr "Install this report"
-
-#. # ui/diary/DiaryEdit
-#: Close_without_saving
-msgid "Close without saving"
-msgstr "Close without saving"
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -13965,6 +14205,36 @@ msgstr "Owner Record:"
 #: View_Staff_Owner_Records
 msgid "View Staff Owner Records"
 msgstr "View Staff Owner Records"
+
+#. # ui/users/UserEdit
+#: Accounts\:
+msgid "Accounts:"
+msgstr "Accounts:"
+
+#. # ui/users/UserEdit
+#: Add_Accounts
+msgid "Add Accounts"
+msgstr "Add Accounts"
+
+#. # ui/users/UserEdit
+#: View_Accounts
+msgid "View Accounts"
+msgstr "View Accounts"
+
+#. # ui/users/UserEdit
+#: Change_Accounts
+msgid "Change Accounts"
+msgstr "Change Accounts"
+
+#. # ui/users/UserEdit
+#: Change_Transactions
+msgid "Change Transactions"
+msgstr "Change Transactions"
+
+#. # ui/users/UserEdit
+#: Delete_Accounts
+msgid "Delete Accounts"
+msgstr "Delete Accounts"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer

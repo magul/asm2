@@ -40,6 +40,7 @@ public abstract class ASMView extends ASMForm {
     protected boolean hasTopPanel = false;
     protected boolean multiselect = true;
     protected ASMCellRenderer renderer = null;
+    protected boolean disableDoubleClick = false;
 
     public abstract Vector getTabOrder();
 
@@ -149,7 +150,9 @@ public abstract class ASMView extends ASMForm {
 
     public void tableDoubleClick() {
         updateToolButtons(table.getSelectedRow() != -1);
-        tableDoubleClicked();
+        if (!disableDoubleClick) {
+            tableDoubleClicked();
+        }
     }
 
     public abstract void tableClicked();

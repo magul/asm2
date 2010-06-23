@@ -48,6 +48,7 @@ import net.sourceforge.sheltermanager.asm.reports.MedicalDiary;
 import net.sourceforge.sheltermanager.asm.reports.VaccinationDiary;
 import net.sourceforge.sheltermanager.asm.reports.Vets;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
+import net.sourceforge.sheltermanager.asm.ui.account.AccountView;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
@@ -158,6 +159,7 @@ public class Main extends ASMWindow {
     private java.util.TimerTask cacheupdaterTask = null;
 
     /// UI components
+    private UI.Button btnAccount;
     private UI.Button btnAddAnimal;
     private UI.Button btnAddDiary;
     private UI.Button btnAddFoundAnimal;
@@ -175,6 +177,7 @@ public class Main extends ASMWindow {
     private UI.Button btnRetailerBook;
     private UI.Button btnViewMyDiary;
     private UI.Button btnWaitingList;
+    
     private UI.DesktopPane jdpDesktop;
     private UI.Label lblStatus;
     private ThrobberSmall thrThrob;
@@ -195,6 +198,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuDiaryVetsBook;
     private UI.MenuItem mnuDiaryViewMyNotes;
     private UI.Menu mnuFile;
+    private UI.MenuItem mnuFileAccount;
     private UI.Menu mnuFileAnimal;
     private UI.MenuItem mnuFileAnimalAddAnimal;
     private UI.MenuItem mnuFileAnimalAddWLEntry;
@@ -575,6 +579,7 @@ public class Main extends ASMWindow {
      * cannot do.
      */
     public void setSecurity() {
+        this.mnuFileAccount.setEnabled(Global.currentUserObject.getSecViewAccount());
         this.mnuFileAnimalAddAnimal.setEnabled(Global.currentUserObject.getSecAddAnimal());
         this.mnuFileAnimalFindAnimal.setEnabled(Global.currentUserObject.getSecViewAnimal());
         this.mnuFileAnimalNames.setEnabled(Global.currentUserObject.getSecModifyAnimalNameDatabase());
@@ -629,6 +634,7 @@ public class Main extends ASMWindow {
         this.mnuDiaryEditMedicalProfiles.setEnabled(Global.currentUserObject.getSecModifyLookups());
 
         // Toolbar buttons
+        this.btnAccount.setEnabled(Global.currentUserObject.getSecViewAccount());
         this.btnAddDiary.setEnabled(Global.currentUserObject.getSecAddDiaryNote());
         this.btnAddAnimal.setEnabled(Global.currentUserObject.getSecAddAnimal());
         this.btnFindAnimal.setEnabled(Global.currentUserObject.getSecViewAnimal());
@@ -756,6 +762,11 @@ public class Main extends ASMWindow {
 
         mnuFile = UI.getMenu(i18n("File"));
 
+        mnuFileAccount = UI.getMenuItem(i18n("Accounts"), 'C',
+                IconManager.getIcon(IconManager.MENU_FILEACCOUNTS),
+                new ASMAccelerator("a", "ctrl", "shift"), 
+                UI.fp(this, "actionFileAccounts"));
+
         mnuFileAnimal = UI.getMenu(i18n("Animal"), 'A',
                 IconManager.getIcon(IconManager.MENU_FILEANIMAL));
 
@@ -848,13 +859,13 @@ public class Main extends ASMWindow {
         mnuFileFoundAnimalsAddFound = UI.getMenuItem(i18n("Add_Found_Animal"),
                 'A',
                 IconManager.getIcon(IconManager.MENU_FILEFOUNDANIMALSADDFOUND),
-                new ASMAccelerator("a", "ctrl", "shift"),
+                new ASMAccelerator("3", "ctrl", ""),
                 UI.fp(this, "actionFileFoundAnimalsAddFound"));
 
         mnuFileFoundAnimalsFindFound = UI.getMenuItem(i18n("Find_Found_Animal"),
                 'F',
                 IconManager.getIcon(IconManager.MENU_FILEFOUNDANIMALSFINDFOUND),
-                new ASMAccelerator("b", "ctrl", "shift"),
+                new ASMAccelerator("4", "ctrl", ""),
                 UI.fp(this, "actionFileFoundAnimalsFindFound"));
 
         mnuFileMatchLostAndFound = UI.getMenuItem(i18n("Match_Lost_and_Found_Animals"),
@@ -1314,6 +1325,11 @@ public class Main extends ASMWindow {
         mnuFileLostAndFound.add(UI.getSeparator());
         mnuFileLostAndFound.add(mnuFileMatchLostAndFound);
         mnuFile.add(mnuFileLostAndFound);
+
+        if (!Configuration.getBoolean("DisableAccounts")) {
+            mnuFile.add(mnuFileAccount);
+        }
+        
         mnuFile.add(UI.getSeparator());
 
         if (!usingOSSecurity() && !Startup.applet) {
@@ -1694,6 +1710,15 @@ public class Main extends ASMWindow {
                 UI.fp(this, "actionDiaryPrintNotes"));
 
         tlbTools.add(btnPrintDiary);
+        
+        btnAccount = UI.getButton(null, i18n("Accounts"),
+        		IconManager.getIcon(IconManager.BUTTON_ACCOUNT),
+        		UI.fp(this, "actionFileAccounts"));
+        
+        if (!Configuration.getBoolean("DisableAccounts")) {
+        	tlbTools.add(btnAccount);
+        }
+
     }
 
     public void actionInternetPets911Publish() {
@@ -2264,6 +2289,13 @@ public class Main extends ASMWindow {
     public void actionSystemUsers() {
         cursorToWait();
         addChild(new UserView());
+    }
+
+    public void actionFileAccounts() {
+        cursorToWait();
+        AccountView ea = new AccountView();
+        addChild(ea);
+        ea = null;
     }
 
     public void actionFileAnimalAddAnimal() {

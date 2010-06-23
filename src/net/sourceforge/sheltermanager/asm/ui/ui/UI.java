@@ -544,6 +544,21 @@ public final class UI {
 
         return l;
     }
+    
+    public static Panel getTitleLabelPanel(String text) {
+    	Label l = getLabel(text);
+
+        if (!isLTR()) {
+            l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
+        l.setHorizontalAlignment(ALIGN_LEFT);
+        l.setFont(l.getFont().deriveFont(Font.BOLD));
+
+        Panel p = getPanel(getBorderLayout());
+        p.add(l);
+        return p;
+    }
 
     public static Label getHintLabel(String text) {
         Label l = new Label("<html><center>" + mnemonicRemove(text) +

@@ -52,7 +52,7 @@ public class Account extends UserInfoBO<Account> {
         super.addNew();
         setCode("");
         setDescription("");
-        setAccountTypeID(new Integer(1));
+        setAccountType(new Integer(1));
         setDonationTypeID(new Integer(1));
    }
 
@@ -62,7 +62,7 @@ public class Account extends UserInfoBO<Account> {
         a.addNew();
         a.setCode(getCode());
         a.setDescription(getDescription());
-        a.setAccountTypeID(getAccountTypeID());
+        a.setAccountType(getAccountType());
         a.setDonationTypeID(getDonationTypeID());
         return a;
    }
@@ -91,12 +91,16 @@ public class Account extends UserInfoBO<Account> {
         rs.setField("Description", newValue);
    }
 
-   public Integer getAccountTypeID() throws CursorEngineException {
-       return (Integer) rs.getField("AccountTypeID");
+   public Integer getAccountType() throws CursorEngineException {
+       return (Integer) rs.getField("AccountType");
+   }
+   
+   public String getAccountTypeName() throws CursorEngineException {
+	   return LookupCache.getAccountTypeNameForID(getAccountType());
    }
 
-   public void setAccountTypeID(Integer newValue) throws CursorEngineException {
-       rs.setField("AccountTypeID", newValue);
+   public void setAccountType(Integer newValue) throws CursorEngineException {
+       rs.setField("AccountType", newValue);
    }
 
    public Integer getDonationTypeID() throws CursorEngineException {
@@ -107,27 +111,65 @@ public class Account extends UserInfoBO<Account> {
        rs.setField("DonationTypeID", newValue);
    }
 
+    public String getCreatedBy() throws CursorEngineException {
+        return (String) rs.getField("CreatedBy");
+    }
+
+    public void setCreatedBy(String newValue) throws CursorEngineException {
+        rs.setField("CreatedBy", newValue);
+    }
+
+    public Date getCreatedDate() throws CursorEngineException {
+        return (Date) rs.getField("CreatedDate");
+    }
+
+    public void setCreatedDate(Date newValue) throws CursorEngineException {
+        rs.setField("CreatedDate", newValue);
+    }
+
+    public String getLastChangedBy() throws CursorEngineException {
+        return (String) rs.getField("LastChangedBy");
+    }
+
+    public void setLastChangedBy(String newValue) throws CursorEngineException {
+        rs.setField("LastChangedBy", newValue);
+    }
+
+    public Date getLastChangedDate() throws CursorEngineException {
+        return (Date) rs.getField("LastChangedDate");
+    }
+
+    public void setLastChangedDate(Date newValue) throws CursorEngineException {
+        rs.setField("LastChangedDate", newValue);
+    }
+
    /** Returns a list of all accounts, ordered by type and code */
-   public Account getAllAccounts() throws CursorEngineException {
+   public static Account getAllAccounts() throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("ID > 0 ORDER BY AccountType, Code");
         return a;
    }
 
    /** Returns an account with a specific ID */
-   public Account getAccountByID(Integer id) throws CursorEngineException {
+   public static Account getAccountByID(Integer id) throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("ID = " + id);
         return a;
    }
 
    /** Returns an account with a specific code */
-   public Account getAccountByID(String code) throws CursorEngineException {
+   public static Account getAccountByCode(String code) throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("Code = '" + code + "'");
         return a;
    }
 
+   /** Marks everything in this account reconciled upto today's date */
+   public void markReconciledToDate() throws Exception {
+       DBConnection.executeAction("UPDATE accountstrx SET Reconciled=1 WHERE " +
+           "(SourceAccountID = " + getID() + " OR DestinationAccountID = " + getID() + ") AND " +
+           "TrxDate <= '" + Utils.getSQLDate(new Date()) + "'");
+   }
 
    /** Calculates the balance for this account */
    public double getAccountBalance() throws Exception {
@@ -140,7 +182,7 @@ public class Account extends UserInfoBO<Account> {
         double rounded = Utils.round(deposit - withdrawal, 2);
         
         // Income and expense accounts should be positive
-        if (getAccountTypeID().intValue() == INCOME || getAccountTypeID().intValue() == EXPENSE) {
+        if (getAccountType().intValue() == INCOME || getAccountType().intValue() == EXPENSE) {
             rounded = Math.abs(rounded);
         }
 
@@ -158,7 +200,7 @@ public class Account extends UserInfoBO<Account> {
         double rounded = Utils.round(deposit - withdrawal, 2);
         
         // Income and expense accounts should be positive
-        if (getAccountTypeID().intValue() == INCOME || getAccountTypeID().intValue() == EXPENSE) {
+        if (getAccountType().intValue() == INCOME || getAccountType().intValue() == EXPENSE) {
             rounded = Math.abs(rounded);
         }
 

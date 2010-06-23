@@ -129,6 +129,38 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
        rs.setField("OwnerDonationID", newValue);
    }
 
+    public String getCreatedBy() throws CursorEngineException {
+        return (String) rs.getField("CreatedBy");
+    }
+
+    public void setCreatedBy(String newValue) throws CursorEngineException {
+        rs.setField("CreatedBy", newValue);
+    }
+
+    public Date getCreatedDate() throws CursorEngineException {
+        return (Date) rs.getField("CreatedDate");
+    }
+
+    public void setCreatedDate(Date newValue) throws CursorEngineException {
+        rs.setField("CreatedDate", newValue);
+    }
+
+    public String getLastChangedBy() throws CursorEngineException {
+        return (String) rs.getField("LastChangedBy");
+    }
+
+    public void setLastChangedBy(String newValue) throws CursorEngineException {
+        rs.setField("LastChangedBy", newValue);
+    }
+
+    public Date getLastChangedDate() throws CursorEngineException {
+        return (Date) rs.getField("LastChangedDate");
+    }
+
+    public void setLastChangedDate(Date newValue) throws CursorEngineException {
+        rs.setField("LastChangedDate", newValue);
+    }
+
     /**
      * Return a single transaction as an AccountTrx.Trx object
      * @param transactionId
