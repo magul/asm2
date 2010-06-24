@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 14:40+0100\n"
+"POT-Creation-Date: 2010-06-24 14:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1014,91 +1014,99 @@ msgstr ""
 msgid "Bank account interest"
 msgstr ""
 
-#: accounts_8_1_0_code
-msgid "Bank::Current"
+#: accounts_8_5_0_code
+msgid "Income::OpeningBalances"
 msgstr ""
 
 #: accounts_8_desc
-msgid "Bank current account"
+msgid "Opening balances"
 msgstr ""
 
 #: accounts_9_1_0_code
-msgid "Bank::Deposit"
+msgid "Bank::Current"
 msgstr ""
 
 #: accounts_9_desc
-msgid "Bank deposit account"
+msgid "Bank current account"
 msgstr ""
 
 #: accounts_10_1_0_code
-msgid "Bank::Savings"
+msgid "Bank::Deposit"
 msgstr ""
 
 #: accounts_10_desc
-msgid "Bank savings account"
+msgid "Bank deposit account"
 msgstr ""
 
-#: accounts_11_8_0_code
-msgid "Asset::Premises"
+#: accounts_11_1_0_code
+msgid "Bank::Savings"
 msgstr ""
 
 #: accounts_11_desc
-msgid "Premises"
+msgid "Bank savings account"
 msgstr ""
 
-#: accounts_12_4_0_code
-msgid "Expenses::Phone"
+#: accounts_12_8_0_code
+msgid "Asset::Premises"
 msgstr ""
 
 #: accounts_12_desc
-msgid "Telephone Bills"
+msgid "Premises"
 msgstr ""
 
 #: accounts_13_4_0_code
-msgid "Expenses::Electricity"
+msgid "Expenses::Phone"
 msgstr ""
 
 #: accounts_13_desc
-msgid "Electricity Bills"
+msgid "Telephone Bills"
 msgstr ""
 
 #: accounts_14_4_0_code
-msgid "Expenses::Water"
+msgid "Expenses::Electricity"
 msgstr ""
 
 #: accounts_14_desc
-msgid "Water Bills"
+msgid "Electricity Bills"
 msgstr ""
 
 #: accounts_15_4_0_code
-msgid "Expenses::Gas"
+msgid "Expenses::Water"
 msgstr ""
 
 #: accounts_15_desc
-msgid "Gas Bills"
+msgid "Water Bills"
 msgstr ""
 
 #: accounts_16_4_0_code
-msgid "Expenses::Postage"
+msgid "Expenses::Gas"
 msgstr ""
 
 #: accounts_16_desc
-msgid "Postage costs"
+msgid "Gas Bills"
 msgstr ""
 
 #: accounts_17_4_0_code
-msgid "Expenses::Stationary"
+msgid "Expenses::Postage"
 msgstr ""
 
 #: accounts_17_desc
-msgid "Stationary costs"
+msgid "Postage costs"
 msgstr ""
 
 #: accounts_18_4_0_code
-msgid "Expenses::Food"
+msgid "Expenses::Stationary"
 msgstr ""
 
 #: accounts_18_desc
+msgid "Stationary costs"
+msgstr ""
+
+#: accounts_19_4_0_code
+msgid "Expenses::Food"
+msgstr ""
+
+#: accounts_19_desc
 msgid "Animal food costs"
 msgstr ""
 
@@ -3507,6 +3515,8 @@ msgstr ""
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
@@ -3568,6 +3578,7 @@ msgstr ""
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
 #. # ui/system/ConfigureDatabase
+#. # ui/account/TrxView
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFind
@@ -4889,6 +4900,8 @@ msgstr ""
 #. # ui/internet/PetFinderMapSpecies
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
@@ -5826,6 +5839,7 @@ msgstr ""
 #. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # bo/Account
@@ -6479,6 +6493,7 @@ msgstr ""
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #. # ui/waitinglist/WaitingListView
 #: Refresh_the_list
 msgid "Refresh the list"
@@ -6519,6 +6534,7 @@ msgstr ""
 #. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # bo/Account
@@ -6573,6 +6589,8 @@ msgstr ""
 #. # ui/internet/PetFinderMapSpecies
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
@@ -6589,16 +6607,19 @@ msgid "Description:"
 msgstr ""
 
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #. # bo/AccountTrx
 #: Reconciled
 msgid "Reconciled"
 msgstr ""
 
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #: Balance
 msgid "Balance"
 msgstr ""
 
+#. # ui/system/Options
 #. # ui/account/AccountView
 #. # ui/main/Main
 #: Accounts
@@ -6622,8 +6643,117 @@ msgstr ""
 
 #. # ui/diary/DiaryEdit
 #. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
 #: Close_without_saving
 msgid "Close without saving"
+msgstr ""
+
+#. # ui/account/TrxView
+#: transactions_for
+msgid "Transactions - {0}"
+msgstr ""
+
+#. # ui/account/TrxView
+#: All
+msgid "All"
+msgstr ""
+
+#. # ui/account/TrxView
+#: show_most_recent
+msgid "Show Transactions:"
+msgstr ""
+
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/LitterView
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
+#. # ui/animal/LitterEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
+#: Date
+#: Date\:
+msgid "Date:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Account
+msgid "Account:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Deposit
+msgid "Deposit:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Withdrawal
+msgid "Withdrawal:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Create_Transaction
+msgid "Create Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Edit_Transaction
+msgid "Edit Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Save_this_transaction_and_exit
+msgid "Save this transaction and exit"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Edit_the_selected_transaction
+msgid "Edit the selected transaction"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Delete_the_selected_transactions
+msgid "Delete the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Reconcile_the_selected_transactions
+msgid "Reconcile the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Add_a_transaction
+msgid "Add a transaction"
+msgstr ""
+
+#. # ui/lookups/LookupEdit
+#. # db/AutoDBUpdates
+#: income_prefix
+msgid "Income::"
 msgstr ""
 
 #. # ui/animal/LitterView
@@ -6933,16 +7063,6 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
-msgstr ""
-
-#. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogEdit
-#: Date\:
-msgid "Date:"
 msgstr ""
 
 #. # ui/animal/LitterEdit
@@ -13585,6 +13705,13 @@ msgstr ""
 #. # ui/system/Options
 #: Donation_destination_account
 msgid "Donation destination account:"
+msgstr ""
+
+#. # ui/system/Options
+#: creating_matching_trx
+msgid ""
+"Creating donations and donation types creates matching accounts and "
+"transactions"
 msgstr ""
 
 #. # ui/users/UserView

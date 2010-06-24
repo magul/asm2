@@ -200,10 +200,10 @@ public class AccountView extends ASMView {
 
                 // Get the ID for the selected row
                 String id = tablemodel.getIDAt(selrows[i]);
-                String sql = "DELETE FROM accounts WHERE ID = " + id;
-
+                
                 try {
-                    DBConnection.executeAction(sql);
+                	DBConnection.executeAction("DELETE FROM accountstrx WHERE SourceAccountID = " + id + " OR DestinationAccountID = " + id);
+                    DBConnection.executeAction("DELETE FROM accounts WHERE ID = " + id);
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

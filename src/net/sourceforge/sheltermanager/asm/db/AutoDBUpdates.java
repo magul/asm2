@@ -3854,23 +3854,27 @@ public class AutoDBUpdates {
                 Global.logInfo("Creating default account set...", "AutoDBUpdates");
                 DBConnection.executeAction("INSERT INTO accounts VALUES (6, 'Income::Shop', 'Income from an on-site shop', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
                 DBConnection.executeAction("INSERT INTO accounts VALUES (7, 'Income::Interest', 'Bank account interest', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (8, 'Bank::Current', 'Bank current account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (9, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (10, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (11, 'Asset::Premises', 'Premises', 8, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (12, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (13, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (14, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (15, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (16, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (17, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
-                DBConnection.executeAction("INSERT INTO accounts VALUES (18, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (8, 'Income::OpeningBalances', 'Opening balances', 5, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (9, 'Bank::Current', 'Bank current account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (10, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (11, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (12, 'Asset::Premises', 'Premises', 8, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (13, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (14, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (15, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (16, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (17, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (18, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
+                DBConnection.executeAction("INSERT INTO accounts VALUES (19, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'asmupdate', '2010-06-14 00:00:00', 'asmupdate', '2010-06-14 00:00:00')");
             }
             catch (Exception e) {
                 errors.add("accounts: add default accounts");
                 Global.logException(e, getClass());
             }
 
+            // Enable automatic transaction creation
+            Configuration.setEntry("CreateDonationTrx", "Yes");
+            
             // Generate new accounts from the existing donation types
             SQLRecordset dt = new SQLRecordset();
             dt.openRecordset("SELECT * FROM donationtype", "donationtype");
@@ -3883,7 +3887,8 @@ public class AutoDBUpdates {
 
                 int aid = DBConnection.getPrimaryKey(DBConnection.con, "accounts");
                 DBConnection.executeAction("INSERT INTO accounts VALUES (" +
-                    aid + ", 'Income::" + dt.getField("DonationName") + "', '" +
+                    aid + ", '" + Global.i18n("uiaccount", "income_prefix") + 
+                    Utils.replace(dt.getString("DonationName"), " ", "") + "', '" +
                     dt.getString("DonationDescription") + "', 5, " +
                     dt.getInt("ID") + ", 0, " +
                     "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
@@ -3898,7 +3903,7 @@ public class AutoDBUpdates {
                     int id = DBConnection.getPrimaryKey(DBConnection.con, "accountstrx");
                     DBConnection.executeAction("INSERT INTO accountstrx VALUES (" +
                         id + ", '" + Utils.getSQLDate(d.getDate("Date")) + "', '', 0, " +
-                        d.getDouble("Donation") + ", " + aid + ", 8, " + d.getInt("ID") + ", 0, " +
+                        d.getDouble("Donation") + ", " + aid + ", 9, " + d.getInt("ID") + ", 0, " +
                         "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
                         Utils.getSQLDate(new Date()) + "')");
 

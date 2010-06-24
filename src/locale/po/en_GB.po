@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-23 14:40+0000\n"
+"PO-Revision-Date: 2010-06-24 14:18+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1011,91 +1011,99 @@ msgstr "Income::Interest"
 msgid "Bank account interest"
 msgstr "Bank account interest"
 
-#: accounts_8_1_0_code
+#: accounts_8_5_0_code
+msgid "Income::OpeningBalances"
+msgstr "Income::OpeningBalances"
+
+#: accounts_8_desc
+msgid "Opening balances"
+msgstr "Opening balances"
+
+#: accounts_9_1_0_code
 msgid "Bank::Current"
 msgstr "Bank::Current"
 
-#: accounts_8_desc
+#: accounts_9_desc
 msgid "Bank current account"
 msgstr "Bank current account"
 
-#: accounts_9_1_0_code
+#: accounts_10_1_0_code
 msgid "Bank::Deposit"
 msgstr "Bank::Deposit"
 
-#: accounts_9_desc
+#: accounts_10_desc
 msgid "Bank deposit account"
 msgstr "Bank deposit account"
 
-#: accounts_10_1_0_code
+#: accounts_11_1_0_code
 msgid "Bank::Savings"
 msgstr "Bank::Savings"
 
-#: accounts_10_desc
+#: accounts_11_desc
 msgid "Bank savings account"
 msgstr "Bank savings account"
 
-#: accounts_11_8_0_code
+#: accounts_12_8_0_code
 msgid "Asset::Premises"
 msgstr "Asset::Premises"
 
-#: accounts_11_desc
+#: accounts_12_desc
 msgid "Premises"
 msgstr "Premises"
 
-#: accounts_12_4_0_code
+#: accounts_13_4_0_code
 msgid "Expenses::Phone"
 msgstr "Expenses::Phone"
 
-#: accounts_12_desc
+#: accounts_13_desc
 msgid "Telephone Bills"
 msgstr "Telephone Bills"
 
-#: accounts_13_4_0_code
+#: accounts_14_4_0_code
 msgid "Expenses::Electricity"
 msgstr "Expenses::Electricity"
 
-#: accounts_13_desc
+#: accounts_14_desc
 msgid "Electricity Bills"
 msgstr "Electricity Bills"
 
-#: accounts_14_4_0_code
+#: accounts_15_4_0_code
 msgid "Expenses::Water"
 msgstr "Expenses::Water"
 
-#: accounts_14_desc
+#: accounts_15_desc
 msgid "Water Bills"
 msgstr "Water Bills"
 
-#: accounts_15_4_0_code
+#: accounts_16_4_0_code
 msgid "Expenses::Gas"
 msgstr "Expenses::Gas"
 
-#: accounts_15_desc
+#: accounts_16_desc
 msgid "Gas Bills"
 msgstr "Gas Bills"
 
-#: accounts_16_4_0_code
+#: accounts_17_4_0_code
 msgid "Expenses::Postage"
 msgstr "Expenses::Postage"
 
-#: accounts_16_desc
+#: accounts_17_desc
 msgid "Postage costs"
 msgstr "Postage costs"
 
-#: accounts_17_4_0_code
+#: accounts_18_4_0_code
 msgid "Expenses::Stationary"
 msgstr "Expenses::Stationary"
 
-#: accounts_17_desc
+#: accounts_18_desc
 msgid "Stationary costs"
 msgstr "Stationary costs"
 
-#: accounts_18_4_0_code
+#: accounts_19_4_0_code
 msgid "Expenses::Food"
 msgstr "Expenses::Food"
 
-#: accounts_18_desc
+#: accounts_19_desc
 msgid "Animal food costs"
 msgstr "Animal food costs"
 
@@ -3504,6 +3512,8 @@ msgstr "Number"
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
@@ -3565,6 +3575,7 @@ msgstr "No"
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
 #. # ui/system/ConfigureDatabase
+#. # ui/account/TrxView
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFind
@@ -4886,6 +4897,8 @@ msgstr "Vet Diary upto {0} "
 #. # ui/internet/PetFinderMapSpecies
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
@@ -5823,6 +5836,7 @@ msgstr "No animals have been returned within 6 months of adoption."
 #. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # bo/Account
@@ -6476,6 +6490,7 @@ msgstr "Delete the selected accounts"
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #. # ui/waitinglist/WaitingListView
 #: Refresh_the_list
 msgid "Refresh the list"
@@ -6516,6 +6531,7 @@ msgstr "Edit the transactions for this account"
 #. # ui/system/Options
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # bo/Account
@@ -6570,6 +6586,8 @@ msgstr "Type:"
 #. # ui/internet/PetFinderMapSpecies
 #. # ui/account/AccountEdit
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
@@ -6586,16 +6604,19 @@ msgid "Description:"
 msgstr "Description:"
 
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #. # bo/AccountTrx
 #: Reconciled
 msgid "Reconciled"
 msgstr "Reconciled"
 
 #. # ui/account/AccountView
+#. # ui/account/TrxView
 #: Balance
 msgid "Balance"
 msgstr "Balance"
 
+#. # ui/system/Options
 #. # ui/account/AccountView
 #. # ui/main/Main
 #: Accounts
@@ -6619,9 +6640,118 @@ msgstr "Save this account and exit"
 
 #. # ui/diary/DiaryEdit
 #. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
 #: Close_without_saving
 msgid "Close without saving"
 msgstr "Close without saving"
+
+#. # ui/account/TrxView
+#: transactions_for
+msgid "Transactions - {0}"
+msgstr "Transactions - {0}"
+
+#. # ui/account/TrxView
+#: All
+msgid "All"
+msgstr "All"
+
+#. # ui/account/TrxView
+#: show_most_recent
+msgid "Show Transactions:"
+msgstr "Show Transactions:"
+
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/LitterView
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
+#. # ui/animal/LitterEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
+#: Date
+#: Date\:
+msgid "Date:"
+msgstr "Date:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Account
+msgid "Account:"
+msgstr "Account:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Deposit
+msgid "Deposit:"
+msgstr "Deposit:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Withdrawal
+msgid "Withdrawal:"
+msgstr "Withdrawal:"
+
+#. # ui/account/TrxEdit
+#: Create_Transaction
+msgid "Create Transaction"
+msgstr "Create Transaction"
+
+#. # ui/account/TrxEdit
+#: Edit_Transaction
+msgid "Edit Transaction"
+msgstr "Edit Transaction"
+
+#. # ui/account/TrxEdit
+#: Save_this_transaction_and_exit
+msgid "Save this transaction and exit"
+msgstr "Save this transaction and exit"
+
+#. # ui/account/TrxView
+#: Edit_the_selected_transaction
+msgid "Edit the selected transaction"
+msgstr "Edit the selected transaction"
+
+#. # ui/account/TrxView
+#: Delete_the_selected_transactions
+msgid "Delete the selected transactions"
+msgstr "Delete the selected transactions"
+
+#. # ui/account/TrxView
+#: Reconcile_the_selected_transactions
+msgid "Reconcile the selected transactions"
+msgstr "Reconcile the selected transactions"
+
+#. # ui/account/TrxView
+#: Add_a_transaction
+msgid "Add a transaction"
+msgstr "Add a transaction"
+
+#. # ui/lookups/LookupEdit
+#. # db/AutoDBUpdates
+#: income_prefix
+msgid "Income::"
+msgstr "Income::"
 
 #. # ui/animal/LitterView
 #: Delete_this_litter
@@ -6931,16 +7061,6 @@ msgstr "Or date:"
 #: Create_New_Litter
 msgid "Create New Litter"
 msgstr "Create New Litter"
-
-#. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogEdit
-#: Date\:
-msgid "Date:"
-msgstr "Date:"
 
 #. # ui/animal/LitterEdit
 #: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
@@ -13583,6 +13703,13 @@ msgstr "Disable Accounts Functionality"
 #: Donation_destination_account
 msgid "Donation destination account:"
 msgstr "Donation destination account:"
+
+#. # ui/system/Options
+#: creating_matching_trx
+msgid ""
+"Creating donations and donation types creates matching accounts and "
+"transactions"
+msgstr ""
 
 #. # ui/users/UserView
 #: Add_a_new_user

@@ -4281,6 +4281,197 @@ Appropriate diary notes will be created in the general diary and attached
 \end_layout
 
 \begin_layout Chapter
+Accounts
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Accounts
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Animal Shelter Manager includes a full, double-entry book keeping system
+ to manage your shelter's accounts.
+\end_layout
+
+\begin_layout Standard
+To access the accounts module, go to 
+\series bold
+File->Accounts
+\series default
+, hit the toolbar button or press 
+\series bold
+CTRL+SHIFT+A
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_accounts.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ASM will show you a list of all accounts on the system, with current balances.
+ ASM comes preloaded with a basic set of accounts you can use to get started.
+ The use of Type::Name when creating codes for accounts is just a convention,
+ and you are free to use anything you like.
+ It is quite a useful convention though, as it enables you to see at a glance
+ the account type and ASM will group accounts of the same type together
+ when showing you lists and dropdown boxes.
+\end_layout
+
+\begin_layout Standard
+If you've never used a double entry book-keeping system before, the basic
+ idea is that you have a collection of transactions.
+ Each transaction contains a source account and a destination account -
+ this means that you are always moving money from one account to another.
+\end_layout
+
+\begin_layout Standard
+Accounts can be real, such as bank accounts, credit cards, loans, etc.
+ or purely for accounting purposes (
+\begin_inset Quotes eld
+\end_inset
+
+nominal
+\begin_inset Quotes erd
+\end_inset
+
+ accounts to use the correct terminology).
+ You create income and expense accounts to categorise how money enters and
+ leaves your shelter.
+\end_layout
+
+\begin_layout Standard
+For example, to pay an electricity bill, you would create a transaction
+ that takes the money from your real current account, and moves it to your
+ electricity expense account.
+\end_layout
+
+\begin_layout Standard
+Because every transaction has two sides, this system enables you to easily
+ see what is being spent on electricity (for example), or how much money
+ has been made via various income sources.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_accountstrx.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When adding transactions, ASM already knows which account you were looking
+ at, so it prompts you for the other side of the transaction.
+ You can also specify whether it is a deposit or a withdrawal to determine
+ which way the money is going.
+\end_layout
+
+\begin_layout Section
+Reconciliation
+\end_layout
+
+\begin_layout Standard
+Reconciliation is the process of checking a real bank account statement
+ against your computerised accounts.
+ It is simply a flag that you have verified the transaction.
+ You can blanket mark all transactions reconciled up until today's date
+ from the account screen as a handy shortcut.
+\end_layout
+
+\begin_layout Standard
+From both the accounts and transaction list screens, you can also hold down
+ CTRL when clicking to select multiple transactions/accounts when deleting
+ or marking items as reconciled.
+\end_layout
+
+\begin_layout Section
+Donations
+\end_layout
+
+\begin_layout Standard
+ASM already knows about your donations and by default will save you time
+ when entering accounts.
+\end_layout
+
+\begin_layout Standard
+When you create a donation type category, ASM will automatically create
+ a matching nominal income account for it.
+\end_layout
+
+\begin_layout Standard
+When you add a new donation to the system, ASM will automatically create
+ a matching transaction, taking the money from the donation type nominal
+ account and moving it to the account of your choice (see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Accounts"
+
+\end_inset
+
+, where this account can specified).
+ The default destination account for donations is the first bank account
+ listed if you do not change it.
+\end_layout
+
+\begin_layout Section
+Reporting
+\end_layout
+
+\begin_layout Standard
+ASM does not include accounting reports by default.
+ Instead, you can install them by going to 
+\series bold
+Reports->Get more reports from sheltermanager.com
+\series default
+ - here you will find the standard Balance Sheet and Profit and Loss reports
+ for the accounting system.
+\end_layout
+
+\begin_layout Chapter
 \begin_inset Index
 status open
 
@@ -8357,6 +8548,64 @@ The costs tab allows you to specify a default daily boarding cost for new
  You can also set whether to convert the boarding cost to a fixed cost record
  when the animal is adopted (this is the default behaviour) and which cost
  type that should be booked to.
+\end_layout
+
+\begin_layout Subsection
+Accounts
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+Accounts
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Accounts"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ASM contains a full double entry accounting package.
+ The options here are:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Disable Accounts Functionality:
+\series default
+ Ticking this box will cause ASM to remove all accounts related menu entries/but
+tons so that users do not see it, and you will not be using ASM to manage
+ your accounts.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Creating donations and donation types creates matching accounts and transactions
+:
+\series default
+ When you create a new donation type, or log a new donation against an owner/ani
+mal, ASM will automatically create a matching account in the accounts system
+ if one does not exist, and a matching transaction.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Donation destination account:
+\series default
+ When ASM creates a matching donation transaction, it will use the donation
+ type to find the income account to use.
+ The destination account here denotes where the money will be moved to.
+ If you do not set one, ASM will use the first bank account on file.
 \end_layout
 
 \begin_layout Subsection

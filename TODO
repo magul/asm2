@@ -1,25 +1,4 @@
-*. Accounting package in ASM:
-   0. DONE: Option to turn off accounting package (on by default) 
-      DONE: "DisableAccounts"
-   1. DONE: AccountsTrx.Trx class is used for UI screens (getTransactions)
-   2. UI screens - 
-                   DONE: browse accounts,  (Account.getAllAccounts())
-                   DONE: multi-select with reconcile button accounts
-                   DONE: view transactions with add at bottom
-                   DONE: can double click transaction to edit
-                   DONE: multi-select with reconcile button trx
-                   DONE: renderer to highlight accounts in red, alternate
-                   DONE: renderer to highlight trx in red, alternate
-   3. DONE: Need db update to:
-        create the default set of accounts (leave out first 5 of stock) and 
-        create accounts matching existing donation type table
-        because of the new update, we need to move the db version on one
-   4. DONE: OwnerDonation.updateAccountTrx should find and update or create 
-      matching trx from donation record. The important bits are the source 
-      account (mapped from donation type), amount and date received.
-   5. DONE: DonationEdit should call updateAccountTrx
-   6. Creating a new donationtype creates a matching account record
-   7. DONE: AccountTrx.saveTransaction should update the donation record
-   8. DONE:Default donation destination account needs to be configurable
-   9. Manual documenting it all
-   10. Balance sheet and P&L custom reports
+*. Balance sheet custom report
+*. Profit and Loss custom report
+*. Colour code waiting list by urgency
+

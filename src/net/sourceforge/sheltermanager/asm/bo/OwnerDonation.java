@@ -248,6 +248,9 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
      */
     public void updateAccountTrx() throws Exception {
 
+    	// If creating matching transactions is disabled, don't do anything
+    	if (!Configuration.getBoolean("CreateDonationTrx")) return;
+    	
         // Delete the existing account transaction for this
     	// donation if there is one
     	DBConnection.executeAction("DELETE FROM accountstrx WHERE OwnerDonationID = " + getID());
