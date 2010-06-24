@@ -182,8 +182,8 @@ public class Publisher extends Thread {
             StringBuffer theNav = new StringBuffer("");
 
             for (int i = 1; i <= noPages; i++) {
-                theNav.append("<a href=" + Integer.toString(i) + "." +
-                    publishCriteria.extension + ">" + Integer.toString(i) +
+                theNav.append("<a href=\"" + Integer.toString(i) + "." +
+                    publishCriteria.extension + "\">" + Integer.toString(i) +
                     "</a>&nbsp;");
             }
 
