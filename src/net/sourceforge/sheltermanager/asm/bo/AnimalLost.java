@@ -292,30 +292,32 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
      * @throws CursorEngineException
      *             If an error occurs accessing data.
      */
-    public Vector match(int matchPointFloor, boolean includeShelter,
+    public Vector<String[]> match(int matchPointFloor, boolean includeShelter,
         boolean filterByDate, Date fromDate, Date toDate, int foundFilterID,
         int animalID) throws CursorEngineException {
-        Vector returnedRows = new Vector();
+        Vector<String[]> returnedRows = new Vector<String[]>();
         int matchPoints = 0;
 
         // If we have an animalID then there's no point checking
         // found animals at all
         if (animalID == 0) {
-            AnimalFound af = new AnimalFound();
+        	
+            AnimalFound aflist = new AnimalFound();
 
             if (filterByDate) {
-                af.openRecordset("DateFound >= '" +
+                aflist.openRecordset("DateFound >= '" +
                     SQLRecordset.getSQLRepresentationOfDate(fromDate) +
                     "' AND DateFound <= '" +
                     SQLRecordset.getSQLRepresentationOfDate(toDate) +
                     "' AND AnimalTypeID = " + getSpeciesID() +
                     ((foundFilterID != 0) ? (" AND ID = " + foundFilterID) : ""));
             } else {
-                af.openRecordset("AnimalTypeID = " + getSpeciesID() +
+                aflist.openRecordset("AnimalTypeID = " + getSpeciesID() +
                     ((foundFilterID != 0) ? (" AND ID = " + foundFilterID) : ""));
             }
 
-            while (!af.getEOF()) {
+            for (AnimalFound af : aflist) {
+
                 // Start at 5 match points, because
                 // species has to match for it to be included.
                 matchPoints = 5;
@@ -387,7 +389,6 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                     returnedRows.add(entry);
                 }
 
-                af.moveNext();
             }
         }
 

@@ -88,17 +88,24 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** Iterable::iterator */
     public Iterator<T> iterator() {
-        return this;
+    	try {
+    		// Reset when we ask for an iterator
+    		if (size() > 0) {
+    			moveFirst();
+    		}
+    		firstItem = true;
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	return this;
     }
 
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            if (rs.getAbsolutePosition() == size()) {
-                firstIterated = true;
-                return false;
-            }
-            return true;
+        	if (size() == 0) return false;
+        	return rs.getAbsolutePosition() != size();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -106,14 +113,14 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
         }
     }
 
-    /** Forces a moveFirst for the first next() call */
-    private boolean firstIterated = true;
+    /** Iterator looking at the first item? */
+    private boolean firstItem = true;
 
     /** Iterator::next */
     public T next() {
         try {
-            if (firstIterated) {
-                firstIterated = false;
+            if (firstItem) {
+                firstItem = false;
                 return (T) this;    
             }
             moveNext();
@@ -152,7 +159,6 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** Wraps recordset functionality */
     public void moveFirst() throws CursorEngineException {
-        firstIterated = true;
         rs.moveFirst();
     }
 

@@ -21,9 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import net.sourceforge.sheltermanager.asm.bo.Account;
+import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.AccountRenderer;
@@ -36,32 +38,47 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 
 /**
- * Screen for displaying and editing accounts
+ * Screen for displaying transactions
  * @author Robin Rawson-Tetley
  */
-public class AccountView extends ASMView {
-    private UI.Button btnRefresh;
+public class TrxView extends ASMView {
+	
+	private UI.Button btnRefresh;
     private UI.Button btnNew;
     private UI.Button btnEdit;
     private UI.Button btnDelete;
     private UI.Button btnReconcile;
-    private UI.Button btnTrx;
+    private UI.ComboBox cboNumTrx;
+    private Account account = null;
+    
     private boolean hasRecords = false;
     
-    public AccountView() {
-        init(Global.i18n("uiaccount", "Accounts"), 
-        		IconManager.getIcon(IconManager.SCREEN_ACCOUNT), 
-        		"uiaccount", false, true,
-        		new AccountRenderer(new int[] { 3, 4 }, 6));
-        updateList();
+    public TrxView(Account account) {
+    	try {
+	    	this.account = account;
+	        init(Global.i18n("uiaccount", "transactions_for", account.getCode()), 
+	        	IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX), 
+	        	"uiaccount", true, true, 
+	        	new AccountRenderer(new int[] { 4, 5, 6 }, 8));
+	        
+	        cboNumTrx = UI.getCombo(new String[] { 
+	        	"100", "200", "500", i18n("All")
+	        });
+	        UI.addComponent(getTopPanel(), i18n("show_most_recent"), cboNumTrx);
+	        updateList();
+    	}
+    	catch (Exception e) {
+    		Global.logException(e, getClass());
+    	}
     }
 
     public void dispose() {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
+        ctl.add(cboNumTrx);
         ctl.add(getTable());
         return ctl;
     }
@@ -72,24 +89,14 @@ public class AccountView extends ASMView {
 
     /** Deactivates on screen buttons according to what the user can do */
     public void setSecurity() {
-        if (!Global.currentUserObject.getSecAddAccount()) {
-            btnNew.setEnabled(false);
-        }
-
-        if (!Global.currentUserObject.getSecDeleteAccount()) {
-            btnDelete.setEnabled(false);
-        }
-
-        if (!Global.currentUserObject.getSecChangeAccount()) {
-            btnEdit.setEnabled(false);
-            btnReconcile.setEnabled(false);
-        }
 
         if (!Global.currentUserObject.getSecChangeTransactions()) {
-            btnTrx.setEnabled(false);
+            btnNew.setEnabled(false);
+            btnDelete.setEnabled(false);
+            btnEdit.setEnabled(false);
+            btnReconcile.setEnabled(false);
             disableDoubleClick = true;
         }
-
     }
 
     /** Fills the on screen list of diary notes */
@@ -97,30 +104,44 @@ public class AccountView extends ASMView {
 
     	try {
     	
-	        // Create an array to hold the results for the table
-	    	Account accounts = Account.getAllAccounts();
-	        String[][] datar = new String[accounts.size()][7];
+	        // Get number of trx to display
+    		int num = 100;
+    		if (cboNumTrx != null && cboNumTrx.getSelectedItem() != null) {
+    			String nums = cboNumTrx.getSelectedItem().toString();
+    			if (nums.equals(i18n("All")))
+    				num = 9999999;
+    			else
+    				num = Integer.parseInt(nums);
+    		}
+    		
+    		// Grab the list
+    		ArrayList<AccountTrx.Trx> trx = 
+    			AccountTrx.getTransactions(account.getID(), num );
+	        String[][] datar = new String[trx.size()][9];
 	
 	        // Create an array of headers for the table
 	        String[] columnheaders = {
-	                i18n("Code"), i18n("Type"), i18n("Description"), 
-	                i18n("Reconciled"), i18n("Balance") 
+	                i18n("Date"), i18n("Reconciled"), i18n("Description"), 
+	                i18n("Account"), i18n("Deposit"), i18n("Withdrawal"), 
+	                i18n("Balance") 
 	        };
 	    
 	        int i = 0;
-	        for (Account a : accounts) {
-	            datar[i][0] = a.getCode();
-	            datar[i][1] = a.getAccountTypeName();
-	            datar[i][2] = a.getDescription();
-	            datar[i][3] = Utils.formatCurrency(a.getReconciled());
-	            datar[i][4] = Utils.formatCurrency(a.getAccountBalance());
-	            datar[i][5] = a.getID().toString();
-	            datar[i][6] = a.getAccountBalance() < 0 ? "-" : "+";
+	        for (AccountTrx.Trx t : trx) {
+	            datar[i][0] = Utils.formatDate(t.date);
+	            datar[i][1] = (t.reconciled == 1 ? i18n("Yes") : " ");
+	            datar[i][2] = t.description;
+	            datar[i][3] = t.otherAccountCode;
+	            datar[i][4] = (t.deposit > 0 ? Utils.formatCurrency(t.deposit) : "");
+	            datar[i][5] = (t.withdrawal > 0 ? Utils.formatCurrency(t.withdrawal) : "");
+	            datar[i][6] = Utils.formatCurrency(t.balance);
+	            datar[i][7] = new Integer(t.id).toString();
+	            datar[i][8] = t.balance < 0 ? "-" : "+";
 	            i++;
 	            hasRecords = true;
 	        }
 	
-	        setTableData(columnheaders, datar, i, 5);
+	        setTableData(columnheaders, datar, i, 7);
 	        
     	}
     	catch (Exception e) {
@@ -143,35 +164,30 @@ public class AccountView extends ASMView {
 
     public void addToolButtons() {
 
-        btnNew = UI.getButton(null, i18n("Add_a_new_account"), 'n',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_NEW),
+        btnNew = UI.getButton(null, i18n("Add_a_transaction"), 'n',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_NEW),
                 UI.fp(this, "actionNew"));
         addToolButton(btnNew, false);
 
-        btnEdit = UI.getButton(null, i18n("Edit_the_selected_account"), 'e',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_EDIT),
+        btnEdit = UI.getButton(null, i18n("Edit_the_selected_transaction"), 'e',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_EDIT),
                 UI.fp(this, "actionEdit"));
         addToolButton(btnEdit, true);
 
-        btnDelete = UI.getButton(null, i18n("Delete_the_selected_accounts"),
-                'd', IconManager.getIcon(IconManager.SCREEN_ACCOUNT_DELETE),
+        btnDelete = UI.getButton(null, i18n("Delete_the_selected_transactions"),
+                'd', IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_DELETE),
                 UI.fp(this, "actionDelete"));
         addToolButton(btnDelete, true);
 
         btnRefresh = UI.getButton(null, i18n("Refresh_the_list"), 'r',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_REFRESH),
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_REFRESH),
                 UI.fp(this, "updateList"));
         addToolButton(btnRefresh, false);
 
-        btnReconcile = UI.getButton(null, i18n("Mark_everything_in_the_selected_accounts_reconciled_to_today"), 'c',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_RECONCILE),
+        btnReconcile = UI.getButton(null, i18n("Reconcile_the_selected_transactions"), 'c',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_RECONCILE),
                 UI.fp(this, "actionReconcile"));
         addToolButton(btnReconcile, true);
-
-        btnTrx = UI.getButton(null, i18n("Edit_the_transactions_for_this_account"), 't',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_TRX),
-                UI.fp(this, "actionTrx"));
-        addToolButton(btnTrx, true);
 
     }
 
@@ -179,7 +195,7 @@ public class AccountView extends ASMView {
     }
 
     public void tableDoubleClicked() {
-        actionTrx();
+        actionEdit();
     }
 
     public void actionDelete() {
@@ -200,7 +216,7 @@ public class AccountView extends ASMView {
 
                 // Get the ID for the selected row
                 String id = tablemodel.getIDAt(selrows[i]);
-                String sql = "DELETE FROM accounts WHERE ID = " + id;
+                String sql = "DELETE FROM accountstrx WHERE ID = " + id;
 
                 try {
                     DBConnection.executeAction(sql);
@@ -222,20 +238,28 @@ public class AccountView extends ASMView {
             return;
         }
 
-        // Get an account object for it
-        Account a = new Account("ID = " + id);
-
-        // Open the edit form and edit it
-        AccountEdit ed = new AccountEdit();
-        ed.openForEdit(a, this);
-        Global.mainForm.addChild(ed);
+        try {
+	        AccountTrx.Trx t = AccountTrx.getTransactionByID(id, account.getID());
+	        TrxEdit ed = new TrxEdit();
+	        ed.openForEdit(t, this);
+	        Global.mainForm.addChild(ed);
+        }
+        catch (Exception e) {
+    		Global.logException(e, getClass());
+    		Dialog.showError(e.getMessage());
+    	}
     }
 
     public void actionNew() {
-        // Create a new edit form
-        AccountEdit ed = new AccountEdit();
-        ed.openForNew(this);
-        Global.mainForm.addChild(ed);
+    	try {
+	        TrxEdit ed = new TrxEdit();
+	        ed.openForNew(this, account.getID());
+	        Global.mainForm.addChild(ed);
+    	}
+    	catch (Exception e) {
+    		Global.logException(e, getClass());
+    		Dialog.showError(e.getMessage());
+    	}
     }
 
     public void actionReconcile() {
@@ -254,30 +278,12 @@ public class AccountView extends ASMView {
             try {
                 // Get the ID for the selected row
                 String id = tablemodel.getIDAt(selrows[i]);
-                Account a = Account.getAccountByID(new Integer(id));
-                a.markReconciledToDate();
+                AccountTrx.markReconciled(new Integer(id));
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());
             }
         }
         updateList();
-    }
-
-    public void actionTrx() {
-    	
-    	// Make sure a row is selected
-        int id = getTable().getSelectedID();
-
-        if (id == -1) {
-            return;
-        }
-
-        // Get an account object for it
-        Account a = new Account("ID = " + id);
-        
-        // Create/open the transaction screen
-        TrxView tv = new TrxView(a);
-        Global.mainForm.addChild(tv);
     }
 }

@@ -59,11 +59,11 @@ public abstract class LookupCache {
     private static SQLRecordset accounttype = null;
     private static SQLRecordset accounts = null;
     private static Animal activeanimals = null;
-    private static HashMap animalextdata = null;
-    private static HashMap breedspecies = null;
-    private static HashMap donationspecies = null;
-    private static Vector ownercounties = null;
-    private static Vector ownertowns = null;
+    private static HashMap<Integer, Animal.AnimalMarkers> animalextdata = null;
+    private static HashMap<Integer, Vector<String> > breedspecies = null;
+    private static HashMap<Integer, Double> donationspecies = null;
+    private static Vector<String> ownercounties = null;
+    private static Vector<TownCounty> ownertowns = null;
     private static String commoncounty = "";
     private static String commontown = "";
     private static final int LOOKUP_SEX = 0;
@@ -454,7 +454,7 @@ public abstract class LookupCache {
                 activeanimals.free();
             }
 
-            animalextdata = new HashMap();
+            animalextdata = new HashMap<Integer, Animal.AnimalMarkers>();
             activeanimals = new Animal();
             activeanimals.openRecordset("Archived = 0");
 
@@ -906,16 +906,16 @@ public abstract class LookupCache {
      * in order - this is to keep county/state names consistent on
      * the owner screen
      */
-    public static Vector getOwnerCounties() {
+    public static Vector<String> getOwnerCounties() {
         if (ownercounties == null) {
             try {
                 SQLRecordset r = new SQLRecordset();
                 r.openRecordset("SELECT DISTINCT OwnerCounty FROM owner WHERE OwnerCounty Is Not Null ORDER BY OwnerCounty",
                     "owner");
-                ownercounties = new Vector();
+                ownercounties = new Vector<String>();
 
                 while (!r.getEOF()) {
-                    ownercounties.add(r.getField("OwnerCounty").toString());
+                    ownercounties.add(r.getString("OwnerCounty"));
                     r.moveNext();
                 }
 
@@ -925,7 +925,7 @@ public abstract class LookupCache {
                     "owner");
 
                 if (!r.getEOF()) {
-                    commoncounty = (String) r.getField("OwnerCounty");
+                    commoncounty = r.getString("OwnerCounty");
                 }
             } catch (Exception e) {
                 Global.logException(e, LookupCache.class);
@@ -941,18 +941,17 @@ public abstract class LookupCache {
      * the owner screen. TownCounty objects are returned, containing
      * the town and county.
      */
-    public static Vector getOwnerTowns() {
+    public static Vector<TownCounty> getOwnerTowns() {
         if (ownertowns == null) {
             try {
                 SQLRecordset r = new SQLRecordset();
                 r.openRecordset("SELECT DISTINCT OwnerTown, OwnerCounty FROM owner WHERE OwnerTown Is Not Null ORDER BY OwnerTown",
                     "owner");
-                ownertowns = new Vector();
+                ownertowns = new Vector<TownCounty>();
 
                 while (!r.getEOF()) {
-                    ownertowns.add(new TownCounty(r.getField("OwnerTown")
-                                                   .toString(),
-                            r.getField("OwnerCounty").toString()));
+                    ownertowns.add(new TownCounty(r.getString("OwnerTown"),
+                            r.getString("OwnerCounty")));
                     r.moveNext();
                 }
 
@@ -984,9 +983,9 @@ public abstract class LookupCache {
      * Returns the counties for a given town (typically
      * there'll be just one).
      */
-    public static Vector getCountiesForTown(String town) {
-        Vector out = new Vector();
-        Vector v = getOwnerTowns();
+    public static Vector<String> getCountiesForTown(String town) {
+        Vector<String> out = new Vector<String>();
+        Vector<TownCounty> v = getOwnerTowns();
 
         for (int i = 0; i < v.size(); i++) {
             TownCounty t = (TownCounty) v.get(i);
@@ -1006,32 +1005,31 @@ public abstract class LookupCache {
      * @param speciesID The species ID
      * @return a list of breed names (strings)
      */
-    public static Vector getBreedsForSpecies(Integer speciesID) {
+    public static Vector<String> getBreedsForSpecies(Integer speciesID) {
         if (breedspecies == null) {
-            breedspecies = new HashMap();
+            breedspecies = new HashMap<Integer, Vector<String> >();
         }
 
-        Vector v = (Vector) breedspecies.get(speciesID);
+        Vector<String> v = breedspecies.get(speciesID);
 
         if (v == null) {
-            v = new Vector();
+            v = new Vector<String>();
 
             try {
-                SQLRecordset s = new SQLRecordset();
-                s.openRecordset(
+                SQLRecordset slist = new SQLRecordset();
+                slist.openRecordset(
                     "SELECT breed.BreedName, COUNT(breed.BreedName) AS Popularity " +
                     "FROM animal INNER JOIN " +
                     "breed ON animal.BreedID = breed.ID WHERE " +
                     "animal.SpeciesID = " + speciesID.intValue() + " " +
                     "GROUP BY breed.BreedName ORDER BY Popularity DESC", "breed");
 
-                while (!s.getEOF()) {
-                    v.add(s.getField("BreedName"));
-                    s.moveNext();
+                for (SQLRecordset r : slist) {
+                    v.add(r.getString("BreedName"));
                 }
 
-                s.free();
-                s = null;
+                slist.free();
+                slist = null;
                 breedspecies.put(speciesID, v);
             } catch (Exception e) {
                 Global.logException(e, Animal.class);
@@ -1051,7 +1049,7 @@ public abstract class LookupCache {
      */
     public static Double getDonationAmountForMovementSpecies(int movementID) {
         if (donationspecies == null) {
-            donationspecies = new HashMap();
+            donationspecies = new HashMap<Integer, Double>();
         }
 
         // Get the species for the animal on this movement first
@@ -1080,7 +1078,7 @@ public abstract class LookupCache {
 
         // Ok, we've got the species now, look up an existing mapping
         // if there is one
-        Double f = (Double) donationspecies.get(speciesID);
+        Double f = donationspecies.get(speciesID);
 
         if (f == null) {
             try {

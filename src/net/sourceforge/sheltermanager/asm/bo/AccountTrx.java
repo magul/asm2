@@ -232,16 +232,21 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         }
         else {
             cutoff = getCutOffDateForRows(accountId, num);
+            Global.logDebug("Got cutoff date, " + num + " rows = " + Utils.formatDate(cutoff), "AccountTrx.getTransactions");
         }
 
         // Nothing to return if no cutoff
-        if (cutoff == null) return v;
+        if (cutoff == null) {
+            Global.logDebug("No trx in account, bailing", "AccountTrx.getTransactions");
+        	return v;
+        }
 
         // Get the rows
         AccountTrx t = new AccountTrx();
         t.openRecordset("TrxDate >= '" + Utils.getSQLDate(cutoff) + 
             "' AND (SourceAccountID = " + accountId + 
             " OR DestinationAccountID = " + accountId + ") ORDER BY TrxDate");
+        Global.logDebug("Identified " + t.size() + " transactions for account", "AccountTrx.getTransactions");
 
         // Get our starting balance
         double balance = Account.getAccountBalanceToDate(accountId, cutoff);
@@ -264,9 +269,17 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
      */
     public static Date getCutOffDateForRows(Integer accountId, int num) throws Exception {
 
-        Date d = DBConnection.executeForDate("SELECT TrxDate FROM accountstrx WHERE (SourceAccountID=" + accountId + " OR DestinationAccountID=" + accountId + ") ORDER BY TrxDate DESC LIMIT " + num);
+        SQLRecordset r = new SQLRecordset("SELECT TrxDate FROM accountstrx WHERE (SourceAccountID=" + accountId + " OR DestinationAccountID=" + accountId + ") ORDER BY TrxDate DESC LIMIT " + num);
+        
+        // We have no cutoff dates, bail
+        if (r.getEOF()) return null;
+        
+        // Grab the last date from the list
+        r.moveLast();
+        Date d = r.getDate("TrxDate");
+        Global.logDebug("Cutoff date for " + num + " rows in account " + accountId + " = " + Utils.formatDate(d), "AccountTrx.getCutOffDateForRows");
 
-        // Now, substract a day
+        // Now, subtract a day
         Calendar c = Calendar.getInstance();
         c.setTime(d);
         c.add(Calendar.DAY_OF_YEAR, -1);
@@ -288,8 +301,15 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public int reconciled = 0;
         public double deposit = 0;
         public double withdrawal = 0;
+        public double amount = 0;
         public double balance = 0;
+        public String createdBy = "";
+        public Date createdDate = null;
+        public String lastChangedBy = "";
+        public Date lastChangedDate = null;
 
+        public Trx() {}
+        
         public Trx(AccountTrx t, Integer thisAccount, double startbalance) throws Exception {
             id = t.getID().intValue();
             accountId = thisAccount.intValue();
@@ -297,7 +317,12 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             description = t.getDescription();
             reconciled = t.getReconciled().intValue();
             ownerDonationId = t.getOwnerDonationID().intValue();
-            this.balance = startbalance;
+            amount = t.getAmount().doubleValue();
+            balance = startbalance;
+            createdBy = t.getCreatedBy();
+            createdDate = t.getCreatedDate();
+            lastChangedBy = t.getLastChangedBy();
+            lastChangedDate = t.getLastChangedDate();
 
             // If this account is the source, then this is a withdrawal
             if (t.getSourceAccountID().equals(thisAccount)) {

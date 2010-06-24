@@ -21,11 +21,12 @@ Contact me by electronic mail: bobintetley@users.sourceforge.net
 */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.*;
-
 import java.util.Date;
+
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 public class Account extends UserInfoBO<Account> {
 
@@ -218,7 +219,7 @@ public class Account extends UserInfoBO<Account> {
             DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " + accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
         double rounded = Utils.round(deposit - withdrawal, 2);
         
-        int accountType = DBConnection.executeForInt("SELECT AccountTypeID FROM accounts WHERE ID = " + accountId);
+        int accountType = DBConnection.executeForInt("SELECT AccountType FROM accounts WHERE ID = " + accountId);
 
         // Income and expense accounts should always be positive
         if (accountType == INCOME || accountType == EXPENSE) {

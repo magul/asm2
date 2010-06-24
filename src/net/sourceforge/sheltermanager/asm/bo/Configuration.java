@@ -21,12 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
+import java.util.HashMap;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Hashtable;
 
 
 /**
@@ -36,7 +36,7 @@ import java.util.Hashtable;
  * straight away and the cache.
  */
 public class Configuration {
-    private static Hashtable conf = null;
+    private static HashMap<String, String> conf = null;
 
     static {
         loadFromDatabase();
@@ -111,15 +111,12 @@ public class Configuration {
         try {
             Global.logDebug("Loading configuration...",
                 "Configuration.loadFromDatabase");
-            conf = new Hashtable();
+            conf = new HashMap<String, String>();
 
-            SQLRecordset r = new SQLRecordset();
-            r.openRecordset("SELECT * FROM configuration", "configuration");
-
-            while (!r.getEOF()) {
+            SQLRecordset recs = new SQLRecordset("SELECT * FROM configuration", "configuration");
+            for (SQLRecordset r : recs) {
                 conf.put((String) r.getField("ItemName"),
                     (String) r.getField("ItemValue"));
-                r.moveNext();
             }
         } catch (Exception e) {
             Global.logException(e, Configuration.class);

@@ -1,13 +1,17 @@
 2.7.2
 ================
 
+*. Removed pointless PrimaryKey business object (unused)
+*. Transaction editing screen, account/trx renderer with monospace
+-  font, red highlighting for in the red transactions and more
+-  familiar pale green/yellow views for accounts
 *. Configuration item on Defaults tab for target ac on donation trx
 *. Creating donation creates/recreates matching accounting transactions
 *. Removed getSQLDateOnly methods as they were being used with timestamp
 -  fields (no problem for MySQL/PostgreSQL but mismatched for HSQLDB)
 *. Default to much slower 10 minute checkpoint time, previous 30 seconds
 -  was OTT and increased the likelihood of destroying the DB in a crash
-*. Upgrade to HSQLDB 2.0.0 for better reliability/stability
+*. Upgrade to HSQLDB 1.8.1_3 for better reliability/stability
 *. Account editing screen with menu/toolbar button and permissions
 *. Lack of margin on selectable lists looked clumsy
 *. Default constructors for business objects, getDate()/Double()/String()/Int()

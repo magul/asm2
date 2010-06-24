@@ -21,40 +21,45 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Account;
+import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
+import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
+import java.util.Vector;
+
 /**
  * This class contains all code for editing accounts
  * @author Robin Rawson-Tetley
  */
-public class AccountEdit extends ASMForm {
-    private Account account = null;
-    private AccountView parent = null;
+public class TrxEdit extends ASMForm {
+    
+	private AccountTrx.Trx trx = null;
+    private TrxView parent = null;
     private UI.Button btnOk;
     private UI.Button btnCancel;
-    private UI.ComboBox cboAccountType;
-    private UI.TextField txtCode;
-    private UI.TextArea txtDescription;
+    
+    private DateField txtTrxDate;
+    private UI.TextField txtDescription;
+    private UI.ComboBox cboAccount;
+    private CurrencyField txtDeposit;
+    private CurrencyField txtWithdrawal;
     private String audit = null;
 
-    public AccountEdit() {
-        init("", IconManager.getIcon(IconManager.SCREEN_EDITACCOUNT), "uiaccount");
+    public TrxEdit() {
+        init("", IconManager.getIcon(IconManager.SCREEN_EDITTRX), "uiaccount");
     }
 
     public void dispose() {
-        account.free();
         parent = null;
-        account = null;
         super.dispose();
     }
 
@@ -74,43 +79,40 @@ public class AccountEdit extends ASMForm {
      */
     public Vector<Object> getTabOrder() {
         Vector<Object> ctl = new Vector<Object>();
-        ctl.add(txtCode);
-        ctl.add(cboAccountType);
+        ctl.add(txtTrxDate);
         ctl.add(txtDescription);
+        ctl.add(cboAccount);
+        ctl.add(txtDeposit);
+        ctl.add(txtWithdrawal);
         ctl.add(btnOk);
         ctl.add(btnCancel);
         return ctl;
     }
 
     public Object getDefaultFocusedComponent() {
-        return txtCode;
+        return txtTrxDate.getTextField();
     }
 
-    public void openForNew(AccountView parent) {
+    public void openForNew(TrxView parent, Integer accountId) {
         this.parent = parent;
-        openForNew();
+        openForNew(accountId);
     }
 
     /** Sets the screen into creation mode of a new account */
-    public void openForNew() {
-
-        try {
-            account = new Account("ID = 0");
-            account.addNew();
-        } catch (CursorEngineException e) {
-            Dialog.showError(e.getMessage());
-        }
-        setTitle(i18n("Create_New_Account"));
+    public void openForNew(Integer accountId) {
+       	trx = new AccountTrx.Trx();
+       	trx.accountId = accountId.intValue();
+        setTitle(i18n("Create_Transaction"));
+        txtTrxDate.setToToday();
     }
 
     /**
-     * Sets the screen into editing mode of the passed account object.
+     * Sets the screen into editing mode of the passed trx object.
      *
-     * @param account The Account object to edit.
-     * @param parent The parent screen
+     * @param trx The Trx object to edit.
      */
-    public void openForEdit(Account account, AccountView parent) {
-        this.account = account;
+    public void openForEdit(AccountTrx.Trx trx, TrxView parent) {
+        this.trx = trx;
         this.parent = parent;
         loadData();
     }
@@ -122,18 +124,20 @@ public class AccountEdit extends ASMForm {
         try {
             // Auditing information
             audit = UI.messageAudit(
-                    account.getCreatedDate(),
-                    account.getCreatedBy(),
-                    account.getLastChangedDate(),
-                    account.getLastChangedBy());
+            		trx.createdDate,
+            		trx.createdBy,
+            		trx.lastChangedDate,
+            		trx.lastChangedBy);
 
-            Utils.setComboFromID(LookupCache.getAccountTypeLookup(), "AccountType", account.getAccountType(), cboAccountType);
-            txtCode.setText(account.getCode());
-            txtDescription.setText(account.getDescription());
+            txtTrxDate.setDate(trx.date);
+            txtDescription.setText(trx.description);
+            txtWithdrawal.setValue(trx.withdrawal);
+            txtDeposit.setValue(trx.deposit);
+            Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code", trx.otherAccountId, cboAccount);
 
-            setTitle(i18n("edit_account", account.getCode()));
+            setTitle(i18n("Edit_Transaction"));
 
-        } catch (CursorEngineException e) {
+        } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
@@ -145,24 +149,24 @@ public class AccountEdit extends ASMForm {
      */
     public boolean saveData() {
         try {
-            account.setCode(txtCode.getText());
-            account.setDescription(txtDescription.getText());
-            account.setAccountType(Utils.getIDFromCombo(LookupCache.getAccountTypeLookup(), "AccountType", cboAccountType));
+        	
+        	trx.otherAccountId = Utils.getIDFromCombo(LookupCache.getAccountsLookup(), "Code", cboAccount).intValue();
+        	trx.description = txtDescription.getText();
+        	trx.withdrawal = txtWithdrawal.getValue();
+        	trx.deposit = txtDeposit.getValue();
+        	trx.date = txtTrxDate.getDate();
+        	
+        	AccountTrx.saveTransaction(trx);
 
-            try {
-                account.save(Global.currentUserName);
-
-                if (parent != null) {
-                    parent.updateList();
-                }
-
-                dispose();
-
-                return true;
-            } catch (CursorEngineException e) {
-                Dialog.showError(e.getMessage());
+            if (parent != null) {
+                parent.updateList();
             }
-        } catch (CursorEngineException e) {
+
+            dispose();
+
+            return true;
+            
+        } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
@@ -180,16 +184,22 @@ public class AccountEdit extends ASMForm {
         add(pnlMid, UI.BorderLayout.CENTER);
         add(pnlBot, UI.BorderLayout.SOUTH);
 
-        txtCode = UI.getTextField();
-        UI.addComponent(pnlTop, i18n("Code"), txtCode);
+        txtTrxDate = UI.getDateField();
+        UI.addComponent(pnlTop, i18n("Date"), txtTrxDate);
+        
+        txtDescription = UI.getTextField();
+        UI.addComponent(pnlTop, i18n("Description"), txtDescription);
+        
+        cboAccount = UI.getCombo(LookupCache.getAccountsLookup(), "Code");
+        UI.addComponent(pnlTop, i18n("Account"), cboAccount);
+        
+        txtDeposit = UI.getCurrencyField();
+        UI.addComponent(pnlTop, i18n("Deposit"), txtDeposit);
+        
+        txtWithdrawal = UI.getCurrencyField();
+        UI.addComponent(pnlTop, i18n("Withdrawal"), txtWithdrawal);
 
-        cboAccountType = UI.getCombo(LookupCache.getAccountTypeLookup(), "AccountType");
-        UI.addComponent(pnlTop, i18n("Type"), cboAccountType);
-
-        txtDescription = (UI.TextArea) UI.addComponent(pnlMid, i18n("Description"),
-                UI.getTextArea());
-
-        btnOk = UI.getButton(UI.messageOK(), i18n("Save_this_account_and_exit"),
+        btnOk = UI.getButton(UI.messageOK(), i18n("Save_this_transaction_and_exit"),
                 'o', null, UI.fp(this, "saveData"));
         pnlBot.add(btnOk);
 

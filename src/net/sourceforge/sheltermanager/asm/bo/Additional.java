@@ -29,11 +29,11 @@ import java.util.Vector;
 
 
 public class Additional {
-    public static Vector getFieldValues(int linkType, int linkID)
+    public static Vector<Additional.Field> getFieldValues(int linkType, int linkID)
         throws Exception {
         try {
-            SQLRecordset r = new SQLRecordset();
-            r.openRecordset("SELECT AdditionalFieldID, FieldName, FieldLabel, " +
+            SQLRecordset recs = new SQLRecordset(
+            	"SELECT AdditionalFieldID, FieldName, FieldLabel, " +
                 "Tooltip, FieldType, Value " + "FROM additional " +
                 "INNER JOIN additionalfield" +
                 " ON additionalfield.ID = additional.AdditionalFieldID" +
@@ -41,9 +41,9 @@ public class Additional {
                 " AND additional.LinkType = " + linkType +
                 " ORDER BY DisplayIndex", "additional");
 
-            Vector v = new Vector();
+            Vector<Additional.Field> v = new Vector<Additional.Field>();
 
-            while (!r.getEOF()) {
+            for (SQLRecordset r : recs) {
                 Additional.Field af = new Additional.Field();
                 af.fieldID = ((Integer) r.getField("AdditionalFieldID")).intValue();
                 af.fieldType = ((Integer) r.getField("FieldType")).intValue();
@@ -52,7 +52,6 @@ public class Additional {
                 af.tooltip = r.getField("ToolTip").toString();
                 af.value = r.getField("Value").toString();
                 v.add(af);
-                r.moveNext();
             }
 
             return v;
@@ -62,7 +61,7 @@ public class Additional {
         }
     }
 
-    public static void setFieldValues(int linkType, int linkID, Vector v)
+    public static void setFieldValues(int linkType, int linkID, Vector<Additional.Field> v)
         throws Exception {
         try {
             // Set the values

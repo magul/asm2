@@ -151,6 +151,13 @@ public abstract class IconManager {
     public final static String SCREEN_ACCOUNT_RECONCILE = UNDO;
     public final static String SCREEN_ACCOUNT_TRX = ACCOUNT;
     public final static String SCREEN_EDITACCOUNT = ACCOUNT;
+    public final static String SCREEN_ACCOUNTTRX = ACCOUNT;
+    public final static String SCREEN_ACCOUNTTRX_NEW = NEW;
+    public final static String SCREEN_ACCOUNTTRX_EDIT = EDIT;
+    public final static String SCREEN_ACCOUNTTRX_DELETE = DELETE;
+    public final static String SCREEN_ACCOUNTTRX_REFRESH = REFRESH;
+    public final static String SCREEN_ACCOUNTTRX_RECONCILE = UNDO;
+    public final static String SCREEN_EDITTRX = ACCOUNT;
 
     // ANIMAL package ====================================================
     public final static String SCREEN_ADDMEDIA = MEDIAADD;

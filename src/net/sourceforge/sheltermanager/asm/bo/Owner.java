@@ -362,7 +362,7 @@ public class Owner extends UserInfoBO<Owner> {
      * Returns additional fields for the owner
      * @return a vector containing Additional.Field values
      */
-    public Vector getAdditionalFields() throws Exception {
+    public Vector<Additional.Field> getAdditionalFields() throws Exception {
         return Additional.getFieldValues(AdditionalField.LINKTYPE_OWNER,
             getID().intValue());
     }
@@ -371,7 +371,7 @@ public class Owner extends UserInfoBO<Owner> {
      * @param v Should contain a list of Additional.Field values
      * @throws Exception
      */
-    public void setAdditionalFields(Vector v) throws Exception {
+    public void setAdditionalFields(Vector<Additional.Field> v) throws Exception {
         Additional.setFieldValues(AdditionalField.LINKTYPE_OWNER,
             getID().intValue(), v);
     }

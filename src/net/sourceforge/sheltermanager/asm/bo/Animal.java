@@ -187,7 +187,7 @@ public class Animal extends UserInfoBO<Animal> {
      * Returns additional fields for the animal
      * @return a vector containing Additional.Field values
      */
-    public Vector getAdditionalFields() throws Exception {
+    public Vector<Additional.Field> getAdditionalFields() throws Exception {
         return Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
             getID().intValue());
     }
@@ -196,7 +196,7 @@ public class Animal extends UserInfoBO<Animal> {
      * @param v Should contain a list of Additional.Field values
      * @throws Exception
      */
-    public void setAdditionalFields(Vector v) throws Exception {
+    public void setAdditionalFields(Vector<Additional.Field> v) throws Exception {
         Additional.setFieldValues(AdditionalField.LINKTYPE_ANIMAL,
             getID().intValue(), v);
     }
@@ -1261,8 +1261,6 @@ public class Animal extends UserInfoBO<Animal> {
         int animaltypeid, int internallocationid, int ageselection) {
         try {
             String atdate = SQLRecordset.getSQLRepresentationOfDate(datdate);
-
-            SQLRecordset rs = new SQLRecordset();
             String sql = "SELECT COUNT(ID) FROM animal WHERE ";
 
             if (speciesid != 0) {
@@ -2313,7 +2311,6 @@ public class Animal extends UserInfoBO<Animal> {
     public void addNew() throws CursorEngineException {
         super.addNew();
 
-        final Integer o = new Integer(1);
         final Integer z = new Integer(0);
 
         setAnimalName("");
@@ -2977,10 +2974,10 @@ public class Animal extends UserInfoBO<Animal> {
         String padbig, String padever, String padyear, String nopadyear,
         String animalType) {
         String code = format;
-        code = Utils.replace(code, "YYYY", Utils.zeroPad(c.get(c.YEAR), 4));
-        code = Utils.replace(code, "YY", Utils.zeroPad(c.get(c.YEAR) - 2000, 2));
-        code = Utils.replace(code, "MM", Utils.zeroPad(c.get(c.MONTH) + 1, 2));
-        code = Utils.replace(code, "DD", Utils.zeroPad(c.get(c.DAY_OF_MONTH), 2));
+        code = Utils.replace(code, "YYYY", Utils.zeroPad(c.get(Calendar.YEAR), 4));
+        code = Utils.replace(code, "YY", Utils.zeroPad(c.get(Calendar.YEAR) - 2000, 2));
+        code = Utils.replace(code, "MM", Utils.zeroPad(c.get(Calendar.MONTH) + 1, 2));
+        code = Utils.replace(code, "DD", Utils.zeroPad(c.get(Calendar.DAY_OF_MONTH), 2));
         code = Utils.replace(code, "UUUUUUUUUU", padbig);
         code = Utils.replace(code, "UUUU", padever);
         code = Utils.replace(code, "NNN", padyear);

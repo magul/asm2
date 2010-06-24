@@ -372,11 +372,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            if (getAbsolutePosition() == size()) {
-                firstIterated = true;
-                return false;
-            }
-            return true;
+        	if (size() == 0) return false;
+        	return getAbsolutePosition() != size();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -384,14 +381,14 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
         }
     }
 
-    /** Forces a moveFirst for the first next() call */
-    private boolean firstIterated = true;
+    /** Iterator looking at the first item? */
+    private boolean firstItem = true;
 
     /** Iterator::next */
     public SQLRecordset next() {
         try {
-            if (firstIterated) {
-                firstIterated = false;
+            if (firstItem) {
+                firstItem = false;
                 return this;    
             }
             moveNext();
@@ -404,6 +401,16 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
 
     /** Iterable::iterator */
     public Iterator<SQLRecordset> iterator() {
+    	try {
+    		// Reset when we ask for an iterator
+    		if (size() > 0) {
+	    		moveFirst();
+    		}
+    		firstItem = true;
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
         return this;
     }
 
@@ -442,7 +449,6 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
      *             if no records are available
      */
     public void moveFirst() throws CursorEngineException {
-        firstIterated = true;
         if (mNoRows == 0) {
             throw new CursorEngineException(
                 "SQLRecordset.moveFirst - no records in set.");

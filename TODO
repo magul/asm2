@@ -1,13 +1,15 @@
 *. Accounting package in ASM:
    0. DONE: Option to turn off accounting package (on by default) 
       DONE: "DisableAccounts"
-   1. AccountsTrx.Trx class is used for UI screens (getTransactions)
+   1. DONE: AccountsTrx.Trx class is used for UI screens (getTransactions)
    2. UI screens - 
                    DONE: browse accounts,  (Account.getAllAccounts())
                    DONE: multi-select with reconcile button accounts
-                   view transactions with add at bottom
-                   can double click transaction to edit
-                   multi-select with reconcile button trx
+                   DONE: view transactions with add at bottom
+                   DONE: can double click transaction to edit
+                   DONE: multi-select with reconcile button trx
+                   DONE: renderer to highlight accounts in red, alternate
+                   DONE: renderer to highlight trx in red, alternate
    3. DONE: Need db update to:
         create the default set of accounts (leave out first 5 of stock) and 
         create accounts matching existing donation type table

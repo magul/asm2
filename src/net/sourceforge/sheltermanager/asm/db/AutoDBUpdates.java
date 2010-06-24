@@ -3884,21 +3884,21 @@ public class AutoDBUpdates {
                 int aid = DBConnection.getPrimaryKey(DBConnection.con, "accounts");
                 DBConnection.executeAction("INSERT INTO accounts VALUES (" +
                     aid + ", 'Income::" + dt.getField("DonationName") + "', '" +
-                    dt.getField("DonationDescription") + "', 5, " +
-                    dt.getField("ID") + ", 0, " +
+                    dt.getString("DonationDescription") + "', 5, " +
+                    dt.getInt("ID") + ", 0, " +
                     "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
                     Utils.getSQLDate(new Date()) + "')");
 
                 // Generate new transactions for the donations with bank current account
                 // set as being the target
                 SQLRecordset d = new SQLRecordset();
-                d.openRecordset("SELECT * FROM ownerdonation WHERE DonationTypeID = " + dt.getField("ID"), "ownerdonation");
+                d.openRecordset("SELECT * FROM ownerdonation WHERE Date Is Not Null AND DonationTypeID = " + dt.getField("ID"), "ownerdonation");
                 while (!d.getEOF()) {
 
                     int id = DBConnection.getPrimaryKey(DBConnection.con, "accountstrx");
                     DBConnection.executeAction("INSERT INTO accountstrx VALUES (" +
-                        id + ", '" + Utils.getSQLDate((Date) d.getField("Date")) + "', '', 0, " +
-                        d.getField("Donation") + ", " + aid + ", 8, " + d.getField("ID") + ", 0, " +
+                        id + ", '" + Utils.getSQLDate(d.getDate("Date")) + "', '', 0, " +
+                        d.getDouble("Donation") + ", " + aid + ", 8, " + d.getInt("ID") + ", 0, " +
                         "'asmupdate', '" + Utils.getSQLDate(new Date()) +  "', 'asmupdate', '" +
                         Utils.getSQLDate(new Date()) + "')");
 
