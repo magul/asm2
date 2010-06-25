@@ -11,6 +11,7 @@ rm -rf sheltermanager/usr
 mkdir -p sheltermanager/usr/share/asm/lib
 mkdir -p sheltermanager/usr/share/menu
 mkdir -p sheltermanager/usr/bin
+mkdir -p sheltermanager/etc/apt/sources.list.d
 
 # Update start scripts and icons
 #echo "Updating scripts and icons in image..."
@@ -39,6 +40,9 @@ cp ../../doc/help/en/help* sheltermanager/usr/share/asm/data/ -rf
 cp ../../media sheltermanager/usr/share/asm/data/ -rf
 cp ../../sql/*.sql sheltermanager/usr/share/asm/data/sql/ -rf
 cp menu/sheltermanager sheltermanager/usr/share/menu
+
+# Add our repository to the list file
+echo "deb http://sheltermanager.sourceforge.net/deb/binary/ ./" > sheltermanager/etc/apt/sources.list.d/sheltermanager.list
 
 # Generate the control file
 #echo "Generating control file..."
