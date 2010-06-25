@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-24 09:59+0100\n"
-"PO-Revision-Date: 2010-03-24 11:11+0000\n"
-"Last-Translator: Hector Louzao <os390l@gmail.com>\n"
+"POT-Creation-Date: 2010-06-14 14:12+0100\n"
+"PO-Revision-Date: 2010-06-21 16:37+0000\n"
+"Last-Translator: Jonay <jonay.santana@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-03-25 05:03+0000\n"
+"X-Launchpad-Export-Date: 2010-06-22 04:25+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -203,6 +203,8 @@ msgstr "Muerto"
 #. # bo/Animal
 #: Unknown
 #: lksex_2
+#: lksynun_2
+#: lksposneg_0
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -980,6 +982,46 @@ msgstr "No hay datos que mostrar en el diagrama."
 #: waitinglist
 msgid "Waiting List ("
 msgstr "Lista de Espera ("
+
+#: accounts_1_5_1_code
+msgid "Income::Donation"
+msgstr "Ingresos::Donación"
+
+#: accounts_1_desc
+msgid "Incoming donations (misc)"
+msgstr "Donaciones entrantes (misc)"
+
+#: accounts_2_5_2_code
+msgid "Income::Adoption"
+msgstr "Ingresos::Adopción"
+
+#: accounts_2_desc
+msgid "Adoption fee donations"
+msgstr ""
+
+#: accounts_3_5_3_code
+msgid "Income::WaitingList"
+msgstr "Ingresos:ListadeEspera"
+
+#: accounts_3_desc
+msgid "Waiting list donations"
+msgstr "Esperando la lista de donaciones"
+
+#: accounts_4_5_4_code
+msgid "Income::EntryDonation"
+msgstr ""
+
+#: accounts_4_desc
+msgid "Donations for animals entering the shelter"
+msgstr ""
+
+#: accounts_5_5_5_code
+msgid "Income::Sponsorship"
+msgstr ""
+
+#: accounts_5_desc
+msgid "Sponsorship donations"
+msgstr ""
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -2816,6 +2858,10 @@ msgstr "Adulto"
 msgid "Senior"
 msgstr "Senior"
 
+#: costtype_1
+msgid "Board and Food"
+msgstr ""
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Animales sin microchip"
@@ -3069,6 +3115,10 @@ msgstr "Silvestre"
 #: entryreason_3
 msgid "Biting"
 msgstr "Mordedura"
+
+#: diet_1
+msgid "Standard"
+msgstr "Estándar"
 
 #. # reports/Retailer
 #. # reports/InOut
@@ -3359,7 +3409,6 @@ msgstr "Notas"
 
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
-#. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
@@ -3402,6 +3451,79 @@ msgstr "Dinero"
 #: lksfieldtype_6
 msgid "Lookup"
 msgstr "Buscar"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_0
+#: lksynun_1
+#: No
+msgid "No"
+msgstr "No"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_1
+#: lksynun_0
+#: Yes
+msgid "Yes"
+msgstr "Sí"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_1
+#: Negative
+msgid "Negative"
+msgstr "Negativo"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_2
+#: Positive
+msgid "Positive"
+msgstr "Positivo"
 
 #. # bo/AnimalWaitingList
 #: lkurgency_1
@@ -3922,11 +4044,6 @@ msgid "Error"
 msgstr "Error"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "Se ha generado la fuente de avisos por correo"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr ""
@@ -3941,11 +4058,6 @@ msgstr "Grabando en disco..."
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "Leyendo datos, espere por favor..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "Se ha creado el archivo de origen para los avisos por correo:"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4105,33 +4217,6 @@ msgstr "Número de microchip"
 msgid "Age"
 msgstr "Edad"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: Yes
-msgid "Yes"
-msgstr "Sí"
-
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
@@ -4148,32 +4233,6 @@ msgstr "Marcas"
 #: return_date
 msgid "Return Date"
 msgstr "Fecha de devolución"
-
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: No
-msgid "No"
-msgstr "No"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4412,6 +4471,7 @@ msgstr "Dirección 1"
 #. # bo/LookupCache
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
+#. # bo/Account
 #. # bo/Diary
 #. # bo/CustomReport
 #. # bo/AnimalVaccination
@@ -4430,6 +4490,7 @@ msgstr "Dirección 1"
 #. # bo/AnimalDiet
 #. # bo/Animal
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #. # bo/AnimalName
 #. # bo/AnimalMedical
 #. # bo/Log
@@ -4498,8 +4559,8 @@ msgstr "Apellidos"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
-msgstr "¿Desea crear un archivo CVS para envío por correo electrónico?"
+msgid "Do you want to create a CSV file or do a bulk email?"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4508,8 +4569,8 @@ msgstr "Tipo de aviso por correo"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "Crear en disco un archivo CVS"
+msgid "Create a CSV file on disk"
+msgstr "Crear un archivo CSV en el disco"
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -4789,8 +4850,10 @@ msgstr "Diario de veterinario hasta {0} "
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
+#. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #: Description
 msgid "Description"
 msgstr "Descripción"
@@ -5001,6 +5064,8 @@ msgstr "5 semanas"
 msgid "6 weeks"
 msgstr "6 semanas"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
@@ -5739,6 +5804,7 @@ msgstr "Ningún animal ha sido devuelto antes de 6 meses desde su adopción."
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
+#. # bo/Account
 #: Code
 msgid "Code"
 msgstr "Código"
@@ -6057,6 +6123,8 @@ msgstr "En Refugio (por cifras)"
 msgid "Animal Type"
 msgstr "Tipo de animal"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/CustomReportExecute
 #. # ui/owner/OwnerEdit
 #: criteria
@@ -6724,7 +6792,6 @@ msgid "Mother:"
 msgstr "Madre:"
 
 #. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -8390,6 +8457,7 @@ msgstr "Descripción:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # bo/AccountTrx
 #: Amount
 msgid "Amount"
 msgstr "Cantidad"
@@ -8407,6 +8475,12 @@ msgstr ""
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
 msgstr "Total de Donaciones: {0}, Saldo: {1}"
+
+#. # ui/animal/LitterView
+#. # ui/animal/LitterEdit
+#: Number_in_litter
+msgid "Number in litter:"
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8520,16 +8594,6 @@ msgstr ""
 #: generate_a_csv_file
 msgid "Generate a CSV file from this report"
 msgstr "Generar un archivo CSV desde el informe"
-
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr "Archivo CSV generado en: "
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "Generación del CSV finalizada"
 
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
@@ -9401,6 +9465,26 @@ msgstr ""
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
 "Necesita establecer su configuración de AdoptAPet.com antes de publicar."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -10852,6 +10936,7 @@ msgstr "Nombre del Tratamiento"
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/DonationEdit
+#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
 #: Frequency
@@ -12303,6 +12388,21 @@ msgstr ""
 msgid "Gift Aid"
 msgstr ""
 
+#. # ui/owner/DonationSelector
+#: mark_this_donation_received
+msgid "Mark this donation as received"
+msgstr "Marcar esta donación como recivida"
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_your_owner_record
+msgid "You are not allowed to view your owner record."
+msgstr "No le está permitido ver su propia grabación."
+
+#. # ui/owner/OwnerEdit
+#: you_cannot_edit_staff_records
+msgid "You are not allowed to view staff records."
+msgstr "No le está permitido ver las grabaciones del personal."
+
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
 msgid "View This Report In External Browser"
@@ -12554,43 +12654,9 @@ msgid "Edit File Types"
 msgstr "Editar tipos de archivo"
 
 #. # ui/system/FileTypeManager
-#: No_HTML_Viewer
-msgid "No HTML Viewer"
-msgstr "No existe ningún visualizador HTML"
-
-#. # ui/system/FileTypeManager
-#: _based_computer._Press_Ok_and_please_wait...
-msgid " based computer"
-msgstr " ordenador basado??"
-
-#. # ui/system/FileTypeManager
-#: No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager.
-msgid ""
-"No valid HTML viewer could be found. External reports will not be viewable "
-"from Animal Shelter Manager."
-msgstr ""
-"No se encuentra ningún visualizador HTML válido. Los informes externos no "
-"podrán ser visualizados desde Animal Shelter Manager."
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_your_
-msgid "Scanning filetypes for your "
-msgstr "Comprobando tipos de archivo para su "
-
-#. # ui/system/FileTypeManager
 #: Animal_Shelter_Manager_has_no_registered_type_for_'
 msgid "Animal Shelter Manager has no registered type for '"
 msgstr "Animal Shelter Manager no dispone de un tipo registrado para '"
-
-#. # ui/system/FileTypeManager
-#: No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager.
-msgid ""
-"No pdf/postscript viewer could be found. Printable help files will not\n"
-"be viewable in Animal Shelter Manager."
-msgstr ""
-"No se encuentra ningún visualizador PDF o Postscript. Los archivos de ayuda "
-"no podrán ser\n"
-"visualizados en Animal Shelter Manager."
 
 #. # ui/system/FileTypeManager
 #: [no_entry]
@@ -12609,17 +12675,6 @@ msgstr ""
 #: No_type
 msgid "No type"
 msgstr "Ningún tipo"
-
-#. # ui/system/FileTypeManager
-#: No_image_viewer
-msgid "No image viewer"
-msgstr "No se encuentra ningún visualizador de imágenes"
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait...
-msgid "Scanning filetypes for a Microsoft Windows based computer"
-msgstr ""
-"Comprobando los tipo de archivo de equipos basados en Microsoft Windows"
 
 #. # ui/system/Options
 #: Start_At\:
@@ -12818,11 +12873,6 @@ msgstr "Tamaño por defecto:"
 msgid "Non-Shelter Animal Type:"
 msgstr "Tipo Animal externo al refugio:"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "No guardar separadamente la información de ciudad y estado"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -12851,18 +12901,6 @@ msgid ""
 msgstr ""
 "El usuario es desconectado automáticamente tras una cierta cantidad de "
 "minutos de inactividad ó 0 para que no sea desconectado nunca"
-
-#. # ui/system/FileTypeManager
-#: ASM_could_not_locate_an_office_suite_on_your_computer
-msgid ""
-"ASM could not locate an office suite on your computer. Document generation "
-"will not work until you install and setup an office suite and file type "
-"handlers in ASM."
-msgstr ""
-"ASM no ha encontrado instalado ningún paquete de ofimática en el equipo. La "
-"generación de documentos no funcionará hasta que no instale y configure un "
-"paquete de ofimática y establezca las asociaciones de archivo "
-"correspondientes en ASM."
 
 #. # ui/system/MediaFiles
 #. # ui/main/Main
@@ -13358,11 +13396,6 @@ msgstr ""
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "No filtrar la lista de razas dependiendo de la especie seleccionada"
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "No mostrar el campo de tipo de pelaje en la pantalla del animal"
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13514,6 +13547,77 @@ msgstr ""
 #: boarding_cost_type
 msgid "Boarding Cost Type:"
 msgstr ""
+
+#. # ui/system/Options
+#: separate_the_ranks_by_species
+msgid "Separate waiting list rank by species"
+msgstr ""
+
+#. # ui/system/Options
+#: once_assigned_codes_cannot_be_changed
+msgid "Once assigned, codes cannot be changed"
+msgstr "Una vez asignado, los códigos no pueden cambiarse"
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr "Elimina los campos no deseados"
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr "Eliminar los campos de microchip para el animal en pantalla"
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr "Eliminar los campos de tatuaje para el animal en pantalla"
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: disable_accounts_functionality
+msgid "Disable Accounts Functionality"
+msgstr "Desactiva la funcionalidad de cuentas"
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14134,6 +14238,16 @@ msgstr "Eliminar Gasto del animal"
 msgid "View Animal Cost"
 msgstr "Ver gasto del animal"
 
+#. # ui/users/UserEdit
+#: Owner_Record
+msgid "Owner Record:"
+msgstr "Propietario de la grabación:"
+
+#. # ui/users/UserEdit
+#: View_Staff_Owner_Records
+msgid "View Staff Owner Records"
+msgstr ""
+
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
 msgid "HTML Viewer"
@@ -14301,20 +14415,6 @@ msgstr "Seleccione una plantilla de documento"
 msgid "Attach generated document as media?"
 msgstr "¿Adjuntar el documento generado como datos multimedia?"
 
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Positive
-msgid "Positive"
-msgstr "Positivo"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Negative
-msgid "Negative"
-msgstr "Negativo"
-
 #. # wordprocessor/AnimalDocument
 #: estimated
 msgid "(estimated)"
@@ -14460,6 +14560,9 @@ msgstr "(estimado)"
 #~ msgstr ""
 #~ "Se ha producido un error al generar la fuente de los avisos por correo:\n"
 
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "Se ha generado la fuente de avisos por correo"
+
 #~ msgid "Unable to write output file "
 #~ msgstr "No es posible grabar el archivo "
 
@@ -14489,6 +14592,12 @@ msgstr "(estimado)"
 
 #~ msgid "There are no members on file."
 #~ msgstr "No existen miembros registrados."
+
+#~ msgid "Do you want to create a CVS file or do a bulk email?"
+#~ msgstr "¿Desea crear un archivo CVS para envío por correo electrónico?"
+
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "Crear en disco un archivo CVS"
 
 #~ msgid "An error occurred opening the report {0}"
 #~ msgstr "Se ha producido un error al abrir el informe: {0}"
@@ -14753,6 +14862,12 @@ msgstr "(estimado)"
 
 #~ msgid "An error occurred creating the CSV file: "
 #~ msgstr "Se ha producido un error al crear el archivo CSV: "
+
+#~ msgid "CSV file generated at: "
+#~ msgstr "Archivo CSV generado en: "
+
+#~ msgid "CSV Generation Complete"
+#~ msgstr "Generación del CSV finalizada"
 
 #~ msgid "An error occurred generating the CSV file: "
 #~ msgstr "Se ha producido un error al generar el archivo CSV: "
@@ -15511,14 +15626,27 @@ msgstr "(estimado)"
 #~ "Se ha producido un error al leer la lista de los tipos de archivo del "
 #~ "sistema:\n"
 
+#~ msgid "No HTML Viewer"
+#~ msgstr "No existe ningún visualizador HTML"
+
 #~ msgid "Scanning"
 #~ msgstr "Comprobando"
 
 #~ msgid "No Internet Explorer"
 #~ msgstr "No se encuentra Internet Explorer"
 
+#~ msgid " based computer"
+#~ msgstr " ordenador basado??"
+
 #~ msgid "Bad Command"
 #~ msgstr "Comando erróneo"
+
+#~ msgid ""
+#~ "No valid HTML viewer could be found. External reports will not be viewable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "No se encuentra ningún visualizador HTML válido. Los informes externos no "
+#~ "podrán ser visualizados desde Animal Shelter Manager."
 
 #~ msgid ""
 #~ "No valid sound player could be found. External sounds will not be playable "
@@ -15534,6 +15662,9 @@ msgstr "(estimado)"
 #~ "No se encuentra Internet Explorer. Los archivos multimedia externos\n"
 #~ " no podrán ser visualizados desde Animal Shelter Manager."
 
+#~ msgid "Scanning filetypes for your "
+#~ msgstr "Comprobando tipos de archivo para su "
+
 #~ msgid "No OpenOffice"
 #~ msgstr "No se encuentra OpenOffice"
 
@@ -15542,6 +15673,14 @@ msgstr "(estimado)"
 
 #~ msgid "Unable to save filetype registry to disk."
 #~ msgstr "No es posible guardar el registro de tipo de archivo en el disco."
+
+#~ msgid ""
+#~ "No pdf/postscript viewer could be found. Printable help files will not\n"
+#~ "be viewable in Animal Shelter Manager."
+#~ msgstr ""
+#~ "No se encuentra ningún visualizador PDF o Postscript. Los archivos de ayuda "
+#~ "no podrán ser\n"
+#~ "visualizados en Animal Shelter Manager."
 
 #~ msgid "No sound player"
 #~ msgstr "No se encuentra ningún reproductor de sonido"
@@ -15564,6 +15703,13 @@ msgstr "(estimado)"
 #~ msgstr ""
 #~ "No se encuentra ningún reproductor válido de vídeo. Los vídeos externos no "
 #~ "podrán ser reproducidos desde Animal Shelter Manager."
+
+#~ msgid "No image viewer"
+#~ msgstr "No se encuentra ningún visualizador de imágenes"
+
+#~ msgid "Scanning filetypes for a Microsoft Windows based computer"
+#~ msgstr ""
+#~ "Comprobando los tipo de archivo de equipos basados en Microsoft Windows"
 
 #~ msgid ""
 #~ "No valid image viewer could be found. External images will not be viewable "
@@ -15683,8 +15829,21 @@ msgstr "(estimado)"
 #~ msgid "Animal Reporting"
 #~ msgstr "Informes de animales"
 
+#~ msgid "Don't keep separate town and county information"
+#~ msgstr "No guardar separadamente la información de ciudad y estado"
+
 #~ msgid "JGoodies Look and Feel"
 #~ msgstr "Tema JGoodies"
+
+#~ msgid ""
+#~ "ASM could not locate an office suite on your computer. Document generation "
+#~ "will not work until you install and setup an office suite and file type "
+#~ "handlers in ASM."
+#~ msgstr ""
+#~ "ASM no ha encontrado instalado ningún paquete de ofimática en el equipo. La "
+#~ "generación de documentos no funcionará hasta que no instale y configure un "
+#~ "paquete de ofimática y establezca las asociaciones de archivo "
+#~ "correspondientes en ASM."
 
 #~ msgid "Maximum Media File Size in Kb:"
 #~ msgstr "Tamaño máximo de un archivo multimedia (Kb):"
@@ -15850,6 +16009,9 @@ msgstr "(estimado)"
 #~ msgstr ""
 #~ "Permitir que los clientes de ASM actualicen la estrucutra de la base de datos"
 
+#~ msgid "Don't show the coat type field on the animal screen"
+#~ msgstr "No mostrar el campo de tipo de pelaje en la pantalla del animal"
+
 #~ msgid ""
 #~ "You are about to permanently delete this record, are you sure you want to do "
 #~ "this?"
@@ -15886,6 +16048,9 @@ msgstr "(estimado)"
 
 #~ msgid "Owner Mail Merge"
 #~ msgstr "Avisos a colaboradores"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "Se ha creado el archivo de origen para los avisos por correo:"
 
 #~ msgid "Adoption Mail Merge"
 #~ msgstr "Avisos sobre adopciones"

@@ -30,12 +30,14 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.ui.ui.WaitingListRenderer;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Vector;
 
 
@@ -52,6 +54,7 @@ public class WaitingListView extends ASMView {
     private UI.Button btnPrint;
     private UI.Button btnRefresh;
     private UI.Button btnView;
+    private UI.Button btnHighlight;
     private UI.ComboBox cboPriority;
     private UI.ComboBox cboSpecies;
     private UI.CheckBox chkShowRemoved;
@@ -65,12 +68,12 @@ public class WaitingListView extends ASMView {
         updateWaitingList();
         init(Global.i18n("uiwaitinglist", "Waiting_List"),
             IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST),
-            "uiwaitinglist", true, true, null);
+            "uiwaitinglist", true, true, new WaitingListRenderer(10, 11));
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
         ctl.add(btnNew);
         ctl.add(btnView);
@@ -188,7 +191,7 @@ public class WaitingListView extends ASMView {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) rs.getRecordCount()][10];
+        String[][] datar = new String[(int) rs.getRecordCount()][12];
 
         // Create an array of headers for the table
         String[] columnheaders = {
@@ -217,6 +220,8 @@ public class WaitingListView extends ASMView {
                             "SpeciesID"));
                 datar[i][8] = (String) rs.getField("AnimalDescription");
                 datar[i][9] = rs.getField("ID").toString();
+                datar[i][10] = rs.getString("Urgency");
+                datar[i][11] = Configuration.getString("WaitingListHighlights").indexOf(rs.getString("ID") + " ") != -1 ? "1" : "0";
 
                 i++;
                 rs.moveNext();
@@ -374,6 +379,12 @@ public class WaitingListView extends ASMView {
                 IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST_COMPLETE),
                 UI.fp(this, "actionComplete"));
         addToolButton(btnComplete, true);
+        
+        btnHighlight = UI.getButton(null,
+        		i18n("toggle_highlighting_of_the_selected_waiting_list_entries"), 'h',
+        		IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST_HIGHLIGHT),
+        		UI.fp(this, "actionHighlight"));
+        addToolButton(btnHighlight, true);
 
         p.setLayout(UI.getGridLayout(4));
 
@@ -430,6 +441,52 @@ public class WaitingListView extends ASMView {
                 Global.logException(e, getClass());
             }
         }
+
+        updateList();
+    }
+    
+    public void actionHighlight() {
+        // Get each selected waiting list and either add it to
+    	// our list of highlighted entries, or remove it if its
+    	// already on
+        if (getTable().getSelectedRow() == -1) {
+            return;
+        }
+
+        // Grab our list of IDs
+        String[] hd = Configuration.getString("WaitingListHighlights").split(" ");
+        
+        // Put them in a set
+        HashSet<String> hl = new HashSet<String>(hd.length);
+        for (int i = 0; i < hd.length; i++) {
+        	hl.add(hd[i]);
+        }
+        
+        int[] selrows = getTable().getSelectedRows();
+        SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                 .getModel();
+
+        for (int i = 0; i < selrows.length; i++) {
+        	
+            // Get the ID for the selected row
+            String wlID = tablemodel.getIDAt(selrows[i]);
+            
+            // If it's already in the set, remove it
+            if (hl.contains(wlID)) {
+            	hl.remove(wlID);
+            }
+            else {
+            	// Otherwise, add it
+            	hl.add(wlID);
+            }
+        }
+        
+        // Join the set back together and update the config
+        StringBuffer highlights = new StringBuffer(hd.length * 3);
+        for (String s : hl) {
+        	highlights.append(s).append(" ");
+        }
+        Configuration.setEntry("WaitingListHighlights", highlights.toString());
 
         updateList();
     }

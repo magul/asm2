@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-04-29 08:46+0100\n"
-"PO-Revision-Date: 2010-05-17 08:09+0000\n"
+"POT-Creation-Date: 2010-06-03 09:36+0100\n"
+"PO-Revision-Date: 2010-06-04 20:55+0000\n"
 "Last-Translator: Priatelia zvierat <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-20 05:36+0000\n"
+"X-Launchpad-Export-Date: 2010-06-05 03:41+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -929,7 +929,7 @@ msgstr ""
 #. # charts/Chart
 #: Line_Chart
 msgid "Line Chart"
-msgstr ""
+msgstr "Čiarový graf"
 
 #. # charts/Chart
 #: Line
@@ -954,7 +954,7 @@ msgstr "Koláčový graf"
 #. # charts/Chart
 #: Bar
 msgid "Bar"
-msgstr ""
+msgstr "Stĺpec"
 
 #. # charts/Chart
 #: Rendering_Graph...
@@ -982,7 +982,7 @@ msgstr "P (Pes)"
 
 #: animaltype_10
 msgid "F (Stray Dog)"
-msgstr ""
+msgstr "F (zatúlaný pes)"
 
 #: animaltype_11
 msgid "U (Unwanted Cat)"
@@ -990,7 +990,7 @@ msgstr "N (Nechcená mačka)"
 
 #: animaltype_12
 msgid "S (Stray Cat)"
-msgstr ""
+msgstr "S (zatúlaná mačka)"
 
 #: animaltype_13
 msgid "M (Miscellaneous)"
@@ -1108,7 +1108,7 @@ msgstr "Korytnačinová a biela"
 
 #: basecolour_28
 msgid "Tabby and White"
-msgstr ""
+msgstr "Strakatá a biela"
 
 #: basecolour_29
 msgid "Ginger and White"
@@ -1140,7 +1140,7 @@ msgstr "Modrá"
 
 #: basecolour_37
 msgid "White and Tabby"
-msgstr ""
+msgstr "Biela a strakatá"
 
 #: basecolour_38
 msgid "Yellow and Grey"
@@ -3909,11 +3909,6 @@ msgid "Error"
 msgstr "Chyba"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "Zdroj hromadnej korešpondencie vygenerovaný"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr ""
@@ -3929,11 +3924,6 @@ msgstr ""
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "Načítavam dáta, prosím čakajte"
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "Hromadná korešpondencia úspešne vytvorené ako súbor:"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -3971,7 +3961,7 @@ msgstr ""
 #. # mailmerge/ChipCancellation
 #: Chip_Cancellation_Mail_Merge
 msgid "Chip Cancellation Mail Merge"
-msgstr ""
+msgstr "Hromadný mail o zrušení čipov"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
@@ -3985,7 +3975,7 @@ msgstr "Telefón do práce"
 msgid ""
 "Please enter the start date you would like to prepare chip cancellation "
 "letters for"
-msgstr ""
+msgstr "Uveďte prosím začiatočný dátum prípravy listov o zrušení čipov"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4126,7 +4116,7 @@ msgstr "Áno"
 #. # bo/Animal
 #: Markings
 msgid "Markings"
-msgstr ""
+msgstr "Značenie"
 
 #. # mailmerge/ChipCancellation
 #. # ui/movement/MovementView
@@ -4180,14 +4170,14 @@ msgstr "Dátum adopcie"
 #. # mailmerge/ChipCancellation
 #: There_are_no_required_chip_cancellations_between_those_dates.
 msgid "There are no required chip cancellations between those dates."
-msgstr ""
+msgstr "Medzi týmito dátumami nie je požadované zrušenie čipov"
 
 #. # mailmerge/ChipCancellation
 #: Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for
 msgid ""
 "Please enter the end date you would like to prepare chip cancellation "
 "letters for"
-msgstr ""
+msgstr "Uveďte prosím konečný dátum prípravy listov o zrušení čipov"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4467,7 +4457,7 @@ msgstr "Adresa 5"
 #. # mailmerge/AdoptedNoReturn
 #: Non-Returned_Adoptions
 msgid "Non-Returned Adoptions"
-msgstr ""
+msgstr "Nevrátené adopcie"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -4482,7 +4472,7 @@ msgstr "Priezvisko"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
+msgid "Do you want to create a CSV file or do a bulk email?"
 msgstr ""
 
 #. # mailmerge/MailMerge
@@ -4492,18 +4482,18 @@ msgstr "Druh hromadnej korešpondencie"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "Vytvoriť CVS súbor na disk"
+msgid "Create a CSV file on disk"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: do_bulk
 msgid "Send a bulk email"
-msgstr ""
+msgstr "Pošli hromadný email"
 
 #. # mailmerge/MailMerge
 #: bulk_mail_complete
 msgid "Bulk Email Complete"
-msgstr ""
+msgstr "Hromadný email dokončený"
 
 #. # reports/OwnerSearchResults
 #. # reports/WaitingList
@@ -4542,7 +4532,7 @@ msgstr "Mesto"
 #. # mailmerge/ChipCancellation
 #: County
 msgid "County"
-msgstr ""
+msgstr "Okres"
 
 #. # mailmerge/MailMerge
 #: error_occurred_sending_mail_to
@@ -4856,7 +4846,7 @@ msgstr "Všetky zvieratá tohto druhu v útulku sú staršie ako 6 mesiacov."
 #. # reports/UnderSixNotLitter
 #: Acceptance_Number
 msgid "Acceptance Number"
-msgstr ""
+msgstr "Číslo príjmu"
 
 #. # reports/UnCombiTestedCats
 #: Select_Age
@@ -4979,7 +4969,7 @@ msgstr "Celkom: {0}"
 #. # reports/TransferIn
 #: Animals_Transferred_In_between_
 msgid "Animals Transferred In between {0} and {1}"
-msgstr ""
+msgstr "Zvieratá presunuté medzi {0} a {1}"
 
 #. # reports/TransferIn
 #: No_animals_found.
@@ -5007,7 +4997,7 @@ msgstr "Celkom "
 #. # ui/waitinglist/WaitingListView
 #: Rank
 msgid "Rank"
-msgstr ""
+msgstr "Hodnotenie"
 
 #. # reports/Stats
 #: Deceased_Reasons
@@ -5031,6 +5021,8 @@ msgid ""
 "Of {0} recorded animals in the system, the system holds {1} unique animal "
 "names. "
 msgstr ""
+"Z {0} zaevidovaných zvierat v systéme má systém {1} zvieracích mien, ktoré "
+"boli použité len raz. "
 
 #. # reports/Stats
 #: _animals_have_died_on_the_shelter.
@@ -5048,6 +5040,8 @@ msgid ""
 "This is based on the {0} completed waiting list entries on file, amounting "
 "to a cumulative waiting time of {1} days."
 msgstr ""
+"Založené na {0} dokončených súborových záznamov na čakacom zozname, celkový "
+"čakací čas {1} dní."
 
 #. # reports/Stats
 #: Building_report...
@@ -5067,12 +5061,12 @@ msgstr "Triedim..."
 #. # reports/Stats
 #: Occurrences
 msgid "Occurrences"
-msgstr ""
+msgstr "Výskyt"
 
 #. # reports/Stats
 #: Postcode_Area
 msgid "Postcode Area"
-msgstr ""
+msgstr "Oblasť PSČ"
 
 #. # reports/Stats
 #: Retrieving_data...
@@ -5107,17 +5101,17 @@ msgstr "Dátum prijatia do útulku"
 #. # reports/ShelterInventory
 #: transfer_from_
 msgid "Returned transfer from {0}"
-msgstr ""
+msgstr "Vrátený presun z {0}"
 
 #. # reports/ShelterInventory
 #: fostering_to_
 msgid "Returned fostering to {0}"
-msgstr ""
+msgstr "Vrátená domáca opatera do {0}"
 
 #. # reports/ShelterInventory
 #: adoption_to_
 msgid "Returned adoption to {0}"
-msgstr ""
+msgstr "Vrátená adopcia do {0}"
 
 #. # reports/ShelterInventory
 #: Brought_Into_Shelter
@@ -5137,7 +5131,7 @@ msgstr "Výsledky vyhľadávania zvierat (generované {0}) "
 #. # reports/SearchResults
 #: Short_Code
 msgid "Short Code"
-msgstr ""
+msgstr "Skrátený kód"
 
 #. # reports/SearchResults
 #. # reports/Vets
@@ -5195,7 +5189,7 @@ msgstr "Veľkosť"
 #. # reports/ReturnedAnimals
 #: No_animals_have_entered_the_shelter_and_been_returned_in_this_period.
 msgid "No animals have entered the shelter and been returned in this period."
-msgstr ""
+msgstr "Žiadne zvieratá neboli umiestnené alebo vrátené v tomto období."
 
 #. # reports/ReturnedAnimals
 #: Length
@@ -5359,7 +5353,7 @@ msgstr "Nenájdené žiadne zhody."
 #. # reports/LostFoundMatch
 #: Distinguishing_Features
 msgid "Distinguishing Features"
-msgstr ""
+msgstr "Rozpoznávacie znaky"
 
 #. # reports/LostFoundMatch
 #: 50%
@@ -5439,12 +5433,12 @@ msgstr ""
 #. # reports/InOut
 #: Total_Animals_Returned_From_Adoption_
 msgid "Total Animals Returned From Adoption: {0}"
-msgstr ""
+msgstr "Celkový počet vrátených zvierat: {0}"
 
 #. # reports/InOut
 #: Returned_From
 msgid "Returned From"
-msgstr ""
+msgstr "Vrátené od"
 
 #. # reports/InOut
 #: Animals_Returned_From_Transferring_Out
@@ -8440,16 +8434,6 @@ msgstr ""
 msgid "Generate a CSV file from this report"
 msgstr ""
 
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "Generácia CSV kompletná"
-
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
 #: export_custom_report_data
@@ -9304,6 +9288,26 @@ msgstr ""
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr "You need to configure your AdoptAPet.com settings before publishing."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12689,11 +12693,6 @@ msgstr "Predvolená veľkosť:"
 msgid "Non-Shelter Animal Type:"
 msgstr ""
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr ""
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13196,11 +13195,6 @@ msgstr ""
 msgid "Don't filter the list of breeds according to selected species"
 msgstr ""
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr ""
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13359,6 +13353,62 @@ msgstr "Rozdeliť zoznam čakajúcich podľa druhov"
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
 msgstr "Raz priradený kód už nemeniť"
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr ""
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14173,3 +14223,15 @@ msgstr "Negatívne"
 #: estimated
 msgid "(estimated)"
 msgstr "(odhadovaný)"
+
+#~ msgid "CSV Generation Complete"
+#~ msgstr "Generácia CSV kompletná"
+
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "Zdroj hromadnej korešpondencie vygenerovaný"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "Hromadná korešpondencia úspešne vytvorené ako súbor:"
+
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "Vytvoriť CVS súbor na disk"

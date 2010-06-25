@@ -138,6 +138,7 @@ public abstract class IconManager {
     public final static String ZOOMOUT = "actions-ZoomOut-24.png";
     public final static String MAP = "actions-Map-24.png";
     public final static String ACCOUNT = "accounts-Basic-24.png";
+    public final static String HIGHLIGHT = "actions-Highlight-24.png";
 
     // Screen icons ======================================================
     // These are in package/class alphabetical order
@@ -587,6 +588,7 @@ public abstract class IconManager {
     public final static String SCREEN_VIEWWAITINGLIST_REFRESH = REFRESH;
     public final static String SCREEN_VIEWWAITINGLIST_PRINT = PRINT;
     public final static String SCREEN_VIEWWAITINGLIST_COMPLETE = COMPLETE;
+    public final static String SCREEN_VIEWWAITINGLIST_HIGHLIGHT = HIGHLIGHT;
 
     // WORDPROCESSOR package
     // =========================================================

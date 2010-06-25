@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-29 08:46+0100\n"
-"PO-Revision-Date: 2010-05-05 12:40+0000\n"
-"Last-Translator: computerhelp <Unknown>\n"
+"POT-Creation-Date: 2010-06-03 09:36+0100\n"
+"PO-Revision-Date: 2010-06-03 09:45+0000\n"
+"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-20 05:36+0000\n"
+"X-Launchpad-Export-Date: 2010-06-04 03:49+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3923,11 +3923,6 @@ msgid "Error"
 msgstr "Erreur"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "Source de publipostage générée"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "Aucune donnée à ajouter à la source du publipostage."
@@ -3941,11 +3936,6 @@ msgstr "Exportation vers le disque dur..."
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "Lecture des données, veuillez patentier..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "Le fichier source du publipostage à été créé avec succès :"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4496,8 +4486,8 @@ msgstr "Nom de famille"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
-msgstr "Souhaitez-vous créer un fichier CSV ou un e-mail de masse ?"
+msgid "Do you want to create a CSV file or do a bulk email?"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4506,8 +4496,8 @@ msgstr "Type de publipostage"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "Créer un fichier CSV"
+msgid "Create a CSV file on disk"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -8511,16 +8501,6 @@ msgstr ""
 msgid "Generate a CSV file from this report"
 msgstr "Créer un fichier CSV depuis ce rapport"
 
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr "Fichier CSV généré à : "
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "Création du fichier CSV terminée"
-
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
 #: export_custom_report_data
@@ -9389,6 +9369,26 @@ msgstr ""
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
 "Vous devez configurer votre paramètres AdoptAPet.com avant de publier."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12817,11 +12817,6 @@ msgstr "Taille par défaut :"
 msgid "Non-Shelter Animal Type:"
 msgstr "Type des animaux extra-refuge :"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "Ne pas séparer les informations sur la ville et le comté"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13358,11 +13353,6 @@ msgstr ""
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "Ne pas filtrer la liste des races selon l'espèce sélectionnée"
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "Ne pas afficher le type de pelage dans la fenêtre \"Animal\""
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13523,6 +13513,62 @@ msgstr ""
 #. # ui/system/Options
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
 msgstr ""
 
 #. # ui/users/UserView
@@ -15254,6 +15300,15 @@ msgstr "(estimé)"
 #~ msgid " mysql date columns repaired."
 #~ msgstr " colonne date mysql réparée."
 
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "Créer un fichier CSV"
+
+#~ msgid "Do you want to create a CVS file or do a bulk email?"
+#~ msgstr "Souhaitez-vous créer un fichier CSV ou un e-mail de masse ?"
+
+#~ msgid "CSV Generation Complete"
+#~ msgstr "Création du fichier CSV terminée"
+
 #~ msgid "An error occurred generating the CSV file: "
 #~ msgstr "Une erreur est survenue durant la création du fichier CSV : "
 
@@ -15396,6 +15451,9 @@ msgstr "(estimé)"
 #~ msgid "Unable to open find animal screen: "
 #~ msgstr "Impossible d'ouvrir la fenêtre \"Rechercher un animal\" : "
 
+#~ msgid "Don't show the coat type field on the animal screen"
+#~ msgstr "Ne pas afficher le type de pelage dans la fenêtre \"Animal\""
+
 #~ msgid "Unable to execute '"
 #~ msgstr "Exécution impossible '"
 
@@ -15515,6 +15573,12 @@ msgstr "(estimé)"
 #~ msgid "An error occurred completing the record: "
 #~ msgstr "Une erreur est survenue durant l'enregistrement "
 
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "Source de publipostage générée"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "Le fichier source du publipostage à été créé avec succès :"
+
 #~ msgid "An error occurred generating the mail merge source:\n"
 #~ msgstr ""
 #~ "Une erreur est survenue durant la génération de la source du publipostage :\n"
@@ -15522,8 +15586,14 @@ msgstr "(estimé)"
 #~ msgid "Unable to open user for editing: "
 #~ msgstr "Impossible d'acceder à cet utilisateur pour le modifier: "
 
+#~ msgid "Don't keep separate town and county information"
+#~ msgstr "Ne pas séparer les informations sur la ville et le comté"
+
 #~ msgid "Volunteer/Dog Walker"
 #~ msgstr "Bénévole/Promeneur"
+
+#~ msgid "CSV file generated at: "
+#~ msgstr "Fichier CSV généré à : "
 
 #~ msgid "An error occurred accessing the object: "
 #~ msgstr "Une erreur est survenue durant l'accès à l'objet : "

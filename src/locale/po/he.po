@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-04-29 08:46+0100\n"
-"PO-Revision-Date: 2010-05-04 11:42+0000\n"
-"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"POT-Creation-Date: 2010-06-03 09:36+0100\n"
+"PO-Revision-Date: 2010-06-04 22:48+0000\n"
+"Last-Translator: Ddorda <d.dorda@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-05 03:53+0000\n"
+"X-Launchpad-Export-Date: 2010-06-06 03:39+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3900,11 +3900,6 @@ msgid "Error"
 msgstr "שגיאה"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "נוצר מקור למיזוג דואר"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "אין רשומות להוספה למקור מיזוג הדואר."
@@ -3918,11 +3913,6 @@ msgstr "מתבצע ייצוא אל הכונן..."
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "הנתונים נקראים, נא להמתין..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "מקור מיזוג הדואר נבנה בהצלחה בתור הקובץ:"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4467,8 +4457,8 @@ msgstr "שם משפחה"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
-msgstr "האם ליצור קובץ CVS או לשלוח הודעה מרובת נמענים?"
+msgid "Do you want to create a CSV file or do a bulk email?"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4477,8 +4467,8 @@ msgstr "סוג מיזוג הדואר"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "יצירת קובץ CVS בכונן"
+msgid "Create a CSV file on disk"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -8431,16 +8421,6 @@ msgstr "יצירת קובץ CSV מדוח זה ולהציג אותו בעורך �
 msgid "Generate a CSV file from this report"
 msgstr "יצירת קובץ CSV מדוח זה"
 
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr "קובץ ה־CSV נוצר במיקום: "
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "יצירת ה־CSV הושלמה"
-
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
 #: export_custom_report_data
@@ -9302,6 +9282,26 @@ msgstr ""
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr "יש להגדיר את תצורת האתר AdoptAPet.com בטרם הפרסום."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12696,11 +12696,6 @@ msgstr "גודל ברירת המחדל:"
 msgid "Non-Shelter Animal Type:"
 msgstr "סוג חיית מחמד שאינה מבית המחסה:"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "אין להפריד בין נתוני המחוז והעיר"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13191,7 +13186,7 @@ msgstr "אפשרויות"
 #. # ui/system/Options
 #: Country\:
 msgid "Country:"
-msgstr "מדינה:"
+msgstr "ארץ:"
 
 #. # ui/system/AdditionalFieldEdit
 #: lookupvalues
@@ -13213,11 +13208,6 @@ msgstr ""
 #: Dont_filter_the_list_of_breeds_to_mapped_species
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "אין לסנן את רשימת הגזעים בהתאם לזנים הנבחרים"
-
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "אין להציג את השדה של סוג הפרווה במסך חיית המחמד"
 
 #. # ui/system/ConfigureLocal
 #: show_updates
@@ -13377,6 +13367,62 @@ msgstr "הפרדת דירוג רשימת ההמתנה לפי זנים"
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
 msgstr "לאחר ההקצאה, לא ניתן לשנות את הקודים"
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr ""
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14234,6 +14280,12 @@ msgstr "(מוערך)"
 #~ msgid "Unable to write output file "
 #~ msgstr "לא ניתן לכתוב את קובץ הפלט "
 
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "נוצר מקור למיזוג דואר"
+
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "יצירת קובץ CVS בכונן"
+
 #~ msgid "An error occurred opening the report {0}"
 #~ msgstr "ארעה שגיאה בעת פתיחת היומן {0}"
 
@@ -14261,6 +14313,12 @@ msgstr "(מוערך)"
 #~ msgid "Unable to open user for editing: "
 #~ msgstr "לא ניתן לפתוח את המשתמש לעריכה: "
 
+#~ msgid "Don't show the coat type field on the animal screen"
+#~ msgstr "אין להציג את השדה של סוג הפרווה במסך חיית המחמד"
+
+#~ msgid "Don't keep separate town and county information"
+#~ msgstr "אין להפריד בין נתוני המחוז והעיר"
+
 #~ msgid "An error occurred saving changes to asm.properties:\n"
 #~ msgstr "ארעה שגיאה בעת שמירת השינויים לקובץ asm.properties\n"
 
@@ -14284,6 +14342,9 @@ msgstr "(מוערך)"
 
 #~ msgid "An error occurred saving the data: "
 #~ msgstr "ארעה שגיאה בשמירת הנתונים: "
+
+#~ msgid "Do you want to create a CVS file or do a bulk email?"
+#~ msgstr "האם ליצור קובץ CVS או לשלוח הודעה מרובת נמענים?"
 
 #~ msgid "Unable to read voucher records: "
 #~ msgstr "לא ניתן לקרוא רשומות שוברים: "
@@ -14350,3 +14411,12 @@ msgstr "(מוערך)"
 
 #~ msgid "{0} weeks"
 #~ msgstr "{0} שבועות"
+
+#~ msgid "CSV file generated at: "
+#~ msgstr "קובץ ה־CSV נוצר במיקום: "
+
+#~ msgid "CSV Generation Complete"
+#~ msgstr "יצירת ה־CSV הושלמה"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "מקור מיזוג הדואר נבנה בהצלחה בתור הקובץ:"

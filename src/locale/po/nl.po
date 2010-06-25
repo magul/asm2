@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-13 14:17+0100\n"
-"PO-Revision-Date: 2010-04-15 23:13+0000\n"
+"POT-Creation-Date: 2010-06-03 09:36+0100\n"
+"PO-Revision-Date: 2010-06-03 09:45+0000\n"
 "Last-Translator: Benedictus Lambrechts <lambrechts.benedictus@gmail.com>\n"
 "Language-Team: Benedictus\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-17 04:27+0000\n"
+"X-Launchpad-Export-Date: 2010-06-04 03:49+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "Language: nl\n"
 
@@ -3359,7 +3359,6 @@ msgstr "Opmerkingen"
 
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
-#. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
@@ -3917,11 +3916,6 @@ msgid "Error"
 msgstr "Fout"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "Mailsamenvoegingsbron aangemaakt"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "Er zijn geen records beschikbaar voor de mailsamenvoeging."
@@ -3935,11 +3929,6 @@ msgstr "Schrijven naar schijf..."
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "Gegevens inlezen, even geduld alstublieft ..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "Succesvol mailsamenvoegingsbestand aangemaakt:"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4484,8 +4473,8 @@ msgstr "Familienaam"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
-msgstr "Wilt u een CSV-bestand aanmaken of een massa-e-mail uitvoeren?"
+msgid "Do you want to create a CSV file or do a bulk email?"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4494,8 +4483,8 @@ msgstr "Mailsamenvoegingstype"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "Maak een CSV-bestand aan op schijf"
+msgid "Create a CSV file on disk"
+msgstr ""
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -4979,6 +4968,8 @@ msgstr "5 weken"
 msgid "6 weeks"
 msgstr "6 weken"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
@@ -6034,6 +6025,8 @@ msgstr "Bij gastgezin (in cijfers)"
 msgid "Animal Type"
 msgstr "Diertype"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/CustomReportExecute
 #. # ui/owner/OwnerEdit
 #: criteria
@@ -6697,7 +6690,6 @@ msgid "Mother:"
 msgstr "Moeder:"
 
 #. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -8365,6 +8357,12 @@ msgstr ""
 msgid "Total Donations: {0}, Balance: {1}"
 msgstr "Totaal aan giften: {0}, saldo: {1}"
 
+#. # ui/animal/LitterView
+#. # ui/animal/LitterEdit
+#: Number_in_litter
+msgid "Number in litter:"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -8476,16 +8474,6 @@ msgstr ""
 #: generate_a_csv_file
 msgid "Generate a CSV file from this report"
 msgstr "Genereer een CSV-bestand van deze rapportage"
-
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr "CSV-bestand aangemaakt op: "
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "CSV-bestandsaanmaak voltooid"
 
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
@@ -9357,6 +9345,26 @@ msgstr ""
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
 "Je moet je AdoptAPet.com-instellingen configureren voor het publiceren."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12769,11 +12777,6 @@ msgstr "Standaard grootte:"
 msgid "Non-Shelter Animal Type:"
 msgstr "Niet-centrumdiertype:"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "Hou geen aparte plaats- en provincie-informatie bij"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13301,11 +13304,6 @@ msgstr "Deselecteer de diergroepen die je uit de databank wilt verwijderen:"
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "Filter de lijst van rassen niet volgens de geselecteerde soorten"
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "Toon het vachttypeveld niet op het dierscherm"
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13464,6 +13462,62 @@ msgstr "Scheid wachtlijstrang per soort"
 #. # ui/system/Options
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
 msgstr ""
 
 #. # ui/users/UserView
@@ -15717,3 +15771,27 @@ msgstr "(geschat)"
 
 #~ msgid "An error occurred reading the AdoptAPet.com user: "
 #~ msgstr "Er is een fout opgetreden bij het lezen van het AdoptAPet.com ID: "
+
+#~ msgid "CSV file generated at: "
+#~ msgstr "CSV-bestand aangemaakt op: "
+
+#~ msgid "CSV Generation Complete"
+#~ msgstr "CSV-bestandsaanmaak voltooid"
+
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "Mailsamenvoegingsbron aangemaakt"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "Succesvol mailsamenvoegingsbestand aangemaakt:"
+
+#~ msgid "Don't keep separate town and county information"
+#~ msgstr "Hou geen aparte plaats- en provincie-informatie bij"
+
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "Maak een CSV-bestand aan op schijf"
+
+#~ msgid "Do you want to create a CVS file or do a bulk email?"
+#~ msgstr "Wilt u een CSV-bestand aanmaken of een massa-e-mail uitvoeren?"
+
+#~ msgid "Don't show the coat type field on the animal screen"
+#~ msgstr "Toon het vachttypeveld niet op het dierscherm"

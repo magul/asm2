@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-29 08:46+0100\n"
-"PO-Revision-Date: 2010-05-01 11:04+0000\n"
+"POT-Creation-Date: 2010-06-24 14:18+0100\n"
+"PO-Revision-Date: 2010-06-24 16:53+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-02 04:02+0000\n"
+"X-Launchpad-Export-Date: 2010-06-25 03:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -201,6 +201,8 @@ msgstr "Mirė savo mirtimi"
 #. # bo/Animal
 #: Unknown
 #: lksex_2
+#: lksynun_2
+#: lksposneg_0
 msgid "Unknown"
 msgstr "Nežinoma"
 
@@ -971,6 +973,158 @@ msgstr "Nėra duomenų rodymui diagramoje."
 #: waitinglist
 msgid "Waiting List ("
 msgstr "Laukia vietos ("
+
+#: accounts_1_5_1_code
+msgid "Income::Donation"
+msgstr "Pajamos::Parama"
+
+#: accounts_1_desc
+msgid "Incoming donations (misc)"
+msgstr "Įeinanti parama (įv.)"
+
+#: accounts_2_5_2_code
+msgid "Income::Adoption"
+msgstr "Pajamos::Atidavimas"
+
+#: accounts_2_desc
+msgid "Adoption fee donations"
+msgstr "Gyvūno atidavimo mokestis"
+
+#: accounts_3_5_3_code
+msgid "Income::WaitingList"
+msgstr "Pajamos::Laukiantys"
+
+#: accounts_3_desc
+msgid "Waiting list donations"
+msgstr "Parama iš laukiančių vietos"
+
+#: accounts_4_5_4_code
+msgid "Income::EntryDonation"
+msgstr "Pajamos::Priėmimas"
+
+#: accounts_4_desc
+msgid "Donations for animals entering the shelter"
+msgstr "Parama už priimtą gyvūną"
+
+#: accounts_5_5_5_code
+msgid "Income::Sponsorship"
+msgstr "Pajmos::Rėmimas"
+
+#: accounts_5_desc
+msgid "Sponsorship donations"
+msgstr "Rėmėjų parama"
+
+#: accounts_6_5_0_code
+msgid "Income::Shop"
+msgstr "Pajamos::Parduotuvė"
+
+#: accounts_6_desc
+msgid "Income from an on-site shop"
+msgstr "Pajamos iš prieglaudoje esančios parduotuvės"
+
+#: accounts_7_5_0_code
+msgid "Income::Interest"
+msgstr "Pajamos::Palūkanos"
+
+#: accounts_7_desc
+msgid "Bank account interest"
+msgstr "Banko sąskaitos palūkanos"
+
+#: accounts_8_5_0_code
+msgid "Income::OpeningBalances"
+msgstr "Pajamos::PradiniaiLikučiai"
+
+#: accounts_8_desc
+msgid "Opening balances"
+msgstr "Pradiniai likučiai"
+
+#: accounts_9_1_0_code
+msgid "Bank::Current"
+msgstr "Bankas::Esama"
+
+#: accounts_9_desc
+msgid "Bank current account"
+msgstr "Dabartinė banko sąskaita"
+
+#: accounts_10_1_0_code
+msgid "Bank::Deposit"
+msgstr "Bankas::Depozitinė"
+
+#: accounts_10_desc
+msgid "Bank deposit account"
+msgstr "Depozitinė banko sąskaita"
+
+#: accounts_11_1_0_code
+msgid "Bank::Savings"
+msgstr "Bankas::Taupomoji"
+
+#: accounts_11_desc
+msgid "Bank savings account"
+msgstr "Taupomoji banko sąskaita"
+
+#: accounts_12_8_0_code
+msgid "Asset::Premises"
+msgstr "Turtas::Pastatai"
+
+#: accounts_12_desc
+msgid "Premises"
+msgstr "Pastatai"
+
+#: accounts_13_4_0_code
+msgid "Expenses::Phone"
+msgstr "Išlaidos::Telefonas"
+
+#: accounts_13_desc
+msgid "Telephone Bills"
+msgstr "Sąskaitos už telefono ryšį"
+
+#: accounts_14_4_0_code
+msgid "Expenses::Electricity"
+msgstr "Išlaidos::Elektra"
+
+#: accounts_14_desc
+msgid "Electricity Bills"
+msgstr "Sąskaitos už elektrą"
+
+#: accounts_15_4_0_code
+msgid "Expenses::Water"
+msgstr "Išlaidos::Vanduo"
+
+#: accounts_15_desc
+msgid "Water Bills"
+msgstr "Sąskaitos už vandenį"
+
+#: accounts_16_4_0_code
+msgid "Expenses::Gas"
+msgstr "Išlaidos::Dujos"
+
+#: accounts_16_desc
+msgid "Gas Bills"
+msgstr "Sąskaitos už dujas"
+
+#: accounts_17_4_0_code
+msgid "Expenses::Postage"
+msgstr "Išlaidos::Paštas"
+
+#: accounts_17_desc
+msgid "Postage costs"
+msgstr "Pašto išlaidos"
+
+#: accounts_18_4_0_code
+msgid "Expenses::Stationary"
+msgstr "Išlaidos::Kanceliarija"
+
+#: accounts_18_desc
+msgid "Stationary costs"
+msgstr "Išlaidos kanceliarinėms prekėms"
+
+#: accounts_19_4_0_code
+msgid "Expenses::Food"
+msgstr "Išlaidos::Pašarai"
+
+#: accounts_19_desc
+msgid "Animal food costs"
+msgstr "Išlaidos gyvūnų pašarams"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -2807,6 +2961,10 @@ msgstr "Suaugęs gyvūnas"
 msgid "Senior"
 msgstr "Senas gyvūnas"
 
+#: costtype_1
+msgid "Board and Food"
+msgstr "Išlaikymas ir šėrimas"
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Gyvūnai be mikroschemos"
@@ -3060,6 +3218,10 @@ msgstr "Sulaukėjus"
 #: entryreason_3
 msgid "Biting"
 msgstr "Įkando"
+
+#: diet_1
+msgid "Standard"
+msgstr "Standartinė"
 
 #. # reports/Retailer
 #. # reports/InOut
@@ -3369,6 +3531,8 @@ msgstr "Skaičius"
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
@@ -3392,6 +3556,80 @@ msgstr "Pinigai"
 #: lksfieldtype_6
 msgid "Lookup"
 msgstr "Sąrašas"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_0
+#: lksynun_1
+#: No
+msgid "No"
+msgstr "Ne"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/account/TrxView
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_1
+#: lksynun_0
+#: Yes
+msgid "Yes"
+msgstr "Taip"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_1
+#: Negative
+msgid "Negative"
+msgstr "Neigiamas"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_2
+#: Positive
+msgid "Positive"
+msgstr "Teigiamas"
 
 #. # bo/AnimalWaitingList
 #: lkurgency_1
@@ -3911,11 +4149,6 @@ msgid "Error"
 msgstr "Klaida"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr "Laiško komponavimo šaltinis sugeneruotas"
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "Nėra įrašų, kuriems galima pridėti laiško komponavimo šaltinį."
@@ -3929,11 +4162,6 @@ msgstr "Išvedama į diską..."
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "Skaitomi duomenys, prašome palaukti..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr "Sėkmingai pridėtas laiško komponavimo šaltinis kaip failas:"
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4093,33 +4321,6 @@ msgstr "Mikroschemos numeris"
 msgid "Age"
 msgstr "Amžius"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: Yes
-msgid "Yes"
-msgstr "Taip"
-
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
@@ -4136,32 +4337,6 @@ msgstr "Žymės"
 #: return_date
 msgid "Return Date"
 msgstr "Grąžinimo data"
-
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: No
-msgid "No"
-msgstr "Ne"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4401,6 +4576,7 @@ msgstr "Adresas 1"
 #. # bo/LookupCache
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
+#. # bo/Account
 #. # bo/Diary
 #. # bo/CustomReport
 #. # bo/AnimalVaccination
@@ -4419,6 +4595,7 @@ msgstr "Adresas 1"
 #. # bo/AnimalDiet
 #. # bo/Animal
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #. # bo/AnimalName
 #. # bo/AnimalMedical
 #. # bo/Log
@@ -4488,8 +4665,8 @@ msgstr "Pavardė"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
-msgstr "Norite sukurti CSV failą ar paruošti masinio siuntimo laišką?"
+msgid "Do you want to create a CSV file or do a bulk email?"
+msgstr "Norite sukurti CSV failą ar paruošti masinį el. laišką?"
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4498,8 +4675,8 @@ msgstr "Laiško komponavimo tipas"
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
-msgstr "Kurti CSV failą diske"
+msgid "Create a CSV file on disk"
+msgstr "Sukurkite diske CSV failą"
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -4772,11 +4949,17 @@ msgstr "Priminimai veterinarui iki {0} "
 #. # ui/animal/CostSelector
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
+#. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #: Description
 msgid "Description"
 msgstr "Aprašymas"
@@ -5715,8 +5898,13 @@ msgstr "6 mėn. laikotarpiu grąžintų atiduotų gyvūnų nėra."
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
+#. # bo/Account
 #: Code
 msgid "Code"
 msgstr "Kodas"
@@ -5785,6 +5973,8 @@ msgstr "Vidaus patalpa"
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
 #. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
@@ -6354,6 +6544,290 @@ msgstr "Grafikai negali būti persiųsti į stdout."
 msgid "Litter ID"
 msgstr "Vados ID"
 
+#. # ui/account/AccountView
+#: Add_a_new_account
+msgid "Add a new account"
+msgstr "Pridėti naują sąskaitą"
+
+#. # ui/account/AccountView
+#: Edit_the_selected_account
+msgid "Edit the selected account"
+msgstr "Redaguoti pasirinktą sąskaitą"
+
+#. # ui/account/AccountView
+#: Delete_the_selected_accounts
+msgid "Delete the selected accounts"
+msgstr "Trinti pasirinktas sąskaitas"
+
+#. # ui/animal/VaccinationView
+#. # ui/animal/LitterView
+#. # ui/animal/CostSelector
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # ui/waitinglist/WaitingListView
+#: Refresh_the_list
+msgid "Refresh the list"
+msgstr "Atnaujinti sąrašą"
+
+#. # ui/account/AccountView
+#: Mark_everything_in_the_selected_accounts_reconciled_to_today
+msgid "Mark everything in the selected accounts reconciled to today"
+msgstr "Pasirinktose sąskaitose pažymėti viską suderintu iki šiandienos"
+
+#. # ui/account/AccountView
+#: Edit_the_transactions_for_this_account
+msgid "Edit the transactions for this account"
+msgstr "Redaguoti šios sąskaitos transakcijas"
+
+#. # reports/VaccinationDiary
+#. # reports/Retailer
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # bo/Account
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#: Code
+#: Code\:
+msgid "Code:"
+msgstr "Kodas:"
+
+#. # reports/VaccinationDiary
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/AnimalPrint
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/CostSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/movement/MovementView
+#. # ui/log/LogSelector
+#. # ui/customreport/GetReports
+#. # ui/animal/AnimalEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/movement/MovementEdit
+#: Type
+#: Type\:
+msgid "Type:"
+msgstr "Tipas:"
+
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/DietSelector
+#. # ui/animal/CostSelector
+#. # ui/internet/PetFinderMapBreed
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/localcache/CacheView
+#. # ui/customreport/GetReports
+#. # bo/Account
+#. # bo/CustomReport
+#. # bo/AnimalCost
+#. # bo/AccountTrx
+#. # ui/animal/CostEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#: Description
+#: Description\:
+msgid "Description:"
+msgstr "Aprašymas:"
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # bo/AccountTrx
+#: Reconciled
+msgid "Reconciled"
+msgstr "Suderinta"
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#: Balance
+msgid "Balance"
+msgstr "Balansas"
+
+#. # ui/system/Options
+#. # ui/account/AccountView
+#. # ui/main/Main
+#: Accounts
+msgid "Accounts"
+msgstr "Sąskaitos"
+
+#. # ui/account/AccountEdit
+#: Create_New_Account
+msgid "Create New Account"
+msgstr "Sukurti naują sąskaitą"
+
+#. # ui/account/AccountEdit
+#: edit_account
+msgid "Edit Account - {0}"
+msgstr "Redaguoti ataskaitą - {0}"
+
+#. # ui/account/AccountEdit
+#: Save_this_account_and_exit
+msgid "Save this account and exit"
+msgstr "Išsaugoti šią sąskaitą ir išeiti"
+
+#. # ui/diary/DiaryEdit
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#: Close_without_saving
+msgid "Close without saving"
+msgstr "Uždaryti neišsaugant"
+
+#. # ui/account/TrxView
+#: transactions_for
+msgid "Transactions - {0}"
+msgstr "Transakcijos - {0}"
+
+#. # ui/account/TrxView
+#: All
+msgid "All"
+msgstr "Visos"
+
+#. # ui/account/TrxView
+#: show_most_recent
+msgid "Show Transactions:"
+msgstr "Rodyti transakcijas:"
+
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/LitterView
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
+#. # ui/animal/LitterEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
+#: Date
+#: Date\:
+msgid "Date:"
+msgstr "Data:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Account
+msgid "Account:"
+msgstr "Sąskaita:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Deposit
+msgid "Deposit:"
+msgstr "Įnašas:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Withdrawal
+msgid "Withdrawal:"
+msgstr "Išėmimas:"
+
+#. # ui/account/TrxEdit
+#: Create_Transaction
+msgid "Create Transaction"
+msgstr "Kurti transakciją"
+
+#. # ui/account/TrxEdit
+#: Edit_Transaction
+msgid "Edit Transaction"
+msgstr "Redaguoti transakciją"
+
+#. # ui/account/TrxEdit
+#: Save_this_transaction_and_exit
+msgid "Save this transaction and exit"
+msgstr "Išsaugoti šią transakciją ir uždaryti"
+
+#. # ui/account/TrxView
+#: Edit_the_selected_transaction
+msgid "Edit the selected transaction"
+msgstr "Redaguoti pasirinktą transakciją"
+
+#. # ui/account/TrxView
+#: Delete_the_selected_transactions
+msgid "Delete the selected transactions"
+msgstr "Trinti pasirinktas transakcijas"
+
+#. # ui/account/TrxView
+#: Reconcile_the_selected_transactions
+msgid "Reconcile the selected transactions"
+msgstr "Suderinti pasirinktas transakcijas"
+
+#. # ui/account/TrxView
+#: Add_a_transaction
+msgid "Add a transaction"
+msgstr "Pridėti transakciją"
+
+#. # ui/lookups/LookupEdit
+#. # db/AutoDBUpdates
+#: income_prefix
+msgid "Income::"
+msgstr "Pajamos::"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6607,16 +7081,6 @@ msgid "Vaccination Book"
 msgstr "Vakcinacijų tvarkaraštis"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # ui/animal/CostSelector
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/waitinglist/WaitingListView
-#: Refresh_the_list
-msgid "Refresh the list"
-msgstr "Atnaujinti sąrašą"
-
-#. # ui/animal/VaccinationView
 #: Filling_list...
 msgid "Filling list..."
 msgstr "Sąrašas pildomas..."
@@ -6674,16 +7138,6 @@ msgstr "Arba iki:"
 #: Create_New_Litter
 msgid "Create New Litter"
 msgstr "Pridėti naują vadą"
-
-#. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogEdit
-#: Date\:
-msgid "Date:"
-msgstr "Data:"
 
 #. # ui/animal/LitterEdit
 #: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
@@ -6854,15 +7308,6 @@ msgstr ""
 #: Species\:
 msgid "Species:"
 msgstr "Rūšis:"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
-#: Type\:
-msgid "Type:"
-msgstr "Tipas:"
 
 #. # ui/animal/AnimalEdit
 #: Hidden_Comments\:
@@ -7229,12 +7674,6 @@ msgstr "Planinė data"
 #: The_Identichip_Number
 msgid "The Identichip Number"
 msgstr "Mikroschemos numeris"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#: Code\:
-msgid "Code:"
-msgstr "Kodas:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -8333,15 +8772,9 @@ msgstr "Naujos išlaidos"
 msgid "Edit Cost"
 msgstr "Redaguoti išlaidas"
 
-#. # ui/animal/CostEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#: Description\:
-msgid "Description:"
-msgstr "Aprašymas:"
-
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # bo/AccountTrx
 #: Amount
 msgid "Amount"
 msgstr "Suma"
@@ -8480,16 +8913,6 @@ msgstr ""
 msgid "Generate a CSV file from this report"
 msgstr "Generuoti CSV failą pagal šią ataskaitą"
 
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr "CSV failas sugeneruotas: "
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
-msgstr "CSV generacija užbaigta"
-
 #. # ui/main/Main
 #. # ui/customreport/CustomReportExport
 #: export_custom_report_data
@@ -8549,11 +8972,6 @@ msgstr "Ataskaita"
 #: Install_this_report
 msgid "Install this report"
 msgstr "Įdiegti šią ataskaitą"
-
-#. # ui/diary/DiaryEdit
-#: Close_without_saving
-msgid "Close without saving"
-msgstr "Uždaryti neišsaugant"
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -9359,6 +9777,26 @@ msgstr ""
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr "Prieš skelbdami, turite sukonfigūruoti savo AdoptAPet.com nuostatas."
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr "Eiliškumas"
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr "Apribojimas"
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr "Esantys seniausiai prieglaudoje pirmi"
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
+msgstr "Naujausi pirmi"
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12523,42 +12961,9 @@ msgid "Edit File Types"
 msgstr "Redaguoti failų tipus"
 
 #. # ui/system/FileTypeManager
-#: No_HTML_Viewer
-msgid "No HTML Viewer"
-msgstr "Nėra HTML žiūryklės"
-
-#. # ui/system/FileTypeManager
-#: _based_computer._Press_Ok_and_please_wait...
-msgid " based computer"
-msgstr " baze"
-
-#. # ui/system/FileTypeManager
-#: No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager.
-msgid ""
-"No valid HTML viewer could be found. External reports will not be viewable "
-"from Animal Shelter Manager."
-msgstr ""
-"Nerasta jokios galiojančios HTML žiūryklės. Jūs negalėsite žiūrėti išorinių "
-"ataskaitų iš Animal Shelter Manager."
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_your_
-msgid "Scanning filetypes for your "
-msgstr "Peržiūrimi failų tipai jūsų kompiuteriui su įdiegta "
-
-#. # ui/system/FileTypeManager
 #: Animal_Shelter_Manager_has_no_registered_type_for_'
 msgid "Animal Shelter Manager has no registered type for '"
 msgstr "Animal Shelter Manager neturi užregistruoto tipo, tinkančio '"
-
-#. # ui/system/FileTypeManager
-#: No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager.
-msgid ""
-"No pdf/postscript viewer could be found. Printable help files will not\n"
-"be viewable in Animal Shelter Manager."
-msgstr ""
-"Nerasta jokios pdf/postscript žiūryklės. Animal Shelter Manager\n"
-"programoje jūs negalėsite peržiūrėti spausdintinų pagalbos failų."
 
 #. # ui/system/FileTypeManager
 #: [no_entry]
@@ -12577,17 +12982,6 @@ msgstr ""
 #: No_type
 msgid "No type"
 msgstr "Nėra tipo"
-
-#. # ui/system/FileTypeManager
-#: No_image_viewer
-msgid "No image viewer"
-msgstr "Nėra atvaizdų žiūryklės"
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait...
-msgid "Scanning filetypes for a Microsoft Windows based computer"
-msgstr ""
-"Peržiūrimi failų tipai kompiuteriui su įdiegta Microsoft Windows baze"
 
 #. # ui/system/Options
 #: Start_At\:
@@ -12784,11 +13178,6 @@ msgstr "Numatytasis dydis:"
 msgid "Non-Shelter Animal Type:"
 msgstr "Ne prieglaudos gyvūno tipas:"
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr "Nerodyti asmenų miesto ir rajono"
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -12817,17 +13206,6 @@ msgid ""
 msgstr ""
 "Automatiškai išregistruoti esamą naudotoją, jei jis buvo neaktyvus šį kiekį "
 "minučių, arba 0, jei niekada neišregistruoti"
-
-#. # ui/system/FileTypeManager
-#: ASM_could_not_locate_an_office_suite_on_your_computer
-msgid ""
-"ASM could not locate an office suite on your computer. Document generation "
-"will not work until you install and setup an office suite and file type "
-"handlers in ASM."
-msgstr ""
-"ASM nepavyko jūsų kompiuteryje nustatyti raštinės programų rinkinio. "
-"Dokumentų formavimas neveiks, kol neįdiegsite ir nesukonfigūruosite raštinės "
-"programų rinkinio bei failų tipų doroklių ASM programoje."
 
 #. # ui/system/MediaFiles
 #. # ui/main/Main
@@ -13314,11 +13692,6 @@ msgstr "Atžymėkite gyvūnų grupes, kurias norite pašalinti iš duomenų baz�
 msgid "Don't filter the list of breeds according to selected species"
 msgstr "Nefiltruoti veislių sąrašo pasirinktoms rūšims"
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr "Nerodyti kailio tipo laukelio gyvūno kortelėje"
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13480,6 +13853,81 @@ msgstr "Sugrupuoti laukiančių vietos sąrašo prioritetus pagal rūšis"
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
 msgstr "Kartą priskirti kodai negali būti pakeisti"
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr "Šalinti nereikalingus laukus"
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr "Šalinti gyvenvietės/savivaldybės laukus iš asmens kortelės"
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr "Šalinti kailio tipo lauką iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr "Šalinti mikroschemos laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr "Šalinti tatuiruotės laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr "Šalinti sterilizacijos/kastracijos laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr "Šalinti nagų pašalinimo lauką iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr "Šalinti širdies kirmėlių testo laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr "Šalinti FLV/FIV testo laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr "Šalinti \"Draugiškas...\" ir \"Dresuotas\" laukus iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr "Šalinti Vados ID/Priėmimo nr. lauką iš gyvūno kortelės"
+
+#. # ui/system/Options
+#: disable_accounts_functionality
+msgid "Disable Accounts Functionality"
+msgstr "Deaktyvuoti sąskaitų funkcionalą"
+
+#. # ui/system/Options
+#: Donation_destination_account
+msgid "Donation destination account:"
+msgstr "Paramos gavimo sąskaita:"
+
+#. # ui/system/Options
+#: creating_matching_trx
+msgid ""
+"Creating donations and donation types creates matching accounts and "
+"transactions"
+msgstr ""
+"Pridedant naują paramą ir paramos tipą, sukuriamos atitinkamos sąskaitos ir "
+"transakcijos"
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14110,6 +14558,36 @@ msgstr "Asmenų įrašai:"
 msgid "View Staff Owner Records"
 msgstr "Žiūrėti personalo asmenų įrašus"
 
+#. # ui/users/UserEdit
+#: Accounts\:
+msgid "Accounts:"
+msgstr "Sąskaitos:"
+
+#. # ui/users/UserEdit
+#: Add_Accounts
+msgid "Add Accounts"
+msgstr "Pridėti sąskaitas"
+
+#. # ui/users/UserEdit
+#: View_Accounts
+msgid "View Accounts"
+msgstr "Žiūrėti sąskaitas"
+
+#. # ui/users/UserEdit
+#: Change_Accounts
+msgid "Change Accounts"
+msgstr "Redaguoti ataskaitas"
+
+#. # ui/users/UserEdit
+#: Change_Transactions
+msgid "Change Transactions"
+msgstr "Redaguoti transakcijas"
+
+#. # ui/users/UserEdit
+#: Delete_Accounts
+msgid "Delete Accounts"
+msgstr "Trinti sąskaitas"
+
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
 msgid "HTML Viewer"
@@ -14276,20 +14754,6 @@ msgstr "Pasirinkite dokumento šabloną"
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr "Ar pridėti sugeneruotą dokumentą kaip failą?"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Positive
-msgid "Positive"
-msgstr "Teigiamas"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Negative
-msgid "Negative"
-msgstr "Neigiamas"
 
 #. # wordprocessor/AnimalDocument
 #: estimated
@@ -15158,6 +15622,9 @@ msgstr "(apytikslis)"
 #~ msgid "Unable to generate HTML:\n"
 #~ msgstr "Nepavyko sugeneruoti HTML:\n"
 
+#~ msgid "CSV file generated at: "
+#~ msgstr "CSV failas sugeneruotas: "
+
 #~ msgid "An error occurred removing the record: "
 #~ msgstr "Įvyko klaida šalinant įrašą: "
 
@@ -15243,6 +15710,15 @@ msgstr "(apytikslis)"
 #~ msgid "An error occurred generating the mail merge source:\n"
 #~ msgstr "Įvyko klaida generuojant laiško komponavimo šaltinį:\n"
 
+#~ msgid "Mail Merge Source Generated"
+#~ msgstr "Laiško komponavimo šaltinis sugeneruotas"
+
+#~ msgid "Do you want to create a CVS file or do a bulk email?"
+#~ msgstr "Norite sukurti CSV failą ar paruošti masinio siuntimo laišką?"
+
+#~ msgid "Successfully built mail merge source as file:"
+#~ msgstr "Sėkmingai pridėtas laiško komponavimo šaltinis kaip failas:"
+
 #~ msgid "Configure ASM Email Account"
 #~ msgstr "Konfigūruoti ASM el. pašto paskyrą"
 
@@ -15264,6 +15740,9 @@ msgstr "(apytikslis)"
 #~ msgid "An error occurred creating the CSV file: "
 #~ msgstr "Įvyko klaida kuriant CSV failą: "
 
+#~ msgid "CSV Generation Complete"
+#~ msgstr "CSV generacija užbaigta"
+
 #~ msgid "An error occurred connecting to the internet provider:\n"
 #~ msgstr "Įvyko klaida jungiantis prie interneto tiekėjo:\n"
 
@@ -15281,6 +15760,9 @@ msgstr "(apytikslis)"
 
 #~ msgid "Unable to open user for editing: "
 #~ msgstr "Nepavyko atidaryti redagavimui naudotojo: "
+
+#~ msgid "Don't show the coat type field on the animal screen"
+#~ msgstr "Nerodyti kailio tipo laukelio gyvūno kortelėje"
 
 #~ msgid "An error occurred while validating the object: "
 #~ msgstr "Įvyko klaida tvirtinant objektą: "
@@ -15327,6 +15809,9 @@ msgstr "(apytikslis)"
 #~ msgid "OwnerCounty"
 #~ msgstr "OwnerCounty"
 
+#~ msgid "Don't keep separate town and county information"
+#~ msgstr "Nerodyti asmenų miesto ir rajono"
+
 #~ msgid "Get more reports from sheltermanager.com ..."
 #~ msgstr "Gauti daugiau ataskaitų iš sheltermanager.com ..."
 
@@ -15348,11 +15833,53 @@ msgstr "(apytikslis)"
 #~ msgid "An error occurred completing the vaccination treatment:"
 #~ msgstr "Įvyko klaida žymint įrašą apie vakcinaciją atliktu:"
 
+#~ msgid "Create a CVS file on disk"
+#~ msgstr "Kurti CSV failą diske"
+
 #~ msgid "An error occurred changing into the directory: "
 #~ msgstr "Įvyko klaida keičiant į direktoriją: "
 
 #~ msgid "Tick this box if this date of birth is an estimate?"
 #~ msgstr "Pažymėkite šį laukelį, jei tiksli gimimo data yra nežinoma."
+
+#~ msgid "No HTML Viewer"
+#~ msgstr "Nėra HTML žiūryklės"
+
+#~ msgid "No image viewer"
+#~ msgstr "Nėra atvaizdų žiūryklės"
+
+#~ msgid ""
+#~ "No valid HTML viewer could be found. External reports will not be viewable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "Nerasta jokios galiojančios HTML žiūryklės. Jūs negalėsite žiūrėti išorinių "
+#~ "ataskaitų iš Animal Shelter Manager."
+
+#~ msgid ""
+#~ "No pdf/postscript viewer could be found. Printable help files will not\n"
+#~ "be viewable in Animal Shelter Manager."
+#~ msgstr ""
+#~ "Nerasta jokios pdf/postscript žiūryklės. Animal Shelter Manager\n"
+#~ "programoje jūs negalėsite peržiūrėti spausdintinų pagalbos failų."
+
+#~ msgid "Scanning filetypes for a Microsoft Windows based computer"
+#~ msgstr ""
+#~ "Peržiūrimi failų tipai kompiuteriui su įdiegta Microsoft Windows baze"
+
+#~ msgid " based computer"
+#~ msgstr " baze"
+
+#~ msgid "Scanning filetypes for your "
+#~ msgstr "Peržiūrimi failų tipai jūsų kompiuteriui su įdiegta "
+
+#~ msgid ""
+#~ "ASM could not locate an office suite on your computer. Document generation "
+#~ "will not work until you install and setup an office suite and file type "
+#~ "handlers in ASM."
+#~ msgstr ""
+#~ "ASM nepavyko jūsų kompiuteryje nustatyti raštinės programų rinkinio. "
+#~ "Dokumentų formavimas neveiks, kol neįdiegsite ir nesukonfigūruosite raštinės "
+#~ "programų rinkinio bei failų tipų doroklių ASM programoje."
 
 #~ msgid "ItemValue"
 #~ msgstr "ItemValue"

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-04-13 14:17+0100\n"
-"PO-Revision-Date: 2010-04-15 23:19+0000\n"
+"POT-Creation-Date: 2010-06-03 09:36+0100\n"
+"PO-Revision-Date: 2010-06-03 09:34+0000\n"
 "Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-04-17 04:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-04 03:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3338,7 +3338,6 @@ msgstr ""
 
 #. # reports/MedicalDiary
 #. # reports/LostFoundMatch
-#. # ui/animal/LitterView
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
@@ -3875,11 +3874,6 @@ msgid "Error"
 msgstr "ผิดพลาด"
 
 #. # mailmerge/MailMerge
-#: Mail_Merge_Source_Generated
-msgid "Mail Merge Source Generated"
-msgstr ""
-
-#. # mailmerge/MailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr ""
@@ -3893,11 +3887,6 @@ msgstr ""
 #: Reading_data,_please_wait...
 msgid "Reading data, please wait..."
 msgstr "กำลังอ่านข้อมูล, โปรดรอสักครู่..."
-
-#. # mailmerge/MailMerge
-#: Successfully_built_mail_merge_source_as_file\:
-msgid "Successfully built mail merge source as file:"
-msgstr ""
 
 #. # mailmerge/ChipRegistration
 #: ChipRegistrations.csv
@@ -4442,7 +4431,7 @@ msgstr "นามสกุล"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
-msgid "Do you want to create a CVS file or do a bulk email?"
+msgid "Do you want to create a CSV file or do a bulk email?"
 msgstr ""
 
 #. # mailmerge/MailMerge
@@ -4452,7 +4441,7 @@ msgstr ""
 
 #. # mailmerge/MailMerge
 #: produce_cvs
-msgid "Create a CVS file on disk"
+msgid "Create a CSV file on disk"
 msgstr ""
 
 #. # mailmerge/MailMerge
@@ -4927,6 +4916,8 @@ msgstr "5 สัปดาห์"
 msgid "6 weeks"
 msgstr "6 สัปดาห์"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
@@ -5973,6 +5964,8 @@ msgstr ""
 msgid "Animal Type"
 msgstr "ประเภทของสัตว์"
 
+#. # reports/OwnerSearchResults
+#. # reports/SearchResults
 #. # reports/CustomReportExecute
 #. # ui/owner/OwnerEdit
 #: criteria
@@ -6625,7 +6618,6 @@ msgid "Mother:"
 msgstr ""
 
 #. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -8261,6 +8253,12 @@ msgstr ""
 msgid "Total Donations: {0}, Balance: {1}"
 msgstr ""
 
+#. # ui/animal/LitterView
+#. # ui/animal/LitterEdit
+#: Number_in_litter
+msgid "Number in litter:"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -8370,16 +8368,6 @@ msgstr ""
 #. # ui/customreport/CustomReportExport
 #: generate_a_csv_file
 msgid "Generate a CSV file from this report"
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
-#: CSV_file_generated_at
-msgid "CSV file generated at: "
-msgstr ""
-
-#. # ui/customreport/CustomReportExport
-#: CSV_generation_complete
-msgid "CSV Generation Complete"
 msgstr ""
 
 #. # ui/main/Main
@@ -9230,6 +9218,26 @@ msgstr ""
 #. # internet/SaveAPetPublisher
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Order
+msgid "Order"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Limit
+msgid "Limit"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_ascending
+msgid "Longest on shelter first"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Most_recent_descending
+msgid "Newest first"
 msgstr ""
 
 #. # ui/main/Main
@@ -12598,11 +12606,6 @@ msgstr "ขนาด(ค่าปริยาย):"
 msgid "Non-Shelter Animal Type:"
 msgstr ""
 
-#. # ui/system/Options
-#: Dont_keep_separate_town_and_county_information
-msgid "Don't keep separate town and county information"
-msgstr ""
-
 #. # ui/system/FileTypeEdit
 #: Application
 msgid "Application"
@@ -13103,11 +13106,6 @@ msgstr ""
 msgid "Don't filter the list of breeds according to selected species"
 msgstr ""
 
-#. # ui/system/Options
-#: Dont_show_the_coat_type_field
-msgid "Don't show the coat type field on the animal screen"
-msgstr ""
-
 #. # ui/system/ConfigureLocal
 #: show_updates
 msgid "Show Updates"
@@ -13263,6 +13261,62 @@ msgstr ""
 #. # ui/system/Options
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
+msgstr ""
+
+#. # ui/system/Options
+#: Remove_unwanted_fields
+msgid "Remove Unwanted Fields"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_town_and_county_fields
+msgid "Remove the town/county fields from the owner screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_coattype_field
+msgid "Remove the coat type field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_microchip_fields
+msgid "Remove the microchip fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_tattoo_fields
+msgid "Remove the tattoo fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_neutered_fields
+msgid "Remove the spay/neuter fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_declawed_field
+msgid "Remove the declawed field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_heartworm_fields
+msgid "Remove the heartworm test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_combitest_fields
+msgid "Remove the Combi/FIV/L test fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_goodwith_fields
+msgid ""
+"Remove the \"Good With...\" and Housetrained fields from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_litter_field
+msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
 msgstr ""
 
 #. # ui/users/UserView

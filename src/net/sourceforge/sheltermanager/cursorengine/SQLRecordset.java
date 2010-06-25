@@ -634,7 +634,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     }
 
     public String getString(String fieldName) throws CursorEngineException {
-        String s = (String) getField(fieldName);
+        Object s = (Object) getField(fieldName);
 
         if (s == null) {
             return "";
