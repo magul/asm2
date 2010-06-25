@@ -196,7 +196,7 @@ public class SortableTableModel extends AbstractTableModel {
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         for (int c = 0; c < table.getColumnCount(); c++) {
-            packColumn(c, 2);
+            packColumn(c, margin);
         }
     }
 

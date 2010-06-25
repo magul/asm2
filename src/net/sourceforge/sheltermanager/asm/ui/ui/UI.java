@@ -2383,7 +2383,7 @@ public final class UI {
                         }
 
                         model.addMouseListenerToHeaderInTable(Table.this);
-                        model.packColumns(4);
+                        model.packColumns(5);
                         model.fireTableDataChanged();
 
                         // If we have a renderer, use it
