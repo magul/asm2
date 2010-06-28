@@ -70,7 +70,10 @@ public abstract class Dialog {
 
     /** Wraps a message by replacing spaces with line breaks */
     private static String wordWrap(String s) {
-    	if (s == null) return "";
+        if (s == null) {
+            return "";
+        }
+
         final int WRAP = 100; // No chars to wrap at
         int lastpos = 0;
 

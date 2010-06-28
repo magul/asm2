@@ -386,7 +386,6 @@ public class LocateDatabase {
         String country = Locale.getDefault().getCountry();
 
         try {
-
             Global.logInfo("Applying translation patch for language '" + lang +
                 "'", "LocateDatabase.applyTranslationPatch");
 

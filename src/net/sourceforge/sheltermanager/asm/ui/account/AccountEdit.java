@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -32,6 +30,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+
+import java.util.Vector;
+
 
 /**
  * This class contains all code for editing accounts
@@ -48,7 +49,8 @@ public class AccountEdit extends ASMForm {
     private String audit = null;
 
     public AccountEdit() {
-        init("", IconManager.getIcon(IconManager.SCREEN_EDITACCOUNT), "uiaccount");
+        init("", IconManager.getIcon(IconManager.SCREEN_EDITACCOUNT),
+            "uiaccount");
     }
 
     public void dispose() {
@@ -79,6 +81,7 @@ public class AccountEdit extends ASMForm {
         ctl.add(txtDescription);
         ctl.add(btnOk);
         ctl.add(btnCancel);
+
         return ctl;
     }
 
@@ -93,13 +96,13 @@ public class AccountEdit extends ASMForm {
 
     /** Sets the screen into creation mode of a new account */
     public void openForNew() {
-
         try {
             account = new Account("ID = 0");
             account.addNew();
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
         }
+
         setTitle(i18n("Create_New_Account"));
     }
 
@@ -121,18 +124,16 @@ public class AccountEdit extends ASMForm {
     public void loadData() {
         try {
             // Auditing information
-            audit = UI.messageAudit(
-                    account.getCreatedDate(),
-                    account.getCreatedBy(),
-                    account.getLastChangedDate(),
+            audit = UI.messageAudit(account.getCreatedDate(),
+                    account.getCreatedBy(), account.getLastChangedDate(),
                     account.getLastChangedBy());
 
-            Utils.setComboFromID(LookupCache.getAccountTypeLookup(), "AccountType", account.getAccountType(), cboAccountType);
+            Utils.setComboFromID(LookupCache.getAccountTypeLookup(),
+                "AccountType", account.getAccountType(), cboAccountType);
             txtCode.setText(account.getCode());
             txtDescription.setText(account.getDescription());
 
             setTitle(i18n("edit_account", account.getCode()));
-
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -147,7 +148,9 @@ public class AccountEdit extends ASMForm {
         try {
             account.setCode(txtCode.getText());
             account.setDescription(txtDescription.getText());
-            account.setAccountType(Utils.getIDFromCombo(LookupCache.getAccountTypeLookup(), "AccountType", cboAccountType));
+            account.setAccountType(Utils.getIDFromCombo(
+                    LookupCache.getAccountTypeLookup(), "AccountType",
+                    cboAccountType));
 
             try {
                 account.save(Global.currentUserName);
@@ -166,6 +169,7 @@ public class AccountEdit extends ASMForm {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
+
         return false;
     }
 
@@ -183,18 +187,20 @@ public class AccountEdit extends ASMForm {
         txtCode = UI.getTextField();
         UI.addComponent(pnlTop, i18n("Code"), txtCode);
 
-        cboAccountType = UI.getCombo(LookupCache.getAccountTypeLookup(), "AccountType");
+        cboAccountType = UI.getCombo(LookupCache.getAccountTypeLookup(),
+                "AccountType");
         UI.addComponent(pnlTop, i18n("Type"), cboAccountType);
 
-        txtDescription = (UI.TextArea) UI.addComponent(pnlMid, i18n("Description"),
-                UI.getTextArea());
+        txtDescription = (UI.TextArea) UI.addComponent(pnlMid,
+                i18n("Description"), UI.getTextArea());
 
-        btnOk = UI.getButton(UI.messageOK(), i18n("Save_this_account_and_exit"),
-                'o', null, UI.fp(this, "saveData"));
+        btnOk = UI.getButton(UI.messageOK(),
+                i18n("Save_this_account_and_exit"), 'o', null,
+                UI.fp(this, "saveData"));
         pnlBot.add(btnOk);
 
-        btnCancel = UI.getButton(UI.messageCancel(), i18n("Close_without_saving"),
-                'c', null, UI.fp(this, "dispose"));
+        btnCancel = UI.getButton(UI.messageCancel(),
+                i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
     }
 }

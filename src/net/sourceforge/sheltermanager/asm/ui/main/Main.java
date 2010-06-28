@@ -177,7 +177,6 @@ public class Main extends ASMWindow {
     private UI.Button btnRetailerBook;
     private UI.Button btnViewMyDiary;
     private UI.Button btnWaitingList;
-    
     private UI.DesktopPane jdpDesktop;
     private UI.Label lblStatus;
     private ThrobberSmall thrThrob;
@@ -673,7 +672,6 @@ public class Main extends ASMWindow {
      * Reads the list of custom reports and loads them into the menu
      */
     public void refreshCustomReports() {
-        
         CustomReportMenu crm = null;
         String curcategory = "";
         HashMap<String, UI.Menu> menus = new HashMap<String, UI.Menu>();
@@ -681,8 +679,8 @@ public class Main extends ASMWindow {
         try {
             mnuReports.removeAll();
 
-            for (CustomReport cr : new CustomReport("ID > 0 ORDER BY Category, Title")) {
-
+            for (CustomReport cr : new CustomReport(
+                    "ID > 0 ORDER BY Category, Title")) {
                 // Is this a subreport? If so, don't bother
                 // doing anything.
                 if (!cr.isSubReport()) {
@@ -764,7 +762,7 @@ public class Main extends ASMWindow {
 
         mnuFileAccount = UI.getMenuItem(i18n("Accounts"), 'C',
                 IconManager.getIcon(IconManager.MENU_FILEACCOUNTS),
-                new ASMAccelerator("a", "ctrl", "shift"), 
+                new ASMAccelerator("a", "ctrl", "shift"),
                 UI.fp(this, "actionFileAccounts"));
 
         mnuFileAnimal = UI.getMenu(i18n("Animal"), 'A',
@@ -1329,7 +1327,7 @@ public class Main extends ASMWindow {
         if (!Configuration.getBoolean("DisableAccounts")) {
             mnuFile.add(mnuFileAccount);
         }
-        
+
         mnuFile.add(UI.getSeparator());
 
         if (!usingOSSecurity() && !Startup.applet) {
@@ -1710,15 +1708,14 @@ public class Main extends ASMWindow {
                 UI.fp(this, "actionDiaryPrintNotes"));
 
         tlbTools.add(btnPrintDiary);
-        
-        btnAccount = UI.getButton(null, i18n("Accounts"),
-        		IconManager.getIcon(IconManager.BUTTON_ACCOUNT),
-        		UI.fp(this, "actionFileAccounts"));
-        
-        if (!Configuration.getBoolean("DisableAccounts")) {
-        	tlbTools.add(btnAccount);
-        }
 
+        btnAccount = UI.getButton(null, i18n("Accounts"),
+                IconManager.getIcon(IconManager.BUTTON_ACCOUNT),
+                UI.fp(this, "actionFileAccounts"));
+
+        if (!Configuration.getBoolean("DisableAccounts")) {
+            tlbTools.add(btnAccount);
+        }
     }
 
     public void actionInternetPets911Publish() {
@@ -2293,6 +2290,7 @@ public class Main extends ASMWindow {
 
     public void actionFileAccounts() {
         cursorToWait();
+
         AccountView ea = new AccountView();
         addChild(ea);
         ea = null;

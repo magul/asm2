@@ -36,30 +36,19 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 public class WaitingListRenderer extends DefaultTableCellRenderer
     implements ASMCellRenderer {
-	
-	/** Urgency colours for background */
-	private Color[] bg_cols = new Color[] {
-			Color.RED,
-			Color.RED,
-			new Color(255, 65, 65),
-			new Color(255, 115, 115),
-			new Color(255, 165, 165),
-			Color.WHITE
-	};
-	
-	/** Urgency colours for foreground */
-	private Color[] fg_cols = new Color[] {
-			Color.WHITE,
-			Color.WHITE,
-			Color.WHITE,
-			Color.BLACK,
-			Color.BLACK,
-			Color.BLACK
-	};
-	
-	private Color highlighted_bg = new Color(255, 242, 132); // Pale yellow
-	private Color highlighted_fg = Color.BLACK;
-    
+    /** Urgency colours for background */
+    private Color[] bg_cols = new Color[] {
+            Color.RED, Color.RED, new Color(255, 65, 65),
+            new Color(255, 115, 115), new Color(255, 165, 165), Color.WHITE
+        };
+
+    /** Urgency colours for foreground */
+    private Color[] fg_cols = new Color[] {
+            Color.WHITE, Color.WHITE, Color.WHITE, Color.BLACK, Color.BLACK,
+            Color.BLACK
+        };
+    private Color highlighted_bg = new Color(255, 242, 132); // Pale yellow
+    private Color highlighted_fg = Color.BLACK;
     private SortableTableModel tablemodel = null;
     private int urgencycolumn = 10;
     private int highlightedcolumn = 11;
@@ -82,26 +71,30 @@ public class WaitingListRenderer extends DefaultTableCellRenderer
         boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus,
             row, column);
-        
+
         if (isSelected) {
             setForeground(table.getSelectionForeground());
             setBackground(table.getSelectionBackground());
         } else {
-        	// Highlight according to urgency/manually highlighted
-        	String hl = tablemodel.getValueAt(row, highlightedcolumn).toString();
-        	String ur = tablemodel.getValueAt(row, urgencycolumn).toString();
-        	
-        	if (hl != null && hl.equals("1")) {
-        		setForeground(highlighted_fg);
-        		setBackground(highlighted_bg);
-        	}
-        	else {
-        		int urgency = Integer.parseInt(ur);
-        		if (urgency > 5) urgency = 5; // Make sure one of our 5 urgencies
-        		setForeground(fg_cols[urgency]);
-        		setBackground(bg_cols[urgency]);
-        	}
+            // Highlight according to urgency/manually highlighted
+            String hl = tablemodel.getValueAt(row, highlightedcolumn).toString();
+            String ur = tablemodel.getValueAt(row, urgencycolumn).toString();
+
+            if ((hl != null) && hl.equals("1")) {
+                setForeground(highlighted_fg);
+                setBackground(highlighted_bg);
+            } else {
+                int urgency = Integer.parseInt(ur);
+
+                if (urgency > 5) {
+                    urgency = 5; // Make sure one of our 5 urgencies
+                }
+
+                setForeground(fg_cols[urgency]);
+                setBackground(bg_cols[urgency]);
+            }
         }
+
         return this;
     }
 }

@@ -21,12 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import java.util.HashMap;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.HashMap;
 
 
 /**
@@ -113,7 +113,9 @@ public class Configuration {
                 "Configuration.loadFromDatabase");
             conf = new HashMap<String, String>();
 
-            SQLRecordset recs = new SQLRecordset("SELECT * FROM configuration", "configuration");
+            SQLRecordset recs = new SQLRecordset("SELECT * FROM configuration",
+                    "configuration");
+
             for (SQLRecordset r : recs) {
                 conf.put((String) r.getField("ItemName"),
                     (String) r.getField("ItemValue"));

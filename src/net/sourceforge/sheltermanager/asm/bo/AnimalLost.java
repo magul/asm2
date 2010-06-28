@@ -301,7 +301,6 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         // If we have an animalID then there's no point checking
         // found animals at all
         if (animalID == 0) {
-        	
             AnimalFound aflist = new AnimalFound();
 
             if (filterByDate) {
@@ -317,7 +316,6 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
             }
 
             for (AnimalFound af : aflist) {
-
                 // Start at 5 match points, because
                 // species has to match for it to be included.
                 matchPoints = 5;
@@ -388,7 +386,6 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                         };
                     returnedRows.add(entry);
                 }
-
             }
         }
 

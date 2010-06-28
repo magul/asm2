@@ -60,7 +60,7 @@ public abstract class LookupCache {
     private static SQLRecordset accounts = null;
     private static Animal activeanimals = null;
     private static HashMap<Integer, Animal.AnimalMarkers> animalextdata = null;
-    private static HashMap<Integer, Vector<String> > breedspecies = null;
+    private static HashMap<Integer, Vector<String>> breedspecies = null;
     private static HashMap<Integer, Double> donationspecies = null;
     private static Vector<String> ownercounties = null;
     private static Vector<TownCounty> ownertowns = null;
@@ -313,20 +313,26 @@ public abstract class LookupCache {
                 }
 
                 return costtype;
-                
+
             case LOOKUP_ACCOUNTTYPE:
-            	if (accounttype == null) {
-            		accounttype = new SQLRecordset();
-            		accounttype.openRecordset("SELECT * FROM lksaccounttype ORDER BY AccountType", "lksaccounttype");
-            	}
-            	return accounttype;
-            	
+
+                if (accounttype == null) {
+                    accounttype = new SQLRecordset();
+                    accounttype.openRecordset("SELECT * FROM lksaccounttype ORDER BY AccountType",
+                        "lksaccounttype");
+                }
+
+                return accounttype;
+
             case LOOKUP_ACCOUNTS:
-            	if (accounts == null) {
-            		accounts = new SQLRecordset();
-            		accounts.openRecordset("SELECT * FROM accounts ORDER BY AccountType, Code", "accounts");
-            	}
-            	return accounts;
+
+                if (accounts == null) {
+                    accounts = new SQLRecordset();
+                    accounts.openRecordset("SELECT * FROM accounts ORDER BY AccountType, Code",
+                        "accounts");
+                }
+
+                return accounts;
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -436,7 +442,6 @@ public abstract class LookupCache {
 
     public static String getRealName(String user) {
         try {
-
             for (Users u : new Users("")) {
                 if (u.getUserName().equals(user)) {
                     return u.getRealName();
@@ -445,6 +450,7 @@ public abstract class LookupCache {
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
+
         return "";
     }
 
@@ -463,24 +469,20 @@ public abstract class LookupCache {
                 // a map from it - much faster than testing each individual
                 // active animal
                 for (SQLRecordset r : new SQLRecordset(
-                    "SELECT animal.ID, (SELECT COUNT(*) FROM animalvaccination WHERE AnimalID = animal.ID) AS vacc, (SELECT COUNT(*) FROM animalmedical WHERE AnimalID = animal.ID) AS medi, (SELECT COUNT(*) FROM animaldiet WHERE AnimalID = animal.ID) AS diet, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, (SELECT COUNT(*) FROM animalcost WHERE AnimalID = animal.ID) AS cost, (SELECT COUNT(*) FROM media WHERE LinkID = animal.ID AND LinkTypeID = " +
-                    Media.LINKTYPE_ANIMAL +
-                    ") AS pics, (SELECT COUNT(*) FROM diary WHERE LinkID = animal.ID AND LinkType = " +
-                    Diary.LINKTYPE_ANIMAL +
-                    ") AS diar, (SELECT COUNT(*) FROM adoption WHERE AnimalID = animal.ID) AS move, (SELECT COUNT(*) FROM log WHERE LinkID = animal.ID AND LinkType = " +
-                    Log.LINKTYPE_ANIMAL +
-                    ") AS logs FROM animal WHERE animal.Archived = 0", "animal")) {
-
+                        "SELECT animal.ID, (SELECT COUNT(*) FROM animalvaccination WHERE AnimalID = animal.ID) AS vacc, (SELECT COUNT(*) FROM animalmedical WHERE AnimalID = animal.ID) AS medi, (SELECT COUNT(*) FROM animaldiet WHERE AnimalID = animal.ID) AS diet, (SELECT COUNT(*) FROM ownerdonation WHERE AnimalID = animal.ID) AS dona, (SELECT COUNT(*) FROM animalcost WHERE AnimalID = animal.ID) AS cost, (SELECT COUNT(*) FROM media WHERE LinkID = animal.ID AND LinkTypeID = " +
+                        Media.LINKTYPE_ANIMAL +
+                        ") AS pics, (SELECT COUNT(*) FROM diary WHERE LinkID = animal.ID AND LinkType = " +
+                        Diary.LINKTYPE_ANIMAL +
+                        ") AS diar, (SELECT COUNT(*) FROM adoption WHERE AnimalID = animal.ID) AS move, (SELECT COUNT(*) FROM log WHERE LinkID = animal.ID AND LinkType = " +
+                        Log.LINKTYPE_ANIMAL +
+                        ") AS logs FROM animal WHERE animal.Archived = 0",
+                        "animal")) {
                     animalextdata.put(r.getInt("ID"),
                         new Animal.AnimalMarkers(r.getInt("vacc"),
-                            r.getInt("medi"),
-                            r.getInt("diet"),
-                            r.getInt("cost"),
-                            r.getInt("dona"),
-                            r.getInt("pics"),
-                            r.getInt("diar"),
-                            r.getInt("move"),
-                            r.getInt("logs")));
+                            r.getInt("medi"), r.getInt("diet"),
+                            r.getInt("cost"), r.getInt("dona"),
+                            r.getInt("pics"), r.getInt("diar"),
+                            r.getInt("move"), r.getInt("logs")));
                 }
             } catch (Exception e) {
                 Global.logException(e, LookupCache.class);
@@ -503,10 +505,12 @@ public abstract class LookupCache {
 
         try {
             activeanimals.first();
+
             for (Animal a : activeanimals) {
                 if (a.getID().equals(id)) {
                     Global.logDebug("CACHE: HIT for animal id " + id,
                         "LookupCache.getAnimalByID");
+
                     return a;
                 }
             }
@@ -571,9 +575,9 @@ public abstract class LookupCache {
     public static SQLRecordset getBaseColourLookup() {
         return getLookup(LOOKUP_BASECOLOUR);
     }
-    
+
     public static SQLRecordset getAccountTypeLookup() {
-    	return getLookup(LOOKUP_ACCOUNTTYPE);
+        return getLookup(LOOKUP_ACCOUNTTYPE);
     }
 
     public static SQLRecordset getAnimalTypeLookup() {
@@ -647,9 +651,9 @@ public abstract class LookupCache {
     public static SQLRecordset getDonationFreqLookup() {
         return getLookup(LOOKUP_DONATIONFREQ);
     }
-    
+
     public static SQLRecordset getAccountsLookup() {
-    	return getLookup(LOOKUP_ACCOUNTS);
+        return getLookup(LOOKUP_ACCOUNTS);
     }
 
     public static String getDonationFreqForID(Integer ID) {
@@ -771,21 +775,24 @@ public abstract class LookupCache {
 
         return getIDForName(animaltype, "AnimalType", Name);
     }
-    
+
     public static String getAccountTypeNameForID(Integer ID) {
-    	getLookup(LOOKUP_ACCOUNTTYPE);
-    	return getNameForID(accounttype, "AccountType", ID);
+        getLookup(LOOKUP_ACCOUNTTYPE);
+
+        return getNameForID(accounttype, "AccountType", ID);
     }
-    
+
     public static Integer getAccountTypeIDForName(String Name) {
-    	getLookup(LOOKUP_ACCOUNTTYPE);
-    	return getIDForName(accounttype, "AccountType", Name);
+        getLookup(LOOKUP_ACCOUNTTYPE);
+
+        return getIDForName(accounttype, "AccountType", Name);
     }
 
     private static String getNameForID(SQLRecordset rs, String nameFieldName,
         Integer ID) {
         try {
             rs.first();
+
             for (SQLRecordset r : rs) {
                 if (r.getInt("ID") == ID.intValue()) {
                     return rs.getString(nameFieldName);
@@ -794,6 +801,7 @@ public abstract class LookupCache {
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
+
         return "";
     }
 
@@ -801,6 +809,7 @@ public abstract class LookupCache {
         String name) {
         try {
             rs.first();
+
             for (SQLRecordset r : rs) {
                 if (r.getString(nameFieldName).equalsIgnoreCase(name)) {
                     return rs.getInt("ID");
@@ -809,6 +818,7 @@ public abstract class LookupCache {
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
         }
+
         return null;
     }
 
@@ -1007,7 +1017,7 @@ public abstract class LookupCache {
      */
     public static Vector<String> getBreedsForSpecies(Integer speciesID) {
         if (breedspecies == null) {
-            breedspecies = new HashMap<Integer, Vector<String> >();
+            breedspecies = new HashMap<Integer, Vector<String>>();
         }
 
         Vector<String> v = breedspecies.get(speciesID);

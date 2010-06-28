@@ -47,6 +47,9 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** The SQL used to open the current set */
     protected String sql = "";
 
+    /** Iterator looking at the first item? */
+    private boolean firstItem = true;
+
     /** Wraps recordset functionality and encapsulates where clause.
      * @param whereClause A valid SQL WHERE clause
      */
@@ -88,55 +91,57 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** Iterable::iterator */
     public Iterator<T> iterator() {
-    	try {
-    		// Reset when we ask for an iterator
-    		if (size() > 0) {
-    			moveFirst();
-    		}
-    		firstItem = true;
-    	}
-    	catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    	return this;
+        try {
+            // Reset when we ask for an iterator
+            if (size() > 0) {
+                moveFirst();
+            }
+
+            firstItem = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return this;
     }
 
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-        	if (size() == 0) return false;
-        	return rs.getAbsolutePosition() != size();
-        }
-        catch (Exception e) {
+            if (size() == 0) {
+                return false;
+            }
+
+            return rs.getAbsolutePosition() != size();
+        } catch (Exception e) {
             e.printStackTrace();
+
             return false;
         }
     }
-
-    /** Iterator looking at the first item? */
-    private boolean firstItem = true;
 
     /** Iterator::next */
     public T next() {
         try {
             if (firstItem) {
                 firstItem = false;
-                return (T) this;    
+
+                return (T) this;
             }
+
             moveNext();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return (T) this; 
+
+        return (T) this;
     }
 
     /** Iterator::remove */
     public void remove() {
         try {
             delete();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -145,7 +150,6 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     public void moveNext() throws CursorEngineException {
         rs.moveNext();
     }
-
 
     /** Wraps recordset functionality */
     public void movePrevious() throws CursorEngineException {

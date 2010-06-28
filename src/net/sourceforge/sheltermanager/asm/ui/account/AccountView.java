@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
@@ -33,6 +31,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.Vector;
 
 
 /**
@@ -47,12 +47,11 @@ public class AccountView extends ASMView {
     private UI.Button btnReconcile;
     private UI.Button btnTrx;
     private boolean hasRecords = false;
-    
+
     public AccountView() {
-        init(Global.i18n("uiaccount", "Accounts"), 
-        		IconManager.getIcon(IconManager.SCREEN_ACCOUNT), 
-        		"uiaccount", false, true,
-        		new AccountRenderer(new int[] { 3, 4 }, 6));
+        init(Global.i18n("uiaccount", "Accounts"),
+            IconManager.getIcon(IconManager.SCREEN_ACCOUNT), "uiaccount",
+            false, true, new AccountRenderer(new int[] { 3, 4 }, 6));
         updateList();
     }
 
@@ -63,6 +62,7 @@ public class AccountView extends ASMView {
     public Vector getTabOrder() {
         Vector ctl = new Vector();
         ctl.add(getTable());
+
         return ctl;
     }
 
@@ -89,60 +89,65 @@ public class AccountView extends ASMView {
             btnTrx.setEnabled(false);
             disableDoubleClick = true;
         }
-
     }
 
     /** Fills the on screen list of diary notes */
     public void updateList() {
+        try {
+            // Create an array to hold the results for the table
+            Account accounts = Account.getAllAccounts();
+            String[][] datar = new String[accounts.size()][7];
 
-    	try {
-    	
-	        // Create an array to hold the results for the table
-	    	Account accounts = Account.getAllAccounts();
-	        String[][] datar = new String[accounts.size()][7];
-	
-	        // Create an array of headers for the table
-	        String[] columnheaders = {
-	                i18n("Code"), i18n("Type"), i18n("Description"), 
-	                i18n("Reconciled"), i18n("Balance") 
-	        };
-	    
-	        int i = 0;
-	        for (Account a : accounts) {
-	            datar[i][0] = a.getCode();
-	            datar[i][1] = a.getAccountTypeName();
-	            datar[i][2] = a.getDescription();
-	            datar[i][3] = Utils.formatCurrency(a.getReconciled());
-	            datar[i][4] = Utils.formatCurrency(a.getAccountBalance());
-	            datar[i][5] = a.getID().toString();
-	            datar[i][6] = a.getAccountBalance() < 0 ? "-" : "+";
-	            i++;
-	            hasRecords = true;
-	        }
-	
-	        setTableData(columnheaders, datar, i, 5);
-	        
-    	}
-    	catch (Exception e) {
-    		Dialog.showError(e.getMessage());
-    		Global.logException(e, getClass());
-    	}
+            // Create an array of headers for the table
+            String[] columnheaders = {
+                    i18n("Code"), i18n("Type"), i18n("Description"),
+                    i18n("Reconciled"), i18n("Balance")
+                };
+
+            int i = 0;
+
+            for (Account a : accounts) {
+                datar[i][0] = a.getCode();
+                datar[i][1] = a.getAccountTypeName();
+                datar[i][2] = a.getDescription();
+                datar[i][3] = Utils.formatCurrency(a.getReconciled());
+                datar[i][4] = Utils.formatCurrency(a.getAccountBalance());
+                datar[i][5] = a.getID().toString();
+                datar[i][6] = (a.getAccountBalance() < 0) ? "-" : "+";
+                i++;
+                hasRecords = true;
+            }
+
+            setTableData(columnheaders, datar, i, 5);
+        } catch (Exception e) {
+            Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
+        }
     }
 
-    public void setLink(int a, int b) {}
+    public void setLink(int a, int b) {
+    }
 
-    public boolean hasData() { return hasRecords; }
-    
-    public void loadData() {}
-    
-    public boolean saveData() { return false; }
-    
-    public boolean formClosing() { return false; }
-    
-    public String getAuditInfo() { return null; }
+    public boolean hasData() {
+        return hasRecords;
+    }
+
+    public void loadData() {
+    }
+
+    public boolean saveData() {
+        return false;
+    }
+
+    public boolean formClosing() {
+        return false;
+    }
+
+    public String getAuditInfo() {
+        return null;
+    }
 
     public void addToolButtons() {
-
         btnNew = UI.getButton(null, i18n("Add_a_new_account"), 'n',
                 IconManager.getIcon(IconManager.SCREEN_ACCOUNT_NEW),
                 UI.fp(this, "actionNew"));
@@ -163,16 +168,17 @@ public class AccountView extends ASMView {
                 UI.fp(this, "updateList"));
         addToolButton(btnRefresh, false);
 
-        btnReconcile = UI.getButton(null, i18n("Mark_everything_in_the_selected_accounts_reconciled_to_today"), 'c',
-                IconManager.getIcon(IconManager.SCREEN_ACCOUNT_RECONCILE),
+        btnReconcile = UI.getButton(null,
+                i18n("Mark_everything_in_the_selected_accounts_reconciled_to_today"),
+                'c', IconManager.getIcon(IconManager.SCREEN_ACCOUNT_RECONCILE),
                 UI.fp(this, "actionReconcile"));
         addToolButton(btnReconcile, true);
 
-        btnTrx = UI.getButton(null, i18n("Edit_the_transactions_for_this_account"), 't',
+        btnTrx = UI.getButton(null,
+                i18n("Edit_the_transactions_for_this_account"), 't',
                 IconManager.getIcon(IconManager.SCREEN_ACCOUNT_TRX),
                 UI.fp(this, "actionTrx"));
         addToolButton(btnTrx, true);
-
     }
 
     public void tableClicked() {
@@ -195,15 +201,16 @@ public class AccountView extends ASMView {
         // Ask if they are sure they want to delete the row(s)
         if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
                     UI.messageReallyDelete())) {
-
             for (int i = 0; i < selrows.length; i++) {
-
                 // Get the ID for the selected row
                 String id = tablemodel.getIDAt(selrows[i]);
-                
+
                 try {
-                	DBConnection.executeAction("DELETE FROM accountstrx WHERE SourceAccountID = " + id + " OR DestinationAccountID = " + id);
-                    DBConnection.executeAction("DELETE FROM accounts WHERE ID = " + id);
+                    DBConnection.executeAction(
+                        "DELETE FROM accountstrx WHERE SourceAccountID = " +
+                        id + " OR DestinationAccountID = " + id);
+                    DBConnection.executeAction(
+                        "DELETE FROM accounts WHERE ID = " + id);
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
@@ -239,7 +246,6 @@ public class AccountView extends ASMView {
     }
 
     public void actionReconcile() {
-        
         // Make sure at least one row is selected
         if (getTable().getSelectedRow() == -1) {
             return;
@@ -250,7 +256,6 @@ public class AccountView extends ASMView {
                                                                  .getModel();
 
         for (int i = 0; i < selrows.length; i++) {
-
             try {
                 // Get the ID for the selected row
                 String id = tablemodel.getIDAt(selrows[i]);
@@ -261,12 +266,12 @@ public class AccountView extends ASMView {
                 Global.logException(e, getClass());
             }
         }
+
         updateList();
     }
 
     public void actionTrx() {
-    	
-    	// Make sure a row is selected
+        // Make sure a row is selected
         int id = getTable().getSelectedID();
 
         if (id == -1) {
@@ -275,7 +280,7 @@ public class AccountView extends ASMView {
 
         // Get an account object for it
         Account a = new Account("ID = " + id);
-        
+
         // Create/open the transaction screen
         TrxView tv = new TrxView(a);
         Global.mainForm.addChild(tv);

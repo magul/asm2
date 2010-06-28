@@ -63,36 +63,40 @@ public class AccountRenderer extends DefaultTableCellRenderer
 
         // If we're rendering a monetary column, use a fixed-width font
         boolean wascurrency = false;
+
         for (int i = 0; i < currencycols.length; i++) {
-        	if (currencycols[i] == column) {
-        		setFont(new Font("monospaced", 0, table.getFont().getSize()));
-        		setHorizontalAlignment(UI.ALIGN_RIGHT);
-        		
-        		// If that currency is negative, show it in red
-        		if (tablemodel.getValueAt(row, posnegcolumn).toString().equals("-")) {
-        			setForeground(Color.RED);
-        		}
-        		wascurrency = true;
-        	}
+            if (currencycols[i] == column) {
+                setFont(new Font("monospaced", 0, table.getFont().getSize()));
+                setHorizontalAlignment(UI.ALIGN_RIGHT);
+
+                // If that currency is negative, show it in red
+                if (tablemodel.getValueAt(row, posnegcolumn).toString()
+                                  .equals("-")) {
+                    setForeground(Color.RED);
+                }
+
+                wascurrency = true;
+            }
         }
+
         if (!wascurrency) {
-        	setFont(table.getFont());
-        	setHorizontalAlignment(UI.ALIGN_LEFT);
-        	setForeground(Color.BLACK);
+            setFont(table.getFont());
+            setHorizontalAlignment(UI.ALIGN_LEFT);
+            setForeground(Color.BLACK);
         }
-        
+
         if (isSelected) {
             setForeground(table.getSelectionForeground());
             setBackground(table.getSelectionBackground());
         } else {
-    		// Choose background colours based on odd/even rows
-    		if (row % 2 == 0) {
-    			setBackground(even);
-    		}
-    		else {
-    			setBackground(odd);
-    		}
+            // Choose background colours based on odd/even rows
+            if ((row % 2) == 0) {
+                setBackground(even);
+            } else {
+                setBackground(odd);
+            }
         }
+
         return this;
     }
 }

@@ -171,7 +171,6 @@ public class LookupEdit extends ASMForm {
     }
 
     public boolean saveData() {
-    	
         if (txtName.getText().equals("")) {
             Dialog.showError(i18n("cannot_be_empty", nameDisplay),
                 i18n("Validation_Error"));
@@ -186,7 +185,7 @@ public class LookupEdit extends ASMForm {
 
             rs.save(false, "");
             parent.updateList();
-            
+
             catchSave();
             dispose();
 
@@ -202,37 +201,32 @@ public class LookupEdit extends ASMForm {
     /**
      * This routine gets called after our lookup record has
      * been saved to the database. Hooks to do things based
-     * on saving a record in a given lookup table can be added 
+     * on saving a record in a given lookup table can be added
      * here.
      */
     public void catchSave() {
-    	
-    	try {
-    	
-	    	// If we're saving a donation type, make sure there's a
-	    	// matching income account in the accounts package
-	    	if (tableName.equals("donationtype") && Configuration.getBoolean("CreateDonationTrx")) {
-	    		
-	    		// Do we already have a matching account?
-	    		Account a = new Account("DonationTypeID = " + rs.getInt("ID"));
-	    		if (a.size() == 0) {
-	    			// We don't, so let's create one
-	    			a.add();
-	    			a.setAccountType(Account.INCOME);
-	    			a.setCode(Global.i18n("uiaccount", "income_prefix") + 
-	                        Utils.replace(rs.getString("DonationName"), " ", ""));
-	    			a.setDescription(rs.getString("DonationDescription"));
-	    			a.setDonationTypeID(new Integer(rs.getInt("ID")));
-	    			a.save(Global.currentUserName);
-	    		}
-	    		
-	    	}
-    	
-    	}
-    	catch (Exception e) {
-    		Global.logException(e, getClass());
-    		Dialog.showError(e.getMessage());
-    	}
-    }
+        try {
+            // If we're saving a donation type, make sure there's a
+            // matching income account in the accounts package
+            if (tableName.equals("donationtype") &&
+                    Configuration.getBoolean("CreateDonationTrx")) {
+                // Do we already have a matching account?
+                Account a = new Account("DonationTypeID = " + rs.getInt("ID"));
 
+                if (a.size() == 0) {
+                    // We don't, so let's create one
+                    a.add();
+                    a.setAccountType(Account.INCOME);
+                    a.setCode(Global.i18n("uiaccount", "income_prefix") +
+                        Utils.replace(rs.getString("DonationName"), " ", ""));
+                    a.setDescription(rs.getString("DonationDescription"));
+                    a.setDonationTypeID(new Integer(rs.getInt("ID")));
+                    a.save(Global.currentUserName);
+                }
+            }
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+            Dialog.showError(e.getMessage());
+        }
+    }
 }

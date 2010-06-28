@@ -276,12 +276,10 @@ public class Options extends ASMForm {
         }
 
         // Accounts
-        Utils.setComboFromID(LookupCache.getAccountsLookup(), 
-        		"Code", 
-        		new Integer(Configuration.getInteger("DonationTargetAccount")), 
-        		cboDonationTargetAccount);
-        
-        
+        Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+            new Integer(Configuration.getInteger("DonationTargetAccount")),
+            cboDonationTargetAccount);
+
         // Age Groups
         txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
         txtAgeGroup1Name.setText(Configuration.getString("AgeGroup1Name", ""));
@@ -487,8 +485,8 @@ public class Options extends ASMForm {
                 Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboDefaultVaccinationType).toString());
 
-
             l = tblDefaultOptions.getSelections();
+
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
                     Configuration.setEntry(l[i].getValue().toString(),
@@ -498,17 +496,18 @@ public class Options extends ASMForm {
 
             // Accounts
             Configuration.setEntry("DonationTargetAccount",
-            	Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
-            		"Code", cboDonationTargetAccount).toString());
-            
+                Utils.getIDFromCombo(LookupCache.getAccountsLookup(), "Code",
+                    cboDonationTargetAccount).toString());
+
             l = tblAccountOptions.getSelections();
+
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
                     Configuration.setEntry(l[i].getValue().toString(),
                         (l[i].isSelected() ? "Yes" : "No"));
                 }
             }
-            
+
             // Age Groups
             Configuration.setEntry("AgeGroup1", txtAgeGroup1.getText());
             Configuration.setEntry("AgeGroup1Name", txtAgeGroup1Name.getText());
@@ -902,12 +901,13 @@ public class Options extends ASMForm {
         // Accounts
         UI.Panel pacc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel accounts = UI.getPanel(UI.getBorderLayout());
-        
+
         cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
-        	"Code");
-        	UI.addComponent(pacc, i18n("Donation_destination_account"), cboDonationTargetAccount);
-        	
-    	l = new ArrayList<SelectableItem>();
+                "Code");
+        UI.addComponent(pacc, i18n("Donation_destination_account"),
+            cboDonationTargetAccount);
+
+        l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
                 false, true));
 
@@ -915,18 +915,18 @@ public class Options extends ASMForm {
                     "disable_accounts_functionality"), "DisableAccounts",
                 Configuration.getString("DisableAccounts")
                              .equalsIgnoreCase("Yes"), false));
-        
-        l.add(new SelectableItem(Global.i18n("uisystem",
-			        "creating_matching_trx"), "CreateDonationTrx",
-			    Configuration.getString("CreateDonationTrx")
-			                 .equalsIgnoreCase("Yes"), false));
-        
-        tblAccountOptions = new SelectableList(l);	
-        
+
+        l.add(new SelectableItem(Global.i18n("uisystem", "creating_matching_trx"),
+                "CreateDonationTrx",
+                Configuration.getString("CreateDonationTrx")
+                             .equalsIgnoreCase("Yes"), false));
+
+        tblAccountOptions = new SelectableList(l);
+
         accounts.add(pacc, UI.BorderLayout.NORTH);
         UI.addComponent(accounts, tblAccountOptions);
         tabTabs.addTab(i18n("Accounts"), null, accounts, null);
-        
+
         // Automatic Insurance Numbers
         UI.Panel pins = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel insurancenumbers = UI.getPanel(UI.getBorderLayout());

@@ -91,7 +91,9 @@ public class FileTypeManager {
         // Initialise
         types = new Properties();
 
-	Global.logInfo("Scanning file types for " + System.getProperty("os.name"), "FileTypeManager.initManager");
+        Global.logInfo("Scanning file types for " +
+            System.getProperty("os.name"), "FileTypeManager.initManager");
+
         // Scan for the right platform
         if (UI.osIsWindows()) {
             scanWin32();
@@ -329,7 +331,8 @@ public class FileTypeManager {
         // Warn if no office suite found
         // ========================================
         if ((msoPath == null) && (ooPath == null)) {
-            Global.logWarning("ASM could not find an office suite.", "FileTypeManager.scanWin32");
+            Global.logWarning("ASM could not find an office suite.",
+                "FileTypeManager.scanWin32");
         }
 
         // PDF Viewer
@@ -339,7 +342,7 @@ public class FileTypeManager {
         }
 
         if (acrobatPath == null) {
-            Global.logWarning("ASM could not find a PDF viewer", 
+            Global.logWarning("ASM could not find a PDF viewer",
                 "FileTypeManager.scanWin32");
         }
     }
@@ -464,7 +467,7 @@ public class FileTypeManager {
             ((browser != null) ? browser : blank));
 
         if (browser == null) {
-            Global.logWarning("ASM could not find an HTML viewer", 
+            Global.logWarning("ASM could not find an HTML viewer",
                 "FileTypeManager.scanUNIX");
         }
 
@@ -476,7 +479,7 @@ public class FileTypeManager {
         add(new String[] { "pdf", "ps" }, ((pdf != null) ? pdf : blank));
 
         if (pdf == null) {
-            Global.logWarning("ASM could not find a PDF viewer", 
+            Global.logWarning("ASM could not find a PDF viewer",
                 "FileTypeManager.scanUNIX");
         }
     }

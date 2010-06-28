@@ -150,6 +150,7 @@ public abstract class ASMView extends ASMForm {
 
     public void tableDoubleClick() {
         updateToolButtons(table.getSelectedRow() != -1);
+
         if (!disableDoubleClick) {
             tableDoubleClicked();
         }

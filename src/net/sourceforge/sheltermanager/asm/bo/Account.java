@@ -21,15 +21,15 @@ Contact me by electronic mail: bobintetley@users.sourceforge.net
 */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
-public class Account extends UserInfoBO<Account> {
+import java.util.Date;
 
+
+public class Account extends UserInfoBO<Account> {
     public static final int BANK = 1;
     public static final int CREDITCARD = 2;
     public static final int LOAN = 3;
@@ -40,9 +40,9 @@ public class Account extends UserInfoBO<Account> {
     public static final int ASSET = 8;
     public static final int LIABILITY = 9;
 
-   public Account() {
-       tableName = "accounts";
-   }
+    public Account() {
+        tableName = "accounts";
+    }
 
     public Account(String where) {
         this();
@@ -55,9 +55,9 @@ public class Account extends UserInfoBO<Account> {
         setDescription("");
         setAccountType(new Integer(1));
         setDonationTypeID(new Integer(1));
-   }
+    }
 
-   public Account copy() throws CursorEngineException {
+    public Account copy() throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("ID = 0");
         a.addNew();
@@ -65,52 +65,54 @@ public class Account extends UserInfoBO<Account> {
         a.setDescription(getDescription());
         a.setAccountType(getAccountType());
         a.setDonationTypeID(getDonationTypeID());
+
         return a;
-   }
+    }
 
-   public Integer getID() throws CursorEngineException {
-       return (Integer) rs.getField("ID");
-   }
+    public Integer getID() throws CursorEngineException {
+        return (Integer) rs.getField("ID");
+    }
 
-   public void setID(Integer newValue) throws CursorEngineException {
-       rs.setField("ID", newValue);
-   }
+    public void setID(Integer newValue) throws CursorEngineException {
+        rs.setField("ID", newValue);
+    }
 
-   public String getCode() throws CursorEngineException {
+    public String getCode() throws CursorEngineException {
         return (String) rs.getField("Code");
-   }    
+    }
 
-   public void setCode(String newValue) throws CursorEngineException {
+    public void setCode(String newValue) throws CursorEngineException {
         rs.setField("Code", newValue);
-   }
+    }
 
     public String getDescription() throws CursorEngineException {
         return (String) rs.getField("Description");
-   }    
+    }
 
-   public void setDescription(String newValue) throws CursorEngineException {
+    public void setDescription(String newValue) throws CursorEngineException {
         rs.setField("Description", newValue);
-   }
+    }
 
-   public Integer getAccountType() throws CursorEngineException {
-       return (Integer) rs.getField("AccountType");
-   }
-   
-   public String getAccountTypeName() throws CursorEngineException {
-	   return LookupCache.getAccountTypeNameForID(getAccountType());
-   }
+    public Integer getAccountType() throws CursorEngineException {
+        return (Integer) rs.getField("AccountType");
+    }
 
-   public void setAccountType(Integer newValue) throws CursorEngineException {
-       rs.setField("AccountType", newValue);
-   }
+    public String getAccountTypeName() throws CursorEngineException {
+        return LookupCache.getAccountTypeNameForID(getAccountType());
+    }
 
-   public Integer getDonationTypeID() throws CursorEngineException {
-       return (Integer) rs.getField("DonationTypeID");
-   }
+    public void setAccountType(Integer newValue) throws CursorEngineException {
+        rs.setField("AccountType", newValue);
+    }
 
-   public void setDonationTypeID(Integer newValue) throws CursorEngineException {
-       rs.setField("DonationTypeID", newValue);
-   }
+    public Integer getDonationTypeID() throws CursorEngineException {
+        return (Integer) rs.getField("DonationTypeID");
+    }
+
+    public void setDonationTypeID(Integer newValue)
+        throws CursorEngineException {
+        rs.setField("DonationTypeID", newValue);
+    }
 
     public String getCreatedBy() throws CursorEngineException {
         return (String) rs.getField("CreatedBy");
@@ -144,90 +146,106 @@ public class Account extends UserInfoBO<Account> {
         rs.setField("LastChangedDate", newValue);
     }
 
-   /** Returns a list of all accounts, ordered by type and code */
-   public static Account getAllAccounts() throws CursorEngineException {
+    /** Returns a list of all accounts, ordered by type and code */
+    public static Account getAllAccounts() throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("ID > 0 ORDER BY AccountType, Code");
-        return a;
-   }
 
-   /** Returns an account with a specific ID */
-   public static Account getAccountByID(Integer id) throws CursorEngineException {
+        return a;
+    }
+
+    /** Returns an account with a specific ID */
+    public static Account getAccountByID(Integer id)
+        throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("ID = " + id);
-        return a;
-   }
 
-   /** Returns an account with a specific code */
-   public static Account getAccountByCode(String code) throws CursorEngineException {
+        return a;
+    }
+
+    /** Returns an account with a specific code */
+    public static Account getAccountByCode(String code)
+        throws CursorEngineException {
         Account a = new Account();
         a.openRecordset("Code = '" + code + "'");
+
         return a;
-   }
+    }
 
-   /** Marks everything in this account reconciled upto today's date */
-   public void markReconciledToDate() throws Exception {
-       DBConnection.executeAction("UPDATE accountstrx SET Reconciled=1 WHERE " +
-           "(SourceAccountID = " + getID() + " OR DestinationAccountID = " + getID() + ") AND " +
-           "TrxDate <= '" + Utils.getSQLDate(new Date()) + "'");
-   }
+    /** Marks everything in this account reconciled upto today's date */
+    public void markReconciledToDate() throws Exception {
+        DBConnection.executeAction("UPDATE accountstrx SET Reconciled=1 WHERE " +
+            "(SourceAccountID = " + getID() + " OR DestinationAccountID = " +
+            getID() + ") AND " + "TrxDate <= '" + Utils.getSQLDate(new Date()) +
+            "'");
+    }
 
-   /** Calculates the balance for this account */
-   public double getAccountBalance() throws Exception {
+    /** Calculates the balance for this account */
+    public double getAccountBalance() throws Exception {
         // Withdrawals
-        double withdrawal = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " + getID());
+        double withdrawal = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " +
+                getID());
+
         // Deposits
-        double deposit = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " + getID());
+        double deposit = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
+                getID());
         double rounded = Utils.round(deposit - withdrawal, 2);
-        
+
         // Income and expense accounts should be positive
-        if (getAccountType().intValue() == INCOME || getAccountType().intValue() == EXPENSE) {
+        if ((getAccountType().intValue() == INCOME) ||
+                (getAccountType().intValue() == EXPENSE)) {
             rounded = Math.abs(rounded);
         }
 
         return rounded;
-   }
+    }
 
-   /** Calculates the reconciled amount for this account */
-   public double getReconciled() throws Exception {
+    /** Calculates the reconciled amount for this account */
+    public double getReconciled() throws Exception {
         // Withdrawals
-        double withdrawal = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = " + getID());
+        double withdrawal = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = " +
+                getID());
+
         // Deposits
-        double deposit = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = " + getID());
+        double deposit = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = " +
+                getID());
         double rounded = Utils.round(deposit - withdrawal, 2);
-        
+
         // Income and expense accounts should be positive
-        if (getAccountType().intValue() == INCOME || getAccountType().intValue() == EXPENSE) {
+        if ((getAccountType().intValue() == INCOME) ||
+                (getAccountType().intValue() == EXPENSE)) {
             rounded = Math.abs(rounded);
         }
 
         return rounded;
-   }
+    }
 
-
-   /** Calculates the balance for this account to a certain date */
-   public static double getAccountBalanceToDate(Integer accountId, Date limit) throws Exception {
+    /** Calculates the balance for this account to a certain date */
+    public static double getAccountBalanceToDate(Integer accountId, Date limit)
+        throws Exception {
         // Withdrawals
-        double withdrawal = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " + accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+        double withdrawal = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " +
+                accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+
         // Deposits
-        double deposit = 
-            DBConnection.executeForDouble("SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " + accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+        double deposit = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
+                accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
         double rounded = Utils.round(deposit - withdrawal, 2);
-        
-        int accountType = DBConnection.executeForInt("SELECT AccountType FROM accounts WHERE ID = " + accountId);
+
+        int accountType = DBConnection.executeForInt(
+                "SELECT AccountType FROM accounts WHERE ID = " + accountId);
 
         // Income and expense accounts should always be positive
-        if (accountType == INCOME || accountType == EXPENSE) {
+        if ((accountType == INCOME) || (accountType == EXPENSE)) {
             rounded = Math.abs(rounded);
         }
 
         return rounded;
-   }
-
-
+    }
 }

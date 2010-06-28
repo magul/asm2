@@ -29,17 +29,17 @@ import java.util.Vector;
 
 
 public class Additional {
-    public static Vector<Additional.Field> getFieldValues(int linkType, int linkID)
-        throws Exception {
+    public static Vector<Additional.Field> getFieldValues(int linkType,
+        int linkID) throws Exception {
         try {
             SQLRecordset recs = new SQLRecordset(
-            	"SELECT AdditionalFieldID, FieldName, FieldLabel, " +
-                "Tooltip, FieldType, Value " + "FROM additional " +
-                "INNER JOIN additionalfield" +
-                " ON additionalfield.ID = additional.AdditionalFieldID" +
-                " WHERE additional.LinkID = " + linkID +
-                " AND additional.LinkType = " + linkType +
-                " ORDER BY DisplayIndex", "additional");
+                    "SELECT AdditionalFieldID, FieldName, FieldLabel, " +
+                    "Tooltip, FieldType, Value " + "FROM additional " +
+                    "INNER JOIN additionalfield" +
+                    " ON additionalfield.ID = additional.AdditionalFieldID" +
+                    " WHERE additional.LinkID = " + linkID +
+                    " AND additional.LinkType = " + linkType +
+                    " ORDER BY DisplayIndex", "additional");
 
             Vector<Additional.Field> v = new Vector<Additional.Field>();
 
@@ -61,8 +61,8 @@ public class Additional {
         }
     }
 
-    public static void setFieldValues(int linkType, int linkID, Vector<Additional.Field> v)
-        throws Exception {
+    public static void setFieldValues(int linkType, int linkID,
+        Vector<Additional.Field> v) throws Exception {
         try {
             // Set the values
             for (int i = 0; i < v.size(); i++) {

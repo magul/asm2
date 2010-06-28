@@ -36,17 +36,16 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
 import java.util.Vector;
 
+
 /**
  * This class contains all code for editing accounts
  * @author Robin Rawson-Tetley
  */
 public class TrxEdit extends ASMForm {
-    
-	private AccountTrx.Trx trx = null;
+    private AccountTrx.Trx trx = null;
     private TrxView parent = null;
     private UI.Button btnOk;
     private UI.Button btnCancel;
-    
     private DateField txtTrxDate;
     private UI.TextField txtDescription;
     private UI.ComboBox cboAccount;
@@ -86,6 +85,7 @@ public class TrxEdit extends ASMForm {
         ctl.add(txtWithdrawal);
         ctl.add(btnOk);
         ctl.add(btnCancel);
+
         return ctl;
     }
 
@@ -100,8 +100,8 @@ public class TrxEdit extends ASMForm {
 
     /** Sets the screen into creation mode of a new account */
     public void openForNew(Integer accountId) {
-       	trx = new AccountTrx.Trx();
-       	trx.accountId = accountId.intValue();
+        trx = new AccountTrx.Trx();
+        trx.accountId = accountId.intValue();
         setTitle(i18n("Create_Transaction"));
         txtTrxDate.setToToday();
     }
@@ -123,20 +123,17 @@ public class TrxEdit extends ASMForm {
     public void loadData() {
         try {
             // Auditing information
-            audit = UI.messageAudit(
-            		trx.createdDate,
-            		trx.createdBy,
-            		trx.lastChangedDate,
-            		trx.lastChangedBy);
+            audit = UI.messageAudit(trx.createdDate, trx.createdBy,
+                    trx.lastChangedDate, trx.lastChangedBy);
 
             txtTrxDate.setDate(trx.date);
             txtDescription.setText(trx.description);
             txtWithdrawal.setValue(trx.withdrawal);
             txtDeposit.setValue(trx.deposit);
-            Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code", trx.otherAccountId, cboAccount);
+            Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                trx.otherAccountId, cboAccount);
 
             setTitle(i18n("Edit_Transaction"));
-
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -149,14 +146,14 @@ public class TrxEdit extends ASMForm {
      */
     public boolean saveData() {
         try {
-        	
-        	trx.otherAccountId = Utils.getIDFromCombo(LookupCache.getAccountsLookup(), "Code", cboAccount).intValue();
-        	trx.description = txtDescription.getText();
-        	trx.withdrawal = txtWithdrawal.getValue();
-        	trx.deposit = txtDeposit.getValue();
-        	trx.date = txtTrxDate.getDate();
-        	
-        	AccountTrx.saveTransaction(trx);
+            trx.otherAccountId = Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboAccount).intValue();
+            trx.description = txtDescription.getText();
+            trx.withdrawal = txtWithdrawal.getValue();
+            trx.deposit = txtDeposit.getValue();
+            trx.date = txtTrxDate.getDate();
+
+            AccountTrx.saveTransaction(trx);
 
             if (parent != null) {
                 parent.updateList();
@@ -165,11 +162,11 @@ public class TrxEdit extends ASMForm {
             dispose();
 
             return true;
-            
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
+
         return false;
     }
 
@@ -186,25 +183,26 @@ public class TrxEdit extends ASMForm {
 
         txtTrxDate = UI.getDateField();
         UI.addComponent(pnlTop, i18n("Date"), txtTrxDate);
-        
+
         txtDescription = UI.getTextField();
         UI.addComponent(pnlTop, i18n("Description"), txtDescription);
-        
+
         cboAccount = UI.getCombo(LookupCache.getAccountsLookup(), "Code");
         UI.addComponent(pnlTop, i18n("Account"), cboAccount);
-        
+
         txtDeposit = UI.getCurrencyField();
         UI.addComponent(pnlTop, i18n("Deposit"), txtDeposit);
-        
+
         txtWithdrawal = UI.getCurrencyField();
         UI.addComponent(pnlTop, i18n("Withdrawal"), txtWithdrawal);
 
-        btnOk = UI.getButton(UI.messageOK(), i18n("Save_this_transaction_and_exit"),
-                'o', null, UI.fp(this, "saveData"));
+        btnOk = UI.getButton(UI.messageOK(),
+                i18n("Save_this_transaction_and_exit"), 'o', null,
+                UI.fp(this, "saveData"));
         pnlBot.add(btnOk);
 
-        btnCancel = UI.getButton(UI.messageCancel(), i18n("Close_without_saving"),
-                'c', null, UI.fp(this, "dispose"));
+        btnCancel = UI.getButton(UI.messageCancel(),
+                i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
     }
 }

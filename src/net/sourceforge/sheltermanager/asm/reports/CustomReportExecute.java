@@ -828,6 +828,28 @@ public class CustomReportExecute extends Report {
                             String body = key.substring(6, key.length());
                             String animalid = key.substring(key.indexOf(".") +
                                     1);
+
+                            // If animalid isn't numeric, assume it's a fieldname
+                            // instead and look it up
+                            try {
+                                Integer.parseInt(animalid);
+                            } catch (NumberFormatException e) {
+                                Global.logDebug("IMAGE parameter isn't numeric, assuming fieldname and looking up.",
+                                    "CustomReportExecute.run");
+
+                                try {
+                                    animalid = rs.getField(animalid).toString();
+                                    Global.logDebug(
+                                        "Looked up field, got ID = " +
+                                        animalid, "CustomReportExecute.run");
+                                } catch (Exception ex) {
+                                    // Yep, that didn't work, log and give up
+                                    Global.logException(ex, getClass());
+
+                                    break;
+                                }
+                            }
+
                             Global.logDebug("IMAGE tag, got animal id: " +
                                 animalid, "CustomReportExecute.run");
 
@@ -1263,6 +1285,60 @@ public class CustomReportExecute extends Report {
                     }
                 }
 
+                // {IMAGE.[animalid]} - retreives an animal's image from
+                // the database, saves it in the temp folder and then
+                // inserts the filename
+                if (Utils.englishLower(key).startsWith("image")) {
+                    try {
+                        String body = key.substring(6, key.length());
+                        String animalid = key.substring(key.indexOf(".") + 1);
+
+                        // If animalid isn't numeric, assume it's a fieldname
+                        // instead and look it up
+                        try {
+                            Integer.parseInt(animalid);
+                        } catch (NumberFormatException e) {
+                            Global.logDebug("IMAGE parameter isn't numeric, assuming fieldname and looking up.",
+                                "CustomReportExecute.outputGroupBlock");
+
+                            try {
+                                animalid = rs.getField(animalid).toString();
+                                Global.logDebug("Looked up field, got ID = " +
+                                    animalid,
+                                    "CustomReportExecute.outputGroupBlock");
+                            } catch (Exception ex) {
+                                // Yep, that didn't work, log and give up
+                                Global.logException(ex, getClass());
+
+                                break;
+                            }
+                        }
+
+                        Global.logDebug("IMAGE tag, got animal id: " +
+                            animalid, "CustomReportExecute.outputGroupBlock");
+
+                        Animal a = new Animal();
+                        a.openRecordset("ID = " + animalid);
+
+                        String mediaName = a.getWebMedia();
+
+                        // If we got a blank, return a link to nopic.jpg instead
+                        if (mediaName.equals("")) {
+                            mediaName = "nopic.jpg";
+                        }
+
+                        DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
+                                Integer.parseInt(animalid));
+                        dbfs.readFile(mediaName,
+                            net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
+                            File.separator + mediaName);
+                        value = mediaName;
+                    } catch (Exception e) {
+                        value = "[" + e.getMessage() + "]";
+                        Global.logException(e, getClass());
+                    }
+                }
+
                 // {SUBREPORT.[title].[parentField]} - embed
                 // a subreport.
                 if (Utils.englishLower(key).startsWith("subreport")) {
@@ -1325,8 +1401,10 @@ public class CustomReportExecute extends Report {
                 }
 
                 // Substitute. If we are in a header, then output
-                // a value to show aggregation can't be done here.
-                if (headfoot == 0) {
+                // a value to show aggregation can't be done here -
+                // unless it's a certain type of key
+                if ((headfoot == 0) &&
+                        !Utils.englishLower(key).startsWith("image")) {
                     out = out.substring(0, startKey) +
                         "[N/A in group headers]" +
                         out.substring(endKey + 1, out.length());

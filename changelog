@@ -1,6 +1,8 @@
 2.7.2
 ================
 
+*. {IMAGE.$animalid} is now valid in custom report group headers -
+-  fixes bug with vaccination history custom reports
 *. Fixed slim margins between table columns for Linux/GTK2
 *. Debian repository automatically adds itself to /etc/apt/sources.list.d
 *. SQLRecordset.getString will work for any type now

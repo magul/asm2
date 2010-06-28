@@ -221,7 +221,9 @@ public class WaitingListView extends ASMView {
                 datar[i][8] = (String) rs.getField("AnimalDescription");
                 datar[i][9] = rs.getField("ID").toString();
                 datar[i][10] = rs.getString("Urgency");
-                datar[i][11] = Configuration.getString("WaitingListHighlights").indexOf(rs.getString("ID") + " ") != -1 ? "1" : "0";
+                datar[i][11] = (Configuration.getString("WaitingListHighlights")
+                                             .indexOf(rs.getString("ID") + " ") != -1)
+                    ? "1" : "0";
 
                 i++;
                 rs.moveNext();
@@ -379,11 +381,13 @@ public class WaitingListView extends ASMView {
                 IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST_COMPLETE),
                 UI.fp(this, "actionComplete"));
         addToolButton(btnComplete, true);
-        
+
         btnHighlight = UI.getButton(null,
-        		i18n("toggle_highlighting_of_the_selected_waiting_list_entries"), 'h',
-        		IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST_HIGHLIGHT),
-        		UI.fp(this, "actionHighlight"));
+                i18n("toggle_highlighting_of_the_selected_waiting_list_entries"),
+                'h',
+                IconManager.getIcon(
+                    IconManager.SCREEN_VIEWWAITINGLIST_HIGHLIGHT),
+                UI.fp(this, "actionHighlight"));
         addToolButton(btnHighlight, true);
 
         p.setLayout(UI.getGridLayout(4));
@@ -444,48 +448,49 @@ public class WaitingListView extends ASMView {
 
         updateList();
     }
-    
+
     public void actionHighlight() {
         // Get each selected waiting list and either add it to
-    	// our list of highlighted entries, or remove it if its
-    	// already on
+        // our list of highlighted entries, or remove it if its
+        // already on
         if (getTable().getSelectedRow() == -1) {
             return;
         }
 
         // Grab our list of IDs
         String[] hd = Configuration.getString("WaitingListHighlights").split(" ");
-        
+
         // Put them in a set
         HashSet<String> hl = new HashSet<String>(hd.length);
+
         for (int i = 0; i < hd.length; i++) {
-        	hl.add(hd[i]);
+            hl.add(hd[i]);
         }
-        
+
         int[] selrows = getTable().getSelectedRows();
         SortableTableModel tablemodel = (SortableTableModel) getTable()
                                                                  .getModel();
 
         for (int i = 0; i < selrows.length; i++) {
-        	
             // Get the ID for the selected row
             String wlID = tablemodel.getIDAt(selrows[i]);
-            
+
             // If it's already in the set, remove it
             if (hl.contains(wlID)) {
-            	hl.remove(wlID);
-            }
-            else {
-            	// Otherwise, add it
-            	hl.add(wlID);
+                hl.remove(wlID);
+            } else {
+                // Otherwise, add it
+                hl.add(wlID);
             }
         }
-        
+
         // Join the set back together and update the config
         StringBuffer highlights = new StringBuffer(hd.length * 3);
+
         for (String s : hl) {
-        	highlights.append(s).append(" ");
+            highlights.append(s).append(" ");
         }
+
         Configuration.setEntry("WaitingListHighlights", highlights.toString());
 
         updateList();

@@ -544,9 +544,9 @@ public final class UI {
 
         return l;
     }
-    
+
     public static Panel getTitleLabelPanel(String text) {
-    	Label l = getLabel(text);
+        Label l = getLabel(text);
 
         if (!isLTR()) {
             l.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
@@ -557,6 +557,7 @@ public final class UI {
 
         Panel p = getPanel(getBorderLayout());
         p.add(l);
+
         return p;
     }
 

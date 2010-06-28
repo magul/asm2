@@ -45,6 +45,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Locale;
 
+
 /**
  * This class contains all the actual cursor routines and is used to manipulate
  * the data and write SQL to update it.
@@ -55,8 +56,8 @@ import java.util.Locale;
  * @author Robin Rawson-Tetley
  * @version 3.2
  */
-public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecordset> {
-
+public class SQLRecordset implements Iterator<SQLRecordset>,
+    Iterable<SQLRecordset> {
     private boolean mEOF = false;
     private boolean mBOF = false;
     private int mCurrentRecord = 0;
@@ -68,7 +69,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     private int mNoRows = 0;
     private String mTableName = "";
 
-    public SQLRecordset() {}
+    /** Iterator looking at the first item? */
+    private boolean firstItem = true;
+
+    public SQLRecordset() {
+    }
 
     /** Create a recordset and open it from the sql given */
     public SQLRecordset(String sql) throws Exception {
@@ -95,8 +100,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
      * @param BaseTableName
      *            The name of the table this recordset updates.
      */
-    public void openRecordset(Connection c, String sql,
-        String table) throws Exception {
+    public void openRecordset(Connection c, String sql, String table)
+        throws Exception {
         int i;
 
         // Remember the table
@@ -362,55 +367,58 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     public SQLRecordset get(int index) {
         try {
             setAbsolutePosition(index - 1);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         return this;
     }
 
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-        	if (size() == 0) return false;
-        	return getAbsolutePosition() != size();
-        }
-        catch (Exception e) {
+            if (size() == 0) {
+                return false;
+            }
+
+            return getAbsolutePosition() != size();
+        } catch (Exception e) {
             e.printStackTrace();
+
             return false;
         }
     }
-
-    /** Iterator looking at the first item? */
-    private boolean firstItem = true;
 
     /** Iterator::next */
     public SQLRecordset next() {
         try {
             if (firstItem) {
                 firstItem = false;
-                return this;    
+
+                return this;
             }
+
             moveNext();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return this; 
+
+        return this;
     }
 
     /** Iterable::iterator */
     public Iterator<SQLRecordset> iterator() {
-    	try {
-    		// Reset when we ask for an iterator
-    		if (size() > 0) {
-	    		moveFirst();
-    		}
-    		firstItem = true;
-    	}
-    	catch (Exception e) {
-    		e.printStackTrace();
-    	}
+        try {
+            // Reset when we ask for an iterator
+            if (size() > 0) {
+                moveFirst();
+            }
+
+            firstItem = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return this;
     }
 
@@ -418,8 +426,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     public void remove() {
         try {
             delete();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -574,7 +581,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>, Iterable<SQLRecords
     }
 
     /**
-     * Retrieves the contents of a field by its name. 
+     * Retrieves the contents of a field by its name.
      *
      * @param fieldName
      *            The name of the field to retrieve the value of

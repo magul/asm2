@@ -58,6 +58,7 @@ public class PetFinderMapBreed extends ASMView {
         Vector ctl = new Vector();
         ctl.add(btnView);
         ctl.add(getTable());
+
         return ctl;
     }
 
