@@ -1,6 +1,10 @@
 2.7.2
 ================
 
+*. Fixed button layout on edit transaction screen
+*. Trx description is now a dropdown, selecting an existing transaction
+-  copies the target account and amounts, handy for regular outgoings
+*. Reconciled transactions now appear in blue
 *. {IMAGE.$animalid} is now valid in custom report group headers -
 -  fixes bug with vaccination history custom reports
 *. Fixed slim margins between table columns for Linux/GTK2

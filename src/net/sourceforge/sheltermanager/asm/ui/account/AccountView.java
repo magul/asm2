@@ -51,7 +51,7 @@ public class AccountView extends ASMView {
     public AccountView() {
         init(Global.i18n("uiaccount", "Accounts"),
             IconManager.getIcon(IconManager.SCREEN_ACCOUNT), "uiaccount",
-            false, true, new AccountRenderer(new int[] { 3, 4 }, 6));
+            false, true, new AccountRenderer(new int[] { 3, 4 }, 6, 0));
         updateList();
     }
 

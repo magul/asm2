@@ -51,13 +51,16 @@ public class TrxView extends ASMView {
     private Account account = null;
     private boolean hasRecords = false;
 
+    // Visible list of transactions
+    private ArrayList<AccountTrx.Trx> trx = null;
+
     public TrxView(Account account) {
         try {
             this.account = account;
             init(Global.i18n("uiaccount", "transactions_for", account.getCode()),
                 IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX),
                 "uiaccount", true, true,
-                new AccountRenderer(new int[] { 4, 5, 6 }, 8));
+                new AccountRenderer(new int[] { 4, 5, 6 }, 8, 1));
 
             cboNumTrx = UI.getCombo(new String[] {
                         "100", "200", "500", i18n("All")
@@ -113,8 +116,7 @@ public class TrxView extends ASMView {
             }
 
             // Grab the list
-            ArrayList<AccountTrx.Trx> trx = AccountTrx.getTransactions(account.getID(),
-                    num);
+            trx = AccountTrx.getTransactions(account.getID(), num);
             String[][] datar = new String[trx.size()][9];
 
             // Create an array of headers for the table
@@ -138,6 +140,7 @@ public class TrxView extends ASMView {
                 datar[i][6] = Utils.formatCurrency(t.balance);
                 datar[i][7] = new Integer(t.id).toString();
                 datar[i][8] = (t.balance < 0) ? "-" : "+";
+
                 i++;
                 hasRecords = true;
             }
@@ -157,6 +160,10 @@ public class TrxView extends ASMView {
     }
 
     public void loadData() {
+    }
+
+    public ArrayList<AccountTrx.Trx> getData() {
+        return trx;
     }
 
     public boolean saveData() {
@@ -247,8 +254,8 @@ public class TrxView extends ASMView {
 
         try {
             AccountTrx.Trx t = AccountTrx.getTransactionByID(id, account.getID());
-            TrxEdit ed = new TrxEdit();
-            ed.openForEdit(t, this);
+            TrxEdit ed = new TrxEdit(account.getCode(), this);
+            ed.openForEdit(t);
             Global.mainForm.addChild(ed);
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -258,8 +265,8 @@ public class TrxView extends ASMView {
 
     public void actionNew() {
         try {
-            TrxEdit ed = new TrxEdit();
-            ed.openForNew(this, account.getID());
+            TrxEdit ed = new TrxEdit(account.getCode(), this);
+            ed.openForNew(account.getID());
             Global.mainForm.addChild(ed);
         } catch (Exception e) {
             Global.logException(e, getClass());

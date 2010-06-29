@@ -21,7 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import net.sourceforge.sheltermanager.asm.bo.Account;
+import java.util.Collections;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -32,9 +34,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-
-import java.util.Vector;
 
 
 /**
@@ -47,14 +46,19 @@ public class TrxEdit extends ASMForm {
     private UI.Button btnOk;
     private UI.Button btnCancel;
     private DateField txtTrxDate;
-    private UI.TextField txtDescription;
+    private UI.ComboBox cboDescription;
+    private UI.Label lblSource;
     private UI.ComboBox cboAccount;
     private CurrencyField txtDeposit;
     private CurrencyField txtWithdrawal;
     private String audit = null;
+    private Vector<String> desclist = null;
 
-    public TrxEdit() {
+    public TrxEdit(String accountCode, TrxView parent) {
+    	this.parent = parent;
+    	fillDescList();
         init("", IconManager.getIcon(IconManager.SCREEN_EDITTRX), "uiaccount");
+        lblSource.setText(accountCode);
     }
 
     public void dispose() {
@@ -73,13 +77,23 @@ public class TrxEdit extends ASMForm {
         return false;
     }
 
+    public void fillDescList() {
+    	if (parent == null) return;
+    	desclist = new Vector<String>(parent.getData().size());
+    	desclist.add("");
+    	for (AccountTrx.Trx t : parent.getData()) {
+    		if (!t.description.trim().equals(""))
+    			desclist.add(t.description);
+    	}
+    	Collections.sort(desclist);
+    }
     /**
      * Sets the tab ordering for the screen using the FlexibleFocusManager class
      */
     public Vector<Object> getTabOrder() {
         Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtTrxDate);
-        ctl.add(txtDescription);
+        ctl.add(cboDescription);
         ctl.add(cboAccount);
         ctl.add(txtDeposit);
         ctl.add(txtWithdrawal);
@@ -91,11 +105,6 @@ public class TrxEdit extends ASMForm {
 
     public Object getDefaultFocusedComponent() {
         return txtTrxDate.getTextField();
-    }
-
-    public void openForNew(TrxView parent, Integer accountId) {
-        this.parent = parent;
-        openForNew(accountId);
     }
 
     /** Sets the screen into creation mode of a new account */
@@ -111,9 +120,8 @@ public class TrxEdit extends ASMForm {
      *
      * @param trx The Trx object to edit.
      */
-    public void openForEdit(AccountTrx.Trx trx, TrxView parent) {
+    public void openForEdit(AccountTrx.Trx trx) {
         this.trx = trx;
-        this.parent = parent;
         loadData();
     }
 
@@ -127,7 +135,7 @@ public class TrxEdit extends ASMForm {
                     trx.lastChangedDate, trx.lastChangedBy);
 
             txtTrxDate.setDate(trx.date);
-            txtDescription.setText(trx.description);
+            cboDescription.setSelectedItem(trx.description);
             txtWithdrawal.setValue(trx.withdrawal);
             txtDeposit.setValue(trx.deposit);
             Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
@@ -148,7 +156,7 @@ public class TrxEdit extends ASMForm {
         try {
             trx.otherAccountId = Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
                     "Code", cboAccount).intValue();
-            trx.description = txtDescription.getText();
+            trx.description = (cboDescription.getSelectedItem() != null ? cboDescription.getSelectedItem().toString() : "");
             trx.withdrawal = txtWithdrawal.getValue();
             trx.deposit = txtDeposit.getValue();
             trx.date = txtTrxDate.getDate();
@@ -171,21 +179,26 @@ public class TrxEdit extends ASMForm {
     }
 
     public void initComponents() {
+        
         setLayout(UI.getBorderLayout());
 
+        UI.Panel pnlOuter = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        UI.Panel pnlMid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pnlBot = UI.getPanel(UI.getFlowLayout());
 
-        add(pnlTop, UI.BorderLayout.NORTH);
-        add(pnlMid, UI.BorderLayout.CENTER);
-        add(pnlBot, UI.BorderLayout.SOUTH);
+        pnlOuter.add(pnlTop, UI.BorderLayout.NORTH);
+        pnlOuter.add(pnlBot, UI.BorderLayout.CENTER);
+        add(pnlOuter, UI.BorderLayout.NORTH);
 
         txtTrxDate = UI.getDateField();
         UI.addComponent(pnlTop, i18n("Date"), txtTrxDate);
 
-        txtDescription = UI.getTextField();
-        UI.addComponent(pnlTop, i18n("Description"), txtDescription);
+        cboDescription = UI.getCombo(desclist, UI.fp(this, "descriptionChanged"));
+        cboDescription.setEditable(true);
+        UI.addComponent(pnlTop, i18n("Description"), cboDescription);
+
+        lblSource = UI.getLabel(UI.ALIGN_LEFT, "");
+        UI.addComponent(pnlTop, "", lblSource);
 
         cboAccount = UI.getCombo(LookupCache.getAccountsLookup(), "Code");
         UI.addComponent(pnlTop, i18n("Account"), cboAccount);
@@ -204,5 +217,23 @@ public class TrxEdit extends ASMForm {
         btnCancel = UI.getButton(UI.messageCancel(),
                 i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
+    }
+    
+    public void descriptionChanged() {
+    	
+    	String s = cboDescription.getSelectedItem() != null ? 
+    		cboDescription.getSelectedItem().toString() : "";
+    	
+    	if (s.trim().equals("")) return;
+    		
+    	for (AccountTrx.Trx t : parent.getData()) {
+    		if ( t.description.equals(s) ) {
+    			Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code", 
+    				new Integer(t.otherAccountId), cboAccount);
+    			txtDeposit.setValue(t.deposit);
+    			txtWithdrawal.setValue(t.withdrawal);
+    		}
+    	}
+    	
     }
 }
