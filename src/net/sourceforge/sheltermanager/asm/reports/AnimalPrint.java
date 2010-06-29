@@ -88,7 +88,7 @@ public class AnimalPrint extends Report {
                 net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
                 File.separator + mediaName);
 
-            addImage(mediaName);
+            addImage(mediaName, "right", 320, 200);
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

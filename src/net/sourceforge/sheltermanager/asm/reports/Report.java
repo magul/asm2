@@ -180,6 +180,11 @@ public abstract class Report extends Thread {
         report.append("<img src=\"" + src + "\" align=\"" + align + "\" />");
     }
 
+    protected void addImage(String src, String align, int width, int height) {
+        report.append("<img src=\"" + src + "\" align=\"" + align + "\" width=\"" + width + "\" height=\"" + height + "\" />");
+    }
+
+
     /** Adds the most recent table to the report. */
     protected void addTable() {
         report.append(tablespec.toString());
