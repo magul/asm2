@@ -1,6 +1,8 @@
 2.7.2
 ================
 
+*. Force report viewer to use OS browse action instead of edit (stops reports
+-  opening with Word on Windows)
 *. New advanced audit facility tracks deletions and every modification
 *. media.LastPublishedX fields are now updated correctly by the publishers
 -  and can be used for reporting, or for implementing send adopted animals

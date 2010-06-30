@@ -212,7 +212,7 @@ public class ReportViewer extends ASMForm {
     }
 
     public void actionExternal() {
-        FileTypeManager.shellExecute(filename);
+        FileTypeManager.shellExecute("file:///" + filename);
     }
 
     public void initComponents() {
