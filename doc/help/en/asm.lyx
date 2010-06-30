@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 56 (ASM 2.7.2)
+Revision 57 (ASM 2.7.2)
 \end_layout
 
 \begin_layout Chapter*
@@ -9486,6 +9486,22 @@ Don't show the startup page
 : By default, ASM shows a startup page with today's diary notes and the
  latest news from the ASM website.
  This option disables it.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Keep a full audit trail
+\series default
+: Ordinarily, ASM keeps a note of the person who created a record and who
+ last changed it.
+ If you set this option, ASM will also keep a full history of who created
+ and changed records in the system, but most importantly, who deleted records
+ and when.
+ This audit trail can be analysed with the audit trail reports, available
+ from 
+\series bold
+Reports->Get more reports from sheltermanager.com
 \end_layout
 
 \begin_layout Subsection

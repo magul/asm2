@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
@@ -41,6 +42,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -371,6 +373,15 @@ public class Pets911Publisher extends Thread {
 
                     // Terminate
                     dataFile.append("\n");
+                    
+                    // Mark media records for this animal as published
+                    if (debug) {
+                    	Global.logInfo("Marking media records published for animal " + an.getID(), 
+                    		"Pets911Publisher.run");
+                    }
+                    DBConnection.executeAction("UPDATE media SET LastPublishedP911 = '" +
+                    	Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
+                    	an.getID() + " AND LinkTypeID = 0");
 
                     if (debug) {
                         Global.logInfo("Finished processing " +

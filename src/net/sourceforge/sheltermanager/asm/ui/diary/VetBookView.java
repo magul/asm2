@@ -27,6 +27,7 @@ import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -355,10 +356,19 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 sql = "UPDATE diary SET DateCompleted = '" +
                     Utils.getSQLDate(Calendar.getInstance()) + "' " +
                     "WHERE ID = " + diaryID;
+                if (AuditTrail.enabled())
+                	AuditTrail.changed("diary",
+                		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 5).toString());
             } else {
                 sql = "UPDATE animalvaccination SET DateOfVaccination = '" +
                     Utils.getSQLDate(Calendar.getInstance()) + "' " +
                     "WHERE ID = " + diaryID;
+                	AuditTrail.changed("animalvaccination",
+                		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 5).toString());
             }
 
             try {
@@ -491,8 +501,18 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 if (tablemodel.getValueAt(getTable().getSelectedRow(),
                             TYPE_FIELD).toString().equals("d")) {
                     sql = "DELETE FROM diary WHERE ID = " + id;
+                    if (AuditTrail.enabled())
+                    	AuditTrail.deleted("diary",
+                    		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 5).toString());
                 } else {
                     sql = "DELETE FROM animalvaccination WHERE ID = " + id;
+                    if (AuditTrail.enabled())
+                    	AuditTrail.deleted("animalvaccination",
+                    		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 5).toString());
                 }
 
                 try {

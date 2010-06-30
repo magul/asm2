@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.log;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -31,6 +32,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.Vector;
 
@@ -212,7 +214,14 @@ public class LogSelector extends ASMSelector {
             // Remove it from the database
             try {
                 String s = "Delete From log Where ID = " + id;
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("log",
+                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
+                		getTable().getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
+                		Utils.firstChars(getTable().getValueAt(getTable().getSelectedRow(), 2).toString(), 20));
+                
                 // update the list
                 this.updateList();
             } catch (Exception e) {

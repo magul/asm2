@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.account;
 
 import net.sourceforge.sheltermanager.asm.bo.Account;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.AccountRenderer;
@@ -211,6 +212,7 @@ public class AccountView extends ASMView {
                         id + " OR DestinationAccountID = " + id);
                     DBConnection.executeAction(
                         "DELETE FROM accounts WHERE ID = " + id);
+                    AuditTrail.deleted("accounts", tablemodel.getValueAt(selrows[i], 0).toString());
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

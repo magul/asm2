@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -61,6 +62,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
     private DateField txtInvalidDate;
     public UI.TextField txtNumber;
     private UI.SearchTextField txtParentName;
+    private boolean isNew = false;
 
     public LitterEdit(LitterView theparent) {
         parent = theparent;
@@ -124,6 +126,8 @@ public class LitterEdit extends ASMForm implements SearchListener {
                 // Generate the ID for this litter
                 txtAcceptanceNumber.setText(litter.getID().toString());
             }
+            
+            isNew = true;
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -166,6 +170,11 @@ public class LitterEdit extends ASMForm implements SearchListener {
 
             try {
                 litter.save();
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "animallitter",
+                		litter.getSpeciesName() + " " +
+                		litter.getNumberInLitter().toString());
 
                 if (parent != null) {
                     parent.updateList();

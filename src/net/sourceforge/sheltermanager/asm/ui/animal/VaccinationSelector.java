@@ -22,6 +22,8 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -235,7 +237,15 @@ public class VaccinationSelector extends ASMSelector
                 try {
                     String s = "DELETE FROM animalvaccination WHERE ID = " +
                         avID;
-                    net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                    DBConnection.executeAction(s);
+                    
+                    if (AuditTrail.enabled())
+                    	AuditTrail.deleted("animalvaccination", 
+                    		LookupCache.getAnimalByID(new Integer(animalid)).getShelterCode() + " " +
+                    		LookupCache.getAnimalByID(new Integer(animalid)).getAnimalName() + " " +
+                    		vaccinationtabledata[selrows[i]][2] + " " +
+                    		vaccinationtabledata[selrows[i]][0]);
+                    
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

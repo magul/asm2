@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -126,6 +128,12 @@ public class MediaEdit extends ASMForm {
             }
 
             media.save();
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.changed("media",
+            		LookupCache.getMediaLinkForID(media.getLinkTypeID()) + " " +
+            		media.getLinkID() + " " + media.getMediaName());
+            
             parent.updateList();
             dispose();
 

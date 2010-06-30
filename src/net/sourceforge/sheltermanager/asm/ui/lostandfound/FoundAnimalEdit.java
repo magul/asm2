@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.lostandfound;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -366,6 +367,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
         try {
             animal.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNewRecord, "animalfound",
+            		animal.getSpeciesName() + " " +
+            		animal.getOwner().getOwnerName());
+            
             isNewRecord = false;
             isDirty = false;
             btnSave.setEnabled(isDirty);
@@ -558,9 +565,15 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 String s = "DELETE FROM media WHERE LinkID = " +
                     animal.getID() + " AND LinkTypeID = " +
                     Integer.toString(Media.LINKTYPE_FOUNDANIMAL);
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
                 s = "DELETE FROM animalfound WHERE ID = " + animal.getID();
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animalfound",
+                		animal.getSpeciesName() + " " +
+                		animal.getOwner().getOwnerName());
+                
                 dispose();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

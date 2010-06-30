@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -46,6 +47,7 @@ import java.util.Vector;
 public class DietEdit extends ASMForm {
     private AnimalDiet diet = null;
     private String audit = null;
+    boolean isNew = false;
 
     /** A reference back to the parent form that spawned this form */
     private DietSelector animaldiets = null;
@@ -110,6 +112,7 @@ public class DietEdit extends ASMForm {
         // Date required
         Calendar cal = Calendar.getInstance();
         txtStartDate.setToToday();
+        isNew = true;
     }
 
     /**
@@ -168,6 +171,12 @@ public class DietEdit extends ASMForm {
 
         try {
             diet.save(Global.currentUserName);
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "animaldiet", 
+	            	LookupCache.getAnimalByID(diet.getAnimalID()).getShelterCode() + " " +
+	            	LookupCache.getAnimalByID(diet.getAnimalID()).getAnimalName() + " " + 
+	            	Utils.formatDate(diet.getDateStarted()) + " " + 
+	            	diet.getDietName());
 
             // Update the edit animal form if successful
             animaldiets.updateList();

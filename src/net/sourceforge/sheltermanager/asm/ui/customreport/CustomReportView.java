@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
@@ -174,6 +175,12 @@ public class CustomReportView extends ASMView {
             try {
                 String sql = "DELETE FROM customreport WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("customreport", 
+                		getTable().getModel().getValueAt(
+                			getTable().getSelectedRow(), 0).toString());
+                
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

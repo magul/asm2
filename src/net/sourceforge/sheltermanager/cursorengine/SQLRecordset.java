@@ -615,6 +615,21 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return rd.theRowData[fieldindex];
         }
     }
+    
+    public boolean rowIsNew() {
+    	SQLRowData rd = (SQLRowData) mtheRows.get(mCurrentRecord);
+    	return rd.isNew;
+    }
+    
+    public boolean rowIsDeleted() {
+    	SQLRowData rd = (SQLRowData) mtheRows.get(mCurrentRecord);
+    	return rd.isDeleted;
+    }
+    
+    public boolean rowIsUpdated() {
+    	SQLRowData rd = (SQLRowData) mtheRows.get(mCurrentRecord);
+    	return rd.needsSaving;
+    }
 
     public double getDouble(String fieldName) throws CursorEngineException {
         Double d = (Double) getField(fieldName);

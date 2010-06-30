@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -58,6 +59,7 @@ public class VaccinationEdit extends ASMForm {
     private DateField txtDateGiven;
     private DateField txtDateRequired;
     private String audit = null;
+    private boolean isNew = false;
 
     public VaccinationEdit(VaccinationParent ea) {
         editanimal = ea;
@@ -132,6 +134,7 @@ public class VaccinationEdit extends ASMForm {
 
         // Default cost for first type
         typeChanged();
+        isNew = true;
     }
 
     /**
@@ -220,6 +223,13 @@ public class VaccinationEdit extends ASMForm {
 
         try {
             anivacc.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "animalvaccination", 
+            		LookupCache.getAnimalByID(anivacc.getAnimalID()).getShelterCode() + " " +
+            		LookupCache.getAnimalByID(anivacc.getAnimalID()).getAnimalName() + " " +
+            		anivacc.getDateOfVaccination() + " " +
+            		anivacc.getVaccinationTypeName());
 
             // Update the parent form if successful
             editanimal.updateVaccinations();

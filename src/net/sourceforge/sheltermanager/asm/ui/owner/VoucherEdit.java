@@ -21,7 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.bo.OwnerVoucher;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -58,6 +60,7 @@ public class VoucherEdit extends ASMForm {
     private DateField txtIssueDate;
     private String audit = null;
     private UI.Label lblID;
+    private boolean isNew = false;
 
     /** Creates new form EditAnimalVaccination */
     public VoucherEdit(VoucherSelector ownervouchers) {
@@ -168,6 +171,11 @@ public class VoucherEdit extends ASMForm {
 
         try {
             voucher.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "ownervoucher",
+            		new Owner("ID = " + voucher.getID()).getOwnerName() + " " +
+            		LookupCache.getVoucherName(voucher.getVoucherID()));
 
             // Update the edit owner form if successful
             ownervouchers.updateList();

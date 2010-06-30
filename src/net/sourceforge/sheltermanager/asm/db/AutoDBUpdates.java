@@ -58,7 +58,7 @@ public class AutoDBUpdates {
             1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
-            2704, 2705, 2706, 2707, 2708, 2720
+            2704, 2705, 2706, 2707, 2708, 2720, 2721
         };
 
     /**
@@ -3932,6 +3932,76 @@ public class AutoDBUpdates {
             }
         } catch (Exception e) {
             errors.add("ownerdonation: add trx for donations");
+            Global.logException(e, getClass());
+        }
+    }
+    
+    public void update2721() {
+        try {
+
+            // Fields for audit trail
+            String[] hsqldb = {
+            		"CREATE MEMORY TABLE audittrail ( " +
+            		"Action INTEGER NOT NULL, " +
+            		"AuditDate TIMESTAMP NOT NULL, " +
+            		"UserName VARCHAR(255) NOT NULL, " +
+            		"TableName VARCHAR(255) NOT NULL, " +
+            		"Description VARCHAR(16384) NOT NULL " +
+            		")",
+            		"CREATE INDEX audittrail_Action ON audittrail (Action)",
+            		"CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
+            		"CREATE INDEX audittrail_UserName ON audittrail (UserName)",
+            		"CREATE INDEX audittrail_TableName ON audittrail (TableName)"
+            		};
+                    
+            String[] postgresql = {
+            		"CREATE TABLE audittrail ( " +
+            		"Action INTEGER NOT NULL, " +
+            		"AuditDate TIMESTAMP NOT NULL," +
+            		"UserName VARCHAR(255) NOT NULL, " +
+            		"TableName VARCHAR(255) NOT NULL, " +
+            		"Description VARCHAR(16384) NOT NULL " +
+            		")",
+            		"CREATE INDEX audittrail_Action ON audittrail (Action)",
+            		"CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
+            		"CREATE INDEX audittrail_UserName ON audittrail (UserName)",
+            		"CREATE INDEX audittrail_TableName ON audittrail (TableName)"
+            		};
+            
+            String[] mysql = {
+            		"CREATE TABLE audittrail ( " +
+            		"Action int(11) NOT NULL, " +
+            		"AuditDate datetime NOT NULL, " +
+            		"UserName varchar(255) NOT NULL, " +
+            		"TableName varchar(255) NOT NULL, " +
+            		"Description varchar(16384) NOT NULL, " +
+            		"KEY IX_AuditTrailAction (Action), " +
+            		"KEY IX_AuditTrailAuditDate (AuditDate), " + 
+            		"KEY IX_AuditTrailUserName (UserName), " +
+            		"KEY IX_AuditTrailTableName (TableName) " +
+            		")"
+                	};
+            
+            String[] use = hsqldb;
+
+            if (DBConnection.DBType == DBConnection.MYSQL) {
+                use = mysql;
+            }
+
+            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                use = postgresql;
+            }
+
+            for (int i = 0; i < use.length; i++) {
+                try {
+                    DBConnection.executeAction(use[i]);
+                } catch (Exception e) {
+                    Global.logError("Failed executing: " + use[i],
+                        "AutoDBUpdates.update2721");
+                    Global.logException(e, getClass());
+                }
+            }
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

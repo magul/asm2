@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.diary;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -58,6 +59,7 @@ public class DiaryEdit extends ASMForm {
     private UI.TextField txtSubject;
     private UI.TextField txtTime;
     private String audit = null;
+    private boolean isNew = false;
 
     /** Creates new form EditDiary */
     public DiaryEdit() {
@@ -145,6 +147,8 @@ public class DiaryEdit extends ASMForm {
         } else {
             this.setTitle(i18n("Create_New_Diary_Note"));
         }
+        
+        isNew = true;
     }
 
     /**
@@ -228,6 +232,12 @@ public class DiaryEdit extends ASMForm {
 
             try {
                 diary.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "diary",
+                		Utils.formatDate(diary.getDiaryDateTime()) + " " +
+                		diary.getDiaryForName() + " " +
+                		diary.getSubject());
 
                 if (parent != null) {
                     parent.updateList();

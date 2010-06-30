@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.account;
 
 import net.sourceforge.sheltermanager.asm.bo.Account;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -47,6 +48,7 @@ public class AccountEdit extends ASMForm {
     private UI.TextField txtCode;
     private UI.TextArea txtDescription;
     private String audit = null;
+    boolean isNew = false;
 
     public AccountEdit() {
         init("", IconManager.getIcon(IconManager.SCREEN_EDITACCOUNT),
@@ -99,6 +101,7 @@ public class AccountEdit extends ASMForm {
         try {
             account = new Account("ID = 0");
             account.addNew();
+            isNew = true;
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
         }
@@ -154,7 +157,8 @@ public class AccountEdit extends ASMForm {
 
             try {
                 account.save(Global.currentUserName);
-
+                AuditTrail.updated(isNew, "accounts", account.getCode());
+                
                 if (parent != null) {
                     parent.updateList();
                 }

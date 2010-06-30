@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerVoucher;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -161,8 +162,16 @@ public class VoucherSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
+
                 String s = "Delete From ownervoucher Where ID = " + id;
                 DBConnection.executeAction(s);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.changed("ownervoucher",
+                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
+                		getTable().getValueAt(getTable().getSelectedRow(), 2).toString() + " " +
+                		getTable().getValueAt(getTable().getSelectedRow(), 3).toString());
+                
                 // update the list
                 this.updateList();
             } catch (Exception e) {

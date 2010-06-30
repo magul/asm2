@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.movement;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
@@ -455,6 +456,12 @@ public class MovementView extends ASMView implements MovementParent {
             // Return the movement
             ad.setReturnDate(date);
             ad.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.changed("movement", 
+            		ad.getAdoptionNumber() + " " + 
+            		LookupCache.getAnimalByID(ad.getAnimalID()).getShelterCode() + " " +
+            		LookupCache.getAnimalByID(ad.getAnimalID()).getAnimalName());
 
             // Prompt for a new movement
             MovementEdit f = new MovementEdit(this);

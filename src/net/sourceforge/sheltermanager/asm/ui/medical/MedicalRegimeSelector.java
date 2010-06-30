@@ -23,6 +23,8 @@ package net.sourceforge.sheltermanager.asm.ui.medical;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedicalTreatment;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -267,6 +269,13 @@ public class MedicalRegimeSelector extends ASMSelector {
 
                 sql = "DELETE FROM animalmedical WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animalmedical",
+                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
+                		getTable().getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
+                		getTable().getValueAt(getTable().getSelectedRow(), 2).toString());
+                
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

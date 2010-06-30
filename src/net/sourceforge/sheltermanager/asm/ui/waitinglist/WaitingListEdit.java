@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.waitinglist;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
@@ -84,6 +85,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     private UI.TextArea txtReason;
     private UI.TextArea txtReasonForRemoval;
     private String audit = null;
+    private boolean isNew = false;
 
     public WaitingListEdit(WaitingListView theparent) {
         parent = theparent;
@@ -268,6 +270,9 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             btnClone.setEnabled(false);
             btnCreateAnimal.setEnabled(false);
             btnDelete.setEnabled(false);
+            
+            isNew = true;
+            
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -402,6 +407,12 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             // Now do the save
             try {
                 awl.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "animalwaitinglist", 
+                		awl.getSpeciesName() + " " +
+                		awl.getAnimalDescription() + " " +
+                		awl.getOwner().getOwnerName());
 
                 if (parent != null) {
                     parent.updateList();

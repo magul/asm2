@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.db.AutoDBUpdates;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -286,6 +287,11 @@ public class GetReports extends ASMView {
             cr.setOmitHeaderFooter(new Integer(0));
             cr.setOmitCriteria(new Integer(0));
             cr.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.create("customreport",
+            		r.name);
+            
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

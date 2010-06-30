@@ -1136,6 +1136,10 @@ public class Options extends ASMForm {
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Dont_show_the_startup_page"), "DontShowStartupPage",
                     Configuration.getBoolean("DontShowStartupPage"), false));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+            			"Keep_audit_trail"), "AdvancedAudit",
+            		Configuration.getBoolean("AdvancedAudit"), false));
 
             // Remove unwanted fields
             l.add(new SelectableItem(Global.i18n("uisystem",

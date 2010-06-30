@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.lostandfound;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -42,6 +43,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.text.ParseException;
 
@@ -353,8 +355,14 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
         }
 
         try {
-            isNewRecord = false;
             animal.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNewRecord, "animallost",
+            		animal.getSpeciesName() + " " +
+            		animal.getOwner().getOwnerName());
+            
+            isNewRecord = false;
             isDirty = false;
             btnSave.setEnabled(isDirty);
             // Allow editing of satellite data if this was a new record
@@ -538,10 +546,17 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
                 String s = "DELETE FROM media WHERE LinkID = " +
                     animal.getID() + " AND LinkTypeID = " +
                     Integer.toString(Media.LINKTYPE_LOSTANIMAL);
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
                 s = "DELETE FROM animallost WHERE ID = " + animal.getID();
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animallost",
+                		animal.getSpeciesName() + " " +
+                		animal.getOwner().getOwnerName());
+                
                 dispose();
+                
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());

@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.log;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -55,6 +56,7 @@ public class LogEdit extends ASMForm {
     private UI.TextArea txtComments;
     private DateField txtDate;
     private String audit = null;
+    private boolean isNew = false;
 
     public LogEdit(LogSelector parent, int linkID, int linkTypeID) {
         this.parent = parent;
@@ -95,6 +97,7 @@ public class LogEdit extends ASMForm {
 
         // Date required
         txtDate.setToToday();
+        isNew = true;
     }
 
     public void openForEdit(int id) {
@@ -155,6 +158,11 @@ public class LogEdit extends ASMForm {
 
         try {
             log.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "log", 
+            		Utils.formatDate(log.getDate()) + " " +
+            		Utils.firstChars(log.getComments(), 20));
 
             // Update the edit animal form if successful
             parent.updateList();

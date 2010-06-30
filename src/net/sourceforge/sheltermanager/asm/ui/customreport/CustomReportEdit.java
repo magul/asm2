@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.CustomReportExecute;
@@ -57,6 +58,7 @@ public class CustomReportEdit extends ASMForm {
     private UI.TextField txtTitle;
     private String audit = null;
     private boolean dirty = false;
+    private boolean isNew = false;
 
     /** Creates new form EditCustomReport */
     public CustomReportEdit(CustomReportView parent) {
@@ -175,6 +177,7 @@ public class CustomReportEdit extends ASMForm {
             cr.openRecordset("ID = 0");
             cr.addNew();
             setDirty(true);
+            isNew = true;
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -533,6 +536,10 @@ public class CustomReportEdit extends ASMForm {
                                                             : new Integer(0));
             cr.save(Global.currentUserName);
 
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "customreport", 
+            		cr.getTitle());
+            
             // Update parent
             parent.updateList();
 

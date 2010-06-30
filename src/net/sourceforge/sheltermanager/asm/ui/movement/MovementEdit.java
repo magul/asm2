@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
@@ -603,6 +604,12 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             // Attempt the save and update the parent
             try {
                 movement.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNewRecord, "movement", 
+                		movement.getAdoptionNumber() + " " + 
+                		LookupCache.getAnimalByID(movement.getAnimalID()).getShelterCode() + " " +
+                		LookupCache.getAnimalByID(movement.getAnimalID()).getAnimalName());
 
                 // Update the animal's denormalised data
                 // as a result of this save.

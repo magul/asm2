@@ -1,6 +1,9 @@
 2.7.2
 ================
 
+*. New advanced audit facility tracks deletions and every modification
+*. media.LastPublishedX fields are now updated correctly by the publishers
+-  and can be used for reporting, or for implementing send adopted animals
 *. Print animal scales the preferred image to 320x200 to show a thumbnail
 -  instead of the whole, unscaled image
 *. Fixed button layout on edit transaction screen

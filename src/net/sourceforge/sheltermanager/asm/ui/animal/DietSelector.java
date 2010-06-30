@@ -22,14 +22,17 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.Vector;
 
@@ -182,8 +185,17 @@ public class DietSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
+            	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
                 String s = "Delete From animaldiet Where ID = " + id;
-                net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
+                DBConnection.executeAction(s);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animaldiet", 
+	                	LookupCache.getAnimalByID(animalID).getShelterCode() + " " +
+	                	LookupCache.getAnimalByID(animalID).getAnimalName() + " " +
+	                	tablemodel.getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
+	                	tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString());
+                
                 // update the list
                 this.updateList();
             } catch (Exception e) {

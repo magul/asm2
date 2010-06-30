@@ -26,6 +26,7 @@ import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -380,6 +381,13 @@ public class DiarySelector extends ASMSelector {
 
             try {
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.changed("diary",
+                		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                		tablemodel.getValueAt(selrows[i], 5).toString());
+                
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
@@ -410,6 +418,13 @@ public class DiarySelector extends ASMSelector {
 
                 try {
                     DBConnection.executeAction(sql);
+                    
+                    if (AuditTrail.enabled())
+                    	AuditTrail.deleted("diary",
+                    		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                    		tablemodel.getValueAt(selrows[i], 5).toString());
+                    
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

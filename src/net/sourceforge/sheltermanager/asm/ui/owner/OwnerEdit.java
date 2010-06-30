@@ -27,6 +27,7 @@ import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
@@ -970,6 +971,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             try {
                 owner.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNewRecord, "owner",
+                		owner.getOwnerName() + " " +
+                		Utils.firstChars(owner.getOwnerAddress(), 20));
 
                 // If we're not a new record, save the additional fields
                 if (!isNewRecord) {
@@ -1835,6 +1841,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 sql = "DELETE FROM ownervoucher WHERE OwnerID = " +
                     owner.getID();
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("owner",
+                		owner.getOwnerName() + " " +
+                		Utils.firstChars(owner.getOwnerAddress(), 20));
+                
                 dispose();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

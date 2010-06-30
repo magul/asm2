@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.waitinglist;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -440,6 +441,13 @@ public class WaitingListView extends ASMView {
 
             try {
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.changed("animalwaitinglist",
+                		getTable().getValueAt(selrows[i], 7).toString() + " " +
+                		getTable().getValueAt(selrows[i], 8).toString() + " " +
+                		getTable().getValueAt(selrows[i], 1).toString());
+                
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
@@ -526,6 +534,13 @@ public class WaitingListView extends ASMView {
 
                 try {
                     DBConnection.executeAction(sql);
+                    
+                    if (AuditTrail.enabled())
+                    	AuditTrail.deleted("animalwaitinglist",
+                    		getTable().getValueAt(selrows[i], 7).toString() + " " +
+                    		getTable().getValueAt(selrows[i], 8).toString() + " " +
+                    		getTable().getValueAt(selrows[i], 1).toString());
+                    
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

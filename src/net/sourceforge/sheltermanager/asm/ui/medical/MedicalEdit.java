@@ -22,6 +22,8 @@
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -445,6 +447,13 @@ public class MedicalEdit extends ASMForm {
 
             try {
                 am.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "animalmedical",
+                		LookupCache.getAnimalByID(am.getAnimalID()).getShelterCode() + " " +
+                		LookupCache.getAnimalByID(am.getAnimalID()).getAnimalName() + " " +
+                		am.getTreatmentName());
+                
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

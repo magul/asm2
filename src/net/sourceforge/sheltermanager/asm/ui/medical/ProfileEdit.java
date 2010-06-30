@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -57,6 +59,7 @@ public class ProfileEdit extends ASMForm {
     private UI.Spinner spnTotalNumberOfTreatments;
     private UI.TextField txtTreatmentName;
     private String audit = null;
+    private boolean isNew = false;
 
     public ProfileEdit(ProfileView parent) {
         this.parent = parent;
@@ -169,6 +172,7 @@ public class ProfileEdit extends ASMForm {
             mp.addNew();
             enableScreenParts();
             this.setTitle(i18n("Create_New_Medical_Profile"));
+            isNew = true;
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -363,6 +367,11 @@ public class ProfileEdit extends ASMForm {
 
             try {
                 mp.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "medicalprofile",
+                		mp.getProfileName());
+                
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.movement;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -415,6 +416,13 @@ public class MovementSelector extends ASMSelector implements MovementParent {
 
             String sql = "DELETE FROM adoption WHERE ID = " + id;
             DBConnection.executeAction(sql);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.deleted("movement",
+            		getTable().getValueAt(getTable().getSelectedRow(), 2).toString() + " " +
+            		getTable().getValueAt(getTable().getSelectedRow(), 3).toString() + " " +
+            		getTable().getValueAt(getTable().getSelectedRow(), 5).toString());
+            
             updateList();
 
             // Update the animal's denormalised fields

@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.owner;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -72,6 +73,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
     private OwnerLink olOwner;
     private UI.SearchTextField alAnimal;
     private String audit = null;
+    private boolean isNew = false;
 
     /** Creates new form EditOwnerDonation */
     public DonationEdit(DonationSelector parent, int animalID, int ownerID,
@@ -180,6 +182,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             }
 
             this.setTitle(i18n("new_owner_donation"));
+            isNew = true;
         } catch (Exception e) {
             Dialog.showError(i18n("unable_to_create_new_ownerdonation") +
                 e.getMessage());
@@ -325,6 +328,11 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
             // Save the record
             od.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "ownerdonation",
+            		od.getOwner().getOwnerName() + " " +
+            		od.getDonationTypeName());
 
             // Update the accounting system - regardless of whether it's
             // enabled or not so that things are kept correctly in sync

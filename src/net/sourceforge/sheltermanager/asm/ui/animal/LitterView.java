@@ -22,11 +22,13 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
@@ -255,8 +257,16 @@ public class LitterView extends ASMView {
         }
 
         try {
+        	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
+        	
             String sql = "DELETE FROM animallitter WHERE ID = " + id;
             DBConnection.executeAction(sql);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.deleted("animallitter",
+            		tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
+            		tablemodel.getValueAt(getTable().getSelectedRow(), 3).toString());
+            
             updateList();
         } catch (Exception e) {
             Dialog.showError(UI.messageDeleteError() + e.getMessage());

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 11:26+0100\n"
+"POT-Creation-Date: 2010-06-30 14:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -702,6 +702,26 @@ msgstr ""
 #. # bo/AnimalCost
 #: you_must_supply_a_description_for_the_cost
 msgid "You must supply a description for the cost."
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_create
+msgid "Created {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_changed
+msgid "Changed {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_deleted
+msgid "Deleted {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_moved
+msgid "Moved {0} from {1} to {2}"
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -7091,6 +7111,7 @@ msgstr ""
 #. # ui/animal/VaccinationView
 #. # ui/ui/ASMSelector
 #. # charts/Chart
+#. # utility/Utils
 #: ...
 msgid "..."
 msgstr ""
@@ -8283,7 +8304,10 @@ msgstr ""
 msgid "Diet Information"
 msgstr ""
 
+#. # ui/animal/MediaAdd
 #. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/animal/MediaEdit
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
@@ -8309,6 +8333,8 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #. # ui/ui/Dialog
 #. # ui/system/Options
+#. # ui/diary/DiarySelector
+#. # ui/diary/DiaryEdit
 #. # ui/diary/VetBookView
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
@@ -8340,6 +8366,8 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/log/LogSelector
+#. # ui/log/LogEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
 #. # db/Diagnostic
@@ -13712,6 +13740,11 @@ msgstr ""
 msgid ""
 "Creating donations and donation types creates matching accounts and "
 "transactions"
+msgstr ""
+
+#. # ui/system/Options
+#: Keep_audit_trail
+msgid "Keep a full audit trail"
 msgstr ""
 
 #. # ui/users/UserView

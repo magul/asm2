@@ -23,12 +23,14 @@ package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
@@ -36,6 +38,8 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Vector;
+
+import javax.swing.table.TableModel;
 
 
 public class CostSelector extends ASMSelector {
@@ -286,8 +290,16 @@ public class CostSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
+            	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
                 String s = "Delete From animalcost Where ID = " + id;
                 DBConnection.executeAction(s);
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animalcost", 
+	                	LookupCache.getAnimalByID(animalID).getShelterCode() + " " +
+	                	LookupCache.getAnimalByID(animalID).getAnimalName() + " " +
+	                	tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
+	                	tablemodel.getValueAt(getTable().getSelectedRow(), 3).toString());
+                		
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

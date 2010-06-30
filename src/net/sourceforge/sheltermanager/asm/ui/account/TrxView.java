@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.account;
 
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.AccountRenderer;
@@ -234,6 +235,11 @@ public class TrxView extends ASMView {
 
                 try {
                     DBConnection.executeAction(sql);
+                    
+                    AuditTrail.deleted("accountstrx", 
+                    		tablemodel.getValueAt(selrows[i], 0).toString() + 
+                    		" " + tablemodel.getValueAt(selrows[i], 2).toString());
+                    
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

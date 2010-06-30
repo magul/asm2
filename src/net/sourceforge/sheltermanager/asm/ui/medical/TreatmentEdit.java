@@ -23,6 +23,8 @@ package net.sourceforge.sheltermanager.asm.ui.medical;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedicalTreatment;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -189,6 +191,13 @@ public class TreatmentEdit extends ASMForm {
 
             try {
                 amt.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.updated(isNew, "animalmedicaltreatment",
+                		LookupCache.getAnimalByID(amt.getAnimalID()).getShelterCode() + " " +
+                		LookupCache.getAnimalByID(amt.getAnimalID()).getAnimalName() + " " +
+                		amt.getDateGiven());
+                
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

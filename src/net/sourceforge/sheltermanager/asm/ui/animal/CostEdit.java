@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -43,6 +44,7 @@ import java.util.Vector;
 public class CostEdit extends ASMForm {
     private AnimalCost cost = null;
     private String audit = null;
+    private boolean isNew = false;
 
     /** A reference back to the parent form that spawned this form */
     private CostSelector animalcosts = null;
@@ -107,6 +109,7 @@ public class CostEdit extends ASMForm {
 
         // Date required
         txtCostDate.setToToday();
+        isNew = true;
     }
 
     /**
@@ -166,6 +169,13 @@ public class CostEdit extends ASMForm {
 
         try {
             cost.save(Global.currentUserName);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "animalcost", 
+            		LookupCache.getAnimalByID(cost.getAnimalID()).getShelterCode() + " " +
+            		LookupCache.getAnimalByID(cost.getAnimalID()).getAnimalName() + " " +
+            		Utils.formatDate(cost.getCostDate()) + " " + 
+            		cboCostType.getSelectedItem().toString() );
 
             // Update the edit animal form if successful
             animalcosts.updateList();

@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
@@ -552,6 +554,11 @@ public class MediaSelector extends ASMSelector {
                 String s = "Delete From media Where ID = " + mediaID;
                 net.sourceforge.sheltermanager.cursorengine.DBConnection.executeAction(s);
 
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("media",
+                		LookupCache.getMediaLinkForID(linkType) + " " +
+                		linkID + " " + tabledata[getTable().getSelectedRow()][0]);
+                
                 // Make sure there is still a web and doc preferred
                 ensureWebPreferred();
                 ensureDocPreferred();

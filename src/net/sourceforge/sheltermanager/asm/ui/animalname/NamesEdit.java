@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animalname;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -42,6 +43,7 @@ public class NamesEdit extends ASMForm {
     private UI.TextField txtName;
     private UI.Button btnOk;
     private UI.ComboBox cboSex;
+    private boolean isNew = false;
 
     public NamesEdit(NamesView parent) {
         this.parent = parent;
@@ -99,6 +101,7 @@ public class NamesEdit extends ASMForm {
             this.an = new AnimalName();
             an.openRecordset("ID = 0");
             an.addNew();
+            isNew = true;
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -134,6 +137,9 @@ public class NamesEdit extends ASMForm {
             an.setName(txtName.getText());
             an.setSex(new Integer(cboSex.getSelectedIndex()));
             an.save();
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNew, "animalname", an.getName());
 
             // Update parent
             parent.updateList();

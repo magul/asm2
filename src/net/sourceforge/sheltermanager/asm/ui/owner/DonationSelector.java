@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -260,8 +261,18 @@ public class DonationSelector extends ASMSelector {
         if (Dialog.showYesNoWarning(UI.messageDeleteConfirm(),
                     UI.messageReallyDelete())) {
             try {
+            	
+            	OwnerDonation od = new OwnerDonation("ID = " + id);
+            	
                 String sql = "DELETE FROM ownerdonation WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.changed("ownerdonation",
+                		od.getDonationTypeName() + " " +
+                		od.getOwner().getOwnerName() + " " +
+                		Utils.firstChars(od.getOwner().getOwnerAddress(), 20));
+                
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
@@ -383,12 +394,26 @@ public class DonationSelector extends ASMSelector {
 
                 // Save our next instalment
                 od2.save(Global.currentUserName);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.create("ownerdonation",
+                		od2.getDonationTypeName() + " " +
+                		od2.getOwner().getOwnerName() + " " +
+                		Utils.firstChars(od2.getOwner().getOwnerAddress(), 20));
+                
 
                 // Update the created flag for this donation
                 od.setNextCreated(new Integer(1));
             }
 
             od.save(Global.currentUserName);
+            od.updateAccountTrx();
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.changed("ownerdonation",
+            		od.getDonationTypeName() + " " +
+            		od.getOwner().getOwnerName() + " " +
+            		Utils.firstChars(od.getOwner().getOwnerAddress(), 20));
 
             // Update our list
             updateList();

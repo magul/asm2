@@ -374,6 +374,18 @@ CREATE INDEX animalwaitinglist_SpeciesID ON animalwaitinglist (SpeciesID);
 CREATE INDEX animalwaitinglist_Urgency ON animalwaitinglist (Urgency);
 CREATE INDEX animalwaitinglist_DatePutOnList ON animalwaitinglist (DatePutOnList);
 
+CREATE TABLE audittrail (
+  Action INTEGER NOT NULL,
+  AuditDate TIMESTAMP NOT NULL,
+  UserName VARCHAR(255) NOT NULL,
+  TableName VARCHAR(255) NOT NULL,
+  Description VARCHAR(16384) NOT NULL
+);
+CREATE INDEX audittrail_Action ON audittrail (Action);
+CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate);
+CREATE INDEX audittrail_UserName ON audittrail (UserName);
+CREATE INDEX audittrail_TableName ON audittrail (TableName);
+
 CREATE TABLE basecolour (
   ID INTEGER NOT NULL PRIMARY KEY,
   BaseColour VARCHAR(255) NOT NULL,
@@ -782,7 +794,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2720');
+INSERT INTO configuration VALUES ('DatabaseVersion','2721');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');

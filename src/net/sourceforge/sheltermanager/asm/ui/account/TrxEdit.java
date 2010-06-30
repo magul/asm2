@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.Vector;
 
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -53,6 +54,7 @@ public class TrxEdit extends ASMForm {
     private CurrencyField txtWithdrawal;
     private String audit = null;
     private Vector<String> desclist = null;
+    private boolean isNew = false;
 
     public TrxEdit(String accountCode, TrxView parent) {
     	this.parent = parent;
@@ -113,6 +115,7 @@ public class TrxEdit extends ASMForm {
         trx.accountId = accountId.intValue();
         setTitle(i18n("Create_Transaction"));
         txtTrxDate.setToToday();
+        isNew = true;
     }
 
     /**
@@ -162,7 +165,11 @@ public class TrxEdit extends ASMForm {
             trx.date = txtTrxDate.getDate();
 
             AccountTrx.saveTransaction(trx);
-
+           	AuditTrail.updated(isNew, "accountstrx",
+           		lblSource.getText() + "<->" +
+           		cboAccount.getSelectedItem().toString() + " " +
+           		Utils.formatDate(trx.date) + " " + trx.description);
+            
             if (parent != null) {
                 parent.updateList();
             }

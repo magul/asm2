@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.asm.bo.Animal.AnimalCode;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
@@ -1922,6 +1923,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         try {
             animal.save(Global.currentUserName);
+            
+            // Audit
+            if (AuditTrail.enabled())
+            	AuditTrail.updated(isNewRecord, 
+            			"animal", 
+            			animal.getShelterCode() + " " + animal.getAnimalName());
 
             // If it wasn't a new record, save the boarding cost
             if (!isNewRecord) {
@@ -3097,6 +3104,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 s = "Delete From animal Where ID = " + animal.getID();
                 DBConnection.executeAction(s);
 
+                // Audit
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animal", 
+                		animal.getShelterCode() + " " + animal.getAnimalName());
+                
                 // Remove the DBFS directory for the animal
                 DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
                         animal.getID().intValue());

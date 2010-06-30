@@ -58,6 +58,7 @@ public abstract class LookupCache {
     private static SQLRecordset costtype = null;
     private static SQLRecordset accounttype = null;
     private static SQLRecordset accounts = null;
+    private static SQLRecordset medialink = null;
     private static Animal activeanimals = null;
     private static HashMap<Integer, Animal.AnimalMarkers> animalextdata = null;
     private static HashMap<Integer, Vector<String>> breedspecies = null;
@@ -90,7 +91,8 @@ public abstract class LookupCache {
     private static final int LOOKUP_COSTTYPE = 21;
     private static final int LOOKUP_ACCOUNTTYPE = 22;
     private static final int LOOKUP_ACCOUNTS = 23;
-    private static final int MAX_LOOKUPS = 23;
+    private static final int LOOKUP_MEDIALINK = 24;
+    private static final int MAX_LOOKUPS = 24;
 
     private static SQLRecordset getLookup(int lookuptype) {
         try {
@@ -333,6 +335,16 @@ public abstract class LookupCache {
                 }
 
                 return accounts;
+                
+            case LOOKUP_MEDIALINK:
+
+                if (medialink == null) {
+                    medialink = new SQLRecordset();
+                    medialink.openRecordset("SELECT * FROM lksmedialink ORDER BY LinkType",
+                        "lksmedialink");
+                }
+
+                return medialink;
             }
         } catch (Exception e) {
             Global.logException(e, LookupCache.class);
@@ -373,6 +385,7 @@ public abstract class LookupCache {
         costtype = null;
         accounttype = null;
         accounts = null;
+        medialink = null;
         animalextdata = null;
 
         if (activeanimals != null) {
@@ -654,6 +667,15 @@ public abstract class LookupCache {
 
     public static SQLRecordset getAccountsLookup() {
         return getLookup(LOOKUP_ACCOUNTS);
+    }
+    
+    public static SQLRecordset getMediaLinkLookup() {
+    	return getLookup(LOOKUP_MEDIALINK);
+    }
+    
+    public static String getMediaLinkForID(Integer ID) {
+    	getLookup(LOOKUP_MEDIALINK);
+    	return getNameForID(medialink, "LinkType", ID);
     }
 
     public static String getDonationFreqForID(Integer ID) {

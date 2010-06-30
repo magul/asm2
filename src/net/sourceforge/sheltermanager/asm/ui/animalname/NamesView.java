@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.animalname;
 
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -157,6 +158,10 @@ public class NamesView extends ASMView {
             try {
                 String sql = "DELETE FROM animalname WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("animalname", 
+                		getTable().getModel().getValueAt(getTable().getSelectedRow(), 0).toString());
+                
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

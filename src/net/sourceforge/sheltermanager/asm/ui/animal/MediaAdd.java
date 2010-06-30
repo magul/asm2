@@ -249,6 +249,12 @@ public class MediaAdd extends ASMForm {
             }
 
             media.save();
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.create("media",
+            		LookupCache.getMediaLinkForID(new Integer(linkType)) + " " +
+            		linkID + " " + media.getMediaName());
+            
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());

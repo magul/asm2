@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.diary;
 
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.DiaryTaskDetail;
 import net.sourceforge.sheltermanager.asm.bo.DiaryTaskHead;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -191,6 +192,10 @@ public class DiaryTaskView extends ASMView {
                 DBConnection.executeAction(sql);
                 sql = "DELETE FROM diarytaskhead WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+                
+                if (AuditTrail.enabled())
+                	AuditTrail.deleted("diarytaskhead", 
+                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString());
 
                 updateList();
             } catch (Exception e) {
@@ -236,11 +241,13 @@ public class DiaryTaskView extends ASMView {
             dth.setRecordType(new Integer(0));
 
             // This record is deliberately saved, as the user
-            // can attach detail records from hereon in and
+            // can attach detail records from this point in and
             // it does have an ID. If they don't save, all the
             // detail records will be orphaned. Hence we do it
             // automatically.
             dth.save();
+            if (AuditTrail.enabled())
+            	AuditTrail.create("diarytaskhead", thename);
 
             // Fire up the editing screen
             DiaryTaskHeadEdit edth = new DiaryTaskHeadEdit(this);
