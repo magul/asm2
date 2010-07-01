@@ -240,6 +240,7 @@ public class CustomReportEdit extends ASMForm {
 
         // Table selector and display
         cboTables = UI.getCombo((Vector) null, UI.fp(this, "changedTable"));
+        cboTables.addItem("audittrail");
         cboTables.addItem("accounts");
         cboTables.addItem("accountstrx");
         cboTables.addItem("additional");
@@ -328,6 +329,9 @@ public class CustomReportEdit extends ASMForm {
                     tableName);
             } else if (tableName.equals("configuration")) {
                 rs.openRecordset("SELECT * FROM configuration WHERE ItemName Like ''",
+                    tableName);
+            } else if (tableName.equals("audittrail")) {
+                rs.openRecordset("SELECT * FROM audittrail WHERE Description Like ''",
                     tableName);
             } else {
                 rs.openRecordset("SELECT * FROM " + tableName + " WHERE ID=0",
