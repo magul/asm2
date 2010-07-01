@@ -1928,6 +1928,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             // Remove the original owner record
             sql = "DELETE FROM owner WHERE ID = " + theowner.getID();
             DBConnection.executeAction(sql);
+            
+            if (AuditTrail.enabled())
+            	AuditTrail.merged("owner", 
+            			theowner.getID() + " " + theowner.getOwnerName(),
+            			owner.getID() + " " + owner.getOwnerName());
+            			
 
             // Reload the record
             this.openForEdit(owner.getID().intValue());

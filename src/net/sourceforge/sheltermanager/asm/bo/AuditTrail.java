@@ -61,6 +61,11 @@ public final class AuditTrail {
     	audit(table, Global.i18n("bo", "audit_moved", id, from, to), MOVE);
     }
     
+    public static void merged(String table, String from, String to) {
+    	if (!enabled()) return;
+    	audit(table, Global.i18n("bo", "audit_merged", from, to), DELETE);
+    }
+    
     public static void updated(boolean isNew, String table, String id) {
     	if (isNew)
     		create(table, id);

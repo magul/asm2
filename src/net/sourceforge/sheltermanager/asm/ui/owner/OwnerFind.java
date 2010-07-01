@@ -83,6 +83,7 @@ public class OwnerFind extends ASMFind {
     public UI.TextField txtName;
     public UI.TextField txtPostcode;
     public UI.TextField txtTown;
+    StringBuffer pt = null;
 
     public OwnerFind() {
         this(null, true, false);
@@ -235,7 +236,7 @@ public class OwnerFind extends ASMFind {
 
     public void actionPrint() {
         new OwnerSearchResults(((SortableTableModel) getTable().getModel()).getData(),
-            getTable().getModel().getRowCount(), "");
+            getTable().getModel().getRowCount(), pt.toString());
     }
 
     public void actionMailMerge() {
@@ -297,10 +298,15 @@ public class OwnerFind extends ASMFind {
             eo = null;
         }
     }
+    
+    public void addDisplay(String name, String value) {
+    	pt.append(name).append(" ").append(value).append("<br />");
+    }
 
     public void runSearch() {
         SQLRecordset owner = new SQLRecordset();
         String sql = null;
+        pt = new StringBuffer();
 
         // If we have a media search, do a join to get the notes,
         // otherwise, there's no need to bother and we can do the
@@ -317,6 +323,7 @@ public class OwnerFind extends ASMFind {
             sql = "SELECT DISTINCT owner.* FROM owner INNER JOIN adoption ON adoption.OwnerID = owner.ID WHERE ";
             addSqlCriteria("adoption.MovementType=" +
                 Adoption.MOVETYPE_ADOPTION);
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
 
         // Both joins
@@ -335,6 +342,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtName.getText().equals("")) {
+        	addDisplay(i18n("Name_contains:"), txtName.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerName Like '%" +
                     txtName.getText().replace('\'', '`') + "%'");
@@ -345,6 +353,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtAddress.getText().equals("")) {
+        	addDisplay(i18n("Address_contains:"), txtAddress.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerAddress Like '%" + txtAddress.getText() +
                     "%'");
@@ -355,6 +364,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if ((txtTown != null) && !txtTown.getText().equals("")) {
+        	addDisplay(i18n("Town_Contains"), txtTown.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerTown Like '%" + txtTown.getText() + "%'");
             } else {
@@ -364,6 +374,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if ((txtCounty != null) && !txtCounty.getText().equals("")) {
+        	addDisplay(i18n("County_Contains"), txtCounty.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerCounty Like '%" + txtCounty.getText() +
                     "%'");
@@ -374,6 +385,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtPostcode.getText().equals("")) {
+        	addDisplay(i18n("Postcode_contains:"), txtPostcode.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerPostcode Like '%" + txtPostcode.getText() +
                     "%'");
@@ -384,6 +396,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtHomeCheckAreas.getText().equals("")) {
+        	addDisplay(i18n("Homecheck_Areas:"), txtHomeCheckAreas.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("HomeCheckAreas Like '%" +
                     txtHomeCheckAreas.getText() + "%'");
@@ -401,65 +414,80 @@ public class OwnerFind extends ASMFind {
         // Banned
         if (cboFilter.getSelectedIndex() == FILTER_BANNED) {
             addSqlCriteria("IsBanned = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Homechecked
         else if (cboFilter.getSelectedIndex() == FILTER_HOMECHECKED) {
             addSqlCriteria("IDCheck = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Not homechecked
         else if (cboFilter.getSelectedIndex() == FILTER_NOTHOMECHECKED) {
             addSqlCriteria("IDCheck = 0");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Members
         else if (cboFilter.getSelectedIndex() == FILTER_MEMBERS) {
             addSqlCriteria("IsMember = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Donors
         else if (cboFilter.getSelectedIndex() == FILTER_DONORS) {
             addSqlCriteria("IsDonor = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Homecheckers
         else if (cboFilter.getSelectedIndex() == FILTER_HOMECHECKERS) {
             addSqlCriteria("IsHomeChecker = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Volunteers
         else if (cboFilter.getSelectedIndex() == FILTER_VOLUNTEERS) {
             addSqlCriteria("IsVolunteer = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Shelters
         else if (cboFilter.getSelectedIndex() == FILTER_SHELTERS) {
             addSqlCriteria("IsShelter = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // ACOs
         else if (cboFilter.getSelectedIndex() == FILTER_ACO) {
             addSqlCriteria("IsACO = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Staff
         else if (cboFilter.getSelectedIndex() == FILTER_STAFF) {
             addSqlCriteria("IsStaff = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Retailers
         else if (cboFilter.getSelectedIndex() == FILTER_RETAILERS) {
             addSqlCriteria("IsRetailer = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Fosterers
         else if (cboFilter.getSelectedIndex() == FILTER_FOSTERERS) {
             addSqlCriteria("IsFosterer = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Vets
         else if (cboFilter.getSelectedIndex() == FILTER_VETS) {
             addSqlCriteria("IsVet = 1");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
         // Potential adopters
         else if (cboFilter.getSelectedIndex() == FILTER_POTENTIALADOPTERS) {
             addSqlCriteria("MatchActive = 1 AND 0 = " +
                 "(SELECT COUNT(*) FROM adoption WHERE MovementType = 1 AND " +
                 "OwnerID = owner.ID)");
+            addDisplay(cboFilter.getSelectedItem().toString(), "");
         }
 
         // The comments search is a bunch of individual words, separated by
         // spaces.
         if (!txtComments.getText().equals("")) {
+        	addDisplay(i18n("Comments_contain:"), txtComments.getText());
             String[] words = Utils.split(txtComments.getText(), " ");
             int i = 0;
 
@@ -478,6 +506,7 @@ public class OwnerFind extends ASMFind {
         // The media note search is a bunch of individual words, separated by
         // spaces.
         if (!txtMediaNotes.getText().trim().equals("")) {
+        	addDisplay(i18n("Media_notes_contain:"), txtMediaNotes.getText());
             addSqlCriteria("media.LinkTypeID = " + Media.LINKTYPE_OWNER);
 
             String[] words = Utils.split(txtMediaNotes.getText(), " ");
@@ -496,6 +525,7 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtEmail.getText().equals("")) {
+        	addDisplay(i18n("Email:"), txtEmail.getText());
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("EmailAddress Like '%" + txtEmail.getText() +
                     "%'");

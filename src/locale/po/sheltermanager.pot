@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-30 14:07+0100\n"
+"POT-Creation-Date: 2010-07-01 10:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -722,6 +722,11 @@ msgstr ""
 #. # bo/AuditTrail
 #: audit_moved
 msgid "Moved {0} from {1} to {2}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_merged
+msgid "Merged {0} into {1}"
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -6594,6 +6599,7 @@ msgstr ""
 #. # ui/customreport/GetReports
 #. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
 #: Type
@@ -7239,6 +7245,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -7250,6 +7257,7 @@ msgid "Species:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
 msgstr ""
@@ -7299,6 +7307,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Sex\:
 msgid "Sex:"
 msgstr ""
@@ -7398,6 +7407,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/medical/TreatmentEdit
@@ -7478,6 +7488,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr ""
@@ -7531,6 +7542,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
 msgid "Name:"
@@ -7688,6 +7700,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr ""
@@ -8498,6 +8511,7 @@ msgid ""
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFind
 #: include_deceased
 msgid "Include Deceased"
 msgstr ""

@@ -56,9 +56,10 @@ public class OwnerSearchResults extends Report {
     }
 
     public void generateReport() {
-        if ((searchTerm != null) && !searchTerm.equals("")) {
-            addParagraph(Global.i18n("reports", "criteria") + ": " +
+    	if ((searchTerm != null) && !searchTerm.equals("")) {
+            addParagraph(bold(Global.i18n("reports", "criteria") + ": <br />") +
                 searchTerm);
+            addHorizontalRule();
         }
 
         tableNew();

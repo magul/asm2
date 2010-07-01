@@ -61,8 +61,9 @@ public class SearchResults extends Report {
         flipNames();
 
         if ((searchTerm != null) && !searchTerm.equals("")) {
-            addParagraph(Global.i18n("reports", "criteria") + ": " +
+            addParagraph(bold(Global.i18n("reports", "criteria") + ": <br />") +
                 searchTerm);
+            addHorizontalRule();
         }
 
         tableNew();

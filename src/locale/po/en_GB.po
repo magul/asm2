@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-06-30 14:07+0000\n"
+"PO-Revision-Date: 2010-07-01 10:01+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -720,6 +720,11 @@ msgstr "Deleted {0}"
 #: audit_moved
 msgid "Moved {0} from {1} to {2}"
 msgstr "Moved {0} from {1} to {2}"
+
+#. # bo/AuditTrail
+#: audit_merged
+msgid "Merged {0} into {1}"
+msgstr "Merged {0} into {1}"
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -6591,6 +6596,7 @@ msgstr "Code:"
 #. # ui/customreport/GetReports
 #. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
 #: Type
@@ -7236,6 +7242,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -7247,6 +7254,7 @@ msgid "Species:"
 msgstr "Species:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
 msgstr "Hidden Comments:"
@@ -7296,6 +7304,7 @@ msgstr "The animal's basic colour"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Sex\:
 msgid "Sex:"
 msgstr "Sex:"
@@ -7395,6 +7404,7 @@ msgstr "The reason the animal was put to sleep"
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/medical/TreatmentEdit
@@ -7475,6 +7485,7 @@ msgstr "Edit Animal"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr "Original Owner:"
@@ -7528,6 +7539,7 @@ msgstr "Given"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
 msgid "Name:"
@@ -7685,6 +7697,7 @@ msgstr "Died Off Shelter:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr "Date Brought In:"
@@ -8495,6 +8508,7 @@ msgid ""
 msgstr ""
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFind
 #: include_deceased
 msgid "Include Deceased"
 msgstr "Include Deceased"
