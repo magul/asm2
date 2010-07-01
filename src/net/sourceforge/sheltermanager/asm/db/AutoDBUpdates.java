@@ -3935,53 +3935,47 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
-    
+
     public void update2721() {
         try {
-
             // Fields for audit trail
             String[] hsqldb = {
-            		"CREATE MEMORY TABLE audittrail ( " +
-            		"Action INTEGER NOT NULL, " +
-            		"AuditDate TIMESTAMP NOT NULL, " +
-            		"UserName VARCHAR(255) NOT NULL, " +
-            		"TableName VARCHAR(255) NOT NULL, " +
-            		"Description VARCHAR(16384) NOT NULL " +
-            		")",
-            		"CREATE INDEX audittrail_Action ON audittrail (Action)",
-            		"CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
-            		"CREATE INDEX audittrail_UserName ON audittrail (UserName)",
-            		"CREATE INDEX audittrail_TableName ON audittrail (TableName)"
-            		};
-                    
+                    "CREATE MEMORY TABLE audittrail ( " +
+                    "Action INTEGER NOT NULL, " +
+                    "AuditDate TIMESTAMP NOT NULL, " +
+                    "UserName VARCHAR(255) NOT NULL, " +
+                    "TableName VARCHAR(255) NOT NULL, " +
+                    "Description VARCHAR(16384) NOT NULL " + ")",
+                    "CREATE INDEX audittrail_Action ON audittrail (Action)",
+                    "CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
+                    "CREATE INDEX audittrail_UserName ON audittrail (UserName)",
+                    "CREATE INDEX audittrail_TableName ON audittrail (TableName)"
+                };
+
             String[] postgresql = {
-            		"CREATE TABLE audittrail ( " +
-            		"Action INTEGER NOT NULL, " +
-            		"AuditDate TIMESTAMP NOT NULL," +
-            		"UserName VARCHAR(255) NOT NULL, " +
-            		"TableName VARCHAR(255) NOT NULL, " +
-            		"Description VARCHAR(16384) NOT NULL " +
-            		")",
-            		"CREATE INDEX audittrail_Action ON audittrail (Action)",
-            		"CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
-            		"CREATE INDEX audittrail_UserName ON audittrail (UserName)",
-            		"CREATE INDEX audittrail_TableName ON audittrail (TableName)"
-            		};
-            
+                    "CREATE TABLE audittrail ( " + "Action INTEGER NOT NULL, " +
+                    "AuditDate TIMESTAMP NOT NULL," +
+                    "UserName VARCHAR(255) NOT NULL, " +
+                    "TableName VARCHAR(255) NOT NULL, " +
+                    "Description VARCHAR(16384) NOT NULL " + ")",
+                    "CREATE INDEX audittrail_Action ON audittrail (Action)",
+                    "CREATE INDEX audittrail_AuditDate ON audittrail (AuditDate)",
+                    "CREATE INDEX audittrail_UserName ON audittrail (UserName)",
+                    "CREATE INDEX audittrail_TableName ON audittrail (TableName)"
+                };
+
             String[] mysql = {
-            		"CREATE TABLE audittrail ( " +
-            		"Action int(11) NOT NULL, " +
-            		"AuditDate datetime NOT NULL, " +
-            		"UserName varchar(255) NOT NULL, " +
-            		"TableName varchar(255) NOT NULL, " +
-            		"Description varchar(16384) NOT NULL, " +
-            		"KEY IX_AuditTrailAction (Action), " +
-            		"KEY IX_AuditTrailAuditDate (AuditDate), " + 
-            		"KEY IX_AuditTrailUserName (UserName), " +
-            		"KEY IX_AuditTrailTableName (TableName) " +
-            		")"
-                	};
-            
+                    "CREATE TABLE audittrail ( " + "Action int(11) NOT NULL, " +
+                    "AuditDate datetime NOT NULL, " +
+                    "UserName varchar(255) NOT NULL, " +
+                    "TableName varchar(255) NOT NULL, " +
+                    "Description varchar(16384) NOT NULL, " +
+                    "KEY IX_AuditTrailAction (Action), " +
+                    "KEY IX_AuditTrailAuditDate (AuditDate), " +
+                    "KEY IX_AuditTrailUserName (UserName), " +
+                    "KEY IX_AuditTrailTableName (TableName) " + ")"
+                };
+
             String[] use = hsqldb;
 
             if (DBConnection.DBType == DBConnection.MYSQL) {

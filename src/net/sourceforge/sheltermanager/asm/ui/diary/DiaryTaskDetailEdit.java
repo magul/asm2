@@ -146,12 +146,12 @@ public class DiaryTaskDetailEdit extends ASMForm {
 
             try {
                 dtd.save();
-                
-                if (AuditTrail.enabled()) 
-                	AuditTrail.updated(isNew, "diarytaskdetail", 
-                		dtd.getWhoFor() + " " +
-                		dtd.getSubject());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "diarytaskdetail",
+                        dtd.getWhoFor() + " " + dtd.getSubject());
+                }
+
                 parent.updateList();
                 dispose();
 

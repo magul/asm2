@@ -158,7 +158,7 @@ public class AccountEdit extends ASMForm {
             try {
                 account.save(Global.currentUserName);
                 AuditTrail.updated(isNew, "accounts", account.getCode());
-                
+
                 if (parent != null) {
                     parent.updateList();
                 }

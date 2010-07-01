@@ -169,13 +169,15 @@ public class CostEdit extends ASMForm {
 
         try {
             cost.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "animalcost", 
-            		LookupCache.getAnimalByID(cost.getAnimalID()).getShelterCode() + " " +
-            		LookupCache.getAnimalByID(cost.getAnimalID()).getAnimalName() + " " +
-            		Utils.formatDate(cost.getCostDate()) + " " + 
-            		cboCostType.getSelectedItem().toString() );
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "animalcost",
+                    LookupCache.getAnimalByID(cost.getAnimalID())
+                               .getShelterCode() + " " +
+                    LookupCache.getAnimalByID(cost.getAnimalID()).getAnimalName() +
+                    " " + Utils.formatDate(cost.getCostDate()) + " " +
+                    cboCostType.getSelectedItem().toString());
+            }
 
             // Update the edit animal form if successful
             animalcosts.updateList();

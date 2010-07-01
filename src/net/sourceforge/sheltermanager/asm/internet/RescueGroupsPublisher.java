@@ -522,15 +522,18 @@ public class RescueGroupsPublisher extends Thread {
 
                     // Terminate
                     dataFile.append("\n");
-                    
+
                     // Mark media records for this animal as published
                     if (debug) {
-                    	Global.logInfo("Marking media records published for animal " + an.getID(), 
-                    		"RescueGroupsPublisher.run");
+                        Global.logInfo(
+                            "Marking media records published for animal " +
+                            an.getID(), "RescueGroupsPublisher.run");
                     }
-                    DBConnection.executeAction("UPDATE media SET LastPublishedRG = '" +
-                    	Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-                    	an.getID() + " AND LinkTypeID = 0");
+
+                    DBConnection.executeAction(
+                        "UPDATE media SET LastPublishedRG = '" +
+                        Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
+                        an.getID() + " AND LinkTypeID = 0");
 
                     if (debug) {
                         Global.logInfo("Finished processing " +

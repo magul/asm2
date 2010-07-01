@@ -416,13 +416,17 @@ public class MovementSelector extends ASMSelector implements MovementParent {
 
             String sql = "DELETE FROM adoption WHERE ID = " + id;
             DBConnection.executeAction(sql);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.deleted("movement",
-            		getTable().getValueAt(getTable().getSelectedRow(), 2).toString() + " " +
-            		getTable().getValueAt(getTable().getSelectedRow(), 3).toString() + " " +
-            		getTable().getValueAt(getTable().getSelectedRow(), 5).toString());
-            
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.deleted("movement",
+                    getTable().getValueAt(getTable().getSelectedRow(), 2)
+                        .toString() + " " +
+                    getTable().getValueAt(getTable().getSelectedRow(), 3)
+                        .toString() + " " +
+                    getTable().getValueAt(getTable().getSelectedRow(), 5)
+                        .toString());
+            }
+
             updateList();
 
             // Update the animal's denormalised fields

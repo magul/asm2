@@ -257,16 +257,20 @@ public class LitterView extends ASMView {
         }
 
         try {
-        	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
-        	
+            SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                     .getModel();
+
             String sql = "DELETE FROM animallitter WHERE ID = " + id;
             DBConnection.executeAction(sql);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.deleted("animallitter",
-            		tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
-            		tablemodel.getValueAt(getTable().getSelectedRow(), 3).toString());
-            
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.deleted("animallitter",
+                    tablemodel.getValueAt(getTable().getSelectedRow(), 1)
+                              .toString() + " " +
+                    tablemodel.getValueAt(getTable().getSelectedRow(), 3)
+                              .toString());
+            }
+
             updateList();
         } catch (Exception e) {
             Dialog.showError(UI.messageDeleteError() + e.getMessage());

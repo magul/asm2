@@ -290,16 +290,23 @@ public class CostSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
-            	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
+                SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                         .getModel();
                 String s = "Delete From animalcost Where ID = " + id;
                 DBConnection.executeAction(s);
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animalcost", 
-	                	LookupCache.getAnimalByID(animalID).getShelterCode() + " " +
-	                	LookupCache.getAnimalByID(animalID).getAnimalName() + " " +
-	                	tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
-	                	tablemodel.getValueAt(getTable().getSelectedRow(), 3).toString());
-                		
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animalcost",
+                        LookupCache.getAnimalByID(animalID).getShelterCode() +
+                        " " +
+                        LookupCache.getAnimalByID(animalID).getAnimalName() +
+                        " " +
+                        tablemodel.getValueAt(getTable().getSelectedRow(), 1)
+                                  .toString() + " " +
+                        tablemodel.getValueAt(getTable().getSelectedRow(), 3)
+                                  .toString());
+                }
+
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

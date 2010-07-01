@@ -171,11 +171,12 @@ public class VoucherEdit extends ASMForm {
 
         try {
             voucher.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "ownervoucher",
-            		new Owner("ID = " + voucher.getID()).getOwnerName() + " " +
-            		LookupCache.getVoucherName(voucher.getVoucherID()));
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "ownervoucher",
+                    new Owner("ID = " + voucher.getID()).getOwnerName() + " " +
+                    LookupCache.getVoucherName(voucher.getVoucherID()));
+            }
 
             // Update the edit owner form if successful
             ownervouchers.updateList();

@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import java.util.Collections;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -35,6 +32,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.util.Collections;
+import java.util.Vector;
 
 
 /**
@@ -57,8 +57,8 @@ public class TrxEdit extends ASMForm {
     private boolean isNew = false;
 
     public TrxEdit(String accountCode, TrxView parent) {
-    	this.parent = parent;
-    	fillDescList();
+        this.parent = parent;
+        fillDescList();
         init("", IconManager.getIcon(IconManager.SCREEN_EDITTRX), "uiaccount");
         lblSource.setText(accountCode);
     }
@@ -80,15 +80,22 @@ public class TrxEdit extends ASMForm {
     }
 
     public void fillDescList() {
-    	if (parent == null) return;
-    	desclist = new Vector<String>(parent.getData().size());
-    	desclist.add("");
-    	for (AccountTrx.Trx t : parent.getData()) {
-    		if (!t.description.trim().equals(""))
-    			desclist.add(t.description);
-    	}
-    	Collections.sort(desclist);
+        if (parent == null) {
+            return;
+        }
+
+        desclist = new Vector<String>(parent.getData().size());
+        desclist.add("");
+
+        for (AccountTrx.Trx t : parent.getData()) {
+            if (!t.description.trim().equals("")) {
+                desclist.add(t.description);
+            }
+        }
+
+        Collections.sort(desclist);
     }
+
     /**
      * Sets the tab ordering for the screen using the FlexibleFocusManager class
      */
@@ -159,17 +166,18 @@ public class TrxEdit extends ASMForm {
         try {
             trx.otherAccountId = Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
                     "Code", cboAccount).intValue();
-            trx.description = (cboDescription.getSelectedItem() != null ? cboDescription.getSelectedItem().toString() : "");
+            trx.description = ((cboDescription.getSelectedItem() != null)
+                ? cboDescription.getSelectedItem().toString() : "");
             trx.withdrawal = txtWithdrawal.getValue();
             trx.deposit = txtDeposit.getValue();
             trx.date = txtTrxDate.getDate();
 
             AccountTrx.saveTransaction(trx);
-           	AuditTrail.updated(isNew, "accountstrx",
-           		lblSource.getText() + "<->" +
-           		cboAccount.getSelectedItem().toString() + " " +
-           		Utils.formatDate(trx.date) + " " + trx.description);
-            
+            AuditTrail.updated(isNew, "accountstrx",
+                lblSource.getText() + "<->" +
+                cboAccount.getSelectedItem().toString() + " " +
+                Utils.formatDate(trx.date) + " " + trx.description);
+
             if (parent != null) {
                 parent.updateList();
             }
@@ -186,7 +194,6 @@ public class TrxEdit extends ASMForm {
     }
 
     public void initComponents() {
-        
         setLayout(UI.getBorderLayout());
 
         UI.Panel pnlOuter = UI.getPanel(UI.getBorderLayout());
@@ -225,22 +232,22 @@ public class TrxEdit extends ASMForm {
                 i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
     }
-    
+
     public void descriptionChanged() {
-    	
-    	String s = cboDescription.getSelectedItem() != null ? 
-    		cboDescription.getSelectedItem().toString() : "";
-    	
-    	if (s.trim().equals("")) return;
-    		
-    	for (AccountTrx.Trx t : parent.getData()) {
-    		if ( t.description.equals(s) ) {
-    			Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code", 
-    				new Integer(t.otherAccountId), cboAccount);
-    			txtDeposit.setValue(t.deposit);
-    			txtWithdrawal.setValue(t.withdrawal);
-    		}
-    	}
-    	
+        String s = (cboDescription.getSelectedItem() != null)
+            ? cboDescription.getSelectedItem().toString() : "";
+
+        if (s.trim().equals("")) {
+            return;
+        }
+
+        for (AccountTrx.Trx t : parent.getData()) {
+            if (t.description.equals(s)) {
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    new Integer(t.otherAccountId), cboAccount);
+                txtDeposit.setValue(t.deposit);
+                txtWithdrawal.setValue(t.withdrawal);
+            }
+        }
     }
 }

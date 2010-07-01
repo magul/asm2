@@ -1331,7 +1331,7 @@ public abstract class Utils {
             return false;
         }
     }
-    
+
     /** Returns the first num chars of string s. If there aren't
      *  num chars in s, it returns the whole string or "" for null
      * @param s
@@ -1339,9 +1339,15 @@ public abstract class Utils {
      * @return
      */
     public static String firstChars(String s, int num) {
-    	if (s == null) return "";
-    	if (s.length() <= num) return s;
-    	return s.substring(0, num) + "...";
+        if (s == null) {
+            return "";
+        }
+
+        if (s.length() <= num) {
+            return s;
+        }
+
+        return s.substring(0, num) + "...";
     }
 
     /**

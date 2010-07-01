@@ -128,12 +128,13 @@ public class MediaEdit extends ASMForm {
             }
 
             media.save();
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.changed("media",
-            		LookupCache.getMediaLinkForID(media.getLinkTypeID()) + " " +
-            		media.getLinkID() + " " + media.getMediaName());
-            
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.changed("media",
+                    LookupCache.getMediaLinkForID(media.getLinkTypeID()) + " " +
+                    media.getLinkID() + " " + media.getMediaName());
+            }
+
             parent.updateList();
             dispose();
 

@@ -158,10 +158,14 @@ public class NamesView extends ASMView {
             try {
                 String sql = "DELETE FROM animalname WHERE ID = " + id;
                 DBConnection.executeAction(sql);
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animalname", 
-                		getTable().getModel().getValueAt(getTable().getSelectedRow(), 0).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animalname",
+                        getTable().getModel()
+                            .getValueAt(getTable().getSelectedRow(), 0)
+                            .toString());
+                }
+
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

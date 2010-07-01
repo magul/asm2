@@ -298,9 +298,9 @@ public class OwnerFind extends ASMFind {
             eo = null;
         }
     }
-    
+
     public void addDisplay(String name, String value) {
-    	pt.append(name).append(" ").append(value).append("<br />");
+        pt.append(name).append(" ").append(value).append("<br />");
     }
 
     public void runSearch() {
@@ -342,7 +342,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtName.getText().equals("")) {
-        	addDisplay(i18n("Name_contains:"), txtName.getText());
+            addDisplay(i18n("Name_contains:"), txtName.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerName Like '%" +
                     txtName.getText().replace('\'', '`') + "%'");
@@ -353,7 +354,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtAddress.getText().equals("")) {
-        	addDisplay(i18n("Address_contains:"), txtAddress.getText());
+            addDisplay(i18n("Address_contains:"), txtAddress.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerAddress Like '%" + txtAddress.getText() +
                     "%'");
@@ -364,7 +366,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if ((txtTown != null) && !txtTown.getText().equals("")) {
-        	addDisplay(i18n("Town_Contains"), txtTown.getText());
+            addDisplay(i18n("Town_Contains"), txtTown.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerTown Like '%" + txtTown.getText() + "%'");
             } else {
@@ -374,7 +377,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if ((txtCounty != null) && !txtCounty.getText().equals("")) {
-        	addDisplay(i18n("County_Contains"), txtCounty.getText());
+            addDisplay(i18n("County_Contains"), txtCounty.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerCounty Like '%" + txtCounty.getText() +
                     "%'");
@@ -385,7 +389,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtPostcode.getText().equals("")) {
-        	addDisplay(i18n("Postcode_contains:"), txtPostcode.getText());
+            addDisplay(i18n("Postcode_contains:"), txtPostcode.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerPostcode Like '%" + txtPostcode.getText() +
                     "%'");
@@ -396,7 +401,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtHomeCheckAreas.getText().equals("")) {
-        	addDisplay(i18n("Homecheck_Areas:"), txtHomeCheckAreas.getText());
+            addDisplay(i18n("Homecheck_Areas:"), txtHomeCheckAreas.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("HomeCheckAreas Like '%" +
                     txtHomeCheckAreas.getText() + "%'");
@@ -487,7 +493,8 @@ public class OwnerFind extends ASMFind {
         // The comments search is a bunch of individual words, separated by
         // spaces.
         if (!txtComments.getText().equals("")) {
-        	addDisplay(i18n("Comments_contain:"), txtComments.getText());
+            addDisplay(i18n("Comments_contain:"), txtComments.getText());
+
             String[] words = Utils.split(txtComments.getText(), " ");
             int i = 0;
 
@@ -506,7 +513,7 @@ public class OwnerFind extends ASMFind {
         // The media note search is a bunch of individual words, separated by
         // spaces.
         if (!txtMediaNotes.getText().trim().equals("")) {
-        	addDisplay(i18n("Media_notes_contain:"), txtMediaNotes.getText());
+            addDisplay(i18n("Media_notes_contain:"), txtMediaNotes.getText());
             addSqlCriteria("media.LinkTypeID = " + Media.LINKTYPE_OWNER);
 
             String[] words = Utils.split(txtMediaNotes.getText(), " ");
@@ -525,7 +532,8 @@ public class OwnerFind extends ASMFind {
         }
 
         if (!txtEmail.getText().equals("")) {
-        	addDisplay(i18n("Email:"), txtEmail.getText());
+            addDisplay(i18n("Email:"), txtEmail.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("EmailAddress Like '%" + txtEmail.getText() +
                     "%'");

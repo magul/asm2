@@ -43,7 +43,8 @@ public class AccountRenderer extends DefaultTableCellRenderer
     private int reconciledcolumn = 1;
     private int posnegcolumn = 6;
 
-    public AccountRenderer(int[] currencycols, int posnegcolumn, int reconciledcolumn) {
+    public AccountRenderer(int[] currencycols, int posnegcolumn,
+        int reconciledcolumn) {
         super();
         this.currencycols = currencycols;
         this.reconciledcolumn = reconciledcolumn;
@@ -76,6 +77,7 @@ public class AccountRenderer extends DefaultTableCellRenderer
                                   .equals("-")) {
                     setForeground(Color.RED);
                 }
+
                 wascurrency = true;
             }
         }
@@ -83,14 +85,16 @@ public class AccountRenderer extends DefaultTableCellRenderer
         if (!wascurrency) {
             setFont(table.getFont());
             setHorizontalAlignment(UI.ALIGN_LEFT);
-            
+
             // Use blue for reconciled, black for not
-            if (reconciledcolumn == 0)
-            	setForeground(Color.BLACK);
-            else if (tablemodel.getValueAt(row, reconciledcolumn).toString().trim().equals(""))
-            	setForeground(Color.BLACK);
-            else
-            	setForeground(Color.BLUE);
+            if (reconciledcolumn == 0) {
+                setForeground(Color.BLACK);
+            } else if (tablemodel.getValueAt(row, reconciledcolumn).toString()
+                                     .trim().equals("")) {
+                setForeground(Color.BLACK);
+            } else {
+                setForeground(Color.BLUE);
+            }
         }
 
         if (isSelected) {

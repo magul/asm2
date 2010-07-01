@@ -191,13 +191,14 @@ public class TreatmentEdit extends ASMForm {
 
             try {
                 amt.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "animalmedicaltreatment",
-                		LookupCache.getAnimalByID(amt.getAnimalID()).getShelterCode() + " " +
-                		LookupCache.getAnimalByID(amt.getAnimalID()).getAnimalName() + " " +
-                		amt.getDateGiven());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "animalmedicaltreatment",
+                        LookupCache.getAnimalByID(amt.getAnimalID())
+                                   .getShelterCode() + " " +
+                        LookupCache.getAnimalByID(amt.getAnimalID())
+                                   .getAnimalName() + " " + amt.getDateGiven());
+                }
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

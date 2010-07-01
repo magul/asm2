@@ -287,11 +287,10 @@ public class GetReports extends ASMView {
             cr.setOmitHeaderFooter(new Integer(0));
             cr.setOmitCriteria(new Integer(0));
             cr.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.create("customreport",
-            		r.name);
-            
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.create("customreport", r.name);
+            }
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

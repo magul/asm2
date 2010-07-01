@@ -506,15 +506,18 @@ public class PetFinderPublisher extends Thread {
 
                     // Terminate
                     dataFile.append("\n");
-                    
+
                     // Mark media records for this animal as published
                     if (debug) {
-                    	Global.logInfo("Marking media records published for animal " + an.getID(), 
-                    		"PetFinderPublisher.run");
+                        Global.logInfo(
+                            "Marking media records published for animal " +
+                            an.getID(), "PetFinderPublisher.run");
                     }
-                    DBConnection.executeAction("UPDATE media SET LastPublishedPF = '" +
-                    	Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-                    	an.getID() + " AND LinkTypeID = 0");
+
+                    DBConnection.executeAction(
+                        "UPDATE media SET LastPublishedPF = '" +
+                        Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
+                        an.getID() + " AND LinkTypeID = 0");
 
                     if (debug) {
                         Global.logInfo("Finished processing " +

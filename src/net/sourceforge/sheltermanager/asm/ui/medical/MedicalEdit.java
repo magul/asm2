@@ -447,13 +447,15 @@ public class MedicalEdit extends ASMForm {
 
             try {
                 am.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "animalmedical",
-                		LookupCache.getAnimalByID(am.getAnimalID()).getShelterCode() + " " +
-                		LookupCache.getAnimalByID(am.getAnimalID()).getAnimalName() + " " +
-                		am.getTreatmentName());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "animalmedical",
+                        LookupCache.getAnimalByID(am.getAnimalID())
+                                   .getShelterCode() + " " +
+                        LookupCache.getAnimalByID(am.getAnimalID())
+                                   .getAnimalName() + " " +
+                        am.getTreatmentName());
+                }
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

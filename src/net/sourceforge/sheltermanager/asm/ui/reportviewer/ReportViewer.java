@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
+import java.io.File;
 import java.io.IOException;
 
 import java.util.Vector;
@@ -212,7 +213,11 @@ public class ReportViewer extends ASMForm {
     }
 
     public void actionExternal() {
-        FileTypeManager.shellExecute("file:///" + filename);
+        try {
+            FileTypeManager.shellExecute(new File(filename).toURL().toString());
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     public void initComponents() {

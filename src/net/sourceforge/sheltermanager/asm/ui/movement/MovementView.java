@@ -456,12 +456,14 @@ public class MovementView extends ASMView implements MovementParent {
             // Return the movement
             ad.setReturnDate(date);
             ad.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.changed("movement", 
-            		ad.getAdoptionNumber() + " " + 
-            		LookupCache.getAnimalByID(ad.getAnimalID()).getShelterCode() + " " +
-            		LookupCache.getAnimalByID(ad.getAnimalID()).getAnimalName());
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.changed("movement",
+                    ad.getAdoptionNumber() + " " +
+                    LookupCache.getAnimalByID(ad.getAnimalID()).getShelterCode() +
+                    " " +
+                    LookupCache.getAnimalByID(ad.getAnimalID()).getAnimalName());
+            }
 
             // Prompt for a new movement
             MovementEdit f = new MovementEdit(this);

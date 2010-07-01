@@ -223,13 +223,16 @@ public class VaccinationEdit extends ASMForm {
 
         try {
             anivacc.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "animalvaccination", 
-            		LookupCache.getAnimalByID(anivacc.getAnimalID()).getShelterCode() + " " +
-            		LookupCache.getAnimalByID(anivacc.getAnimalID()).getAnimalName() + " " +
-            		anivacc.getDateOfVaccination() + " " +
-            		anivacc.getVaccinationTypeName());
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "animalvaccination",
+                    LookupCache.getAnimalByID(anivacc.getAnimalID())
+                               .getShelterCode() + " " +
+                    LookupCache.getAnimalByID(anivacc.getAnimalID())
+                               .getAnimalName() + " " +
+                    anivacc.getDateOfVaccination() + " " +
+                    anivacc.getVaccinationTypeName());
+            }
 
             // Update the parent form if successful
             editanimal.updateVaccinations();

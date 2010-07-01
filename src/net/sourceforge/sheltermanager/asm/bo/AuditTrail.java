@@ -21,80 +21,92 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import java.util.Calendar;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.Calendar;
+
 
 /**
  * Class for handling creation of audit trail items
  */
 public final class AuditTrail {
-	
-	private final static int CREATE = 0;
-	private final static int CHANGE = 1;
-	private final static int DELETE = 2;
-	private final static int MOVE = 3;
-	
-	/** Purely static class */
+    private final static int CREATE = 0;
+    private final static int CHANGE = 1;
+    private final static int DELETE = 2;
+    private final static int MOVE = 3;
+
+    /** Purely static class */
     private AuditTrail() {
     }
-    
+
     public static void create(String table, String id) {
-    	if (!enabled()) return;
-    	audit(table, Global.i18n("bo", "audit_create", id), CREATE);
-    }
-    
-    public static void changed(String table, String id) {
-    	if (!enabled()) return;
-    	audit(table, Global.i18n("bo", "audit_changed", id), CHANGE);
-    }
-    
-    public static void deleted(String table, String id) {
-    	if (!enabled()) return;
-    	audit(table, Global.i18n("bo", "audit_deleted", id), DELETE);
-    }
-    
-    public static void moved(String table, String id, String from, String to) {
-    	if (!enabled()) return;
-    	audit(table, Global.i18n("bo", "audit_moved", id, from, to), MOVE);
-    }
-    
-    public static void merged(String table, String from, String to) {
-    	if (!enabled()) return;
-    	audit(table, Global.i18n("bo", "audit_merged", from, to), DELETE);
-    }
-    
-    public static void updated(boolean isNew, String table, String id) {
-    	if (isNew)
-    		create(table, id);
-    	else
-    		changed(table, id);
-    }
-    
-    public static boolean enabled() {
-    	return Configuration.getBoolean("AdvancedAudit");
-    }
-    
-    private static void audit(String table, String description, int action) {
-    	try {
-    		if (Global.showDebug) {
-    			Global.logDebug("AUDIT/" + action + " " + table + ": " + 
-    				description, "AuditTrail.audit");
-    		}
-    		
-	    	String sql = "INSERT INTO audittrail VALUES (" +
-	    		action + ", " +
-	    		"'" + Utils.getSQLDate(Calendar.getInstance()) + "', " +
-	    		"'" + Global.currentUserName + "', " +
-	    		"'" + table + "', " + 
-	    		"'" + description.replace('\'', '`') + "')";
-	    	DBConnection.executeAction(sql);
-    	}
-    	catch (Exception e) {
-    		Global.logException(e, AuditTrail.class);
-    	}
+        if (!enabled()) {
+            return;
+        }
+
+        audit(table, Global.i18n("bo", "audit_create", id), CREATE);
     }
 
+    public static void changed(String table, String id) {
+        if (!enabled()) {
+            return;
+        }
+
+        audit(table, Global.i18n("bo", "audit_changed", id), CHANGE);
+    }
+
+    public static void deleted(String table, String id) {
+        if (!enabled()) {
+            return;
+        }
+
+        audit(table, Global.i18n("bo", "audit_deleted", id), DELETE);
+    }
+
+    public static void moved(String table, String id, String from, String to) {
+        if (!enabled()) {
+            return;
+        }
+
+        audit(table, Global.i18n("bo", "audit_moved", id, from, to), MOVE);
+    }
+
+    public static void merged(String table, String from, String to) {
+        if (!enabled()) {
+            return;
+        }
+
+        audit(table, Global.i18n("bo", "audit_merged", from, to), DELETE);
+    }
+
+    public static void updated(boolean isNew, String table, String id) {
+        if (isNew) {
+            create(table, id);
+        } else {
+            changed(table, id);
+        }
+    }
+
+    public static boolean enabled() {
+        return Configuration.getBoolean("AdvancedAudit");
+    }
+
+    private static void audit(String table, String description, int action) {
+        try {
+            if (Global.showDebug) {
+                Global.logDebug("AUDIT/" + action + " " + table + ": " +
+                    description, "AuditTrail.audit");
+            }
+
+            String sql = "INSERT INTO audittrail VALUES (" + action + ", " +
+                "'" + Utils.getSQLDate(Calendar.getInstance()) + "', " + "'" +
+                Global.currentUserName + "', " + "'" + table + "', " + "'" +
+                description.replace('\'', '`') + "')";
+            DBConnection.executeAction(sql);
+        } catch (Exception e) {
+            Global.logException(e, AuditTrail.class);
+        }
+    }
 }

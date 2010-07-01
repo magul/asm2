@@ -604,12 +604,15 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             // Attempt the save and update the parent
             try {
                 movement.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNewRecord, "movement", 
-                		movement.getAdoptionNumber() + " " + 
-                		LookupCache.getAnimalByID(movement.getAnimalID()).getShelterCode() + " " +
-                		LookupCache.getAnimalByID(movement.getAnimalID()).getAnimalName());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNewRecord, "movement",
+                        movement.getAdoptionNumber() + " " +
+                        LookupCache.getAnimalByID(movement.getAnimalID())
+                                   .getShelterCode() + " " +
+                        LookupCache.getAnimalByID(movement.getAnimalID())
+                                   .getAnimalName());
+                }
 
                 // Update the animal's denormalised data
                 // as a result of this save.

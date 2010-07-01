@@ -212,7 +212,8 @@ public class AccountView extends ASMView {
                         id + " OR DestinationAccountID = " + id);
                     DBConnection.executeAction(
                         "DELETE FROM accounts WHERE ID = " + id);
-                    AuditTrail.deleted("accounts", tablemodel.getValueAt(selrows[i], 0).toString());
+                    AuditTrail.deleted("accounts",
+                        tablemodel.getValueAt(selrows[i], 0).toString());
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

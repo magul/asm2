@@ -118,10 +118,11 @@ public class DiaryTaskHeadEdit extends ASMForm {
 
             try {
                 dth.save();
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.changed("diarytaskhead", dth.getName());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.changed("diarytaskhead", dth.getName());
+                }
+
                 parent.updateList();
 
                 return true;
@@ -284,11 +285,16 @@ public class DiaryTaskHeadEdit extends ASMForm {
             try {
                 String sql = "DELETE FROM diarytaskdetail WHERE ID = " + id;
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled()) 
-                	AuditTrail.deleted("diarytaskdetail", 
-                		tblList.getModel().getValueAt(tblList.getSelectedRow(), 1).toString() + " " +
-                		tblList.getModel().getValueAt(tblList.getSelectedRow(), 2).toString());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("diarytaskdetail",
+                        tblList.getModel()
+                               .getValueAt(tblList.getSelectedRow(), 1)
+                               .toString() + " " +
+                        tblList.getModel()
+                               .getValueAt(tblList.getSelectedRow(), 2)
+                               .toString());
+                }
 
                 updateList();
             } catch (Exception e) {

@@ -438,15 +438,18 @@ public class SaveAPetPublisher extends Thread {
 
                     // Terminate
                     dataFile.append("\n");
-                    
+
                     // Mark media records for this animal as published
                     if (debug) {
-                    	Global.logInfo("Marking media records published for animal " + an.getID(), 
-                    		"SaveAPetPublisher");
+                        Global.logInfo(
+                            "Marking media records published for animal " +
+                            an.getID(), "SaveAPetPublisher");
                     }
-                    DBConnection.executeAction("UPDATE media SET LastPublishedAP = '" +
-                    	Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-                    	an.getID() + " AND LinkTypeID = 0");
+
+                    DBConnection.executeAction(
+                        "UPDATE media SET LastPublishedAP = '" +
+                        Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
+                        an.getID() + " AND LinkTypeID = 0");
 
                     if (debug) {
                         Global.logInfo("Finished processing " +

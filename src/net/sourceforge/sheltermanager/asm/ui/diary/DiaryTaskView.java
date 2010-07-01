@@ -192,10 +192,12 @@ public class DiaryTaskView extends ASMView {
                 DBConnection.executeAction(sql);
                 sql = "DELETE FROM diarytaskhead WHERE ID = " + id;
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("diarytaskhead", 
-                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("diarytaskhead",
+                        getTable().getValueAt(getTable().getSelectedRow(), 0)
+                            .toString());
+                }
 
                 updateList();
             } catch (Exception e) {
@@ -246,8 +248,10 @@ public class DiaryTaskView extends ASMView {
             // detail records will be orphaned. Hence we do it
             // automatically.
             dth.save();
-            if (AuditTrail.enabled())
-            	AuditTrail.create("diarytaskhead", thename);
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.create("diarytaskhead", thename);
+            }
 
             // Fire up the editing screen
             DiaryTaskHeadEdit edth = new DiaryTaskHeadEdit(this);

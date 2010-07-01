@@ -356,12 +356,13 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
 
         try {
             animal.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNewRecord, "animallost",
-            		animal.getSpeciesName() + " " +
-            		animal.getOwner().getOwnerName());
-            
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNewRecord, "animallost",
+                    animal.getSpeciesName() + " " +
+                    animal.getOwner().getOwnerName());
+            }
+
             isNewRecord = false;
             isDirty = false;
             btnSave.setEnabled(isDirty);
@@ -549,14 +550,14 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
                 DBConnection.executeAction(s);
                 s = "DELETE FROM animallost WHERE ID = " + animal.getID();
                 DBConnection.executeAction(s);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animallost",
-                		animal.getSpeciesName() + " " +
-                		animal.getOwner().getOwnerName());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animallost",
+                        animal.getSpeciesName() + " " +
+                        animal.getOwner().getOwnerName());
+                }
+
                 dispose();
-                
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());

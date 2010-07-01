@@ -126,7 +126,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
                 // Generate the ID for this litter
                 txtAcceptanceNumber.setText(litter.getID().toString());
             }
-            
+
             isNew = true;
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
@@ -170,11 +170,12 @@ public class LitterEdit extends ASMForm implements SearchListener {
 
             try {
                 litter.save();
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "animallitter",
-                		litter.getSpeciesName() + " " +
-                		litter.getNumberInLitter().toString());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "animallitter",
+                        litter.getSpeciesName() + " " +
+                        litter.getNumberInLitter().toString());
+                }
 
                 if (parent != null) {
                     parent.updateList();

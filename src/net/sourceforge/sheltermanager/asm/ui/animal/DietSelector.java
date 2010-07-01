@@ -185,17 +185,23 @@ public class DietSelector extends ASMSelector {
         if (Dialog.showYesNo(UI.messageDeleteConfirm(), UI.messageReallyDelete())) {
             // Remove it from the database
             try {
-            	SortableTableModel tablemodel = (SortableTableModel) getTable().getModel();
+                SortableTableModel tablemodel = (SortableTableModel) getTable()
+                                                                         .getModel();
                 String s = "Delete From animaldiet Where ID = " + id;
                 DBConnection.executeAction(s);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animaldiet", 
-	                	LookupCache.getAnimalByID(animalID).getShelterCode() + " " +
-	                	LookupCache.getAnimalByID(animalID).getAnimalName() + " " +
-	                	tablemodel.getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
-	                	tablemodel.getValueAt(getTable().getSelectedRow(), 1).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animaldiet",
+                        LookupCache.getAnimalByID(animalID).getShelterCode() +
+                        " " +
+                        LookupCache.getAnimalByID(animalID).getAnimalName() +
+                        " " +
+                        tablemodel.getValueAt(getTable().getSelectedRow(), 0)
+                                  .toString() + " " +
+                        tablemodel.getValueAt(getTable().getSelectedRow(), 1)
+                                  .toString());
+                }
+
                 // update the list
                 this.updateList();
             } catch (Exception e) {

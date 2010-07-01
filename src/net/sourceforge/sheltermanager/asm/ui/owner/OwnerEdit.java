@@ -971,11 +971,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             try {
                 owner.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNewRecord, "owner",
-                		owner.getOwnerName() + " " +
-                		Utils.firstChars(owner.getOwnerAddress(), 20));
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNewRecord, "owner",
+                        owner.getOwnerName() + " " +
+                        Utils.firstChars(owner.getOwnerAddress(), 20));
+                }
 
                 // If we're not a new record, save the additional fields
                 if (!isNewRecord) {
@@ -1841,12 +1842,13 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                 sql = "DELETE FROM ownervoucher WHERE OwnerID = " +
                     owner.getID();
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("owner",
-                		owner.getOwnerName() + " " +
-                		Utils.firstChars(owner.getOwnerAddress(), 20));
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("owner",
+                        owner.getOwnerName() + " " +
+                        Utils.firstChars(owner.getOwnerAddress(), 20));
+                }
+
                 dispose();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
@@ -1928,12 +1930,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
             // Remove the original owner record
             sql = "DELETE FROM owner WHERE ID = " + theowner.getID();
             DBConnection.executeAction(sql);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.merged("owner", 
-            			theowner.getID() + " " + theowner.getOwnerName(),
-            			owner.getID() + " " + owner.getOwnerName());
-            			
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.merged("owner",
+                    theowner.getID() + " " + theowner.getOwnerName(),
+                    owner.getID() + " " + owner.getOwnerName());
+            }
 
             // Reload the record
             this.openForEdit(owner.getID().intValue());

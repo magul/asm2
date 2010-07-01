@@ -215,13 +215,19 @@ public class LogSelector extends ASMSelector {
             try {
                 String s = "Delete From log Where ID = " + id;
                 DBConnection.executeAction(s);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("log",
-                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
-                		getTable().getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
-                		Utils.firstChars(getTable().getValueAt(getTable().getSelectedRow(), 2).toString(), 20));
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("log",
+                        getTable().getValueAt(getTable().getSelectedRow(), 0)
+                            .toString() + " " +
+                        getTable().getValueAt(getTable().getSelectedRow(), 1)
+                            .toString() + " " +
+                        Utils.firstChars(getTable()
+                                             .getValueAt(getTable()
+                                                             .getSelectedRow(),
+                                2).toString(), 20));
+                }
+
                 // update the list
                 this.updateList();
             } catch (Exception e) {

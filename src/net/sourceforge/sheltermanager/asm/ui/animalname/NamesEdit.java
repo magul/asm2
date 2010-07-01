@@ -137,9 +137,10 @@ public class NamesEdit extends ASMForm {
             an.setName(txtName.getText());
             an.setSex(new Integer(cboSex.getSelectedIndex()));
             an.save();
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "animalname", an.getName());
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "animalname", an.getName());
+            }
 
             // Update parent
             parent.updateList();

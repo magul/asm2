@@ -147,7 +147,7 @@ public class DiaryEdit extends ASMForm {
         } else {
             this.setTitle(i18n("Create_New_Diary_Note"));
         }
-        
+
         isNew = true;
     }
 
@@ -232,12 +232,12 @@ public class DiaryEdit extends ASMForm {
 
             try {
                 diary.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "diary",
-                		Utils.formatDate(diary.getDiaryDateTime()) + " " +
-                		diary.getDiaryForName() + " " +
-                		diary.getSubject());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "diary",
+                        Utils.formatDate(diary.getDiaryDateTime()) + " " +
+                        diary.getDiaryForName() + " " + diary.getSubject());
+                }
 
                 if (parent != null) {
                     parent.updateList();

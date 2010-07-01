@@ -515,7 +515,8 @@ public class AnimalFind extends ASMFind {
 
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-        new SearchResults(tablemodel.getData(), tablemodel.getRowCount(), pt.toString());
+        new SearchResults(tablemodel.getData(), tablemodel.getRowCount(),
+            pt.toString());
         tablemodel = null;
     }
 
@@ -579,9 +580,9 @@ public class AnimalFind extends ASMFind {
             ea = null;
         }
     }
-    
+
     public void addDisplay(String name, String value) {
-    	pt.append(name).append(" ").append(value).append("<br />");
+        pt.append(name).append(" ").append(value).append("<br />");
     }
 
     /** Performs the search */
@@ -618,7 +619,8 @@ public class AnimalFind extends ASMFind {
         String logloc = (String) cboLocation.getSelectedItem();
 
         if (!txtAnimalName.getText().equals("")) {
-        	addDisplay(i18n("Name:"), txtAnimalName.getText());
+            addDisplay(i18n("Name:"), txtAnimalName.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("AnimalName Like '%" +
                     txtAnimalName.getText().replace('\'', '`') + "%'");
@@ -630,24 +632,26 @@ public class AnimalFind extends ASMFind {
         }
 
         try {
-	        if (animaltypeid != 0) {
-	            addSqlCriteria("AnimalTypeID=" + animaltypeid);
-	            addDisplay(i18n("Type:"), LookupCache.getAnimalTypeName(animaltypeid));
-	        }
-	
-	        if (speciesid != 0) {
-	            addSqlCriteria("SpeciesID=" + speciesid);
-	            addDisplay(i18n("Species:"), LookupCache.getSpeciesName(speciesid));
-	        }
-	
-	        if (intlocid != 0) {
-	            addSqlCriteria("ShelterLocation=" + intlocid);
-	            addDisplay(i18n("Internal_Loc:_"), LookupCache.getInternalLocationName(intlocid));
-	        }
-        }
-        catch (Exception e) {
-        	Dialog.showError(e.getMessage());
-        	Global.logException(e, getClass());
+            if (animaltypeid != 0) {
+                addSqlCriteria("AnimalTypeID=" + animaltypeid);
+                addDisplay(i18n("Type:"),
+                    LookupCache.getAnimalTypeName(animaltypeid));
+            }
+
+            if (speciesid != 0) {
+                addSqlCriteria("SpeciesID=" + speciesid);
+                addDisplay(i18n("Species:"),
+                    LookupCache.getSpeciesName(speciesid));
+            }
+
+            if (intlocid != 0) {
+                addSqlCriteria("ShelterLocation=" + intlocid);
+                addDisplay(i18n("Internal_Loc:_"),
+                    LookupCache.getInternalLocationName(intlocid));
+            }
+        } catch (Exception e) {
+            Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
         }
 
         if (!txtIdentichipNo.getText().equals("")) {
@@ -696,7 +700,8 @@ public class AnimalFind extends ASMFind {
                     "ActiveMovementReturn BETWEEN '" +
                     Utils.getSQLDate(txtDateFrom.getText()) + "' AND '" +
                     Utils.getSQLDate(txtDateTo.getText()) + "'))");
-                addDisplay(i18n("Date_Brought_In:"), txtDateFrom.getText() + "&lt;-&gt;" + txtDateTo.getText());
+                addDisplay(i18n("Date_Brought_In:"),
+                    txtDateFrom.getText() + "&lt;-&gt;" + txtDateTo.getText());
             } catch (ParseException e) {
                 Dialog.showError(e.getMessage(), i18n("Bad_Date"));
 
@@ -756,7 +761,8 @@ public class AnimalFind extends ASMFind {
                             Float.parseFloat(txtAgeTo.getText())));
                 addSqlCriteria("DateOfBirth BETWEEN '" + yearto + "' AND '" +
                     yearfrom + "'");
-                addDisplay(i18n("Aged_between:"), txtAgeFrom.getText() + " / " + txtAgeTo.getText());
+                addDisplay(i18n("Aged_between:"),
+                    txtAgeFrom.getText() + " / " + txtAgeTo.getText());
             } catch (NumberFormatException e) {
                 // Ignore number format exceptions - just don't
                 // apply this criteria
@@ -768,7 +774,8 @@ public class AnimalFind extends ASMFind {
         // The comment search is a bunch of individual words, separated by
         // spaces.
         if (!txtHasComments.getText().equals("")) {
-        	addDisplay(i18n("Comments:"), txtHasComments.getText());
+            addDisplay(i18n("Comments:"), txtHasComments.getText());
+
             String[] words = Utils.split(txtHasComments.getText(), " ");
             int i = 0;
 
@@ -787,7 +794,8 @@ public class AnimalFind extends ASMFind {
         // The hidden comment search is a bunch of individual words, separated
         // by spaces.
         if (!txtHiddenComments.getText().equals("")) {
-        	addDisplay(i18n("Hidden_Comments:"), txtHiddenComments.getText());
+            addDisplay(i18n("Hidden_Comments:"), txtHiddenComments.getText());
+
             String[] words = Utils.split(txtHiddenComments.getText(), " ");
             int i = 0;
 
@@ -807,7 +815,8 @@ public class AnimalFind extends ASMFind {
         // The features search is a bunch of individual words, separated by
         // spaces.
         if (!txtFeatures.getText().equals("")) {
-        	addDisplay(i18n("Features_"), txtFeatures.getText());
+            addDisplay(i18n("Features_"), txtFeatures.getText());
+
             String[] words = Utils.split(txtFeatures.getText(), " ");
             int i = 0;
 
@@ -825,7 +834,8 @@ public class AnimalFind extends ASMFind {
 
         // Original Owner Name
         if (!txtOOName.getText().equals("")) {
-        	addDisplay(i18n("Original_Owner:"), txtOOName.getText());
+            addDisplay(i18n("Original_Owner:"), txtOOName.getText());
+
             if (Configuration.getBoolean("CaseSensitiveSearch")) {
                 addSqlCriteria("OwnerName Like '%" + txtOOName.getText() +
                     "%'");
@@ -839,19 +849,19 @@ public class AnimalFind extends ASMFind {
 
         // Animals on shelter logical location for speed
         if (logloc.equals(i18n("On_Shelter"))) {
-        	addDisplay(i18n("On_Shelter"), "");
+            addDisplay(i18n("On_Shelter"), "");
             addSqlCriteria("Archived = 0");
         }
 
         // Available for adoption
         if (logloc.equals(i18n("Adoptable"))) {
-        	addDisplay(i18n("Adoptable"), "");
+            addDisplay(i18n("Adoptable"), "");
             addSqlCriteria("IsNotAvailableForAdoption=0 AND Archived=0");
         }
 
         // Unavailable for adoption
         if (logloc.equals(i18n("Not_Available_For_Adoption"))) {
-        	addDisplay(i18n("Not_Available_For_Adoption"), "");
+            addDisplay(i18n("Not_Available_For_Adoption"), "");
             addSqlCriteria("IsNotAvailableForAdoption=1 AND Archived=0");
         }
 
@@ -860,12 +870,12 @@ public class AnimalFind extends ASMFind {
         // If a reservation status was picked, filter
         if (!reserved.equals(i18n("(both)"))) {
             if (reserved.equalsIgnoreCase(i18n("Reserved"))) {
-            	addDisplay(i18n("Reserved"), "");
+                addDisplay(i18n("Reserved"), "");
                 addSqlCriteria("HasActiveReserve = 1");
             }
 
             if (reserved.equalsIgnoreCase(i18n("Unreserved"))) {
-            	addDisplay(i18n("Unreserved"), "");
+                addDisplay(i18n("Unreserved"), "");
                 addSqlCriteria("HasActiveReserve = 0");
             }
         }
@@ -875,39 +885,39 @@ public class AnimalFind extends ASMFind {
         // included it in the SQL string
         if (!logloc.equals(i18n("(all)"))) {
             if (logloc.equals(i18n("Fostered"))) {
-            	addDisplay(i18n("Fostered"), "");
+                addDisplay(i18n("Fostered"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_FOSTER);
             } else if (logloc.equals(i18n("Adopted"))) {
-            	addDisplay(i18n("Adopted"), "");
+                addDisplay(i18n("Adopted"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_ADOPTION);
             } else if (logloc.equals(i18n("Transferred"))) {
-            	addDisplay(i18n("Transferred"), "");
+                addDisplay(i18n("Transferred"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_TRANSFER);
             } else if (logloc.equals(i18n("Escaped"))) {
-            	addDisplay(i18n("Escaped"), "");
+                addDisplay(i18n("Escaped"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_ESCAPED);
             } else if (logloc.equals(i18n("Stolen"))) {
-            	addDisplay(i18n("Stolen"), "");
+                addDisplay(i18n("Stolen"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_STOLEN);
             } else if (logloc.equals(i18n("Released_To_Wild"))) {
-            	addDisplay(i18n("Released_To_Wild"), "");
+                addDisplay(i18n("Released_To_Wild"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_RELEASED);
             } else if (logloc.equals(Global.i18n("uianimal",
                             "Reclaimed_By_Owner"))) {
-            	addDisplay(i18n("Reclaimed_By_Owner"), "");
+                addDisplay(i18n("Reclaimed_By_Owner"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_RECLAIMED);
             } else if (logloc.equals(i18n("Dead"))) {
-            	addDisplay(i18n("Dead"), "");
+                addDisplay(i18n("Dead"), "");
                 addSqlCriteria("DeceasedDate Is Not Null");
             } else if (logloc.equals(i18n("Retailer"))) {
-            	addDisplay(i18n("Retailer"), "");
+                addDisplay(i18n("Retailer"), "");
                 addSqlCriteria("ActiveMovementType = " +
                     Adoption.MOVETYPE_RETAILER);
             }
@@ -915,7 +925,7 @@ public class AnimalFind extends ASMFind {
 
         // Insurance Number
         if (!txtInsuranceNo.getText().equals("")) {
-        	addDisplay(i18n("Insurance_No:_"), txtInsuranceNo.getText());
+            addDisplay(i18n("Insurance_No:_"), txtInsuranceNo.getText());
             addSqlCriteria("InsuranceNumber Like '%" +
                 txtInsuranceNo.getText() + "%'");
             needMoveJoin = true;
@@ -923,7 +933,7 @@ public class AnimalFind extends ASMFind {
 
         // Adoption Number
         if (!txtAdoptionNo.getText().equals("")) {
-        	addDisplay(i18n("Adoption_No:_"), txtAdoptionNo.getText());
+            addDisplay(i18n("Adoption_No:_"), txtAdoptionNo.getText());
             addSqlCriteria("AdoptionNumber Like '%" + txtAdoptionNo.getText() +
                 "%'");
             needMoveJoin = true;
@@ -931,7 +941,8 @@ public class AnimalFind extends ASMFind {
 
         // Media Notes
         if (!txtMediaNotes.getText().equals("")) {
-        	addDisplay(i18n("media_notes_contain"), txtMediaNotes.getText());
+            addDisplay(i18n("media_notes_contain"), txtMediaNotes.getText());
+
             String[] words = Utils.split(txtMediaNotes.getText(), " ");
             int z = 0;
 

@@ -270,9 +270,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             btnClone.setEnabled(false);
             btnCreateAnimal.setEnabled(false);
             btnDelete.setEnabled(false);
-            
+
             isNew = true;
-            
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -407,12 +406,13 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
             // Now do the save
             try {
                 awl.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "animalwaitinglist", 
-                		awl.getSpeciesName() + " " +
-                		awl.getAnimalDescription() + " " +
-                		awl.getOwner().getOwnerName());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "animalwaitinglist",
+                        awl.getSpeciesName() + " " +
+                        awl.getAnimalDescription() + " " +
+                        awl.getOwner().getOwnerName());
+                }
 
                 if (parent != null) {
                     parent.updateList();

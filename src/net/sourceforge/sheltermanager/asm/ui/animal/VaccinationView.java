@@ -361,14 +361,14 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
             try {
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.changed("animalvaccination", 
-                		tablemodel.getValueAt(selrows[i], 0).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 5).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 3).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.changed("animalvaccination",
+                        tablemodel.getValueAt(selrows[i], 0).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 5).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 3).toString());
+                }
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
@@ -400,14 +400,14 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                     av.setDateOfVaccination(new Date());
                     av.save(Global.currentUserName);
                 }
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.changed("animalvaccination", 
-                		tablemodel.getValueAt(selrows[i], 0).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 5).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 3).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.changed("animalvaccination",
+                        tablemodel.getValueAt(selrows[i], 0).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 5).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 3).toString());
+                }
 
                 // Add a new rescheduled vacc for one year ahead
                 AnimalVaccination v = new AnimalVaccination();
@@ -422,13 +422,14 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 v.setComments(av.getComments());
                 v.setCost(av.getCost());
                 v.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.create("animalvaccination", 
-                		tablemodel.getValueAt(selrows[i], 0).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                		Utils.formatDate(c) + " " +
-                		tablemodel.getValueAt(selrows[i], 3).toString());
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.create("animalvaccination",
+                        tablemodel.getValueAt(selrows[i], 0).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                        Utils.formatDate(c) + " " +
+                        tablemodel.getValueAt(selrows[i], 3).toString());
+                }
 
                 // Update the list
                 updateList();
@@ -493,14 +494,17 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
                 try {
                     DBConnection.executeAction(sql);
-                    
-                    if (AuditTrail.enabled())
-                    	AuditTrail.deleted("animalvaccination", 
-                    		tablemodel.getValueAt(selrows[i], 0).toString() + " " +
-                    		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                    		tablemodel.getValueAt(selrows[i], 5).toString() + " " +
-                    		tablemodel.getValueAt(selrows[i], 3).toString());
-                    
+
+                    if (AuditTrail.enabled()) {
+                        AuditTrail.deleted("animalvaccination",
+                            tablemodel.getValueAt(selrows[i], 0).toString() +
+                            " " +
+                            tablemodel.getValueAt(selrows[i], 1).toString() +
+                            " " +
+                            tablemodel.getValueAt(selrows[i], 5).toString() +
+                            " " +
+                            tablemodel.getValueAt(selrows[i], 3).toString());
+                    }
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

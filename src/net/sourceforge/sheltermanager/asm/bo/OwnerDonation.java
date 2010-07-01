@@ -251,10 +251,12 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         if (!Configuration.getBoolean("CreateDonationTrx")) {
             return;
         }
-        
+
         // If this donation hasn't been received yet, don't create the
         // transaction yet
-        if (getDateReceived() == null) return;
+        if (getDateReceived() == null) {
+            return;
+        }
 
         // Delete the existing account transaction for this
         // donation if there is one

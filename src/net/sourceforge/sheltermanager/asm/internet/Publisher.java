@@ -458,13 +458,15 @@ public class Publisher extends Thread {
 
                 // Mark media records for this animal as published
                 if (debug) {
-                	Global.logInfo("Marking media records published for animal " + an.getID(), 
-                		"Publisher");
+                    Global.logInfo(
+                        "Marking media records published for animal " +
+                        an.getID(), "Publisher");
                 }
+
                 DBConnection.executeAction("UPDATE media SET LastPublished = '" +
-                	Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-                	an.getID() + " AND LinkTypeID = 0");
-                
+                    Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
+                    an.getID() + " AND LinkTypeID = 0");
+
                 an.moveNext();
 
                 if (parent != null) {

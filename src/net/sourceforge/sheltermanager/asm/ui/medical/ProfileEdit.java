@@ -367,11 +367,11 @@ public class ProfileEdit extends ASMForm {
 
             try {
                 mp.save(Global.currentUserName);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.updated(isNew, "medicalprofile",
-                		mp.getProfileName());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.updated(isNew, "medicalprofile",
+                        mp.getProfileName());
+                }
             } catch (Exception e) {
                 // Validation
                 Dialog.showError(e.getMessage());

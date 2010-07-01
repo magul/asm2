@@ -335,7 +335,7 @@ public abstract class LookupCache {
                 }
 
                 return accounts;
-                
+
             case LOOKUP_MEDIALINK:
 
                 if (medialink == null) {
@@ -668,14 +668,15 @@ public abstract class LookupCache {
     public static SQLRecordset getAccountsLookup() {
         return getLookup(LOOKUP_ACCOUNTS);
     }
-    
+
     public static SQLRecordset getMediaLinkLookup() {
-    	return getLookup(LOOKUP_MEDIALINK);
+        return getLookup(LOOKUP_MEDIALINK);
     }
-    
+
     public static String getMediaLinkForID(Integer ID) {
-    	getLookup(LOOKUP_MEDIALINK);
-    	return getNameForID(medialink, "LinkType", ID);
+        getLookup(LOOKUP_MEDIALINK);
+
+        return getNameForID(medialink, "LinkType", ID);
     }
 
     public static String getDonationFreqForID(Integer ID) {

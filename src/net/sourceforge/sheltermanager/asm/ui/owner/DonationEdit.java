@@ -328,11 +328,12 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
             // Save the record
             od.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "ownerdonation",
-            		od.getOwner().getOwnerName() + " " +
-            		od.getDonationTypeName());
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "ownerdonation",
+                    od.getOwner().getOwnerName() + " " +
+                    od.getDonationTypeName());
+            }
 
             // Update the accounting system - regardless of whether it's
             // enabled or not so that things are kept correctly in sync

@@ -1923,12 +1923,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         try {
             animal.save(Global.currentUserName);
-            
+
             // Audit
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNewRecord, 
-            			"animal", 
-            			animal.getShelterCode() + " " + animal.getAnimalName());
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNewRecord, "animal",
+                    animal.getShelterCode() + " " + animal.getAnimalName());
+            }
 
             // If it wasn't a new record, save the boarding cost
             if (!isNewRecord) {
@@ -3105,10 +3105,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 DBConnection.executeAction(s);
 
                 // Audit
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animal", 
-                		animal.getShelterCode() + " " + animal.getAnimalName());
-                
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animal",
+                        animal.getShelterCode() + " " + animal.getAnimalName());
+                }
+
                 // Remove the DBFS directory for the animal
                 DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
                         animal.getID().intValue());

@@ -294,13 +294,17 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
                 String sql = "DELETE FROM animalmedicaltreatment WHERE ID = " +
                     tid;
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.deleted("animalmedicaltreatment",
-                		getTable().getValueAt(getTable().getSelectedRow(), 0).toString() + " " +
-                		getTable().getValueAt(getTable().getSelectedRow(), 1).toString() + " " +
-                		getTable().getValueAt(getTable().getSelectedRow(), 2).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.deleted("animalmedicaltreatment",
+                        getTable().getValueAt(getTable().getSelectedRow(), 0)
+                            .toString() + " " +
+                        getTable().getValueAt(getTable().getSelectedRow(), 1)
+                            .toString() + " " +
+                        getTable().getValueAt(getTable().getSelectedRow(), 2)
+                            .toString());
+                }
+
                 updateList();
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());

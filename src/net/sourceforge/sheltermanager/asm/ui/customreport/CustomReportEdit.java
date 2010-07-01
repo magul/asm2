@@ -540,10 +540,10 @@ public class CustomReportEdit extends ASMForm {
                                                             : new Integer(0));
             cr.save(Global.currentUserName);
 
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "customreport", 
-            		cr.getTitle());
-            
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "customreport", cr.getTitle());
+            }
+
             // Update parent
             parent.updateList();
 

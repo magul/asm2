@@ -171,12 +171,15 @@ public class DietEdit extends ASMForm {
 
         try {
             diet.save(Global.currentUserName);
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "animaldiet", 
-	            	LookupCache.getAnimalByID(diet.getAnimalID()).getShelterCode() + " " +
-	            	LookupCache.getAnimalByID(diet.getAnimalID()).getAnimalName() + " " + 
-	            	Utils.formatDate(diet.getDateStarted()) + " " + 
-	            	diet.getDietName());
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "animaldiet",
+                    LookupCache.getAnimalByID(diet.getAnimalID())
+                               .getShelterCode() + " " +
+                    LookupCache.getAnimalByID(diet.getAnimalID()).getAnimalName() +
+                    " " + Utils.formatDate(diet.getDateStarted()) + " " +
+                    diet.getDietName());
+            }
 
             // Update the edit animal form if successful
             animaldiets.updateList();

@@ -381,13 +381,13 @@ public class DiarySelector extends ASMSelector {
 
             try {
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.changed("diary",
-                		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                		tablemodel.getValueAt(selrows[i], 5).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.changed("diary",
+                        tablemodel.getValueAt(selrows[i], 2).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 1).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 5).toString());
+                }
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
@@ -418,13 +418,15 @@ public class DiarySelector extends ASMSelector {
 
                 try {
                     DBConnection.executeAction(sql);
-                    
-                    if (AuditTrail.enabled())
-                    	AuditTrail.deleted("diary",
-                    		tablemodel.getValueAt(selrows[i], 2).toString() + " " +
-                    		tablemodel.getValueAt(selrows[i], 1).toString() + " " +
-                    		tablemodel.getValueAt(selrows[i], 5).toString());
-                    
+
+                    if (AuditTrail.enabled()) {
+                        AuditTrail.deleted("diary",
+                            tablemodel.getValueAt(selrows[i], 2).toString() +
+                            " " +
+                            tablemodel.getValueAt(selrows[i], 1).toString() +
+                            " " +
+                            tablemodel.getValueAt(selrows[i], 5).toString());
+                    }
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

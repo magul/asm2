@@ -158,11 +158,12 @@ public class LogEdit extends ASMForm {
 
         try {
             log.save(Global.currentUserName);
-            
-            if (AuditTrail.enabled())
-            	AuditTrail.updated(isNew, "log", 
-            		Utils.formatDate(log.getDate()) + " " +
-            		Utils.firstChars(log.getComments(), 20));
+
+            if (AuditTrail.enabled()) {
+                AuditTrail.updated(isNew, "log",
+                    Utils.formatDate(log.getDate()) + " " +
+                    Utils.firstChars(log.getComments(), 20));
+            }
 
             // Update the edit animal form if successful
             parent.updateList();

@@ -441,13 +441,13 @@ public class WaitingListView extends ASMView {
 
             try {
                 DBConnection.executeAction(sql);
-                
-                if (AuditTrail.enabled())
-                	AuditTrail.changed("animalwaitinglist",
-                		getTable().getValueAt(selrows[i], 7).toString() + " " +
-                		getTable().getValueAt(selrows[i], 8).toString() + " " +
-                		getTable().getValueAt(selrows[i], 1).toString());
-                
+
+                if (AuditTrail.enabled()) {
+                    AuditTrail.changed("animalwaitinglist",
+                        getTable().getValueAt(selrows[i], 7).toString() + " " +
+                        getTable().getValueAt(selrows[i], 8).toString() + " " +
+                        getTable().getValueAt(selrows[i], 1).toString());
+                }
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
                 Global.logException(e, getClass());
@@ -534,13 +534,15 @@ public class WaitingListView extends ASMView {
 
                 try {
                     DBConnection.executeAction(sql);
-                    
-                    if (AuditTrail.enabled())
-                    	AuditTrail.deleted("animalwaitinglist",
-                    		getTable().getValueAt(selrows[i], 7).toString() + " " +
-                    		getTable().getValueAt(selrows[i], 8).toString() + " " +
-                    		getTable().getValueAt(selrows[i], 1).toString());
-                    
+
+                    if (AuditTrail.enabled()) {
+                        AuditTrail.deleted("animalwaitinglist",
+                            getTable().getValueAt(selrows[i], 7).toString() +
+                            " " +
+                            getTable().getValueAt(selrows[i], 8).toString() +
+                            " " +
+                            getTable().getValueAt(selrows[i], 1).toString());
+                    }
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());

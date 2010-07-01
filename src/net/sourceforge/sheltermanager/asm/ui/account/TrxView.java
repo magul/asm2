@@ -118,6 +118,7 @@ public class TrxView extends ASMView {
 
             // Grab the list
             trx = AccountTrx.getTransactions(account.getID(), num);
+
             String[][] datar = new String[trx.size()][9];
 
             // Create an array of headers for the table
@@ -235,11 +236,10 @@ public class TrxView extends ASMView {
 
                 try {
                     DBConnection.executeAction(sql);
-                    
-                    AuditTrail.deleted("accountstrx", 
-                    		tablemodel.getValueAt(selrows[i], 0).toString() + 
-                    		" " + tablemodel.getValueAt(selrows[i], 2).toString());
-                    
+
+                    AuditTrail.deleted("accountstrx",
+                        tablemodel.getValueAt(selrows[i], 0).toString() + " " +
+                        tablemodel.getValueAt(selrows[i], 2).toString());
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
                     Global.logException(e, getClass());
