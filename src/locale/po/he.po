@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-03 09:36+0100\n"
-"PO-Revision-Date: 2010-06-04 22:48+0000\n"
-"Last-Translator: Ddorda <d.dorda@gmail.com>\n"
+"POT-Creation-Date: 2010-06-30 14:07+0100\n"
+"PO-Revision-Date: 2010-06-30 12:11+0000\n"
+"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-06 03:39+0000\n"
+"X-Launchpad-Export-Date: 2010-07-01 03:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -206,6 +206,8 @@ msgstr "מת"
 #. # bo/Animal
 #: Unknown
 #: lksex_2
+#: lksynun_2
+#: lksposneg_0
 msgid "Unknown"
 msgstr "לא ידוע"
 
@@ -713,6 +715,26 @@ msgstr "יש לציין תאריך לעלות."
 msgid "You must supply a description for the cost."
 msgstr "יש לציין תיאור לעלות."
 
+#. # bo/AuditTrail
+#: audit_create
+msgid "Created {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_changed
+msgid "Changed {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_deleted
+msgid "Deleted {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_moved
+msgid "Moved {0} from {1} to {2}"
+msgstr ""
+
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
@@ -966,6 +988,158 @@ msgstr "אין נתונים להצגה בתרשים."
 #: waitinglist
 msgid "Waiting List ("
 msgstr "רשימת המתנה ("
+
+#: accounts_1_5_1_code
+msgid "Income::Donation"
+msgstr "הכנסה::תרומה"
+
+#: accounts_1_desc
+msgid "Incoming donations (misc)"
+msgstr "תרומות נכנסות (שונות)"
+
+#: accounts_2_5_2_code
+msgid "Income::Adoption"
+msgstr "הכנסה::אימוץ"
+
+#: accounts_2_desc
+msgid "Adoption fee donations"
+msgstr "תרומות לעלויות אימוץ"
+
+#: accounts_3_5_3_code
+msgid "Income::WaitingList"
+msgstr "הכנסה::רשימת_המתנה"
+
+#: accounts_3_desc
+msgid "Waiting list donations"
+msgstr "תרומות לרשימת ההמתנה"
+
+#: accounts_4_5_4_code
+msgid "Income::EntryDonation"
+msgstr "הכנסה::תרומת_כניסה"
+
+#: accounts_4_desc
+msgid "Donations for animals entering the shelter"
+msgstr "תרומה לחיות הנכנסות לבית המחסה"
+
+#: accounts_5_5_5_code
+msgid "Income::Sponsorship"
+msgstr "הכנסה::חסות"
+
+#: accounts_5_desc
+msgid "Sponsorship donations"
+msgstr "תרומות חסות"
+
+#: accounts_6_5_0_code
+msgid "Income::Shop"
+msgstr "הכנסה::חנות"
+
+#: accounts_6_desc
+msgid "Income from an on-site shop"
+msgstr "הכנסה מחנות הבית"
+
+#: accounts_7_5_0_code
+msgid "Income::Interest"
+msgstr "הכנסה::ריבית"
+
+#: accounts_7_desc
+msgid "Bank account interest"
+msgstr "ריבית חשבון הבנק"
+
+#: accounts_8_5_0_code
+msgid "Income::OpeningBalances"
+msgstr "הכנסה::מאזנים_פותחים"
+
+#: accounts_8_desc
+msgid "Opening balances"
+msgstr "מאזנים פותחים"
+
+#: accounts_9_1_0_code
+msgid "Bank::Current"
+msgstr "בנק::נוכחי"
+
+#: accounts_9_desc
+msgid "Bank current account"
+msgstr "החשבון הנוכחי בבנק"
+
+#: accounts_10_1_0_code
+msgid "Bank::Deposit"
+msgstr "בנק::הפקדה"
+
+#: accounts_10_desc
+msgid "Bank deposit account"
+msgstr "חשבון ההפקדה בבנק"
+
+#: accounts_11_1_0_code
+msgid "Bank::Savings"
+msgstr "בנק::חסכונות"
+
+#: accounts_11_desc
+msgid "Bank savings account"
+msgstr "חשבון חסכון בבנק"
+
+#: accounts_12_8_0_code
+msgid "Asset::Premises"
+msgstr "נכס::שטח_ומבנה"
+
+#: accounts_12_desc
+msgid "Premises"
+msgstr "האזור והמבנה של בית המחסה"
+
+#: accounts_13_4_0_code
+msgid "Expenses::Phone"
+msgstr "הוצאות::טלפון"
+
+#: accounts_13_desc
+msgid "Telephone Bills"
+msgstr "חשבונות טלפון"
+
+#: accounts_14_4_0_code
+msgid "Expenses::Electricity"
+msgstr "הוצאות::חשמל"
+
+#: accounts_14_desc
+msgid "Electricity Bills"
+msgstr "חשבונות חשמל"
+
+#: accounts_15_4_0_code
+msgid "Expenses::Water"
+msgstr "הוצאות::מים"
+
+#: accounts_15_desc
+msgid "Water Bills"
+msgstr "חשבונות מים"
+
+#: accounts_16_4_0_code
+msgid "Expenses::Gas"
+msgstr "הוצאות::גז"
+
+#: accounts_16_desc
+msgid "Gas Bills"
+msgstr "חשבונות גז"
+
+#: accounts_17_4_0_code
+msgid "Expenses::Postage"
+msgstr "הוצאות::דואר"
+
+#: accounts_17_desc
+msgid "Postage costs"
+msgstr "עלויות שימוש בשרותי דואר"
+
+#: accounts_18_4_0_code
+msgid "Expenses::Stationary"
+msgstr "הוצאות::ציוד_כתיבה"
+
+#: accounts_18_desc
+msgid "Stationary costs"
+msgstr "עלויות ציוד כתיבה"
+
+#: accounts_19_4_0_code
+msgid "Expenses::Food"
+msgstr "הוצאות::מזון"
+
+#: accounts_19_desc
+msgid "Animal food costs"
+msgstr "עלויות המזון לחיות המחמד"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -2802,6 +2976,10 @@ msgstr "בגיר"
 msgid "Senior"
 msgstr "קשיש"
 
+#: costtype_1
+msgid "Board and Food"
+msgstr ""
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "חיות מחמד ללא שבב"
@@ -3055,6 +3233,10 @@ msgstr "פראות"
 #: entryreason_3
 msgid "Biting"
 msgstr "נשיכה"
+
+#: diet_1
+msgid "Standard"
+msgstr ""
 
 #. # reports/Retailer
 #. # reports/InOut
@@ -3364,6 +3546,8 @@ msgstr "מספר"
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
@@ -3387,6 +3571,80 @@ msgstr "כסף"
 #: lksfieldtype_6
 msgid "Lookup"
 msgstr "חיפוש"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_0
+#: lksynun_1
+#: No
+msgid "No"
+msgstr "לא"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/account/TrxView
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_1
+#: lksynun_0
+#: Yes
+msgid "Yes"
+msgstr "כן"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_1
+#: Negative
+msgid "Negative"
+msgstr "שלילי"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_2
+#: Positive
+msgid "Positive"
+msgstr "חיובי"
 
 #. # bo/AnimalWaitingList
 #: lkurgency_1
@@ -4066,33 +4324,6 @@ msgstr "מספר המיקרושבב"
 msgid "Age"
 msgstr "גיל"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: Yes
-msgid "Yes"
-msgstr "כן"
-
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
@@ -4109,32 +4340,6 @@ msgstr "סימונים"
 #: return_date
 msgid "Return Date"
 msgstr "תאריך ההחזרה"
-
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: No
-msgid "No"
-msgstr "לא"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4371,6 +4576,7 @@ msgstr "כתובת 1"
 #. # bo/LookupCache
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
+#. # bo/Account
 #. # bo/Diary
 #. # bo/CustomReport
 #. # bo/AnimalVaccination
@@ -4389,6 +4595,7 @@ msgstr "כתובת 1"
 #. # bo/AnimalDiet
 #. # bo/Animal
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #. # bo/AnimalName
 #. # bo/AnimalMedical
 #. # bo/Log
@@ -4740,11 +4947,17 @@ msgstr "יומן וטרינרי עד {0} "
 #. # ui/animal/CostSelector
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
+#. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #: Description
 msgid "Description"
 msgstr "תיאור"
@@ -5675,8 +5888,13 @@ msgstr "לא הוחזרו חיות מחמד בתוך חצי שנה של אימו
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
+#. # bo/Account
 #: Code
 msgid "Code"
 msgstr "קוד"
@@ -5745,6 +5963,8 @@ msgstr "מיקום פנימי"
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
 #. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
@@ -6309,6 +6529,290 @@ msgstr "לא ניתן לשלוח את התרשימים ל־stdout (פלט שור
 msgid "Litter ID"
 msgstr "מזהה ההמלטה"
 
+#. # ui/account/AccountView
+#: Add_a_new_account
+msgid "Add a new account"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Edit_the_selected_account
+msgid "Edit the selected account"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Delete_the_selected_accounts
+msgid "Delete the selected accounts"
+msgstr ""
+
+#. # ui/animal/VaccinationView
+#. # ui/animal/LitterView
+#. # ui/animal/CostSelector
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # ui/waitinglist/WaitingListView
+#: Refresh_the_list
+msgid "Refresh the list"
+msgstr "רענון הרשימה"
+
+#. # ui/account/AccountView
+#: Mark_everything_in_the_selected_accounts_reconciled_to_today
+msgid "Mark everything in the selected accounts reconciled to today"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Edit_the_transactions_for_this_account
+msgid "Edit the transactions for this account"
+msgstr ""
+
+#. # reports/VaccinationDiary
+#. # reports/Retailer
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # bo/Account
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#: Code
+#: Code\:
+msgid "Code:"
+msgstr "קוד:"
+
+#. # reports/VaccinationDiary
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/AnimalPrint
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/CostSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/movement/MovementView
+#. # ui/log/LogSelector
+#. # ui/customreport/GetReports
+#. # ui/animal/AnimalEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/movement/MovementEdit
+#: Type
+#: Type\:
+msgid "Type:"
+msgstr "סוג:"
+
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/DietSelector
+#. # ui/animal/CostSelector
+#. # ui/internet/PetFinderMapBreed
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/localcache/CacheView
+#. # ui/customreport/GetReports
+#. # bo/Account
+#. # bo/CustomReport
+#. # bo/AnimalCost
+#. # bo/AccountTrx
+#. # ui/animal/CostEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#: Description
+#: Description\:
+msgid "Description:"
+msgstr "תיאור:"
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # bo/AccountTrx
+#: Reconciled
+msgid "Reconciled"
+msgstr ""
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#: Balance
+msgid "Balance"
+msgstr ""
+
+#. # ui/system/Options
+#. # ui/account/AccountView
+#. # ui/main/Main
+#: Accounts
+msgid "Accounts"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: Create_New_Account
+msgid "Create New Account"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: edit_account
+msgid "Edit Account - {0}"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: Save_this_account_and_exit
+msgid "Save this account and exit"
+msgstr ""
+
+#. # ui/diary/DiaryEdit
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#: Close_without_saving
+msgid "Close without saving"
+msgstr "סגירה ללא שמירה"
+
+#. # ui/account/TrxView
+#: transactions_for
+msgid "Transactions - {0}"
+msgstr ""
+
+#. # ui/account/TrxView
+#: All
+msgid "All"
+msgstr ""
+
+#. # ui/account/TrxView
+#: show_most_recent
+msgid "Show Transactions:"
+msgstr ""
+
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/LitterView
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
+#. # ui/animal/LitterEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
+#: Date
+#: Date\:
+msgid "Date:"
+msgstr "תאריך:"
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Account
+msgid "Account:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Deposit
+msgid "Deposit:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Withdrawal
+msgid "Withdrawal:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Create_Transaction
+msgid "Create Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Edit_Transaction
+msgid "Edit Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Save_this_transaction_and_exit
+msgid "Save this transaction and exit"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Edit_the_selected_transaction
+msgid "Edit the selected transaction"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Delete_the_selected_transactions
+msgid "Delete the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Reconcile_the_selected_transactions
+msgid "Reconcile the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Add_a_transaction
+msgid "Add a transaction"
+msgstr ""
+
+#. # ui/lookups/LookupEdit
+#. # db/AutoDBUpdates
+#: income_prefix
+msgid "Income::"
+msgstr "הכנסה::"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6562,16 +7066,6 @@ msgid "Vaccination Book"
 msgstr "ספר החיסונים"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # ui/animal/CostSelector
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/waitinglist/WaitingListView
-#: Refresh_the_list
-msgid "Refresh the list"
-msgstr "רענון הרשימה"
-
-#. # ui/animal/VaccinationView
 #: Filling_list...
 msgid "Filling list..."
 msgstr "הרשימה מתמלאת..."
@@ -6630,16 +7124,6 @@ msgstr "או תאריך:"
 msgid "Create New Litter"
 msgstr "יצירת המלטה חדשה"
 
-#. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogEdit
-#: Date\:
-msgid "Date:"
-msgstr "תאריך:"
-
 #. # ui/animal/LitterEdit
 #: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
 msgid ""
@@ -6666,6 +7150,7 @@ msgstr "מספר:"
 #. # ui/animal/VaccinationView
 #. # ui/ui/ASMSelector
 #. # charts/Chart
+#. # utility/Utils
 #: ...
 msgid "..."
 msgstr "..."
@@ -6805,15 +7290,6 @@ msgstr ""
 #: Species\:
 msgid "Species:"
 msgstr "זן:"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
-#: Type\:
-msgid "Type:"
-msgstr "סוג:"
 
 #. # ui/animal/AnimalEdit
 #: Hidden_Comments\:
@@ -7179,12 +7655,6 @@ msgstr "נדרש"
 #: The_Identichip_Number
 msgid "The Identichip Number"
 msgstr "מספר שבב הזיהוי"
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#: Code\:
-msgid "Code:"
-msgstr "קוד:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7885,7 +8355,10 @@ msgstr "רפואי"
 msgid "Diet Information"
 msgstr "נתוני דיאטה"
 
+#. # ui/animal/MediaAdd
 #. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/animal/MediaEdit
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
@@ -7911,6 +8384,8 @@ msgstr "קובצי מדיה המשוייכים עם חיית מחמד זו"
 #. # ui/animal/AnimalEdit
 #. # ui/ui/Dialog
 #. # ui/system/Options
+#. # ui/diary/DiarySelector
+#. # ui/diary/DiaryEdit
 #. # ui/diary/VetBookView
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
@@ -7942,6 +8417,8 @@ msgstr "פרטים של עסקאות בהעברות"
 #. # ui/animal/AnimalEdit
 #. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/log/LogSelector
+#. # ui/log/LogEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
 #. # db/Diagnostic
@@ -8278,15 +8755,9 @@ msgstr "עלות חדשה"
 msgid "Edit Cost"
 msgstr "עריכת העלות"
 
-#. # ui/animal/CostEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#: Description\:
-msgid "Description:"
-msgstr "תיאור:"
-
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # bo/AccountTrx
 #: Amount
 msgid "Amount"
 msgstr "סכום"
@@ -8479,11 +8950,6 @@ msgstr "דוח"
 #: Install_this_report
 msgid "Install this report"
 msgstr "התקנת דוח זה"
-
-#. # ui/diary/DiaryEdit
-#: Close_without_saving
-msgid "Close without saving"
-msgstr "סגירה ללא שמירה"
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -9286,22 +9752,22 @@ msgstr "יש להגדיר את תצורת האתר AdoptAPet.com בטרם הפר
 #. # ui/internet/InternetPublisher
 #: Order
 msgid "Order"
-msgstr ""
+msgstr "הזמנה"
 
 #. # ui/internet/InternetPublisher
 #: Limit
 msgid "Limit"
-msgstr ""
+msgstr "מגבלה"
 
 #. # ui/internet/InternetPublisher
 #: Most_recent_ascending
 msgid "Longest on shelter first"
-msgstr ""
+msgstr "הוותיקים בבית המחסה קודם"
 
 #. # ui/internet/InternetPublisher
 #: Most_recent_descending
 msgid "Newest first"
-msgstr ""
+msgstr "החדשים קודם"
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -12440,42 +12906,9 @@ msgid "Edit File Types"
 msgstr "עריכת סוגי קבצים"
 
 #. # ui/system/FileTypeManager
-#: No_HTML_Viewer
-msgid "No HTML Viewer"
-msgstr "אין מציג HTML"
-
-#. # ui/system/FileTypeManager
-#: _based_computer._Press_Ok_and_please_wait...
-msgid " based computer"
-msgstr " מחשב מבוסס על"
-
-#. # ui/system/FileTypeManager
-#: No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager.
-msgid ""
-"No valid HTML viewer could be found. External reports will not be viewable "
-"from Animal Shelter Manager."
-msgstr ""
-"לא נמצא מציג HTML תקני. הדוחות החיצוניים לא יהיו ניתנים לצפייה מתוך Animal "
-"Shelter Manager."
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_your_
-msgid "Scanning filetypes for your "
-msgstr "נסרקים סוגי הקבצים עבור "
-
-#. # ui/system/FileTypeManager
 #: Animal_Shelter_Manager_has_no_registered_type_for_'
 msgid "Animal Shelter Manager has no registered type for '"
 msgstr "ל־Animal Shelter Manager אין סוג רשום עבור '"
-
-#. # ui/system/FileTypeManager
-#: No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager.
-msgid ""
-"No pdf/postscript viewer could be found. Printable help files will not\n"
-"be viewable in Animal Shelter Manager."
-msgstr ""
-"לא נמצא מציג pdf/postscript. קובצי עזרה הניתנים להדפסה\n"
-"לא יהיו ניתנים להצגה תחת Animal Shelter Manager."
 
 #. # ui/system/FileTypeManager
 #: [no_entry]
@@ -12492,16 +12925,6 @@ msgstr "לקובץ זה אין סיומת. ל־Animal Shelter Manager אין א�
 #: No_type
 msgid "No type"
 msgstr "אין סוג"
-
-#. # ui/system/FileTypeManager
-#: No_image_viewer
-msgid "No image viewer"
-msgstr "אין מציג תמונות"
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait...
-msgid "Scanning filetypes for a Microsoft Windows based computer"
-msgstr "מתבצעת סריקת סוגי הקבצים למחשב המבוסס על Microsoft Windows"
 
 #. # ui/system/Options
 #: Start_At\:
@@ -12724,17 +13147,6 @@ msgid ""
 msgstr ""
 "יש לנתק את המשתמש מהמערכת לאחר כמות זו של דקות של אי־פעילות או 0 כדי לא לנתק "
 "אוטומטית אף פעם"
-
-#. # ui/system/FileTypeManager
-#: ASM_could_not_locate_an_office_suite_on_your_computer
-msgid ""
-"ASM could not locate an office suite on your computer. Document generation "
-"will not work until you install and setup an office suite and file type "
-"handlers in ASM."
-msgstr ""
-"ASM לא הצליחה לאתר תוכנת כלים משרדיים (כגון אופן אופיס) במחשבך. יצירת מסמכים "
-"לא תפעל עד להתקנת והגדרת חבילת תוכנות משרדיות והגדרת הטיפול בסוגי הקבצים "
-"ב־ASM."
 
 #. # ui/system/MediaFiles
 #. # ui/main/Main
@@ -13371,42 +13783,42 @@ msgstr "לאחר ההקצאה, לא ניתן לשנות את הקודים"
 #. # ui/system/Options
 #: Remove_unwanted_fields
 msgid "Remove Unwanted Fields"
-msgstr ""
+msgstr "הסרת שדות בלתי נחוצים"
 
 #. # ui/system/Options
 #: remove_town_and_county_fields
 msgid "Remove the town/county fields from the owner screen"
-msgstr ""
+msgstr "הסרת השדות מחוז/עיירה ממסך הבעלים"
 
 #. # ui/system/Options
 #: remove_coattype_field
 msgid "Remove the coat type field from the animal screen"
-msgstr ""
+msgstr "הסרת סוג הפרווה ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_microchip_fields
 msgid "Remove the microchip fields from the animal screen"
-msgstr ""
+msgstr "הסרת שדה השבב ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_tattoo_fields
 msgid "Remove the tattoo fields from the animal screen"
-msgstr ""
+msgstr "הסרת שדה הקעקוע ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_neutered_fields
 msgid "Remove the spay/neuter fields from the animal screen"
-msgstr ""
+msgstr "הסרת השדות עיקור/סירוס ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_declawed_field
 msgid "Remove the declawed field from the animal screen"
-msgstr ""
+msgstr "הסרת שדה עקירת הטפרים ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_heartworm_fields
 msgid "Remove the heartworm test fields from the animal screen"
-msgstr ""
+msgstr "הסרת שדות בדיקת תולעת הלב ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_combitest_fields
@@ -13417,11 +13829,33 @@ msgstr ""
 #: remove_goodwith_fields
 msgid ""
 "Remove the \"Good With...\" and Housetrained fields from the animal screen"
-msgstr ""
+msgstr "הסרת השדות \"ידידותי ל...\" ואילוף ממסך חיית המחמד"
 
 #. # ui/system/Options
 #: remove_litter_field
 msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr ""
+
+#. # ui/system/Options
+#: disable_accounts_functionality
+msgid "Disable Accounts Functionality"
+msgstr "נטרול יכולות החשבון"
+
+#. # ui/system/Options
+#: Donation_destination_account
+msgid "Donation destination account:"
+msgstr "חשבון יעד התרומות:"
+
+#. # ui/system/Options
+#: creating_matching_trx
+msgid ""
+"Creating donations and donation types creates matching accounts and "
+"transactions"
+msgstr "יצירת תרומות וסוגי תרומות יוצרת העברות וחשבונות תואמים"
+
+#. # ui/system/Options
+#: Keep_audit_trail
+msgid "Keep a full audit trail"
 msgstr ""
 
 #. # ui/users/UserView
@@ -14053,6 +14487,36 @@ msgstr "רשומת בעלים:"
 msgid "View Staff Owner Records"
 msgstr "צפייה ברשומת בעלים של הסגל"
 
+#. # ui/users/UserEdit
+#: Accounts\:
+msgid "Accounts:"
+msgstr "חשבונות:"
+
+#. # ui/users/UserEdit
+#: Add_Accounts
+msgid "Add Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Accounts
+msgid "View Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Change_Accounts
+msgid "Change Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Change_Transactions
+msgid "Change Transactions"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Delete_Accounts
+msgid "Delete Accounts"
+msgstr "מחיקת חשבונות"
+
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
 msgid "HTML Viewer"
@@ -14209,6 +14673,11 @@ msgstr "עריכת רשומה ברשימת ההמתנה - {0}"
 msgid "Removal Reason:"
 msgstr "סיבת הסרה:"
 
+#. # ui/waitinglist/WaitingListView
+#: toggle_highlighting_of_the_selected_waiting_list_entries
+msgid "Toggle highlighting of the selected entries "
+msgstr ""
+
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
@@ -14218,20 +14687,6 @@ msgstr "יש לבחור תבנית למסמך"
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
 msgstr "האם לצרף מסמך מחולל כמדיה?"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Positive
-msgid "Positive"
-msgstr "חיובי"
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Negative
-msgid "Negative"
-msgstr "שלילי"
 
 #. # wordprocessor/AnimalDocument
 #: estimated
@@ -14243,6 +14698,15 @@ msgstr "(מוערך)"
 
 #~ msgid "monthly"
 #~ msgstr "חודשי"
+
+#~ msgid "No HTML Viewer"
+#~ msgstr "אין מציג HTML"
+
+#~ msgid " based computer"
+#~ msgstr " מחשב מבוסס על"
+
+#~ msgid "No image viewer"
+#~ msgstr "אין מציג תמונות"
 
 #~ msgid "Brought In ("
 #~ msgstr "הובא ב... ("
@@ -14322,6 +14786,16 @@ msgstr "(מוערך)"
 #~ msgid "An error occurred saving changes to asm.properties:\n"
 #~ msgstr "ארעה שגיאה בעת שמירת השינויים לקובץ asm.properties\n"
 
+#~ msgid "Scanning filetypes for a Microsoft Windows based computer"
+#~ msgstr "מתבצעת סריקת סוגי הקבצים למחשב המבוסס על Microsoft Windows"
+
+#~ msgid ""
+#~ "No pdf/postscript viewer could be found. Printable help files will not\n"
+#~ "be viewable in Animal Shelter Manager."
+#~ msgstr ""
+#~ "לא נמצא מציג pdf/postscript. קובצי עזרה הניתנים להדפסה\n"
+#~ "לא יהיו ניתנים להצגה תחת Animal Shelter Manager."
+
 #~ msgid "Unable to save filetype registry to disk."
 #~ msgstr "לא ניתן לשמור את רשומת סוג הקובץ לכונן."
 
@@ -14330,6 +14804,9 @@ msgstr "(מוערך)"
 
 #~ msgid "An error occurred reading the list of system filetypes:\n"
 #~ msgstr "ארעה שגיאה בעת קריאת רשימת סוגי הקבצים של המערכת:\n"
+
+#~ msgid "Scanning filetypes for your "
+#~ msgstr "נסרקים סוגי הקבצים עבור "
 
 #~ msgid "Bad Command"
 #~ msgstr "פקודה שגויה"
@@ -14342,6 +14819,13 @@ msgstr "(מוערך)"
 
 #~ msgid "An error occurred saving the data: "
 #~ msgstr "ארעה שגיאה בשמירת הנתונים: "
+
+#~ msgid ""
+#~ "No valid HTML viewer could be found. External reports will not be viewable "
+#~ "from Animal Shelter Manager."
+#~ msgstr ""
+#~ "לא נמצא מציג HTML תקני. הדוחות החיצוניים לא יהיו ניתנים לצפייה מתוך Animal "
+#~ "Shelter Manager."
 
 #~ msgid "Do you want to create a CVS file or do a bulk email?"
 #~ msgstr "האם ליצור קובץ CVS או לשלוח הודעה מרובת נמענים?"
@@ -14396,6 +14880,15 @@ msgstr "(מוערך)"
 
 #~ msgid "Unable to open owner: "
 #~ msgstr "לא ניתן לפתוח את הבעלים: "
+
+#~ msgid ""
+#~ "ASM could not locate an office suite on your computer. Document generation "
+#~ "will not work until you install and setup an office suite and file type "
+#~ "handlers in ASM."
+#~ msgstr ""
+#~ "ASM לא הצליחה לאתר תוכנת כלים משרדיים (כגון אופן אופיס) במחשבך. יצירת מסמכים "
+#~ "לא תפעל עד להתקנת והגדרת חבילת תוכנות משרדיות והגדרת הטיפול בסוגי הקבצים "
+#~ "ב־ASM."
 
 #~ msgid "Unable to create new found animal record: "
 #~ msgstr "לא ניתן ליצור רשומה חדשה לחיית מחמד שנמצאה : "

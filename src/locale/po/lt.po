@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-24 14:18+0100\n"
-"PO-Revision-Date: 2010-06-24 16:53+0000\n"
+"POT-Creation-Date: 2010-06-25 11:26+0100\n"
+"PO-Revision-Date: 2010-06-29 06:32+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-25 03:53+0000\n"
+"X-Launchpad-Export-Date: 2010-06-30 03:39+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -992,7 +992,7 @@ msgstr "Gyvūno atidavimo mokestis"
 
 #: accounts_3_5_3_code
 msgid "Income::WaitingList"
-msgstr "Pajamos::Laukiantys"
+msgstr "Pajamos::Laukiančių sąrašas"
 
 #: accounts_3_desc
 msgid "Waiting list donations"
@@ -1000,7 +1000,7 @@ msgstr "Parama iš laukiančių vietos"
 
 #: accounts_4_5_4_code
 msgid "Income::EntryDonation"
-msgstr "Pajamos::Priėmimas"
+msgstr "Pajamos::Parama už priėmimą"
 
 #: accounts_4_desc
 msgid "Donations for animals entering the shelter"
@@ -1008,7 +1008,7 @@ msgstr "Parama už priimtą gyvūną"
 
 #: accounts_5_5_5_code
 msgid "Income::Sponsorship"
-msgstr "Pajmos::Rėmimas"
+msgstr "Pajamos::Rėmimas"
 
 #: accounts_5_desc
 msgid "Sponsorship donations"
@@ -1032,7 +1032,7 @@ msgstr "Banko sąskaitos palūkanos"
 
 #: accounts_8_5_0_code
 msgid "Income::OpeningBalances"
-msgstr "Pajamos::PradiniaiLikučiai"
+msgstr "Pajamos::Pradiniai likučiai"
 
 #: accounts_8_desc
 msgid "Opening balances"
@@ -1072,7 +1072,7 @@ msgstr "Pastatai"
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
-msgstr "Išlaidos::Telefonas"
+msgstr "Sąnaudos::Telefonas"
 
 #: accounts_13_desc
 msgid "Telephone Bills"
@@ -1080,7 +1080,7 @@ msgstr "Sąskaitos už telefono ryšį"
 
 #: accounts_14_4_0_code
 msgid "Expenses::Electricity"
-msgstr "Išlaidos::Elektra"
+msgstr "Sąnaudos::Elektra"
 
 #: accounts_14_desc
 msgid "Electricity Bills"
@@ -1088,7 +1088,7 @@ msgstr "Sąskaitos už elektrą"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
-msgstr "Išlaidos::Vanduo"
+msgstr "Sąnaudos::Vanduo"
 
 #: accounts_15_desc
 msgid "Water Bills"
@@ -1096,7 +1096,7 @@ msgstr "Sąskaitos už vandenį"
 
 #: accounts_16_4_0_code
 msgid "Expenses::Gas"
-msgstr "Išlaidos::Dujos"
+msgstr "Sąnaudos::Dujos"
 
 #: accounts_16_desc
 msgid "Gas Bills"
@@ -1104,7 +1104,7 @@ msgstr "Sąskaitos už dujas"
 
 #: accounts_17_4_0_code
 msgid "Expenses::Postage"
-msgstr "Išlaidos::Paštas"
+msgstr "Sąnaudos::Paštas"
 
 #: accounts_17_desc
 msgid "Postage costs"
@@ -1112,7 +1112,7 @@ msgstr "Pašto išlaidos"
 
 #: accounts_18_4_0_code
 msgid "Expenses::Stationary"
-msgstr "Išlaidos::Kanceliarija"
+msgstr "Sąnaudos::Kanceliarija"
 
 #: accounts_18_desc
 msgid "Stationary costs"
@@ -1120,7 +1120,7 @@ msgstr "Išlaidos kanceliarinėms prekėms"
 
 #: accounts_19_4_0_code
 msgid "Expenses::Food"
-msgstr "Išlaidos::Pašarai"
+msgstr "Sąnaudos::Pašarai"
 
 #: accounts_19_desc
 msgid "Animal food costs"
@@ -3363,7 +3363,7 @@ msgstr "Paskola"
 
 #: lksaccounttype_4
 msgid "Expense"
-msgstr "Išlaidos"
+msgstr "Sąnaudos"
 
 #: lksaccounttype_5
 msgid "Income"
@@ -6779,13 +6779,13 @@ msgstr "Sąskaita:"
 #. # ui/account/TrxView
 #: Deposit
 msgid "Deposit:"
-msgstr "Įnašas:"
+msgstr "Debetas:"
 
 #. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #: Withdrawal
 msgid "Withdrawal:"
-msgstr "Išėmimas:"
+msgstr "Kreditas:"
 
 #. # ui/account/TrxEdit
 #: Create_Transaction
@@ -14744,6 +14744,11 @@ msgstr "Redaguoti laukiančiųjų vietos sąrašo įrašą - {0}"
 #: Removal_Reason\:
 msgid "Removal Reason:"
 msgstr "Pašalinimo priežastis:"
+
+#. # ui/waitinglist/WaitingListView
+#: toggle_highlighting_of_the_selected_waiting_list_entries
+msgid "Toggle highlighting of the selected entries "
+msgstr "Perjungti pasirinktų įrašų ryškinimą "
 
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template

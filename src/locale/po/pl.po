@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-03 09:36+0100\n"
-"PO-Revision-Date: 2010-06-03 09:43+0000\n"
+"POT-Creation-Date: 2010-06-25 11:26+0100\n"
+"PO-Revision-Date: 2010-06-25 11:17+0000\n"
 "Last-Translator: A.Rosenfield <gsulima@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-04 03:50+0000\n"
+"X-Launchpad-Export-Date: 2010-06-26 04:04+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -206,6 +206,8 @@ msgstr "Zgon"
 #. # bo/Animal
 #: Unknown
 #: lksex_2
+#: lksynun_2
+#: lksposneg_0
 msgid "Unknown"
 msgstr "Nieznany/a"
 
@@ -963,6 +965,158 @@ msgstr "Brak danych do pokazania na wykresie"
 #: waitinglist
 msgid "Waiting List ("
 msgstr "Lista oczekiwania ("
+
+#: accounts_1_5_1_code
+msgid "Income::Donation"
+msgstr ""
+
+#: accounts_1_desc
+msgid "Incoming donations (misc)"
+msgstr ""
+
+#: accounts_2_5_2_code
+msgid "Income::Adoption"
+msgstr ""
+
+#: accounts_2_desc
+msgid "Adoption fee donations"
+msgstr ""
+
+#: accounts_3_5_3_code
+msgid "Income::WaitingList"
+msgstr ""
+
+#: accounts_3_desc
+msgid "Waiting list donations"
+msgstr ""
+
+#: accounts_4_5_4_code
+msgid "Income::EntryDonation"
+msgstr ""
+
+#: accounts_4_desc
+msgid "Donations for animals entering the shelter"
+msgstr ""
+
+#: accounts_5_5_5_code
+msgid "Income::Sponsorship"
+msgstr ""
+
+#: accounts_5_desc
+msgid "Sponsorship donations"
+msgstr ""
+
+#: accounts_6_5_0_code
+msgid "Income::Shop"
+msgstr ""
+
+#: accounts_6_desc
+msgid "Income from an on-site shop"
+msgstr ""
+
+#: accounts_7_5_0_code
+msgid "Income::Interest"
+msgstr ""
+
+#: accounts_7_desc
+msgid "Bank account interest"
+msgstr ""
+
+#: accounts_8_5_0_code
+msgid "Income::OpeningBalances"
+msgstr ""
+
+#: accounts_8_desc
+msgid "Opening balances"
+msgstr ""
+
+#: accounts_9_1_0_code
+msgid "Bank::Current"
+msgstr ""
+
+#: accounts_9_desc
+msgid "Bank current account"
+msgstr ""
+
+#: accounts_10_1_0_code
+msgid "Bank::Deposit"
+msgstr ""
+
+#: accounts_10_desc
+msgid "Bank deposit account"
+msgstr ""
+
+#: accounts_11_1_0_code
+msgid "Bank::Savings"
+msgstr ""
+
+#: accounts_11_desc
+msgid "Bank savings account"
+msgstr ""
+
+#: accounts_12_8_0_code
+msgid "Asset::Premises"
+msgstr ""
+
+#: accounts_12_desc
+msgid "Premises"
+msgstr ""
+
+#: accounts_13_4_0_code
+msgid "Expenses::Phone"
+msgstr ""
+
+#: accounts_13_desc
+msgid "Telephone Bills"
+msgstr ""
+
+#: accounts_14_4_0_code
+msgid "Expenses::Electricity"
+msgstr ""
+
+#: accounts_14_desc
+msgid "Electricity Bills"
+msgstr ""
+
+#: accounts_15_4_0_code
+msgid "Expenses::Water"
+msgstr ""
+
+#: accounts_15_desc
+msgid "Water Bills"
+msgstr ""
+
+#: accounts_16_4_0_code
+msgid "Expenses::Gas"
+msgstr ""
+
+#: accounts_16_desc
+msgid "Gas Bills"
+msgstr ""
+
+#: accounts_17_4_0_code
+msgid "Expenses::Postage"
+msgstr ""
+
+#: accounts_17_desc
+msgid "Postage costs"
+msgstr ""
+
+#: accounts_18_4_0_code
+msgid "Expenses::Stationary"
+msgstr ""
+
+#: accounts_18_desc
+msgid "Stationary costs"
+msgstr ""
+
+#: accounts_19_4_0_code
+msgid "Expenses::Food"
+msgstr ""
+
+#: accounts_19_desc
+msgid "Animal food costs"
+msgstr ""
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -2799,6 +2953,10 @@ msgstr "Dorosły"
 msgid "Senior"
 msgstr "Senior"
 
+#: costtype_1
+msgid "Board and Food"
+msgstr ""
+
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
 msgstr "Zwierzęta bez czipów"
@@ -3051,6 +3209,10 @@ msgstr ""
 #: deathreason_8
 #: entryreason_3
 msgid "Biting"
+msgstr ""
+
+#: diet_1
+msgid "Standard"
 msgstr ""
 
 #. # reports/Retailer
@@ -3361,6 +3523,8 @@ msgstr "Numer"
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
@@ -3383,6 +3547,80 @@ msgstr ""
 
 #: lksfieldtype_6
 msgid "Lookup"
+msgstr ""
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_0
+#: lksynun_1
+#: No
+msgid "No"
+msgstr "Nie"
+
+#. # reports/InOut
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/ui/UI
+#. # ui/ui/ASMConfigForm
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/account/TrxView
+#. # ui/main/Logout
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/Publisher
+#. # db/AutoDBUpdates
+#. # mailmerge/ChipRegistration
+#. # mailmerge/ChipCancellation
+#. # wordprocessor/OwnerDonationDocument
+#. # wordprocessor/AnimalDocument
+#. # wordprocessor/OwnerDocument
+#. # wordprocessor/GenerateDocument
+#: lksyesno_1
+#: lksynun_0
+#: Yes
+msgid "Yes"
+msgstr "Tak"
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_1
+#: Negative
+msgid "Negative"
+msgstr ""
+
+#. # reports/Report
+#. # ui/animal/AnimalEdit
+#. # wordprocessor/GenerateDocument
+#: lksposneg_2
+#: Positive
+msgid "Positive"
 msgstr ""
 
 #. # bo/AnimalWaitingList
@@ -4051,33 +4289,6 @@ msgstr "Numer czipa"
 msgid "Age"
 msgstr "Wiek"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: Yes
-msgid "Yes"
-msgstr "Tak"
-
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # mailmerge/ChipRegistration
@@ -4094,32 +4305,6 @@ msgstr ""
 #: return_date
 msgid "Return Date"
 msgstr "Zwrócono"
-
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
-#: No
-msgid "No"
-msgstr "Nie"
 
 #. # mailmerge/ChipRegistration
 #. # mailmerge/ChipCancellation
@@ -4356,6 +4541,7 @@ msgstr "Adres 1"
 #. # bo/LookupCache
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
+#. # bo/Account
 #. # bo/Diary
 #. # bo/CustomReport
 #. # bo/AnimalVaccination
@@ -4374,6 +4560,7 @@ msgstr "Adres 1"
 #. # bo/AnimalDiet
 #. # bo/Animal
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #. # bo/AnimalName
 #. # bo/AnimalMedical
 #. # bo/Log
@@ -4725,11 +4912,17 @@ msgstr ""
 #. # ui/animal/CostSelector
 #. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/localcache/CacheView
 #. # ui/customreport/GetReports
+#. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
+#. # bo/AccountTrx
 #: Description
 msgid "Description"
 msgstr "Opis"
@@ -5657,8 +5850,13 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
+#. # bo/Account
 #: Code
 msgid "Code"
 msgstr ""
@@ -5727,6 +5925,8 @@ msgstr ""
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
 #. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
@@ -6287,6 +6487,290 @@ msgstr ""
 msgid "Litter ID"
 msgstr ""
 
+#. # ui/account/AccountView
+#: Add_a_new_account
+msgid "Add a new account"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Edit_the_selected_account
+msgid "Edit the selected account"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Delete_the_selected_accounts
+msgid "Delete the selected accounts"
+msgstr ""
+
+#. # ui/animal/VaccinationView
+#. # ui/animal/LitterView
+#. # ui/animal/CostSelector
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # ui/waitinglist/WaitingListView
+#: Refresh_the_list
+msgid "Refresh the list"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Mark_everything_in_the_selected_accounts_reconciled_to_today
+msgid "Mark everything in the selected accounts reconciled to today"
+msgstr ""
+
+#. # ui/account/AccountView
+#: Edit_the_transactions_for_this_account
+msgid "Edit the transactions for this account"
+msgstr ""
+
+#. # reports/VaccinationDiary
+#. # reports/Retailer
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/system/Options
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # bo/Account
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#: Code
+#: Code\:
+msgid "Code:"
+msgstr ""
+
+#. # reports/VaccinationDiary
+#. # reports/NoMediaAttached
+#. # reports/ShelterInventory
+#. # reports/InOut
+#. # reports/UnderSixNotLitter
+#. # reports/NotMicroChipped
+#. # reports/MedicalDiary
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPostSix
+#. # reports/UnCombiTestedCats
+#. # reports/AnimalReturnedPreSix
+#. # reports/LongTermAnimals
+#. # reports/AnimalPrint
+#. # reports/TransferIn
+#. # reports/UnneuteredSixMonths
+#. # reports/Vets
+#. # ui/animal/VaccinationView
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/CostSelector
+#. # ui/diary/VetBookView
+#. # ui/diary/DiaryTaskView
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/movement/MovementView
+#. # ui/log/LogSelector
+#. # ui/customreport/GetReports
+#. # ui/animal/AnimalEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryTaskHeadEdit
+#. # ui/movement/MovementEdit
+#: Type
+#: Type\:
+msgid "Type:"
+msgstr ""
+
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/DietSelector
+#. # ui/animal/CostSelector
+#. # ui/internet/PetFinderMapBreed
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/account/AccountEdit
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/localcache/CacheView
+#. # ui/customreport/GetReports
+#. # bo/Account
+#. # bo/CustomReport
+#. # bo/AnimalCost
+#. # bo/AccountTrx
+#. # ui/animal/CostEdit
+#. # ui/waitinglist/WaitingListEdit
+#. # ui/waitinglist/WaitingListView
+#: Description
+#: Description\:
+msgid "Description:"
+msgstr ""
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#. # bo/AccountTrx
+#: Reconciled
+msgid "Reconciled"
+msgstr ""
+
+#. # ui/account/AccountView
+#. # ui/account/TrxView
+#: Balance
+msgid "Balance"
+msgstr ""
+
+#. # ui/system/Options
+#. # ui/account/AccountView
+#. # ui/main/Main
+#: Accounts
+msgid "Accounts"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: Create_New_Account
+msgid "Create New Account"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: edit_account
+msgid "Edit Account - {0}"
+msgstr ""
+
+#. # ui/account/AccountEdit
+#: Save_this_account_and_exit
+msgid "Save this account and exit"
+msgstr ""
+
+#. # ui/diary/DiaryEdit
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#: Close_without_saving
+msgid "Close without saving"
+msgstr ""
+
+#. # ui/account/TrxView
+#: transactions_for
+msgid "Transactions - {0}"
+msgstr ""
+
+#. # ui/account/TrxView
+#: All
+msgid "All"
+msgstr ""
+
+#. # ui/account/TrxView
+#: show_most_recent
+msgid "Show Transactions:"
+msgstr ""
+
+#. # reports/DiaryNotesToday
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/LitterView
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/movement/MovementSelector
+#. # ui/movement/MovementView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/log/LogSelector
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # bo/AnimalLitter
+#. # bo/Log
+#. # ui/animal/LitterEdit
+#. # ui/animal/CostEdit
+#. # ui/diary/DiaryEdit
+#. # ui/movement/MovementEdit
+#. # ui/log/LogEdit
+#: Date
+#: Date\:
+msgid "Date:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Account
+msgid "Account:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Deposit
+msgid "Deposit:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#: Withdrawal
+msgid "Withdrawal:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Create_Transaction
+msgid "Create Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Edit_Transaction
+msgid "Edit Transaction"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: Save_this_transaction_and_exit
+msgid "Save this transaction and exit"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Edit_the_selected_transaction
+msgid "Edit the selected transaction"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Delete_the_selected_transactions
+msgid "Delete the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Reconcile_the_selected_transactions
+msgid "Reconcile the selected transactions"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Add_a_transaction
+msgid "Add a transaction"
+msgstr ""
+
+#. # ui/lookups/LookupEdit
+#. # db/AutoDBUpdates
+#: income_prefix
+msgid "Income::"
+msgstr ""
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6540,16 +7024,6 @@ msgid "Vaccination Book"
 msgstr ""
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # ui/animal/CostSelector
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/waitinglist/WaitingListView
-#: Refresh_the_list
-msgid "Refresh the list"
-msgstr ""
-
-#. # ui/animal/VaccinationView
 #: Filling_list...
 msgid "Filling list..."
 msgstr ""
@@ -6604,16 +7078,6 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
-msgstr ""
-
-#. # reports/AnimalPrint
-#. # ui/animal/LitterEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogEdit
-#: Date\:
-msgid "Date:"
 msgstr ""
 
 #. # ui/animal/LitterEdit
@@ -6777,15 +7241,6 @@ msgstr ""
 #. # ui/waitinglist/WaitingListView
 #: Species\:
 msgid "Species:"
-msgstr ""
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostEdit
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/movement/MovementEdit
-#: Type\:
-msgid "Type:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -7150,12 +7605,6 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
 msgid "The Identichip Number"
-msgstr ""
-
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#: Code\:
-msgid "Code:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
@@ -8235,15 +8684,9 @@ msgstr ""
 msgid "Edit Cost"
 msgstr ""
 
-#. # ui/animal/CostEdit
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#: Description\:
-msgid "Description:"
-msgstr ""
-
 #. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # bo/AccountTrx
 #: Amount
 msgid "Amount"
 msgstr ""
@@ -8435,11 +8878,6 @@ msgstr ""
 #. # ui/customreport/GetReports
 #: Install_this_report
 msgid "Install this report"
-msgstr ""
-
-#. # ui/diary/DiaryEdit
-#: Close_without_saving
-msgid "Close without saving"
 msgstr ""
 
 #. # ui/diary/DiaryEdit
@@ -12364,37 +12802,8 @@ msgid "Edit File Types"
 msgstr ""
 
 #. # ui/system/FileTypeManager
-#: No_HTML_Viewer
-msgid "No HTML Viewer"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: _based_computer._Press_Ok_and_please_wait...
-msgid " based computer"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: No_valid_HTML_viewer_could_be_found._External_reports_\nwill_not_be_viewable_from_Animal_Shelter_Manager.
-msgid ""
-"No valid HTML viewer could be found. External reports will not be viewable "
-"from Animal Shelter Manager."
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_your_
-msgid "Scanning filetypes for your "
-msgstr ""
-
-#. # ui/system/FileTypeManager
 #: Animal_Shelter_Manager_has_no_registered_type_for_'
 msgid "Animal Shelter Manager has no registered type for '"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: No_pdf/postscript_viewer_could_be_found._Printable_help_files_will_not\nbe_viewable_in_Animal_Shelter_Manager.
-msgid ""
-"No pdf/postscript viewer could be found. Printable help files will not\n"
-"be viewable in Animal Shelter Manager."
 msgstr ""
 
 #. # ui/system/FileTypeManager
@@ -12411,16 +12820,6 @@ msgstr ""
 #. # ui/system/FileTypeManager
 #: No_type
 msgid "No type"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: No_image_viewer
-msgid "No image viewer"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: About_to_scan_filetypes_for_a_Microsoft_Windows_based_computer._Press_Ok_and_please_wait...
-msgid "Scanning filetypes for a Microsoft Windows based computer"
 msgstr ""
 
 #. # ui/system/Options
@@ -12639,14 +13038,6 @@ msgstr ""
 msgid ""
 "Automatically log the current user out after this many minutes of inactivity "
 "or 0 to never logout"
-msgstr ""
-
-#. # ui/system/FileTypeManager
-#: ASM_could_not_locate_an_office_suite_on_your_computer
-msgid ""
-"ASM could not locate an office suite on your computer. Document generation "
-"will not work until you install and setup an office suite and file type "
-"handlers in ASM."
 msgstr ""
 
 #. # ui/system/MediaFiles
@@ -13327,6 +13718,23 @@ msgstr ""
 msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
 msgstr ""
 
+#. # ui/system/Options
+#: disable_accounts_functionality
+msgid "Disable Accounts Functionality"
+msgstr ""
+
+#. # ui/system/Options
+#: Donation_destination_account
+msgid "Donation destination account:"
+msgstr ""
+
+#. # ui/system/Options
+#: creating_matching_trx
+msgid ""
+"Creating donations and donation types creates matching accounts and "
+"transactions"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -13956,6 +14364,36 @@ msgstr ""
 msgid "View Staff Owner Records"
 msgstr ""
 
+#. # ui/users/UserEdit
+#: Accounts\:
+msgid "Accounts:"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Add_Accounts
+msgid "Add Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Accounts
+msgid "View Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Change_Accounts
+msgid "Change Accounts"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Change_Transactions
+msgid "Change Transactions"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: Delete_Accounts
+msgid "Delete Accounts"
+msgstr ""
+
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
 msgid "HTML Viewer"
@@ -14111,6 +14549,11 @@ msgstr ""
 msgid "Removal Reason:"
 msgstr ""
 
+#. # ui/waitinglist/WaitingListView
+#: toggle_highlighting_of_the_selected_waiting_list_entries
+msgid "Toggle highlighting of the selected entries "
+msgstr ""
+
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
@@ -14119,20 +14562,6 @@ msgstr ""
 #. # ui/wordprocessor/SelectTemplate
 #: attach_generated_document_as_media
 msgid "Attach generated document as media?"
-msgstr ""
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Positive
-msgid "Positive"
-msgstr ""
-
-#. # reports/Report
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#: Negative
-msgid "Negative"
 msgstr ""
 
 #. # wordprocessor/AnimalDocument
