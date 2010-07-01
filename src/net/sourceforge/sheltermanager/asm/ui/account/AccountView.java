@@ -95,13 +95,13 @@ public class AccountView extends ASMView {
     /** Fills the on screen list of accounts */
     public void updateList() {
         new Thread() {
-            public void run() {
-                updateListThreaded();
-            }
-        }.start();
+                public void run() {
+                    updateListThreaded();
+                }
+            }.start();
     }
-    public void updateListThreaded() {
 
+    public void updateListThreaded() {
         try {
             // Create an array to hold the results for the table
             Account accounts = Account.getAllAccounts();
@@ -129,6 +129,7 @@ public class AccountView extends ASMView {
                 hasRecords = true;
                 incrementStatusBar();
             }
+
             resetStatusBar();
 
             setTableData(columnheaders, datar, i, 7, 5);

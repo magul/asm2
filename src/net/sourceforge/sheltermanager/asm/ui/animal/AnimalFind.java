@@ -747,10 +747,11 @@ public class AnimalFind extends ASMFind {
         // These two are just for display, since they're privative - by ticking
         // them we don't filter things out so no need to change the query
         if (chkIncludeNonShelter.isSelected()) {
-            addDisplay(i18n("Include_Non_Shelter"),"");
+            addDisplay(i18n("Include_Non_Shelter"), "");
         }
+
         if (chkIncludeDeceased.isSelected()) {
-            addDisplay(i18n("include_deceased"),"");
+            addDisplay(i18n("include_deceased"), "");
         }
 
         if (chkTransfersOnly.isSelected()) {

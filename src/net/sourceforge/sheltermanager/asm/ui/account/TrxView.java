@@ -100,14 +100,13 @@ public class TrxView extends ASMView {
         }
     }
 
-
     /** Fills the on screen list of tranasctions */
     public void updateList() {
         new Thread() {
-            public void run() {
-                updateListThreaded();
-            }
-        }.start();
+                public void run() {
+                    updateListThreaded();
+                }
+            }.start();
     }
 
     public void updateListThreaded() {
