@@ -1,9 +1,13 @@
-2.7.3
-================
-
 2.7.2
 ================
 
+*. Couple of faults with non-shelter and deceased being privative options
+-  (ie. We only do something when they aren't ticked) for outputting 
+-  criteria on advanced find animal print
+*. Used separate threads for populating account screens
+*. Fixed table rendering bug that meant render didn't move for
+-  waiting list and account screens
+== PULLED RELEASE
 *. Advanced animal/owner find screens output criteria when printing
 *. Added new audit trail reports and added audittrail table to
 -  custom report editing screen

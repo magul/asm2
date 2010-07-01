@@ -236,7 +236,7 @@ public class WaitingListView extends ASMView {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 9);
+        setTableData(columnheaders, datar, i, 12, 9);
 
         // Go to previous selection
         if (lastSel != -1) {

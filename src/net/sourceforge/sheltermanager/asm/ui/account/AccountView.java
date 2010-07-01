@@ -92,8 +92,16 @@ public class AccountView extends ASMView {
         }
     }
 
-    /** Fills the on screen list of diary notes */
+    /** Fills the on screen list of accounts */
     public void updateList() {
+        new Thread() {
+            public void run() {
+                updateListThreaded();
+            }
+        }.start();
+    }
+    public void updateListThreaded() {
+
         try {
             // Create an array to hold the results for the table
             Account accounts = Account.getAllAccounts();
@@ -107,6 +115,8 @@ public class AccountView extends ASMView {
 
             int i = 0;
 
+            initStatusBarMax(accounts.size());
+
             for (Account a : accounts) {
                 datar[i][0] = a.getCode();
                 datar[i][1] = a.getAccountTypeName();
@@ -117,9 +127,11 @@ public class AccountView extends ASMView {
                 datar[i][6] = (a.getAccountBalance() < 0) ? "-" : "+";
                 i++;
                 hasRecords = true;
+                incrementStatusBar();
             }
+            resetStatusBar();
 
-            setTableData(columnheaders, datar, i, 5);
+            setTableData(columnheaders, datar, i, 7, 5);
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());

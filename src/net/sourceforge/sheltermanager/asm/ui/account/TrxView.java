@@ -100,8 +100,17 @@ public class TrxView extends ASMView {
         }
     }
 
-    /** Fills the on screen list of diary notes */
+
+    /** Fills the on screen list of tranasctions */
     public void updateList() {
+        new Thread() {
+            public void run() {
+                updateListThreaded();
+            }
+        }.start();
+    }
+
+    public void updateListThreaded() {
         try {
             // Get number of trx to display
             int num = 100;
@@ -129,6 +138,7 @@ public class TrxView extends ASMView {
                 };
 
             int i = 0;
+            initStatusBarMax(trx.size());
 
             for (AccountTrx.Trx t : trx) {
                 datar[i][0] = Utils.formatDate(t.date);
@@ -144,10 +154,13 @@ public class TrxView extends ASMView {
                 datar[i][8] = (t.balance < 0) ? "-" : "+";
 
                 i++;
+                incrementStatusBar();
                 hasRecords = true;
             }
 
-            setTableData(columnheaders, datar, i, 7);
+            resetStatusBar();
+
+            setTableData(columnheaders, datar, i, 9, 7);
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
