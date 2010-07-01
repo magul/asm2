@@ -5333,21 +5333,6 @@ PostgreSQL
 \end_layout
 
 \begin_layout Standard
-The MySQL manual is an excellent source of information for both learning
- to create queries and about how you can work with your data in general
- (as well as powerful extensions MySQL allows you).
- You can find it at 
-\begin_inset CommandInset href
-LatexCommand href
-name "www.mysql.com"
-target "http://www.mysql.com"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The custom reports editing screen is located under the System menu, any
  reports you create will integrate into the Reports menu.
  You can also use this screen to rearrange and rename standard reports and
@@ -5379,11 +5364,6 @@ HTML
 The centre of the custom report editor holds a drop down box and a list.
  The drop down contains a list of all tables in ASM and selecting one will
  populate the list with all the fields in that table.
-\end_layout
-
-\begin_layout Standard
-Users may post custom reports for other shelters in the forum area of the
- ASM site.
 \end_layout
 
 \begin_layout Standard
@@ -7210,11 +7190,29 @@ Internet Templates
 \end_layout
 
 \begin_layout Standard
-ASM comes with two different internet templates - 
+ASM comes with three different internet templates - 
 \begin_inset Quotes eld
 \end_inset
 
 plain
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+rss
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+rss
+\end_layout
+
+\end_inset
+
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -7237,8 +7235,20 @@ sm.com
 \end_inset
 
 .
- Plain produces very simple HTML output and sm.com is much more advanced,
- using CSS
+ 
+\end_layout
+
+\begin_layout Standard
+plain produces very simple HTML output - just the animal's picture and a
+ few details in a list.
+\end_layout
+
+\begin_layout Standard
+rss produces XML output for interpreting by an RSS feed reader.
+\end_layout
+
+\begin_layout Standard
+sm.com is much more advanced, using CSS
 \begin_inset Index
 status open
 
@@ -7248,12 +7258,14 @@ CSS
 
 \end_inset
 
- hover elements and javascript to do image substitution.
+ hover elements and javascript to do image substitution for icons and other
+ tricks.
 \end_layout
 
 \begin_layout Standard
 You can edit these templates (look in the /internet directory of the System->Med
-ia Files section) and add your own new ones if desired.
+ia Files section) and add your own new ones if desired - as far as ASM is
+ concerned, a template is just a another folder in that internet folder.
 \end_layout
 
 \begin_layout Standard
@@ -7307,8 +7319,8 @@ pib.dat
 \end_layout
 
 \begin_layout Standard
-A number of special keys are allowed in the header/footer files that pull
- information from other areas of the system.
+A number of special keys are allowed in the pih.dat and pif.dat files that
+ pull information from other areas of the system.
  These are:
 \end_layout
 
