@@ -16,7 +16,6 @@ from animal,  species
 where animal.ActiveMovementDate BETWEEN '$ASK DATE Enter from date$' AND
 '$ASK DATE Enter to date$'
 AND animal.ActiveMovementType = 1
-and animal.speciesID <= 2
 AND animal.speciesid = species.id
 AND AgeGroup <> ''
 GROUP BY SpeciesName, AgeGroup
