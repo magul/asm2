@@ -1,6 +1,11 @@
 2.7.3
 ================
 
+*. Fixed strange bug where HSQLDB alias did not work with diagnostic
+-  search for broken year codes
+*. Added debug to exception thrown by getField if a field does not
+-  exist, now lists all available fields/types in the recordset
+
 2.7.2.1
 ================
 

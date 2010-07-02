@@ -581,6 +581,17 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     }
 
     /**
+     * Returns a readable list of field names
+     */
+    public String getFieldNames() {
+        String s = "Fields: ";
+        for (SQLFieldDescriptor f : mtheFields) {
+            s += f.name + "[" + f.type + "] ";
+        }
+        return s;
+    }
+
+    /**
      * Retrieves the contents of a field by its name.
      *
      * @param fieldName
@@ -601,7 +612,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
         if (fieldindex == -1) {
             throw new CursorEngineException("SQLRecordset.getField - field '" +
-                fieldName + "' does not exist.");
+                fieldName + "' does not exist. " + getFieldNames());
         }
 
         // Return the value

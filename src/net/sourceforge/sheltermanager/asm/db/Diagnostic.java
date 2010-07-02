@@ -80,6 +80,7 @@ public class Diagnostic extends Thread {
             }
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
         }
     }
 
@@ -455,7 +456,7 @@ public class Diagnostic extends Thread {
 
         SQLRecordset r = new SQLRecordset();
         r.openRecordset(
-            "SELECT animal.ID, ShelterCode, animaltype.AnimalType AS theType, " +
+            "SELECT animal.ID, ShelterCode, animaltype.AnimalType, " +
             "DateBroughtIn " +
             "FROM animal INNER JOIN animaltype ON animaltype.ID = animal.AnimalTypeID " +
             "WHERE DateBroughtIn > '" + Utils.getSQLDate(c) + "'", "animal");
@@ -469,7 +470,7 @@ public class Diagnostic extends Thread {
         while (!r.getEOF()) {
             int id = ((Integer) r.getField("ID")).intValue();
             String code = r.getField("ShelterCode").toString();
-            String type = r.getField("theType").toString();
+            String type = r.getField("AnimalType").toString();
             Date broughtin = (Date) r.getField("DateBroughtIn");
             c.setTime(broughtin);
 
@@ -514,7 +515,7 @@ public class Diagnostic extends Thread {
                     if (r.getField("ID").equals(v.get(i))) {
                         // Got one, regenerate the code
                         int id = ((Integer) r.getField("ID")).intValue();
-                        String type = r.getField("theType").toString();
+                        String type = r.getField("AnimalType").toString();
                         Date broughtin = (Date) r.getField("DateBroughtIn");
 
                         AnimalCode newcode = Animal.fastGenerateAnimalCode(type,
