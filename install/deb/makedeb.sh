@@ -76,3 +76,4 @@ dpkg -b tmp/sheltermanager sheltermanager_`cat ../../VERSION`_all.deb
 # Clean up
 rm tmp -rf
 rm -rf sheltermanager/usr
+rm -rf sheltermanager/etc
