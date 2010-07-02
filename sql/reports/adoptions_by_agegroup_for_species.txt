@@ -1,0 +1,23 @@
+Adoptions by Age Group for Species
+###
+Movements
+###
+2621/Any
+###
+Produces a count of the number of adoptions between two dates where the animals were of a certain age group and of a selected species.
+###
+en
+###
+select
+animal.AgeGroup,
+Count(animal.id) AS TotalAdoptions
+from animal
+where animal.ActiveMovementDate BETWEEN '$ASK DATE Enter from date$' AND
+'$ASK DATE Enter to date$'
+AND animal.ActiveMovementType = 1
+AND animal.speciesid = $ASK SPECIES$
+AND AgeGroup <> ''
+GROUP BY AgeGroup
+ORDER BY AgeGroup
+###
+GRAPH
