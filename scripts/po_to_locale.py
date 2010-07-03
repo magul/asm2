@@ -19,9 +19,6 @@ elif filename.find("et.po") != -1:
 # Special case for hebrew
 elif filename.find("he.po") != -1:
     print "iw_IL"
-# Special case for slovak
-elif filename.find("sk.po") != -1:
-    print "sk_CZ"
 elif filename.find("_") == -1:
     print bits[0] + "_" + bits[0].upper()
 else:

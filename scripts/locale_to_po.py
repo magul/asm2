@@ -22,9 +22,6 @@ elif locale == "et_EE":
 # Special case for Hebrew
 elif locale == "iw_IL":
     print "he.po"
-# Special case for Slovak
-elif locale == "sk_CZ":
-    print "sk.po"
 elif bits[0] == bits[1].lower():
     print bits[0] + ".po"
 else:

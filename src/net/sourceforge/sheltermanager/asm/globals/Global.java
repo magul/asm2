@@ -212,7 +212,7 @@ public abstract class Global {
             getLanguageCountry("it_IT"), getLanguageCountry("iw_IL"),
             getLanguageCountry("fr_FR"), getLanguageCountry("lt_LT"),
             getLanguageCountry("nl_NL"), getLanguageCountry("pl_PL"),
-            getLanguageCountry("ru_RU"), getLanguageCountry("sk_CZ"),
+            getLanguageCountry("ru_RU"), getLanguageCountry("sk_SK"),
             getLanguageCountry("sv_SE"), getLanguageCountry("th_TH"),
             getLanguageCountry("tr_TR")
         };
