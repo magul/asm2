@@ -8,6 +8,7 @@ Produces a shelter inventory by species for a location with thumbnails for each 
 ###
 en
 ###
+$VAR loc LOCATION$
 SELECT
 a.ShelterCode,
 a.AnimalName,
@@ -27,7 +28,8 @@ a.AnimalComments,
 s.SpeciesName
 FROM animal a
 INNER JOIN species s ON s.ID = a.SpeciesID
-WHERE Archived = 0 AND ShelterLocation = $ASK LOCATION$
+WHERE Archived = 0 AND 
+(ShelterLocation = $@loc$ OR $@loc$ = 0)
 ORDER BY s.SpeciesName, a.AnimalName
 ###
 $$HEADER
