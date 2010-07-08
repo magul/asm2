@@ -8,6 +8,7 @@ Produces a count of the number of adoptions between two dates where the animals 
 ###
 en
 ###
+$VAR spec SPECIES$
 select
 animal.AgeGroup,
 Count(animal.id) AS TotalAdoptions
@@ -15,7 +16,7 @@ from animal
 where animal.ActiveMovementDate BETWEEN '$ASK DATE Enter from date$' AND
 '$ASK DATE Enter to date$'
 AND animal.ActiveMovementType = 1
-AND animal.speciesid = $ASK SPECIES$
+AND (animal.speciesid = $@spec$ OR $@spec$ = 0)
 AND AgeGroup <> ''
 GROUP BY AgeGroup
 ORDER BY AgeGroup
