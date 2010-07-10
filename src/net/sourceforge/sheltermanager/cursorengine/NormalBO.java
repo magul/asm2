@@ -89,15 +89,13 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
         addNew();
     }
 
+    private int iteratorIndex = 0;
+
     /** Iterable::iterator */
     public Iterator<T> iterator() {
         try {
-            // Reset when we ask for an iterator
-            if (size() > 0) {
-                moveFirst();
-            }
+	    iteratorIndex = 0;
 
-            firstItem = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,11 +106,13 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            if (size() == 0) {
+            
+	    if (size() == 0) {
                 return false;
             }
 
-            return rs.getAbsolutePosition() != size();
+	    return iteratorIndex < size();
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -123,13 +123,10 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** Iterator::next */
     public T next() {
         try {
-            if (firstItem) {
-                firstItem = false;
 
-                return (T) this;
-            }
+	    iteratorIndex++;
+            rs.setAbsolutePosition(iteratorIndex);
 
-            moveNext();
         } catch (Exception e) {
             e.printStackTrace();
         }

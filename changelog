@@ -1,6 +1,8 @@
-2.7.3
+2.7.2.2
 ================
 
+*. Fixed sequential read bug with recordsets that could cause lost
+-  and found matching to show no results if there was just one
 *. Slovak should be Slovakian nation (SK, not CZ) and use Euro
 *. Fixed Report.display() calling shellExecute in edit mode when
 -  internal report viewer disabled

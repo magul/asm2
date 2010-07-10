@@ -374,14 +374,30 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         return this;
     }
 
+    private int iteratorIndex = 0;
+
+    /** Iterable::iterator */
+    public Iterator<SQLRecordset> iterator() {
+        try {
+	    iteratorIndex = 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return this;
+    }
+
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            if (size() == 0) {
+            
+	    if (size() == 0) {
                 return false;
             }
 
-            return getAbsolutePosition() != size();
+	    return iteratorIndex < size();
+
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -392,29 +408,10 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     /** Iterator::next */
     public SQLRecordset next() {
         try {
-            if (firstItem) {
-                firstItem = false;
 
-                return this;
-            }
+	    iteratorIndex++;
+            setAbsolutePosition(iteratorIndex);
 
-            moveNext();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return this;
-    }
-
-    /** Iterable::iterator */
-    public Iterator<SQLRecordset> iterator() {
-        try {
-            // Reset when we ask for an iterator
-            if (size() > 0) {
-                moveFirst();
-            }
-
-            firstItem = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
