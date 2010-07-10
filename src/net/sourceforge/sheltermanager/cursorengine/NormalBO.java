@@ -49,6 +49,7 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** Iterator looking at the first item? */
     private boolean firstItem = true;
+    private int iteratorIndex = 0;
 
     /** Wraps recordset functionality and encapsulates where clause.
      * @param whereClause A valid SQL WHERE clause
@@ -89,13 +90,10 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
         addNew();
     }
 
-    private int iteratorIndex = 0;
-
     /** Iterable::iterator */
     public Iterator<T> iterator() {
         try {
-	    iteratorIndex = 0;
-
+            iteratorIndex = 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,13 +104,11 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            
-	    if (size() == 0) {
+            if (size() == 0) {
                 return false;
             }
 
-	    return iteratorIndex < size();
-
+            return iteratorIndex < size();
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -123,10 +119,8 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
     /** Iterator::next */
     public T next() {
         try {
-
-	    iteratorIndex++;
+            iteratorIndex++;
             rs.setAbsolutePosition(iteratorIndex);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

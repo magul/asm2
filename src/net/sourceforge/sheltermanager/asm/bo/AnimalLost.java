@@ -298,12 +298,13 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         Vector<String[]> returnedRows = new Vector<String[]>();
         int matchPoints = 0;
 
-	Global.logDebug("Find matches for lost animal ID=" + getID(), "AnimalLost.match");
+        Global.logDebug("Find matches for lost animal ID=" + getID(),
+            "AnimalLost.match");
 
         // If we have an animalID then there's no point checking
         // found animals at all
         if (animalID == 0) {
-	    String sql = "";
+            String sql = "";
             AnimalFound aflist = new AnimalFound();
 
             if (filterByDate) {
@@ -313,18 +314,19 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                     SQLRecordset.getSQLRepresentationOfDate(toDate) +
                     "' AND AnimalTypeID = " + getSpeciesID() +
                     ((foundFilterID != 0) ? (" AND ID = " + foundFilterID) : "");
-	        aflist.openRecordset(sql);
+                aflist.openRecordset(sql);
             } else {
                 sql = "AnimalTypeID = " + getSpeciesID() +
                     ((foundFilterID != 0) ? (" AND ID = " + foundFilterID) : "");
-		aflist.openRecordset(sql);
+                aflist.openRecordset(sql);
             }
 
-            Global.logDebug("Found " + aflist.size() + " found animals of same species: " + sql, "AnimalLost.match");
+            Global.logDebug("Found " + aflist.size() +
+                " found animals of same species: " + sql, "AnimalLost.match");
 
             for (AnimalFound af : aflist) {
-
-	    	Global.logDebug("Start match, species match: " + af.getDistFeat() + ", points=5", "AnimalLost.match");
+                Global.logDebug("Start match, species match: " +
+                    af.getDistFeat() + ", points=5", "AnimalLost.match");
 
                 // Start at 5 match points, because
                 // species has to match for it to be included.
@@ -333,27 +335,33 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                 // Area Lost
                 matchPoints += scoreMatchingWords(getAreaLost(),
                     af.getAreaFound(), 5);
-	    	Global.logDebug("Comparing area: " + af.getAreaFound() + " to " + getAreaLost() + ", points=" + matchPoints, "AnimalLost.match");
+                Global.logDebug("Comparing area: " + af.getAreaFound() +
+                    " to " + getAreaLost() + ", points=" + matchPoints,
+                    "AnimalLost.match");
 
                 // Features
                 matchPoints += scoreMatchingWords(getDistFeat(),
                     af.getDistFeat(), 5);
-	    	Global.logDebug("Comparing features: " + af.getDistFeat() + " to " + getDistFeat() + ", points=" + matchPoints, "AnimalLost.match");
-
+                Global.logDebug("Comparing features: " + af.getDistFeat() +
+                    " to " + getDistFeat() + ", points=" + matchPoints,
+                    "AnimalLost.match");
 
                 // Postcode
                 if (Utils.nullToEmptyString(getAreaPostcode()).trim()
                              .equalsIgnoreCase(Utils.nullToEmptyString(
                                 af.getAreaPostcode()).trim())) {
                     matchPoints += 5;
-		    Global.logDebug("Comparing postcode: " + af.getAreaPostcode() + " to " + getAreaPostcode() + ", points=" + matchPoints, "AnimalLost.match");
-
+                    Global.logDebug("Comparing postcode: " +
+                        af.getAreaPostcode() + " to " + getAreaPostcode() +
+                        ", points=" + matchPoints, "AnimalLost.match");
                 }
 
                 // Colour
                 if (getBaseColourID().equals(af.getBaseColourID())) {
                     matchPoints += 3;
-		    Global.logDebug("Comparing colour: " + af.getBaseColourID() + " to " + getBaseColourID() + ", points=" + matchPoints, "AnimalLost.match");
+                    Global.logDebug("Comparing colour: " +
+                        af.getBaseColourID() + " to " + getBaseColourID() +
+                        ", points=" + matchPoints, "AnimalLost.match");
                 }
 
                 // Date found within 2 weeks of lost
@@ -365,7 +373,9 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
 
                     if ((daydiff < 14) && (daydiff > -14)) {
                         matchPoints += 5;
-	    		Global.logDebug("Comparing date found within 2 weeks of lost, points=" + matchPoints, "AnimalLost.match");
+                        Global.logDebug(
+                            "Comparing date found within 2 weeks of lost, points=" +
+                            matchPoints, "AnimalLost.match");
                     }
                 } catch (Exception e) {
                 }
@@ -378,8 +388,9 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
 
                 // If the match is good enough, include it in
                 // the list
+                Global.logDebug("Points required=" + matchPointFloor +
+                    ", points for match=" + matchPoints, "AnimalLost.match");
 
-	    	Global.logDebug("Points required=" + matchPointFloor + ", points for match=" + matchPoints, "AnimalLost.match");
                 if (matchPoints >= matchPointFloor) {
                     String contactName = "";
                     String contactNumber = "";

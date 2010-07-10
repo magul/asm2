@@ -560,14 +560,13 @@ public abstract class GenerateDocument extends Thread
 
     /**
      * Replaces a MooXML image - the placeholder image has to be
-     * called placeholder.jpg and be exactly 2897 bytes - this code finds the 
+     * called placeholder.jpg and be exactly 2897 bytes - this code finds the
      * placeholder, then scans the word/media folder for a jpeg file exactly
      * 2897 bytes in size and replaces it with the animal's media
      */
     protected void processMOOXMLImage() {
-        
-	final String PLACEHOLDER = "placeholder.jpg";
-	final int PLACEHOLDER_SIZE = 2897;
+        final String PLACEHOLDER = "placeholder.jpg";
+        final int PLACEHOLDER_SIZE = 2897;
 
         String moodir = Global.tempDirectory + File.separator + "mooxml";
 
@@ -584,14 +583,14 @@ public abstract class GenerateDocument extends Thread
                     Global.logDebug("No placeholder found, abandoning",
                         "processMOOXMLImage");
                 }
+
                 return;
+            } else {
+                if (Global.showDebug) {
+                    Global.logDebug("Found placeholder image, scanning",
+                        "processMOOXMLImage");
+                }
             }
-	    else { 
-	        if (Global.showDebug) {
-		    Global.logDebug("Found placeholder image, scanning",
-		        "processMOOXMLImage");
-		}
-	    }
 
             // Grab the media and save it into the unpacked
             // mooxml file image, renaming it to image<id>.jpeg
@@ -603,32 +602,33 @@ public abstract class GenerateDocument extends Thread
             }
 
             // Search the word/media folder for our placeholder
-	    // image - we can recognise it by it's size
+            // image - we can recognise it by it's size
             File tg = new File(moodir + File.separator + "word" +
-                     File.separator + "media");
+                    File.separator + "media");
 
             String[] dir = tg.list();
+
             for (int i = 0; i < dir.length; i++) {
                 if (dir[i].indexOf(".jpeg") != -1) {
-		    
-		    String target = moodir + File.separator + "word" +
+                    String target = moodir + File.separator + "word" +
                         File.separator + "media" + File.separator + dir[i];
-		    File ph = new File(target);
+                    File ph = new File(target);
 
                     if (Global.showDebug) {
-		        Global.logDebug("Found file: " + dir[i] + ", size=" + ph.length(), "processMOOXMLImage");
-		    }
+                        Global.logDebug("Found file: " + dir[i] + ", size=" +
+                            ph.length(), "processMOOXMLImage");
+                    }
 
                     // Is this file size correct? If so, delete it and
-		    // replace it with our media file instead
-		    if (ph.length() == PLACEHOLDER_SIZE) {
-		        ph.delete();
+                    // replace it with our media file instead
+                    if (ph.length() == PLACEHOLDER_SIZE) {
+                        ph.delete();
                         Utils.renameFile(new File(mediafile), new File(target));
+
                         break;
-	            }
+                    }
                 }
             }
-
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());

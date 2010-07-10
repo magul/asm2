@@ -535,9 +535,9 @@ public abstract class Report extends Thread {
             rv.setVisible(true);
         } else {
             try {
-                FileTypeManager.shellExecute(new File(filename).toURL().toString());
-            }
-            catch (Exception e) {
+                FileTypeManager.shellExecute(new File(filename).toURL()
+                                                               .toString());
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
         }

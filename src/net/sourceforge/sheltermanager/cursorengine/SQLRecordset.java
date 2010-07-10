@@ -71,6 +71,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
     /** Iterator looking at the first item? */
     private boolean firstItem = true;
+    private int iteratorIndex = 0;
 
     public SQLRecordset() {
     }
@@ -374,13 +375,10 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         return this;
     }
 
-    private int iteratorIndex = 0;
-
     /** Iterable::iterator */
     public Iterator<SQLRecordset> iterator() {
         try {
-	    iteratorIndex = 0;
-
+            iteratorIndex = 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -391,13 +389,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     /** Iterator::hasNext */
     public boolean hasNext() {
         try {
-            
-	    if (size() == 0) {
+            if (size() == 0) {
                 return false;
             }
 
-	    return iteratorIndex < size();
-
+            return iteratorIndex < size();
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -408,10 +404,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     /** Iterator::next */
     public SQLRecordset next() {
         try {
-
-	    iteratorIndex++;
+            iteratorIndex++;
             setAbsolutePosition(iteratorIndex);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -582,9 +576,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
      */
     public String getFieldNames() {
         String s = "Fields: ";
+
         for (SQLFieldDescriptor f : mtheFields) {
-            s += f.name + "[" + f.type + "] ";
+            s += (f.name + "[" + f.type + "] ");
         }
+
         return s;
     }
 
