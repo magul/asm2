@@ -560,12 +560,15 @@ public abstract class GenerateDocument extends Thread
 
     /**
      * Replaces a MooXML image - the placeholder image has to be
-     * called placeholder.jpg this code finds the placeholder, then
-     * reads the id attribute so we can use it to rewrite image<id>.jpeg
-     * in the word/media folder
+     * called placeholder.jpg and be exactly 2897 bytes - this code finds the 
+     * placeholder, then scans the word/media folder for a jpeg file exactly
+     * 2897 bytes in size and replaces it with the animal's media
      */
     protected void processMOOXMLImage() {
-        final String PLACEHOLDER = "placeholder.jpg";
+        
+	final String PLACEHOLDER = "placeholder.jpg";
+	final int PLACEHOLDER_SIZE = 2897;
+
         String moodir = Global.tempDirectory + File.separator + "mooxml";
 
         try {
@@ -581,43 +584,14 @@ public abstract class GenerateDocument extends Thread
                     Global.logDebug("No placeholder found, abandoning",
                         "processMOOXMLImage");
                 }
-
                 return;
             }
-
-            // Yes, get the ID attribute from the placeholder
-            // (first one after wp:docPr)
-            int wpdocPr = s.lastIndexOf("<wp:docPr", tag);
-
-            if (wpdocPr == -1) {
-                if (Global.showDebug) {
-                    Global.logDebug("No <wp:docPr> tag found, abandoning",
-                        "processMOOXMLImage");
-                }
-
-                return;
-            }
-
-            // Now, go forward to the id
-            int idatt = s.indexOf("id=\"", wpdocPr);
-
-            if (idatt == -1) {
-                if (Global.showDebug) {
-                    Global.logDebug("No id attribute found, abandoning",
-                        "processMOOXMLImage");
-                }
-
-                return;
-            }
-
-            idatt += 4;
-
-            String id = s.substring(idatt, s.indexOf("\"", idatt));
-
-            if (Global.showDebug) {
-                Global.logDebug("Placeholder image id is " + id,
-                    "processMOOXMLImage");
-            }
+	    else { 
+	        if (Global.showDebug) {
+		    Global.logDebug("Found placeholder image, scanning",
+		        "processMOOXMLImage");
+		}
+	    }
 
             // Grab the media and save it into the unpacked
             // mooxml file image, renaming it to image<id>.jpeg
@@ -628,39 +602,33 @@ public abstract class GenerateDocument extends Thread
                 return;
             }
 
-            // Move it into the mooxml tree
-            String justfile = mediafile.substring(mediafile.lastIndexOf(
-                        File.separator));
-            String target = moodir + File.separator + "word" + File.separator +
-                "media" + File.separator + "image" + id + ".jpeg";
+            // Search the word/media folder for our placeholder
+	    // image - we can recognise it by it's size
+            File tg = new File(moodir + File.separator + "word" +
+                     File.separator + "media");
 
-            // Does image[id].jpeg exist?
-            File tg = new File(target);
+            String[] dir = tg.list();
+            for (int i = 0; i < dir.length; i++) {
+                if (dir[i].indexOf(".jpeg") != -1) {
+		    
+		    String target = moodir + File.separator + "word" +
+                        File.separator + "media" + File.separator + dir[i];
+		    File ph = new File(target);
 
-            if (!tg.exists()) {
-                // This is a hack, we should use the rels xml file - if we can't
-                // find the matching image with the right ID, then just replace 
-                // the first image file we find instead
-                tg = new File(moodir + File.separator + "word" +
-                        File.separator + "media");
+                    if (Global.showDebug) {
+		        Global.logDebug("Found file: " + dir[i] + ", size=" + ph.length(), "processMOOXMLImage");
+		    }
 
-                String[] dir = tg.list();
-
-                for (int i = 0; i < dir.length; i++) {
-                    if (dir[i].indexOf(".jpeg") != -1) {
-                        target = moodir + File.separator + "word" +
-                            File.separator + "media" + File.separator + dir[i];
-
+                    // Is this file size correct? If so, delete it and
+		    // replace it with our media file instead
+		    if (ph.length() == PLACEHOLDER_SIZE) {
+		        ph.delete();
+                        Utils.renameFile(new File(mediafile), new File(target));
                         break;
-                    }
+	            }
                 }
             }
 
-            new File(target).delete();
-            Utils.renameFile(new File(mediafile), new File(target));
-
-            // Replace the file on the disk with this one
-            Utils.writeFile(localfile, s.getBytes(Global.CHAR_ENCODING));
         } catch (Exception e) {
             Dialog.showError("An error occurred adding media to the document: " +
                 e.getMessage());
