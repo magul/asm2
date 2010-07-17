@@ -214,7 +214,7 @@ public class Stats extends Report {
     }
 
     private void statsDeceasedReasons() throws Exception {
-        SQLRecordset er = LookupCache.getEntryReasonLookup();
+        SQLRecordset er = LookupCache.getDeathReasonLookup();
         er.moveFirst();
 
         setStatusBarMax((int) er.getRecordCount());
