@@ -327,6 +327,11 @@ public abstract class Utils {
         return SQLRecordset.getSQLRepresentationOfDate(parseDate(d));
     }
 
+    /** Returns an SQL date from the calendar given, throwing away time info */
+    public static String getSQLDateOnly(Calendar c) {
+        return SQLRecordset.getSQLRepresentationOfDateOnly(calendarToDate(c));
+    }
+
     /** Returns a java Date as a calendar. Returns null
      *  if the date is null.
      * @param d
