@@ -104,13 +104,13 @@ public class Email {
 
     public void sendmsg(String to_address, String subject, String message)
         throws IOException, ProtocolException {
-        sendmsg(to_address, subject, message, getLocalEmail());
+        sendmsg(to_address, subject, message, getLocalEmail(), "text/plain");
     }
 
     public void sendmsg(String to_address, String subject, String message,
-        String localEmail) throws IOException, ProtocolException {
+        String localEmail, String content_type) throws IOException, ProtocolException {
+        
         String from_address = localEmail;
-
         String rstr;
         String sstr;
 
@@ -134,7 +134,7 @@ public class Email {
             throw new ProtocolException(rstr);
         }
 
-        sstr = "MAIL FROM: " + from_address;
+        sstr = "MAIL FROM: " + from_address + " <" + from_address + ">";
         send.print(sstr);
         send.print(EOL);
         send.flush();
@@ -144,7 +144,7 @@ public class Email {
             throw new ProtocolException(rstr);
         }
 
-        sstr = "RCPT TO: " + to_address;
+        sstr = "RCPT TO: " + to_address + " <" + to_address + ">";
         send.print(sstr);
         send.print(EOL);
         send.flush();
@@ -167,6 +167,8 @@ public class Email {
         send.print(EOL);
         send.print("To: " + to_address);
         send.print(EOL);
+        send.print("Content-Type: " + content_type);
+        send.print(EOL);
         send.print("Subject: " + subject);
         send.print(EOL);
 
@@ -176,9 +178,6 @@ public class Email {
         send.print(EOL);
         send.flush();
 
-        // Warn the world that we are on the loose - with the comments header:
-        // send.print("Comment: Unauthenticated sender");
-        // send.print(EOL);
         send.print("X-Mailer: " + Global.productName + " " +
             Global.productVersion);
         send.print(EOL);
@@ -280,7 +279,7 @@ public class Email {
     private String readLine(DataInputStream reply) throws IOException {
         byte[] buff = new byte[1024];
         int bytesread = reply.read(buff);
-
+        if (bytesread == -1) return "";
         return new String(buff).substring(0, bytesread);
     }
 }

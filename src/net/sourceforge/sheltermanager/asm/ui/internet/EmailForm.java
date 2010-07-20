@@ -46,6 +46,7 @@ public class EmailForm extends ASMForm {
     private UI.Panel pnlSubject;
     private UI.Button btnCancel;
     private UI.Button btnSend;
+    private UI.CheckBox chkHTML;
     private UI.List lstFields;
     private UI.ToolBar tlb;
     private UI.TextArea txtBody;
@@ -66,6 +67,7 @@ public class EmailForm extends ASMForm {
         Vector ctl = new Vector();
         ctl.add(txtTo);
         ctl.add(txtSubject);
+        ctl.add(chkHTML);
         ctl.add(txtBody);
         ctl.add(btnSend);
         ctl.add(btnCancel);
@@ -123,9 +125,7 @@ public class EmailForm extends ASMForm {
 
     public void initComponents() {
         pnlTop = UI.getPanel(UI.getBorderLayout());
-        pnlHead = UI.getPanel(UI.getGridLayout(1));
-        pnlTo = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
-        pnlSubject = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
+        pnlHead = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
         pnlBody = UI.getPanel(UI.getBorderLayout());
         pnlFields = UI.getPanel(UI.getBorderLayout());
 
@@ -139,17 +139,18 @@ public class EmailForm extends ASMForm {
                     IconManager.getIcon(IconManager.CLOSE),
                     UI.fp(this, "actionCancel")));
 
-        txtTo = (UI.TextField) UI.addComponent(pnlTo, i18n("to"),
+        txtTo = (UI.TextField) UI.addComponent(pnlHead, i18n("to"),
                 UI.getTextField());
-        txtSubject = (UI.TextField) UI.addComponent(pnlSubject,
+        txtSubject = (UI.TextField) UI.addComponent(pnlHead,
                 i18n("subject"), UI.getTextField());
+        chkHTML = (UI.CheckBox) UI.addComponent(pnlHead,
+                "", UI.getCheckBox(i18n("HTML")));
+
         txtBody = (UI.TextArea) pnlBody.add(UI.getTextArea());
         lstFields = (UI.List) pnlFields.add(UI.getList(UI.fp(this,
                         "listDoubleClicked")));
 
         pnlTop.add(tlb, UI.BorderLayout.NORTH);
-        pnlHead.add(pnlTo);
-        pnlHead.add(pnlSubject);
         pnlTop.add(pnlHead, UI.BorderLayout.CENTER);
 
         add(pnlTop, UI.BorderLayout.NORTH);
@@ -188,7 +189,8 @@ public class EmailForm extends ASMForm {
 
         // If there is a parent, fire the event and stop now
         if (parent != null) {
-            parent.sendEmail(txtSubject.getText(), txtBody.getText());
+            parent.sendEmail(txtSubject.getText(), txtBody.getText(), 
+                chkHTML.isSelected() ? "text/html" : "text/plain");
             dispose();
 
             return;
@@ -205,7 +207,8 @@ public class EmailForm extends ASMForm {
         try {
             Email email = new Email();
             email.sendmsg(txtTo.getText(), txtSubject.getText(),
-                txtBody.getText());
+                txtBody.getText(), Email.getLocalEmail(), 
+                chkHTML.isSelected() ? "text/html" : "text/plain");
             email.close();
 
             // Clean up and close
