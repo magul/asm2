@@ -104,11 +104,10 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
         a.setTimingRuleNoFrequencies(getTimingRuleNoFrequencies());
         a.setTreatmentRule(getTreatmentRule());
         a.setTotalNumberOfTreatments(getTotalNumberOfTreatments());
-        a.setTreatmentsGiven(new Integer(0));
-        a.setTreatmentsRemaining(getTotalNumberOfTreatments());
-        a.setStatus(new Integer(0));
+        a.setTreatmentsGiven(getTreatmentsGiven());
+        a.setTreatmentsRemaining(getTreatmentsRemaining());
+        a.setStatus(getStatus());
         a.setComments(getComments());
-
         return a;
     }
 

@@ -2485,7 +2485,17 @@ public class Animal extends UserInfoBO<Animal> {
             AnimalMedical m = med.copy();
             m.setAnimalID(a.getID());
             m.save(Global.currentUserName);
-            m.generateTreatments();
+
+            AnimalMedicalTreatment medt = new AnimalMedicalTreatment();
+            medt.openRecordset("AnimalMedicalID = " + med.getID());
+            while (!medt.getEOF()) {
+                AnimalMedicalTreatment mt = medt.copy();
+                mt.setAnimalID(a.getID());
+                mt.setAnimalMedicalID(m.getID());
+                mt.save(Global.currentUserName);
+                medt.moveNext();
+            }
+
             med.moveNext();
         }
 

@@ -41,6 +41,21 @@ public class AnimalMedicalTreatment extends UserInfoBO<AnimalMedicalTreatment> {
         openRecordset(where);
     }
 
+    public AnimalMedicalTreatment copy() throws CursorEngineException {
+        AnimalMedicalTreatment t = new AnimalMedicalTreatment();
+        t.openRecordset("ID = 0");
+        t.addNew();
+        t.setAnimalID(getAnimalID());
+        t.setAnimalMedicalID(getAnimalMedicalID());
+        t.setDateRequired(getDateRequired());
+        t.setDateGiven(getDateGiven());
+        t.setGivenBy(getGivenBy());
+        t.setComments(getComments());
+        t.setTreatmentNumber(getTreatmentNumber());
+        t.setTotalTreatments(getTotalTreatments());
+        return t;
+    }
+
     public Integer getID() throws CursorEngineException {
         return (Integer) rs.getField("ID");
     }
