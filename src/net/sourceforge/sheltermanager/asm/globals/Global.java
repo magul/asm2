@@ -191,11 +191,11 @@ public abstract class Global {
      */
     public static int PIVOT_YEAR = 50;
 
-    /** The 2 digit prefix if we are below the pivot */
-    public static String BELOW_PIVOT = "20";
+    /** The century if we are below the pivot */
+    public static int BELOW_PIVOT = 2000;
 
-    /** The 2 digit prefix if we are after the pivot */
-    public static String AFTER_PIVOT = "19";
+    /** The century if we are after the pivot */
+    public static int AFTER_PIVOT = 1900;
 
     /** Whether or not to actually log messages sent */
     private static boolean usingLog = true;

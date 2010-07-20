@@ -2599,9 +2599,9 @@ public class Animal extends UserInfoBO<Animal> {
             try {
                 year = Integer.parseInt(code.substring(npos, npos + 2));
                 // Use the pivot to modify the year
-                year += (100 * ((year < Global.PIVOT_YEAR)
-                ? Integer.parseInt(Global.BELOW_PIVOT)
-                : Integer.parseInt(Global.AFTER_PIVOT)));
+                year += (year < Global.PIVOT_YEAR
+                ? Global.BELOW_PIVOT
+                : Global.AFTER_PIVOT);
                 Global.logDebug("Parsed year " + year + " from code " + code,
                     "Animal.parseAnimalCodeYear");
             } catch (Exception e) {

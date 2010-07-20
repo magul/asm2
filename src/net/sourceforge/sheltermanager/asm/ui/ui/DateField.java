@@ -332,15 +332,6 @@ public class DateField extends UI.Panel {
                 }
             });
 
-        /*
-        UI.Label lbl = UI.getLabel(IconManager.getIcon(IconManager.DATEPICKER));
-        lbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        lbl.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                showPicker();
-            }
-        });
-         * */
         btn = UI.getButton(null, null, ' ',
                 IconManager.getIcon(IconManager.DATEPICKER),
                 UI.fp(this, "showPicker"));
@@ -426,10 +417,23 @@ public class DateField extends UI.Panel {
         }
 
         if (c != null) {
+
+            // If our date is below the year 100, then a two-digit date was
+            // entered and we need to work some pivot magic on it
+            int year = c.get(Calendar.YEAR);
+            if (year < 100) {
+                if (year < Global.PIVOT_YEAR)
+                    year += Global.BELOW_PIVOT;
+                else
+                    year += Global.AFTER_PIVOT;
+                c.set(Calendar.YEAR, year);
+                txt.setText(Utils.formatDate(c));
+            }
+
+            // The date is over 100 years in the past, or 10 in the
+            // future. Reset the year to this year.
             if ((c.get(Calendar.YEAR) > (now.get(Calendar.YEAR) + 10)) ||
                     (c.get(Calendar.YEAR) < (now.get(Calendar.YEAR) - 100))) {
-                // The date is over 100 years in the past, or 10 in the
-                // future. Reset the year to this year.
                 c.set(Calendar.YEAR, now.get(Calendar.YEAR));
                 txt.setText(Utils.formatDate(c));
             }
