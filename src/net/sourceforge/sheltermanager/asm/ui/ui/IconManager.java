@@ -698,14 +698,7 @@ public abstract class IconManager {
     public final static String MENU_INTERNETFINDMEAPET = MENUBLANK;
     public final static String MENU_INTERNETFINDMEAPETPUBLISH = "actions-Web-16.png";
     public final static String MENU_INTERNETFINDMEAPETSETTINGS = "system-Basic-16.png";
-    public final static String MENU_MAILMERGEADOPTIONS = "owner-Attached-16.png";
-    public final static String MENU_MAILMERGEOWNER = "owner-Basic-16.png";
-    public final static String MENU_MAILMERGEOWNERMEMBERSHIP = MENUBLANK;
-    public final static String MENU_MAILMERGEOWNERMEMBERSHIPEXPIRY = MENUBLANK;
-    public final static String MENU_MAILMERGEOFFSHELTERVACCINATIONS = MENUBLANK;
-    public final static String MENU_MAILMERGECHIPREG = MENUBLANK;
-    public final static String MENU_MAILMERGECHIPCANCEL = MENUBLANK;
-    public final static String MENU_MAILMERGEADOPTEDNORETURN = MENUBLANK;
+    public final static String MENU_MAILMERGE = MENUBLANK;
     public final static String MENU_PREFERENCESLOCALCACHE = "system-Basic-16.png";
     public final static String MENU_PREFERENCESCALLGC = "actions-Refresh-16.png";
     public final static String MENU_PREFERENCESFILETYPES = "actions-Document-16.png";

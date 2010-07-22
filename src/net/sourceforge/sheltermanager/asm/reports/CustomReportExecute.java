@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.charts.CustomChart;
 import net.sourceforge.sheltermanager.asm.charts.DonationsPerSpecies;
 import net.sourceforge.sheltermanager.asm.charts.MonthlyDonations;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.mailmerge.CustomMailMerge;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DateFromTo;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
@@ -207,6 +208,25 @@ public class CustomReportExecute extends Report {
                 new CustomChart(sql, cr.getTitle());
 
                 return;
+            }
+            // Is it a custom mail merge?
+            else if (cr.getHTMLBody().toUpperCase().trim().startsWith("MAIL")) {
+                // Mail merges can't be subreports, or run at the command line
+                if (toStdOut || isSubReport) {
+                    Global.logError(Global.i18n("reports",
+                            "graphs_cant_be_sent_to_stdout"),
+                        "CustomReportExecute.startReport");
+                    System.exit(1);
+                }
+
+                // Do any magic needed on the SQL
+                String sql = substituteSQLTags(cr.getSQLCommand());
+
+                // Feed it to the mail merge generator and we're done
+                new CustomMailMerge(sql, cr.getTitle());
+
+                return;
+
             }
         } catch (Exception e) {
             Global.logException(e, getClass());

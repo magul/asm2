@@ -35,12 +35,6 @@ import net.sourceforge.sheltermanager.asm.db.Diagnostic;
 import net.sourceforge.sheltermanager.asm.db.LocateDatabase;
 import net.sourceforge.sheltermanager.asm.db.PetFinderImport;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.mailmerge.AdoptedNoReturn;
-import net.sourceforge.sheltermanager.asm.mailmerge.ChipCancellation;
-import net.sourceforge.sheltermanager.asm.mailmerge.ChipRegistration;
-import net.sourceforge.sheltermanager.asm.mailmerge.ExpiringMembers;
-import net.sourceforge.sheltermanager.asm.mailmerge.Members;
-import net.sourceforge.sheltermanager.asm.mailmerge.OffShelterVaccinations;
 import net.sourceforge.sheltermanager.asm.reports.CustomReportExecute;
 import net.sourceforge.sheltermanager.asm.reports.DiaryNotesToday;
 import net.sourceforge.sheltermanager.asm.reports.LostFoundMatch;
@@ -274,14 +268,6 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuLookupsVouchers;
     private UI.MenuItem mnuLookupsRemoveBreeds;
     private UI.Menu mnuMailMerge;
-    private UI.Menu mnuMailMergeAdoptions;
-    private UI.MenuItem mnuMailMergeAdoptedNoReturn;
-    private UI.MenuItem mnuMailMergeChipCancel;
-    private UI.MenuItem mnuMailMergeChipReg;
-    private UI.MenuItem mnuMailMergeOffShelterVaccination;
-    private UI.Menu mnuMailMergeOwner;
-    private UI.MenuItem mnuMailMergeOwnerMembership;
-    private UI.MenuItem mnuMailMergeOwnerMembershipExpiry;
     private UI.MenuBar mnuMenu;
     private UI.Menu mnuPreferences;
     private UI.Menu mnuReports;
@@ -343,6 +329,9 @@ public class Main extends ASMWindow {
 
         // Load custom report list
         refreshCustomReports();
+
+        // Load mail merge list
+        refreshMailMerge();
 
         // Check if this is a dev release and offer the "back to production"
         // option on the database menu if it is.
@@ -615,8 +604,6 @@ public class Main extends ASMWindow {
         this.mnuFileAnimalAddWLEntry.setEnabled(Global.currentUserObject.getSecAddWaitingList());
         this.mnuFileAnimalLitter.setEnabled(Global.currentUserObject.getSecViewLitterLog());
         this.mnuInternet.setEnabled(Global.currentUserObject.getSecUseInternetPublisher());
-        this.mnuMailMergeAdoptions.setEnabled(Global.currentUserObject.getSecMailMergeAdoptions());
-        this.mnuMailMergeOwner.setEnabled(Global.currentUserObject.getSecMailMergeOwners());
         this.mnuSystemDBUpdate.setEnabled(Global.currentUserObject.getSecRunDBUpdate());
         this.mnuSystemDBDiagnostic.setEnabled(Global.currentUserObject.getSecRunDBDiagnostic());
         this.mnuSystemDBConfigure.setEnabled(Global.currentUserObject.getSecUseSQLInterface());
@@ -680,7 +667,7 @@ public class Main extends ASMWindow {
             mnuReports.removeAll();
 
             for (CustomReport cr : new CustomReport(
-                    "ID > 0 ORDER BY Category, Title")) {
+                    "NOT (HTMLBody Like 'MAIL') ORDER BY Category, Title")) {
                 // Is this a subreport? If so, don't bother
                 // doing anything.
                 if (!cr.isSubReport()) {
@@ -741,6 +728,67 @@ public class Main extends ASMWindow {
             crm = null;
         }
     }
+
+    /**
+     * Reads the list of custom reports for mail merges and loads them into the menu
+     */
+    public void refreshMailMerge() {
+        CustomReportMenu crm = null;
+        String curcategory = "";
+        HashMap<String, UI.Menu> menus = new HashMap<String, UI.Menu>();
+
+        try {
+            mnuMailMerge.removeAll();
+
+            for (CustomReport cr : new CustomReport(
+                    "HTMLBody Like 'MAIL' ORDER BY Category, Title")) {
+
+                // Is the category blank? If so, use
+                // "Uncategorised"
+                if ((cr.getCategory() == null) ||
+                        cr.getCategory().equals("")) {
+                    curcategory = i18n("uncategorised");
+                } else {
+                    curcategory = cr.getCategory();
+                }
+
+                // Do we have a menu already for this category?
+                boolean added = false;
+                UI.Menu mnu = (UI.Menu) menus.get(curcategory);
+
+                if (mnu != null) {
+                    // Add the menu entry to this category
+                    crm = new CustomReportMenu(cr.getID().toString(),
+                            cr.getTitle());
+                    mnu.add(crm);
+                    added = true;
+                }
+
+                if (!added) {
+                    // We didn't have a category menu, so add one for it
+                    mnu = new UI.Menu();
+                    mnu.setText(curcategory);
+                    mnu.setIcon(IconManager.getIcon(IconManager.MENU_MAILMERGE));
+                    mnuMailMerge.add(mnu);
+                    menus.put(curcategory, mnu);
+
+                    // Now add the item to it
+                    crm = new CustomReportMenu(cr.getID().toString(),
+                            cr.getTitle());
+                    mnu.add(crm);
+                }
+            }
+
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        } finally {
+            curcategory = null;
+            menus.clear();
+            menus = null;
+            crm = null;
+        }
+    }
+
 
     /**
      * Returns true if we're using operating system security
@@ -1178,41 +1226,6 @@ public class Main extends ASMWindow {
 
         mnuMailMerge = UI.getMenu(i18n("Mail_Merge"));
 
-        mnuMailMergeOwner = UI.getMenu(i18n("Owner_Merge"), 'o',
-                IconManager.getIcon(IconManager.MENU_MAILMERGEOWNER));
-
-        mnuMailMergeOwnerMembership = UI.getMenuItem(i18n("All_Members"), 'a',
-                IconManager.getIcon(IconManager.MENU_MAILMERGEOWNERMEMBERSHIP),
-                UI.fp(this, "actionMailMergeOwnerMembership"));
-
-        mnuMailMergeOwnerMembershipExpiry = UI.getMenuItem(i18n("Expiring_Members"),
-                'e',
-                IconManager.getIcon(
-                    IconManager.MENU_MAILMERGEOWNERMEMBERSHIPEXPIRY),
-                UI.fp(this, "actionMailMergeOwnerMembershipExpiry"));
-
-        mnuMailMergeAdoptions = UI.getMenu(i18n("Adoption_Merge"), 'a',
-                IconManager.getIcon(IconManager.MENU_MAILMERGEADOPTIONS));
-
-        mnuMailMergeOffShelterVaccination = UI.getMenuItem(i18n("Off_Shelter_Vaccinations"),
-                'v',
-                IconManager.getIcon(
-                    IconManager.MENU_MAILMERGEOFFSHELTERVACCINATIONS),
-                UI.fp(this, "actionMailMergeOffShelterVaccination"));
-
-        mnuMailMergeChipReg = UI.getMenuItem(i18n("Microchip_Registration"),
-                'g', IconManager.getIcon(IconManager.MENU_MAILMERGECHIPREG),
-                UI.fp(this, "actionMailMergeChipReg"));
-
-        mnuMailMergeChipCancel = UI.getMenuItem(i18n("Microchip_Cancellations"),
-                'c', IconManager.getIcon(IconManager.MENU_MAILMERGECHIPCANCEL),
-                UI.fp(this, "actionMailMergeChipCancel"));
-
-        mnuMailMergeAdoptedNoReturn = UI.getMenuItem(i18n("Non-Returned_Adoptions"),
-                'n',
-                IconManager.getIcon(IconManager.MENU_MAILMERGEADOPTEDNORETURN),
-                UI.fp(this, "actionMailMergeAdoptedNoReturn"));
-
         mnuPreferences = UI.getMenu(i18n("Preferences"));
 
         mnuPreferencesLocalCache = UI.getMenuItem(i18n("View_Local_Cache"),
@@ -1466,14 +1479,6 @@ public class Main extends ASMWindow {
 
         mnuMenu.add(mnuInternet);
 
-        mnuMailMergeOwner.add(mnuMailMergeOwnerMembershipExpiry);
-        mnuMailMergeOwner.add(mnuMailMergeOwnerMembership);
-        mnuMailMergeAdoptions.add(mnuMailMergeOffShelterVaccination);
-        mnuMailMergeAdoptions.add(mnuMailMergeChipReg);
-        mnuMailMergeAdoptions.add(mnuMailMergeChipCancel);
-        mnuMailMergeAdoptions.add(mnuMailMergeAdoptedNoReturn);
-        mnuMailMerge.add(mnuMailMergeOwner);
-        mnuMailMerge.add(mnuMailMergeAdoptions);
         mnuMenu.add(mnuMailMerge);
 
         mnuPreferences.add(mnuPreferencesLocalCache);
@@ -1957,18 +1962,6 @@ public class Main extends ASMWindow {
         cursorToPointer();
     }
 
-    public void actionMailMergeOwnerMembershipExpiry() {
-        new ExpiringMembers();
-    }
-
-    public void actionMailMergeOwnerMembership() {
-        new Members();
-    }
-
-    public void actionMailMergeAdoptedNoReturn() {
-        new AdoptedNoReturn();
-    }
-
     public void actionDiaryVetsDiary() {
         new Vets();
     }
@@ -1984,14 +1977,6 @@ public class Main extends ASMWindow {
         WaitingListEdit ewl = new WaitingListEdit(null);
         ewl.openForNew();
         addChild(ewl);
-    }
-
-    public void actionMailMergeChipCancel() {
-        new ChipCancellation();
-    }
-
-    public void actionMailMergeChipReg() {
-        new ChipRegistration();
     }
 
     public void actionSystemDBDiagnostic() {
@@ -2034,10 +2019,6 @@ public class Main extends ASMWindow {
 
     public void actionSystemDBUpdate() {
         new DBUpdate();
-    }
-
-    public void actionMailMergeOffShelterVaccination() {
-        new OffShelterVaccinations();
     }
 
     public void actionGetMoreReports() {

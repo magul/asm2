@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 57 (ASM 2.7.2)
+Revision 58 (ASM 2.7.3)
 \end_layout
 
 \begin_layout Chapter*
@@ -7669,80 +7669,34 @@ A mail merge source is simply a database file containing the information
 
 \begin_layout Standard
 To create a mail merge source, navigate to Mail Merge.
- You will be presented with a list of mail merge sources you can generate.
- Simply select one.
- If the source requires criteria, such as date information, you will be
- prompted for it.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Owners->Expiring Members
-\series default
-: Prompts for a date and contains all members with a membership date that
- expires before the date given.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Owners->All Members
-\series default
-: Outputs all current (non-expired) members and members with no expiry date.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Adoption->Off Shelter Vaccinations
-\series default
-: Outputs owner info for all animals adopted between the two dates requested
- with an outstanding vaccination.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Adoption->Microchip Registration
-\series default
-: Outputs owner and animal info for all animals adopted and microchipped
- between the two dates requested.
- This is for formatting and sending to a third-party microchipping company
- (eg: PetLog in the UK).
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Adoption->Microchip Cancellation
-\series default
-: This is the same as the chip registration, but shows for all animals that
- were returned in the time period.
- This is so the microchipping company can remove the owner information.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Adoption->Non-Returned Adoptions
-\series default
-: Outputs owner and animal info for all non-returned adoptions between the
- two dates requested.
+ 
 \end_layout
 
 \begin_layout Standard
-The merge source will be built and saved into your local machine's temporary
- directory.
- The files generated will always have the same name - this is for a deliberate
- reason, since once you have set up your mail merge files, you can simply
- replace them and your mail merge documents will continue to work.
+Initially, ASM does not come preloaded with any, however by going to Reports->Ge
+t more reports from sheltermanager.com, you can install mail merge sources
+ (they appear in the list with the type 
+\begin_inset Quotes eld
+\end_inset
+
+Mail Merge
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+When executing a mail merge, you will be prompted to create a CSV file,
+ or send bulk emails.
+ You will want to create a CSV file if you intend to use a wordprocessor
+ to create printed letters.
 \end_layout
 
 \begin_layout Standard
 The files are always named <source>.csv (CSV is a text-based file of comma
  separated values).
- The generator will tell you the name at the end of generation.
+ The mail merge tool will prompt you for a location to save the file to.
 \end_layout
 
 \begin_layout Standard
@@ -8090,7 +8044,7 @@ In addition, Animal Shelter Manager allows you to bulk email any mail merge
 All ASM needs to know is the return address you would like stamped on the
  outgoing emails and the IP address/hostname of the SMTP server to use (usually
  smtp.<your ISP name>.com).
- Set these in System->Configure ASM Email
+ Set these in System->Options (under the Email tab)
 \end_layout
 
 \begin_layout Standard
@@ -8098,8 +8052,8 @@ At the end of mail merge source generation, you will be asked if you want
  to create a file based source for other programs, or bulk email all the
  addresses in the source.
  If you choose the latter, ASM will pop up its own internal email client
- with a list of fields in the source so you can customise the email for
- each individual user by using the mail merge keys.
+ with a list of fields available in the source so you can customise the
+ email for each individual user by using the mail merge keys.
 \end_layout
 
 \begin_layout Chapter

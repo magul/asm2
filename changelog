@@ -1,6 +1,12 @@
 2.7.3
 ================
 
+*. Mail merge sources are now handled as custom reports, just like
+-  custom graphs. Existing ones have been converted and added to the
+-  repository. The mail merge menu now shows a tree, just like reports
+-  and mail merges can be categorised in the same manner. This is much
+-  more flexible than the old system that only allowed 6 set mail merges
+-  plus the output of the owner search screen.
 *. Distinguish between close and quit icons
 *. Should not be allowed to enter duplicate usernames
 *. If a user only has add animal permission, they should still be allowed

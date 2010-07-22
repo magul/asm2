@@ -1,0 +1,18 @@
+Expiring Members
+###
+Membership
+###
+2721/Any
+###
+Mailmerge source of owner info for all members expiring before a certain date
+###
+en
+###
+SELECT o.OwnerName,o.OwnerAddress, o.OwnerTown, o.OwnerCounty, o.OwnerPostcode, 
+o.HomeTelephone, o.WorkTelephone, o.EmailAddress, o.OwnerTitle, o.OwnerForenames,
+o.OwnerSurname, o.MembershipExpiryDate
+FROM owner o
+WHERE o.MembershipExpiryDate Is Not NULL 
+AND o.MembershipExpiryDate <= '$ASK DATE Show members expiring before$'
+###
+MAIL

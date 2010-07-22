@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-07-22 09:37+0000\n"
+"PO-Revision-Date: 2010-07-22 11:49+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3584,8 +3584,6 @@ msgstr "Lookup"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
@@ -3614,8 +3612,6 @@ msgstr "No"
 #. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
@@ -4080,47 +4076,17 @@ msgid ""
 msgstr ""
 
 #. # reports/VaccinationDiary
-#. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
 msgstr "Vaccination Type"
-
-#. # mailmerge/OffShelterVaccinations
-#: OffShelterVaccinations.csv
-msgid "OffShelterVaccinations.csv"
-msgstr "OffShelterVaccinations.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#: Off-Shelter_Vaccination_Mail_Merge
-msgid "Off-Shelter Vaccination Mail Merge"
-msgstr "Off-Shelter Vaccination Mail Merge"
-
-#. # mailmerge/OffShelterVaccinations
-#: There_are_no_required_vaccinations_on_that_date.
-msgid "There are no required vaccinations on that date."
-msgstr "There are no required vaccinations on that date."
-
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_start_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the start date you would like to prepare vaccination letters "
-"for"
-msgstr ""
 
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
-#. # mailmerge/OffShelterVaccinations
 #: Date_Required
 msgid "Date Required"
 msgstr "Date Required"
-
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_end_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the end date you would like to prepare vaccination letters for"
-msgstr ""
 
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
@@ -4136,6 +4102,7 @@ msgid "Error"
 msgstr "Error"
 
 #. # mailmerge/MailMerge
+#. # mailmerge/CustomMailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "There are no records to add to the mail merge source."
@@ -4150,73 +4117,12 @@ msgstr "Outputting to disk..."
 msgid "Reading data, please wait..."
 msgstr "Reading data, please wait..."
 
-#. # mailmerge/ChipRegistration
-#: ChipRegistrations.csv
-msgid "ChipRegistrations.csv"
-msgstr "ChipRegistrations.csv"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip registration "
-"letters for"
-msgstr ""
-
-#. # mailmerge/ChipRegistration
-#: There_are_no_required_chip_registrations_between_those_dates.
-msgid "There are no required chip registrations between those dates."
-msgstr "There are no required chip registrations between those dates."
-
-#. # mailmerge/ChipRegistration
-#: Chip_Registration_Mail_Merge
-msgid "Chip Registration Mail Merge"
-msgstr "Chip Registration Mail Merge"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip registration "
-"letters for"
-msgstr ""
-
-#. # mailmerge/ChipCancellation
-#: Chip_Cancellation_Mail_Merge
-msgid "Chip Cancellation Mail Merge"
-msgstr "Chip Cancellation Mail Merge"
-
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Work_Telephone
 msgid "Work Telephone"
 msgstr "Work Telephone"
 
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip cancellation "
-"letters for"
-msgstr ""
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/OwnerCriteriaSearch
-#: Shelter_Code
-#: Sheltercode
-msgid "Shelter Code"
-msgstr "Shelter Code"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/Retailer
-#: Owner_Name
-#: owner_name
-msgid "Owner Name"
-msgstr "Owner Name"
-
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Home_Telephone
 msgid "Home Telephone"
 msgstr "Home Telephone"
@@ -4228,8 +4134,6 @@ msgstr "Home Telephone"
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Colour
 msgid "Colour"
 msgstr "Colour"
@@ -4241,16 +4145,9 @@ msgstr "Colour"
 #. # ui/internet/PetFinderMapBreed
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Breed
 msgid "Breed"
 msgstr "Breed"
-
-#. # mailmerge/ChipCancellation
-#: ChipCancellations.csv
-msgid "ChipCancellations.csv"
-msgstr "ChipCancellations.csv"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
@@ -4276,17 +4173,9 @@ msgstr "ChipCancellations.csv"
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Species
 msgid "Species"
 msgstr "Species"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Microchip_Number
-msgid "Microchip Number"
-msgstr "Microchip Number"
 
 #. # reports/InOut
 #. # reports/SearchResults
@@ -4295,8 +4184,6 @@ msgstr "Microchip Number"
 #. # reports/Vets
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
@@ -4304,23 +4191,12 @@ msgstr "Age"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Markings
 msgid "Markings"
 msgstr "Markings"
 
-#. # mailmerge/ChipCancellation
-#. # ui/movement/MovementView
-#: Return_Date
-#: return_date
-msgid "Return Date"
-msgstr "Return Date"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Neutered
@@ -4329,29 +4205,9 @@ msgstr "Neutered"
 
 #. # reports/Retailer
 #. # reports/InOut
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Adoption_Date
 msgid "Adoption Date"
 msgstr "Adoption Date"
-
-#. # mailmerge/ChipCancellation
-#: There_are_no_required_chip_cancellations_between_those_dates.
-msgid "There are no required chip cancellations between those dates."
-msgstr "There are no required chip cancellations between those dates."
-
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip cancellation "
-"letters for"
-msgstr ""
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Date_Of_Birth
-msgid "Date Of Birth"
-msgstr "Date Of Birth"
 
 #. # reports/InOut
 #. # reports/SearchResults
@@ -4361,8 +4217,6 @@ msgstr "Date Of Birth"
 #. # ui/animal/AnimalFind
 #. # ui/animalname/NamesView
 #. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/LookupCache
 #. # bo/Animal
@@ -4370,44 +4224,6 @@ msgstr "Date Of Birth"
 #: Sex
 msgid "Sex"
 msgstr "Sex"
-
-#. # mailmerge/AdoptedNoReturn
-#: There_are_no_adoptions_matching_your_criteria.
-msgid "There are no adoptions matching your criteria."
-msgstr "There are no adoptions matching your criteria."
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_2
-msgid "Address 2"
-msgstr "Address 2"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_3
-msgid "Address 3"
-msgstr "Address 3"
-
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_closing_date_of_adoptions_to_include
-msgid "Please enter the closing date of adoptions to include"
-msgstr "Please enter the closing date of adoptions to include"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Forenames
-msgid "Forenames"
-msgstr "Forenames"
 
 #. # reports/VaccinationDiary
 #. # reports/Retailer
@@ -4424,31 +4240,10 @@ msgstr "Forenames"
 #. # reports/LongTermAnimals
 #. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
 #: Animal_Name
 msgid "Animal Name"
 msgstr "Animal Name"
 
-#. # mailmerge/AdoptedNoReturn
-#: AdoptedNoReturn.csv
-msgid "AdoptedNoReturn.csv"
-msgstr "AdoptedNoReturn.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Initials
-msgid "Initials"
-msgstr "Initials"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #: Email_Address
 msgid "Email Address"
@@ -4477,10 +4272,6 @@ msgstr "Email Address"
 #. # ui/owner/OwnerFindText
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #. # bo/DiaryTaskHead
 #. # bo/Animal
@@ -4492,24 +4283,10 @@ msgstr "Name"
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
 #. # ui/customreport/CustomReportExport
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # bo/CustomReport
 #: Title
 msgid "Title"
 msgstr "Title"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_1
-msgid "Address 1"
-msgstr "Address 1"
 
 #. # reports/Stats
 #. # reports/AnimalFigures
@@ -4535,12 +4312,6 @@ msgstr "Address 1"
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #. # db/Diagnostic
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
 #. # charts/AdoptionsPerBlock
@@ -4582,60 +4353,19 @@ msgstr "Address 1"
 msgid "ID"
 msgstr "ID"
 
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_5
-msgid "Address 5"
-msgstr "Address 5"
-
 #. # reports/OwnerSearchResults
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Postcode
 msgid "Postcode"
 msgstr "Postcode"
 
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_start_date_of_adoptions_to_include
-msgid "Please enter the start date of adoptions to include"
-msgstr "Please enter the start date of adoptions to include"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_4
-msgid "Address 4"
-msgstr "Address 4"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "Non-Returned Adoptions"
-msgstr "Non-Returned Adoptions"
-
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #: Surname
 msgid "Surname"
 msgstr "Surname"
@@ -4681,12 +4411,7 @@ msgstr "Address"
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Town
 msgid "Town"
 msgstr "Town"
@@ -4694,12 +4419,7 @@ msgstr "Town"
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: County
 msgid "County"
 msgstr "County"
@@ -4708,33 +4428,6 @@ msgstr "County"
 #: error_occurred_sending_mail_to
 msgid "An error occurred sending email to {0}: {1}"
 msgstr "An error occurred sending email to {0}: {1}"
-
-#. # mailmerge/ExpiringMembers
-#: Show_members_expiring_before
-msgid "Show members expiring before"
-msgstr "Show members expiring before"
-
-#. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "Expiring Members"
-msgstr "Expiring Members"
-
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#: Membership_Expiry
-msgid "MembershipExpiry"
-msgstr "MembershipExpiry"
-
-#. # mailmerge/ExpiringMembers
-#: ExpiringMembers.csv
-msgid "ExpiringMembers.csv"
-msgstr "ExpiringMembers.csv"
-
-#. # mailmerge/Members
-#: Members.csv
-msgid "Members.csv"
-msgstr "Members.csv"
 
 #. # ui/criteria/DiaryCriteria
 #: Show_everything_upto_this_date\:
@@ -6217,6 +5910,11 @@ msgid "Average Time At Retailer"
 msgstr "Average Time At Retailer"
 
 #. # reports/Retailer
+#: owner_name
+msgid "Owner Name"
+msgstr "Owner Name"
+
+#. # reports/Retailer
 #: all_retailers
 msgid "All Retailers"
 msgstr "All Retailers"
@@ -6335,6 +6033,11 @@ msgstr "There are no owners on file with criteria"
 #: no_matches_found_for_this_owner
 msgid "No matches found for this owner's criteria."
 msgstr "No matches found for this owner's criteria."
+
+#. # reports/OwnerCriteriaSearch
+#: Sheltercode
+msgid "Shelter Code"
+msgstr "Shelter Code"
 
 #. # reports/OwnerCriteriaSearch
 #. # wordprocessor/AnimalDocument
@@ -8907,6 +8610,20 @@ msgstr "Report"
 msgid "Install this report"
 msgstr "Install this report"
 
+#. # ui/customreport/GetReports
+#. # ui/main/Main
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#: Mailmerge
+#: Mail_Merge
+msgid "Mail Merge"
+msgstr "Mail Merge"
+
+#. # ui/customreport/GetReports
+#: Builtin
+msgid "Built In"
+msgstr "Built In"
+
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
 msgid "The subject of the note"
@@ -10423,11 +10140,6 @@ msgstr "&File"
 msgid "&Animal"
 msgstr "&Animal"
 
-#. # ui/main/Main
-#: All_Members
-msgid "All Members"
-msgstr "All Members"
-
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
 #. # ui/diary/DiaryTaskHeadEdit
@@ -10440,17 +10152,6 @@ msgstr "All Members"
 #: Owner
 msgid "&Owner"
 msgstr "&Owner"
-
-#. # ui/main/Main
-#: Owner_Merge
-msgid "&Owner Mail Merge"
-msgstr "&Owner Mail Merge"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "&Non-Returned Adoptions"
-msgstr "&Non-Returned Adoptions"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
@@ -10469,11 +10170,6 @@ msgstr "&Print Diary Notes"
 #: Database_Tools
 msgid "Database Tools"
 msgstr "Database Tools"
-
-#. # ui/main/Main
-#: Off_Shelter_Vaccinations
-msgid "Off Shelter &Vaccinations"
-msgstr "Off Shelter &Vaccinations"
 
 #. # ui/splash/About
 #. # ui/main/Main
@@ -10522,11 +10218,6 @@ msgstr "Internal &Locations"
 msgid "Website &FTP Settings"
 msgstr "Website &FTP Settings"
 
-#. # ui/main/Main
-#: Microchip_Cancellations
-msgid "Microchip &Cancellations"
-msgstr "Microchip &Cancellations"
-
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
 #: Find_Lost_Animal
@@ -10562,8 +10253,6 @@ msgstr "Edit All Diary Notes"
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Species
 msgid "&Species"
 msgstr "&Species"
@@ -10664,11 +10353,6 @@ msgstr "&Find Owner"
 msgid "Publish &Animals Available for Adoption"
 msgstr "Publish &Animals Available for Adoption"
 
-#. # ui/main/Main
-#: Microchip_Registration
-msgid "Microchip Re&gistration"
-msgstr "Microchip Re&gistration"
-
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Edit_System_Users
@@ -10710,11 +10394,6 @@ msgstr "&Litter Logger"
 #: All_Animals
 msgid "&All Animals"
 msgstr "&All Animals"
-
-#. # ui/main/Main
-#: Adoption_Merge
-msgid "&Adoption Mail Merge"
-msgstr "&Adoption Mail Merge"
 
 #. # ui/main/Main
 #: Found_Animals
@@ -11004,12 +10683,6 @@ msgid "Log Ty&pes"
 msgstr "Log Ty&pes"
 
 #. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "&Expiring Members"
-msgstr "&Expiring Members"
-
-#. # ui/main/Main
 #: Close_Active_Tab
 msgid "Close Active Tab"
 msgstr "Close Active Tab"
@@ -11043,11 +10716,6 @@ msgstr "Configure A&dditional Fields"
 #: Import_PetFinder
 msgid "Import &PetFinder Data"
 msgstr "Import &PetFinder Data"
-
-#. # ui/main/Main
-#: All_Members
-msgid "&All Members"
-msgstr "&All Members"
 
 #. # ui/main/Main
 #: Remove_unwanted_breeds
@@ -11732,6 +11400,11 @@ msgid "Return Movement"
 msgstr "Return Movement"
 
 #. # ui/movement/MovementView
+#: return_date
+msgid "Return Date"
+msgstr "Return Date"
+
+#. # ui/movement/MovementView
 #: this_movement_is_already_returned
 msgid "This movement has already been returned."
 msgstr "This movement has already been returned."
@@ -12019,23 +11692,15 @@ msgstr "Shelter Staff"
 msgid "Animal Care Officer"
 msgstr "Animal Care Officer"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#: Mail_Merge
-msgid "Mail Merge"
-msgstr "Mail Merge"
-
 #. # reports/OwnerSearchResults
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
+#. # mailmerge/CustomMailMerge
 #: email
 msgid "Email"
 msgstr "Email"
 
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
 #. # mailmerge/OwnerMailMerge
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
