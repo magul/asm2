@@ -21,6 +21,7 @@
 */
 package net.sourceforge.sheltermanager.asm.bo;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.*;
 
 
@@ -651,4 +652,18 @@ public class Users extends NormalBO<Users> {
     public boolean getSecDeleteAccount() {
         return getSecurityFlag("dac");
     }
+
+
+    public void validate() throws BOValidationException {
+        try {
+            if (0 < DBConnection.executeForInt("SELECT COUNT(*) FROM users WHERE UserName Like '" +
+                getUserName() + "' AND ID <> " + getID())) {
+                throw new BOValidationException(Global.i18n("bo", "duplicate_username", getUserName()));
+            }
+        }
+        catch (Exception e) {
+            throw new BOValidationException(e.getMessage());
+        }
+    }
+
 }

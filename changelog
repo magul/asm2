@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Distinguish between close and quit icons
+*. Should not be allowed to enter duplicate usernames
+*. If a user only has add animal permission, they should still be allowed
+-  to save their new animal without the change permission
 *. Cloning animals copies medical treatment records exactly now
 *. Fixed SMTP module to use RFC821 compliant email addresses
 *. HTML switch to allow sending HTML emails within ASM

@@ -111,6 +111,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     /** True if this is a new record */
     private boolean isNewRecord = false;
 
+    /** True if this was a new record when the form was opened */
+    private boolean wasNewRecord = false;
+
     /** True if a logical instead of internal location is displayed */
     private boolean showingLogicalLocation = false;
     private Vector ctl = null;
@@ -533,8 +536,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     isDirty = dirty;
                     btnSave.setEnabled(isDirty);
 
-                    if (!Global.currentUserObject.getSecChangeAnimal()) {
-                        btnSave.setEnabled(false);
+                    if (!wasNewRecord) {
+                        if (!Global.currentUserObject.getSecChangeAnimal()) {
+                            btnSave.setEnabled(false);
+                        }
                     }
                 }
             });
@@ -572,7 +577,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Sets the form into creating a new animal record */
     public void openForNew() {
+
         isNewRecord = true;
+        wasNewRecord = true;
 
         // Don't need last location field
         removeLastLocationField();
@@ -1651,9 +1658,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             return false;
         }
 
-        if (!Global.currentUserObject.getSecChangeAnimal()) {
+        if (!Global.currentUserObject.getSecChangeAnimal() && !wasNewRecord) {
             Dialog.showError(UI.messageNoSavePermission());
-
             return false;
         }
 

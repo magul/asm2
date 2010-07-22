@@ -64,6 +64,8 @@ public abstract class IconManager {
     public final static String CLONE = "actions-Copy-24.png";
     public final static String CLOSE = "actions-Close-24.png";
     public final static String CLOSE_HILITE = "actions-Close-hilite-24.png";
+    public final static String QUIT = "actions-Quit-24.png";
+    public final static String QUITSMALL = "actions-Quit-16.png";
     public final static String DELETE = "actions-Remove-24.png";
     public final static String PREVIEW = "actions-Preview-24.png";
     public final static String WEB = "actions-Web-24.png";
@@ -626,7 +628,7 @@ public abstract class IconManager {
     public final static String MENU_FILECHANGEPASSWORD = USERSSMALL;
     public final static String MENU_FILECLOSETAB = "actions-Close-16.png";
     public final static String MENU_FILESAVETAB = "actions-Save-16.png";
-    public final static String MENU_FILEEXIT = "actions-Close-16.png";
+    public final static String MENU_FILEEXIT = QUITSMALL;
     public final static String MENU_DIARYPRINTVACC = "actions-Medical-16.png";
     public final static String MENU_DIARYPVALLANIMALS = "animal-Basic-16.png";
     public final static String MENU_DIARYPVONSHELTER = MENUBLANK;
