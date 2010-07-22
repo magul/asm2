@@ -93,7 +93,8 @@ public class EmailForm extends ASMForm {
     }
 
     public void removeTo() {
-        pnlHead.remove(pnlTo);
+        txtTo.setEnabled(false);
+        txtTo.setText(i18n("send_bulk_email"));
         setTitle(i18n("send_bulk_email"));
     }
 

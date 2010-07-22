@@ -233,17 +233,7 @@ public class GetReports extends ASMView {
             // Build the data
             for (int i = 0; i < reports.size(); i++) {
                 InstallableReport r = (InstallableReport) reports.get(i);
-                String type = i18n("Report");
-                if (r.html.trim().equalsIgnoreCase("GRAPH")) {
-                    type = i18n("Graph");
-                }
-                else if (r.html.trim().equalsIgnoreCase("MAIL")) {
-                    type = i18n("Mailmerge");
-                }
-                else if (r.html.trim().length() == 3) {
-                    type = i18n("Builtin");
-                }
-                datar[i][0] = type;
+                datar[i][0] = CustomReport.getReportType(r.html);
                 datar[i][1] = r.name;
                 datar[i][2] = r.category;
                 datar[i][3] = r.database;

@@ -70,8 +70,8 @@ public class MailMerge extends Thread implements EmailFormListener {
             // Get the data
             setStatusText(Global.i18n("mailmerge",
                     "Reading_data,_please_wait..."));
-            emailColumn = getEmailColumn();
             getData();
+            emailColumn = getEmailColumn();
             resetStatusBar();
 
             // Write the data to disk or bulk email - ask

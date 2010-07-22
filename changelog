@@ -1,6 +1,8 @@
 2.7.3
 ================
 
+*. Fixed a few more mailmerge bugs with hiding the to field on 
+-  bulk emails and added type field to custom report list
 *. Mail merge sources are now handled as custom reports, just like
 -  custom graphs. Existing ones have been converted and added to the
 -  repository. The mail merge menu now shows a tree, just like reports

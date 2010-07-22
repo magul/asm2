@@ -136,6 +136,25 @@ public class CustomReport extends UserInfoBO<CustomReport> {
         rs.setField("LastChangedDate", newValue);
     }
 
+    public String getType() throws CursorEngineException {
+        return getReportType(getHTMLBody());
+    }
+
+    public static String getReportType(String html) {
+        String type = Global.i18n("uicustomreport", "Report");
+        if (html.equalsIgnoreCase("GRAPH")) {
+            type = Global.i18n("uicustomreport", "Graph");
+        }
+        else if (html.equalsIgnoreCase("MAIL")) {
+            type = Global.i18n("uicustomreport", "Mailmerge");
+        }
+        else if (html.length() == 3) {
+            type = Global.i18n("uicustomreport", "Builtin");
+        }
+        return type;
+    }
+
+
     /**
      * Returns true if this is a subreport. Subreports are identified by the
      * presence of a $PARENTKEY$ tag in the SQL.

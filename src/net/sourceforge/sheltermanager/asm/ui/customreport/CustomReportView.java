@@ -109,19 +109,20 @@ public class CustomReportView extends ASMView {
         cr.openRecordset("ID > 0 ORDER BY Title");
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) cr.getRecordCount()][3];
+        String[][] datar = new String[(int) cr.getRecordCount()][4];
 
         // Create an array of headers for the table
-        String[] columnheaders = { i18n("Title"), i18n("category") };
+        String[] columnheaders = { i18n("Type"), i18n("Title"), i18n("category") };
 
         // Build the data
         int i = 0;
 
         try {
             while (!cr.getEOF()) {
-                datar[i][0] = cr.getTitle();
-                datar[i][1] = Utils.nullToEmptyString(cr.getCategory());
-                datar[i][2] = cr.getID().toString();
+                datar[i][0] = cr.getType();
+                datar[i][1] = cr.getTitle();
+                datar[i][2] = Utils.nullToEmptyString(cr.getCategory());
+                datar[i][3] = cr.getID().toString();
 
                 i++;
                 cr.moveNext();
@@ -132,7 +133,7 @@ public class CustomReportView extends ASMView {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 2);
+        setTableData(columnheaders, datar, i, 3);
 
         // Tell the main menu to update since this routine is
         // usually called following a change

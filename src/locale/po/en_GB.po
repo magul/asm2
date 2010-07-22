@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-07-22 11:49+0000\n"
+"PO-Revision-Date: 2010-07-22 14:10+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -5636,6 +5636,7 @@ msgstr "Internal Loc"
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportView
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
@@ -6302,6 +6303,7 @@ msgstr "Code:"
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportView
 #. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
 #. # ui/animal/AnimalFind
@@ -8595,12 +8597,12 @@ msgstr "Database"
 msgid "Locale"
 msgstr "Locale"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Graph
 msgid "Graph"
 msgstr "Graph"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Report
 msgid "Report"
 msgstr "Report"
@@ -8610,7 +8612,7 @@ msgstr "Report"
 msgid "Install this report"
 msgstr "Install this report"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #. # ui/main/Main
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
@@ -8619,7 +8621,7 @@ msgstr "Install this report"
 msgid "Mail Merge"
 msgstr "Mail Merge"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Builtin
 msgid "Built In"
 msgstr "Built In"
