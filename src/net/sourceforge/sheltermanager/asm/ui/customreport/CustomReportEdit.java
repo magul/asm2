@@ -546,8 +546,12 @@ public class CustomReportEdit extends ASMForm {
 
             // Update parent
             parent.updateList();
-
             setDirty(false);
+
+            // Tell the main menu to update Reports/Mail Merge in
+            // case the title of this report changed
+            Global.mainForm.refreshCustomReports();
+            Global.mainForm.refreshMailMerge();
 
             return true;
         } catch (Exception e) {

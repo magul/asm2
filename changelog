@@ -1,6 +1,9 @@
 2.7.3
 ================
 
+*. Mail Merge menu should disappear if we don't have any merge sources
+*. Mail Merge/Report menus should update when deleting a report
+-  or after editing (in case title changes)
 *. Fixed a few more mailmerge bugs with hiding the to field on 
 -  bulk emails and added type field to custom report list
 *. Mail merge sources are now handled as custom reports, just like

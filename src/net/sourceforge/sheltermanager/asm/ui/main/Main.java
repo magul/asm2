@@ -738,10 +738,13 @@ public class Main extends ASMWindow {
         HashMap<String, UI.Menu> menus = new HashMap<String, UI.Menu>();
 
         try {
+            
             mnuMailMerge.removeAll();
+            CustomReport reports = new CustomReport(
+                    "HTMLBody Like 'MAIL' ORDER BY Category, Title");
+            mnuMailMerge.setVisible(reports.size() > 0);
 
-            for (CustomReport cr : new CustomReport(
-                    "HTMLBody Like 'MAIL' ORDER BY Category, Title")) {
+            for (CustomReport cr : reports) {
 
                 // Is the category blank? If so, use
                 // "Uncategorised"
