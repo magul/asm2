@@ -8789,6 +8789,17 @@ Default shelter code for new animals:
 \begin_layout Itemize
 
 \series bold
+Hide short shelter codes on the animal details screen:
+\series default
+ Setting this option will make ASM hide the short shelter code field at
+ the top left of the animal details screen.
+ It does not stop ASM generating short codes behind the scenes, it just
+ stops them being visible on the screen.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Enforce animal codes entered by users conform to the selected animal coding
  scheme:
 \series default

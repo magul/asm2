@@ -685,6 +685,11 @@ public class Options extends ASMForm {
                              .equalsIgnoreCase("Yes"), false));
 
         l.add(new SelectableItem(Global.i18n("uisystem",
+                    "disable_shortcodes_editing"), "DisableShortCodesControl",
+                Configuration.getString("DisableShortCodesControl")
+                            .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
                     "Check_animal_codes_entered_by_users_conform_to_selected_scheme"),
                 "StrictAutoCodes",
                 Configuration.getString("StrictAutoCodes")

@@ -3156,14 +3156,23 @@ class AnimalCodeField extends UI.Panel {
         String shorttooltip) {
         super(UI.getBorderLayout(), true);
 
-        UI.Panel bits = UI.getPanel(UI.getGridLayout(0, 2, 0, 0), true);
+        UI.Panel bits = null;
+
+        if (!Configuration.getBoolean("DisableShortCodesControl"))
+            bits = UI.getPanel(UI.getGridLayout(0, 2, 0, 0), true);
+        else
+            bits = UI.getPanel(UI.getGridLayout(0, 1, 0, 0), true);
+
         code = UI.getTextField(tooltip, onChange);
         code.setWidth(UI.getTextBoxWidth() / 2);
         code.setForeground(UI.getColor(255, 0, 0));
         shortcode = UI.getTextField(shorttooltip, onChange);
         shortcode.setWidth(UI.getTextBoxWidth() / 2);
         bits.add(code);
-        bits.add(shortcode);
+                
+        if (!Configuration.getBoolean("DisableShortCodesControl")) {
+            bits.add(shortcode);
+        }
 
         btn = UI.getButton(null,
                 ((buttontooltip != null) ? buttontooltip : tooltip), ' ',
