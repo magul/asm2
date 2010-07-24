@@ -394,9 +394,7 @@ public class Diagnostic extends Thread {
         setStatusBarMax((int) ad.getRecordCount());
 
         while (!ad.getEOF()) {
-            if ((ad.getReturnDate() != null) && (ad.getAdoptionDate() == null) &&
-                    (ad.getFosteredDate() == null) &&
-                    (ad.getTransferDate() == null)) {
+            if ((ad.getReturnDate() != null) && (ad.getMovementDate() == null)) {
                 badFound++;
                 DBConnection.executeAction("DELETE FROM adoption WHERE ID = " +
                     ad.getID());
