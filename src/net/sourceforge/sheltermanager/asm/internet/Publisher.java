@@ -136,7 +136,7 @@ public class Publisher extends Thread {
                     noAnimals++;
 
                     if ((publishCriteria.limit > 0) &&
-                            (noAnimals > publishCriteria.limit)) {
+                            (noAnimals >= publishCriteria.limit)) {
                         break;
                     }
                 }

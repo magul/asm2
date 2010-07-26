@@ -1,6 +1,7 @@
 2.7.3
 ================
 
+*. $$TOTAL$$ was returning LIMIT+1 when a limit was set
 *. Returned non-movement diagnostic test incorrectly removed retailer movements
 *. System option to hide the short code box on animal details
 *. Mail Merge menu should disappear if we don't have any merge sources
