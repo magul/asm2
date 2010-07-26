@@ -322,18 +322,11 @@ public final class UI {
         }
 
         if (onChange != null) {
-            c.addKeyListener(new KeyAdapter() {
-                    public void keyPressed(KeyEvent e) {
-                        if (isTypedEvent(e)) {
-                            onChange.call();
-                        }
-                    }
-                });
-            c.addMouseListener(new MouseAdapter() {
-                    public void mouseClicked(MouseEvent e) {
-                        onChange.call();
-                    }
-                });
+	    c.addItemListener(new ItemListener() {
+	        public void itemStateChanged(ItemEvent e) {
+		    onChange.call();
+		}
+	    });
         }
 
         // There are more than a few places where we have trailing

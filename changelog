@@ -1,6 +1,8 @@
 2.7.3
 ================
 
+*. Use ItemEvent instead of combo Key/Mouse for detecting Checkbox changes
+-  (noticeable if you use the keyboard to change crossbreed field)
 *. $$TOTAL$$ was returning LIMIT+1 when a limit was set
 *. Returned non-movement diagnostic test incorrectly removed retailer movements
 *. System option to hide the short code box on animal details
