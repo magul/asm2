@@ -52,13 +52,6 @@ public class SearchResults extends Report {
     }
 
     public void generateReport() {
-        // For reporting purposes, substitute the report name
-        // for the normal animal name (column 13 to column 0). This
-        // just flips them around, and we do it again at the end.
-        // This is because the table relies on this information
-        // too and switching these columns causes HTML to appear on
-        // the search form
-        flipNames();
 
         if ((searchTerm != null) && !searchTerm.equals("")) {
             addParagraph(bold(Global.i18n("reports", "criteria") + ": <br />") +
@@ -95,7 +88,10 @@ public class SearchResults extends Report {
             tableAddRow();
 
             for (int z = 0; z < 12; z++) {
-                tableAddCell(searchResults[i][z]);
+	    	if (z == 0)
+		    tableAddCell(searchResults[i][13]);
+		else
+                    tableAddCell(searchResults[i][z]);
             }
 
             tableFinishRow();
@@ -107,18 +103,6 @@ public class SearchResults extends Report {
 
         addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
 
-        // Flip the names back again so the search form goes back to
-        // normal and so we can do the report again.
-        flipNames();
     }
 
-    private void flipNames() {
-        String temp = "";
-
-        for (int i = 0; i < max; i++) {
-            temp = searchResults[i][0];
-            searchResults[i][0] = searchResults[i][13];
-            searchResults[i][13] = temp;
-        }
-    }
 }
