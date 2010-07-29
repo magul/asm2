@@ -148,7 +148,7 @@ public class CustomReport extends UserInfoBO<CustomReport> {
         else if (html.equalsIgnoreCase("MAIL")) {
             type = Global.i18n("uicustomreport", "Mailmerge");
         }
-        else if (html.length() == 3) {
+        else if (html.length() < 4) {
             type = Global.i18n("uicustomreport", "Builtin");
         }
         return type;

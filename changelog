@@ -1,6 +1,9 @@
 2.7.3
 ================
 
+*. Fixed detection of built-in reports for get more reports table
+*. Fixed broken tabular layout for internet config forms, diary tasks,
+-  preferences and database config
 *. Fixed introduced bug that caused audit to record type instead of
 -  title when deleting custom reports
 *. Show short shelter codes option now covers the whole application

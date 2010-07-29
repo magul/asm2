@@ -317,7 +317,10 @@ public class DiaryTaskExecute extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pn = UI.getPanel(UI.getBorderLayout());
+        pn.add(pb, UI.BorderLayout.NORTH);
 
         cboDiaryTask = UI.getCombo(i18n("Task:"),
                 "SELECT Name FROM diarytaskhead WHERE RecordType = " +
@@ -330,12 +333,13 @@ public class DiaryTaskExecute extends ASMForm {
                 UI.getCheckBox(i18n("edit_notes_after_creation"),
                     i18n("tick_this_box_to_edit_the_created_diary_notes")));
 
-        btnOk = (UI.Button) p.add(UI.getButton(i18n("Ok"), null, 'o', null,
+        btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
                     UI.fp(this, "actionOk")));
-        btnCancel = (UI.Button) p.add(UI.getButton(i18n("Cancel"), null, 'c',
+        btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
                     null, UI.fp(this, "dispose")));
 
-        add(p, UI.BorderLayout.CENTER);
+        add(p, UI.BorderLayout.NORTH);
+        add(pn, UI.BorderLayout.CENTER);
     }
 
     public String getAuditInfo() {

@@ -97,7 +97,10 @@ public class ASMConfigForm extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pn = UI.getPanel(UI.getBorderLayout());
+        pn.add(pb, UI.BorderLayout.NORTH);
 
         for (int i = 0; i < items.length; i++) {
             switch (items[i].type) {
@@ -138,12 +141,13 @@ public class ASMConfigForm extends ASMForm {
             }
         }
 
-        p.add(UI.getButton(UI.messageOK(), null, 'o', null,
+        pb.add(UI.getButton(UI.messageOK(), null, 'o', null,
                 UI.fp(this, "saveData")));
-        p.add(UI.getButton(UI.messageCancel(), null, 'c', null,
+        pb.add(UI.getButton(UI.messageCancel(), null, 'c', null,
                 UI.fp(this, "dispose")));
 
-        add(p, UI.BorderLayout.CENTER);
+        add(p, UI.BorderLayout.NORTH);
+        add(pn, UI.BorderLayout.CENTER);
     }
 
     public boolean formClosing() {

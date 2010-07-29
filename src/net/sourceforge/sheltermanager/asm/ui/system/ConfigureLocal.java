@@ -150,7 +150,11 @@ public class ConfigureLocal extends ASMForm {
     }
 
     public void initComponents() {
+        
         UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pn = UI.getPanel(UI.getBorderLayout());
+        pn.add(pb, UI.BorderLayout.NORTH);
 
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
                 UI.getCombo(Global.getSupportedLocales()));
@@ -221,7 +225,6 @@ public class ConfigureLocal extends ASMForm {
                 i18n("heartbeat_interval"),
                 UI.getTextField(i18n("heartbeat_interval_tooltip")));
 
-        UI.Panel pb = UI.getPanel(UI.getFlowLayout());
 
         btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"),
                     i18n("Save_your_changes_and_exit"), 'o', null,
@@ -231,8 +234,8 @@ public class ConfigureLocal extends ASMForm {
                     i18n("Discard_changes_and_exit"), 'c', null,
                     UI.fp(this, "actionCancel")));
 
-        add(pb, UI.BorderLayout.SOUTH);
         add(p, UI.BorderLayout.NORTH);
+        add(pn, UI.BorderLayout.CENTER);
     }
 
     public void actionCancel() {

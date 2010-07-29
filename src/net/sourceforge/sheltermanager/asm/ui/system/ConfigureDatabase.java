@@ -110,8 +110,11 @@ public class ConfigureDatabase extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
+        UI.Panel pn = UI.getPanel(UI.getBorderLayout());
+        pn.add(pb, UI.BorderLayout.NORTH);
+
         spnRecordSearchLimit = (UI.Spinner) UI.addComponent(p,
                 i18n("record_search_limit"),
                 UI.getSpinner(0, 1000, i18n("record_search_limit_tooltip"), null));
@@ -132,7 +135,8 @@ public class ConfigureDatabase extends ASMForm {
                     UI.fp(this, "saveData")));
         btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
                     null, UI.fp(this, "dispose")));
-        p.add(pb);
-        add(p, UI.BorderLayout.CENTER);
+        
+        add(p, UI.BorderLayout.NORTH);
+        add(pn, UI.BorderLayout.CENTER);
     }
 }
