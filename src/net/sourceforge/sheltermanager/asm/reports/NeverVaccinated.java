@@ -88,7 +88,7 @@ public class NeverVaccinated extends Report {
 
                     if (av.getEOF()) {
                         tableAddRow();
-                        tableAddCell(an.getShelterCode());
+                        tableAddCell(code(an));
                         tableAddCell(an.getReportAnimalName());
                         tableAddCell(an.getAnimalTypeName());
                         tableAddCell(an.getShelterLocationName());

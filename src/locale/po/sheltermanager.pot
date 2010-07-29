@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-23 08:55+0100\n"
+"POT-Creation-Date: 2010-07-29 10:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4832,6 +4832,7 @@ msgstr ""
 #. # reports/OwnerSearchResults
 #. # reports/SearchResults
 #. # reports/TransferIn
+#. # ui/movement/MovementView
 #: Total__
 msgid "Total: {0}"
 msgstr ""
@@ -4992,11 +4993,6 @@ msgstr ""
 #. # reports/SearchResults
 #: Animal_Search_Results_
 msgid "Animal Search Results (generated on {0}) "
-msgstr ""
-
-#. # reports/SearchResults
-#: Short_Code
-msgid "Short Code"
 msgstr ""
 
 #. # reports/SearchResults
@@ -5546,6 +5542,7 @@ msgstr ""
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6252,6 +6249,7 @@ msgstr ""
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6587,8 +6585,12 @@ msgstr ""
 msgid "Type: "
 msgstr ""
 
+#. # reports/Report
+#. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
@@ -6652,6 +6654,7 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/movement/MovementView
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # ui/reportviewer/ReportViewer
@@ -12594,7 +12597,7 @@ msgstr ""
 
 #. # ui/system/Options
 #: show_short_shelter_code
-msgid "Show short shelter codes on find animal screen"
+msgid "Show short shelter codes on screens and reports"
 msgstr ""
 
 #. # ui/system/Options

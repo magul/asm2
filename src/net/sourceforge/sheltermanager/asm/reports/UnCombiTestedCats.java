@@ -119,7 +119,7 @@ public class UnCombiTestedCats extends Report {
             while (!an.getEOF()) {
                 if (an.isAnimalOnShelter()) {
                     tableAddRow();
-                    tableAddCell(an.getShelterCode());
+                    tableAddCell(code(an));
                     tableAddCell(an.getReportAnimalName());
                     tableAddCell(an.getAge());
                     tableAddCell(an.getAnimalTypeName());

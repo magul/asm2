@@ -240,7 +240,7 @@ public class OwnerCriteriaSearch extends Report {
                     while (!a.getEOF()) {
                         tableAddRow();
 
-                        tableAddCell(a.getShelterCode());
+                        tableAddCell(code(a));
                         tableAddCell(a.getReportAnimalName());
                         tableAddCell(a.getAge());
                         tableAddCell(a.getSexName());

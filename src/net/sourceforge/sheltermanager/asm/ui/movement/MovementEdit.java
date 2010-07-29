@@ -316,7 +316,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
             try {
                 obj.openRecordset("ID = " + selectedAnimalID);
-                txtAnimalName.setText(obj.getShelterCode() + " - " +
+                txtAnimalName.setText((Global.getShowShortCodes() ? obj.getShortCode() : obj.getShelterCode()) + " - " +
                     obj.getAnimalName());
             } catch (Exception e) {
             }
@@ -402,7 +402,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             this.setTitle(i18n("edit_movement_title",
                     movement.getAdoptionNumber(),
                     movement.getAnimal().getAnimalName(),
-                    movement.getAnimal().getShelterCode(), ownername));
+                    (Global.getShowShortCodes() ? movement.getAnimal().getShortCode() : movement.getAnimal().getShelterCode()), ownername));
 
             // Load the data into the controls
 
@@ -415,7 +415,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
             this.txtReason.setText(Utils.nullToEmptyString(
                     movement.getReasonForReturn()));
-            this.txtAnimalName.setText(movement.getAnimal().getShelterCode() +
+            this.txtAnimalName.setText((Global.getShowShortCodes() ? movement.getAnimal().getShortCode() : movement.getAnimal().getShelterCode()) +
                 " - " + movement.getAnimal().getAnimalName());
             this.txtInsurance.setText(Utils.nullToEmptyString(
                     movement.getInsuranceNumber()));
@@ -1200,7 +1200,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
             selectedAnimalID = theanimal.getID().intValue();
             animalID = selectedAnimalID;
-            txtAnimalName.setText(theanimal.getShelterCode() + " - " +
+            txtAnimalName.setText((Global.getShowShortCodes() ? theanimal.getShortCode() : theanimal.getShelterCode()) + " - " +
                 theanimal.getAnimalName());
             dataChanged();
             enableButtons();

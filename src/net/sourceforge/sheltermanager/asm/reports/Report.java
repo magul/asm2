@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.asm.ui.system.*;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.*;
+import net.sourceforge.sheltermanager.cursorengine.*;
 import net.sourceforge.sheltermanager.dbfs.*;
 
 import java.io.*;
@@ -272,6 +273,14 @@ public abstract class Report extends Thread {
         tablespec.append(TABLE_NEW_CELL);
         tablespec.append(value);
         tablespec.append(TABLE_FINISH_CELL);
+    }
+
+    protected String code(Animal a) throws CursorEngineException {
+        return Global.getShowShortCodes() ? a.getShortCode() : a.getShelterCode();
+    }
+
+    protected String code(SQLRecordset r) throws CursorEngineException {
+        return Global.getShowShortCodes() ? r.getString("ShortCode") : r.getString("ShelterCode");
     }
 
     public String money(Double d) {

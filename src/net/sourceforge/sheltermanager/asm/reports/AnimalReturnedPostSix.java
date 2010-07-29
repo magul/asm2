@@ -96,7 +96,7 @@ public class AnimalReturnedPostSix extends Report {
                 // Is the return date after six months after adoption?
                 if (returnDate.after(sixMonthsAfter)) {
                     tableAddRow();
-                    tableAddCell(ad.getAnimal().getShelterCode());
+                    tableAddCell(code(ad.getAnimal()));
                     tableAddCell(ad.getAnimal().getReportAnimalName());
                     tableAddCell(ad.getAnimal().getAnimalTypeName());
                     tableAddCell(ad.getAnimal().getSpeciesName());

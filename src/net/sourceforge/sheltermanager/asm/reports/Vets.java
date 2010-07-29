@@ -187,7 +187,7 @@ public class Vets extends Report implements DiaryCriteriaListener {
                         tableAddRow();
                         tableAddCell(Utils.formatDateTimeLong(
                                 diary.getDiaryDateTime()));
-                        tableAddCell(a.getShortCode());
+                        tableAddCell(code(a));
                         tableAddCell(a.getAnimalName());
                         tableAddCell(a.getAnimalLocationAtDateByName(new Date()));
                         tableAddCell(diary.getSubject());
@@ -234,7 +234,7 @@ public class Vets extends Report implements DiaryCriteriaListener {
 
                             tableAddRow();
                             tableAddCell(Utils.formatDate(av.getDateRequired()));
-                            tableAddCell(a.getShortCode());
+                            tableAddCell(code(a));
                             tableAddCell(a.getAnimalName());
                             tableAddCell(a.getAnimalLocationAtDateByName(
                                     new Date()));

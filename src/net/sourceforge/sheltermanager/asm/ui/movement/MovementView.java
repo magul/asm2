@@ -36,9 +36,13 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import net.sourceforge.sheltermanager.asm.reports.Report;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+import java.awt.Component;
 
 
 /**
@@ -53,12 +57,14 @@ public class MovementView extends ASMView implements MovementParent {
     public final static int MODE_FOSTERS = 1;
     public final static int MODE_RETAILERS = 2;
     private String[][] tabledata = null;
+    private String[] columnheaders = null;
     private UI.Button btnNew;
     private UI.Button btnRefresh;
     private UI.Button btnReturnCreateNew;
     private UI.Button btnView;
     private UI.Button btnViewAnimal;
     private UI.Button btnViewOwner;
+    private UI.Button btnPrint;
     private int mode = MODE_RESERVATION;
 
     /** Creates new form FosterBook */
@@ -90,9 +96,11 @@ public class MovementView extends ASMView implements MovementParent {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    @Override
+    public Vector<Component> getTabOrder() {
+        Vector<Component> ctl = new Vector<Component>();
         ctl.add(btnRefresh);
+        ctl.add(btnPrint);
         ctl.add(btnNew);
         ctl.add(btnView);
         ctl.add(btnViewAnimal);
@@ -102,14 +110,17 @@ public class MovementView extends ASMView implements MovementParent {
         return ctl;
     }
 
-    public Object getDefaultFocusedComponent() {
+    @Override
+    public Component getDefaultFocusedComponent() {
         return btnRefresh;
     }
 
+    @Override
     public String getAuditInfo() {
         return null;
     }
 
+    @Override
     public void setSecurity() {
         if (!Global.currentUserObject.getSecViewAnimal()) {
             btnViewAnimal.setEnabled(false);
@@ -126,18 +137,26 @@ public class MovementView extends ASMView implements MovementParent {
         if (!Global.currentUserObject.getSecAddAnimalMovements()) {
             btnNew.setEnabled(false);
         }
+
+        if (!Global.currentUserObject.getSecViewCustomReports()) {
+            btnPrint.setEnabled(false);
+        }
     }
 
+    @Override
     public void setLink(int a, int b) {
     }
 
+    @Override
     public void loadData() {
     }
 
+    @Override
     public boolean saveData() {
         return true;
     }
 
+    @Override
     public void updateList() {
         // Calculate time difference. We show all outstanding movements PLUS
         // movements that were edited in the last 5 minutes by this user.
@@ -149,13 +168,17 @@ public class MovementView extends ASMView implements MovementParent {
         String now = Utils.getSQLDate(cnow);
 
         SQLRecordset rs = new SQLRecordset();
+        String sql = null;
+    
+        String shelterCode = "animal.ShelterCode AS TheCode";
+        if (Global.getShowShortCodes())
+            shelterCode = "animal.ShortCode AS TheCode";
 
         switch (mode) {
         case MODE_RESERVATION:
-
-            try {
-                String sql = "SELECT animal.AnimalName, animal.ShelterCode, animaltype.AnimalType, " +
+                sql = "SELECT animal.AnimalName, " + shelterCode + ", animaltype.AnimalType, " +
                     "species.SpeciesName, owner.OwnerName, adoption.ReservationDate, adoption.ReturnDate, " +
+                    "animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType, " +
                     "adoption.ID " + "FROM adoption " +
                     "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
                     "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
@@ -165,21 +188,12 @@ public class MovementView extends ASMView implements MovementParent {
                     "adoption.ReservationCancelledDate Is Null " +
                     "AND adoption.MovementDate Is Null AND adoption.MovementType = 0 " +
                     "AND adoption.ReturnDate Is Null AND animal.DeceasedDate Is Null";
-                Global.logDebug(sql, "MovementView.updateList");
-                rs.openRecordset(sql, "adoption");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-
-                return;
-            }
-
             break;
 
         case MODE_RETAILERS:
-
-            try {
-                String sql = "SELECT animal.AnimalName, animal.ShelterCode, animaltype.AnimalType, " +
+                sql = "SELECT animal.AnimalName, " + shelterCode  + ", animaltype.AnimalType, " +
                     "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
+                    ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
                     "FROM adoption " +
                     "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
                     "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
@@ -194,21 +208,12 @@ public class MovementView extends ASMView implements MovementParent {
                     "' AND '" + now + "' " +
                     "AND adoption.LastChangedBy Like '" +
                     Global.currentUserName + "'))";
-                Global.logDebug(sql, "MovementView.updateList");
-                rs.openRecordset(sql, "adoption");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-
-                return;
-            }
-
             break;
 
         case MODE_FOSTERS:
-
-            try {
-                String sql = "SELECT animal.AnimalName, animal.ShelterCode, animaltype.AnimalType, " +
+                sql = "SELECT animal.AnimalName, " + shelterCode + ", animaltype.AnimalType, " +
                     "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
+                    ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
                     "FROM adoption " +
                     "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
                     "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
@@ -223,33 +228,33 @@ public class MovementView extends ASMView implements MovementParent {
                     "' AND '" + now + "' " +
                     "AND adoption.LastChangedBy Like '" +
                     Global.currentUserName + "'))";
-                Global.logDebug(sql, "MovementView.updateList");
-                rs.openRecordset(sql, "adoption");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-
-                return;
-            }
-
             break;
         }
 
-        // Create an array to hold the results for the table - note that we
-        // have an extra column on here - the last column will actually hold
-        // the ID.
-        tabledata = new String[(int) rs.getRecordCount()][8];
+        try {
+            Global.logDebug(sql, "MovementView.updateList");
+            rs.openRecordset(sql, "adoption");
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+            return;
+        }
 
-        // Create an array of headers for the accounts (one less than
-        // array because 7th col will hold ID
-        String[] columnheaders = {
-                Global.i18n("uimovement", "Name"),
-                Global.i18n("uimovement", "Code"),
-                Global.i18n("uimovement", "Type"),
-                Global.i18n("uimovement", "Species"),
-                Global.i18n("uimovement", "Owner"),
-                Global.i18n("uimovement", "Date"),
-                Global.i18n("uimovement", "return_date")
-            };
+
+        // Create an array of headers for the accounts (two less than array
+        // because last cols will hold the ID and the report animal name)
+        columnheaders = new String[7];
+        columnheaders[0] = Global.i18n("uimovement", "Name");
+        columnheaders[1] = Global.i18n("uimovement", "Code");
+        columnheaders[2] = Global.i18n("uimovement", "Type");
+        columnheaders[3] = Global.i18n("uimovement", "Species");
+        columnheaders[4] = Global.i18n("uimovement", "Owner");
+        columnheaders[5] = Global.i18n("uimovement", "Date");
+        columnheaders[6] = Global.i18n("uimovement", "return_date");
+
+        // Create an array to hold the results for the table - note that we
+        // have two extra columns here - the next to last column will actually hold
+        // the ID, and the last column the HTML AnimalName for the Print report
+        tabledata = new String[(int) rs.getRecordCount()][columnheaders.length+2];
 
         // loop through the data and fill the array
         int i = 0;
@@ -257,7 +262,7 @@ public class MovementView extends ASMView implements MovementParent {
         try {
             while (!rs.getEOF()) {
                 tabledata[i][0] = rs.getField("AnimalName").toString();
-                tabledata[i][1] = rs.getField("ShelterCode").toString();
+                tabledata[i][1] = rs.getField("TheCode").toString();
                 tabledata[i][2] = rs.getField("AnimalType").toString();
                 tabledata[i][3] = rs.getField("SpeciesName").toString();
                 tabledata[i][4] = rs.getField("OwnerName").toString();
@@ -272,7 +277,14 @@ public class MovementView extends ASMView implements MovementParent {
 
                 tabledata[i][6] = Utils.nullToEmptyString(Utils.formatTableDate(
                             (Date) rs.getField("ReturnDate")));
+
                 tabledata[i][7] = rs.getField("ID").toString();
+                tabledata[i][8] = Animal.getReportAnimalName(
+                                 rs.getField("AnimalName").toString(),
+                                 (Date) rs.getField("DateOfBirth"),
+                                 (Date) rs.getField("DeceasedDate"),
+                                 (Integer) rs.getField("HasActiveReserve"),
+                                 (Integer) rs.getField("ActiveMovementType") );
                 i++;
                 rs.moveNext();
             }
@@ -281,7 +293,8 @@ public class MovementView extends ASMView implements MovementParent {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, tabledata, i, 7);
+        setTableData(columnheaders, tabledata, i,
+                     columnheaders.length+2, columnheaders.length);
 
         try {
             rs.free();
@@ -290,7 +303,9 @@ public class MovementView extends ASMView implements MovementParent {
         }
     }
 
+    @Override
     public void addToolButtons() {
+        
         switch (mode) {
         case MODE_RESERVATION:
             btnRefresh = UI.getButton(null,
@@ -299,6 +314,11 @@ public class MovementView extends ASMView implements MovementParent {
                         IconManager.SCREEN_RESERVATIONBOOK_REFRESH),
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
+
+            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+                    IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
+                    UI.fp(this, "actionPrint"));
+            addToolButton(btnPrint, false);
 
             btnNew = UI.getButton(null, i18n("Create_a_new_reservation"), 'n',
                     IconManager.getIcon(IconManager.SCREEN_RESERVATIONBOOK_NEW),
@@ -333,6 +353,11 @@ public class MovementView extends ASMView implements MovementParent {
                     IconManager.getIcon(IconManager.SCREEN_RETAILERBOOK_REFRESH),
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
+
+            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+                    IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
+                    UI.fp(this, "actionPrint"));
+            addToolButton(btnPrint, false);
 
             btnNew = UI.getButton(null, i18n("Create_a_new_retailer_movement"),
                     'n',
@@ -376,6 +401,11 @@ public class MovementView extends ASMView implements MovementParent {
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
 
+            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+                    IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
+                    UI.fp(this, "actionPrint"));
+            addToolButton(btnPrint, false);
+
             btnNew = UI.getButton(null, i18n("Create_a_new_foster"), 'n',
                     IconManager.getIcon(IconManager.SCREEN_FOSTERBOOK_NEW),
                     UI.fp(this, "actionNew"));
@@ -411,17 +441,21 @@ public class MovementView extends ASMView implements MovementParent {
         }
     }
 
+    @Override
     public void tableDoubleClicked() {
         actionEdit();
     }
 
+    @Override
     public void tableClicked() {
     }
 
+    @Override
     public boolean formClosing() {
         return false;
     }
 
+    @Override
     public boolean hasData() {
         return getTable().getRowCount() > 0;
     }
@@ -573,6 +607,67 @@ public class MovementView extends ASMView implements MovementParent {
         updateList();
     }
 
+    public void actionPrint() {
+      SortableTableModel tablemodel = (SortableTableModel) table.getModel();
+      new MovementResults(tablemodel.getData(), tablemodel.getRowCount(),
+                          columnheaders, getTitle());
+    }
+
+    @Override
     public void updateMedia() {
     }
+
+  private class MovementResults extends Report {
+    private String[][] searchResults = null;
+    private String[] headers = null;
+    private String title = null;
+    private int max = 0;
+
+    public MovementResults(String[][] searchResults, int max,
+                         String[] headers, String title) {
+      this.max = max;
+      this.searchResults = searchResults;
+      this.headers = headers;
+      this.title = title;
+
+      if (searchResults == null) return;
+      this.start();
+    }
+
+    @Override
+    public String getTitle() {
+      return title;
+    }
+
+    @Override
+    public void generateReport() {
+      tableNew();
+
+      tableAddRow();
+      for (int i = 0; i < headers.length; i++)
+        { tableAddCell(bold(headers[i])); }
+      tableFinishRow();
+
+      setStatusBarMax(max);
+      for (int i = 0; i < max; i++) {
+        tableAddRow();
+
+        // For reporting purposes, substitute the report animal name
+        // for the normal animal name (last extra column for column 0).
+        tableAddCell(searchResults[0][headers.length+1]);
+
+        for (int z = 1; z < headers.length; z++) {
+            tableAddCell(searchResults[i][z]);
+        }
+
+        tableFinishRow();
+        incrementStatusBar();
+      }
+
+      tableFinish();
+      addTable();
+
+      addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
+    }
+  }
 }

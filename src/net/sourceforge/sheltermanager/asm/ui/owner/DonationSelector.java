@@ -165,7 +165,7 @@ public class DonationSelector extends ASMSelector {
                     if (od.getMovementID().intValue() != 0) {
                         SQLRecordset rs = new SQLRecordset();
                         rs.openRecordset(
-                            "SELECT AnimalName, ShelterCode FROM animal " +
+                            "SELECT AnimalName, ShortCode, ShelterCode FROM animal " +
                             "INNER JOIN adoption ON adoption.AnimalID = animal.ID " +
                             "INNER JOIN ownerdonation ON ownerdonation.MovementID = adoption.ID " +
                             "WHERE ownerdonation.MovementID = " +
@@ -173,19 +173,21 @@ public class DonationSelector extends ASMSelector {
 
                         if (!rs.getEOF()) {
                             c = "[" + rs.getField("AnimalName") + " - " +
-                                rs.getField("ShelterCode") + "] " +
+                                (Global.getShowShortCodes() ? rs.getString("ShortCode") :
+                                rs.getString("ShelterCode")) + "] " +
                                 od.getComments();
                         }
                     } else if (od.getAnimalID().intValue() != 0) {
                         // Show the animal name/code for animal sponsorship too
                         SQLRecordset rs = new SQLRecordset();
                         rs.openRecordset(
-                            "SELECT AnimalName, ShelterCode FROM animal " +
+                            "SELECT AnimalName, ShortCode, ShelterCode FROM animal " +
                             "WHERE ID = " + od.getAnimalID(), "animal");
 
                         if (!rs.getEOF()) {
                             c = "[" + rs.getField("AnimalName") + " - " +
-                                rs.getField("ShelterCode") + "] " +
+                                (Global.getShowShortCodes() ? rs.getString("ShortCode") :
+                                rs.getString("ShelterCode")) + "] " +
                                 od.getComments();
                         }
                     }

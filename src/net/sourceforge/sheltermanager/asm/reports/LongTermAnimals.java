@@ -81,7 +81,7 @@ public class LongTermAnimals extends Report {
 
                     if (recentdate.before(threeMonthsBefore)) {
                         tableAddRow();
-                        tableAddCell(an.getShelterCode());
+                        tableAddCell(code(an));
                         tableAddCell(an.getReportAnimalName());
                         tableAddCell(an.getAnimalTypeName());
                         tableAddCell(an.getSpeciesName());

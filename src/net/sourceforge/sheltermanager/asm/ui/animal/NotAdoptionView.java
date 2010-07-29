@@ -79,7 +79,8 @@ public class NotAdoptionView extends ASMView {
 
         try {
             rs.openRecordset(
-                "SELECT animal.ID, animal.AnimalName, animal.ShelterCode, animaltype.AnimalType, " +
+                "SELECT animal.ID, animal.AnimalName, animal.ShortCode, " +
+                "animal.ShelterCode, animaltype.AnimalType, " +
                 "species.SpeciesName, animal.DateBroughtIn, animal.ID " +
                 "FROM animal " +
                 "INNER JOIN species ON animal.SpeciesID = species.ID " +
@@ -112,12 +113,12 @@ public class NotAdoptionView extends ASMView {
         try {
             while (!rs.getEOF()) {
                 tabledata[i][0] = rs.getField("AnimalName").toString();
-                tabledata[i][1] = rs.getField("ShelterCode").toString();
-                tabledata[i][2] = rs.getField("AnimalType").toString();
-                tabledata[i][3] = rs.getField("SpeciesName").toString();
+                tabledata[i][1] = Global.getShowShortCodes() ? rs.getString("ShortCode") : rs.getString("ShelterCode");
+                tabledata[i][2] = rs.getString("AnimalType");
+                tabledata[i][3] = rs.getString("SpeciesName");
                 tabledata[i][4] = Utils.nullToEmptyString(Utils.formatTableDate(
                             (Date) rs.getField("DateBroughtIn")));
-                tabledata[i][5] = rs.getField("ID").toString();
+                tabledata[i][5] = rs.getString("ID");
                 i++;
                 rs.moveNext();
             }

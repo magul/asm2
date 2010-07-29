@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-07-23 08:55+0000\n"
+"PO-Revision-Date: 2010-07-29 10:06+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4829,6 +4829,7 @@ msgstr "6 weeks"
 #. # reports/OwnerSearchResults
 #. # reports/SearchResults
 #. # reports/TransferIn
+#. # ui/movement/MovementView
 #: Total__
 msgid "Total: {0}"
 msgstr "Total: {0}"
@@ -4990,11 +4991,6 @@ msgstr "Method of Entry"
 #: Animal_Search_Results_
 msgid "Animal Search Results (generated on {0}) "
 msgstr "Animal Search Results (generated on {0}) "
-
-#. # reports/SearchResults
-#: Short_Code
-msgid "Short Code"
-msgstr "Short Code"
 
 #. # reports/SearchResults
 #. # reports/Vets
@@ -5543,6 +5539,7 @@ msgstr "No animals have been returned within 6 months of adoption."
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6249,6 +6246,7 @@ msgstr "Edit the transactions for this account"
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6584,8 +6582,12 @@ msgstr "Tick this box to include deceased animals"
 msgid "Type: "
 msgstr "Type: "
 
+#. # reports/Report
+#. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/owner/DonationSelector
+#. # ui/owner/DonationEdit
 #. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
@@ -6649,6 +6651,7 @@ msgstr "Unreserved"
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/movement/MovementView
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # ui/reportviewer/ReportViewer
@@ -12591,8 +12594,8 @@ msgstr "The IP address/hostname of your SMTP Server"
 
 #. # ui/system/Options
 #: show_short_shelter_code
-msgid "Show short shelter codes on find animal screen"
-msgstr "Show short shelter codes on find animal screen"
+msgid "Show short shelter codes on screens and reports"
+msgstr "Show short shelter codes on screens and reports"
 
 #. # ui/system/Options
 #: foster_as_on_shelter

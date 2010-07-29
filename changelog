@@ -1,6 +1,11 @@
 2.7.3
 ================
 
+*. Fixed introduced bug that caused audit to record type instead of
+-  title when deleting custom reports
+*. Show short shelter codes option now covers the whole application
+*. Printing facility from all movement (Foster, Retailer, Reservation) books
+-  (patch from David McKerlie)
 *. Removed unnecessary flipNames() method from SearchResults
 *. Use ItemEvent instead of combo Key/Mouse for detecting Checkbox changes
 -  (noticeable if you use the keyboard to change crossbreed field)

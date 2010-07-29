@@ -180,7 +180,7 @@ public class CustomReportView extends ASMView {
                 if (AuditTrail.enabled()) {
                     AuditTrail.deleted("customreport",
                         getTable().getModel()
-                            .getValueAt(getTable().getSelectedRow(), 0)
+                            .getValueAt(getTable().getSelectedRow(), 1)
                             .toString());
                 }
 

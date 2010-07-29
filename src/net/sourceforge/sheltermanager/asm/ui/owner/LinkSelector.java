@@ -131,7 +131,7 @@ public class LinkSelector extends ASMSelector {
             while (!ao.getEOF()) {
                 data[i][0] = i18n("Original_Owner");
                 data[i][1] = Utils.formatTableDate(ao.getDateBroughtIn());
-                data[i][2] = ao.getShelterCode();
+                data[i][2] = (Global.getShowShortCodes() ? ao.getShortCode() : ao.getShelterCode());
                 data[i][3] = ao.getAnimalName();
                 data[i][4] = Integer.toString(ORIGINAL_OWNER);
                 data[i][5] = ao.getID().toString();
@@ -146,7 +146,7 @@ public class LinkSelector extends ASMSelector {
             while (!ab.getEOF()) {
                 data[i][0] = i18n("Brought_Animal_In");
                 data[i][1] = Utils.formatTableDate(ab.getDateBroughtIn());
-                data[i][2] = ab.getShelterCode();
+                data[i][2] = (Global.getShowShortCodes() ? ab.getShortCode() : ab.getShelterCode());
                 data[i][3] = ab.getAnimalName();
                 data[i][4] = Integer.toString(BROUGHT_IN_BY);
                 data[i][5] = ab.getID().toString();
@@ -161,7 +161,7 @@ public class LinkSelector extends ASMSelector {
             while (!av.getEOF()) {
                 data[i][0] = i18n("Owners_Vet");
                 data[i][1] = Utils.formatTableDate(av.getDateBroughtIn());
-                data[i][2] = av.getShelterCode();
+                data[i][2] = (Global.getShowShortCodes() ? av.getShortCode() : av.getShelterCode());
                 data[i][3] = av.getAnimalName();
                 data[i][4] = Integer.toString(OWNERS_VET);
                 data[i][5] = av.getID().toString();
@@ -176,7 +176,7 @@ public class LinkSelector extends ASMSelector {
             while (!ac.getEOF()) {
                 data[i][0] = i18n("Current_Vet");
                 data[i][1] = Utils.formatTableDate(ac.getDateBroughtIn());
-                data[i][2] = ac.getShelterCode();
+                data[i][2] = (Global.getShowShortCodes() ? ac.getShortCode() : ac.getShelterCode());
                 data[i][3] = ac.getAnimalName();
                 data[i][4] = Integer.toString(CURRENT_VET);
                 data[i][5] = ac.getID().toString();

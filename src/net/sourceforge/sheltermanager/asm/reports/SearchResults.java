@@ -63,7 +63,7 @@ public class SearchResults extends Report {
 
         String[] headers = {
                 Global.i18n("reports", "Animal_Name"),
-                Global.i18n("reports", "Short_Code"),
+                Global.i18n("reports", "Code"),
                 Global.i18n("reports", "Internal_Location"),
                 Global.i18n("reports", "Species"),
                 Global.i18n("reports", "Breed"), Global.i18n("reports", "Sex"),

@@ -379,6 +379,10 @@ public abstract class Global {
         return Configuration.getInteger("RecordSearchLimit");
     }
 
+    public static boolean getShowShortCodes() {
+        return Configuration.getBoolean("UseShortShelterCodes");
+    }
+
     public static boolean getUsingAutoLitterID() {
         return Configuration.getBoolean("AutoLitterIdentification");
     }

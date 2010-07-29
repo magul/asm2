@@ -80,7 +80,7 @@ public class TransferIn extends Report {
                 while (!theA.getEOF()) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
-                    tableAddCell(theA.getShelterCode());
+                    tableAddCell(code(theA));
                     tableAddCell(theA.getReportAnimalName());
                     tableAddCell(theA.getAnimalTypeName());
                     tableAddCell(theA.getSpeciesName());

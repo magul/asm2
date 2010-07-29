@@ -965,20 +965,11 @@ public class AnimalFind extends ASMFind {
 
         // Create an array of headers for the animals
         String[] columnheaders = {
-                i18n("Name"), i18n("ShortCode"), i18n("Internal_Loc"),
+                i18n("Name"), i18n("Code"), i18n("Internal_Loc"),
                 i18n("Species"), i18n("Breed"), i18n("Sex"), i18n("Age"),
                 i18n("Size"), i18n("Colour"), i18n("Features"),
                 i18n("Identichip_No"), i18n("Date_Brought_In")
             };
-
-        // If we aren't using short shelter codes, substitute for
-        // normal ones
-        boolean usingShortCodes = Configuration.getBoolean(
-                "UseShortShelterCodes");
-
-        if (!usingShortCodes) {
-            columnheaders[1] = i18n("Code");
-        }
 
         StringBuffer sql = new StringBuffer(SELECT);
 
@@ -1029,7 +1020,7 @@ public class AnimalFind extends ASMFind {
             try {
                 datar[i][0] = (String) animal.getField("AnimalName");
 
-                if (usingShortCodes) {
+                if (Global.getShowShortCodes()) {
                     datar[i][1] = (String) animal.getField("ShortCode");
                 } else {
                     datar[i][1] = (String) animal.getField("ShelterCode");

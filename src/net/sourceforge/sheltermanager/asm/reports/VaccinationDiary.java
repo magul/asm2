@@ -171,7 +171,7 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
 
                         if (okToAdd) {
                             tableAddRow();
-                            tableAddCell(av.getAnimal().getShelterCode());
+                            tableAddCell(code(av.getAnimal()));
                             tableAddCell(av.getAnimal().getReportAnimalName());
                             tableAddCell(av.getAnimal().getAnimalTypeName());
                             tableAddCell(av.getAnimal().getShelterLocationName());

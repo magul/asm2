@@ -270,7 +270,7 @@ public class ShelterInventory extends Report {
 
                     if (onShelter) {
                         tableAddRow();
-                        tableAddCell(theA.getShelterCode());
+                        tableAddCell(code(theA));
                         tableAddCell(theA.getReportAnimalName());
                         tableAddCell(theA.getAnimalTypeName());
                         tableAddCell(dateOfEntry);

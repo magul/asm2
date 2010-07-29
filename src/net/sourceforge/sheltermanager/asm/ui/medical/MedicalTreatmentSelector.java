@@ -222,7 +222,7 @@ public class MedicalTreatmentSelector extends ASMSelector {
             while (!amt.getEOF()) {
                 if (animalID == 0) {
                     if (amt.getAnimal() != null) {
-                        datar[i][0] = amt.getAnimal().getShelterCode();
+                        datar[i][0] = Global.getShowShortCodes() ? amt.getAnimal().getShortCode() : amt.getAnimal().getShelterCode();
                         datar[i][1] = amt.getAnimal().getAnimalName();
                     } else {
                         datar[i][0] = "";

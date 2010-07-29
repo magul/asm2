@@ -91,7 +91,7 @@ public class ReturnedAnimals extends Report {
                     // Show animal details
                     addParagraph(bold(Global.i18n("reports",
                                 "returned_animal_details",
-                                an.getReportAnimalName(), an.getShelterCode(),
+                                an.getReportAnimalName(), code(an),
                                 an.getSexName(), an.getSpeciesName(),
                                 an.getAnimalTypeName(),
                                 an.getShelterLocationName())));

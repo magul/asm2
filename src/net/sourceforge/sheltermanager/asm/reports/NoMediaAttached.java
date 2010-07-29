@@ -78,7 +78,7 @@ public class NoMediaAttached extends Report {
                 if (an.isAnimalOnShelter()) {
                     if (!an.hasValidMedia()) {
                         tableAddRow();
-                        tableAddCell(an.getShelterCode());
+                        tableAddCell(code(an));
                         tableAddCell(an.getReportAnimalName());
                         tableAddCell(an.getAnimalTypeName());
                         tableAddCell(an.getShelterLocationName());

@@ -151,7 +151,7 @@ public class Retailer extends Report {
 
                         tableAddRow();
                         tableAddCell(Utils.formatDateLong(sub.getMovementDate()));
-                        tableAddCell(sub.getAnimal().getShelterCode());
+                        tableAddCell(code(sub.getAnimal()));
                         tableAddCell(sub.getAnimal().getAnimalName());
                         tableAddCell(sub.getOwner().getOwnerName());
 
@@ -333,7 +333,7 @@ public class Retailer extends Report {
                     tableAddRow();
                     tableAddCell(Utils.formatDateLong(
                             adoptions.getMovementDate()));
-                    tableAddCell(adoptions.getAnimal().getShelterCode());
+                    tableAddCell(code(adoptions.getAnimal()));
                     tableAddCell(adoptions.getAnimal().getAnimalName());
                     tableFinishRow();
 

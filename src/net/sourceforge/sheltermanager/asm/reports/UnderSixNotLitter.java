@@ -88,7 +88,7 @@ public class UnderSixNotLitter extends Report {
                 if (an.isAnimalOnShelter()) {
                     if (!an.isPartOfLitter()) {
                         tableAddRow();
-                        tableAddCell(an.getShelterCode());
+                        tableAddCell(code(an));
                         tableAddCell(an.getReportAnimalName());
                         tableAddCell(an.getAnimalTypeName());
                         tableAddCell(an.getShelterLocationName());

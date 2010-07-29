@@ -61,7 +61,7 @@ public class AnimalPrint extends Report {
     public String getTitle() {
         try {
             return Global.i18n("reports", "animal_detail_print",
-                a.getShelterCode(), a.getAnimalName(),
+                code(a), a.getAnimalName(),
                 Utils.getReadableTodaysDate());
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -96,7 +96,7 @@ public class AnimalPrint extends Report {
         tableNew(true);
         tableAddRow();
         tableAddBoldCell(Global.i18n("uianimal", "Code:"));
-        tableAddCell(a.getShelterCode());
+        tableAddCell(code(a));
         tableAddBoldCell(Global.i18n("uianimal", "Name:"));
         tableAddCell(a.getReportAnimalName());
         tableFinishRow();

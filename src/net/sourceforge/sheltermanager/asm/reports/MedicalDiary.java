@@ -130,7 +130,7 @@ public class MedicalDiary extends Report implements DiaryCriteriaListener {
 
                         if (okToAdd) {
                             tableAddRow();
-                            tableAddCell(amt.getAnimal().getShelterCode());
+                            tableAddCell(code(amt.getAnimal()));
                             tableAddCell(amt.getAnimal().getReportAnimalName());
                             tableAddCell(amt.getAnimal().getAnimalTypeName());
                             tableAddCell(amt.getAnimal().getSpeciesName());

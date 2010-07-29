@@ -136,11 +136,13 @@ public class DonationEdit extends ASMForm implements SearchListener,
             if ((od.getAnimalID().intValue() != 0) && (alAnimal != null)) {
                 SQLRecordset a = new SQLRecordset();
                 a.openRecordset(
-                    "SELECT ShelterCode, AnimalName FROM animal WHERE ID = " +
+                    "SELECT ShortCode, ShelterCode, AnimalName FROM animal WHERE ID = " +
                     od.getAnimalID(), "animal");
 
                 if (!a.getEOF()) {
-                    alAnimal.setText(a.getField("ShelterCode").toString() +
+                    alAnimal.setText(
+                        (Global.getShowShortCodes() ? a.getString("ShortCode") :
+                        a.getString("ShelterCode")) +
                         " - " + a.getField("AnimalName").toString());
                 }
 
@@ -368,7 +370,8 @@ public class DonationEdit extends ASMForm implements SearchListener,
         try {
             animalID = theanimal.getID().intValue();
             od.setAnimalID(new Integer(animalID));
-            alAnimal.setText(theanimal.getShelterCode() + " - " +
+            alAnimal.setText((Global.getShowShortCodes() ? theanimal.getShortCode() : 
+                theanimal.getShelterCode()) + " - " +
                 theanimal.getAnimalName());
         } catch (Exception e) {
             Dialog.showError(e.getMessage());

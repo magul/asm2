@@ -157,7 +157,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theA.getEntryReasonID()));
-                    tableAddCell(theA.getShelterCode());
+                    tableAddCell(code(theA));
                     tableAddCell(theA.getAcceptanceNumber());
                     tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
@@ -231,7 +231,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theA.getDateBroughtIn()));
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theA.getEntryReasonID()));
-                    tableAddCell(theA.getShelterCode());
+                    tableAddCell(code(theA));
                     tableAddCell(theA.getAcceptanceNumber());
                     tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
@@ -305,7 +305,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theAD.getReturnedReasonID()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -372,7 +372,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theAD.getReturnedReasonID()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -440,7 +440,7 @@ public class InOut extends Report {
                     tableAddCell(Utils.formatDate(theAD.getReturnDate()));
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theAD.getReturnedReasonID()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -511,7 +511,7 @@ public class InOut extends Report {
                     tableAddCell(theAD.getReadableMovementType());
                     tableAddCell(LookupCache.getEntryReasonNameForID(
                             theAD.getReturnedReasonID()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -581,7 +581,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -651,7 +651,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theA.getDeceasedDate()));
-                    tableAddCell(theA.getShelterCode());
+                    tableAddCell(code(theA));
                     tableAddCell(theA.getAcceptanceNumber());
                     tableAddCell(theA.getIdentichipNumber());
                     tableAddCell(theA.getReportAnimalName());
@@ -721,7 +721,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
-                    tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(code(theAd.getAnimal()));
                     tableAddCell(theAd.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
@@ -784,7 +784,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -847,7 +847,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAD.getMovementDate()));
-                    tableAddCell(theAD.getAnimal().getShelterCode());
+                    tableAddCell(code(theAD.getAnimal()));
                     tableAddCell(theAD.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAD.getAnimal().getIdentichipNumber());
                     tableAddCell(theAD.getAnimal().getReportAnimalName());
@@ -910,7 +910,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
-                    tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(code(theAd.getAnimal()));
                     tableAddCell(theAd.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
@@ -971,7 +971,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
-                    tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(code(theAd.getAnimal()));
                     tableAddCell(theAd.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());
@@ -1033,7 +1033,7 @@ public class InOut extends Report {
                 if (!summaryOnly) {
                     tableAddRow();
                     tableAddCell(Utils.formatDate(theAd.getMovementDate()));
-                    tableAddCell(theAd.getAnimal().getShelterCode());
+                    tableAddCell(code(theAd.getAnimal()));
                     tableAddCell(theAd.getAnimal().getAcceptanceNumber());
                     tableAddCell(theAd.getAnimal().getIdentichipNumber());
                     tableAddCell(theAd.getAnimal().getReportAnimalName());

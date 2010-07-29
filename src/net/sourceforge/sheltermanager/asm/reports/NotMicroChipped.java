@@ -78,7 +78,7 @@ public class NotMicroChipped extends Report {
             while (!an.getEOF()) {
                 if (an.isAnimalOnShelter()) {
                     tableAddRow();
-                    tableAddCell(an.getShelterCode());
+                    tableAddCell(code(an));
                     tableAddCell(an.getReportAnimalName());
                     tableAddCell(an.getAnimalTypeName());
                     tableAddCell(an.getShelterLocationName());
