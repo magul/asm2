@@ -684,7 +684,7 @@ public abstract class GenerateDocument extends Thread
                     justfile));
 
             // Replace the next link:href attribute
-            int starthref = s.indexOf(LINK_HREF);
+            int starthref = s.indexOf(LINK_HREF, tag);
 
             // Couldn't find it, something is wrong, bail
             if (starthref == -1) {
