@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-07-29 10:06+0000\n"
+"PO-Revision-Date: 2010-08-06 09:27+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -9008,6 +9008,11 @@ msgstr "Select Locale"
 msgid "Information"
 msgstr "Information"
 
+#. # ui/ui/Dialog
+#: Warning
+msgid "Warning"
+msgstr "Warning"
+
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
 msgid "Include Reserved Animals"
@@ -9437,6 +9442,13 @@ msgstr "Newest first"
 #: HTML
 msgid "HTML"
 msgstr "HTML"
+
+#. # internet/Publisher
+#: cannot_upload_directly
+msgid ""
+"You have not set FTP details for your website. ASM cannot publish directly "
+"to the internet."
+msgstr ""
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView

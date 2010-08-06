@@ -126,6 +126,11 @@ public abstract class Dialog {
         }
     }
 
+    public static void showWarning(String message) {
+        setOptionPaneStrings();
+        showWarning(message, Global.i18n("uierror", "Warning"));
+    }
+
     public static void showWarning(String message, String title) {
         setOptionPaneStrings();
         JOptionPane.showMessageDialog(theParent, wordWrap(message), title,

@@ -936,6 +936,12 @@ public class Publisher extends Thread {
             String port = Configuration.getString("FTPPort");
             String root = Configuration.getString("FTPRootDirectory");
 
+            if (host.trim().equals("")) {
+                Dialog.showWarning(Global.i18n("uiinternet",
+                    "cannot_upload_directly"));
+                return;
+            }
+
             // Override the FTP root if we were given one
             // with the criteria
             if (publishCriteria.ftpRoot != null) {

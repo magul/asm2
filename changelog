@@ -1,6 +1,8 @@
 2.7.3
 ================
 
+*. Added error message if publisher attempts to directly upload with
+-  no FTP configuration set
 *. Fixed detection of built-in reports for get more reports table
 *. Fixed broken tabular layout for internet config forms, diary tasks,
 -  preferences and database config
