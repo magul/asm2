@@ -386,7 +386,7 @@ public class RescueGroupsPublisher extends Thread {
 
                     // mixed
                     dataFile.append("\"" +
-                        ((an.getCrossBreed().intValue() == 1) ? "No" : "Yes") +
+                        ((an.getCrossBreed().intValue() == 1) ? "Yes" : "No") +
                         "\", ");
 
                     // dogs (good with)
