@@ -28,6 +28,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.TableRow;
+import net.sourceforge.sheltermanager.asm.ui.ui.TableData;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
@@ -44,6 +46,7 @@ import java.util.Vector;
  */
 public class GetReports extends ASMView {
     private UI.Button btnInstall;
+    private UI.CheckBox chkMyLocale;
     private Vector reports = null;
 
     public GetReports() {
@@ -72,8 +75,8 @@ public class GetReports extends ASMView {
 
     public Vector getTabOrder() {
         Vector v = new Vector();
+	v.add(chkMyLocale);
         v.add(getTable());
-
         return v;
     }
 
@@ -155,14 +158,6 @@ public class GetReports extends ASMView {
                     r.description = b[3].trim();
                     r.locale = b[4].trim();
 
-                    // Skip if the locale isn't valid for ours
-                    if (Global.settings_Locale.indexOf(r.locale) == -1) {
-                        Global.logDebug("Skipping, wrong locale (" + r.locale +
-                            ")", "GetReports.updateListThread");
-
-                        continue;
-                    }
-
                     // Skip if the database version is too new for us
                     int dbver = 0;
 
@@ -221,9 +216,6 @@ public class GetReports extends ASMView {
                 Collections.sort(reports);
             }
 
-            // Create an array to hold the results for the table
-            String[][] datar = new String[reports.size()][7];
-
             // Create an array of headers for the table
             String[] columnheaders = {
                     i18n("Type"), i18n("Title"), i18n("category"),
@@ -231,18 +223,32 @@ public class GetReports extends ASMView {
                 };
 
             // Build the data
+	    TableData td = new TableData();
             for (int i = 0; i < reports.size(); i++) {
+	        TableRow row = new TableRow(7);
                 InstallableReport r = (InstallableReport) reports.get(i);
-                datar[i][0] = CustomReport.getReportType(r.html);
-                datar[i][1] = r.name;
-                datar[i][2] = r.category;
-                datar[i][3] = r.database;
-                datar[i][4] = r.locale;
-                datar[i][5] = r.description;
-                datar[i][6] = Integer.toString(i);
+
+                // Skip if the locale isn't ours and the filter box is checked
+                if (Global.settings_Locale.indexOf(r.locale) == -1 &&
+		    chkMyLocale.isSelected()) {
+                    Global.logDebug("Skipping, wrong locale (" + r.locale +
+                        ")", "GetReports.updateListThread");
+                    continue;
+                }
+
+                row.set(0, CustomReport.getReportType(r.html));
+                row.set(1, r.name);
+                row.set(2, r.category);
+                row.set(3, r.database);
+                row.set(4, r.locale);
+                row.set(5, r.description);
+                row.set(6, Integer.toString(i));
+
+		td.add(row);
             }
 
-            setTableData(columnheaders, datar, reports.size(), 6);
+            setTableData(columnheaders, td.toTableData(), td.size(), 6);
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -254,6 +260,10 @@ public class GetReports extends ASMView {
                     IconManager.SCREEN_INSTALLCUSTOMREPORTS_INSTALL),
                 UI.fp(this, "actionInstall"));
         addToolButton(btnInstall, true);
+	chkMyLocale = UI.getCheckBox(i18n("my_locale", Global.settings_Locale), null,
+		UI.fp(this, "updateList"));
+	chkMyLocale.setSelected(true);
+	addToolButton(chkMyLocale, false);
     }
 
     public void tableDoubleClicked() {
