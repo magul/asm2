@@ -373,12 +373,15 @@ public class RescueGroupsPublisher extends Thread {
                     dataFile.append("\"" + an.getBreedName() + "\", ");
 
                     // primary breed
-                    // dataFile.append("\"" + LookupCache.getBreedName(an.getBreedID()) + "\", ");
                     dataFile.append("\"" + pfBreed1 + "\", ");
 
-                    // secondary breed
-                    // dataFile.append("\"" + LookupCache.getBreedName(an.getBreed2ID()) + "\", ");
-                    dataFile.append("\"" + pfBreed2 + "\", ");
+                    // secondary breed - send a blank if it's not a crossbreed
+		    if (an.getCrossBreed().intValue() == 1) {
+                        dataFile.append("\"" + pfBreed2 + "\", ");
+		    }
+		    else {
+                        dataFile.append("\"\", ");
+		    }
 
                     // sex
                     dataFile.append("\"" +
