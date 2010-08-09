@@ -3,6 +3,8 @@
 
 *. Database updates to allow for bonded animals and additional 
 -  lost and found fields (breed, sex, age group)
+*. Send a blank second breed field to RG for non-crossbreeds
+*. Allow disabling of locale filter when downloading reports
 *. Fix so that OpenOffice images scan forward from the draw:name="media" tag
 -  instead of the beginning of the document (changing the first image)
 *. Backwards logic on crossbreed flag when publishing to RescueGroups

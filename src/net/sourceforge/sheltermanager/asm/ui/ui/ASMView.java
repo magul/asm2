@@ -95,6 +95,23 @@ public abstract class ASMView extends ASMForm {
         return b;
     }
 
+    /**
+     * Adds a toolbar button
+     * @param b The button to add
+     * @param disableNoSelection True if the button should be disabled if
+     *        nothing in the table is selected
+     */
+    public UI.CheckBox addToolButton(UI.CheckBox c, boolean disableNoSelection) {
+        toolbar.add(c);
+
+        if (disableNoSelection) {
+            selectionButtons.add(c);
+        }
+
+        return c;
+    }
+
+
     public UI.Table getTable() {
         return table;
     }
