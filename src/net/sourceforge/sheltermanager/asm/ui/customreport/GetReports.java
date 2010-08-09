@@ -118,8 +118,11 @@ public class GetReports extends ASMView {
                 // Grab the reports
                 reports = new Vector();
 
+                UI.cursorToWait();
                 String rs = Utils.getURL(
                         "http://sheltermanager.sf.net/reports.txt");
+                UI.cursorToPointer();
+
                 String[] reps = Utils.split(rs, "&&&");
 
                 for (int i = 0; i < reps.length; i++) {
@@ -262,6 +265,7 @@ public class GetReports extends ASMView {
         addToolButton(btnInstall, true);
 	chkMyLocale = UI.getCheckBox(i18n("my_locale", Global.settings_Locale), null,
 		UI.fp(this, "updateList"));
+        chkMyLocale.setOpaque(false);
 	chkMyLocale.setSelected(true);
 	addToolButton(chkMyLocale, false);
     }
