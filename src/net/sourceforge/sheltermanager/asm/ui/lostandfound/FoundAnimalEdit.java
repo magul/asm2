@@ -70,6 +70,9 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     private UI.Button btnMatch;
     private UI.Button btnCreateAnimal;
     private UI.ComboBox cboColour;
+    private UI.ComboBox cboSex;
+    private UI.ComboBox cboBreed;
+    private UI.ComboBox cboAgeGroup;
     private UI.ComboBox cboSpecies;
     private net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink embOwner;
     private UI.Label lblNumber;
@@ -149,9 +152,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
     public Vector getTabOrder() {
         Vector ctl = new Vector();
-        ctl.add(cboSpecies);
         ctl.add(txtDate.getTextField());
         ctl.add(txtReported.getTextField());
+        ctl.add(cboAgeGroup);
+        ctl.add(cboSex);
+        ctl.add(cboSpecies);
+        ctl.add(cboBreed);
         ctl.add(cboColour);
         ctl.add(txtFeatures);
         ctl.add(txtArea);
@@ -251,6 +257,13 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 "BaseColour", animal.getBaseColourID(), cboColour);
             Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
                 animal.getSpeciesID(), cboSpecies);
+            Utils.setComboFromID(LookupCache.getBreedLookup(), "BreedName",
+                animal.getBreedID(), cboBreed);
+            Utils.setComboFromID(LookupCache.getSexLookup(), "Sex",
+                animal.getSex(), cboSex);
+            cboAgeGroup.setSelectedItem(animal.getAgeGroup());
+
+
         } catch (CursorEngineException e) {
             Global.logException(e, getClass());
         }
@@ -359,6 +372,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                     LookupCache.getSpeciesLookup(), "SpeciesName", cboSpecies));
             animal.setBaseColourID(Utils.getIDFromCombo(
                     LookupCache.getBaseColourLookup(), "BaseColour", cboColour));
+            animal.setBreedID(Utils.getIDFromCombo(
+                    LookupCache.getBreedLookup(), "BreedName", cboBreed));
+            animal.setSex(Utils.getIDFromCombo(
+                    LookupCache.getSexLookup(), "Sex", cboSex));
+            animal.setAgeGroup(cboAgeGroup.getSelectedItem().toString());
+
         } catch (CursorEngineException e) {
             Dialog.showError(i18n("Error_saving_to_local_SQLRecordset:_") +
                 e.getMessage(), i18n("Save_Error"));
@@ -441,6 +460,9 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(2,
                     new int[] { 30, 70 }));
+        UI.Panel pnlRightGrid = UI.getPanel(UI.getGridLayout(1));
+        UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 30, 70 }));
 
         // Left column
         // ======================
@@ -449,11 +471,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         lblNumber.setForeground(UI.getColor(255, 0, 0));
         UI.addComponent(pnlLeftTop, i18n("Number:"), lblNumber);
 
-        cboSpecies = UI.getCombo(i18n("Species:"),
-                LookupCache.getSpeciesLookup(), "SpeciesName",
-                UI.fp(this, "dataChanged"));
-        UI.addComponent(pnlLeftTop, i18n("Species:"), cboSpecies);
-
         txtDate = (DateField) UI.addComponent(pnlLeftTop, i18n("Date_Found:"),
                 UI.getDateField(null, UI.fp(this, "dataChanged")));
 
@@ -461,6 +478,25 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 i18n("Date_Reported:"),
                 UI.getDateField(null, UI.fp(this, "dataChanged")));
 
+        cboAgeGroup = UI.getCombo(i18n("Age_Group:"),
+                LookupCache.getAgeGroupNames(), UI.fp(this, "dataChanged"));
+        UI.addComponent(pnlLeftTop, i18n("Age_Group:"), cboAgeGroup);
+
+        cboSex = UI.getCombo(i18n("Sex:"),
+                LookupCache.getSexLookup(), "Sex",
+                UI.fp(this, "dataChanged"));
+        UI.addComponent(pnlLeftTop, i18n("Sex:"), cboSex);
+
+        cboSpecies = UI.getCombo(i18n("Species:"),
+                LookupCache.getSpeciesLookup(), "SpeciesName",
+                UI.fp(this, "dataChanged"));
+        UI.addComponent(pnlLeftTop, i18n("Species:"), cboSpecies);
+
+
+        cboBreed = UI.getCombo(i18n("Breed:"),
+                LookupCache.getBreedLookup(), "BreedName",
+                UI.fp(this, "dataChanged"));
+        UI.addComponent(pnlLeftTop, i18n("Breed:"), cboBreed);
         cboColour = UI.getCombo(i18n("Colour:"),
                 LookupCache.getBaseColourLookup(), "BaseColour",
                 UI.fp(this, "dataChanged"));
@@ -474,10 +510,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 i18n("Area_Found:"),
                 UI.getTextArea(i18n("The_area_this_animal_was_found_in,_eg:_Dore,_Sheffield"),
                     UI.fp(this, "dataChanged")));
-
-        txtComments = (UI.TextArea) UI.addComponent(pnlLeftMid,
-                i18n("Comments:"),
-                UI.getTextArea(null, UI.fp(this, "dataChanged")));
 
         pnlLeft.add(pnlLeftTop, UI.BorderLayout.NORTH);
         pnlLeft.add(pnlLeftMid, UI.BorderLayout.CENTER);
@@ -495,11 +527,17 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 UI.getDateField(i18n("The_date_this_animal_was_returned_to_its_owner"),
                     UI.fp(this, "dataChanged")));
 
+        txtComments = (UI.TextArea) UI.addComponent(pnlRightMid,
+                i18n("Comments:"),
+                UI.getTextArea(null, UI.fp(this, "dataChanged")));
+        UI.addComponent(pnlRightGrid, pnlRightMid);
+
         embOwner.setTitle(i18n("Contact_Details:"));
         embOwner.setParent(this);
+        UI.addComponent(pnlRightGrid, embOwner);
 
         pnlRight.add(pnlRightTop, UI.BorderLayout.NORTH);
-        pnlRight.add(embOwner, UI.BorderLayout.CENTER);
+        pnlRight.add(pnlRightGrid, UI.BorderLayout.CENTER);
         pnlDetails.add(pnlRight);
 
         // Tabbed pane

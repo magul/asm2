@@ -858,20 +858,33 @@ public final class UI {
     }
 
     public static ComboBox getCombo(String description, Vector items) {
-        return getCombo(description, items, null);
+        return getCombo(description, items, null, null);
     }
 
     public static ComboBox getCombo(Vector items, final FunctionPointer onChange) {
         return getCombo("", items, onChange);
     }
 
-    public static ComboBox getCombo(String description, Vector items,
+    public static ComboBox getCombo(String description, Vector items, 
         final FunctionPointer onChange) {
+        return getCombo(description, items, onChange, null);
+    }
+
+    public static ComboBox getCombo(String description, Vector items, String allstring) {
+        return getCombo(description, items, null, allstring);
+    }
+
+    public static ComboBox getCombo(String description, Vector items,
+        final FunctionPointer onChange, String allstring) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
 
         if (!isLTR()) {
             c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+
+        if (allstring != null) {
+            c.addItem(allstring);
         }
 
         if (items != null) {

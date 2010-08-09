@@ -63,6 +63,16 @@ public class Options extends ASMForm {
     private SelectableList tblAccountOptions;
     private UI.Spinner spnUrgency;
     private UI.Spinner spnCancelReserves;
+    private UI.Spinner spnMatchSpecies;
+    private UI.Spinner spnMatchBreed;
+    private UI.Spinner spnMatchAge;
+    private UI.Spinner spnMatchSex;
+    private UI.Spinner spnMatchAreaLost;
+    private UI.Spinner spnMatchFeatures;
+    private UI.Spinner spnMatchPostcode;
+    private UI.Spinner spnMatchColour;
+    private UI.Spinner spnMatchDateWithin2Weeks;
+    private UI.Spinner spnMatchPointFloor;
     private UI.TextField txtOrgName;
     private UI.TextArea txtOrgAddress;
     private UI.ComboBox cboOrgCountry;
@@ -146,6 +156,16 @@ public class Options extends ASMForm {
         ctl.add(txtAgeGroup4Name);
         ctl.add(txtAgeGroup5);
         ctl.add(txtAgeGroup5Name);
+        ctl.add(spnMatchPointFloor);
+        ctl.add(spnMatchSpecies);
+        ctl.add(spnMatchBreed);
+        ctl.add(spnMatchColour);
+        ctl.add(spnMatchAge);
+        ctl.add(spnMatchSex);
+        ctl.add(spnMatchAreaLost);
+        ctl.add(spnMatchFeatures);
+        ctl.add(spnMatchPostcode);
+        ctl.add(spnMatchDateWithin2Weeks);
         ctl.add(txtMappingService);
         ctl.add(txtEmailAddress);
         ctl.add(txtSMTPServer);
@@ -291,6 +311,18 @@ public class Options extends ASMForm {
         txtAgeGroup4Name.setText(Configuration.getString("AgeGroup4Name", ""));
         txtAgeGroup5.setText(Configuration.getString("AgeGroup5", ""));
         txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
+
+        // Lost and Found
+        spnMatchSpecies.setValue(new Integer(Configuration.getInteger("MatchSpecies", 5)));
+        spnMatchBreed.setValue(new Integer(Configuration.getInteger("MatchBreed", 5)));
+        spnMatchAge.setValue(new Integer(Configuration.getInteger("MatchAge", 5)));
+        spnMatchSex.setValue(new Integer(Configuration.getInteger("MatchSex", 5)));
+        spnMatchAreaLost.setValue(new Integer(Configuration.getInteger("MatchAreaLost", 5)));
+        spnMatchFeatures.setValue(new Integer(Configuration.getInteger("MatchFeatures", 5)));
+        spnMatchPostcode.setValue(new Integer(Configuration.getInteger("MatchPostcode", 5)));
+        spnMatchColour.setValue(new Integer(Configuration.getInteger("MatchColour", 5)));
+        spnMatchDateWithin2Weeks.setValue(new Integer(Configuration.getInteger("MatchWithin2Weeks", 5)));
+        spnMatchPointFloor.setValue(new Integer(Configuration.getInteger("MatchPointFloor", 20)));
 
         // Defaults
         Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
@@ -519,6 +551,18 @@ public class Options extends ASMForm {
             Configuration.setEntry("AgeGroup4Name", txtAgeGroup4Name.getText());
             Configuration.setEntry("AgeGroup5", txtAgeGroup5.getText());
             Configuration.setEntry("AgeGroup5Name", txtAgeGroup5Name.getText());
+
+            // Lost and Found
+            Configuration.setEntry("MatchSpecies", spnMatchSpecies.getValue().toString());
+            Configuration.setEntry("MatchBreed", spnMatchBreed.getValue().toString());
+            Configuration.setEntry("MatchAge", spnMatchAge.getValue().toString());
+            Configuration.setEntry("MatchSex", spnMatchSex.getValue().toString());
+            Configuration.setEntry("MatchAreaLost", spnMatchAreaLost.getValue().toString());
+            Configuration.setEntry("MatchFeatures", spnMatchFeatures.getValue().toString());
+            Configuration.setEntry("MatchPostcode", spnMatchPostcode.getValue().toString());
+            Configuration.setEntry("MatchColour", spnMatchColour.getValue().toString());
+            Configuration.setEntry("MatchWithin2Weeks", spnMatchDateWithin2Weeks.getValue().toString());
+            Configuration.setEntry("MatchPointFloor", spnMatchPointFloor.getValue().toString());
 
             // Shelter Details
             String selcountry = cboOrgCountry.getSelectedItem().toString();
@@ -770,6 +814,23 @@ public class Options extends ASMForm {
         UI.Panel agegroups = UI.getPanel(UI.getBorderLayout());
         agegroups.add(pa, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("age_groups"), null, agegroups, null);
+
+        // Lost and found
+        UI.Panel plf = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }));
+        spnMatchPointFloor = (UI.Spinner) UI.addComponent(plf, i18n("how_many_points_to_show_on_report"), UI.getSpinner(0, 1000));
+        spnMatchSpecies = (UI.Spinner) UI.addComponent(plf, i18n("species_matches"), UI.getSpinner(0, 100));
+        spnMatchBreed = (UI.Spinner) UI.addComponent(plf, i18n("breed_matches"), UI.getSpinner(0, 100));
+        spnMatchColour = (UI.Spinner) UI.addComponent(plf, i18n("colour_matches"), UI.getSpinner(0, 100));
+        spnMatchAge = (UI.Spinner) UI.addComponent(plf, i18n("age_group_matches"), UI.getSpinner(0, 100));
+        spnMatchSex = (UI.Spinner) UI.addComponent(plf, i18n("sex_matches"), UI.getSpinner(0, 100));
+        spnMatchAreaLost = (UI.Spinner) UI.addComponent(plf, i18n("area_matches"), UI.getSpinner(0, 100));
+        spnMatchFeatures = (UI.Spinner) UI.addComponent(plf, i18n("features_matches"), UI.getSpinner(0, 100));
+        spnMatchPostcode = (UI.Spinner) UI.addComponent(plf, i18n("postcode_matches"), UI.getSpinner(0, 100));
+        spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf, i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
+        
+        UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
+        lostandfound.add(plf, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("lost_and_found"), null, lostandfound, null);
 
         // Email
         UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));

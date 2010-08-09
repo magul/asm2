@@ -91,6 +91,14 @@ public class Configuration {
         }
     }
 
+    public static int getInteger(String key, int defaultValue) {
+        try {
+            return Integer.parseInt(getString(key));
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
     public static double getDouble(String key) {
         try {
             return Double.parseDouble(getString(key));

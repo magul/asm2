@@ -47,6 +47,9 @@ import java.util.Vector;
 public class LostAnimalFind extends ASMFind {
     public UI.ComboBox cboColour;
     public UI.ComboBox cboSpecies;
+    public UI.ComboBox cboAgeGroup;
+    public UI.ComboBox cboSex;
+    public UI.ComboBox cboBreed;
     public UI.TextField txtArea;
     public UI.TextField txtContact;
     public UI.TextField txtDistFeat;
@@ -70,8 +73,11 @@ public class LostAnimalFind extends ASMFind {
         ctl.add(txtArea);
         ctl.add(txtPostcode);
         ctl.add(txtDistFeat);
-        ctl.add(cboColour);
+        ctl.add(cboAgeGroup);
+        ctl.add(cboSex);
         ctl.add(cboSpecies);
+        ctl.add(cboBreed);
+        ctl.add(cboColour);
         ctl.add(txtFrom.getTextField());
         ctl.add(txtTo.getTextField());
         ctl.add(txtNumber);
@@ -112,13 +118,29 @@ public class LostAnimalFind extends ASMFind {
         txtDistFeat = (UI.TextField) UI.addComponent(p,
                 i18n("Dist._Features:"), UI.getTextField());
 
-        cboColour = UI.getCombo(i18n("Colour:"),
-                LookupCache.getBaseColourLookup(), "BaseColour", i18n("(all)"));
-        UI.addComponent(p, i18n("Colour:"), cboColour);
+        cboAgeGroup = UI.getCombo(i18n("Age_Group:"),
+                LookupCache.getAgeGroupNames(), 
+                i18n("(all)"));
+        UI.addComponent(p, i18n("Age_Group:"), cboAgeGroup);
+
+        cboSex = UI.getCombo(i18n("Sex:"),
+                LookupCache.getSexLookup(), "Sex",
+                i18n("(all)"));
+        UI.addComponent(p, i18n("Sex:"), cboSex);
 
         cboSpecies = UI.getCombo(i18n("Species:"),
-                LookupCache.getSpeciesLookup(), "SpeciesName", i18n("(all)"));
+                LookupCache.getSpeciesLookup(), "SpeciesName",
+                i18n("(all)"));
         UI.addComponent(p, i18n("Species:"), cboSpecies);
+
+        cboBreed = UI.getCombo(i18n("Breed:"),
+                LookupCache.getBreedLookup(), "BreedName",
+                i18n("(all)"));
+        UI.addComponent(p, i18n("Breed:"), cboBreed);
+        cboColour = UI.getCombo(i18n("Colour:"),
+                LookupCache.getBaseColourLookup(), "BaseColour",
+                i18n("(all)"));
+        UI.addComponent(p, i18n("Colour:"), cboColour);
 
         txtFrom = (DateField) UI.addComponent(p, i18n("Lost_Between:"),
                 UI.getDateField());
@@ -163,6 +185,9 @@ public class LostAnimalFind extends ASMFind {
         txtDistFeat.setText("");
         cboColour.setSelectedIndex(0);
         cboSpecies.setSelectedIndex(0);
+        cboAgeGroup.setSelectedIndex(0);
+        cboBreed.setSelectedIndex(0);
+        cboSex.setSelectedIndex(0);
         txtFrom.setText("");
         txtTo.setText("");
         txtNumber.setText("");
@@ -180,6 +205,11 @@ public class LostAnimalFind extends ASMFind {
                 (String) cboSpecies.getSelectedItem()).toString();
         String colourid = Utils.getID("basecolour", "BaseColour",
                 (String) cboColour.getSelectedItem()).toString();
+        String sexid = Utils.getID("lksex", "Sex",
+                (String) cboSex.getSelectedItem()).toString();
+        String breedid = Utils.getID("breed", "BreedName",
+                (String) cboBreed.getSelectedItem()).toString();
+        String agegroup = cboAgeGroup.getSelectedItem().toString();
 
         if (!txtContact.getText().equals("")) {
             addSqlCriteria("UPPER(OwnerName) Like '%" +
@@ -206,6 +236,18 @@ public class LostAnimalFind extends ASMFind {
 
         if (!speciesid.equals("0")) {
             addSqlCriteria("AnimalTypeID=" + speciesid);
+        }
+
+        if (!sexid.equals("0")) {
+            addSqlCriteria("Sex=" + sexid);
+        }
+
+        if (!breedid.equals("0")) {
+            addSqlCriteria("BreedID=" + breedid);
+        }
+
+        if (!agegroup.equals(i18n("(all)"))) {
+            addSqlCriteria("AgeGroup='" + agegroup + "'");
         }
 
         if (!txtArea.getText().equals("")) {
@@ -262,7 +304,7 @@ public class LostAnimalFind extends ASMFind {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) lostanimal.getRecordCount()][9];
+        String[][] datar = new String[(int) lostanimal.getRecordCount()][12];
 
         // Initialise the progress meter
         initStatusBarMax((int) lostanimal.getRecordCount());
@@ -270,7 +312,8 @@ public class LostAnimalFind extends ASMFind {
         // Create an array of headers for the accounts
         String[] columnheaders = {
                 i18n("Contact"), i18n("Number"), i18n("Area"), i18n("Postcode"),
-                i18n("Date"), i18n("Species"), i18n("Colour"), i18n("Features")
+                i18n("Date"), i18n("Age_Group"), i18n("Sex"), i18n("Species"), 
+                i18n("Breed"), i18n("Colour"), i18n("Features")
             };
 
         int i = 0;
@@ -278,21 +321,18 @@ public class LostAnimalFind extends ASMFind {
         while (!lostanimal.getEOF()) {
             // Add this record to the table data
             try {
-                datar[i][0] = (String) lostanimal.getField("OwnerName");
-                datar[i][1] = (String) lostanimal.getField("HomeTelephone");
-                datar[i][2] = Utils.formatAddress((String) lostanimal.getField(
-                            "AreaLost"));
-                datar[i][3] = Utils.nullToEmptyString((String) lostanimal.getField(
-                            "AreaPostcode"));
-                datar[i][4] = Utils.nullToEmptyString(Utils.formatTableDate(
-                            (Date) lostanimal.getField("DateLost")));
-                datar[i][5] = LookupCache.getSpeciesName((Integer) lostanimal.getField(
-                            "AnimalTypeID"));
-                datar[i][6] = LookupCache.getBaseColourName((Integer) lostanimal.getField(
-                            "BaseColourID"));
-                datar[i][7] = Utils.nullToEmptyString((String) lostanimal.getField(
-                            "DistFeat"));
-                datar[i][8] = lostanimal.getField("ID").toString();
+                datar[i][0] = lostanimal.getString("OwnerName");
+                datar[i][1] = lostanimal.getString("HomeTelephone");
+                datar[i][2] = Utils.formatAddress(lostanimal.getString("AreaLost"));
+                datar[i][3] = lostanimal.getString("AreaPostcode");
+                datar[i][4] = Utils.formatTableDate(lostanimal.getDate("DateLost"));
+                datar[i][5] = lostanimal.getString("AgeGroup");
+                datar[i][6] = LookupCache.getSexName(lostanimal.getInt("Sex"));
+                datar[i][7] = LookupCache.getSpeciesName(lostanimal.getInt("AnimalTypeID"));
+                datar[i][8] = LookupCache.getBreedName(lostanimal.getInt("BreedID"));
+                datar[i][9] = LookupCache.getBaseColourName(lostanimal.getInt("BaseColourID"));
+                datar[i][10] = lostanimal.getString("DistFeat");
+                datar[i][11] = lostanimal.getString("ID");
                 i++;
             } catch (Exception e) {
                 Global.logException(e, getClass());
@@ -312,6 +352,6 @@ public class LostAnimalFind extends ASMFind {
             incrementStatusBar();
         }
 
-        setTableData(columnheaders, datar, i, 8);
+        setTableData(columnheaders, datar, i, 11);
     }
 }

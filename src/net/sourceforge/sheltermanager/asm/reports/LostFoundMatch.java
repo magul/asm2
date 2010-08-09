@@ -39,7 +39,6 @@ import java.util.*;
  * @version 1.0
  */
 public class LostFoundMatch extends Report implements FromToListener {
-    private int matchPointFloor = 0;
     private boolean includeShelter = false;
     private boolean filterByDate = false;
     private Date from = new Date();
@@ -72,38 +71,25 @@ public class LostFoundMatch extends Report implements FromToListener {
      *            available shelter animals (where selected)
      */
     public LostFoundMatch(int lostID, int foundID, int animalID) {
-        Object[] choices = {
-                Global.i18n("reports", "30%"), Global.i18n("reports", "50%"),
-                Global.i18n("reports", "60%"), Global.i18n("reports", "70%"),
-                Global.i18n("reports", "80%"), Global.i18n("reports", "90%")
-            };
-
-        String matchFloor = (String) Dialog.getInput(Global.i18n("reports",
-                    "At_what_level_should_the_report_show_matches?"),
-                Global.i18n("reports", "Set_Match_Floor"), choices,
-                Global.i18n("reports", "50%"));
-
-        // If no match floor was chosen, stop
-        if (matchFloor == null) {
-            return;
-        }
-
-        // Get the real floor by taking the first 2 chars
-        double matchPct = Double.parseDouble(matchFloor.substring(0, 2));
-
-        // Convert it to a real point value
-        matchPointFloor = (int) ((matchPct / (double) 100) * (double) AnimalLost.MATCHMAX);
 
         lostAnimalID = lostID;
         foundAnimalID = foundID;
         this.animalID = animalID;
 
-        // Ask if they want to include the shelter in the search as
-        // long as we don't have a found animal
-        if ((foundAnimalID == 0) && (animalID == 0)) {
-            includeShelter = Dialog.showYesNo(Global.i18n("reports",
-                        "Do_you_want_to_include_the_animal_database_in_your_search"),
-                    Global.i18n("reports", "Include_Shelter_Animals"));
+        // This is not configurable in system options as we just assume
+        // yes to include checking the animal database. It's here so that
+        // folks who do want to turn it off can.
+        if (Configuration.getBoolean("MatchPromptForAnimalDB")) {
+            // Ask if they want to include the shelter in the search as
+            // long as we don't have a found animal
+            if ((foundAnimalID == 0) && (animalID == 0)) {
+                includeShelter = Dialog.showYesNo(Global.i18n("reports",
+                            "Do_you_want_to_include_the_animal_database_in_your_search"),
+                        Global.i18n("reports", "Include_Shelter_Animals"));
+            }
+        }
+        else {
+            includeShelter = (foundAnimalID == 0 && animalID == 0);
         }
 
         // If we have a shelter animal, then we have to check the shelter
@@ -112,26 +98,34 @@ public class LostFoundMatch extends Report implements FromToListener {
             includeShelter = true;
         }
 
-        // If a shelter animal has been chosen, then there is no
-        // sense in requesting a date range
-        if (animalID == 0) {
-            // Do they want a date range?
-            filterByDate = Dialog.showYesNo(Global.i18n("reports",
-                        "filter_matches_to_include_animals_found_between_two_dates"),
-                    Global.i18n("reports", "Filter_Matches"));
+        // This is not configurable in system options as date ranges shouldn't
+        // be needed any more. It's here so that shelters that do desparately need
+        // it can still turn it back on again.
+        if (Configuration.getBoolean("MatchPromptForDateRange")) {
+            // If a shelter animal has been chosen, then there is no
+            // sense in requesting a date range
+            if (animalID == 0) {
+                // Do they want a date range?
+                filterByDate = Dialog.showYesNo(Global.i18n("reports",
+                            "filter_matches_to_include_animals_found_between_two_dates"),
+                        Global.i18n("reports", "Filter_Matches"));
 
-            // If so, ask them for those dates
-            if (filterByDate) {
-                DateFromTo dt = new DateFromTo(DateFromTo.REPORT_LOSTFOUND, this);
-                Global.mainForm.addChild(dt);
+                // If so, ask them for those dates
+                if (filterByDate) {
+                    DateFromTo dt = new DateFromTo(DateFromTo.REPORT_LOSTFOUND, this);
+                    Global.mainForm.addChild(dt);
+                } else {
+                    // No date required - do the stuff
+                    // without them.
+                    this.start();
+                }
             } else {
                 // No date required - do the stuff
                 // without them.
                 this.start();
             }
-        } else {
-            // No date required - do the stuff
-            // without them.
+        }
+        else {
             this.start();
         }
     }
@@ -188,13 +182,14 @@ public class LostFoundMatch extends Report implements FromToListener {
                 // Build the animal details, but don't add them to the report
                 // until we know there are some matches:
                 String la = Global.i18n("reports", "lostfound_match_detail",
-                        al.getID().toString(), al.getBaseColourName(),
-                        al.getSpeciesName(), al.getDistFeat(), contactName,
+                        al.getID().toString(), al.getAgeGroup() + " " + al.getBaseColourName() + 
+                        " " + LookupCache.getSexName(al.getSex()),
+                        al.getSpeciesName() + "/" + LookupCache.getBreedName(al.getBreedID()), al.getDistFeat(), contactName,
                         contactNumber, al.getAreaLost(), al.getAreaPostcode(),
                         Utils.formatDateLong(al.getDateLost()));
 
                 // Get potential matches
-                Vector matches = al.match(matchPointFloor, includeShelter,
+                Vector matches = al.match(includeShelter,
                         filterByDate, from, to, foundAnimalID, animalID);
 
                 // Were there any?
@@ -218,8 +213,7 @@ public class LostFoundMatch extends Report implements FromToListener {
                     tableNew();
                     tableAddRow();
                     tableAddCell(bold(Global.i18n("reports", "Reference")));
-                    tableAddCell(bold(Global.i18n("reports", "Species")));
-                    tableAddCell(bold(Global.i18n("reports", "Colour")));
+                    tableAddCell(bold(Global.i18n("reports", "Description")));
                     tableAddCell(bold(Global.i18n("reports",
                                 "Distinguishing_Features")));
                     tableAddCell(bold(Global.i18n("reports", "Area_Found")));
@@ -234,18 +228,17 @@ public class LostFoundMatch extends Report implements FromToListener {
                         String[] row = (String[]) it.next();
 
                         tableAddRow();
-                        tableAddCell(row[9]);
-                        tableAddCell(row[4]);
-                        tableAddCell(row[6]);
-                        tableAddCell(row[5]);
+                        tableAddCell(row[12]);
+                        tableAddCell(row[4] + " " + row[9] + " " + row[5] + " " + row[6] + "/" + row[7]);
+                        tableAddCell(row[8]);
                         tableAddCell(row[2]);
                         tableAddCell(row[3]);
-                        tableAddCell(row[7]);
+                        tableAddCell(row[10]);
                         tableAddCell(row[0]);
                         tableAddCell(row[1]);
 
-                        double pctVal = Double.parseDouble(row[8]);
-                        pctVal = ((pctVal / (double) AnimalLost.MATCHMAX) * (double) 100);
+                        double pctVal = Double.parseDouble(row[11]);
+                        pctVal = ((pctVal / (double) AnimalLost.getMatchMax()) * (double) 100);
 
                         tableAddCell(Integer.toString((int) pctVal) + "%");
                     }

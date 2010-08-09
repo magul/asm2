@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Improved intelligence of lost and found matching, ignoring found animals
+-  before lost animals so that prompt dialogs can be removed.
+*. Ability to specify matching scores for lost and found report
+*. Lost and found matching on age group, sex and breed
 *. Database updates to allow for bonded animals and additional 
 -  lost and found fields (breed, sex, age group)
 *. Send a blank second breed field to RG for non-crossbreeds

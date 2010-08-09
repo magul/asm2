@@ -733,6 +733,10 @@ public abstract class LookupCache {
         return getIDForName(fieldlink, "LinkType", name);
     }
 
+    public static String getSexName(Integer ID) {
+        return getSexNameForID(ID);
+    }
+
     public static String getSexNameForID(Integer ID) {
         getLookup(LOOKUP_SEX);
 
@@ -932,6 +936,19 @@ public abstract class LookupCache {
     public static String getVaccinationTypeName(Integer ID)
         throws CursorEngineException {
         return getNameForID(getVaccinationTypeLookup(), "VaccinationType", ID);
+    }
+
+    /**
+     * Returns the animal age group names on the system 
+     */
+    public static Vector<String> getAgeGroupNames() {
+        Vector<String> a = new Vector<String>();
+        if (!Configuration.getString("AgeGroup1Name").equals("")) a.add(Configuration.getString("AgeGroup1Name"));
+        if (!Configuration.getString("AgeGroup2Name").equals("")) a.add(Configuration.getString("AgeGroup2Name"));
+        if (!Configuration.getString("AgeGroup3Name").equals("")) a.add(Configuration.getString("AgeGroup3Name"));
+        if (!Configuration.getString("AgeGroup4Name").equals("")) a.add(Configuration.getString("AgeGroup4Name"));
+        if (!Configuration.getString("AgeGroup5Name").equals("")) a.add(Configuration.getString("AgeGroup5Name"));
+        return a;
     }
 
     /**
