@@ -3367,69 +3367,6 @@ Match Lost and Found
 File->Lost And Found->Match Lost and Found Animals
 \series default
 .
- There are a number of questions the program will then ask you relating
- to how you want to perform your match.
-\end_layout
-
-\begin_layout Subsection
-Match Floor
-\begin_inset Index
-status open
-
-\begin_layout Plain Layout
-Match Floor
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The first question the system will ask you is 
-\begin_inset Quotes eld
-\end_inset
-
-At what level should the report show matches?
-\begin_inset Quotes erd
-\end_inset
-
-.
- You may select a percentage figure from the dropdown list.
- By default, the system ignores matches of anything less than 50% (ie.
- A 50% chance that the found animal matches the lost one).
-\end_layout
-
-\begin_layout Subsection
-Shelter Animals
-\end_layout
-
-\begin_layout Standard
-The next question you will be asked is 
-\begin_inset Quotes eld
-\end_inset
-
-Do you want to include shelter animals
-\begin_inset Quotes erd
-\end_inset
-
-.
- You may include animals in the shelter database in the search, just in
- case they have been brought into the shelter as strays.
-\end_layout
-
-\begin_layout Subsection
-Using Date Filters
-\end_layout
-
-\begin_layout Standard
-Finally, you will be asked if you want to use a date filter.
- If you choose to, you can limit found matches to animals found (or brought
- into the shelter for shelter animals) between two dates.
- This can speed up the time taken to perform the match - particularly if
- your databases are quite large.
- It also eliminates animals who seem to be a very good match, except they
- were found 2 years ago etc.
 \end_layout
 
 \begin_layout Subsection
@@ -3448,8 +3385,13 @@ Match Point System
 
 \begin_layout Standard
 ASM uses a match point algorithm to determine how close the match is between
- the lost and found animal.
- Where the system compares two user defined pieces of text (eg.
+ the lost and found animal (or similar shelter animal, which it will also
+ check for).
+ 
+\end_layout
+
+\begin_layout Standard
+Where the system compares two user defined pieces of text (eg.
  Distinguishing features), the system will represent the final score as
  the number of words from the lost animal field that appeared in the found
  animal field, expressed as a fraction of the total points available for
@@ -3492,11 +3434,32 @@ white paws, no collar
 \end_layout
 
 \begin_layout Standard
-The system scores lost/found matches in this manner:
+By default, the system scores lost/found matches in this manner (all of
+ these point values and how many points are required to appear can be changed
+ in System->Options 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:System-Options"
+
+\end_inset
+
+):
 \end_layout
 
 \begin_layout Itemize
 5 points - Same Species
+\end_layout
+
+\begin_layout Itemize
+5 points - Same colour
+\end_layout
+
+\begin_layout Itemize
+5 points - Same age group
+\end_layout
+
+\begin_layout Itemize
+5 points - Same breed
 \end_layout
 
 \begin_layout Itemize
@@ -3522,9 +3485,8 @@ The system scores lost/found matches in this manner:
 \end_layout
 
 \begin_layout Standard
-It therefore follows that 30 points is a 100% overall match.
- The percentage figure you express at the beginning of the match report
- is used against this point system.
+It therefore follows that 45 points is a 100% overall match.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -8497,6 +8459,13 @@ The mapping service tab allows you to specify a URL for a mapping service
  The default is Google Maps.
  ASM will use the address field and the postcode (or zipcode for US users)
  when searching.
+\end_layout
+
+\begin_layout Standard
+The lost and found tab allows you to assign your own point weightings to
+ the different kinds of matches used when generating the lost and found
+ match report, as well as determine how many points are need for a match
+ to be included.
 \end_layout
 
 \begin_layout Standard
