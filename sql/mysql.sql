@@ -102,6 +102,7 @@ CREATE TABLE animal (
   AnimalName varchar(255) NOT NULL,
   NonShelterAnimal tinyint NOT NULL,
   CrueltyCase tinyint NOT NULL,
+  BondedAnimalIDList varchar(255) NULL,
   BaseColourID int(11) NOT NULL,
   SpeciesID int(11) NULL,
   BreedID int(11) NULL,
@@ -231,6 +232,9 @@ CREATE TABLE animalfound (
   AnimalTypeID int(11) NOT NULL,
   DateReported datetime NOT NULL,
   DateFound datetime NOT NULL,
+  Sex tinyint NOT NULL,
+  BreedID int(11) NOT NULL,
+  AgeGroup varchar(255) NULL,
   BaseColourID int(11) NOT NULL ,
   DistFeat text NOT NULL ,
   AreaFound varchar(255) NOT NULL ,
@@ -268,6 +272,9 @@ CREATE TABLE animallost (
   DateReported datetime NOT NULL,
   DateLost datetime NOT NULL,
   DateFound datetime NULL,
+  Sex tinyint NOT NULL,
+  BreedID int(11) NOT NULL,
+  AgeGroup varchar(255) NULL,
   BaseColourID int(11) NOT NULL ,
   DistFeat text NOT NULL ,
   AreaLost varchar(255) NOT NULL ,
@@ -845,7 +852,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2721');
+INSERT INTO configuration VALUES ('DatabaseVersion','2730');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');

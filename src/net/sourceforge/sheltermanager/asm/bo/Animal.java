@@ -31,6 +31,7 @@ import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
@@ -289,6 +290,35 @@ public class Animal extends UserInfoBO<Animal> {
 
     public void setBaseColourID(Integer newValue) throws CursorEngineException {
         rs.setField("BaseColourID", newValue);
+    }
+
+    public String getBondedAnimalIDList() throws CursorEngineException {
+        return (String) rs.getField("BondedAnimalIDList");
+    }
+
+    public void setBondedAnimalIDList(String newValue) throws CursorEngineException {
+        rs.setField("BondedAnimalIDList", newValue);
+    }
+
+    /** Returns a list of animal IDs for animals this one is bonded to */
+    public ArrayList<Integer> getBondedAnimals() throws CursorEngineException {
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        String bl = Utils.nullToEmptyString(getBondedAnimalIDList());
+        String[] s = bl.split(",");
+        for (int i = 0; i < s.length; i++) {
+            a.add(new Integer(s[i]));
+        }
+        return a;
+    }
+
+    /** Updates the list of bonded animals */
+    public void setBondedAnimals(ArrayList<Integer> v) throws CursorEngineException {
+        String s = "";
+        for (Integer i : v) {
+            if (s.length() > 0) s += ",";
+            s += Integer.toString(i.intValue());
+        }
+        setBondedAnimalIDList(s);
     }
 
     public String getBaseColourName() throws CursorEngineException {

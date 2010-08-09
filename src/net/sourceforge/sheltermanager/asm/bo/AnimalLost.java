@@ -91,6 +91,30 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         rs.setField("DateFound", newValue);
     }
 
+    public Integer getBreedID() throws CursorEngineException {
+        return (Integer) rs.getField("BreedID");
+    }
+
+    public void setBreedID(Integer newValue) throws CursorEngineException {
+        rs.setField("BreedID", newValue);
+    }
+
+    public Integer getSex() throws CursorEngineException {
+        return (Integer) rs.getField("Sex");
+    }
+
+    public void setSex(Integer newValue) throws CursorEngineException {
+        rs.setField("Sex", newValue);
+    }
+
+    public String getAgeGroup() throws CursorEngineException {
+        return (String) rs.getField("AgeGroup");
+    }
+
+    public void setAgeGroup(String newValue) throws CursorEngineException {
+        rs.setField("AgeGroup", newValue);
+    }
+
     public Integer getBaseColourID() throws CursorEngineException {
         return (Integer) rs.getField("BaseColourID");
     }
