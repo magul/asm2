@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-09 14:01+0100\n"
+"POT-Creation-Date: 2010-08-10 15:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6520,6 +6520,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#. # ui/animal/AnimalLink
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -8424,6 +8425,23 @@ msgstr ""
 #. # ui/animal/LitterEdit
 #: Number_in_litter
 msgid "Number in litter:"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: Bonded
+msgid "Bonded With:"
+msgstr ""
+
+#. # ui/animal/AnimalLink
+#. # ui/movement/MovementEdit
+#. # ui/owner/DonationEdit
+#: Select_an_animal
+msgid "Select an animal"
+msgstr ""
+
+#. # ui/animal/AnimalLink
+#: edit_this_animal
+msgid "Edit this animal"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -11116,12 +11134,6 @@ msgid "WARNING: This owner has not passed a home check."
 msgstr ""
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationEdit
-#: Select_an_animal
-msgid "Select an animal"
-msgstr ""
-
-#. # ui/movement/MovementEdit
 #: This_movement_record_already_has_an_insurance_number._Remove_it_if_you_wish_to_generate_another.
 msgid ""
 "This movement record already has an insurance number. Remove it if you wish "
@@ -11470,6 +11482,13 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: Active_Criteria
 msgid "Active Criteria"
+msgstr ""
+
+#. # ui/movement/MovementEdit
+#: This_animal_is_bonded_with
+msgid ""
+"This animal is bonded with {0}. Please make sure they are being adopted "
+"together."
 msgstr ""
 
 #. # reports/OwnerSearchResults
@@ -13508,6 +13527,16 @@ msgstr ""
 #. # ui/system/Options
 #: lost_and_found
 msgid "Lost and Found"
+msgstr ""
+
+#. # ui/system/Options
+#: include_shelter
+msgid "When matching lost animals, include shelter animals"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_bonded_field
+msgid "Remove the Bonded With fields from the entry details screen"
 msgstr ""
 
 #. # ui/users/UserView

@@ -58,7 +58,7 @@ public class AutoDBUpdates {
             1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
-            2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730
+            2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731
         };
 
     /**
@@ -4031,7 +4031,19 @@ public class AutoDBUpdates {
         }
     }
 
-
+    public void update2731() {
+        try {
+            // Remove the BondedAnimalIDList field from the animal table - was a bad idea
+            DBConnection.executeAction("ALTER TABLE animal DROP BondedAnimalIDList");
+            // Add two bonded fields - should never need more than that
+            DBConnection.executeAction("ALTER TABLE animal ADD BondedAnimalID INTEGER NULL");
+            DBConnection.executeAction("ALTER TABLE animal ADD BondedAnimal2ID INTEGER NULL");
+            DBConnection.executeAction("UPDATE animal SET BondedAnimalID = 0, BondedAnimal2ID = 0");
+        } catch (Exception e) {
+            errors.add("animal: ADD BondedAnimalID");
+            Global.logException(e, getClass());
+        }
+    }
 }
 
 

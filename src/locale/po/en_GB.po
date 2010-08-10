@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-08-09 14:01+0000\n"
+"PO-Revision-Date: 2010-08-10 15:46+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -6517,6 +6517,7 @@ msgstr "Has Comments: "
 msgid "Search"
 msgstr "Search"
 
+#. # ui/animal/AnimalLink
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -8422,6 +8423,23 @@ msgstr "Total Donations: {0}, Balance: {1}"
 #: Number_in_litter
 msgid "Number in litter:"
 msgstr "Number in litter:"
+
+#. # ui/animal/AnimalEdit
+#: Bonded
+msgid "Bonded With:"
+msgstr "Bonded With:"
+
+#. # ui/animal/AnimalLink
+#. # ui/movement/MovementEdit
+#. # ui/owner/DonationEdit
+#: Select_an_animal
+msgid "Select an animal"
+msgstr "Select an animal"
+
+#. # ui/animal/AnimalLink
+#: edit_this_animal
+msgid "Edit this animal"
+msgstr "Edit this animal"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -11113,12 +11131,6 @@ msgid "WARNING: This owner has not passed a home check."
 msgstr "WARNING: This owner has not passed a home check."
 
 #. # ui/movement/MovementEdit
-#. # ui/owner/DonationEdit
-#: Select_an_animal
-msgid "Select an animal"
-msgstr "Select an animal"
-
-#. # ui/movement/MovementEdit
 #: This_movement_record_already_has_an_insurance_number._Remove_it_if_you_wish_to_generate_another.
 msgid ""
 "This movement record already has an insurance number. Remove it if you wish "
@@ -11468,6 +11480,13 @@ msgstr ""
 #: Active_Criteria
 msgid "Active Criteria"
 msgstr "Active Criteria"
+
+#. # ui/movement/MovementEdit
+#: This_animal_is_bonded_with
+msgid ""
+"This animal is bonded with {0}. Please make sure they are being adopted "
+"together."
+msgstr ""
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -13506,6 +13525,16 @@ msgstr "Points given for found within 2 weeks of being lost:"
 #: lost_and_found
 msgid "Lost and Found"
 msgstr "Lost and Found"
+
+#. # ui/system/Options
+#: include_shelter
+msgid "When matching lost animals, include shelter animals"
+msgstr "When matching lost animals, include shelter animals"
+
+#. # ui/system/Options
+#: remove_bonded_field
+msgid "Remove the Bonded With fields from the entry details screen"
+msgstr "Remove the Bonded With fields from the entry details screen"
 
 #. # ui/users/UserView
 #: Add_a_new_user

@@ -80,7 +80,7 @@ import java.util.Vector;
  * @version 1.0
  */
 public class AnimalEdit extends ASMForm implements DateChangedListener,
-    OwnerLinkListener {
+    OwnerLinkListener, AnimalLinkListener {
     /** Tab indexes */
     private final static int TAB_DETAILS = 0;
     private final static int TAB_ENTRY = 1;
@@ -171,6 +171,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.CheckBox chkHeartwormTested;
     private UI.CheckBox chkHasSpecialNeeds;
     private UI.CheckBox chkCrossBreed;
+    private AnimalLink embBonded1;
+    private AnimalLink embBonded2;
     private OwnerLink embBroughtInBy;
     private OwnerLink embOriginalOwner;
     private OwnerLink embVet;
@@ -1670,6 +1672,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             if (loadedEntry || isNewRecord) {
                 animal.setBroughtInByOwnerID(new Integer(embBroughtInBy.getID()));
                 animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
+                animal.setBondedAnimalID(new Integer(embBonded1.getID()));
+                animal.setBondedAnimal2ID(new Integer(embBonded2.getID()));
             }
 
             // Same rules apply to vet tab
@@ -2505,6 +2509,21 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Entry Details right pane ===================================
         UI.Panel pnlEntryRight = UI.getPanel(UI.getBorderLayout());
+
+        UI.Panel pnlEntryRightBonded = UI.getPanel(UI.getGridLayout(2,
+                    new int[] { 35, 65 }));
+        UI.Panel pnlEntryRightBondedFlds = UI.getPanel(UI.getGridLayout(1));
+        embBonded1 = new AnimalLink(this);
+        embBonded2 = new AnimalLink(this);
+        pnlEntryRightBondedFlds.add(embBonded1);
+        pnlEntryRightBondedFlds.add(embBonded2);
+
+        UI.addComponent(pnlEntryRightBonded, i18n("Bonded"), pnlEntryRightBondedFlds);
+
+        if (!Configuration.getBoolean("DontShowBonded")) {
+            pnlEntryRight.add(pnlEntryRightBonded, UI.BorderLayout.NORTH);
+        }
+
         UI.Panel pnlEntryRightReasons = UI.getPanel(UI.getGridLayout(2,
                     new int[] { 35, 65 }));
 
@@ -2869,17 +2888,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Loads the data in all tabs */
     public void loadAllTabs() {
+        
         loadedEntry = true;
-
         try {
             embOriginalOwner.loadFromID(animal.getOriginalOwnerID().intValue());
             embBroughtInBy.loadFromID(animal.getBroughtInByOwnerID().intValue());
+            embBonded1.loadFromID(animal.getBondedAnimalID().intValue());
+            embBonded2.loadFromID(animal.getBondedAnimal2ID().intValue());
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
         loadedVet = true;
-
         try {
             embVet.loadFromID(animal.getOwnersVetID().intValue());
             embCurrentVet.loadFromID(animal.getCurrentVetID().intValue());
@@ -2924,6 +2944,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                                                       .intValue());
                     embBroughtInBy.loadFromID(animal.getBroughtInByOwnerID()
                                                     .intValue());
+                    embBonded1.loadFromID(animal.getBondedAnimalID());
+                    embBonded2.loadFromID(animal.getBondedAnimal2ID());
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
@@ -3142,6 +3164,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         if ((embBroughtInBy.getID() == 0) && (embOriginalOwner.getID() != 0)) {
             embBroughtInBy.setID(embOriginalOwner.getID());
         }
+    }
+
+    public void animalChanged(int animalid) {
+        dataChanged();
     }
 }
 

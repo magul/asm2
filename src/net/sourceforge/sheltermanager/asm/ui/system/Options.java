@@ -1264,6 +1264,13 @@ public class Options extends ASMForm {
                         "remove_litter_field"), "DontShowLitterID",
                     Configuration.getString("DontShowLitterID")
                                  .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "remove_bonded_field"), "DontShowBonded",
+                    Configuration.getString("DontShowBonded")
+                                 .equalsIgnoreCase("Yes"), false));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

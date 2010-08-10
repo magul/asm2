@@ -292,33 +292,20 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("BaseColourID", newValue);
     }
 
-    public String getBondedAnimalIDList() throws CursorEngineException {
-        return (String) rs.getField("BondedAnimalIDList");
+    public Integer getBondedAnimalID() throws CursorEngineException {
+        return (Integer) rs.getField("BondedAnimalID");
     }
 
-    public void setBondedAnimalIDList(String newValue) throws CursorEngineException {
-        rs.setField("BondedAnimalIDList", newValue);
+    public void setBondedAnimalID(Integer newValue) throws CursorEngineException {
+        rs.setField("BondedAnimalID", newValue);
     }
 
-    /** Returns a list of animal IDs for animals this one is bonded to */
-    public ArrayList<Integer> getBondedAnimals() throws CursorEngineException {
-        ArrayList<Integer> a = new ArrayList<Integer>();
-        String bl = Utils.nullToEmptyString(getBondedAnimalIDList());
-        String[] s = bl.split(",");
-        for (int i = 0; i < s.length; i++) {
-            a.add(new Integer(s[i]));
-        }
-        return a;
+    public Integer getBondedAnimal2ID() throws CursorEngineException {
+        return (Integer) rs.getField("BondedAnimal2ID");
     }
 
-    /** Updates the list of bonded animals */
-    public void setBondedAnimals(ArrayList<Integer> v) throws CursorEngineException {
-        String s = "";
-        for (Integer i : v) {
-            if (s.length() > 0) s += ",";
-            s += Integer.toString(i.intValue());
-        }
-        setBondedAnimalIDList(s);
+    public void setBondedAnimal2ID(Integer newValue) throws CursorEngineException {
+        rs.setField("BondedAnimal2ID", newValue);
     }
 
     public String getBaseColourName() throws CursorEngineException {

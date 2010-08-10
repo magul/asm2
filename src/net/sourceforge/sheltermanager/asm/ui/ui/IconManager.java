@@ -70,6 +70,7 @@ public abstract class IconManager {
     public final static String REFRESH = "actions-Refresh-24.png";
     public final static String SYSTEM = "system-Basic-24.png";
     public final static String ANIMAL = "animal-Basic-24.png";
+    public final static String ANIMALSMALL = "animal-Basic-16.png";
     public final static String ANIMALADD = "animal-Add-24.png";
     public final static String ANIMALDELETE = "animal-Delete-24.png";
     public final static String ANIMALLOSTSEARCH = "animal-Lost-Search-24.png";
@@ -178,6 +179,12 @@ public abstract class IconManager {
     public final static String SCREEN_ANIMALMEDIA_WEBPREFERRED = WEB;
     public final static String SCREEN_ANIMALMEDIA_DOCPREFERRED = DOCUMENT;
     public final static String SCREEN_ANIMALMEDIA_SAVE = SAVE;
+    public final static String SCREEN_EMBEDANIMAL_OPEN = OPEN;
+    public final static String SCREEN_EMBEDANIMAL_SEARCH = SEARCH;
+    public final static String SCREEN_EMBEDANIMAL_CLEAR = CLEAR;
+    public final static String SCREEN_EMBEDANIMALSMALL_OPEN = ANIMALSMALL;
+    public final static String SCREEN_EMBEDANIMALSMALL_SEARCH = SEARCHSMALL;
+    public final static String SCREEN_EMBEDANIMALSMALL_CLEAR = CLEARSMALL;
     public final static String SCREEN_EDITLITTER = LITTER;
     public final static String SCREEN_EDITMEDIAENTRY = MEDIA;
     public final static String SCREEN_EDITVACCINATIONS = VACCINATION;

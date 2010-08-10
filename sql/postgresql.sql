@@ -95,7 +95,8 @@ CREATE TABLE animal (
   AnimalName VARCHAR(255) NOT NULL,
   NonShelterAnimal INTEGER NOT NULL,
   CrueltyCase INTEGER NOT NULL,
-  BondedAnimalIDList VARCHAR(255) NULL,
+  BondedAnimalID INTEGER NULL,
+  BondedAnimal2ID INTEGER NULL,
   BaseColourID INTEGER NOT NULL,
   SpeciesID INTEGER NULL,
   BreedID INTEGER NULL,
@@ -801,7 +802,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2730');
+INSERT INTO configuration VALUES ('DatabaseVersion','2731');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
