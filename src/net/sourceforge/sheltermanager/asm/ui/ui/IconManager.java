@@ -39,12 +39,6 @@ import javax.swing.ImageIcon;
  * @version 1.0
  */
 public abstract class IconManager {
-    // The splash screen
-    public final static String SPLASH = "splash/splash.png";
-    public final static String SPLASH1 = "splash/splash1.png";
-    public final static String SPLASH2 = "splash/splash2.png";
-    public final static String SPLASH3 = "splash/splash3.png";
-    public final static String SPLASH4 = "splash/splash4.png";
 
     // Reusable constants for screens
     public final static String SEARCH = "actions-Search-24.png";
@@ -804,26 +798,7 @@ public abstract class IconManager {
      * @return An icon containing the splash screen (400x200)
      */
     public static ImageIcon getSplashScreen() {
-        int s = r.nextInt(5);
-
-        switch (s) {
-        case 0:
-            return getIcon(SPLASH);
-
-        case 1:
-            return getIcon(SPLASH1);
-
-        case 2:
-            return getIcon(SPLASH2);
-
-        case 3:
-            return getIcon(SPLASH3);
-
-        case 4:
-            return getIcon(SPLASH4);
-
-        default:
-            return getIcon(SPLASH);
-        }
+        int s = r.nextInt(14);
+        return getIcon("splash/splash" + s + ".jpg");
     }
 }
