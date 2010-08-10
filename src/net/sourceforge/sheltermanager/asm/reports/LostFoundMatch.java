@@ -89,7 +89,9 @@ public class LostFoundMatch extends Report implements FromToListener {
             }
         }
         else {
-            includeShelter = (foundAnimalID == 0 && animalID == 0);
+            if (Configuration.getBoolean("MatchIncludeShelter")) {
+                includeShelter = (foundAnimalID == 0 && animalID == 0);
+            }
         }
 
         // If we have a shelter animal, then we have to check the shelter

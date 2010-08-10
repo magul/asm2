@@ -113,6 +113,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultDonationType;
     private UI.ComboBox cboDefaultVaccinationType;
     private UI.CheckBox chkUseAutoInsurance;
+    private UI.CheckBox chkMatchShelterDB;
     private UI.Spinner spnAutoInsuranceStart;
     private UI.Spinner spnAutoInsuranceEnd;
     private UI.Spinner spnAutoInsuranceNext;
@@ -323,6 +324,7 @@ public class Options extends ASMForm {
         spnMatchColour.setValue(new Integer(Configuration.getInteger("MatchColour", 5)));
         spnMatchDateWithin2Weeks.setValue(new Integer(Configuration.getInteger("MatchWithin2Weeks", 5)));
         spnMatchPointFloor.setValue(new Integer(Configuration.getInteger("MatchPointFloor", 20)));
+        chkMatchShelterDB.setSelected(Configuration.getBoolean("MatchIncludeShelter"));
 
         // Defaults
         Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
@@ -563,6 +565,7 @@ public class Options extends ASMForm {
             Configuration.setEntry("MatchColour", spnMatchColour.getValue().toString());
             Configuration.setEntry("MatchWithin2Weeks", spnMatchDateWithin2Weeks.getValue().toString());
             Configuration.setEntry("MatchPointFloor", spnMatchPointFloor.getValue().toString());
+            Configuration.setEntry("MatchIncludeShelter", chkMatchShelterDB.isSelected() ? "Yes" : "No");
 
             // Shelter Details
             String selcountry = cboOrgCountry.getSelectedItem().toString();
@@ -827,6 +830,7 @@ public class Options extends ASMForm {
         spnMatchFeatures = (UI.Spinner) UI.addComponent(plf, i18n("features_matches"), UI.getSpinner(0, 100));
         spnMatchPostcode = (UI.Spinner) UI.addComponent(plf, i18n("postcode_matches"), UI.getSpinner(0, 100));
         spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf, i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
+        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "", UI.getCheckBox(i18n("include_shelter")));
         
         UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
         lostandfound.add(plf, UI.BorderLayout.NORTH);
