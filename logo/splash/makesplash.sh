@@ -20,7 +20,7 @@ for i in *.jpg; do
 
     # Add a legend with the animal name
     # -undercolor '#00000080'
-    convert $OUT -fill white -undercolor '#00000040' -gravity southwest -annotate +5+5 $NAME $OUT
+    convert $OUT -fill white -gravity southwest -stroke black -strokewidth 2 -annotate +5+5 $NAME -stroke none -annotate +5+5 $NAME $OUT
     
     let COUNT=COUNT+1
 
