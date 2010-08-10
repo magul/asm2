@@ -5463,7 +5463,7 @@ Ask is quite a detailed key, which requests information from the user at
 \end_layout
 
 \begin_layout LyX-Code
-$ASK [DATE | SPECIES | LOCATION | TYPE | NUMBER | STRING] [Message]$
+$ASK [DATE | ANIMAL | SPECIES | LOCATION | TYPE | NUMBER | STRING] [Message]$
 \end_layout
 
 \begin_layout Standard
@@ -5485,7 +5485,7 @@ The types are outlined below:
 $ASK DATE message$
 \series default
  - requests a date from the user.
- A box is popped up containing the message and the user is given an ASM
+ A popup is displayed containing the message and the user is given an ASM
  date control to use to select the date.
  The value substituted is the date selected by the user in SQL string format
  appropriate for the database you are using.
@@ -5494,11 +5494,21 @@ $ASK DATE message$
 \begin_layout Itemize
 
 \series bold
+$ASK ANIMAL$ 
+\series default
+- requests an animal.
+ A popup displays a list of all animals on the shelter.
+ The value substituted is the animal ID.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 $ASK SPECIES$
 \series default
  - requests a species from the user.
- A box is popped up containing a dropdown of all species on the system with
- an additional entry for 
+ A popup is displayed containing a dropdown of all species on the system
+ with an additional entry for 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5596,7 +5606,8 @@ VAR works just like ASK, the only difference is that instead of substituting
 \end_layout
 
 \begin_layout LyX-Code
-$VAR <varname> [DATE | SPECIES | LOCATION | TYPE | NUMBER | STRING] [Message]$
+$VAR <varname> [DATE | ANIMAL | SPECIES | LOCATION | TYPE | NUMBER | STRING]
+ [Message]$
 \end_layout
 
 \begin_layout Standard

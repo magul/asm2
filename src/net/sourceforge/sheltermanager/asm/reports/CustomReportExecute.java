@@ -1630,6 +1630,18 @@ public class CustomReportExecute extends Report {
             }
         }
 
+	// ANIMAL
+	if (askedFor.equalsIgnoreCase("ANIMAL")) {
+	    replaceWith = Integer.toString(Dialog.getAnimal());
+            try {
+                crit += (Global.i18n("reports", "animal") + ": " +
+		    DBConnection.executeForString("SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
+                    "<br/>");
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+	}
+
         // ANIMAL TYPE
         if (askedFor.equalsIgnoreCase("TYPE")) {
             replaceWith = Integer.toString(Dialog.getAnimalType());

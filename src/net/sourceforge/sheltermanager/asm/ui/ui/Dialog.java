@@ -21,10 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.awt.Frame;
@@ -206,6 +208,46 @@ public abstract class Dialog {
         JDBCDlg jd = new JDBCDlg(title);
 
         return lastJDBC;
+    }
+
+    /** Uses a JOptionPane to request a shelter animal from the user */
+    public static int getAnimal() {
+	try {
+	    Vector<String> v = new Vector<String>();
+	    SQLRecordset an = new SQLRecordset("SELECT ShelterCode, AnimalName FROM animal WHERE Archived = 0 ORDER BY ShelterCode", "animal");
+
+	    for (SQLRecordset a : an) {
+                v.add(a.getString("ShelterCode") + " - " + a.getString("AnimalName"));
+	    }
+
+	    if (v.size() == 0) {
+	        Dialog.showError(Global.i18n("uierror", "There_are_no_animals_on_the_shelter"));
+                return 0;
+	    }
+
+            // Ask the user
+            String chosenItem = (String) getInput(Global.i18n("uierror",
+                    "Select_an_animal"),
+                Global.i18n("uierror", "Select_Animal"), v.toArray(),
+                v.get(0));
+
+	    // Find the animal ID from the code chosen
+	    int ce = chosenItem.indexOf(" -");
+	    if (ce == -1) return 0;
+	    String code = chosenItem.substring(0, ce);
+	    int animalID = DBConnection.executeForInt("SELECT ID FROM animal WHERE ShelterCode Like '" + code + "'");
+
+            // Clean up
+            v.removeAllElements();
+            v = null;
+
+	    return animalID;
+
+	} catch (Exception e) {
+            Global.logException(e, Dialog.class);
+	    return 0;
+	}
+
     }
 
     /** Uses a JOptionPane to request a species from the user */
