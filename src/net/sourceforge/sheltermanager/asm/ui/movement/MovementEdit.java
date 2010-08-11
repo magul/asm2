@@ -35,6 +35,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLink;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiarySelector;
 import net.sourceforge.sheltermanager.asm.ui.log.LogSelector;
 import net.sourceforge.sheltermanager.asm.ui.owner.DonationSelector;
@@ -69,7 +71,7 @@ import java.util.Vector;
  * @version 1.0
  */
 public class MovementEdit extends ASMForm implements DateChangedListener,
-    SearchListener, OwnerLinkListener {
+    OwnerLinkListener, AnimalLinkListener {
     /** Reference to parent list */
     private MovementParent parent = null;
 
@@ -119,7 +121,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     private UI.ComboBox cboReturnReason;
     private UI.TabbedPane tabTabs;
     private UI.ToolBar tlbTools;
-    private UI.SearchTextField txtAnimalName;
+    private AnimalLink embAnimal;
     private UI.TextArea txtComments;
     private DateField txtDateReturned;
     private UI.SearchTextField txtInsurance;
@@ -310,24 +312,17 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         if (owner != 0) {
             olOwnerName.setID(selectedOwnerID);
             olOwnerName.setEnabled(false);
-            txtAnimalName.setButtonEnabled(true);
+            embAnimal.setEnabled(true);
         } else if (animal != 0) {
             Animal obj = new Animal();
-
-            try {
-                obj.openRecordset("ID = " + selectedAnimalID);
-                txtAnimalName.setText((Global.getShowShortCodes() ? obj.getShortCode() : obj.getShelterCode()) + " - " +
-                    obj.getAnimalName());
-            } catch (Exception e) {
-            }
-
+            embAnimal.loadFromID(selectedAnimalID);
+            embAnimal.setEnabled(false);
             olOwnerName.setEnabled(true);
-            txtAnimalName.setButtonEnabled(false);
         }
 
         if ((animal == 0) && (owner == 0)) {
             olOwnerName.setEnabled(true);
-            txtAnimalName.setButtonEnabled(true);
+            embAnimal.setEnabled(true);
         }
 
         // if this is an animal movement, was the last movement
@@ -415,8 +410,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
             this.txtReason.setText(Utils.nullToEmptyString(
                     movement.getReasonForReturn()));
-            this.txtAnimalName.setText((Global.getShowShortCodes() ? movement.getAnimal().getShortCode() : movement.getAnimal().getShelterCode()) +
-                " - " + movement.getAnimal().getAnimalName());
+            this.embAnimal.loadFromID(movement.getAnimalID().intValue());
             this.txtInsurance.setText(Utils.nullToEmptyString(
                     movement.getInsuranceNumber()));
             this.txtNumber.setText(Utils.nullToEmptyString(
@@ -443,7 +437,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             selectedRetailerID = movement.getRetailerID().intValue();
 
             // Deactivate selector buttons
-            txtAnimalName.setButtonEnabled(linkType != 1);
+            embAnimal.setEnabled(linkType != 1);
             olOwnerName.setEnabled(linkType != 2);
 
             try {
@@ -896,10 +890,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         UI.Panel ao = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         aoouter.add(ao, UI.BorderLayout.NORTH);
 
-        txtAnimalName = (UI.SearchTextField) UI.addComponent(ao,
-                i18n("Animal:"),
-                UI.getSearchTextField(i18n("Select_an_animal"),
-                    UI.fp(this, "actionSelectAnimal")));
+        embAnimal = (AnimalLink) UI.addComponent(ao,
+            i18n("Animal:"), new AnimalLink(this));
 
         olOwnerName = (OwnerLink) UI.addComponent(ao, i18n("Owner:"),
                 new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE,
@@ -1122,16 +1114,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         }
     }
 
-    public void actionSelectAnimal() {
-        // Create and show a new find animal form and put it in selection mode
-        // based on system default choice
-        if (Configuration.getBoolean("AdvancedFindAnimal")) {
-            Global.mainForm.addChild(new AnimalFind(this));
-        } else {
-            Global.mainForm.addChild(new AnimalFindText(this));
-        }
-    }
-
     public void actionDocument() {
         MovementDocument md = new MovementDocument(movement, parent);
     }
@@ -1142,8 +1124,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     }
 
     /// OwnerLinkListener INTERFACE
-
-    /** Callback from the ownerlink forms */
     public void ownerChanged(int ownerid, String id) {
         if (id.equals("OWNER")) {
             // Store the ID
@@ -1211,41 +1191,26 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         }
     }
 
-    /// SearchListener INTERFACE
-
-    /** Call back from the animal search screen when a selection is made */
-    public void animalSelected(Animal theanimal) {
+    // AnimalLinkListener INTERFACE
+    public void animalChanged(int animalid) {
         try {
             // We can't move non-shelter animals
+            Animal theanimal = LookupCache.getAnimalByID(animalid);
             if (theanimal.getNonShelterAnimal().intValue() == 1) {
                 Dialog.showError(i18n("You_cannot_move_nonshelter_animals",
                         theanimal.getShelterCode(), theanimal.getAnimalName()));
-
                 return;
             }
 
-            selectedAnimalID = theanimal.getID().intValue();
+            selectedAnimalID = animalid;
             animalID = selectedAnimalID;
-            txtAnimalName.setText((Global.getShowShortCodes() ? theanimal.getShortCode() : theanimal.getShelterCode()) + " - " +
-                theanimal.getAnimalName());
             dataChanged();
             enableButtons();
+
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
-    }
-
-    public void foundAnimalSelected(AnimalFound thefoundanimal) {
-    }
-
-    public void lostAnimalSelected(AnimalLost thelostanimal) {
-    }
-
-    public void ownerSelected(Owner theowner) {
-    }
-
-    public void retailerSelected(Owner theowner) {
     }
 
     public void dateChanged(String newDate) {

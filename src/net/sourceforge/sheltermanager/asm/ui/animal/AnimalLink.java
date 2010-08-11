@@ -50,10 +50,12 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     private UI.TextField txtName;
 
     public AnimalLink() {
+        super(true);
         initComponents();
     }
 
     public AnimalLink(AnimalLinkListener parent) {
+        super(true);
         this.parent = parent;
         initComponents();
     }

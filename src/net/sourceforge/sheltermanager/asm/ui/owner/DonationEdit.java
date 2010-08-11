@@ -32,6 +32,8 @@ import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLink;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -54,8 +56,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
-public class DonationEdit extends ASMForm implements SearchListener,
-    OwnerLinkListener {
+public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLinkListener {
     private DonationSelector parent = null;
     private OwnerDonation od = null;
     private int animalID = 0;
@@ -71,7 +72,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
     private CurrencyField txtDonation;
     private UI.ComboBox cboDonationType;
     private OwnerLink olOwner;
-    private UI.SearchTextField alAnimal;
+    private AnimalLink embAnimal;
     private String audit = null;
     private boolean isNew = false;
 
@@ -133,22 +134,10 @@ public class DonationEdit extends ASMForm implements SearchListener,
                 olOwner.setID(od.getOwnerID());
             }
 
-            if ((od.getAnimalID().intValue() != 0) && (alAnimal != null)) {
-                SQLRecordset a = new SQLRecordset();
-                a.openRecordset(
-                    "SELECT ShortCode, ShelterCode, AnimalName FROM animal WHERE ID = " +
-                    od.getAnimalID(), "animal");
-
-                if (!a.getEOF()) {
-                    alAnimal.setText(
-                        (Global.getShowShortCodes() ? a.getString("ShortCode") :
-                        a.getString("ShelterCode")) +
-                        " - " + a.getField("AnimalName").toString());
-                }
-
-                a.free();
+            if ((od.getAnimalID().intValue() != 0) && (embAnimal != null)) {
+                embAnimal.loadFromID(od.getAnimalID());
             }
-
+            
             setTitle(i18n("edit_owner_donation"));
             audit = UI.messageAudit(od.getCreatedDate(), od.getCreatedBy(),
                     od.getLastChangedDate(), od.getLastChangedBy());
@@ -232,10 +221,8 @@ public class DonationEdit extends ASMForm implements SearchListener,
 
         // If we have no animal ID, allow box to choose it
         if (animalID == 0) {
-            alAnimal = (UI.SearchTextField) UI.addComponent(top,
-                    i18n("Animal"),
-                    UI.getSearchTextField(i18n("Select_an_animal"),
-                        UI.fp(this, "actionSelectAnimal")));
+            embAnimal = (AnimalLink) UI.addComponent(top,
+                i18n("Animal"), new AnimalLink(this));
         }
 
         txtComments = (UI.TextArea) UI.addComponent(mid, i18n("comments"),
@@ -273,6 +260,7 @@ public class DonationEdit extends ASMForm implements SearchListener,
             od.setDonation(new Double(txtDonation.getText()));
             od.setFrequency(new Integer(cboFrequency.getSelectedIndex()));
             od.setIsGiftAid(new Integer(chkGiftAid.isSelected() ? 1 : 0));
+            if (embAnimal != null) od.setAnimalID(embAnimal.getID());
             od.setDonationTypeID(Utils.getIDFromCombo(
                     LookupCache.getDonationTypeLookup(), "DonationName",
                     cboDonationType));
@@ -355,40 +343,14 @@ public class DonationEdit extends ASMForm implements SearchListener,
         return false;
     }
 
-    public void actionSelectAnimal() {
-        // Create and show a new find animal form and put it in selection mode
-        // based on system default choice
-        if (Configuration.getBoolean("AdvancedFindAnimal")) {
-            Global.mainForm.addChild(new AnimalFind(this));
-        } else {
-            Global.mainForm.addChild(new AnimalFindText(this));
-        }
-    }
-
-    /** Call back from the animal search screen when a selection is made */
-    public void animalSelected(Animal theanimal) {
+    public void animalChanged(int animalid) {
         try {
-            animalID = theanimal.getID().intValue();
-            od.setAnimalID(new Integer(animalID));
-            alAnimal.setText((Global.getShowShortCodes() ? theanimal.getShortCode() : 
-                theanimal.getShelterCode()) + " - " +
-                theanimal.getAnimalName());
-        } catch (Exception e) {
-            Dialog.showError(e.getMessage());
+            this.animalID = animalid;
+            od.setAnimalID(new Integer(animalid));
+        }
+        catch (Exception e) {
             Global.logException(e, getClass());
         }
-    }
-
-    public void foundAnimalSelected(AnimalFound thefoundanimal) {
-    }
-
-    public void lostAnimalSelected(AnimalLost thelostanimal) {
-    }
-
-    public void ownerSelected(Owner theowner) {
-    }
-
-    public void retailerSelected(Owner theowner) {
     }
 
     public void ownerChanged(int ownerid, String id) {
