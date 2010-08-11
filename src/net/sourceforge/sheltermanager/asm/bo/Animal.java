@@ -308,6 +308,28 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("BondedAnimal2ID", newValue);
     }
 
+    /** Returns the names/codes of the animals this animal is bonded with or
+      * an empty string if it is not bonded */
+    public String getBondedAnimalDisplay() throws CursorEngineException {
+        Integer b1 = getBondedAnimalID();
+        Integer b2 = getBondedAnimal2ID();
+        if (b1 == null) b1 = new Integer(0);
+        if (b2 == null) b2 = new Integer(0);
+        String names = "";
+        if (b1.intValue() > 0) {
+            Animal a = LookupCache.getAnimalByID(b1);
+            names = (Global.getShowShortCodes() ? a.getShortCode() :
+                a.getShelterCode()) + " " + a.getAnimalName();
+        }
+        if (b2.intValue() > 0) {
+            Animal a = LookupCache.getAnimalByID(b2);
+            if (names.length() > 0) names += ", ";
+            names += (Global.getShowShortCodes() ? a.getShortCode() :
+                a.getShelterCode()) + " " + a.getAnimalName();
+        }
+        return names;
+    }
+
     public String getBaseColourName() throws CursorEngineException {
         return LookupCache.getBaseColourName(getBaseColourID());
     }

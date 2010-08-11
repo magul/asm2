@@ -782,25 +782,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             }
 
             // If this is an adoption for an animal that is bonded
-            // to another animal, make the user say ok that they are
+            // to another animal, make the user says ok that they are
             // being adopted together
             if (movement.getMovementType().intValue() == Adoption.MOVETYPE_ADOPTION) {
-                Integer b1 = movement.getAnimal().getBondedAnimalID();
-                Integer b2 = movement.getAnimal().getBondedAnimal2ID();
-                if (b1 == null) b1 = new Integer(0);
-                if (b2 == null) b2 = new Integer(0);
-                String names = "";
-                if (b1.intValue() > 0) {
-                    Animal a = LookupCache.getAnimalByID(b1);
-                    names = (Global.getShowShortCodes() ? a.getShortCode() :
-                        a.getShelterCode()) + " " + a.getAnimalName();
-                }
-                if (b2.intValue() > 0) {
-                    Animal a = LookupCache.getAnimalByID(b2);
-                    if (names.length() > 0) names += ", ";
-                    names += (Global.getShowShortCodes() ? a.getShortCode() :
-                        a.getShelterCode()) + " " + a.getAnimalName();
-                }
+                String names = movement.getAnimal().getBondedAnimalDisplay();
                 if (!names.equals("")) {
                     Dialog.showWarning(i18n("This_animal_is_bonded_with", names));
                 }
