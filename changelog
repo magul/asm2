@@ -1,6 +1,8 @@
 2.7.3
 ================
 
+*. Fixed bug in date selection box with OpenJDK 1.6.0_18
+-  (caused by modality bug with JDialog)
 *. Bonded with fields appear on animal print
 *. AnimalLink control similar to OwnerLink, replaced in donation editing
 -  screen and movements - simplifies code and looks prettier

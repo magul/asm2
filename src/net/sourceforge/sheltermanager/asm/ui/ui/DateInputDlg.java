@@ -27,106 +27,79 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import java.util.Vector;
 
 
-public class DateInputDlg extends javax.swing.JDialog {
-    private net.sourceforge.sheltermanager.asm.ui.ui.DateField db;
-    private javax.swing.JLabel lblQuestion;
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JPanel pnlButtons;
-    private javax.swing.JButton btnOk;
-    private javax.swing.JPanel pnlMain;
+public class DateInputDlg extends ASMDialog {
+    private DateField db;
+    private UI.Button btnCancel;
+    private UI.Button btnOk;
+    private String message;
 
     /** Creates new form DateInputDlg */
-    public DateInputDlg(java.awt.Frame parent, boolean modal, String message,
-        String title) {
-        super(parent, modal);
-        initComponents();
-        this.setTitle(title);
-        this.lblQuestion.setText("<html><center>" + message +
-            "</center></html>");
-        this.db.setToToday();
-
-        this.setSize(359, 200);
-
-        // Center it and display
+    public DateInputDlg(String message, String title) {
+        this.message = message;
+        init(title, IconManager.getIcon(IconManager.QUESTION), "uierror", false);
+        db.setToToday();
         UI.centerWindow(this);
-
-        Dialog.lastDate = "";
-
-        Vector ctl = new Vector();
-        ctl.add(db);
-        ctl.add(btnOk);
-        ctl.add(btnCancel);
-        Global.focusManager.addComponentSet(ctl, this, db);
-
-        this.show();
+        show();
     }
 
-    private void initComponents() {
-        pnlMain = new javax.swing.JPanel();
-        lblQuestion = new javax.swing.JLabel();
-        db = new net.sourceforge.sheltermanager.asm.ui.ui.DateField();
-        pnlButtons = new javax.swing.JPanel();
-        btnOk = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+    public void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setModal(true);
-        setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-                public void windowClosing(java.awt.event.WindowEvent evt) {
-                    closeDialog(evt);
-                }
-            });
+        UI.Panel p = UI.getPanel(UI.getFlowLayout());
+        UI.Panel b = UI.getPanel(UI.getFlowLayout());
 
+        p.add(UI.getLabel(IconManager.getIcon(IconManager.QUESTION)));
+
+        UI.Label lblQuestion = UI.getLabel("<html>" + message + "</html>");
         lblQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuestion.setText("lblQuestion");
-        lblQuestion.setPreferredSize(new java.awt.Dimension(350, 60));
-        pnlMain.add(lblQuestion);
+        lblQuestion.setPreferredSize(new java.awt.Dimension(350, 45));
+        p.add(lblQuestion);
 
-        db.setMinimumSize(UI.getDimension(200, 38));
-        db.setPreferredSize(UI.getDimension(200, UI.getTextBoxHeight()));
-        pnlMain.add(db);
+        db = (DateField) p.add(UI.getDateField());
 
-        getContentPane().add(pnlMain, java.awt.BorderLayout.CENTER);
+        btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
+                UI.fp(this, "actionOk"));
+        btnCancel = UI.getButton(i18n("Cancel"), null, 'c', null,
+                UI.fp(this, "actionCancel"));
+        b.add(btnOk);
+        b.add(btnCancel);
 
-        btnOk.setMnemonic('o');
-        btnOk.setText(Global.i18n("uierror", "Ok"));
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnOkActionPerformed(evt);
-                }
-            });
+        add(p, UI.BorderLayout.CENTER);
+        add(b, UI.BorderLayout.SOUTH);
 
-        pnlButtons.add(btnOk);
-
-        btnCancel.setMnemonic('c');
-        btnCancel.setText(Global.i18n("uierror", "Cancel"));
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnCancelActionPerformed(evt);
-                }
-            });
-
-        pnlButtons.add(btnCancel);
-
-        getContentPane().add(pnlButtons, java.awt.BorderLayout.SOUTH);
-
-        pack();
+        setSize(400, 200);
+        getRootPane().setDefaultButton(btnOk);
     }
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {
-        closeDialog(null);
+    public Object getDefaultFocusedComponent() {
+        return db;
     }
 
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {
+    public Vector getTabOrder() {
+        Vector v = new Vector();
+        v.add(db);
+        v.add(btnOk);
+        v.add(btnCancel);
+        return v;
+    }
+
+    public void windowOpened() {
+    }
+
+    public boolean windowCloseAttempt() {
+        Dialog.lastDate = "";
+        return false;
+    }
+
+    public void setSecurity() {
+    }
+
+    public void actionCancel() {
+        Dialog.lastDate = "";
+        dispose();
+    }
+
+    public void actionOk() {
         Dialog.lastDate = db.getText();
-        closeDialog(null);
-    }
-
-    /** Closes the dialog */
-    private void closeDialog(java.awt.event.WindowEvent evt) {
-        Global.focusManager.removeComponentSet(this);
-        setVisible(false);
         dispose();
     }
 }

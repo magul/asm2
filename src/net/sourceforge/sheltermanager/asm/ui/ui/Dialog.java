@@ -165,7 +165,6 @@ public abstract class Dialog {
 
     public static String getInput(String message, String title) {
         new InputTextDialog(message, title);
-
         return lastInput;
     }
 
@@ -192,15 +191,7 @@ public abstract class Dialog {
     }
 
     public static String getDateInput(String message, String title) {
-        // net.sourceforge.sheltermanager.asm.ui.beans.DateBox theDate = new
-        // net.sourceforge.sheltermanager.asm.ui.beans.DateBox();
-        // theDate.setToToday();
-        // Object[] messages = { message, theDate };
-        // JOptionPane.showMessageDialog(null, messages, title,
-        // JOptionPane.QUESTION_MESSAGE);
-        // return theDate.getText();
-        DateInputDlg did = new DateInputDlg(theParent, true, message, title);
-
+        new DateInputDlg(message, title);
         return lastDate;
     }
 
