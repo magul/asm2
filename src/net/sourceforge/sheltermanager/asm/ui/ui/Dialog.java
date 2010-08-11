@@ -210,11 +210,12 @@ public abstract class Dialog {
         return lastJDBC;
     }
 
-    /** Uses a JOptionPane to request a shelter animal from the user */
-    public static int getAnimal() {
+    /** Uses a JOptionPane to request an animal from the user */
+    public static int getAnimal(boolean onShelter) {
 	try {
 	    Vector<String> v = new Vector<String>();
-	    SQLRecordset an = new SQLRecordset("SELECT ShelterCode, AnimalName FROM animal WHERE Archived = 0 ORDER BY ShelterCode", "animal");
+	    SQLRecordset an = new SQLRecordset("SELECT ShelterCode, AnimalName FROM animal " +
+                (onShelter ? "WHERE Archived = 0 " : "") + "ORDER BY ShelterCode", "animal");
 
 	    for (SQLRecordset a : an) {
                 v.add(a.getString("ShelterCode") + " - " + a.getString("AnimalName"));

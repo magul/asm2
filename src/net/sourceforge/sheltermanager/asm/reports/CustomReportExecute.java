@@ -1632,7 +1632,7 @@ public class CustomReportExecute extends Report {
 
 	// ANIMAL
 	if (askedFor.equalsIgnoreCase("ANIMAL")) {
-	    replaceWith = Integer.toString(Dialog.getAnimal());
+	    replaceWith = Integer.toString(Dialog.getAnimal(true));
             try {
                 crit += (Global.i18n("reports", "animal") + ": " +
 		    DBConnection.executeForString("SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
@@ -1641,6 +1641,19 @@ public class CustomReportExecute extends Report {
                 Global.logException(e, getClass());
             }
 	}
+
+	// ALLANIMAL
+	if (askedFor.equalsIgnoreCase("ALLANIMAL")) {
+	    replaceWith = Integer.toString(Dialog.getAnimal(false));
+            try {
+                crit += (Global.i18n("reports", "animal") + ": " +
+		    DBConnection.executeForString("SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
+                    "<br/>");
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+	}
+
 
         // ANIMAL TYPE
         if (askedFor.equalsIgnoreCase("TYPE")) {

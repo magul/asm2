@@ -5463,7 +5463,8 @@ Ask is quite a detailed key, which requests information from the user at
 \end_layout
 
 \begin_layout LyX-Code
-$ASK [DATE | ANIMAL | SPECIES | LOCATION | TYPE | NUMBER | STRING] [Message]$
+$ASK [DATE | [ALL]ANIMAL | SPECIES | LOCATION | TYPE | NUMBER | STRING]
+ [Message]$
 \end_layout
 
 \begin_layout Standard
@@ -5498,6 +5499,16 @@ $ASK ANIMAL$
 \series default
 - requests an animal.
  A popup displays a list of all animals on the shelter.
+ The value substituted is the animal ID.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+$ASK ALLANIMAL$ 
+\series default
+- requests an animal.
+ A popup displays a list of all animals in the database.
  The value substituted is the animal ID.
 \end_layout
 
@@ -5606,8 +5617,8 @@ VAR works just like ASK, the only difference is that instead of substituting
 \end_layout
 
 \begin_layout LyX-Code
-$VAR <varname> [DATE | ANIMAL | SPECIES | LOCATION | TYPE | NUMBER | STRING]
- [Message]$
+$VAR <varname> [DATE | [ALL]ANIMAL | SPECIES | LOCATION | TYPE | NUMBER
+ | STRING] [Message]$
 \end_layout
 
 \begin_layout Standard
