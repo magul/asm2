@@ -1629,7 +1629,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         }
 
         // Open email form
-        Email.singleEmailForm(txtEmail.getText());
+        try {
+            Email.singleEmailForm(txtEmail.getText());
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     public void changedTown() {

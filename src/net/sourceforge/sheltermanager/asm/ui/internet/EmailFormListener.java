@@ -23,6 +23,6 @@ package net.sourceforge.sheltermanager.asm.ui.internet;
 
 public interface EmailFormListener {
 
-    public void sendEmail(String subject, String body, String content_type);
+    public void sendEmail(String from, String subject, String body, String content_type);
     public void cancelEmail();
 }

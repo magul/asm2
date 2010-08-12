@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.internet;
 
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -50,8 +51,12 @@ public class EmailForm extends ASMForm {
     private UI.List lstFields;
     private UI.ToolBar tlb;
     private UI.TextArea txtBody;
+    private UI.TextField txtFrom;
     private UI.TextField txtSubject;
     private UI.TextField txtTo;
+    private UI.TextField txtCC;
+    private UI.Label lblTo;
+    private UI.Label lblCC;
 
     public EmailForm() {
         init(Global.i18n("uiinternet", "send_email"),
@@ -65,7 +70,9 @@ public class EmailForm extends ASMForm {
 
     public Vector getTabOrder() {
         Vector ctl = new Vector();
+        ctl.add(txtFrom);
         ctl.add(txtTo);
+        ctl.add(txtCC);
         ctl.add(txtSubject);
         ctl.add(chkHTML);
         ctl.add(txtBody);
@@ -92,10 +99,19 @@ public class EmailForm extends ASMForm {
         fields = null;
     }
 
-    public void removeTo() {
-        txtTo.setEnabled(false);
-        txtTo.setText(i18n("send_bulk_email"));
+    /** Put the screen into bulk email mode */
+    public void setBulkEmail() {
+        // Change title
         setTitle(i18n("send_bulk_email"));
+
+        // Remove to and CC fields
+        pnlHead.remove(lblTo);    
+        pnlHead.remove(txtTo);    
+        pnlHead.remove(lblCC);    
+        pnlHead.remove(txtCC);    
+
+        // Show bulk email fields
+        add(pnlFields, UI.BorderLayout.EAST);
     }
 
     public void setParent(EmailFormListener parent) {
@@ -140,8 +156,16 @@ public class EmailForm extends ASMForm {
                     IconManager.getIcon(IconManager.CLOSE),
                     UI.fp(this, "actionCancel")));
 
-        txtTo = (UI.TextField) UI.addComponent(pnlHead, i18n("to"),
+        txtFrom = (UI.TextField) UI.addComponent(pnlHead, i18n("from"),
                 UI.getTextField());
+        txtFrom.setText(Configuration.getString("Organisation") + " <" + Configuration.getString("EmailAddress") + ">");
+
+        lblTo = (UI.Label) UI.addComponent(pnlHead, UI.getLabel(i18n("to")));
+        txtTo = (UI.TextField) UI.addComponent(pnlHead, UI.getTextField());
+
+        lblCC = (UI.Label) UI.addComponent(pnlHead, UI.getLabel(i18n("cc")));
+        txtCC = (UI.TextField) UI.addComponent(pnlHead, UI.getTextField());
+
         txtSubject = (UI.TextField) UI.addComponent(pnlHead,
                 i18n("subject"), UI.getTextField());
         chkHTML = (UI.CheckBox) UI.addComponent(pnlHead,
@@ -156,7 +180,6 @@ public class EmailForm extends ASMForm {
 
         add(pnlTop, UI.BorderLayout.NORTH);
         add(pnlBody, UI.BorderLayout.CENTER);
-        add(pnlFields, UI.BorderLayout.EAST);
     }
 
     public void listDoubleClicked() {
@@ -190,7 +213,7 @@ public class EmailForm extends ASMForm {
 
         // If there is a parent, fire the event and stop now
         if (parent != null) {
-            parent.sendEmail(txtSubject.getText(), txtBody.getText(), 
+            parent.sendEmail(txtFrom.getText(), txtSubject.getText(), txtBody.getText(), 
                 chkHTML.isSelected() ? "text/html" : "text/plain");
             dispose();
 
@@ -207,8 +230,8 @@ public class EmailForm extends ASMForm {
         // Send it
         try {
             Email email = new Email();
-            email.sendmsg(txtTo.getText(), txtSubject.getText(),
-                txtBody.getText(), Email.getLocalEmail(), 
+            email.sendmsg(txtTo.getText(), txtCC.getText(), txtSubject.getText(),
+                txtBody.getText(), txtFrom.getText(), 
                 chkHTML.isSelected() ? "text/html" : "text/plain");
             email.close();
 

@@ -108,9 +108,13 @@ public class Email {
     }
 
     public void sendmsg(String to_address, String subject, String message,
-        String localEmail, String content_type) throws IOException, ProtocolException {
+        String from_address, String content_type) throws IOException, ProtocolException {
+        sendmsg(to_address, "", subject, message, from_address, content_type);
+    }
+
+    public void sendmsg(String to_address, String cc_address, String subject, String message,
+        String from_address, String content_type) throws IOException, ProtocolException {
         
-        String from_address = localEmail;
         String rstr;
         String sstr;
 
@@ -134,7 +138,12 @@ public class Email {
             throw new ProtocolException(rstr);
         }
 
-        sstr = "MAIL FROM: " + from_address + " <" + from_address + ">";
+        // Extract the email address portion (if it doesn't have markers, 
+        // assume the whole thing is email)
+        String from = from_address;
+        if (from.indexOf("<") != -1) 
+            from = from.substring(from.indexOf("<") + 1, from.indexOf(">"));
+        sstr = "MAIL FROM: <" + from + ">";
         send.print(sstr);
         send.print(EOL);
         send.flush();
@@ -144,14 +153,36 @@ public class Email {
             throw new ProtocolException(rstr);
         }
 
-        sstr = "RCPT TO: " + to_address + " <" + to_address + ">";
-        send.print(sstr);
-        send.print(EOL);
-        send.flush();
-        rstr = readLine(reply);
+        // to_address can be a comma separated list with multiple addresses,
+        // make a list of them. If we have a cc_address, same applies. Issue
+        // a separate RCPT TO for each to/cc address.
+        String[] to = Utils.split(to_address, ",");
+        String[] cc = Utils.split(cc_address, ",");
 
-        if (!rstr.startsWith("250")) {
-            throw new ProtocolException(rstr);
+        for (int i = 0; i < to.length; i++) {
+            sstr = "RCPT TO: <" + to[i] + ">";
+            send.print(sstr);
+            send.print(EOL);
+            send.flush();
+            rstr = readLine(reply);
+
+            if (!rstr.startsWith("250")) {
+                throw new ProtocolException(rstr);
+            }
+        }
+
+        if (cc_address.length() > 0) {
+            for (int i = 0; i < cc.length; i++) {
+                sstr = "RCPT TO: <" + cc[i] + ">";
+                send.print(sstr);
+                send.print(EOL);
+                send.flush();
+                rstr = readLine(reply);
+
+                if (!rstr.startsWith("250")) {
+                    throw new ProtocolException(rstr);
+                }
+            }
         }
 
         send.print("DATA");
@@ -167,6 +198,10 @@ public class Email {
         send.print(EOL);
         send.print("To: " + to_address);
         send.print(EOL);
+        if (cc_address.length() > 0) {
+            send.print("Cc: " + cc_address);
+            send.print(EOL);
+        }
         send.print("Content-Type: " + content_type);
         send.print(EOL);
         send.print("Subject: " + subject);
@@ -240,7 +275,7 @@ public class Email {
         UI.cursorToWait();
 
         EmailForm emf = new EmailForm();
-        emf.removeTo();
+        emf.setBulkEmail();
         emf.setParent(parent);
         emf.addFields(fieldlist);
         Global.mainForm.addChild(emf);

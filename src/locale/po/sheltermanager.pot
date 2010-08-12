@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-10 15:46+0100\n"
+"POT-Creation-Date: 2010-08-12 11:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3426,6 +3426,35 @@ msgstr ""
 msgid "Cancelled Reservation"
 msgstr ""
 
+#. # reports/Stats
+#. # reports/AnimalFigures
+#. # reports/AnimalPrint
+#. # reports/CustomReportExecute
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/animal/CostSelector
+#. # ui/ui/Dialog
+#. # ui/ui/JDBCDlg
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # db/DatabaseCopier
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
+#. # charts/CustomChart
+#. # utility/Utils
+#. # bo/LookupCache
+#. # bo/Animal
+#. # bo/AnimalName
+#. # startup/Startup
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
 #. # ui/main/Main
@@ -3435,6 +3464,7 @@ msgstr ""
 #: lksdiarylink_1
 #: lksfieldlink_0
 #: lksloglink_0
+#: animal
 #: Animal
 msgid "Animal"
 msgstr ""
@@ -5071,6 +5101,7 @@ msgid "Reason For Return"
 msgstr ""
 
 #. # reports/ReturnedAnimals
+#. # ui/ui/Dialog
 #: There_are_no_animals_on_the_shelter
 msgid "There are no animals on the shelter"
 msgstr ""
@@ -6559,7 +6590,6 @@ msgstr ""
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
 #. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
@@ -8427,14 +8457,14 @@ msgstr ""
 msgid "Number in litter:"
 msgstr ""
 
+#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #: Bonded
 msgid "Bonded With:"
 msgstr ""
 
 #. # ui/animal/AnimalLink
-#. # ui/movement/MovementEdit
-#. # ui/owner/DonationEdit
+#. # ui/ui/Dialog
 #: Select_an_animal
 msgid "Select an animal"
 msgstr ""
@@ -9017,6 +9047,17 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
+#. # reports/ReturnedAnimals
+#. # ui/ui/Dialog
+#: There_are_no_animals_on_the_shelter
+msgid "There are no animals on the shelter."
+msgstr ""
+
+#. # ui/ui/Dialog
+#: Select_Animal
+msgid "Select Animal"
+msgstr ""
+
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
 msgid "Include Reserved Animals"
@@ -9452,6 +9493,16 @@ msgstr ""
 msgid ""
 "You have not set FTP details for your website. ASM cannot publish directly "
 "to the internet."
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: from
+msgid "From:"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: cc
+msgid "CC:"
 msgstr ""
 
 #. # ui/main/Main
