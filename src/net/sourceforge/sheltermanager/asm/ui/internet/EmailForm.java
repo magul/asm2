@@ -88,6 +88,9 @@ public class EmailForm extends ASMForm {
 
     public void setTo(String to) {
         txtTo.setText(to);
+        String s = Configuration.getString("EmailSignature");
+        if (!s.equals(""))
+            txtBody.setText("\n--\n" + s);
     }
 
     public void removeFields() {

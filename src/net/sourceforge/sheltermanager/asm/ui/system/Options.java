@@ -94,6 +94,7 @@ public class Options extends ASMForm {
     private UI.TextField txtMappingService;
     private UI.TextField txtEmailAddress;
     private UI.TextField txtSMTPServer;
+    private UI.TextArea txtEmailSignature;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
@@ -170,6 +171,7 @@ public class Options extends ASMForm {
         ctl.add(txtMappingService);
         ctl.add(txtEmailAddress);
         ctl.add(txtSMTPServer);
+        ctl.add(txtEmailSignature);
         ctl.add(txtDefaultBoardingCost);
         ctl.add(chkCreateBoardingCostAdoption);
         ctl.add(cboBoardingType);
@@ -277,6 +279,7 @@ public class Options extends ASMForm {
         // Email
         txtEmailAddress.setText(Configuration.getString("EmailAddress"));
         txtSMTPServer.setText(Configuration.getString("SMTPServer"));
+        txtEmailSignature.setText(Configuration.getString("EmailSignature"));
 
         // Shelter Details
         txtOrgName.setText(Configuration.getString("Organisation"));
@@ -471,6 +474,7 @@ public class Options extends ASMForm {
             // Email
             Configuration.setEntry("EmailAddress", txtEmailAddress.getText());
             Configuration.setEntry("SMTPServer", txtSMTPServer.getText());
+            Configuration.setEntry("EmailSignature", txtEmailSignature.getText());
 
             // Defaults
             Configuration.setEntry("AFDefaultSpecies",
@@ -838,17 +842,23 @@ public class Options extends ASMForm {
 
         // Email
         UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel psemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
         UI.Panel email = UI.getPanel(UI.getBorderLayout());
 
         txtEmailAddress = (UI.TextField) UI.addComponent(pemail,
                 i18n("email_address"),
                 UI.getTextField(i18n("emails_from_ASM_come_from")));
 
+        txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
+                i18n("email_signature"),
+                UI.getTextArea());
+
         txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
                 i18n("smtp_server"),
                 UI.getTextField(i18n("address_of_smtp_server")));
 
         email.add(pemail, UI.BorderLayout.NORTH);
+        email.add(psemail, UI.BorderLayout.CENTER);
         tabTabs.addTab(i18n("email"), null, email, null);
 
         // Defaults
