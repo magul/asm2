@@ -682,14 +682,17 @@ public class Startup implements Runnable {
             Global.buttonHotkeys = p.getProperty("ButtonHotkeys", "false")
                                     .equalsIgnoreCase("true");
 
-            // TabAlignment - can be TOP or BOTTOM
+            // TabAlignment - can be TOP, BOTTOM, LEFT, RIGHT
             // =========================================================
             alignstring = p.getProperty("TabAlignment", "0");
-
-            if (alignstring.equalsIgnoreCase("1")) {
-                Global.TABALIGN = UI.ALIGN_BOTTOM;
+            if (alignstring.equals("1")) {
+                Global.TABALIGN = UI.TabbedPane.BOTTOM;
+            } else if (alignstring.equals("2")) {
+                Global.TABALIGN = UI.TabbedPane.LEFT;
+            } else if (alignstring.equals("3")) {
+                Global.TABALIGN = UI.TabbedPane.RIGHT;
             } else {
-                Global.TABALIGN = UI.ALIGN_TOP;
+                Global.TABALIGN = UI.TabbedPane.TOP;
             }
 
             // Internal reportviewer setting

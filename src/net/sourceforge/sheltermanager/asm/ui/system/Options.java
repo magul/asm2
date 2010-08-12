@@ -640,6 +640,13 @@ public class Options extends ASMForm {
     public void initComponents() {
         tabTabs = UI.getTabbedPane(UI.fp(this, "tabChanged"));
 
+        // Move our tab set to the left (or right for RTL languages)
+        if (UI.isLTR())
+            tabTabs.setTabPlacement(UI.TabbedPane.LEFT);
+        else {
+            tabTabs.setTabPlacement(UI.TabbedPane.RIGHT);
+        }
+
         // Shelter info
         UI.Panel detop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel demid = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
@@ -670,50 +677,56 @@ public class Options extends ASMForm {
         details.add(debot, UI.BorderLayout.SOUTH);
         tabTabs.addTab(i18n("shelter_info"), null, details, null);
 
-        // Word processor options
-        UI.Panel pw = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        // Accounts
+        UI.Panel pacc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel accounts = UI.getPanel(UI.getBorderLayout());
 
-        cboWordProcessor = UI.getCombo(new String[] {
-                    GenerateDocument.OPENOFFICE_3, GenerateDocument.OPENOFFICE_2,
-                    GenerateDocument.OPENOFFICE_1,
-                    GenerateDocument.MICROSOFT_OFFICE_2007,
-                    GenerateDocument.ABIWORD, GenerateDocument.RICH_TEXT,
-                    GenerateDocument.XML, GenerateDocument.HTML
-                });
-        UI.addComponent(pw, i18n("Word_Processor:"), cboWordProcessor);
+        cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
+                "Code");
+        UI.addComponent(pacc, i18n("Donation_destination_account"),
+            cboDonationTargetAccount);
 
-        UI.Panel wordprocessor = UI.getPanel(UI.getBorderLayout());
-        wordprocessor.add(pw, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("word_processor"), null, wordprocessor, null);
+        List<SelectableItem> l  = new ArrayList<SelectableItem>();
+        l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
+                false, true));
 
-        // Diary options
-        UI.Panel pd = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        txtVetsUser = (UI.TextField) UI.addComponent(pd,
-                i18n("Vets_Diary_User:"), UI.getTextField());
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "disable_accounts_functionality"), "DisableAccounts",
+                Configuration.getString("DisableAccounts")
+                             .equalsIgnoreCase("Yes"), false));
 
-        UI.Panel diary = UI.getPanel(UI.getBorderLayout());
-        diary.add(pd, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("diary"), null, diary, null);
+        l.add(new SelectableItem(Global.i18n("uisystem", "creating_matching_trx"),
+                "CreateDonationTrx",
+                Configuration.getString("CreateDonationTrx")
+                             .equalsIgnoreCase("Yes"), false));
 
-        // Waiting list options
-        UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        spnUrgency = (UI.Spinner) UI.addComponent(pl,
-                i18n("Update_Waiting_List_Period:"),
-                UI.getSpinner(0, 365,
-                    i18n("The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days"),
-                    null));
+        tblAccountOptions = new SelectableList(l);
 
-        cboDefaultUrgency = UI.getCombo(LookupCache.getUrgencyLookup(),
-                "Urgency");
-        UI.addComponent(pl, i18n("default_waiting_list_urgency"),
-            cboDefaultUrgency);
+        accounts.add(pacc, UI.BorderLayout.NORTH);
+        UI.addComponent(accounts, tblAccountOptions);
+        tabTabs.addTab(i18n("Accounts"), null, accounts, null);
 
-        chkRankBySpecies = UI.getCheckBox(i18n("separate_the_ranks_by_species"));
-        UI.addComponent(pl, "", chkRankBySpecies);
+        // Age groups
+        UI.Panel pa = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 20, 60 }));
+        txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
+                UI.getTextField());
+        txtAgeGroup1Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup2 = (UI.TextField) UI.addComponent(pa, i18n("age_group_2"),
+                UI.getTextField());
+        txtAgeGroup2Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup3 = (UI.TextField) UI.addComponent(pa, i18n("age_group_3"),
+                UI.getTextField());
+        txtAgeGroup3Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup4 = (UI.TextField) UI.addComponent(pa, i18n("age_group_4"),
+                UI.getTextField());
+        txtAgeGroup4Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
+        txtAgeGroup5 = (UI.TextField) UI.addComponent(pa, i18n("age_group_5"),
+                UI.getTextField());
+        txtAgeGroup5Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
 
-        UI.Panel waitinglist = UI.getPanel(UI.getBorderLayout());
-        waitinglist.add(pl, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("waiting_list"), null, waitinglist, null);
+        UI.Panel agegroups = UI.getPanel(UI.getBorderLayout());
+        agegroups.add(pa, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("age_groups"), null, agegroups, null);
 
         // Animal code options
         UI.Panel codepanel = UI.getPanel(UI.getBorderLayout());
@@ -726,7 +739,7 @@ public class Options extends ASMForm {
                 i18n("short_coding_format"),
                 UI.getTextField(i18n("short_coding_format_tooltip")));
 
-        List<SelectableItem> l = new ArrayList<SelectableItem>();
+        l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Coding_System"),
                 null, false, true));
 
@@ -763,26 +776,43 @@ public class Options extends ASMForm {
         codepanel.add(pc, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("animal_codes"), null, codepanel, null);
 
-        // Mapping service options
-        UI.Panel pm = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        txtMappingService = (UI.TextField) UI.addComponent(pm,
-                i18n("mapping_service_url"), UI.getTextField());
-        txtMappingService.setPreferredSize(UI.getDimension(
-                UI.getTextBoxWidth() * 3, UI.getTextBoxHeight()));
+        // Authentication
+        UI.Panel auth = UI.getPanel(UI.getBorderLayout());
+        UI.Panel authmid = UI.getPanel(UI.getBorderLayout());
+        UI.Panel pmech = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pldap = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
 
-        UI.Panel mappingservice = UI.getPanel(UI.getBorderLayout());
-        mappingservice.add(pm, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("mapping_service"), null, mappingservice, null);
+        cboMech = UI.getCombo();
+        cboMech.addItem(i18n("Database") + " - " + i18n("Database_Desc"));
+        cboMech.addItem(i18n("Operating_System") + " - " +
+            i18n("Operating_System_Desc"));
+        cboMech.addItem(i18n("LDAP") + " - " + i18n("LDAP_Desc"));
+        cboMech.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3,
+                UI.getComboBoxHeight()));
+        UI.addComponent(pmech, i18n("Authentication"), cboMech);
 
-        // Movement options
-        UI.Panel pv = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        spnCancelReserves = (UI.Spinner) UI.addComponent(pv,
-                i18n("auto_cancel_reserves"),
-                UI.getSpinner(0, 365, i18n("auto_cancel_reserves_tooltip"), null));
+        pldap.setTitle(i18n("LDAP"));
+        txtLDAPUrl = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_URL"),
+                UI.getTextField());
+        txtLDAPDN = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_DN"),
+                UI.getTextField());
+        txtLDAPFilter = (UI.TextField) UI.addComponent(pldap,
+                i18n("LDAP_Filter"), UI.getTextField());
+        txtLDAPUser = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_User"),
+                UI.getTextField());
+        txtLDAPPass = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_Pass"),
+                UI.getTextField());
 
-        UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
-        movementoptions.add(pv, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("movements"), null, movementoptions, null);
+        authmid.add(pldap, UI.BorderLayout.NORTH);
+        auth.add(pmech, UI.BorderLayout.NORTH);
+        auth.add(authmid, UI.BorderLayout.CENTER);
+
+        // Authentication doesn't make sense with an applet
+        // user supplied, since auth is taken care of before
+        // applet page is loaded
+        if (Startup.appletUser == null) {
+            tabTabs.addTab(i18n("Authentication"), null, auth, null);
+        }
 
         // Costs
         UI.Panel pcost = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
@@ -799,67 +829,6 @@ public class Options extends ASMForm {
         UI.Panel costoptions = UI.getPanel(UI.getBorderLayout());
         costoptions.add(pcost, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("costs"), null, costoptions, null);
-
-        // Age groups
-        UI.Panel pa = UI.getPanel(UI.getGridLayout(3, new int[] { 20, 20, 60 }));
-        txtAgeGroup1 = (UI.TextField) UI.addComponent(pa, i18n("age_group_1"),
-                UI.getTextField());
-        txtAgeGroup1Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup2 = (UI.TextField) UI.addComponent(pa, i18n("age_group_2"),
-                UI.getTextField());
-        txtAgeGroup2Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup3 = (UI.TextField) UI.addComponent(pa, i18n("age_group_3"),
-                UI.getTextField());
-        txtAgeGroup3Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup4 = (UI.TextField) UI.addComponent(pa, i18n("age_group_4"),
-                UI.getTextField());
-        txtAgeGroup4Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-        txtAgeGroup5 = (UI.TextField) UI.addComponent(pa, i18n("age_group_5"),
-                UI.getTextField());
-        txtAgeGroup5Name = (UI.TextField) UI.addComponent(pa, UI.getTextField());
-
-        UI.Panel agegroups = UI.getPanel(UI.getBorderLayout());
-        agegroups.add(pa, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("age_groups"), null, agegroups, null);
-
-        // Lost and found
-        UI.Panel plf = UI.getPanel(UI.getGridLayout(2, new int[] { 60, 40 }));
-        spnMatchPointFloor = (UI.Spinner) UI.addComponent(plf, i18n("how_many_points_to_show_on_report"), UI.getSpinner(0, 1000));
-        spnMatchSpecies = (UI.Spinner) UI.addComponent(plf, i18n("species_matches"), UI.getSpinner(0, 100));
-        spnMatchBreed = (UI.Spinner) UI.addComponent(plf, i18n("breed_matches"), UI.getSpinner(0, 100));
-        spnMatchColour = (UI.Spinner) UI.addComponent(plf, i18n("colour_matches"), UI.getSpinner(0, 100));
-        spnMatchAge = (UI.Spinner) UI.addComponent(plf, i18n("age_group_matches"), UI.getSpinner(0, 100));
-        spnMatchSex = (UI.Spinner) UI.addComponent(plf, i18n("sex_matches"), UI.getSpinner(0, 100));
-        spnMatchAreaLost = (UI.Spinner) UI.addComponent(plf, i18n("area_matches"), UI.getSpinner(0, 100));
-        spnMatchFeatures = (UI.Spinner) UI.addComponent(plf, i18n("features_matches"), UI.getSpinner(0, 100));
-        spnMatchPostcode = (UI.Spinner) UI.addComponent(plf, i18n("postcode_matches"), UI.getSpinner(0, 100));
-        spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf, i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
-        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "", UI.getCheckBox(i18n("include_shelter")));
-        
-        UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
-        lostandfound.add(plf, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("lost_and_found"), null, lostandfound, null);
-
-        // Email
-        UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
-        UI.Panel psemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
-        UI.Panel email = UI.getPanel(UI.getBorderLayout());
-
-        txtEmailAddress = (UI.TextField) UI.addComponent(pemail,
-                i18n("email_address"),
-                UI.getTextField(i18n("emails_from_ASM_come_from")));
-
-        txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
-                i18n("email_signature"),
-                UI.getTextArea());
-
-        txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
-                i18n("smtp_server"),
-                UI.getTextField(i18n("address_of_smtp_server")));
-
-        email.add(pemail, UI.BorderLayout.NORTH);
-        email.add(psemail, UI.BorderLayout.CENTER);
-        tabTabs.addTab(i18n("email"), null, email, null);
 
         // Defaults
         UI.Panel pr = UI.getPanel(UI.getGridLayout(4,
@@ -978,36 +947,37 @@ public class Options extends ASMForm {
         UI.addComponent(defaults, tblDefaultOptions);
         tabTabs.addTab(i18n("Defaults"), null, defaults, null);
 
-        // Accounts
-        UI.Panel pacc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        UI.Panel accounts = UI.getPanel(UI.getBorderLayout());
+        // Diary options
+        UI.Panel pd = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        txtVetsUser = (UI.TextField) UI.addComponent(pd,
+                i18n("Vets_Diary_User:"), UI.getTextField());
 
-        cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
-                "Code");
-        UI.addComponent(pacc, i18n("Donation_destination_account"),
-            cboDonationTargetAccount);
+        UI.Panel diary = UI.getPanel(UI.getBorderLayout());
+        diary.add(pd, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("diary"), null, diary, null);
 
-        l = new ArrayList<SelectableItem>();
-        l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
-                false, true));
+        // Email
+        UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel psemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel email = UI.getPanel(UI.getBorderLayout());
 
-        l.add(new SelectableItem(Global.i18n("uisystem",
-                    "disable_accounts_functionality"), "DisableAccounts",
-                Configuration.getString("DisableAccounts")
-                             .equalsIgnoreCase("Yes"), false));
+        txtEmailAddress = (UI.TextField) UI.addComponent(pemail,
+                i18n("email_address"),
+                UI.getTextField(i18n("emails_from_ASM_come_from")));
 
-        l.add(new SelectableItem(Global.i18n("uisystem", "creating_matching_trx"),
-                "CreateDonationTrx",
-                Configuration.getString("CreateDonationTrx")
-                             .equalsIgnoreCase("Yes"), false));
+        txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
+                i18n("email_signature"),
+                UI.getTextArea());
 
-        tblAccountOptions = new SelectableList(l);
+        txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
+                i18n("smtp_server"),
+                UI.getTextField(i18n("address_of_smtp_server")));
 
-        accounts.add(pacc, UI.BorderLayout.NORTH);
-        UI.addComponent(accounts, tblAccountOptions);
-        tabTabs.addTab(i18n("Accounts"), null, accounts, null);
+        email.add(pemail, UI.BorderLayout.NORTH);
+        email.add(psemail, UI.BorderLayout.CENTER);
+        tabTabs.addTab(i18n("email"), null, email, null);
 
-        // Automatic Insurance Numbers
+        // Insurance
         UI.Panel pins = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel insurancenumbers = UI.getPanel(UI.getBorderLayout());
 
@@ -1022,46 +992,83 @@ public class Options extends ASMForm {
                 i18n("Next:"), UI.getSpinner(0, 400000000));
 
         insurancenumbers.add(pins, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("Automatic_Insurance_Numbers"), null,
+        tabTabs.addTab(i18n("Insurance"), null,
             insurancenumbers, null);
 
-        // Authentication
-        UI.Panel auth = UI.getPanel(UI.getBorderLayout());
-        UI.Panel authmid = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pmech = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        UI.Panel pldap = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        // Lost and found
+        UI.Panel plf = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
+        spnMatchPointFloor = (UI.Spinner) UI.addComponent(plf, i18n("how_many_points_to_show_on_report"), UI.getSpinner(0, 1000));
+        spnMatchSpecies = (UI.Spinner) UI.addComponent(plf, i18n("species_matches"), UI.getSpinner(0, 100));
+        spnMatchBreed = (UI.Spinner) UI.addComponent(plf, i18n("breed_matches"), UI.getSpinner(0, 100));
+        spnMatchColour = (UI.Spinner) UI.addComponent(plf, i18n("colour_matches"), UI.getSpinner(0, 100));
+        spnMatchAge = (UI.Spinner) UI.addComponent(plf, i18n("age_group_matches"), UI.getSpinner(0, 100));
+        spnMatchSex = (UI.Spinner) UI.addComponent(plf, i18n("sex_matches"), UI.getSpinner(0, 100));
+        spnMatchAreaLost = (UI.Spinner) UI.addComponent(plf, i18n("area_matches"), UI.getSpinner(0, 100));
+        spnMatchFeatures = (UI.Spinner) UI.addComponent(plf, i18n("features_matches"), UI.getSpinner(0, 100));
+        spnMatchPostcode = (UI.Spinner) UI.addComponent(plf, i18n("postcode_matches"), UI.getSpinner(0, 100));
+        spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf, i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
+        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "", UI.getCheckBox(i18n("include_shelter")));
+        
+        UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
+        lostandfound.add(plf, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("lost_and_found"), null, lostandfound, null);
 
-        cboMech = UI.getCombo();
-        cboMech.addItem(i18n("Database") + " - " + i18n("Database_Desc"));
-        cboMech.addItem(i18n("Operating_System") + " - " +
-            i18n("Operating_System_Desc"));
-        cboMech.addItem(i18n("LDAP") + " - " + i18n("LDAP_Desc"));
-        cboMech.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 3,
-                UI.getComboBoxHeight()));
-        UI.addComponent(pmech, i18n("Authentication"), cboMech);
+        // Mapping service options
+        UI.Panel pm = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        txtMappingService = (UI.TextField) UI.addComponent(pm,
+                i18n("mapping_service_url"), UI.getTextField());
+        txtMappingService.setPreferredSize(UI.getDimension(
+                UI.getTextBoxWidth() * 3, UI.getTextBoxHeight()));
 
-        pldap.setTitle(i18n("LDAP"));
-        txtLDAPUrl = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_URL"),
-                UI.getTextField());
-        txtLDAPDN = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_DN"),
-                UI.getTextField());
-        txtLDAPFilter = (UI.TextField) UI.addComponent(pldap,
-                i18n("LDAP_Filter"), UI.getTextField());
-        txtLDAPUser = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_User"),
-                UI.getTextField());
-        txtLDAPPass = (UI.TextField) UI.addComponent(pldap, i18n("LDAP_Pass"),
-                UI.getTextField());
+        UI.Panel mappingservice = UI.getPanel(UI.getBorderLayout());
+        mappingservice.add(pm, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("mapping_service"), null, mappingservice, null);
 
-        authmid.add(pldap, UI.BorderLayout.NORTH);
-        auth.add(pmech, UI.BorderLayout.NORTH);
-        auth.add(authmid, UI.BorderLayout.CENTER);
+        // Movement options
+        UI.Panel pv = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        spnCancelReserves = (UI.Spinner) UI.addComponent(pv,
+                i18n("auto_cancel_reserves"),
+                UI.getSpinner(0, 365, i18n("auto_cancel_reserves_tooltip"), null));
 
-        // Authentication doesn't make sense with an applet
-        // user supplied, since auth is taken care of before
-        // applet page is loaded
-        if (Startup.appletUser == null) {
-            tabTabs.addTab(i18n("Authentication"), null, auth, null);
-        }
+        UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
+        movementoptions.add(pv, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("movements"), null, movementoptions, null);
+
+        // Waiting list options
+        UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        spnUrgency = (UI.Spinner) UI.addComponent(pl,
+                i18n("Update_Waiting_List_Period:"),
+                UI.getSpinner(0, 365,
+                    i18n("The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days"),
+                    null));
+
+        cboDefaultUrgency = UI.getCombo(LookupCache.getUrgencyLookup(),
+                "Urgency");
+        UI.addComponent(pl, i18n("default_waiting_list_urgency"),
+            cboDefaultUrgency);
+
+        chkRankBySpecies = UI.getCheckBox(i18n("separate_the_ranks_by_species"));
+        UI.addComponent(pl, "", chkRankBySpecies);
+
+        UI.Panel waitinglist = UI.getPanel(UI.getBorderLayout());
+        waitinglist.add(pl, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("waiting_list"), null, waitinglist, null);
+
+        // Word processor options
+        UI.Panel pw = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+
+        cboWordProcessor = UI.getCombo(new String[] {
+                    GenerateDocument.OPENOFFICE_3, GenerateDocument.OPENOFFICE_2,
+                    GenerateDocument.OPENOFFICE_1,
+                    GenerateDocument.MICROSOFT_OFFICE_2007,
+                    GenerateDocument.ABIWORD, GenerateDocument.RICH_TEXT,
+                    GenerateDocument.XML, GenerateDocument.HTML
+                });
+        UI.addComponent(pw, i18n("Word_Processor:"), cboWordProcessor);
+
+        UI.Panel wordprocessor = UI.getPanel(UI.getBorderLayout());
+        wordprocessor.add(pw, UI.BorderLayout.NORTH);
+        tabTabs.addTab(i18n("word_processor"), null, wordprocessor, null);
 
         // Options
         l = new ArrayList<SelectableItem>();

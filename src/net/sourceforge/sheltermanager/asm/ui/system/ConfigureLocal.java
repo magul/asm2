@@ -107,11 +107,12 @@ public class ConfigureLocal extends ASMForm {
             cboLabelAlign.setSelectedIndex(1);
         }
 
-        // Selected indexes - TOP = 0, BOTTOM = 1
-        if (Global.TABALIGN == UI.ALIGN_TOP) {
-            cboTabAlign.setSelectedIndex(0);
-        } else {
-            cboTabAlign.setSelectedIndex(1);
+        // Selected indexes - TOP = 0, BOTTOM = 1, LEFT = 2, RIGHT = 3
+        switch (Global.TABALIGN) {
+            case UI.TabbedPane.TOP: cboTabAlign.setSelectedIndex(0); break;
+            case UI.TabbedPane.BOTTOM: cboTabAlign.setSelectedIndex(1); break;
+            case UI.TabbedPane.LEFT: cboTabAlign.setSelectedIndex(2); break;
+            case UI.TabbedPane.RIGHT: cboTabAlign.setSelectedIndex(3); break;
         }
 
         if (!Global.applet) {
@@ -173,6 +174,8 @@ public class ConfigureLocal extends ASMForm {
                 UI.getCombo());
         cboTabAlign.addItem(i18n("TOP"));
         cboTabAlign.addItem(i18n("BOTTOM"));
+        cboTabAlign.addItem(i18n("LEFT"));
+        cboTabAlign.addItem(i18n("RIGHT"));
         cboTabAlign.setToolTipText(i18n("select_where_to_align_tabs"));
         cboTabAlign.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
                 UI.getComboBoxHeight()));
