@@ -2684,11 +2684,14 @@ public class AutoDBUpdates {
                 // If we can't parse the code, leave the short one alone
                 if (num != 0) {
                     try {
+		    	
+			// Create the new shortcode
+			String sc = num + 
+			    r.getString("AnimalType").substring(0, 1);
+
                         DBConnection.executeAction(
                             "UPDATE animal SET ShortCode = '" +
-                            Animal.generateAnimalCode(
-                                (String) r.getField("AnimalType"), new Date(),
-                                num, num).shortcode + "' WHERE ID = " +
+                            sc + "' WHERE ID = " +
                             Integer.toString(
                                 ((Integer) r.getField("ID")).intValue()));
                     } catch (Exception e) {
