@@ -3,6 +3,7 @@ package net.sourceforge.sheltermanager.asm.ui.main;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.*;
 import net.sourceforge.sheltermanager.asm.ui.reportviewer.ReportViewer;
+import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.*;
 
 import java.util.*;
@@ -50,7 +51,7 @@ public class StartupPage extends ASMForm {
 
     public void initComponents() {
         diarynotes = new ReportViewer();
-        asmnews = UI.getHTMLBrowser();
+        asmnews = UI.getHTMLBrowser(new FunctionPointer(this, "hyperlinkClicked", new Class[] { String.class }));
         asmnews.setPreferredSize(UI.getDimension(400, 400));
         splash = UI.getLabel(IconManager.getSplashScreen());
 
@@ -63,6 +64,10 @@ public class StartupPage extends ASMForm {
         UI.addComponent(this, diarynotes);
         //add(diarynotes, UI.BorderLayout.CENTER);
         add(p, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
+    }
+
+    public void hyperlinkClicked(String target) {
+        FileTypeManager.shellExecute(target);
     }
 
     public void loadData() {
