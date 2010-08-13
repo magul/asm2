@@ -1,6 +1,9 @@
 2.7.3
 ================
 
+*. Fixed lost/found edit screen tab order
+*. Eradicated last uses of TableLayout - non-RTL compliant
+*. Fixed layout and rendering bug in startup page - uses splitter
 *. Hyperlinks in the startup page news browser are now clickable
 *. Facility to save emails in the log
 *. Fix to short code generation in 2302 database update (performance fix)

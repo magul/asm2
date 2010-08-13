@@ -144,18 +144,25 @@ public class DateFromTo extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(2));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(1));
+        UI.Panel pf = UI.getPanel(UI.getFlowLayout(true));
+        UI.Panel pt = UI.getPanel(UI.getFlowLayout(true));
+        UI.Panel pb = UI.getPanel(UI.getFlowLayout(true));
 
-        txtFrom = (DateField) UI.addComponent(p, i18n("Date_From:"),
+        txtFrom = (DateField) UI.addComponent(pf, i18n("Date_From:"),
                 UI.getDateField());
-        txtTo = (DateField) UI.addComponent(p, i18n("Date_To:"),
+        txtTo = (DateField) UI.addComponent(pt, i18n("Date_To:"),
                 UI.getDateField());
-        btnOk = (UI.Button) p.add(UI.getButton(i18n("Ok"), null, 'o', null,
+        btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
                     UI.fp(this, "actionOk")));
-        btnCancel = (UI.Button) p.add(UI.getButton(i18n("Cancel"), null, 'c',
+        btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
                     null, UI.fp(this, "dispose")));
 
-        add(p, UI.BorderLayout.CENTER);
+        p.add(pf);
+        p.add(pt);
+        p.add(pb);
+
+        add(p, UI.BorderLayout.NORTH);
     }
 
     public String getAuditInfo() {

@@ -112,8 +112,9 @@ public final class UI {
         if (osIsLinux() || osIsSolaris()) {
             swingSetMetalLAF();
 
-            // Try a better font - Java default is hideous and everything
-            // is in bold, which is nasty
+            // Try a better font - Sun Java default is hideous and everything
+            // is in bold, which is nasty. OpenJDK uses better fonts, but still
+            // has the bold problem.
             if (swingIsFontAvailable("Bitstream Vera Sans")) {
                 swingSetDefaultFontName("Bitstream Vera Sans", REGULAR);
             } else if (swingIsFontAvailable("DejaVu Sans")) {
@@ -2147,8 +2148,31 @@ public final class UI {
         return s;
     }
 
+    public static VerticalSplitPane getVerticalSplitPane(Component c1, Component c2) {
+        return new VerticalSplitPane(c1, c2);
+    }
+
+    public static HorizontalSplitPane getHorizontalSplitPane(Component c1, Component c2) {
+        if (isLTR()) 
+            return new HorizontalSplitPane(c1, c2);
+        else
+            return new HorizontalSplitPane(c2, c1);
+    }
+
     public static BoxLayout getBoxLayout(UI.Panel p, int axis) {
         return new BoxLayout(p, axis);
+    }
+
+    public static class VerticalSplitPane extends JSplitPane {
+        public VerticalSplitPane(Component c1, Component c2) {
+            super(JSplitPane.VERTICAL_SPLIT, true, c1, c2);
+        }
+    }
+
+    public static class HorizontalSplitPane extends JSplitPane {
+        public HorizontalSplitPane(Component c1, Component c2) {
+            super(JSplitPane.HORIZONTAL_SPLIT, true, c1, c2);
+        }
     }
 
     public static class ScrollPane extends JScrollPane {

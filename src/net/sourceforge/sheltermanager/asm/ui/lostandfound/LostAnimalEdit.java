@@ -146,9 +146,9 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
         ctl.add(cboColour);
         ctl.add(txtFeatures);
         ctl.add(txtArea);
-        ctl.add(txtComments);
         ctl.add(txtPostcode);
         ctl.add(txtDateFound.getTextField());
+        ctl.add(txtComments);
         ctl.add(btnSave);
         ctl.add(btnDelete);
 

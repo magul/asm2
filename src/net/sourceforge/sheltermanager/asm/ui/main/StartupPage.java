@@ -16,6 +16,7 @@ import java.util.*;
 public class StartupPage extends ASMForm {
     //UI.HTMLBrowser diarynotes = null;
     ReportViewer diarynotes = null;
+    UI.HorizontalSplitPane hs = null;
     UI.HTMLBrowser asmnews = null;
     UI.Label splash = null;
 
@@ -23,14 +24,27 @@ public class StartupPage extends ASMForm {
         init(Global.i18n("uimain", "Welcome"),
             IconManager.getIcon(IconManager.SCREEN_STARTUPPAGE), "uimain");
 
+        // Run the diary report on a separate thread
+        UI.cursorToWait();
         new Thread() {
                 public void run() {
                     try {
-                        DiaryNotesToday d = new DiaryNotesToday(false);
-                        diarynotes.showReport(d.getFilename(), d.getTitle());
-                        //diarynotes.setPage("file:///" + d.getFilename());
+                        final DiaryNotesToday d = new DiaryNotesToday(false);
+
+                        // Use the dispatch thread to load the report content
+                        UI.invokeLater(new Runnable() {
+                            public void run() {
+                                diarynotes.showReport(d.getFilename(), d.getTitle());
+                                hs.setDividerLocation(600);
+                                UI.cursorToPointer();
+                            }
+                        });
+
+                        // Load the news after the report - still on a separate thread
+                        // so there's no blocking if we can't get to the web
                         asmnews.setPage(System.getProperty("asm.news",
-                                "http://sheltermanager.sf.net/startpage.html"));
+                            "http://sheltermanager.sf.net/startpage.html"));
+
                     } catch (Exception e) {
                         Global.logException(e, getClass());
                     }
@@ -50,20 +64,17 @@ public class StartupPage extends ASMForm {
     }
 
     public void initComponents() {
+        
         diarynotes = new ReportViewer();
+        
+        UI.Panel pnews = UI.getPanel(UI.getBorderLayout());
         asmnews = UI.getHTMLBrowser(new FunctionPointer(this, "hyperlinkClicked", new Class[] { String.class }));
         asmnews.setPreferredSize(UI.getDimension(400, 400));
-        splash = UI.getLabel(IconManager.getSplashScreen());
+        UI.addComponent(pnews, asmnews);
 
         setLayout(UI.getBorderLayout());
-
-        UI.Panel p = UI.getPanel(UI.getBorderLayout());
-        p.add(splash, UI.BorderLayout.NORTH);
-        UI.addComponent(p, asmnews);
-        //p.add(asmnews, UI.BorderLayout.CENTER);
-        UI.addComponent(this, diarynotes);
-        //add(diarynotes, UI.BorderLayout.CENTER);
-        add(p, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
+        hs = UI.getHorizontalSplitPane(diarynotes, pnews);
+        add(hs);
     }
 
     public void hyperlinkClicked(String target) {

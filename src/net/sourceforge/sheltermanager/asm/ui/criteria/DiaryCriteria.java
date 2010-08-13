@@ -90,11 +90,11 @@ public class DiaryCriteria extends ASMForm {
     }
 
     public void initComponents() {
-        UI.Panel p = UI.getPanel(UI.getTableLayout(1));
+        UI.Panel p = UI.getPanel(UI.getGridLayout(1));
         UI.Panel today = UI.getPanel(UI.getFlowLayout(true));
         UI.Panel upto = UI.getPanel(UI.getFlowLayout(true));
         UI.Panel between = UI.getPanel(UI.getFlowLayout(true));
-        UI.Panel buttons = UI.getPanel(UI.getFlowLayout());
+        UI.Panel buttons = UI.getPanel(UI.getFlowLayout(true));
 
         radNormal = (UI.RadioButton) today.add(UI.getRadioButton(i18n("Show_everything_before_and_including_today"),
                     null, 'v', UI.fp(this, "selectedNormal")));
@@ -119,7 +119,7 @@ public class DiaryCriteria extends ASMForm {
         p.add(between);
         p.add(buttons);
 
-        add(p, UI.BorderLayout.CENTER);
+        add(p, UI.BorderLayout.NORTH);
     }
 
     public boolean formClosing() {
