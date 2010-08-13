@@ -2686,14 +2686,12 @@ public class AutoDBUpdates {
                     try {
 		    	
 			// Create the new shortcode
-			String sc = num + 
-			    r.getString("AnimalType").substring(0, 1);
+			String sc = Integer.toString(num) + 
+                            (!shortformat.equals("UUUU") ? r.getString("AnimalType").substring(0, 1) : "");
 
                         DBConnection.executeAction(
-                            "UPDATE animal SET ShortCode = '" +
-                            sc + "' WHERE ID = " +
-                            Integer.toString(
-                                ((Integer) r.getField("ID")).intValue()));
+                            "UPDATE animal SET ShortCode = '" + sc + "' WHERE ID = " + 
+                            Integer.toString( r.getInt("ID")));
                     } catch (Exception e) {
                         Global.logException(e, getClass());
                     }

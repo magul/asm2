@@ -310,6 +310,7 @@ public class Startup implements Runnable {
             sp.setStatus("Setting maximum packet size...");
             sp.incrementBar();
             Global.setMaxAllowedPacket();
+            
             // Switch to UTF8 mode if the server needs it
             sp.setStatus("Switching to UTF8 input/output...");
             Global.setUTF8();
@@ -348,8 +349,8 @@ public class Startup implements Runnable {
                 terminateVM(1);
             }
 
-            // Check for updates
-            sp.setStatus("Checking for database updates...");
+            // Run any outstanding database updates
+            sp.setStatus("Updating database...");
             sp.incrementBar();
 
             if (!new AutoDBUpdates().runUpdates()) {
@@ -359,7 +360,7 @@ public class Startup implements Runnable {
 
             // See if we need to import the media from the data directory
             if (!applet) {
-                sp.setStatus("Checking for and creating valid DBFS...");
+                sp.setStatus("Creating DBFS...");
                 sp.incrementBar();
                 checkMedia();
             }
@@ -407,6 +408,8 @@ public class Startup implements Runnable {
             Class.forName(
                 "net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind");
             Class.forName(
+                "net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText");
+            Class.forName(
                 "net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit");
             Class.forName(
                 "net.sourceforge.sheltermanager.asm.ui.animal.DietSelector");
@@ -430,6 +433,8 @@ public class Startup implements Runnable {
                 "net.sourceforge.sheltermanager.asm.ui.owner.LinkSelector");
             Class.forName(
                 "net.sourceforge.sheltermanager.asm.ui.owner.OwnerFind");
+            Class.forName(
+                "net.sourceforge.sheltermanager.asm.ui.owner.OwnerFindText");
             Class.forName(
                 "net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit");
             Class.forName(
