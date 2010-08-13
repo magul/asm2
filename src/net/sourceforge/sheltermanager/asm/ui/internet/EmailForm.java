@@ -22,13 +22,18 @@
 package net.sourceforge.sheltermanager.asm.ui.internet;
 
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
+import net.sourceforge.sheltermanager.asm.bo.Log;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Email;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -39,15 +44,20 @@ import java.util.Vector;
  */
 public class EmailForm extends ASMForm {
     private EmailFormListener parent = null;
+    private int ownerid = 0;
+    private OwnerEdit parentOwnerForm;
     private UI.Panel pnlFields;
     private UI.Panel pnlHead;
     private UI.Panel pnlBody;
     private UI.Panel pnlTo;
     private UI.Panel pnlTop;
     private UI.Panel pnlSubject;
+    private UI.Panel pnlLog;
     private UI.Button btnCancel;
     private UI.Button btnSend;
     private UI.CheckBox chkHTML;
+    private UI.CheckBox chkAddLog;
+    private UI.ComboBox cboLog;
     private UI.List lstFields;
     private UI.ToolBar tlb;
     private UI.TextArea txtBody;
@@ -76,6 +86,8 @@ public class EmailForm extends ASMForm {
         ctl.add(txtSubject);
         ctl.add(chkHTML);
         ctl.add(txtBody);
+        ctl.add(chkAddLog);
+        ctl.add(cboLog);
         ctl.add(btnSend);
         ctl.add(btnCancel);
 
@@ -91,6 +103,14 @@ public class EmailForm extends ASMForm {
         String s = Configuration.getString("EmailSignature");
         if (!s.equals(""))
             txtBody.setText("\n--\n" + s);
+    }
+
+    public void setOwnerID(int ownerid) {
+        this.ownerid = ownerid;
+    }
+
+    public void setParentOwnerForm(OwnerEdit form) {
+        this.parentOwnerForm = form;
     }
 
     public void removeFields() {
@@ -112,6 +132,9 @@ public class EmailForm extends ASMForm {
         pnlHead.remove(txtTo);    
         pnlHead.remove(lblCC);    
         pnlHead.remove(txtCC);    
+
+        // Get rid of log controls
+        remove(pnlLog);
 
         // Show bulk email fields
         add(pnlFields, UI.BorderLayout.EAST);
@@ -148,6 +171,7 @@ public class EmailForm extends ASMForm {
         pnlHead = UI.getPanel(UI.getGridLayout(2, new int[] { 10, 90 }));
         pnlBody = UI.getPanel(UI.getBorderLayout());
         pnlFields = UI.getPanel(UI.getBorderLayout());
+        pnlLog = UI.getPanel(UI.getFlowLayout());
 
         tlb = new UI.ToolBar();
 
@@ -181,8 +205,19 @@ public class EmailForm extends ASMForm {
         pnlTop.add(tlb, UI.BorderLayout.NORTH);
         pnlTop.add(pnlHead, UI.BorderLayout.CENTER);
 
+        chkAddLog = (UI.CheckBox) UI.addComponent(pnlLog,
+            UI.getCheckBox(i18n("add_to_log"), i18n("store_this_email_in_the_log"), 
+            UI.fp(this, "actionLogCheckChanged")));
+
+        cboLog = UI.getCombo(LookupCache.getLogTypeLookup(), "LogTypeName");
+        Utils.setComboFromID(LookupCache.getLogTypeLookup(), "LogTypeName", 
+            Configuration.getInteger("AFDefaultLogFilter"), cboLog);
+        cboLog.setEnabled(false);
+        UI.addComponent(pnlLog, cboLog);
+
         add(pnlTop, UI.BorderLayout.NORTH);
         add(pnlBody, UI.BorderLayout.CENTER);
+        add(pnlLog, UI.BorderLayout.SOUTH);
     }
 
     public void listDoubleClicked() {
@@ -199,7 +234,12 @@ public class EmailForm extends ASMForm {
         dispose();
     }
 
+    public void actionLogCheckChanged() {
+        cboLog.setEnabled(chkAddLog.isSelected());
+    }
+
     public void actionSend() {
+        
         // Make sure there is a subject
         if (txtSubject.getText().equals("")) {
             Dialog.showError(i18n("you_must_supply_a_subject"));
@@ -232,11 +272,27 @@ public class EmailForm extends ASMForm {
 
         // Send it
         try {
+
             Email email = new Email();
             email.sendmsg(txtTo.getText(), txtCC.getText(), txtSubject.getText(),
                 txtBody.getText(), txtFrom.getText(), 
                 chkHTML.isSelected() ? "text/html" : "text/plain");
             email.close();
+
+            // Store it in the log if the option is set
+            if (chkAddLog.isSelected() && ownerid != 0) {
+                Log l = new Log("ID=0");
+                l.addNew();
+                l.setLogTypeID(Utils.getIDFromCombo(LookupCache.getLogTypeLookup(), "LogTypeName", cboLog));
+                l.setLinkID(new Integer(ownerid));
+                l.setLinkType(new Integer(Log.LINKTYPE_OWNER));
+                l.setDate(new Date());
+                l.setComments(txtSubject.getText() + "\n \n" + txtBody.getText());
+                l.save(Global.currentUserName);
+                if (parentOwnerForm != null) {
+                    parentOwnerForm.log.updateList();
+                }
+            }
 
             // Clean up and close
             email = null;

@@ -80,7 +80,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private LinkSelector ownerlinks = null;
     private VoucherSelector ownervouchers = null;
     private DiarySelector diary = null;
-    private LogSelector log = null;
+    public LogSelector log = null;
     private AdditionalFieldView additional = null;
     private boolean isNewRecord = false;
     private boolean hasBeenSaved = false;
@@ -1630,7 +1630,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
         // Open email form
         try {
-            Email.singleEmailForm(txtEmail.getText());
+            Email.singleEmailForm(txtEmail.getText(), this);
         }
         catch (Exception e) {
             Global.logException(e, getClass());
@@ -1667,6 +1667,16 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         if (isNewRecord) {
             //txtPostcode.grabFocus();
             checkOwner(false);
+        }
+    }
+
+    public int getOwnerID() {
+        try {
+            return owner.getID().intValue();
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+            return 0;
         }
     }
 

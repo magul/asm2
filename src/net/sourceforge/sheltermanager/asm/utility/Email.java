@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.utility;
 import net.sourceforge.sheltermanager.asm.bo.*;
 import net.sourceforge.sheltermanager.asm.globals.*;
 import net.sourceforge.sheltermanager.asm.ui.internet.*;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 
@@ -260,12 +261,26 @@ public class Email {
      */
     public static void singleEmailForm(String to_email) {
         UI.cursorToWait();
-
         EmailForm emf = new EmailForm();
         emf.removeFields();
         emf.setTo(to_email);
         Global.mainForm.addChild(emf);
     }
+
+    /**
+     * Opens an email form with the to address and an owner link,
+     * and a blank subject/body
+     */
+    public static void singleEmailForm(String to_email, OwnerEdit parent) {
+        UI.cursorToWait();
+        EmailForm emf = new EmailForm();
+        emf.removeFields();
+        emf.setTo(to_email);
+        emf.setOwnerID(parent.getOwnerID());
+        emf.setParentOwnerForm(parent);
+        Global.mainForm.addChild(emf);
+    }
+
 
     /**
      * Opens an email form with no to address,
