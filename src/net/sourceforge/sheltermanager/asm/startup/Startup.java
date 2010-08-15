@@ -733,6 +733,12 @@ public class Startup implements Runnable {
             // =========================================================
             Global.videoCaptureCommand = p.getProperty("VideoCaptureCommand", "");
 
+	    // Skin
+	    // =========================================================
+	    int skin = Integer.parseInt(p.getProperty("Skin", "-1"));
+	    Global.skin = skin;
+	    if (skin >= 0) UI.swingSetLAF(skin);
+
             // Locale
             // =========================================================
             String locale = p.getProperty("Locale", "ASK");
@@ -758,8 +764,7 @@ public class Startup implements Runnable {
         } catch (Exception e) {
             Global.logError("Problem reading local configuration. Using default values.",
                 "Startup.readSettings");
-
-            //Global.logException(e, Startup.class);
+            Global.logException(e, Startup.class);
         } finally {
             try {
                 in.close();

@@ -132,6 +132,9 @@ public abstract class Global {
     /** Loaded locale */
     public static String settings_Locale = "ASK";
 
+    /** Selected skin */
+    public static int skin = 0;
+
     /** Video capturing method */
     public static int videoCaptureMethod = 0;
     public final static int CAPTUREMETHOD_VGRABBJ = 0;

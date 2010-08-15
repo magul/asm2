@@ -9672,6 +9672,18 @@ System Locale
 \begin_layout Itemize
 
 \series bold
+Look and Feel:
+\series default
+ The look and feel of the application.
+ Default uses whatever the VM defaults is, Native Platform makes ASM fit
+ in with your native environment UI, Metal uses the Java Metal look and
+ feel, Metal for GTK is Metal but fixed for Linux/GTK users to use better
+ fonts and less bold.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Video Capture Method
 \begin_inset Index
 status open
@@ -11972,17 +11984,6 @@ Configure File Types
 
  menu option will appear under the Preferences menu to allow editing of
  them.
-\end_layout
-
-\begin_layout Itemize
--Dasm.font=[fontname] - Overrides the font used by the ASM UI to [fontname]
-\end_layout
-
-\begin_layout Itemize
--Dasm.skin=[ default | metal | platform | gtk ] - Overrides the skin used
- by the ASM UI.
- metal/default is the Java default, platform uses your native platform widget
- set, and gtk is for Linux users not using GNOME, but who still want GTK.
 \end_layout
 
 \begin_layout Section

@@ -44,6 +44,7 @@ public class ConfigureLocal extends ASMForm {
     private UI.ComboBox cboLabelAlign;
     private UI.ComboBox cboTabAlign;
     private UI.ComboBox cboCaptureMethod;
+    private UI.ComboBox cboSkin;
     private UI.CheckBox chkHotkeys;
     private UI.CheckBox chkMaximised;
     private UI.CheckBox chkUseInternal;
@@ -63,6 +64,7 @@ public class ConfigureLocal extends ASMForm {
     public Vector getTabOrder() {
         Vector ctl = new Vector();
         ctl.add(cboLocale);
+	ctl.add(cboSkin);
         ctl.add(cboLabelAlign);
         ctl.add(cboTabAlign);
         ctl.add(chkHotkeys);
@@ -99,6 +101,9 @@ public class ConfigureLocal extends ASMForm {
      */
     public void loadData() {
         setClosestComboMatch(cboLocale, Global.settings_Locale);
+
+	// Skin
+	cboSkin.setSelectedIndex(Global.skin);
 
         // Selected indexes - RIGHT = 0, LEFT = 1
         if (Global.GRIDLABELALIGN == UI.ALIGN_RIGHT) {
@@ -159,8 +164,13 @@ public class ConfigureLocal extends ASMForm {
 
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
                 UI.getCombo(Global.getSupportedLocales()));
-        cboLocale.setPreferredSize(UI.getDimension(UI.getTextBoxWidth() * 2,
-                UI.getComboBoxHeight()));
+
+	cboSkin = (UI.ComboBox) UI.addComponent(p, i18n("Look_and_Feel"),
+	        UI.getCombo());
+	cboSkin.addItem(i18n("Default"));
+	cboSkin.addItem(i18n("Native_Platform"));
+	cboSkin.addItem(i18n("Metal"));
+	cboSkin.addItem(i18n("Metal_for_GTK"));
 
         cboLabelAlign = (UI.ComboBox) UI.addComponent(p, i18n("Align_labels"),
                 UI.getCombo());
@@ -254,6 +264,7 @@ public class ConfigureLocal extends ASMForm {
         }
 
         String of = "Locale = " + locale;
+	of += ("\nSkin = " + cboSkin.getSelectedIndex());
         of += ("\nLabelAlignment = " + cboLabelAlign.getSelectedIndex());
         of += ("\nTabAlignment = " + cboTabAlign.getSelectedIndex());
         of += ("\nButtonHotkeys = " +

@@ -61,57 +61,48 @@ public final class UI {
     public final static int ALIGN_TOP = SwingConstants.TOP;
     public final static int ALIGN_BOTTOM = SwingConstants.BOTTOM;
 
+    public final static int LAF_DEFAULT = 0;
+    public final static int LAF_PLATFORM = 1;
+    public final static int LAF_METAL = 2;
+    public final static int LAF_METAL_GTK = 3;
+
     static {
         // Make sure AWT honours font rendering
         System.setProperty("awt.useSystemAAFontSettings", "on");
-        // Set our UI defaults
-        swingSetLAF();
     }
 
     private UI() {
     }
 
-    public static void swingSetLAF() {
-        // Override our platform specific behaviour with VM switches
+    public static void swingSetLAF(int laf) {
+        switch (laf) {
+	    case LAF_DEFAULT: return;
+            case LAF_PLATFORM: swingSetPlatformLAF(); break;
+	    case LAF_METAL: swingSetMetalLAF(); break;
+	    case LAF_METAL_GTK: swingSetMetalGTKLAF(); break;
+	    default: swingSetMetalLAF(); break;
+	}
+	try {
+	    if (Dialog.theParent != null)
+	        SwingUtilities.updateComponentTreeUI(Dialog.theParent);
+	}
+	catch (Exception e) {
+	    e.printStackTrace();
+	}
+    }
+
+    public static void swingSetMetalLAF() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void swingSetMetalGTKLAF() {
         final int REGULAR = 0;
-        String usefont = System.getProperty("asm.font", "");
-        String useskin = System.getProperty("asm.skin", "default");
-
-        if (!usefont.equals("")) {
-            swingSetDefaultFontName(usefont, -1);
-        }
-
-        if (useskin.equals("metal")) {
-            swingSetMetalLAF();
-        }
-
-        if (useskin.equals("platform")) {
-            swingSetPlatformLAF();
-        }
-
-        if (useskin.equals("gtk")) {
-            swingSetGTKLAF();
-        }
-
-        // If a value was overridden, we're done
-        if (!usefont.equals("") || !useskin.equals("default")) {
-            return;
-        }
-
-        // Windows
-        if (osIsWindows()) {
-            swingSetMetalLAF();
-        }
-
-        // Mac OSX
-        if (osIsMacOSX()) {
-            swingSetPlatformLAF();
-        }
-
-        // Linux, Solaris and others
-        if (osIsLinux() || osIsSolaris()) {
-            swingSetMetalLAF();
-
+	try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             // Try a better font - Sun Java default is hideous and everything
             // is in bold, which is nasty. OpenJDK uses better fonts, but still
             // has the bold problem.
@@ -124,18 +115,19 @@ public final class UI {
             } else if (swingIsFontAvailable("Arial")) {
                 swingSetDefaultFontName("Arial", REGULAR);
             }
-        }
-    }
-
-    public static void swingSetMetalLAF() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+
     public static void swingSetPlatformLAF() {
+        // Force GTK when choosing platform for Linux and Solaris users
+        if (osIsLinux() || osIsSolaris()) {
+            swingSetGTKLAF();
+	    return;
+        }
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
