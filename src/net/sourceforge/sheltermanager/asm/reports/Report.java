@@ -401,12 +401,8 @@ public abstract class Report extends Thread {
             // Return it to caller after substituting keys
             return substituteKeys(buffer);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "Error_occurred_retrieving_templates_", e.getMessage()),
-                Global.i18n("reports", "Error"));
             Global.logException(e, getClass());
-
-            return getDefaultHeader();
+            return substituteKeys(getDefaultHeader());
         }
     }
 
@@ -432,19 +428,11 @@ public abstract class Report extends Thread {
             // Get it as a String
             String buffer = dbfs.readFileToString("foot.dat");
 
-            // Since we have our header file now, see if our
-            // reports require any images.
-            dbfs.saveAllImages(Global.tempDirectory);
-
             // Return it to caller after substituting keys
             return substituteKeys(buffer);
         } catch (Exception e) {
-            Dialog.showError(Global.i18n("reports",
-                    "Error_occurred_retrieving_templates_", e.getMessage()),
-                Global.i18n("reports", "Error"));
             Global.logException(e, getClass());
-
-            return getDefaultFooter();
+            return substituteKeys(getDefaultFooter());
         }
     }
 
@@ -453,7 +441,7 @@ public abstract class Report extends Thread {
         return "<html>\n" + "<head>\n" +
         "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" +
         "<title>" + getTitle() + "</title>\n\n" +
-        "<!-- Embedded style sheet - required for internal zoom to work -->\n" +
+        "<!-- ASM Content Scaling -->\n" +
         "<style>\n\n" + "</style>\n" + "</head>\n" +
         "<body bgcolor=\"white\" text=\"black\">\n" + "<center>\n" +
         "<h2>&nbsp;$$TITLE$$</h2>\n" + "</center>\n" + "<hr>\n";
