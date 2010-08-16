@@ -48,7 +48,7 @@ structure files, so you will have to import these into the database.
 To do this, open ASM in your web browser and go to System->Media Files.
 
 Hit the "import directory from the filesystem here" button and choose
-each folder in the media folder supplied in turn. You should
+each folder in the media folder supplied here in turn. You should
 have "internet", "reports" and "templates" folders.
 
 AUTHENTICATION
@@ -70,3 +70,28 @@ other means.
 
 ASM can also authenticate via the operating system user and LDAP. You can set
 these in the database by logging in to ASM and going to System->Authentication.
+
+SECURITY
+==========================
+
+The jdbcurl parameter in the page is visible to users via the View Page Source
+option in their browser. This means that once you have given someone access to
+the page, they could make a note of the database login credentials.
+
+You can mitigate this risk by doing the following:
+
+1. Create a different database username and password for each user (so the jdbcurl
+is unique to them). Do not give it permission to execute DDL statements (ALTER/DROP). 
+When a user leaves your organisation, you can remove their database user.
+
+2. Set up basic authentication on the webserver, protecting the HTML page 
+with a different username and password for each user. When a user leaves your
+organisation, you can remove their web user.
+
+3. Either use a scripting language to rewrite the webpage to put in the correct
+database usernames/password for each user, or use a different HTML page/url for 
+each user.
+
+4. You can obfuscate the contents of the jdbcurl parameter by Base64 encoding
+it and prefixing the encoded value with "e:". This prevents casual browsing
+by users, however anyone who knows what they're doing could decode it.
