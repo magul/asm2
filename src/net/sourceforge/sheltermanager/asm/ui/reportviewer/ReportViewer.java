@@ -44,6 +44,12 @@ import java.util.Vector;
  * @version 1.0
  */
 public class ReportViewer extends ASMForm {
+   
+   /** True if we're using the stock ASM template and scaling by adjusting font sizes */
+    private boolean contentScale = false;
+    /** True once we've rewritten the file content the first time */
+    private boolean updatedOnce = false;
+    
     private String filename = "";
     private int baseFontSize = 11;
     private String filecontents = "";
@@ -97,13 +103,15 @@ public class ReportViewer extends ASMForm {
         // Strip out any windows CR tokens
         filecontents = Utils.replace(filecontents, "\r", "");
 
-        // Do we have an <!-- Embedded style sheet comment - if so,
-        // it's one of our default templates so we can work with it
-        if (filecontents.indexOf("<!-- Embedded style sheet") == -1) {
-            Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" marker, disabling zoom",
-                "ReportViewer.setContentSize");
-            btnZoomIn.setEnabled(false);
-            btnZoomOut.setEnabled(false);
+        // Do we have an <!-- Embedded style sheet or ASM Content Scaling comment
+        // if so, it's one of our default templates and we can replace the style
+        // header portion with new font sizes
+        if (filecontents.indexOf("<!-- Embedded style sheet") == -1 && 
+            filecontents.indexOf("<!-- ASM") == -1) {
+        
+            Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" or " +
+                "\"<!-- ASM Content Scaling\" markers, using render zoom " +
+                "instead of content scaling", "ReportViewer.setContentSize");
 
             try {
                 edOutput.setPage("file:///" + filename);
@@ -113,6 +121,9 @@ public class ReportViewer extends ASMForm {
 
             return;
         }
+
+        // We can scale using font sizes
+        contentScale = true;
 
         // Construct a new style portion
         final String font = "font-family: Sans-Serif; ";
@@ -150,20 +161,33 @@ public class ReportViewer extends ASMForm {
                     "utf-8\"></meta>");
         }
 
-        try {
-            Utils.writeFile(filename,
-                filecontents.getBytes(Global.CHAR_ENCODING));
-            UI.invokeLater(new Runnable() {
-                    public void run() {
-                        try {
-                            edOutput.setPage("file:///" + filename);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-        } catch (Exception e) {
-            Global.logException(e, getClass());
+        // Just a test
+        /*
+        int mt = filecontents.indexOf("<meta");
+        if (mt != -1) {
+            filecontents = filecontents.substring(0, mt) +
+                filecontents.substring(filecontents.indexOf(">", mt + 6));
+        }      
+        System.out.println(filecontents);
+        */
+
+        if (updatedOnce) {
+            // Load the content into the viewer directly - we don't change the original
+            // file so that it looks right when loaded into an external browser
+            edOutput.setContent(filecontents);
+        }
+        else {
+            // The first time through, we write the content to the file - this works around
+            // a JRE bug that causes embedded style sheet and meta tags to not be
+            // interpreted properly by the JEditorPane setText() call
+            try {
+                Utils.writeFile(filename, filecontents.getBytes(Global.CHAR_ENCODING));
+                edOutput.setPage("file:///" + filename);
+                updatedOnce = true;
+            }
+            catch (Exception e) {
+                Global.logException(e, getClass());
+            }
         }
     }
 
@@ -199,13 +223,23 @@ public class ReportViewer extends ASMForm {
     }
 
     public void actionZoomIn() {
-        baseFontSize += 1;
-        setContentSize();
+        if (contentScale) {        
+            baseFontSize += 1;
+            setContentSize();
+        }
+        else {
+            edOutput.setScale(edOutput.getScale() + 2);
+        }
     }
 
     public void actionZoomOut() {
-        baseFontSize -= 1;
-        setContentSize();
+        if (contentScale) {        
+            baseFontSize -= 1;
+            setContentSize();
+        }
+        else {
+            edOutput.setScale(edOutput.getScale() - 2);
+        }
     }
 
     public void actionPrint() {

@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.*;
+import java.awt.geom.*;
 import java.awt.image.*;
 import java.awt.print.*;
 
@@ -46,6 +47,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.table.*;
 import javax.swing.text.*;
+import javax.swing.text.html.*;
 
 
 /**
@@ -2208,8 +2210,8 @@ public final class UI {
         }
 
         public void setContent(String content) {
-            setText(content);
             setContentType("text/html");
+            setText(content);
         }
 
         public void setURL(String url) throws IOException {
@@ -2283,6 +2285,25 @@ public final class UI {
 
             return true;
         }
+
+        public void paint(Graphics g) {
+            Graphics2D gd = (Graphics2D)g;
+            gd.scale(scaleFactor, scaleFactor);
+            super.paint(gd);
+        }
+
+        private double scaleFactor = 1.0;
+
+        public int getScale() {
+            return (int) (scaleFactor * 100);
+        }
+
+        public void setScale(int pct) {
+            scaleFactor = (double) pct;
+            scaleFactor = scaleFactor / 100;
+            repaint();
+        }
+
     }
 
     /** Class to handle ASM tables */
