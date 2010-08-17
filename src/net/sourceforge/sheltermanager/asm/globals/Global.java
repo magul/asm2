@@ -135,6 +135,9 @@ public abstract class Global {
     /** Selected skin */
     public static int skin = 0;
 
+    /** Size of main toolbar in pixels */
+    public static int toolbarSize = 24;
+
     /** Video capturing method */
     public static int videoCaptureMethod = 0;
     public final static int CAPTUREMETHOD_VGRABBJ = 0;

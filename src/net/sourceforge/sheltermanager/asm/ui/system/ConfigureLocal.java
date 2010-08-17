@@ -45,6 +45,7 @@ public class ConfigureLocal extends ASMForm {
     private UI.ComboBox cboTabAlign;
     private UI.ComboBox cboCaptureMethod;
     private UI.ComboBox cboSkin;
+    private UI.ComboBox cboToolbarSize;
     private UI.CheckBox chkHotkeys;
     private UI.CheckBox chkMaximised;
     private UI.CheckBox chkUseInternal;
@@ -67,6 +68,9 @@ public class ConfigureLocal extends ASMForm {
 	ctl.add(cboSkin);
         ctl.add(cboLabelAlign);
         ctl.add(cboTabAlign);
+        ctl.add(cboCaptureMethod);
+        ctl.add(txtCaptureCommand);
+        ctl.add(cboToolbarSize);
         ctl.add(chkHotkeys);
         ctl.add(chkMaximised);
         ctl.add(chkUseInternal);
@@ -130,6 +134,13 @@ public class ConfigureLocal extends ASMForm {
             chkOneInstance.setEnabled(false);
             chkShowUpdates.setEnabled(false);
             txtAutologout.setEnabled(false);
+        }
+
+        switch (Global.toolbarSize) {
+            case 32: cboToolbarSize.setSelectedIndex(3); break; 
+            case 24: cboToolbarSize.setSelectedIndex(2); break; 
+            case 16: cboToolbarSize.setSelectedIndex(1); break; 
+            case 0: cboToolbarSize.setSelectedIndex(0); break; 
         }
 
         cboCaptureMethod.setSelectedIndex(Global.videoCaptureMethod);
@@ -205,6 +216,13 @@ public class ConfigureLocal extends ASMForm {
         txtCaptureCommand.setPreferredSize(UI.getDimension(
                 UI.getTextBoxWidth() * 2, UI.getComboBoxHeight()));
 
+        cboToolbarSize = UI.getCombo();
+        cboToolbarSize.addItem(i18n("No_Toolbar"));
+        cboToolbarSize.addItem(i18n("Tiny"));
+        cboToolbarSize.addItem(i18n("Normal"));
+        cboToolbarSize.addItem(i18n("Large"));
+        UI.addComponent(p, i18n("Toolbar_Size"), cboToolbarSize);
+
         p.add(UI.getLabel());
         chkHotkeys = (UI.CheckBox) UI.addComponent(p,
                 UI.getCheckBox(i18n("use_button_hotkeys"),
@@ -263,8 +281,17 @@ public class ConfigureLocal extends ASMForm {
             locale = Global.getLocaleFromString(locale);
         }
 
+        switch (cboToolbarSize.getSelectedIndex()) {
+            case 3: Global.toolbarSize = 32; break;
+            case 2: Global.toolbarSize = 24; break; 
+            case 1: Global.toolbarSize = 16; break; 
+            case 0: Global.toolbarSize = 0; break; 
+        }
+        Global.mainForm.initToolbar();
+
         String of = "Locale = " + locale;
 	of += ("\nSkin = " + cboSkin.getSelectedIndex());
+        of += ("\nToolbarSize = " + Global.toolbarSize);
         of += ("\nLabelAlignment = " + cboLabelAlign.getSelectedIndex());
         of += ("\nTabAlignment = " + cboTabAlign.getSelectedIndex());
         of += ("\nButtonHotkeys = " +
