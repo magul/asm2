@@ -129,7 +129,11 @@ public class OwnerDocument extends GenerateDocument {
                 owner.getOwnerInitials());
             addTag(Global.i18n("wordprocessor", "OwnerForenames"),
                 owner.getOwnerForenames());
+            addTag(Global.i18n("wordprocessor", "OwnerFirstNames"),
+                owner.getOwnerForenames());
             addTag(Global.i18n("wordprocessor", "OwnerSurname"),
+                owner.getOwnerSurname());
+            addTag(Global.i18n("wordprocessor", "OwnerLastName"),
                 owner.getOwnerSurname());
             addTag(Global.i18n("wordprocessor", "OwnerEmail"),
                 owner.getEmailAddress());

@@ -357,7 +357,11 @@ public class AnimalDocument extends GenerateDocument {
                     animal.getOriginalOwner().getOwnerTitle());
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerForenames"),
                     animal.getOriginalOwner().getOwnerForenames());
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerFirstNames"),
+                    animal.getOriginalOwner().getOwnerForenames());
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerSurname"),
+                    animal.getOriginalOwner().getOwnerSurname());
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerLastName"),
                     animal.getOriginalOwner().getOwnerSurname());
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerInitials"),
                     animal.getOriginalOwner().getOwnerInitials());
@@ -365,7 +369,10 @@ public class AnimalDocument extends GenerateDocument {
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerTitle"), "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerForenames"),
                     "");
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerFirstNames"),
+                    "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerSurname"), "");
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerLastName"), "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerInitials"), "");
             }
 
