@@ -800,7 +800,7 @@ class StartupProgress extends ASMWindow {
         UI.Panel progress = UI.getPanel(UI.getGridLayout(0, 1));
         UI.Label lblSplash = UI.getLabel(IconManager.getSplashScreen());
         lblSplash.setHorizontalAlignment(UI.Label.CENTER);
-        add(lblSplash, UI.BorderLayout.CENTER);
+        add(lblSplash, UI.BorderLayout.NORTH);
 
         status = UI.getLabel("");
         bar = UI.getProgressBar();
@@ -810,7 +810,7 @@ class StartupProgress extends ASMWindow {
         progress.add(status);
         add(progress, UI.BorderLayout.SOUTH);
 
-        this.setSize(UI.getDimension(436, 356));
+        this.setSize(UI.getDimension(400, 315));
         UI.centerWindow(this);
         Dialog.theParent = this;
         setVisible(true);

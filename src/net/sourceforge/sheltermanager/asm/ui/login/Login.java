@@ -230,13 +230,13 @@ public class Login extends ASMWindow {
             if (DBConnection.executeForCount("SELECT COUNT(*) FROM animal") == 0) {
                 pnlCenter.add(UI.getHintLabel(i18n("default_username_password_hint")),
                     UI.BorderLayout.CENTER);
-                this.setSize(UI.getDimension(436, 406));
+                this.setSize(UI.getDimension(400, 400));
             } else {
-                this.setSize(UI.getDimension(436, 376));
+                this.setSize(UI.getDimension(400, 350));
             }
         } catch (Exception e) {
             Global.logException(e, getClass());
-            this.setSize(UI.getDimension(436, 376));
+            this.setSize(UI.getDimension(400, 350));
         }
 
         // Set default button
