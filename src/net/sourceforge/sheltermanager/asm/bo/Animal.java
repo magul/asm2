@@ -632,16 +632,33 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("NonShelterAnimal", newValue);
     }
 
+    public Integer getMicrochipped() throws CursorEngineException {
+        return (Integer) rs.getField("Identichipped");
+    }
+
     public Integer getIdentichipped() throws CursorEngineException {
         return (Integer) rs.getField("Identichipped");
+    }
+ 
+    public void setMicrochipped(Integer newValue) throws CursorEngineException {
+        rs.setField("Identichipped", newValue);
     }
 
     public void setIdentichipped(Integer newValue) throws CursorEngineException {
         rs.setField("Identichipped", newValue);
     }
 
+    public String getMicrochipNumber() throws CursorEngineException {
+        return (String) rs.getField("IdentichipNumber");
+    }
+        
     public String getIdentichipNumber() throws CursorEngineException {
         return (String) rs.getField("IdentichipNumber");
+    }
+
+    public void setMicrochipNumber(String newValue) 
+        throws CursorEngineException {
+        rs.setField("IdentichipNumber", newValue);
     }
 
     public void setIdentichipNumber(String newValue)
@@ -649,8 +666,16 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("IdentichipNumber", newValue);
     }
 
+    public Date getMicrochipDate() throws CursorEngineException {
+        return (Date) rs.getField("IdentichipDate");
+    }
+
     public Date getIdentichipDate() throws CursorEngineException {
         return (Date) rs.getField("IdentichipDate");
+    }
+
+    public void setMicrochipDate(Date newValue) throws CursorEngineException {
+        rs.setField("IdentichipDate", newValue);
     }
 
     public void setIdentichipDate(Date newValue) throws CursorEngineException {
@@ -2414,7 +2439,7 @@ public class Animal extends UserInfoBO<Animal> {
         setCombiTested(z);
         setIsDOA(z);
         setDiedOffShelter(z);
-        setIdentichipped(z);
+        setMicrochipped(z);
         setTattoo(z);
         setDeclawed(z);
         setNeutered(z);
@@ -2493,7 +2518,7 @@ public class Animal extends UserInfoBO<Animal> {
         a.setMostRecentEntryDate(getMostRecentEntryDate());
         a.setIsDOA(new Integer(0));
         a.setDiedOffShelter(new Integer(0));
-        a.setIdentichipped(new Integer(0));
+        a.setMicrochipped(new Integer(0));
         a.setTattoo(new Integer(0));
         a.setNeutered(getNeutered());
         a.setDeclawed(getDeclawed());

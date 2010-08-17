@@ -137,6 +137,15 @@ public class AnimalDocument extends GenerateDocument {
                 : Global.i18n("uiwordprocessor", "No"));
             addTag(Global.i18n("wordprocessor", "IdentichipDate"),
                 Utils.formatDate(animal.getIdentichipDate()));
+            addTag(Global.i18n("wordprocessor", "MicrochipNumber"),
+                Utils.nullToEmptyString(animal.getIdentichipNumber()));
+            addTag(Global.i18n("wordprocessor", "Microchipped"),
+                (animal.getIdentichipped().intValue() == 1)
+                ? Global.i18n("uiwordprocessor", "Yes")
+                : Global.i18n("uiwordprocessor", "No"));
+            addTag(Global.i18n("wordprocessor", "MicrochipDate"),
+                Utils.formatDate(animal.getIdentichipDate()));
+
             addTag(Global.i18n("wordprocessor", "Tattoo"),
                 (animal.getTattoo().intValue() == 1)
                 ? Global.i18n("uiwordprocessor", "Yes")
