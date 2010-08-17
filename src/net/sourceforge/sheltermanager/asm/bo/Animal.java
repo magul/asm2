@@ -309,24 +309,37 @@ public class Animal extends UserInfoBO<Animal> {
     }
 
     /** Returns the names/codes of the animals this animal is bonded with or
-      * an empty string if it is not bonded */
+      * an empty string if it is not bonded - for checking, the direct bonds
+      * are checked, then the bonds of all other animals to see if they link
+      * back to this one */
     public String getBondedAnimalDisplay() throws CursorEngineException {
-        Integer b1 = getBondedAnimalID();
-        Integer b2 = getBondedAnimal2ID();
-        if (b1 == null) b1 = new Integer(0);
-        if (b2 == null) b2 = new Integer(0);
-        String names = "";
-        if (b1.intValue() > 0) {
-            Animal a = LookupCache.getAnimalByID(b1);
-            names = (Global.getShowShortCodes() ? a.getShortCode() :
-                a.getShelterCode()) + " " + a.getAnimalName();
-        }
-        if (b2.intValue() > 0) {
-            Animal a = LookupCache.getAnimalByID(b2);
+    	
+	ArrayList<Integer> bonded = new ArrayList<Integer>();
+
+        // Add the direct bond links
+	if (getBondedAnimalID() != null && getBondedAnimalID().intValue() > 0) bonded.add(getBondedAnimalID());
+	if (getBondedAnimal2ID() != null && getBondedAnimal2ID().intValue() > 0) bonded.add(getBondedAnimal2ID());
+
+	// Look up other animals that are bonded back to this one
+	try {
+            for (SQLRecordset r : new SQLRecordset("SELECT ID FROM animal WHERE BondedAnimalID = " + 
+	        getID() + " OR BondedAnimal2ID = " + getID(), "animal")) {
+                bonded.add(new Integer(r.getInteger("ID")));
+	     }
+	}
+	catch (Exception e) {
+            Global.logException(e, getClass());
+	}
+
+	// Get the names for the bonded animals
+	String names = "";
+	for (Integer id : bonded) {
+            Animal a = LookupCache.getAnimalByID(id);
             if (names.length() > 0) names += ", ";
             names += (Global.getShowShortCodes() ? a.getShortCode() :
                 a.getShelterCode()) + " " + a.getAnimalName();
-        }
+	}
+
         return names;
     }
 

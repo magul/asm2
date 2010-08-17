@@ -810,7 +810,7 @@ class StartupProgress extends ASMWindow {
         progress.add(status);
         add(progress, UI.BorderLayout.SOUTH);
 
-        this.setSize(UI.getDimension(400, 315));
+        this.setSize(UI.getDimension(400, 340));
         UI.centerWindow(this);
         Dialog.theParent = this;
         setVisible(true);
