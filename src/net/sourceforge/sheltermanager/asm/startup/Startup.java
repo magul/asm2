@@ -733,8 +733,8 @@ public class Startup implements Runnable {
             // =========================================================
             Global.videoCaptureCommand = p.getProperty("VideoCaptureCommand", "");
 
-            // Toolbar size (0 = off, 16, 24, 32 - default=24)
-            Global.toolbarSize = Integer.parseInt(p.getProperty("ToolbarSize", "24"));
+            // Toolbar size (0 = off, 16, 24, 32 - default=32)
+            Global.toolbarSize = Integer.parseInt(p.getProperty("ToolbarSize", "32"));
 
 	    // Skin
 	    // =========================================================
