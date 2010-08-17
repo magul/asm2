@@ -40,6 +40,7 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -110,7 +111,7 @@ public class LitterEdit extends ASMForm {
     public void openForNew() {
         try {
             this.setTitle(i18n("Create_New_Litter"));
-            this.txtDate.setText(Utils.formatDate(Calendar.getInstance()));
+            this.txtDate.setDate(new Date());
 
             litter = new AnimalLitter();
             litter.openRecordset("ID = 0");
@@ -120,6 +121,11 @@ public class LitterEdit extends ASMForm {
                 // Generate the ID for this litter
                 txtAcceptanceNumber.setText(litter.getID().toString());
             }
+
+            // Default the expiry date to 6 months in the future
+            Calendar expiry = Calendar.getInstance();
+            expiry.add(Calendar.MONTH, 6);
+            this.txtInvalidDate.setDate(Utils.calendarToDate(expiry));
 
             isNew = true;
         } catch (Exception e) {

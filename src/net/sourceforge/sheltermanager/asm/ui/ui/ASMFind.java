@@ -239,6 +239,13 @@ public abstract class ASMFind extends ASMForm {
                                             "Search_complete_-_no_matches_found."));
                                 }
 
+                                // Set a timer so that in 10 seconds, we clear the status bar text
+                                UI.invokeIn(new Runnable() {
+                                    public void run() {
+                                        setStatusText("");
+                                    }
+                                }, 10000);
+
                                 // Reset the status meter back to 0
                                 resetStatusBar();
 
