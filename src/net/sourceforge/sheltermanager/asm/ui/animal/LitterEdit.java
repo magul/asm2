@@ -48,20 +48,18 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
-public class LitterEdit extends ASMForm implements SearchListener {
+public class LitterEdit extends ASMForm {
     private AnimalLitter litter = null;
-    private int parentID = 0;
     private LitterView parent = null;
     private UI.Button btnCancel;
     private UI.Button btnOk;
-    private UI.ComboBox cboExpiry;
     public UI.ComboBox cboSpecies;
     public UI.TextField txtAcceptanceNumber;
     private UI.TextArea txtComments;
     public DateField txtDate;
     private DateField txtInvalidDate;
     public UI.TextField txtNumber;
-    private UI.SearchTextField txtParentName;
+    private AnimalLink alParentName;
     private boolean isNew = false;
 
     public LitterEdit(LitterView theparent) {
@@ -73,7 +71,6 @@ public class LitterEdit extends ASMForm implements SearchListener {
     public void dispose() {
         litter.free();
         litter = null;
-        parentID = 0;
         parent = null;
         super.dispose();
     }
@@ -83,7 +80,6 @@ public class LitterEdit extends ASMForm implements SearchListener {
         ctl.add(cboSpecies);
         ctl.add(txtDate);
         ctl.add(txtNumber);
-        ctl.add(cboExpiry);
         ctl.add(txtInvalidDate);
         ctl.add(txtAcceptanceNumber);
         ctl.add(txtComments);
@@ -120,8 +116,6 @@ public class LitterEdit extends ASMForm implements SearchListener {
             litter.openRecordset("ID = 0");
             litter.addNew();
 
-            this.cboExpiry.setSelectedIndex(0);
-
             if (Configuration.getBoolean("AutoLitterIdentification")) {
                 // Generate the ID for this litter
                 txtAcceptanceNumber.setText(litter.getID().toString());
@@ -138,12 +132,10 @@ public class LitterEdit extends ASMForm implements SearchListener {
         try {
             litter = thelitter;
 
-            parentID = litter.getParentAnimalID().intValue();
-            txtParentName.setText(litter.getParentName());
+            alParentName.setID(litter.getParentAnimalID().intValue());
             Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
                 litter.getSpeciesID(), cboSpecies);
             txtDate.setText(Utils.formatDate(litter.getDate()));
-            cboExpiry.setSelectedIndex(litter.getTimeoutMonths().intValue());
             txtInvalidDate.setText(Utils.formatDate(litter.getInvalidDate()));
             txtNumber.setText(litter.getNumberInLitter().toString());
             txtComments.setText(Utils.nullToEmptyString(litter.getComments()));
@@ -157,12 +149,11 @@ public class LitterEdit extends ASMForm implements SearchListener {
 
     public boolean saveData() {
         try {
-            litter.setParentAnimalID(new Integer(parentID));
+            litter.setParentAnimalID(new Integer(alParentName.getID()));
             litter.setSpeciesID(Utils.getIDFromCombo(
                     LookupCache.getSpeciesLookup(), "SpeciesName", cboSpecies));
             litter.setDate(Utils.parseDate(txtDate.getText()));
             litter.setInvalidDate(Utils.parseDate(txtInvalidDate.getText()));
-            litter.setTimeoutMonths(new Integer(cboExpiry.getSelectedIndex()));
             litter.setNumberInLitter(new Integer(txtNumber.getText()));
             litter.setComments(txtComments.getText());
             litter.setAcceptanceNumber(txtAcceptanceNumber.getText());
@@ -202,10 +193,9 @@ public class LitterEdit extends ASMForm implements SearchListener {
         UI.Panel pb = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pbut = UI.getPanel(UI.getFlowLayout());
 
-        txtParentName = (UI.SearchTextField) UI.addComponent(pt,
+        alParentName = (AnimalLink) UI.addComponent(pt,
                 i18n("Mother:"),
-                UI.getSearchTextField(i18n("Select_a_mother_from_the_shelter_animals"),
-                    UI.fp(this, "actionSelectMum")));
+                new AnimalLink());
 
         cboSpecies = UI.getCombo(i18n("Species:"),
                 LookupCache.getSpeciesLookup(), "SpeciesName");
@@ -222,14 +212,7 @@ public class LitterEdit extends ASMForm implements SearchListener {
         txtComments = (UI.TextArea) UI.addComponent(pc, i18n("Comments:"),
                 UI.getTextArea());
 
-        cboExpiry = UI.getCombo(new String[] {
-                    "Never", "1 Month", "2 Months", "3 Months", "4 Months",
-                    "5 Months", "6 Months"
-                });
-        cboExpiry.setToolTipText(i18n("The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below"));
-        UI.addComponent(pb, i18n("Expires"), cboExpiry);
-
-        txtInvalidDate = (DateField) UI.addComponent(pb, i18n("Or_date:"),
+        txtInvalidDate = (DateField) UI.addComponent(pb, i18n("Expiry_Date"),
                 UI.getDateField(i18n("The_date_this_litter_expires")));
 
         txtAcceptanceNumber = (UI.TextField) UI.addComponent(pb,
@@ -252,34 +235,5 @@ public class LitterEdit extends ASMForm implements SearchListener {
         p.add(pb, UI.BorderLayout.SOUTH);
         add(p, UI.BorderLayout.CENTER);
         add(pbut, UI.BorderLayout.SOUTH);
-    }
-
-    public void actionSelectMum() {
-        // Create and show a new find animal form and put it in selection mode
-        AnimalFind fa = new AnimalFind(this);
-        Global.mainForm.addChild(fa);
-    }
-
-    /** Call back from the animal search screen when a selection is made */
-    public void animalSelected(Animal theanimal) {
-        try {
-            parentID = theanimal.getID().intValue();
-            txtParentName.setText(theanimal.getAnimalName());
-        } catch (Exception e) {
-            Dialog.showError(e.getMessage());
-            Global.logException(e, getClass());
-        }
-    }
-
-    public void foundAnimalSelected(AnimalFound thefoundanimal) {
-    }
-
-    public void lostAnimalSelected(AnimalLost thelostanimal) {
-    }
-
-    public void ownerSelected(Owner theowner) {
-    }
-
-    public void retailerSelected(Owner theowner) {
     }
 }

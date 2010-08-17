@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-08-16 10:12+0000\n"
+"PO-Revision-Date: 2010-08-17 09:20+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -6780,26 +6780,9 @@ msgid "Acceptance:"
 msgstr "Acceptance:"
 
 #. # ui/animal/LitterEdit
-#: Select_a_mother_from_the_shelter_animals
-msgid "Select a mother from the shelter animals"
-msgstr "Select a mother from the shelter animals"
-
-#. # ui/animal/LitterEdit
-#: Or_date\:
-msgid "Or date:"
-msgstr "Or date:"
-
-#. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
 msgstr "Create New Litter"
-
-#. # ui/animal/LitterEdit
-#: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
-msgid ""
-"The period after which this litter should expire if no expiry date is "
-"entered below"
-msgstr ""
 
 #. # ui/animal/LitterEdit
 #: Mother\:
@@ -7737,7 +7720,10 @@ msgid "Issue Date:"
 msgstr "Issue Date:"
 
 #. # ui/owner/VoucherEdit
+#. # ui/animal/LitterEdit
+#. # ui/owner/VoucherSelector
 #: Expiry_Date\:
+#: Expiry_Date
 msgid "Expiry Date:"
 msgstr "Expiry Date:"
 
@@ -8147,11 +8133,6 @@ msgstr ""
 msgid "Owner's Vet:"
 msgstr "Owner's Vet:"
 
-#. # ui/animal/LitterView
-#: active_litters
-msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-msgstr "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-
 #. # ui/ui/ASMFind
 #: search_complete
 msgid "Search complete - {0} matches found. "
@@ -8334,7 +8315,7 @@ msgstr "You do not have permission to save this record."
 msgid "Click OK when you have finished making your changes and saved the file."
 msgstr "Click OK when you have finished making your changes and saved the file."
 
-#. # ui/animal/LitterEdit
+#. # ui/animal/LitterView
 #: Expires
 msgid "Expires:"
 msgstr "Expires:"
@@ -8464,6 +8445,16 @@ msgstr "Select an animal"
 #: edit_this_animal
 msgid "Edit this animal"
 msgstr "Edit this animal"
+
+#. # ui/animal/LitterView
+#: include_expired
+msgid "Include Expired"
+msgstr "Include Expired"
+
+#. # ui/animal/LitterView
+#: Expires
+msgid "Expires"
+msgstr "Expires"
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -11971,6 +11962,7 @@ msgstr "Delete this voucher"
 msgid "Issue Date"
 msgstr "Issue Date"
 
+#. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
 #: Expiry_Date
 msgid "Expiry Date"

@@ -131,14 +131,6 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
         rs.setField("InvalidDate", newValue);
     }
 
-    public Integer getTimeoutMonths() throws CursorEngineException {
-        return (Integer) rs.getField("TimeoutMonths");
-    }
-
-    public void setTimeoutMonths(Integer newValue) throws CursorEngineException {
-        rs.setField("TimeoutMonths", newValue);
-    }
-
     public String getComments() throws CursorEngineException {
         return (String) rs.getField("Comments");
     }
@@ -281,10 +273,8 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
 
     /**
      * Returns true/false depending on whether this litter is still valid on the
-     * date specified. To accomplish this, the start date on the record must be:
-     * 1. Less than or equal to atDate 2. If you add <timeout> months to the
-     * start date, it must be greater than or equal to atDate unless it is 0, in
-     * which case this condition is ignored. 3. atDate must be before the
+     * date specified. To accomplish this, the start date on the record must be
+     * Less than or equal to atDate and atDate must be before the
      * invalid date if the record has one.
      *
      * @param atDate
@@ -294,26 +284,11 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
     public boolean hasExpired(Date atDate) throws CursorEngineException {
         Calendar calAtDate = Utils.dateToCalendar(atDate);
 
-        // The date takes precedence if we have one
         if (getInvalidDate() != null) {
             // Is the invalid date after atDate? If it is, then our
             // litter has not expired and should be included
             Calendar invDate = Utils.dateToCalendar(getInvalidDate());
-
             return !invDate.after(calAtDate);
-        }
-
-        // See if we have a valid timeout value
-        // to cancel the litter - if so, work out the time out period
-        // and see if we are within it and should include this litter
-        if (getTimeoutMonths().intValue() != 0) {
-            Calendar litterDate = Utils.dateToCalendar(getDate());
-            Calendar datePlust = (Calendar) litterDate.clone();
-            datePlust.add(Calendar.MONTH, getTimeoutMonths().intValue());
-
-            // Is litterDate + timeout months after atDate - if so,
-            // the litter has not expired
-            return !datePlust.after(calAtDate);
         }
 
         // The litter can't have expired.
@@ -321,52 +296,41 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
     }
 
     /**
-     * Filters the animallitter table down by only returning records that have
-     * not expired before today, or are older than six months.
+     * Filters the animallitter table down by only returning records that 
+     * are twelve months or newer
      *
-     * @return All animal litters that are less than six months old and have no
-     *         invalid date or a date after today.
+     * @return All animal litters that are less than twelve months old 
      */
     public static AnimalLitter getRecentLitters() {
-        Calendar sixmonths = Calendar.getInstance();
-        sixmonths.add(Calendar.MONTH, -6);
+        Calendar recent = Calendar.getInstance();
+        recent.add(Calendar.MONTH, -12);
 
-        String sixmy = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
-                    sixmonths));
-
-        Calendar today = Calendar.getInstance();
-        String todaymy = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
-                    today));
+        String recentdb = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
+                    recent));
 
         AnimalLitter al = new AnimalLitter();
-        al.openRecordset("(InvalidDate Is Null Or InvalidDate > '" + todaymy +
-            "') " + "And Date > '" + sixmy + "' ORDER BY Date DESC");
+        al.openRecordset("Date > '" + recentdb + "' ORDER BY Date DESC");
+
 
         return al;
     }
 
     /**
-     * Filters the animallitter table down by only returning records that have
-     * not expired before today, or are older than six months and belong to a
-     * particular species.
+     * Filters the animallitter table down by only returning records that are
+     * twelve months or newer and a certain species
      *
-     * @return All animal litters that are less than six months old and have no
-     *         invalid date or a date after today.
+     * @return All animal litters of a species that are less than twelve months old  
      */
     public static AnimalLitter getRecentLittersForSpecies(int speciesID) {
-        Calendar sixmonths = Calendar.getInstance();
-        sixmonths.add(Calendar.MONTH, -6);
 
-        String sixmy = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
-                    sixmonths));
+        Calendar recent = Calendar.getInstance();
+        recent.add(Calendar.MONTH, -12);
 
-        Calendar today = Calendar.getInstance();
-        String todaymy = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
-                    today));
+        String recentdb = SQLRecordset.getSQLRepresentationOfDateOnly(Utils.calendarToDate(
+                    recent));
 
         AnimalLitter al = new AnimalLitter();
-        al.openRecordset("(InvalidDate Is Null Or InvalidDate > '" + todaymy +
-            "') " + "And Date > '" + sixmy + "' AND SpeciesID = " + speciesID +
+        al.openRecordset("Date > '" + recentdb + "' AND SpeciesID = " + speciesID + 
             " ORDER BY Date DESC");
 
         return al;

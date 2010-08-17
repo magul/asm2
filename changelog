@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Litters screen can include expired litter items, upped recent litters
+-  definition from 6 months to 12 months
+*. Removed pointless month timeout field from animal litters
+*. Use First/Last name for US locale
 *. Notes about security for web build
 *. Reports can work correctly without any of the DBFS files (would previously
 -  fail on web installs without /reports path).

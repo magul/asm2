@@ -48,6 +48,7 @@ public class LitterView extends ASMView {
     private UI.Button btnNew;
     private UI.Button btnRefresh;
     private UI.Button btnViewAnimals;
+    private UI.CheckBox chkShowExpired;
 
     public LitterView() {
         init(Global.i18n("uianimal", "Animal_Litters"),
@@ -71,6 +72,7 @@ public class LitterView extends ASMView {
 
     public Vector getTabOrder() {
         Vector v = new Vector();
+        v.add(chkShowExpired);
         v.add(getTable());
 
         return v;
@@ -106,7 +108,7 @@ public class LitterView extends ASMView {
         AnimalLitter al = AnimalLitter.getRecentLitters();
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) al.getRecordCount()][8];
+        String[][] datar = new String[(int) al.getRecordCount()][9];
 
         // Are we using acceptance no or litter id?
         String header = i18n("Acceptance");
@@ -117,7 +119,7 @@ public class LitterView extends ASMView {
 
         // Create an array of headers for the table
         String[] columnheaders = {
-                i18n("Parent"), i18n("Species"), i18n("Date"),
+                i18n("Parent"), i18n("Species"), i18n("Date"), i18n("Expires"),
                 i18n("Number_in_litter"), header, i18n("Remaining"),
                 i18n("Comments")
             };
@@ -133,15 +135,16 @@ public class LitterView extends ASMView {
             Date atDate = new Date();
 
             while (!al.getEOF()) {
-                if (!al.hasExpired(atDate)) {
+                if (!al.hasExpired(atDate) || chkShowExpired.isSelected()) {
                     datar[i][0] = al.getParentName();
                     datar[i][1] = al.getSpeciesName();
                     datar[i][2] = Utils.formatTableDate(al.getDate());
-                    datar[i][3] = al.getNumberInLitter().toString();
-                    datar[i][4] = Utils.nullToEmptyString(al.getAcceptanceNumber());
-                    datar[i][5] = al.getAnimalsRemaining().toString();
-                    datar[i][6] = al.getComments();
-                    datar[i][7] = al.getID().toString();
+                    datar[i][3] = Utils.formatTableDate(al.getInvalidDate());
+                    datar[i][4] = al.getNumberInLitter().toString();
+                    datar[i][5] = Utils.nullToEmptyString(al.getAcceptanceNumber());
+                    datar[i][6] = al.getAnimalsRemaining().toString();
+                    datar[i][7] = al.getComments();
+                    datar[i][8] = al.getID().toString();
 
                     if (al.getSpeciesName().equalsIgnoreCase(i18n("Cat"))) {
                         totalCat++;
@@ -157,16 +160,11 @@ public class LitterView extends ASMView {
                 al.moveNext();
             }
 
-            // Show a descriptive total for the litters at the statusbar
-            Global.mainForm.setStatusText(i18n("active_litters",
-                    Integer.toString(totalCat + totalDog + totalOther),
-                    Integer.toString(totalCat), Integer.toString(totalDog),
-                    Integer.toString(totalOther)));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 7);
+        setTableData(columnheaders, datar, i, 8);
     }
 
     public void addToolButtons() {
@@ -195,6 +193,10 @@ public class LitterView extends ASMView {
                 IconManager.getIcon(IconManager.SCREEN_VIEWLITTERS_ANIMALS),
                 UI.fp(this, "actionViewAnimals"));
         addToolButton(btnViewAnimals, true);
+
+        chkShowExpired = UI.getCheckBox(i18n("include_expired"));
+        chkShowExpired.setOpaque(false);
+        addToolButton(chkShowExpired, false);
     }
 
     public void actionViewAnimals() {

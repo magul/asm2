@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-16 10:12+0100\n"
+"POT-Creation-Date: 2010-08-17 09:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6783,25 +6783,8 @@ msgid "Acceptance:"
 msgstr ""
 
 #. # ui/animal/LitterEdit
-#: Select_a_mother_from_the_shelter_animals
-msgid "Select a mother from the shelter animals"
-msgstr ""
-
-#. # ui/animal/LitterEdit
-#: Or_date\:
-msgid "Or date:"
-msgstr ""
-
-#. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
-msgstr ""
-
-#. # ui/animal/LitterEdit
-#: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
-msgid ""
-"The period after which this litter should expire if no expiry date is "
-"entered below"
 msgstr ""
 
 #. # ui/animal/LitterEdit
@@ -7740,7 +7723,10 @@ msgid "Issue Date:"
 msgstr ""
 
 #. # ui/owner/VoucherEdit
+#. # ui/animal/LitterEdit
+#. # ui/owner/VoucherSelector
 #: Expiry_Date\:
+#: Expiry_Date
 msgid "Expiry Date:"
 msgstr ""
 
@@ -8150,11 +8136,6 @@ msgstr ""
 msgid "Owner's Vet:"
 msgstr ""
 
-#. # ui/animal/LitterView
-#: active_litters
-msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-msgstr ""
-
 #. # ui/ui/ASMFind
 #: search_complete
 msgid "Search complete - {0} matches found. "
@@ -8337,7 +8318,7 @@ msgstr ""
 msgid "Click OK when you have finished making your changes and saved the file."
 msgstr ""
 
-#. # ui/animal/LitterEdit
+#. # ui/animal/LitterView
 #: Expires
 msgid "Expires:"
 msgstr ""
@@ -8466,6 +8447,16 @@ msgstr ""
 #. # ui/animal/AnimalLink
 #: edit_this_animal
 msgid "Edit this animal"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: include_expired
+msgid "Include Expired"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: Expires
+msgid "Expires"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -11974,6 +11965,7 @@ msgstr ""
 msgid "Issue Date"
 msgstr ""
 
+#. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
 #: Expiry_Date
 msgid "Expiry Date"
