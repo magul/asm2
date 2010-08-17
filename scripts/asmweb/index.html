@@ -1,24 +1,27 @@
 <html>
 <head>
 <title>ASM Online</title>
+<script src="http://www.java.com/js/deployJava.js"></script>
 </head>
 <body>
 
-<!--
-    Change databaseserver, user and password to match your
-    local setup.
--->
+<script>
+    var attributes = {
+        codebase : '.',
+        code : 'net.sourceforge.sheltermanager.asm.ui.ui.ASMApplet.class',
+        archive : 'asm-applet.jar', 
+        width : '100%', 
+        height : '100%'
+    };
 
-<applet 
-codebase = "."
-code = "net.sourceforge.sheltermanager.asm.ui.ui.ASMApplet.class"
-archive = "asm-applet.jar"
-width="100%" 
-height="100%">
-<param name="java_arguments" value="-Xmx256m" />
-<param name="jdbcurl" 
-value="jdbc:mysql://databaseserver/asm?user=user&password=pass&zeroDateTimeBehaviour=convertToNull" />
-</applet>
+    // Change jdbcurl below to match your setup
+    var parameters = {
+        java_arguments : '-Xmx256m',
+        jdbcurl : 'jdbc:mysql://server/database?user=user&password=pass&zeroDateTimeBehaviour=convertToNull'
+    };
+    var version = '1.6';
+    deployJava.runApplet(attributes, parameters, version);
+</script>
 
 </body>
 </html>
