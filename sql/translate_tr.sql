@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Goat', '', '', 16);
 INSERT INTO breed VALUES (439, 'Sheep', '', '', 16);
 INSERT INTO breed VALUES (440, 'Llama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Pig (Farm)', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Organizasyon');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Bebek');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Genç Yetişkin');

@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Chèvre', '', '', 16);
 INSERT INTO breed VALUES (439, 'Mouton', '', '', 16);
 INSERT INTO breed VALUES (440, 'Lama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Cochon', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Nom du refuge');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Bébé');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Jeune adulte');

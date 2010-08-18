@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Cabra', '', '', 16);
 INSERT INTO breed VALUES (439, 'Oveja', '', '', 16);
 INSERT INTO breed VALUES (440, 'Llama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Cerdo (Granja)', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Organización');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Bebé');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Adulto joven');

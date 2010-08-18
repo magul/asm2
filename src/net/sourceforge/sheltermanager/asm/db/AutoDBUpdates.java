@@ -4054,8 +4054,19 @@ public class AutoDBUpdates {
             errors.add("animallitter: DROP TimeoutMonths");
             Global.logException(e, getClass());
         }
-    }
 
+        try {
+            // Fix where 2.7.2 translate patches deleted age groups on new databases
+            if (Configuration.getString("AgeGroup1").equals("")) {
+                Configuration.setEntry("AgeGroup1", "0.5");
+                Configuration.setEntry("AgeGroup2", "2");
+                Configuration.setEntry("AgeGroup3", "7");
+                Configuration.setEntry("AgeGroup4", "50");
+            }
+        } catch (Exception e) {
+            errors.add("configuration: reset default age group thresholds");
+        }
+    }
 }
 
 

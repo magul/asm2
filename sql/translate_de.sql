@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Ziege', '', '', 16);
 INSERT INTO breed VALUES (439, 'Schaf', '', '', 16);
 INSERT INTO breed VALUES (440, 'Lama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Schwein', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Baby');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Jungtier');

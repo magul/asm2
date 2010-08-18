@@ -664,8 +664,11 @@ public class Startup implements Runnable {
             Properties p = new Properties();
             File file = new File(Global.tempDirectory + File.separator +
                     "asm.properties");
-            in = new FileInputStream(file);
-            p.load(in);
+
+            if (file.exists()) {
+                in = new FileInputStream(file);
+                p.load(in);
+            }
 
             // Whether or not to start maximised
             // =========================================================

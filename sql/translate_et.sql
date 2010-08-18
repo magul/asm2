@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Kits', '', '', 16);
 INSERT INTO breed VALUES (439, 'Lammas', '', '', 16);
 INSERT INTO breed VALUES (440, 'Laama', '', '', 16);
 INSERT INTO breed VALUES (441, 'Kodusiga', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Organisatsioon');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Beebi');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Nooruk');

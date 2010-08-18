@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Create matching account/trx for donation/type not set for new 2.7.2 dbs
+*. Non-shelter type not mapped in default dataset
+*. If asm.properties file was missing, default settings didn't take effect
+*. Bug in new translate patch scheme was removing age groups
 *. OwnerFirstNames and OwnerLastName wordkeys
 *. All instances of Identichip replaced with Microchip - Identichip still
 -  retained for backwards compatibility

@@ -476,7 +476,7 @@ INSERT INTO breed VALUES (438, 'Коза', '', '', 16);
 INSERT INTO breed VALUES (439, 'Овца', '', '', 16);
 INSERT INTO breed VALUES (440, 'Лама', '', '', 16);
 INSERT INTO breed VALUES (441, 'Свинья (ферма)', '', '', 28);
-DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%';
+DELETE FROM configuration WHERE ItemName Like 'Organisation' OR ItemName Like 'AgeGroup%Name';
 INSERT INTO configuration VALUES ('Organisation', 'Организация');
 INSERT INTO configuration VALUES ('AgeGroup1Name', 'Малыш');
 INSERT INTO configuration VALUES ('AgeGroup2Name', 'Молодое');
