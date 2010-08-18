@@ -158,8 +158,8 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     public void animalSelected(Animal theanimal) {
         try {
             animalID = theanimal.getID().intValue();
-            txtName.setText((Global.getShowShortCodes() ? theanimal.getShortCode() : 
-                theanimal.getShelterCode()) + " - " +
+            txtName.setText(
+                theanimal.getCode() + " - " +
                 theanimal.getAnimalName());
             if (parent != null) parent.animalChanged(animalID);
         } catch (Exception e) {

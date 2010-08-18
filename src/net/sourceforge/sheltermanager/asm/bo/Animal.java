@@ -427,6 +427,10 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("ShortCode", newValue);
     }
 
+    public String getCode() throws CursorEngineException {
+        return Global.getShowShortCodes() ? getShortCode() : getShelterCode();
+    }
+
     public Integer getYearCodeID() throws CursorEngineException {
         return (Integer) rs.getField("YearCodeID");
     }

@@ -210,7 +210,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                     row.set(1, "...");
                     row.set(2, "...");
                 } else {
-                    row.set(0, Global.getShowShortCodes() ? av.getAnimal().getShortCode() : av.getAnimal().getShelterCode());
+                    row.set(0, av.getAnimal().getCode());
                     row.set(1, av.getAnimal().getAnimalName());
 
                     // If the option is set, either show internal location

@@ -276,7 +276,7 @@ public abstract class Report extends Thread {
     }
 
     protected String code(Animal a) throws CursorEngineException {
-        return Global.getShowShortCodes() ? a.getShortCode() : a.getShelterCode();
+        return a.getCode();
     }
 
     protected String code(SQLRecordset r) throws CursorEngineException {

@@ -119,7 +119,7 @@ public class LitterEdit extends ASMForm {
 
             if (Configuration.getBoolean("AutoLitterIdentification")) {
                 // Generate the ID for this litter
-                txtAcceptanceNumber.setText(litter.getID().toString());
+                txtAcceptanceNumber.setText(Utils.zeroPad(litter.getID().intValue(), 6));
             }
 
             // Default the expiry date to 6 months in the future

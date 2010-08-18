@@ -303,7 +303,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
 
         // Default ID as adoption number
         try {
-            this.txtNumber.setText(movement.getID().toString());
+            this.txtNumber.setText(Utils.zeroPad(movement.getID().intValue(), 6));
         } catch (CursorEngineException e) {
         }
 
@@ -372,34 +372,29 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     public void openForEdit(Adoption themovement, int linkType) {
         try {
             movement = themovement;
-
+            animalID = movement.getAnimalID().intValue();
+            
             String ownername = "";
-
             if (movement.getOwnerID().intValue() == 0) {
                 ownername = i18n("(none)");
             } else {
                 ownername = movement.getOwner().getOwnerName();
-                // Load local variable from object
                 ownerID = movement.getOwnerID().intValue();
             }
 
             String retailername = "";
-
             if (movement.getRetailerID().intValue() == 0) {
                 retailername = i18n("(none)");
             } else {
                 retailername = movement.getRetailer().getOwnerName();
             }
 
-            // Load local variable from object
-            animalID = movement.getAnimalID().intValue();
-
             this.setTitle(i18n("edit_movement_title",
                     movement.getAdoptionNumber(),
                     movement.getAnimal().getAnimalName(),
-                    (Global.getShowShortCodes() ? movement.getAnimal().getShortCode() : movement.getAnimal().getShelterCode()), ownername));
+                    movement.getAnimal().getCode(),
+                    ownername));
 
-            // Load the data into the controls
 
             // Created and Changed values
             audit = i18n("created_lastchange",
