@@ -654,7 +654,7 @@ public class MovementView extends ASMView implements MovementParent {
 
         // For reporting purposes, substitute the report animal name
         // for the normal animal name (last extra column for column 0).
-        tableAddCell(searchResults[0][headers.length+1]);
+        tableAddCell(searchResults[i][headers.length+1]);
 
         for (int z = 1; z < headers.length; z++) {
             tableAddCell(searchResults[i][z]);
