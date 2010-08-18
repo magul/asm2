@@ -2157,7 +2157,20 @@ public final class UI {
 
         return s;
     }
+    
+    public static ScrollPane getVerticalScrollPane(Component c) {
+        ScrollPane s = new ScrollPane(c);
 
+        if (!isLTR()) {
+            s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        }
+        
+        s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        return s;
+    }
+    
     public static VerticalSplitPane getVerticalSplitPane(Component c1, Component c2) {
         return new VerticalSplitPane(c1, c2);
     }

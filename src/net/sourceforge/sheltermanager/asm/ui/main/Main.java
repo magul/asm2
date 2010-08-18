@@ -43,6 +43,7 @@ import net.sourceforge.sheltermanager.asm.reports.VaccinationDiary;
 import net.sourceforge.sheltermanager.asm.reports.Vets;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.account.AccountView;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalAddMultiple;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
@@ -194,6 +195,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuFileAccount;
     private UI.Menu mnuFileAnimal;
     private UI.MenuItem mnuFileAnimalAddAnimal;
+    private UI.MenuItem mnuFileAnimalAddAnimals;
     private UI.MenuItem mnuFileAnimalAddWLEntry;
     private UI.MenuItem mnuFileAnimalFindAnimal;
     private UI.MenuItem mnuFileAnimalFosterBook;
@@ -569,6 +571,7 @@ public class Main extends ASMWindow {
     public void setSecurity() {
         this.mnuFileAccount.setEnabled(Global.currentUserObject.getSecViewAccount());
         this.mnuFileAnimalAddAnimal.setEnabled(Global.currentUserObject.getSecAddAnimal());
+        this.mnuFileAnimalAddAnimals.setEnabled(Global.currentUserObject.getSecAddAnimal());
         this.mnuFileAnimalFindAnimal.setEnabled(Global.currentUserObject.getSecViewAnimal());
         this.mnuFileAnimalNames.setEnabled(Global.currentUserObject.getSecModifyAnimalNameDatabase());
         this.mnuFileOwnerAddOwner.setEnabled(Global.currentUserObject.getSecAddOwner());
@@ -820,9 +823,14 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_FILEANIMAL));
 
         mnuFileAnimalAddAnimal = UI.getMenuItem(i18n("Add_Animal"), 'A',
-                IconManager.getIcon(IconManager.MENU_FILEANIMAL),
+                IconManager.getIcon(IconManager.MENU_FILEANIMALADDANIMAL),
                 new ASMAccelerator("n", "ctrl", ""),
                 UI.fp(this, "actionFileAnimalAddAnimal"));
+        
+        mnuFileAnimalAddAnimals = UI.getMenuItem(i18n("Add_Animals"), 'S',
+                IconManager.getIcon(IconManager.MENU_FILEANIMALADDANIMAL),
+                new ASMAccelerator("s", "ctrl", "shift"),
+                UI.fp(this, "actionFileAnimalAddAnimals"));
 
         mnuFileAnimalFindAnimal = UI.getMenuItem(i18n("Find_Animal"), 'F',
                 IconManager.getIcon(IconManager.MENU_FILEANIMALFINDANIMAL),
@@ -1309,6 +1317,7 @@ public class Main extends ASMWindow {
      */
     public void initMenuTree() {
         mnuFileAnimal.add(mnuFileAnimalAddAnimal);
+        mnuFileAnimal.add(mnuFileAnimalAddAnimals);
         mnuFileAnimal.add(mnuFileAnimalFindAnimal);
         mnuFileAnimal.add(UI.getSeparator());
         mnuFileAnimal.add(mnuFileAnimalAddWLEntry);
@@ -1629,7 +1638,7 @@ public class Main extends ASMWindow {
                 UI.fp(this, "actionFileAnimalAddAnimal"));
 
         if (Global.toolbarSize > 0) tlbTools.add(btnAddAnimal);
-
+        
         btnFindAnimal = UI.getButton(null, i18n("Find_an_Animal"),
                 IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FINDANIMAL)),
                 UI.fp(this, "actionFileAnimalFindAnimal"));
@@ -2300,6 +2309,14 @@ public class Main extends ASMWindow {
 
         AnimalEdit ea = new AnimalEdit();
         ea.openForNew();
+        addChild(ea);
+        ea = null;
+    }
+    
+    public void actionFileAnimalAddAnimals() {
+        cursorToWait();
+
+        AnimalAddMultiple ea = new AnimalAddMultiple();
         addChild(ea);
         ea = null;
     }

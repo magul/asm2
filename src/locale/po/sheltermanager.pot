@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-18 10:26+0100\n"
+"POT-Creation-Date: 2010-08-18 15:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6299,6 +6299,7 @@ msgstr ""
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/CostEdit
 #. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
@@ -6572,6 +6573,7 @@ msgstr ""
 #. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/CostEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
@@ -6898,6 +6900,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Location\:
 msgid "Location:"
 msgstr ""
@@ -6935,6 +6938,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
@@ -7012,6 +7016,7 @@ msgid "The reason the animal was not brought in by its owner"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal_acceptance_number_from_head_office
 msgid "The animal acceptance number from head office"
 msgstr ""
@@ -7054,6 +7059,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -7131,11 +7137,13 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Acceptance_No\:
 msgid "Acceptance No:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal's_name
 msgid "The animal's name"
 msgstr ""
@@ -7214,6 +7222,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Base_Colour\:
 msgid "Base Colour:"
 msgstr ""
@@ -7240,6 +7249,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
@@ -7253,6 +7263,7 @@ msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
 msgstr ""
@@ -7590,12 +7601,14 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #: litter_id
 msgid "Litter ID:"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
 msgid "The litter identifier if this animal is part of a litter"
 msgstr ""
@@ -8239,11 +8252,13 @@ msgid "Additional information about the animal"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Crossbreed
 msgid "Crossbreed"
 msgstr ""
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
 msgstr ""
@@ -8458,6 +8473,28 @@ msgstr ""
 #. # ui/animal/LitterView
 #: Expires
 msgid "Expires"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#. # ui/users/UserEdit
+#. # ui/main/Main
+#: Add_Animals
+msgid "Add Animals"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Add_Animal
+msgid "Add animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Clone_Animal
+msgid "Add animal by copying last animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Save
+msgid "Save all animals"
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -10888,6 +10925,13 @@ msgstr ""
 #. # ui/main/ChangePassword
 #: Confirm_Password\:
 msgid "Confirm Password:"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#. # ui/users/UserEdit
+#. # ui/main/Main
+#: Add_Animals
+msgid "Add Animal&s"
 msgstr ""
 
 #. # ui/medical/ProfileView
@@ -13790,11 +13834,6 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Animal_Media
 msgid "Add Animal Media"
-msgstr ""
-
-#. # ui/users/UserEdit
-#: Add_Animals
-msgid "Add Animals"
 msgstr ""
 
 #. # ui/users/UserEdit

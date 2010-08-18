@@ -161,6 +161,10 @@ public abstract class IconManager {
     public final static String SCREEN_ADDMEDIA = MEDIAADD;
     public final static String SCREEN_ADDMEDIA_CAPTURE = VIDEO;
     public final static String SCREEN_ADDMEDIA_BROWSE = SEARCH;
+    public final static String SCREEN_ADDANIMAL = ANIMALADD;
+    public final static String SCREEN_ADDANIMAL_NEW = NEW;
+    public final static String SCREEN_ADDANIMAL_CLONE = CLONE;
+    public final static String SCREEN_ADDANIMAL_SAVE = SAVE;
     public final static String SCREEN_ANIMALDIETS = DIET;
     public final static String SCREEN_ANIMALDIETS_NEW = NEW;
     public final static String SCREEN_ANIMALDIETS_EDIT = EDIT;
@@ -720,6 +724,7 @@ public abstract class IconManager {
     // Toolbar ================================================================
     public final static String BUTTON_ACCOUNT = "accounts-Basic-32.png";
     public final static String BUTTON_ADDANIMAL = "animal-Add-32.png";
+    public final static String BUTTON_ADDANIMALS = "animal-Add-32.png";
     public final static String BUTTON_FINDANIMAL = "animal-Search-32.png";
     public final static String BUTTON_ADDOWNER = "owner-Add-32.png";
     public final static String BUTTON_FINDOWNER = "owner-Search-32.png";

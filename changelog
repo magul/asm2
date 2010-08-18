@@ -1,6 +1,7 @@
 2.7.3
 ================
 
+*. Fixed potential memory leak for one frame registering multiple tab orders
 *. Cleaned up donation box on waiting list screen
 *. Use zeropadding for generated litter and movement numbers
 *. Create matching account/trx for donation/type not set for new 2.7.2 dbs
