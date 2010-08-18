@@ -597,11 +597,27 @@ public final class UI {
         l.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         l.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    FileTypeManager.shellExecute(url);
-                }
-            });
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FileTypeManager.shellExecute(url);
+            }
+        });
 
+        return l;
+    }
+
+    public static Label getSplashLabel() {
+        final Label l = new Label(IconManager.getSplashScreen());
+        
+        // Leave it as an easter egg
+        // l.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        l.setPreferredSize(getDimension(400, 200));
+
+        l.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l.setIcon(IconManager.getSplashScreen());
+            }
+        });
         return l;
     }
 

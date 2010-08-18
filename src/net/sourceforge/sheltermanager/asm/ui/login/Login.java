@@ -207,7 +207,7 @@ public class Login extends ASMWindow {
         add(pnlCenter, UI.BorderLayout.CENTER);
 
         // Show the ASM splash centered at the top
-        UI.Label lblSplash = UI.getLabel(IconManager.getSplashScreen());
+        UI.Label lblSplash = UI.getSplashLabel();
         lblSplash.setHorizontalAlignment(UI.Label.CENTER);
         add(lblSplash, UI.BorderLayout.NORTH);
 

@@ -804,12 +804,12 @@ public abstract class IconManager {
      */
     public static ImageIcon getSplashScreen() {
         nextSplash++;
-        if (nextSplash >= SPLASH_IMAGES) nextSplash = 0;
+        if (nextSplash == SPLASH_IMAGES) nextSplash = 0;
         return getIcon("splash/splash" + nextSplash + ".jpg");
     }
 
     /** Total number of splash images */
-    private final static int SPLASH_IMAGES = 14;
+    private final static int SPLASH_IMAGES = 19;
 
     /** Splash image to start at - rotate after that */
     private static int nextSplash = new Random().nextInt(SPLASH_IMAGES);

@@ -152,7 +152,7 @@ public class About extends ASMDialog {
         // Top pane holds splash logo
         // Center pane of main thing holds tab pane
         // South pane contains close button
-        UI.Label logo = UI.getLabel(IconManager.getSplashScreen());
+        UI.Label logo = UI.getSplashLabel();
         logo.setHorizontalAlignment(UI.ALIGN_CENTER);
 
         UI.Panel southPane = UI.getPanel(UI.getFlowLayout());

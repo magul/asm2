@@ -801,7 +801,7 @@ class StartupProgress extends ASMWindow {
         setLayout(UI.getBorderLayout());
 
         UI.Panel progress = UI.getPanel(UI.getGridLayout(0, 1));
-        UI.Label lblSplash = UI.getLabel(IconManager.getSplashScreen());
+        UI.Label lblSplash = UI.getSplashLabel();
         lblSplash.setHorizontalAlignment(UI.Label.CENTER);
         add(lblSplash, UI.BorderLayout.NORTH);
 

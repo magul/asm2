@@ -35,7 +35,9 @@ public class StartupPage extends ASMForm {
                         UI.invokeLater(new Runnable() {
                             public void run() {
                                 diarynotes.showReport(d.getFilename(), d.getTitle());
-                                hs.setDividerLocation(600);
+                                // 400px for image width, plus 4px*2 for panel margin,
+                                // plus 8px for splitter width
+                                hs.setDividerLocation(getWidth() - 416);
                                 UI.cursorToPointer();
                             }
                         });
@@ -68,6 +70,7 @@ public class StartupPage extends ASMForm {
         diarynotes = new ReportViewer();
         
         UI.Panel pnews = UI.getPanel(UI.getBorderLayout());
+        pnews.add(UI.getSplashLabel(), UI.BorderLayout.NORTH);
         asmnews = UI.getHTMLBrowser(new FunctionPointer(this, "hyperlinkClicked", new Class[] { String.class }));
         asmnews.setPreferredSize(UI.getDimension(400, 400));
         UI.addComponent(pnews, asmnews);
