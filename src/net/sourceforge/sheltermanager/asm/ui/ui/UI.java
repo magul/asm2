@@ -2867,6 +2867,11 @@ public final class UI {
             b.setTitleColor(new JLabel().getForeground());
             setBorder(b);
         }
+        
+        public void setLineBorder() {
+        	setBorder(new LineBorder(Color.BLACK));
+        }
+        
 
         public void dispose() {
         }

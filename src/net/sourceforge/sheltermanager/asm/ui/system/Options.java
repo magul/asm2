@@ -1286,6 +1286,32 @@ public class Options extends ASMForm {
                         "remove_bonded_field"), "DontShowBonded",
                     Configuration.getString("DontShowBonded")
                                  .equalsIgnoreCase("Yes"), false));
+            
+        	// Adding Multiple Animals
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Adding_multiple_animals"), null, false, true));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+            	"add_animals_show_breed"), "AddAnimalsShowBreed",
+            	Configuration.getString("AddAnimalsShowBreed")
+                     .equalsIgnoreCase("Yes"), false));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+	        	"add_animals_show_colour"), "AddAnimalsShowColour",
+	        	Configuration.getString("AddAnimalsShowColour")
+	                 .equalsIgnoreCase("Yes"), false));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+	        	"add_animals_show_location"), "AddAnimalsShowLocation",
+	        	Configuration.getString("AddAnimalsShowLocation")
+	                 .equalsIgnoreCase("Yes"), false));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+            	(Configuration.getBoolean("AutoLitterIdentification") ?
+            		"add_animals_show_litterid" :
+            		"add_animals_show_acceptance")), "AddAnimalsShowAcceptance",
+	        	Configuration.getString("AddAnimalsShowAcceptance")
+	                 .equalsIgnoreCase("Yes"), false));
 
 
         } catch (Exception e) {

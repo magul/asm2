@@ -135,6 +135,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     private String audit = null;
     private boolean isNewRecord = false;
 
+    public MovementEdit() {
+    	this(null);
+    }
+    
     /** Creates new form MovementEdit */
     public MovementEdit(MovementParent theparent) {
         this.parent = theparent;
@@ -360,7 +364,12 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         cboReturnReason.setEnabled(!txtDateReturned.getText().equals(""));
         txtReason.setEnabled(!txtDateReturned.getText().equals(""));
     }
-
+    
+    public void openForEdit(int movementID) {
+    	Adoption a = new Adoption("ID = " + movementID);
+    	openForEdit(a, 0);
+    }
+    
     /**
      * Sets us into editing mode.
      *

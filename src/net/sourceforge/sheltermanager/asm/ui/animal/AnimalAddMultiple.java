@@ -2,13 +2,18 @@ package net.sourceforge.sheltermanager.asm.ui.animal;
 
 import java.util.Vector;
 
+import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
+import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 public class AnimalAddMultiple extends ASMForm {
 
@@ -84,7 +89,13 @@ public class AnimalAddMultiple extends ASMForm {
 
 	@Override
 	public boolean saveData() {
-		// TODO: Save rows
+		if (rows.getComponentCount() > 0) {
+			for (int i = 0; i < rows.getComponentCount(); i++) {
+				AnimalRow r = (AnimalRow) rows.getComponent(i);
+				r.save();
+			}
+		}
+		dispose();
 		return false;
 	}
 
@@ -131,9 +142,10 @@ public class AnimalAddMultiple extends ASMForm {
 		public void initComponents() {
 			
 			setLayout(UI.getBorderLayout());
-			UI.Panel p = UI.getPanel(UI.getGridLayout(1));
+			setTitle("");
+			UI.Panel p = UI.getPanel(UI.getGridLayout(1), true);
 			UI.Panel pbasic = UI.getPanel(UI.getGridLayout(8, new int[] { 10, 15, 10, 15, 10, 15, 10, 15 }));
-			UI.Panel pbreed= UI.getPanel(UI.getGridLayout(4, new int[] { 25, 25, 25, 25 }));
+			UI.Panel pbreed = UI.getPanel(UI.getGridLayout(4, new int[] { 10, 40, 10, 40 }));
 			UI.Panel pextra = UI.getPanel(UI.getGridLayout(6, new int[] { 10, 15, 10, 15, 10, 15 }));
 			Vector tabs = new Vector();
 			
@@ -144,14 +156,19 @@ public class AnimalAddMultiple extends ASMForm {
 			
 			dtDOB = (DateField) UI.addComponent(pbasic, 
 				i18n("Date_Of_Birth:"), UI.getDateField());
+			dtDOB.setToToday();
 			tabs.add(dtDOB);
 			
 			cboType = UI.getCombo(LookupCache.getAnimalTypeLookup(), "AnimalType");
 			UI.addComponent(pbasic, i18n("Type:"), cboType);
+			Utils.setComboFromID(LookupCache.getAnimalTypeLookup(), "AnimalType", 
+				Configuration.getInteger("AFDefaultType"), cboType);
 			tabs.add(cboType);
 			
-			cboSpecies = UI.getCombo(LookupCache.getSpeciesLookup(), "SpeciesName");
+			cboSpecies = UI.getCombo(LookupCache.getSpeciesLookup(), "SpeciesName", UI.fp(this, "checkBreed"));
 			UI.addComponent(pbasic, i18n("Species:"), cboSpecies);
+			Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName", 
+					Configuration.getInteger("AFDefaultSpecies"), cboSpecies);
 			tabs.add(cboSpecies);
 			
 			// always applies
@@ -164,20 +181,25 @@ public class AnimalAddMultiple extends ASMForm {
 			UI.addComponent(pbreed, i18n("Breed:"), cboBreed);
 			if (breedEnabled) tabs.add(cboBreed);
 			
-			chkCrossbreed = UI.getCheckBox(i18n("Crossbreed"), i18n("tick_this_box_if_this_animal_is_a_crossbreed"));
+			chkCrossbreed = UI.getCheckBox(i18n("Crossbreed"), 
+				i18n("tick_this_box_if_this_animal_is_a_crossbreed"),
+				UI.fp(this ,"crossbreedChanged"));
 			if (!Global.isSingleBreed() && breedEnabled) {
 				UI.addComponent(pbreed, chkCrossbreed);
 				tabs.add(chkCrossbreed);
 			}
 						
 			cboBreed2 = UI.getCombo(LookupCache.getBreedLookup(), "BreedName");
+			cboBreed2.setEnabled(false);
 			if (!Global.isSingleBreed() && breedEnabled) {
 				UI.addComponent(pbreed, cboBreed2);
 				tabs.add(cboBreed2);
 			}
 			
-			if (breedEnabled)
+			if (breedEnabled) {
+				checkBreed();
 				p.add(pbreed);
+			}
 			
 			// Extra panel, all items configurable, if all are hidden don't
 			// show the panel
@@ -187,12 +209,16 @@ public class AnimalAddMultiple extends ASMForm {
 			boolean extraEnabled = colourEnabled || locationEnabled || acceptanceEnabled;
 			
 			cboColour = UI.getCombo(LookupCache.getBaseColourLookup(), "BaseColour");
+			Utils.setComboFromID(LookupCache.getBaseColourLookup(), "BaseColour", 
+					Configuration.getInteger("AFDefaultColour"), cboColour);
 			if (colourEnabled) {
 				UI.addComponent(pextra, i18n("Base_Colour:"), cboColour);
 				tabs.add(cboColour);
 			}
 			
 			cboLocation = UI.getCombo(LookupCache.getInternalLocationLookup(), "LocationName");
+			Utils.setComboFromID(LookupCache.getInternalLocationLookup(), "LocationName", 
+					Configuration.getInteger("AFDefaultLocation"), cboLocation);
 			if (locationEnabled) {
 				UI.addComponent(pextra, i18n("Location:"), cboLocation);
 				tabs.add(cboLocation);
@@ -219,8 +245,84 @@ public class AnimalAddMultiple extends ASMForm {
 			AnimalAddMultiple.this.registerTabOrder(tabs, txtName);
 		}
 		
+	    /**
+	     * Called when the animal's species has changed - looks up what breeds
+	     * have been used with that species in the past and repopulates the
+	     * breed combo with most common choices first, then the full list
+	     */
+	    public void checkBreed() {
+	        try {
+	            // Clear the breed list
+	            cboBreed.removeAllItems();
+	            cboBreed2.removeAllItems();
+
+	            // Get the suggested list and add them
+	            if (Configuration.getBoolean("SuggestPopularBreeds")) {
+	                Integer speciesID = Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
+	                        "SpeciesName", cboSpecies);
+	                Vector v = LookupCache.getBreedsForSpecies(speciesID);
+
+	                for (int i = 0; i < v.size(); i++) {
+	                    cboBreed.addItem(v.get(i).toString());
+	                    cboBreed2.addItem(v.get(i).toString());
+	                }
+
+	                v = null;
+	            }
+
+	            // Add the full list according to selected species
+	            SQLRecordset breed = LookupCache.getBreedLookup();
+	            breed.moveFirst();
+
+	            if (Configuration.getBoolean("DontFilterBreedList")) {
+	                while (!breed.getEOF()) {
+	                    cboBreed.addItem(breed.getField("BreedName"));
+	                    cboBreed2.addItem(breed.getField("BreedName"));
+	                    breed.moveNext();
+	                }
+	            } else {
+	                Integer speciesID = Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
+	                        "SpeciesName", cboSpecies);
+
+	                while (!breed.getEOF()) {
+	                    Integer breedSpeciesID = (Integer) breed.getField(
+	                            "SpeciesID");
+
+	                    // Only include the breed if the species matches
+	                    if ((breedSpeciesID == null) ||
+	                            (breedSpeciesID.equals(speciesID))) {
+	                        cboBreed.addItem(breed.getField("BreedName"));
+	                        cboBreed2.addItem(breed.getField("BreedName"));
+	                    }
+
+	                    breed.moveNext();
+	                }
+	            }
+
+	            breed = null;
+	        } catch (CursorEngineException e) {
+	            Global.logException(e, getClass());
+	        }
+
+	        // Select the top item
+	        cboBreed.setSelectedIndex(0);
+	        cboBreed2.setSelectedIndex(0);
+	    }
+		
+		public void crossbreedChanged() {
+			cboBreed2.setEnabled(chkCrossbreed.isSelected());
+		}
+		
 		public void save() {
-			// TODO:
+			try {
+				Animal a = new Animal("ID = 0");
+				a.addNew();
+				
+			}
+			catch (Exception e) {
+				Dialog.showError(e.getMessage());
+				Global.logException(e, getClass());
+			}
 		}
 		
 	}

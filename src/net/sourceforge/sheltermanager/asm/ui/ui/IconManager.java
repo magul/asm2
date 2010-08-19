@@ -156,6 +156,8 @@ public abstract class IconManager {
     public final static String SCREEN_ACCOUNTTRX_REFRESH = REFRESH;
     public final static String SCREEN_ACCOUNTTRX_RECONCILE = UNDO;
     public final static String SCREEN_ACCOUNTTRX_OWNER = "owner-Basic-16.png";
+    public final static String SCREEN_ACCOUNTTRX_ANIMAL = "animal-Basic-16.png";
+    public final static String SCREEN_ACCOUNTTRX_MOVEMENT = "owner-Attached-16.png";
     public final static String SCREEN_EDITTRX = ACCOUNT;
 
     // ANIMAL package ====================================================

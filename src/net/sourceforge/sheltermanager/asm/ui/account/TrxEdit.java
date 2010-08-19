@@ -26,6 +26,8 @@ import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
+import net.sourceforge.sheltermanager.asm.ui.movement.MovementEdit;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
@@ -50,6 +52,8 @@ public class TrxEdit extends ASMForm {
     private UI.Button btnOk;
     private UI.Button btnCancel;
     private UI.Button btnOwner;
+    private UI.Button btnAnimal;
+    private UI.Button btnMovement;
     private DateField txtTrxDate;
     private UI.ComboBox cboDescription;
     private UI.Label lblSource;
@@ -68,7 +72,9 @@ public class TrxEdit extends ASMForm {
     private boolean isNew = false;
     
     private int ownerID;
-    private String ownerName;
+    private int animalID;
+    private int movementID;
+    private String displayName;
 
     public TrxEdit(String accountCode, TrxView parent) {
         this.parent = parent;
@@ -87,11 +93,15 @@ public class TrxEdit extends ASMForm {
     }
 
     public void setSecurity() {
-    	if (btnOwner != null) {
-    		if (!Global.currentUserObject.getSecViewOwner()) {
-    			btnOwner.setEnabled(false);
-    		}
-    	}
+		if (!Global.currentUserObject.getSecViewOwner()) {
+			btnOwner.setEnabled(false);
+		}
+		if (!Global.currentUserObject.getSecViewAnimal()) {
+			btnAnimal.setEnabled(false);
+		}
+		if (!Global.currentUserObject.getSecViewAnimalMovements()) {
+			btnMovement.setEnabled(false);
+		}
     }
 
     public boolean formClosing() {
@@ -175,8 +185,12 @@ public class TrxEdit extends ASMForm {
             if (trx.ownerDonationId > 0) {
             	OwnerDonation od = new OwnerDonation("ID = " + trx.ownerDonationId);
             	ownerID = od.getOwnerID().intValue();
-            	ownerName = od.getDonationDisplay();
-            	txtOwnerName.setText(ownerName);
+            	if (od.getAnimalID() != null) animalID = od.getAnimalID().intValue();
+            	if (od.getMovementID() != null) movementID = od.getMovementID().intValue();
+            	displayName = od.getDonationDisplay();
+            	txtOwnerName.setText(displayName);
+            	if (animalID == 0) btnAnimal.setEnabled(false);
+            	if (movementID == 0) btnMovement.setEnabled(false);
             }
             else {
             	pnlTop.remove(lblDonationFrom);
@@ -264,6 +278,14 @@ public class TrxEdit extends ASMForm {
     		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_OWNER),
     		UI.fp(this, "actionOpenOwner"));
     	t.add(btnOwner);
+    	btnAnimal = UI.getButton(null, i18n("view_this_animal"), 'a',
+    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_ANIMAL),
+    		UI.fp(this, "actionOpenAnimal"));
+    	t.add(btnAnimal);
+		btnMovement = UI.getButton(null, i18n("view_this_movement"), 'm',
+    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_MOVEMENT),
+    		UI.fp(this, "actionOpenMovement"));
+    	t.add(btnMovement);
     	pnlDonation.add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
     	
     	lblDonationFrom = UI.getLabel(i18n("donation_from"));
@@ -290,6 +312,18 @@ public class TrxEdit extends ASMForm {
     	OwnerEdit oe = new OwnerEdit();
     	oe.openForEdit(ownerID);
     	Global.mainForm.addChild(oe);
+    }
+    
+    public void actionOpenAnimal() {
+    	AnimalEdit ae = new AnimalEdit();
+    	ae.openForEdit(animalID);
+    	Global.mainForm.addChild(ae);
+    }
+    
+    public void actionOpenMovement() {
+    	MovementEdit me = new MovementEdit();
+    	me.openForEdit(movementID);
+    	Global.mainForm.addChild(me);
     }
 
     public void descriptionChanged() {
