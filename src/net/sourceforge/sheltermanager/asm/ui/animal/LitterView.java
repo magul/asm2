@@ -208,7 +208,7 @@ public class LitterView extends ASMView {
         // Drop out if there is no acceptance number
         String acceptance = (String) getTable().getModel()
                                          .getValueAt(getTable().getSelectedRow(),
-                4);
+                5);
 
         if (acceptance.equals("")) {
             return;
