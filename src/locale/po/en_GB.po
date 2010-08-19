@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-08-18 15:29+0000\n"
+"PO-Revision-Date: 2010-08-19 09:34+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -6333,6 +6333,7 @@ msgid "Description:"
 msgstr "Description:"
 
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #. # bo/AccountTrx
 #: Reconciled
@@ -6482,6 +6483,22 @@ msgstr "Add a transaction"
 msgid "Income::"
 msgstr "Income::"
 
+#. # ui/internet/EmailForm
+#. # ui/account/TrxView
+#: to
+msgid "to"
+msgstr "to"
+
+#. # ui/account/TrxEdit
+#: view_this_owner
+msgid "View this owner"
+msgstr "View this owner"
+
+#. # ui/account/TrxEdit
+#: donation_from
+msgid "Donation From:"
+msgstr "Donation From:"
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6584,6 +6601,7 @@ msgstr "Type: "
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/owner/DonationSelector
+#. # bo/OwnerDonation
 #. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
@@ -9217,6 +9235,7 @@ msgid "Send Email"
 msgstr "Send Email"
 
 #. # ui/internet/EmailForm
+#. # ui/account/TrxView
 #: to
 msgid "To:"
 msgstr "To:"

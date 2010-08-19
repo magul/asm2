@@ -225,6 +225,40 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
     /**
      * Get a list of AccountTrx.Trx objects representing transactions for
+     * the account given, between two dates
+     * @param accountId The account ID
+     * @param from The start date
+     * @param to The to date
+     */
+    public static ArrayList<Trx> getTransactions(Integer accountId, Date from, Date to)
+        throws Exception {
+        ArrayList<Trx> v = new ArrayList<Trx>();
+
+        // Get the rows
+        AccountTrx t = new AccountTrx();
+        t.openRecordset("TrxDate >= '" + Utils.getSQLDate(from) +
+            "' AND TrxDate <= '" + Utils.getSQLDate(to) +
+            "' AND (SourceAccountID = " + accountId +
+            " OR DestinationAccountID = " + accountId + ") ORDER BY TrxDate");
+        Global.logDebug("Identified " + t.size() + " transactions for account",
+            "AccountTrx.getTransactions");
+
+        // Get our starting balance
+        double balance = Account.getAccountBalanceToDate(accountId, from);
+
+        // Generate our list of transactions
+        while (!t.getEOF()) {
+            Trx x = new Trx(t, accountId, balance);
+            v.add(x);
+            balance = x.balance;
+            t.moveNext();
+        }
+
+        return v;
+    }
+    
+    /**
+     * Get a list of AccountTrx.Trx objects representing transactions for
      * the account given, going back num number of transactions
      * @param accountId The account ID
      * @param num The number to get, or 0 for all

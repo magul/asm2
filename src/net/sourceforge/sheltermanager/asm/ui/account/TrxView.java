@@ -27,6 +27,7 @@ import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.AccountRenderer;
+import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
@@ -35,6 +36,8 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 
@@ -49,6 +52,8 @@ public class TrxView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnReconcile;
     private UI.ComboBox cboNumTrx;
+    private DateField dtFrom;
+    private DateField dtTo;
     private Account account = null;
     private boolean hasRecords = false;
 
@@ -66,7 +71,19 @@ public class TrxView extends ASMView {
             cboNumTrx = UI.getCombo(new String[] {
                         "100", "200", "500", i18n("All")
                     });
-            UI.addComponent(getTopPanel(), i18n("show_most_recent"), cboNumTrx);
+            
+            dtFrom = UI.getDateField();
+            Calendar onemonth = Calendar.getInstance();
+            onemonth.add(Calendar.MONTH, -1);
+            dtFrom.setDate(Utils.calendarToDate(onemonth));
+            
+            dtTo = UI.getDateField();
+            Calendar now = Calendar.getInstance();
+            dtTo.setDate(Utils.calendarToDate(now));
+            
+            UI.addComponent(getTopPanel(), i18n("show_most_recent"), dtFrom);
+            UI.addComponent(getTopPanel(), i18n("to"), dtTo);
+            
             updateList();
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -112,6 +129,7 @@ public class TrxView extends ASMView {
     public void updateListThreaded() {
         try {
             // Get number of trx to display
+        	/*
             int num = 100;
 
             if ((cboNumTrx != null) && (cboNumTrx.getSelectedItem() != null)) {
@@ -123,9 +141,15 @@ public class TrxView extends ASMView {
                     num = Integer.parseInt(nums);
                 }
             }
-
+            */
+        	
+        	Date from = new Date();
+        	if (dtFrom.getDate() != null) from = dtFrom.getDate();
+        	Date to = new Date();
+        	if (dtTo.getDate() != null) to = dtTo.getDate();
+        	
             // Grab the list
-            trx = AccountTrx.getTransactions(account.getID(), num);
+            trx = AccountTrx.getTransactions(account.getID(), from, to);
 
             String[][] datar = new String[trx.size()][9];
 
@@ -140,7 +164,7 @@ public class TrxView extends ASMView {
             initStatusBarMax(trx.size());
 
             for (AccountTrx.Trx t : trx) {
-                datar[i][0] = Utils.formatDate(t.date);
+                datar[i][0] = Utils.formatTableDate(t.date);
                 datar[i][1] = ((t.reconciled == 1) ? i18n("Yes") : " ");
                 datar[i][2] = t.description;
                 datar[i][3] = t.otherAccountCode;

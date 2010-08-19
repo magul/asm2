@@ -24,7 +24,9 @@ package net.sourceforge.sheltermanager.asm.ui.account;
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -32,6 +34,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Collections;
 import java.util.Vector;
@@ -46,15 +49,26 @@ public class TrxEdit extends ASMForm {
     private TrxView parent = null;
     private UI.Button btnOk;
     private UI.Button btnCancel;
+    private UI.Button btnOwner;
     private DateField txtTrxDate;
     private UI.ComboBox cboDescription;
     private UI.Label lblSource;
     private UI.ComboBox cboAccount;
     private CurrencyField txtDeposit;
     private CurrencyField txtWithdrawal;
+    private UI.CheckBox chkReconciled;
+    private UI.Label lblDonationFrom;
+    private UI.Panel pnlTop;
+    private UI.Panel pnlBot;
+    private UI.Panel pnlOuter;
+    private UI.Panel pnlDonation;
+    private UI.TextField txtOwnerName;
     private String audit = null;
     private Vector<String> desclist = null;
     private boolean isNew = false;
+    
+    private int ownerID;
+    private String ownerName;
 
     public TrxEdit(String accountCode, TrxView parent) {
         this.parent = parent;
@@ -73,6 +87,11 @@ public class TrxEdit extends ASMForm {
     }
 
     public void setSecurity() {
+    	if (btnOwner != null) {
+    		if (!Global.currentUserObject.getSecViewOwner()) {
+    			btnOwner.setEnabled(false);
+    		}
+    	}
     }
 
     public boolean formClosing() {
@@ -102,6 +121,7 @@ public class TrxEdit extends ASMForm {
     public Vector<Object> getTabOrder() {
         Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtTrxDate);
+        ctl.add(chkReconciled);
         ctl.add(cboDescription);
         ctl.add(cboAccount);
         ctl.add(txtDeposit);
@@ -146,10 +166,22 @@ public class TrxEdit extends ASMForm {
 
             txtTrxDate.setDate(trx.date);
             cboDescription.setSelectedItem(trx.description);
+            chkReconciled.setSelected(trx.reconciled != 0);
             txtWithdrawal.setValue(trx.withdrawal);
             txtDeposit.setValue(trx.deposit);
             Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
                 trx.otherAccountId, cboAccount);
+            
+            if (trx.ownerDonationId > 0) {
+            	OwnerDonation od = new OwnerDonation("ID = " + trx.ownerDonationId);
+            	ownerID = od.getOwnerID().intValue();
+            	ownerName = od.getDonationDisplay();
+            	txtOwnerName.setText(ownerName);
+            }
+            else {
+            	pnlTop.remove(lblDonationFrom);
+            	pnlTop.remove(pnlDonation);
+            }
 
             setTitle(i18n("Edit_Transaction"));
         } catch (Exception e) {
@@ -171,6 +203,7 @@ public class TrxEdit extends ASMForm {
             trx.withdrawal = txtWithdrawal.getValue();
             trx.deposit = txtDeposit.getValue();
             trx.date = txtTrxDate.getDate();
+            trx.reconciled = chkReconciled.isSelected() ? 1 : 0;
 
             AccountTrx.saveTransaction(trx);
             AuditTrail.updated(isNew, "accountstrx",
@@ -196,9 +229,9 @@ public class TrxEdit extends ASMForm {
     public void initComponents() {
         setLayout(UI.getBorderLayout());
 
-        UI.Panel pnlOuter = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        UI.Panel pnlBot = UI.getPanel(UI.getFlowLayout());
+        pnlOuter = UI.getPanel(UI.getBorderLayout());
+        pnlTop = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        pnlBot = UI.getPanel(UI.getFlowLayout());
 
         pnlOuter.add(pnlTop, UI.BorderLayout.NORTH);
         pnlOuter.add(pnlBot, UI.BorderLayout.CENTER);
@@ -207,6 +240,9 @@ public class TrxEdit extends ASMForm {
         txtTrxDate = UI.getDateField();
         UI.addComponent(pnlTop, i18n("Date"), txtTrxDate);
 
+        chkReconciled = UI.getCheckBox(i18n("Reconciled"));
+        UI.addComponent(pnlTop, "", chkReconciled);
+        
         cboDescription = UI.getCombo(desclist, UI.fp(this, "descriptionChanged"));
         cboDescription.setEditable(true);
         UI.addComponent(pnlTop, i18n("Description"), cboDescription);
@@ -216,6 +252,23 @@ public class TrxEdit extends ASMForm {
 
         cboAccount = UI.getCombo(LookupCache.getAccountsLookup(), "Code");
         UI.addComponent(pnlTop, i18n("Account"), cboAccount);
+        
+    	txtOwnerName = UI.getTextField();
+    	txtOwnerName.setEnabled(false);
+    	
+    	pnlDonation = UI.getPanel(UI.getBorderLayout(), true);
+    	pnlDonation.add(txtOwnerName, UI.BorderLayout.CENTER);
+    	
+    	UI.ToolBar t = UI.getToolBar();
+    	btnOwner = UI.getButton(null, i18n("view_this_owner"), 'o',
+    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_OWNER),
+    		UI.fp(this, "actionOpenOwner"));
+    	t.add(btnOwner);
+    	pnlDonation.add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
+    	
+    	lblDonationFrom = UI.getLabel(i18n("donation_from"));
+    	UI.addComponent(pnlTop, lblDonationFrom);
+    	UI.addComponent(pnlTop, pnlDonation);
 
         txtDeposit = UI.getCurrencyField();
         UI.addComponent(pnlTop, i18n("Deposit"), txtDeposit);
@@ -231,6 +284,12 @@ public class TrxEdit extends ASMForm {
         btnCancel = UI.getButton(UI.messageCancel(),
                 i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
+    }
+    
+    public void actionOpenOwner() {
+    	OwnerEdit oe = new OwnerEdit();
+    	oe.openForEdit(ownerID);
+    	Global.mainForm.addChild(oe);
     }
 
     public void descriptionChanged() {

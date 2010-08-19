@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Fixed date sorting for transactions
+*. Date filter for transactions instead of numbered history
+*. Reconciled checkbox to allow un-reconciling of transactions
+*. Transactions show matching donations now
 *. Fixed potential memory leak for one frame registering multiple tab orders
 *. Cleaned up donation box on waiting list screen
 *. Use zeropadding for generated litter and movement numbers

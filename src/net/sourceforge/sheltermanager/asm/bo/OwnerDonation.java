@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.BOValidationException;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 import java.util.Date;
@@ -205,6 +206,34 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
 
     public void setLastChangedDate(Date newValue) throws CursorEngineException {
         rs.setField("LastChangedDate", newValue);
+    }
+    
+    /**
+     * Outputs a string containing the owner, animal and any movement reference
+     * for the donation
+     * @return
+     */
+    public String getDonationDisplay() throws Exception {
+    	SQLRecordset r = new SQLRecordset(
+    		"SELECT o.ID, o.OwnerName, a.ShelterCode, a.ShortCode, a.AnimalName, m.AdoptionNumber " +
+    		"FROM owner o " +
+    		"INNER JOIN ownerdonation od ON od.OwnerID = o.ID " +
+    		"LEFT OUTER JOIN animal a ON a.ID = od.AnimalID " +
+    		"LEFT OUTER JOIN adoption m ON m.ID = od.MovementID " +
+    		"WHERE od.ID = " + getID(), "owner");
+    	String s = "";
+    	if (!r.getEOF()) {
+    		s = r.getString("OwnerName");
+    		if (r.getField("ShelterCode") != null) {
+    			s += " / " + (Global.getShowShortCodes() ? 
+    				r.getString("ShortCode") : r.getString("ShelterCode")) + " (" +
+    				r.getString("AnimalName") + ")";
+    		}
+    		if (r.getField("AdoptionNumber") != null) {
+    			s += " / " + r.getString("AdoptionNumber");
+    		}
+    	}
+    	return s;
     }
 
     public void addNew() throws CursorEngineException {
