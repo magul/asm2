@@ -241,10 +241,10 @@ public abstract class ASMFind extends ASMForm {
 
                                 // Set a timer so that in 10 seconds, we clear the status bar text
                                 UI.invokeIn(new Runnable() {
-                                    public void run() {
-                                        setStatusText("");
-                                    }
-                                }, 10000);
+                                        public void run() {
+                                            setStatusText("");
+                                        }
+                                    }, 10000);
 
                                 // Reset the status meter back to 0
                                 resetStatusBar();

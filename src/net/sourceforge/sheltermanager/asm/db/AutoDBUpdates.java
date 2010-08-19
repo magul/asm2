@@ -2684,14 +2684,14 @@ public class AutoDBUpdates {
                 // If we can't parse the code, leave the short one alone
                 if (num != 0) {
                     try {
-		    	
-			// Create the new shortcode
-			String sc = Integer.toString(num) + 
-                            (!shortformat.equals("UUUU") ? r.getString("AnimalType").substring(0, 1) : "");
+                        // Create the new shortcode
+                        String sc = Integer.toString(num) +
+                            ((!shortformat.equals("UUUU"))
+                            ? r.getString("AnimalType").substring(0, 1) : "");
 
                         DBConnection.executeAction(
-                            "UPDATE animal SET ShortCode = '" + sc + "' WHERE ID = " + 
-                            Integer.toString( r.getInt("ID")));
+                            "UPDATE animal SET ShortCode = '" + sc +
+                            "' WHERE ID = " + Integer.toString(r.getInt("ID")));
                     } catch (Exception e) {
                         Global.logException(e, getClass());
                     }
@@ -4013,20 +4013,28 @@ public class AutoDBUpdates {
 
         try {
             int defaultSex = DBConnection.executeForInt("SELECT ID FROM lksex");
-            int defaultBreed = DBConnection.executeForInt("SELECT ID FROM breed");
+            int defaultBreed = DBConnection.executeForInt(
+                    "SELECT ID FROM breed");
             String ageGroup = Configuration.getString("AgeGroup2Name");
-            DBConnection.executeAction("ALTER TABLE animallost ADD Sex INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE animallost ADD BreedID INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE animallost ADD AgeGroup VARCHAR(255) NULL");
-            DBConnection.executeAction("UPDATE animallost SET Sex = " + defaultSex + ", BreedID = " + 
-                defaultBreed + ", AgeGroup = '" + ageGroup + "'");
-            DBConnection.executeAction("ALTER TABLE animalfound ADD Sex INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE animalfound ADD BreedID INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE animalfound ADD AgeGroup VARCHAR(255) NULL");
-            DBConnection.executeAction("UPDATE animalfound SET Sex = " + defaultSex + ", BreedID = " + 
-                defaultBreed + ", AgeGroup = '" + ageGroup + "'");
-        }
-        catch (Exception e) {
+            DBConnection.executeAction(
+                "ALTER TABLE animallost ADD Sex INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animallost ADD BreedID INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animallost ADD AgeGroup VARCHAR(255) NULL");
+            DBConnection.executeAction("UPDATE animallost SET Sex = " +
+                defaultSex + ", BreedID = " + defaultBreed + ", AgeGroup = '" +
+                ageGroup + "'");
+            DBConnection.executeAction(
+                "ALTER TABLE animalfound ADD Sex INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animalfound ADD BreedID INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animalfound ADD AgeGroup VARCHAR(255) NULL");
+            DBConnection.executeAction("UPDATE animalfound SET Sex = " +
+                defaultSex + ", BreedID = " + defaultBreed + ", AgeGroup = '" +
+                ageGroup + "'");
+        } catch (Exception e) {
             errors.add("animallost/found: ADD Sex, BreedID, AgeGroup");
             Global.logException(e, getClass());
         }
@@ -4035,11 +4043,15 @@ public class AutoDBUpdates {
     public void update2731() {
         try {
             // Remove the BondedAnimalIDList field from the animal table - was a bad idea
-            DBConnection.executeAction("ALTER TABLE animal DROP BondedAnimalIDList");
+            DBConnection.executeAction(
+                "ALTER TABLE animal DROP BondedAnimalIDList");
             // Add two bonded fields - should never need more than that
-            DBConnection.executeAction("ALTER TABLE animal ADD BondedAnimalID INTEGER NULL");
-            DBConnection.executeAction("ALTER TABLE animal ADD BondedAnimal2ID INTEGER NULL");
-            DBConnection.executeAction("UPDATE animal SET BondedAnimalID = 0, BondedAnimal2ID = 0");
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD BondedAnimalID INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD BondedAnimal2ID INTEGER NULL");
+            DBConnection.executeAction(
+                "UPDATE animal SET BondedAnimalID = 0, BondedAnimal2ID = 0");
         } catch (Exception e) {
             errors.add("animal: ADD BondedAnimalID");
             Global.logException(e, getClass());
@@ -4049,7 +4061,8 @@ public class AutoDBUpdates {
     public void update2732() {
         try {
             // Remove the TimeoutMonths field from the litter table
-            DBConnection.executeAction("ALTER TABLE animallitter DROP TimeoutMonths");
+            DBConnection.executeAction(
+                "ALTER TABLE animallitter DROP TimeoutMonths");
         } catch (Exception e) {
             errors.add("animallitter: DROP TimeoutMonths");
             Global.logException(e, getClass());

@@ -310,7 +310,7 @@ public class Startup implements Runnable {
             sp.setStatus("Setting maximum packet size...");
             sp.incrementBar();
             Global.setMaxAllowedPacket();
-            
+
             // Switch to UTF8 mode if the server needs it
             sp.setStatus("Switching to UTF8 input/output...");
             Global.setUTF8();
@@ -693,6 +693,7 @@ public class Startup implements Runnable {
             // TabAlignment - can be TOP, BOTTOM, LEFT, RIGHT
             // =========================================================
             alignstring = p.getProperty("TabAlignment", "0");
+
             if (alignstring.equals("1")) {
                 Global.TABALIGN = UI.TabbedPane.BOTTOM;
             } else if (alignstring.equals("2")) {
@@ -737,13 +738,14 @@ public class Startup implements Runnable {
             Global.videoCaptureCommand = p.getProperty("VideoCaptureCommand", "");
 
             // Toolbar size (0 = off, 16, 24, 32 - default=32)
-            Global.toolbarSize = Integer.parseInt(p.getProperty("ToolbarSize", "32"));
+            Global.toolbarSize = Integer.parseInt(p.getProperty("ToolbarSize",
+                        "32"));
 
-	    // Skin
-	    // =========================================================
-	    int skin = Integer.parseInt(p.getProperty("Skin", "1"));
-	    Global.skin = skin;
-	    UI.swingSetLAF(skin);
+            // Skin
+            // =========================================================
+            int skin = Integer.parseInt(p.getProperty("Skin", "1"));
+            Global.skin = skin;
+            UI.swingSetLAF(skin);
 
             // Locale
             // =========================================================

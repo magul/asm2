@@ -317,17 +317,26 @@ public class Options extends ASMForm {
         txtAgeGroup5Name.setText(Configuration.getString("AgeGroup5Name", ""));
 
         // Lost and Found
-        spnMatchSpecies.setValue(new Integer(Configuration.getInteger("MatchSpecies", 5)));
-        spnMatchBreed.setValue(new Integer(Configuration.getInteger("MatchBreed", 5)));
+        spnMatchSpecies.setValue(new Integer(Configuration.getInteger(
+                    "MatchSpecies", 5)));
+        spnMatchBreed.setValue(new Integer(Configuration.getInteger(
+                    "MatchBreed", 5)));
         spnMatchAge.setValue(new Integer(Configuration.getInteger("MatchAge", 5)));
         spnMatchSex.setValue(new Integer(Configuration.getInteger("MatchSex", 5)));
-        spnMatchAreaLost.setValue(new Integer(Configuration.getInteger("MatchAreaLost", 5)));
-        spnMatchFeatures.setValue(new Integer(Configuration.getInteger("MatchFeatures", 5)));
-        spnMatchPostcode.setValue(new Integer(Configuration.getInteger("MatchPostcode", 5)));
-        spnMatchColour.setValue(new Integer(Configuration.getInteger("MatchColour", 5)));
-        spnMatchDateWithin2Weeks.setValue(new Integer(Configuration.getInteger("MatchWithin2Weeks", 5)));
-        spnMatchPointFloor.setValue(new Integer(Configuration.getInteger("MatchPointFloor", 20)));
-        chkMatchShelterDB.setSelected(Configuration.getBoolean("MatchIncludeShelter"));
+        spnMatchAreaLost.setValue(new Integer(Configuration.getInteger(
+                    "MatchAreaLost", 5)));
+        spnMatchFeatures.setValue(new Integer(Configuration.getInteger(
+                    "MatchFeatures", 5)));
+        spnMatchPostcode.setValue(new Integer(Configuration.getInteger(
+                    "MatchPostcode", 5)));
+        spnMatchColour.setValue(new Integer(Configuration.getInteger(
+                    "MatchColour", 5)));
+        spnMatchDateWithin2Weeks.setValue(new Integer(Configuration.getInteger(
+                    "MatchWithin2Weeks", 5)));
+        spnMatchPointFloor.setValue(new Integer(Configuration.getInteger(
+                    "MatchPointFloor", 20)));
+        chkMatchShelterDB.setSelected(Configuration.getBoolean(
+                "MatchIncludeShelter"));
 
         // Defaults
         Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
@@ -559,17 +568,26 @@ public class Options extends ASMForm {
             Configuration.setEntry("AgeGroup5Name", txtAgeGroup5Name.getText());
 
             // Lost and Found
-            Configuration.setEntry("MatchSpecies", spnMatchSpecies.getValue().toString());
-            Configuration.setEntry("MatchBreed", spnMatchBreed.getValue().toString());
+            Configuration.setEntry("MatchSpecies",
+                spnMatchSpecies.getValue().toString());
+            Configuration.setEntry("MatchBreed",
+                spnMatchBreed.getValue().toString());
             Configuration.setEntry("MatchAge", spnMatchAge.getValue().toString());
             Configuration.setEntry("MatchSex", spnMatchSex.getValue().toString());
-            Configuration.setEntry("MatchAreaLost", spnMatchAreaLost.getValue().toString());
-            Configuration.setEntry("MatchFeatures", spnMatchFeatures.getValue().toString());
-            Configuration.setEntry("MatchPostcode", spnMatchPostcode.getValue().toString());
-            Configuration.setEntry("MatchColour", spnMatchColour.getValue().toString());
-            Configuration.setEntry("MatchWithin2Weeks", spnMatchDateWithin2Weeks.getValue().toString());
-            Configuration.setEntry("MatchPointFloor", spnMatchPointFloor.getValue().toString());
-            Configuration.setEntry("MatchIncludeShelter", chkMatchShelterDB.isSelected() ? "Yes" : "No");
+            Configuration.setEntry("MatchAreaLost",
+                spnMatchAreaLost.getValue().toString());
+            Configuration.setEntry("MatchFeatures",
+                spnMatchFeatures.getValue().toString());
+            Configuration.setEntry("MatchPostcode",
+                spnMatchPostcode.getValue().toString());
+            Configuration.setEntry("MatchColour",
+                spnMatchColour.getValue().toString());
+            Configuration.setEntry("MatchWithin2Weeks",
+                spnMatchDateWithin2Weeks.getValue().toString());
+            Configuration.setEntry("MatchPointFloor",
+                spnMatchPointFloor.getValue().toString());
+            Configuration.setEntry("MatchIncludeShelter",
+                chkMatchShelterDB.isSelected() ? "Yes" : "No");
 
             // Shelter Details
             String selcountry = cboOrgCountry.getSelectedItem().toString();
@@ -641,9 +659,9 @@ public class Options extends ASMForm {
         tabTabs = UI.getTabbedPane(UI.fp(this, "tabChanged"));
 
         // Move our tab set to the left (or right for RTL languages)
-        if (UI.isLTR())
+        if (UI.isLTR()) {
             tabTabs.setTabPlacement(UI.TabbedPane.LEFT);
-        else {
+        } else {
             tabTabs.setTabPlacement(UI.TabbedPane.RIGHT);
         }
 
@@ -686,7 +704,7 @@ public class Options extends ASMForm {
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
 
-        List<SelectableItem> l  = new ArrayList<SelectableItem>();
+        List<SelectableItem> l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
                 false, true));
 
@@ -751,7 +769,7 @@ public class Options extends ASMForm {
         l.add(new SelectableItem(Global.i18n("uisystem",
                     "disable_shortcodes_editing"), "DisableShortCodesControl",
                 Configuration.getString("DisableShortCodesControl")
-                            .equalsIgnoreCase("Yes"), false));
+                             .equalsIgnoreCase("Yes"), false));
 
         l.add(new SelectableItem(Global.i18n("uisystem",
                     "Check_animal_codes_entered_by_users_conform_to_selected_scheme"),
@@ -966,8 +984,7 @@ public class Options extends ASMForm {
                 UI.getTextField(i18n("emails_from_ASM_come_from")));
 
         txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
-                i18n("email_signature"),
-                UI.getTextArea());
+                i18n("email_signature"), UI.getTextArea());
 
         txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
                 i18n("smtp_server"),
@@ -992,23 +1009,34 @@ public class Options extends ASMForm {
                 i18n("Next:"), UI.getSpinner(0, 400000000));
 
         insurancenumbers.add(pins, UI.BorderLayout.NORTH);
-        tabTabs.addTab(i18n("Insurance"), null,
-            insurancenumbers, null);
+        tabTabs.addTab(i18n("Insurance"), null, insurancenumbers, null);
 
         // Lost and found
         UI.Panel plf = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
-        spnMatchPointFloor = (UI.Spinner) UI.addComponent(plf, i18n("how_many_points_to_show_on_report"), UI.getSpinner(0, 1000));
-        spnMatchSpecies = (UI.Spinner) UI.addComponent(plf, i18n("species_matches"), UI.getSpinner(0, 100));
-        spnMatchBreed = (UI.Spinner) UI.addComponent(plf, i18n("breed_matches"), UI.getSpinner(0, 100));
-        spnMatchColour = (UI.Spinner) UI.addComponent(plf, i18n("colour_matches"), UI.getSpinner(0, 100));
-        spnMatchAge = (UI.Spinner) UI.addComponent(plf, i18n("age_group_matches"), UI.getSpinner(0, 100));
-        spnMatchSex = (UI.Spinner) UI.addComponent(plf, i18n("sex_matches"), UI.getSpinner(0, 100));
-        spnMatchAreaLost = (UI.Spinner) UI.addComponent(plf, i18n("area_matches"), UI.getSpinner(0, 100));
-        spnMatchFeatures = (UI.Spinner) UI.addComponent(plf, i18n("features_matches"), UI.getSpinner(0, 100));
-        spnMatchPostcode = (UI.Spinner) UI.addComponent(plf, i18n("postcode_matches"), UI.getSpinner(0, 100));
-        spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf, i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
-        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "", UI.getCheckBox(i18n("include_shelter")));
-        
+        spnMatchPointFloor = (UI.Spinner) UI.addComponent(plf,
+                i18n("how_many_points_to_show_on_report"),
+                UI.getSpinner(0, 1000));
+        spnMatchSpecies = (UI.Spinner) UI.addComponent(plf,
+                i18n("species_matches"), UI.getSpinner(0, 100));
+        spnMatchBreed = (UI.Spinner) UI.addComponent(plf,
+                i18n("breed_matches"), UI.getSpinner(0, 100));
+        spnMatchColour = (UI.Spinner) UI.addComponent(plf,
+                i18n("colour_matches"), UI.getSpinner(0, 100));
+        spnMatchAge = (UI.Spinner) UI.addComponent(plf,
+                i18n("age_group_matches"), UI.getSpinner(0, 100));
+        spnMatchSex = (UI.Spinner) UI.addComponent(plf, i18n("sex_matches"),
+                UI.getSpinner(0, 100));
+        spnMatchAreaLost = (UI.Spinner) UI.addComponent(plf,
+                i18n("area_matches"), UI.getSpinner(0, 100));
+        spnMatchFeatures = (UI.Spinner) UI.addComponent(plf,
+                i18n("features_matches"), UI.getSpinner(0, 100));
+        spnMatchPostcode = (UI.Spinner) UI.addComponent(plf,
+                i18n("postcode_matches"), UI.getSpinner(0, 100));
+        spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf,
+                i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
+        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "",
+                UI.getCheckBox(i18n("include_shelter")));
+
         UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
         lostandfound.add(plf, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("lost_and_found"), null, lostandfound, null);
@@ -1286,34 +1314,33 @@ public class Options extends ASMForm {
                         "remove_bonded_field"), "DontShowBonded",
                     Configuration.getString("DontShowBonded")
                                  .equalsIgnoreCase("Yes"), false));
-            
-        	// Adding Multiple Animals
+
+            // Adding Multiple Animals
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Adding_multiple_animals"), null, false, true));
-            
-            l.add(new SelectableItem(Global.i18n("uisystem",
-            	"add_animals_show_breed"), "AddAnimalsShowBreed",
-            	Configuration.getString("AddAnimalsShowBreed")
-                     .equalsIgnoreCase("Yes"), false));
-            
-            l.add(new SelectableItem(Global.i18n("uisystem",
-	        	"add_animals_show_colour"), "AddAnimalsShowColour",
-	        	Configuration.getString("AddAnimalsShowColour")
-	                 .equalsIgnoreCase("Yes"), false));
-            
-            l.add(new SelectableItem(Global.i18n("uisystem",
-	        	"add_animals_show_location"), "AddAnimalsShowLocation",
-	        	Configuration.getString("AddAnimalsShowLocation")
-	                 .equalsIgnoreCase("Yes"), false));
-            
-            l.add(new SelectableItem(Global.i18n("uisystem",
-            	(Configuration.getBoolean("AutoLitterIdentification") ?
-            		"add_animals_show_litterid" :
-            		"add_animals_show_acceptance")), "AddAnimalsShowAcceptance",
-	        	Configuration.getString("AddAnimalsShowAcceptance")
-	                 .equalsIgnoreCase("Yes"), false));
 
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "add_animals_show_breed"), "AddAnimalsShowBreed",
+                    Configuration.getString("AddAnimalsShowBreed")
+                                 .equalsIgnoreCase("Yes"), false));
 
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "add_animals_show_colour"), "AddAnimalsShowColour",
+                    Configuration.getString("AddAnimalsShowColour")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "add_animals_show_location"), "AddAnimalsShowLocation",
+                    Configuration.getString("AddAnimalsShowLocation")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        (Configuration.getBoolean("AutoLitterIdentification")
+                        ? "add_animals_show_litterid"
+                        : "add_animals_show_acceptance")),
+                    "AddAnimalsShowAcceptance",
+                    Configuration.getString("AddAnimalsShowAcceptance")
+                                 .equalsIgnoreCase("Yes"), false));
         } catch (Exception e) {
             e.printStackTrace();
         }

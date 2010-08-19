@@ -113,7 +113,8 @@ public class NotAdoptionView extends ASMView {
         try {
             while (!rs.getEOF()) {
                 tabledata[i][0] = rs.getField("AnimalName").toString();
-                tabledata[i][1] = Global.getShowShortCodes() ? rs.getString("ShortCode") : rs.getString("ShelterCode");
+                tabledata[i][1] = Global.getShowShortCodes()
+                    ? rs.getString("ShortCode") : rs.getString("ShelterCode");
                 tabledata[i][2] = rs.getString("AnimalType");
                 tabledata[i][3] = rs.getString("SpeciesName");
                 tabledata[i][4] = Utils.nullToEmptyString(Utils.formatTableDate(

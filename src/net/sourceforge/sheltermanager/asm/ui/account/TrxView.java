@@ -71,19 +71,21 @@ public class TrxView extends ASMView {
             cboNumTrx = UI.getCombo(new String[] {
                         "100", "200", "500", i18n("All")
                     });
-            
+
             dtFrom = UI.getDateField();
+
             Calendar onemonth = Calendar.getInstance();
             onemonth.add(Calendar.MONTH, -1);
             dtFrom.setDate(Utils.calendarToDate(onemonth));
-            
+
             dtTo = UI.getDateField();
+
             Calendar now = Calendar.getInstance();
             dtTo.setDate(Utils.calendarToDate(now));
-            
+
             UI.addComponent(getTopPanel(), i18n("show_most_recent"), dtFrom);
             UI.addComponent(getTopPanel(), i18n("to"), dtTo);
-            
+
             updateList();
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -129,25 +131,31 @@ public class TrxView extends ASMView {
     public void updateListThreaded() {
         try {
             // Get number of trx to display
-        	/*
+            /*
             int num = 100;
 
             if ((cboNumTrx != null) && (cboNumTrx.getSelectedItem() != null)) {
-                String nums = cboNumTrx.getSelectedItem().toString();
+            String nums = cboNumTrx.getSelectedItem().toString();
 
-                if (nums.equals(i18n("All"))) {
-                    num = 9999999;
-                } else {
-                    num = Integer.parseInt(nums);
-                }
+            if (nums.equals(i18n("All"))) {
+                num = 9999999;
+            } else {
+                num = Integer.parseInt(nums);
+            }
             }
             */
-        	
-        	Date from = new Date();
-        	if (dtFrom.getDate() != null) from = dtFrom.getDate();
-        	Date to = new Date();
-        	if (dtTo.getDate() != null) to = dtTo.getDate();
-        	
+            Date from = new Date();
+
+            if (dtFrom.getDate() != null) {
+                from = dtFrom.getDate();
+            }
+
+            Date to = new Date();
+
+            if (dtTo.getDate() != null) {
+                to = dtTo.getDate();
+            }
+
             // Grab the list
             trx = AccountTrx.getTransactions(account.getID(), from, to);
 

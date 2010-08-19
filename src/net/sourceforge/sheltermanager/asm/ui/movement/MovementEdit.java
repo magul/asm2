@@ -136,9 +136,9 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     private boolean isNewRecord = false;
 
     public MovementEdit() {
-    	this(null);
+        this(null);
     }
-    
+
     /** Creates new form MovementEdit */
     public MovementEdit(MovementParent theparent) {
         this.parent = theparent;
@@ -364,12 +364,12 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         cboReturnReason.setEnabled(!txtDateReturned.getText().equals(""));
         txtReason.setEnabled(!txtDateReturned.getText().equals(""));
     }
-    
+
     public void openForEdit(int movementID) {
-    	Adoption a = new Adoption("ID = " + movementID);
-    	openForEdit(a, 0);
+        Adoption a = new Adoption("ID = " + movementID);
+        openForEdit(a, 0);
     }
-    
+
     /**
      * Sets us into editing mode.
      *
@@ -382,8 +382,9 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         try {
             movement = themovement;
             animalID = movement.getAnimalID().intValue();
-            
+
             String ownername = "";
+
             if (movement.getOwnerID().intValue() == 0) {
                 ownername = i18n("(none)");
             } else {
@@ -392,6 +393,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             }
 
             String retailername = "";
+
             if (movement.getRetailerID().intValue() == 0) {
                 retailername = i18n("(none)");
             } else {
@@ -401,9 +403,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             this.setTitle(i18n("edit_movement_title",
                     movement.getAdoptionNumber(),
                     movement.getAnimal().getAnimalName(),
-                    movement.getAnimal().getCode(),
-                    ownername));
-
+                    movement.getAnimal().getCode(), ownername));
 
             // Created and Changed values
             audit = i18n("created_lastchange",
@@ -790,11 +790,11 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             // being adopted together
             if (movement.getMovementType().intValue() == Adoption.MOVETYPE_ADOPTION) {
                 String names = movement.getAnimal().getBondedAnimalDisplay();
+
                 if (!names.equals("")) {
                     Dialog.showWarning(i18n("This_animal_is_bonded_with", names));
                 }
             }
-
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -879,8 +879,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         UI.Panel ao = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         aoouter.add(ao, UI.BorderLayout.NORTH);
 
-        embAnimal = (AnimalLink) UI.addComponent(ao,
-            i18n("Animal:"), new AnimalLink(this));
+        embAnimal = (AnimalLink) UI.addComponent(ao, i18n("Animal:"),
+                new AnimalLink(this));
 
         olOwnerName = (OwnerLink) UI.addComponent(ao, i18n("Owner:"),
                 new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE,
@@ -1185,9 +1185,11 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         try {
             // We can't move non-shelter animals
             Animal theanimal = LookupCache.getAnimalByID(animalid);
+
             if (theanimal.getNonShelterAnimal().intValue() == 1) {
                 Dialog.showError(i18n("You_cannot_move_nonshelter_animals",
                         theanimal.getShelterCode(), theanimal.getAnimalName()));
+
                 return;
             }
 
@@ -1195,7 +1197,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             animalID = selectedAnimalID;
             dataChanged();
             enableButtons();
-
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());

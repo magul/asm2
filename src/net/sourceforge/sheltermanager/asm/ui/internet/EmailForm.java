@@ -100,9 +100,12 @@ public class EmailForm extends ASMForm {
 
     public void setTo(String to) {
         txtTo.setText(to);
+
         String s = Configuration.getString("EmailSignature");
-        if (!s.equals(""))
+
+        if (!s.equals("")) {
             txtBody.setText("\n--\n" + s);
+        }
     }
 
     public void setOwnerID(int ownerid) {
@@ -128,10 +131,10 @@ public class EmailForm extends ASMForm {
         setTitle(i18n("send_bulk_email"));
 
         // Remove to and CC fields
-        pnlHead.remove(lblTo);    
-        pnlHead.remove(txtTo);    
-        pnlHead.remove(lblCC);    
-        pnlHead.remove(txtCC);    
+        pnlHead.remove(lblTo);
+        pnlHead.remove(txtTo);
+        pnlHead.remove(lblCC);
+        pnlHead.remove(txtCC);
 
         // Get rid of log controls
         remove(pnlLog);
@@ -185,7 +188,8 @@ public class EmailForm extends ASMForm {
 
         txtFrom = (UI.TextField) UI.addComponent(pnlHead, i18n("from"),
                 UI.getTextField());
-        txtFrom.setText(Configuration.getString("Organisation") + " <" + Configuration.getString("EmailAddress") + ">");
+        txtFrom.setText(Configuration.getString("Organisation") + " <" +
+            Configuration.getString("EmailAddress") + ">");
 
         lblTo = (UI.Label) UI.addComponent(pnlHead, UI.getLabel(i18n("to")));
         txtTo = (UI.TextField) UI.addComponent(pnlHead, UI.getTextField());
@@ -193,10 +197,10 @@ public class EmailForm extends ASMForm {
         lblCC = (UI.Label) UI.addComponent(pnlHead, UI.getLabel(i18n("cc")));
         txtCC = (UI.TextField) UI.addComponent(pnlHead, UI.getTextField());
 
-        txtSubject = (UI.TextField) UI.addComponent(pnlHead,
-                i18n("subject"), UI.getTextField());
-        chkHTML = (UI.CheckBox) UI.addComponent(pnlHead,
-                "", UI.getCheckBox(i18n("HTML")));
+        txtSubject = (UI.TextField) UI.addComponent(pnlHead, i18n("subject"),
+                UI.getTextField());
+        chkHTML = (UI.CheckBox) UI.addComponent(pnlHead, "",
+                UI.getCheckBox(i18n("HTML")));
 
         txtBody = (UI.TextArea) pnlBody.add(UI.getTextArea());
         lstFields = (UI.List) pnlFields.add(UI.getList(UI.fp(this,
@@ -206,11 +210,12 @@ public class EmailForm extends ASMForm {
         pnlTop.add(pnlHead, UI.BorderLayout.CENTER);
 
         chkAddLog = (UI.CheckBox) UI.addComponent(pnlLog,
-            UI.getCheckBox(i18n("add_to_log"), i18n("store_this_email_in_the_log"), 
-            UI.fp(this, "actionLogCheckChanged")));
+                UI.getCheckBox(i18n("add_to_log"),
+                    i18n("store_this_email_in_the_log"),
+                    UI.fp(this, "actionLogCheckChanged")));
 
         cboLog = UI.getCombo(LookupCache.getLogTypeLookup(), "LogTypeName");
-        Utils.setComboFromID(LookupCache.getLogTypeLookup(), "LogTypeName", 
+        Utils.setComboFromID(LookupCache.getLogTypeLookup(), "LogTypeName",
             Configuration.getInteger("AFDefaultLogFilter"), cboLog);
         cboLog.setEnabled(false);
         UI.addComponent(pnlLog, cboLog);
@@ -239,7 +244,6 @@ public class EmailForm extends ASMForm {
     }
 
     public void actionSend() {
-        
         // Make sure there is a subject
         if (txtSubject.getText().equals("")) {
             Dialog.showError(i18n("you_must_supply_a_subject"));
@@ -256,7 +260,8 @@ public class EmailForm extends ASMForm {
 
         // If there is a parent, fire the event and stop now
         if (parent != null) {
-            parent.sendEmail(txtFrom.getText(), txtSubject.getText(), txtBody.getText(), 
+            parent.sendEmail(txtFrom.getText(), txtSubject.getText(),
+                txtBody.getText(),
                 chkHTML.isSelected() ? "text/html" : "text/plain");
             dispose();
 
@@ -272,23 +277,25 @@ public class EmailForm extends ASMForm {
 
         // Send it
         try {
-
             Email email = new Email();
-            email.sendmsg(txtTo.getText(), txtCC.getText(), txtSubject.getText(),
-                txtBody.getText(), txtFrom.getText(), 
+            email.sendmsg(txtTo.getText(), txtCC.getText(),
+                txtSubject.getText(), txtBody.getText(), txtFrom.getText(),
                 chkHTML.isSelected() ? "text/html" : "text/plain");
             email.close();
 
             // Store it in the log if the option is set
-            if (chkAddLog.isSelected() && ownerid != 0) {
+            if (chkAddLog.isSelected() && (ownerid != 0)) {
                 Log l = new Log("ID=0");
                 l.addNew();
-                l.setLogTypeID(Utils.getIDFromCombo(LookupCache.getLogTypeLookup(), "LogTypeName", cboLog));
+                l.setLogTypeID(Utils.getIDFromCombo(
+                        LookupCache.getLogTypeLookup(), "LogTypeName", cboLog));
                 l.setLinkID(new Integer(ownerid));
                 l.setLinkType(new Integer(Log.LINKTYPE_OWNER));
                 l.setDate(new Date());
-                l.setComments(txtSubject.getText() + "\n \n" + txtBody.getText());
+                l.setComments(txtSubject.getText() + "\n \n" +
+                    txtBody.getText());
                 l.save(Global.currentUserName);
+
                 if (parentOwnerForm != null) {
                     parentOwnerForm.log.updateList();
                 }

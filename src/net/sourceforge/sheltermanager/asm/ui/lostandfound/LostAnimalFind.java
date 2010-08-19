@@ -119,27 +119,22 @@ public class LostAnimalFind extends ASMFind {
                 i18n("Dist._Features:"), UI.getTextField());
 
         cboAgeGroup = UI.getCombo(i18n("Age_Group:"),
-                LookupCache.getAgeGroupNames(), 
-                i18n("(all)"));
+                LookupCache.getAgeGroupNames(), i18n("(all)"));
         UI.addComponent(p, i18n("Age_Group:"), cboAgeGroup);
 
-        cboSex = UI.getCombo(i18n("Sex:"),
-                LookupCache.getSexLookup(), "Sex",
+        cboSex = UI.getCombo(i18n("Sex:"), LookupCache.getSexLookup(), "Sex",
                 i18n("(all)"));
         UI.addComponent(p, i18n("Sex:"), cboSex);
 
         cboSpecies = UI.getCombo(i18n("Species:"),
-                LookupCache.getSpeciesLookup(), "SpeciesName",
-                i18n("(all)"));
+                LookupCache.getSpeciesLookup(), "SpeciesName", i18n("(all)"));
         UI.addComponent(p, i18n("Species:"), cboSpecies);
 
-        cboBreed = UI.getCombo(i18n("Breed:"),
-                LookupCache.getBreedLookup(), "BreedName",
-                i18n("(all)"));
+        cboBreed = UI.getCombo(i18n("Breed:"), LookupCache.getBreedLookup(),
+                "BreedName", i18n("(all)"));
         UI.addComponent(p, i18n("Breed:"), cboBreed);
         cboColour = UI.getCombo(i18n("Colour:"),
-                LookupCache.getBaseColourLookup(), "BaseColour",
-                i18n("(all)"));
+                LookupCache.getBaseColourLookup(), "BaseColour", i18n("(all)"));
         UI.addComponent(p, i18n("Colour:"), cboColour);
 
         txtFrom = (DateField) UI.addComponent(p, i18n("Lost_Between:"),
@@ -312,7 +307,7 @@ public class LostAnimalFind extends ASMFind {
         // Create an array of headers for the accounts
         String[] columnheaders = {
                 i18n("Contact"), i18n("Number"), i18n("Area"), i18n("Postcode"),
-                i18n("Date"), i18n("Age_Group"), i18n("Sex"), i18n("Species"), 
+                i18n("Date"), i18n("Age_Group"), i18n("Sex"), i18n("Species"),
                 i18n("Breed"), i18n("Colour"), i18n("Features")
             };
 
@@ -323,14 +318,19 @@ public class LostAnimalFind extends ASMFind {
             try {
                 datar[i][0] = lostanimal.getString("OwnerName");
                 datar[i][1] = lostanimal.getString("HomeTelephone");
-                datar[i][2] = Utils.formatAddress(lostanimal.getString("AreaLost"));
+                datar[i][2] = Utils.formatAddress(lostanimal.getString(
+                            "AreaLost"));
                 datar[i][3] = lostanimal.getString("AreaPostcode");
-                datar[i][4] = Utils.formatTableDate(lostanimal.getDate("DateLost"));
+                datar[i][4] = Utils.formatTableDate(lostanimal.getDate(
+                            "DateLost"));
                 datar[i][5] = lostanimal.getString("AgeGroup");
                 datar[i][6] = LookupCache.getSexName(lostanimal.getInt("Sex"));
-                datar[i][7] = LookupCache.getSpeciesName(lostanimal.getInt("AnimalTypeID"));
-                datar[i][8] = LookupCache.getBreedName(lostanimal.getInt("BreedID"));
-                datar[i][9] = LookupCache.getBaseColourName(lostanimal.getInt("BaseColourID"));
+                datar[i][7] = LookupCache.getSpeciesName(lostanimal.getInt(
+                            "AnimalTypeID"));
+                datar[i][8] = LookupCache.getBreedName(lostanimal.getInt(
+                            "BreedID"));
+                datar[i][9] = LookupCache.getBaseColourName(lostanimal.getInt(
+                            "BaseColourID"));
                 datar[i][10] = lostanimal.getString("DistFeat");
                 datar[i][11] = lostanimal.getString("ID");
                 i++;

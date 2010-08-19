@@ -33,20 +33,20 @@ public class StartupPage extends ASMForm {
 
                         // Use the dispatch thread to load the report content
                         UI.invokeLater(new Runnable() {
-                            public void run() {
-                                diarynotes.showReport(d.getFilename(), d.getTitle());
-                                // 400px for image width, plus 4px*2 for panel margin,
-                                // plus 8px for splitter width
-                                hs.setDividerLocation(getWidth() - 416);
-                                UI.cursorToPointer();
-                            }
-                        });
+                                public void run() {
+                                    diarynotes.showReport(d.getFilename(),
+                                        d.getTitle());
+                                    // 400px for image width, plus 4px*2 for panel margin,
+                                    // plus 8px for splitter width
+                                    hs.setDividerLocation(getWidth() - 416);
+                                    UI.cursorToPointer();
+                                }
+                            });
 
                         // Load the news after the report - still on a separate thread
                         // so there's no blocking if we can't get to the web
                         asmnews.setPage(System.getProperty("asm.news",
-                            "http://sheltermanager.sf.net/startpage.html"));
-
+                                "http://sheltermanager.sf.net/startpage.html"));
                     } catch (Exception e) {
                         Global.logException(e, getClass());
                     }
@@ -66,12 +66,12 @@ public class StartupPage extends ASMForm {
     }
 
     public void initComponents() {
-        
         diarynotes = new ReportViewer();
-        
+
         UI.Panel pnews = UI.getPanel(UI.getBorderLayout());
         pnews.add(UI.getSplashLabel(), UI.BorderLayout.NORTH);
-        asmnews = UI.getHTMLBrowser(new FunctionPointer(this, "hyperlinkClicked", new Class[] { String.class }));
+        asmnews = UI.getHTMLBrowser(new FunctionPointer(this,
+                    "hyperlinkClicked", new Class[] { String.class }));
         asmnews.setPreferredSize(UI.getDimension(400, 400));
         UI.addComponent(pnews, asmnews);
 

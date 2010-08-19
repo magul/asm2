@@ -60,9 +60,8 @@ public class AnimalPrint extends Report {
 
     public String getTitle() {
         try {
-            return Global.i18n("reports", "animal_detail_print",
-                code(a), a.getAnimalName(),
-                Utils.getReadableTodaysDate());
+            return Global.i18n("reports", "animal_detail_print", code(a),
+                a.getAnimalName(), Utils.getReadableTodaysDate());
         } catch (Exception e) {
             Global.logException(e, getClass());
 
@@ -222,10 +221,12 @@ public class AnimalPrint extends Report {
         tableAddRow();
         tableAddBoldCell(Global.i18n("uianimal", "Entry_Category"));
         tableAddCell(LookupCache.getEntryReasonNameForID(a.getEntryReasonID()));
+
         if (!Configuration.getBoolean("DontShowBonded")) {
             tableAddBoldCell(Global.i18n("uianimal", "Bonded"));
             tableAddCell(a.getBondedAnimalDisplay());
         }
+
         tableFinishRow();
         tableFinish();
         addTable();

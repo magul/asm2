@@ -142,18 +142,17 @@ public class CustomReport extends UserInfoBO<CustomReport> {
 
     public static String getReportType(String html) {
         String type = Global.i18n("uicustomreport", "Report");
+
         if (html.equalsIgnoreCase("GRAPH")) {
             type = Global.i18n("uicustomreport", "Graph");
-        }
-        else if (html.equalsIgnoreCase("MAIL")) {
+        } else if (html.equalsIgnoreCase("MAIL")) {
             type = Global.i18n("uicustomreport", "Mailmerge");
-        }
-        else if (html.length() < 4) {
+        } else if (html.length() < 4) {
             type = Global.i18n("uicustomreport", "Builtin");
         }
+
         return type;
     }
-
 
     /**
      * Returns true if this is a subreport. Subreports are identified by the

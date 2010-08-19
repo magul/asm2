@@ -56,7 +56,8 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
-public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLinkListener {
+public class DonationEdit extends ASMForm implements AnimalLinkListener,
+    OwnerLinkListener {
     private DonationSelector parent = null;
     private OwnerDonation od = null;
     private int animalID = 0;
@@ -137,7 +138,7 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLi
             if ((od.getAnimalID().intValue() != 0) && (embAnimal != null)) {
                 embAnimal.loadFromID(od.getAnimalID());
             }
-            
+
             setTitle(i18n("edit_owner_donation"));
             audit = UI.messageAudit(od.getCreatedDate(), od.getCreatedBy(),
                     od.getLastChangedDate(), od.getLastChangedBy());
@@ -221,8 +222,8 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLi
 
         // If we have no animal ID, allow box to choose it
         if (animalID == 0) {
-            embAnimal = (AnimalLink) UI.addComponent(top,
-                i18n("Animal"), new AnimalLink(this));
+            embAnimal = (AnimalLink) UI.addComponent(top, i18n("Animal"),
+                    new AnimalLink(this));
         }
 
         txtComments = (UI.TextArea) UI.addComponent(mid, i18n("comments"),
@@ -260,7 +261,11 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLi
             od.setDonation(new Double(txtDonation.getText()));
             od.setFrequency(new Integer(cboFrequency.getSelectedIndex()));
             od.setIsGiftAid(new Integer(chkGiftAid.isSelected() ? 1 : 0));
-            if (embAnimal != null) od.setAnimalID(embAnimal.getID());
+
+            if (embAnimal != null) {
+                od.setAnimalID(embAnimal.getID());
+            }
+
             od.setDonationTypeID(Utils.getIDFromCombo(
                     LookupCache.getDonationTypeLookup(), "DonationName",
                     cboDonationType));
@@ -347,8 +352,7 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener, OwnerLi
         try {
             this.animalID = animalid;
             od.setAnimalID(new Integer(animalid));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

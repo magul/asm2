@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.reports;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
@@ -226,7 +227,6 @@ public class CustomReportExecute extends Report {
                 new CustomMailMerge(sql, cr.getTitle());
 
                 return;
-
             }
         } catch (Exception e) {
             Global.logException(e, getClass());
@@ -1630,30 +1630,47 @@ public class CustomReportExecute extends Report {
             }
         }
 
-	// ANIMAL
-	if (askedFor.equalsIgnoreCase("ANIMAL")) {
-	    replaceWith = Integer.toString(Dialog.getAnimal(true));
+        // ANIMAL
+        if (askedFor.equalsIgnoreCase("ANIMAL")) {
+            replaceWith = Integer.toString(Dialog.getAnimal(true));
+
             try {
                 crit += (Global.i18n("reports", "animal") + ": " +
-		    DBConnection.executeForString("SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
-                    "<br/>");
+                DBConnection.executeForString(
+                    "SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
+                "<br/>");
             } catch (Exception e) {
                 Global.logException(e, getClass());
             }
-	}
+        }
 
-	// ALLANIMAL
-	if (askedFor.equalsIgnoreCase("ALLANIMAL")) {
-	    replaceWith = Integer.toString(Dialog.getAnimal(false));
+        // ALLANIMAL
+        if (askedFor.equalsIgnoreCase("ALLANIMAL")) {
+            replaceWith = Integer.toString(Dialog.getAnimal(false));
+
             try {
                 crit += (Global.i18n("reports", "animal") + ": " +
-		    DBConnection.executeForString("SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
-                    "<br/>");
+                DBConnection.executeForString(
+                    "SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
+                "<br/>");
             } catch (Exception e) {
                 Global.logException(e, getClass());
             }
-	}
+        }
 
+        // LITTER
+        if (askedFor.equalsIgnoreCase("LITTER")) {
+            replaceWith = Dialog.getLitter(0);
+
+            try {
+                crit += ((Configuration.getBoolean("AutoLitterIdentification")
+                ? Global.i18n("uianimal", "litter_id")
+                : Global.i18n("uianimal", "Acceptance_No:")) + " " +
+                replaceWith + "<br/>");
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+        }
 
         // ANIMAL TYPE
         if (askedFor.equalsIgnoreCase("TYPE")) {

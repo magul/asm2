@@ -515,8 +515,9 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
         UI.Panel pnlRightMid = UI.getPanel(UI.getGridLayout(2,
                     new int[] { 30, 70 }));
 
-        chkCanAffordDonation = (UI.CheckBox) UI.addComponent(pnlRightTop, "", UI.getCheckBox(
-                    i18n("Donation?"), i18n("Tick_this_box_if_the_owner_made_a_donation"), 
+        chkCanAffordDonation = (UI.CheckBox) UI.addComponent(pnlRightTop, "",
+                UI.getCheckBox(i18n("Donation?"),
+                    i18n("Tick_this_box_if_the_owner_made_a_donation"),
                     UI.fp(this, "dataChanged")));
 
         cboUrgency = UI.getCombo(i18n("Urgency:"),

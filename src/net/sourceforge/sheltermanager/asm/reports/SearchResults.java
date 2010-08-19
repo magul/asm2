@@ -52,7 +52,6 @@ public class SearchResults extends Report {
     }
 
     public void generateReport() {
-
         if ((searchTerm != null) && !searchTerm.equals("")) {
             addParagraph(bold(Global.i18n("reports", "criteria") + ": <br />") +
                 searchTerm);
@@ -88,10 +87,11 @@ public class SearchResults extends Report {
             tableAddRow();
 
             for (int z = 0; z < 12; z++) {
-	    	if (z == 0)
-		    tableAddCell(searchResults[i][13]);
-		else
+                if (z == 0) {
+                    tableAddCell(searchResults[i][13]);
+                } else {
                     tableAddCell(searchResults[i][z]);
+                }
             }
 
             tableFinishRow();
@@ -102,7 +102,5 @@ public class SearchResults extends Report {
         addTable();
 
         addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
-
     }
-
 }

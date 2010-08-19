@@ -41,7 +41,6 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  * @author Robin Rawson-Tetley
  */
 public class AnimalLink extends UI.Panel implements SearchListener {
-    
     private int animalID = 0;
     private AnimalLinkListener parent = null;
     private UI.Button btnClear;
@@ -71,6 +70,7 @@ public class AnimalLink extends UI.Panel implements SearchListener {
         if (ID == 0) {
             return;
         }
+
         animalID = ID;
 
         // Grab the record
@@ -101,7 +101,6 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     }
 
     public void initComponents() {
-
         setLayout(UI.getBorderLayout());
 
         txtName = UI.getTextField();
@@ -129,13 +128,15 @@ public class AnimalLink extends UI.Panel implements SearchListener {
                     UI.fp(this, "actionClear")));
 
         add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
-
     }
 
     public void actionClear() {
         txtName.setText("");
         animalID = 0;
-        if (parent != null) parent.animalChanged(0);
+
+        if (parent != null) {
+            parent.animalChanged(0);
+        }
     }
 
     public void actionSearch() {
@@ -150,6 +151,7 @@ public class AnimalLink extends UI.Panel implements SearchListener {
         if (animalID == 0) {
             return;
         }
+
         AnimalEdit ea = new AnimalEdit();
         ea.openForEdit(animalID);
         Global.mainForm.addChild(ea);
@@ -158,10 +160,12 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     public void animalSelected(Animal theanimal) {
         try {
             animalID = theanimal.getID().intValue();
-            txtName.setText(
-                theanimal.getCode() + " - " +
+            txtName.setText(theanimal.getCode() + " - " +
                 theanimal.getAnimalName());
-            if (parent != null) parent.animalChanged(animalID);
+
+            if (parent != null) {
+                parent.animalChanged(animalID);
+            }
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());

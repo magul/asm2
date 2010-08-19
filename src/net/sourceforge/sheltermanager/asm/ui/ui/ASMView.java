@@ -111,7 +111,6 @@ public abstract class ASMView extends ASMForm {
         return c;
     }
 
-
     public UI.Table getTable() {
         return table;
     }

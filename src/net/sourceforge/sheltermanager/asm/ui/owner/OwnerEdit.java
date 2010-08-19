@@ -1631,8 +1631,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         // Open email form
         try {
             Email.singleEmailForm(txtEmail.getText(), this);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
@@ -1673,9 +1672,9 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     public int getOwnerID() {
         try {
             return owner.getID().intValue();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
+
             return 0;
         }
     }

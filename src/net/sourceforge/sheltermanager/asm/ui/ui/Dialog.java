@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -165,6 +166,7 @@ public abstract class Dialog {
 
     public static String getInput(String message, String title) {
         new InputTextDialog(message, title);
+
         return lastInput;
     }
 
@@ -192,6 +194,7 @@ public abstract class Dialog {
 
     public static String getDateInput(String message, String title) {
         new DateInputDlg(message, title);
+
         return lastDate;
     }
 
@@ -203,43 +206,114 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request an animal from the user */
     public static int getAnimal(boolean onShelter) {
-	try {
-	    Vector<String> v = new Vector<String>();
-	    SQLRecordset an = new SQLRecordset("SELECT ShelterCode, AnimalName FROM animal " +
-                (onShelter ? "WHERE Archived = 0 " : "") + "ORDER BY ShelterCode", "animal");
+        try {
+            Vector<String> v = new Vector<String>();
+            SQLRecordset an = new SQLRecordset(
+                    "SELECT ShelterCode, AnimalName FROM animal " +
+                    (onShelter ? "WHERE Archived = 0 " : "") +
+                    "ORDER BY ShelterCode", "animal");
 
-	    for (SQLRecordset a : an) {
-                v.add(a.getString("ShelterCode") + " - " + a.getString("AnimalName"));
-	    }
+            for (SQLRecordset a : an) {
+                v.add(a.getString("ShelterCode") + " - " +
+                    a.getString("AnimalName"));
+            }
 
-	    if (v.size() == 0) {
-	        Dialog.showError(Global.i18n("uierror", "There_are_no_animals_on_the_shelter"));
+            if (v.size() == 0) {
+                Dialog.showError(Global.i18n("uierror",
+                        "There_are_no_animals_on_the_shelter"));
+
                 return 0;
-	    }
+            }
 
             // Ask the user
             String chosenItem = (String) getInput(Global.i18n("uierror",
-                    "Select_an_animal"),
-                Global.i18n("uierror", "Select_Animal"), v.toArray(),
-                v.get(0));
+                        "Select_an_animal"),
+                    Global.i18n("uierror", "Select_Animal"), v.toArray(),
+                    v.get(0));
 
-	    // Find the animal ID from the code chosen
-	    int ce = chosenItem.indexOf(" -");
-	    if (ce == -1) return 0;
-	    String code = chosenItem.substring(0, ce);
-	    int animalID = DBConnection.executeForInt("SELECT ID FROM animal WHERE ShelterCode Like '" + code + "'");
+            // Find the animal ID from the code chosen
+            int ce = chosenItem.indexOf(" -");
+
+            if (ce == -1) {
+                return 0;
+            }
+
+            String code = chosenItem.substring(0, ce);
+            int animalID = DBConnection.executeForInt(
+                    "SELECT ID FROM animal WHERE ShelterCode Like '" + code +
+                    "'");
 
             // Clean up
             v.removeAllElements();
             v = null;
 
-	    return animalID;
-
-	} catch (Exception e) {
+            return animalID;
+        } catch (Exception e) {
             Global.logException(e, Dialog.class);
-	    return 0;
-	}
 
+            return 0;
+        }
+    }
+
+    /** Use JOptionPane to choose a litter ID from the user -
+     *  returns an empty string if nothing was selected
+     */
+    public static String getLitter(int speciesID) {
+        try {
+            // Find all currently active litters on the system
+            AnimalLitter al = null;
+
+            if (speciesID != 0) {
+                al = AnimalLitter.getRecentLittersForSpecies(speciesID);
+            } else {
+                al = AnimalLitter.getRecentLitters();
+            }
+
+            // If there aren't any, bomb
+            if (al.getEOF()) {
+                Dialog.showError(Global.i18n("uianimal",
+                        "there_are_no_active_litters_on_file"));
+
+                return "";
+            }
+
+            String[] litters = new String[(int) al.getRecordCount()];
+            int i = 0;
+
+            while (!al.getEOF()) {
+                String code = "";
+
+                if (al.getAnimal() != null) {
+                    code = al.getAnimal().getShelterCode() + ": " +
+                        al.getParentName() + " ";
+                }
+
+                code += ("(" + al.getSpeciesName() + ")");
+                litters[i] = al.getAcceptanceNumber() + " - " + code + " " +
+                    Utils.firstChars(al.getComments(), 40);
+
+                i++;
+                al.moveNext();
+            }
+
+            // Prompt
+            String choice = (String) Dialog.getInput(Global.i18n("uianimal",
+                        "select_from_active_litters"),
+                    Global.i18n("uianimal", "Active_Litters"), litters,
+                    litters[0]);
+
+            // Dump the code from the returned value, or drop out if
+            // nothing was selected.
+            if (choice == null) {
+                return "";
+            }
+
+            return choice.substring(0, choice.indexOf("-")).trim();
+        } catch (Exception e) {
+            Global.logException(e, Dialog.class);
+        }
+
+        return "";
     }
 
     /** Uses a JOptionPane to request a species from the user */

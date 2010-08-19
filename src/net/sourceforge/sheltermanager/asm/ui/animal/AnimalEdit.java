@@ -579,7 +579,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Sets the form into creating a new animal record */
     public void openForNew() {
-
         isNewRecord = true;
         wasNewRecord = true;
 
@@ -1662,6 +1661,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         if (!Global.currentUserObject.getSecChangeAnimal() && !wasNewRecord) {
             Dialog.showError(UI.messageNoSavePermission());
+
             return false;
         }
 
@@ -2518,7 +2518,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         pnlEntryRightBondedFlds.add(embBonded1);
         pnlEntryRightBondedFlds.add(embBonded2);
 
-        UI.addComponent(pnlEntryRightBonded, i18n("Bonded"), pnlEntryRightBondedFlds);
+        UI.addComponent(pnlEntryRightBonded, i18n("Bonded"),
+            pnlEntryRightBondedFlds);
 
         if (!Configuration.getBoolean("DontShowBonded")) {
             pnlEntryRight.add(pnlEntryRightBonded, UI.BorderLayout.NORTH);
@@ -2772,55 +2773,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void actionFindLitter() {
-        try {
-            // Find all currently active litters on the system
-            AnimalLitter al = AnimalLitter.getRecentLittersForSpecies(Utils.getIDFromCombo(
-                        LookupCache.getSpeciesLookup(), "SpeciesName",
-                        cboSpecies).intValue());
-
-            // If there aren't any, bomb
-            if (al.getEOF()) {
-                Dialog.showError(Global.i18n("uianimal",
-                        "there_are_no_active_litters_on_file"));
-
-                return;
-            }
-
-            String[] litters = new String[(int) al.getRecordCount()];
-            int i = 0;
-
-            while (!al.getEOF()) {
-                String code = "";
-                if (al.getAnimal() != null) {
-                    code = al.getAnimal().getShelterCode() + ": " +
-                        al.getParentName() + " ";
-                }
-                code += "(" + al.getSpeciesName() + ")";
-                litters[i] = al.getAcceptanceNumber() + " - " +
-                    code + " " + Utils.firstChars(al.getComments(), 40);
-
-                i++;
-                al.moveNext();
-            }
-
-            // Prompt
-            String choice = (String) Dialog.getInput(Global.i18n("uianimal",
-                        "select_from_active_litters"),
-                    Global.i18n("uianimal", "Active_Litters"), litters,
-                    litters[0]);
-
-            // Dump the code from the returned value, or drop out if
-            // nothing was selected.
-            if (choice == null) {
-                return;
-            }
-
-            txtAcceptanceNumber.setText(choice.substring(0, choice.indexOf(" ")));
-            dataChanged();
-            enableButtons();
-        } catch (Exception e) {
-            Global.logException(e, getClass());
-        }
+        txtAcceptanceNumber.setText(Dialog.getLitter(Utils.getIDFromCombo(
+                    LookupCache.getSpeciesLookup(), "SpeciesName", cboSpecies)
+                                                          .intValue()));
     }
 
     public void actionMatchLost() {
@@ -2874,8 +2829,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Loads the data in all tabs */
     public void loadAllTabs() {
-        
         loadedEntry = true;
+
         try {
             embOriginalOwner.loadFromID(animal.getOriginalOwnerID().intValue());
             embBroughtInBy.loadFromID(animal.getBroughtInByOwnerID().intValue());
@@ -2886,6 +2841,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         loadedVet = true;
+
         try {
             embVet.loadFromID(animal.getOwnersVetID().intValue());
             embCurrentVet.loadFromID(animal.getCurrentVetID().intValue());
@@ -3170,10 +3126,11 @@ class AnimalCodeField extends UI.Panel {
 
         UI.Panel bits = null;
 
-        if (!Configuration.getBoolean("DisableShortCodesControl"))
+        if (!Configuration.getBoolean("DisableShortCodesControl")) {
             bits = UI.getPanel(UI.getGridLayout(0, 2, 0, 0), true);
-        else
+        } else {
             bits = UI.getPanel(UI.getGridLayout(0, 1, 0, 0), true);
+        }
 
         code = UI.getTextField(tooltip, onChange);
         code.setWidth(UI.getTextBoxWidth() / 2);
@@ -3181,7 +3138,7 @@ class AnimalCodeField extends UI.Panel {
         shortcode = UI.getTextField(shorttooltip, onChange);
         shortcode.setWidth(UI.getTextBoxWidth() / 2);
         bits.add(code);
-                
+
         if (!Configuration.getBoolean("DisableShortCodesControl")) {
             bits.add(shortcode);
         }

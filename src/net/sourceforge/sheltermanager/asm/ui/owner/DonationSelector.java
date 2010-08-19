@@ -173,8 +173,9 @@ public class DonationSelector extends ASMSelector {
 
                         if (!rs.getEOF()) {
                             c = "[" + rs.getField("AnimalName") + " - " +
-                                (Global.getShowShortCodes() ? rs.getString("ShortCode") :
-                                rs.getString("ShelterCode")) + "] " +
+                                (Global.getShowShortCodes()
+                                ? rs.getString("ShortCode")
+                                : rs.getString("ShelterCode")) + "] " +
                                 od.getComments();
                         }
                     } else if (od.getAnimalID().intValue() != 0) {
@@ -186,8 +187,9 @@ public class DonationSelector extends ASMSelector {
 
                         if (!rs.getEOF()) {
                             c = "[" + rs.getField("AnimalName") + " - " +
-                                (Global.getShowShortCodes() ? rs.getString("ShortCode") :
-                                rs.getString("ShelterCode")) + "] " +
+                                (Global.getShowShortCodes()
+                                ? rs.getString("ShortCode")
+                                : rs.getString("ShelterCode")) + "] " +
                                 od.getComments();
                         }
                     }

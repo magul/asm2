@@ -939,15 +939,31 @@ public abstract class LookupCache {
     }
 
     /**
-     * Returns the animal age group names on the system 
+     * Returns the animal age group names on the system
      */
     public static Vector<String> getAgeGroupNames() {
         Vector<String> a = new Vector<String>();
-        if (!Configuration.getString("AgeGroup1Name").equals("")) a.add(Configuration.getString("AgeGroup1Name"));
-        if (!Configuration.getString("AgeGroup2Name").equals("")) a.add(Configuration.getString("AgeGroup2Name"));
-        if (!Configuration.getString("AgeGroup3Name").equals("")) a.add(Configuration.getString("AgeGroup3Name"));
-        if (!Configuration.getString("AgeGroup4Name").equals("")) a.add(Configuration.getString("AgeGroup4Name"));
-        if (!Configuration.getString("AgeGroup5Name").equals("")) a.add(Configuration.getString("AgeGroup5Name"));
+
+        if (!Configuration.getString("AgeGroup1Name").equals("")) {
+            a.add(Configuration.getString("AgeGroup1Name"));
+        }
+
+        if (!Configuration.getString("AgeGroup2Name").equals("")) {
+            a.add(Configuration.getString("AgeGroup2Name"));
+        }
+
+        if (!Configuration.getString("AgeGroup3Name").equals("")) {
+            a.add(Configuration.getString("AgeGroup3Name"));
+        }
+
+        if (!Configuration.getString("AgeGroup4Name").equals("")) {
+            a.add(Configuration.getString("AgeGroup4Name"));
+        }
+
+        if (!Configuration.getString("AgeGroup5Name").equals("")) {
+            a.add(Configuration.getString("AgeGroup5Name"));
+        }
+
         return a;
     }
 

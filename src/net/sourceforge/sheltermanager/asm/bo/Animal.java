@@ -296,7 +296,8 @@ public class Animal extends UserInfoBO<Animal> {
         return (Integer) rs.getField("BondedAnimalID");
     }
 
-    public void setBondedAnimalID(Integer newValue) throws CursorEngineException {
+    public void setBondedAnimalID(Integer newValue)
+        throws CursorEngineException {
         rs.setField("BondedAnimalID", newValue);
     }
 
@@ -304,7 +305,8 @@ public class Animal extends UserInfoBO<Animal> {
         return (Integer) rs.getField("BondedAnimal2ID");
     }
 
-    public void setBondedAnimal2ID(Integer newValue) throws CursorEngineException {
+    public void setBondedAnimal2ID(Integer newValue)
+        throws CursorEngineException {
         rs.setField("BondedAnimal2ID", newValue);
     }
 
@@ -313,32 +315,44 @@ public class Animal extends UserInfoBO<Animal> {
       * are checked, then the bonds of all other animals to see if they link
       * back to this one */
     public String getBondedAnimalDisplay() throws CursorEngineException {
-    	
-	ArrayList<Integer> bonded = new ArrayList<Integer>();
+        ArrayList<Integer> bonded = new ArrayList<Integer>();
 
         // Add the direct bond links
-	if (getBondedAnimalID() != null && getBondedAnimalID().intValue() > 0) bonded.add(getBondedAnimalID());
-	if (getBondedAnimal2ID() != null && getBondedAnimal2ID().intValue() > 0) bonded.add(getBondedAnimal2ID());
+        if ((getBondedAnimalID() != null) &&
+                (getBondedAnimalID().intValue() > 0)) {
+            bonded.add(getBondedAnimalID());
+        }
 
-	// Look up other animals that are bonded back to this one
-	try {
-            for (SQLRecordset r : new SQLRecordset("SELECT ID FROM animal WHERE BondedAnimalID = " + 
-	        getID() + " OR BondedAnimal2ID = " + getID(), "animal")) {
+        if ((getBondedAnimal2ID() != null) &&
+                (getBondedAnimal2ID().intValue() > 0)) {
+            bonded.add(getBondedAnimal2ID());
+        }
+
+        // Look up other animals that are bonded back to this one
+        try {
+            for (SQLRecordset r : new SQLRecordset(
+                    "SELECT ID FROM animal WHERE BondedAnimalID = " + getID() +
+                    " OR BondedAnimal2ID = " + getID(), "animal")) {
                 bonded.add(new Integer(r.getInteger("ID")));
-	     }
-	}
-	catch (Exception e) {
+            }
+        } catch (Exception e) {
             Global.logException(e, getClass());
-	}
+        }
 
-	// Get the names for the bonded animals
-	String names = "";
-	for (Integer id : bonded) {
+        // Get the names for the bonded animals
+        String names = "";
+
+        for (Integer id : bonded) {
             Animal a = LookupCache.getAnimalByID(id);
-            if (names.length() > 0) names += ", ";
-            names += (Global.getShowShortCodes() ? a.getShortCode() :
-                a.getShelterCode()) + " " + a.getAnimalName();
-	}
+
+            if (names.length() > 0) {
+                names += ", ";
+            }
+
+            names += ((Global.getShowShortCodes() ? a.getShortCode()
+                                                  : a.getShelterCode()) + " " +
+            a.getAnimalName());
+        }
 
         return names;
     }
@@ -643,7 +657,7 @@ public class Animal extends UserInfoBO<Animal> {
     public Integer getIdentichipped() throws CursorEngineException {
         return (Integer) rs.getField("Identichipped");
     }
- 
+
     public void setMicrochipped(Integer newValue) throws CursorEngineException {
         rs.setField("Identichipped", newValue);
     }
@@ -655,12 +669,12 @@ public class Animal extends UserInfoBO<Animal> {
     public String getMicrochipNumber() throws CursorEngineException {
         return (String) rs.getField("IdentichipNumber");
     }
-        
+
     public String getIdentichipNumber() throws CursorEngineException {
         return (String) rs.getField("IdentichipNumber");
     }
 
-    public void setMicrochipNumber(String newValue) 
+    public void setMicrochipNumber(String newValue)
         throws CursorEngineException {
         rs.setField("IdentichipNumber", newValue);
     }
@@ -2569,6 +2583,7 @@ public class Animal extends UserInfoBO<Animal> {
 
             AnimalMedicalTreatment medt = new AnimalMedicalTreatment();
             medt.openRecordset("AnimalMedicalID = " + med.getID());
+
             while (!medt.getEOF()) {
                 AnimalMedicalTreatment mt = medt.copy();
                 mt.setAnimalID(a.getID());
@@ -2690,9 +2705,8 @@ public class Animal extends UserInfoBO<Animal> {
             try {
                 year = Integer.parseInt(code.substring(npos, npos + 2));
                 // Use the pivot to modify the year
-                year += (year < Global.PIVOT_YEAR
-                ? Global.BELOW_PIVOT
-                : Global.AFTER_PIVOT);
+                year += ((year < Global.PIVOT_YEAR) ? Global.BELOW_PIVOT
+                                                    : Global.AFTER_PIVOT);
                 Global.logDebug("Parsed year " + year + " from code " + code,
                     "Animal.parseAnimalCodeYear");
             } catch (Exception e) {

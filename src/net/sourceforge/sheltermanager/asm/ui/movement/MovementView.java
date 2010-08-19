@@ -26,23 +26,23 @@ import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.reports.Report;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import net.sourceforge.sheltermanager.asm.reports.Report;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
+import java.awt.Component;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
-import java.awt.Component;
 
 
 /**
@@ -169,65 +169,71 @@ public class MovementView extends ASMView implements MovementParent {
 
         SQLRecordset rs = new SQLRecordset();
         String sql = null;
-    
+
         String shelterCode = "animal.ShelterCode AS TheCode";
-        if (Global.getShowShortCodes())
+
+        if (Global.getShowShortCodes()) {
             shelterCode = "animal.ShortCode AS TheCode";
+        }
 
         switch (mode) {
         case MODE_RESERVATION:
-                sql = "SELECT animal.AnimalName, " + shelterCode + ", animaltype.AnimalType, " +
-                    "species.SpeciesName, owner.OwnerName, adoption.ReservationDate, adoption.ReturnDate, " +
-                    "animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType, " +
-                    "adoption.ID " + "FROM adoption " +
-                    "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
-                    "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
-                    "INNER JOIN species ON animal.SpeciesID = species.ID " +
-                    "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
-                    "WHERE adoption.ReservationDate Is Not Null AND " +
-                    "adoption.ReservationCancelledDate Is Null " +
-                    "AND adoption.MovementDate Is Null AND adoption.MovementType = 0 " +
-                    "AND adoption.ReturnDate Is Null AND animal.DeceasedDate Is Null";
+            sql = "SELECT animal.AnimalName, " + shelterCode +
+                ", animaltype.AnimalType, " +
+                "species.SpeciesName, owner.OwnerName, adoption.ReservationDate, adoption.ReturnDate, " +
+                "animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType, " +
+                "adoption.ID " + "FROM adoption " +
+                "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
+                "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
+                "INNER JOIN species ON animal.SpeciesID = species.ID " +
+                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
+                "WHERE adoption.ReservationDate Is Not Null AND " +
+                "adoption.ReservationCancelledDate Is Null " +
+                "AND adoption.MovementDate Is Null AND adoption.MovementType = 0 " +
+                "AND adoption.ReturnDate Is Null AND animal.DeceasedDate Is Null";
+
             break;
 
         case MODE_RETAILERS:
-                sql = "SELECT animal.AnimalName, " + shelterCode  + ", animaltype.AnimalType, " +
-                    "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
-                    ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
-                    "FROM adoption " +
-                    "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
-                    "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
-                    "INNER JOIN species ON animal.SpeciesID = species.ID " +
-                    "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
-                    "WHERE adoption.MovementDate Is Not Null AND " +
-                    "adoption.MovementType = " + Adoption.MOVETYPE_RETAILER +
-                    " " + "AND animal.DeceasedDate Is Null AND ((" +
-                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
-                    Utils.getSQLDate(new Date()) + "') OR " +
-                    "(adoption.LastChangedDate BETWEEN '" + minsAgo +
-                    "' AND '" + now + "' " +
-                    "AND adoption.LastChangedBy Like '" +
-                    Global.currentUserName + "'))";
+            sql = "SELECT animal.AnimalName, " + shelterCode +
+                ", animaltype.AnimalType, " +
+                "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
+                ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
+                "FROM adoption " +
+                "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
+                "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
+                "INNER JOIN species ON animal.SpeciesID = species.ID " +
+                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
+                "WHERE adoption.MovementDate Is Not Null AND " +
+                "adoption.MovementType = " + Adoption.MOVETYPE_RETAILER + " " +
+                "AND animal.DeceasedDate Is Null AND ((" +
+                "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
+                Utils.getSQLDate(new Date()) + "') OR " +
+                "(adoption.LastChangedDate BETWEEN '" + minsAgo + "' AND '" +
+                now + "' " + "AND adoption.LastChangedBy Like '" +
+                Global.currentUserName + "'))";
+
             break;
 
         case MODE_FOSTERS:
-                sql = "SELECT animal.AnimalName, " + shelterCode + ", animaltype.AnimalType, " +
-                    "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
-                    ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
-                    "FROM adoption " +
-                    "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
-                    "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
-                    "INNER JOIN species ON animal.SpeciesID = species.ID " +
-                    "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
-                    "WHERE adoption.MovementDate Is Not Null AND " +
-                    "adoption.MovementType = " + Adoption.MOVETYPE_FOSTER +
-                    " " + "AND animal.DeceasedDate Is Null AND ((" +
-                    "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
-                    Utils.getSQLDate(new Date()) + "') OR " +
-                    "(adoption.LastChangedDate BETWEEN '" + minsAgo +
-                    "' AND '" + now + "' " +
-                    "AND adoption.LastChangedBy Like '" +
-                    Global.currentUserName + "'))";
+            sql = "SELECT animal.AnimalName, " + shelterCode +
+                ", animaltype.AnimalType, " +
+                "species.SpeciesName, owner.OwnerName, adoption.MovementDate, adoption.ID, adoption.ReturnDate " +
+                ",animal.DateOfBirth ,animal.DeceasedDate ,animal.HasActiveReserve ,animal.ActiveMovementType " +
+                "FROM adoption " +
+                "INNER JOIN animal ON adoption.AnimalID = animal.ID " +
+                "INNER JOIN owner ON adoption.OwnerID = owner.ID " +
+                "INNER JOIN species ON animal.SpeciesID = species.ID " +
+                "INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID " +
+                "WHERE adoption.MovementDate Is Not Null AND " +
+                "adoption.MovementType = " + Adoption.MOVETYPE_FOSTER + " " +
+                "AND animal.DeceasedDate Is Null AND ((" +
+                "adoption.ReturnDate Is Null OR adoption.ReturnDate > '" +
+                Utils.getSQLDate(new Date()) + "') OR " +
+                "(adoption.LastChangedDate BETWEEN '" + minsAgo + "' AND '" +
+                now + "' " + "AND adoption.LastChangedBy Like '" +
+                Global.currentUserName + "'))";
+
             break;
         }
 
@@ -236,9 +242,9 @@ public class MovementView extends ASMView implements MovementParent {
             rs.openRecordset(sql, "adoption");
         } catch (Exception e) {
             Global.logException(e, getClass());
+
             return;
         }
-
 
         // Create an array of headers for the accounts (two less than array
         // because last cols will hold the ID and the report animal name)
@@ -254,7 +260,8 @@ public class MovementView extends ASMView implements MovementParent {
         // Create an array to hold the results for the table - note that we
         // have two extra columns here - the next to last column will actually hold
         // the ID, and the last column the HTML AnimalName for the Print report
-        tabledata = new String[(int) rs.getRecordCount()][columnheaders.length+2];
+        tabledata = new String[(int) rs.getRecordCount()][columnheaders.length +
+            2];
 
         // loop through the data and fill the array
         int i = 0;
@@ -279,12 +286,12 @@ public class MovementView extends ASMView implements MovementParent {
                             (Date) rs.getField("ReturnDate")));
 
                 tabledata[i][7] = rs.getField("ID").toString();
-                tabledata[i][8] = Animal.getReportAnimalName(
-                                 rs.getField("AnimalName").toString(),
-                                 (Date) rs.getField("DateOfBirth"),
-                                 (Date) rs.getField("DeceasedDate"),
-                                 (Integer) rs.getField("HasActiveReserve"),
-                                 (Integer) rs.getField("ActiveMovementType") );
+                tabledata[i][8] = Animal.getReportAnimalName(rs.getField(
+                            "AnimalName").toString(),
+                        (Date) rs.getField("DateOfBirth"),
+                        (Date) rs.getField("DeceasedDate"),
+                        (Integer) rs.getField("HasActiveReserve"),
+                        (Integer) rs.getField("ActiveMovementType"));
                 i++;
                 rs.moveNext();
             }
@@ -293,8 +300,8 @@ public class MovementView extends ASMView implements MovementParent {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, tabledata, i,
-                     columnheaders.length+2, columnheaders.length);
+        setTableData(columnheaders, tabledata, i, columnheaders.length + 2,
+            columnheaders.length);
 
         try {
             rs.free();
@@ -305,7 +312,6 @@ public class MovementView extends ASMView implements MovementParent {
 
     @Override
     public void addToolButtons() {
-        
         switch (mode) {
         case MODE_RESERVATION:
             btnRefresh = UI.getButton(null,
@@ -315,7 +321,8 @@ public class MovementView extends ASMView implements MovementParent {
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
 
-            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+            btnPrint = UI.getButton(null,
+                    Global.i18n("uireportviewer", "Print"), 'p',
                     IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
                     UI.fp(this, "actionPrint"));
             addToolButton(btnPrint, false);
@@ -354,7 +361,8 @@ public class MovementView extends ASMView implements MovementParent {
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
 
-            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+            btnPrint = UI.getButton(null,
+                    Global.i18n("uireportviewer", "Print"), 'p',
                     IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
                     UI.fp(this, "actionPrint"));
             addToolButton(btnPrint, false);
@@ -401,7 +409,8 @@ public class MovementView extends ASMView implements MovementParent {
                     UI.fp(this, "actionRefresh"));
             addToolButton(btnRefresh, false);
 
-            btnPrint = UI.getButton(null, Global.i18n("uireportviewer","Print"), 'p',
+            btnPrint = UI.getButton(null,
+                    Global.i18n("uireportviewer", "Print"), 'p',
                     IconManager.getIcon(IconManager.SCREEN_REPORTVIEWER_PRINT),
                     UI.fp(this, "actionPrint"));
             addToolButton(btnPrint, false);
@@ -608,66 +617,73 @@ public class MovementView extends ASMView implements MovementParent {
     }
 
     public void actionPrint() {
-      SortableTableModel tablemodel = (SortableTableModel) table.getModel();
-      new MovementResults(tablemodel.getData(), tablemodel.getRowCount(),
-                          columnheaders, getTitle());
+        SortableTableModel tablemodel = (SortableTableModel) table.getModel();
+        new MovementResults(tablemodel.getData(), tablemodel.getRowCount(),
+            columnheaders, getTitle());
     }
 
     @Override
     public void updateMedia() {
     }
 
-  private class MovementResults extends Report {
-    private String[][] searchResults = null;
-    private String[] headers = null;
-    private String title = null;
-    private int max = 0;
+    private class MovementResults extends Report {
+        private String[][] searchResults = null;
+        private String[] headers = null;
+        private String title = null;
+        private int max = 0;
 
-    public MovementResults(String[][] searchResults, int max,
-                         String[] headers, String title) {
-      this.max = max;
-      this.searchResults = searchResults;
-      this.headers = headers;
-      this.title = title;
+        public MovementResults(String[][] searchResults, int max,
+            String[] headers, String title) {
+            this.max = max;
+            this.searchResults = searchResults;
+            this.headers = headers;
+            this.title = title;
 
-      if (searchResults == null) return;
-      this.start();
-    }
+            if (searchResults == null) {
+                return;
+            }
 
-    @Override
-    public String getTitle() {
-      return title;
-    }
-
-    @Override
-    public void generateReport() {
-      tableNew();
-
-      tableAddRow();
-      for (int i = 0; i < headers.length; i++)
-        { tableAddCell(bold(headers[i])); }
-      tableFinishRow();
-
-      setStatusBarMax(max);
-      for (int i = 0; i < max; i++) {
-        tableAddRow();
-
-        // For reporting purposes, substitute the report animal name
-        // for the normal animal name (last extra column for column 0).
-        tableAddCell(searchResults[i][headers.length+1]);
-
-        for (int z = 1; z < headers.length; z++) {
-            tableAddCell(searchResults[i][z]);
+            this.start();
         }
 
-        tableFinishRow();
-        incrementStatusBar();
-      }
+        @Override
+        public String getTitle() {
+            return title;
+        }
 
-      tableFinish();
-      addTable();
+        @Override
+        public void generateReport() {
+            tableNew();
 
-      addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
+            tableAddRow();
+
+            for (int i = 0; i < headers.length; i++) {
+                tableAddCell(bold(headers[i]));
+            }
+
+            tableFinishRow();
+
+            setStatusBarMax(max);
+
+            for (int i = 0; i < max; i++) {
+                tableAddRow();
+
+                // For reporting purposes, substitute the report animal name
+                // for the normal animal name (last extra column for column 0).
+                tableAddCell(searchResults[i][headers.length + 1]);
+
+                for (int z = 1; z < headers.length; z++) {
+                    tableAddCell(searchResults[i][z]);
+                }
+
+                tableFinishRow();
+                incrementStatusBar();
+            }
+
+            tableFinish();
+            addTable();
+
+            addParagraph(Global.i18n("reports", "Total__", Integer.toString(max)));
+        }
     }
-  }
 }

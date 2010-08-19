@@ -284,8 +284,10 @@ public class MailMerge extends Thread implements EmailFormListener {
         resetStatusBar();
     }
 
-    public void sendEmail(String from, String subject, String body, String content_type) {
-        new BulkEmail(from, subject, body, content_type, theData, emailColumn, cols, rows);
+    public void sendEmail(String from, String subject, String body,
+        String content_type) {
+        new BulkEmail(from, subject, body, content_type, theData, emailColumn,
+            cols, rows);
     }
 }
 
@@ -300,9 +302,9 @@ class BulkEmail extends Thread {
     private int cols;
     private int rows;
 
-    public BulkEmail(String from, String subject, String body, String content_type, 
-        String[][] theData, int emailColumn, int cols, int rows) {
-
+    public BulkEmail(String from, String subject, String body,
+        String content_type, String[][] theData, int emailColumn, int cols,
+        int rows) {
         this.from = from;
         this.subject = subject;
         this.body = body;
@@ -331,8 +333,7 @@ class BulkEmail extends Thread {
                     if (!theData[i][emailColumn].equals("") &&
                             (theData[i][emailColumn] != null)) {
                         email.sendmsg(theData[i][emailColumn], subject,
-                            replaceInText(body, i), from,
-                            content_type);
+                            replaceInText(body, i), from, content_type);
                     }
                 } catch (Exception e) {
                     Global.logError(Global.i18n("mailmerge",

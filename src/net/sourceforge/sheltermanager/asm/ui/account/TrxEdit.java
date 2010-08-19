@@ -70,7 +70,6 @@ public class TrxEdit extends ASMForm {
     private String audit = null;
     private Vector<String> desclist = null;
     private boolean isNew = false;
-    
     private int ownerID;
     private int animalID;
     private int movementID;
@@ -93,15 +92,17 @@ public class TrxEdit extends ASMForm {
     }
 
     public void setSecurity() {
-		if (!Global.currentUserObject.getSecViewOwner()) {
-			btnOwner.setEnabled(false);
-		}
-		if (!Global.currentUserObject.getSecViewAnimal()) {
-			btnAnimal.setEnabled(false);
-		}
-		if (!Global.currentUserObject.getSecViewAnimalMovements()) {
-			btnMovement.setEnabled(false);
-		}
+        if (!Global.currentUserObject.getSecViewOwner()) {
+            btnOwner.setEnabled(false);
+        }
+
+        if (!Global.currentUserObject.getSecViewAnimal()) {
+            btnAnimal.setEnabled(false);
+        }
+
+        if (!Global.currentUserObject.getSecViewAnimalMovements()) {
+            btnMovement.setEnabled(false);
+        }
     }
 
     public boolean formClosing() {
@@ -181,20 +182,33 @@ public class TrxEdit extends ASMForm {
             txtDeposit.setValue(trx.deposit);
             Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
                 trx.otherAccountId, cboAccount);
-            
+
             if (trx.ownerDonationId > 0) {
-            	OwnerDonation od = new OwnerDonation("ID = " + trx.ownerDonationId);
-            	ownerID = od.getOwnerID().intValue();
-            	if (od.getAnimalID() != null) animalID = od.getAnimalID().intValue();
-            	if (od.getMovementID() != null) movementID = od.getMovementID().intValue();
-            	displayName = od.getDonationDisplay();
-            	txtOwnerName.setText(displayName);
-            	if (animalID == 0) btnAnimal.setEnabled(false);
-            	if (movementID == 0) btnMovement.setEnabled(false);
-            }
-            else {
-            	pnlTop.remove(lblDonationFrom);
-            	pnlTop.remove(pnlDonation);
+                OwnerDonation od = new OwnerDonation("ID = " +
+                        trx.ownerDonationId);
+                ownerID = od.getOwnerID().intValue();
+
+                if (od.getAnimalID() != null) {
+                    animalID = od.getAnimalID().intValue();
+                }
+
+                if (od.getMovementID() != null) {
+                    movementID = od.getMovementID().intValue();
+                }
+
+                displayName = od.getDonationDisplay();
+                txtOwnerName.setText(displayName);
+
+                if (animalID == 0) {
+                    btnAnimal.setEnabled(false);
+                }
+
+                if (movementID == 0) {
+                    btnMovement.setEnabled(false);
+                }
+            } else {
+                pnlTop.remove(lblDonationFrom);
+                pnlTop.remove(pnlDonation);
             }
 
             setTitle(i18n("Edit_Transaction"));
@@ -256,7 +270,7 @@ public class TrxEdit extends ASMForm {
 
         chkReconciled = UI.getCheckBox(i18n("Reconciled"));
         UI.addComponent(pnlTop, "", chkReconciled);
-        
+
         cboDescription = UI.getCombo(desclist, UI.fp(this, "descriptionChanged"));
         cboDescription.setEditable(true);
         UI.addComponent(pnlTop, i18n("Description"), cboDescription);
@@ -266,31 +280,32 @@ public class TrxEdit extends ASMForm {
 
         cboAccount = UI.getCombo(LookupCache.getAccountsLookup(), "Code");
         UI.addComponent(pnlTop, i18n("Account"), cboAccount);
-        
-    	txtOwnerName = UI.getTextField();
-    	txtOwnerName.setEnabled(false);
-    	
-    	pnlDonation = UI.getPanel(UI.getBorderLayout(), true);
-    	pnlDonation.add(txtOwnerName, UI.BorderLayout.CENTER);
-    	
-    	UI.ToolBar t = UI.getToolBar();
-    	btnOwner = UI.getButton(null, i18n("view_this_owner"), 'o',
-    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_OWNER),
-    		UI.fp(this, "actionOpenOwner"));
-    	t.add(btnOwner);
-    	btnAnimal = UI.getButton(null, i18n("view_this_animal"), 'a',
-    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_ANIMAL),
-    		UI.fp(this, "actionOpenAnimal"));
-    	t.add(btnAnimal);
-		btnMovement = UI.getButton(null, i18n("view_this_movement"), 'm',
-    		IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_MOVEMENT),
-    		UI.fp(this, "actionOpenMovement"));
-    	t.add(btnMovement);
-    	pnlDonation.add(t, UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
-    	
-    	lblDonationFrom = UI.getLabel(i18n("donation_from"));
-    	UI.addComponent(pnlTop, lblDonationFrom);
-    	UI.addComponent(pnlTop, pnlDonation);
+
+        txtOwnerName = UI.getTextField();
+        txtOwnerName.setEnabled(false);
+
+        pnlDonation = UI.getPanel(UI.getBorderLayout(), true);
+        pnlDonation.add(txtOwnerName, UI.BorderLayout.CENTER);
+
+        UI.ToolBar t = UI.getToolBar();
+        btnOwner = UI.getButton(null, i18n("view_this_owner"), 'o',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_OWNER),
+                UI.fp(this, "actionOpenOwner"));
+        t.add(btnOwner);
+        btnAnimal = UI.getButton(null, i18n("view_this_animal"), 'a',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_ANIMAL),
+                UI.fp(this, "actionOpenAnimal"));
+        t.add(btnAnimal);
+        btnMovement = UI.getButton(null, i18n("view_this_movement"), 'm',
+                IconManager.getIcon(IconManager.SCREEN_ACCOUNTTRX_MOVEMENT),
+                UI.fp(this, "actionOpenMovement"));
+        t.add(btnMovement);
+        pnlDonation.add(t,
+            UI.isLTR() ? UI.BorderLayout.EAST : UI.BorderLayout.WEST);
+
+        lblDonationFrom = UI.getLabel(i18n("donation_from"));
+        UI.addComponent(pnlTop, lblDonationFrom);
+        UI.addComponent(pnlTop, pnlDonation);
 
         txtDeposit = UI.getCurrencyField();
         UI.addComponent(pnlTop, i18n("Deposit"), txtDeposit);
@@ -307,23 +322,23 @@ public class TrxEdit extends ASMForm {
                 i18n("Close_without_saving"), 'c', null, UI.fp(this, "dispose"));
         pnlBot.add(btnCancel);
     }
-    
+
     public void actionOpenOwner() {
-    	OwnerEdit oe = new OwnerEdit();
-    	oe.openForEdit(ownerID);
-    	Global.mainForm.addChild(oe);
+        OwnerEdit oe = new OwnerEdit();
+        oe.openForEdit(ownerID);
+        Global.mainForm.addChild(oe);
     }
-    
+
     public void actionOpenAnimal() {
-    	AnimalEdit ae = new AnimalEdit();
-    	ae.openForEdit(animalID);
-    	Global.mainForm.addChild(ae);
+        AnimalEdit ae = new AnimalEdit();
+        ae.openForEdit(animalID);
+        Global.mainForm.addChild(ae);
     }
-    
+
     public void actionOpenMovement() {
-    	MovementEdit me = new MovementEdit();
-    	me.openForEdit(movementID);
-    	Global.mainForm.addChild(me);
+        MovementEdit me = new MovementEdit();
+        me.openForEdit(movementID);
+        Global.mainForm.addChild(me);
     }
 
     public void descriptionChanged() {

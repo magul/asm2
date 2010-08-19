@@ -280,7 +280,8 @@ public abstract class Report extends Thread {
     }
 
     protected String code(SQLRecordset r) throws CursorEngineException {
-        return Global.getShowShortCodes() ? r.getString("ShortCode") : r.getString("ShelterCode");
+        return Global.getShowShortCodes() ? r.getString("ShortCode")
+                                          : r.getString("ShelterCode");
     }
 
     public String money(Double d) {
@@ -402,6 +403,7 @@ public abstract class Report extends Thread {
             return substituteKeys(buffer);
         } catch (Exception e) {
             Global.logException(e, getClass());
+
             return substituteKeys(getDefaultHeader());
         }
     }
@@ -432,6 +434,7 @@ public abstract class Report extends Thread {
             return substituteKeys(buffer);
         } catch (Exception e) {
             Global.logException(e, getClass());
+
             return substituteKeys(getDefaultFooter());
         }
     }
@@ -441,10 +444,9 @@ public abstract class Report extends Thread {
         return "<html>\n" + "<head>\n" +
         "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" +
         "<title>" + getTitle() + "</title>\n\n" +
-        "<!-- ASM Content Scaling -->\n" +
-        "<style>\n\n" + "</style>\n" + "</head>\n" +
-        "<body bgcolor=\"white\" text=\"black\">\n" + "<center>\n" +
-        "<h2>&nbsp;$$TITLE$$</h2>\n" + "</center>\n" + "<hr>\n";
+        "<!-- ASM Content Scaling -->\n" + "<style>\n\n" + "</style>\n" +
+        "</head>\n" + "<body bgcolor=\"white\" text=\"black\">\n" +
+        "<center>\n" + "<h2>&nbsp;$$TITLE$$</h2>\n" + "</center>\n" + "<hr>\n";
     }
 
     /** Returns the default report footer */

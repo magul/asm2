@@ -189,7 +189,6 @@ public class CustomReportView extends ASMView {
                 // Tell the main menu to update Reports/Mail Merge
                 Global.mainForm.refreshCustomReports();
                 Global.mainForm.refreshMailMerge();
-
             } catch (Exception e) {
                 Dialog.showError(UI.messageDeleteError() + e.getMessage());
                 Global.logException(e, getClass());

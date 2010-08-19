@@ -230,8 +230,8 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
      * @param from The start date
      * @param to The to date
      */
-    public static ArrayList<Trx> getTransactions(Integer accountId, Date from, Date to)
-        throws Exception {
+    public static ArrayList<Trx> getTransactions(Integer accountId, Date from,
+        Date to) throws Exception {
         ArrayList<Trx> v = new ArrayList<Trx>();
 
         // Get the rows
@@ -256,7 +256,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
         return v;
     }
-    
+
     /**
      * Get a list of AccountTrx.Trx objects representing transactions for
      * the account given, going back num number of transactions

@@ -65,7 +65,7 @@ public class ConfigureLocal extends ASMForm {
     public Vector getTabOrder() {
         Vector ctl = new Vector();
         ctl.add(cboLocale);
-	ctl.add(cboSkin);
+        ctl.add(cboSkin);
         ctl.add(cboLabelAlign);
         ctl.add(cboTabAlign);
         ctl.add(cboCaptureMethod);
@@ -106,8 +106,8 @@ public class ConfigureLocal extends ASMForm {
     public void loadData() {
         setClosestComboMatch(cboLocale, Global.settings_Locale);
 
-	// Skin
-	cboSkin.setSelectedIndex(Global.skin);
+        // Skin
+        cboSkin.setSelectedIndex(Global.skin);
 
         // Selected indexes - RIGHT = 0, LEFT = 1
         if (Global.GRIDLABELALIGN == UI.ALIGN_RIGHT) {
@@ -118,10 +118,25 @@ public class ConfigureLocal extends ASMForm {
 
         // Selected indexes - TOP = 0, BOTTOM = 1, LEFT = 2, RIGHT = 3
         switch (Global.TABALIGN) {
-            case UI.TabbedPane.TOP: cboTabAlign.setSelectedIndex(0); break;
-            case UI.TabbedPane.BOTTOM: cboTabAlign.setSelectedIndex(1); break;
-            case UI.TabbedPane.LEFT: cboTabAlign.setSelectedIndex(2); break;
-            case UI.TabbedPane.RIGHT: cboTabAlign.setSelectedIndex(3); break;
+        case UI.TabbedPane.TOP:
+            cboTabAlign.setSelectedIndex(0);
+
+            break;
+
+        case UI.TabbedPane.BOTTOM:
+            cboTabAlign.setSelectedIndex(1);
+
+            break;
+
+        case UI.TabbedPane.LEFT:
+            cboTabAlign.setSelectedIndex(2);
+
+            break;
+
+        case UI.TabbedPane.RIGHT:
+            cboTabAlign.setSelectedIndex(3);
+
+            break;
         }
 
         if (!Global.applet) {
@@ -137,10 +152,25 @@ public class ConfigureLocal extends ASMForm {
         }
 
         switch (Global.toolbarSize) {
-            case 32: cboToolbarSize.setSelectedIndex(3); break; 
-            case 24: cboToolbarSize.setSelectedIndex(2); break; 
-            case 16: cboToolbarSize.setSelectedIndex(1); break; 
-            case 0: cboToolbarSize.setSelectedIndex(0); break; 
+        case 32:
+            cboToolbarSize.setSelectedIndex(3);
+
+            break;
+
+        case 24:
+            cboToolbarSize.setSelectedIndex(2);
+
+            break;
+
+        case 16:
+            cboToolbarSize.setSelectedIndex(1);
+
+            break;
+
+        case 0:
+            cboToolbarSize.setSelectedIndex(0);
+
+            break;
         }
 
         cboCaptureMethod.setSelectedIndex(Global.videoCaptureMethod);
@@ -167,7 +197,6 @@ public class ConfigureLocal extends ASMForm {
     }
 
     public void initComponents() {
-        
         UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
         UI.Panel pn = UI.getPanel(UI.getBorderLayout());
@@ -176,12 +205,12 @@ public class ConfigureLocal extends ASMForm {
         cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
                 UI.getCombo(Global.getSupportedLocales()));
 
-	cboSkin = (UI.ComboBox) UI.addComponent(p, i18n("Look_and_Feel"),
-	        UI.getCombo());
-	cboSkin.addItem(i18n("Default"));
-	cboSkin.addItem(i18n("Native_Platform"));
-	cboSkin.addItem(i18n("Metal"));
-	cboSkin.addItem(i18n("Metal_for_GTK"));
+        cboSkin = (UI.ComboBox) UI.addComponent(p, i18n("Look_and_Feel"),
+                UI.getCombo());
+        cboSkin.addItem(i18n("Default"));
+        cboSkin.addItem(i18n("Native_Platform"));
+        cboSkin.addItem(i18n("Metal"));
+        cboSkin.addItem(i18n("Metal_for_GTK"));
 
         cboLabelAlign = (UI.ComboBox) UI.addComponent(p, i18n("Align_labels"),
                 UI.getCombo());
@@ -256,7 +285,6 @@ public class ConfigureLocal extends ASMForm {
                 i18n("heartbeat_interval"),
                 UI.getTextField(i18n("heartbeat_interval_tooltip")));
 
-
         btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"),
                     i18n("Save_your_changes_and_exit"), 'o', null,
                     UI.fp(this, "saveData")));
@@ -282,15 +310,31 @@ public class ConfigureLocal extends ASMForm {
         }
 
         switch (cboToolbarSize.getSelectedIndex()) {
-            case 3: Global.toolbarSize = 32; break;
-            case 2: Global.toolbarSize = 24; break; 
-            case 1: Global.toolbarSize = 16; break; 
-            case 0: Global.toolbarSize = 0; break; 
+        case 3:
+            Global.toolbarSize = 32;
+
+            break;
+
+        case 2:
+            Global.toolbarSize = 24;
+
+            break;
+
+        case 1:
+            Global.toolbarSize = 16;
+
+            break;
+
+        case 0:
+            Global.toolbarSize = 0;
+
+            break;
         }
+
         Global.mainForm.initToolbar();
 
         String of = "Locale = " + locale;
-	of += ("\nSkin = " + cboSkin.getSelectedIndex());
+        of += ("\nSkin = " + cboSkin.getSelectedIndex());
         of += ("\nToolbarSize = " + Global.toolbarSize);
         of += ("\nLabelAlignment = " + cboLabelAlign.getSelectedIndex());
         of += ("\nTabAlignment = " + cboTabAlign.getSelectedIndex());

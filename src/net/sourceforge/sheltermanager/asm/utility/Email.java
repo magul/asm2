@@ -109,13 +109,14 @@ public class Email {
     }
 
     public void sendmsg(String to_address, String subject, String message,
-        String from_address, String content_type) throws IOException, ProtocolException {
+        String from_address, String content_type)
+        throws IOException, ProtocolException {
         sendmsg(to_address, "", subject, message, from_address, content_type);
     }
 
-    public void sendmsg(String to_address, String cc_address, String subject, String message,
-        String from_address, String content_type) throws IOException, ProtocolException {
-        
+    public void sendmsg(String to_address, String cc_address, String subject,
+        String message, String from_address, String content_type)
+        throws IOException, ProtocolException {
         String rstr;
         String sstr;
 
@@ -142,8 +143,11 @@ public class Email {
         // Extract the email address portion (if it doesn't have markers, 
         // assume the whole thing is email)
         String from = from_address;
-        if (from.indexOf("<") != -1) 
+
+        if (from.indexOf("<") != -1) {
             from = from.substring(from.indexOf("<") + 1, from.indexOf(">"));
+        }
+
         sstr = "MAIL FROM: <" + from + ">";
         send.print(sstr);
         send.print(EOL);
@@ -199,10 +203,12 @@ public class Email {
         send.print(EOL);
         send.print("To: " + to_address);
         send.print(EOL);
+
         if (cc_address.length() > 0) {
             send.print("Cc: " + cc_address);
             send.print(EOL);
         }
+
         send.print("Content-Type: " + content_type);
         send.print(EOL);
         send.print("Subject: " + subject);
@@ -261,6 +267,7 @@ public class Email {
      */
     public static void singleEmailForm(String to_email) {
         UI.cursorToWait();
+
         EmailForm emf = new EmailForm();
         emf.removeFields();
         emf.setTo(to_email);
@@ -273,6 +280,7 @@ public class Email {
      */
     public static void singleEmailForm(String to_email, OwnerEdit parent) {
         UI.cursorToWait();
+
         EmailForm emf = new EmailForm();
         emf.removeFields();
         emf.setTo(to_email);
@@ -280,7 +288,6 @@ public class Email {
         emf.setParentOwnerForm(parent);
         Global.mainForm.addChild(emf);
     }
-
 
     /**
      * Opens an email form with no to address,
@@ -329,7 +336,11 @@ public class Email {
     private String readLine(DataInputStream reply) throws IOException {
         byte[] buff = new byte[1024];
         int bytesread = reply.read(buff);
-        if (bytesread == -1) return "";
+
+        if (bytesread == -1) {
+            return "";
+        }
+
         return new String(buff).substring(0, bytesread);
     }
 }

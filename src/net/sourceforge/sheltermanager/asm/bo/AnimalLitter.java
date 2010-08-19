@@ -288,6 +288,7 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
             // Is the invalid date after atDate? If it is, then our
             // litter has not expired and should be included
             Calendar invDate = Utils.dateToCalendar(getInvalidDate());
+
             return !invDate.after(calAtDate);
         }
 
@@ -296,10 +297,10 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
     }
 
     /**
-     * Filters the animallitter table down by only returning records that 
+     * Filters the animallitter table down by only returning records that
      * are twelve months or newer
      *
-     * @return All animal litters that are less than twelve months old 
+     * @return All animal litters that are less than twelve months old
      */
     public static AnimalLitter getRecentLitters() {
         Calendar recent = Calendar.getInstance();
@@ -311,7 +312,6 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
         AnimalLitter al = new AnimalLitter();
         al.openRecordset("Date > '" + recentdb + "' ORDER BY Date DESC");
 
-
         return al;
     }
 
@@ -319,10 +319,9 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
      * Filters the animallitter table down by only returning records that are
      * twelve months or newer and a certain species
      *
-     * @return All animal litters of a species that are less than twelve months old  
+     * @return All animal litters of a species that are less than twelve months old
      */
     public static AnimalLitter getRecentLittersForSpecies(int speciesID) {
-
         Calendar recent = Calendar.getInstance();
         recent.add(Calendar.MONTH, -12);
 
@@ -330,8 +329,8 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
                     recent));
 
         AnimalLitter al = new AnimalLitter();
-        al.openRecordset("Date > '" + recentdb + "' AND SpeciesID = " + speciesID + 
-            " ORDER BY Date DESC");
+        al.openRecordset("Date > '" + recentdb + "' AND SpeciesID = " +
+            speciesID + " ORDER BY Date DESC");
 
         return al;
     }

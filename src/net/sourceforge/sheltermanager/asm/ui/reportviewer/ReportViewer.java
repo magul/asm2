@@ -44,12 +44,11 @@ import java.util.Vector;
  * @version 1.0
  */
 public class ReportViewer extends ASMForm {
-   
-   /** True if we're using the stock ASM template and scaling by adjusting font sizes */
+    /** True if we're using the stock ASM template and scaling by adjusting font sizes */
     private boolean contentScale = false;
+
     /** True once we've rewritten the file content the first time */
     private boolean updatedOnce = false;
-    
     private String filename = "";
     private int baseFontSize = 11;
     private String filecontents = "";
@@ -106,9 +105,8 @@ public class ReportViewer extends ASMForm {
         // Do we have an <!-- Embedded style sheet or ASM Content Scaling comment
         // if so, it's one of our default templates and we can replace the style
         // header portion with new font sizes
-        if (filecontents.indexOf("<!-- Embedded style sheet") == -1 && 
-            filecontents.indexOf("<!-- ASM") == -1) {
-        
+        if ((filecontents.indexOf("<!-- Embedded style sheet") == -1) &&
+                (filecontents.indexOf("<!-- ASM") == -1)) {
             Global.logDebug("Couldn't find \"<!-- Embedded style sheet\" or " +
                 "\"<!-- ASM Content Scaling\" markers, using render zoom " +
                 "instead of content scaling", "ReportViewer.setContentSize");
@@ -167,25 +165,23 @@ public class ReportViewer extends ASMForm {
         if (mt != -1) {
             filecontents = filecontents.substring(0, mt) +
                 filecontents.substring(filecontents.indexOf(">", mt + 6));
-        }      
+        }
         System.out.println(filecontents);
         */
-
         if (updatedOnce) {
             // Load the content into the viewer directly - we don't change the original
             // file so that it looks right when loaded into an external browser
             edOutput.setContent(filecontents);
-        }
-        else {
+        } else {
             // The first time through, we write the content to the file - this works around
             // a JRE bug that causes embedded style sheet and meta tags to not be
             // interpreted properly by the JEditorPane setText() call
             try {
-                Utils.writeFile(filename, filecontents.getBytes(Global.CHAR_ENCODING));
+                Utils.writeFile(filename,
+                    filecontents.getBytes(Global.CHAR_ENCODING));
                 edOutput.setPage("file:///" + filename);
                 updatedOnce = true;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, getClass());
             }
         }
@@ -223,21 +219,19 @@ public class ReportViewer extends ASMForm {
     }
 
     public void actionZoomIn() {
-        if (contentScale) {        
+        if (contentScale) {
             baseFontSize += 1;
             setContentSize();
-        }
-        else {
+        } else {
             edOutput.setScale(edOutput.getScale() + 2);
         }
     }
 
     public void actionZoomOut() {
-        if (contentScale) {        
+        if (contentScale) {
             baseFontSize -= 1;
             setContentSize();
-        }
-        else {
+        } else {
             edOutput.setScale(edOutput.getScale() - 2);
         }
     }

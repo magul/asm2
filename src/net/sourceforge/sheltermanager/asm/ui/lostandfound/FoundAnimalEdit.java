@@ -262,8 +262,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             Utils.setComboFromID(LookupCache.getSexLookup(), "Sex",
                 animal.getSex(), cboSex);
             cboAgeGroup.setSelectedItem(animal.getAgeGroup());
-
-
         } catch (CursorEngineException e) {
             Global.logException(e, getClass());
         }
@@ -374,10 +372,9 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                     LookupCache.getBaseColourLookup(), "BaseColour", cboColour));
             animal.setBreedID(Utils.getIDFromCombo(
                     LookupCache.getBreedLookup(), "BreedName", cboBreed));
-            animal.setSex(Utils.getIDFromCombo(
-                    LookupCache.getSexLookup(), "Sex", cboSex));
+            animal.setSex(Utils.getIDFromCombo(LookupCache.getSexLookup(),
+                    "Sex", cboSex));
             animal.setAgeGroup(cboAgeGroup.getSelectedItem().toString());
-
         } catch (CursorEngineException e) {
             Dialog.showError(i18n("Error_saving_to_local_SQLRecordset:_") +
                 e.getMessage(), i18n("Save_Error"));
@@ -482,8 +479,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 LookupCache.getAgeGroupNames(), UI.fp(this, "dataChanged"));
         UI.addComponent(pnlLeftTop, i18n("Age_Group:"), cboAgeGroup);
 
-        cboSex = UI.getCombo(i18n("Sex:"),
-                LookupCache.getSexLookup(), "Sex",
+        cboSex = UI.getCombo(i18n("Sex:"), LookupCache.getSexLookup(), "Sex",
                 UI.fp(this, "dataChanged"));
         UI.addComponent(pnlLeftTop, i18n("Sex:"), cboSex);
 
@@ -492,10 +488,8 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                 UI.fp(this, "dataChanged"));
         UI.addComponent(pnlLeftTop, i18n("Species:"), cboSpecies);
 
-
-        cboBreed = UI.getCombo(i18n("Breed:"),
-                LookupCache.getBreedLookup(), "BreedName",
-                UI.fp(this, "dataChanged"));
+        cboBreed = UI.getCombo(i18n("Breed:"), LookupCache.getBreedLookup(),
+                "BreedName", UI.fp(this, "dataChanged"));
         UI.addComponent(pnlLeftTop, i18n("Breed:"), cboBreed);
         cboColour = UI.getCombo(i18n("Colour:"),
                 LookupCache.getBaseColourLookup(), "BaseColour",

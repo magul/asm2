@@ -119,7 +119,8 @@ public class LitterEdit extends ASMForm {
 
             if (Configuration.getBoolean("AutoLitterIdentification")) {
                 // Generate the ID for this litter
-                txtAcceptanceNumber.setText(Utils.zeroPad(litter.getID().intValue(), 6));
+                txtAcceptanceNumber.setText(Utils.zeroPad(
+                        litter.getID().intValue(), 6));
             }
 
             // Default the expiry date to 6 months in the future
@@ -199,8 +200,7 @@ public class LitterEdit extends ASMForm {
         UI.Panel pb = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pbut = UI.getPanel(UI.getFlowLayout());
 
-        alParentName = (AnimalLink) UI.addComponent(pt,
-                i18n("Mother:"),
+        alParentName = (AnimalLink) UI.addComponent(pt, i18n("Mother:"),
                 new AnimalLink());
 
         cboSpecies = UI.getCombo(i18n("Species:"),

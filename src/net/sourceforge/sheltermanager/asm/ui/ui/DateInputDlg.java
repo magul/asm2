@@ -43,7 +43,6 @@ public class DateInputDlg extends ASMDialog {
     }
 
     public void initComponents() {
-
         UI.Panel p = UI.getPanel(UI.getFlowLayout());
         UI.Panel b = UI.getPanel(UI.getFlowLayout());
 
@@ -79,6 +78,7 @@ public class DateInputDlg extends ASMDialog {
         v.add(db);
         v.add(btnOk);
         v.add(btnCancel);
+
         return v;
     }
 
@@ -87,6 +87,7 @@ public class DateInputDlg extends ASMDialog {
 
     public boolean windowCloseAttempt() {
         Dialog.lastDate = "";
+
         return false;
     }
 

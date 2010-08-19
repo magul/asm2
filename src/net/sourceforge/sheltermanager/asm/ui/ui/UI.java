@@ -62,7 +62,6 @@ public final class UI {
     public final static int ALIGN_RIGHT = SwingConstants.TRAILING;
     public final static int ALIGN_TOP = SwingConstants.TOP;
     public final static int ALIGN_BOTTOM = SwingConstants.BOTTOM;
-
     public final static int LAF_DEFAULT = 0;
     public final static int LAF_PLATFORM = 1;
     public final static int LAF_METAL = 2;
@@ -78,19 +77,37 @@ public final class UI {
 
     public static void swingSetLAF(int laf) {
         switch (laf) {
-	    case LAF_DEFAULT: return;
-            case LAF_PLATFORM: swingSetPlatformLAF(); break;
-	    case LAF_METAL: swingSetMetalLAF(); break;
-	    case LAF_METAL_GTK: swingSetMetalGTKLAF(); break;
-	    default: swingSetMetalLAF(); break;
-	}
-	try {
-	    if (Dialog.theParent != null)
-	        SwingUtilities.updateComponentTreeUI(Dialog.theParent);
-	}
-	catch (Exception e) {
-	    e.printStackTrace();
-	}
+        case LAF_DEFAULT:
+            return;
+
+        case LAF_PLATFORM:
+            swingSetPlatformLAF();
+
+            break;
+
+        case LAF_METAL:
+            swingSetMetalLAF();
+
+            break;
+
+        case LAF_METAL_GTK:
+            swingSetMetalGTKLAF();
+
+            break;
+
+        default:
+            swingSetMetalLAF();
+
+            break;
+        }
+
+        try {
+            if (Dialog.theParent != null) {
+                SwingUtilities.updateComponentTreeUI(Dialog.theParent);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void swingSetMetalLAF() {
@@ -103,8 +120,10 @@ public final class UI {
 
     public static void swingSetMetalGTKLAF() {
         final int REGULAR = 0;
-	try {
+
+        try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+
             // Try a better font - Sun Java default is hideous and everything
             // is in bold, which is nasty. OpenJDK uses better fonts, but still
             // has the bold problem.
@@ -122,12 +141,12 @@ public final class UI {
         }
     }
 
-
     public static void swingSetPlatformLAF() {
         // Force GTK when choosing platform for Linux and Solaris users
         if (osIsLinux() || osIsSolaris()) {
             swingSetGTKLAF();
-	    return;
+
+            return;
         }
 
         try {
@@ -317,11 +336,11 @@ public final class UI {
         }
 
         if (onChange != null) {
-	    c.addItemListener(new ItemListener() {
-	        public void itemStateChanged(ItemEvent e) {
-		    onChange.call();
-		}
-	    });
+            c.addItemListener(new ItemListener() {
+                    public void itemStateChanged(ItemEvent e) {
+                        onChange.call();
+                    }
+                });
         }
 
         // There are more than a few places where we have trailing
@@ -597,27 +616,27 @@ public final class UI {
         l.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         l.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                FileTypeManager.shellExecute(url);
-            }
-        });
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    FileTypeManager.shellExecute(url);
+                }
+            });
 
         return l;
     }
 
     public static Label getSplashLabel() {
         final Label l = new Label(IconManager.getSplashScreen());
-        
+
         // Leave it as an easter egg
         // l.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
         l.setPreferredSize(getDimension(400, 200));
 
         l.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                l.setIcon(IconManager.getSplashScreen());
-            }
-        });
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    l.setIcon(IconManager.getSplashScreen());
+                }
+            });
+
         return l;
     }
 
@@ -876,12 +895,13 @@ public final class UI {
         return getCombo("", items, onChange);
     }
 
-    public static ComboBox getCombo(String description, Vector items, 
+    public static ComboBox getCombo(String description, Vector items,
         final FunctionPointer onChange) {
         return getCombo(description, items, onChange, null);
     }
 
-    public static ComboBox getCombo(String description, Vector items, String allstring) {
+    public static ComboBox getCombo(String description, Vector items,
+        String allstring) {
         return getCombo(description, items, null, allstring);
     }
 
@@ -2157,29 +2177,32 @@ public final class UI {
 
         return s;
     }
-    
+
     public static ScrollPane getVerticalScrollPane(Component c) {
         ScrollPane s = new ScrollPane(c);
 
         if (!isLTR()) {
             s.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         }
-        
+
         s.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         return s;
     }
-    
-    public static VerticalSplitPane getVerticalSplitPane(Component c1, Component c2) {
+
+    public static VerticalSplitPane getVerticalSplitPane(Component c1,
+        Component c2) {
         return new VerticalSplitPane(c1, c2);
     }
 
-    public static HorizontalSplitPane getHorizontalSplitPane(Component c1, Component c2) {
-        if (isLTR()) 
+    public static HorizontalSplitPane getHorizontalSplitPane(Component c1,
+        Component c2) {
+        if (isLTR()) {
             return new HorizontalSplitPane(c1, c2);
-        else
+        } else {
             return new HorizontalSplitPane(c2, c1);
+        }
     }
 
     public static BoxLayout getBoxLayout(UI.Panel p, int axis) {
@@ -2212,6 +2235,7 @@ public final class UI {
         implements HyperlinkListener, Printable, Serializable {
         private Label status = null;
         private FunctionPointer onHyperlinkClick = null;
+        private double scaleFactor = 1.0;
 
         public HTMLBrowser(Label status, FunctionPointer onHyperlinkClick) {
             super();
@@ -2316,12 +2340,10 @@ public final class UI {
         }
 
         public void paint(Graphics g) {
-            Graphics2D gd = (Graphics2D)g;
+            Graphics2D gd = (Graphics2D) g;
             gd.scale(scaleFactor, scaleFactor);
             super.paint(gd);
         }
-
-        private double scaleFactor = 1.0;
 
         public int getScale() {
             return (int) (scaleFactor * 100);
@@ -2332,7 +2354,6 @@ public final class UI {
             scaleFactor = scaleFactor / 100;
             repaint();
         }
-
     }
 
     /** Class to handle ASM tables */
@@ -2867,11 +2888,10 @@ public final class UI {
             b.setTitleColor(new JLabel().getForeground());
             setBorder(b);
         }
-        
+
         public void setLineBorder() {
-        	setBorder(new LineBorder(Color.BLACK));
+            setBorder(new LineBorder(Color.BLACK));
         }
-        
 
         public void dispose() {
         }

@@ -29,7 +29,6 @@ import java.util.*;
 
 
 public class AnimalLost extends UserInfoBO<AnimalLost> {
-
     /** Cached owner */
     private Owner owner = null;
 
@@ -299,10 +298,9 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
      * @throws CursorEngineException
      *             If an error occurs accessing data.
      */
-    public Vector<String[]> match(boolean includeShelter,
-        boolean filterByDate, Date fromDate, Date toDate, int foundFilterID,
-        int animalID) throws CursorEngineException {
-        
+    public Vector<String[]> match(boolean includeShelter, boolean filterByDate,
+        Date fromDate, Date toDate, int foundFilterID, int animalID)
+        throws CursorEngineException {
         Vector<String[]> returnedRows = new Vector<String[]>();
         int matchPoints = 0;
 
@@ -317,10 +315,13 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         int matchFeatures = Configuration.getInteger("MatchFeatures", 5);
         int matchPostcode = Configuration.getInteger("MatchPostcode", 5);
         int matchColour = Configuration.getInteger("MatchColour", 5);
-        int matchDateWithin2Weeks = Configuration.getInteger("MatchWithin2Weeks", 5);
-        int matchMax = matchSpecies + matchBreed + matchAge + matchSex + matchAreaLost + matchFeatures + 
-            matchPostcode + matchColour + matchDateWithin2Weeks;
-        int matchPointFloor = Configuration.getInteger("MatchPointFloor", matchMax / 2);
+        int matchDateWithin2Weeks = Configuration.getInteger("MatchWithin2Weeks",
+                5);
+        int matchMax = matchSpecies + matchBreed + matchAge + matchSex +
+            matchAreaLost + matchFeatures + matchPostcode + matchColour +
+            matchDateWithin2Weeks;
+        int matchPointFloor = Configuration.getInteger("MatchPointFloor",
+                matchMax / 2);
 
         // If we have an animalID then there's no point checking
         // found animals at all
@@ -340,7 +341,9 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                 // Filter for matching species, we can also ignore animals
                 // found before our animal was lost
                 sql = "AnimalTypeID = " + getSpeciesID() +
-                    " AND DateFound >= '" + SQLRecordset.getSQLRepresentationOfDate(getDateLost()) + "'" +
+                    " AND DateFound >= '" +
+                    SQLRecordset.getSQLRepresentationOfDate(getDateLost()) +
+                    "'" +
                     ((foundFilterID != 0) ? (" AND ID = " + foundFilterID) : "");
                 aflist.openRecordset(sql);
             }
@@ -350,7 +353,8 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
 
             for (AnimalFound af : aflist) {
                 Global.logDebug("Start match, species match: " +
-                    af.getDistFeat() + ", points=" + matchSpecies, "AnimalLost.match");
+                    af.getDistFeat() + ", points=" + matchSpecies,
+                    "AnimalLost.match");
 
                 // species has to match for it to be included.
                 matchPoints = matchSpecies;
@@ -358,25 +362,24 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                 // Breed
                 if (af.getBreedID().equals(getBreedID())) {
                     matchPoints += matchBreed;
-                    Global.logDebug("Comparing breed: " + 
-                        af.getBreedID() + " to " + getBreedID() + ", points=" + matchPoints,
+                    Global.logDebug("Comparing breed: " + af.getBreedID() +
+                        " to " + getBreedID() + ", points=" + matchPoints,
                         "AnimalLost.match");
                 }
 
                 // Age
                 if (af.getAgeGroup().equals(getAgeGroup())) {
                     matchPoints += matchAge;
-                    Global.logDebug("Comparing age: " + 
-                        af.getAgeGroup() + " to " + getAgeGroup() + ", points=" + matchPoints,
+                    Global.logDebug("Comparing age: " + af.getAgeGroup() +
+                        " to " + getAgeGroup() + ", points=" + matchPoints,
                         "AnimalLost.match");
                 }
 
                 // Sex
                 if (af.getSex().equals(getSex())) {
                     matchPoints += matchSex;
-                    Global.logDebug("Comparing sex: " + 
-                        af.getSex() + " to " + getSex() + ", points=" + matchPoints,
-                        "AnimalLost.match");
+                    Global.logDebug("Comparing sex: " + af.getSex() + " to " +
+                        getSex() + ", points=" + matchPoints, "AnimalLost.match");
                 }
 
                 // Area Lost
@@ -479,23 +482,21 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         Animal an = new Animal();
 
         if (animalID == 0) {
-
             String awhere = "SpeciesID = " + getSpeciesID();
 
             if (filterByDate) {
-                awhere += " AND DateBroughtIn >= '" +
-                    SQLRecordset.getSQLRepresentationOfDate(fromDate) +
-                    "' AND DateBroughtIn <= '" +
-                    SQLRecordset.getSQLRepresentationOfDate(toDate);
-            }
-            else {
+                awhere += (" AND DateBroughtIn >= '" +
+                SQLRecordset.getSQLRepresentationOfDate(fromDate) +
+                "' AND DateBroughtIn <= '" +
+                SQLRecordset.getSQLRepresentationOfDate(toDate));
+            } else {
                 // ignore animals brought in before our animal was lost
-                awhere += " AND DateBroughtIn >= '" + SQLRecordset.getSQLRepresentationOfDate(getDateLost()) + "'";
+                awhere += (" AND DateBroughtIn >= '" +
+                SQLRecordset.getSQLRepresentationOfDate(getDateLost()) + "'");
             }
 
             an.openRecordset(awhere);
-        } 
-        else {
+        } else {
             an.openRecordset("ID = " + animalID);
         }
 
@@ -504,7 +505,8 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
             matchPoints = matchSpecies;
 
             // Breed
-            if (an.getBreedID().equals(getBreedID()) || an.getBreed2ID().equals(getBreedID())) {
+            if (an.getBreedID().equals(getBreedID()) ||
+                    an.getBreed2ID().equals(getBreedID())) {
                 matchPoints += matchBreed;
             }
 
@@ -518,8 +520,7 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                 if (an.getAgeGroup().equals(getAgeGroup())) {
                     matchPoints += matchAge;
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 // Null age group
             }
 
@@ -557,7 +558,8 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
             }
 
             // Distinguishing Features
-            matchPoints += scoreMatchingWords(getDistFeat(), an.getMarkings(), matchFeatures);
+            matchPoints += scoreMatchingWords(getDistFeat(), an.getMarkings(),
+                matchFeatures);
 
             // If the match is better than our top score,
             // cap it at that
@@ -580,11 +582,8 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
                         Global.i18n("bo", "Shelter_Animal_") +
                         an.getShelterCode() + " '" + an.getAnimalName() + "'",
                         an.getAnimalTypeName(), Global.i18n("bo", "On_Shelter"),
-                        ownerPostcode, 
-                        an.getAgeGroup(),
-                        an.getSexName(),
-                        an.getSpeciesName(),
-                        an.getBreedName(),
+                        ownerPostcode, an.getAgeGroup(), an.getSexName(),
+                        an.getSpeciesName(), an.getBreedName(),
                         Utils.nullToEmptyString(an.getMarkings()),
                         an.getBaseColourName(),
                         Utils.formatDateLong(an.getDateBroughtIn()),
@@ -600,7 +599,7 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         return returnedRows;
     }
 
-    /** 
+    /**
      * Returns the maximum number of match points
      */
     public static int getMatchMax() {
@@ -612,9 +611,12 @@ public class AnimalLost extends UserInfoBO<AnimalLost> {
         int matchFeatures = Configuration.getInteger("MatchFeatures", 5);
         int matchPostcode = Configuration.getInteger("MatchPostcode", 5);
         int matchColour = Configuration.getInteger("MatchColour", 5);
-        int matchDateWithin2Weeks = Configuration.getInteger("MatchWithin2Weeks", 5);
-        int matchMax = matchSpecies + matchBreed + matchAge + matchSex + matchAreaLost + matchFeatures + 
-            matchPostcode + matchColour + matchDateWithin2Weeks;
+        int matchDateWithin2Weeks = Configuration.getInteger("MatchWithin2Weeks",
+                5);
+        int matchMax = matchSpecies + matchBreed + matchAge + matchSex +
+            matchAreaLost + matchFeatures + matchPostcode + matchColour +
+            matchDateWithin2Weeks;
+
         return matchMax;
     }
 

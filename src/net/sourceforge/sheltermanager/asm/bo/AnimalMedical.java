@@ -108,6 +108,7 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
         a.setTreatmentsRemaining(getTreatmentsRemaining());
         a.setStatus(getStatus());
         a.setComments(getComments());
+
         return a;
     }
 

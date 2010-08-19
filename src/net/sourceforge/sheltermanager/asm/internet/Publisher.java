@@ -938,7 +938,8 @@ public class Publisher extends Thread {
 
             if (host.trim().equals("")) {
                 Dialog.showWarning(Global.i18n("uiinternet",
-                    "cannot_upload_directly"));
+                        "cannot_upload_directly"));
+
                 return;
             }
 

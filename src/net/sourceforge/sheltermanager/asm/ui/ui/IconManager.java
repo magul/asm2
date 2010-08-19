@@ -39,7 +39,6 @@ import javax.swing.ImageIcon;
  * @version 1.0
  */
 public abstract class IconManager {
-
     // Reusable constants for screens
     public final static String SEARCH = "actions-Search-24.png";
     public final static String SEARCHSMALL = "actions-Search-16.png";
@@ -745,6 +744,12 @@ public abstract class IconManager {
     public final static String BUTTON_VIEWMYDIARY = "diary-View-32.png";
     public final static String BUTTON_PRINTDIARY = "diary-Print-32.png";
 
+    /** Total number of splash images */
+    private final static int SPLASH_IMAGES = 19;
+
+    /** Splash image to start at - rotate after that */
+    private static int nextSplash = new Random().nextInt(SPLASH_IMAGES);
+
     /**
      * Loads an icon according to one of the string constants available from
      * this file
@@ -807,19 +812,16 @@ public abstract class IconManager {
 
     /**
      * Returns a splash screen at random from our pool, rotating
-     * through all available splash screens 
+     * through all available splash screens
      * @return An icon containing the splash screen (400x200)
      */
     public static ImageIcon getSplashScreen() {
         nextSplash++;
-        if (nextSplash == SPLASH_IMAGES) nextSplash = 0;
+
+        if (nextSplash == SPLASH_IMAGES) {
+            nextSplash = 0;
+        }
+
         return getIcon("splash/splash" + nextSplash + ".jpg");
     }
-
-    /** Total number of splash images */
-    private final static int SPLASH_IMAGES = 19;
-
-    /** Splash image to start at - rotate after that */
-    private static int nextSplash = new Random().nextInt(SPLASH_IMAGES);
-
 }

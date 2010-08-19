@@ -587,8 +587,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     /**
      * Retrieves the contents of a field by its index.
      * @param fieldindex The index
-     * @return The value of the field 
-     * @throws CursorEngineException 
+     * @return The value of the field
+     * @throws CursorEngineException
      *             if BOF/EOF is true or the field does not exist
      */
     public Object getField(int fieldindex) throws CursorEngineException {
@@ -598,7 +598,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
                 "SQLRecordset.getField - BOF or EOF is true.");
         }
 
-         if (fieldindex < 0 || fieldindex > mNoFields) {
+        if ((fieldindex < 0) || (fieldindex > mNoFields)) {
             throw new CursorEngineException("SQLRecordset.getField - field '" +
                 fieldindex + "' does not exist. " + getFieldNames());
         }
@@ -613,7 +613,6 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         } else {
             return rd.theRowData[fieldindex];
         }
-
     }
 
     /**

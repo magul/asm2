@@ -417,15 +417,17 @@ public class DateField extends UI.Panel {
         }
 
         if (c != null) {
-
             // If our date is below the year 100, then a two-digit date was
             // entered and we need to work some pivot magic on it
             int year = c.get(Calendar.YEAR);
+
             if (year < 100) {
-                if (year < Global.PIVOT_YEAR)
+                if (year < Global.PIVOT_YEAR) {
                     year += Global.BELOW_PIVOT;
-                else
+                } else {
                     year += Global.AFTER_PIVOT;
+                }
+
                 c.set(Calendar.YEAR, year);
                 txt.setText(Utils.formatDate(c));
             }

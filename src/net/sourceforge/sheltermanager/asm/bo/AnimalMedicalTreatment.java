@@ -53,6 +53,7 @@ public class AnimalMedicalTreatment extends UserInfoBO<AnimalMedicalTreatment> {
         t.setComments(getComments());
         t.setTreatmentNumber(getTreatmentNumber());
         t.setTotalTreatments(getTotalTreatments());
+
         return t;
     }
 

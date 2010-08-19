@@ -741,18 +741,16 @@ public class Main extends ASMWindow {
         HashMap<String, UI.Menu> menus = new HashMap<String, UI.Menu>();
 
         try {
-            
             mnuMailMerge.removeAll();
+
             CustomReport reports = new CustomReport(
                     "HTMLBody Like 'MAIL' ORDER BY Category, Title");
             mnuMailMerge.setVisible(reports.size() > 0);
 
             for (CustomReport cr : reports) {
-
                 // Is the category blank? If so, use
                 // "Uncategorised"
-                if ((cr.getCategory() == null) ||
-                        cr.getCategory().equals("")) {
+                if ((cr.getCategory() == null) || cr.getCategory().equals("")) {
                     curcategory = i18n("uncategorised");
                 } else {
                     curcategory = cr.getCategory();
@@ -784,7 +782,6 @@ public class Main extends ASMWindow {
                     mnu.add(crm);
                 }
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         } finally {
@@ -794,7 +791,6 @@ public class Main extends ASMWindow {
             crm = null;
         }
     }
-
 
     /**
      * Returns true if we're using operating system security
@@ -826,7 +822,7 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_FILEANIMALADDANIMAL),
                 new ASMAccelerator("n", "ctrl", ""),
                 UI.fp(this, "actionFileAnimalAddAnimal"));
-        
+
         mnuFileAnimalAddAnimals = UI.getMenuItem(i18n("Add_Animals"), 'S',
                 IconManager.getIcon(IconManager.MENU_FILEANIMALADDANIMAL),
                 new ASMAccelerator("s", "ctrl", "shift"),
@@ -1616,8 +1612,12 @@ public class Main extends ASMWindow {
      * @return The modified icon path to match Global.toolbarSize
      */
     private String adjustButtonSize(String iconPath) {
-        if (Global.toolbarSize == 32 || Global.toolbarSize == 0) return iconPath;
-        return Utils.replace(iconPath, "32", Integer.toString(Global.toolbarSize));
+        if ((Global.toolbarSize == 32) || (Global.toolbarSize == 0)) {
+            return iconPath;
+        }
+
+        return Utils.replace(iconPath, "32",
+            Integer.toString(Global.toolbarSize));
     }
 
     /**
@@ -1634,119 +1634,177 @@ public class Main extends ASMWindow {
         tlbTools.removeAll();
 
         btnAddAnimal = UI.getButton(null, i18n("Add_a_new_animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ADDANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_ADDANIMAL)),
                 UI.fp(this, "actionFileAnimalAddAnimal"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnAddAnimal);
-        
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnAddAnimal);
+        }
+
         btnFindAnimal = UI.getButton(null, i18n("Find_an_Animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FINDANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_FINDANIMAL)),
                 UI.fp(this, "actionFileAnimalFindAnimal"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnFindAnimal);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnFindAnimal);
+        }
 
         btnAddOwner = UI.getButton(null, i18n("Add_an_Owner"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ADDOWNER)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_ADDOWNER)),
                 UI.fp(this, "actionFileOwnerAddOwner"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnAddOwner);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnAddOwner);
+        }
 
         btnFindOwner = UI.getButton(null, i18n("Find_an_Owner"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FINDOWNER)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_FINDOWNER)),
                 UI.fp(this, "actionFileOwnerFindOwner"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnFindOwner);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnFindOwner);
+        }
 
         btnHelp = UI.getButton(null, i18n("Help"),
                 IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_HELP)),
                 UI.fp(this, "actionHelpContents"));
-        if (Global.toolbarSize > 0) tlbTools.add(btnHelp);
 
-        if (Global.toolbarSize > 0) tlbTools.addSeparator();
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnHelp);
+        }
+
+        if (Global.toolbarSize > 0) {
+            tlbTools.addSeparator();
+        }
 
         btnAddLostAnimal = UI.getButton(null, i18n("Add_Lost_Animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ADDLOSTANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_ADDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsAddLost"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnAddLostAnimal);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnAddLostAnimal);
+        }
 
         btnFindLostAnimal = UI.getButton(null, i18n("Find_a_Lost_Animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FINDLOSTANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_FINDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsFindLost"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnFindLostAnimal);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnFindLostAnimal);
+        }
 
         btnAddFoundAnimal = UI.getButton(null, i18n("Add_a_Found_Animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ADDFOUNDANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_ADDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsAddFound"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnAddFoundAnimal);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnAddFoundAnimal);
+        }
 
         btnFindFoundAnimal = UI.getButton(null, i18n("Find_Found_Animal"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FINDFOUNDANIMAL)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_FINDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsFindFound"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnFindFoundAnimal);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnFindFoundAnimal);
+        }
 
         btnMatchLostandFound = UI.getButton(null,
                 i18n("Produce_a_report_matching_lost_and_found_animals"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_MATCHLOSTANDFOUND)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_MATCHLOSTANDFOUND)),
                 UI.fp(this, "actionFileMatchLostAndFound"));
-        if (Global.toolbarSize > 0) tlbTools.add(btnMatchLostandFound);
 
-        if (Global.toolbarSize > 0) tlbTools.addSeparator();
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnMatchLostandFound);
+        }
+
+        if (Global.toolbarSize > 0) {
+            tlbTools.addSeparator();
+        }
 
         btnReservations = UI.getButton(null, i18n("Reservation_Book"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_RESERVATIONS)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_RESERVATIONS)),
                 UI.fp(this, "actionFileAnimalReservationBook"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnReservations);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnReservations);
+        }
 
         btnFosterBook = UI.getButton(null, i18n("Foster_Book"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_FOSTERBOOK)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_FOSTERBOOK)),
                 UI.fp(this, "actionFileAnimalFosterBook"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnFosterBook);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnFosterBook);
+        }
 
         btnRetailerBook = UI.getButton(null, i18n("Retailer_Book"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_RETAILERBOOK)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_RETAILERBOOK)),
                 UI.fp(this, "actionFileAnimalRetailerBook"));
 
         // Disable retailer functionality if option set
         if (!Configuration.getBoolean("DisableRetailer")) {
-            if (Global.toolbarSize > 0) tlbTools.add(btnRetailerBook);
+            if (Global.toolbarSize > 0) {
+                tlbTools.add(btnRetailerBook);
+            }
         }
 
         btnWaitingList = UI.getButton(null, i18n("Waiting_List"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_WAITINGLIST)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_WAITINGLIST)),
                 UI.fp(this, "actionFileAnimalWaitingList"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnWaitingList);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnWaitingList);
+        }
 
         btnAddDiary = UI.getButton(null, i18n("Add_Diary_Note"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ADDDIARY)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_ADDDIARY)),
                 UI.fp(this, "actionDiaryAddNote"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnAddDiary);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnAddDiary);
+        }
 
         btnViewMyDiary = UI.getButton(null, i18n("Edit_Diary_Notes"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_VIEWMYDIARY)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_VIEWMYDIARY)),
                 UI.fp(this, "actionDiaryViewMyNotes"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnViewMyDiary);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnViewMyDiary);
+        }
 
         btnPrintDiary = UI.getButton(null, i18n("Print_Diary_Notes"),
-                IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_PRINTDIARY)),
+                IconManager.getIcon(adjustButtonSize(
+                        IconManager.BUTTON_PRINTDIARY)),
                 UI.fp(this, "actionDiaryPrintNotes"));
 
-        if (Global.toolbarSize > 0) tlbTools.add(btnPrintDiary);
+        if (Global.toolbarSize > 0) {
+            tlbTools.add(btnPrintDiary);
+        }
 
         btnAccount = UI.getButton(null, i18n("Accounts"),
                 IconManager.getIcon(adjustButtonSize(IconManager.BUTTON_ACCOUNT)),
                 UI.fp(this, "actionFileAccounts"));
 
         if (!Configuration.getBoolean("DisableAccounts")) {
-            if (Global.toolbarSize > 0) tlbTools.add(btnAccount);
+            if (Global.toolbarSize > 0) {
+                tlbTools.add(btnAccount);
+            }
         }
     }
 
@@ -2312,7 +2370,7 @@ public class Main extends ASMWindow {
         addChild(ea);
         ea = null;
     }
-    
+
     public void actionFileAnimalAddAnimals() {
         cursorToWait();
 

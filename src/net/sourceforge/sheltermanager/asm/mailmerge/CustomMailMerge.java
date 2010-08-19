@@ -37,7 +37,6 @@ import java.util.Date;
  * @author  Robin Rawson-Tetley
  */
 public class CustomMailMerge extends MailMerge {
-    
     private String title = null;
     private String sql = null;
     private int emailColumn = 0;
@@ -57,11 +56,11 @@ public class CustomMailMerge extends MailMerge {
         t = Utils.replace(t, " ", "");
         t = Utils.replace(t, "-", "");
         t += ".csv";
+
         return t;
     }
 
     protected void getData() throws CursorEngineException, NoDataException {
-
         SQLRecordset rs = new SQLRecordset();
 
         try {
@@ -84,23 +83,27 @@ public class CustomMailMerge extends MailMerge {
 
         // Set header
         for (int i = 1; i <= cols; i++) {
-            theData[0][i-1] = rs.getFieldName(i);
+            theData[0][i - 1] = rs.getFieldName(i);
+
             // If there's an email column, flag it
-            if (rs.getFieldName(i).toLowerCase().indexOf("email") != -1)
+            if (rs.getFieldName(i).toLowerCase().indexOf("email") != -1) {
                 emailColumn = i;
+            }
         }
 
         int row = 1;
 
         // Build data
         while (!rs.getEOF()) {
-
             // Fill out an entry
             for (int i = 1; i <= cols; i++) {
                 String v = "";
-                if (rs.getField(i) != null)
+
+                if (rs.getField(i) != null) {
                     v = rs.getField(i).toString();
-                theData[row][i-1] = v;
+                }
+
+                theData[row][i - 1] = v;
             }
 
             row++;

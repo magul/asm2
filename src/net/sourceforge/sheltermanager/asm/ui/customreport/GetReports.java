@@ -28,8 +28,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.TableRow;
 import net.sourceforge.sheltermanager.asm.ui.ui.TableData;
+import net.sourceforge.sheltermanager.asm.ui.ui.TableRow;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
@@ -75,8 +75,9 @@ public class GetReports extends ASMView {
 
     public Vector getTabOrder() {
         Vector v = new Vector();
-	v.add(chkMyLocale);
+        v.add(chkMyLocale);
         v.add(getTable());
+
         return v;
     }
 
@@ -119,6 +120,7 @@ public class GetReports extends ASMView {
                 reports = new Vector();
 
                 UI.cursorToWait();
+
                 String rs = Utils.getURL(
                         "http://sheltermanager.sf.net/reports.txt");
                 UI.cursorToPointer();
@@ -226,16 +228,18 @@ public class GetReports extends ASMView {
                 };
 
             // Build the data
-	    TableData td = new TableData();
+            TableData td = new TableData();
+
             for (int i = 0; i < reports.size(); i++) {
-	        TableRow row = new TableRow(7);
+                TableRow row = new TableRow(7);
                 InstallableReport r = (InstallableReport) reports.get(i);
 
                 // Skip if the locale isn't ours and the filter box is checked
-                if (Global.settings_Locale.indexOf(r.locale) == -1 &&
-		    chkMyLocale.isSelected()) {
+                if ((Global.settings_Locale.indexOf(r.locale) == -1) &&
+                        chkMyLocale.isSelected()) {
                     Global.logDebug("Skipping, wrong locale (" + r.locale +
                         ")", "GetReports.updateListThread");
+
                     continue;
                 }
 
@@ -247,11 +251,10 @@ public class GetReports extends ASMView {
                 row.set(5, r.description);
                 row.set(6, Integer.toString(i));
 
-		td.add(row);
+                td.add(row);
             }
 
             setTableData(columnheaders, td.toTableData(), td.size(), 6);
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -263,11 +266,11 @@ public class GetReports extends ASMView {
                     IconManager.SCREEN_INSTALLCUSTOMREPORTS_INSTALL),
                 UI.fp(this, "actionInstall"));
         addToolButton(btnInstall, true);
-	chkMyLocale = UI.getCheckBox(i18n("my_locale", Global.settings_Locale), null,
-		UI.fp(this, "updateList"));
+        chkMyLocale = UI.getCheckBox(i18n("my_locale", Global.settings_Locale),
+                null, UI.fp(this, "updateList"));
         chkMyLocale.setOpaque(false);
-	chkMyLocale.setSelected(true);
-	addToolButton(chkMyLocale, false);
+        chkMyLocale.setSelected(true);
+        addToolButton(chkMyLocale, false);
     }
 
     public void tableDoubleClicked() {

@@ -135,7 +135,7 @@ public class ConfigureDatabase extends ASMForm {
                     UI.fp(this, "saveData")));
         btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
                     null, UI.fp(this, "dispose")));
-        
+
         add(p, UI.BorderLayout.NORTH);
         add(pn, UI.BorderLayout.CENTER);
     }

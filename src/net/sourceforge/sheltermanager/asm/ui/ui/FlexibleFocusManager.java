@@ -95,21 +95,22 @@ public class FlexibleFocusManager extends FocusManager {
     }
 
     public void removeComponentSet(Object frame) {
-    	
-    	Vector toRemove = new Vector();
-    	
+        Vector toRemove = new Vector();
+
         // Find any tab sets belonging to this frame and mark them for removal
         for (int i = 0; i < sets.size(); i++) {
             FrameInfo fi = (FrameInfo) sets.get(i);
+
             if (fi.theFrame == frame) {
-            	toRemove.add(fi);
+                toRemove.add(fi);
             }
         }
-        
+
         // Remove them
         for (int i = 0; i < toRemove.size(); i++) {
-        	sets.remove(toRemove.get(i));
+            sets.remove(toRemove.get(i));
         }
+
         toRemove.clear();
     }
 

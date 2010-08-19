@@ -71,7 +71,6 @@ public class LostFoundMatch extends Report implements FromToListener {
      *            available shelter animals (where selected)
      */
     public LostFoundMatch(int lostID, int foundID, int animalID) {
-
         lostAnimalID = lostID;
         foundAnimalID = foundID;
         this.animalID = animalID;
@@ -87,10 +86,9 @@ public class LostFoundMatch extends Report implements FromToListener {
                             "Do_you_want_to_include_the_animal_database_in_your_search"),
                         Global.i18n("reports", "Include_Shelter_Animals"));
             }
-        }
-        else {
+        } else {
             if (Configuration.getBoolean("MatchIncludeShelter")) {
-                includeShelter = (foundAnimalID == 0 && animalID == 0);
+                includeShelter = ((foundAnimalID == 0) && (animalID == 0));
             }
         }
 
@@ -114,7 +112,8 @@ public class LostFoundMatch extends Report implements FromToListener {
 
                 // If so, ask them for those dates
                 if (filterByDate) {
-                    DateFromTo dt = new DateFromTo(DateFromTo.REPORT_LOSTFOUND, this);
+                    DateFromTo dt = new DateFromTo(DateFromTo.REPORT_LOSTFOUND,
+                            this);
                     Global.mainForm.addChild(dt);
                 } else {
                     // No date required - do the stuff
@@ -126,8 +125,7 @@ public class LostFoundMatch extends Report implements FromToListener {
                 // without them.
                 this.start();
             }
-        }
-        else {
+        } else {
             this.start();
         }
     }
@@ -184,15 +182,18 @@ public class LostFoundMatch extends Report implements FromToListener {
                 // Build the animal details, but don't add them to the report
                 // until we know there are some matches:
                 String la = Global.i18n("reports", "lostfound_match_detail",
-                        al.getID().toString(), al.getAgeGroup() + " " + al.getBaseColourName() + 
-                        " " + LookupCache.getSexName(al.getSex()),
-                        al.getSpeciesName() + "/" + LookupCache.getBreedName(al.getBreedID()), al.getDistFeat(), contactName,
-                        contactNumber, al.getAreaLost(), al.getAreaPostcode(),
+                        al.getID().toString(),
+                        al.getAgeGroup() + " " + al.getBaseColourName() + " " +
+                        LookupCache.getSexName(al.getSex()),
+                        al.getSpeciesName() + "/" +
+                        LookupCache.getBreedName(al.getBreedID()),
+                        al.getDistFeat(), contactName, contactNumber,
+                        al.getAreaLost(), al.getAreaPostcode(),
                         Utils.formatDateLong(al.getDateLost()));
 
                 // Get potential matches
-                Vector matches = al.match(includeShelter,
-                        filterByDate, from, to, foundAnimalID, animalID);
+                Vector matches = al.match(includeShelter, filterByDate, from,
+                        to, foundAnimalID, animalID);
 
                 // Were there any?
                 Iterator it = matches.iterator();
@@ -231,7 +232,8 @@ public class LostFoundMatch extends Report implements FromToListener {
 
                         tableAddRow();
                         tableAddCell(row[12]);
-                        tableAddCell(row[4] + " " + row[9] + " " + row[5] + " " + row[6] + "/" + row[7]);
+                        tableAddCell(row[4] + " " + row[9] + " " + row[5] +
+                            " " + row[6] + "/" + row[7]);
                         tableAddCell(row[8]);
                         tableAddCell(row[2]);
                         tableAddCell(row[3]);

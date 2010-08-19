@@ -159,7 +159,6 @@ public class LitterView extends ASMView {
 
                 al.moveNext();
             }
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
