@@ -500,8 +500,10 @@ public class PetFinderPublisher extends Thread {
                     // Id
                     dataFile.append("\"" + an.getShelterCode() + "\",");
 
-                    // Breed 2
-                    String pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
+                    // Breed 2 - only set it for crossbreeds
+                    String pfBMap2 = "";
+		    if (an.getCrossBreed().intValue() == 1) 
+		    	pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
                     dataFile.append("\"" + pfBMap2 + "\"");
 
                     // Terminate
