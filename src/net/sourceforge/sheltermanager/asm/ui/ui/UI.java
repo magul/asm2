@@ -2005,11 +2005,11 @@ public final class UI {
     }
 
     public static String getRendererName() {
-        return "ASMSwing 1.20";
+        return "ASMSwing 1.30 (200810)";
     }
 
     public static String getRendererVersion() {
-        return "1.10";
+        return "1.30";
     }
 
     public static void disableRendererMessages() {

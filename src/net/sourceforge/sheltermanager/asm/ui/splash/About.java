@@ -53,43 +53,18 @@ public class About extends ASMDialog {
         super();
         init(Global.i18n("uisplash", "About..."), null, "uisplash", false);
 
-        addSysInfoPair(i18n("Version_"), Global.productVersion);
-        addSysInfoPair("SQLRecordset", SQLRecordset.getCursorVersion());
-        addSysInfoPair("Renderer", UI.getRendererName());
-        addSysInfoPair("Database", DBConnection.url);
-        addSysInfoPair("Database Latency",
-            Long.toString(Global.speedTest) + "ms");
-        addSysInfoPair(i18n("Class_Path:_"),
-            System.getProperty("java.class.path"));
-        addSysInfoPair(i18n("Class_Version:_"),
-            System.getProperty("java.class.version"));
-        addSysInfoPair(i18n("Java_Home:_"), System.getProperty("java.home"));
-        addSysInfoPair(i18n("Vendor:_"), System.getProperty("java.vendor"));
-        addSysInfoPair(i18n("Vendor_URL:_"),
-            System.getProperty("java.vendor.url"));
-        addSysInfoPair(i18n("Java_Version:_"),
-            System.getProperty("java.version"));
-        addSysInfoPair(i18n("OS_Architecture:_"), System.getProperty("os.arch"));
-        addSysInfoPair(i18n("OS_Name:_"), System.getProperty("os.name"));
-        addSysInfoPair(i18n("OS_Version:_"), System.getProperty("os.version"));
-        addSysInfoPair(i18n("User_Directory:_"), System.getProperty("user.dir"));
-        addSysInfoPair(i18n("User_Home:_"), System.getProperty("user.home"));
-        addSysInfoPair(i18n("User_Name:_"), System.getProperty("user.name"));
+        String sys = "<html><head><style>* { font-family: sans-serif; }</style></head><body>";
+        sys += "<h2>" + Global.productVersion + "</h2>";
+        sys += "<p>" + SQLRecordset.getCursorVersion() + ", " + UI.getRendererName() + "";
+        sys += "<p>" + Long.toString(Global.speedTest) + "ms -&gt; " + DBConnection.getDBInfo() + "</p>";
+        sys += "<p>" + System.getProperty("java.vendor.url") + " " + System.getProperty("java.version");
+        sys += " on " + System.getProperty("os.name") + " " + System.getProperty("os.version");
+        sys += " (" + System.getProperty("os.arch") + ")</p>";
+        sys += "<p>" + System.getProperty("user.name") + " (" + System.getProperty("user.home") + ")</p>";
+        sys += "</body></html>";
 
         // Load in the content
         setBrowserHTML(edCredits, Credits.content);
-
-        // Sysinfo
-        String sys = "<html>" +
-            "<head><style> td { font-family: sans-serif; }" +
-            "</style></head>" + "<body><table border=\"1\">";
-
-        for (int i = 0; i < names.size(); i++) {
-            sys += ("<tr><td><b>" + names.get(i) + "</b></td>");
-            sys += ("<td>" + values.get(i) + "</td></tr>");
-        }
-
-        sys += "</table></body></html>";
         setBrowserHTML(edSys, sys);
 
         // Centre ourselves
@@ -99,22 +74,8 @@ public class About extends ASMDialog {
         this.setVisible(true);
     }
 
-    private void addSysInfoPair(String name, String value) {
-        names.add(name);
-        values.add(value);
-    }
-
     private void setBrowserHTML(UI.HTMLBrowser ed, String content) {
-        // ed.addHyperlinkListener(this);
-        try {
-            ed.setContentType("text/html");
-
-            // Generate a temp file and point the browser to it
-            String tempFileName = Utils.createTemporaryFile(content, "html");
-            ed.setPage("file:///" + tempFileName);
-        } catch (Exception e) {
-            Global.logException(e, getClass());
-        }
+        ed.setContent(content);
     }
 
     public boolean windowCloseAttempt() {
