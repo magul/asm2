@@ -57,8 +57,8 @@ public class AnimalAddMultiple extends ASMForm {
 
     @Override
     public void initComponents() {
+        
         setLayout(UI.getBorderLayout());
-
         UI.ToolBar t = UI.getToolBar();
 
         btnNew = (UI.Button) t.add(UI.getButton(null,
@@ -78,13 +78,16 @@ public class AnimalAddMultiple extends ASMForm {
                     UI.fp(this, "saveData")));
         btnSave.setEnabled(false);
 
-        rows = UI.getPanel(UI.getGridLayout(1));
-
         add(t, UI.BorderLayout.NORTH);
+
+        int width = getWidth() - 20;
+        rows = UI.getPanel(UI.getGridLayout(1));
+        rows.setPreferredWidth(width);
+
 
         UI.Panel p = UI.getPanel(UI.getBorderLayout());
         p.add(rows, UI.BorderLayout.NORTH);
-        add(p, UI.BorderLayout.CENTER);
+        add(UI.getVerticalScrollPane(p), UI.BorderLayout.CENTER);
     }
 
     @Override

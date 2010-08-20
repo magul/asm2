@@ -2855,6 +2855,10 @@ public final class UI {
     }
 
     public static class Panel extends JPanel {
+
+        private int preferredWidth = -1;
+        private int preferredHeight = -1;
+
         public Panel() {
             this(4);
         }
@@ -2894,6 +2898,23 @@ public final class UI {
         }
 
         public void dispose() {
+        }
+
+        public void setPreferredWidth(int width) {
+            preferredWidth = width;
+        }
+
+        public void setPreferredHeight(int height) {
+            preferredHeight = height;
+        }
+
+        public java.awt.Dimension getPreferredSize() {
+            java.awt.Dimension d = super.getPreferredSize();
+            if (preferredWidth != -1)
+                return new java.awt.Dimension(preferredWidth, d.height);
+            if (preferredHeight != -1)
+                return new java.awt.Dimension(d.width, preferredHeight);
+            return d;
         }
 
         public Component add(Component c) {
