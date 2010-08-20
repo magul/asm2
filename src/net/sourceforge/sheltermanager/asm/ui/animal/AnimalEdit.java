@@ -973,6 +973,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             // Find the media for this animal and show it if there is one
             if (animal.hasValidMedia()) {
                 String imagename = animal.getWebMedia();
+                String imagenotes = animal.getWebMediaNotes();
 
                 // Grab the remote file and copy it to the local temp directory
                 // if it isn't already there.
@@ -998,6 +999,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 try {
                     lblThumbnail.setIcon(IconManager.getThumbnail(tempdir +
                             imagename, 100, 50));
+                    lblThumbnail.setToolTipText(
+                        Utils.firstChars(
+                        Utils.replace(Utils.removeHTML(imagenotes), "\n", " "), 
+                        80));
                     lblThumbnail.repaint();
                 } catch (Exception e) {
                     Global.logError("Error occurred displaying thumbnail: " +
