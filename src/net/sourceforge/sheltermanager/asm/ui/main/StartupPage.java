@@ -36,12 +36,28 @@ public class StartupPage extends ASMForm {
                                 public void run() {
                                     diarynotes.showReport(d.getFilename(),
                                         d.getTitle());
+                                }
+                            });
+
+                        UI.invokeLater(new Runnable() {
+                                public void run() {
                                     // 400px for image width, plus 4px*2 for panel margin,
                                     // plus 8px for splitter width
                                     hs.setDividerLocation(getWidth() - 416);
                                     UI.cursorToPointer();
                                 }
-                            });
+                        });
+
+                        UI.invokeIn(new Runnable() {
+                                public void run() {
+                                    // Mac/Windows seem to try and set this too early with
+                                    // dispatch thread, so try and set the divider again
+                                    hs.setDividerLocation(getWidth() - 416);
+                                    UI.cursorToPointer();
+                                }
+                        }, 1500);
+
+
 
                         // Load the news after the report - still on a separate thread
                         // so there's no blocking if we can't get to the web

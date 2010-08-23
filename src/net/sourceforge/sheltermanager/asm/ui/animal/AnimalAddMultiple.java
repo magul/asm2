@@ -115,6 +115,7 @@ public class AnimalAddMultiple extends ASMForm {
         rows.add(new AnimalRow());
         btnClone.setEnabled(true);
         btnSave.setEnabled(true);
+        rows.revalidate();
     }
 
     public void actionClone() {
@@ -122,6 +123,7 @@ public class AnimalAddMultiple extends ASMForm {
             AnimalRow r = (AnimalRow) rows.getComponent(rows.getComponentCount() -
                     1);
             rows.add(new AnimalRow(r));
+            rows.revalidate();
         }
     }
 
