@@ -999,10 +999,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 try {
                     lblThumbnail.setIcon(IconManager.getThumbnail(tempdir +
                             imagename, 100, 50));
-                    lblThumbnail.setToolTipText(
-                        Utils.firstChars(
-                        Utils.replace(Utils.removeHTML(imagenotes), "\n", " "), 
-                        80));
+                    lblThumbnail.setToolTipText(Utils.firstChars(Utils.replace(
+                                Utils.removeHTML(imagenotes), "\n", " "), 80));
                     lblThumbnail.repaint();
                 } catch (Exception e) {
                     Global.logError("Error occurred displaying thumbnail: " +

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-30 14:07+0100\n"
-"PO-Revision-Date: 2010-06-30 12:11+0000\n"
+"POT-Creation-Date: 2010-07-01 10:01+0100\n"
+"PO-Revision-Date: 2010-07-01 11:06+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-01 03:51+0000\n"
+"X-Launchpad-Export-Date: 2010-07-02 03:37+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -733,6 +733,11 @@ msgstr ""
 #. # bo/AuditTrail
 #: audit_moved
 msgid "Moved {0} from {1} to {2}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_merged
+msgid "Merged {0} into {1}"
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -6631,6 +6636,7 @@ msgstr "קוד:"
 #. # ui/customreport/GetReports
 #. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
 #: Type
@@ -7281,6 +7287,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -7292,6 +7299,7 @@ msgid "Species:"
 msgstr "זן:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
 msgstr "הערות חבויות:"
@@ -7341,6 +7349,7 @@ msgstr "הצבע הבסיסי של חיית המחמד"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Sex\:
 msgid "Sex:"
 msgstr "מין:"
@@ -7442,6 +7451,7 @@ msgstr "הסיבה שבגינה הורדמה חיית המחמד"
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/medical/TreatmentEdit
@@ -7522,6 +7532,7 @@ msgstr "עריכת חיית מחמד"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr "הבעלים המקוריים:"
@@ -7575,6 +7586,7 @@ msgstr "ניתן"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
 msgid "Name:"
@@ -7732,6 +7744,7 @@ msgstr "מתה מחוץ לבית המחסה:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr "תאריך הכניסה:"
@@ -8557,6 +8570,7 @@ msgstr ""
 "סוג חיית המחמד ({0}) במקום."
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFind
 #: include_deceased
 msgid "Include Deceased"
 msgstr "כולל מתים"

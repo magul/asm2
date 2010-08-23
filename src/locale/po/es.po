@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-25 11:26+0100\n"
-"PO-Revision-Date: 2010-06-25 11:22+0000\n"
-"Last-Translator: Jonay <jonay.santana@gmail.com>\n"
+"POT-Creation-Date: 2010-07-01 10:01+0100\n"
+"PO-Revision-Date: 2010-07-04 00:20+0000\n"
+"Last-Translator: Ilan <ilan@fonz.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-26 04:05+0000\n"
+"X-Launchpad-Export-Date: 2010-07-05 03:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -729,6 +729,31 @@ msgstr "Debe proporcionar una fecha de los gastos."
 msgid "You must supply a description for the cost."
 msgstr "Debe proporcionar una descripción de los gastos."
 
+#. # bo/AuditTrail
+#: audit_create
+msgid "Created {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_changed
+msgid "Changed {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_deleted
+msgid "Deleted {0}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_moved
+msgid "Moved {0} from {1} to {2}"
+msgstr ""
+
+#. # bo/AuditTrail
+#: audit_merged
+msgid "Merged {0} into {1}"
+msgstr ""
+
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
@@ -1077,7 +1102,7 @@ msgstr ""
 
 #: accounts_12_desc
 msgid "Premises"
-msgstr ""
+msgstr "Premisas"
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
@@ -1085,7 +1110,7 @@ msgstr ""
 
 #: accounts_13_desc
 msgid "Telephone Bills"
-msgstr ""
+msgstr "Facturas Telefonicas"
 
 #: accounts_14_4_0_code
 msgid "Expenses::Electricity"
@@ -1093,7 +1118,7 @@ msgstr ""
 
 #: accounts_14_desc
 msgid "Electricity Bills"
-msgstr ""
+msgstr "Facturas de Electricidad"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
@@ -1101,7 +1126,7 @@ msgstr ""
 
 #: accounts_15_desc
 msgid "Water Bills"
-msgstr ""
+msgstr "Factura de Agua"
 
 #: accounts_16_4_0_code
 msgid "Expenses::Gas"
@@ -1109,7 +1134,7 @@ msgstr ""
 
 #: accounts_16_desc
 msgid "Gas Bills"
-msgstr ""
+msgstr "Facturas de Gas"
 
 #: accounts_17_4_0_code
 msgid "Expenses::Postage"
@@ -6574,12 +6599,12 @@ msgstr "Identificador de camada"
 #. # ui/account/AccountView
 #: Add_a_new_account
 msgid "Add a new account"
-msgstr ""
+msgstr "Añadir una cuenta nueva"
 
 #. # ui/account/AccountView
 #: Edit_the_selected_account
 msgid "Edit the selected account"
-msgstr ""
+msgstr "Editar la cuenta seleccionada"
 
 #. # ui/account/AccountView
 #: Delete_the_selected_accounts
@@ -6673,6 +6698,7 @@ msgstr "Código:"
 #. # ui/customreport/GetReports
 #. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
 #: Type
@@ -6710,20 +6736,20 @@ msgstr "Descripción:"
 #. # bo/AccountTrx
 #: Reconciled
 msgid "Reconciled"
-msgstr ""
+msgstr "Conciliado"
 
 #. # ui/account/AccountView
 #. # ui/account/TrxView
 #: Balance
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #. # ui/system/Options
 #. # ui/account/AccountView
 #. # ui/main/Main
 #: Accounts
 msgid "Accounts"
-msgstr ""
+msgstr "Cuentas"
 
 #. # ui/account/AccountEdit
 #: Create_New_Account
@@ -6755,7 +6781,7 @@ msgstr ""
 #. # ui/account/TrxView
 #: All
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #. # ui/account/TrxView
 #: show_most_recent
@@ -6800,13 +6826,13 @@ msgstr "Fecha:"
 #. # ui/account/TrxView
 #: Account
 msgid "Account:"
-msgstr ""
+msgstr "Cuenta:"
 
 #. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #: Deposit
 msgid "Deposit:"
-msgstr ""
+msgstr "Depósito:"
 
 #. # ui/account/TrxEdit
 #. # ui/account/TrxView
@@ -6822,7 +6848,7 @@ msgstr ""
 #. # ui/account/TrxEdit
 #: Edit_Transaction
 msgid "Edit Transaction"
-msgstr ""
+msgstr "Editar Transacción"
 
 #. # ui/account/TrxEdit
 #: Save_this_transaction_and_exit
@@ -7194,6 +7220,7 @@ msgstr "Número:"
 #. # ui/animal/VaccinationView
 #. # ui/ui/ASMSelector
 #. # charts/Chart
+#. # utility/Utils
 #: ...
 msgid "..."
 msgstr "..."
@@ -7327,6 +7354,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
@@ -7338,6 +7366,7 @@ msgid "Species:"
 msgstr "Especies:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
 msgstr "Comentarios confidenciales:"
@@ -7387,6 +7416,7 @@ msgstr "Color predominante del animal"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Sex\:
 msgid "Sex:"
 msgstr "Sexo:"
@@ -7491,6 +7521,7 @@ msgstr "Razón por la que este animal recibió eutanasia"
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/medical/TreatmentEdit
@@ -7571,6 +7602,7 @@ msgstr "Editar animal"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr "Contacto original:"
@@ -7624,6 +7656,7 @@ msgstr "Vacunado el"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
 msgid "Name:"
@@ -7782,6 +7815,7 @@ msgstr "Fallecido fuera del refugio:"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr "Fecha en la que se trajo:"
@@ -8423,7 +8457,10 @@ msgstr "Médica"
 msgid "Diet Information"
 msgstr "Información acerca de la dieta"
 
+#. # ui/animal/MediaAdd
 #. # ui/animal/AnimalEdit
+#. # ui/animal/MediaSelector
+#. # ui/animal/MediaEdit
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
@@ -8449,6 +8486,8 @@ msgstr "Archivos multimedia asociados a este animal"
 #. # ui/animal/AnimalEdit
 #. # ui/ui/Dialog
 #. # ui/system/Options
+#. # ui/diary/DiarySelector
+#. # ui/diary/DiaryEdit
 #. # ui/diary/VetBookView
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
@@ -8480,6 +8519,8 @@ msgstr "Detalles de los movimientos del animal"
 #. # ui/animal/AnimalEdit
 #. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/log/LogSelector
+#. # ui/log/LogEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
 #. # db/Diagnostic
@@ -8621,6 +8662,7 @@ msgstr ""
 "animal ({0}) ¿en su lugar."
 
 #. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFind
 #: include_deceased
 msgid "Include Deceased"
 msgstr "Incluir Muertos"
@@ -9836,7 +9878,7 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Limit
 msgid "Limit"
-msgstr ""
+msgstr "Límite"
 
 #. # ui/internet/InternetPublisher
 #: Most_recent_ascending
@@ -13991,6 +14033,11 @@ msgstr ""
 msgid ""
 "Creating donations and donation types creates matching accounts and "
 "transactions"
+msgstr ""
+
+#. # ui/system/Options
+#: Keep_audit_trail
+msgid "Keep a full audit trail"
 msgstr ""
 
 #. # ui/users/UserView

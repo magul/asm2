@@ -54,13 +54,18 @@ public class About extends ASMDialog {
         init(Global.i18n("uisplash", "About..."), null, "uisplash", false);
 
         String sys = "<html><head><style>* { font-family: sans-serif; }</style></head><body>";
-        sys += "<h2>" + Global.productVersion + "</h2>";
-        sys += "<p>" + SQLRecordset.getCursorVersion() + ", " + UI.getRendererName() + "";
-        sys += "<p>" + Long.toString(Global.speedTest) + "ms -&gt; " + DBConnection.getDBInfo() + "</p>";
-        sys += "<p>" + System.getProperty("java.vendor.url") + " " + System.getProperty("java.version");
-        sys += " on " + System.getProperty("os.name") + " " + System.getProperty("os.version");
-        sys += " (" + System.getProperty("os.arch") + ")</p>";
-        sys += "<p>" + System.getProperty("user.name") + " (" + System.getProperty("user.home") + ")</p>";
+        sys += ("<h2>" + Global.productVersion + "</h2>");
+        sys += ("<p>" + SQLRecordset.getCursorVersion() + ", " +
+        UI.getRendererName() + "");
+        sys += ("<p>" + Long.toString(Global.speedTest) + "ms -&gt; " +
+        DBConnection.getDBInfo() + "</p>");
+        sys += ("<p>" + System.getProperty("java.vendor.url") + " " +
+        System.getProperty("java.version"));
+        sys += (" on " + System.getProperty("os.name") + " " +
+        System.getProperty("os.version"));
+        sys += (" (" + System.getProperty("os.arch") + ")</p>");
+        sys += ("<p>" + System.getProperty("user.name") + " (" +
+        System.getProperty("user.home") + ")</p>");
         sys += "</body></html>";
 
         // Load in the content

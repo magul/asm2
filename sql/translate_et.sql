@@ -470,7 +470,7 @@ INSERT INTO breed VALUES (432, 'Rosella', '', '', 3);
 INSERT INTO breed VALUES (433, 'Softbill (Other)', '', '', 3);
 INSERT INTO breed VALUES (434, 'Luik', '', '', 3);
 INSERT INTO breed VALUES (435, 'Tuukan', '', '', 3);
-INSERT INTO breed VALUES (436, 'Kalkun', '', '', 3);
+INSERT INTO breed VALUES (436, 'Türgi', '', '', 3);
 INSERT INTO breed VALUES (437, 'Lehm', '', '', 16);
 INSERT INTO breed VALUES (438, 'Kits', '', '', 16);
 INSERT INTO breed VALUES (439, 'Lammas', '', '', 16);

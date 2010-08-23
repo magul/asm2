@@ -132,6 +132,7 @@ public class AccountView extends ASMView {
 
             resetStatusBar();
 
+            getTable().setSortModel(new AccountView.AccountSortable());
             setTableData(columnheaders, datar, i, 7, 5);
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
@@ -300,5 +301,27 @@ public class AccountView extends ASMView {
         // Create/open the transaction screen
         TrxView tv = new TrxView(a);
         Global.mainForm.addChild(tv);
+    }
+
+    /** Sorts monetary columns by text length, then alphanumerically */
+    private class AccountSortable extends SortableTableModel {
+        @Override
+        public int sortByColumnCompare(int col, int idx, String[][] dat) {
+            int compared;
+            int ll = dat[idx][col].length();
+            int rl = dat[idx + 1][col].length();
+
+            if ((ll != rl) && ((col == 3) || (col == 4))) {
+                if (ll > rl) {
+                    compared = 1;
+                } else {
+                    compared = -1;
+                }
+            } else {
+                compared = dat[idx][col].compareToIgnoreCase(dat[idx + 1][col]);
+            }
+
+            return compared;
+        }
     }
 }

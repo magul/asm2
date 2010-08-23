@@ -2385,6 +2385,10 @@ public final class UI {
             }
         }
 
+        public void setSortModel(SortableTableModel model) {
+            this.model = model;
+        }
+
         public void keyPressed(KeyEvent evt) {
             if ((onEnter != null) && (evt.getKeyCode() == KeyEvent.VK_ENTER)) {
                 onEnter.call();
@@ -2460,8 +2464,10 @@ public final class UI {
             // Shunt this onto the dispatch thread - seems to hang on windows sometimes
             UI.invokeLater(new Runnable() {
                     public void run() {
-                        // Set the new model for the data
-                        model = new SortableTableModel();
+                        // Create a model if we don't already have one
+                        if (model == null) {
+                            model = new SortableTableModel();
+                        }
 
                         if (maxcols != -1) {
                             model.setData(columnheaders, data, rows, maxcols,
@@ -2855,7 +2861,6 @@ public final class UI {
     }
 
     public static class Panel extends JPanel {
-
         private int preferredWidth = -1;
         private int preferredHeight = -1;
 
@@ -2910,10 +2915,15 @@ public final class UI {
 
         public java.awt.Dimension getPreferredSize() {
             java.awt.Dimension d = super.getPreferredSize();
-            if (preferredWidth != -1)
+
+            if (preferredWidth != -1) {
                 return new java.awt.Dimension(preferredWidth, d.height);
-            if (preferredHeight != -1)
+            }
+
+            if (preferredHeight != -1) {
                 return new java.awt.Dimension(d.width, preferredHeight);
+            }
+
             return d;
         }
 

@@ -125,6 +125,12 @@ public class SortableTableModel extends AbstractTableModel {
         return getValueAt(0, c).getClass();
     }
 
+    public int sortByColumnCompare(int col, int idx, String[][] dat) {
+        int compared = dat[idx][col].compareToIgnoreCase(dat[idx + 1][col]);
+
+        return compared;
+    }
+
     public void sortByColumn(int column, boolean ascending) {
         // This routine could be faster, but it uses a standard
         // bubble sort routine that works through the
@@ -140,7 +146,8 @@ public class SortableTableModel extends AbstractTableModel {
 
             for (int i = 0; i < (maxrows - 1); i++) {
                 // Compare the two as strings
-                int compared = data[i][column].compareToIgnoreCase(data[i + 1][column]);
+                //int compared = data[i][column].compareToIgnoreCase(data[i + 1][column]);
+                int compared = this.sortByColumnCompare(column, i, data);
 
                 // If i > i + 1 and ascending is on, then they need to be swapped,
                 // also, if i < i + 1 and ascending is off, then they also need to be swapped

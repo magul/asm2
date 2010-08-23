@@ -11,10 +11,10 @@ INSERT INTO accounts VALUES (9, 'Bank::Current', 'Bank current account', 1, 0, 0
 INSERT INTO accounts VALUES (10, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (11, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (12, 'Asset::Premises', 'Premises', 8, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (13, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (14, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (15, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (16, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (13, 'Expenses::Phone', 'Factures de téléphone', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (14, 'Expenses::Electricity', 'Factures d''électricité', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (15, 'Expenses::Water', 'Factures d''eau', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (16, 'Expenses::Gas', 'Factures de gaz', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (17, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (18, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (19, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
