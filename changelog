@@ -1,6 +1,8 @@
 2.7.3
 ================
 
+*. Use Metal/GTK as default skin for Linux/Solaris (GTK is slow)
+*. Fixed tab ordering on lost/found editing screens
 *. Use URL encoding over URLs passed file shellExecute - should fix
 -  bug in XP viewing reports with external browser due to spaces
 -  in home folder name

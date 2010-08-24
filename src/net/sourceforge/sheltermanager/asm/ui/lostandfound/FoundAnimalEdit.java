@@ -171,7 +171,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public Object getDefaultFocusedComponent() {
-        return cboSpecies;
+        return txtDate.getTextField();
     }
 
     /**

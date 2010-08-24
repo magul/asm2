@@ -743,7 +743,8 @@ public class Startup implements Runnable {
 
             // Skin
             // =========================================================
-            int skin = Integer.parseInt(p.getProperty("Skin", "1"));
+            int skin = Integer.parseInt(p.getProperty("Skin", 
+                (UI.osIsLinux() || UI.osIsSolaris() ? "3" : "1")));
             Global.skin = skin;
             UI.swingSetLAF(skin);
 
