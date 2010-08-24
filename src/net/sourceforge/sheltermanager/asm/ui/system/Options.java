@@ -1066,7 +1066,7 @@ public class Options extends ASMForm {
         UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         spnUrgency = (UI.Spinner) UI.addComponent(pl,
                 i18n("Update_Waiting_List_Period:"),
-                UI.getSpinner(0, 365,
+                UI.getSpinner(0, 9999,
                     i18n("The_interval_at_which_the_waiting_list_urgencies_should_be_updated_in_days"),
                     null));
 
