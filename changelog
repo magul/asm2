@@ -1,6 +1,9 @@
 2.7.3
 ================
 
+*. Use URL encoding over URLs passed file shellExecute - should fix
+-  bug in XP viewing reports with external browser due to spaces
+-  in home folder name
 *. Reduced annoying timeout before first component in a screen is
 -  grabbed (mitigated by shunting onto dispatch thread). Fixed bug
 -  that meant the first component could not be focused if it was
