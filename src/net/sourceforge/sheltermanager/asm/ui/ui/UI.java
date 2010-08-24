@@ -76,37 +76,42 @@ public final class UI {
     }
 
     public static void swingSetLAF(int laf) {
-        switch (laf) {
-        case LAF_DEFAULT:
-            return;
-
-        case LAF_PLATFORM:
-            swingSetPlatformLAF();
-
-            break;
-
-        case LAF_METAL:
-            swingSetMetalLAF();
-
-            break;
-
-        case LAF_METAL_GTK:
-            swingSetMetalGTKLAF();
-
-            break;
-
-        default:
-            swingSetMetalLAF();
-
-            break;
-        }
-
         try {
-            if (Dialog.theParent != null) {
-                SwingUtilities.updateComponentTreeUI(Dialog.theParent);
+            switch (laf) {
+            case LAF_DEFAULT:
+                return;
+
+            case LAF_PLATFORM:
+                swingSetPlatformLAF();
+
+                break;
+
+            case LAF_METAL:
+                swingSetMetalLAF();
+
+                break;
+
+            case LAF_METAL_GTK:
+                swingSetMetalGTKLAF();
+
+                break;
+
+            default:
+                swingSetMetalLAF();
+
+                break;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            try {
+                if (Dialog.theParent != null) {
+                    SwingUtilities.updateComponentTreeUI(Dialog.theParent);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        catch (HeadlessException e) {
+            // No X11/UI available - ignore the error
         }
     }
 
