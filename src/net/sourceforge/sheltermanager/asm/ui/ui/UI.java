@@ -110,7 +110,7 @@ public final class UI {
                 e.printStackTrace();
             }
         }
-        catch (HeadlessException e) {
+        catch (Throwable t) {
             // No X11/UI available - ignore the error
         }
     }
