@@ -44,39 +44,54 @@ import javax.swing.*;
   * @author Robin Rawson-Tetley
   */
 public class FlexibleFocusManager extends FocusManager {
-    /** A vector of component arrays */
+
+    /** How long to wait before grabbing the dispatch thread and
+     * setting focus to the first component */
+    public final static int GRAB_FOCUS_TIMEOUT = 250;
+
+    /** All loaded tab order sets */
     private Vector sets = new Vector();
 
     public FlexibleFocusManager() {
         super();
     }
 
+    /**
+     * Some parts of a container component can't have the focus,
+     * this function checks the type and returns the focusable
+     * portion.
+     */
+    private Object resolveComponent(Object o) {
+        if (o instanceof UI.ComboBox) {
+            // Editable swing combos focus from the editor portion
+            // instead of the combo container itself
+            if (((UI.ComboBox) o).isEditable()) {
+                return ((UI.ComboBox) o).getCombo().getEditor()
+                     .getEditorComponent();
+            } else {
+                return ((UI.ComboBox) o).getCombo();
+            }
+        } else if (o instanceof DateField) {
+            return ((DateField) o).getTextField();
+        } else if (o instanceof CurrencyField) {
+            return ((CurrencyField) o).getTextField();
+        } else if (o instanceof UI.SearchTextField) {
+            return ((UI.SearchTextField) o).getTextField();
+        }
+        else {
+            return o;
+        }
+    }
+
     public void addComponentSet(Vector focusOrder, Object frame,
-        Object firstComponent) {
+        final Object firstComponent) {
         // Process the set - if we have any of our composite components
         // in the list, use their appropriate embedded component instead
         for (int i = 0; i < focusOrder.size(); i++) {
             Object o = focusOrder.get(i);
-            Object n = null;
+            Object n = resolveComponent(o);
 
-            if (o instanceof UI.ComboBox) {
-                // Editable swing combos focus from the editor portion
-                // instead of the combo container itself
-                if (((UI.ComboBox) o).isEditable()) {
-                    n = ((UI.ComboBox) o).getCombo().getEditor()
-                         .getEditorComponent();
-                } else {
-                    n = ((UI.ComboBox) o).getCombo();
-                }
-            } else if (o instanceof DateField) {
-                n = ((DateField) o).getTextField();
-            } else if (o instanceof CurrencyField) {
-                n = ((CurrencyField) o).getTextField();
-            } else if (o instanceof UI.SearchTextField) {
-                n = ((UI.SearchTextField) o).getTextField();
-            }
-
-            if (n != null) {
+            if (n != o) {
                 focusOrder.set(i, n);
             }
         }
@@ -85,13 +100,13 @@ public class FlexibleFocusManager extends FocusManager {
 
         // Ensure Swing sends focus to the first component after frame 
         // is fully loaded (swing dispatch thread idle)
-
-        // new InitialComponentGrab(firstComponent).start();
-        UI.invokeIn(new InitialComponentGrab((Component) firstComponent), 900);
-
-        focusOrder = null;
-        frame = null;
-        firstComponent = null;
+        UI.invokeIn(
+            new Runnable() {
+                public void run() {
+                    UI.invokeLater(new InitialComponentGrab(
+                        (Component) resolveComponent(firstComponent))); 
+                }
+            }, GRAB_FOCUS_TIMEOUT);
     }
 
     public void removeComponentSet(Object frame) {
@@ -276,9 +291,6 @@ class InitialComponentGrab implements Runnable {
     }
 
     public void run() {
-        // Hack - av. guess how long Swing takes to finish. Now uses
-        // SwingUtilities.invokeLater for accuracy
-        //try { this.sleep(1500); } catch (InterruptedException e) { Global.logException(e, getClass()); }
         componentGrabFocus(jc);
         jc = null;
     }

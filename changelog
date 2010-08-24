@@ -1,6 +1,10 @@
 2.7.3
 ================
 
+*. Reduced annoying timeout before first component in a screen is
+-  grabbed (mitigated by shunting onto dispatch thread). Fixed bug
+-  that meant the first component could not be focused if it was
+-  a combo.
 *. Ignore AWT Headless exception in command line mode/Linux
 *. Fixed startup page divider location on Mac, and problems with
 -  fields not appearing under add multiple animals on Windows
