@@ -92,8 +92,8 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
         Vector ctl = new Vector();
         ctl.add(txtDateDue.getTextField());
         ctl.add(txtDateReceived.getTextField());
-        ctl.add(cboFrequency);
         ctl.add(txtDonation.getTextField());
+        ctl.add(cboFrequency);
         ctl.add(cboDonationType);
         ctl.add(chkGiftAid);
         ctl.add(txtComments);
@@ -104,7 +104,7 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
     }
 
     public Object getDefaultFocusedComponent() {
-        return cboDonationType;
+        return txtDateDue.getTextField();
     }
 
     public void dispose() {

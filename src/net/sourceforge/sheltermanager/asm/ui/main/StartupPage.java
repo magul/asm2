@@ -52,8 +52,12 @@ public class StartupPage extends ASMForm {
                                 public void run() {
                                     // Mac/Windows seem to try and set this too early with
                                     // dispatch thread, so try and set the divider again
-                                    hs.setDividerLocation(getWidth() - 416);
-                                    UI.cursorToPointer();
+                                    UI.invokeLater(new Runnable() {
+                                        public void run() {
+                                            hs.setDividerLocation(getWidth() - 416);
+                                            UI.cursorToPointer();
+                                        }
+                                    });
                                 }
                             }, 1500);
 
