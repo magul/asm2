@@ -109,8 +109,7 @@ public final class UI {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        catch (Throwable t) {
+        } catch (Throwable t) {
             // No X11/UI available - ignore the error
         }
     }

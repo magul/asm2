@@ -33,6 +33,9 @@ import java.util.Vector;
  * by a separate thread
  */
 public class UpdateNotification extends Thread {
+    private final static String UPDATES_URL = System.getProperty("asm.updatesurl",
+            "http://www.sheltermanager.com/repo/updates.txt");
+
     public void UpdateNotification() {
     }
 
@@ -41,7 +44,7 @@ public class UpdateNotification extends Thread {
         String updates = "";
 
         try {
-            updates = Utils.getURL("http://sheltermanager.sf.net/updates.txt");
+            updates = Utils.getURL(UPDATES_URL);
         } catch (Exception e) {
             Global.logException(e, getClass());
 

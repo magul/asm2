@@ -2,7 +2,7 @@ Cage Card with Vaccination History
 ###
 Auditing
 ###
-Any
+2732/Any
 ###
 An animal cage card with image and vaccination history.
 ###
@@ -58,7 +58,7 @@ lksize.ID=animal.Size
 INNER JOIN entryreason ON
 entryreason.ID=animal.entryreasonid
 
-WHERE ShelterCode = '$ASK STRING Enter Animal Code:$'
+WHERE animal.ID = $ASK ANIMAL$
 
 ORDER BY animal.AnimalName, animalvaccination.DateRequired
 ###

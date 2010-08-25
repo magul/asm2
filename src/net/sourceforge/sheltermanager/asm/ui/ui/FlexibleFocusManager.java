@@ -44,7 +44,6 @@ import javax.swing.*;
   * @author Robin Rawson-Tetley
   */
 public class FlexibleFocusManager extends FocusManager {
-
     /** How long to wait before grabbing the dispatch thread and
      * setting focus to the first component */
     public final static int GRAB_FOCUS_TIMEOUT = 250;
@@ -67,7 +66,7 @@ public class FlexibleFocusManager extends FocusManager {
             // instead of the combo container itself
             if (((UI.ComboBox) o).isEditable()) {
                 return ((UI.ComboBox) o).getCombo().getEditor()
-                     .getEditorComponent();
+                        .getEditorComponent();
             } else {
                 return ((UI.ComboBox) o).getCombo();
             }
@@ -77,8 +76,7 @@ public class FlexibleFocusManager extends FocusManager {
             return ((CurrencyField) o).getTextField();
         } else if (o instanceof UI.SearchTextField) {
             return ((UI.SearchTextField) o).getTextField();
-        }
-        else {
+        } else {
             return o;
         }
     }
@@ -100,11 +98,10 @@ public class FlexibleFocusManager extends FocusManager {
 
         // Ensure Swing sends focus to the first component after frame 
         // is fully loaded (swing dispatch thread idle)
-        UI.invokeIn(
-            new Runnable() {
+        UI.invokeIn(new Runnable() {
                 public void run() {
                     UI.invokeLater(new InitialComponentGrab(
-                        (Component) resolveComponent(firstComponent))); 
+                            (Component) resolveComponent(firstComponent)));
                 }
             }, GRAB_FOCUS_TIMEOUT);
     }

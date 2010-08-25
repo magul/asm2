@@ -46,7 +46,7 @@ public class StartupPage extends ASMForm {
                                     hs.setDividerLocation(getWidth() - 416);
                                     UI.cursorToPointer();
                                 }
-                        });
+                            });
 
                         UI.invokeIn(new Runnable() {
                                 public void run() {
@@ -55,9 +55,7 @@ public class StartupPage extends ASMForm {
                                     hs.setDividerLocation(getWidth() - 416);
                                     UI.cursorToPointer();
                                 }
-                        }, 1500);
-
-
+                            }, 1500);
 
                         // Load the news after the report - still on a separate thread
                         // so there's no blocking if we can't get to the web

@@ -45,6 +45,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class GetReports extends ASMView {
+    private final static String REPORTS_URL = System.getProperty("asm.reportsurl",
+            "http://www.sheltermanager.com/repo/reports.txt");
     private UI.Button btnInstall;
     private UI.CheckBox chkMyLocale;
     private Vector reports = null;
@@ -121,8 +123,7 @@ public class GetReports extends ASMView {
 
                 UI.cursorToWait();
 
-                String rs = Utils.getURL(
-                        "http://sheltermanager.sf.net/reports.txt");
+                String rs = Utils.getURL(REPORTS_URL);
                 UI.cursorToPointer();
 
                 String[] reps = Utils.split(rs, "&&&");

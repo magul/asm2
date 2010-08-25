@@ -1,9 +1,8 @@
 #!/usr/bin/python
 
 """
-Creates the single "report.txt" file and uploads it to my webserver
-for sheltermanager.sf.net for users of the program to access and
-get new reports
+Creates the single "report.txt" file and uploads it to the sheltermanager.com
+servre for users of the program to access and get new reports
 """
 
 import os
@@ -24,7 +23,7 @@ f.flush()
 f.close()
 
 # Upload to the server
-os.system("scp reports.txt root@rawsoaa3.miniserver.com:/var/www/sourceforge/sheltermanager")
+os.system("scp reports.txt root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/repo/")
 
 # Remove the temp file
 os.system("rm -f reports.txt")

@@ -2,7 +2,7 @@ Cage Card with Outstanding Vaccinations
 ###
 Auditing
 ###
-Any
+2732/Any
 ###
 An animal cage card with image and outstanding vaccinations.
 ###
@@ -57,7 +57,7 @@ lksize.ID=animal.Size
 INNER JOIN entryreason ON
 entryreason.ID=animal.entryreasonid
 
-WHERE ShelterCode = '$ASK STRING Enter Animal Code:$'
+WHERE animal.ID = $ASK ANIMAL$
 AND animalvaccination.DateOfVaccination Is Null
 
 ORDER BY animal.AnimalName, animalvaccination.DateRequired
