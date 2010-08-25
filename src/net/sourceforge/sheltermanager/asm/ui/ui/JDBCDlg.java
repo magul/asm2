@@ -169,7 +169,7 @@ public class JDBCDlg extends ASMDialog {
             break;
 
         case 4:
-            Dialog.lastJDBC = "jdbc:postgresql://db.sheltermanager.com:110/" +
+            Dialog.lastJDBC = "jdbc:postgresql://db.sheltermanager.com:10678/" +
                 user + "?user=" + user + "&password=" + pass;
 
             break;
