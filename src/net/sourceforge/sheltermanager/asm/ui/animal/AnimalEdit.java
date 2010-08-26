@@ -407,7 +407,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public int getScrollHeight() {
-        return 620;
+        return 650;
     }
 
     /** Deactivates screen elements based on security settings */
@@ -2324,7 +2324,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Details right pane =========================================
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(3));
+        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(3, new int[] { 33, 33, 34 }));
         UI.Panel pnlRightBot = UI.getPanel(UI.getGridLayout(4));
 
         // Top panel
@@ -2461,7 +2461,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Comments panel
         UI.Panel pnlComments = UI.getPanel(UI.getGridLayout(2,
-                    new int[] { 35, 65 }));
+                    new int[] { 33, 67 }));
 
         txtMarkings = (UI.TextArea) UI.addComponent(pnlComments,
                 i18n("Dist._Features:"),
