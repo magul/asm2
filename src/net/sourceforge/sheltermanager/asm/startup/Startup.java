@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.startup;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Users;
@@ -172,9 +173,9 @@ public class Startup implements Runnable {
 
             // Set maximum steps to startup (3 are skipped in applet mode)
             if (applet) {
-                sp.setMax(17);
+                sp.setMax(18);
             } else {
-                sp.setMax(20);
+                sp.setMax(21);
             }
 
             // Set the log going
@@ -401,6 +402,11 @@ public class Startup implements Runnable {
             sp.setStatus("Auto cancelling reservations...");
             sp.incrementBar();
             Adoption.autoCancelReservations();
+
+            // Update any litters
+            sp.setStatus("Updating animal litters...");
+            sp.incrementBar();
+            AnimalLitter.updateLitters();
 
             // Preload some classes
             sp.setStatus("Preloading UI classes...");

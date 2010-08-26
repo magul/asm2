@@ -105,33 +105,31 @@ public class LitterView extends ASMView {
     }
 
     public void updateList() {
-        AnimalLitter al = AnimalLitter.getRecentLitters();
-
-        // Create an array to hold the results for the table
-        String[][] datar = new String[(int) al.getRecordCount()][9];
-
-        // Are we using acceptance no or litter id?
-        String header = i18n("Acceptance");
-
-        if (Configuration.getBoolean("AutoLitterIdentification")) {
-            header = i18n("litterid");
-        }
-
-        // Create an array of headers for the table
-        String[] columnheaders = {
-                i18n("Parent"), i18n("Species"), i18n("Date"), i18n("Expires"),
-                i18n("Number_in_litter"), header, i18n("Remaining"),
-                i18n("Comments")
-            };
-
-        // Build the data
-        int i = 0;
-
-        int totalCat = 0;
-        int totalDog = 0;
-        int totalOther = 0;
 
         try {
+
+            AnimalLitter.updateLitters();
+            AnimalLitter al = AnimalLitter.getRecentLitters();
+
+            // Create an array to hold the results for the table
+            String[][] datar = new String[(int) al.getRecordCount()][9];
+
+            // Are we using acceptance no or litter id?
+            String header = i18n("Acceptance");
+
+            if (Configuration.getBoolean("AutoLitterIdentification")) {
+                header = i18n("litterid");
+            }
+
+            // Create an array of headers for the table
+            String[] columnheaders = {
+                    i18n("Parent"), i18n("Species"), i18n("Date"), i18n("Expires"),
+                    i18n("Number_in_litter"), header, i18n("Remaining"),
+                    i18n("Comments")
+                };
+
+            // Build the data
+            int i = 0;
             Date atDate = new Date();
 
             while (!al.getEOF()) {
@@ -145,25 +143,17 @@ public class LitterView extends ASMView {
                     datar[i][6] = al.getAnimalsRemaining().toString();
                     datar[i][7] = al.getComments();
                     datar[i][8] = al.getID().toString();
-
-                    if (al.getSpeciesName().equalsIgnoreCase(i18n("Cat"))) {
-                        totalCat++;
-                    } else if (al.getSpeciesName().equalsIgnoreCase(i18n("Dog"))) {
-                        totalDog++;
-                    } else {
-                        totalOther++;
-                    }
-
                     i++;
                 }
 
                 al.moveNext();
             }
+
+            setTableData(columnheaders, datar, i, 8);
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
-        setTableData(columnheaders, datar, i, 8);
     }
 
     public void addToolButtons() {

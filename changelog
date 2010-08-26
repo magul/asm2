@@ -1,6 +1,13 @@
 2.8.0
 ================
 
+*. Performance fixes for litter updating and recalculating
+*. Litters are checked as part of the startup procedure now
+*. Fixed litter cancellation to only look at active litters and to 
+-  cancel when it drops to zero animals, regardless of expiry date.
+-  Also, it pays attention to whether it decremented now and does
+-  nothing if it didn't (prevents zero animal litters being cancelled
+-  before the user has had chance to add some animals to them)
 *. Mac timing fix for splitter on startup page
 *. Donation editing screen started on wrong component
 *. Use Metal as default skin for Windows

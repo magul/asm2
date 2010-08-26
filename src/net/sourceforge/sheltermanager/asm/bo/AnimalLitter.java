@@ -162,60 +162,56 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
      * with that acceptance number who are still on the shelter. -1 is returned
      * if no acceptance number.
      */
-    public Integer getAnimalsRemaining() throws CursorEngineException {
+    public Integer getAnimalsRemaining() throws Exception {
         if ((getAcceptanceNumber() == null) ||
                 getAcceptanceNumber().equals("")) {
             return new Integer(-1);
         }
 
-        // Get a list of all animals with that acceptance number
-        Animal a = new Animal();
-        a.openRecordset("AcceptanceNumber Like '" +
-            getAcceptanceNumber().trim() + "'");
+        Calendar sixmonths = Calendar.getInstance();
+        sixmonths.add(Calendar.MONTH, -6);
 
-        int onShelter = 0;
-
-        while (!a.getEOF()) {
-            if (!a.isOverSixMonths()) {
-                int loc = a.getAnimalLocationAtDate(new Date());
-
-                if ((loc == Animal.ONSHELTER) || (loc == Animal.FOSTERED)) {
-                    onShelter++;
-                }
-            }
-
-            a.moveNext();
-        }
+        // Get a list count of all animals with that acceptance number
+        // that are younger than 6 months
+        Integer remaining = new Integer(DBConnection.executeForInt("SELECT COUNT(*) FROM " +
+            "animal WHERE AcceptanceNumber Like '" + getAcceptanceNumber().trim() + "' " +
+            "AND Archived = 0 " +
+            "AND DateOfBirth >= '" + Utils.getSQLDate(sixmonths) + "'"));
 
         // Update the cached value of this record. The
         // reason we do this is to speed up the procedure
         // that recalculates whether litters need to be cancelled by
         // ignoring all those with a cached 0 or null value.
-        setCachedAnimalsLeft(new Integer(onShelter));
+        setCachedAnimalsLeft(remaining);
         save();
 
-        return new Integer(onShelter);
+        return remaining;
     }
 
     /**
-     * Loops through all litters on the system that have an acceptance number
-     * and some animals left on the shelter and recalculates them. If all the
-     * animals on that litter have gone, the litter is cancelled as at todays
-     * date. This should be safe since this routine will be called quite often.
+     * Loops through all litters on the system that have not expired yet
+     * and recalculates the number of animals left - if it drops to zero,
+     * the litter is cancelled with today's date.
      */
-    public static void updateLitters() throws CursorEngineException {
-        AnimalLitter al = new AnimalLitter();
-        al.openRecordset(
-            "CachedAnimalsLeft Is Not Null And (InvalidDate Is Null)");
+    public static void updateLitters() throws Exception {
+        AnimalLitter litters = new AnimalLitter(
+            "CachedAnimalsLeft Is Not Null AND (InvalidDate Is Null OR InvalidDate > '" +
+            Utils.getSQLDate(new Date()) + "')");
 
         Global.logInfo(Global.i18n("bo", "updating_and_cancelling_litters"),
             "AnimalLitter.updateLitters");
 
         int noCancelled = 0;
 
-        while (!al.getEOF()) {
-            if (al.getAnimalsRemaining().intValue() == 0) {
-                // Cancel the litter
+        for (AnimalLitter al : litters) {
+            
+            int remaining = al.getCachedAnimalsLeft().intValue();
+            int newRemaining = al.getAnimalsRemaining().intValue();
+
+            // If there are now zero animals left, and there were more than zero
+            // before, cancel the litter. This check ensures that new litters that
+            // have not yet had animals assigned aren't cancelled.
+            if (newRemaining == 0 && remaining > 0) {
                 try {
                     DBConnection.executeAction(
                         "UPDATE animallitter SET InvalidDate = '" +
@@ -224,18 +220,12 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
                 } catch (Exception e) {
                     throw new CursorEngineException(e.getMessage());
                 }
-
                 noCancelled++;
             }
-
-            al.moveNext();
             System.out.print(".");
         }
 
         System.out.println("");
-
-        al.free();
-        al = null;
 
         if (noCancelled > 0) {
             Global.logInfo(Global.i18n("bo", "litters_cancelled",
