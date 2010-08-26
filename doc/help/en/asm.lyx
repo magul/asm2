@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 58 (ASM 2.7.3)
+Revision 59 (ASM 2.8.0)
 \end_layout
 
 \begin_layout Chapter*
@@ -682,12 +682,18 @@ Before doing anything else with your new ASM installation, you should now
 \end_layout
 
 \begin_layout Enumerate
-If you want to use your own animal classifications, you can use the System->Look
-ups->Animal Types to alter the standard ASM ones - ASM assumes your shelter
- deals with dogs and cats and wants to differentiate between stray and abandoned
- animals.
+If you want to use your own animal classifications, you can use the 
+\series bold
+System->Lookups->Animal Types
+\series default
+ to alter the standard ASM ones - ASM assumes your shelter deals with dogs
+ and cats and wants to differentiate between stray and abandoned animals.
  After doing that, select your new defaults in the correct place on the
- defaults tab of the System->Options screen (See 
+ defaults tab of the 
+\series bold
+System->Options
+\series default
+ screen (See 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Configure-Reporting-and-Defaults"
@@ -698,7 +704,11 @@ reference "sec:Configure-Reporting-and-Defaults"
 \end_layout
 
 \begin_layout Enumerate
-Go to the System->Options screen and enter your shelter's contact information.
+Go to the 
+\series bold
+System->Options
+\series default
+ screen and enter your shelter's contact information.
  You can set various behaviours for ASM and control the format of generated
  animal codes here.
  See 
@@ -712,8 +722,12 @@ reference "sec:System-Options"
 \end_layout
 
 \begin_layout Enumerate
-Go to System->Lookups->Remove unwanted breeds and species - Remove any unwanted
- breeds and species from the database that your shelter does not deal with.
+Go to 
+\series bold
+System->Lookups->Remove unwanted breeds and species
+\series default
+ - Remove any unwanted breeds and species from the database that your shelter
+ does not deal with.
  See 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -727,7 +741,10 @@ reference "sub:Unwanted-Breeds-and-Species"
 \begin_layout Enumerate
 Make sure you have a word processor installed on your computer if you want
  to use ASM to generate adoption paperwork, kennel cards, etc.
- You can tell ASM which word processor you are using on the System->Options
+ You can tell ASM which word processor you are using on the 
+\series bold
+System->Options
+\series default
  screen (
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -750,8 +767,11 @@ Rich Text Format Compatible
 \end_layout
 
 \begin_layout Enumerate
-Create usernames and passwords for your shelter staff in the System->Edit
- System Users screen.
+Create usernames and passwords for your shelter staff in the 
+\series bold
+System->Edit System Users
+\series default
+ screen.
  Once you have your own username and password, delete the default 
 \begin_inset Quotes eld
 \end_inset
@@ -840,8 +860,11 @@ By clicking the Advanced button, you can go to a more sophisticated search
 \end_layout
 
 \begin_layout Standard
-You can change which find animal screen is shown by default under the System->Op
-tions menu (see 
+You can change which find animal screen is shown by default under the 
+\series bold
+System->Options
+\series default
+ menu (see 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:System-Options"
@@ -1463,8 +1486,11 @@ Diet
 
 \begin_layout Standard
 The diet tab is used for capturing information about the animal's diet.
- You can set up as many different diet types (under System->Lookups->Diets)
- as you like, and then log them here when the animal's diet changes.
+ You can set up as many different diet types (under 
+\series bold
+System->Lookups->Diets
+\series default
+) as you like, and then log them here when the animal's diet changes.
 \end_layout
 
 \begin_layout Subsection
@@ -1515,7 +1541,10 @@ The costs tab allows you to track costs associated with looking after an
 \end_layout
 
 \begin_layout Standard
-In addition, you can add cost types through the System->Lookups->Cost Types
+In addition, you can add cost types through the 
+\series bold
+System->Lookups->Cost Types
+\series default
  menu and allocate costs for anything else your shelter has spent on the
  animal (eg: Microchipping).
  Vaccinations and medical treatments have a cost field that you can set
@@ -2010,8 +2039,11 @@ Log
 
 \begin_layout Standard
 The log tab is used for logging additional useful information.
- You can create as many log types as you want under System->Lookups->Log
- Types.
+ You can create as many log types as you want under 
+\series bold
+System->Lookups->Log Types
+\series default
+.
  You can then create a log entry with a given type for a date and with a
  comment.
  This is useful for keeping track of animal weights, bite reports, complaints
@@ -2915,7 +2947,11 @@ Owner Criteria Search
 \begin_inset Quotes erd
 \end_inset
 
- report under the Reports->Inventories.
+ report under the 
+\series bold
+Reports->Inventories
+\series default
+.
 \end_layout
 
 \begin_layout Standard
@@ -3443,7 +3479,11 @@ white paws, no collar
 \begin_layout Standard
 By default, the system scores lost/found matches in this manner (all of
  these point values and how many points are required to appear can be changed
- in System->Options 
+ in 
+\series bold
+System->Options
+\series default
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:System-Options"
@@ -4486,6 +4526,10 @@ Animal Shelter Manager offers some highly detailed reporting facilities
 
 \begin_layout Standard
 All reports are accessed from the Reports top level-menu.
+ Outlined here are the reports that come installed by default with ASM.
+ More reports can be installed from the web by going to 
+\series bold
+Reports->Get more reports from sheltermanager.com...
 \end_layout
 
 \begin_layout Section
@@ -4686,9 +4730,12 @@ A word of warning though, depending on the amount of data involved and the
 
 \begin_layout Itemize
 The top few rows show animals already on the shelter for the given type
- or species (you can choose under System->Options whether or not to group
- by type or species - note that litter figures are only available when grouping
- by species).
+ or species (you can choose under 
+\series bold
+System->Options
+\series default
+ whether or not to group by type or species - note that litter figures are
+ only available when grouping by species).
 \end_layout
 
 \begin_layout Itemize
@@ -5416,6 +5463,31 @@ $USER$
  - Substitutes the current user's name.
  This is useful with CREATE TEMPORARY TABLE instructions to ensure that
  users get their own versions of temporary tables when generating reports.
+ It could also be used to filter reports to only show users records they
+ created, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+$CURRENT_DATE$
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+$CURRENT_DATE$
+\end_layout
+
+\end_inset
+
+
+\series default
+ - Substitutes today's date in an appropriate string SQL format for the
+ current database.
+ This saves you having to use NOW() or CURRENT_DATE() or various other SQL
+ functions specific to one database.
 \end_layout
 
 \begin_layout Itemize
@@ -6674,20 +6746,19 @@ File->Animal->Litter Logger
 \series default
  or pressing 
 \series bold
-CTRL+SHIFT+O.
+CTRL+SHIFT+L.
 
 \series default
  The main screen shows you a list of all currently active litters on the
  shelter.
  A litter is deemed active whilever any of the animals who were part of
- it are still on the shelter.
- If an animal is returned from adoption who was part of a complete litter,
+ it are still on the shelter or it has an expiry date later than today.
+ If an animal is returned from adoption who was part of an expired litter,
  the litter will 
 \emph on
 not be resurrected
 \emph default
- - the animal is a standard return or unwanted animal (depending on how
- long it was adopted for).
+.
 \end_layout
 
 \begin_layout Standard
@@ -6772,10 +6843,25 @@ acceptance numbers
 \begin_inset Quotes erd
 \end_inset
 
- method outlined further below.
- They are in fact the same, however acceptance numbers only apply to RSPCA
- shelters in the UK, whereas this mechanism is generic for any shelter in
- the world.
+ method outlined below.
+ 
+\end_layout
+
+\begin_layout Standard
+They are in fact the same, differing only in terminology - acceptance numbers
+ only apply to RSPCA shelters in the UK, litter IDs are generic for any
+ shelter.
+ Note that while ASM will default the litter ID as a number when you create
+ a new one, the litter ID can in fact be alphanumeric and you could use
+ codenames or anything more meaningful as a litter ID (as long as it is
+ unique).
+ 
+\end_layout
+
+\begin_layout Standard
+As far as ASM is concerned, acceptance numbers and litter IDs are exactly
+ the same thing and changing a configuration option (Automatic Litter Identifica
+tion) determines what ASM will call the field on screen.
 \end_layout
 
 \begin_layout Subsection
@@ -6795,22 +6881,8 @@ After a Specific Time Period
 \end_layout
 
 \begin_layout Standard
-You may optionally specify a time period at which the litter will automatically
- become invalid (you should not fill in the completion date at all for this
- method).
- A drop down box allows you to select from Never to 6 months.
- If you use this method, the litter will automatically complete after the
- specified amount of time.
- Again, this method is inaccurate, although easy as you can guess the age
- of the litter (if it was brought in), and simply say 
-\begin_inset Quotes eld
-\end_inset
-
-assume all the animals in this litter will be adopted after 6 months old
-\begin_inset Quotes erd
-\end_inset
-
-.
+You may optionally specify a date at which the litter will automatically
+ become invalid.
 \end_layout
 
 \begin_layout Subsection
@@ -6824,28 +6896,38 @@ Acceptance Numbers
 
 \end_inset
 
+ and Litter IDs
+\begin_inset Index
+status open
 
+\begin_layout Plain Layout
+Litter IDs
 \end_layout
 
-\begin_layout Standard
-This method is specific to RSPCA shelters only, where acceptance numbers
- are issued to animals entering the shelter, or a group of animals belonging
- to the same litter.
- This is the same method as Auto Litter Identification outlined above, however
- it ties in with RSPCA practices.
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Under this method, the system will check all the animals in the litter daily
  and the moment the last one has left the shelter through a means other
- than fostering, the litter will be cancelled.
+ than fostering (if the 
+\begin_inset Quotes eld
+\end_inset
+
+Foster animals are shelter inventory
+\begin_inset Quotes erd
+\end_inset
+
+ option is on), the litter will be cancelled.
  This method is 100% accurate and once you have entered the litter, you
  do not have to do anything else - the system will take care of it.
 \end_layout
 
 \begin_layout Standard
-From the litter logger main screen, you can also highlight a litter and
- call up all the animals in that litter.
+From the litter logger main screen, you can highlight a litter and call
+ up all the animals in that litter.
  The litter logger main screen will also show you how many of the litter
  animals are currently left on the shelter.
 \end_layout
@@ -6855,19 +6937,20 @@ This method works best when employed with the
 \begin_inset Quotes eld
 \end_inset
 
-within time period
+after a specific time period
 \begin_inset Quotes erd
 \end_inset
 
  option, so you create the litter and give it a timeout date (when all the
- animals in the litter will be too old to constitute a litter).
- This way, the litter will complete on the day the last animal is adopted
+ animals in the litter will be too old to constitute a litter - ASM will
+ default this date for you as 6 months when you create a new litter).
+ This way, the litter will expire on the day the last animal is adopted
  out, or the timeout date - whichever comes first.
 \end_layout
 
 \begin_layout Standard
 Note, some shelters book in mother and litter together on the same acceptance
- number - the system can cope with this quite happily as 
+ number/Litter ID - the system can cope with this quite happily as 
 \emph on
 animals under 6 months old are automatically excluded
 \emph default
@@ -7674,9 +7757,12 @@ To create a mail merge source, navigate to Mail Merge.
 \end_layout
 
 \begin_layout Standard
-Initially, ASM does not come preloaded with any, however by going to Reports->Ge
-t more reports from sheltermanager.com, you can install mail merge sources
- (they appear in the list with the type 
+Initially, ASM does not come preloaded with any, however by going to 
+\series bold
+Reports->Get more reports from sheltermanager.com
+\series default
+, you can install mail merge sources (they appear in the list with the type
+ 
 \begin_inset Quotes eld
 \end_inset
 

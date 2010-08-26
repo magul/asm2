@@ -1,6 +1,13 @@
 2.8.0
 ================
 
+*. No point showing the database type/version on the get more 
+-  reports screen as the user probably has no idea what it means
+-  (and invalid values are filtered out before display anyway)
+*. New voucher reports, litter reports and waiting list reports
+*. $CURRENT_DATE$ tag for cross database way of getting today's
+-  date in database format for custom reports (updated reports
+-  using now() and other db-specifics to use it)
 *. Performance fixes for litter updating and recalculating
 *. Litters are checked as part of the startup procedure now
 *. Fixed litter cancellation to only look at active litters and to 

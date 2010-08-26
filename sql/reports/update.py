@@ -2,7 +2,7 @@
 
 """
 Creates the single "report.txt" file and uploads it to the sheltermanager.com
-servre for users of the program to access and get new reports
+server for users of the program to access and get new reports
 """
 
 import os

@@ -225,14 +225,14 @@ public class GetReports extends ASMView {
             // Create an array of headers for the table
             String[] columnheaders = {
                     i18n("Type"), i18n("Title"), i18n("category"),
-                    i18n("Database"), i18n("Locale"), i18n("Description")
+                    i18n("Locale"), i18n("Description")
                 };
 
             // Build the data
             TableData td = new TableData();
 
             for (int i = 0; i < reports.size(); i++) {
-                TableRow row = new TableRow(7);
+                TableRow row = new TableRow(6);
                 InstallableReport r = (InstallableReport) reports.get(i);
 
                 // Skip if the locale isn't ours and the filter box is checked
@@ -247,15 +247,14 @@ public class GetReports extends ASMView {
                 row.set(0, CustomReport.getReportType(r.html));
                 row.set(1, r.name);
                 row.set(2, r.category);
-                row.set(3, r.database);
-                row.set(4, r.locale);
-                row.set(5, r.description);
-                row.set(6, Integer.toString(i));
+                row.set(3, r.locale);
+                row.set(4, r.description);
+                row.set(5, Integer.toString(i));
 
                 td.add(row);
             }
 
-            setTableData(columnheaders, td.toTableData(), td.size(), 6);
+            setTableData(columnheaders, td.toTableData(), td.size(), 5);
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

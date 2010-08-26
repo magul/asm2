@@ -1532,6 +1532,10 @@ public class CustomReportExecute extends Report {
                     thirdspace = ftag.indexOf(" ", secondspace + 1);
                 }
 
+                // DATE tag
+                if (tagtype.equalsIgnoreCase("CURRENT_DATE")) {
+                    replaceWith = Utils.getSQLDate(new Date());
+                }
                 // USER tag
                 if (tagtype.equalsIgnoreCase("USER")) {
                     replaceWith = Global.currentUserName;
