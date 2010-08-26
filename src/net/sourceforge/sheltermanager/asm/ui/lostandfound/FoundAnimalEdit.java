@@ -221,6 +221,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         enableButtons();
     }
 
+    public void refreshData() {
+        if (isNewRecord) return;
+        if (formClosing() == false)
+            openForEdit(animal);
+    }
+
     /** Notifies the form that the data has been changed. */
     public void dataChanged() {
         isDirty = true;

@@ -614,6 +614,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         enableButtons();
     }
 
+    public void refreshData() {
+        if (isNewRecord) return;
+        if (formClosing() == false)
+            openForEdit(animal);
+    }
+
     public void setDefaults() {
         // Date of birth and date brought in
         Calendar cal = Calendar.getInstance();

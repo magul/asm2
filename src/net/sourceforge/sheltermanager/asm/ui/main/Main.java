@@ -94,6 +94,7 @@ import net.sourceforge.sheltermanager.asm.ui.system.Options;
 import net.sourceforge.sheltermanager.asm.ui.system.SQLInterface;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMAccelerator;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
+import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMWindow;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.HTMLViewer;
@@ -207,6 +208,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuFileAnimalWaitingList;
     private UI.MenuItem mnuFileCloseTab;
     private UI.MenuItem mnuFileSaveTab;
+    private UI.MenuItem mnuFileRefreshTab;
     private UI.MenuItem mnuFileExit;
     private UI.Menu mnuFileFoundAnimals;
     private UI.MenuItem mnuFileFoundAnimalsAddFound;
@@ -950,6 +952,12 @@ public class Main extends ASMWindow {
                 new ASMAccelerator("s", "ctrl", ""),
                 UI.fp(this, "actionSaveTab"));
 
+        mnuFileRefreshTab = UI.getMenuItem(i18n("Refresh_Active_Tab"), ' ',
+                IconManager.getIcon(IconManager.MENU_FILEREFRESHTAB),
+                new ASMAccelerator("r", "ctrl", ""),
+                UI.fp(this, "actionRefreshTab"));
+
+
         mnuFileExit = UI.getMenuItem(i18n("Exit"), 'X',
                 IconManager.getIcon(IconManager.MENU_FILEEXIT),
                 UI.fp(this, "actionFileExit"));
@@ -1369,6 +1377,7 @@ public class Main extends ASMWindow {
             mnuFile.add(UI.getSeparator());
         }
 
+        mnuFile.add(mnuFileRefreshTab);
         mnuFile.add(mnuFileSaveTab);
         mnuFile.add(mnuFileCloseTab);
 
@@ -2335,13 +2344,32 @@ public class Main extends ASMWindow {
         }
     }
 
+    public void actionRefreshTab() {
+        ASMForm f = null;
+
+        try {
+            f = (ASMForm) jdpDesktop.getSelectedFrame();
+        } catch (Exception e) {
+        }
+
+        if (f != null) {
+            startThrobber();
+            if (f instanceof ASMView) {
+                ((ASMView) f).updateList();
+            }
+            else {
+                f.refreshData();
+            }
+            stopThrobber();
+        }
+    }
+
     public void actionSaveTab() {
         ASMForm f = null;
 
         try {
             f = (ASMForm) jdpDesktop.getSelectedFrame();
         } catch (Exception e) {
-            // SwingWT can fail here if no windows open
         }
 
         if (f != null) {
@@ -2534,12 +2562,32 @@ public class Main extends ASMWindow {
                     pgStatus.repaint();
                     // Change the mouse pointer to an hourglass
                     UI.cursorToWait();
-                    thrThrob.setVisible(true);
-                    pnlStatus.revalidate();
-                    thrThrob.start();
+                    startThrobber();
                 }
             });
     }
+
+    /** Starts the throbber */
+    public void startThrobber() {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                thrThrob.setVisible(true);
+                pnlStatus.revalidate();
+                thrThrob.start();
+            }
+        });
+    }
+
+    /** Stops the throbber */
+    public void stopThrobber() {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                thrThrob.setVisible(false);
+                thrThrob.stop();
+            }
+        });
+    }
+
 
     /** Resets the status bar back to empty */
     public void resetStatusBar() {
@@ -2550,8 +2598,7 @@ public class Main extends ASMWindow {
                     pgStatus.setStringPainted(false);
                     // Change the mouse pointer back to normal
                     UI.cursorToPointer();
-                    thrThrob.setVisible(false);
-                    thrThrob.stop();
+                    stopThrobber();
                 }
             });
     }

@@ -67,8 +67,11 @@ public class DiaryView extends ASMForm {
     public void setSecurity() {
     }
 
-    public void loadData() {
+    public void refreshData() {
+        diary.updateList();
     }
+
+    public void loadData() {}
 
     public boolean saveData() {
         return true;

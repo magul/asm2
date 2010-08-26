@@ -193,6 +193,10 @@ public abstract class ASMFind extends ASMForm {
         // Not relevant for search
     }
 
+    public void refreshData() {
+        actionSearch();
+    }
+
     public boolean saveData() {
         // Not relevant for search
         return true;

@@ -365,6 +365,9 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         txtReason.setEnabled(!txtDateReturned.getText().equals(""));
     }
 
+    public void refreshData() {
+    }
+
     public void openForEdit(int movementID) {
         Adoption a = new Adoption("ID = " + movementID);
         openForEdit(a, 0);

@@ -461,6 +461,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         loadData();
     }
 
+    public void refreshData() {
+        if (isNewRecord) return;
+        if (formClosing() == false)
+            openForEdit(owner);
+    }
+
     public void showTitle() {
         try {
             this.setTitle(i18n("edit_owner_title", owner.getOwnerName()));

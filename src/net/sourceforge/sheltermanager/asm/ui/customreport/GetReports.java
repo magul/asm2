@@ -121,10 +121,9 @@ public class GetReports extends ASMView {
                 // Grab the reports
                 reports = new Vector();
 
-                UI.cursorToWait();
-
+                startThrobber();
                 String rs = Utils.getURL(REPORTS_URL);
-                UI.cursorToPointer();
+                stopThrobber();
 
                 String[] reps = Utils.split(rs, "&&&");
 

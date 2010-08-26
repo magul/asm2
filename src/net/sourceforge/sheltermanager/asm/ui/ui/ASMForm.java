@@ -123,6 +123,8 @@ public abstract class ASMForm extends JPanel {
 
     public abstract String getAuditInfo();
 
+    public void refreshData() {}
+
     /** Return true to cancel the close */
     public abstract boolean formClosing();
 
@@ -189,37 +191,29 @@ public abstract class ASMForm extends JPanel {
         return Global.i18n(i18nKey, key, arg1, arg2, arg3, arg4, arg5);
     }
 
-    public void initStatusBarMax(int maxvalue) {
-        progressMax = maxvalue;
-        progressValue = 0;
-
-        Global.mainForm.pgStatus.setMaximum(maxvalue);
-        Global.mainForm.pgStatus.setStringPainted(true);
-        Global.mainForm.pgStatus.setString(null);
-        Global.mainForm.pgStatus.repaint();
-        // Change the mouse pointer to an hourglass
-        UI.cursorToWait();
+    /** Displays the spinning throbber */
+    public void startThrobber() {
+        Global.mainForm.startThrobber();
     }
 
-    /** Resets the status bar back to empty */
+    /** Hides the throbber */
+    public void stopThrobber() {
+        Global.mainForm.stopThrobber();
+    }
+
+    /** Starts the status bar */
+    public void initStatusBarMax(int maxvalue) {
+        Global.mainForm.initStatusBarMax(maxvalue);
+    }
+
+    /** Resets the status bar */
     public void resetStatusBar() {
-        Global.mainForm.pgStatus.setMaximum(100);
-        Global.mainForm.pgStatus.setValue(0);
-        Global.mainForm.pgStatus.setStringPainted(false);
-        // Change the mouse pointer back to normal
-        UI.cursorToPointer();
+        Global.mainForm.resetStatusBar();
     }
 
     /** Increments the status bar by one value */
     public void incrementStatusBar() {
-        progressValue++;
-        progressStep++;
-
-        if ((progressValue <= progressMax) &&
-                (progressStep == progressStepTrigger)) {
-            Global.mainForm.pgStatus.setValue(progressValue);
-            progressStep = 0;
-        }
+        Global.mainForm.incrementStatusBar();
     }
 
     /** Sets the status text to the value specified */

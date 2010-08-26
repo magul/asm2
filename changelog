@@ -1,6 +1,11 @@
 2.8.0
 ================
 
+*. Ability to operate the bottom-left spinner independently - fires
+-  up for refresh data calls and downloading reports from sm.com
+*. Refresh current tab CTRL+R hotkey - works for all list screens
+-  with refresh buttons and the main (animal/owner/lost/found/waiting)
+-  editing screens to reload content from database
 *. No point showing the database type/version on the get more 
 -  reports screen as the user probably has no idea what it means
 -  (and invalid values are filtered out before display anyway)
