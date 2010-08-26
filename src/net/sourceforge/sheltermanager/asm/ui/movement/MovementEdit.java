@@ -696,6 +696,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             // option is on
             if (movement.getOwnerID().intValue() != 0) {
                 if (Configuration.getBoolean("WarnOOPostcode")) {
+
                     String nopcode = movement.getOwner().getOwnerPostcode();
                     String oopcode = "";
 
@@ -705,13 +706,18 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                     } catch (Exception e) {
                     }
 
-                    if ((nopcode.length() >= 2) && (oopcode.length() >= 2)) {
-                        if (nopcode.substring(0, 2)
-                                       .equalsIgnoreCase(oopcode.substring(0, 2))) {
+                    // If there's a space in there, just take the first portion
+                    if (nopcode.length() > 0 && nopcode.indexOf(" ") != -1) {
+                        nopcode = nopcode.substring(0, nopcode.indexOf(" "));
+                    }
+                    if (oopcode.length() > 0 && oopcode.indexOf(" ") != -1) {
+                        oopcode = oopcode.substring(0, oopcode.indexOf(" "));
+                    }
+
+                    if (nopcode.equals(oopcode) && oopcode.length() > 0) {
                             Dialog.showWarning(i18n("WARNING:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(") +
                                 oopcode.toUpperCase() + ")",
                                 i18n("Postcode_Warning"));
-                        }
                     }
                 }
             }
@@ -789,7 +795,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             }
 
             // If this is an adoption for an animal that is bonded
-            // to another animal, make the user says ok that they are
+            // to another animal, make the user say ok that they are
             // being adopted together
             if (movement.getMovementType().intValue() == Adoption.MOVETYPE_ADOPTION) {
                 String names = movement.getAnimal().getBondedAnimalDisplay();

@@ -1,6 +1,10 @@
 2.8.0
 ================
 
+*. Fixed bug with postcode warnings hardcoded to first three
+-  characters of postcode
+*. Fixed missing opacity on calendar, added icons and ability
+-  to move between years
 *. Ability to operate the bottom-left spinner independently - fires
 -  up for refresh data calls and downloading reports from sm.com
 *. Refresh current tab CTRL+R hotkey - works for all list screens

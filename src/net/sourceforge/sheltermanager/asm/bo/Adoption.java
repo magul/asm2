@@ -772,30 +772,6 @@ public class Adoption extends UserInfoBO<Adoption> {
                 adt = null;
             }
 
-            /*
-             * ========= OLD CODE - didn't allow historic non-clashing records
-             * ========= but it might come in useful at some point. // Check to
-             * see if this movement clashes into the date range // of another.
-             * Same day movements are allowed (one can start // the same day
-             * another finishes) // Need to find another movement record on this
-             * animal which is // a) Returned after this one started // b)
-             * Started before this one returned if
-             * (!getMovementDate().equals(SQLRecordset.NULL_VALUE)) { Adoption
-             * adt = new Adoption(); adt.openRecordset("AnimalID = " +
-             * getAnimalID() + " AND ReturnDate > '" + getMovementDate() + "'
-             * AND ID <> " + getID()); if (!adt.getEOF()) { adt.free(); adt =
-             * null; throw new BOValidationException(Global.i18n("bo",
-             * "movement_returned_after_this_starts")); } adt.free(); adt =
-             * null; } if (!getReturnDate().equals(SQLRecordset.NULL_VALUE)) {
-             * Adoption adt = new Adoption(); adt.openRecordset("AnimalID = " +
-             * getAnimalID() + " AND MovementDate < '" + getReturnDate() + "'
-             * AND ReturnDate Is Null AND ID <> " + getID()); if (!adt.getEOF()) {
-             * adt.free(); adt = null; throw new
-             * BOValidationException(Global.i18n("bo",
-             * "movement_starts_before_this_returned")); } adt.free(); adt =
-             * null; }
-             */
-
             // If there is a cancelled reservation date, make sure
             // we have a reserve date, and if we do that it isn't
             // after the cancelled date.

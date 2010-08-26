@@ -454,11 +454,13 @@ public class DateField extends UI.Panel {
 
 
 class DatePicker extends JDialog {
-    static Font bold = new Font("Monospace", 10, Font.BOLD);
-    static Font plain = new Font("Monospace", 10, 0);
-    static Color gray = new Color(230, 230, 230);
-    static Color lightgray = new Color(240, 240, 240);
+    
+    static Color WHITE = Color.WHITE;
+    static Color GRAY = new Color(230, 230, 230);
+    static Color LIGHTGRAY = new Color(240, 240, 240);
+
     private static String[] cachedHeader = null;
+
     UI.Label[] btn = new UI.Label[49];
     int month = Calendar.getInstance().get(Calendar.MONTH);
     int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -478,11 +480,12 @@ class DatePicker extends JDialog {
         String[] header = generateHeader();
         UI.Panel midPanel = UI.getPanel(UI.getGridLayout(7, 7));
         midPanel.setPreferredSize(new Dimension(100, 100));
-        midPanel.setBackground(gray);
+        midPanel.setBackground(GRAY);
 
         for (int x = 0; x < btn.length; x++) {
             final int selection = x;
             btn[x] = new UI.Label();
+            btn[x].setOpaque(true);
             btn[x].setBackground(Color.WHITE);
             btn[x].setHorizontalAlignment(UI.Label.CENTER);
 
@@ -493,7 +496,7 @@ class DatePicker extends JDialog {
                         }
 
                         public void mouseEntered(MouseEvent e) {
-                            btn[selection].setBackground(lightgray);
+                            btn[selection].setBackground(LIGHTGRAY);
                         }
 
                         public void mouseExited(MouseEvent e) {
@@ -505,34 +508,77 @@ class DatePicker extends JDialog {
             if (x < 7) {
                 btn[x].setText(header[x]);
                 btn[x].setForeground(Color.RED);
-                //btn[x].setFont(bold);
-                btn[x].setBackground(gray);
+                btn[x].setBackground(GRAY);
             }
-
             midPanel.add(btn[x]);
         }
 
-        UI.Panel lowPanel = UI.getPanel(UI.getGridLayout(1, 3));
+        UI.Panel lowPanel = UI.getPanel(UI.getGridLayout(5));
         lowPanel.setBackground(Color.WHITE);
 
-        UI.Button prevBtn = UI.getButton("<<", null);
-        prevBtn.addActionListener(new ActionListener() {
+        UI.Button prevYear = UI.getButton(null, UI.messagePreviousYear(), ' ', 
+            IconManager.getIcon(IconManager.DATEPICKER_PREVYEAR),
+            null);
+
+        prevYear.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    year--;
+                    setDates();
+                }
+            });
+        lowPanel.add(prevYear);
+
+        UI.Button prevMonth = UI.getButton(null, UI.messagePreviousMonth(), ' ', 
+            IconManager.getIcon(IconManager.DATEPICKER_PREVMONTH),
+            null);
+
+        prevMonth.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     month--;
                     setDates();
                 }
             });
-        lowPanel.add(prevBtn);
-        lowPanel.add(UI.getLabel());
+        lowPanel.add(prevMonth);
 
-        UI.Button nextBtn = UI.getButton(">>", null);
-        nextBtn.addActionListener(new ActionListener() {
+        UI.Button thisMonth = UI.getButton(null, UI.messageThisMonth(), ' ', 
+            IconManager.getIcon(IconManager.DATEPICKER_THISMONTH),
+            null);
+
+        thisMonth.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    Calendar c = Calendar.getInstance();
+                    month = c.get(Calendar.MONTH);
+                    year = c.get(Calendar.YEAR);
+                    setDates();
+                }
+            });
+        lowPanel.add(thisMonth);
+
+        UI.Button nextMonth = UI.getButton(null, UI.messageNextMonth(), ' ', 
+            IconManager.getIcon(IconManager.DATEPICKER_NEXTMONTH),
+            null);
+
+        nextMonth.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     month++;
                     setDates();
                 }
             });
-        lowPanel.add(nextBtn);
+        lowPanel.add(nextMonth);
+
+        UI.Button nextYear = UI.getButton(null, UI.messageNextYear(), ' ', 
+            IconManager.getIcon(IconManager.DATEPICKER_NEXTYEAR),
+            null);
+
+        nextYear.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    year++;
+                    setDates();
+                }
+            });
+        lowPanel.add(nextYear);
+
+
         add(midPanel, UI.BorderLayout.CENTER);
         add(lowPanel, UI.BorderLayout.SOUTH);
     }
@@ -581,8 +627,6 @@ class DatePicker extends JDialog {
             btn[x].setText("" + day);
             btn[x].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             btn[x].setForeground(Color.BLACK);
-
-            //btn[x].setFont(plain);
         }
 
         // Mark today if appropriate

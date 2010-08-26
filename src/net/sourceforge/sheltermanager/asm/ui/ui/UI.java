@@ -2121,6 +2121,26 @@ public final class UI {
         return Global.i18n("uianimal", "Permission_Denied_Save");
     }
 
+    public static String messageNextYear() {
+        return Global.i18n("uianimal", "Next_Year");
+    }
+
+    public static String messageNextMonth() {
+        return Global.i18n("uianimal", "Next_Month");
+    }
+
+    public static String messagePreviousYear() {
+        return Global.i18n("uianimal", "Previous_Year");
+    }
+
+    public static String messagePreviousMonth() {
+        return Global.i18n("uianimal", "Previous_Month");
+    }
+
+    public static String messageThisMonth() {
+        return Global.i18n("uianimal", "This_Month");
+    }
+
     public static String messageAudit(Date createdDate, String createdBy,
         Date lastChangedDate, String lastChangedBy) {
         return Global.i18n("uianimal", "created_lastchange",

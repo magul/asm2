@@ -128,6 +128,12 @@ public abstract class IconManager {
     public final static String DOWN = "actions-Down-24.png";
     public final static String ABOUT = "actions-HelpAbout-24.png";
     public final static String DATEPICKER = "actions-WaitingList-16.png";
+    public final static String DATEPICKER_NEXTYEAR = "actions-Last-16.png";
+    public final static String DATEPICKER_NEXTMONTH = "actions-Forward-16.png";
+    public final static String DATEPICKER_PREVYEAR = "actions-First-16.png";
+    public final static String DATEPICKER_PREVMONTH = "actions-Back-16.png";
+    public final static String DATEPICKER_THISMONTH = "actions-Today-16.png";
+
     public final static String BACK = "actions-Back-24.png";
     public final static String FORWARD = "actions-Forward-24.png";
     public final static String ZOOMIN = "actions-ZoomIn-24.png";
