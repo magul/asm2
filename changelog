@@ -1,6 +1,9 @@
 2.8.0
 ================
 
+*. When bonding animals, automatically sets return bond (note that this
+-  isn't necessary for the warning checks as it checks incoming and
+-  outgoing bonds - it just makes more sense for the user).
 *. Show busy indicator when loading litters, also spawn new thread
 *. Show busy indicator when loading accounts, fixed bug that caused
 -  progress meter to keep going when viewing animals in litter

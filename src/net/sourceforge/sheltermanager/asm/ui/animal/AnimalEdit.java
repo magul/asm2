@@ -1662,6 +1662,24 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 animal.setOriginalOwnerID(new Integer(embOriginalOwner.getID()));
                 animal.setBondedAnimalID(new Integer(embBonded1.getID()));
                 animal.setBondedAnimal2ID(new Integer(embBonded2.getID()));
+
+                // Assuming we have some bonds, try and set a link back to
+                // this animal on the target animal. It isn't actually necessary
+                // for the checks in MovementEdit, as it scans for animals
+                // that link to this one as well as links out.
+                // It definitely looks better and easier to
+                // understand for the user though, so that's why we do it.
+                if (embBonded1.getID() > 0) {
+                    Animal ab = new Animal("ID=" + embBonded1.getID());
+                    ab.addBondedLink(animal.getID());
+                    ab.save(Global.currentUserName);
+                }
+
+                if (embBonded2.getID() > 0) {
+                    Animal ab = new Animal("ID=" + embBonded2.getID());
+                    ab.addBondedLink(animal.getID());
+                    ab.save(Global.currentUserName);
+                }
             }
 
             // Same rules apply to vet tab

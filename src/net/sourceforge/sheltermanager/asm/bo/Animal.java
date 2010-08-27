@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Vector;
 
 
@@ -310,12 +311,30 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("BondedAnimal2ID", newValue);
     }
 
+    /**
+     * Adds a bond to the animal ID given in one of the two slots
+     * if available - if the id is already bonded, does nothing.
+     */
+    public void addBondedLink(Integer id) throws CursorEngineException {
+        if (getBondedAnimalID() == null) setBondedAnimalID(new Integer(0));
+        if (getBondedAnimal2ID() == null) setBondedAnimal2ID(new Integer(0));
+        if (getBondedAnimalID().equals(id)) return;
+        if (getBondedAnimal2ID().equals(id)) return;
+        if (getBondedAnimalID().intValue() == 0) {
+            setBondedAnimalID(id);
+            return;
+        }
+        if (getBondedAnimal2ID().intValue() == 0) {
+            setBondedAnimal2ID(id);
+        }
+    }
+
     /** Returns the names/codes of the animals this animal is bonded with or
       * an empty string if it is not bonded - for checking, the direct bonds
       * are checked, then the bonds of all other animals to see if they link
       * back to this one */
     public String getBondedAnimalDisplay() throws CursorEngineException {
-        ArrayList<Integer> bonded = new ArrayList<Integer>();
+        HashSet<Integer> bonded = new HashSet<Integer>();
 
         // Add the direct bond links
         if ((getBondedAnimalID() != null) &&
