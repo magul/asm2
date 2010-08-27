@@ -143,6 +143,7 @@ public class AnimalAddMultiple extends ASMForm {
         public AnimalRow() {
             super();
             initComponents();
+            dtDOB.setToToday();
         }
 
         public AnimalRow(AnimalRow c) {
@@ -151,10 +152,10 @@ public class AnimalAddMultiple extends ASMForm {
 
             try {
                 dtDOB.setDate(c.dtDOB.getDate());
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-
+	    }
+	    catch (Exception e) {
+	        Global.logException(e, getClass());
+	    }
             txtName.setText(c.txtName.getText());
             cboSex.setSelectedItem(c.cboSex.getSelectedItem());
             cboType.setSelectedItem(c.cboType.getSelectedItem());
@@ -193,7 +194,6 @@ public class AnimalAddMultiple extends ASMForm {
 
             dtDOB = (DateField) UI.addComponent(pbasic, i18n("Date_Of_Birth:"),
                     UI.getDateField());
-            dtDOB.setToToday();
             tabs.add(dtDOB);
 
             cboSex = UI.getCombo(LookupCache.getSexLookup(), "Sex");
