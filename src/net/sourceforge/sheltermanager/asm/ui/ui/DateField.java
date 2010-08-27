@@ -102,12 +102,16 @@ public class DateField extends UI.Panel {
         updateDate(Utils.dateToCalendar(d));
     }
 
-    public void updateDate(Calendar c) {
-        String s = Utils.formatDate(c);
-        txt.setText(s);
-        if (dateListener != null) {
-            dateListener.dateChanged(s);
-        }
+    public void updateDate(final Calendar c) {
+        UI.invokeLater(new Runnable() {
+            public void run() {
+                String s = Utils.formatDate(c);
+                txt.setText(s);
+                if (dateListener != null) {
+                    dateListener.dateChanged(s);
+                }
+            }
+        });
     }
 
     public UI.TextField getTextField() {
@@ -237,14 +241,7 @@ public class DateField extends UI.Panel {
     }
 
     public void setToToday() {
-        try {
-            txt.setText(Utils.formatDate(Calendar.getInstance()));
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-        } catch (Exception e) {
-        }
+        updateDate(new Date());
     }
 
     private void initComponents() {
@@ -286,17 +283,9 @@ public class DateField extends UI.Panel {
 
         txt.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(final java.awt.event.KeyEvent evt) {
-                    // For some reason, Swing doesn't fire keyboard events on the
-                    // dispatch thread, which causes you to see the unwanted keystroke
-                    // in your field before consuming undoes it. Running the consumption
-                    // and setting code on the dispatch thread fixes this.
-                    UI.invokeLater(new Runnable() {
-                        public void run() {
-                            if (handleKeyPress(evt)) {
-                                evt.consume();
-                            }
-                        }
-                    });
+                    if (handleKeyPress(evt)) {
+                        evt.consume();
+                    }
                 }
 
                 public void keyTyped(java.awt.event.KeyEvent evt) {
