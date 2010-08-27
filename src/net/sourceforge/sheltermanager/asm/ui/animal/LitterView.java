@@ -105,8 +105,20 @@ public class LitterView extends ASMView {
     }
 
     public void updateList() {
+        new Thread() {
+            public void run() {
+                updateListThreaded();
+            }
+        }.start();
+    }
+
+    public void updateListThreaded() {
 
         try {
+
+            // Let user know we're doing something
+            startThrobber();
+            UI.cursorToWait();
 
             AnimalLitter.updateLitters();
             AnimalLitter al = AnimalLitter.getRecentLitters();
@@ -151,9 +163,15 @@ public class LitterView extends ASMView {
 
             setTableData(columnheaders, datar, i, 8);
 
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
+
+        // And we're done...
+        stopThrobber();
+        UI.cursorToPointer();
+
     }
 
     public void addToolButtons() {
