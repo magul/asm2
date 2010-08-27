@@ -213,7 +213,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** Whether we've added any custom buttons to the screen */
     private boolean addedCustomButtons = false;
-    private long lastTypeCheck = 0;
     boolean loadedCosts = false;
     boolean loadedDiary = false;
     boolean loadedDiets = false;
@@ -1469,77 +1468,57 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * animal has a code.
      */
     public void checkType() {
-        // Wait half a second before checking the type so that the SwingWT
-        // combo can settle and getSelectedItem() returns the new type
-        // (this not an issue for Swing, but it doesn't do any harm)
-        UI.invokeIn(new Runnable() {
-                public void run() {
-                    // Are we actually using type based codes?
-                    if (Configuration.getString("CodingFormat").indexOf("T") == -1) {
-                        // No, forget it
-                        return;
-                    }
 
-                    // When did we last fire? if it was less than a second
-                    // ago, forget it.
-                    if (lastTypeCheck > (System.currentTimeMillis() - 1000)) {
-                        return;
-                    }
+        // Are we actually using type based codes?
+        if (Configuration.getString("CodingFormat").indexOf("T") == -1) {
+            // No, forget it
+            return;
+        }
 
-                    lastTypeCheck = System.currentTimeMillis();
+        // Get the type
+        String selectedtype = (String) cboType.getSelectedItem();
 
-                    // Get the type
-                    String selectedtype = (String) cboType.getSelectedItem();
+        // If the code is blank, generate a new one
+        if (txtShelterCode.getCode().trim().equals("")) {
+            try {
+                generateAnimalCode(animal, selectedtype);
+            } catch (Exception e) {
+                // Fail quietly if we couldn't generate a code
+                Global.logException(e, getClass());
+            }
 
-                    // If the code is blank, generate a new one
-                    if (txtShelterCode.getCode().trim().equals("")) {
-                        try {
-                            generateAnimalCode(animal, selectedtype);
-                        } catch (Exception e) {
-                            // Fail quietly if we couldn't generate a code
-                            Global.logException(e, getClass());
-                        }
+            return;
+        }
 
-                        return;
-                    }
+        // We always have to change the code now as it can cause
+        // duplicates and other problems
 
-                    // We always have to change the code now as it can cause
-                    // duplicates and other problems
+        // See if the code is different to the type now selected
+        if (!Animal.getShelterCodeType(txtShelterCode.getCode())
+                       .equalsIgnoreCase(selectedtype.substring(0, 1))) {
+            // It's different - ask the user if they want to change it.
+            selectedtype = (String) cboType.getSelectedItem();
 
-                    // See if the code is different to the type now selected
-                    if (!Animal.getShelterCodeType(txtShelterCode.getCode())
-                                   .equalsIgnoreCase(selectedtype.substring(0, 1))) {
-                        // It's different - ask the user if they want to change it.
-                        // Wait .5 of a second (for the combo to close/screen redraw)
-                        // and
-                        // then pop up the dialog asking if they want to change
-                        UI.invokeIn(new Runnable() {
-                                public void run() {
-                                    String selectedtype = (String) cboType.getSelectedItem();
-
-                                    Dialog.showInformation(i18n("You_have_changed_this_animals_type_generate_a_new_one",
-                                            selectedtype),
-                                        i18n("Generate_New_Code"));
-                                    generateAnimalCode(animal, selectedtype);
-                                }
-                            }, 500);
-                    }
-                }
-            }, 500);
+            Dialog.showInformation(i18n("You_have_changed_this_animals_type_generate_a_new_one",
+                    selectedtype),
+                i18n("Generate_New_Code"));
+            generateAnimalCode(animal, selectedtype);
+        }
     }
 
     /**
      * Called when the animal's brought in date has changed
      */
     public void checkDateBroughtIn() {
+        
         // It's a change
         dataChanged();
 
-        // Have we done one of these very recently? Like in the last 5 seconds?
-        if ((System.currentTimeMillis() - lastCheckedDate) <= 5000) {
+        // Have we done one of these very recently? Like in the 
+        // last half second?
+        if ((System.currentTimeMillis() - lastCheckedDate) <= 500) {
             return;
         }
-
         lastCheckedDate = System.currentTimeMillis();
 
         // Are we actually using the year in codes?

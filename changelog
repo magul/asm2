@@ -1,6 +1,11 @@
 2.8.0
 ================
 
+*. Fixed date field keyboard handling to not show unwanted keystrokes
+-  and to not fire changed events for invalid dates (instead, a final
+-  change event is fired when the focus is lost if the date changed)
+*. Fixed timings for changing type and date brought in for 
+-  generating animal codes (was very slow and weird)
 *. Extended scroll size of animal details to accommodate 2 layers
 -  of tabs and thumbnail. Adjusted comment width to match chip/flv
 -  for on-screen neatness

@@ -41,7 +41,10 @@ import javax.swing.JDialog;
  * Allows editing of date fields.
  */
 public class DateField extends UI.Panel {
+    
     DateChangedListener dateListener = null;
+    private String focusText = "";
+    
     UI.TextField txt = new UI.TextField() {
             public void paste() {
                 super.paste();
@@ -54,7 +57,6 @@ public class DateField extends UI.Panel {
 
     UI.Button btn = null;
     DatePicker picker = new DatePicker(this);
-    boolean consume = false; // synchronize consumption of key events
 
     public DateField() {
         super(true); // No panel border
@@ -96,6 +98,18 @@ public class DateField extends UI.Panel {
         setText(Utils.formatDate(d));
     }
 
+    public void updateDate(Date d) {
+        updateDate(Utils.dateToCalendar(d));
+    }
+
+    public void updateDate(Calendar c) {
+        String s = Utils.formatDate(c);
+        txt.setText(s);
+        if (dateListener != null) {
+            dateListener.dateChanged(s);
+        }
+    }
+
     public UI.TextField getTextField() {
         return txt;
     }
@@ -109,182 +123,101 @@ public class DateField extends UI.Panel {
      * Returns true if the event should be consumed
      */
     public boolean handleKeyPress(java.awt.event.KeyEvent evt) {
+        
         // Check for special hotkeys that allow us to do things
+
+        // Show date picker
+        if (evt.getKeyChar() == ' ') {
+            showPicker();
+            return true;
+        }
 
         // Today
         if (evt.getKeyChar() == 't') {
-            try {
-                evt.consume();
-                txt.setText(Utils.formatDate(Calendar.getInstance()));
-
-                if (dateListener != null) {
-                    dateListener.dateChanged(txt.getText());
-                }
-
-                return true;
-            } catch (Exception e) {
-            }
+            updateDate(new Date());
+            return true;
         }
 
-        // Add/subtract functions
-
-        // Make sure date is valid before starting
+        // Make sure date is valid before we do any of the 
+        // hotkey functions
         Calendar thisdate = null;
-
+        boolean valid = false;
         try {
             thisdate = Utils.dateToCalendar(Utils.parseDate(txt.getText()));
-        } catch (ParseException e) {
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
+            valid = true;
+        } catch (Exception e) {
+        }
 
-            return false;
-        } catch (NumberFormatException e) {
-            if (dateListener != null) {
-                evt.consume();
-                dateListener.dateChanged(txt.getText());
-            }
-
-            return false;
+        // Consume special hotkeys if our date is invalid, but don't do
+        // anything
+        if (!valid && (
+            evt.getKeyChar() == 'd' ||
+            evt.getKeyChar() == 'D' ||
+            evt.getKeyChar() == 'm' ||
+            evt.getKeyChar() == 'M' ||
+            evt.getKeyChar() == 'y' ||
+            evt.getKeyChar() == 'Y' ||
+            evt.getKeyChar() == 'b' ||
+            evt.getKeyChar() == 'e')) {
+            return true;
         }
 
         // Day
         if (evt.getKeyChar() == 'd') {
             thisdate.add(Calendar.DAY_OF_MONTH, 1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         if (evt.getKeyChar() == 'D') {
             thisdate.add(Calendar.DAY_OF_MONTH, -1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         // Week
         if (evt.getKeyChar() == 'w') {
             thisdate.add(Calendar.DAY_OF_MONTH, 7);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         if (evt.getKeyChar() == 'W') {
             thisdate.add(Calendar.DAY_OF_MONTH, -7);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         // Month
         if (evt.getKeyChar() == 'm') {
             thisdate.add(Calendar.MONTH, 1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         if (evt.getKeyChar() == 'M') {
             thisdate.add(Calendar.MONTH, -1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         // Year
         if (evt.getKeyChar() == 'y') {
             thisdate.add(Calendar.YEAR, 1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         if (evt.getKeyChar() == 'Y') {
             thisdate.add(Calendar.YEAR, -1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
         // Beginning of month
         if (evt.getKeyChar() == 'b') {
             thisdate.set(Calendar.DAY_OF_MONTH, 1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
@@ -295,20 +228,11 @@ public class DateField extends UI.Panel {
             thisdate.set(Calendar.DAY_OF_MONTH, 1);
             thisdate.add(Calendar.MONTH, 1);
             thisdate.add(Calendar.DAY_OF_MONTH, -1);
-
-            try {
-                txt.setText(Utils.formatDate(thisdate));
-            } catch (Exception e) {
-            }
-
-            if (dateListener != null) {
-                dateListener.dateChanged(txt.getText());
-            }
-
+            updateDate(thisdate);
             return true;
         }
 
-        // Consume anything else
+        // Don't consume anything else
         return false;
     }
 
@@ -328,7 +252,7 @@ public class DateField extends UI.Panel {
 
         addFocusListener(new java.awt.event.FocusAdapter() {
                 public void focusGained(java.awt.event.FocusEvent evt) {
-                    panel_focusgained(evt);
+                    txt.requestFocus();
                 }
             });
 
@@ -341,30 +265,44 @@ public class DateField extends UI.Panel {
         }
 
         txt.addFocusListener(new java.awt.event.FocusAdapter() {
+                
+                public void focusGained(java.awt.event.FocusEvent evt) {
+                    // Remember what was in the box as it got the focus
+                    focusText = txt.getText();
+                }
+
                 public void focusLost(java.awt.event.FocusEvent evt) {
-                    txt_focusLost(evt);
+        
+                    // Do pivot date stuff and validate when we leave the field
+                    checkDateBoundaries();
+
+                    // If the date changed while we were focused, fire a change
+                    // event as we leave
+                    if (dateListener != null && !txt.getText().equals(focusText)) {
+                        dateListener.dateChanged(txt.getText());
+                    }
                 }
             });
 
         txt.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    consume = handleKeyPress(evt);
-
-                    if (consume) {
-                        evt.consume();
-                    }
+                public void keyPressed(final java.awt.event.KeyEvent evt) {
+                    // For some reason, Swing doesn't fire keyboard events on the
+                    // dispatch thread, which causes you to see the unwanted keystroke
+                    // in your field before consuming undoes it. Running the consumption
+                    // and setting code on the dispatch thread fixes this.
+                    UI.invokeLater(new Runnable() {
+                        public void run() {
+                            if (handleKeyPress(evt)) {
+                                evt.consume();
+                            }
+                        }
+                    });
                 }
 
                 public void keyTyped(java.awt.event.KeyEvent evt) {
-                    if (consume) {
-                        evt.consume();
-                    }
                 }
 
-                public void keyReleased(java.awt.event.KeyEvent evt) {
-                    if (consume) {
-                        evt.consume();
-                    }
+                public void keyReleased(final java.awt.event.KeyEvent evt) {
                 }
             });
 
@@ -440,15 +378,6 @@ public class DateField extends UI.Panel {
                 txt.setText(Utils.formatDate(c));
             }
         }
-    }
-
-    private void txt_focusLost(java.awt.event.FocusEvent evt) {
-        checkDateBoundaries();
-        this.processFocusEvent(evt);
-    }
-
-    private void panel_focusgained(java.awt.event.FocusEvent evt) {
-        txt.requestFocus();
     }
 }
 
