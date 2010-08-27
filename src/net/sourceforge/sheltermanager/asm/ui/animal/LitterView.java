@@ -223,8 +223,9 @@ public class LitterView extends ASMView {
         fa.runSearch();
 
         // Put the cursor back to a pointer (normally the ASMFind
-        // structure does it)
+        // structure does it) and reset the status bar
         UI.cursorToPointer();
+        resetStatusBar();
     }
 
     public void tableDoubleClicked() {

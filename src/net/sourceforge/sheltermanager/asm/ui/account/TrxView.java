@@ -130,7 +130,9 @@ public class TrxView extends ASMView {
 
     public void updateListThreaded() {
         try {
+
             // Get number of trx to display
+            // Obsoleted by date display instead
             /*
             int num = 100;
 
@@ -144,6 +146,7 @@ public class TrxView extends ASMView {
             }
             }
             */
+
             Date from = new Date();
 
             if (dtFrom.getDate() != null) {
@@ -155,6 +158,10 @@ public class TrxView extends ASMView {
             if (dtTo.getDate() != null) {
                 to = dtTo.getDate();
             }
+
+            // Start the throbber going so the user knows we're doing
+            // something
+            startThrobber();
 
             // Grab the list
             trx = AccountTrx.getTransactions(account.getID(), from, to);

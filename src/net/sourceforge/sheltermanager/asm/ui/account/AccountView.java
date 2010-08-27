@@ -103,6 +103,11 @@ public class AccountView extends ASMView {
 
     public void updateListThreaded() {
         try {
+
+            // Start the throbber going so the user knows we're doing
+            // something
+            startThrobber();
+
             // Create an array to hold the results for the table
             Account accounts = Account.getAllAccounts();
             String[][] datar = new String[accounts.size()][7];

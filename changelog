@@ -1,6 +1,8 @@
 2.8.0
 ================
 
+*. Show busy indicator when loading accounts, fixed bug that caused
+-  progress meter to keep going when viewing animals in litter
 *. Fixed date field keyboard handling to not show unwanted keystrokes
 -  and to not fire changed events for invalid dates (instead, a final
 -  change event is fired when the focus is lost if the date changed)
