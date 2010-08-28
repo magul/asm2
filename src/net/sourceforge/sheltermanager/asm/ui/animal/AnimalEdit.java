@@ -300,7 +300,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(chkNotForAdoption);
         ctl.add(chkCrueltyCase);
         ctl.add(txtShelterCode.getCodeField());
-        ctl.add(txtShelterCode.getShortCodeField());
+
+	if (!Configuration.getBoolean("DisableShortCodesControl")) {
+            ctl.add(txtShelterCode.getShortCodeField());
+        }
 
         if (!Configuration.getBoolean("DontShowLitterID")) {
             ctl.add(txtAcceptanceNumber);
