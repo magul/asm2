@@ -700,9 +700,6 @@ public class CustomReportExecute extends Report {
                 }
             }
 
-            // Add header to the report
-            substituteHFValues(0, cheader, rs);
-
 	    // Set up progress meter
             setStatusBarMax(rs.size());
             boolean firstRecord = true;
@@ -716,6 +713,9 @@ public class CustomReportExecute extends Report {
 		dropTemporaryTables();
 		return;
 	    }
+
+            // Add header to the report
+            substituteHFValues(0, cheader, rs);
 
             while (!rs.getEOF()) {
                 // Add each group footer in reverse order, unless
