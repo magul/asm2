@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-08-19 14:36+0100\n"
-"PO-Revision-Date: 2010-08-19 12:28+0000\n"
+"POT-Creation-Date: 2010-08-26 14:23+0100\n"
+"PO-Revision-Date: 2010-08-28 19:41+0000\n"
 "Last-Translator: Shinden <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-20 03:47+0000\n"
+"X-Launchpad-Export-Date: 2010-08-29 03:53+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -65,7 +65,7 @@ msgstr "Wprowadź co najmniej datę do notatki"
 #. # bo/Diary
 #: Bad_movement_link
 msgid "Bad movement link"
-msgstr "Niepoprawne połącznie do ruchu"
+msgstr "Niepoprawne połączenie do przesunięcia"
 
 #. # bo/Diary
 #: Bad_animal_link
@@ -273,13 +273,13 @@ msgstr ""
 #. # bo/Adoption
 #: You_must_select_an_owner_for_this_type_of_movement.
 msgid "You must select an owner for this type of movement."
-msgstr "Zaznacz właściciela aby wykonać ten ruch"
+msgstr "Aby wykonać to przesunięcie musisz wybrać właściciela"
 
 #. # bo/Adoption
 #: You_are_not_permitted_multiple_open_movement_records.
 msgid ""
 "This animal already has an open movement record. You cannot create another."
-msgstr "Zwierzę ma rekord przeniesienia. Nie można założyć kolejnego"
+msgstr "Zwierzę ma już otwarte przesunięcie. Nie można założyć kolejnego."
 
 #. # bo/Adoption
 #: You_must_select_an_animal.
@@ -346,8 +346,8 @@ msgid ""
 "The owner you have selected is an animal retailer and can only have retailer "
 "movements."
 msgstr ""
-"Wprowadzony właściciel jest sprzedawcą - możesz wprowadzić jedynie ruchy dla "
-"sprzedawcy"
+"Wybrany właściciel jest sprzedawcą - możesz wprowadzić jedynie przesunięcie "
+"dla sprzedawcy."
 
 #. # bo/Adoption
 #: retailer_movement_non_retailer_owner
@@ -355,8 +355,8 @@ msgid ""
 "The owner you have selected is not an animal retailer and cannot have "
 "retailer movements."
 msgstr ""
-"Wprowadzony właściciel nie jest sprzedawcą - nie możesz wykonać ruchów dla "
-"sprzedawcy"
+"Wybrany właściciel nie jest sprzedawcą - nie możesz wykonać przesunięcia dla "
+"sprzedawcy."
 
 #. # ui/owner/OwnerEdit
 #. # ui/animal/AnimalFind
@@ -371,7 +371,6 @@ msgstr "Sprzedawca"
 msgid "Auto removed due to lack of owner contact."
 msgstr "Automatycznie usunięty z powodu braku kontaktu do właściciela"
 
-#. # ui/animal/LitterView
 #. # ui/internet/PetFinderMapSpecies
 #. # internet/SaveAPetPublisher
 #. # bo/LookupCache
@@ -385,7 +384,6 @@ msgstr "Kot"
 msgid "Kittens"
 msgstr "Młode koty"
 
-#. # ui/animal/LitterView
 #. # ui/internet/PetFinderMapSpecies
 #. # internet/SaveAPetPublisher
 #. # bo/LookupCache
@@ -411,7 +409,7 @@ msgid ""
 "movements."
 msgstr ""
 "Wybrany właściciel nie jest domem tymczasowym i nie może mieć przypisanych "
-"takich przeniesień"
+"takich przesunięć."
 
 #. # bo/Adoption
 #: cancel_reserve_without_reserve
@@ -433,11 +431,12 @@ msgstr "Zwierzę przebywa poza schroniskiem i nie może być zarezerwowane"
 #: return_without_movement
 msgid "You cannot return a movement with no exit date."
 msgstr ""
+"Nie możesz zwrócić przesunięcia dla którego nie określono daty wyjścia."
 
 #. # bo/Adoption
 #: cannot_return_before_movement
 msgid "You cannot return a movement before its exit date."
-msgstr ""
+msgstr "Nie możesz zwrócić przesunięcia przed jego datą wyjścia."
 
 #. # bo/OwnerDonation
 #: ownerdonation_must_have_at_least_one_date
@@ -450,7 +449,7 @@ msgid ""
 "This movement clashes with the date range of an existing movement for this "
 "animal."
 msgstr ""
-"Data przeniesienia zazębia się z innym przeniesieniem ustalonym dla tego "
+"Data tego przesunięcia pokrywa się z innym przesunięciem ustalonym dla tego "
 "zwierzęcia."
 
 #. # bo/Adoption
@@ -459,11 +458,14 @@ msgid ""
 "You have marked this movement as from a retailer, but this animal has no "
 "prior retailer movements."
 msgstr ""
+"Oznaczyłeś to przesunięcie jako \"od sprzedawcy\", ale to zwierzę nie miało "
+"wcześniejszych przesunięć dotyczących sprzedawców."
 
 #. # bo/Adoption
 #: you_cant_have_a_from_retailer_on_a_non_adoption_movement
 msgid "You cannot have a retailer on a non-adoption movement."
 msgstr ""
+"Nie możesz przypisać sprzedawcy do przesunięcia nie będącego adopcją."
 
 #. # bo/AnimalDiet
 #: You_must_select_a_diet_type
@@ -500,7 +502,7 @@ msgstr "Zwierzę nie będące pod opieką schroniska"
 #: One_Off
 #: lksdonationfreq_0
 msgid "One-Off"
-msgstr ""
+msgstr "Jednorazowo"
 
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
@@ -657,7 +659,7 @@ msgstr "Numer referencyjny został już użyty w bazie danych"
 #. # bo/Diary
 #: movement_to
 msgid "Movement: {0} {1} to {2}"
-msgstr "Przeniesienie: {0} {1} do {2}"
+msgstr "Przesunięcie: {0} {1} do {2}"
 
 #. # bo/Diary
 #: waiting_list_link
@@ -697,7 +699,7 @@ msgstr "Nazwy pól nie mogą zawierać spacji"
 #. # bo/AdditionalField
 #: lookup_type_needs_values
 msgid "You cannot create a lookup without some lookup items."
-msgstr ""
+msgstr "Nie możesz stworzyć wyszukiwania bez podania jego parametrów."
 
 #. # bo/Animal
 #: You_must_select_two_different_breeds_for_a_crossbreed_animal.
@@ -1117,7 +1119,7 @@ msgstr "Rachunki za prąd"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
-msgstr ""
+msgstr "Wydatki::Woda"
 
 #: accounts_15_desc
 msgid "Water Bills"
@@ -1141,7 +1143,7 @@ msgstr "Koszty obsługi pocztowej"
 
 #: accounts_18_4_0_code
 msgid "Expenses::Stationary"
-msgstr ""
+msgstr "Wydatki::Stacjonarne"
 
 #: accounts_18_desc
 msgid "Stationary costs"
@@ -1177,7 +1179,7 @@ msgstr "M (Inne)"
 
 #: animaltype_40
 msgid "N (Non Shelter Animal)"
-msgstr ""
+msgstr "N (Zwierzę przebywające poza schroniskiem)"
 
 #: basecolour_1
 msgid "Black"
@@ -3083,7 +3085,7 @@ msgstr "Wejście/Wyjście"
 #: movements
 #: Movements
 msgid "Movements"
-msgstr "Przeniesienia"
+msgstr "Przesunięcia"
 
 #: customreport_47_012
 msgid "In/Out Summary"
@@ -3093,13 +3095,13 @@ msgstr "Podsumowanie Wejścia/Wyjścia"
 #: customreport_48_013
 #: Transfer_In_Report
 msgid "Transfer In Report"
-msgstr ""
+msgstr "Raport Transferów Wchodzących"
 
 #. # ui/criteria/DateFromTo
 #: customreport_49_014
 #: volume_of_adoptions_per_retailer
 msgid "Volume Of Adoptions Per Retailer"
-msgstr ""
+msgstr "Ilość Adopcji per Sprzedawca"
 
 #. # ui/owner/OwnerFind
 #. # db/AutoDBUpdates
@@ -3108,17 +3110,17 @@ msgstr ""
 #: customreport_51_category
 #: Retailers
 msgid "Retailers"
-msgstr ""
+msgstr "Sprzedawcy"
 
 #: customreport_50_015
 msgid "Average Time At Retailer Before Adoption"
-msgstr ""
+msgstr "Przeciętny Czas Spędzony u Sprzedawcy Przed Adopcją"
 
 #. # reports/Retailer
 #: customreport_51_016
 #: retailer_inventory
 msgid "Retailer Inventory"
-msgstr ""
+msgstr "Inwentarz Sprzedawcy"
 
 #. # ui/criteria/DateFromTo
 #: customreport_52_017
@@ -3200,7 +3202,7 @@ msgstr "Miesięczne adopcje wg gatunków"
 #: customreport_64_category
 #: customreport_65_category
 msgid "Movement Graphs"
-msgstr "Wykres przeniesień"
+msgstr "Wykres przesunięć"
 
 #: customreport_63_028
 msgid "Monthly Adoptions By Location"
@@ -3216,7 +3218,7 @@ msgstr "Powody zwrotów zwierząt"
 
 #: customreport_66_031
 msgid "Owner Criteria Matching"
-msgstr ""
+msgstr "Kryteria Dopasowywania Właściciela"
 
 #: deathreason_1
 msgid "Dead On Arrival"
@@ -3293,7 +3295,7 @@ msgstr "Alergie"
 
 #: entryreason_4
 msgid "Unable to Cope"
-msgstr ""
+msgstr "Brak możliwości Adaptacji"
 
 #: entryreason_5
 msgid "Unsuitable Accomodation"
@@ -3317,7 +3319,7 @@ msgstr "Porzucony"
 
 #: internallocation_1
 msgid "No Locations"
-msgstr ""
+msgstr "Brak Lokalizacji"
 
 #. # ui/animalname/NamesEdit
 #: lksex_0
@@ -3521,7 +3523,7 @@ msgstr "Właściciel"
 #: lksloglink_5
 #: Movement
 msgid "Movement"
-msgstr "Przeniesienie"
+msgstr "Przesunięcie"
 
 #. # ui/main/Main
 #. # ui/waitinglist/WaitingListView
@@ -3811,7 +3813,7 @@ msgstr "Skanowanie ukończone"
 #. # db/Diagnostic
 #: Checking_for_orphaned_movement_records...
 msgid "Checking for orphaned movement records..."
-msgstr ""
+msgstr "Sprawdzanie osieroconych rekordów przesunięć.."
 
 #. # db/Diagnostic
 #: Checking_for_orphaned_medical_records...
@@ -4799,7 +4801,7 @@ msgstr ""
 #. # reports/UnderSixNotLitter
 #: Acceptance_Number
 msgid "Acceptance Number"
-msgstr ""
+msgstr "Numer Akceptacji"
 
 #. # reports/UnCombiTestedCats
 #: Select_Age
@@ -4829,7 +4831,7 @@ msgstr "15 tygodni"
 #. # reports/UnCombiTestedCats
 #: Include_cats_aged_how_many_weeks_and_above?
 msgid "Include cats aged how many weeks and above?"
-msgstr ""
+msgstr "Włączając koty będące powyżej którego tygodnia życia?"
 
 #. # reports/UnCombiTestedCats
 #: 10_weeks
@@ -5003,7 +5005,7 @@ msgstr "Tworzenie raportu..."
 #. # reports/Stats
 #: Do_you_want_to_include_blank_postcodes_in_this_report?
 msgid "Do you want to include blank postcodes in this report?"
-msgstr ""
+msgstr "Czy chcesz dołączyć puste kody pocztowe do tego raportu?"
 
 #. # reports/Stats
 #: Sorting...
@@ -5028,7 +5030,7 @@ msgstr "Pobieranie danych..."
 #. # reports/ShelterInventory
 #: Total_
 msgid "Total {0}: {1}"
-msgstr ""
+msgstr "W sumie {0}:{1}"
 
 #. # reports/ShelterInventory
 #: Animal_Breakdown_by_Location_and_Species
@@ -5048,7 +5050,7 @@ msgstr ""
 #. # reports/ShelterInventory
 #: Date_Entered_Shelter
 msgid "Date Entered Shelter"
-msgstr ""
+msgstr "Data Wejścia do Schroniska"
 
 #. # reports/ShelterInventory
 #: transfer_from_
@@ -5137,6 +5139,8 @@ msgstr "Wielkość"
 #: No_animals_have_entered_the_shelter_and_been_returned_in_this_period.
 msgid "No animals have entered the shelter and been returned in this period."
 msgstr ""
+"Żadne zwierzę nie weszło do schroniska i nie zostało zwrócone w zadanym "
+"okresie czasu."
 
 #. # reports/ReturnedAnimals
 #: Length
@@ -5229,7 +5233,7 @@ msgstr ""
 #. # reports/LostFoundMatch
 #: Percentage_Match
 msgid "Percentage Match"
-msgstr ""
+msgstr "Dopasowanie Procentowe"
 
 #. # reports/LostFoundMatch
 #. # ui/lostandfound/FoundAnimalFind
@@ -5271,7 +5275,7 @@ msgstr "Data Wprowadzenia"
 #. # reports/LongTermAnimals
 #: No_animals_on_file.
 msgid "No animals on file."
-msgstr ""
+msgstr "Brak zwierząt w pliku."
 
 #. # reports/LongTermAnimals
 #: Long_Term_Animals_title
@@ -5316,7 +5320,7 @@ msgstr "Zwierzęta Skradzione"
 #. # reports/InOut
 #: Date_Transferred
 msgid "Date Transferred"
-msgstr ""
+msgstr "Data Transferu"
 
 #. # reports/InOut
 #: Total_Animals_In_
@@ -5361,7 +5365,7 @@ msgstr "Ilość Zwierząt Odebranych: {0}"
 #. # reports/InOut
 #: Fostered_To
 msgid "Fostered To"
-msgstr ""
+msgstr "Wydano na DT do"
 
 #. # reports/InOut
 #: Adopted_To
@@ -5381,7 +5385,7 @@ msgstr ""
 #. # reports/InOut
 #: Animals_Transferred
 msgid "Animals Transferred"
-msgstr ""
+msgstr "Zwierzęta Przetransferowane"
 
 #. # reports/InOut
 #: Date_Reclaimed
@@ -5417,7 +5421,7 @@ msgstr "Data Zgonu"
 #. # reports/InOut
 #: Date_Fostered
 msgid "Date Fostered"
-msgstr ""
+msgstr "Data Wydania Na DT"
 
 #. # reports/InOut
 #: Animals_Escaped
@@ -8588,6 +8592,31 @@ msgstr ""
 msgid "Save all animals"
 msgstr ""
 
+#. # ui/ui/UI
+#: This_Month
+msgid "This month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Next_Month
+msgid "Next month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Next_Year
+msgid "Next year"
+msgstr ""
+
+#. # ui/ui/UI
+#: Previous_Month
+msgid "Previous month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Previous_Year
+msgid "Previous year"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -8731,8 +8760,6 @@ msgid "Install Additional Reports"
 msgstr ""
 
 #. # ui/system/Options
-#. # ui/splash/About
-#. # ui/customreport/GetReports
 #: Database
 msgid "Database"
 msgstr ""
@@ -9751,11 +9778,6 @@ msgstr ""
 #. # ui/login/Login
 #: Invalid_Password
 msgid "Invalid Password"
-msgstr ""
-
-#. # ui/splash/About
-#: Version_
-msgid "Version "
 msgstr ""
 
 #. # ui/login/Login
@@ -11029,6 +11051,11 @@ msgstr ""
 msgid "Add Animal&s"
 msgstr ""
 
+#. # ui/main/Main
+#: Refresh_Active_Tab
+msgid "Refresh Active Tab"
+msgstr ""
+
 #. # ui/medical/ProfileView
 #: Profile_Name
 msgid "Profile Name"
@@ -11325,6 +11352,8 @@ msgid ""
 "This movement record already has an insurance number. Remove it if you wish "
 "to generate another."
 msgstr ""
+"Ten rekord przesunięcia ma już przypisany numer ubezpieczenia. Usuń jego, "
+"jeśli chcesz wygenerować inny."
 
 #. # ui/movement/MovementEdit
 #: WARNING\:_This_owner_is_banned_from_adopting_animals.
@@ -11334,7 +11363,7 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: The_reference_number_of_this_movement
 msgid "The reference number of this movement"
-msgstr ""
+msgstr "Numer referencyjny tego przesunięcia"
 
 #. # ui/movement/MovementEdit
 #: The_reason_the_animal_was_returned
@@ -11404,12 +11433,12 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: Generate_a_document_for_this_movement
 msgid "Generate a document for this movement"
-msgstr ""
+msgstr "Wygeneruj dokument dla tego przesunięcia"
 
 #. # ui/movement/MovementEdit
 #: Edit_Movement
 msgid "Edit Movement"
-msgstr ""
+msgstr "Edytuj Przesunięcie"
 
 #. # ui/movement/MovementEdit
 #: Insurance\:
@@ -11419,7 +11448,7 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: The_movement_date
 msgid "The movement date"
-msgstr ""
+msgstr "Data przesunięcia"
 
 #. # ui/movement/MovementEdit
 #: The_reservation_date
@@ -11461,7 +11490,7 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: Create_New_Movement
 msgid "Create New Movement"
-msgstr ""
+msgstr "Utwórz Nowe Przesunięcie"
 
 #. # ui/movement/MovementSelector
 #: View_the_animal
@@ -11471,7 +11500,7 @@ msgstr ""
 #. # ui/movement/MovementSelector
 #: Add_a_new_movement
 msgid "Add a new movement"
-msgstr ""
+msgstr "Dodaj nowe przesunięcie"
 
 #. # ui/movement/MovementSelector
 #: Adoption_No
@@ -11481,7 +11510,7 @@ msgstr ""
 #. # ui/movement/MovementSelector
 #: Movement_Type
 msgid "Movement Type"
-msgstr ""
+msgstr "Rodzaj Przesunięcia"
 
 #. # ui/movement/MovementSelector
 #: (no_owner)
@@ -11491,17 +11520,17 @@ msgstr ""
 #. # ui/movement/MovementSelector
 #: Delete_this_movement
 msgid "Delete this movement"
-msgstr ""
+msgstr "Usuń to przesunięcie"
 
 #. # ui/movement/MovementSelector
 #: Edit_this_movement
 msgid "Edit this movement"
-msgstr ""
+msgstr "Edytuj to przesunięcie"
 
 #. # ui/movement/MovementSelector
 #: Create_a_document_for_this_movement
 msgid "Create a document for this movement"
-msgstr ""
+msgstr "Utwórz dokument dla tego przesunięcia"
 
 #. # ui/movement/MovementSelector
 #: View_the_owner
@@ -11543,7 +11572,7 @@ msgstr ""
 #. # ui/movement/MovementView
 #: View_the_movement_record_for_this_foster
 msgid "View the movement record for this foster"
-msgstr ""
+msgstr "Pokaż przesunięcia dla tego domu tymczasowego"
 
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_foster
@@ -11558,27 +11587,27 @@ msgstr ""
 #. # ui/movement/MovementView
 #: Refresh_the_list_of_retailer_movements
 msgid "Refresh the list of retailer movements"
-msgstr ""
+msgstr "Odśwież listę przesunięć sprzedawców"
 
 #. # ui/movement/MovementView
 #: Create_a_new_retailer_movement
 msgid "Create a new retailer movement"
-msgstr ""
+msgstr "Utwórz nowe przesunięcie sprzedawcy"
 
 #. # ui/movement/MovementView
 #: View_this_retailer_movement
 msgid "View this retailer movement"
-msgstr ""
+msgstr "Pokaż to przesunięcie sprzedawcy"
 
 #. # ui/movement/MovementView
 #: View_the_animal_for_this_retailer_movement
 msgid "View the animal for this retailer movement"
-msgstr ""
+msgstr "Pokaż zwierzę, którego to przesunięcie sprzedawcy dotyczy"
 
 #. # ui/movement/MovementView
 #: View_the_retailer_for_this_movement
 msgid "View the retailer for this movement"
-msgstr ""
+msgstr "Pokaż sprzedawcę, którego dotyczy to przesunięcie"
 
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
@@ -11592,6 +11621,8 @@ msgid ""
 "This animal was previously at a retailer. Do you want to\n"
 "mark this movement as an adoption from that retailer?"
 msgstr ""
+"To zwierzę było wcześniej u sprzedawcy. Czy chcesz oznaczyć to przesunięcie "
+"jako adopcja od tego sprzedawcy?"
 
 #. # ui/movement/MovementEdit
 #: retailer_adoption
@@ -11626,7 +11657,7 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: Movement_Details
 msgid "Movement Details"
-msgstr ""
+msgstr "Szczegóły Przesunięcia"
 
 #. # ui/movement/MovementEdit
 #: view_animal
@@ -11651,7 +11682,7 @@ msgstr ""
 #. # ui/movement/MovementEdit
 #: edit_movement_title
 msgid "Edit Movement - [{0}, {1} ({2}) to {3}]"
-msgstr ""
+msgstr "Edytuj Przesunięcie - [{0}, {1} ({2}) do {3}]"
 
 #. # ui/movement/MovementEdit
 #: You_cannot_move_nonshelter_animals
@@ -11796,6 +11827,8 @@ msgstr ""
 #: You_cannot_remove_this_record,_as_it_appears_on_animal_movements.
 msgid "You cannot remove this record, as it appears on animal movements."
 msgstr ""
+"Nie możesz usunąć tego rekordu, bowiem figuruje ono w przesunięciach "
+"zwierzęcia."
 
 #. # ui/owner/OwnerEdit
 #: Tick_this_box_if_this_owner_is_a_home_checker
@@ -12321,7 +12354,7 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #: movements_connected_with_this_owner
 msgid "Animal movements connected with this owner"
-msgstr ""
+msgstr "Przesunięcia zwierząt połączone z tym właścicielem"
 
 #. # ui/owner/OwnerEdit
 #: links
@@ -12506,74 +12539,14 @@ msgid "Zoom Out"
 msgstr ""
 
 #. # ui/splash/About
-#: User_Directory\:_
-msgid "User Directory: "
-msgstr ""
-
-#. # ui/splash/About
-#: Vendor\:_
-msgid "Vendor: "
-msgstr ""
-
-#. # ui/splash/About
 #. # ui/main/Main
 #: About...
 msgid "About..."
 msgstr ""
 
-#. # ui/splash/About
-#: User_Home\:_
-msgid "User Home: "
-msgstr ""
-
-#. # ui/splash/About
-#: OS_Name\:_
-msgid "OS Name: "
-msgstr ""
-
-#. # ui/splash/About
-#: Java_Version\:_
-msgid "Java Version: "
-msgstr ""
-
-#. # ui/splash/About
-#: User_Name\:_
-msgid "User Name: "
-msgstr ""
-
-#. # ui/splash/About
-#: Vendor_URL\:_
-msgid "Vendor URL: "
-msgstr ""
-
-#. # ui/splash/About
-#: Class_Path\:_
-msgid "Class Path: "
-msgstr ""
-
-#. # ui/splash/About
-#: OS_Architecture\:_
-msgid "OS Architecture: "
-msgstr ""
-
-#. # ui/splash/About
-#: Java_Home\:_
-msgid "Java Home: "
-msgstr ""
-
 #. # globals/Global
 #: Copyright
 msgid "Copyright"
-msgstr ""
-
-#. # ui/splash/About
-#: OS_Version\:_
-msgid "OS Version: "
-msgstr ""
-
-#. # ui/splash/About
-#: Class_Version\:_
-msgid "Class Version: "
 msgstr ""
 
 #. # globals/Global
@@ -13830,7 +13803,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Delete_Animal_Movements
 msgid "Delete Animal Movements"
-msgstr ""
+msgstr "Usuń Przesunięcia Zwierząt"
 
 #. # ui/users/UserEdit
 #: Mail_Merge_(Adoption_Data)
@@ -13875,7 +13848,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Movements\:
 msgid "Movements:"
-msgstr ""
+msgstr "Przesunięcia:"
 
 #. # ui/users/UserEdit
 #: Diary\:
@@ -13915,7 +13888,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: View_Animal_Movements
 msgid "View Animal Movements"
-msgstr ""
+msgstr "Pokaż Przesunięcia Zwierząt"
 
 #. # ui/users/UserEdit
 #: Modify_Lookups
@@ -14042,7 +14015,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Change_Animal_Movements
 msgid "Change Animal Movements"
-msgstr ""
+msgstr "Zmień Przesunięcia Zwierzęcia"
 
 #. # ui/users/UserEdit
 #: View_Animals
@@ -14164,7 +14137,7 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Animal_Movements
 msgid "Add Animal Movements"
-msgstr ""
+msgstr "Dodaj Przesunięcia Zwierzęcia"
 
 #. # ui/users/UserEdit
 #: View_Litter_Log
@@ -14260,12 +14233,12 @@ msgstr ""
 #. # ui/users/UserEdit
 #: Add_Owner_Vouchers
 msgid "Add Owner Vouchers"
-msgstr ""
+msgstr "Dodaj Kupony Właściciela"
 
 #. # ui/users/UserEdit
 #: Change_Owner_Vouchers
 msgid "Change Owner Vouchers"
-msgstr ""
+msgstr "Zmień Kupony Właściciela"
 
 #. # ui/users/UserEdit
 #: Delete_Owner_Vouchers

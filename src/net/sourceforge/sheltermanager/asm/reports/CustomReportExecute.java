@@ -66,6 +66,7 @@ public class CustomReportExecute extends Report {
     private String theTitle = null;
     private String crit = "";
     private boolean toStdOut = false;
+    String[] queries = null;
     private String seldate = "";
     private String selnumber = "";
     private String replaceWith = "";
@@ -307,15 +308,11 @@ public class CustomReportExecute extends Report {
             i = Integer.parseInt(reportID);
 
             if ((i < 0) || (i > 31)) {
-                Dialog.showError(Global.i18n("reports",
-                        "Invalid_standard_report", reportID));
-
+	    	Global.logError("Invalid standard report: " + reportID, "runStandardReport");
                 return;
             }
         } catch (NumberFormatException e) {
-            Dialog.showError(Global.i18n("reports", "Invalid_standard_report",
-                    reportID));
-
+	    Global.logError("Invalid standard report: " + reportID, "runStandardReport");
             return;
         }
 
@@ -663,7 +660,7 @@ public class CustomReportExecute extends Report {
 
             // Now get the results - make an array of queries, split by the
             // semi-colon operator
-            String[] queries = Utils.split(sql, ";");
+            queries = Utils.split(sql, ";");
 
             // Make sure the last query is a SELECT or (SELECT for UNION
             if (!Utils.englishLower(queries[queries.length - 1]).trim()
@@ -706,12 +703,19 @@ public class CustomReportExecute extends Report {
             // Add header to the report
             substituteHFValues(0, cheader, rs);
 
-            setStatusBarMax((int) rs.getRecordCount());
-
+	    // Set up progress meter
+            setStatusBarMax(rs.size());
             boolean firstRecord = true;
-
-            Global.logInfo("Custom report found: " + rs.getRecordCount() +
+            Global.logInfo("Custom report found: " + rs.size() +
                 " records.", "CustomReport.generateReport");
+
+            // If there aren't any records, show a no data found message,
+	    // clean up and call it a day
+	    if (rs.size() == 0) {
+                addParagraph(Global.i18n("reports", "No_data"));
+		dropTemporaryTables();
+		return;
+	    }
 
             while (!rs.getEOF()) {
                 // Add each group footer in reverse order, unless
@@ -987,14 +991,9 @@ public class CustomReportExecute extends Report {
             // Add the report footer
             substituteHFValues(1, cfooter, rs);
 
-            // Scan the queries created - if any of them made a
-            // temporary table, then we should drop it now:
-            for (int i = 0; i < queries.length; i++) {
-                if (Utils.englishLower(queries[i].trim())
-                             .startsWith("create temporary")) {
-                    dropTemporaryTable(queries[i]);
-                }
-            }
+	    // Drop any temporary tables
+	    dropTemporaryTables();
+
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -1006,6 +1005,18 @@ public class CustomReportExecute extends Report {
             cfooter = null;
             resetStatusBar();
         }
+    }
+
+    public void dropTemporaryTables() {
+	    // Scan the queries created - if any of them made a
+	    // temporary table, then we should drop it now:
+	    for (int i = 0; i < queries.length; i++) {
+		if (Utils.englishLower(queries[i].trim())
+			     .startsWith("create temporary")) {
+		    dropTemporaryTable(queries[i]);
+		}
+	    }
+
     }
 
     public static void dropTemporaryTable(String sqlCreate) {

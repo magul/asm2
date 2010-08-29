@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-07-01 10:01+0100\n"
-"PO-Revision-Date: 2010-07-01 11:06+0000\n"
+"POT-Creation-Date: 2010-08-20 14:03+0100\n"
+"PO-Revision-Date: 2010-08-23 10:58+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-02 03:37+0000\n"
+"X-Launchpad-Export-Date: 2010-08-24 03:47+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -738,6 +738,11 @@ msgstr ""
 #. # bo/AuditTrail
 #: audit_merged
 msgid "Merged {0} into {1}"
+msgstr ""
+
+#. # bo/Users
+#: duplicate_username
+msgid "The username {0} has already been used."
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -3326,6 +3331,7 @@ msgstr "זכר"
 msgid "Very Large"
 msgstr "גדול מאוד"
 
+#. # ui/system/ConfigureLocal
 #. # internet/Pets911Publisher
 #: lksize_1
 #: Large
@@ -3432,6 +3438,35 @@ msgstr "שוחרר לחופשי"
 msgid "Cancelled Reservation"
 msgstr "ביטול הזמנה"
 
+#. # reports/Stats
+#. # reports/AnimalFigures
+#. # reports/AnimalPrint
+#. # reports/CustomReportExecute
+#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
+#. # ui/animal/CostSelector
+#. # ui/ui/Dialog
+#. # ui/ui/JDBCDlg
+#. # ui/lookups/LookupView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/customreport/CustomReportExport
+#. # ui/customreport/CustomReportEdit
+#. # db/DatabaseImporter
+#. # db/AutoDBUpdates
+#. # db/Diagnostic
+#. # db/DatabaseCopier
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
+#. # charts/CustomChart
+#. # utility/Utils
+#. # bo/LookupCache
+#. # bo/Animal
+#. # bo/AnimalName
+#. # startup/Startup
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
 #. # ui/main/Main
@@ -3441,6 +3476,7 @@ msgstr "ביטול הזמנה"
 #: lksdiarylink_1
 #: lksfieldlink_0
 #: lksloglink_0
+#: animal
 #: Animal
 msgid "Animal"
 msgstr "חיית מחמד"
@@ -3593,8 +3629,6 @@ msgstr "חיפוש"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
@@ -3623,8 +3657,6 @@ msgstr "לא"
 #. # internet/RescueGroupsPublisher
 #. # internet/Publisher
 #. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
@@ -4108,51 +4140,21 @@ msgstr ""
 "{7} קודים של של חיות מחמד תוקנו עבור שנה זו."
 
 #. # reports/VaccinationDiary
-#. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
 msgstr "סוג החיסון"
-
-#. # mailmerge/OffShelterVaccinations
-#: OffShelterVaccinations.csv
-msgid "OffShelterVaccinations.csv"
-msgstr "OffShelterVaccinations.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#: Off-Shelter_Vaccination_Mail_Merge
-msgid "Off-Shelter Vaccination Mail Merge"
-msgstr "מיזוג דואר לחיסונים מחוץ לבית המחסה"
-
-#. # mailmerge/OffShelterVaccinations
-#: There_are_no_required_vaccinations_on_that_date.
-msgid "There are no required vaccinations on that date."
-msgstr "אין חיסונים נדרשים בתאריך שצוין."
-
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_start_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the start date you would like to prepare vaccination letters for"
-msgstr "יש להזין את תאריך ההתחלה שבו תרצה להכין מכתבי חיסון"
 
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
-#. # mailmerge/OffShelterVaccinations
 #: Date_Required
 msgid "Date Required"
 msgstr "נדרש תאריך"
 
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_end_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the end date you would like to prepare vaccination letters for"
-msgstr "יש להזין את התאריך שלקראתו ברצונך להכין את מכתבי החיסון"
-
 #. # reports/VaccinationDiary
 #. # reports/MedicalDiary
 #. # reports/DiaryNotesToday
-#. # reports/Report
 #. # reports/Vets
 #. # ui/animal/MediaEdit
 #. # ui/ui/Dialog
@@ -4163,6 +4165,7 @@ msgid "Error"
 msgstr "שגיאה"
 
 #. # mailmerge/MailMerge
+#. # mailmerge/CustomMailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr "אין רשומות להוספה למקור מיזוג הדואר."
@@ -4177,86 +4180,22 @@ msgstr "מתבצע ייצוא אל הכונן..."
 msgid "Reading data, please wait..."
 msgstr "הנתונים נקראים, נא להמתין..."
 
-#. # mailmerge/ChipRegistration
-#: ChipRegistrations.csv
-msgid "ChipRegistrations.csv"
-msgstr "רישום_שבבים.csv"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip registration "
-"letters for"
-msgstr "יש להזין את תאריך ההתחלה שבו ברצונך להכין את מכתבי רישום השבבים"
-
-#. # mailmerge/ChipRegistration
-#: There_are_no_required_chip_registrations_between_those_dates.
-msgid "There are no required chip registrations between those dates."
-msgstr "אין רישומי שבבים נחוצים בין התאריכים האלו."
-
-#. # mailmerge/ChipRegistration
-#: Chip_Registration_Mail_Merge
-msgid "Chip Registration Mail Merge"
-msgstr "מיזוג דואר לרישום שבבים"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip registration "
-"letters for"
-msgstr "יש להזין את תאריך הסיום שבו ברצונך להכין את מכתבי רישום השבבים"
-
-#. # mailmerge/ChipCancellation
-#: Chip_Cancellation_Mail_Merge
-msgid "Chip Cancellation Mail Merge"
-msgstr "מיזוג דואר לביטול שבבים"
-
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Work_Telephone
 msgid "Work Telephone"
 msgstr "טלפון בעבודה"
 
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip cancellation "
-"letters for"
-msgstr "יש להזין את תאריך ההתחלה שבו ברצונך להכין מכתבים לביטול שבבים"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/OwnerCriteriaSearch
-#: Shelter_Code
-#: Sheltercode
-msgid "Shelter Code"
-msgstr "קוד בית המחסה"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/Retailer
-#: Owner_Name
-#: owner_name
-msgid "Owner Name"
-msgstr "שם הבעלים"
-
-#. # mailmerge/ChipRegistration
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Home_Telephone
 msgid "Home Telephone"
 msgstr "טלפון בבית"
 
-#. # reports/LostFoundMatch
 #. # reports/SearchResults
 #. # reports/Vets
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Colour
 msgid "Colour"
 msgstr "צבע"
@@ -4265,23 +4204,17 @@ msgstr "צבע"
 #. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/internet/PetFinderMapBreed
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Breed
 msgid "Breed"
 msgstr "גזע"
 
-#. # mailmerge/ChipCancellation
-#: ChipCancellations.csv
-msgid "ChipCancellations.csv"
-msgstr "ביטול_שבבים.csv"
-
 #. # reports/InOut
 #. # reports/MedicalDiary
-#. # reports/LostFoundMatch
 #. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
@@ -4303,17 +4236,9 @@ msgstr "ביטול_שבבים.csv"
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Species
 msgid "Species"
 msgstr "זן"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Microchip_Number
-msgid "Microchip Number"
-msgstr "מספר המיקרושבב"
 
 #. # reports/InOut
 #. # reports/SearchResults
@@ -4322,8 +4247,6 @@ msgstr "מספר המיקרושבב"
 #. # reports/Vets
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
@@ -4331,23 +4254,12 @@ msgstr "גיל"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Markings
 msgid "Markings"
 msgstr "סימונים"
 
-#. # mailmerge/ChipCancellation
-#. # ui/movement/MovementView
-#: Return_Date
-#: return_date
-msgid "Return Date"
-msgstr "תאריך ההחזרה"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Neutered
@@ -4356,85 +4268,32 @@ msgstr "מסורס"
 
 #. # reports/Retailer
 #. # reports/InOut
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Adoption_Date
 msgid "Adoption Date"
 msgstr "תאריך האימוץ"
-
-#. # mailmerge/ChipCancellation
-#: There_are_no_required_chip_cancellations_between_those_dates.
-msgid "There are no required chip cancellations between those dates."
-msgstr "אין ביטולי שבבים נדרשים בין תאריכים אלו."
-
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip cancellation "
-"letters for"
-msgstr "יש להזין את תאריך הסיום שעבורו ברצונך להכין מכתבי ביטול שבבים"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Date_Of_Birth
-msgid "Date Of Birth"
-msgstr "תאריך הלידה"
 
 #. # reports/InOut
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/animalname/NamesView
 #. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #. # wordprocessor/AnimalDocument
 #. # bo/LookupCache
+#. # bo/AnimalLost
+#. # bo/AnimalFound
 #. # bo/Animal
 #. # bo/AnimalName
 #: Sex
 msgid "Sex"
 msgstr "מין"
-
-#. # mailmerge/AdoptedNoReturn
-#: There_are_no_adoptions_matching_your_criteria.
-msgid "There are no adoptions matching your criteria."
-msgstr "אין אימוצים התואמים לקריטריונים שלך."
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_2
-msgid "Address 2"
-msgstr "כתובת 2"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_3
-msgid "Address 3"
-msgstr "כתובת 3"
-
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_closing_date_of_adoptions_to_include
-msgid "Please enter the closing date of adoptions to include"
-msgstr "יש להזין את תאריך הסיום של האימוצים להכללה"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Forenames
-msgid "Forenames"
-msgstr "שמות פרטיים"
 
 #. # reports/VaccinationDiary
 #. # reports/Retailer
@@ -4451,31 +4310,10 @@ msgstr "שמות פרטיים"
 #. # reports/LongTermAnimals
 #. # reports/TransferIn
 #. # reports/UnneuteredSixMonths
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
 #: Animal_Name
 msgid "Animal Name"
 msgstr "שם חיית המחמד"
 
-#. # mailmerge/AdoptedNoReturn
-#: AdoptedNoReturn.csv
-msgid "AdoptedNoReturn.csv"
-msgstr "אומצו_ולא_הוחזרו.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Initials
-msgid "Initials"
-msgstr "ראשי תיבות"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #: Email_Address
 msgid "Email Address"
@@ -4504,10 +4342,6 @@ msgstr "כתובת הדוא\"ל"
 #. # ui/owner/OwnerFindText
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
 #. # bo/DiaryTaskHead
 #. # bo/Animal
@@ -4519,24 +4353,10 @@ msgstr "שם"
 #. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
 #. # ui/customreport/CustomReportExport
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # bo/CustomReport
 #: Title
 msgid "Title"
 msgstr "כותרת"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_1
-msgid "Address 1"
-msgstr "כתובת 1"
 
 #. # reports/Stats
 #. # reports/AnimalFigures
@@ -4562,12 +4382,6 @@ msgstr "כתובת 1"
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #. # db/Diagnostic
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
 #. # charts/CommonReasonsReturn
 #. # charts/MonthlyDonations
 #. # charts/AdoptionsPerBlock
@@ -4609,60 +4423,19 @@ msgstr "כתובת 1"
 msgid "ID"
 msgstr "מספר זיהוי"
 
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_5
-msgid "Address 5"
-msgstr "כתובת 5"
-
 #. # reports/OwnerSearchResults
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Postcode
 msgid "Postcode"
 msgstr "מיקוד"
 
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_start_date_of_adoptions_to_include
-msgid "Please enter the start date of adoptions to include"
-msgstr "יש להזין את תאריך ההתחלה של האימוצים להכללה"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_4
-msgid "Address 4"
-msgstr "כתובת 4"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "Non-Returned Adoptions"
-msgstr "אימוצים שלא הוחזרו"
-
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #: Surname
 msgid "Surname"
 msgstr "שם משפחה"
@@ -4708,12 +4481,7 @@ msgstr "כתובת"
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Town
 msgid "Town"
 msgstr "עיר"
@@ -4721,12 +4489,7 @@ msgstr "עיר"
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: County
 msgid "County"
 msgstr "מחוז"
@@ -4735,33 +4498,6 @@ msgstr "מחוז"
 #: error_occurred_sending_mail_to
 msgid "An error occurred sending email to {0}: {1}"
 msgstr "ארעה שגיאה בעת שליחת ההודעה אל {0}: {1}"
-
-#. # mailmerge/ExpiringMembers
-#: Show_members_expiring_before
-msgid "Show members expiring before"
-msgstr "הצגת חברים שתפוגתם לפני"
-
-#. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "Expiring Members"
-msgstr "חברים שעומדים לפוג"
-
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#: Membership_Expiry
-msgid "MembershipExpiry"
-msgstr "תפוגת_חברות"
-
-#. # mailmerge/ExpiringMembers
-#: ExpiringMembers.csv
-msgid "ExpiringMembers.csv"
-msgstr "חברים_לקראת_תפוגה.csv"
-
-#. # mailmerge/Members
-#: Members.csv
-msgid "Members.csv"
-msgstr "חברים.csv"
 
 #. # ui/criteria/DiaryCriteria
 #: Show_everything_upto_this_date\:
@@ -4946,6 +4682,7 @@ msgstr "מיקום"
 msgid "Vet Diary upto {0} "
 msgstr "יומן וטרינרי עד {0} "
 
+#. # reports/LostFoundMatch
 #. # reports/AnimalPrint
 #. # reports/Vets
 #. # ui/animal/DietSelector
@@ -5163,6 +4900,7 @@ msgstr "6 שבועות"
 #. # reports/OwnerSearchResults
 #. # reports/SearchResults
 #. # reports/TransferIn
+#. # ui/movement/MovementView
 #: Total__
 msgid "Total: {0}"
 msgstr "סך הכל: {0}"
@@ -5329,11 +5067,6 @@ msgid "Animal Search Results (generated on {0}) "
 msgstr "תוצאות חיפוש חיות המחמד (נוצר ב־{0}) "
 
 #. # reports/SearchResults
-#: Short_Code
-msgid "Short Code"
-msgstr "הקוד המקוצר"
-
-#. # reports/SearchResults
 #. # reports/Vets
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
@@ -5369,8 +5102,8 @@ msgstr "תאריך ההכנסה לבית המחסה"
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #: Identichip_No
-msgid "Identichip No"
-msgstr "מס' השבב"
+msgid "Microchip No"
+msgstr ""
 
 #. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
@@ -5402,6 +5135,7 @@ msgid "Reason For Return"
 msgstr "סיבת החזרה"
 
 #. # reports/ReturnedAnimals
+#. # ui/ui/Dialog
 #: There_are_no_animals_on_the_shelter
 msgid "There are no animals on the shelter"
 msgstr "אין חיות מחמד בבית המחסה"
@@ -5426,11 +5160,6 @@ msgstr "תאריך ההחזרה"
 #: Generating_
 msgid "Generating report: {0}"
 msgstr "הדוח נוצר: {0}"
-
-#. # reports/Report
-#: Error_occurred_retrieving_templates_
-msgid "Error occurred retrieving templates: {0} "
-msgstr "ארעה שגיאה בעת אחזור התבניות: {0} "
 
 #. # reports/Report
 #. # reports/CustomReportExecute
@@ -5479,19 +5208,9 @@ msgid "Animals on the shelter that have never been vaccinated at {0} "
 msgstr "חיות מחמד בבית המחסה שלא חוסנו מעולם ב־{0} "
 
 #. # reports/LostFoundMatch
-#: 80%
-msgid "80%"
-msgstr "80%"
-
-#. # reports/LostFoundMatch
 #: Lost/Found_Animal_Match_Report_At_
 msgid "Lost/Found Animal Match Report At {0} "
 msgstr "דוח חיות מחמד שאבדו/נמצאו ב־{0} "
-
-#. # reports/LostFoundMatch
-#: 60%
-msgid "60%"
-msgstr "60%"
 
 #. # reports/LostFoundMatch
 #: Percentage_Match
@@ -5506,29 +5225,9 @@ msgid "Contact"
 msgstr "יצירת קשר"
 
 #. # reports/LostFoundMatch
-#: 90%
-msgid "90%"
-msgstr "90%"
-
-#. # reports/LostFoundMatch
-#: 70%
-msgid "70%"
-msgstr "70%"
-
-#. # reports/LostFoundMatch
-#: Set_Match_Floor
-msgid "Set Match Floor"
-msgstr "הגדרת הערך התחתי להתאמה"
-
-#. # reports/LostFoundMatch
 #: Area_Found
 msgid "Area Found"
 msgstr "האזור בו נמצא"
-
-#. # reports/LostFoundMatch
-#: At_what_level_should_the_report_show_matches?
-msgid "At what level should the report show matches?"
-msgstr "באיזו רמה על הדוח להציג תוצאות?"
 
 #. # reports/LostFoundMatch
 #: Date_Found
@@ -5541,11 +5240,6 @@ msgid "Area Postcode"
 msgstr "המיקוד באזור"
 
 #. # reports/LostFoundMatch
-#: 30%
-msgid "30%"
-msgstr "30%"
-
-#. # reports/LostFoundMatch
 #: No_matches_found.
 msgid "No matches found."
 msgstr "לא נמצאו תוצאות."
@@ -5554,11 +5248,6 @@ msgstr "לא נמצאו תוצאות."
 #: Distinguishing_Features
 msgid "Distinguishing Features"
 msgstr "תכונות יחודיות"
-
-#. # reports/LostFoundMatch
-#: 50%
-msgid "50%"
-msgstr "50%"
 
 #. # reports/LongTermAnimals
 #: Date_Of_Entry
@@ -5880,6 +5569,7 @@ msgstr "לא הוחזרו חיות מחמד בתוך חצי שנה של אימו
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -5973,6 +5663,7 @@ msgstr "מיקום פנימי"
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportView
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
@@ -6247,6 +5938,11 @@ msgid "Average Time At Retailer"
 msgstr "זממן ממוצע אצל קמעונאי"
 
 #. # reports/Retailer
+#: owner_name
+msgid "Owner Name"
+msgstr "שם הבעלים"
+
+#. # reports/Retailer
 #: all_retailers
 msgid "All Retailers"
 msgstr "כל הקמעונאים"
@@ -6368,6 +6064,11 @@ msgstr "אין בעלים בקובץ עם הקריטריונים"
 #: no_matches_found_for_this_owner
 msgid "No matches found for this owner's criteria."
 msgstr "לא נמצאו תוצאות עבור קריטריוני חיפוש בעלים אלו"
+
+#. # reports/OwnerCriteriaSearch
+#: Sheltercode
+msgid "Shelter Code"
+msgstr "קוד בית המחסה"
 
 #. # reports/OwnerCriteriaSearch
 #. # wordprocessor/AnimalDocument
@@ -6580,6 +6281,7 @@ msgstr ""
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
+#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6634,7 +6336,9 @@ msgstr "קוד:"
 #. # ui/movement/MovementView
 #. # ui/log/LogSelector
 #. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportView
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/CostEdit
 #. # ui/animal/AnimalFind
 #. # ui/diary/DiaryTaskHeadEdit
@@ -6644,6 +6348,7 @@ msgstr "קוד:"
 msgid "Type:"
 msgstr "סוג:"
 
+#. # reports/LostFoundMatch
 #. # reports/AnimalPrint
 #. # reports/Vets
 #. # ui/animal/DietSelector
@@ -6670,6 +6375,7 @@ msgid "Description:"
 msgstr "תיאור:"
 
 #. # ui/account/AccountView
+#. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #. # bo/AccountTrx
 #: Reconciled
@@ -6819,6 +6525,32 @@ msgstr ""
 msgid "Income::"
 msgstr "הכנסה::"
 
+#. # ui/internet/EmailForm
+#. # ui/account/TrxView
+#: to
+msgid "to"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_owner
+msgid "View this owner"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: donation_from
+msgid "Donation From:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_animal
+msgid "View this animal"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_movement
+msgid "View this movement"
+msgstr ""
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6881,6 +6613,7 @@ msgstr "יש הערות: "
 msgid "Search"
 msgstr "חיפוש"
 
+#. # ui/animal/AnimalLink
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -6906,6 +6639,7 @@ msgstr "יש לסמן תיבה זו כדי לכלול חיות שמתו"
 #. # ui/animal/AnimalFind
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/CostEdit
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
@@ -6914,8 +6648,12 @@ msgstr "יש לסמן תיבה זו כדי לכלול חיות שמתו"
 msgid "Type: "
 msgstr "סוג: "
 
+#. # reports/Report
+#. # ui/animal/NotAdoptionView
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/owner/DonationSelector
+#. # bo/OwnerDonation
 #. # bo/Animal
 #: ShortCode
 msgid "ShortCode"
@@ -6979,6 +6717,7 @@ msgstr "לא שמור"
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/movement/MovementView
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # ui/reportviewer/ReportViewer
@@ -7062,8 +6801,8 @@ msgstr "(שניהם)"
 
 #. # ui/animal/AnimalFind
 #: Identichip_No\:_
-msgid "Identichip No: "
-msgstr "מסד השבב: "
+msgid "Microchip No: "
+msgstr ""
 
 #. # ui/animal/VaccinationView
 #. # ui/main/Main
@@ -7116,26 +6855,9 @@ msgid "Acceptance:"
 msgstr "זיהוי:"
 
 #. # ui/animal/LitterEdit
-#: Select_a_mother_from_the_shelter_animals
-msgid "Select a mother from the shelter animals"
-msgstr "יש לבחור אימא מחיות המחמד שבבית המחסה"
-
-#. # ui/animal/LitterEdit
-#: Or_date\:
-msgid "Or date:"
-msgstr "או תאריך:"
-
-#. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
 msgstr "יצירת המלטה חדשה"
-
-#. # ui/animal/LitterEdit
-#: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
-msgid ""
-"The period after which this litter should expire if no expiry date is "
-"entered below"
-msgstr "פרק הזמן שלאחריו המלטה זו תפוג אם לא הוזן תאריך תפוגה להלן"
 
 #. # ui/animal/LitterEdit
 #: Mother\:
@@ -7248,6 +6970,7 @@ msgstr "יצירת טיפול חיסוני חדש"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Location\:
 msgid "Location:"
 msgstr "מיקום:"
@@ -7287,6 +7010,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
@@ -7349,7 +7073,12 @@ msgstr "הצבע הבסיסי של חיית המחמד"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #: Sex\:
 msgid "Sex:"
 msgstr "מין:"
@@ -7360,6 +7089,7 @@ msgid "The reason the animal was not brought in by its owner"
 msgstr "הסיבה שבגינה חיית המחמד לא הובאה על ידי בעליה"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal_acceptance_number_from_head_office
 msgid "The animal acceptance number from head office"
 msgstr "מספר הזיהוי של חיית המחמד מהסניף הראשי"
@@ -7402,6 +7132,11 @@ msgstr "יצירת חיית מחמד חדשה על ידי העתקת הנוכח�
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #: Breed\:
 msgid "Breed:"
 msgstr "גזע:"
@@ -7476,12 +7211,15 @@ msgid "Transfer In:"
 msgstr "הועברו לבית המחסה:"
 
 #. # reports/AnimalPrint
+#. # reports/CustomReportExecute
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Acceptance_No\:
 msgid "Acceptance No:"
 msgstr "מס' זיהוי:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal's_name
 msgid "The animal's name"
 msgstr "שם חיית המחמד"
@@ -7540,8 +7278,8 @@ msgstr "הבעלים המקוריים:"
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #: Identichipped\:
-msgid "Identichipped:"
-msgstr "הוחדר שבב:"
+msgid "Microchipped:"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_size
@@ -7560,6 +7298,7 @@ msgstr "הערות אודות חיית המחמד שברצונך לראות במ
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Base_Colour\:
 msgid "Base Colour:"
 msgstr "צבע הבסיס:"
@@ -7586,6 +7325,7 @@ msgstr "ניתן"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
 #: Name\:
@@ -7599,6 +7339,7 @@ msgstr "כל סימן מזהה או תכונות מראה מיוחדות שיש 
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
 msgstr "תאריך הלידה:"
@@ -7665,8 +7406,8 @@ msgstr "נדרש"
 
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
-msgid "The Identichip Number"
-msgstr "מספר שבב הזיהוי"
+msgid "The Microchip Number"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7727,6 +7468,7 @@ msgid "Validation Error"
 msgstr "שגיאת אימות"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Generate_a_random_name_for_this_animal
 msgid "Generate a random name for this animal"
 msgstr "הגרלת שם אקראי לחיית מחמד זו"
@@ -7756,6 +7498,8 @@ msgstr "תאריך הכניסה:"
 msgid "A date you entered was not valid: "
 msgstr "התאריך שהוזן אינו תקני: "
 
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
 #. # ui/system/Options
 #. # ui/lookups/LookupView
 #. # ui/customreport/CustomReportEdit
@@ -7934,14 +7678,17 @@ msgid "Media Notes Contain:"
 msgstr "הערות המדיה מכילות:"
 
 #. # reports/AnimalPrint
+#. # reports/CustomReportExecute
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #: litter_id
 msgid "Litter ID:"
 msgstr "מס' זיהוי ההמלטה:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
 msgid "The litter identifier if this animal is part of a litter"
 msgstr "מזהה ההמלטה אם חיית מחמד זו היא חלק מהמלטה"
@@ -7956,17 +7703,17 @@ msgstr "מס' הזיהוי הייחודי עבור המלטה זו"
 msgid "Find the litter this animal belongs to"
 msgstr "חיפוש ההמלטה אליה משתייכת חיית מחמד זו"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: select_from_active_litters
 msgid "Select from active litters"
 msgstr "בחירה מהמלטות פעילות"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: Active_Litters
 msgid "Active Litters"
 msgstr "המלטות פעילות"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: there_are_no_active_litters_on_file
 msgid "There are no active litters on file"
 msgstr "אין המלטות פעילות בקובץ"
@@ -8072,7 +7819,10 @@ msgid "Issue Date:"
 msgstr "תאריך ההנפקה:"
 
 #. # ui/owner/VoucherEdit
+#. # ui/animal/LitterEdit
+#. # ui/owner/VoucherSelector
 #: Expiry_Date\:
+#: Expiry_Date
 msgid "Expiry Date:"
 msgstr "תאריך התפוגה:"
 
@@ -8198,8 +7948,8 @@ msgstr "תוצאת FIV"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
-msgid "The date the animal was identichipped"
-msgstr "היום בו הוחדר שבב לחיית המחמד"
+msgid "The date the animal was microchipped"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_had_the_tattoo
@@ -8486,11 +8236,6 @@ msgstr ""
 msgid "Owner's Vet:"
 msgstr "הווטרינר של הבעלים:"
 
-#. # ui/animal/LitterView
-#: active_litters
-msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-msgstr "{0} המלטות פעילות ({1} חתולים, {2} כלבים ו־{3} שונות)"
-
 #. # ui/ui/ASMFind
 #: search_complete
 msgid "Search complete - {0} matches found. "
@@ -8600,11 +8345,13 @@ msgid "Additional information about the animal"
 msgstr "מידע נוסף אודות חיית המחמד"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Crossbreed
 msgid "Crossbreed"
 msgstr "מעורב"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
 msgstr "יש לסמן תיבה זו אם בעל החיים הוא מגזעים שונים"
@@ -8681,7 +8428,7 @@ msgid ""
 "Click OK when you have finished making your changes and saved the file."
 msgstr "יש ללחוץ על אישור לאחר סיום עריכת השינויים ושמירת הקובץ."
 
-#. # ui/animal/LitterEdit
+#. # ui/animal/LitterView
 #: Expires
 msgid "Expires:"
 msgstr "תפוגה:"
@@ -8794,6 +8541,55 @@ msgstr "סך כל התרומות: {0}, מאזן: {1}"
 #: Number_in_litter
 msgid "Number in litter:"
 msgstr "מספר בהמלטה:"
+
+#. # reports/AnimalPrint
+#. # ui/animal/AnimalEdit
+#: Bonded
+msgid "Bonded With:"
+msgstr ""
+
+#. # ui/animal/AnimalLink
+#. # ui/ui/Dialog
+#: Select_an_animal
+msgid "Select an animal"
+msgstr "בחירת חיית מחמד"
+
+#. # ui/animal/AnimalLink
+#: edit_this_animal
+msgid "Edit this animal"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: include_expired
+msgid "Include Expired"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: Expires
+msgid "Expires"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#. # ui/users/UserEdit
+#. # ui/main/Main
+#: Add_Animals
+msgid "Add Animals"
+msgstr "הוספת חיות מחמד"
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Add_Animal
+msgid "Add animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Clone_Animal
+msgid "Add animal by copying last animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Save
+msgid "Save all animals"
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8938,7 +8734,6 @@ msgid "Install Additional Reports"
 msgstr "התקנת דוחות נוספים"
 
 #. # ui/system/Options
-#. # ui/splash/About
 #. # ui/customreport/GetReports
 #: Database
 msgid "Database"
@@ -8950,12 +8745,12 @@ msgstr "מסד נתונים"
 msgid "Locale"
 msgstr "שפה"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Graph
 msgid "Graph"
 msgstr "תרשים"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Report
 msgid "Report"
 msgstr "דוח"
@@ -8964,6 +8759,25 @@ msgstr "דוח"
 #: Install_this_report
 msgid "Install this report"
 msgstr "התקנת דוח זה"
+
+#. # bo/CustomReport
+#. # ui/main/Main
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
+#: Mailmerge
+#: Mail_Merge
+msgid "Mail Merge"
+msgstr "מיזוג דואר"
+
+#. # bo/CustomReport
+#: Builtin
+msgid "Built In"
+msgstr ""
+
+#. # ui/customreport/GetReports
+#: my_locale
+msgid "Only show reports for my locale ({0})"
+msgstr ""
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -9346,6 +9160,22 @@ msgstr "בחירת שפה"
 msgid "Information"
 msgstr "נתונים"
 
+#. # ui/ui/Dialog
+#: Warning
+msgid "Warning"
+msgstr ""
+
+#. # reports/ReturnedAnimals
+#. # ui/ui/Dialog
+#: There_are_no_animals_on_the_shelter
+msgid "There are no animals on the shelter."
+msgstr ""
+
+#. # ui/ui/Dialog
+#: Select_Animal
+msgid "Select Animal"
+msgstr ""
+
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
 msgid "Include Reserved Animals"
@@ -9487,6 +9317,7 @@ msgid "Send Email"
 msgstr "שליחת דוא\"ל"
 
 #. # ui/internet/EmailForm
+#. # ui/account/TrxView
 #: to
 msgid "To:"
 msgstr "אל:"
@@ -9783,6 +9614,39 @@ msgstr "הוותיקים בבית המחסה קודם"
 msgid "Newest first"
 msgstr "החדשים קודם"
 
+#. # ui/internet/EmailForm
+#. # wordprocessor/GenerateDocument
+#: HTML
+msgid "HTML"
+msgstr ""
+
+#. # internet/Publisher
+#: cannot_upload_directly
+msgid ""
+"You have not set FTP details for your website. ASM cannot publish directly "
+"to the internet."
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: from
+msgid "From:"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: cc
+msgid "CC:"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: add_to_log
+msgid "Add to log"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: store_this_email_in_the_log
+msgid "Store this email in the log for this owner"
+msgstr ""
+
 #. # ui/main/Main
 #. # ui/localcache/CacheView
 #: View_Local_Cache
@@ -9902,11 +9766,6 @@ msgstr "יציאה"
 #: Invalid_Password
 msgid "Invalid Password"
 msgstr "הסיסמה שגויה"
-
-#. # ui/splash/About
-#: Version_
-msgid "Version "
-msgstr "גירסה "
 
 #. # ui/login/Login
 #: Login
@@ -10373,6 +10232,20 @@ msgstr "יצירת רשומת חיית מחמד חדשה מרשומה זו"
 msgid "Area Lost:"
 msgstr "אזור בו אבד:"
 
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#: Age_Group\:
+msgid "Age Group:"
+msgstr ""
+
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#: Age_Group
+msgid "Age Group"
+msgstr ""
+
 #. # ui/main/Main
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
@@ -10492,11 +10365,6 @@ msgstr "&קובץ"
 msgid "&Animal"
 msgstr "&חיית מחמד"
 
-#. # ui/main/Main
-#: All_Members
-msgid "All Members"
-msgstr "כל החברים"
-
 #. # reports/ReturnedAnimals
 #. # reports/AnimalPrint
 #. # ui/diary/DiaryTaskHeadEdit
@@ -10509,17 +10377,6 @@ msgstr "כל החברים"
 #: Owner
 msgid "&Owner"
 msgstr "&בעלים"
-
-#. # ui/main/Main
-#: Owner_Merge
-msgid "&Owner Mail Merge"
-msgstr "מיזוג דואר &בעלים"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "&Non-Returned Adoptions"
-msgstr "אימוצים ש&לא הוחזרו"
 
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
@@ -10538,11 +10395,6 @@ msgstr "ה&דפסת הערות היומן"
 #: Database_Tools
 msgid "Database Tools"
 msgstr "כלי מסדי הנתונים"
-
-#. # ui/main/Main
-#: Off_Shelter_Vaccinations
-msgid "Off Shelter &Vaccinations"
-msgstr "חיסונים לחיות מ&חוץ לבית המחסה"
 
 #. # ui/splash/About
 #. # ui/main/Main
@@ -10591,11 +10443,6 @@ msgstr "מיקומים &פנימיים"
 msgid "Website &FTP Settings"
 msgstr "ה&גדרות ה־FTP של האתר"
 
-#. # ui/main/Main
-#: Microchip_Cancellations
-msgid "Microchip &Cancellations"
-msgstr "&ביטולים של שבבים"
-
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
 #: Find_Lost_Animal
@@ -10609,7 +10456,6 @@ msgstr "עריכת כל ההערות ביומן"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
-#. # reports/LostFoundMatch
 #. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
@@ -10631,8 +10477,6 @@ msgstr "עריכת כל ההערות ביומן"
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
 #: Species
 msgid "&Species"
 msgstr "&זנים"
@@ -10733,11 +10577,6 @@ msgstr "&חיפוש בעלים"
 msgid "Publish &Animals Available for Adoption"
 msgstr "פרסום &חיות מחמד הזמינות לאימוץ"
 
-#. # ui/main/Main
-#: Microchip_Registration
-msgid "Microchip Re&gistration"
-msgstr "&רישום שבב"
-
 #. # ui/users/UserEdit
 #. # ui/main/Main
 #: Edit_System_Users
@@ -10779,11 +10618,6 @@ msgstr "רישום הה&מלטות"
 #: All_Animals
 msgid "&All Animals"
 msgstr "&כל חיות המחמד"
-
-#. # ui/main/Main
-#: Adoption_Merge
-msgid "&Adoption Mail Merge"
-msgstr "&מיזוג דואר אימוץ"
 
 #. # ui/main/Main
 #: Found_Animals
@@ -11073,12 +10907,6 @@ msgid "Log Ty&pes"
 msgstr "&סוגי הדוחות"
 
 #. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "&Expiring Members"
-msgstr "חברים לקראת &פקיעת תוקף חברות"
-
-#. # ui/main/Main
 #: Close_Active_Tab
 msgid "Close Active Tab"
 msgstr "סגירת הלשונית הפעילה"
@@ -11112,11 +10940,6 @@ msgstr "תצורת שדות &נוספים"
 #: Import_PetFinder
 msgid "Import &PetFinder Data"
 msgstr "ייבוא &נתונים מ־PetFinder"
-
-#. # ui/main/Main
-#: All_Members
-msgid "&All Members"
-msgstr "&כל החברים"
 
 #. # ui/main/Main
 #: Remove_unwanted_breeds
@@ -11209,6 +11032,13 @@ msgstr "סיסמה חדשה:"
 #: Confirm_Password\:
 msgid "Confirm Password:"
 msgstr "אישור הסיסמה:"
+
+#. # ui/animal/AnimalAddMultiple
+#. # ui/users/UserEdit
+#. # ui/main/Main
+#: Add_Animals
+msgid "Add Animal&s"
+msgstr ""
 
 #. # ui/medical/ProfileView
 #: Profile_Name
@@ -11499,12 +11329,6 @@ msgstr "בוטל:"
 #: WARNING\:_This_owner_has_not_passed_a_home_check.
 msgid "WARNING: This owner has not passed a home check."
 msgstr "אזהרה: ביתם של בעלים אלה לא נסקר."
-
-#. # ui/movement/MovementEdit
-#. # ui/owner/DonationEdit
-#: Select_an_animal
-msgid "Select an animal"
-msgstr "בחירת חיית מחמד"
 
 #. # ui/movement/MovementEdit
 #: This_movement_record_already_has_an_insurance_number._Remove_it_if_you_wish_to_generate_another.
@@ -11808,6 +11632,11 @@ msgid "Return Movement"
 msgstr "העברה חזרה"
 
 #. # ui/movement/MovementView
+#: return_date
+msgid "Return Date"
+msgstr "תאריך ההחזרה"
+
+#. # ui/movement/MovementView
 #: this_movement_is_already_returned
 msgid "This movement has already been returned."
 msgstr "העברה זו כבר הוחזרה."
@@ -11860,6 +11689,13 @@ msgstr ""
 #: Active_Criteria
 msgid "Active Criteria"
 msgstr "קריטריונים פעילים"
+
+#. # ui/movement/MovementEdit
+#: This_animal_is_bonded_with
+msgid ""
+"This animal is bonded with {0}. Please make sure they are being adopted "
+"together."
+msgstr ""
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
@@ -12097,23 +11933,15 @@ msgstr "צוות בית המחסה"
 msgid "Animal Care Officer"
 msgstr "הממונה על חוק צער בעלי חיים השירותים הוטרינריים משרד החקלאות"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#: Mail_Merge
-msgid "Mail Merge"
-msgstr "מיזוג דואר"
-
 #. # reports/OwnerSearchResults
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
+#. # mailmerge/CustomMailMerge
 #: email
 msgid "Email"
 msgstr "דוא\"ל"
 
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
 #. # mailmerge/OwnerMailMerge
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
@@ -12298,6 +12126,7 @@ msgstr "מחיקת שובר זה"
 msgid "Issue Date"
 msgstr "תאריך ההנפקה"
 
+#. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
 #: Expiry_Date
 msgid "Expiry Date"
@@ -12704,75 +12533,15 @@ msgid "Zoom Out"
 msgstr "התרחקות"
 
 #. # ui/splash/About
-#: User_Directory\:_
-msgid "User Directory: "
-msgstr "תיקיית המשתמש: "
-
-#. # ui/splash/About
-#: Vendor\:_
-msgid "Vendor: "
-msgstr "ספק: "
-
-#. # ui/splash/About
 #. # ui/main/Main
 #: About...
 msgid "About..."
 msgstr "אודות..."
 
-#. # ui/splash/About
-#: User_Home\:_
-msgid "User Home: "
-msgstr "תיקיית הבית: "
-
-#. # ui/splash/About
-#: OS_Name\:_
-msgid "OS Name: "
-msgstr "שם מערכת ההפעלה: "
-
-#. # ui/splash/About
-#: Java_Version\:_
-msgid "Java Version: "
-msgstr "גרסת Java: "
-
-#. # ui/splash/About
-#: User_Name\:_
-msgid "User Name: "
-msgstr "שם משתמש: "
-
-#. # ui/splash/About
-#: Vendor_URL\:_
-msgid "Vendor URL: "
-msgstr "כתובת אתר היצרן: "
-
-#. # ui/splash/About
-#: Class_Path\:_
-msgid "Class Path: "
-msgstr "נתיב המחלקה: "
-
-#. # ui/splash/About
-#: OS_Architecture\:_
-msgid "OS Architecture: "
-msgstr "ארכיטקטורת מערכת ההפעלה: "
-
-#. # ui/splash/About
-#: Java_Home\:_
-msgid "Java Home: "
-msgstr "תיקיית הבית של Java: "
-
 #. # globals/Global
 #: Copyright
 msgid "Copyright"
 msgstr "זכויות יוצרים"
-
-#. # ui/splash/About
-#: OS_Version\:_
-msgid "OS Version: "
-msgstr "גירסת מערכת הפעלה: "
-
-#. # ui/splash/About
-#: Class_Version\:_
-msgid "Class Version: "
-msgstr "גירסת מחלקה "
 
 #. # globals/Global
 #: Version
@@ -13013,8 +12782,8 @@ msgstr "כתובת ה־IP/שם המארח של שרת ה־SMTP שלך"
 
 #. # ui/system/Options
 #: show_short_shelter_code
-msgid "Show short shelter codes on find animal screen"
-msgstr "יש להציג את הקוד הקצר של בית המחסה במסך מציאת חיות המחמד"
+msgid "Show short shelter codes on screens and reports"
+msgstr ""
 
 #. # ui/system/Options
 #: foster_as_on_shelter
@@ -13711,11 +13480,6 @@ msgid "Mapping Service URL:"
 msgstr "כתובת שירות המיפוי:"
 
 #. # ui/system/Options
-#: Automatic_Insurance_Numbers
-msgid "Automatic Insurance Numbers"
-msgstr "מספרי ביטוח אוטומטיים"
-
-#. # ui/system/Options
 #: Auto_attach_generated_media
 msgid "Automatically attach generated documents as media"
 msgstr "הוספת המסמכים שנוצרים כמדיה באופן אוטומטי"
@@ -13872,6 +13636,161 @@ msgstr "יצירת תרומות וסוגי תרומות יוצרת העברות 
 msgid "Keep a full audit trail"
 msgstr ""
 
+#. # ui/system/Options
+#: disable_shortcodes_editing
+msgid "Hide short shelter codes on the animal details screen"
+msgstr ""
+
+#. # ui/system/Options
+#: how_many_points_to_show_on_report
+msgid "Points required to appear on match report:"
+msgstr ""
+
+#. # ui/system/Options
+#: species_matches
+msgid "Points given for matching species:"
+msgstr ""
+
+#. # ui/system/Options
+#: breed_matches
+msgid "Points given for matching breed:"
+msgstr ""
+
+#. # ui/system/Options
+#: colour_matches
+msgid "Points given for matching colour:"
+msgstr ""
+
+#. # ui/system/Options
+#: age_group_matches
+msgid "Points given for matching age group:"
+msgstr ""
+
+#. # ui/system/Options
+#: sex_matches
+msgid "Points given for matching sex:"
+msgstr ""
+
+#. # ui/system/Options
+#: area_matches
+msgid "Points given for lost/found areas matching:"
+msgstr ""
+
+#. # ui/system/Options
+#: features_matches
+msgid "Points given for features matching:"
+msgstr ""
+
+#. # ui/system/Options
+#: postcode_matches
+msgid "Points given for matching postcode:"
+msgstr ""
+
+#. # ui/system/Options
+#: datewithin2weeks_matches
+msgid "Points given for found within 2 weeks of being lost:"
+msgstr ""
+
+#. # ui/system/Options
+#: lost_and_found
+msgid "Lost and Found"
+msgstr ""
+
+#. # ui/system/Options
+#: include_shelter
+msgid "When matching lost animals, include shelter animals"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_bonded_field
+msgid "Remove the Bonded With fields from the entry details screen"
+msgstr ""
+
+#. # ui/system/Options
+#: email_signature
+msgid "Email signature:"
+msgstr ""
+
+#. # ui/system/Options
+#: Insurance
+msgid "Insurance"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Look_and_Feel
+msgid "Look and Feel:"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Default
+msgid "Default"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Native_Platform
+msgid "Native Platform"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Metal
+msgid "Metal"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Metal_for_GTK
+msgid "Metal for GTK"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Toolbar_Size
+msgid "Toolbar Size:"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: No_Toolbar
+msgid "No Toolbar"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Tiny
+msgid "Tiny"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Normal
+msgid "Normal"
+msgstr ""
+
+#. # ui/system/Options
+#: Adding_multiple_animals
+msgid "Adding Multiple Animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_breed
+msgid "Show breed field(s) when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_colour
+msgid "Show colour when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_location
+msgid "Show location when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_litterid
+msgid "Show Litter ID when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_acceptance
+msgid "Show Acceptance Number when adding multiple animals"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -14026,11 +13945,6 @@ msgstr "שינוי חיות מחמד שנמצאו"
 #: Add_Animal_Media
 msgid "Add Animal Media"
 msgstr "הוספת מדיה לחיית מחמד"
-
-#. # ui/users/UserEdit
-#: Add_Animals
-msgid "Add Animals"
-msgstr "הוספת חיות מחמד"
 
 #. # ui/users/UserEdit
 #. # ui/main/Main
@@ -14692,6 +14606,11 @@ msgstr "סיבת הסרה:"
 msgid "Toggle highlighting of the selected entries "
 msgstr ""
 
+#. # ui/waitinglist/WaitingListEdit
+#: Tick_this_box_if_the_owner_made_a_donation
+msgid "Tick this box if this owner made a donation"
+msgstr ""
+
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
 msgid "Select a Document Template"
@@ -14712,6 +14631,12 @@ msgstr "(מוערך)"
 
 #~ msgid "monthly"
 #~ msgstr "חודשי"
+
+#~ msgid "Class Version: "
+#~ msgstr "גירסת מחלקה "
+
+#~ msgid "OS Version: "
+#~ msgstr "גירסת מערכת הפעלה: "
 
 #~ msgid "No HTML Viewer"
 #~ msgstr "אין מציג HTML"
@@ -14752,6 +14677,13 @@ msgstr "(מוערך)"
 #~ msgid "An error occurred reading the file:\n"
 #~ msgstr "ארעה שגיאה בעת קריאת הקובץ:\n"
 
+#~ msgid "There are no required vaccinations on that date."
+#~ msgstr "אין חיסונים נדרשים בתאריך שצוין."
+
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare vaccination letters for"
+#~ msgstr "יש להזין את תאריך ההתחלה שבו תרצה להכין מכתבי חיסון"
+
 #~ msgid "An error occurred generating the mail merge source:\n"
 #~ msgstr "ארעה שגיאה בעת ייצור מקור מיזוג הדואר:\n"
 
@@ -14761,8 +14693,85 @@ msgstr "(מוערך)"
 #~ msgid "Mail Merge Source Generated"
 #~ msgstr "נוצר מקור למיזוג דואר"
 
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare chip registration "
+#~ "letters for"
+#~ msgstr "יש להזין את תאריך ההתחלה שבו ברצונך להכין את מכתבי רישום השבבים"
+
+#~ msgid "Chip Registration Mail Merge"
+#~ msgstr "מיזוג דואר לרישום שבבים"
+
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare chip registration "
+#~ "letters for"
+#~ msgstr "יש להזין את תאריך הסיום שבו ברצונך להכין את מכתבי רישום השבבים"
+
+#~ msgid "There are no required chip registrations between those dates."
+#~ msgstr "אין רישומי שבבים נחוצים בין התאריכים האלו."
+
+#~ msgid "Chip Cancellation Mail Merge"
+#~ msgstr "מיזוג דואר לביטול שבבים"
+
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare chip cancellation "
+#~ "letters for"
+#~ msgstr "יש להזין את תאריך ההתחלה שבו ברצונך להכין מכתבים לביטול שבבים"
+
+#~ msgid "Microchip Number"
+#~ msgstr "מספר המיקרושבב"
+
+#~ msgid "There are no adoptions matching your criteria."
+#~ msgstr "אין אימוצים התואמים לקריטריונים שלך."
+
+#~ msgid "Address 2"
+#~ msgstr "כתובת 2"
+
+#~ msgid "Address 3"
+#~ msgstr "כתובת 3"
+
+#~ msgid "Please enter the closing date of adoptions to include"
+#~ msgstr "יש להזין את תאריך הסיום של האימוצים להכללה"
+
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare chip cancellation "
+#~ "letters for"
+#~ msgstr "יש להזין את תאריך הסיום שעבורו ברצונך להכין מכתבי ביטול שבבים"
+
+#~ msgid "There are no required chip cancellations between those dates."
+#~ msgstr "אין ביטולי שבבים נדרשים בין תאריכים אלו."
+
+#~ msgid "Date Of Birth"
+#~ msgstr "תאריך הלידה"
+
+#~ msgid "Address 1"
+#~ msgstr "כתובת 1"
+
+#~ msgid "Initials"
+#~ msgstr "ראשי תיבות"
+
+#~ msgid "Address 5"
+#~ msgstr "כתובת 5"
+
+#~ msgid "Non-Returned Adoptions"
+#~ msgstr "אימוצים שלא הוחזרו"
+
+#~ msgid "Address 4"
+#~ msgstr "כתובת 4"
+
+#~ msgid "Please enter the start date of adoptions to include"
+#~ msgstr "יש להזין את תאריך ההתחלה של האימוצים להכללה"
+
 #~ msgid "Create a CVS file on disk"
 #~ msgstr "יצירת קובץ CVS בכונן"
+
+#~ msgid "MembershipExpiry"
+#~ msgstr "תפוגת_חברות"
+
+#~ msgid "Show members expiring before"
+#~ msgstr "הצגת חברים שתפוגתם לפני"
+
+#~ msgid "Expiring Members"
+#~ msgstr "חברים שעומדים לפוג"
 
 #~ msgid "An error occurred opening the report {0}"
 #~ msgstr "ארעה שגיאה בעת פתיחת היומן {0}"
@@ -14785,8 +14794,17 @@ msgstr "(מוערך)"
 #~ msgid "An error occurred accessing external data:\n"
 #~ msgstr "ארעה שגיאה בעת גישה לנתונים חיצוניים:\n"
 
+#~ msgid "OffShelterVaccinations.csv"
+#~ msgstr "OffShelterVaccinations.csv"
+
+#~ msgid "Select a mother from the shelter animals"
+#~ msgstr "יש לבחור אימא מחיות המחמד שבבית המחסה"
+
 #~ msgid "Unable to access system user list: "
 #~ msgstr "לא ניתן לגשת אל רשימת משתמשי המערכת: "
+
+#~ msgid "Automatic Insurance Numbers"
+#~ msgstr "מספרי ביטוח אוטומטיים"
 
 #~ msgid "Unable to open user for editing: "
 #~ msgstr "לא ניתן לפתוח את המשתמש לעריכה: "
@@ -14799,6 +14817,9 @@ msgstr "(מוערך)"
 
 #~ msgid "An error occurred saving changes to asm.properties:\n"
 #~ msgstr "ארעה שגיאה בעת שמירת השינויים לקובץ asm.properties\n"
+
+#~ msgid "Show short shelter codes on find animal screen"
+#~ msgstr "יש להציג את הקוד הקצר של בית המחסה במסך מציאת חיות המחמד"
 
 #~ msgid "Scanning filetypes for a Microsoft Windows based computer"
 #~ msgstr "מתבצעת סריקת סוגי הקבצים למחשב המבוסס על Microsoft Windows"
@@ -14831,6 +14852,18 @@ msgstr "(מוערך)"
 #~ msgid "ItemValue"
 #~ msgstr "ערך_הפריט"
 
+#~ msgid "Vendor: "
+#~ msgstr "ספק: "
+
+#~ msgid "Java Version: "
+#~ msgstr "גרסת Java: "
+
+#~ msgid "User Name: "
+#~ msgstr "שם משתמש: "
+
+#~ msgid "OS Name: "
+#~ msgstr "שם מערכת ההפעלה: "
+
 #~ msgid "An error occurred saving the data: "
 #~ msgstr "ארעה שגיאה בשמירת הנתונים: "
 
@@ -14843,6 +14876,24 @@ msgstr "(מוערך)"
 
 #~ msgid "Do you want to create a CVS file or do a bulk email?"
 #~ msgstr "האם ליצור קובץ CVS או לשלוח הודעה מרובת נמענים?"
+
+#~ msgid "Vendor URL: "
+#~ msgstr "כתובת אתר היצרן: "
+
+#~ msgid "Class Path: "
+#~ msgstr "נתיב המחלקה: "
+
+#~ msgid "Java Home: "
+#~ msgstr "תיקיית הבית של Java: "
+
+#~ msgid "OS Architecture: "
+#~ msgstr "ארכיטקטורת מערכת ההפעלה: "
+
+#~ msgid "User Directory: "
+#~ msgstr "תיקיית המשתמש: "
+
+#~ msgid "User Home: "
+#~ msgstr "תיקיית הבית: "
 
 #~ msgid "Unable to read voucher records: "
 #~ msgstr "לא ניתן לקרוא רשומות שוברים: "
@@ -14895,6 +14946,9 @@ msgstr "(מוערך)"
 #~ msgid "Unable to open owner: "
 #~ msgstr "לא ניתן לפתוח את הבעלים: "
 
+#~ msgid "&All Members"
+#~ msgstr "&כל החברים"
+
 #~ msgid ""
 #~ "ASM could not locate an office suite on your computer. Document generation "
 #~ "will not work until you install and setup an office suite and file type "
@@ -14904,11 +14958,35 @@ msgstr "(מוערך)"
 #~ "לא תפעל עד להתקנת והגדרת חבילת תוכנות משרדיות והגדרת הטיפול בסוגי הקבצים "
 #~ "ב־ASM."
 
+#~ msgid "&Adoption Mail Merge"
+#~ msgstr "&מיזוג דואר אימוץ"
+
+#~ msgid "Microchip Re&gistration"
+#~ msgstr "&רישום שבב"
+
+#~ msgid "Microchip &Cancellations"
+#~ msgstr "&ביטולים של שבבים"
+
+#~ msgid "Off Shelter &Vaccinations"
+#~ msgstr "חיסונים לחיות מ&חוץ לבית המחסה"
+
+#~ msgid "All Members"
+#~ msgstr "כל החברים"
+
+#~ msgid "&Non-Returned Adoptions"
+#~ msgstr "אימוצים ש&לא הוחזרו"
+
+#~ msgid "&Owner Mail Merge"
+#~ msgstr "מיזוג דואר &בעלים"
+
 #~ msgid "Unable to create new found animal record: "
 #~ msgstr "לא ניתן ליצור רשומה חדשה לחיית מחמד שנמצאה : "
 
 #~ msgid "Unable to create new lost animal record: "
 #~ msgstr "לא ניתן ליצור רשומה חדשה לחיית מחמד שאבדה: "
+
+#~ msgid "Version "
+#~ msgstr "גירסה "
 
 #~ msgid "Unable to create new log entry:\n"
 #~ msgstr "לא ניתן ליצור רשומה חדשה ברישום:\n"
@@ -14925,5 +15003,89 @@ msgstr "(מוערך)"
 #~ msgid "CSV Generation Complete"
 #~ msgstr "יצירת ה־CSV הושלמה"
 
+#~ msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
+#~ msgstr "{0} המלטות פעילות ({1} חתולים, {2} כלבים ו־{3} שונות)"
+
+#~ msgid "The date the animal was identichipped"
+#~ msgstr "היום בו הוחדר שבב לחיית המחמד"
+
+#~ msgid "The Identichip Number"
+#~ msgstr "מספר שבב הזיהוי"
+
+#~ msgid "Identichipped:"
+#~ msgstr "הוחדר שבב:"
+
+#~ msgid ""
+#~ "The period after which this litter should expire if no expiry date is "
+#~ "entered below"
+#~ msgstr "פרק הזמן שלאחריו המלטה זו תפוג אם לא הוזן תאריך תפוגה להלן"
+
+#~ msgid "Or date:"
+#~ msgstr "או תאריך:"
+
+#~ msgid "Identichip No: "
+#~ msgstr "מסד השבב: "
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "Set Match Floor"
+#~ msgstr "הגדרת הערך התחתי להתאמה"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "At what level should the report show matches?"
+#~ msgstr "באיזו רמה על הדוח להציג תוצאות?"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "Error occurred retrieving templates: {0} "
+#~ msgstr "ארעה שגיאה בעת אחזור התבניות: {0} "
+
+#~ msgid "Identichip No"
+#~ msgstr "מס' השבב"
+
+#~ msgid "Short Code"
+#~ msgstr "הקוד המקוצר"
+
+#~ msgid "Members.csv"
+#~ msgstr "חברים.csv"
+
+#~ msgid "Forenames"
+#~ msgstr "שמות פרטיים"
+
+#~ msgid "Off-Shelter Vaccination Mail Merge"
+#~ msgstr "מיזוג דואר לחיסונים מחוץ לבית המחסה"
+
+#~ msgid "AdoptedNoReturn.csv"
+#~ msgstr "אומצו_ולא_הוחזרו.csv"
+
+#~ msgid "ChipCancellations.csv"
+#~ msgstr "ביטול_שבבים.csv"
+
+#~ msgid "ExpiringMembers.csv"
+#~ msgstr "חברים_לקראת_תפוגה.csv"
+
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare vaccination letters for"
+#~ msgstr "יש להזין את התאריך שלקראתו ברצונך להכין את מכתבי החיסון"
+
+#~ msgid "ChipRegistrations.csv"
+#~ msgstr "רישום_שבבים.csv"
+
 #~ msgid "Successfully built mail merge source as file:"
 #~ msgstr "מקור מיזוג הדואר נבנה בהצלחה בתור הקובץ:"
+
+#~ msgid "&Expiring Members"
+#~ msgstr "חברים לקראת &פקיעת תוקף חברות"
