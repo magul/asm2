@@ -401,7 +401,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public Object getDefaultFocusedComponent() {
-        return txtAcceptanceNumber;
+        if (!Configuration.getBoolean("DontShowLitterID")) {
+            return txtAcceptanceNumber;
+        }
+        else {
+            return txtAnimalName;
+        }
     }
 
     public boolean needsScroll() {
@@ -2885,6 +2890,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         int si = tabTabs.getSelectedIndex();
 
         switch (si) {
+        
+        case TAB_DETAILS:
+            if (!Configuration.getBoolean("DontShowLitterID")) {
+                txtAcceptanceNumber.grabFocus();
+            }
+            else {
+                txtAnimalName.getTextField().grabFocus();
+            }
+            break;
+
         case TAB_ENTRY:
 
             if (!loadedEntry) {
@@ -2918,7 +2933,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     Global.logException(e, getClass());
                 }
             }
+            txtHealthProblems.grabFocus();
+            break;
 
+        case TAB_DEATH:
+            txtDateDeceased.getTextField().grabFocus();
             break;
 
         case TAB_VACCINATION:
