@@ -104,6 +104,9 @@ public class LocaleSwitcher extends JLabel {
                                 1, locale.length());
                         Locale.setDefault(new Locale(lang, country));
                         Global.settings_Locale = locale;
+                        // Update the product name and date/currency formats
+                        Global.setProduct();
+                        Global.setDateCurrencyFromLocale();
                         if (Global.mainForm != null) Global.mainForm.reloadToolsAndMenu();
                     }
                 });
