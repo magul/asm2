@@ -33,13 +33,22 @@ import javax.swing.border.*;
 
 
 /**
-  * Small component that shows the current locale and allows a popup
-  * menu to choose another locale
+  * Small component that shows the current locale with a flag 
+  * and allows a popup menu to choose another locale
   */
 public class LocaleSwitcher extends JLabel {
+    
     JPopupMenu pop = new JPopupMenu();
+    public final static int LANG_ONLY = 0;
+    public final static int FULL = 1;
+    private int mode = LANG_ONLY;
 
     public LocaleSwitcher() {
+        this(LANG_ONLY);
+    }
+
+    public LocaleSwitcher(int mode) {
+        this.mode = mode;
         setBackground(new Color(0, 0, 82));
         setForeground(Color.WHITE);
         setOpaque(true);
@@ -53,8 +62,11 @@ public class LocaleSwitcher extends JLabel {
             });
 
         loadLocales();
-
-        setText(Global.getLanguage(Global.settings_Locale));
+        String d = (mode == LANG_ONLY ? 
+            Global.getLanguage(Global.settings_Locale) : 
+            Global.getLocaleName(Global.getLanguageCountry(Global.settings_Locale)));
+        setText(d);
+        setIcon(IconManager.getFlag(Global.settings_Locale));
         setToolTipText(Global.getLanguageCountry(Global.settings_Locale));
     }
 
@@ -63,26 +75,44 @@ public class LocaleSwitcher extends JLabel {
 
         for (int i = 0; i < locales.length; i++) {
             JMenuItem m = new JMenuItem();
+
+            if (locales[i].equals("-")) {
+                pop.add(UI.getSeparator());
+                continue;
+            }
+
             final String locale = Global.getLocaleFromString(locales[i]);
-            m.setText(locales[i]);
+            m.setText(Global.getLocaleName(locales[i]));
+            m.setIcon(IconManager.getFlag(locale));
             m.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         // Change switcher text
-                        LocaleSwitcher.this.setText(Global.getLanguage(locale));
+                        LocaleSwitcher.this.setIcon(IconManager.getFlag(locale));
+
+                        if (mode == LANG_ONLY) {
+                            LocaleSwitcher.this.setText(Global.getLanguage(locale));
+                        }
+                        else {
+                            LocaleSwitcher.this.setText(Global.getLocaleName(Global.getLanguageCountry(locale)));
+                        }
                         LocaleSwitcher.this.setToolTipText(Global.getLanguageCountry(
                                 locale));
 
-                        // Change the locale and updated the menu/toolbar
+                        // Change the locale and update the menu/toolbar
                         String lang = locale.substring(0, locale.indexOf("_"));
                         String country = locale.substring(locale.indexOf("_") +
                                 1, locale.length());
                         Locale.setDefault(new Locale(lang, country));
                         Global.settings_Locale = locale;
-                        Global.mainForm.reloadToolsAndMenu();
+                        if (Global.mainForm != null) Global.mainForm.reloadToolsAndMenu();
                     }
                 });
             pop.add(m);
         }
+    }
+
+    public String getSelectedLocale() {
+        return Global.settings_Locale;
     }
 
     public void showMenu(int x, int y) {

@@ -211,16 +211,27 @@ public abstract class Global {
     /** Returns an array of supported locales */
     public static String[] getSupportedLocales() {
         return new String[] {
-            getLanguageCountry("en_US"), getLanguageCountry("en_GB"),
-            getLanguageCountry("en_AU"), getLanguageCountry("en_IN"),
-            getLanguageCountry("en_ZA"), getLanguageCountry("de_DE"),
-            getLanguageCountry("es_ES"), getLanguageCountry("et_EE"),
-            getLanguageCountry("it_IT"), getLanguageCountry("iw_IL"),
-            getLanguageCountry("fr_FR"), getLanguageCountry("lt_LT"),
-            getLanguageCountry("nl_NL"), getLanguageCountry("pl_PL"),
-            getLanguageCountry("pt_PT"), getLanguageCountry("ru_RU"), 
-            getLanguageCountry("sk_SK"), getLanguageCountry("sv_SE"), 
-            getLanguageCountry("th_TH"), getLanguageCountry("tr_TR")
+            getLanguageCountry("en_US"), 
+            getLanguageCountry("en_GB"),
+            getLanguageCountry("en_AU"), 
+            getLanguageCountry("en_IN"),
+            getLanguageCountry("en_ZA"), 
+            "-",
+            getLanguageCountry("nl_NL"), 
+            getLanguageCountry("et_EE"),
+            getLanguageCountry("fr_FR"), 
+            getLanguageCountry("de_DE"),
+            getLanguageCountry("it_IT"), 
+            getLanguageCountry("iw_IL"),
+            getLanguageCountry("lt_LT"),
+            getLanguageCountry("pl_PL"),
+            getLanguageCountry("pt_PT"), 
+            getLanguageCountry("ru_RU"), 
+            getLanguageCountry("sk_SK"), 
+            getLanguageCountry("es_ES"), 
+            getLanguageCountry("sv_SE"), 
+            getLanguageCountry("th_TH"), 
+            getLanguageCountry("tr_TR")
         };
     }
 
@@ -284,6 +295,7 @@ public abstract class Global {
      * Uses the system to return a readable version of a
      * locale (language and country) in something the user
      * can understand.
+     * @param locale A locale in lang_COUNTRY format
      */
     public static String getLanguageCountry(String locale) {
         Locale l = new Locale(locale.substring(0, locale.indexOf("_")),
@@ -292,8 +304,16 @@ public abstract class Global {
         return locale + " - " + l.getDisplayName();
     }
 
+    /**
+     * Returns the name of a locale (the x in lang_COUNTRY - x)
+     */
+    public static String getLocaleName(String locale) {
+        return locale.substring(locale.indexOf(" - ") + 3);
+    }
+
     /** From one of our supported locales, extracts the
      *  ISO code lang_COUNTRY
+     *  @param locale A locale with a prefix of lang_COUNTRY and a space
      */
     public static String getLocaleFromString(String locale) {
         if (locale.length() < 5) {
@@ -303,6 +323,9 @@ public abstract class Global {
         return locale.substring(0, locale.indexOf(" ")).trim();
     }
 
+    /**
+     * Returns the language portion of a lang_COUNTRY string
+     */
     public static String getLanguage(String locale) {
         if (locale.length() < 3) {
             return locale;

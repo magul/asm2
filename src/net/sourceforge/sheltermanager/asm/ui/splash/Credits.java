@@ -71,6 +71,7 @@ public class Credits {
         "<li><a href=\"http://jopenchart.sourceforge.net\">JOpenChart</a></li>" +
         "<li><a href=\"http://swingwt.sourceforge.net\">SwingWT</a></li>" +
         "<li><a href=\"http://www.enterprisedt.com\">Generic Java FTP Lib</a></li>" +
+        "<li><a href=\"http://www.senojflags.com\">Country Flags</a></li>" +
         "<li><a href=\"http://launchpad.net\">Launchpad</a></li>" + "</ul>" +
         "</body>" + "</html>";
 

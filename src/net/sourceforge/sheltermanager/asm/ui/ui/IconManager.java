@@ -27,6 +27,8 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 
 /**
  * Manages retrieval of icon resources.
@@ -330,6 +332,7 @@ public abstract class IconManager {
     // ====================================================================
     public final static String SCREEN_JDBCDLG = DATABASE;
     public final static String SCREEN_JDBCDLG_DATABASE = DATABASEBIG;
+    public final static String SCREEN_LOCALE = "flags/en_GB.png";
 
     // INTERNET package
     // ====================================================================
@@ -830,5 +833,18 @@ public abstract class IconManager {
         }
 
         return getIcon("splash/splash" + nextSplash + ".jpg");
+    }
+
+    /**
+     * Returns a 16x16 flag icon for a given locale 
+     */
+    public static ImageIcon getFlag(String locale) {
+        try {
+            return getIcon("flags/" + locale + ".png");
+        }
+        catch (Exception e) {
+            Global.logError("Failed loading flag: " + locale, "IconManager.getFlag");
+        }
+        return null;
     }
 }

@@ -49,6 +49,9 @@ public abstract class Dialog {
     /** The last string returned by getInput */
     static String lastInput = "";
 
+    /** The last locale returned by getLocale */
+    static String lastLocale = "";
+
     /** If there's no form parent, the app is going to terminate the
      *  VM before dialogs are visible. This forces the thread to wait
      *  for a given amount of time in ms so the user can see the message. */
@@ -356,19 +359,17 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a supported locale from the user */
     public static String getLocale() {
-        String[] locales = Global.getSupportedLocales();
 
-        // Ask the user
-        String chosenLocale = (String) getInput(Global.i18n("uierror",
-                    "select_locale"), Global.i18n("uierror", "select_locale"),
-                locales, locales[0]);
+        // Default to American if nothing chosen
+        String selected = "en_US";
 
-        // Default to DETECT if nothing selected
-        if ((chosenLocale == null) || chosenLocale.equals("")) {
-            chosenLocale = locales[0];
-        }
+        new LocaleDialog();
 
-        return Global.getLocaleFromString(chosenLocale);
+        if (!lastLocale.equals(""))
+            selected = lastLocale;
+
+        return selected;
+
     }
 
     /**

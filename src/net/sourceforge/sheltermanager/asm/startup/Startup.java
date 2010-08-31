@@ -625,7 +625,8 @@ public class Startup implements Runnable {
 
     public static void checkLocale() {
         if (Global.settings_Locale.equals("ASK")) {
-            // We need to ask for the locale
+            // We need to ask for the locale - set the default first
+            Global.settings_Locale = "en_US";
             String locale = Dialog.getLocale();
 
             try {

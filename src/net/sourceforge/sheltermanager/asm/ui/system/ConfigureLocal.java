@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.LocaleSwitcher;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 
 import java.io.File;
@@ -40,7 +41,7 @@ import java.util.Vector;
 public class ConfigureLocal extends ASMForm {
     private UI.Button btnCancel;
     private UI.Button btnOk;
-    private UI.ComboBox cboLocale;
+    private LocaleSwitcher lsLocale;
     private UI.ComboBox cboLabelAlign;
     private UI.ComboBox cboTabAlign;
     private UI.ComboBox cboCaptureMethod;
@@ -64,7 +65,6 @@ public class ConfigureLocal extends ASMForm {
 
     public Vector getTabOrder() {
         Vector ctl = new Vector();
-        ctl.add(cboLocale);
         ctl.add(cboSkin);
         ctl.add(cboLabelAlign);
         ctl.add(cboTabAlign);
@@ -88,7 +88,7 @@ public class ConfigureLocal extends ASMForm {
     }
 
     public Object getDefaultFocusedComponent() {
-        return cboLocale;
+        return cboSkin;
     }
 
     public boolean formClosing() {
@@ -104,7 +104,6 @@ public class ConfigureLocal extends ASMForm {
      * currently using and default their values into the boxes.
      */
     public void loadData() {
-        setClosestComboMatch(cboLocale, Global.settings_Locale);
 
         // Skin
         cboSkin.setSelectedIndex(Global.skin);
@@ -202,8 +201,8 @@ public class ConfigureLocal extends ASMForm {
         UI.Panel pn = UI.getPanel(UI.getBorderLayout());
         pn.add(pb, UI.BorderLayout.NORTH);
 
-        cboLocale = (UI.ComboBox) UI.addComponent(p, i18n("System_Locale:"),
-                UI.getCombo(Global.getSupportedLocales()));
+        lsLocale = (LocaleSwitcher) UI.addComponent(p, i18n("System_Locale:"),
+                new LocaleSwitcher(LocaleSwitcher.FULL));
 
         cboSkin = (UI.ComboBox) UI.addComponent(p, i18n("Look_and_Feel"),
                 UI.getCombo());
@@ -303,7 +302,7 @@ public class ConfigureLocal extends ASMForm {
 
     public boolean saveData() {
         // Build the output file
-        String locale = (String) cboLocale.getSelectedItem();
+        String locale = lsLocale.getSelectedLocale();
 
         if (locale.indexOf(" ") != -1) {
             locale = Global.getLocaleFromString(locale);
