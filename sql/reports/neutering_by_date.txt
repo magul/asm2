@@ -13,6 +13,7 @@ NeuteredDate, AnimalComments
 FROM animal
 WHERE Neutered = 1 AND 
 NeuteredDate BETWEEN '$ASK DATE Enter from date$' AND '$ASK DATE Enter to date$'
+ORDER BY NeuteredDate
 ###
 $$HEADER
 <table border=1><tr>
