@@ -25,6 +25,7 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.asm.ui.ui.FunctionPointer;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -218,6 +219,11 @@ public class ReportViewer extends ASMForm {
     public void setSecurity() {
     }
 
+    public void hyperlinkClicked(String target) {
+        // Open hyperlinks in another browser
+        FileTypeManager.shellExecute(target);
+    }
+
     public void actionZoomIn() {
         if (contentScale) {
             baseFontSize += 1;
@@ -274,7 +280,9 @@ public class ReportViewer extends ASMForm {
 
         add(tlbPrintTools, UI.BorderLayout.NORTH);
 
-        edOutput = UI.getHTMLBrowser();
+        edOutput = UI.getHTMLBrowser(new FunctionPointer(this,
+            "hyperlinkClicked", new Class[] { String.class }));
+
         UI.addComponent(this, edOutput);
     }
 }

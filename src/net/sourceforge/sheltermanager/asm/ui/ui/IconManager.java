@@ -752,7 +752,7 @@ public abstract class IconManager {
     public final static String BUTTON_PRINTDIARY = "diary-Print-32.png";
 
     /** Total number of splash images */
-    private final static int SPLASH_IMAGES = 19;
+    private final static int SPLASH_IMAGES = 21;
 
     /** Splash image to start at - rotate after that */
     private static int nextSplash = new Random().nextInt(SPLASH_IMAGES);

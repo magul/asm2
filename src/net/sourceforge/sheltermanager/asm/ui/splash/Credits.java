@@ -38,29 +38,33 @@ public class Credits {
         "<h2>ASM System Design, Programming and Website</h2>" +
         "<p>Robin Rawson-Tetley [robin@rawsontetley.org]</p>" +
         "<h2>Additional Design, Testing and Feedback:</h2>" + "<ul>" +
-        "<li>Adam Spencer [doctorwebbox@users.sourceforge.net]</li>" +
-        "<li>Brian Link [kiselink@users.sourceforge.net]</li>" + "</ul>" +
+        "<li>Adam Spencer [doctorwebbox@dsl.pipex.com]</li>" +
+        "<li>Brian Link [kiselink@bellsouth.net]</li>" + "</ul>" +
         "<h2>Additional Graphics:</h2>" + "<ul>" +
         "<li>David Rolfe [drolfe@users.sourceforge.net]</li>" + "</ul>" +
-        "<h2>OSX Integration/Testing</h2>" + "<ul>" +
+        "<h2>Additional Code</h2>" + "<ul>" +
         "<li>Chris Thomas [chris@cjack.com]</li>" +
         "<li>Asoka Desilva [asoka_desilva@users.sourceforge.net]</li>" +
-        "</ul>" + "<h2>Dutch Translation:</h2><ul>" +
-        "<li>Irv Elshoff [irv.elshoff@wldelft.nl]</li>" + "</ul>" +
-        "<h2>Spanish Translation:</h2><ul>" +
-        "<li>Vasco Marques [vmba@mac.com]</li>" +
-        "<li>Andres Palomares [andres.palomares@gmail.com]</li>" +
-        "<li>Ivan Garcia [capiscuas@gmail.com]</li>" + "</ul>" +
-        "<h2>French Translation:</h2><ul>" +
-        "<li>Gregory Simon [mak_greg@hotmail.com]</li>" + "</ul>" +
-        "<h2>Lithuanian, Polish and Russian Translation:</h2><ul>" +
-        "<li>Ruta Kudelyte [mycredo@gmail.com]</li>" + "</ul>" +
-        "<h2>Polish Translation:</h2><ul>" + "<li>Agnieszka Wasińska</li>" +
-        "</ul>" + "<h2>Hebrew Translation:</h2><ul>" +
-        "<li>Yaron Shahrabani</li>" + "<li>Liel Fridman</li>" +
-        "<li>Dor Dankner</li>" + "</ul>" +
+        "<li>Irv Elshoff [irv.elshoff@wldelft.nl]</li>" + 
+        "<li>David McKerlie</li>" + "</ul>" +
+        "<h2>Translations:</h2><ul>" +
+        "<li>Dutch [Irv Elshoff, Benedictus Lambrechts]</li>" +
+        "<li>Estonian [muti]</li>" +
+        "<li>French [Gregory Simon]</li>" +
+        "<li>German [Matthias, swafnil]</li>" +
+        "<li>Hebrew [Yaron Shahrabani, Liel Fridman, Dor Dankner]</li>" +
+        "<li>Italian [Davide]</li>" +
+        "<li>Lithuanian [Ruta Kudelyte]</li>" +
+        "<li>Polish [Ruta Kudelyte, Agnieszka Wasinska]</li>" +
+        "<li>Portugese [Ines Brito, Manuel Coelho]</li>" +
+        "<li>Russian [Ruta Kudelyte, roxton]</li>" +
+        "<li>Slovak [Zuzana Zelena, Priatelia Zvierat, Patolog Patologovic]</li>" +
+        "<li>Spanish [Vasco Marques, Andres Palomares, Ivan Garcia]</li>" +
+        "<li>Swedish [Miranda, Linn]</li>" +
+        "<li>Thai [Krit Marukawisutthigul]</li>" +
+        "<li>Turkish [electroweak]</li>" +
         "<h2>Other Free software used by ASM:</h2>" + "<ul>" +
-        "<li><a href=\"http://www.hqldb.org\">Hypersonic SQL DB</a></li>" +
+        "<li><a href=\"http://www.hsqldb.org\">Hypersonic SQL DB</a></li>" +
         "<li><a href=\"http://www.postgresql.org\">PostgreSQL</a></li>" +
         "<li><a href=\"http://www.mysql.com\">MySQL &amp; MySQL ConnectorJ</a></li>" +
         "<li><a href=\"http://www.openoffice.org\">OpenOffice</a></li>" +

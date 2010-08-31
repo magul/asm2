@@ -1,8 +1,8 @@
 DELETE FROM accounts;
 INSERT INTO accounts VALUES (1, 'Przychód::Datek', 'Wpływające datki(różne)', 5, 1, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (2, 'Przychód::Adopcja', 'Datki adopcyjne', 5, 2, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (3, 'Przychód:Lista_Oczekujących', 'Waiting list donations', 5, 3, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (4, 'Income::EntryDonation', 'Datki dla zwierząt trafiających do schroniska', 5, 4, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (3, 'Przychód:Lista_Oczekujących', 'Darowizny z Listy Oczekujących', 5, 3, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (4, 'Przychód::DarowiznaWejściowa', 'Datki dla zwierząt trafiających do schroniska', 5, 4, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (5, 'Przychód::Sponsor', 'Datki sponsorskie', 5, 5, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (6, 'Przychód::Sklep', 'Przychód ze sklepu', 5, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (7, 'Przychód::Oprocentowanie', 'Oprocentowanie rachunku bankowego', 5, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');

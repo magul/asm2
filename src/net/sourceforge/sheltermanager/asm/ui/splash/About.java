@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.splash;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
+import net.sourceforge.sheltermanager.asm.ui.ui.FunctionPointer;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
@@ -47,6 +48,7 @@ public class About extends ASMDialog {
     private UI.HTMLBrowser edCredits;
     private ArrayList names = new ArrayList();
     private ArrayList values = new ArrayList();
+    private final static String HOME_PAGE = "http://sheltermanager.sf.net";
 
     /** Creates new form About */
     public About() {
@@ -56,31 +58,27 @@ public class About extends ASMDialog {
         String sys = "<html><head><style>* { font-family: sans-serif; }</style></head><body>";
         sys += ("<h2>" + Global.productVersion + "</h2>");
         sys += ("<p>" + SQLRecordset.getCursorVersion() + ", " +
-        UI.getRendererName() + "");
+            UI.getRendererName() + "");
         sys += ("<p>" + Long.toString(Global.speedTest) + "ms -&gt; " +
-        DBConnection.getDBInfo() + "</p>");
+            DBConnection.getDBInfo() + "</p>");
         sys += ("<p>" + System.getProperty("java.vendor.url") + " " +
-        System.getProperty("java.version"));
+            System.getProperty("java.version"));
         sys += (" on " + System.getProperty("os.name") + " " +
-        System.getProperty("os.version"));
+            System.getProperty("os.version"));
         sys += (" (" + System.getProperty("os.arch") + ")</p>");
         sys += ("<p>" + System.getProperty("user.name") + " (" +
-        System.getProperty("user.home") + ")</p>");
+            System.getProperty("user.home") + ")</p>");
         sys += "</body></html>";
 
         // Load in the content
-        setBrowserHTML(edCredits, Credits.content);
-        setBrowserHTML(edSys, sys);
+        edCredits.setContent(Credits.content);
+        edSys.setContent(sys);
 
         // Centre ourselves
         UI.centerWindow(this);
 
         // Show ourselves
         this.setVisible(true);
-    }
-
-    private void setBrowserHTML(UI.HTMLBrowser ed, String content) {
-        ed.setContent(content);
     }
 
     public boolean windowCloseAttempt() {
@@ -105,8 +103,10 @@ public class About extends ASMDialog {
     }
 
     public void initComponents() {
-        edCredits = UI.getHTMLBrowser();
-        edSys = UI.getHTMLBrowser();
+        edCredits = UI.getHTMLBrowser(new FunctionPointer(this,
+            "hyperlinkClicked", new Class[] { String.class }));
+        edSys = UI.getHTMLBrowser(new FunctionPointer(this,
+            "hyperlinkClicked", new Class[] { String.class }));
 
         UI.Panel pCredits = UI.getPanel(UI.getBorderLayout());
         UI.Panel pSys = UI.getPanel(UI.getBorderLayout());
@@ -135,7 +135,7 @@ public class About extends ASMDialog {
 
         add(tabs, UI.BorderLayout.CENTER);
 
-        lblUrl = UI.getURLLabel("http://sheltermanager.sf.net",
+        lblUrl = UI.getURLLabel(HOME_PAGE, 
                 i18n("visit_site"), UI.fp(this, "urlClicked"));
         southPane.add(lblUrl);
 
@@ -147,6 +147,12 @@ public class About extends ASMDialog {
 
     public void urlClicked() {
         // Go to shelter manager site in external browser
-        FileTypeManager.shellExecute(lblUrl.getText());
+        FileTypeManager.shellExecute(HOME_PAGE);
     }
+
+    public void hyperlinkClicked(String target) {
+        // Open hyperlinks in another browser
+        FileTypeManager.shellExecute(target);
+    }
+
 }
