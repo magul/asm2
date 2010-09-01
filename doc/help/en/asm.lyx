@@ -191,7 +191,7 @@ Getting Started
 \align center
 \begin_inset Graphics
 	filename asm_locale.png
-	width 2in
+	width 2.5in
 
 \end_inset
 
@@ -208,8 +208,9 @@ Getting Started
 \begin_layout Standard
 The first time you start ASM, it will prompt you for your locale (a combination
  of the language you speak and the country you live in).
- ASM displays every single language/region it knows how to handle, so if
- yours isn't supported, pick the one closest.
+ Click on the locale box to have ASM display a list of every single language/reg
+ion it knows how to handle.
+ If yours isn't supported, pick the one closest.
 \end_layout
 
 \begin_layout Standard
@@ -262,6 +263,7 @@ letmein
 \end_inset
 
 .
+ If there are no animals in the database, ASM will remind you in the dialog.
 \end_layout
 
 \begin_layout Standard
@@ -294,6 +296,11 @@ Once logged in, ASM's main screen will appear.
  Across the top, a menu bar is used to navigate the system.
  Below the menu, a toolbar is available for fast access to commonly used
  options.
+\end_layout
+
+\begin_layout Standard
+By default, a startup page will show in the main pane, showing current diary
+ tasks to be performed today, and any news from the ASM website.
 \end_layout
 
 \begin_layout Standard
@@ -488,6 +495,42 @@ N
  keys (the apple key).
 \end_layout
 
+\begin_layout Standard
+There are a set of extra shortcut keys that apply to all screens when that
+ application is running (all of which have entries on the 
+\series bold
+File
+\series default
+ menu):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CTRL+R
+\series default
+ - will reload the data in a tab.
+ For find tabs it will rerun the search, for tabs with tables it will reload
+ the data in the tables, for the animal and owner tabs, it will reload the
+ data from the database, reverting any changes you have made.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CTRL+S
+\series default
+ - will save the contents of the current tab to the database.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+CTRL+W
+\series default
+ - will close the current tab.
+\end_layout
+
 \begin_layout Section
 Toolbar
 \begin_inset Index
@@ -576,8 +619,8 @@ User information (small user icon).
 \end_layout
 
 \begin_layout Itemize
-Locale information (the ISO two letter language code).
- This displays the name of the country/language ASM is set to use.
+Locale information (the ISO two letter language code and country flag).
+ This displays the the country/language ASM is set to use.
  You may right click on the icon and choose a different country/language
  to switch locales.
  Note that while the menu and toolbar will change, any screens you currently
@@ -708,9 +751,9 @@ Go to the
 \series bold
 System->Options
 \series default
- screen and enter your shelter's contact information.
- You can set various behaviours for ASM and control the format of generated
- animal codes here.
+ screen and enter your shelter's details.
+ You can set all of the systemwide behaviours for ASM and control the format
+ of generated animal codes here.
  See 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2302,7 +2345,11 @@ From Retailer
 
 \begin_layout Standard
 If you do not want to use this functionality, you can turn off the retailer
- feature under the System->Options screen.
+ feature under the 
+\series bold
+System->Options
+\series default
+ screen.
 \end_layout
 
 \begin_layout Section
@@ -3617,6 +3664,33 @@ CTRL+SHIFT+W
 \end_layout
 
 \begin_layout Standard
+Entries are colour coded according to how urgent they are (as you can see
+ in the screenshot).
+ Additionally, you can use the highlight button to mark interesting entries
+ in yellow for other staff members.
+ Each item is given a rank according to how urgent it is and how long it
+ has been on the list.
+ This can be used to tell people where they are on the waiting list.
+ The report 
+\series bold
+Reports->Stats->Average Time On Waiting List
+\series default
+ can tell you how long people are waiting on average to get their animals
+ into your shelter.
+\end_layout
+
+\begin_layout Standard
+You can effectively run separate waiting lists per species if you like (turn
+ the option on under 
+\series bold
+System->Options
+\series default
+ on the Waiting List tab) as for most shelters, whether you can take a dog
+ isn't affected by how many cats you have waiting for example.
+ With this option on, the rankings are calculated separately for each species.
+\end_layout
+
+\begin_layout Standard
 To add a new entry to the waiting list, click the new button.
  You will be presented with a waiting list entry form to complete.
  As with other screens, press the Save button at the top to save your new
@@ -4735,7 +4809,7 @@ The top few rows show animals already on the shelter for the given type
 System->Options
 \series default
  whether or not to group by type or species - note that litter figures are
- only available when grouping by species).
+ only available when grouping by species since litters do not have types).
 \end_layout
 
 \begin_layout Itemize
@@ -6750,10 +6824,22 @@ CTRL+SHIFT+L.
 
 \series default
  The main screen shows you a list of all currently active litters on the
- shelter.
+ shelter (you can optionally tick the 
+\begin_inset Quotes eld
+\end_inset
+
+Include Expired
+\begin_inset Quotes erd
+\end_inset
+
+ box to see litters that have expired and are less than 12 months old).
  A litter is deemed active whilever any of the animals who were part of
  it are still on the shelter or it has an expiry date later than today.
- If an animal is returned from adoption who was part of an expired litter,
+ 
+\end_layout
+
+\begin_layout Standard
+If an animal is returned from adoption who was part of an expired litter,
  the litter will 
 \emph on
 not be resurrected
@@ -8267,8 +8353,11 @@ A further option (Remove Unwanted Breeds and Species) on the lookups menu
 \begin_layout Standard
 ASM will show all categories of animals it currently has breed and species
  data for.
- You can simply untick the boxes for categories you are not interested in
- and hit ok.
+ You can simply 
+\series bold
+untick
+\series default
+ the boxes for categories you are not interested in and hit ok.
  You can return to this screen subsequently and any items you removed will
  disappear from the list.
 \end_layout
@@ -8415,7 +8504,22 @@ DisplayIndex: 0
 
 \begin_layout Standard
 The new field will appear under the Additional tab on the animal screen.
- You will be able to reference it in generated animal documentation with
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename asm_additional.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You will be able to reference it in generated animal documentation with
  the <<KennelCough>> key.
 \end_layout
 
@@ -8449,61 +8553,16 @@ Media Files
 \begin_layout Standard
 ASM utilises a virtual filesystem driver to store media inside the database.
  To gain access to these files, use the media interface located under 
-\begin_inset Quotes eld
-\end_inset
-
+\series bold
 System->Media Files
-\begin_inset Quotes erd
-\end_inset
-
+\series default
 .
  This interface allows you to navigate the media files and upload/download
  files and directories to and from your local filesystem.
 \end_layout
 
 \begin_layout Section
-Edit Reports
-\end_layout
-
-\begin_layout Standard
-The reports option allows you to configure base information the reports
- require for the system.
- By default these should be filled in correctly - you should never have
- to change these settings manually.
- 
-\end_layout
-
-\begin_layout Standard
-There are however, two important options at the bottom you may wish to change.
- The first 
-\begin_inset Quotes eld
-\end_inset
-
-Use Internal Report Viewer
-\begin_inset Quotes erd
-\end_inset
-
- controls whether Animal Shelter Manager uses it's own internal HTML browser
- for displaying and printing report content.
- If you switch it off, you must have a command line for an external HTML
- browser in the box underneath.
- If you experience problems with the internal viewer, then by all means
- switch it off.
- Note however that if you do use the internal viewer, you can always click
- the button to open in an external browser from that screen.
-\end_layout
-
-\begin_layout Standard
-Also, the internal viewer will be much faster to start up than an external
- browser, and integrates directly into the Animal Shelter Manager desktop.
- The internal viewer also offers scaling facilities for print that you will
- not get on an external browser (such as the ability to crunch reports to
- fit on one page, or make sure that the report uses the width of the page
- and goes no further).
-\end_layout
-
-\begin_layout Section
-Users
+Edit System Users
 \begin_inset Index
 status open
 
@@ -8524,12 +8583,15 @@ name "sec:Users"
 \end_layout
 
 \begin_layout Standard
-You may also create, edit and delete system users from here.
+You may create, edit and delete system users from here.
  It is recommended that every person who uses Animal Shelter Manager have
  their own login and user name (when a user is finished, they should navigate
- to File->Login Again to prepare the system for the next user) - simply
- to make sure that people do not get other people's work attributed to them
- on the audit trails.
+ to 
+\series bold
+File->Login Again
+\series default
+ to prepare the system for the next user) - simply to make sure that people
+ do not get other people's work attributed to them on the audit trails.
 \end_layout
 
 \begin_layout Standard
@@ -8541,8 +8603,16 @@ Whilst editing a user, you can choose absolutely everything that user may
 If you set an owner record for the user, they will be forbidden from opening
  that owner record.
  The idea is to prevent them from viewing their own record.
- You can also set the user permission to forbid them opening any staff owner
- record if you wish to lock staff from opening any staff records.
+ You can also set the user permission to forbid them opening any owner record
+ with the 
+\begin_inset Quotes eld
+\end_inset
+
+Staff
+\begin_inset Quotes erd
+\end_inset
+
+ flag if you wish to lock a user from opening any staff records.
 \end_layout
 
 \begin_layout Section
@@ -8567,8 +8637,12 @@ name "sec:System-Options"
 \end_layout
 
 \begin_layout Standard
-The main System->Options page allows configuring of the general preferences
- within Animal Shelter Manager.
+The main 
+\series bold
+System->Options
+\series default
+ page allows configuring of the general preferences within Animal Shelter
+ Manager.
  
 \end_layout
 
@@ -8681,6 +8755,8 @@ Creating donations and donation types creates matching accounts and transactions
  When you create a new donation type, or log a new donation against an owner/ani
 mal, ASM will automatically create a matching account in the accounts system
  if one does not exist, and a matching transaction.
+ It is suggested that you leave this option on, even if you have disabled
+ accounts functionality in case you wish to use it in future.
 \end_layout
 
 \begin_layout Itemize
@@ -8993,7 +9069,7 @@ Database
 \end_layout
 
 \begin_layout Standard
-This the default.
+This is the default.
  ASM will store a hashed version of a each user's password in a database
  table and prompt for a username/password on startup.
  This method is suitable for shelters where many people may use one machine
@@ -11120,6 +11196,11 @@ AnimalID - The animal's internal ID number
 \end_layout
 
 \begin_layout Itemize
+BondedWith - A list of the names and codes of animals this one is bonded
+ with
+\end_layout
+
+\begin_layout Itemize
 MicrochipNumber - The animal's microchip number
 \end_layout
 
@@ -12210,7 +12291,7 @@ The animal table holds a row for each animal on the system.
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="81" columns="3">
+<lyxtabular version="3" rows="83" columns="3">
 <features islongtable="true" headBottomDL="true">
 <column alignment="center" valignment="top" width="2in">
 <column alignment="center" valignment="top" width="1in">
@@ -12384,6 +12465,64 @@ INTEGER
 
 \begin_layout Plain Layout
 1 if the animal is a cruelty case (all 0/1 fields link to lksyesno table)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BondedAnimalID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+INTEGER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Animal ID of bonded animal 1 (or 0)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BondedAnimal2ID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+INTEGER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Animal ID of bonded animal 2 (or 0)
 \end_layout
 
 \end_inset

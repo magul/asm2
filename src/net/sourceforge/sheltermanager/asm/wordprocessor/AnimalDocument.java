@@ -124,6 +124,8 @@ public class AnimalDocument extends GenerateDocument {
                 Utils.formatDate(animal.getDateOfBirth()));
             addTag(Global.i18n("wordprocessor", "AgeGroup"),
                 animal.getAgeGroup());
+            addTag(Global.i18n("wordprocessor", "BondedWith"),
+                animal.getBondedAnimalDisplay());
             addTag(Global.i18n("wordprocessor", "EstimatedDOB"),
                 ((animal.getEstimatedDOB().intValue() == 1)
                 ? Global.i18n("uiwordprocessor", "estimated") : ""));
