@@ -36,7 +36,6 @@ import java.util.Vector;
 
 
 public class LocaleDialog extends ASMDialog {
-
     private LocaleSwitcher ls;
     private UI.Button btnCancel;
     private UI.Button btnOk;
@@ -45,7 +44,7 @@ public class LocaleDialog extends ASMDialog {
     public LocaleDialog() {
         super();
         Dialog.lastLocale = "";
-        init(Global.i18n("uierror", "select_locale"), 
+        init(Global.i18n("uierror", "select_locale"),
             IconManager.getIcon(IconManager.SCREEN_LOCALE), "uierror", false);
         show();
     }
@@ -54,6 +53,7 @@ public class LocaleDialog extends ASMDialog {
         Vector ctl = new Vector();
         ctl.add(btnOk);
         ctl.add(btnCancel);
+
         return ctl;
     }
 
@@ -65,12 +65,12 @@ public class LocaleDialog extends ASMDialog {
     }
 
     public void initComponents() {
-
         UI.Panel p = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel pb = UI.getPanel(UI.getFlowLayout());
 
-        ls = (LocaleSwitcher) UI.addComponent(p, Global.i18n("uisystem", "System_Locale:"),
-            new LocaleSwitcher(LocaleSwitcher.FULL));
+        ls = (LocaleSwitcher) UI.addComponent(p,
+                Global.i18n("uisystem", "System_Locale:"),
+                new LocaleSwitcher(LocaleSwitcher.FULL));
 
         btnOk = UI.getButton(Global.i18n("uierror", "Ok"), 'o',
                 UI.fp(this, "actionOk"));

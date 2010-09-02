@@ -627,6 +627,7 @@ public class Startup implements Runnable {
         if (Global.settings_Locale.equals("ASK")) {
             // We need to ask for the locale - set the default first
             Global.settings_Locale = "en_US";
+
             String locale = Dialog.getLocale();
 
             try {
@@ -751,11 +752,18 @@ public class Startup implements Runnable {
             // Skin
             // =========================================================
             // Default to platform native
-            String defaultskin = "1"; 
+            String defaultskin = "1";
+
             // Metal/GTK for Linux and Solaris
-            if (UI.osIsLinux() || UI.osIsSolaris()) defaultskin = "3";
+            if (UI.osIsLinux() || UI.osIsSolaris()) {
+                defaultskin = "3";
+            }
+
             // Metal for Windows
-            if (UI.osIsWindows()) defaultskin = "2"; 
+            if (UI.osIsWindows()) {
+                defaultskin = "2";
+            }
+
             int skin = Integer.parseInt(p.getProperty("Skin", defaultskin));
             Global.skin = skin;
             UI.swingSetLAF(skin);

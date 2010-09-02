@@ -123,7 +123,8 @@ public abstract class ASMForm extends JPanel {
 
     public abstract String getAuditInfo();
 
-    public void refreshData() {}
+    public void refreshData() {
+    }
 
     /** Return true to cancel the close */
     public abstract boolean formClosing();

@@ -286,9 +286,13 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public void refreshData() {
-        if (isNew) return;
-        if (formClosing() == false)
+        if (isNew) {
+            return;
+        }
+
+        if (formClosing() == false) {
             openForEdit(awl);
+        }
     }
 
     public void loadData() {

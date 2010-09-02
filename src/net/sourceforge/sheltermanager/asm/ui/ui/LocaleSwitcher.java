@@ -33,14 +33,13 @@ import javax.swing.border.*;
 
 
 /**
-  * Small component that shows the current locale with a flag 
+  * Small component that shows the current locale with a flag
   * and allows a popup menu to choose another locale
   */
 public class LocaleSwitcher extends JLabel {
-    
-    JPopupMenu pop = new JPopupMenu();
     public final static int LANG_ONLY = 0;
     public final static int FULL = 1;
+    JPopupMenu pop = new JPopupMenu();
     private int mode = LANG_ONLY;
 
     public LocaleSwitcher() {
@@ -62,9 +61,11 @@ public class LocaleSwitcher extends JLabel {
             });
 
         loadLocales();
-        String d = (mode == LANG_ONLY ? 
-            Global.getLanguage(Global.settings_Locale) : 
-            Global.getLocaleName(Global.getLanguageCountry(Global.settings_Locale)));
+
+        String d = ((mode == LANG_ONLY)
+            ? Global.getLanguage(Global.settings_Locale)
+            : Global.getLocaleName(Global.getLanguageCountry(
+                    Global.settings_Locale)));
         setText(d);
         setIcon(IconManager.getFlag(Global.settings_Locale));
         setToolTipText(Global.getLanguageCountry(Global.settings_Locale));
@@ -78,6 +79,7 @@ public class LocaleSwitcher extends JLabel {
 
             if (locales[i].equals("-")) {
                 pop.add(UI.getSeparator());
+
                 continue;
             }
 
@@ -90,11 +92,13 @@ public class LocaleSwitcher extends JLabel {
                         LocaleSwitcher.this.setIcon(IconManager.getFlag(locale));
 
                         if (mode == LANG_ONLY) {
-                            LocaleSwitcher.this.setText(Global.getLanguage(locale));
+                            LocaleSwitcher.this.setText(Global.getLanguage(
+                                    locale));
+                        } else {
+                            LocaleSwitcher.this.setText(Global.getLocaleName(
+                                    Global.getLanguageCountry(locale)));
                         }
-                        else {
-                            LocaleSwitcher.this.setText(Global.getLocaleName(Global.getLanguageCountry(locale)));
-                        }
+
                         LocaleSwitcher.this.setToolTipText(Global.getLanguageCountry(
                                 locale));
 
@@ -107,7 +111,10 @@ public class LocaleSwitcher extends JLabel {
                         // Update the product name and date/currency formats
                         Global.setProduct();
                         Global.setDateCurrencyFromLocale();
-                        if (Global.mainForm != null) Global.mainForm.reloadToolsAndMenu();
+
+                        if (Global.mainForm != null) {
+                            Global.mainForm.reloadToolsAndMenu();
+                        }
                     }
                 });
             pop.add(m);

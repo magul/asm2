@@ -281,7 +281,7 @@ public class ReportViewer extends ASMForm {
         add(tlbPrintTools, UI.BorderLayout.NORTH);
 
         edOutput = UI.getHTMLBrowser(new FunctionPointer(this,
-            "hyperlinkClicked", new Class[] { String.class }));
+                    "hyperlinkClicked", new Class[] { String.class }));
 
         UI.addComponent(this, edOutput);
     }

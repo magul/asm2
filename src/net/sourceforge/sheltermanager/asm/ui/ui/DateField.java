@@ -41,10 +41,8 @@ import javax.swing.JDialog;
  * Allows editing of date fields.
  */
 public class DateField extends UI.Panel {
-    
     DateChangedListener dateListener = null;
     private String focusText = "";
-    
     UI.TextField txt = new UI.TextField() {
             public void paste() {
                 super.paste();
@@ -104,14 +102,15 @@ public class DateField extends UI.Panel {
 
     public void updateDate(final Calendar c) {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                String s = Utils.formatDate(c);
-                txt.setText(s);
-                if (dateListener != null) {
-                    dateListener.dateChanged(s);
+                public void run() {
+                    String s = Utils.formatDate(c);
+                    txt.setText(s);
+
+                    if (dateListener != null) {
+                        dateListener.dateChanged(s);
+                    }
                 }
-            }
-        });
+            });
     }
 
     public UI.TextField getTextField() {
@@ -127,18 +126,19 @@ public class DateField extends UI.Panel {
      * Returns true if the event should be consumed
      */
     public boolean handleKeyPress(java.awt.event.KeyEvent evt) {
-        
         // Check for special hotkeys that allow us to do things
 
         // Show date picker
         if (evt.getKeyChar() == ' ') {
             showPicker();
+
             return true;
         }
 
         // Today
         if (evt.getKeyChar() == 't') {
             updateDate(new Date());
+
             return true;
         }
 
@@ -146,6 +146,7 @@ public class DateField extends UI.Panel {
         // hotkey functions
         Calendar thisdate = null;
         boolean valid = false;
+
         try {
             thisdate = Utils.dateToCalendar(Utils.parseDate(txt.getText()));
             valid = true;
@@ -154,15 +155,11 @@ public class DateField extends UI.Panel {
 
         // Consume special hotkeys if our date is invalid, but don't do
         // anything
-        if (!valid && (
-            evt.getKeyChar() == 'd' ||
-            evt.getKeyChar() == 'D' ||
-            evt.getKeyChar() == 'm' ||
-            evt.getKeyChar() == 'M' ||
-            evt.getKeyChar() == 'y' ||
-            evt.getKeyChar() == 'Y' ||
-            evt.getKeyChar() == 'b' ||
-            evt.getKeyChar() == 'e')) {
+        if (!valid &&
+                ((evt.getKeyChar() == 'd') || (evt.getKeyChar() == 'D') ||
+                (evt.getKeyChar() == 'm') || (evt.getKeyChar() == 'M') ||
+                (evt.getKeyChar() == 'y') || (evt.getKeyChar() == 'Y') ||
+                (evt.getKeyChar() == 'b') || (evt.getKeyChar() == 'e'))) {
             return true;
         }
 
@@ -170,12 +167,14 @@ public class DateField extends UI.Panel {
         if (evt.getKeyChar() == 'd') {
             thisdate.add(Calendar.DAY_OF_MONTH, 1);
             updateDate(thisdate);
+
             return true;
         }
 
         if (evt.getKeyChar() == 'D') {
             thisdate.add(Calendar.DAY_OF_MONTH, -1);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -183,12 +182,14 @@ public class DateField extends UI.Panel {
         if (evt.getKeyChar() == 'w') {
             thisdate.add(Calendar.DAY_OF_MONTH, 7);
             updateDate(thisdate);
+
             return true;
         }
 
         if (evt.getKeyChar() == 'W') {
             thisdate.add(Calendar.DAY_OF_MONTH, -7);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -196,12 +197,14 @@ public class DateField extends UI.Panel {
         if (evt.getKeyChar() == 'm') {
             thisdate.add(Calendar.MONTH, 1);
             updateDate(thisdate);
+
             return true;
         }
 
         if (evt.getKeyChar() == 'M') {
             thisdate.add(Calendar.MONTH, -1);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -209,12 +212,14 @@ public class DateField extends UI.Panel {
         if (evt.getKeyChar() == 'y') {
             thisdate.add(Calendar.YEAR, 1);
             updateDate(thisdate);
+
             return true;
         }
 
         if (evt.getKeyChar() == 'Y') {
             thisdate.add(Calendar.YEAR, -1);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -222,6 +227,7 @@ public class DateField extends UI.Panel {
         if (evt.getKeyChar() == 'b') {
             thisdate.set(Calendar.DAY_OF_MONTH, 1);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -233,6 +239,7 @@ public class DateField extends UI.Panel {
             thisdate.add(Calendar.MONTH, 1);
             thisdate.add(Calendar.DAY_OF_MONTH, -1);
             updateDate(thisdate);
+
             return true;
         }
 
@@ -262,20 +269,19 @@ public class DateField extends UI.Panel {
         }
 
         txt.addFocusListener(new java.awt.event.FocusAdapter() {
-                
                 public void focusGained(java.awt.event.FocusEvent evt) {
                     // Remember what was in the box as it got the focus
                     focusText = txt.getText();
                 }
 
                 public void focusLost(java.awt.event.FocusEvent evt) {
-        
                     // Do pivot date stuff and validate when we leave the field
                     checkDateBoundaries();
 
                     // If the date changed while we were focused, fire a change
                     // event as we leave
-                    if (dateListener != null && !txt.getText().equals(focusText)) {
+                    if ((dateListener != null) &&
+                            !txt.getText().equals(focusText)) {
                         dateListener.dateChanged(txt.getText());
                     }
                 }
@@ -372,13 +378,10 @@ public class DateField extends UI.Panel {
 
 
 class DatePicker extends JDialog {
-    
     static Color WHITE = Color.WHITE;
     static Color GRAY = new Color(230, 230, 230);
     static Color LIGHTGRAY = new Color(240, 240, 240);
-
     private static String[] cachedHeader = null;
-
     UI.Label[] btn = new UI.Label[49];
     int month = Calendar.getInstance().get(Calendar.MONTH);
     int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -428,15 +431,15 @@ class DatePicker extends JDialog {
                 btn[x].setForeground(Color.RED);
                 btn[x].setBackground(GRAY);
             }
+
             midPanel.add(btn[x]);
         }
 
         UI.Panel lowPanel = UI.getPanel(UI.getGridLayout(5));
         lowPanel.setBackground(Color.WHITE);
 
-        UI.Button prevYear = UI.getButton(null, UI.messagePreviousYear(), ' ', 
-            IconManager.getIcon(IconManager.DATEPICKER_PREVYEAR),
-            null);
+        UI.Button prevYear = UI.getButton(null, UI.messagePreviousYear(), ' ',
+                IconManager.getIcon(IconManager.DATEPICKER_PREVYEAR), null);
 
         prevYear.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -446,9 +449,8 @@ class DatePicker extends JDialog {
             });
         lowPanel.add(prevYear);
 
-        UI.Button prevMonth = UI.getButton(null, UI.messagePreviousMonth(), ' ', 
-            IconManager.getIcon(IconManager.DATEPICKER_PREVMONTH),
-            null);
+        UI.Button prevMonth = UI.getButton(null, UI.messagePreviousMonth(),
+                ' ', IconManager.getIcon(IconManager.DATEPICKER_PREVMONTH), null);
 
         prevMonth.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -458,9 +460,8 @@ class DatePicker extends JDialog {
             });
         lowPanel.add(prevMonth);
 
-        UI.Button thisMonth = UI.getButton(null, UI.messageThisMonth(), ' ', 
-            IconManager.getIcon(IconManager.DATEPICKER_THISMONTH),
-            null);
+        UI.Button thisMonth = UI.getButton(null, UI.messageThisMonth(), ' ',
+                IconManager.getIcon(IconManager.DATEPICKER_THISMONTH), null);
 
         thisMonth.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -472,9 +473,8 @@ class DatePicker extends JDialog {
             });
         lowPanel.add(thisMonth);
 
-        UI.Button nextMonth = UI.getButton(null, UI.messageNextMonth(), ' ', 
-            IconManager.getIcon(IconManager.DATEPICKER_NEXTMONTH),
-            null);
+        UI.Button nextMonth = UI.getButton(null, UI.messageNextMonth(), ' ',
+                IconManager.getIcon(IconManager.DATEPICKER_NEXTMONTH), null);
 
         nextMonth.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -484,9 +484,8 @@ class DatePicker extends JDialog {
             });
         lowPanel.add(nextMonth);
 
-        UI.Button nextYear = UI.getButton(null, UI.messageNextYear(), ' ', 
-            IconManager.getIcon(IconManager.DATEPICKER_NEXTYEAR),
-            null);
+        UI.Button nextYear = UI.getButton(null, UI.messageNextYear(), ' ',
+                IconManager.getIcon(IconManager.DATEPICKER_NEXTYEAR), null);
 
         nextYear.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -495,7 +494,6 @@ class DatePicker extends JDialog {
                 }
             });
         lowPanel.add(nextYear);
-
 
         add(midPanel, UI.BorderLayout.CENTER);
         add(lowPanel, UI.BorderLayout.SOUTH);

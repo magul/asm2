@@ -45,16 +45,13 @@ public class Credits {
         "<h2>Additional Code</h2>" + "<ul>" +
         "<li>Chris Thomas [chris@cjack.com]</li>" +
         "<li>Asoka Desilva [asoka_desilva@users.sourceforge.net]</li>" +
-        "<li>Irv Elshoff [irv.elshoff@wldelft.nl]</li>" + 
-        "<li>David McKerlie</li>" + "</ul>" +
-        "<h2>Translations:</h2><ul>" +
+        "<li>Irv Elshoff [irv.elshoff@wldelft.nl]</li>" +
+        "<li>David McKerlie</li>" + "</ul>" + "<h2>Translations:</h2><ul>" +
         "<li>Dutch [Irv Elshoff, Benedictus Lambrechts]</li>" +
-        "<li>Estonian [muti]</li>" +
-        "<li>French [Gregory Simon]</li>" +
+        "<li>Estonian [muti]</li>" + "<li>French [Gregory Simon]</li>" +
         "<li>German [Matthias, swafnil]</li>" +
         "<li>Hebrew [Yaron Shahrabani, Liel Fridman, Dor Dankner]</li>" +
-        "<li>Italian [Davide]</li>" +
-        "<li>Lithuanian [Ruta Kudelyte]</li>" +
+        "<li>Italian [Davide]</li>" + "<li>Lithuanian [Ruta Kudelyte]</li>" +
         "<li>Polish [Ruta Kudelyte, Agnieszka Wasinska]</li>" +
         "<li>Portugese [Ines Brito, Manuel Coelho]</li>" +
         "<li>Russian [Ruta Kudelyte, roxton]</li>" +

@@ -173,10 +173,11 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
 
         // Get a list count of all animals with that acceptance number
         // that are younger than 6 months
-        Integer remaining = new Integer(DBConnection.executeForInt("SELECT COUNT(*) FROM " +
-            "animal WHERE AcceptanceNumber Like '" + getAcceptanceNumber().trim() + "' " +
-            "AND Archived = 0 " +
-            "AND DateOfBirth >= '" + Utils.getSQLDate(sixmonths) + "'"));
+        Integer remaining = new Integer(DBConnection.executeForInt(
+                    "SELECT COUNT(*) FROM " +
+                    "animal WHERE AcceptanceNumber Like '" +
+                    getAcceptanceNumber().trim() + "' " + "AND Archived = 0 " +
+                    "AND DateOfBirth >= '" + Utils.getSQLDate(sixmonths) + "'"));
 
         // Update the cached value of this record. The
         // reason we do this is to speed up the procedure
@@ -195,8 +196,8 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
      */
     public static void updateLitters() throws Exception {
         AnimalLitter litters = new AnimalLitter(
-            "CachedAnimalsLeft Is Not Null AND (InvalidDate Is Null OR InvalidDate > '" +
-            Utils.getSQLDate(new Date()) + "')");
+                "CachedAnimalsLeft Is Not Null AND (InvalidDate Is Null OR InvalidDate > '" +
+                Utils.getSQLDate(new Date()) + "')");
 
         Global.logInfo(Global.i18n("bo", "updating_and_cancelling_litters"),
             "AnimalLitter.updateLitters");
@@ -204,14 +205,13 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
         int noCancelled = 0;
 
         for (AnimalLitter al : litters) {
-            
             int remaining = al.getCachedAnimalsLeft().intValue();
             int newRemaining = al.getAnimalsRemaining().intValue();
 
             // If there are now zero animals left, and there were more than zero
             // before, cancel the litter. This check ensures that new litters that
             // have not yet had animals assigned aren't cancelled.
-            if (newRemaining == 0 && remaining > 0) {
+            if ((newRemaining == 0) && (remaining > 0)) {
                 try {
                     DBConnection.executeAction(
                         "UPDATE animallitter SET InvalidDate = '" +
@@ -220,8 +220,10 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
                 } catch (Exception e) {
                     throw new CursorEngineException(e.getMessage());
                 }
+
                 noCancelled++;
             }
+
             System.out.print(".");
         }
 

@@ -104,7 +104,6 @@ public class ConfigureLocal extends ASMForm {
      * currently using and default their values into the boxes.
      */
     public void loadData() {
-
         // Skin
         cboSkin.setSelectedIndex(Global.skin);
 

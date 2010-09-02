@@ -308,11 +308,15 @@ public class CustomReportExecute extends Report {
             i = Integer.parseInt(reportID);
 
             if ((i < 0) || (i > 31)) {
-	    	Global.logError("Invalid standard report: " + reportID, "runStandardReport");
+                Global.logError("Invalid standard report: " + reportID,
+                    "runStandardReport");
+
                 return;
             }
         } catch (NumberFormatException e) {
-	    Global.logError("Invalid standard report: " + reportID, "runStandardReport");
+            Global.logError("Invalid standard report: " + reportID,
+                "runStandardReport");
+
             return;
         }
 
@@ -700,19 +704,21 @@ public class CustomReportExecute extends Report {
                 }
             }
 
-	    // Set up progress meter
+            // Set up progress meter
             setStatusBarMax(rs.size());
+
             boolean firstRecord = true;
-            Global.logInfo("Custom report found: " + rs.size() +
-                " records.", "CustomReport.generateReport");
+            Global.logInfo("Custom report found: " + rs.size() + " records.",
+                "CustomReport.generateReport");
 
             // If there aren't any records, show a no data found message,
-	    // clean up and call it a day
-	    if (rs.size() == 0) {
+            // clean up and call it a day
+            if (rs.size() == 0) {
                 addParagraph(Global.i18n("reports", "No_data"));
-		dropTemporaryTables();
-		return;
-	    }
+                dropTemporaryTables();
+
+                return;
+            }
 
             // Add header to the report
             substituteHFValues(0, cheader, rs);
@@ -991,9 +997,8 @@ public class CustomReportExecute extends Report {
             // Add the report footer
             substituteHFValues(1, cfooter, rs);
 
-	    // Drop any temporary tables
-	    dropTemporaryTables();
-
+            // Drop any temporary tables
+            dropTemporaryTables();
         } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -1008,15 +1013,14 @@ public class CustomReportExecute extends Report {
     }
 
     public void dropTemporaryTables() {
-	    // Scan the queries created - if any of them made a
-	    // temporary table, then we should drop it now:
-	    for (int i = 0; i < queries.length; i++) {
-		if (Utils.englishLower(queries[i].trim())
-			     .startsWith("create temporary")) {
-		    dropTemporaryTable(queries[i]);
-		}
-	    }
-
+        // Scan the queries created - if any of them made a
+        // temporary table, then we should drop it now:
+        for (int i = 0; i < queries.length; i++) {
+            if (Utils.englishLower(queries[i].trim())
+                         .startsWith("create temporary")) {
+                dropTemporaryTable(queries[i]);
+            }
+        }
     }
 
     public static void dropTemporaryTable(String sqlCreate) {
@@ -1547,6 +1551,7 @@ public class CustomReportExecute extends Report {
                 if (tagtype.equalsIgnoreCase("CURRENT_DATE")) {
                     replaceWith = Utils.getSQLDate(new Date());
                 }
+
                 // USER tag
                 if (tagtype.equalsIgnoreCase("USER")) {
                     replaceWith = Global.currentUserName;

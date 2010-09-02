@@ -152,10 +152,10 @@ public class AnimalAddMultiple extends ASMForm {
 
             try {
                 dtDOB.setDate(c.dtDOB.getDate());
-	    }
-	    catch (Exception e) {
-	        Global.logException(e, getClass());
-	    }
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
+
             txtName.setText(c.txtName.getText());
             cboSex.setSelectedItem(c.cboSex.getSelectedItem());
             cboType.setSelectedItem(c.cboType.getSelectedItem());
@@ -287,8 +287,7 @@ public class AnimalAddMultiple extends ASMForm {
                             "AutoLitterIdentification")
                         ? "the_litter_identifier_if_this_animal_is_part_of_a_litter"
                         : "The_animal_acceptance_number_from_head_office"),
-                    true,
-                    UI.fp(this, "actionChooseLitter"));
+                    true, UI.fp(this, "actionChooseLitter"));
 
             if (acceptanceEnabled) {
                 UI.addComponent(pextra,

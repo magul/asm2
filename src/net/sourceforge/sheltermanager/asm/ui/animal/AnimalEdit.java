@@ -301,7 +301,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.add(chkCrueltyCase);
         ctl.add(txtShelterCode.getCodeField());
 
-	if (!Configuration.getBoolean("DisableShortCodesControl")) {
+        if (!Configuration.getBoolean("DisableShortCodesControl")) {
             ctl.add(txtShelterCode.getShortCodeField());
         }
 
@@ -403,8 +403,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     public Object getDefaultFocusedComponent() {
         if (!Configuration.getBoolean("DontShowLitterID")) {
             return txtAcceptanceNumber;
-        }
-        else {
+        } else {
             return txtAnimalName;
         }
     }
@@ -622,9 +621,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void refreshData() {
-        if (isNewRecord) return;
-        if (formClosing() == false)
+        if (isNewRecord) {
+            return;
+        }
+
+        if (formClosing() == false) {
             openForEdit(animal);
+        }
     }
 
     public void setDefaults() {
@@ -1476,7 +1479,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * animal has a code.
      */
     public void checkType() {
-
         // Are we actually using type based codes?
         if (Configuration.getString("CodingFormat").indexOf("T") == -1) {
             // No, forget it
@@ -1508,8 +1510,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             selectedtype = (String) cboType.getSelectedItem();
 
             Dialog.showInformation(i18n("You_have_changed_this_animals_type_generate_a_new_one",
-                    selectedtype),
-                i18n("Generate_New_Code"));
+                    selectedtype), i18n("Generate_New_Code"));
             generateAnimalCode(animal, selectedtype);
         }
     }
@@ -1518,7 +1519,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * Called when the animal's brought in date has changed
      */
     public void checkDateBroughtIn() {
-        
         // It's a change
         dataChanged();
 
@@ -1527,6 +1527,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         if ((System.currentTimeMillis() - lastCheckedDate) <= 500) {
             return;
         }
+
         lastCheckedDate = System.currentTimeMillis();
 
         // Are we actually using the year in codes?
@@ -2329,7 +2330,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Details right pane =========================================
         UI.Panel pnlRight = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(3, new int[] { 33, 33, 34 }));
+        UI.Panel pnlRightTop = UI.getPanel(UI.getGridLayout(3,
+                    new int[] { 33, 33, 34 }));
         UI.Panel pnlRightBot = UI.getPanel(UI.getGridLayout(4));
 
         // Top panel
@@ -2890,14 +2892,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         int si = tabTabs.getSelectedIndex();
 
         switch (si) {
-        
         case TAB_DETAILS:
+
             if (!Configuration.getBoolean("DontShowLitterID")) {
                 txtAcceptanceNumber.grabFocus();
-            }
-            else {
+            } else {
                 txtAnimalName.getTextField().grabFocus();
             }
+
             break;
 
         case TAB_ENTRY:
@@ -2933,11 +2935,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     Global.logException(e, getClass());
                 }
             }
+
             txtHealthProblems.grabFocus();
+
             break;
 
         case TAB_DEATH:
             txtDateDeceased.getTextField().grabFocus();
+
             break;
 
         case TAB_VACCINATION:

@@ -957,7 +957,6 @@ public class Main extends ASMWindow {
                 new ASMAccelerator("r", "ctrl", ""),
                 UI.fp(this, "actionRefreshTab"));
 
-
         mnuFileExit = UI.getMenuItem(i18n("Exit"), 'X',
                 IconManager.getIcon(IconManager.MENU_FILEEXIT),
                 UI.fp(this, "actionFileExit"));
@@ -2354,12 +2353,13 @@ public class Main extends ASMWindow {
 
         if (f != null) {
             startThrobber();
+
             if (f instanceof ASMView) {
                 ((ASMView) f).updateList();
-            }
-            else {
+            } else {
                 f.refreshData();
             }
+
             stopThrobber();
         }
     }
@@ -2570,24 +2570,23 @@ public class Main extends ASMWindow {
     /** Starts the throbber */
     public void startThrobber() {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                thrThrob.setVisible(true);
-                pnlStatus.revalidate();
-                thrThrob.start();
-            }
-        });
+                public void run() {
+                    thrThrob.setVisible(true);
+                    pnlStatus.revalidate();
+                    thrThrob.start();
+                }
+            });
     }
 
     /** Stops the throbber */
     public void stopThrobber() {
         UI.invokeLater(new Runnable() {
-            public void run() {
-                thrThrob.setVisible(false);
-                thrThrob.stop();
-            }
-        });
+                public void run() {
+                    thrThrob.setVisible(false);
+                    thrThrob.stop();
+                }
+            });
     }
-
 
     /** Resets the status bar back to empty */
     public void resetStatusBar() {

@@ -359,17 +359,16 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a supported locale from the user */
     public static String getLocale() {
-
         // Default to American if nothing chosen
         String selected = "en_US";
 
         new LocaleDialog();
 
-        if (!lastLocale.equals(""))
+        if (!lastLocale.equals("")) {
             selected = lastLocale;
+        }
 
         return selected;
-
     }
 
     /**

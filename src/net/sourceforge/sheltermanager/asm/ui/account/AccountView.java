@@ -103,7 +103,6 @@ public class AccountView extends ASMView {
 
     public void updateListThreaded() {
         try {
-
             // Start the throbber going so the user knows we're doing
             // something
             startThrobber();

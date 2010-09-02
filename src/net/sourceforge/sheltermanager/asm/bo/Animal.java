@@ -316,14 +316,28 @@ public class Animal extends UserInfoBO<Animal> {
      * if available - if the id is already bonded, does nothing.
      */
     public void addBondedLink(Integer id) throws CursorEngineException {
-        if (getBondedAnimalID() == null) setBondedAnimalID(new Integer(0));
-        if (getBondedAnimal2ID() == null) setBondedAnimal2ID(new Integer(0));
-        if (getBondedAnimalID().equals(id)) return;
-        if (getBondedAnimal2ID().equals(id)) return;
-        if (getBondedAnimalID().intValue() == 0) {
-            setBondedAnimalID(id);
+        if (getBondedAnimalID() == null) {
+            setBondedAnimalID(new Integer(0));
+        }
+
+        if (getBondedAnimal2ID() == null) {
+            setBondedAnimal2ID(new Integer(0));
+        }
+
+        if (getBondedAnimalID().equals(id)) {
             return;
         }
+
+        if (getBondedAnimal2ID().equals(id)) {
+            return;
+        }
+
+        if (getBondedAnimalID().intValue() == 0) {
+            setBondedAnimalID(id);
+
+            return;
+        }
+
         if (getBondedAnimal2ID().intValue() == 0) {
             setBondedAnimal2ID(id);
         }

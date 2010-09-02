@@ -462,9 +462,13 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void refreshData() {
-        if (isNewRecord) return;
-        if (formClosing() == false)
+        if (isNewRecord) {
+            return;
+        }
+
+        if (formClosing() == false) {
             openForEdit(owner);
+        }
     }
 
     public void showTitle() {

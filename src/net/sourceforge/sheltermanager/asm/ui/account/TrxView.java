@@ -130,7 +130,6 @@ public class TrxView extends ASMView {
 
     public void updateListThreaded() {
         try {
-
             // Get number of trx to display
             // Obsoleted by date display instead
             /*
@@ -146,7 +145,6 @@ public class TrxView extends ASMView {
             }
             }
             */
-
             Date from = new Date();
 
             if (dtFrom.getDate() != null) {

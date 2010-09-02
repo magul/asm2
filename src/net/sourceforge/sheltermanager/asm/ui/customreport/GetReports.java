@@ -122,6 +122,7 @@ public class GetReports extends ASMView {
                 reports = new Vector();
 
                 startThrobber();
+
                 String rs = Utils.getURL(REPORTS_URL);
                 stopThrobber();
 

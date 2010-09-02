@@ -696,7 +696,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             // option is on
             if (movement.getOwnerID().intValue() != 0) {
                 if (Configuration.getBoolean("WarnOOPostcode")) {
-
                     String nopcode = movement.getOwner().getOwnerPostcode();
                     String oopcode = "";
 
@@ -707,17 +706,18 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                     }
 
                     // If there's a space in there, just take the first portion
-                    if (nopcode.length() > 0 && nopcode.indexOf(" ") != -1) {
+                    if ((nopcode.length() > 0) && (nopcode.indexOf(" ") != -1)) {
                         nopcode = nopcode.substring(0, nopcode.indexOf(" "));
                     }
-                    if (oopcode.length() > 0 && oopcode.indexOf(" ") != -1) {
+
+                    if ((oopcode.length() > 0) && (oopcode.indexOf(" ") != -1)) {
                         oopcode = oopcode.substring(0, oopcode.indexOf(" "));
                     }
 
-                    if (nopcode.equals(oopcode) && oopcode.length() > 0) {
-                            Dialog.showWarning(i18n("WARNING:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(") +
-                                oopcode.toUpperCase() + ")",
-                                i18n("Postcode_Warning"));
+                    if (nopcode.equals(oopcode) && (oopcode.length() > 0)) {
+                        Dialog.showWarning(i18n("WARNING:_The_new_owner_lives_in_the_same_postcode_as_this_\nanimal's_original_owner_(") +
+                            oopcode.toUpperCase() + ")",
+                            i18n("Postcode_Warning"));
                     }
                 }
             }
