@@ -55,6 +55,7 @@ public abstract class IconManager {
     public final static String EDIT = "actions-Edit-24.png";
     public final static String VIEW = "actions-Edit-24.png";
     public final static String CHECKOUT = "actions-Document-24.png";
+    public final static String CALENDAR = "actions-Calendar-24.png";
     public final static String SAVE = "actions-Save-24.png";
     public final static String CLONE = "actions-Copy-24.png";
     public final static String CLOSE = "actions-Close-24.png";
@@ -64,6 +65,7 @@ public abstract class IconManager {
     public final static String DELETE = "actions-Remove-24.png";
     public final static String PREVIEW = "actions-Preview-24.png";
     public final static String WEB = "actions-Web-24.png";
+    public final static String WEBSMALL = "actions-Web-16.png";
     public final static String DOCUMENT = "actions-Document-24.png";
     public final static String FOLDER = "actions-Folder-24.png";
     public final static String FOLDERNEW = "actions-FolderNew-24.png";
@@ -79,10 +81,12 @@ public abstract class IconManager {
     public final static String ANIMALLOST = "animal-Lost-24.png";
     public final static String ANIMALFOUND = "animal-Found-24.png";
     public final static String ADDITIONALFIELD = "actions-Info-24.png";
+    public final static String ADDITIONALFIELDSMALL = "actions-Info-16.png";
     public final static String DEATH = "actions-Death-24.png";
     public final static String VET = "actions-Vet-24.png";
     public final static String LOG = "actions-Log-24.png";
     public final static String VACCINATION = "actions-Vaccination-24.png";
+    public final static String VACCINATIONSMALL = "actions-Vaccination-16.png";
     public final static String LINK = "actions-Link-24.png";
     public final static String MEDICAL = "actions-Medical-24.png";
     public final static String VIDEO = "actions-Video-24.png";
@@ -90,9 +94,10 @@ public abstract class IconManager {
     public final static String MEDIA = "media-Basic-24.png";
     public final static String MEDIAADD = "media-Add-24.png";
     public final static String MEDIADELETE = "media-Delete-24.png";
-    public final static String LITTER = "actions-Litter-24.png";
-    public final static String LITTERNEW = "actions-LitterNew-24.png";
+    public final static String LITTER = "animal-Litter-24.png";
+    public final static String LITTERNEW = "animal-LitterNew-24.png";
     public final static String OWNER = "owner-Basic-24.png";
+    public final static String OWNERSMALL = "owner-Basic-16.png";
     public final static String OWNERADD = "owner-Add-24.png";
     public final static String OWNERLINK = "owner-Attached-24.png";
     public final static String OWNERSEARCH = "owner-Search-24.png";
@@ -105,6 +110,7 @@ public abstract class IconManager {
     public final static String RANDOMSMALL = "actions-Random-16.png";
     public final static String EXPORT = "actions-Export-24.png";
     public final static String REPORT = "actions-Report-24.png";
+    public final static String REPORTSMALL = "actions-Report-16.png";
     public final static String EMAIL = "actions-Email-24.png";
     public final static String LOCK = "system-Lock-24.png";
     public final static String LOCKBIG = "system-Lock-48.png";
@@ -121,21 +127,22 @@ public abstract class IconManager {
     public final static String USERS = "system-Users-24.png";
     public final static String USERSSMALL = "system-Users-16.png";
     public final static String WAITINGLIST = "actions-WaitingList-24.png";
+    public final static String WAITINGLISTSMALL = "actions-WaitingList-16.png";
     public final static String DATABASE = "system-Database-24.png";
     public final static String DATABASESMALL = "system-Database-16.png";
-    public final static String DATABASEBIG = "system-Database-64.png";
+    public final static String SQL = "system-Sql-24.png";
+    public final static String SQLSMALL = "system-Sql-16.png";
     public final static String AUDITSMALL = "actions-Document-16.png";
     public final static String UNDO = "actions-Undo-24.png";
     public final static String UP = "actions-Up-24.png";
     public final static String DOWN = "actions-Down-24.png";
     public final static String ABOUT = "actions-HelpAbout-24.png";
-    public final static String DATEPICKER = "actions-WaitingList-16.png";
+    public final static String DATEPICKER = "actions-Calendar-16.png";
     public final static String DATEPICKER_NEXTYEAR = "actions-Last-16.png";
     public final static String DATEPICKER_NEXTMONTH = "actions-Forward-16.png";
     public final static String DATEPICKER_PREVYEAR = "actions-First-16.png";
     public final static String DATEPICKER_PREVMONTH = "actions-Back-16.png";
-    public final static String DATEPICKER_THISMONTH = "actions-Today-16.png";
-
+    public final static String DATEPICKER_THISMONTH = "actions-Calendar-16.png";
     public final static String BACK = "actions-Back-24.png";
     public final static String FORWARD = "actions-Forward-24.png";
     public final static String ZOOMIN = "actions-ZoomIn-24.png";
@@ -143,6 +150,10 @@ public abstract class IconManager {
     public final static String MAP = "actions-Map-24.png";
     public final static String ACCOUNT = "accounts-Basic-24.png";
     public final static String HIGHLIGHT = "actions-Highlight-24.png";
+    public final static String UPDATE_AVAILABLE = "system-UpdateAvailable-24.png";
+    public final static String UPDATE_AVAILABLESMALL = "system-UpdateAvailable-16.png";
+    public final static String UPDATE = "system-Update-24.png";
+    public final static String UPDATESMALL = "system-Update-16.png";
 
     // Screen icons ======================================================
     // These are in package/class alphabetical order
@@ -209,7 +220,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITVACCINATIONS_OPENANIMAL = ANIMAL;
     public final static String SCREEN_EDITVACCINATIONS_MARKCOMPLETE = COMPLETE;
     public final static String SCREEN_EDITVACCINATIONS_RESCHEDULE = DIARY;
-    public final static String SCREEN_VACCINATIONBOOK = BOOK;
+    public final static String SCREEN_VACCINATIONBOOK = VACCINATION;
     public final static String SCREEN_FINDANIMAL = ANIMAL;
     public final static String SCREEN_FINDANIMAL_SEARCH = SEARCH;
     public final static String SCREEN_FINDANIMAL_OPEN = OPEN;
@@ -259,11 +270,11 @@ public abstract class IconManager {
 
     // buttons
     public final static String SCREEN_VIEWLITTERS = LITTER;
-    public final static String SCREEN_VIEWLITTERS_NEW = NEW;
+    public final static String SCREEN_VIEWLITTERS_NEW = LITTERNEW;
     public final static String SCREEN_VIEWLITTERS_EDIT = EDIT;
     public final static String SCREEN_VIEWLITTERS_DELETE = DELETE;
     public final static String SCREEN_VIEWLITTERS_REFRESH = REFRESH;
-    public final static String SCREEN_VIEWLITTERS_ANIMALS = ANIMAL;
+    public final static String SCREEN_VIEWLITTERS_ANIMALS = "animal-Search-24.png";
 
     // ANIMALNAME package
     // ==================================================================
@@ -282,7 +293,7 @@ public abstract class IconManager {
     // ================================================================
     public final static String SCREEN_EDITCUSTOMREPORT = REPORT;
     public final static String SCREEN_EDITCUSTOMREPORT_SAVE = SAVE;
-    public final static String SCREEN_EDITCUSTOMREPORT_CHECKSQL = SYSTEM;
+    public final static String SCREEN_EDITCUSTOMREPORT_CHECKSQL = SQL;
     public final static String SCREEN_EDITCUSTOMREPORT_GENERATEHTML = WEB;
     public final static String SCREEN_EXPORTCUSTOMREPORTDATA = EXPORT;
     public final static String SCREEN_EXPORTCUSTOMREPORTDATA_GENCSV = NEW;
@@ -331,8 +342,7 @@ public abstract class IconManager {
     // ERROR package
     // ====================================================================
     public final static String SCREEN_JDBCDLG = DATABASE;
-    public final static String SCREEN_JDBCDLG_DATABASE = DATABASEBIG;
-    public final static String SCREEN_LOCALE = "flags/en_GB.png";
+    public final static String SCREEN_LOCALE = "flags/en_US.png";
 
     // INTERNET package
     // ====================================================================
@@ -414,7 +424,8 @@ public abstract class IconManager {
     public final static String SCREEN_MAIN_DB = DATABASESMALL;
     public final static String SCREEN_MAIN_AUDIT = AUDITSMALL;
     public final static String SCREEN_STARTUPPAGE = ASMLOGO24;
-    public final static String SCREEN_UPDATES = ASMLOGO;
+    public final static String SCREEN_UPDATES = UPDATE_AVAILABLE;
+    public final static String SCREEN_UPDATES_ITEM = UPDATE;
 
     // MEDICAL package ====================================================
     public final static String SCREEN_EDITMEDICAL = MEDICAL;
@@ -541,17 +552,17 @@ public abstract class IconManager {
     // SYSTEM package
     // ================================================================
     public final static String SCREEN_AUTHENTICATION = USERS;
-    public final static String SCREEN_CONFIGUREADDITIONAL = SYSTEM;
+    public final static String SCREEN_CONFIGUREADDITIONAL = ADDITIONALFIELD;
     public final static String SCREEN_CONFIGUREADDITIONAL_NEW = NEW;
     public final static String SCREEN_CONFIGUREADDITIONAL_EDIT = EDIT;
     public final static String SCREEN_CONFIGUREADDITIONAL_DELETE = DELETE;
     public final static String SCREEN_CONFIGUREEMAIL = EMAIL;
     public final static String SCREEN_CONFIGUREINSURANCENUMBERS = SYSTEM;
     public final static String SCREEN_CONFIGUREDATABASE = SYSTEM;
-    public final static String SCREEN_CONFIGURELOCAL = SYSTEM;
+    public final static String SCREEN_CONFIGURELOCAL = "system-Local-24.png";
     public final static String SCREEN_CONFIGURELOOKUPS = SYSTEM;
-    public final static String SCREEN_CONFIGUREREPORTS = SYSTEM;
-    public final static String SCREEN_EDITADDITIONALFIELD = SYSTEM;
+    public final static String SCREEN_CONFIGUREREPORTS = REPORT;
+    public final static String SCREEN_EDITADDITIONALFIELD = ADDITIONALFIELD;
     public final static String SCREEN_FILETYPEEDIT = SYSTEM;
     public final static String SCREEN_FILETYPES = SYSTEM;
     public final static String SCREEN_FILETYPES_NEW = NEW;
@@ -570,7 +581,7 @@ public abstract class IconManager {
     public final static String SCREEN_OPTIONS = SYSTEM;
     public final static String SCREEN_OPTIONS_SAVE = SAVE;
     public final static String SCREEN_OPTIONS_CLOSE = CLOSE;
-    public final static String SCREEN_SQLINTERFACE = SYSTEM;
+    public final static String SCREEN_SQLINTERFACE = SQL;
     public final static String SCREEN_SQLINTERFACE_EXECUTE = CREATERETURN;
 
     // USERS package
@@ -620,13 +631,13 @@ public abstract class IconManager {
     public final static String MENU_FILEANIMAL = "animal-Basic-16.png";
     public final static String MENU_FILEANIMALADDANIMAL = "animal-Add-16.png";
     public final static String MENU_FILEANIMALFINDANIMAL = "animal-Search-16.png";
-    public final static String MENU_FILEANIMALADDWLENTRY = MENUBLANK;
-    public final static String MENU_FILEANIMALWAITINGLIST = "actions-WaitingList-16.png";
+    public final static String MENU_FILEANIMALADDWLENTRY = WAITINGLISTSMALL;
+    public final static String MENU_FILEANIMALWAITINGLIST = WAITINGLISTSMALL;
     public final static String MENU_FILEANIMALRESERVATIONBOOK = "actions-Book-16.png";
     public final static String MENU_FILEANIMALFOSTERBOOK = "actions-Book-16.png";
     public final static String MENU_FILEANIMALRETAILERBOOK = MENU_FILEANIMALFOSTERBOOK;
     public final static String MENU_FILEANIMALNOTADOPTIONBOOK = "animal-Search-16.png";
-    public final static String MENU_FILEANIMALLITTER = "actions-Litter-16.png";
+    public final static String MENU_FILEANIMALLITTER = "animal-Litter-16.png";
     public final static String MENU_FILEANIMALNAMES = "actions-Random-16.png";
     public final static String MENU_FILEOWNER = "owner-Attached-16.png";
     public final static String MENU_FILEOWNERADDOWNER = "owner-Add-16.png";
@@ -646,10 +657,10 @@ public abstract class IconManager {
     public final static String MENU_FILESAVETAB = "actions-Save-16.png";
     public final static String MENU_FILEREFRESHTAB = "actions-Refresh-16.png";
     public final static String MENU_FILEEXIT = QUITSMALL;
-    public final static String MENU_DIARYPRINTVACC = "actions-Medical-16.png";
-    public final static String MENU_DIARYPVALLANIMALS = "animal-Basic-16.png";
-    public final static String MENU_DIARYPVONSHELTER = MENUBLANK;
-    public final static String MENU_DIARYPVOFFSHELTER = MENUBLANK;
+    public final static String MENU_DIARYPRINTVACC = "actions-Vaccination-16.png";
+    public final static String MENU_DIARYPVALLANIMALS = ANIMALSMALL;
+    public final static String MENU_DIARYPVONSHELTER = ANIMALSMALL;
+    public final static String MENU_DIARYPVOFFSHELTER = OWNERSMALL;
     public final static String MENU_DIARYPVBOOK = "actions-Book-16.png";
     public final static String MENU_DIARYMEDICAL = "actions-Medical-16.png";
     public final static String MENU_DIARYMEDICALDIARYPRINT = "diary-Print-16.png";
@@ -676,9 +687,9 @@ public abstract class IconManager {
     public final static String MENU_LOOKUPSSPECIES = MENUBLANK;
     public final static String MENU_LOOKUPSVACCINATIONTYPES = MENUBLANK;
     public final static String MENU_LOOKUPSVOUCHERS = MENUBLANK;
-    public final static String MENU_LOOKUPSREMOVEBREEDS = MENUBLANK;
+    public final static String MENU_LOOKUPSREMOVEBREEDS = ANIMALSMALL;
     public final static String MENU_SYSTEMAUTOINSURANCE = MENUBLANK;
-    public final static String MENU_SYSTEMCONFIGUREADDITIONAL = MENUBLANK;
+    public final static String MENU_SYSTEMCONFIGUREADDITIONAL = ADDITIONALFIELDSMALL;
     public final static String MENU_SYSTEMEDITREPORTS = "actions-Report-16.png";
     public final static String MENU_SYSTEMMEDIAFILES = "media-Basic-16.png";
     public final static String MENU_SYSTEMEXPORTCUSTOMREPORTS = "actions-Export-16.png";
@@ -686,14 +697,14 @@ public abstract class IconManager {
     public final static String MENU_SYSTEMEMAIL = "actions-Email-16.png";
     public final static String MENU_SYSTEMUSERS = "system-Users-16.png";
     public final static String MENU_SYSTEMDATABASETOOLS = "system-Database-16.png";
-    public final static String MENU_SYSTEMDBUPDATE = "actions-Refresh-16.png";
-    public final static String MENU_SYSTEMDBDIAGNOSTIC = "system-Database-16.png";
+    public final static String MENU_SYSTEMDBUPDATE = SQLSMALL;
+    public final static String MENU_SYSTEMDBDIAGNOSTIC = "animal-Basic-16.png";
     public final static String MENU_SYSTEMDBCONFIGURE = "system-Basic-16.png";
     public final static String MENU_SYSTEMDBCOPY = "actions-Copy-16.png";
-    public final static String MENU_SYSTEMDBARCHIVE = "system-Database-16.png";
+    public final static String MENU_SYSTEMDBARCHIVE = "animal-Basic-16.png";
     public final static String MENU_SYSTEMDBIMPORT = "actions-Export-16.png";
     public final static String MENU_SYSTEMDBPFIMPORT = "actions-Export-16.png";
-    public final static String MENU_SYSTEMDBSQL = "system-Database-16.png";
+    public final static String MENU_SYSTEMDBSQL = SQLSMALL;
     public final static String MENU_SYSTEMAUTHENTICATION = "system-Users-16.png";
     public final static String MENU_SYSTEMOPTIONS = "system-Basic-16.png";
     public final static String MENU_INTERNETPUBLISHAVAILABLE = "actions-Web-16.png";
@@ -720,17 +731,17 @@ public abstract class IconManager {
     public final static String MENU_PREFERENCESCALLGC = "actions-Refresh-16.png";
     public final static String MENU_PREFERENCESFILETYPES = "actions-Document-16.png";
     public final static String MENU_PREFERENCESSWITCHDATABASE = "system-Database-16.png";
-    public final static String MENU_PREFERENCESSETTINGS = "system-Basic-16.png";
+    public final static String MENU_PREFERENCESSETTINGS = "system-Local-16.png";
     public final static String MENU_HELPCONTENTS = "actions-Help-16.png";
     public final static String MENU_HELPCONTENTSPDF = "actions-Help-16.png";
-    public final static String MENU_HELPLICENCE = MENUBLANK;
-    public final static String MENU_HELPCHECKUPDATES = MENUBLANK;
-    public final static String MENU_HELPCREDITS = MENUBLANK;
-    public final static String MENU_HELPERRORLOG = MENUBLANK;
-    public final static String MENU_HELPDONATE = MENUBLANK;
-    public final static String MENU_HELPASKQUESTION = MENUBLANK;
-    public final static String MENU_HELPREPORTBUG = MENUBLANK;
-    public final static String MENU_HELPTRANSLATE = MENUBLANK;
+    public final static String MENU_HELPLICENCE = WEBSMALL;
+    public final static String MENU_HELPCHECKUPDATES = UPDATE_AVAILABLESMALL;
+    public final static String MENU_HELPCREDITS = WEBSMALL;
+    public final static String MENU_HELPERRORLOG = "dialog-Warning-16.png";
+    public final static String MENU_HELPDONATE = WEBSMALL;
+    public final static String MENU_HELPASKQUESTION = WEBSMALL;
+    public final static String MENU_HELPREPORTBUG = WEBSMALL;
+    public final static String MENU_HELPTRANSLATE = WEBSMALL;
     public final static String MENU_HELPABOUT = "actions-HelpAbout-16.png";
 
     // Toolbar ================================================================

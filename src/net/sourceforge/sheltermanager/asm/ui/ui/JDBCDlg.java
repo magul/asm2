@@ -116,11 +116,6 @@ public class JDBCDlg extends ASMDialog {
         add(p, UI.BorderLayout.CENTER);
         add(pb, UI.BorderLayout.SOUTH);
 
-        // Put a database icon down the side
-        UI.Label pic = UI.getLabel(IconManager.getIcon(
-                    IconManager.SCREEN_JDBCDLG_DATABASE));
-        add(pic, UI.isLTR() ? UI.BorderLayout.WEST : UI.BorderLayout.EAST);
-
         setSize(450, 240);
         getRootPane().setDefaultButton(btnOk);
 

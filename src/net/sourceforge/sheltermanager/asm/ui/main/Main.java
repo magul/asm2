@@ -717,7 +717,7 @@ public class Main extends ASMWindow {
             mnuReports.add(UI.getSeparator());
 
             UI.MenuItem mnu = UI.getMenuItem(i18n("Get_more_reports"), 'g',
-                    IconManager.getIcon(IconManager.MENU_REPORT),
+                    IconManager.getIcon(IconManager.REPORTSMALL),
                     UI.fp(this, "actionGetMoreReports"));
             mnuReports.add(mnu);
 
@@ -973,7 +973,7 @@ public class Main extends ASMWindow {
                 UI.fp(this, "actionDiaryPVAllAnimals"));
 
         mnuDiaryPVOnShelter = UI.getMenuItem(i18n("Animals_On_The_Shelter"),
-                'O', IconManager.getIcon(IconManager.MENU_DIARYPVALLANIMALS),
+                'O', IconManager.getIcon(IconManager.MENU_DIARYPVONSHELTER),
                 new ASMAccelerator("5", "ctrl", "shift"),
                 UI.fp(this, "actionDiaryPVOnShelter"));
 

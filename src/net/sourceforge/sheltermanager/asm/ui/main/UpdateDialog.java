@@ -76,9 +76,9 @@ public class UpdateDialog extends ASMDialog {
         for (int i = 0; i < updates.size(); i++) {
             UpdateEntry e = (UpdateEntry) updates.get(i);
             UI.Panel x = UI.getPanel(UI.getFlowLayout(true));
-            x.add(UI.getLabel(e.date + ": " + e.text + " - "),
-                UI.BorderLayout.CENTER);
-            x.add(UI.getURLLabel(e.urltext, e.url, e.url), UI.BorderLayout.EAST);
+            x.add(UI.getLabel(IconManager.getIcon(IconManager.SCREEN_UPDATES_ITEM)));
+            x.add(UI.getLabel(e.date + ": " + e.text + " - "));
+            x.add(UI.getURLLabel(e.urltext, e.url, e.url));
             p.add(x);
         }
 

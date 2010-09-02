@@ -12141,9 +12141,6 @@ ASM.
 \end_layout
 
 \begin_layout LyX-Code
-\begin_inset Quotes eld
-\end_inset
-
 C:
 \backslash
 Program Files
@@ -12154,11 +12151,7 @@ Java
 \backslash
 bin
 \backslash
-java.exe
-\begin_inset Quotes erd
-\end_inset
-
- -Dasm.log.debug=true -cp (etc.)
+java.exe -Dasm.log.debug=true -cp (etc.)
 \end_layout
 
 \begin_layout Standard
@@ -12168,7 +12161,7 @@ For Linux/Unix, you'll need to edit the run.sh bash script in the asm directory
 
 \begin_layout Standard
 For MacOSX, you'll need to use the terminal application and edit the asm
- script in /Applications/ASM.app/Content/MacOS
+ script in ASM.app/Content/MacOS
 \end_layout
 
 \begin_layout Standard
