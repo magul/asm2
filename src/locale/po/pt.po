@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-08-29 09:33+0100\n"
-"PO-Revision-Date: 2010-08-30 15:27+0000\n"
-"Last-Translator: Manuel Coelho <Unknown>\n"
+"PO-Revision-Date: 2010-08-31 13:39+0000\n"
+"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-31 04:05+0000\n"
+"X-Launchpad-Export-Date: 2010-09-01 04:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -5284,7 +5284,7 @@ msgstr "Animais de longo termo (no Canil há 3 ou mais meses) em {0} "
 #. # reports/LongTermAnimals
 #: There_are_no_long_term_animals_on_the_shelter.
 msgid "There are no long term animals on the shelter."
-msgstr ""
+msgstr "Não existem animais de longo termo no Canil"
 
 #. # reports/InOut
 #: Animals_Adopted
@@ -5389,7 +5389,7 @@ msgstr "Animais Transferidos"
 #. # reports/InOut
 #: Date_Reclaimed
 msgid "Date Reclaimed"
-msgstr ""
+msgstr "Relamado em"
 
 #. # reports/InOut
 #: Returned_Date
@@ -7965,13 +7965,13 @@ msgstr "Número de tatuagem"
 #. # wordprocessor/AnimalDocument
 #: FLVResult
 msgid "FLV Result"
-msgstr ""
+msgstr "Resultado FLV"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: FIVResult
 msgid "FIV Result"
-msgstr ""
+msgstr "Resultado FIV"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
@@ -8296,30 +8296,31 @@ msgstr ""
 #. # ui/animal/MediaSelector
 #: edit_media_in_application
 msgid "Edit this media in its associated application"
-msgstr ""
+msgstr "Editar esta mídia na sua aplicação associada"
 
 #. # ui/ui/DBFSBrowser
 #. # ui/animal/MediaSelector
 #: upload_back_to_server
 msgid ""
 "Would you like to upload your changes to this media file back to the server?"
-msgstr ""
+msgstr "Deseja efectuar o upload das alterações da mídia para o servidor?"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: special_needs
 msgid "Special Needs?"
-msgstr ""
+msgstr "Necessidades Especiais?"
 
 #. # ui/animal/AnimalEdit
 #: special_needs_tooltip
 msgid "Tick this box if the animal has special needs"
-msgstr ""
+msgstr "Seleccione esta caixa se o animal tem necessidades especiais"
 
 #. # ui/animal/AnimalEdit
 #: Copy_animal_comments_to_web_media_notes
 msgid "Copy animal comments to the notes field of the animal's web media"
 msgstr ""
+"Copiar os comentários do animal para o campo de notas do animal na mídia web"
 
 #. # ui/animal/AnimalEdit
 #: A_short_version_of_the_code
@@ -8341,17 +8342,19 @@ msgid ""
 "You have changed the type and the code previously generated no longer "
 "matches. ASM will generate a new code for animal type ({0}) instead."
 msgstr ""
+"Você modificou o tipo e o código gerado previamente já não corresponde. ASM "
+"irá gerar novo código para o tipo de animal ({0})."
 
 #. # ui/animal/AnimalFind
 #. # ui/animal/VaccinationView
 #: include_deceased
 msgid "Include Deceased"
-msgstr ""
+msgstr "Incluir falecidos"
 
 #. # ui/animal/VaccinationView
 #: include_off_shelter
 msgid "Include Off Shelter"
-msgstr ""
+msgstr "Incluir fora do canil"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/owner/OwnerEdit
@@ -8387,13 +8390,13 @@ msgstr ""
 #. # ui/animal/AnimalEdit
 #: If_the_animal_is_a_cross_the_second_breed
 msgid "If this animal is a crossbreed, the secondary breed"
-msgstr ""
+msgstr "Se o animal é de raça cruzada, a raça secundária"
 
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
 #: search_term_bad
 msgid "Your search term must be at least 2 letters long."
-msgstr ""
+msgstr "O seu termo de procura deve ao menos ter 2 letras"
 
 #. # ui/owner/OwnerFindText
 #. # ui/animal/AnimalFindText
@@ -8411,61 +8414,62 @@ msgstr "Simples"
 #. # reports/AnimalPrint
 #: Coat_Type
 msgid "Coat Type:"
-msgstr ""
+msgstr "Tipo de pelagem"
 
 #. # ui/animal/AnimalEdit
 #: The_animals_coat_type
 msgid "The animal's coat type"
-msgstr ""
+msgstr "O tipo de pelagem do animal"
 
 #. # ui/animal/AnimalEdit
 #: Cruelty_case
 msgid "Cruelty case"
-msgstr ""
+msgstr "Caso de crueldade"
 
 #. # ui/animal/AnimalEdit
 #: tick_this_box_if_this_animal_is_a_cruelty_case
 msgid "Tick this box if this animal is a cruelty case"
-msgstr ""
+msgstr "Selecione esta caixa se o animal é um caso de crueldade"
 
 #. # ui/owner/LinkSelector
 #. # ui/animal/AnimalEdit
 #: Current_Vet
 msgid "Current Vet:"
-msgstr ""
+msgstr "Vet Actual:"
 
 #. # ui/animal/AnimalEdit
 #: Estimate
 msgid "Estimate"
-msgstr ""
+msgstr "Estimar"
 
 #. # ui/animal/AnimalEdit
 #: is_this_date_of_birth_an_estimate
 msgid "Tick this box if this date of birth is an estimate"
-msgstr ""
+msgstr "Seleccione esta caixa se a data de nascimento é estimada"
 
 #. # ui/ui/UI
 #: Permission_Denied_Save
 msgid "You do not have permission to save this record."
-msgstr ""
+msgstr "Não tem permissões para gravar este registo"
 
 #. # ui/ui/DBFSBrowser
 #. # ui/animal/MediaSelector
 #: hit_ok_when_finished
 msgid ""
 "Click OK when you have finished making your changes and saved the file."
-msgstr ""
+msgstr "Clique OK quando acabar de fazer as alterações e gravar o ficheiro"
 
 #. # ui/animal/LitterView
 #: Expires
 msgid "Expires:"
-msgstr ""
+msgstr "Expira:"
 
 #. # ui/animal/VaccinationView
 #. # ui/animal/VaccinationSelector
 #: complete_and_reschedule_selected_vaccinations
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr ""
+"Complete e recalendarize as vacinações seleccionadas para o próximo ano"
 
 #. # ui/users/UserEdit
 #. # ui/owner/OwnerEdit
@@ -8474,7 +8478,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Donations
 msgid "Donations"
-msgstr ""
+msgstr "Donativos"
 
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8483,17 +8487,17 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Cost\:
 msgid "Cost:"
-msgstr ""
+msgstr "Custo:"
 
 #. # ui/animal/MediaSelector
 #: Doc_Preferred
 msgid "Doc Preferred"
-msgstr ""
+msgstr "Doc Preferido"
 
 #. # ui/animal/MediaSelector
 #: Mark_this_media_as_preferred_for_use_with_documents
 msgid "Mark this media as preferred for use with documents"
-msgstr ""
+msgstr "Marque esta mídia como preferida para osar com documentos"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
@@ -8501,55 +8505,55 @@ msgstr ""
 #: Costs
 #: costs
 msgid "Costs"
-msgstr ""
+msgstr "Custos"
 
 #. # ui/animal/CostSelector
 #: Create_new_cost
 msgid "Create new cost"
-msgstr ""
+msgstr "Criar um novo custo"
 
 #. # ui/animal/CostSelector
 #: Edit_this_cost
 msgid "Edit this cost"
-msgstr ""
+msgstr "Editar este custo"
 
 #. # ui/animal/CostSelector
 #: Delete_this_cost
 msgid "Delete this cost"
-msgstr ""
+msgstr "Apagar este custo"
 
 #. # ui/animal/CostSelector
 #: daily_board_cost
 msgid "Daily Board Cost:"
-msgstr ""
+msgstr "Custo diário de alimentação"
 
 #. # ui/animal/CostSelector
 #: The_daily_cost_food_and_board
 msgid "The daily cost of food and board for this animal"
-msgstr ""
+msgstr "Custo diário de alimentação para este animal"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
 #: On_shelter_days_total_cost
 msgid "On shelter for {0} days. Total cost: {1}"
-msgstr ""
+msgstr "No canil {0} dias. Custo toal: {1}"
 
 #. # ui/animal/CostEdit
 #: New_Cost
 msgid "New Cost"
-msgstr ""
+msgstr "Novo custo"
 
 #. # ui/animal/CostEdit
 #: Edit_Cost
 msgid "Edit Cost"
-msgstr ""
+msgstr "Editar custo"
 
 #. # ui/animal/CostSelector
 #. # bo/AccountTrx
 #. # reports/AnimalPrint
 #: Amount
 msgid "Amount"
-msgstr ""
+msgstr "Montante"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
@@ -8557,18 +8561,19 @@ msgstr ""
 msgid ""
 "Vaccinations: {0}, Medical Treatments: {1}, Costs: {2}, Total Costs: {3}"
 msgstr ""
+"Vacinações: {0}, Tratamento Médicos: {1}, Custos: {2}, Total de Custos: {3}"
 
 #. # ui/animal/CostSelector
 #. # reports/AnimalPrint
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
-msgstr ""
+msgstr "Total de Doações: {0}, Balanço: {1}"
 
 #. # ui/animal/LitterView
 #. # ui/animal/LitterEdit
 #: Number_in_litter
 msgid "Number in litter:"
-msgstr ""
+msgstr "Número na ninhada"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
