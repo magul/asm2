@@ -176,7 +176,8 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
         Integer remaining = new Integer(DBConnection.executeForInt(
                     "SELECT COUNT(*) FROM " +
                     "animal WHERE AcceptanceNumber Like '" +
-                    getAcceptanceNumber().trim() + "' " + "AND Archived = 0 " +
+                    getAcceptanceNumber().replace('\'', '`') + "' " + 
+                    "AND Archived = 0 " +
                     "AND DateOfBirth >= '" + Utils.getSQLDate(sixmonths) + "'"));
 
         // Update the cached value of this record. The
