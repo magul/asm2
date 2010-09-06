@@ -212,25 +212,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
                 } else {
                     row.set(0, av.getAnimal().getCode());
                     row.set(1, av.getAnimal().getAnimalName());
-
-                    // If the option is set, either show internal location
-                    // or logical location if the animal is not on the shelter
-                    if (Configuration.getBoolean("ShowILOffShelter")) {
-                        // Get animal's logical location
-                        String logicallocation = av.getAnimal()
-                                                   .getAnimalLocationAtDateByName(new Date());
-
-                        // If it is on the shelter, show the internal location
-                        if (logicallocation.equals(i18n("On_Shelter"))) {
-                            row.set(2, av.getAnimal().getShelterLocationName());
-                        } else {
-                            // Otherwise show the logical location
-                            row.set(2, "[" + logicallocation + "]");
-                        }
-                    } else {
-                        // Option is not set - show internal location
-                        row.set(2, av.getAnimal().getShelterLocationName());
-                    }
+                    row.set(2, av.getAnimal().getLocation());
                 }
 
                 row.set(3, av.getVaccinationTypeName());

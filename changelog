@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Age field sorts by date of birth on find animal screens now (David McKerlie)
+*. Refactored internal/logical location display to Animal.getLocation
+-  and Animal.getDisplayLocation
 *. Fixed bug that can cause ASM not to start if an animal litter has an
 -  apostrophe in the Litter ID
 

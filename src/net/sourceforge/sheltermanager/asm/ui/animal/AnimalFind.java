@@ -1008,7 +1008,7 @@ public class AnimalFind extends ASMFind {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) animal.getRecordCount()][14];
+        String[][] datar = new String[(int) animal.getRecordCount()][15];
 
         // Initialise the progress meter
         initStatusBarMax((int) animal.getRecordCount());
@@ -1016,41 +1016,13 @@ public class AnimalFind extends ASMFind {
         int i = 0;
 
         while (!animal.getEOF()) {
-            // Add this animal record to the table data
             try {
                 datar[i][0] = (String) animal.getField("AnimalName");
-
-                if (Global.getShowShortCodes()) {
-                    datar[i][1] = (String) animal.getField("ShortCode");
-                } else {
-                    datar[i][1] = (String) animal.getField("ShelterCode");
-                }
-
-                // If the option is set, either show internal location
-                // or logical location if the animal is not on the shelter
-                if (Configuration.getBoolean("ShowILOffShelter")) {
-                    // Get animal's logical location
-                    String logicallocation = Animal.fastGetAnimalLocationNowByName((Integer) animal.getField(
-                                "NonShelterAnimal"),
-                            (Integer) animal.getField("ActiveMovementID"),
-                            (Integer) animal.getField("ActiveMovementType"),
-                            (Date) animal.getField("DeceasedDate"));
-
-                    // If it is on the shelter, show the internal location
-                    if (logicallocation.equals(Global.i18n("uianimal",
-                                    "On_Shelter"))) {
-                        datar[i][2] = LookupCache.getInternalLocationName((Integer) animal.getField(
-                                    "ShelterLocation"));
-                    } else {
-                        // Otherwise show the logical location
-                        datar[i][2] = "[" + logicallocation + "]";
-                    }
-                } else {
-                    // Option is not set - show internal location
-                    datar[i][2] = LookupCache.getInternalLocationName((Integer) animal.getField(
-                                "ShelterLocation"));
-                }
-
+                datar[i][1] = Animal.getAnimalCode(animal.getString("ShelterCode"), animal.getString("ShortCode"));
+                datar[i][2] = Animal.getDisplayLocation(
+                    animal.getInteger("ShelterLocation"), animal.getInteger("NonShelterAnimal"),
+                    animal.getInteger("ActiveMovementID"), animal.getInteger("ActiveMovementType"),
+                    animal.getDate("DeceasedDate"));
                 datar[i][3] = LookupCache.getSpeciesName((Integer) animal.getField(
                             "SpeciesID"));
                 datar[i][4] = (String) animal.getField("BreedName");
@@ -1058,7 +1030,7 @@ public class AnimalFind extends ASMFind {
                             "Sex"));
                 datar[i][6] = Animal.getAge((Date) animal.getField(
                             "DateOfBirth"),
-                        (Date) animal.getField("DeceasedDate"));
+                            (Date) animal.getField("DeceasedDate"));
                 datar[i][7] = LookupCache.getSizeNameForID((Integer) animal.getField(
                             "Size"));
                 datar[i][8] = LookupCache.getBaseColourName((Integer) animal.getField(
@@ -1076,12 +1048,12 @@ public class AnimalFind extends ASMFind {
                         (Date) animal.getField("DeceasedDate"),
                         (Integer) animal.getField("HasActiveReserve"),
                         (Integer) animal.getField("ActiveMovementType"));
+                datar[i][14] = Utils.formatTableDate(animal.getDate("DateOfBirth"));
                 i++;
             } catch (Exception e) {
                 Global.logException(e, getClass());
             }
 
-            // Next record
             try {
                 animal.moveNext();
             } catch (Exception e) {
@@ -1090,10 +1062,24 @@ public class AnimalFind extends ASMFind {
             incrementStatusBar();
         }
 
-        setTableData(columnheaders, datar, i, 14, 12);
+        getTable().setSortModel(new AnimalFind.AnimalFindSortable());
+        setTableData(columnheaders, datar, i, 15, 12);
 
         animal.free();
         animal = null;
         UI.cursorToPointer();
+    }
+
+    /** Allows the age column to be sorted by date of birth instead */
+    private class AnimalFindSortable extends SortableTableModel {
+        @Override
+        public int sortByColumnCompare(int col, int idx, String[][] dat) {
+          int compared;
+          if (col != 6)
+            compared = dat[idx][col].compareToIgnoreCase(dat[idx+1][col]);
+          else
+            compared = dat[idx+1][14].compareToIgnoreCase(dat[idx][14]);
+          return compared;
+        }
     }
 }

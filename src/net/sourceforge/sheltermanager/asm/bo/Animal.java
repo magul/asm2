@@ -474,8 +474,47 @@ public class Animal extends UserInfoBO<Animal> {
         rs.setField("ShortCode", newValue);
     }
 
+    public static String getAnimalCode(String sheltercode, String shortcode) {
+        return Global.getShowShortCodes() ? shortcode : sheltercode;
+    }
+
     public String getCode() throws CursorEngineException {
-        return Global.getShowShortCodes() ? getShortCode() : getShelterCode();
+        return getAnimalCode(getShelterCode(), getShortCode());
+    }
+
+    public static String getDisplayLocation(Integer locationid,
+        Integer nonshelter, Integer movementid, Integer movementtype,
+        Date deceased) throws CursorEngineException {
+
+        String displayLocation = "";
+        if (Configuration.getBoolean("ShowILOffShelter")) {
+            
+            // Get animal's logical location
+            String logicallocation = Animal.fastGetAnimalLocationNowByName(
+                nonshelter, 
+                movementid,
+                movementtype,
+                deceased);
+                
+            // If it is on the shelter, show the internal location
+            if (logicallocation.equals(Global.i18n("uianimal",
+                "On_Shelter"))) {
+                    displayLocation = LookupCache.getInternalLocationName(locationid);
+            } else { 
+                // Otherwise show the logical location
+                displayLocation = "[" + logicallocation + "]";
+            }
+        } else {
+            // Option is not set - show internal location
+            displayLocation = LookupCache.getInternalLocationName(locationid);
+        }
+        return displayLocation;
+    }
+
+    public String getLocation() throws CursorEngineException {
+        return Animal.getDisplayLocation(getShelterLocation(),
+            getNonShelterAnimal(), getActiveMovementID(),
+            getActiveMovementType(), getDeceasedDate());
     }
 
     public Integer getYearCodeID() throws CursorEngineException {
