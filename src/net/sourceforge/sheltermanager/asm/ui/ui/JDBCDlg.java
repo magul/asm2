@@ -188,9 +188,8 @@ public class JDBCDlg extends ASMDialog {
             r.free();
             r = null;
         } catch (Exception e) {
-            String msg = Global.i18n("db", "asmdatastructuremissing",
-                    Global.dataDirectory + File.separator + "sql");
-            Dialog.showError(msg, Global.i18n("db", "couldntconnect"));
+            String msg = "ASM data structure was not found in the target database.";
+            Dialog.showError(msg);
             Global.logException(e, JDBCDlg.class);
 
             return;

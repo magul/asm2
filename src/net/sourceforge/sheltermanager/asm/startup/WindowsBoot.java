@@ -66,10 +66,7 @@ public class WindowsBoot {
             "lib\\hsqldb.jar\" ");
 
         // Bootclass
-        s.append("net.sourceforge.sheltermanager.asm.startup.Startup ");
-
-        // Data dir
-        s.append(" \"" + d + "data" + "\"");
+        s.append("net.sourceforge.sheltermanager.asm.startup.Startup");
 
         // Fire it off
         try {

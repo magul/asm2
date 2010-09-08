@@ -227,7 +227,6 @@ public class Main extends ASMWindow {
     private UI.Menu mnuHelp;
     private UI.MenuItem mnuHelpAbout;
     private UI.MenuItem mnuHelpContents;
-    private UI.MenuItem mnuHelpContentsPDF;
     private UI.MenuItem mnuHelpCredits;
     private UI.MenuItem mnuHelpCheckUpdates;
     private UI.MenuItem mnuHelpErrorLog;
@@ -645,7 +644,6 @@ public class Main extends ASMWindow {
 
         // Disable things we can't do in applet mode
         this.mnuPreferencesSwitchDatabase.setVisible(!Startup.applet);
-        this.mnuHelpContentsPDF.setVisible(!Startup.applet);
         this.mnuHelpCheckUpdates.setVisible(!Startup.applet);
     }
 
@@ -1274,10 +1272,6 @@ public class Main extends ASMWindow {
                 new ASMAccelerator("f1", "", ""),
                 UI.fp(this, "actionHelpContents"));
 
-        mnuHelpContentsPDF = UI.getMenuItem(i18n("Contents_PDF"), 'p',
-                IconManager.getIcon(IconManager.MENU_HELPCONTENTSPDF),
-                UI.fp(this, "actionHelpContentsPDF"));
-
         mnuHelpLicence = UI.getMenuItem(i18n("Licence"), 'l',
                 IconManager.getIcon(IconManager.MENU_HELPLICENCE),
                 UI.fp(this, "actionHelpLicence"));
@@ -1518,7 +1512,6 @@ public class Main extends ASMWindow {
         mnuMenu.add(mnuPreferences);
 
         mnuHelp.add(mnuHelpContents);
-        mnuHelp.add(mnuHelpContentsPDF);
         mnuHelp.add(UI.getSeparator());
         mnuHelp.add(mnuHelpLicence);
         mnuHelp.add(mnuHelpCredits);
@@ -2042,13 +2035,6 @@ public class Main extends ASMWindow {
         addChild(new NamesView());
     }
 
-    public void actionHelpContentsPDF() {
-        cursorToWait();
-        FileTypeManager.shellExecute(Global.dataDirectory + File.separator +
-            "asm_en.pdf");
-        cursorToPointer();
-    }
-
     public void actionDiaryPVBook() {
         cursorToWait();
         new VaccinationView();
@@ -2121,16 +2107,7 @@ public class Main extends ASMWindow {
 
     public void actionHelpContents() {
         cursorToWait();
-
-        String h = "file:///" + Global.dataDirectory + File.separator +
-            "help_en" + File.separator + "asm.html";
-
-        // Use online help in applet mode
-        if (Startup.applet) {
-            h = "http://sheltermanager.sf.net/help/";
-        }
-
-        addChild(new HTMLViewer(h));
+        addChild(new HTMLViewer("http://sheltermanager.sf.net/help/"));
     }
 
     public void actionPreferencesLocalCache() {

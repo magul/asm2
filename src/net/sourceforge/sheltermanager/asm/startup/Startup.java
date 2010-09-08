@@ -126,44 +126,6 @@ public class Startup implements Runnable {
 
             String tempDir = System.getProperty("user.home") + File.separator +
                 ".asm";
-            String dataDir = "";
-
-            // Applet assumes nothing needed from data directory
-            // as it will all be in the database
-            if (!applet) {
-                // No arguments specified - we need our data directory
-                if (args.length == 0) {
-                    Dialog.showError(
-                        "ASM requires a path to the data directory to be passed.");
-                    Global.logError("ASM requires a path to the data directory to be passed.",
-                        "Startup");
-                    terminateVM(1);
-                }
-
-                // We have a data directory
-                if (args.length == 1) {
-                    dataDir = args[0];
-                }
-
-                // This is an old style start script which has JDBC URL then
-                // temp (data) directory. Use the 2nd argument as the temp directory
-                if (args.length == 2) {
-                    dataDir = args[1];
-                }
-
-                // Set the data folder, making sure it doesn't end with a path separator
-                if (dataDir.endsWith(File.separator)) {
-                    Global.dataDirectory = dataDir.substring(0,
-                            dataDir.length() - 1);
-                } else {
-                    Global.dataDirectory = dataDir;
-                }
-
-                // Somehow, some Windows boxes end up with a superfluous quotation
-                // mark that screws things up:
-                Global.dataDirectory = Utils.replace(Global.dataDirectory,
-                        "\"", "");
-            }
 
             // Assign the global temp directory
             Global.tempDirectory = tempDir;
@@ -298,8 +260,7 @@ public class Startup implements Runnable {
                 Global.logInfo("Found what looks to be a valid ASM database.",
                     "Startup.Startup");
             } catch (Exception e) {
-                String msg = Global.i18n("db", "asmdatastructuremissing",
-                        Global.dataDirectory + File.separator + "sql");
+                String msg = "ASM data structure was not found in the target database.";
                 Dialog.showError(msg);
                 Global.logError(msg, "Startup.Startup");
                 clearLock();
@@ -470,10 +431,163 @@ public class Startup implements Runnable {
      */
     public void checkMedia() {
         if (DBFS.isEmpty()) {
-            Global.logInfo("You do not have a DBFS, I'm going to import the default.",
-                "Startup.checkMedia");
-            DBFS.importFromFileSystem(new File(Global.dataDirectory +
-                    File.separator + "media"));
+            try {
+                Global.logInfo("You do not have a DBFS, creating the default.",
+                    "Startup.checkMedia");
+
+                DBFS d = new DBFS();
+                d.mkdir("reports");
+                d.chdir("reports");
+                d.putResource("/media/reports/head.dat");
+                d.putResource("/media/reports/foot.dat");
+
+                d.chdir("..");
+                d.mkdir("templates");
+                d.chdir("templates");
+                d.putResource("/media/templates/placeholder.jpg");
+                d.mkdir("en_GB");
+                d.chdir("en_GB");
+                d.putResource("/media/templates/en_GB/adoption_form.abw");
+                d.putResource("/media/templates/en_GB/adoption_form.docx");
+                d.putResource("/media/templates/en_GB/adoption_form.html");
+                d.putResource("/media/templates/en_GB/adoption_form.odt");
+                d.putResource("/media/templates/en_GB/adoption_form.rtf");
+                d.putResource("/media/templates/en_GB/cat_assessment_form.abw");
+                d.putResource("/media/templates/en_GB/cat_assessment_form.docx");
+                d.putResource("/media/templates/en_GB/cat_assessment_form.html");
+                d.putResource("/media/templates/en_GB/cat_assessment_form.odt");
+                d.putResource("/media/templates/en_GB/cat_assessment_form.rtf");
+                d.putResource("/media/templates/en_GB/cat_cage_card.abw");
+                d.putResource("/media/templates/en_GB/cat_cage_card.docx");
+                d.putResource("/media/templates/en_GB/cat_cage_card.html");
+                d.putResource("/media/templates/en_GB/cat_cage_card.odt");
+                d.putResource("/media/templates/en_GB/cat_cage_card.rtf");
+                d.putResource("/media/templates/en_GB/cat_information.abw");
+                d.putResource("/media/templates/en_GB/cat_information.docx");
+                d.putResource("/media/templates/en_GB/cat_information.html");
+                d.putResource("/media/templates/en_GB/cat_information.odt");
+                d.putResource("/media/templates/en_GB/cat_information.rtf");
+                d.putResource("/media/templates/en_GB/dog_assessment_form.abw");
+                d.putResource("/media/templates/en_GB/dog_assessment_form.docx");
+                d.putResource("/media/templates/en_GB/dog_assessment_form.html");
+                d.putResource("/media/templates/en_GB/dog_assessment_form.odt");
+                d.putResource("/media/templates/en_GB/dog_assessment_form.rtf");
+                d.putResource("/media/templates/en_GB/dog_cage_card.abw");
+                d.putResource("/media/templates/en_GB/dog_cage_card.docx");
+                d.putResource("/media/templates/en_GB/dog_cage_card.html");
+                d.putResource("/media/templates/en_GB/dog_cage_card.odt");
+                d.putResource("/media/templates/en_GB/dog_cage_card.rtf");
+                d.putResource("/media/templates/en_GB/dog_information.abw");
+                d.putResource("/media/templates/en_GB/dog_information.docx");
+                d.putResource("/media/templates/en_GB/dog_information.html");
+                d.putResource("/media/templates/en_GB/dog_information.odt");
+                d.putResource("/media/templates/en_GB/dog_information.rtf");
+                d.putResource("/media/templates/en_GB/homecheck_form.abw");
+                d.putResource("/media/templates/en_GB/homecheck_form.docx");
+                d.putResource("/media/templates/en_GB/homecheck_form.html");
+                d.putResource("/media/templates/en_GB/homecheck_form.odt");
+                d.putResource("/media/templates/en_GB/homecheck_form.rtf");
+                d.putResource("/media/templates/en_GB/microchip_form.abw");
+                d.putResource("/media/templates/en_GB/microchip_form.docx");
+                d.putResource("/media/templates/en_GB/microchip_form.html");
+                d.putResource("/media/templates/en_GB/microchip_form.odt");
+                d.putResource("/media/templates/en_GB/microchip_form.rtf");
+                d.putResource("/media/templates/en_GB/reserved.abw");
+                d.putResource("/media/templates/en_GB/reserved.docx");
+                d.putResource("/media/templates/en_GB/reserved.html");
+                d.putResource("/media/templates/en_GB/reserved.odt");
+                d.putResource("/media/templates/en_GB/reserved.rtf");
+                d.chdir("..");
+                d.mkdir("en_US");
+                d.chdir("en_US");
+                d.putResource("/media/templates/en_US/adoption_form.abw");
+                d.putResource("/media/templates/en_US/adoption_form.docx");
+                d.putResource("/media/templates/en_US/adoption_form.html");
+                d.putResource("/media/templates/en_US/adoption_form.odt");
+                d.putResource("/media/templates/en_US/adoption_form.rtf");
+                d.putResource("/media/templates/en_US/cat_assessment_form.abw");
+                d.putResource("/media/templates/en_US/cat_assessment_form.docx");
+                d.putResource("/media/templates/en_US/cat_assessment_form.html");
+                d.putResource("/media/templates/en_US/cat_assessment_form.odt");
+                d.putResource("/media/templates/en_US/cat_assessment_form.rtf");
+                d.putResource("/media/templates/en_US/cat_cage_card.abw");
+                d.putResource("/media/templates/en_US/cat_cage_card.docx");
+                d.putResource("/media/templates/en_US/cat_cage_card.html");
+                d.putResource("/media/templates/en_US/cat_cage_card.odt");
+                d.putResource("/media/templates/en_US/cat_cage_card.rtf");
+                d.putResource("/media/templates/en_US/cat_information.abw");
+                d.putResource("/media/templates/en_US/cat_information.docx");
+                d.putResource("/media/templates/en_US/cat_information.html");
+                d.putResource("/media/templates/en_US/cat_information.odt");
+                d.putResource("/media/templates/en_US/cat_information.rtf");
+                d.putResource("/media/templates/en_US/dog_assessment_form.abw");
+                d.putResource("/media/templates/en_US/dog_assessment_form.docx");
+                d.putResource("/media/templates/en_US/dog_assessment_form.html");
+                d.putResource("/media/templates/en_US/dog_assessment_form.odt");
+                d.putResource("/media/templates/en_US/dog_assessment_form.rtf");
+                d.putResource("/media/templates/en_US/dog_cage_card.abw");
+                d.putResource("/media/templates/en_US/dog_cage_card.docx");
+                d.putResource("/media/templates/en_US/dog_cage_card.html");
+                d.putResource("/media/templates/en_US/dog_cage_card.odt");
+                d.putResource("/media/templates/en_US/dog_cage_card.rtf");
+                d.putResource("/media/templates/en_US/dog_information.abw");
+                d.putResource("/media/templates/en_US/dog_information.docx");
+                d.putResource("/media/templates/en_US/dog_information.html");
+                d.putResource("/media/templates/en_US/dog_information.odt");
+                d.putResource("/media/templates/en_US/dog_information.rtf");
+                d.putResource("/media/templates/en_US/homecheck_form.abw");
+                d.putResource("/media/templates/en_US/homecheck_form.docx");
+                d.putResource("/media/templates/en_US/homecheck_form.html");
+                d.putResource("/media/templates/en_US/homecheck_form.odt");
+                d.putResource("/media/templates/en_US/homecheck_form.rtf");
+                d.putResource("/media/templates/en_US/microchip_form.abw");
+                d.putResource("/media/templates/en_US/microchip_form.docx");
+                d.putResource("/media/templates/en_US/microchip_form.html");
+                d.putResource("/media/templates/en_US/microchip_form.odt");
+                d.putResource("/media/templates/en_US/microchip_form.rtf");
+                d.putResource("/media/templates/en_US/reserved.abw");
+                d.putResource("/media/templates/en_US/reserved.docx");
+                d.putResource("/media/templates/en_US/reserved.html");
+                d.putResource("/media/templates/en_US/reserved.odt");
+                d.putResource("/media/templates/en_US/reserved.rtf");
+                d.chdir("..");
+                d.chdir("..");
+                d.mkdir("internet");
+                d.chdir("internet");
+                d.mkdir("plain");
+                d.chdir("plain");
+                d.putResource("/media/internet/plain/pib.dat");
+                d.putResource("/media/internet/plain/pif.dat");
+                d.putResource("/media/internet/plain/pih.dat");
+                d.putResource("/media/internet/plain/redirector.html");
+                d.putResource("/media/internet/plain/search.html");
+                d.chdir("..");
+                d.mkdir("rss");
+                d.chdir("rss");
+                d.putResource("/media/internet/rss/pib.dat");
+                d.putResource("/media/internet/rss/pif.dat");
+                d.putResource("/media/internet/rss/pih.dat");
+                d.chdir("..");
+                d.mkdir("sm.com");
+                d.chdir("sm.com");
+                d.putResource("/media/internet/sm.com/pib.dat");
+                d.putResource("/media/internet/sm.com/pif.dat");
+                d.putResource("/media/internet/sm.com/pih.dat");
+                d.putResource("/media/internet/sm.com/back1.png");
+                d.putResource("/media/internet/sm.com/cat_no.png");
+                d.putResource("/media/internet/sm.com/cat.png");
+                d.putResource("/media/internet/sm.com/dog_no.png");
+                d.putResource("/media/internet/sm.com/dog.png");
+                d.putResource("/media/internet/sm.com/housetrained.png");
+                d.putResource("/media/internet/sm.com/kids_no.png");
+                d.putResource("/media/internet/sm.com/kids.png");
+                d.putResource("/media/internet/sm.com/neutered.png");
+                d.putResource("/media/internet/sm.com/new.png");
+                d.putResource("/media/internet/sm.com/updated.png");
+                d.putResource("/media/internet/sm.com/vaccinated.png");
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
         } else {
             Global.logDebug("DBFS found.", "Startup.checkMedia");
         }

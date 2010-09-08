@@ -66,6 +66,27 @@
 			</fileset>
 		</copy>
 
+                <!-- Copy the sql files from the base -->
+                <copy todir="bin/asmswing/sql">
+                        <fileset dir="sql">
+                                <include name="*.sql" />
+                        </fileset>
+                </copy>
+
+                <!-- Copy the media files from the base -->
+                <copy todir="bin/asmswing/media">
+                        <fileset dir="media">
+                                <include name="**/*.png" />
+                                <include name="**/*.dat" />
+                                <include name="**/*.html" />
+                                <include name="**/*.odt" />
+                                <include name="**/*.docx" />
+                                <include name="**/*.abw" />
+                                <include name="**/*.rtf" />
+                                <include name="**/*.jpg" />
+                        </fileset>
+                </copy>
+
 		<!-- Build the asm.jar file from asmswing -->
 		<jar jarfile="build/asm.jar" basedir="bin/asmswing">
 			<manifest>

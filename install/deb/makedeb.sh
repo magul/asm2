@@ -30,14 +30,11 @@ cp ../../lib/*.jar sheltermanager/usr/share/asm/lib -f
 #echo "Updating ASM in image..."
 cp ../../build/asm.jar sheltermanager/usr/share/asm/asm.jar -f
 
-# Update help 
-#echo "Updating help and media files in image..."
+# Update sql 
+#echo "Updating sql files in image..."
 rm sheltermanager/usr/share/asm/data -rf
 mkdir sheltermanager/usr/share/asm/data
 mkdir sheltermanager/usr/share/asm/data/sql
-cp ../../doc/help/en/build/*.pdf sheltermanager/usr/share/asm/data/ -f
-cp ../../doc/help/en/help* sheltermanager/usr/share/asm/data/ -rf
-cp ../../media sheltermanager/usr/share/asm/data/ -rf
 cp ../../sql/*.sql sheltermanager/usr/share/asm/data/sql/ -rf
 cp menu/sheltermanager sheltermanager/usr/share/menu
 
@@ -52,7 +49,7 @@ Section: contrib
 Priority: optional
 Architecture: all
 Essential: no
-Depends: menu, sun-java6-jre
+Depends: menu, openjdk-6-jre
 Suggests: openoffice.org-writer
 Installed-Size: `du -s -k sheltermanager | awk '{print$1}'`
 Maintainer: Robin Rawson-Tetley [robin@rawsontetley.org]

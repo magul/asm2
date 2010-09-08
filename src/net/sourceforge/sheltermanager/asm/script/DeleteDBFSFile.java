@@ -41,15 +41,15 @@ import java.io.File;
 public class DeleteDBFSFile {
     public DeleteDBFSFile(String[] args) {
         try {
-            if (args.length < 4) {
+            if (args.length < 3) {
                 Global.setUsingLog(true);
                 Global.logError("Command requires DBFS path and DBFS file/directory.",
                     "DeleteDBFSFile");
                 System.exit(1);
             }
 
-            String dir = args[2];
-            String file = args[3];
+            String dir = args[1];
+            String file = args[2];
 
             // Go to the directory given
             DBFS dbfs = new DBFS();

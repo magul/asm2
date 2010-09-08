@@ -68,9 +68,6 @@ public abstract class Global {
     /** Path to user's ASM temporary directory */
     public static String tempDirectory = "";
 
-    /** Path to the ASM data directory */
-    public static String dataDirectory = "";
-
     /** Path to log file */
     public static String logFile = "";
 

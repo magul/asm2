@@ -42,7 +42,7 @@ public class ScriptParser {
 
     public ScriptParser(String[] args) {
         // Make sure we have a command
-        if (args.length < 2) {
+        if (args.length == 0) {
             System.err.println(Startup.usage);
             System.exit(1);
         }
@@ -51,47 +51,47 @@ public class ScriptParser {
         // handler to use:
 
         // Publish to the web
-        if (args[1].equalsIgnoreCase("publishwww")) {
+        if (args[0].equalsIgnoreCase("publishwww")) {
             new PublishWWW(args);
         }
         // Publish to PetFinder
-        else if (args[1].equalsIgnoreCase("publishpf")) {
+        else if (args[0].equalsIgnoreCase("publishpf")) {
             new PublishPF(args);
         }
         // Publish to 1-800-Save-A-Pet
-        else if (args[1].equalsIgnoreCase("publish1800sap") ||
-                args[1].equalsIgnoreCase("publishadoptapet")) {
+        else if (args[0].equalsIgnoreCase("publish1800sap") ||
+                args[0].equalsIgnoreCase("publishadoptapet")) {
             new PublishSaveAPet(args);
         }
         // Publish to Pets911
-        else if (args[1].equalsIgnoreCase("publishpets911")) {
+        else if (args[0].equalsIgnoreCase("publishpets911")) {
             new PublishPets911(args);
         }
         // Publish to RescueGroups
-        else if (args[1].equalsIgnoreCase("publishrescuegroups")) {
+        else if (args[0].equalsIgnoreCase("publishrescuegroups")) {
             new PublishRescueGroups(args);
         }
         // Run a report by it's title
-        else if (args[1].equalsIgnoreCase("runreport")) {
+        else if (args[0].equalsIgnoreCase("runreport")) {
             new RunReport(args);
         }
         // Get a file by media id
-        else if (args[1].equalsIgnoreCase("getmediafile")) {
+        else if (args[0].equalsIgnoreCase("getmediafile")) {
             new GetMediaFile(args);
         }
         // Get a DBFS file/directory
-        else if (args[1].equalsIgnoreCase("dbfsdownload")) {
+        else if (args[0].equalsIgnoreCase("dbfsdownload")) {
             new GetDBFSFile(args);
         }
         // Store a DBFS file/directory
-        else if (args[1].equalsIgnoreCase("dbfsupload")) {
+        else if (args[0].equalsIgnoreCase("dbfsupload")) {
             new PutDBFSFile(args);
         }
         // Delete a DBFS file/directory
-        else if (args[1].equalsIgnoreCase("dbfsdelete")) {
+        else if (args[0].equalsIgnoreCase("dbfsdelete")) {
             new DeleteDBFSFile(args);
         } else {
-            System.err.println("Unrecognised command: " + args[1]);
+            System.err.println("Unrecognised command: " + args[0]);
         }
     }
 }

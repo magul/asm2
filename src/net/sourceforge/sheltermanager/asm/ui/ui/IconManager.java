@@ -733,7 +733,6 @@ public abstract class IconManager {
     public final static String MENU_PREFERENCESSWITCHDATABASE = "system-Database-16.png";
     public final static String MENU_PREFERENCESSETTINGS = "system-Local-16.png";
     public final static String MENU_HELPCONTENTS = "actions-Help-16.png";
-    public final static String MENU_HELPCONTENTSPDF = "actions-Help-16.png";
     public final static String MENU_HELPLICENCE = WEBSMALL;
     public final static String MENU_HELPCHECKUPDATES = UPDATE_AVAILABLESMALL;
     public final static String MENU_HELPCREDITS = WEBSMALL;

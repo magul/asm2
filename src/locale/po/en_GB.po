@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-09-01 09:52+0000\n"
+"PO-Revision-Date: 2010-09-07 09:25+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -212,8 +212,6 @@ msgid "Adopted"
 msgstr "Adopted"
 
 #. # reports/AnimalFigures
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # bo/AnimalLost
 #. # bo/Animal
@@ -3959,8 +3957,8 @@ msgstr "Can't Copy"
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
-"from the {0} file in {1}. Select Yes if you have already done this, "
-"otherwise select No to cancel the copy."
+"from the {0} file. Select Yes if you have already done this, otherwise "
+"select No to cancel the copy."
 msgstr ""
 
 #. # db/DatabaseCopier
@@ -4035,15 +4033,6 @@ msgstr "Couldn't Connect"
 #: scan
 msgid "Scan"
 msgstr "Scan"
-
-#. # ui/ui/JDBCDlg
-#. # startup/Startup
-#: asmdatastructuremissing
-msgid ""
-"ASM could not find its data structure in the database specfied. If you are "
-"using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-"{0} directory first."
-msgstr ""
 
 #. # ui/ui/JDBCDlg
 #: database
@@ -8074,7 +8063,6 @@ msgstr "Diet Information"
 #. # db/DatabaseCopier
 #. # wordprocessor/GenerateDocument
 #. # bo/Media
-#. # startup/Startup
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/waitinglist/WaitingListEdit
@@ -10577,11 +10565,6 @@ msgstr "Add an Owner"
 msgid "&Add Found Animal"
 msgstr "&Add Found Animal"
 
-#. # ui/main/Main
-#: Contents_PDF
-msgid "Contents (&Printable PDF)"
-msgstr "Contents (&Printable PDF)"
-
 #. # ui/animalname/NamesView
 #. # ui/main/Main
 #: Animal_Name_Database
@@ -13077,11 +13060,7 @@ msgid "Allow ASM clients to update the database if it is older than them."
 msgstr "Allow ASM clients to update the database if it is older than them."
 
 #. # reports/CustomReportExecute
-#. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # db/LocateDatabase
-#. # db/DatabaseCopier
-#. # startup/Startup
 #: sql
 msgid "SQL"
 msgstr "SQL"

@@ -1,6 +1,13 @@
 2.8.1
 ================
 
+*. Added JNLP build since we no longer need data directory
+*. Removed OpenOffice 1.x templates as it's ancient now
+*. Use the online manual for all to cut down on installer size and 
+-  simplify installers
+*. Include sql and media in the JAR file, use those when creating new
+-  databases and the DBFS to ease deployment and remove the need for the
+-  data directory altogether
 *. Age field sorts by date of birth on find animal screens now (David McKerlie)
 *. Refactored internal/logical location display to Animal.getLocation
 -  and Animal.getDisplayLocation

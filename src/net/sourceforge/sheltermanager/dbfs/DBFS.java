@@ -299,6 +299,8 @@ public class DBFS {
     public void putFile(String file, String localfilename)
         throws DBFSException {
         try {
+            Global.logDebug(localfilename + " -> " + file, "DBFS.putFile");
+
             // Try to delete any file of that name first
             deleteFile(file);
 
@@ -339,6 +341,32 @@ public class DBFS {
             rs.setField("ID", new Integer(DBConnection.getPrimaryKey("dbfs")));
             rs.setField("Path", currentPath);
             rs.setField("Name", f.getName());
+            rs.setField("Content", contents);
+            rs.save(false, "");
+
+            contents = null;
+            rs.free();
+            rs = null;
+        } catch (Exception e) {
+            throw new DBFSException(e);
+        }
+    }
+
+    /**
+     * Uploads a java resource to the current directory
+     * @param s A path for getResource
+     */
+    public void putResource(String s) throws DBFSException {
+        try {
+            Global.logDebug(s, "DBFS.putResource");
+
+            String contents = new String(Base64.encode(getBytesFromResource(s)));
+            SQLRecordset rs = new SQLRecordset();
+            rs.openRecordset("SELECT * FROM dbfs WHERE ID=0", "dbfs");
+            rs.addNew();
+            rs.setField("ID", new Integer(DBConnection.getPrimaryKey("dbfs")));
+            rs.setField("Path", currentPath);
+            rs.setField("Name", s.substring(s.lastIndexOf("/") + 1));
             rs.setField("Content", contents);
             rs.save(false, "");
 
@@ -428,6 +456,11 @@ public class DBFS {
      */
     public void chdir(String dir) throws DBFSException {
         dir = dir.trim();
+
+        // Go to root
+        if (dir.equals("/")) {
+            setCurrentPath(dir);
+        }
 
         // Absolute paths
         if (dir.startsWith("/")) {
@@ -726,5 +759,29 @@ public class DBFS {
         is.close();
 
         return bytes;
+    }
+
+    /**
+     * Reads a resource and returns it as a byte array
+     *
+     * @param s name of the classpath resource
+     * @return
+     * @throws IOException
+     */
+    public static byte[] getBytesFromResource(String s)
+        throws IOException {
+        InputStream in = DBFS.class.getResourceAsStream(s);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
+        byte[] buffer = new byte[1024];
+        int len;
+
+        while ((len = in.read(buffer)) >= 0)
+            out.write(buffer, 0, len);
+
+        in.close();
+        out.close();
+
+        return out.toByteArray();
     }
 }

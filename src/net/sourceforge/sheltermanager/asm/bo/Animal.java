@@ -485,22 +485,17 @@ public class Animal extends UserInfoBO<Animal> {
     public static String getDisplayLocation(Integer locationid,
         Integer nonshelter, Integer movementid, Integer movementtype,
         Date deceased) throws CursorEngineException {
-
         String displayLocation = "";
+
         if (Configuration.getBoolean("ShowILOffShelter")) {
-            
             // Get animal's logical location
-            String logicallocation = Animal.fastGetAnimalLocationNowByName(
-                nonshelter, 
-                movementid,
-                movementtype,
-                deceased);
-                
+            String logicallocation = Animal.fastGetAnimalLocationNowByName(nonshelter,
+                    movementid, movementtype, deceased);
+
             // If it is on the shelter, show the internal location
-            if (logicallocation.equals(Global.i18n("uianimal",
-                "On_Shelter"))) {
-                    displayLocation = LookupCache.getInternalLocationName(locationid);
-            } else { 
+            if (logicallocation.equals(Global.i18n("uianimal", "On_Shelter"))) {
+                displayLocation = LookupCache.getInternalLocationName(locationid);
+            } else {
                 // Otherwise show the logical location
                 displayLocation = "[" + logicallocation + "]";
             }
@@ -508,6 +503,7 @@ public class Animal extends UserInfoBO<Animal> {
             // Option is not set - show internal location
             displayLocation = LookupCache.getInternalLocationName(locationid);
         }
+
         return displayLocation;
     }
 

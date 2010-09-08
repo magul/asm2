@@ -30,8 +30,10 @@ package net.sourceforge.sheltermanager.cursorengine;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 import java.sql.*;
 
@@ -372,6 +374,12 @@ public abstract class DBConnection {
         executeFile(con, f);
     }
 
+    public synchronized static void executeResource(String s)
+        throws Exception {
+        getConnection();
+        executeResource(con, s);
+    }
+
     /**
      * Executes a sum query and returns a double of the result
      * @param sql
@@ -507,7 +515,44 @@ public abstract class DBConnection {
         FileInputStream in = new FileInputStream(f);
         in.read(b);
         in.close();
+        executeBatchFile(c, b);
+    }
 
+    /**
+     * Reads a java resource file and executes it
+     *
+     * @param c The connection
+     * @param s name of the classpath resource
+     * @return
+     * @throws IOException
+     */
+    public synchronized static void executeResource(Connection c, String s)
+        throws Exception {
+        InputStream in = DBConnection.class.getResourceAsStream(s);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
+        byte[] buffer = new byte[1024];
+        int len;
+
+        while ((len = in.read(buffer)) >= 0)
+            out.write(buffer, 0, len);
+
+        in.close();
+        out.close();
+
+        getConnection();
+        executeBatchFile(con, out.toByteArray());
+    }
+
+    /**
+     * Executes a byte array containing file contents against the db
+     *
+     * @param c
+     * @param b
+     * @throws Exception
+     */
+    public synchronized static void executeBatchFile(Connection c, byte[] b)
+        throws Exception {
         // Interpret the file 
         String s = new String(b, Global.CHAR_ENCODING);
 
@@ -517,7 +562,7 @@ public abstract class DBConnection {
         if (s.indexOf("\\u") != -1) {
             Global.logDebug("Found ASCII unicode escape sequences in " +
                 Global.CHAR_ENCODING + " data, substituting",
-                "DBConnection.executeFile");
+                "DBConnection.executeBatchFile");
             s = Utils.unescapeUnicode(s);
         }
 
@@ -530,13 +575,13 @@ public abstract class DBConnection {
         // testing that the first byte is > 127 and outside ascii range)
         if (b[0] < 0) {
             Global.logDebug("Found Unicode Byte-Order-Marker, skipping",
-                "DBConnection.executeFile");
+                "DBConnection.executeBatchFile");
             be++;
         }
 
         while (true) {
             String sql = s.substring(be, en).trim();
-            Global.logDebug("FileQuery: " + sql, "DBConnection.executeFile");
+            Global.logDebug("FileQuery: " + sql, "DBConnection.executeBatchFile");
             executeAction(c, sql);
 
             be = en + 1;

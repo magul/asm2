@@ -98,31 +98,18 @@ lbl_data:
   File ..\..\sql\translate_sv.sql
   File ..\..\sql\translate_th.sql
   File ..\..\sql\translate_tr.sql
-  SetOutPath $INSTDIR\data
-  File ..\..\build\asm_en.pdf
-  File ..\..\build\manual_html_en.zip
-  File media.zip
-  File unzip.exe
-  File zip.exe
-  
-  ; Unpack media and manual
-  nsisunz::UnzipToLog "$INSTDIR\data\manual_html_en.zip" "$INSTDIR\data"
-  nsisunz::UnzipToLog "$INSTDIR\data\media.zip" "$INSTDIR\data"
-  Delete "$INSTDIR\data\manual_html_en.zip"
-  Delete "$INSTDIR\data\media.zip"
 
   ; Write batch files
   SetOutPath $INSTDIR
 
   ; Main launcher from batch file
   FileOpen $FH "$INSTDIR\asm.bat" w
-  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup "$INSTDIR\data"'
+  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup'
   FileClose $FH
-
 
   ; Command line interface
   FileOpen $FH "$INSTDIR\asmcmd.bat" w
-  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.script.Startup "$INSTDIR\data" %1 %2 %3 %4 %5 %6 %7 %8 %9'
+  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.script.Startup %1 %2 %3 %4 %5 %6 %7 %8 %9'
   FileClose $FH
 
   ; Write the uninstaller, since the installer always insists on

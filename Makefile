@@ -14,6 +14,7 @@
 #	jar:		Compiles ASM and makes asm.jar
 #	applet:		Makes a signed asm-applet.jar from asm.jar
 #       pgapplet:       Makes a signed asm-applet.jar with just postgres
+#       jnlp:           Makes a signed asm-jnlp.jar from asm.jar
 #	source:		Builds a source tarball
 #	deb:		Builds an x86 Debian package
 #	rpm:		Builds an x86 RPM package
@@ -62,6 +63,11 @@ jar:	init
 applet:	jar
 	@echo "[applet] =========================="
 	scripts/makesignedapplet.sh
+
+jnlp:	jar
+	@echo "[jnlp] =========================="
+	scripts/makesignedjnlp.sh
+	scp build/*jnlp* root@rawsoaa2.miniserver.com:/var/www/sheltermanager.com/jnlp
 
 pgapplet: jar
 	@echo "[pgapplet] ========================"

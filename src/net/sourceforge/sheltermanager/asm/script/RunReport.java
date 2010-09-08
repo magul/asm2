@@ -42,7 +42,7 @@ import net.sourceforge.sheltermanager.asm.reports.CustomReportExecute;
 public class RunReport {
     public RunReport(String[] args) {
         try {
-            if (args.length < 2) {
+            if (args.length < 1) {
                 Global.setUsingLog(true);
                 Global.logError("No report name specified.",
                     "RunReport.RunReport");
@@ -50,7 +50,7 @@ public class RunReport {
             }
 
             CustomReport cr = new CustomReport();
-            cr.openRecordset("Title Like '%" + args[2] + "%'");
+            cr.openRecordset("Title Like '%" + args[1] + "%'");
 
             if (cr.getEOF()) {
                 Global.setUsingLog(true);

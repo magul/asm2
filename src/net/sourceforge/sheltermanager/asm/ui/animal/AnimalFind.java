@@ -1018,11 +1018,14 @@ public class AnimalFind extends ASMFind {
         while (!animal.getEOF()) {
             try {
                 datar[i][0] = (String) animal.getField("AnimalName");
-                datar[i][1] = Animal.getAnimalCode(animal.getString("ShelterCode"), animal.getString("ShortCode"));
-                datar[i][2] = Animal.getDisplayLocation(
-                    animal.getInteger("ShelterLocation"), animal.getInteger("NonShelterAnimal"),
-                    animal.getInteger("ActiveMovementID"), animal.getInteger("ActiveMovementType"),
-                    animal.getDate("DeceasedDate"));
+                datar[i][1] = Animal.getAnimalCode(animal.getString(
+                            "ShelterCode"), animal.getString("ShortCode"));
+                datar[i][2] = Animal.getDisplayLocation(animal.getInteger(
+                            "ShelterLocation"),
+                        animal.getInteger("NonShelterAnimal"),
+                        animal.getInteger("ActiveMovementID"),
+                        animal.getInteger("ActiveMovementType"),
+                        animal.getDate("DeceasedDate"));
                 datar[i][3] = LookupCache.getSpeciesName((Integer) animal.getField(
                             "SpeciesID"));
                 datar[i][4] = (String) animal.getField("BreedName");
@@ -1030,7 +1033,7 @@ public class AnimalFind extends ASMFind {
                             "Sex"));
                 datar[i][6] = Animal.getAge((Date) animal.getField(
                             "DateOfBirth"),
-                            (Date) animal.getField("DeceasedDate"));
+                        (Date) animal.getField("DeceasedDate"));
                 datar[i][7] = LookupCache.getSizeNameForID((Integer) animal.getField(
                             "Size"));
                 datar[i][8] = LookupCache.getBaseColourName((Integer) animal.getField(
@@ -1048,7 +1051,8 @@ public class AnimalFind extends ASMFind {
                         (Date) animal.getField("DeceasedDate"),
                         (Integer) animal.getField("HasActiveReserve"),
                         (Integer) animal.getField("ActiveMovementType"));
-                datar[i][14] = Utils.formatTableDate(animal.getDate("DateOfBirth"));
+                datar[i][14] = Utils.formatTableDate(animal.getDate(
+                            "DateOfBirth"));
                 i++;
             } catch (Exception e) {
                 Global.logException(e, getClass());
@@ -1074,12 +1078,15 @@ public class AnimalFind extends ASMFind {
     private class AnimalFindSortable extends SortableTableModel {
         @Override
         public int sortByColumnCompare(int col, int idx, String[][] dat) {
-          int compared;
-          if (col != 6)
-            compared = dat[idx][col].compareToIgnoreCase(dat[idx+1][col]);
-          else
-            compared = dat[idx+1][14].compareToIgnoreCase(dat[idx][14]);
-          return compared;
+            int compared;
+
+            if (col != 6) {
+                compared = dat[idx][col].compareToIgnoreCase(dat[idx + 1][col]);
+            } else {
+                compared = dat[idx + 1][14].compareToIgnoreCase(dat[idx][14]);
+            }
+
+            return compared;
         }
     }
 }

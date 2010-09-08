@@ -13,7 +13,7 @@ cp ../../logo/asm2009/asm.xpm asm
 # Startup shell script
 echo '#!/bin/sh
 INSTDIR=`dirname $0`
-java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/asm.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup $INSTDIR/data
+java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/asm.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup
 
 ' > asm/run.sh
 chmod +x asm/run.sh
@@ -37,7 +37,7 @@ chmod +x asm/run_hsqlserver.sh
 # Command line interface script
 echo '#!/bin/sh
 INSTDIR=`dirname $0`
-java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar:$INSTDIR/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $INSTDIR/data $@
+java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar:$INSTDIR/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
 
 ' > asm/runcmd.sh
 chmod +x asm/runcmd.sh
@@ -48,19 +48,10 @@ mkdir asm/lib
 cp ../../build/asm.jar asm/asm.jar
 cp ../../lib/*.jar asm/lib
 
-# docs/data
+# sql files and readme
 mkdir asm/data
 mkdir asm/data/sql
-cp ../../build/*.pdf asm/data
-cp ../../build/manual_html*.zip asm/data
-cp -rf ../../media asm/data/
 cp -rf ../../sql/*.sql asm/data/sql
-cd asm/data
-for i in manual_html*.zip; do
-	unzip $i > /dev/null
-	rm -f $i
-done
-cd ../..
 cp README asm
 cp LICENSE asm
 

@@ -59,35 +59,6 @@ public class Startup {
             ".asm";
         String dataDir = "";
 
-        // No arguments specified - we need our data directory
-        if (args.length == 0) {
-            System.err.println(
-                "ASM requires a path to the data directory to be passed.");
-            System.exit(1);
-        }
-
-        // We have a data directory
-        if (args.length == 1) {
-            dataDir = args[0];
-        }
-
-        // This is an old style start script which has JDBC URL then 
-        // temp (data) directory. Use the 2nd argument as the temp directory
-        if (args.length == 2) {
-            dataDir = args[1];
-        }
-
-        // Set the data folder, making sure it doesn't end with a path separator
-        if (dataDir.endsWith(File.separator)) {
-            Global.dataDirectory = dataDir.substring(0, dataDir.length() - 1);
-        } else {
-            Global.dataDirectory = dataDir;
-        }
-
-        // Somehow, some Windows boxes end up with a superfluous quotation
-        // mark that screws things up:
-        Global.dataDirectory = Utils.replace(Global.dataDirectory, "\"", "");
-
         // Assign the global temp directory
         Global.tempDirectory = tempDir;
 

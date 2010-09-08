@@ -57,9 +57,7 @@ public class DatabaseCopier {
             // the schema for mysql
             if (s.indexOf("mysql") != -1) {
                 if (!Dialog.showYesNo(Global.i18n("db", "need_schema",
-                                "mysql.sql",
-                                Global.dataDirectory + File.separator + "sql"),
-                            Global.i18n("db", "continue"))) {
+                                "mysql.sql"), Global.i18n("db", "continue"))) {
                     return;
                 }
             }
@@ -68,9 +66,7 @@ public class DatabaseCopier {
             // the schema for postgresql
             if (s.indexOf("postgre") != -1) {
                 if (!Dialog.showYesNo(Global.i18n("db", "need_schema",
-                                "postgresql.sql",
-                                Global.dataDirectory + File.separator + "sql"),
-                            Global.i18n("db", "continue"))) {
+                                "postgresql.sql"), Global.i18n("db", "continue"))) {
                     return;
                 }
             }

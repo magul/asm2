@@ -79,8 +79,8 @@ public class PublishWWW {
         PublishCriteria pc = new PublishCriteria();
 
         // Set values from arguments
-        if (args.length > 1) {
-            for (int i = 2; i < args.length; i++) {
+        if (args.length > 0) {
+            for (int i = 1; i < args.length; i++) {
                 if (args[i].equalsIgnoreCase("includecase")) {
                     pc.includeCase = true;
                 } else if (args[i].equalsIgnoreCase("includereserved")) {

@@ -229,8 +229,7 @@ public class LocateDatabase {
 
         try {
             // Load the schema for the new local database
-            DBConnection.executeFile(new File(Global.dataDirectory +
-                    File.separator + "sql" + File.separator + "hsqldb.sql"));
+            DBConnection.executeResource("/sql/hsqldb.sql");
 
             // Do we have a translation patch to apply?
             applyTranslationPatch();
@@ -389,14 +388,25 @@ public class LocateDatabase {
             Global.logInfo("Applying translation patch for language '" + lang +
                 "'", "LocateDatabase.applyTranslationPatch");
 
-            File flang = new File(Global.dataDirectory + File.separator +
-                    "sql" + File.separator + "translate_" + lang + ".sql");
-            File flangcountry = new File(Global.dataDirectory + File.separator +
-                    "sql" + File.separator + "translate_" + lang + "_" +
-                    country + ".sql");
-            File f = flang.exists() ? flang : flangcountry;
+            String slang = "/sql/translate_" + lang + ".sql";
+            String slangcountry = "/sql/translate_" + lang + "_" + country +
+                ".sql";
 
-            DBConnection.executeFile(f);
+            try {
+                DBConnection.executeResource(slangcountry);
+
+                return;
+            } catch (Exception e) {
+                Global.logError("No translation patch: " + slangcountry,
+                    "LocateDatabase.applyTranslationPatch");
+            }
+
+            try {
+                DBConnection.executeResource(slang);
+            } catch (Exception e) {
+                Global.logError("No translation patch: " + slang,
+                    "LocateDatabase.applyTranslationPatch");
+            }
         } catch (Exception e) {
             Global.logError("Failed to apply translation patch for language '" +
                 lang + "'", "LocateDatabase.applyTranslationPatch");
@@ -428,8 +438,7 @@ public class LocateDatabase {
 
         try {
             // Load the schema for the new local database
-            DBConnection.executeFile(new File(Global.dataDirectory +
-                    File.separator + "sql" + File.separator + "hsqldb.sql"));
+            DBConnection.executeResource("/sql/hsqldb.sql");
 
             // Do we have a translation patch to apply?
             applyTranslationPatch();

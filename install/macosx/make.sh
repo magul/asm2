@@ -22,7 +22,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <key>CFBundleExecutable</key>
     <string>asm</string>
     <key>CFBundleGetInfoString</key>
-    <string>Animal Shelter Manager, Copyright 2000-2009 Robin Rawson-Tetley.</string>
+    <string>Animal Shelter Manager, Copyright 2000-2010 Robin Rawson-Tetley.</string>
     <key>CFBundleIconFile</key>
     <string>asm.icns</string>
     <key>CFBundleInfoDictionaryVersion</key>
@@ -65,7 +65,7 @@ INST=`pwd`
 # startup. We also want a Mac menubar at the top of the screen.
 
 # Swing renderer
-java -Xmx256m -Xdock:name="Animal Shelter Manager" -Xdock:icon=Contents/Resources/asm.icns -Dapple.laf.useScreenMenuBar="true" -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.startup.Startup $INST/data
+java -Xmx256m -Xdock:name="Animal Shelter Manager" -Xdock:icon=Contents/Resources/asm.icns -Dapple.laf.useScreenMenuBar="true" -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.startup.Startup
 
 ' > ASM.app/Contents/MacOS/asm
 chmod +x ASM.app/Contents/MacOS/asm
@@ -74,7 +74,7 @@ chmod +x ASM.app/Contents/MacOS/asm
 # Command line interface start script
 echo '#!/bin/sh
 INST=`dirname $0`
-java -Xmx256m -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $INST/data $@
+java -Xmx256m -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
 ' > ASM.app/asmcmd
 chmod +x ASM.app/asmcmd
 
@@ -101,19 +101,10 @@ cp LICENSE.txt ASM.app
 cp ../../build/asm.jar ASM.app/asm.jar
 cp ../../lib/*.jar ASM.app/lib
 
-# docs/data
+# sql files
 mkdir ASM.app/data
 mkdir ASM.app/data/sql
-cp ../../build/*.pdf ASM.app/data
-cp ../../build/manual_html*.zip ASM.app/data
-cp -rf ../../media ASM.app/data/
 cp -rf ../../sql/*.sql ASM.app/data/sql
-cd ASM.app/data
-for i in manual_html*.zip; do
-	unzip $i > /dev/null
-	rm -f $i
-done
-cd ../..
 
 # Make package
 tar --exclude .svn -czvf sheltermanager_macosx.tar.gz *.app *.txt > /dev/null

@@ -44,7 +44,7 @@ import net.sourceforge.sheltermanager.dbfs.*;
 public class GetMediaFile {
     public GetMediaFile(String[] args) {
         try {
-            if (args.length < 3) {
+            if (args.length < 2) {
                 Global.setUsingLog(true);
                 Global.logError("No media ID specified.", "GetMediaFile");
                 System.exit(1);
@@ -52,11 +52,11 @@ public class GetMediaFile {
 
             // Locate the media record
             Media m = new Media();
-            m.openRecordset("ID = " + args[2]);
+            m.openRecordset("ID = " + args[1]);
 
             if (m.getEOF()) {
                 Global.setUsingLog(true);
-                Global.logError("Media with ID " + args[2] + " doesn't exist.",
+                Global.logError("Media with ID " + args[1] + " doesn't exist.",
                     "GetMediaFile");
                 System.exit(1);
             }
