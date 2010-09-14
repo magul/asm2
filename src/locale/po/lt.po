@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-01 09:52+0100\n"
-"PO-Revision-Date: 2010-09-01 07:55+0000\n"
+"POT-Creation-Date: 2010-09-07 09:25+0100\n"
+"PO-Revision-Date: 2010-09-09 19:34+0000\n"
 "Last-Translator: Rūta Kudelytė / VšĮ \"Vibrisė\" <mycredo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-02 04:00+0000\n"
+"X-Launchpad-Export-Date: 2010-09-10 04:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -214,8 +214,6 @@ msgid "Adopted"
 msgstr "Atiduotas"
 
 #. # reports/AnimalFigures
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # bo/AnimalLost
 #. # bo/Animal
@@ -3980,12 +3978,9 @@ msgstr "Negali nukopijuoti"
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
-"from the {0} file in {1}. Select Yes if you have already done this, "
-"otherwise select No to cancel the copy."
+"from the {0} file. Select Yes if you have already done this, otherwise "
+"select No to cancel the copy."
 msgstr ""
-"Jūs greičiausiai jau sukūrėte duomenų bazę ir įkėlėte duomenų bazės "
-"struktūrą iš {0} failo į {1}. Pasirinkite \"Taip\", jei jau atlikote tai, "
-"kitu atveju atšaukite kopijavimą, pasirinkdami \"Ne\"."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4061,18 +4056,6 @@ msgstr "Nepavyko prisijungti"
 #: scan
 msgid "Scan"
 msgstr "Skenuoti"
-
-#. # ui/ui/JDBCDlg
-#. # startup/Startup
-#: asmdatastructuremissing
-msgid ""
-"ASM could not find its data structure in the database specfied. If you are "
-"using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-"{0} directory first."
-msgstr ""
-"Nurodytoje duomenų bazėje ASM nepavyko surasti jos duomenų struktūros. Jei "
-"naudojate PostgreSQL arba MySQL, pirmiausia įsitikinkite, kad {0} kataloge "
-"paleidote tinkamą scenarijų."
 
 #. # ui/ui/JDBCDlg
 #: database
@@ -7725,7 +7708,7 @@ msgstr "Unikalus identifikatorius šiai vadai"
 #. # ui/animal/AnimalEdit
 #: find_the_litter_this_animal_belongs_to
 msgid "Find the litter this animal belongs to"
-msgstr "Rasti vadą, kuriai priklauso šis gyvūnas"
+msgstr "Pasirinkti vadą, kuriai priklauso šis gyvūnas"
 
 #. # ui/ui/Dialog
 #: select_from_active_litters
@@ -8156,7 +8139,6 @@ msgstr "Informacija apie mitybą"
 #. # db/DatabaseCopier
 #. # wordprocessor/GenerateDocument
 #. # bo/Media
-#. # startup/Startup
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/waitinglist/WaitingListEdit
@@ -10701,11 +10683,6 @@ msgstr "Pridėti savininką"
 #: Add_Found_Animal
 msgid "&Add Found Animal"
 msgstr "&Pridėti rastą gyvūną"
-
-#. # ui/main/Main
-#: Contents_PDF
-msgid "Contents (&Printable PDF)"
-msgstr "Turinys (PDF &spausdinimui)"
 
 #. # ui/animalname/NamesView
 #. # ui/main/Main
@@ -13268,11 +13245,7 @@ msgid "Allow ASM clients to update the database if it is older than them."
 msgstr "Leisti ASM klientams naujinti duomenų bazę, jei ji senesnė nei jų."
 
 #. # reports/CustomReportExecute
-#. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # db/LocateDatabase
-#. # db/DatabaseCopier
-#. # startup/Startup
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -16041,6 +16014,9 @@ msgstr "(apytikslis)"
 #~ msgid "Microchip Re&gistration"
 #~ msgstr "Apie &mikroschemų registraciją"
 
+#~ msgid "Contents (&Printable PDF)"
+#~ msgstr "Turinys (PDF &spausdinimui)"
+
 #~ msgid "&Expiring Members"
 #~ msgstr "Apie besibaigiančią &narystę"
 
@@ -16091,6 +16067,24 @@ msgstr "(apytikslis)"
 
 #~ msgid "No image viewer"
 #~ msgstr "Nėra atvaizdų žiūryklės"
+
+#~ msgid ""
+#~ "You must have already created the database and loaded the database structure "
+#~ "from the {0} file in {1}. Select Yes if you have already done this, "
+#~ "otherwise select No to cancel the copy."
+#~ msgstr ""
+#~ "Jūs greičiausiai jau sukūrėte duomenų bazę ir įkėlėte duomenų bazės "
+#~ "struktūrą iš {0} failo į {1}. Pasirinkite \"Taip\", jei jau atlikote tai, "
+#~ "kitu atveju atšaukite kopijavimą, pasirinkdami \"Ne\"."
+
+#~ msgid ""
+#~ "ASM could not find its data structure in the database specfied. If you are "
+#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
+#~ "{0} directory first."
+#~ msgstr ""
+#~ "Nurodytoje duomenų bazėje ASM nepavyko surasti jos duomenų struktūros. Jei "
+#~ "naudojate PostgreSQL arba MySQL, pirmiausia įsitikinkite, kad {0} kataloge "
+#~ "paleidote tinkamą scenarijų."
 
 #~ msgid "Class Path: "
 #~ msgstr "Klasės adresas: "
