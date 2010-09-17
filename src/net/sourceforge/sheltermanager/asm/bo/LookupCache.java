@@ -523,8 +523,9 @@ public abstract class LookupCache {
                 if (a.getID().equals(id)) {
                     Global.logDebug("CACHE: HIT for animal id " + id,
                         "LookupCache.getAnimalByID");
-
-                    return a;
+                    // Return a clone so that if the caller mucks around
+                    // with it, they don't trash the cache
+                    return a.clone();
                 }
             }
         } catch (Exception e) {

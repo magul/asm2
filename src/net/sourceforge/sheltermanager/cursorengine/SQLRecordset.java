@@ -40,6 +40,7 @@ import java.sql.Types;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -57,7 +58,7 @@ import java.util.Locale;
  * @version 3.2
  */
 public class SQLRecordset implements Iterator<SQLRecordset>,
-    Iterable<SQLRecordset> {
+    Iterable<SQLRecordset>, Cloneable {
     private boolean mEOF = false;
     private boolean mBOF = false;
     private int mCurrentRecord = 0;
@@ -84,6 +85,14 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     /** Create a recordset and open it from the sql given */
     public SQLRecordset(String sql, String table) throws Exception {
         openRecordset(sql, table);
+    }
+
+    public SQLRecordset clone() throws CloneNotSupportedException {
+        SQLRecordset r = (SQLRecordset) super.clone();
+        Collections.copy(mtheRows, r.mtheRows);
+        Collections.copy(mtheFields, r.mtheFields);
+        r.mFieldIndexes = (Hashtable<String, Integer>) mFieldIndexes.clone();
+        return r;
     }
 
     public void openRecordset(String sql, String table)

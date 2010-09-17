@@ -10,7 +10,7 @@ import java.util.Properties;
 public class HttpDriver implements Driver {
 
 	static
-    {
+        {
 		try
 		{
 			// Register the Driver with DriverManager
@@ -20,7 +20,7 @@ public class HttpDriver implements Driver {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-    }
+        }   
 	
 	@Override
 	public boolean acceptsURL(String arg0) throws SQLException {
@@ -29,7 +29,8 @@ public class HttpDriver implements Driver {
 
 	@Override
 	public Connection connect(String arg0, Properties arg1) throws SQLException {
-		return new HttpConnection(arg0);
+                if (arg0.indexOf("http") != -1) return new HttpConnection(arg0);
+                throw new SQLException("Invalid URL: " + arg0);
 	}
 
 	@Override

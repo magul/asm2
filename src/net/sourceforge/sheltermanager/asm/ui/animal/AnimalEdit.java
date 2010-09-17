@@ -524,18 +524,24 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * controls
      */
     public void openForEdit(Animal animal) {
-        isNewRecord = false;
-        isLoading = true;
-        this.animal = animal;
-        loadData();
-        enableButtons();
-        enableOnShelterTabs();
-        updateDeath();
-        lockAnimalCodes();
-        showThumbnail();
-        setSecurity();
-        isLoading = false;
-        setDirty(false);
+        try {
+            isNewRecord = false;
+            isLoading = true;
+            this.animal = animal;
+            loadData();
+            enableButtons();
+            enableOnShelterTabs();
+            updateDeath();
+            lockAnimalCodes();
+            showThumbnail();
+            setSecurity();
+            isLoading = false;
+            setDirty(false);
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
     }
 
     public void setDirty(final boolean dirty) {
@@ -559,17 +565,22 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
      * enabled.
      */
     public void openForEdit(Animal animal, boolean unsaved) {
-        isNewRecord = true;
-        isLoading = true;
-        this.animal = animal;
-        loadData(false);
-        enableOnShelterTabs();
-        enableNonAnimalTabs(false);
-        enableButtons();
-        updateDeath();
-        setSecurity();
-        isLoading = false;
-        setDirty(false);
+        try {
+            isNewRecord = true;
+            isLoading = true;
+            this.animal = animal;
+            loadData(false);
+            enableOnShelterTabs();
+            enableNonAnimalTabs(false);
+            enableButtons();
+            updateDeath();
+            setSecurity();
+            isLoading = false;
+            setDirty(false);
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     /**

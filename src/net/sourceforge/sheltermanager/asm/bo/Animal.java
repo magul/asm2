@@ -38,7 +38,7 @@ import java.util.HashSet;
 import java.util.Vector;
 
 
-public class Animal extends UserInfoBO<Animal> {
+public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public static final int UNDERSIXMONTHS = 0;
     public static final int OVERSIXMONTHS = 1;
     public static final int ALLAGES = 2;
@@ -2541,6 +2541,12 @@ public class Animal extends UserInfoBO<Animal> {
         setDailyBoardingCost(new Double(0));
         setActiveMovementID(z);
         setHasActiveReserve(z);
+    }
+
+    public Animal clone() throws CloneNotSupportedException {
+        Animal a = (Animal) super.clone();
+        a.rs = rs.clone();
+        return a;
     }
 
     /** Clones an animal and all its satellite records (with the exception

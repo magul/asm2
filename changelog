@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Implemented cloning of cached animals during request so that caller
+-  modifications cannot break the cache (fixes "shelter code used" bug 
+-  with using the cache and bonded animals)
 *. Heartbeat not necessary for HTTP and HSQLDB
 *. Added HTTP database driver for sheltermanager.com
 *. Translations updated (Portugese complete - Manuel Coelho)
