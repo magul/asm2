@@ -193,6 +193,8 @@ public class Startup implements Runnable {
                     DBConnection.loadJDBCDrivers(false, true, false);
                 } else if (jdbcurl.indexOf("hsqldb") != -1) {
                     DBConnection.loadJDBCDrivers(false, false, true);
+                } else if (jdbcurl.indexOf("http") != -1) {
+                	DBConnection.loadJDBCDrivers(true, false, false);
                 }
             }
 

@@ -1077,7 +1077,9 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
-        }
+	    } else if (dbType == DBConnection.HTTP) {
+	        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
+	    }
 
         return "";
     }
@@ -1103,6 +1105,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
+        } else if (dbType == DBConnection.HTTP){
+        	return new SimpleDateFormat("yyyy-MM-dd").format(d);
         }
 
         return "";
