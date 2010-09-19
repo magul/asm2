@@ -224,7 +224,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, tabledata, i, 7);
+        setTableData(columnheaders, tabledata, i, 9, 7);
 
         // Tell the parent we just updated
         if (theparent != null) {
