@@ -1002,7 +1002,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
      * @return The cursor engine version.
      */
     public static String getCursorVersion() {
-        return "SQLRecordset 3.2 (150610)";
+        return "SQLRecordset 3.3 (190910)";
     }
 
     /**

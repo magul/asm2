@@ -30,6 +30,7 @@ cd ../scripts
 mkdir asm
 mkdir asm/sql
 cp -f asmweb/* asm
+cp -f httpdb/httpdb.cgi asm
 cp -r ../sql/*.sql asm/sql
 zip -r9 ../build/sheltermanager-`cat ../VERSION`_web.zip asm
 rm -rf asmweb/asm-applet.jar asm

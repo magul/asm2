@@ -1,4 +1,36 @@
 #!/usr/bin/python
+
+"""
+
+httpdb.cgi
+Robin Rawson-Tetley, September 2010
+
+Python CGI module that allows an ASM database to be exposed 
+via a webpage. 
+
+This is (of course) compatible with ASM's built in HTTP JDBC
+database driver which requires the following:
+
+INPUTS:
+
+sql=SQL parameter
+
+OUTPUT:
+
+(action queries)
+Number of rows affected or ERR Error Message
+
+(select queries)
+
+COLCOLNAME1\\typeCOLTYPE\\colCOLNAME2\\typeCOLTYPE2...
+ROWVAL1\\fldVAL2\\fld\\null
+
+COLTYPE is a string and one of integer, bigint, varchar, timestamp, float
+\\null is the null type
+\\cr \\lf are escaped carriage returns/line feeds
+
+"""
+
 import time
 import cgi
 
