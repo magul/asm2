@@ -537,11 +537,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             setSecurity();
             isLoading = false;
             setDirty(false);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
-
     }
 
     public void setDirty(final boolean dirty) {
@@ -577,8 +575,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             setSecurity();
             isLoading = false;
             setDirty(false);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }

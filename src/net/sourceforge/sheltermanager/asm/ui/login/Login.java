@@ -141,6 +141,7 @@ public class Login extends ASMWindow {
      */
     public boolean autoLogUserIn() {
         try {
+            // OS Login
             if (Configuration.getBoolean("AutoLoginOSUsers")) {
                 Global.logInfo("OS Security. Looking for matching user '" +
                     System.getProperty("user.name") + "'", "Login.autoLogUserIn");
@@ -163,6 +164,7 @@ public class Login extends ASMWindow {
                     "Login.autoLogUserIn");
             }
 
+            // Applet
             if (Global.appletUser != null) {
                 Global.logInfo("Applet Security. Looking for matching user '" +
                     Global.appletUser + "'", "Login.autoLogUserIn");
@@ -181,6 +183,32 @@ public class Login extends ASMWindow {
 
                 Global.logInfo("FAIL: ASM user '" + Global.appletUser +
                     "' doesn't exist.", "Login.autoLogUserIn");
+            }
+
+            // sheltermanager.com (for non-applet context)
+            if ((DBConnection.DBType == DBConnection.HTTP) &&
+                    (DBConnection.url.indexOf("sheltermanager.com") != -1) &&
+                    (DBConnection.url.indexOf("@") != -1)) {
+                String user = DBConnection.url.substring(DBConnection.url.indexOf(
+                            "//") + 2,
+                        DBConnection.url.indexOf(":",
+                            DBConnection.url.indexOf("//")));
+                Global.logInfo("sheltermanager.com HTTP authentication for " +
+                    user, "Login.autoLogUserIn");
+
+                Users u = new Users();
+                u.openRecordset("UserName Like '" + user + "'");
+
+                if (!u.getEOF()) {
+                    Global.logInfo("PASS: Found matching ASM user '" + user +
+                        "', logging in...", "Login.autoLogUserIn");
+                    openMainForm(u);
+
+                    return true;
+                }
+
+                Global.logInfo("FAIL: ASM user '" + user + "' doesn't exist.",
+                    "Login.autoLogUserIn");
             }
         } catch (Exception e) {
             Global.logException(e, getClass());

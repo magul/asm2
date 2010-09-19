@@ -164,8 +164,8 @@ public class JDBCDlg extends ASMDialog {
             break;
 
         case 4:
-            Dialog.lastJDBC = "jdbc:postgresql://db.sheltermanager.com:10678/" +
-                user + "?user=" + user + "&password=" + pass;
+            Dialog.lastJDBC = "jdbc:http://" + user + ":" + pass + "@" +
+                "sheltermanager.com/online/" + db + "/httpdb.cgi";
 
             break;
         }
@@ -247,12 +247,14 @@ public class JDBCDlg extends ASMDialog {
         boolean isLocal = cboType.getSelectedIndex() == 0;
         boolean isSM = cboType.getSelectedIndex() == 4;
 
-        if (isLocal || isSM) {
+        txtHostname.setEnabled(true);
+        txtDatabase.setEnabled(true);
+
+        if (isLocal) {
             txtHostname.setEnabled(false);
             txtDatabase.setEnabled(false);
-        } else {
-            txtHostname.setEnabled(true);
-            txtDatabase.setEnabled(true);
+        } else if (isSM) {
+            txtHostname.setEnabled(false);
         }
 
         txtUser.setEnabled(!isLocal);

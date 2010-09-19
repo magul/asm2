@@ -1,330 +1,358 @@
 package net.sourceforge.sheltermanager.cursorengine.http;
 
+import net.sourceforge.sheltermanager.dbfs.Base64;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.sql.Statement;
+
 import java.util.ArrayList;
 
+
 public class HttpStatement implements Statement {
+    private String url;
+    private Connection c;
+    private String basicAuth = null;
 
-	private String url;
-	private Connection c;
-	
-	public HttpStatement(Connection c, String url) {
-		this.c = c;
-		this.url = url;
-	}
-	
-	@Override
-	public void addBatch(String arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    public HttpStatement(Connection c, String url) {
+        this.c = c;
+        this.url = url;
+        extractUserPass();
+    }
 
-	}
+    /**
+     * If the URL has a user:pass@ portion in the host,
+     * extract to the username and password fields so
+     * we know to use BASIC authentication when requesting
+     * data
+     */
+    private void extractUserPass() {
+        if (url.indexOf("@") != -1) {
+            String upw = url.substring(url.indexOf("//") + 2,
+                    url.indexOf("@") - 1);
+            String username = upw.substring(0, upw.indexOf(":"));
+            String password = upw.substring(upw.indexOf(":") + 1);
+            url = url.substring(0, url.indexOf("//") + 2) +
+                url.substring(url.indexOf("@") + 1);
+            basicAuth = Base64.encode(username + ":" + password);
+        }
+    }
 
-	@Override
-	public void cancel() throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public void addBatch(String arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void cancel() throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public void clearBatch() throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public void clearBatch() throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void clearWarnings() throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public void clearWarnings() throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public void close() throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public boolean execute(String sql) throws SQLException {
+        return executeUpdate(sql) > 0;
+    }
 
-	@Override
-	public void close() throws SQLException {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public boolean execute(String arg0, int arg1) throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean execute(String sql) throws SQLException {
-		return executeUpdate(sql) > 0;
-	}
+    @Override
+    public boolean execute(String arg0, int[] arg1) throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean execute(String arg0, int arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean execute(String arg0, String[] arg1)
+        throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean execute(String arg0, int[] arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public int[] executeBatch() throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean execute(String arg0, String[] arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public ResultSet executeQuery(String sql) throws SQLException {
+        try {
+            String data = "sql=" + URLEncoder.encode(sql, "UTF-8");
 
-	@Override
-	public int[] executeBatch() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+            URL u = new URL(url);
+            URLConnection uc = u.openConnection();
 
-	@Override
-	public ResultSet executeQuery(String sql) throws SQLException {
-		try {
-			String data = "sql=" + URLEncoder.encode(sql, "UTF-8");
-			
-			URL u = new URL(url);
-			URLConnection uc = u.openConnection();
-			uc.setDoOutput(true);
-			OutputStreamWriter w = new OutputStreamWriter(uc.getOutputStream());
-			w.write(data);
-			w.flush();
-			
-			// Get our response
-			BufferedReader rd = new BufferedReader(
-				new InputStreamReader(uc.getInputStream()));
-			
-			ArrayList<String> lines = new ArrayList<String>();
-		    String line;
-		    while ((line = rd.readLine()) != null) {
-		    	lines.add(line);
-		    }
-		    w.close();
-		    rd.close();
-			
-			return new HttpResultSet(c, url, lines);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			throw new SQLException(e);
-		}
-	}
+            if (basicAuth != null) {
+                uc.setRequestProperty("Authorization", "Basic " + basicAuth);
+            }
 
-	@Override
-	public int executeUpdate(String sql) throws SQLException {
-		try {
-			String data = "sql=" + URLEncoder.encode(sql, "UTF-8");
-			int changed = 0;
-			
-			URL u = new URL(url);
-			URLConnection uc = u.openConnection();
-			uc.setDoOutput(true);
-			OutputStreamWriter w = new OutputStreamWriter(uc.getOutputStream());
-			w.write(data);
-			w.flush();
-			
-			// Get our response
-			BufferedReader rd = new BufferedReader(
-				new InputStreamReader(uc.getInputStream()));
-			
-		    String line;
-		    while ((line = rd.readLine()) != null) {
-		    	try {
-		    		changed = Integer.parseInt(line);
-		    	}
-		    	catch (NumberFormatException e) {}
-		    }
-		    w.close();
-		    rd.close();
-			
-			return changed;
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			throw new SQLException(e);
-		}
-	}
+            uc.setDoOutput(true);
 
-	@Override
-	public int executeUpdate(String arg0, int arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            OutputStreamWriter w = new OutputStreamWriter(uc.getOutputStream());
+            w.write(data);
+            w.flush();
 
-	@Override
-	public int executeUpdate(String arg0, int[] arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            // Get our response
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                        uc.getInputStream()));
 
-	@Override
-	public int executeUpdate(String arg0, String[] arg1) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            ArrayList<String> lines = new ArrayList<String>();
+            String line;
 
-	@Override
-	public Connection getConnection() throws SQLException {
-		return c;
-	}
+            while ((line = rd.readLine()) != null) {
+                lines.add(line);
+            }
 
-	@Override
-	public int getFetchDirection() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            w.close();
+            rd.close();
 
-	@Override
-	public int getFetchSize() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            return new HttpResultSet(c, url, lines);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException(e);
+        }
+    }
 
-	@Override
-	public ResultSet getGeneratedKeys() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public int executeUpdate(String sql) throws SQLException {
+        try {
+            String data = "sql=" + URLEncoder.encode(sql, "UTF-8");
+            int changed = 0;
 
-	@Override
-	public int getMaxFieldSize() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            URL u = new URL(url);
+            URLConnection uc = u.openConnection();
 
-	@Override
-	public int getMaxRows() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            if (basicAuth != null) {
+                uc.setRequestProperty("Authorization", "Basic " + basicAuth);
+            }
 
-	@Override
-	public boolean getMoreResults() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+            uc.setDoOutput(true);
 
-	@Override
-	public boolean getMoreResults(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+            OutputStreamWriter w = new OutputStreamWriter(uc.getOutputStream());
+            w.write(data);
+            w.flush();
 
-	@Override
-	public int getQueryTimeout() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            // Get our response
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                        uc.getInputStream()));
 
-	@Override
-	public ResultSet getResultSet() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+            String line;
 
-	@Override
-	public int getResultSetConcurrency() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            while ((line = rd.readLine()) != null) {
+                try {
+                    changed = Integer.parseInt(line);
+                } catch (NumberFormatException e) {
+                }
+            }
 
-	@Override
-	public int getResultSetHoldability() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            w.close();
+            rd.close();
 
-	@Override
-	public int getResultSetType() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+            return changed;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException(e);
+        }
+    }
 
-	@Override
-	public int getUpdateCount() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int executeUpdate(String arg0, int arg1) throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public SQLWarning getWarnings() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public int executeUpdate(String arg0, int[] arg1) throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public boolean isClosed() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public int executeUpdate(String arg0, String[] arg1)
+        throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public boolean isPoolable() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public Connection getConnection() throws SQLException {
+        return c;
+    }
 
-	@Override
-	public void setCursorName(String arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public int getFetchDirection() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	}
+    @Override
+    public int getFetchSize() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setEscapeProcessing(boolean arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public ResultSet getGeneratedKeys() throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	}
+    @Override
+    public int getMaxFieldSize() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setFetchDirection(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public int getMaxRows() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	}
+    @Override
+    public boolean getMoreResults() throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public void setFetchSize(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public boolean getMoreResults(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	}
+    @Override
+    public int getQueryTimeout() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setMaxFieldSize(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public ResultSet getResultSet() throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	}
+    @Override
+    public int getResultSetConcurrency() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setMaxRows(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public int getResultSetHoldability() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	}
+    @Override
+    public int getResultSetType() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setPoolable(boolean arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public int getUpdateCount() throws SQLException {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	}
+    @Override
+    public SQLWarning getWarnings() throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public void setQueryTimeout(int arg0) throws SQLException {
-		// TODO Auto-generated method stub
+    @Override
+    public boolean isClosed() throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	}
+    @Override
+    public boolean isPoolable() throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean isWrapperFor(Class<?> iface) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public void setCursorName(String arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public <T> T unwrap(Class<T> iface) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public void setEscapeProcessing(boolean arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
 
+    @Override
+    public void setFetchDirection(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void setFetchSize(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void setMaxFieldSize(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void setMaxRows(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void setPoolable(boolean arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void setQueryTimeout(int arg0) throws SQLException {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

@@ -384,9 +384,9 @@ public class Main extends ASMWindow {
 
         // Do a database heartbeat every heartbeatInterval seconds for
         // PostgreSQL and MySQL databases. Not necessary for HSQLDB and HTTP
-        if ((DBConnection.DBType != DBConnection.HSQLDB) && 
-            (DBConnection.DBType != DBConnection.HTTP) &&
-            (Global.heartbeatInterval != 0)) {
+        if ((DBConnection.DBType != DBConnection.HSQLDB) &&
+                (DBConnection.DBType != DBConnection.HTTP) &&
+                (Global.heartbeatInterval != 0)) {
             Global.logInfo("ASM will make heartbeats to the database every " +
                 (Global.heartbeatInterval / 1000) + " seconds.", "Main.Main");
             heartbeat = new java.util.Timer();

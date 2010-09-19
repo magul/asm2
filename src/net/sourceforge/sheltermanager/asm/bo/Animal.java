@@ -2546,6 +2546,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public Animal clone() throws CloneNotSupportedException {
         Animal a = (Animal) super.clone();
         a.rs = rs.clone();
+
         return a;
     }
 

@@ -92,6 +92,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         Collections.copy(mtheRows, r.mtheRows);
         Collections.copy(mtheFields, r.mtheFields);
         r.mFieldIndexes = (Hashtable<String, Integer>) mFieldIndexes.clone();
+
         return r;
     }
 
@@ -1086,9 +1087,9 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
-	    } else if (dbType == DBConnection.HTTP) {
-	        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
-	    }
+        } else if (dbType == DBConnection.HTTP) {
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
+        }
 
         return "";
     }
@@ -1114,8 +1115,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
-        } else if (dbType == DBConnection.HTTP){
-        	return new SimpleDateFormat("yyyy-MM-dd").format(d);
+        } else if (dbType == DBConnection.HTTP) {
+            return new SimpleDateFormat("yyyy-MM-dd").format(d);
         }
 
         return "";

@@ -1,6 +1,12 @@
 2.8.1
 ================
 
+*. sheltermanager.com integration now allows choice of database (master
+-  account) and username and password for local installations with
+-  integrated authentication
+*. Switchover to use HTTP for sheltermanager.com (to be rolled out
+-  with this release)
+*. BASIC authentication support for HTTP driver
 *. Death highlight not moving with sort on Movement tabs (David McKerlie)
 *. Implemented cloning of cached animals during request so that caller
 -  modifications cannot break the cache (fixes "shelter code used" bug 

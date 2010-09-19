@@ -81,17 +81,16 @@ public abstract class DBConnection {
 
     public static void loadJDBCDrivers(boolean postgres, boolean mysql,
         boolean hsql) {
-    	
-    	// Always load our built in Http driver since
-    	// its part of our codebase and will always be present
-    	try {
-    		// String url = "jdbc:http://localhost/httpdb.cgi"
-    		Class.forName("net.sourceforge.sheltermanager.cursorengine.http.HttpDriver");
-    	}
-    	catch (Exception e) {
-    		Global.logException(e, DBConnection.class);
-    	}
-    	
+        // Always load our built in Http driver since
+        // its part of our codebase and will always be present
+        try {
+            // String url = "jdbc:http://localhost/httpdb.cgi"
+            Class.forName(
+                "net.sourceforge.sheltermanager.cursorengine.http.HttpDriver");
+        } catch (Exception e) {
+            Global.logException(e, DBConnection.class);
+        }
+
         if (mysql) {
             Global.logInfo("MySQL driver...", "DBConnection.loadJDBCDrivers");
 
@@ -144,9 +143,9 @@ public abstract class DBConnection {
         if (DBType == POSTGRESQL) {
             type = "postgresql";
         }
-        
+
         if (DBType == HTTP) {
-        	type = "http";
+            type = "http";
         }
 
         String host = "local";
@@ -158,6 +157,10 @@ public abstract class DBConnection {
             if (sp != -1) {
                 host = url.substring(dp + 2, sp);
             }
+        }
+
+        if (host.indexOf("@") != -1) {
+            host = host.substring(host.indexOf("@") + 1);
         }
 
         return type + "@" + host;
@@ -262,9 +265,9 @@ public abstract class DBConnection {
         if (url.indexOf("hsqldb") != -1) {
             return HSQLDB;
         }
-        
+
         if (url.indexOf("http") != -1) {
-        	return HTTP;
+            return HTTP;
         }
 
         return MYSQL;
