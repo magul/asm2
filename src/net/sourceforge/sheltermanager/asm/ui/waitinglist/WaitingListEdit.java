@@ -503,7 +503,7 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
 
         txtDescription = (UI.TextArea) UI.addComponent(pnlLeftMid,
                 i18n("Description:"),
-                UI.getTextArea(null, UI.fp(this, "dataChanged")));
+                UI.getTextArea(null, UI.fp(this, "dataChanged"), 255));
 
         txtReason = (UI.TextArea) UI.addComponent(pnlLeftMid,
                 i18n("Entry_Reason:"),

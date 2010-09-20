@@ -152,7 +152,7 @@ public class LookupEdit extends ASMForm {
         txtName = (UI.TextField) UI.addComponent(p, nameDisplay,
                 UI.getTextField());
         txtDesc = (UI.TextArea) UI.addComponent(pc, descDisplay,
-                UI.getTextArea());
+                UI.getTextArea(null, null, 255));
 
         btnOk = UI.getButton(i18n("Ok"), null, 'o', null,
                 UI.fp(this, "saveData"));

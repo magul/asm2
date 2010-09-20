@@ -2604,7 +2604,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         pnlHealthDetails.add(UI.getLabel(i18n("Rabies_Tag")));
         txtRabiesTag = (UI.TextField) pnlHealthDetails.add(UI.getTextField(i18n("the_animals_rabies_tag"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"), 20));
 
         chkHasSpecialNeeds = UI.getCheckBox(i18n("special_needs"),
                 i18n("special_needs_tooltip"), UI.fp(this, "dataChanged"));

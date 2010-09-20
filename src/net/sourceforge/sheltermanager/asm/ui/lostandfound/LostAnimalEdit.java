@@ -501,7 +501,7 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
 
         txtArea = (UI.TextArea) UI.addComponent(pnlLeftMid, i18n("Area_Lost:"),
                 UI.getTextArea(i18n("The_area_the_animal_was_lost_in,_eg:_Millhouses,_Sheffield"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"), 255));
 
         pnlLeft.add(pnlLeftTop, UI.BorderLayout.NORTH);
         pnlLeft.add(pnlLeftMid, UI.BorderLayout.CENTER);

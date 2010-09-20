@@ -1390,6 +1390,12 @@ public final class UI {
     }
 
     public static TextField getTextField(String tooltip,
+        final FunctionPointer onChange, int maxchars) {
+        return getTextField(tooltip, onChange, null, null, maxchars);
+    }
+
+
+    public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
         return getTextField(tooltip, onChange, onLeave, null);
     }
@@ -1397,6 +1403,13 @@ public final class UI {
     public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave,
         final FunctionPointer onEnterPressed) {
+	return getTextField(tooltip, onChange, onLeave, onEnterPressed, 255);
+    }
+
+
+    public static TextField getTextField(String tooltip,
+        final FunctionPointer onChange, final FunctionPointer onLeave,
+        final FunctionPointer onEnterPressed, final int maxchars) {
         TextField t = new TextField() {
                 public void paste() {
                     super.paste();
@@ -1414,6 +1427,17 @@ public final class UI {
         if (tooltip != null) {
             t.setToolTipText(tooltip);
         }
+
+	if (maxchars > 0) {
+            t.setInputVerifier(new InputVerifier() {
+                public boolean verify(JComponent input) {
+		    JTextField x = (JTextField) input;
+		    if (x.getText().length() > maxchars)
+		        x.setText(x.getText().substring(0, maxchars));
+		    return true;
+		}
+	    });
+	}
 
         if (onChange != null) {
             t.addKeyListener(new KeyAdapter() {
@@ -1460,7 +1484,18 @@ public final class UI {
     }
 
     public static TextArea getTextArea(String tooltip,
+        final FunctionPointer onChange, int maxchars) {
+        return getTextArea(tooltip, onChange, null, maxchars);
+    }
+
+    public static TextArea getTextArea(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave) {
+        return getTextArea(tooltip, onChange, onLeave, 16384);
+    }
+
+    public static TextArea getTextArea(String tooltip,
+        final FunctionPointer onChange, final FunctionPointer onLeave,
+	final int maxchars) {
         TextArea t = new TextArea() {
                 public void paste() {
                     super.paste();
@@ -1474,6 +1509,17 @@ public final class UI {
         if (!isLTR()) {
             t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         }
+
+	if (maxchars > 0) {
+            t.setInputVerifier(new InputVerifier() {
+                public boolean verify(JComponent input) {
+		    JTextArea x = (JTextArea) input;
+		    if (x.getText().length() > maxchars)
+		        x.setText(x.getText().substring(0, maxchars));
+		    return true;
+		}
+	    });
+	}
 
         if (tooltip != null) {
             t.setToolTipText(tooltip);

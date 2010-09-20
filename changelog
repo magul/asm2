@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Text boxes and text areas only allow enough chars to match the
+-  database field (defaults are 255 for box, 16384 for area)
+-  exceptions set for wl desc(255), rabiestag(20) area lost/found (255)
 *. AllowDBAutoUpdates flag wasn't actually being set by the Configure
 -  Database screen, it was setting a non-existent AllowDBUpdates flag
 *. If DatabaseVersion flag can't be read, bail out instead of running

@@ -513,7 +513,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         txtArea = (UI.TextArea) UI.addComponent(pnlLeftMid,
                 i18n("Area_Found:"),
                 UI.getTextArea(i18n("The_area_this_animal_was_found_in,_eg:_Dore,_Sheffield"),
-                    UI.fp(this, "dataChanged")));
+                    UI.fp(this, "dataChanged"), 255));
 
         pnlLeft.add(pnlLeftTop, UI.BorderLayout.NORTH);
         pnlLeft.add(pnlLeftMid, UI.BorderLayout.CENTER);
