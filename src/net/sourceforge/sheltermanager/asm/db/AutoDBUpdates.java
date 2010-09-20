@@ -93,6 +93,11 @@ public class AutoDBUpdates {
 
         try {
             v = Configuration.getInteger("DatabaseVersion");
+	    if (v == 0) {
+                Dialog.showError("DatabaseVersion flag couldn't be read. Aborting");
+		Global.logError("DatabaseVersion flag couldn't be read. Aborting", "AutoDBUpdates.runUpdates");
+		return false;
+	    }
 
             // Go through every update below our current version, in order and
             // run it:

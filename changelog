@@ -1,6 +1,10 @@
 2.8.1
 ================
 
+*. AllowDBAutoUpdates flag wasn't actually being set by the Configure
+-  Database screen, it was setting a non-existent AllowDBUpdates flag
+*. If DatabaseVersion flag can't be read, bail out instead of running
+-  every database update ever since this is erroneous 99.9% of the time
 *. sheltermanager.com integration now allows choice of database (master
 -  account) and username and password for local installations with
 -  integrated authentication

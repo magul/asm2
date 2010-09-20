@@ -83,7 +83,7 @@ public class ConfigureDatabase extends ASMForm {
             spnMaxMediaFileSize.setValue(new Integer(Configuration.getString(
                         "MaxMediaFileSize", "1000")));
             chkAllowDBUpdates.setSelected(Configuration.getString(
-                    "AllowDBUpdates", "Yes").equalsIgnoreCase("Yes"));
+                    "AllowDBAutoUpdates", "Yes").equalsIgnoreCase("Yes"));
         } catch (Exception e) {
             Global.logException(e, ConfigureDatabase.class);
         }
@@ -97,7 +97,7 @@ public class ConfigureDatabase extends ASMForm {
                 cboIncomingMediaScaling.getSelectedItem().toString());
             Configuration.setEntry("MaxMediaFileSize",
                 spnMaxMediaFileSize.getValue().toString());
-            Configuration.setEntry("AllowDBUpdates",
+            Configuration.setEntry("AllowDBAutoUpdates",
                 (chkAllowDBUpdates.isSelected() ? "Yes" : "No"));
             dispose();
 
