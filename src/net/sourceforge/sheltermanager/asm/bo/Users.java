@@ -22,7 +22,10 @@
 package net.sourceforge.sheltermanager.asm.bo;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.*;
+
+import java.util.Date;
 
 
 /**
@@ -206,6 +209,27 @@ public class Users extends NormalBO<Users> {
 
     public void setSecurityMap(String newValue) throws CursorEngineException {
         rs.setField("SecurityMap", newValue);
+    }
+
+    /** Marks a user as logged in */
+    public static void logUserIn(String username) throws Exception {
+        logUserOut(username);
+        DBConnection.executeAction(
+            "INSERT INTO activeuser (UserName, Since) VALUES ('" + username +
+            "', '" + Utils.getSQLDate(new Date()) + "')");
+    }
+
+    public static void logUserOut(String username) throws Exception {
+        DBConnection.executeAction(
+            "DELETE FROM activeuser WHERE username LIKE '" + username + "'");
+    }
+
+    public void login() throws Exception {
+        logUserIn(getUserName());
+    }
+
+    public void logout() throws Exception {
+        logUserOut(getUserName());
     }
 
     /**

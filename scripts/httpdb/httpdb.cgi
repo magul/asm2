@@ -29,6 +29,15 @@ COLTYPE is a string and one of integer, bigint, varchar, timestamp, float
 \\null is the null type
 \\cr \\lf are escaped carriage returns/line feeds
 
+SPECIAL QUERIES:
+
+You can also send the following "virtual" queries to this driver for
+a response:
+
+HTTPDB DBNAME - returns a resultset containing one string with the name
+                of the database product behind this module.
+		Should be one of POSTGRESQL, MYSQL, HSQLDB, SQLITE
+
 """
 
 import time
@@ -40,12 +49,14 @@ import cgi
 #mysql_user = "root"
 #mysql_password = ""
 #mysql_db = "propmast"
+#DBTYPE = "MYSQL"
 
 # SQLite 3 DB ==========================
 #from pysqlite2 import dbapi2 as sqlite
 # SQLite 2
 #import sqlite 
 #sqlite_db = "pm.db"
+#DBTYPE = "SQLITE"
 
 # PostgresSQL ==========================
 from pyPgSQL import PgSQL
@@ -53,6 +64,7 @@ pg_host = "host:5432"
 pg_user = "user"
 pg_passwd = "pass"
 pg_db = "database"
+DBTYPE = "POSTGRESQL"
     
 def getConnection():
     """
@@ -209,8 +221,12 @@ sql = f["sql"].value
 
 print "Content-Type: text-plain\n\n"
 
+# Is it a special query?
+if sql.lower().startswith("httpdb dbname"):
+    print "COLdbname\\typevarchar"
+    print "ROW" + DBTYPE
 # Is it an action query?
-if not sql.lower().startswith("select"):
+elif not sql.lower().startswith("select"):
 
     # Run the action and return the number of rows changed or
     # an error message
@@ -218,7 +234,6 @@ if not sql.lower().startswith("select"):
         print str(executeQuery(sql))
     except Exception, err:
         print "ERR", err
-
 else:
 
     # We have a resultset type query =====

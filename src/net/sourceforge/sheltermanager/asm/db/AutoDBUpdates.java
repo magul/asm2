@@ -58,7 +58,7 @@ public class AutoDBUpdates {
             1381, 1382, 1383, 1391, 1392, 1393, 1394, 1401, 1402, 1411, 2001,
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
-            2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732
+            2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732, 2810
         };
 
     /**
@@ -93,11 +93,15 @@ public class AutoDBUpdates {
 
         try {
             v = Configuration.getInteger("DatabaseVersion");
-	    if (v == 0) {
-                Dialog.showError("DatabaseVersion flag couldn't be read. Aborting");
-		Global.logError("DatabaseVersion flag couldn't be read. Aborting", "AutoDBUpdates.runUpdates");
-		return false;
-	    }
+
+            if (v == 0) {
+                Dialog.showError(
+                    "DatabaseVersion flag couldn't be read. Aborting");
+                Global.logError("DatabaseVersion flag couldn't be read. Aborting",
+                    "AutoDBUpdates.runUpdates");
+
+                return false;
+            }
 
             // Go through every update below our current version, in order and
             // run it:
@@ -2837,7 +2841,7 @@ public class AutoDBUpdates {
                     "CREATE INDEX animal_YearCodeID ON animal (YearCodeID)");
 
                 // MySQL always had an index for this, others didn't
-                if (DBConnection.DBType != DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType != DBConnection.MYSQL) {
                     DBConnection.executeAction(
                         "CREATE INDEX animal_DateBroughtIn ON animal (DateBroughtIn)");
                 }
@@ -2962,19 +2966,20 @@ public class AutoDBUpdates {
 
             try {
                 // Create the new tables
-                if (DBConnection.DBType == DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                     for (int i = 0; i < mysql.length; i++) {
                         DBConnection.executeAction(mysql[i]);
                     }
                 }
 
-                if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                if ((DBConnection.DBStoreType == DBConnection.POSTGRESQL) ||
+                        (DBConnection.DBStoreType == DBConnection.SQLITE)) {
                     for (int i = 0; i < postgresql.length; i++) {
                         DBConnection.executeAction(postgresql[i]);
                     }
                 }
 
-                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                     for (int i = 0; i < hsqldb.length; i++) {
                         DBConnection.executeAction(hsqldb[i]);
                     }
@@ -3007,7 +3012,7 @@ public class AutoDBUpdates {
 
             try {
                 // Add match added/expiry for owner records
-                String timestamp = ((DBConnection.DBType == DBConnection.MYSQL)
+                String timestamp = ((DBConnection.DBStoreType == DBConnection.MYSQL)
                     ? "datetime" : "TIMESTAMP");
                 DBConnection.executeAction("ALTER TABLE owner ADD MatchAdded " +
                     timestamp + " NULL");
@@ -3040,7 +3045,7 @@ public class AutoDBUpdates {
 
             try {
                 // Add the lookupvalues field
-                if (DBConnection.DBType != DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType != DBConnection.MYSQL) {
                     DBConnection.executeAction(
                         "ALTER TABLE additionalfield ADD LookupValues VARCHAR(16384) NULL");
                 } else {
@@ -3120,7 +3125,7 @@ public class AutoDBUpdates {
 
             try {
                 // Add dates for last published to different services
-                String timestamp = ((DBConnection.DBType == DBConnection.MYSQL)
+                String timestamp = ((DBConnection.DBStoreType == DBConnection.MYSQL)
                     ? "datetime" : "TIMESTAMP");
                 DBConnection.executeAction(
                     "ALTER TABLE media ADD LastPublished " + timestamp +
@@ -3301,7 +3306,7 @@ public class AutoDBUpdates {
 
             try {
                 // Add lookup table for the frequencies
-                if (DBConnection.DBType == DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                     DBConnection.executeAction(
                         "CREATE TABLE lksdonationfreq ( ID smallint NOT NULL DEFAULT '0', Frequency varchar(50) NOT NULL, PRIMARY KEY  (ID) )");
                 } else {
@@ -3334,15 +3339,19 @@ public class AutoDBUpdates {
             try {
                 String currencyType = "FLOAT";
 
-                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                     currencyType = "FLOAT";
                 }
 
-                if (DBConnection.DBType == DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                     currencyType = "double";
                 }
 
-                if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                    currencyType = "REAL";
+                }
+
+                if (DBConnection.DBStoreType == DBConnection.SQLITE) {
                     currencyType = "REAL";
                 }
 
@@ -3492,15 +3501,19 @@ public class AutoDBUpdates {
         try {
             String currencyType = "FLOAT";
 
-            if (DBConnection.DBType == DBConnection.HSQLDB) {
+            if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                 currencyType = "FLOAT";
             }
 
-            if (DBConnection.DBType == DBConnection.MYSQL) {
+            if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 currencyType = "double";
             }
 
-            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+            if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                currencyType = "REAL";
+            }
+
+            if (DBConnection.DBStoreType == DBConnection.SQLITE) {
                 currencyType = "REAL";
             }
 
@@ -3519,7 +3532,7 @@ public class AutoDBUpdates {
 
             try {
                 // Add animalcost table and costtype lookup
-                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                     DBConnection.executeAction(
                         "CREATE MEMORY TABLE animalcost (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
@@ -3545,7 +3558,7 @@ public class AutoDBUpdates {
                         "CostTypeDescription VARCHAR(255) NULL)");
                     DBConnection.executeAction(
                         "INSERT INTO costtype VALUES (1, 'Microchip', '')");
-                } else if (DBConnection.DBType == DBConnection.MYSQL) {
+                } else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                     DBConnection.executeAction("CREATE TABLE animalcost (" +
                         "ID int(11) NOT NULL, " +
                         "AnimalID int(11) NOT NULL, " +
@@ -3569,7 +3582,8 @@ public class AutoDBUpdates {
                         "PRIMARY KEY (ID) )");
                     DBConnection.executeAction(
                         "INSERT INTO costtype VALUES (1, 'Microchip', '')");
-                } else if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                } else if ((DBConnection.DBStoreType == DBConnection.POSTGRESQL) ||
+                        (DBConnection.DBStoreType == DBConnection.SQLITE)) {
                     DBConnection.executeAction("CREATE TABLE animalcost (" +
                         "ID INTEGER NOT NULL PRIMARY KEY, " +
                         "AnimalID INTEGER NOT NULL, " +
@@ -3609,15 +3623,19 @@ public class AutoDBUpdates {
             try {
                 String currencyType = "FLOAT";
 
-                if (DBConnection.DBType == DBConnection.HSQLDB) {
+                if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                     currencyType = "FLOAT";
                 }
 
-                if (DBConnection.DBType == DBConnection.MYSQL) {
+                if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                     currencyType = "double";
                 }
 
-                if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                    currencyType = "REAL";
+                }
+
+                if (DBConnection.DBStoreType == DBConnection.SQLITE) {
                     currencyType = "REAL";
                 }
 
@@ -3774,11 +3792,12 @@ public class AutoDBUpdates {
                 };
             String[] use = hsqldb;
 
-            if (DBConnection.DBType == DBConnection.MYSQL) {
+            if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 use = mysql;
             }
 
-            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+            if ((DBConnection.DBStoreType == DBConnection.POSTGRESQL) ||
+                    (DBConnection.DBStoreType == DBConnection.SQLITE)) {
                 use = postgresql;
             }
 
@@ -3984,11 +4003,12 @@ public class AutoDBUpdates {
 
             String[] use = hsqldb;
 
-            if (DBConnection.DBType == DBConnection.MYSQL) {
+            if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 use = mysql;
             }
 
-            if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+            if ((DBConnection.DBStoreType == DBConnection.POSTGRESQL) ||
+                    (DBConnection.DBStoreType == DBConnection.SQLITE)) {
                 use = postgresql;
             }
 
@@ -4083,6 +4103,36 @@ public class AutoDBUpdates {
             }
         } catch (Exception e) {
             errors.add("configuration: reset default age group thresholds");
+        }
+    }
+
+    public void update2810() {
+        try {
+            String hsql = "CREATE MEMORY TABLE activeuser (" +
+                "UserName VARCHAR(255) NOT NULL PRIMARY KEY, " +
+                "Since TIMESTAMP NOT NULL, " +
+                "Messages VARCHAR(65535) NULL )";
+            String mysql = "CREATE TABLE activeuser (" +
+                "UserName varchar(255) NOT NULL, " +
+                "Since datetime NOT NULL, " + "Messages text NULL, " +
+                "PRIMARY KEY (UserName))";
+            String postgres = "CREATE TABLE activeuser (" +
+                "UserName VARCHAR(255) NOT NULL PRIMARY KEY, " +
+                "Since TIMESTAMP NOT NULL, " +
+                "Messages VARCHAR(65535) NULL )";
+
+            if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
+                DBConnection.executeAction(hsql);
+            } else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
+                DBConnection.executeAction(mysql);
+            } else if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                DBConnection.executeAction(postgres);
+            } else if (DBConnection.DBStoreType == DBConnection.SQLITE) {
+                DBConnection.executeAction(postgres);
+            }
+        } catch (Exception e) {
+            errors.add("activeuser: CREATE TABLE");
+            Global.logException(e, getClass());
         }
     }
 }

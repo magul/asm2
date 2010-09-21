@@ -1,1 +1,6 @@
-
+*. Have a version of executeAction that can send a batch of action queries
+   (accepts an array of strings). For normal databases it will just push
+   them down the connection. For our HTTP type, it can send the batch in
+   one go, separated by a special marker so the HTTP driver can run them all
+   at once on the server to save overhead.
+*. This should hopefully be used to save time with auto archive routines

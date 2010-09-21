@@ -1,6 +1,11 @@
 2.8.1
 ================
 
+*. activeuser table to allow checking of logged in/out users
+*. Support for SQLite via HTTP
+*. DBStoreType to allow exposing of the "real" database type through
+-  the bridge protocol.
+*. Log notes box should have a limit of 64Kb to match database
 *. Text boxes and text areas only allow enough chars to match the
 -  database field (defaults are 255 for box, 16384 for area)
 -  exceptions set for wl desc(255), rabiestag(20) area lost/found (255)

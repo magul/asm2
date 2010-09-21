@@ -779,7 +779,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
     public void save(boolean tableHasUserInfo, String savingUserName)
         throws Exception {
-        save(DBConnection.con, DBConnection.DBType, tableHasUserInfo,
+        save(DBConnection.con, DBConnection.DBStoreType, tableHasUserInfo,
             savingUserName);
     }
 
@@ -795,7 +795,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
      * @param c
      *            The database connection to write out to
      * @param dbType
-     *            One of DBConnection.MYSQL/POSTGRESQL/HSQLDB
+     *            One of DBConnection.MYSQL/POSTGRESQL/HSQLDB/SQLITE
      * @param tableHasUserInfo
      *            If this flag is set, the cursor will fill fields named
      *            "CreatedBy", "CreatedDate", "LastChangedDate" and
@@ -1059,11 +1059,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     }
 
     public static String getSQLRepresentationOfDate(java.util.Date d) {
-        return getSQLRepresentationOfDate(DBConnection.DBType, d);
+        return getSQLRepresentationOfDate(DBConnection.DBStoreType, d);
     }
 
     public static String getSQLRepresentationOfDateOnly(java.util.Date d) {
-        return getSQLRepresentationOfDateOnly(DBConnection.DBType, d);
+        return getSQLRepresentationOfDateOnly(DBConnection.DBStoreType, d);
     }
 
     /**
@@ -1087,11 +1087,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
-        } else if (dbType == DBConnection.HTTP) {
+        } else if (dbType == DBConnection.SQLITE) {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
         }
 
-        return "";
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d);
     }
 
     /**
@@ -1115,11 +1115,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
         } else if (dbType == DBConnection.HSQLDB) {
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
-        } else if (dbType == DBConnection.HTTP) {
+        } else if (dbType == DBConnection.SQLITE) {
             return new SimpleDateFormat("yyyy-MM-dd").format(d);
         }
 
-        return "";
+        return new SimpleDateFormat("yyyy-MM-dd").format(d);
     }
 
     /**

@@ -193,7 +193,7 @@ public class LogEdit extends ASMForm {
 
         txtComments = (UI.TextArea) UI.addComponent(mid,
                 Global.i18n("uianimal", "Details:"),
-                UI.getTextArea(i18n("The_text_of_the_log_entry")));
+                UI.getTextArea(i18n("The_text_of_the_log_entry"), null, 65535));
 
         btnOk = (UI.Button) buttons.add(UI.getButton(Global.i18n("uianimal",
                         "Ok"), null, 'o', null, UI.fp(this, "saveData")));

@@ -135,7 +135,7 @@ public class HttpConnection implements Connection {
 
     @Override
     public DatabaseMetaData getMetaData() throws SQLException {
-        return new HttpMetaData(url);
+        return new HttpMetaData(url, this);
     }
 
     @Override
@@ -328,9 +328,11 @@ public class HttpConnection implements Connection {
 
 class HttpMetaData implements DatabaseMetaData {
     private String url;
+    private Connection c;
 
-    public HttpMetaData(String url) {
+    public HttpMetaData(String url, Connection c) {
         this.url = url;
+        this.c = c;
     }
 
     @Override
@@ -446,8 +448,7 @@ class HttpMetaData implements DatabaseMetaData {
 
     @Override
     public Connection getConnection() throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+        return c;
     }
 
     @Override
@@ -472,8 +473,17 @@ class HttpMetaData implements DatabaseMetaData {
 
     @Override
     public String getDatabaseProductName() throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+        // This is a pass through to the "real" database so that
+        // our clients know what it is. The database name is
+        // returned as a string from our httpdb module
+        Statement s = c.createStatement();
+        ResultSet r = s.executeQuery("HTTPDB DBNAME");
+
+        if (r.first()) {
+            return r.getString(1);
+        } else {
+            return "UNKNOWN";
+        }
     }
 
     @Override

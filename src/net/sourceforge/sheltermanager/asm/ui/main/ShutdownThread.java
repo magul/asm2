@@ -74,6 +74,9 @@ public class ShutdownThread extends Thread {
                 Animal.updateOnShelterAnimalStatuses();
             }
 
+            // Log the user out
+            Global.currentUserObject.logout();
+
             // Checkpoint if supported
             DBConnection.checkpoint();
 

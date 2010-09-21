@@ -72,8 +72,18 @@ public abstract class DBConnection {
     public final static byte HSQLDB = 2;
     public final static byte HTTP = 3;
 
+    // Types only accessible through a bridge (HTTP for now)
+    // because we don't have a direct Java driver
+    public final static byte SQLITE = 4;
+
     /** The database type (inferred from JDBC URL given) */
     public static byte DBType = MYSQL;
+
+    /** The storage type - typically the same as DBType, unless
+      * DBType == HTTP, in which case DBStoreType gives us the
+      * real database type
+      */
+    public static byte DBStoreType = MYSQL;
 
     public static void loadJDBCDrivers() {
         loadJDBCDrivers(true, true, true);
@@ -146,6 +156,16 @@ public abstract class DBConnection {
 
         if (DBType == HTTP) {
             type = "http";
+
+            if (DBStoreType == MYSQL) {
+                type += "->mysql";
+            } else if (DBStoreType == POSTGRESQL) {
+                type += "->postgresql";
+            } else if (DBStoreType == SQLITE) {
+                type += "->sqlite";
+            } else if (DBStoreType == HSQLDB) {
+                type += "->hsqldb";
+            }
         }
 
         String host = "local";
@@ -216,7 +236,13 @@ public abstract class DBConnection {
             }
 
             DBType = getDBTypeForUrl(url);
+            DBStoreType = DBType;
             con = DriverManager.getConnection(url);
+
+            // For indirect connections, figure out the real type
+            if (DBType == HTTP) {
+                DBStoreType = getDBStoreType();
+            }
 
             DatabaseMetaData dma = con.getMetaData();
 
@@ -271,6 +297,37 @@ public abstract class DBConnection {
         }
 
         return MYSQL;
+    }
+
+    /**
+     * Gets the backing DB type for indirect connections
+     */
+    public static byte getDBStoreType() {
+        try {
+            String db = con.getMetaData().getDatabaseProductName();
+
+            if (db.equals("POSTGRESQL")) {
+                return POSTGRESQL;
+            }
+
+            if (db.equals("MYSQL")) {
+                return MYSQL;
+            }
+
+            if (db.equals("HSQLDB")) {
+                return HSQLDB;
+            }
+
+            if (db.equals("SQLITE")) {
+                return SQLITE;
+            }
+
+            throw new Exception("UKNOWN DATABASE TYPE: " + db);
+        } catch (Exception e) {
+            Global.logException(e, DBConnection.class);
+
+            return MYSQL;
+        }
     }
 
     /**
