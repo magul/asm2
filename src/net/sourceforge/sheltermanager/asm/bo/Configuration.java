@@ -26,7 +26,10 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -38,8 +41,27 @@ import java.util.HashMap;
 public class Configuration {
     private static HashMap<String, String> conf = null;
 
+    /** The time to perform the next save (since epoch) */
+    private static long nextSave = 0;
+
+    private static Timer batchSave;
+    private static TimerTask batchSaveTask;
+
     static {
         loadFromDatabase();
+
+        // Batch update the configuration table when told on a timer
+	// so that many changes can be rolled into one batch
+        batchSave = new Timer();
+	batchSaveTask = new TimerTask() {
+	    public void run() {
+	        if (nextSave > 0 && nextSave < System.currentTimeMillis()) {
+		    nextSave = 0;
+	            saveToDatabase();
+		}
+	    }
+	};
+        batchSave.schedule(batchSaveTask, 5000, 5000);
     }
 
     /** Can't create this class */
@@ -154,37 +176,30 @@ public class Configuration {
     }
 
     public static void setEntry(String key, String value) {
-        SQLRecordset rs = new SQLRecordset();
         conf.put(key, value);
+	scheduleSave();
+    }
 
-        try {
-            rs.openRecordset(
-                "SELECT * FROM configuration WHERE ItemName LIKE '" + key +
-                "'", "configuration");
-        } catch (Exception e) {
-            rs.free();
-            rs = null;
+    public static void saveToDatabase() {
+        Global.logDebug("Batch saving new configuration to db.", "Configuration.saveToDatabase");
+        ArrayList<String> batch = new ArrayList<String>(conf.size());
+	for (String key : conf.keySet()) {
+	    batch.add("DELETE FROM configuration WHERE ItemName Like '" + key + "'");
+	    batch.add("INSERT INTO configuration VALUES ('" +
+	        key + "', '" + conf.get(key) + "')");
+	}
+	try {
+	    DBConnection.executeAction(batch);
+            Global.logDebug("Batch save complete.", "Configuration.saveToDatabase");
+	}
+	catch (Exception e) {
             Global.logException(e, Configuration.class);
-        }
+	}
+    }
 
-        if (!rs.getEOF()) {
-            String sql = "UPDATE configuration SET ItemValue = '" + value +
-                "' WHERE ItemName LIKE '" + key + "'";
-
-            try {
-                DBConnection.executeAction(sql);
-            } catch (Exception e) {
-                Global.logException(e, Configuration.class);
-            }
-        } else {
-            String sql = "INSERT INTO configuration (ItemName, ItemValue) VALUES (";
-            sql += ("'" + key + "', '" + value + "')");
-
-            try {
-                DBConnection.executeAction(sql);
-            } catch (Exception e) {
-                Global.logException(e, Configuration.class);
-            }
-        }
+    /** Schedule the next save of the configuration table for 5 seconds
+      * from now (keep moving it every time a value is changed) */
+    public static void scheduleSave() {
+        nextSave = System.currentTimeMillis() + 5000;
     }
 }

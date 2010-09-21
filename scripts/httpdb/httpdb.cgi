@@ -13,7 +13,7 @@ database driver which requires the following:
 
 INPUTS:
 
-sql=SQL parameter
+sql=query1[;;actionquery2;;actionquery3]
 
 OUTPUT:
 
@@ -228,12 +228,23 @@ if sql.lower().startswith("httpdb dbname"):
 # Is it an action query?
 elif not sql.lower().startswith("select"):
 
-    # Run the action and return the number of rows changed or
-    # an error message
-    try:
-        print str(executeQuery(sql))
-    except Exception, err:
-        print "ERR", err
+    c = getConnection()
+    s = c.cursor()
+
+    queries = sql.split(";;")
+    for q in queries:
+	# Run the action and return the number of rows changed or
+	# an error message
+	try:
+            s.execute(q)
+	    print str(s.rowcount)
+	except Exception, err:
+	    print "ERR", err
+
+    c.commit()
+    s.close()
+    c.close()
+
 else:
 
     # We have a resultset type query =====

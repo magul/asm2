@@ -23,6 +23,7 @@ public class HttpStatement implements Statement {
     private String url;
     private Connection c;
     private String basicAuth = null;
+    private ArrayList<String> batch = new ArrayList<String>();
 
     public HttpStatement(Connection c, String url) {
         this.c = c;
@@ -50,7 +51,7 @@ public class HttpStatement implements Statement {
 
     @Override
     public void addBatch(String arg0) throws SQLException {
-        // TODO Auto-generated method stub
+        batch.add(arg0);
     }
 
     @Override
@@ -60,7 +61,7 @@ public class HttpStatement implements Statement {
 
     @Override
     public void clearBatch() throws SQLException {
-        // TODO Auto-generated method stub
+        batch.clear();
     }
 
     @Override
@@ -79,28 +80,30 @@ public class HttpStatement implements Statement {
     }
 
     @Override
-    public boolean execute(String arg0, int arg1) throws SQLException {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean execute(String sql, int arg1) throws SQLException {
+        return executeUpdate(sql) > 0;
     }
 
     @Override
-    public boolean execute(String arg0, int[] arg1) throws SQLException {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean execute(String sql, int[] arg1) throws SQLException {
+        return executeUpdate(sql) > 0;
     }
 
     @Override
-    public boolean execute(String arg0, String[] arg1)
+    public boolean execute(String sql, String[] arg1)
         throws SQLException {
-        // TODO Auto-generated method stub
-        return false;
+        return executeUpdate(sql) > 0;
     }
 
     @Override
     public int[] executeBatch() throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+        StringBuffer b = new StringBuffer();
+	for (String s : batch) {
+	    if (b.length() > 0) b.append(";;");
+            b.append(s);
+	}
+	clearBatch();
+        return new int[] { executeUpdate(b.toString()) };
     }
 
     @Override
@@ -185,22 +188,19 @@ public class HttpStatement implements Statement {
     }
 
     @Override
-    public int executeUpdate(String arg0, int arg1) throws SQLException {
-        // TODO Auto-generated method stub
-        return 0;
+    public int executeUpdate(String sql, int arg1) throws SQLException {
+    	return executeUpdate(sql);
     }
 
     @Override
-    public int executeUpdate(String arg0, int[] arg1) throws SQLException {
-        // TODO Auto-generated method stub
-        return 0;
+    public int executeUpdate(String sql, int[] arg1) throws SQLException {
+    	return executeUpdate(sql);
     }
 
     @Override
-    public int executeUpdate(String arg0, String[] arg1)
+    public int executeUpdate(String sql, String[] arg1)
         throws SQLException {
-        // TODO Auto-generated method stub
-        return 0;
+	return executeUpdate(sql);
     }
 
     @Override

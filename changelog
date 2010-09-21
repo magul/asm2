@@ -1,6 +1,11 @@
 2.8.1
 ================
 
+*. Rewrote updateAnimalStatus functions to take advantage of batching
+-  support (reduces auto archive and variable animal data to a few seconds)
+*. HTTP driver statement batching support, new DBConnection.executeAction 
+-  method with batches, support added to Configuration class with 
+-  timed saves (updating system options takes no time now)
 *. activeuser table to allow checking of logged in/out users
 *. Support for SQLite via HTTP
 *. DBStoreType to allow exposing of the "real" database type through

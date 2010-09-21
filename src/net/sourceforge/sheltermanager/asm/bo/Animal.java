@@ -1473,80 +1473,6 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         }
     }
 
-    /** OLD CODE
-     * public static int getNumberOfAnimalsOnShelter(Date datdate, int speciesid,
-           int animaltypeid, int internallocationid, int ageselection) {
-
-       try {
-
-           String atdate = SQLRecordset.getSQLRepresentationOfDate(datdate);
-
-           SQLRecordset rs = new SQLRecordset();
-           String sql = "SELECT ID FROM animal WHERE ";
-
-           if (speciesid != 0)
-               sql = sql + "SpeciesID = " + speciesid;
-           else
-               sql = sql + "AnimalTypeID = " + animaltypeid;
-
-           sql = sql + " AND DateBroughtIn <= '" + atdate
-                   + "' AND NonShelterAnimal = 0";
-           sql = sql + " AND (DeceasedDate > '" + atdate
-                   + "' OR DeceasedDate Is Null)";
-
-           if (internallocationid != 0)
-               sql = sql + " AND ShelterLocation = " + internallocationid;
-
-           if (ageselection == UNDERSIXMONTHS)
-               sql = sql
-                       + " AND DateOfBirth >= '"
-                       + SQLRecordset.getSQLRepresentationOfDate(new Date(
-                               Utils.subtractMonths(
-                                       Utils.dateToCalendar(datdate), 6)
-                                       .getTimeInMillis())) + "'";
-
-           if (ageselection == OVERSIXMONTHS)
-               sql = sql
-                       + " AND DateOfBirth < '"
-                       + SQLRecordset.getSQLRepresentationOfDate(new Date(
-                               Utils.subtractMonths(
-                                       Utils.dateToCalendar(datdate), 6)
-                                       .getTimeInMillis())) + "'";
-
-           rs.openRecordset(sql, "animal");
-           int totanimals = 0;
-
-           while (!rs.getEOF()) {
-
-               // Find any adoption records the animal has where they aren't
-               // returned or returned after this date.
-               // We also need to filter to make sure there is an exit of
-               // some type on the record, otherwise cancelled reservations
-               // could cause
-               // an animal to simultaneously be on and off the shelter.
-               int excluders = DBConnection.executeForCount(
-                       "SELECT COUNT(ID) FROM adoption WHERE AnimalID = "
-                       + rs.getField("ID")
-                       + " AND (ReturnDate Is Null Or ReturnDate > '" + atdate
-                       + "') AND (MovementDate <= '" + atdate + "'"
-                       + " AND MovementDate Is Not Null)");
-
-               // If no records were found, the animal must be on the shelter.
-               if (excluders == 0)
-                   totanimals++;
-
-               rs.moveNext();
-           }
-
-           return totanimals;
-       }
-       catch (Exception e) {
-           Global.logException(e, Animal.class);
-           return 0;
-       }
-    }
-     */
-
     /**
      * Returns the number of animals on foster.
      *
@@ -1767,6 +1693,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      */
     public static void findLatestMovementFromList(Adoption ad)
         throws CursorEngineException {
+	if (ad.getEOF()) return;
+	ad.moveFirst();
+	findLatestMovementFromList(ad, ad.getAnimalID());
+    }
+
+    /**
+     * Given a list of movement records, this routine will find the latest,
+     * for a given animal ID, 
+     * based on the reservation/movement dates and leave the cursor pointing to
+     * it.
+     */
+    public static void findLatestMovementFromList(Adoption ad, int animalid)
+        throws CursorEngineException {
         int highestID = 0;
         Calendar highestDate = null;
         Calendar testDate = null;
@@ -1774,6 +1713,11 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         boolean hasMovement = false;
 
         while (!ad.getEOF()) {
+	    if (ad.getAnimalID().intValue() != animalid) {
+	        ad.moveNext();
+                continue;
+	    }
+
             if (ad.getMovementDate() != null) {
                 hasMovement = true;
                 testDate = Utils.dateToCalendar(ad.getMovementDate());
@@ -1800,6 +1744,11 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             ad.moveFirst();
 
             while (!ad.getEOF()) {
+  	        if (ad.getAnimalID().intValue() != animalid) {
+   	            ad.moveNext();
+                    continue;
+ 	        }
+
                 if (ad.getID().intValue() == highestID) {
                     break;
                 }
@@ -1815,10 +1764,13 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             if ((ad.getReservationDate() != null) &&
                     (ad.getMovementDate() == null) && hasMovement) {
                 while (!ad.getBOF()) {
+                    if (ad.getAnimalID().intValue() != animalid) {
+    	                ad.movePrevious();
+                        continue;
+ 	            }
                     if (ad.getMovementDate() != null) {
                         return;
                     }
-
                     ad.movePrevious();
                 }
             }
@@ -1835,124 +1787,137 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      */
     public static void updateAnimalStatus(int animalID) {
         try {
-            // Find the highest return date from the list if
-            // there is one. This is handy so we know the last
-            // date the animal came into the shelter. We make
-            // it null if the animal isn't on the shelter anyway.
-            Adoption ad = new Adoption();
-            ad.openRecordset("AnimalID = " + animalID +
-                " AND ReturnDate Is Not Null ORDER BY ReturnDate DESC");
+            ArrayList<String> b = new ArrayList<String>();
+	    Animal a = new Animal("ID = " + animalID);
+	    Adoption m = new Adoption("AnimalID = " + animalID);
+	    updateAnimalStatus(a, m, b);
+	    DBConnection.executeAction(b);
+	}
+	catch (Exception e) {
+            Global.logException(e, Animal.class);
+	}
+    }
 
-            if (ad.getEOF()) {
-                String sql = "UPDATE animal SET ActiveMovementReturn = Null WHERE ID = " +
-                    animalID;
-                DBConnection.executeAction(sql);
-            } else {
-                String sql = "UPDATE animal SET ActiveMovementReturn = '" +
-                    Utils.getSQLDate(ad.getReturnDate()) + "' WHERE ID = " +
-                    animalID;
-                DBConnection.executeAction(sql);
-            }
+    /**
+     * Updates an animal status
+     * @param a An Animal object pointing to the animal to update
+     * @param move An Adoption object containing the animals movements
+     *          It can contain other movements too, but they will
+     *          be ignored
+     * @param batch A list of batch queries to be run by the caller
+     *              on completion
+     */
+    public static void updateAnimalStatus(Animal a, Adoption move, ArrayList<String> batch) {
+        try {
 
-            ad.free();
-            ad = null;
+            int id = a.getID().intValue();
 
-            // Filter so we only get animals that are off the shelter today for
-            // the active movement list.
-            String myToday = SQLRecordset.getSQLRepresentationOfDate(new Date());
-            ad = new Adoption();
-            ad.openRecordset("AnimalID = " + animalID +
-                " AND (ReturnDate Is Null OR " + "ReturnDate > '" + myToday +
-                "') ORDER BY ID"); // Fixes MySQL bug that can records out of order
+            // Figure out a few useful flags by iterating the movements 
+	    boolean onShelter = true; // Is this animal on the shelter?
+	    boolean hasReserve = false; // Does the animal have a reserve?
+	    Date lastReturn = null; // Last date the animal was returned
+	    for (Adoption d : move) {
+                if (d.getAnimalID().intValue() == id 
+		    && d.getMovementDate() != null 
+		    && (d.getReturnDate() == null 
+		    || d.getReturnDate().getTime() > new Date().getTime())) {
+		    onShelter = false;
+		}
+		if (d.getAnimalID().intValue() == id
+		    && d.getReturnDate() == null 
+		    && d.getMovementType() == 0 
+		    && d.getMovementDate() == null 
+		    && d.getReservationCancelledDate() == null
+		    && d.getReservationDate() != null) {
+                    hasReserve = true;
+		}
+		if (d.getAnimalID().intValue() == id
+		    && d.getReturnDate() != null) {
+		    if (lastReturn == null) lastReturn = d.getReturnDate();
+		    if (lastReturn != null && d.getReturnDate().getTime() > lastReturn.getTime())
+		        lastReturn = d.getReturnDate();
+		}
+	    }
 
-            if (ad.getEOF()) {
-                String sql = "UPDATE animal SET ActiveMovementID = 0, ActiveMovementDate = Null, " +
-                    "ActiveMovementType = Null WHERE ID = " + animalID;
-                DBConnection.executeAction(sql);
-            } else {
-                findLatestMovementFromList(ad);
+            if (lastReturn != null) {
+                batch.add("UPDATE animal SET ActiveMovementReturn = '" + Utils.getSQLDate(lastReturn) + "' WHERE ID = " + id);
+	    } else {
+		batch.add("UPDATE animal SET ActiveMovementReturn = null WHERE ID = " + id);
+	    }
 
-                // Resort to last record if EOF returned - this occurs
-                // if the only records are empty (no movement or
-                // reservation)
-                if (ad.getEOF()) {
-                    ad.moveLast();
-                }
+            // If the animal is on shelter, it has no active movement
+	    if (onShelter) {
+                batch.add("UPDATE animal SET ActiveMovementID = 0, ActiveMovementDate = NULL, " +
+		    "ActiveMovementType = NULL WHERE ID = " + id);
+	    }
+	    else {
 
+	        // Find the latest movement for our animal in our list
+		if (move.size() > 0) move.moveFirst();
+	        findLatestMovementFromList(move, id);
+		
+		Adoption ad = move;
                 int movetype = 0;
                 int aid = 0;
                 String amd = "null";
                 String rd = "null";
 
-                // Don't bother looking up movetype/dates if there are no
-                // movements
-                if (!ad.getEOF() && !ad.getBOF()) {
-                    movetype = ad.getMovementType().intValue();
 
-                    if (movetype == 0) {
-                        if ((ad.getReservationDate() != null) &&
-                                (ad.getReservationCancelledDate() == null)) {
-                            movetype = Adoption.MOVETYPE_RESERVATION;
-                        }
+		// If we got an EOF, there isn't much we can do
+		if (!move.getEOF()) {
 
-                        if ((ad.getReservationDate() != null) &&
-                                (ad.getReservationCancelledDate() != null)) {
-                            movetype = Adoption.MOVETYPE_CANCRESERVATION;
-                        }
-                    }
+	        movetype = ad.getMovementType().intValue();
 
-                    // Make sure we handle null dates
-                    if (ad.getMovementDate() != null) {
-                        amd = "'" +
-                            SQLRecordset.getSQLRepresentationOfDate(ad.getMovementDate()) +
-                            "'";
-                    }
+   	        if (movetype == 0) {
+		if ((ad.getReservationDate() != null) &&
+			(ad.getReservationCancelledDate() == null)) {
+		    movetype = Adoption.MOVETYPE_RESERVATION;
+		}
 
-                    if (ad.getReturnDate() != null) {
-                        rd = "'" +
-                            SQLRecordset.getSQLRepresentationOfDate(ad.getReturnDate()) +
-                            "'";
-                    }
+		if ((ad.getReservationDate() != null) &&
+			(ad.getReservationCancelledDate() != null)) {
+		    movetype = Adoption.MOVETYPE_CANCRESERVATION;
+		}
+ 	        }
 
-                    aid = ad.getID().intValue();
+	        // Make sure we handle null dates
+ 	        if (ad.getMovementDate() != null) {
+ 	    	amd = "'" +
+		    SQLRecordset.getSQLRepresentationOfDate(ad.getMovementDate()) +
+		    "'";
+	        }
+
+	        if (ad.getReturnDate() != null) {
+		rd = "'" +
+		    SQLRecordset.getSQLRepresentationOfDate(ad.getReturnDate()) +
+		    "'";
+	        }
+
+	        aid = ad.getID().intValue();
                 }
 
                 String sql = "UPDATE animal SET ActiveMovementID = " + aid +
                     ", ActiveMovementDate = " + amd + ", " +
                     "ActiveMovementType = " + movetype +
                     ", ActiveMovementReturn = " + rd + " WHERE ID = " +
-                    animalID;
-                DBConnection.executeAction(sql);
+                    id;
+		batch.add(sql);
             }
 
-            ad.free();
-            ad = null;
-
-            // Check whether the animal is archived based on the on shelter
-            // and update it accordingly.
-            Animal an = new Animal();
-            an.openRecordset("ID = " + animalID);
-
-            String sql = "UPDATE animal SET Archived = " +
-                (an.isAnimalOnShelter() ? "0" : "1") + " WHERE ID = " +
-                animalID;
-            DBConnection.executeAction(sql);
-
-            // Check whether the animal has an active reserve
-            sql = "UPDATE animal SET HasActiveReserve = " +
-                (an.isAnimalReserved() ? "1" : "0") + " WHERE ID = " +
-                animalID;
-            DBConnection.executeAction(sql);
+	    // Mark the on shelter/reserve
+            batch.add("UPDATE animal SET Archived = " + 
+	        (onShelter ? "0" : "1") + " WHERE ID = " + id);
+	    batch.add("UPDATE animal SET HasActiveReserve = " + 
+	        (hasReserve ? "1" : "0") + " WHERE ID = " + id);
 
             // Update age, time on shelter, etc.
-            updateVariableAnimalData(an);
+            updateVariableAnimalData(a, move, batch);
 
-            an.free();
-            an = null;
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
     }
+
 
     /** Updates variable animal data (time on shelter, age, etc)
       * for all on shelter animals.
@@ -1975,13 +1940,15 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             Global.logInfo("Updating variable animal data...",
                 "Animal.updateOnShelterVariableAnimalData");
 
-            Animal a = new Animal();
-            a.openRecordset("Archived = 0");
+            Animal a = new Animal("Archived = 0");
+	    Adoption ad = new Adoption("AnimalID IN (SELECT ID FROM animal WHERE Archived = 0)");
 
+            ArrayList<String> batch = new ArrayList<String>();
             while (!a.getEOF()) {
-                updateVariableAnimalData(a);
+                updateVariableAnimalData(a, ad, batch);
                 a.moveNext();
             }
+	    DBConnection.executeAction(batch);
 
             a.free();
             a = null;
@@ -1990,20 +1957,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         }
     }
 
-    /** Updates various cached animal dates that can change daily, such
-      * as time on shelter and current age
+    /** Writes update query for various cached animal dates that can change daily, 
+      * such as time on shelter and current age
       * @param an The animal record to update
       */
-    public static void updateVariableAnimalData(Animal an) {
+    public static void updateVariableAnimalData(Animal an, Adoption ad, ArrayList<String> batch) {
         try {
             String sql = "UPDATE animal SET " + "MostRecentEntryDate = '" +
-                Utils.getSQLDate(an.getMostRecentEntry()) + "', " +
-                "TimeOnShelter = '" + an.getTimeOnShelter() + "', " +
+                Utils.getSQLDate(an.getMostRecentEntry(ad)) + "', " +
+                "TimeOnShelter = '" + an.getTimeOnShelter(ad) + "', " +
                 "AgeGroup = '" + an.calculateAgeGroup() + "', " +
                 "AnimalAge = '" + an.getAge() + "', " + "DaysOnShelter = '" +
                 an.getDaysOnShelter() + "' " + "WHERE ID = " + an.getID();
-
-            DBConnection.executeAction(sql);
+            batch.add(sql);
         } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
@@ -2143,32 +2109,36 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * Returns the most recent date the animal came back into the shelter -
      * either the last return from an adoption record or the date brought in.
      *
-     * @return The most recent entry date in MySQL format.
+     * @return The most recent entry date
      */
     public Date getMostRecentEntry() {
         try {
-            Adoption adoption = new Adoption();
-            adoption.openRecordset("AnimalID = " + getID() +
-                (Configuration.getBoolean("FosterOnShelter")
-                ? (" AND MovementType <> " + Adoption.MOVETYPE_FOSTER) : "") +
-                " ORDER BY ReturnDate");
-
-            if (!adoption.getEOF()) {
-                adoption.moveLast();
-
-                if (adoption.getReturnDate() != null) {
-                    return adoption.getReturnDate();
-                } else {
-                    return getDateBroughtIn();
-                }
-            } else {
-                return getDateBroughtIn();
-            }
-        } catch (net.sourceforge.sheltermanager.cursorengine.CursorEngineException e) {
+            Adoption ad = new Adoption("AnimalID = " + getID());
+	    return getMostRecentEntry(ad);
+	}
+	catch (Exception e) {
             Global.logException(e, getClass());
+	}
+	return null;
+    }
 
-            return null;
+    public Date getMostRecentEntry(Adoption ad) {
+        Date max = null;
+        try {
+	    max = getDateBroughtIn();
+	    for (Adoption a : ad) {
+	        // Ignore foster movements if we treat foster as on shelter
+	        if (Configuration.getBoolean("FosterOnShelter"))
+		    if (a.getMovementType() == Adoption.MOVETYPE_FOSTER)
+		       continue;
+	        if (a.getReturnDate() != null && ad.getAnimalID() == getID())
+		    if (a.getReturnDate().getTime() > max.getTime())
+		        max = a.getReturnDate();
+	    }
+        } catch (Exception e) {
+            Global.logException(e, getClass());
         }
+	return max;
     }
 
     /**
@@ -2177,8 +2147,13 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * returned in years and months
      */
     public String getTimeOnShelter() throws CursorEngineException {
+        Adoption ad = new Adoption("AnimalID = " + getID());
+        return getTimeOnShelter(ad);
+    }
+
+    public String getTimeOnShelter(Adoption ad) throws CursorEngineException {
         // Get animal's most recent entry date
-        Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
+        Calendar mre = Utils.dateToCalendar(getMostRecentEntry(ad));
 
         // Stop counting at today
         Calendar stopat = Calendar.getInstance();
@@ -2229,8 +2204,13 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * Returns the animal's time on shelter in days
      */
     public int getDaysOnShelter() throws CursorEngineException {
+        Adoption ad = new Adoption("AnimalID = " + getID());
+        return getDaysOnShelter(ad);
+    }
+
+    public int getDaysOnShelter(Adoption ad) throws CursorEngineException {
         // Get animal's most recent entry date
-        Calendar mre = Utils.dateToCalendar(getMostRecentEntry());
+        Calendar mre = Utils.dateToCalendar(getMostRecentEntry(ad));
 
         // Stop counting at today
         Calendar stopat = Calendar.getInstance();
@@ -3183,8 +3163,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             "Animal.updateOnShelterAnimalStatuses");
 
         try {
-            Animal a = new Animal();
-            a.openRecordset("Archived = 0");
+            Animal a = new Animal("Archived = 0");
+	    Adoption m = new Adoption("AnimalID IN (SELECT ID FROM animal WHERE Archived = 0)");
 
             int doneRecords = 0;
             String totalRecords = Long.toString(a.getRecordCount());
@@ -3195,8 +3175,10 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                         "auto_archiving_records"));
             }
 
+            ArrayList<String> b = new ArrayList<String>();
+
             while (!a.getEOF()) {
-                updateAnimalStatus(a.getID().intValue());
+                updateAnimalStatus(a, m, b);
                 a.moveNext();
 
                 doneRecords++;
@@ -3211,6 +3193,10 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     Global.mainForm.incrementStatusBar();
                 }
             }
+
+	    // Execute the batch
+	    Global.logInfo("Batch update...", "Animal.updateOnShelterAnimalStatuses");
+	    DBConnection.executeAction(b);
 
             Global.logInfo(Global.i18n("bo", "Done.") + " (" + totalRecords +
                 ")", "Animal.updateOnShelterAnimalStatuses");
@@ -3237,8 +3223,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             "Animal.updateAllAnimalStatuses");
 
         try {
-            Animal a = new Animal();
-            a.openRecordset("");
+            Animal a = new Animal("");
+	    Adoption m = new Adoption("");
 
             int doneRecords = 0;
             String totalRecords = Long.toString(a.getRecordCount());
@@ -3249,8 +3235,9 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                         "auto_archiving_records"));
             }
 
+            ArrayList<String> b = new ArrayList<String>();
             while (!a.getEOF()) {
-                updateAnimalStatus(a.getID().intValue());
+                updateAnimalStatus(a, m, b);
                 a.moveNext();
 
                 doneRecords++;
@@ -3265,11 +3252,17 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     Global.mainForm.incrementStatusBar();
                 }
             }
+	    
+            // Execute the batch
+	    Global.logInfo("Batch update...", "Animal.updateAllAnimalStatuses");
+	    DBConnection.executeAction(b);
 
             Global.logInfo(Global.i18n("bo", "Done.") + " (" + totalRecords +
                 ")", "Animal.updateAllAnimalStatuses");
             a.free();
             a = null;
+	    m.free();
+	    m = null;
 
             if (Global.mainForm != null) {
                 Global.mainForm.resetStatusBar();

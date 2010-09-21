@@ -1,6 +1,11 @@
-*. Have a version of executeAction that can send a batch of action queries
-   (accepts an array of strings). For normal databases it will just push
-   them down the connection. For our HTTP type, it can send the batch in
-   one go, separated by a special marker so the HTTP driver can run them all
-   at once on the server to save overhead.
-*. This should hopefully be used to save time with auto archive routines
+*. Use batching for the updateAllAnimalStatuses and updateOnShelterAnimalStatus
+   functions. 
+   1. Batch read the whole set of animals to be checked
+   2. Batch read adoptions for all of those animals.
+   3. Pass those sets to the updateAnimalStatus function
+   4. It will slice the adoptions on the client side instead
+   5. All changes to be made are added to a query batch, which is
+      sent in one go - in particular, the updateVariableData call
+      which makes an UPDATE query for each call (but is quite efficient
+      apart from that, those updates could be a batch tracked by
+      updateOnShelterAnimalVariableData)
