@@ -132,6 +132,8 @@ public class HttpStatement implements Statement {
             String line;
 
             while ((line = rd.readLine()) != null) {
+		if (line.startsWith("ERR"))
+		    throw new SQLException(line);
                 lines.add(line);
             }
 
@@ -171,10 +173,15 @@ public class HttpStatement implements Statement {
             String line;
 
             while ((line = rd.readLine()) != null) {
+	        
+		if (line.startsWith("ERR"))
+		    throw new SQLException(line);
+
                 try {
                     changed = Integer.parseInt(line);
                 } catch (NumberFormatException e) {
                 }
+
             }
 
             w.close();

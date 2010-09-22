@@ -186,7 +186,7 @@ public class Configuration {
 	for (String key : conf.keySet()) {
 	    batch.add("DELETE FROM configuration WHERE ItemName Like '" + key + "'");
 	    batch.add("INSERT INTO configuration VALUES ('" +
-	        key + "', '" + conf.get(key) + "')");
+	        key + "', '" + conf.get(key).replace('\'', '`') + "')");
 	}
 	try {
 	    DBConnection.executeAction(batch);
