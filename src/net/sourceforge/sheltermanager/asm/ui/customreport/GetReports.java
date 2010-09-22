@@ -212,6 +212,7 @@ public class GetReports extends ASMView {
 
                     r.sql = b[5].trim();
                     r.html = b[6].trim();
+		    if (b.length == 8) r.subreports = b[7].trim();
                     reports.add(r);
                 }
 
@@ -311,6 +312,37 @@ public class GetReports extends ASMView {
             Global.logException(e, getClass());
         }
 
+	// Handle any subreports attached to this report
+	if (r.subreports != null) {
+            String[] sr = Utils.split(r.subreports, "+++");
+	    for (int i = 0; i < sr.length;) {
+	        String srtitle = sr[i++].trim();
+		String srsql = sr[i++].trim();
+		String srhtml = sr[i++].trim();
+	        try {
+		DBConnection.executeAction("DELETE FROM customreport WHERE Title Like '" + srtitle.replace('\'', '`') + "'");
+	        CustomReport cr = new CustomReport();
+		cr.openRecordset("ID = 0");
+		cr.addNew();
+		cr.setTitle(srtitle);
+		cr.setCategory(r.category);
+		cr.setDescription(r.description);
+		cr.setSQLCommand(srsql);
+		cr.setHTMLBody(srhtml);
+		cr.setOmitHeaderFooter(new Integer(1));
+		cr.setOmitCriteria(new Integer(1));
+		cr.save(Global.currentUserName);
+
+		if (AuditTrail.enabled()) {
+                    AuditTrail.create("customreport", srtitle);
+		}
+		}
+		catch (Exception e) {
+                    Global.logException(e, getClass());
+		}
+	    }
+	}
+
         // Remove the current line from the table
         reports.remove(id);
         updateList();
@@ -331,6 +363,7 @@ class InstallableReport implements Comparable {
     public String locale;
     public String sql;
     public String html;
+    public String subreports;
 
     public int compareTo(Object o) {
         return name.compareTo(((InstallableReport) o).name);

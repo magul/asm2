@@ -1,6 +1,8 @@
 2.8.1
 ================
 
+*. Added cage card with vaccination and medical history report
+*. Subreports can now be attached with reports in the repository
 *. SUBREPORT tag didn't work in group blocks (but ok in body) due to
 -  use of speechmarks in SQL
 *. Rewrote updateAnimalStatus functions to take advantage of batching

@@ -914,8 +914,10 @@ public class CustomReportExecute extends Report {
                         String[] bits = Utils.split(body, ".");
                         String title = bits[0];
                         String parent = bits[1];
+			String parentkey = rs.getString(parent);
 
                         // Lookup custom report ID from title
+			Global.logDebug("Including custom report '" + title + "' with key '" + parentkey + "'", "CustomReportExecute.generateReport");
                         CustomReport subr = new CustomReport();
                         subr.openRecordset("Title Like '" + title + "'");
 
@@ -924,7 +926,7 @@ public class CustomReportExecute extends Report {
                         // Call the report
                         setWaitingOnSubReport(true);
                         new CustomReportExecute(id,
-                            rs.getField(parent).toString(),
+                            parentkey,
                             new ReportDoneListener() {
                                 public void reportCompleted(String rep) {
                                     lastSubReport = rep;
