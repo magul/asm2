@@ -1386,7 +1386,7 @@ public class CustomReportExecute extends Report {
 
                     // Lookup custom report ID from title
                     CustomReport subr = new CustomReport();
-                    subr.openRecordset("Title Like \"" + title + "\"");
+                    subr.openRecordset("Title Like '" + title + "'");
 
                     String id = subr.getID().toString();
 

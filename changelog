@@ -1,6 +1,8 @@
 2.8.1
 ================
 
+*. SUBREPORT tag didn't work in group blocks (but ok in body) due to
+-  use of speechmarks in SQL
 *. Rewrote updateAnimalStatus functions to take advantage of batching
 -  support (reduces auto archive and variable animal data to a few seconds)
 *. HTTP driver statement batching support, new DBConnection.executeAction 
