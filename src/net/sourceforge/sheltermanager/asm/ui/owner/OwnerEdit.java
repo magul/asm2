@@ -677,72 +677,54 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                     Utils.formatDateTimeLong(owner.getLastChangedDate()),
                     owner.getLastChangedBy());
 
+            // Check satellite data to display icons
+            Owner.OwnerMarkers ext = Owner.getNumExternalRecords(owner.getID());
+
             // Donations
             ownerdonations.setLink(0, owner.getID().intValue(), 0);
-            ownerdonations.updateList();
-
-            // Flag the tab if there is content
-            if (ownerdonations.hasData()) {
+            if (ext.donations > 0) {
                 tabTabs.setIconAt(3,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_DONATIONS));
             }
 
             // Vouchers
             ownervouchers.setLink(owner.getID().intValue(), 0);
-            ownervouchers.updateList();
-
-            // Flag the tab if there is content
-            if (ownervouchers.hasData()) {
+            if (ext.vouchers > 0) {
                 tabTabs.setIconAt(4,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_VOUCHERS));
             }
 
             // Media
             media.setLink(Media.LINKTYPE_OWNER, owner.getID().intValue());
-            media.updateList();
-
-            // Flag the tab if there is content
-            if (media.hasData()) {
+            if (ext.media > 0) {
                 tabTabs.setIconAt(5,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MEDIA));
             }
 
             // Diary
             diary.setLink(owner.getID().intValue(), Diary.LINKTYPE_OWNER);
-            diary.updateList();
-
-            // Flag the tab if there is content
-            if (diary.hasData()) {
+            if (ext.diary > 0) {
                 tabTabs.setIconAt(6,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_DIARY));
             }
 
             // Movements
             movement.setLink(owner.getID().intValue(), 0);
-            movement.updateList();
-
-            // Flag the tab if there is content
-            if (movement.hasData()) {
+            if (ext.movement > 0) {
                 tabTabs.setIconAt(7,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MOVEMENT));
             }
 
             // Links
             ownerlinks.setLink(owner.getID().intValue(), 0);
-            ownerlinks.updateList();
-
-            // Flag the tab if there is content
-            if (ownerlinks.hasData()) {
+            if (ext.links > 0) {
                 tabTabs.setIconAt(8,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_LINKS));
             }
 
             // Log
             log.setLink(owner.getID().intValue(), Log.LINKTYPE_OWNER);
-            log.updateList();
-
-            // Flag the tab if there is content
-            if (log.hasData()) {
+            if (ext.log > 0) {
                 tabTabs.setIconAt(9,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_LOG));
             }
@@ -755,6 +737,22 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             setNonOwnerEnabled(true);
             enableButtons();
+
+            // Background load the data in
+            new Thread() {
+                    public void run() {
+                        Global.logDebug("Loading satellite data in background thread",
+                            "Owner.loadExternal");
+                        ownerdonations.updateList();
+                        ownervouchers.updateList();
+                        media.updateList();
+                        diary.updateList();
+                        movement.updateList();
+                        ownerlinks.updateList();
+                        log.updateList();
+                    }
+                }.start();
+
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

@@ -21,7 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 import java.util.Date;
@@ -528,4 +530,65 @@ public class Owner extends UserInfoBO<Owner> {
 
         return med.getMediaName();
     }
+
+    /** Returns the number of each type of external record for a given owner ID */
+    public static Owner.OwnerMarkers getNumExternalRecords(Integer id) {
+        try {
+            // Check all satellite data in one query
+            SQLRecordset r = new SQLRecordset(
+                "SELECT owner.ID, (SELECT COUNT(*) FROM ownerdonation WHERE OwnerID = owner.ID) AS dona, " +
+                "(SELECT COUNT(*) FROM ownervoucher WHERE OwnerID = owner.ID) AS vouc, " +
+                "(SELECT COUNT(*) FROM media WHERE LinkID = owner.ID AND LinkTypeID = " +
+                Media.LINKTYPE_OWNER +
+                ") AS pics, " +
+                "(SELECT COUNT(*) FROM diary WHERE LinkID = owner.ID AND LinkType = " +
+                Diary.LINKTYPE_OWNER +
+                ") AS diar, " +
+                "(SELECT COUNT(*) FROM adoption WHERE OwnerID = owner.ID) AS move, " +
+                "((SELECT COUNT(*) FROM animal WHERE OriginalOwnerID = owner.ID OR " +
+                "BroughtInByOwnerID = owner.ID OR OwnersVetID = owner.ID " +
+                "OR CurrentVetID = owner.ID) + (SELECT COUNT(*) FROM animalwaitinglist " +
+                "WHERE OwnerID = owner.ID) + (SELECT COUNT(*) FROM animallost WHERE " +
+                "OwnerID = owner.ID) + (SELECT COUNT(*) FROM animalfound WHERE " + 
+                "OwnerID = owner.ID)) AS link, " +
+                "(SELECT COUNT(*) FROM log WHERE LinkID = owner.ID AND LinkType = " +
+                Log.LINKTYPE_OWNER +
+                ") AS logs FROM owner WHERE owner.ID = " +
+                id, "owner");
+
+            return new OwnerMarkers((Integer) r.getField("dona"),
+                (Integer) r.getField("vouc"), (Integer) r.getField("pics"), 
+                (Integer) r.getField("diar"), (Integer) r.getField("move"), 
+                (Integer) r.getField("link"), (Integer) r.getField("logs"));
+        } catch (Exception e) {
+            Global.logException(e, Owner.class);
+        }
+
+        return new OwnerMarkers();
+    }
+
+    public static class OwnerMarkers {
+        public int donations = 0;
+        public int vouchers = 0;
+        public int media = 0;
+        public int diary = 0;
+        public int movement = 0;
+        public int links = 0;
+        public int log = 0;
+
+        public OwnerMarkers() {
+        }
+
+        public OwnerMarkers(Integer donations, Integer vouchers,
+            Integer media, Integer diary, Integer movement, Integer links, Integer log) {
+            this.donations = donations.intValue();
+            this.vouchers = vouchers.intValue();
+            this.media = media.intValue();
+            this.diary = diary.intValue();
+            this.movement = movement.intValue();
+            this.links = movement.intValue();
+            this.log = log.intValue();
+        }
+    }
+
 }

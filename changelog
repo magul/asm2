@@ -1,6 +1,8 @@
 2.8.1
 ================
 
+*. Background satellite data loading on owner screen to improve
+-  performance when loading owner records over slower connections
 *. Batch account balance calculation to speed up opening of 
 -  account list/balances
 *. Fixed race condition in updateList that caused browsing get more
