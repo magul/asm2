@@ -47,8 +47,8 @@ public class ASMApplet extends JApplet {
         }
 
         try {
-            SwingUtilities.invokeAndWait(new Startup(new String[0], jdbcurl,
-                    user, this));
+            new Thread(new Startup(new String[0], jdbcurl,
+                    user, this)).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,10 +56,22 @@ public class ASMApplet extends JApplet {
 
     public void loadMain(JComponent toolbar, JComponent desktop,
         JComponent status, JMenuBar menu) {
+        getContentPane().removeAll();
         getContentPane().add(toolbar, BorderLayout.NORTH);
         getContentPane().add(desktop, BorderLayout.CENTER);
         getContentPane().add(status, BorderLayout.SOUTH);
         setJMenuBar(menu);
+        getContentPane().invalidate();
+        getContentPane().validate();
+        getContentPane().repaint();
+        getRootPane().invalidate();
+        getRootPane().validate();
+        getRootPane().repaint();
+    }
+
+    public void loadStatus(JComponent splash, JComponent progress) {
+        getContentPane().add(splash, BorderLayout.CENTER);
+        getContentPane().add(progress, BorderLayout.SOUTH);;
         getContentPane().invalidate();
         getContentPane().validate();
         getContentPane().repaint();

@@ -121,7 +121,14 @@ public class Startup implements Runnable {
                         }
                     });
             } else {
-                sp = new StartupProgress(appletHandle);
+                UI.invokeAndWait(new Runnable() {
+                        public void run() {
+                            sp = new StartupProgress(appletHandle);
+                            sp.init("ASM",
+                                IconManager.getIcon(IconManager.SCREEN_MAIN),
+                                "", false);
+                        }
+                    });
             }
 
             String tempDir = System.getProperty("user.home") + File.separator +
@@ -942,7 +949,6 @@ class StartupProgress extends ASMWindow {
         UI.Panel progress = UI.getPanel(UI.getGridLayout(0, 1));
         UI.Label lblSplash = UI.getSplashLabel();
         lblSplash.setHorizontalAlignment(UI.Label.CENTER);
-        add(lblSplash, UI.BorderLayout.NORTH);
 
         status = UI.getLabel("");
         bar = UI.getProgressBar();
@@ -950,38 +956,38 @@ class StartupProgress extends ASMWindow {
         progress.add(throbber);
         progress.add(bar);
         progress.add(status);
-        add(progress, UI.BorderLayout.SOUTH);
 
+        if (!applet) {
+        add(lblSplash, UI.BorderLayout.NORTH);
+        add(progress, UI.BorderLayout.SOUTH);
         this.setSize(UI.getDimension(400, 340));
         UI.centerWindow(this);
         Dialog.theParent = this;
         setVisible(true);
+        }
+        else {
+            appletHandle.loadStatus(lblSplash, progress);
+        }       
         throbber.start();
     }
 
     public void dispose() {
-        if (!applet) {
             throbber.stop();
+        if (!applet) {
             super.dispose();
         }
     }
 
     public void setMax(int i) {
-        if (!applet) {
             bar.setMaximum(i);
-        }
     }
 
     public void incrementBar() {
-        if (!applet) {
             bar.setValue(bar.getValue() + 1);
-        }
     }
 
     public void setStatus(String s) {
-        if (!applet) {
             status.setText(s);
-        }
 
         Global.logInfo(s, "Startup.setStatus");
     }
