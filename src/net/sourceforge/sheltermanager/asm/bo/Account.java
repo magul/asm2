@@ -24,9 +24,11 @@ package net.sourceforge.sheltermanager.asm.bo;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class Account extends UserInfoBO<Account> {
@@ -223,6 +225,40 @@ public class Account extends UserInfoBO<Account> {
 
         return rounded;
     }
+
+    public static class Balances {
+        public double balance;
+        public double reconciled;
+        public Balances(double balance, double reconciled) {
+            this.balance = balance;
+            this.reconciled = reconciled;
+        }
+    }
+
+    /** Calculates the balance/reonciled for all accounts and returns a map of them */
+    public static HashMap<Integer, Account.Balances> getAllAccountBalances() throws Exception {
+        SQLRecordset rs = new SQLRecordset("SELECT ID, AccountType, " + 
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID), 0) - " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID), 0) AS balance, " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID), 0) - " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID), 0) AS reconciled " +
+        "FROM accounts", "accounts");
+        HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
+        for (SQLRecordset r : rs) {
+            double bal = r.getDouble("balance");
+            double rec = r.getDouble("reconciled");
+            bal = Utils.round(bal, 2);
+            rec = Utils.round(rec, 2);
+            if (r.getInt("AccountType") == INCOME || r.getInt("AccountType") == EXPENSE) {
+                bal = Math.abs(bal);
+                rec = Math.abs(rec);
+            }
+            bals.put(new Integer(r.getInt("ID")), new Account.Balances(bal, rec));
+        }
+        return bals;
+    }
+
+
 
     /** Calculates the balance for this account to a certain date */
     public static double getAccountBalanceToDate(Integer accountId, Date limit)

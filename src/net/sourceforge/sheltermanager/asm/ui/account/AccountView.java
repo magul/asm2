@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 
@@ -107,8 +108,9 @@ public class AccountView extends ASMView {
             // something
             startThrobber();
 
-            // Create an array to hold the results for the table
             Account accounts = Account.getAllAccounts();
+            HashMap<Integer, Account.Balances> balances = Account.getAllAccountBalances();
+
             String[][] datar = new String[accounts.size()][7];
 
             // Create an array of headers for the table
@@ -122,13 +124,15 @@ public class AccountView extends ASMView {
             initStatusBarMax(accounts.size());
 
             for (Account a : accounts) {
+                double balance = balances.get(a.getID()).balance;
+                double reconciled = balances.get(a.getID()).reconciled;
                 datar[i][0] = a.getCode();
                 datar[i][1] = a.getAccountTypeName();
                 datar[i][2] = a.getDescription();
-                datar[i][3] = Utils.formatCurrency(a.getReconciled());
-                datar[i][4] = Utils.formatCurrency(a.getAccountBalance());
+                datar[i][3] = Utils.formatCurrency(reconciled);
+                datar[i][4] = Utils.formatCurrency(balance);
                 datar[i][5] = a.getID().toString();
-                datar[i][6] = (a.getAccountBalance() < 0) ? "-" : "+";
+                datar[i][6] = (balance < 0) ? "-" : "+";
                 i++;
                 hasRecords = true;
                 incrementStatusBar();
