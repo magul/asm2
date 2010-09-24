@@ -106,7 +106,7 @@ access is revoked, they cannot attack the database (it alleviates the need
 for multiple db users outlined above).
 
 You'll need Python and the appropriate database driver (python-pgsql or
-python-mysql) installed on your webserver.
+python-mysqldb) installed on your webserver.
 
 To use, put it on your webserver, edit it and uncomment the lines specific
 to your database. You should fill in the database credentials here as well.
@@ -118,3 +118,7 @@ in your web browser.
 You can then set the JDBC URL for ASM in the index.html page to 
 http://webserver/httpdb.cgi 
 
+There is a performance penalty in using this webpage as it creates a new
+database connection for each request (it has to, HTTP is stateless).
+This can be alleviated by using a connection pooling application, such as
+pgbouncer for PostgreSQL or a similar tool for MySQL.
