@@ -101,7 +101,7 @@ public class AccountView extends ASMView {
             }.start();
     }
 
-    public void updateListThreaded() {
+    public synchronized void updateListThreaded() {
         try {
             // Start the throbber going so the user knows we're doing
             // something

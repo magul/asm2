@@ -112,7 +112,7 @@ public class LitterView extends ASMView {
             }.start();
     }
 
-    public void updateListThreaded() {
+    public synchronized void updateListThreaded() {
         try {
             // Let user know we're doing something
             startThrobber();

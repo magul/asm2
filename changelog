@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Fixed race condition in updateList that caused browsing get more
+-  reports to double each entry sometimes
+*. In/Out report by species
 *. Catch and rethrow HTTP exceptions, configuration saving needs
 -  to escape single quotes
 *. Added cage card with vaccination and medical history report

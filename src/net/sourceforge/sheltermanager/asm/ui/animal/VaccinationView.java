@@ -167,7 +167,7 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             }.start();
     }
 
-    public void updateListThreaded() {
+    public synchronized void updateListThreaded() {
         AnimalVaccination av = new AnimalVaccination();
         boolean deceased = chkDeceased.isSelected();
         boolean offshelter = chkOffShelter.isSelected();

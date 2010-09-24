@@ -34,6 +34,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
 
@@ -49,7 +50,7 @@ public class GetReports extends ASMView {
             "http://www.sheltermanager.com/repo/reports.txt");
     private UI.Button btnInstall;
     private UI.CheckBox chkMyLocale;
-    private Vector reports = null;
+    private ArrayList<InstallableReport> reports = null;
 
     public GetReports() {
         init(Global.i18n("uicustomreport", "Install_additional_reports"),
@@ -79,7 +80,6 @@ public class GetReports extends ASMView {
         Vector v = new Vector();
         v.add(chkMyLocale);
         v.add(getTable());
-
         return v;
     }
 
@@ -110,7 +110,7 @@ public class GetReports extends ASMView {
             }.start();
     }
 
-    public void updateListThread() {
+    public synchronized void updateListThread() {
         try {
             if (reports == null) {
                 // Open the list of custom reports so we can omit reports
@@ -119,7 +119,7 @@ public class GetReports extends ASMView {
                 cr.openRecordset("ID > 0 ORDER BY Title");
 
                 // Grab the reports
-                reports = new Vector();
+                reports = new ArrayList<InstallableReport>();
 
                 startThrobber();
 
