@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+# Modify for your backend database
+DBTYPE = "MYSQL" # Should be MYSQL, SQLITE or POSTGRESQL
+HOST = "localhost"
+USERNAME = "root"
+PASSWORD = ""
+DATABASE = "asm"
+SQLITE_FILE = ""
+
 """
 
 httpdb.cgi
@@ -40,42 +48,19 @@ HTTPDB DBNAME - returns a resultset containing one string with the name
 
 """
 
-import time
-import cgi
+import time, cgi, sys
 
-# MySQL DB =============================
-#import MySQLdb
-#mysql_host = "localhost"
-#mysql_user = "root"
-#mysql_password = ""
-#mysql_db = "propmast"
-#DBTYPE = "MYSQL"
-
-# SQLite 3 DB ==========================
-#from pysqlite2 import dbapi2 as sqlite
-# SQLite 2
-#import sqlite 
-#sqlite_db = "pm.db"
-#DBTYPE = "SQLITE"
-
-# PostgresSQL ==========================
-from pyPgSQL import PgSQL
-pg_host = "host:5432"
-pg_user = "user"
-pg_passwd = "pass"
-pg_db = "database"
-DBTYPE = "POSTGRESQL"
+if DBTYPE == "MYSQL": import MySQLdb
+if DBTYPE == "POSTGRESQL": import pyPgSQL
+if DBTYPE == "SQLITE": from pysqlite2 import dbapi2 as sqlite
     
 def getConnection():
     """
         Creates a connection to the database and returns it
     """
-    # MySQL
-    #return MySQLdb.connect(host=mysql_host, user=mysql_user, passwd=mysql_password, db=mysql_db )
-    # Postgres
-    return PgSQL.connect(None, pg_user, pg_passwd, pg_host, pg_db)
-    # SQLite
-    #return sqlite.connect(sqlite_db)
+    if DBTYPE == "MYSQL": return MySQLdb.connect(host=HOST, user=USERNAME, passwd=PASSWORD, db=DATABASE)
+    if DBTYPE == "POSTGRESQL": return PgSQL.connect(None, USERNAME, PASSWORD, HOST, DATABASE)
+    if DBTYPE == "SQLITE": return sqlite.connect(SQLITE_FILE)
     
 def runQuery(sql):
     """
@@ -215,9 +200,37 @@ def tokenise(s):
     s = s.replace("\r", "\\cr")
     return s
 
-# Get the SQL
-f = cgi.FieldStorage()
-sql = f["sql"].value
+def map_type(s):
+    """ Maps the database types to integer, timestamp, varchar or float """
+    s = str(s)
+    # PostgreSQL types
+    if s.startswith("integer"): return "integer"
+    if s.startswith("bigint"): return "integer"
+    if s.startswith("varchar"): return "varchar"
+    if s.startswith("text"): return "varchar"
+    if s.startswith("timestamp"): return "timestamp"
+    if s.startswith("date"): return "timestamp"
+    if s.startswith("float"): return "float"
+    # MySQL types
+    if s == "1": return "integer"
+    if s == "2": return "integer"
+    if s == "3": return "integer"
+    if s == "8": return "integer"
+    if s == "5": return "float"
+    if s == "12": return "timestamp"
+    if s == "252": return "varchar"
+    if s == "253": return "varchar"
+    # Fallback, return whatever we got
+    return s
+
+    
+
+# Get the SQL, allow the command line to override
+if len(sys.argv) > 1:
+    sql = sys.argv[1]
+else:
+    f = cgi.FieldStorage()
+    sql = f["sql"].value
 
 print "Content-Type: text-plain\n\n"
 
@@ -257,7 +270,7 @@ else:
     # Get the list of columns
     cols = []
     for c in s.description:
-        cols.append(( c[0], str(c[1])))
+        cols.append(( c[0], map_type(c[1])))
     # Dump them out
     colmap = "COL"
     for c in cols:
