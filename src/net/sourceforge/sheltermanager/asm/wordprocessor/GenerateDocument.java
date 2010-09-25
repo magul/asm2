@@ -1135,7 +1135,9 @@ public abstract class GenerateDocument extends Thread
     /**
      * Allows you to replace keys in a text string instead of using word
      * processor integration. This routine is specified to the internet
-     * publisher, as it relies on tags being wrapped with $$
+     * publisher, as it relies on tags being wrapped with $$.
+     * It also converts line breaks to <br/> tags as well for paragraph
+     * formatting.
      *
      * @param thetext
      *            The text to search in
@@ -1148,7 +1150,10 @@ public abstract class GenerateDocument extends Thread
 
         while (i.hasNext()) {
             SearchTag st = (SearchTag) i.next();
-            output = Utils.replace(output, "$$" + st.find + "$$", st.replace);
+	    String r = st.replace;
+	    r = Utils.replace(r, "\n", "<br/>");
+	    r = Utils.replace(r, "\r", "");
+            output = Utils.replace(output, "$$" + st.find + "$$", r);
         }
 
         return output;
