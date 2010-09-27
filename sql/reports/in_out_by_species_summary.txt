@@ -1,4 +1,4 @@
-In/Out by Species Summary
+In/Out Summary by Species
 ###
 Movements
 ###
@@ -266,24 +266,21 @@ HEADER$$
 
 $$GROUP_InOut
 $$HEAD
-<h1>$InOut</h1>
+<h2><u>$InOut</u></h2>
 $$FOOT
-<h1>Total $InOut: {COUNT.thedate}</h1>
+<h2>Total $InOut: {COUNT.thedate}</h2>
 GROUP$$
 
 $$GROUP_CategoryName
 $$HEAD
-<h2>$CategoryName</h2>
 $$FOOT
-<h2>Total $CategoryName: {COUNT.thedate}</h2>
+<p>Total $CategoryName: {COUNT.thedate}</p>
 GROUP$$
 
 $$GROUP_SpeciesName
 $$HEAD
-<h2>$SpeciesName</h2>
 $$FOOT
-</table>
-<h2>Total $SpeciesName: {COUNT.thedate}</h2>
+<p>Total $CategoryName - $SpeciesName: {COUNT.thedate}</p>
 GROUP$$
 
 $$BODY
