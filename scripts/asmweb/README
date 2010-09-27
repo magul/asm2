@@ -116,9 +116,12 @@ http://webserver/httpd.cgi?sql=SELECT * FROM configuration
 in your web browser.
 
 You can then set the JDBC URL for ASM in the index.html page to 
-http://webserver/httpdb.cgi 
+jdbc:http://webserver/httpdb.cgi - it will also support BASIC auth directly
+as well, so you can use a jdbc:http://user:pass@webserver/httpdb.cgi URL
+as well.
 
 There is a performance penalty in using this webpage as it creates a new
 database connection for each request (it has to, HTTP is stateless).
-This can be alleviated by using a connection pooling application, such as
-pgbouncer for PostgreSQL or a similar tool for MySQL.
+This can be alleviated by using a connection pooling proxy, such as
+pgbouncer for PostgreSQL or mysql-proxy with a connection pooling script
+for MySQL.
