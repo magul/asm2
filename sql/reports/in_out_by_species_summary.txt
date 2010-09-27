@@ -1,4 +1,4 @@
-In/Out by Species
+In/Out by Species Summary
 ###
 Movements
 ###
@@ -281,37 +281,12 @@ GROUP$$
 $$GROUP_SpeciesName
 $$HEAD
 <h2>$SpeciesName</h2>
-<table border=1><tr>
-<td><b>Date</b></td>
-<td><b>Reason</b></td>
-<td><b>Code</b></td>
-<td><b>Microchip</b></td>
-<td><b>Name</b></td>
-<td><b>Type</b></td>
-<td><b>Species</b></td>
-<td><b>Age</b></td>
-<td><b>Sex</b></td>
-<td><b>Location</b></td>
-<td><b>Owner</b></td>
-</tr>
 $$FOOT
 </table>
 <h2>Total $SpeciesName: {COUNT.thedate}</h2>
 GROUP$$
 
-$$BODY<tr>
-<td>$THEDATE</td>
-<td>$REASON</td>
-<td>$SHELTERCODE</td>
-<td>$IDENTICHIPNUMBER</td>
-<td>$ANIMALNAME</td>
-<td>$ANIMALTYPENAME</td>
-<td>$SPECIESNAME</td>
-<td>$ANIMALAGE</td>
-<td>$SEXNAME</td>
-<td>$LOCATION</td>
-<td>$OWNERNAME</td>
-</tr>
+$$BODY
 BODY$$
 
 $$FOOTER
