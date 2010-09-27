@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Use url.dll when browsing to URLs on Windows instead of the
+-  java.awt.Desktop class - apart from working on all versions of Java,
+-  it should hopefully fix the problem with file URLs not working
 *. When replacing word processor tokens for the internet publisher, 
 -  line breaks in content are replaced with br tags
 *. MySQL support for httpdb bridge

@@ -1799,8 +1799,18 @@ public final class UI {
     }
 
     public static void osBrowse(String uri) throws Exception {
-        Desktop d = Desktop.getDesktop();
-        d.browse(new java.net.URI(uri));
+        if (UI.osIsWindows()) {
+		// If we're on some form of Windows, use 
+		// url.dll instead of the Java Desktop class
+		// as file URIs don't seem to work with Windows XP
+		// and java.awt.Desktop
+		Runtime.getRuntime().exec(
+			"rundll32 url.dll,FileProtocolHandler \"" + uri + "\"");
+	}
+	else {
+	        Desktop d = Desktop.getDesktop();
+	        d.browse(new java.net.URI(uri));
+	}
     }
 
     public static void osOpen(String file) throws Exception {
