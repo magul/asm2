@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Fix to report generation so that { } closures for javascript are 
+-  still allowed in report templates and are not blown away by
+-  calculation key parsing
 *. When altering additional field definitions, they take effect immediately
 *. Additional fields can be made mandatory now
 *. If the database can't be connected to, a prompt asks the user if
