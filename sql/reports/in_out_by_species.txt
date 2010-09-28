@@ -242,6 +242,22 @@ WHERE adoption.MovementType = 7 AND
 adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT DeceasedDate AS thedate,
+'' AS Reason,
+ShelterCode,
+IdentichipNumber,
+AnimalName,
+(SELECT AnimalType FROM animaltype WHERE ID = animal.AnimalTypeID) AS AnimalTypeName,
+(SELECT SpeciesName FROM species WHERE ID = animal.SpeciesID) AS SpeciesName,
+AnimalAge,
+(SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
+(SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
+(SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
+'Animals Died On Shelter' AS CategoryName,
+'Animals Out' AS InOut
+FROM animal
+WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND PutToSleep = 0
+
+UNION SELECT DeceasedDate AS thedate,
 (SELECT ReasonName FROM deathreason WHERE ID = animal.PTSReasonID) AS Reason,
 ShelterCode,
 IdentichipNumber,
@@ -252,10 +268,26 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
-'Animals Died' AS CategoryName,
-'Animals In' AS InOut
+'Animals Euthanised' AS CategoryName,
+'Animals Out' AS InOut
 FROM animal
-WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0
+WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND PutToSleep = 1
+
+UNION SELECT DeceasedDate AS thedate,
+(SELECT ReasonName FROM deathreason WHERE ID = animal.PTSReasonID) AS Reason,
+ShelterCode,
+IdentichipNumber,
+AnimalName,
+(SELECT AnimalType FROM animaltype WHERE ID = animal.AnimalTypeID) AS AnimalTypeName,
+(SELECT SpeciesName FROM species WHERE ID = animal.SpeciesID) AS SpeciesName,
+AnimalAge,
+(SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
+(SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
+(SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
+'Animals Dead On Arrival' AS CategoryName,
+'Animals Out' AS InOut
+FROM animal
+WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND IsDOA = 1
 
 ) dummy
 WHERE thedate >= '$@from$' AND thedate <= '$@to$'
