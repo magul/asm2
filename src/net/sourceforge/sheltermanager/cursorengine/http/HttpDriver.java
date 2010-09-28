@@ -29,7 +29,11 @@ public class HttpDriver implements Driver {
     public Connection connect(String arg0, Properties arg1)
         throws SQLException {
         if (arg0.indexOf("http") != -1) {
-            return new HttpConnection(arg0);
+            HttpConnection c = new HttpConnection(arg0);
+            // By asking for the product name, we're making a request
+            // of the server and testing this connection is valid
+            c.getMetaData().getDatabaseProductName();
+            return c;
         }
 
         throw new SQLException("Invalid URL: " + arg0);

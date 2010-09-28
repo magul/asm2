@@ -57,6 +57,7 @@ public class AdditionalFieldEdit extends ASMForm {
     private UI.ComboBox cboFieldLink;
     private UI.ComboBox cboFieldType;
     private UI.Spinner spnDisplayIndex;
+    private UI.CheckBox chkMandatory;
 
     public AdditionalFieldEdit(ConfigureAdditional parent) {
         this.parent = parent;
@@ -124,6 +125,7 @@ public class AdditionalFieldEdit extends ASMForm {
             this.cboFieldType.setSelectedIndex(af.getFieldType().intValue());
             this.spnDisplayIndex.setValue(af.getDisplayIndex());
             this.txtLookupValues.setText(af.getLookupValues());
+            this.chkMandatory.setSelected(af.getMandatory().intValue() == 1);
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
@@ -138,6 +140,7 @@ public class AdditionalFieldEdit extends ASMForm {
             af.setLinkType(new Integer(cboFieldLink.getSelectedIndex()));
             af.setDisplayIndex(new Integer(spnDisplayIndex.getValue().toString()));
             af.setLookupValues(txtLookupValues.getText());
+            af.setMandatory(new Integer(chkMandatory.isSelected() ? 1 : 0));
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -175,6 +178,7 @@ public class AdditionalFieldEdit extends ASMForm {
 
         UI.addComponent(pt, i18n("linktype"), cboFieldLink);
         UI.addComponent(pt, i18n("fieldtype"), cboFieldType);
+        chkMandatory = (UI.CheckBox) UI.addComponent(pt, i18n("mandatory"), UI.getCheckBox());
 
         spnDisplayIndex = UI.getSpinner(0, 0xffffff);
         UI.addComponent(pt, i18n("displayindex"), spnDisplayIndex);

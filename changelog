@@ -1,6 +1,12 @@
 2.8.1
 ================
 
+*. When altering additional field definitions, they take effect immediately
+*. Additional fields can be made mandatory now
+*. If the database can't be connected to, a prompt asks the user if
+-  they want to choose another - if not we bail out, if they do,
+-  they can go through the database selection screen again
+*. Added HTTPDB type to the database dialog
 *. Use url.dll when browsing to URLs on Windows instead of the
 -  java.awt.Desktop class - apart from working on all versions of Java,
 -  it should hopefully fix the problem with file URLs not working

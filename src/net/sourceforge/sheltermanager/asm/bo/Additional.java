@@ -25,32 +25,33 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 
 public class Additional {
-    public static Vector<Additional.Field> getFieldValues(int linkType,
+    public static ArrayList<Additional.Field> getFieldValues(int linkType,
         int linkID) throws Exception {
         try {
             SQLRecordset recs = new SQLRecordset(
                     "SELECT AdditionalFieldID, FieldName, FieldLabel, " +
-                    "Tooltip, FieldType, Value " + "FROM additional " +
+                    "Tooltip, FieldType, Mandatory, Value " + "FROM additional " +
                     "INNER JOIN additionalfield" +
                     " ON additionalfield.ID = additional.AdditionalFieldID" +
                     " WHERE additional.LinkID = " + linkID +
                     " AND additional.LinkType = " + linkType +
                     " ORDER BY DisplayIndex", "additional");
 
-            Vector<Additional.Field> v = new Vector<Additional.Field>();
+            ArrayList<Additional.Field> v = new ArrayList<Additional.Field>();
 
             for (SQLRecordset r : recs) {
                 Additional.Field af = new Additional.Field();
-                af.fieldID = ((Integer) r.getField("AdditionalFieldID")).intValue();
-                af.fieldType = ((Integer) r.getField("FieldType")).intValue();
-                af.fieldName = r.getField("FieldName").toString();
-                af.fieldLabel = r.getField("FieldLabel").toString();
-                af.tooltip = r.getField("ToolTip").toString();
-                af.value = r.getField("Value").toString();
+                af.fieldID = r.getInteger("AdditionalFieldID");
+                af.fieldType = r.getInteger("FieldType");
+                af.fieldName = r.getString("FieldName");
+                af.fieldLabel = r.getString("FieldLabel");
+                af.tooltip = r.getString("ToolTip");
+                af.value = r.getString("Value");
+                af.mandatory = r.getInteger("Mandatory") == 1;
                 v.add(af);
             }
 
@@ -62,7 +63,7 @@ public class Additional {
     }
 
     public static void setFieldValues(int linkType, int linkID,
-        Vector<Additional.Field> v) throws Exception {
+        ArrayList<Additional.Field> v) throws Exception {
         try {
             // Set the values
             for (int i = 0; i < v.size(); i++) {
@@ -103,5 +104,6 @@ public class Additional {
         public String fieldLabel;
         public String tooltip;
         public String value;
+        public boolean mandatory;
     }
 }

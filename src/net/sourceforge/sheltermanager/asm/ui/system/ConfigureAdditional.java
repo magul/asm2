@@ -92,6 +92,8 @@ public class ConfigureAdditional extends ASMView {
     }
 
     public boolean formClosing() {
+        // Reload the additional field definitions
+        LookupCache.invalidateAdditionalFields();
         return false;
     }
 
@@ -117,12 +119,12 @@ public class ConfigureAdditional extends ASMView {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) af.getRecordCount()][6];
+        String[][] datar = new String[(int) af.getRecordCount()][7];
 
         // Create an array of headers for the table
         String[] columnheaders = new String[] {
                 i18n("linktype"), i18n("fieldname"), i18n("fieldlabel"),
-                i18n("fieldtype"), i18n("displayindex")
+                i18n("fieldtype"), i18n("mandatory"), i18n("displayindex")
             };
 
         // Build the data
@@ -134,8 +136,9 @@ public class ConfigureAdditional extends ASMView {
                 datar[i][1] = af.getFieldName();
                 datar[i][2] = af.getFieldLabel();
                 datar[i][3] = af.getFieldTypeName();
-                datar[i][4] = af.getDisplayIndex().toString();
-                datar[i][5] = af.getID().toString();
+                datar[i][4] = af.getMandatory().intValue() == 1 ? Global.i18n("uianimal", "Yes") : Global.i18n("uianimal", "No");
+                datar[i][5] = af.getDisplayIndex().toString();
+                datar[i][6] = af.getID().toString();
                 i++;
                 af.moveNext();
             }
@@ -143,7 +146,7 @@ public class ConfigureAdditional extends ASMView {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 5);
+        setTableData(columnheaders, datar, i, 6);
     }
 
     public void addToolButtons() {

@@ -51,7 +51,8 @@ CREATE MEMORY TABLE additionalfield (
   ToolTip VARCHAR(255) NULL,
   LookupValues VARCHAR(16384) NULL,
   FieldType INTEGER NOT NULL,
-  DisplayIndex INTEGER NOT NULL
+  DisplayIndex INTEGER NOT NULL,
+  Mandatory INTEGER NOT NULL
 );
 CREATE INDEX additionalfield_LinkType ON additionalfield (LinkType);
 
@@ -804,7 +805,7 @@ CREATE MEMORY TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2810');
+INSERT INTO configuration VALUES ('DatabaseVersion','2811');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');

@@ -64,7 +64,7 @@ public class AdditionalField extends NormalBO<AdditionalField> {
         a.setFieldType(getFieldType());
         a.setLinkType(getLinkType());
         a.setLookupValues(getLookupValues());
-
+        a.setMandatory(getMandatory());
         return a;
     }
 
@@ -130,6 +130,14 @@ public class AdditionalField extends NormalBO<AdditionalField> {
 
     public void setLookupValues(String newValue) throws CursorEngineException {
         rs.setField("LookupValues", newValue);
+    }
+
+    public Integer getMandatory() throws CursorEngineException {
+        return (Integer) rs.getField("Mandatory");
+    }
+
+    public void setMandatory(Integer newValue) throws CursorEngineException {
+        rs.setField("Mandatory", newValue);
     }
 
     public void validate() throws BOValidationException {

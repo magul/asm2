@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-09-07 09:25+0000\n"
+"PO-Revision-Date: 2010-09-28 10:26+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3603,6 +3603,7 @@ msgstr "Lookup"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
@@ -3629,6 +3630,7 @@ msgstr "No"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/account/TrxView
 #. # ui/main/Logout
@@ -4093,6 +4095,11 @@ msgid ""
 "{6} mysql date columns repaired.\n"
 "{7} invalid animal codes fixed for this year."
 msgstr ""
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
+msgstr "HTTPDB Bridge"
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -6978,7 +6985,6 @@ msgstr "Hidden Comments:"
 msgid "Size:"
 msgstr "Size:"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
@@ -7360,7 +7366,6 @@ msgstr "The animal's unique shelter code"
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr "Tick this box if the animal was transferred from another shelter"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7390,7 +7395,6 @@ msgid "Invalid Date"
 msgstr "Invalid Date"
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8539,6 +8543,11 @@ msgstr "Previous month"
 #: Previous_Year
 msgid "Previous year"
 msgstr "Previous year"
+
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
+msgstr "Additional field \"{0}\" must have a value."
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -13684,6 +13693,12 @@ msgstr "Show Litter ID when adding multiple animals"
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
 msgstr "Show Acceptance Number when adding multiple animals"
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr "Mandatory?"
 
 #. # ui/users/UserView
 #: Add_a_new_user

@@ -1946,15 +1946,23 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             animal.setActiveMovementID(n);
             animal.setHasActiveReserve(n);
         } catch (CursorEngineException e) {
-            Dialog.showError(Global.i18n("uianimal",
-                    "Error_saving_to_local_SQLRecordset:_") + e.getMessage(),
-                Global.i18n("uianimal", "Save_Error"));
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
 
             return false;
         }
 
         try {
+
+            // If it wasn't a new record, try and save the additional fields
+            if (!isNewRecord) {
+                if (!additional.saveFields(animal.getID().intValue(),
+                    AdditionalField.LINKTYPE_ANIMAL))
+                    // If a mandatory field wasn't completed, an error
+                    // will have been shown and we should bail out now
+                    return false;
+            }
+
             animal.save(Global.currentUserName);
 
             // Audit
@@ -1970,12 +1978,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
-            }
-
-            // If it wasn't a new record, try and save the additional fields
-            if (!isNewRecord) {
-                additional.saveFields(animal.getID().intValue(),
-                    AdditionalField.LINKTYPE_ANIMAL);
             }
 
             // Update denormalised data
@@ -2003,8 +2005,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
             return true;
         } catch (CursorEngineException e) {
-            Dialog.showError(e.getMessage(),
-                Global.i18n("uianimal", "Validation_Error"));
+            Dialog.showError(e.getMessage());
         }
 
         return false;

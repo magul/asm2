@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-07 09:25+0100\n"
+"POT-Creation-Date: 2010-09-28 10:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3606,6 +3606,7 @@ msgstr ""
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
@@ -3632,6 +3633,7 @@ msgstr ""
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/account/TrxView
 #. # ui/main/Logout
@@ -4095,6 +4097,11 @@ msgid ""
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
 "{7} invalid animal codes fixed for this year."
+msgstr ""
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
 msgstr ""
 
 #. # reports/VaccinationDiary
@@ -6981,7 +6988,6 @@ msgstr ""
 msgid "Size:"
 msgstr ""
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
@@ -7363,7 +7369,6 @@ msgstr ""
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr ""
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7393,7 +7398,6 @@ msgid "Invalid Date"
 msgstr ""
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8541,6 +8545,11 @@ msgstr ""
 #. # ui/ui/UI
 #: Previous_Year
 msgid "Previous year"
+msgstr ""
+
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -13686,6 +13695,12 @@ msgstr ""
 #. # ui/system/Options
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
+msgstr ""
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
 msgstr ""
 
 #. # ui/users/UserView

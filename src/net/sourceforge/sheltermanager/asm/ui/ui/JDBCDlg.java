@@ -86,6 +86,7 @@ public class JDBCDlg extends ASMDialog {
         cboType.addItem(i18n("postgresql"));
         cboType.addItem(i18n("hsqldb"));
         cboType.addItem(i18n("smcom"));
+        cboType.addItem(i18n("httpdb"));
 
         txtHostname = (UI.TextField) UI.addComponent(p, i18n("hostname"),
                 UI.getTextField());
@@ -167,6 +168,10 @@ public class JDBCDlg extends ASMDialog {
             Dialog.lastJDBC = "jdbc:http://" + user + ":" + pass + "@" +
                 "sheltermanager.com/online/" + db + "/httpdb.cgi";
 
+            break;
+
+        case 5:
+            Dialog.lastJDBC = "jdbc:http://" + (!user.equals("") ? user + ":" + pass + "@" : "") + host + "/" + db;
             break;
         }
 

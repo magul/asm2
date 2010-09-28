@@ -207,18 +207,18 @@ public class Startup implements Runnable {
 
             // Find the database from the jdbcurl.properties file
             // (for standalone installs)
+            LocateDatabase ldb = null;
             if (!applet) {
                 sp.setStatus("Locating database...");
                 sp.incrementBar();
 
                 // Get the database
-                LocateDatabase ldb = new LocateDatabase();
+                ldb = new LocateDatabase();
 
                 // Set the JDBC URL in the cursor engine.
                 Global.logDebug("Setting database URL: " + ldb.getJDBCURL(),
                     "Startup.run");
                 DBConnection.url = ldb.getJDBCURL();
-                ldb = null;
             } else {
                 // Just use the URL we were given
                 sp.setStatus("Using applet JDBC URL");
@@ -236,8 +236,17 @@ public class Startup implements Runnable {
                 Global.logError(
                     "A connection to the database server could not be made.\nThe error was: " +
                     DBConnection.lastError, "Startup.Startup");
-                clearLock();
-                terminateVM(1);
+
+                // Ask the user if they want to choose a database
+                if (!Dialog.showYesNo("Do you want to choose a new database?", "New Database")) {
+                    clearLock();
+                    terminateVM(1);
+                }
+                else {
+                    ldb.askUserForDatabase();
+                    DBConnection.url = ldb.getJDBCURL();
+                    DBConnection.getConnection();
+                }
             }
 
             // Now do a quick speed test - take two samples and average

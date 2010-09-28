@@ -353,6 +353,12 @@ public abstract class LookupCache {
         return null;
     }
 
+    public static void invalidateAdditionalFields() {
+        Global.logInfo("Reloading additional fields", "LookupCache.invalidateAdditionalFields");
+        additionalfield = null;
+        getLookup(LOOKUP_ADDITIONALFIELD);
+    }
+
     /** Empties the cache */
     public static void invalidate() {
         Global.logInfo("Clearing lookup cache", "LookupCache.invalidate");
