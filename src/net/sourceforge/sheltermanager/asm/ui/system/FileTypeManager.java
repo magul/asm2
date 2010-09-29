@@ -523,7 +523,7 @@ public class FileTypeManager {
             if (file.indexOf(":/") != -1) {
                 Global.logInfo("Browsing to: " + file,
                     "FileTypeManager.shellExecuteOS");
-                UI.osBrowse(Utils.urlEncode(file));
+                UI.osBrowse(file);
             } else {
                 Global.logInfo("Opening: " + file,
                     "FileTypeManager.shellExecuteOS");
