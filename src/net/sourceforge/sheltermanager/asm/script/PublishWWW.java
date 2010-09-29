@@ -47,6 +47,7 @@ import java.util.Vector;
  *              uploaddirectly
  *              uploadall
  *              generatejavascriptdb
+ *              thumbnails
  *              extension=<file extension - html is the default>
  *              style=<style dir or . for base>
  *              order=<0 or 1, where 0 = most recent asc, 1 = desc>
@@ -97,6 +98,8 @@ public class PublishWWW {
                     pc.forceReupload = true;
                 } else if (args[i].equalsIgnoreCase("generatejavascriptdb")) {
                     pc.generateJavascriptDB = true;
+                } else if (args[i].equalsIgnoreCase("thumbnails")) {
+                    pc.thumbnails = true;
                 } else if (Utils.englishLower(args[i])
                                     .startsWith("excludeunder" +
                             ScriptParser.equalsSymbol)) {

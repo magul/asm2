@@ -39,6 +39,7 @@ import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
@@ -416,7 +417,7 @@ public class AnimalDocument extends GenerateDocument {
 
             // Data held in additional fields
             try {
-                Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
+                ArrayList<Additional.Field> v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
                         animal.getID().intValue());
 
                 for (int i = 0; i < v.size(); i++) {

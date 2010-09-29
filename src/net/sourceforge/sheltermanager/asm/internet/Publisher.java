@@ -265,6 +265,11 @@ public class Publisher extends Thread {
                                         publishCriteria.scaleImages);
                                 }
 
+                                // If thumbnails are on, generate one
+                                if (publishCriteria.thumbnails) {
+                                    generateThumbnail(publishDir, animalweb, "tn_" + animalweb);
+                                }
+
                                 // If upload all was set, the user wants the
                                 // image filename to map to the animal's sheltercode
                                 // instead of the media filename (plus index the
@@ -280,14 +285,20 @@ public class Publisher extends Thread {
                                             publishCriteria.scaleImages);
                                     }
 
+                                    if (publishCriteria.thumbnails) {
+                                        generateThumbnail(publishDir, animalpic, "tn_" + animalpic);
+                                    }
+
                                     if (publishCriteria.uploadDirectly) {
                                         upload(animalpic);
+                                        if (publishCriteria.thumbnails) upload("tn_" + animalpic);
                                     }
                                 } else {
                                     // If we're not uploading all images, just do the
                                     // main media file in the old way
                                     if (publishCriteria.uploadDirectly) {
                                         upload(animalweb);
+                                        if (publishCriteria.thumbnails) upload("tn_" + animalweb);
                                     }
                                 }
                             }
@@ -1253,6 +1264,16 @@ public class Publisher extends Thread {
         } catch (Exception e) {
             Global.logException(e, Publisher.class);
         }
+    }
+
+    /**
+     * Generates a thumbnail (70px on longest side)
+     * @param pathToImage Publishing directory
+     * @param imagename The name of the image to make a thumbnail from
+     * @param thumbnail The name of the thumbnail output file
+     */
+    public void generateThumbnail(String pathToImage, String imagename, String thumbnail) {
+        UI.scaleImage(pathToImage + imagename, pathToImage + thumbnail, 70, 70);
     }
 
     /**

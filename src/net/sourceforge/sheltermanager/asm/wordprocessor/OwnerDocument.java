@@ -35,6 +35,7 @@ import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
 
@@ -140,7 +141,7 @@ public class OwnerDocument extends GenerateDocument {
 
             // Data held in additional fields
             try {
-                Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_OWNER,
+                ArrayList<Additional.Field> v = Additional.getFieldValues(AdditionalField.LINKTYPE_OWNER,
                         owner.getID().intValue());
 
                 for (int i = 0; i < v.size(); i++) {

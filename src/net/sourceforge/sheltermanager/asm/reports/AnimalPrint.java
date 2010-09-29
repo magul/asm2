@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -593,7 +594,7 @@ public class AnimalPrint extends Report {
         l.free();
 
         // Additional Fields
-        Vector v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
+        ArrayList<Additional.Field> v = Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
                 a.getID().intValue());
 
         if (v.size() > 0) {

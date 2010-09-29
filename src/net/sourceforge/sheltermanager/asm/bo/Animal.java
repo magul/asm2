@@ -189,7 +189,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * Returns additional fields for the animal
      * @return a vector containing Additional.Field values
      */
-    public Vector<Additional.Field> getAdditionalFields()
+    public ArrayList<Additional.Field> getAdditionalFields()
         throws Exception {
         return Additional.getFieldValues(AdditionalField.LINKTYPE_ANIMAL,
             getID().intValue());
@@ -199,7 +199,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * @param v Should contain a list of Additional.Field values
      * @throws Exception
      */
-    public void setAdditionalFields(Vector<Additional.Field> v)
+    public void setAdditionalFields(ArrayList<Additional.Field> v)
         throws Exception {
         Additional.setFieldValues(AdditionalField.LINKTYPE_ANIMAL,
             getID().intValue(), v);

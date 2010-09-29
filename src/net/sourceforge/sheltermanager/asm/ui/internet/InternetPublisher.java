@@ -213,6 +213,8 @@ public class InternetPublisher extends ASMForm {
                     false, false));
             l.add(new SelectableItem(i18n("Generate_JavaScript_database"),
                     "GenerateJavascript", true, false));
+            l.add(new SelectableItem(i18n("Generate_Thumbnails"),
+                    "Thumbnails", true, false));
         }
 
         // Upload Options (for petfinder)
@@ -378,6 +380,10 @@ public class InternetPublisher extends ASMForm {
 
             if (s[i].getValue().equals("GenerateJavascript")) {
                 pc.generateJavascriptDB = s[i].isSelected();
+            }
+
+            if (s[i].getValue().equals("Thumbnails")) {
+                pc.thumbnails = s[i].isSelected();
             }
 
             // Aged Under

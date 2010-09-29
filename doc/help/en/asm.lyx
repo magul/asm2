@@ -7234,6 +7234,18 @@ Generate Javascript Database:
 \begin_layout Itemize
 
 \series bold
+Generate thumbnail images: 
+\series default
+The publisher will create thumbnails of all the animal images.
+ Thumbnail images are 70 pixels along the longest side and have the same
+ name as the animal image, but are prefixed with tn_.
+ You can use tn_$$WebMediaFilename$$ in a template to get the thumbnail
+ image for the current animal.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Scale Images:
 \series default
  Modern digital cameras can take very high quality images - so much so that
@@ -10240,6 +10252,11 @@ forcereupload: Force reuploading of animal images
 \begin_layout Itemize
 generatejavascriptdb: Generate the JavaScript database - required for the
  search page
+\end_layout
+
+\begin_layout Itemize
+thumbnails: Generate 70 pixel thumbnail images for all animal images with
+ a tn_ prefix
 \end_layout
 
 \begin_layout Itemize
