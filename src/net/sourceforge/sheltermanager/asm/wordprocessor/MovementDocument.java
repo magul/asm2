@@ -110,6 +110,10 @@ public class MovementDocument extends GenerateDocument {
                 Utils.formatDate(movement.getTransferDate()));
             addTag(Global.i18n("wordprocessor", "FosteredDate"),
                 Utils.formatDate(movement.getFosteredDate()));
+            addTag(Global.i18n("wordprocessor", "MovementDate"),
+                Utils.formatDate(movement.getMovementDate()));
+            addTag(Global.i18n("wordprocessor", "MovementType"),
+                LookupCache.getMoveTypeNameForID(movement.getMovementType()));
             addTag(Global.i18n("wordprocessor", "AdoptionNumber"),
                 movement.getAdoptionNumber());
             addTag(Global.i18n("wordprocessor", "AdoptionCreatedBy"),
