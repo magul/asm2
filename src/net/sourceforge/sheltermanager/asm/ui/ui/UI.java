@@ -2392,6 +2392,7 @@ public final class UI {
             double pageWidth = pf.getImageableWidth(); //width of printer page
             double scale = pageWidth / panelWidth;
             int totalNumPages = (int) Math.ceil((scale * panelHeight) / pageHeight);
+            Global.logDebug("print scale factor: " + pageWidth + " / " + panelWidth + " = " + scale + " : pages = " + totalNumPages, "HTMLBrowser.print");
 
             // Make sure not print empty pages
             if (pageIndex >= totalNumPages) {
