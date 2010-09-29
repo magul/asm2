@@ -235,13 +235,36 @@ public class Account extends UserInfoBO<Account> {
         }
     }
 
-    /** Calculates the balance/reonciled for all accounts and returns a map of them */
+    /** Calculates the balance/reonciled for all accounts and 
+     *  returns a map of them - if accounting periods are on, only calculates
+     *  for the current period. 
+     */
     public static HashMap<Integer, Account.Balances> getAllAccountBalances() throws Exception {
+
+        Date period = null;
+        try {
+            period = Utils.parseDate(Configuration.getString("AccountingPeriod"));
+        }
+        catch (Exception e) {
+            // Do nothing - we haven't got a valid date
+            period = null;
+        }
+
+        // Don't use the date if we aren't showing period totals either
+        if (!Configuration.getBoolean("AccountPeriodTotals")) {
+            period = null;
+        }
+
+        String periodFilter = "";
+        if (period != null) {
+            periodFilter = " AND TrxDate >= '" + Utils.getSQLDate(period) + "'";
+        }
+
         SQLRecordset rs = new SQLRecordset("SELECT ID, AccountType, " + 
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID), 0) - " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID), 0) AS balance, " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID), 0) - " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID), 0) AS reconciled " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID" + periodFilter + "), 0) - " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID" + periodFilter + "), 0) AS balance, " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" + periodFilter + "), 0) - " +
+        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" + periodFilter + "), 0) AS reconciled " +
         "FROM accounts", "accounts");
         HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
         for (SQLRecordset r : rs) {

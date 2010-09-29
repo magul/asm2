@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
+import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
@@ -55,6 +56,7 @@ public class Options extends ASMForm {
     private UI.Button btnClose;
     private UI.ComboBox cboDefaultUrgency;
     private UI.ComboBox cboWordProcessor;
+    private DateField dtAccountingPeriod;
     private UI.Panel pnlButtons;
     private UI.Panel pnlDoc;
     private SelectableList tblOptions;
@@ -303,6 +305,7 @@ public class Options extends ASMForm {
         Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
             new Integer(Configuration.getInteger("DonationTargetAccount")),
             cboDonationTargetAccount);
+        dtAccountingPeriod.setText(Configuration.getString("AccountingPeriod"));
 
         // Age Groups
         txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
@@ -546,6 +549,9 @@ public class Options extends ASMForm {
                 Utils.getIDFromCombo(LookupCache.getAccountsLookup(), "Code",
                     cboDonationTargetAccount).toString());
 
+            Configuration.setEntry("AccountingPeriod",
+                dtAccountingPeriod.getText());
+
             l = tblAccountOptions.getSelections();
 
             for (int i = 0; i < l.length; i++) {
@@ -704,6 +710,9 @@ public class Options extends ASMForm {
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
 
+        dtAccountingPeriod = (DateField) UI.addComponent(pacc, i18n("accounting_period"),
+            UI.getDateField());
+
         List<SelectableItem> l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
                 false, true));
@@ -717,6 +726,11 @@ public class Options extends ASMForm {
                 "CreateDonationTrx",
                 Configuration.getString("CreateDonationTrx")
                              .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem", "show_period_totals"),
+                "AccountPeriodTotals",
+                Configuration.getString("AccountPeriodTotals")
+                    .equalsIgnoreCase("Yes"), false));
 
         tblAccountOptions = new SelectableList(l);
 

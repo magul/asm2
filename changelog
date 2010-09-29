@@ -1,6 +1,9 @@
 2.8.1
 ================
 
+*. Accounting period - a date can be set for the period start in the
+-  system options. All account totals are calculated from this point if
+-  the option is turned on
 *. Fix to report generation so that { } closures for javascript are 
 -  still allowed in report templates and are not blown away by
 -  calculation key parsing
