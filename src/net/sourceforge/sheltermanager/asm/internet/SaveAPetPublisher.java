@@ -369,6 +369,9 @@ public class SaveAPetPublisher extends Thread {
                         comm = an.getAnimalComments();
                     }
 
+                    // Add any standard extra text
+                    comm += Configuration.getString("TPPublisherSig");
+
                     // Strip CR/LF
                     comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
                     comm = Utils.replace(comm, new String(new byte[] { 10 }), "");

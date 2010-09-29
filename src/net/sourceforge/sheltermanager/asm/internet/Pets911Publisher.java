@@ -349,6 +349,9 @@ public class Pets911Publisher extends Thread {
                         comm = an.getAnimalComments();
                     }
 
+                    // Add any standard extra text
+                    comm += Configuration.getString("TPPublisherSig");
+
                     // Strip CR/LF
                     comm = comm.replaceAll(new String(new byte[] { 13, 10 }),
                             "<br/>");

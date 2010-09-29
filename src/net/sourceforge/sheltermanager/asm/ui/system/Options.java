@@ -97,6 +97,7 @@ public class Options extends ASMForm {
     private UI.TextField txtEmailAddress;
     private UI.TextField txtSMTPServer;
     private UI.TextArea txtEmailSignature;
+    private UI.TextArea txtTPPublisherSig;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
@@ -174,6 +175,7 @@ public class Options extends ASMForm {
         ctl.add(txtEmailAddress);
         ctl.add(txtSMTPServer);
         ctl.add(txtEmailSignature);
+        ctl.add(txtTPPublisherSig);
         ctl.add(txtDefaultBoardingCost);
         ctl.add(chkCreateBoardingCostAdoption);
         ctl.add(cboBoardingType);
@@ -278,7 +280,8 @@ public class Options extends ASMForm {
             }
         }
 
-        // Email
+        // Internet
+        txtTPPublisherSig.setText(Configuration.getString("TPPublisherSig"));
         txtEmailAddress.setText(Configuration.getString("EmailAddress"));
         txtSMTPServer.setText(Configuration.getString("SMTPServer"));
         txtEmailSignature.setText(Configuration.getString("EmailSignature"));
@@ -483,7 +486,8 @@ public class Options extends ASMForm {
             Configuration.setEntry("AutoCancelReservesDays",
                 spnCancelReserves.getValue().toString());
 
-            // Email
+            // Internet
+            Configuration.setEntry("TPPublisherSig", txtTPPublisherSig.getText());
             Configuration.setEntry("EmailAddress", txtEmailAddress.getText());
             Configuration.setEntry("SMTPServer", txtSMTPServer.getText());
             Configuration.setEntry("EmailSignature", txtEmailSignature.getText());
@@ -988,26 +992,6 @@ public class Options extends ASMForm {
         diary.add(pd, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("diary"), null, diary, null);
 
-        // Email
-        UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
-        UI.Panel psemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
-        UI.Panel email = UI.getPanel(UI.getBorderLayout());
-
-        txtEmailAddress = (UI.TextField) UI.addComponent(pemail,
-                i18n("email_address"),
-                UI.getTextField(i18n("emails_from_ASM_come_from")));
-
-        txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
-                i18n("email_signature"), UI.getTextArea());
-
-        txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
-                i18n("smtp_server"),
-                UI.getTextField(i18n("address_of_smtp_server")));
-
-        email.add(pemail, UI.BorderLayout.NORTH);
-        email.add(psemail, UI.BorderLayout.CENTER);
-        tabTabs.addTab(i18n("email"), null, email, null);
-
         // Insurance
         UI.Panel pins = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         UI.Panel insurancenumbers = UI.getPanel(UI.getBorderLayout());
@@ -1024,6 +1008,29 @@ public class Options extends ASMForm {
 
         insurancenumbers.add(pins, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("Insurance"), null, insurancenumbers, null);
+
+        // Internet
+        UI.Panel pemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel psemail = UI.getPanel(UI.getGridLayout(2, new int[] { 20, 80 }));
+        UI.Panel email = UI.getPanel(UI.getBorderLayout());
+
+        txtEmailAddress = (UI.TextField) UI.addComponent(pemail,
+                i18n("email_address"),
+                UI.getTextField(i18n("emails_from_ASM_come_from")));
+
+        txtEmailSignature = (UI.TextArea) UI.addComponent(psemail,
+                i18n("email_signature"), UI.getTextArea());
+
+        txtTPPublisherSig = (UI.TextArea) UI.addComponent(psemail,
+                i18n("tpp_signature"), UI.getTextArea(i18n("tpp_signature_tooltip")));
+
+        txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
+                i18n("smtp_server"),
+                UI.getTextField(i18n("address_of_smtp_server")));
+
+        email.add(pemail, UI.BorderLayout.NORTH);
+        email.add(psemail, UI.BorderLayout.CENTER);
+        tabTabs.addTab(i18n("internet"), null, email, null);
 
         // Lost and found
         UI.Panel plf = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
