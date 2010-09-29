@@ -208,6 +208,7 @@ public class Startup implements Runnable {
             // Find the database from the jdbcurl.properties file
             // (for standalone installs)
             LocateDatabase ldb = null;
+
             if (!applet) {
                 sp.setStatus("Locating database...");
                 sp.incrementBar();
@@ -238,11 +239,11 @@ public class Startup implements Runnable {
                     DBConnection.lastError, "Startup.Startup");
 
                 // Ask the user if they want to choose a database
-                if (!Dialog.showYesNo("Do you want to choose a new database?", "New Database")) {
+                if (!Dialog.showYesNo("Do you want to choose a new database?",
+                            "New Database")) {
                     clearLock();
                     terminateVM(1);
-                }
-                else {
+                } else {
                     ldb.askUserForDatabase();
                     DBConnection.url = ldb.getJDBCURL();
                     DBConnection.getConnection();
@@ -967,36 +968,37 @@ class StartupProgress extends ASMWindow {
         progress.add(status);
 
         if (!applet) {
-        add(lblSplash, UI.BorderLayout.NORTH);
-        add(progress, UI.BorderLayout.SOUTH);
-        this.setSize(UI.getDimension(400, 340));
-        UI.centerWindow(this);
-        Dialog.theParent = this;
-        setVisible(true);
-        }
-        else {
+            add(lblSplash, UI.BorderLayout.NORTH);
+            add(progress, UI.BorderLayout.SOUTH);
+            this.setSize(UI.getDimension(400, 340));
+            UI.centerWindow(this);
+            Dialog.theParent = this;
+            setVisible(true);
+        } else {
             appletHandle.loadStatus(lblSplash, progress);
-        }       
+        }
+
         throbber.start();
     }
 
     public void dispose() {
-            throbber.stop();
+        throbber.stop();
+
         if (!applet) {
             super.dispose();
         }
     }
 
     public void setMax(int i) {
-            bar.setMaximum(i);
+        bar.setMaximum(i);
     }
 
     public void incrementBar() {
-            bar.setValue(bar.getValue() + 1);
+        bar.setValue(bar.getValue() + 1);
     }
 
     public void setStatus(String s) {
-            status.setText(s);
+        status.setText(s);
 
         Global.logInfo(s, "Startup.setStatus");
     }

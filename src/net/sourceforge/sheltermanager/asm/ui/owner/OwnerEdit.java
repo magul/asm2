@@ -682,6 +682,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Donations
             ownerdonations.setLink(0, owner.getID().intValue(), 0);
+
             if (ext.donations > 0) {
                 tabTabs.setIconAt(3,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_DONATIONS));
@@ -689,6 +690,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Vouchers
             ownervouchers.setLink(owner.getID().intValue(), 0);
+
             if (ext.vouchers > 0) {
                 tabTabs.setIconAt(4,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_VOUCHERS));
@@ -696,6 +698,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Media
             media.setLink(Media.LINKTYPE_OWNER, owner.getID().intValue());
+
             if (ext.media > 0) {
                 tabTabs.setIconAt(5,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MEDIA));
@@ -703,6 +706,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Diary
             diary.setLink(owner.getID().intValue(), Diary.LINKTYPE_OWNER);
+
             if (ext.diary > 0) {
                 tabTabs.setIconAt(6,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_DIARY));
@@ -710,6 +714,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Movements
             movement.setLink(owner.getID().intValue(), 0);
+
             if (ext.movement > 0) {
                 tabTabs.setIconAt(7,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_MOVEMENT));
@@ -717,6 +722,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Links
             ownerlinks.setLink(owner.getID().intValue(), 0);
+
             if (ext.links > 0) {
                 tabTabs.setIconAt(8,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_LINKS));
@@ -724,6 +730,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
             // Log
             log.setLink(owner.getID().intValue(), Log.LINKTYPE_OWNER);
+
             if (ext.log > 0) {
                 tabTabs.setIconAt(9,
                     IconManager.getIcon(IconManager.SCREEN_EDITOWNER_LOG));
@@ -752,7 +759,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
                         log.updateList();
                     }
                 }.start();
-
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

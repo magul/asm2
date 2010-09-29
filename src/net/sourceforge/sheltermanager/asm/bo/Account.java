@@ -226,26 +226,17 @@ public class Account extends UserInfoBO<Account> {
         return rounded;
     }
 
-    public static class Balances {
-        public double balance;
-        public double reconciled;
-        public Balances(double balance, double reconciled) {
-            this.balance = balance;
-            this.reconciled = reconciled;
-        }
-    }
-
-    /** Calculates the balance/reonciled for all accounts and 
+    /** Calculates the balance/reonciled for all accounts and
      *  returns a map of them - if accounting periods are on, only calculates
-     *  for the current period. 
+     *  for the current period.
      */
-    public static HashMap<Integer, Account.Balances> getAllAccountBalances() throws Exception {
-
+    public static HashMap<Integer, Account.Balances> getAllAccountBalances()
+        throws Exception {
         Date period = null;
+
         try {
             period = Utils.parseDate(Configuration.getString("AccountingPeriod"));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // Do nothing - we haven't got a valid date
             period = null;
         }
@@ -256,32 +247,41 @@ public class Account extends UserInfoBO<Account> {
         }
 
         String periodFilter = "";
+
         if (period != null) {
-            periodFilter = " AND TrxDate >= '" + Utils.getSQLDate(period) + "'";
+            periodFilter = " AND TrxDate >= '" + Utils.getSQLDate(period) +
+                "'";
         }
 
-        SQLRecordset rs = new SQLRecordset("SELECT ID, AccountType, " + 
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID" + periodFilter + "), 0) - " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID" + periodFilter + "), 0) AS balance, " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" + periodFilter + "), 0) - " +
-        "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" + periodFilter + "), 0) AS reconciled " +
-        "FROM accounts", "accounts");
+        SQLRecordset rs = new SQLRecordset("SELECT ID, AccountType, " +
+                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID" +
+                periodFilter + "), 0) - " +
+                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID" +
+                periodFilter + "), 0) AS balance, " +
+                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" +
+                periodFilter + "), 0) - " +
+                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" +
+                periodFilter + "), 0) AS reconciled " + "FROM accounts",
+                "accounts");
         HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
+
         for (SQLRecordset r : rs) {
             double bal = r.getDouble("balance");
             double rec = r.getDouble("reconciled");
             bal = Utils.round(bal, 2);
             rec = Utils.round(rec, 2);
-            if (r.getInt("AccountType") == INCOME || r.getInt("AccountType") == EXPENSE) {
+
+            if ((r.getInt("AccountType") == INCOME) ||
+                    (r.getInt("AccountType") == EXPENSE)) {
                 bal = Math.abs(bal);
                 rec = Math.abs(rec);
             }
+
             bals.put(new Integer(r.getInt("ID")), new Account.Balances(bal, rec));
         }
+
         return bals;
     }
-
-
 
     /** Calculates the balance for this account to a certain date */
     public static double getAccountBalanceToDate(Integer accountId, Date limit)
@@ -306,5 +306,15 @@ public class Account extends UserInfoBO<Account> {
         }
 
         return rounded;
+    }
+
+    public static class Balances {
+        public double balance;
+        public double reconciled;
+
+        public Balances(double balance, double reconciled) {
+            this.balance = balance;
+            this.reconciled = reconciled;
+        }
     }
 }

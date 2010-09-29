@@ -33,6 +33,7 @@ public class HttpDriver implements Driver {
             // By asking for the product name, we're making a request
             // of the server and testing this connection is valid
             c.getMetaData().getDatabaseProductName();
+
             return c;
         }
 

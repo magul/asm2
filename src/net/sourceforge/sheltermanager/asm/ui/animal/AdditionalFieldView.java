@@ -94,8 +94,11 @@ public class AdditionalFieldView extends UI.Panel {
 
             while (!f.getEOF()) {
                 if (((Integer) f.getField("LinkType")).intValue() == linkType) {
-                    mandatoryFields.put(f.getInteger("ID"), f.getInteger("Mandatory") == 1);
-                    fieldLabels.put(f.getInteger("ID"), f.getString("FieldLabel"));
+                    mandatoryFields.put(f.getInteger("ID"),
+                        f.getInteger("Mandatory") == 1);
+                    fieldLabels.put(f.getInteger("ID"),
+                        f.getString("FieldLabel"));
+
                     switch (((Integer) f.getField("FieldType")).intValue()) {
                     case AdditionalField.FIELDTYPE_YESNO:
                         pf.add(UI.getLabel(f.getField("FieldLabel").toString()));
@@ -236,7 +239,7 @@ public class AdditionalFieldView extends UI.Panel {
     }
 
     /** Saves the additional fields - Returns false if there
-     *  was a problem with a field value 
+     *  was a problem with a field value
      */
     public boolean saveFields(int linkID, int linkType) {
         if (!hasFields()) {
@@ -263,12 +266,16 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof DateField) {
                     int id = Integer.parseInt(((DateField) o).getName());
                     String text = ((DateField) o).getText();
-                    String validationFail = Global.i18n("uianimal", "additional_field_empty", fieldLabels.get(id));
+                    String validationFail = Global.i18n("uianimal",
+                            "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
+
                     if (mandatory && text.equals("")) {
                         Dialog.showError(validationFail);
+
                         return false;
                     }
+
                     af.fieldID = id;
                     af.value = text;
                 }
@@ -276,12 +283,16 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof CurrencyField) {
                     int id = Integer.parseInt(((CurrencyField) o).getName());
                     String text = ((CurrencyField) o).getText();
-                    String validationFail = Global.i18n("uianimal", "additional_field_empty", fieldLabels.get(id));
+                    String validationFail = Global.i18n("uianimal",
+                            "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
+
                     if (mandatory && text.equals("")) {
                         Dialog.showError(validationFail);
+
                         return false;
                     }
+
                     af.fieldID = id;
                     af.value = text;
                 }
@@ -289,12 +300,16 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof UI.TextField) {
                     int id = Integer.parseInt(((UI.TextField) o).getName());
                     String text = ((UI.TextField) o).getText();
-                    String validationFail = Global.i18n("uianimal", "additional_field_empty", fieldLabels.get(id));
+                    String validationFail = Global.i18n("uianimal",
+                            "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
+
                     if (mandatory && text.equals("")) {
                         Dialog.showError(validationFail);
+
                         return false;
                     }
+
                     af.fieldID = id;
                     af.value = text;
                 }
@@ -302,12 +317,16 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof UI.TextArea) {
                     int id = Integer.parseInt(((UI.TextArea) o).getName());
                     String text = ((UI.TextArea) o).getText();
-                    String validationFail = Global.i18n("uianimal", "additional_field_empty", fieldLabels.get(id));
+                    String validationFail = Global.i18n("uianimal",
+                            "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
+
                     if (mandatory && text.equals("")) {
                         Dialog.showError(validationFail);
+
                         return false;
                     }
+
                     af.fieldID = id;
                     af.value = text;
                 }
@@ -320,12 +339,16 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof UI.ComboBox) {
                     int id = Integer.parseInt(((UI.ComboBox) o).getName());
                     String text = ((UI.ComboBox) o).getSelectedItem().toString();
-                    String validationFail = Global.i18n("uianimal", "additional_field_empty", fieldLabels.get(id));
+                    String validationFail = Global.i18n("uianimal",
+                            "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
+
                     if (mandatory && text.equals("")) {
                         Dialog.showError(validationFail);
+
                         return false;
                     }
+
                     af.fieldID = id;
                     af.value = text;
                 }
@@ -334,10 +357,12 @@ public class AdditionalFieldView extends UI.Panel {
             }
 
             Additional.setFieldValues(linkType, linkID, f);
+
             return true;
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
+
         return false;
     }
 
@@ -366,7 +391,8 @@ public class AdditionalFieldView extends UI.Panel {
         }
 
         try {
-            ArrayList<Additional.Field> f = Additional.getFieldValues(linkType, linkID);
+            ArrayList<Additional.Field> f = Additional.getFieldValues(linkType,
+                    linkID);
 
             for (int i = 0; i < additionalComponents.size(); i++) {
                 Object o = additionalComponents.get(i);

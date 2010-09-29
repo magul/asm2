@@ -267,7 +267,8 @@ public class Publisher extends Thread {
 
                                 // If thumbnails are on, generate one
                                 if (publishCriteria.thumbnails) {
-                                    generateThumbnail(publishDir, animalweb, "tn_" + animalweb);
+                                    generateThumbnail(publishDir, animalweb,
+                                        "tn_" + animalweb);
                                 }
 
                                 // If upload all was set, the user wants the
@@ -286,19 +287,26 @@ public class Publisher extends Thread {
                                     }
 
                                     if (publishCriteria.thumbnails) {
-                                        generateThumbnail(publishDir, animalpic, "tn_" + animalpic);
+                                        generateThumbnail(publishDir,
+                                            animalpic, "tn_" + animalpic);
                                     }
 
                                     if (publishCriteria.uploadDirectly) {
                                         upload(animalpic);
-                                        if (publishCriteria.thumbnails) upload("tn_" + animalpic);
+
+                                        if (publishCriteria.thumbnails) {
+                                            upload("tn_" + animalpic);
+                                        }
                                     }
                                 } else {
                                     // If we're not uploading all images, just do the
                                     // main media file in the old way
                                     if (publishCriteria.uploadDirectly) {
                                         upload(animalweb);
-                                        if (publishCriteria.thumbnails) upload("tn_" + animalweb);
+
+                                        if (publishCriteria.thumbnails) {
+                                            upload("tn_" + animalweb);
+                                        }
                                     }
                                 }
                             }
@@ -1272,7 +1280,8 @@ public class Publisher extends Thread {
      * @param imagename The name of the image to make a thumbnail from
      * @param thumbnail The name of the thumbnail output file
      */
-    public void generateThumbnail(String pathToImage, String imagename, String thumbnail) {
+    public void generateThumbnail(String pathToImage, String imagename,
+        String thumbnail) {
         UI.scaleImage(pathToImage + imagename, pathToImage + thumbnail, 70, 70);
     }
 

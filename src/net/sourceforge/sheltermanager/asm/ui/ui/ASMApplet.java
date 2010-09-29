@@ -47,8 +47,7 @@ public class ASMApplet extends JApplet {
         }
 
         try {
-            new Thread(new Startup(new String[0], jdbcurl,
-                    user, this)).start();
+            new Thread(new Startup(new String[0], jdbcurl, user, this)).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,7 +70,8 @@ public class ASMApplet extends JApplet {
 
     public void loadStatus(JComponent splash, JComponent progress) {
         getContentPane().add(splash, BorderLayout.CENTER);
-        getContentPane().add(progress, BorderLayout.SOUTH);;
+        getContentPane().add(progress, BorderLayout.SOUTH);
+        ;
         getContentPane().invalidate();
         getContentPane().validate();
         getContentPane().repaint();

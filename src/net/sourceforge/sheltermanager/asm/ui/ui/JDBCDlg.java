@@ -171,7 +171,10 @@ public class JDBCDlg extends ASMDialog {
             break;
 
         case 5:
-            Dialog.lastJDBC = "jdbc:http://" + (!user.equals("") ? user + ":" + pass + "@" : "") + host + "/" + db;
+            Dialog.lastJDBC = "jdbc:http://" +
+                ((!user.equals("")) ? (user + ":" + pass + "@") : "") + host +
+                "/" + db;
+
             break;
         }
 

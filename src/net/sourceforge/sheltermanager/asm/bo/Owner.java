@@ -536,29 +536,26 @@ public class Owner extends UserInfoBO<Owner> {
         try {
             // Check all satellite data in one query
             SQLRecordset r = new SQLRecordset(
-                "SELECT owner.ID, (SELECT COUNT(*) FROM ownerdonation WHERE OwnerID = owner.ID) AS dona, " +
-                "(SELECT COUNT(*) FROM ownervoucher WHERE OwnerID = owner.ID) AS vouc, " +
-                "(SELECT COUNT(*) FROM media WHERE LinkID = owner.ID AND LinkTypeID = " +
-                Media.LINKTYPE_OWNER +
-                ") AS pics, " +
-                "(SELECT COUNT(*) FROM diary WHERE LinkID = owner.ID AND LinkType = " +
-                Diary.LINKTYPE_OWNER +
-                ") AS diar, " +
-                "(SELECT COUNT(*) FROM adoption WHERE OwnerID = owner.ID) AS move, " +
-                "((SELECT COUNT(*) FROM animal WHERE OriginalOwnerID = owner.ID OR " +
-                "BroughtInByOwnerID = owner.ID OR OwnersVetID = owner.ID " +
-                "OR CurrentVetID = owner.ID) + (SELECT COUNT(*) FROM animalwaitinglist " +
-                "WHERE OwnerID = owner.ID) + (SELECT COUNT(*) FROM animallost WHERE " +
-                "OwnerID = owner.ID) + (SELECT COUNT(*) FROM animalfound WHERE " + 
-                "OwnerID = owner.ID)) AS link, " +
-                "(SELECT COUNT(*) FROM log WHERE LinkID = owner.ID AND LinkType = " +
-                Log.LINKTYPE_OWNER +
-                ") AS logs FROM owner WHERE owner.ID = " +
-                id, "owner");
+                    "SELECT owner.ID, (SELECT COUNT(*) FROM ownerdonation WHERE OwnerID = owner.ID) AS dona, " +
+                    "(SELECT COUNT(*) FROM ownervoucher WHERE OwnerID = owner.ID) AS vouc, " +
+                    "(SELECT COUNT(*) FROM media WHERE LinkID = owner.ID AND LinkTypeID = " +
+                    Media.LINKTYPE_OWNER + ") AS pics, " +
+                    "(SELECT COUNT(*) FROM diary WHERE LinkID = owner.ID AND LinkType = " +
+                    Diary.LINKTYPE_OWNER + ") AS diar, " +
+                    "(SELECT COUNT(*) FROM adoption WHERE OwnerID = owner.ID) AS move, " +
+                    "((SELECT COUNT(*) FROM animal WHERE OriginalOwnerID = owner.ID OR " +
+                    "BroughtInByOwnerID = owner.ID OR OwnersVetID = owner.ID " +
+                    "OR CurrentVetID = owner.ID) + (SELECT COUNT(*) FROM animalwaitinglist " +
+                    "WHERE OwnerID = owner.ID) + (SELECT COUNT(*) FROM animallost WHERE " +
+                    "OwnerID = owner.ID) + (SELECT COUNT(*) FROM animalfound WHERE " +
+                    "OwnerID = owner.ID)) AS link, " +
+                    "(SELECT COUNT(*) FROM log WHERE LinkID = owner.ID AND LinkType = " +
+                    Log.LINKTYPE_OWNER +
+                    ") AS logs FROM owner WHERE owner.ID = " + id, "owner");
 
             return new OwnerMarkers((Integer) r.getField("dona"),
-                (Integer) r.getField("vouc"), (Integer) r.getField("pics"), 
-                (Integer) r.getField("diar"), (Integer) r.getField("move"), 
+                (Integer) r.getField("vouc"), (Integer) r.getField("pics"),
+                (Integer) r.getField("diar"), (Integer) r.getField("move"),
                 (Integer) r.getField("link"), (Integer) r.getField("logs"));
         } catch (Exception e) {
             Global.logException(e, Owner.class);
@@ -579,8 +576,8 @@ public class Owner extends UserInfoBO<Owner> {
         public OwnerMarkers() {
         }
 
-        public OwnerMarkers(Integer donations, Integer vouchers,
-            Integer media, Integer diary, Integer movement, Integer links, Integer log) {
+        public OwnerMarkers(Integer donations, Integer vouchers, Integer media,
+            Integer diary, Integer movement, Integer links, Integer log) {
             this.donations = donations.intValue();
             this.vouchers = vouchers.intValue();
             this.media = media.intValue();
@@ -590,5 +587,4 @@ public class Owner extends UserInfoBO<Owner> {
             this.log = log.intValue();
         }
     }
-
 }

@@ -43,7 +43,6 @@ public class Configuration {
 
     /** The time to perform the next save (since epoch) */
     private static long nextSave = 0;
-
     private static Timer batchSave;
     private static TimerTask batchSaveTask;
 
@@ -51,16 +50,17 @@ public class Configuration {
         loadFromDatabase();
 
         // Batch update the configuration table when told on a timer
-	// so that many changes can be rolled into one batch
+        // so that many changes can be rolled into one batch
         batchSave = new Timer();
-	batchSaveTask = new TimerTask() {
-	    public void run() {
-	        if (nextSave > 0 && nextSave < System.currentTimeMillis()) {
-		    nextSave = 0;
-	            saveToDatabase();
-		}
-	    }
-	};
+        batchSaveTask = new TimerTask() {
+                    public void run() {
+                        if ((nextSave > 0) &&
+                                (nextSave < System.currentTimeMillis())) {
+                            nextSave = 0;
+                            saveToDatabase();
+                        }
+                    }
+                };
         batchSave.schedule(batchSaveTask, 5000, 5000);
     }
 
@@ -177,24 +177,29 @@ public class Configuration {
 
     public static void setEntry(String key, String value) {
         conf.put(key, value);
-	scheduleSave();
+        scheduleSave();
     }
 
     public static void saveToDatabase() {
-        Global.logDebug("Batch saving new configuration to db.", "Configuration.saveToDatabase");
+        Global.logDebug("Batch saving new configuration to db.",
+            "Configuration.saveToDatabase");
+
         ArrayList<String> batch = new ArrayList<String>(conf.size());
-	for (String key : conf.keySet()) {
-	    batch.add("DELETE FROM configuration WHERE ItemName Like '" + key + "'");
-	    batch.add("INSERT INTO configuration VALUES ('" +
-	        key + "', '" + conf.get(key).replace('\'', '`') + "')");
-	}
-	try {
-	    DBConnection.executeAction(batch);
-            Global.logDebug("Batch save complete.", "Configuration.saveToDatabase");
-	}
-	catch (Exception e) {
+
+        for (String key : conf.keySet()) {
+            batch.add("DELETE FROM configuration WHERE ItemName Like '" + key +
+                "'");
+            batch.add("INSERT INTO configuration VALUES ('" + key + "', '" +
+                conf.get(key).replace('\'', '`') + "')");
+        }
+
+        try {
+            DBConnection.executeAction(batch);
+            Global.logDebug("Batch save complete.",
+                "Configuration.saveToDatabase");
+        } catch (Exception e) {
             Global.logException(e, Configuration.class);
-	}
+        }
     }
 
     /** Schedule the next save of the configuration table for 5 seconds

@@ -858,6 +858,7 @@ public class CustomReportExecute extends Report {
                     if (Utils.englishLower(key).startsWith("image")) {
                         try {
                             valid = true;
+
                             String body = key.substring(6, key.length());
                             String animalid = key.substring(key.indexOf(".") +
                                     1);
@@ -912,16 +913,20 @@ public class CustomReportExecute extends Report {
                     // a subreport.
                     if (Utils.englishLower(key).startsWith("subreport")) {
                         valid = true;
+
                         String body = key.substring(10, key.length());
 
                         // Break it up
                         String[] bits = Utils.split(body, ".");
                         String title = bits[0];
                         String parent = bits[1];
-			String parentkey = rs.getString(parent);
+                        String parentkey = rs.getString(parent);
 
                         // Lookup custom report ID from title
-			Global.logDebug("Including custom report '" + title + "' with key '" + parentkey + "'", "CustomReportExecute.generateReport");
+                        Global.logDebug("Including custom report '" + title +
+                            "' with key '" + parentkey + "'",
+                            "CustomReportExecute.generateReport");
+
                         CustomReport subr = new CustomReport();
                         subr.openRecordset("Title Like '" + title + "'");
 
@@ -929,8 +934,7 @@ public class CustomReportExecute extends Report {
 
                         // Call the report
                         setWaitingOnSubReport(true);
-                        new CustomReportExecute(id,
-                            parentkey,
+                        new CustomReportExecute(id, parentkey,
                             new ReportDoneListener() {
                                 public void reportCompleted(String rep) {
                                     lastSubReport = rep;
@@ -1098,6 +1102,7 @@ public class CustomReportExecute extends Report {
                 // {SUM.field}
                 if (Utils.englishLower(key).startsWith("sum")) {
                     valid = true;
+
                     String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
@@ -1131,6 +1136,7 @@ public class CustomReportExecute extends Report {
                 // {COUNT.field}
                 if (Utils.englishLower(key).startsWith("count")) {
                     valid = true;
+
                     int total = 0;
 
                     // Count backwards until the key field
@@ -1151,6 +1157,7 @@ public class CustomReportExecute extends Report {
                 // {AVG.field}
                 if (Utils.englishLower(key).startsWith("avg")) {
                     valid = true;
+
                     String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
@@ -1189,6 +1196,7 @@ public class CustomReportExecute extends Report {
                 // {PCT.field}
                 if (Utils.englishLower(key).startsWith("pct")) {
                     valid = true;
+
                     String[] fields = Utils.split(Utils.englishLower(key), ".");
 
                     // Sort out rounding
@@ -1227,6 +1235,7 @@ public class CustomReportExecute extends Report {
                 // {MIN.field}
                 if (Utils.englishLower(key).startsWith("min")) {
                     valid = true;
+
                     double min = 0;
 
                     // Count backwards until the key field
@@ -1257,6 +1266,7 @@ public class CustomReportExecute extends Report {
                 // {MAX.field}
                 if (Utils.englishLower(key).startsWith("max")) {
                     valid = true;
+
                     double max = 0;
 
                     // Count backwards until the key field
@@ -1287,6 +1297,7 @@ public class CustomReportExecute extends Report {
                 // {FIRST.field}
                 if (Utils.englishLower(key).startsWith("first")) {
                     valid = true;
+
                     String field = key.substring(6, key.length());
 
                     try {
@@ -1299,6 +1310,7 @@ public class CustomReportExecute extends Report {
                 // {LAST.field}
                 if (Utils.englishLower(key).startsWith("last")) {
                     valid = true;
+
                     String field = key.substring(5, key.length());
 
                     try {
@@ -1311,6 +1323,7 @@ public class CustomReportExecute extends Report {
                 // {SQL.[sql]} - arbitrary sql command
                 if (Utils.englishLower(key).startsWith("sql")) {
                     valid = true;
+
                     String field = key.substring(4, key.length());
 
                     try {
@@ -1344,6 +1357,7 @@ public class CustomReportExecute extends Report {
                 // inserts the filename
                 if (Utils.englishLower(key).startsWith("image")) {
                     valid = true;
+
                     try {
                         String body = key.substring(6, key.length());
                         String animalid = key.substring(key.indexOf(".") + 1);

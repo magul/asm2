@@ -154,7 +154,7 @@ public class Login extends ASMWindow {
                     Global.logInfo("PASS: Found matching ASM user '" +
                         System.getProperty("user.name") + "', logging in...",
                         "Login.autoLogUserIn");
-		    u.login();
+                    u.login();
                     openMainForm(u);
 
                     return true;
@@ -177,7 +177,7 @@ public class Login extends ASMWindow {
                     Global.logInfo("PASS: Found matching ASM user '" +
                         Global.appletUser + "', logging in...",
                         "Login.autoLogUserIn");
-		    u.login();
+                    u.login();
                     openMainForm(u);
 
                     return true;
@@ -204,7 +204,7 @@ public class Login extends ASMWindow {
                 if (!u.getEOF()) {
                     Global.logInfo("PASS: Found matching ASM user '" + user +
                         "', logging in...", "Login.autoLogUserIn");
-		    u.login();
+                    u.login();
                     openMainForm(u);
 
                     return true;

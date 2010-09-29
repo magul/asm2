@@ -90,19 +90,24 @@ public class HttpStatement implements Statement {
     }
 
     @Override
-    public boolean execute(String sql, String[] arg1)
-        throws SQLException {
+    public boolean execute(String sql, String[] arg1) throws SQLException {
         return executeUpdate(sql) > 0;
     }
 
     @Override
     public int[] executeBatch() throws SQLException {
         StringBuffer b = new StringBuffer();
-	for (String s : batch) {
-	    if (b.length() > 0) b.append(";;");
+
+        for (String s : batch) {
+            if (b.length() > 0) {
+                b.append(";;");
+            }
+
             b.append(s);
-	}
-	clearBatch();
+        }
+
+        clearBatch();
+
         return new int[] { executeUpdate(b.toString()) };
     }
 
@@ -132,8 +137,10 @@ public class HttpStatement implements Statement {
             String line;
 
             while ((line = rd.readLine()) != null) {
-		if (line.startsWith("ERR"))
-		    throw new SQLException(line);
+                if (line.startsWith("ERR")) {
+                    throw new SQLException(line);
+                }
+
                 lines.add(line);
             }
 
@@ -173,15 +180,14 @@ public class HttpStatement implements Statement {
             String line;
 
             while ((line = rd.readLine()) != null) {
-	        
-		if (line.startsWith("ERR"))
-		    throw new SQLException(line);
+                if (line.startsWith("ERR")) {
+                    throw new SQLException(line);
+                }
 
                 try {
                     changed = Integer.parseInt(line);
                 } catch (NumberFormatException e) {
                 }
-
             }
 
             w.close();
@@ -196,18 +202,18 @@ public class HttpStatement implements Statement {
 
     @Override
     public int executeUpdate(String sql, int arg1) throws SQLException {
-    	return executeUpdate(sql);
+        return executeUpdate(sql);
     }
 
     @Override
     public int executeUpdate(String sql, int[] arg1) throws SQLException {
-    	return executeUpdate(sql);
+        return executeUpdate(sql);
     }
 
     @Override
     public int executeUpdate(String sql, String[] arg1)
         throws SQLException {
-	return executeUpdate(sql);
+        return executeUpdate(sql);
     }
 
     @Override

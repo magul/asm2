@@ -714,8 +714,8 @@ public class Options extends ASMForm {
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
 
-        dtAccountingPeriod = (DateField) UI.addComponent(pacc, i18n("accounting_period"),
-            UI.getDateField());
+        dtAccountingPeriod = (DateField) UI.addComponent(pacc,
+                i18n("accounting_period"), UI.getDateField());
 
         List<SelectableItem> l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
@@ -734,7 +734,7 @@ public class Options extends ASMForm {
         l.add(new SelectableItem(Global.i18n("uisystem", "show_period_totals"),
                 "AccountPeriodTotals",
                 Configuration.getString("AccountPeriodTotals")
-                    .equalsIgnoreCase("Yes"), false));
+                             .equalsIgnoreCase("Yes"), false));
 
         tblAccountOptions = new SelectableList(l);
 
@@ -1022,7 +1022,8 @@ public class Options extends ASMForm {
                 i18n("email_signature"), UI.getTextArea());
 
         txtTPPublisherSig = (UI.TextArea) UI.addComponent(psemail,
-                i18n("tpp_signature"), UI.getTextArea(i18n("tpp_signature_tooltip")));
+                i18n("tpp_signature"),
+                UI.getTextArea(i18n("tpp_signature_tooltip")));
 
         txtSMTPServer = (UI.TextField) UI.addComponent(pemail,
                 i18n("smtp_server"),

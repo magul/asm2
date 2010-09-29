@@ -65,6 +65,7 @@ public class AdditionalField extends NormalBO<AdditionalField> {
         a.setLinkType(getLinkType());
         a.setLookupValues(getLookupValues());
         a.setMandatory(getMandatory());
+
         return a;
     }
 

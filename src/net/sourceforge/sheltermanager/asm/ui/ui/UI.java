@@ -1800,17 +1800,17 @@ public final class UI {
 
     public static void osBrowse(String uri) throws Exception {
         if (UI.osIsWindows()) {
-		// If we're on some form of Windows, use 
-		// url.dll instead of the Java Desktop class
-		// as file URIs don't seem to work with Windows XP
-		// and java.awt.Desktop
-		Runtime.getRuntime().exec(
-			"rundll32 url.dll,FileProtocolHandler \"" + uri + "\"");
-	}
-	else {
-	        Desktop d = Desktop.getDesktop();
-	        d.browse(new java.net.URI(uri));
-	}
+            // If we're on some form of Windows, use 
+            // url.dll instead of the Java Desktop class
+            // as file URIs don't seem to work with Windows XP
+            // and java.awt.Desktop
+            Runtime.getRuntime()
+                   .exec("rundll32 url.dll,FileProtocolHandler \"" + uri +
+                "\"");
+        } else {
+            Desktop d = Desktop.getDesktop();
+            d.browse(new java.net.URI(uri));
+        }
     }
 
     public static void osOpen(String file) throws Exception {
@@ -2392,7 +2392,9 @@ public final class UI {
             double pageWidth = pf.getImageableWidth(); //width of printer page
             double scale = pageWidth / panelWidth;
             int totalNumPages = (int) Math.ceil((scale * panelHeight) / pageHeight);
-            Global.logDebug("print scale factor: " + pageWidth + " / " + panelWidth + " = " + scale + " : pages = " + totalNumPages, "HTMLBrowser.print");
+            Global.logDebug("print scale factor: " + pageWidth + " / " +
+                panelWidth + " = " + scale + " : pages = " + totalNumPages,
+                "HTMLBrowser.print");
 
             // Make sure not print empty pages
             if (pageIndex >= totalNumPages) {

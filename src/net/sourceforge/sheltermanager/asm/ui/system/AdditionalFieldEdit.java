@@ -178,7 +178,8 @@ public class AdditionalFieldEdit extends ASMForm {
 
         UI.addComponent(pt, i18n("linktype"), cboFieldLink);
         UI.addComponent(pt, i18n("fieldtype"), cboFieldType);
-        chkMandatory = (UI.CheckBox) UI.addComponent(pt, i18n("mandatory"), UI.getCheckBox());
+        chkMandatory = (UI.CheckBox) UI.addComponent(pt, i18n("mandatory"),
+                UI.getCheckBox());
 
         spnDisplayIndex = UI.getSpinner(0, 0xffffff);
         UI.addComponent(pt, i18n("displayindex"), spnDisplayIndex);

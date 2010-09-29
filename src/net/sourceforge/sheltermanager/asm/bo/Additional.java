@@ -34,8 +34,8 @@ public class Additional {
         try {
             SQLRecordset recs = new SQLRecordset(
                     "SELECT AdditionalFieldID, FieldName, FieldLabel, " +
-                    "Tooltip, FieldType, Mandatory, Value " + "FROM additional " +
-                    "INNER JOIN additionalfield" +
+                    "Tooltip, FieldType, Mandatory, Value " +
+                    "FROM additional " + "INNER JOIN additionalfield" +
                     " ON additionalfield.ID = additional.AdditionalFieldID" +
                     " WHERE additional.LinkID = " + linkID +
                     " AND additional.LinkType = " + linkType +

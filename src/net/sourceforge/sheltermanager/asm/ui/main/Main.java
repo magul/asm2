@@ -2153,13 +2153,13 @@ public class Main extends ASMWindow {
         actionPreferencesCallGC();
 
         // Log the current user out
-	try {
-	    if (Global.currentUserObject != null)
+        try {
+            if (Global.currentUserObject != null) {
                 Global.currentUserObject.logout();
-	}
-	catch (Exception e) {
-	    Global.logException(e, getClass());
-	}
+            }
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
 
         // Reload the login form and destroy this frame
         Login login = new Login();

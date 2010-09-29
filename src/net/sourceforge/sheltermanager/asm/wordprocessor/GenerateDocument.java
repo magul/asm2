@@ -1150,9 +1150,9 @@ public abstract class GenerateDocument extends Thread
 
         while (i.hasNext()) {
             SearchTag st = (SearchTag) i.next();
-	    String r = st.replace;
-	    r = Utils.replace(r, "\n", "<br/>");
-	    r = Utils.replace(r, "\r", "");
+            String r = st.replace;
+            r = Utils.replace(r, "\n", "<br/>");
+            r = Utils.replace(r, "\r", "");
             output = Utils.replace(output, "$$" + st.find + "$$", r);
         }
 

@@ -36,6 +36,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import java.sql.*;
+
 import java.util.ArrayList;
 
 
@@ -397,14 +398,15 @@ public abstract class DBConnection {
         getConnection();
         executeAction(con, query);
     }
-    
+
     /**
      * Call this routine with a batch of valid SQL to have them executed against
      * the database connnection.
      */
-    public synchronized static void executeAction(ArrayList<String> batch) throws Exception {
+    public synchronized static void executeAction(ArrayList<String> batch)
+        throws Exception {
         getConnection();
-	executeAction(con, batch);
+        executeAction(con, batch);
     }
 
     /**
@@ -444,19 +446,21 @@ public abstract class DBConnection {
      * @param query
      * @throws Exception
      */
-    public synchronized static void executeAction(Connection c, ArrayList<String> batch) throws Exception {
-
+    public synchronized static void executeAction(Connection c,
+        ArrayList<String> batch) throws Exception {
         Statement stmt = c.createStatement();
-	if (!quiet) {
-	    for (String s : batch) {
+
+        if (!quiet) {
+            for (String s : batch) {
                 Global.logDebug("BATCH: " + s, "DBConnection.executeAction");
-	    }
-	}
+            }
+        }
 
         for (String s : batch) {
-	    stmt.addBatch(s);
-	}
-	stmt.executeBatch();
+            stmt.addBatch(s);
+        }
+
+        stmt.executeBatch();
     }
 
     /**

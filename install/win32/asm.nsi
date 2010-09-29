@@ -94,7 +94,9 @@ lbl_data:
   File ..\..\sql\translate_lt.sql
   File ..\..\sql\translate_nl.sql
   File ..\..\sql\translate_pl.sql
+  File ..\..\sql\translate_pt.sql
   File ..\..\sql\translate_ru.sql
+  File ..\..\sql\translate_sk.sql
   File ..\..\sql\translate_sv.sql
   File ..\..\sql\translate_th.sql
   File ..\..\sql\translate_tr.sql

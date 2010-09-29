@@ -213,8 +213,8 @@ public class InternetPublisher extends ASMForm {
                     false, false));
             l.add(new SelectableItem(i18n("Generate_JavaScript_database"),
                     "GenerateJavascript", true, false));
-            l.add(new SelectableItem(i18n("Generate_Thumbnails"),
-                    "Thumbnails", true, false));
+            l.add(new SelectableItem(i18n("Generate_Thumbnails"), "Thumbnails",
+                    true, false));
         }
 
         // Upload Options (for petfinder)

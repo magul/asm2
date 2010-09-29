@@ -1953,14 +1953,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         }
 
         try {
-
             // If it wasn't a new record, try and save the additional fields
             if (!isNewRecord) {
                 if (!additional.saveFields(animal.getID().intValue(),
-                    AdditionalField.LINKTYPE_ANIMAL))
+                            AdditionalField.LINKTYPE_ANIMAL)) {
                     // If a mandatory field wasn't completed, an error
                     // will have been shown and we should bail out now
                     return false;
+                }
             }
 
             animal.save(Global.currentUserName);
