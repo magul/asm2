@@ -87,7 +87,11 @@ public class SaveAPetPublisher extends Thread {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
+
             Global.logException(e, getClass());
 
             return;
@@ -98,7 +102,10 @@ public class SaveAPetPublisher extends Thread {
             Global.logError(Global.i18n("uiinternet",
                     "You_need_to_set_your_save_a_pet_settings_before_publishing"),
                 "SaveAPetPublisher.run");
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
 
             if (parent != null) {
                 Dialog.showError(Global.i18n("uiinternet",
@@ -119,7 +126,11 @@ public class SaveAPetPublisher extends Thread {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
+
             Global.logException(e, getClass());
 
             return;
@@ -162,7 +173,11 @@ public class SaveAPetPublisher extends Thread {
             }
 
             Global.logException(e, getClass());
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
+
             return;
         }
 

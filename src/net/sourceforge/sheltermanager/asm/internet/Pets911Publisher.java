@@ -93,7 +93,11 @@ public class Pets911Publisher extends Thread {
             Global.logError(Global.i18n("uiinternet",
                     "You_need_to_set_your_Pets911_settings_before_publishing"),
                 "Pets911Publisher.run");
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
+
             if (parent != null) {
                 Dialog.showError(Global.i18n("uiinternet",
                         "You_need_to_set_your_Pets911_settings_before_publishing"));
@@ -153,7 +157,11 @@ public class Pets911Publisher extends Thread {
             }
 
             Global.logException(e, getClass());
-            if (parent == null) System.exit(1);
+
+            if (parent == null) {
+                System.exit(1);
+            }
+
             return;
         }
 
