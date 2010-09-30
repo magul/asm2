@@ -59,7 +59,7 @@ public class AutoDBUpdates {
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
             2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732, 2810,
-            2811
+            2811, 2812
         };
 
     /**
@@ -4146,6 +4146,26 @@ public class AutoDBUpdates {
                 "UPDATE additionalfield SET Mandatory = 0");
         } catch (Exception e) {
             errors.add("additionalfield: ADD Mandatory");
+            Global.logException(e, getClass());
+        }
+    }
+
+    public void update2812() {
+        try {
+            if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
+                DBConnection.executeAction(
+                    "ALTER TABLE configuration ALTER COLUMN ItemValue varchar(16384) NOT NULL");
+            }
+            else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
+                DBConnection.executeAction(
+                    "ALTER TABLE configuration MODIFY ItemValue varchar(16384) NOT NULL");
+            }
+            else if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                DBConnection.executeAction(
+                    "ALTER TABLE configuration ALTER COLUMN ItemValue TYPE varchar(16384)");
+            }
+        } catch (Exception e) {
+            errors.add("configuration: EXTEND ItemValue");
             Global.logException(e, getClass());
         }
     }

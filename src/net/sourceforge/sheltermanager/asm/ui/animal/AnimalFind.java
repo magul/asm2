@@ -1038,7 +1038,8 @@ public class AnimalFind extends ASMFind {
                             "Size"));
                 datar[i][8] = LookupCache.getBaseColourName((Integer) animal.getField(
                             "BaseColourID"));
-                datar[i][9] = Utils.firstChars(Utils.nullToEmptyString((String) animal.getField("Markings")), 20);
+                datar[i][9] = Utils.firstChars(Utils.nullToEmptyString(
+                            (String) animal.getField("Markings")), 20);
                 datar[i][10] = Utils.nullToEmptyString((String) animal.getField(
                             "IdentichipNumber"));
                 datar[i][11] = Utils.formatTableDate((Date) animal.getField(
