@@ -163,5 +163,6 @@ public class PublishPets911 {
 
         // Publish on a single thread model for cmd line
         new Pets911Publisher(null, pc).run();
+        System.exit(0);
     }
 }

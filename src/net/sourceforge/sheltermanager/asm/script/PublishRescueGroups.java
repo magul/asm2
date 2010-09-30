@@ -168,5 +168,6 @@ public class PublishRescueGroups {
 
         // Publish on a single thread model for cmd line
         new RescueGroupsPublisher(null, pc).run();
+        System.exit(0);
     }
 }

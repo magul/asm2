@@ -164,5 +164,6 @@ public class PublishPF {
 
         // Publish on a single thread model for cmd line
         new PetFinderPublisher(null, pc).run();
+        System.exit(0);
     }
 }

@@ -40,7 +40,7 @@ public class HttpStatement implements Statement {
     private void extractUserPass() {
         if (url.indexOf("@") != -1) {
             String upw = url.substring(url.indexOf("//") + 2,
-                    url.indexOf("@") - 1);
+                    url.indexOf("@"));
             String username = upw.substring(0, upw.indexOf(":"));
             String password = upw.substring(upw.indexOf(":") + 1);
             url = url.substring(0, url.indexOf("//") + 2) +
