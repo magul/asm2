@@ -1,6 +1,7 @@
 2.8.1
 ================
 
+*. Interpret HTTP response data from the database as UTF8
 *. Detect read-only database and don't bother doing animal updating
 -  startup tasks if it is
 *. Only output first 20 chars of markings on find animal

@@ -130,7 +130,7 @@ public class HttpStatement implements Statement {
 
             // Get our response
             BufferedReader rd = new BufferedReader(new InputStreamReader(
-                        uc.getInputStream()));
+                        uc.getInputStream(), "UTF8"));
 
             ArrayList<String> lines = new ArrayList<String>();
             String line;
@@ -174,7 +174,7 @@ public class HttpStatement implements Statement {
 
             // Get our response
             BufferedReader rd = new BufferedReader(new InputStreamReader(
-                        uc.getInputStream()));
+                        uc.getInputStream(), "UTF8"));
 
             String line;
 
