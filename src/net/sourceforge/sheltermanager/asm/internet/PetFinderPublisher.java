@@ -625,6 +625,7 @@ public class PetFinderPublisher extends Thread {
         } else {
             Global.logInfo(Global.i18n("uiinternet",
                     "petfinder_publishing_complete"), "PetFinderPublisher.run");
+            System.exit(0);
         }
 
         // Re-enable buttons

@@ -549,6 +549,7 @@ public class SaveAPetPublisher extends Thread {
         } else {
             Global.logInfo(Global.i18n("uiinternet",
                     "saveapet_publishing_complete"), "SaveAPetPublisher.run");
+            System.exit(0);
         }
 
         // Re-enable buttons

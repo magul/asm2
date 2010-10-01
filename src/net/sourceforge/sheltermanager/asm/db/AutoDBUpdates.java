@@ -4155,12 +4155,10 @@ public class AutoDBUpdates {
             if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                 DBConnection.executeAction(
                     "ALTER TABLE configuration ALTER COLUMN ItemValue varchar(16384) NOT NULL");
-            }
-            else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
+            } else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 DBConnection.executeAction(
                     "ALTER TABLE configuration MODIFY ItemValue varchar(16384) NOT NULL");
-            }
-            else if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+            } else if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
                 DBConnection.executeAction(
                     "ALTER TABLE configuration ALTER COLUMN ItemValue TYPE varchar(16384)");
             }

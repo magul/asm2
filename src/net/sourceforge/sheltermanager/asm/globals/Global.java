@@ -85,6 +85,9 @@ public abstract class Global {
     /** Database speed test result (average round trip for db call in ms) */
     public static long speedTest = 0;
 
+    /** Whether we can write to the animal table */
+    public static boolean readonly = false;
+
     /** Product version */
     public static String productVersion = "[Missing locale version]";
     public static String version = "0.0.0";

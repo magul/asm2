@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-01 09:52+0100\n"
-"PO-Revision-Date: 2010-09-07 12:05+0000\n"
-"Last-Translator: Shinden <Unknown>\n"
+"POT-Creation-Date: 2010-09-07 09:25+0100\n"
+"PO-Revision-Date: 2010-09-14 11:59+0000\n"
+"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-08 04:54+0000\n"
+"X-Launchpad-Export-Date: 2010-09-15 05:13+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -219,8 +219,6 @@ msgid "Adopted"
 msgstr "Adoptowany/a"
 
 #. # reports/AnimalFigures
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # bo/AnimalLost
 #. # bo/Animal
@@ -3983,11 +3981,9 @@ msgstr "Nie można skopiować"
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
-"from the {0} file in {1}. Select Yes if you have already done this, "
-"otherwise select No to cancel the copy."
+"from the {0} file. Select Yes if you have already done this, otherwise "
+"select No to cancel the copy."
 msgstr ""
-"Jeśli utworzyłeś bazę i wczytałeś strukturę z {0} pliku w {1} wybierz TAK. "
-"Wybierz NIE aby anulować kopiowanie."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4062,18 +4058,6 @@ msgstr "Nie można się połączyć"
 #: scan
 msgid "Scan"
 msgstr "Skanowanie"
-
-#. # ui/ui/JDBCDlg
-#. # startup/Startup
-#: asmdatastructuremissing
-msgid ""
-"ASM could not find its data structure in the database specfied. If you are "
-"using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-"{0} directory first."
-msgstr ""
-"ASM nie mógł odnaleźć struktur danych w wybranej bazie. Jeśłi używasz "
-"PosgreSQL lub MySQL, upewnij się że wcześniej uruchomiłeś właściwy skrypt z "
-"katalogu {0}."
 
 #. # ui/ui/JDBCDlg
 #: database
@@ -8168,7 +8152,6 @@ msgstr "Informacje dt. Diety"
 #. # db/DatabaseCopier
 #. # wordprocessor/GenerateDocument
 #. # bo/Media
-#. # startup/Startup
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/waitinglist/WaitingListEdit
@@ -10712,11 +10695,6 @@ msgstr "Dodaj Właściciela"
 #: Add_Found_Animal
 msgid "&Add Found Animal"
 msgstr "&Dodaj Zwierzę Odnalezione"
-
-#. # ui/main/Main
-#: Contents_PDF
-msgid "Contents (&Printable PDF)"
-msgstr ""
 
 #. # ui/animalname/NamesView
 #. # ui/main/Main
@@ -13281,11 +13259,7 @@ msgstr ""
 "starsze niż wersja klienta."
 
 #. # reports/CustomReportExecute
-#. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # db/LocateDatabase
-#. # db/DatabaseCopier
-#. # startup/Startup
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -14770,6 +14744,23 @@ msgstr "(szacowana)"
 
 #~ msgid "Dead"
 #~ msgstr "Zmarł/a"
+
+#~ msgid ""
+#~ "You must have already created the database and loaded the database structure "
+#~ "from the {0} file in {1}. Select Yes if you have already done this, "
+#~ "otherwise select No to cancel the copy."
+#~ msgstr ""
+#~ "Jeśli utworzyłeś bazę i wczytałeś strukturę z {0} pliku w {1} wybierz TAK. "
+#~ "Wybierz NIE aby anulować kopiowanie."
+
+#~ msgid ""
+#~ "ASM could not find its data structure in the database specfied. If you are "
+#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
+#~ "{0} directory first."
+#~ msgstr ""
+#~ "ASM nie mógł odnaleźć struktur danych w wybranej bazie. Jeśłi używasz "
+#~ "PosgreSQL lub MySQL, upewnij się że wcześniej uruchomiłeś właściwy skrypt z "
+#~ "katalogu {0}."
 
 #~ msgid "Microchip Number"
 #~ msgstr "Numer czipa"

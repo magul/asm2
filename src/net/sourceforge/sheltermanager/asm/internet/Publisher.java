@@ -547,9 +547,8 @@ public class Publisher extends Thread {
                 display();
             }
         } else {
-            if (debug) {
-                Global.logInfo("Publishing complete.", "Publisher.run");
-            }
+            Global.logInfo("Publishing complete.", "Publisher.run");
+            System.exit(0);
         }
 
         // Re-enable buttons

@@ -610,6 +610,7 @@ public class RescueGroupsPublisher extends Thread {
             Global.logInfo(Global.i18n("uiinternet",
                     "rescue_groups_publishing_complete"),
                 "RescueGroupsPublisher.run");
+            System.exit(0);
         }
 
         // Re-enable buttons

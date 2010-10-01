@@ -142,9 +142,9 @@ public class Startup implements Runnable {
 
             // Set maximum steps to startup (3 are skipped in applet mode)
             if (applet) {
-                sp.setMax(18);
+                sp.setMax(19);
             } else {
-                sp.setMax(21);
+                sp.setMax(22);
             }
 
             // Set the log going
@@ -286,6 +286,20 @@ public class Startup implements Runnable {
                 terminateVM(1);
             }
 
+            // Test whether we can write to it
+            sp.setStatus("Testing for read-only database...");
+            sp.incrementBar();
+            try {
+                int firstid = DBConnection.executeForInt("SELECT ID FROM animal ORDER BY ID LIMIT 1");
+                DBConnection.executeAction("UPDATE animal SET ID = " + firstid + " WHERE ID = " + firstid);
+                Global.logInfo("Database is WRITABLE", "Startup.Startup");
+                Global.readonly = false;
+            }
+            catch (Exception e) {
+                Global.logInfo("Database is READ-ONLY", "Startup.Startup");
+                Global.readonly = true;
+            }
+
             // Update the max packet size so big media files don't upset
             // MySQL (if we're using MySQL that is)
             sp.setStatus("Setting maximum packet size...");
@@ -339,7 +353,7 @@ public class Startup implements Runnable {
                 terminateVM(1);
             }
 
-            // See if we need to import the media from the data directory
+            // See if we need to import the media from the jar
             if (!applet) {
                 sp.setStatus("Creating DBFS...");
                 sp.incrementBar();
@@ -376,17 +390,17 @@ public class Startup implements Runnable {
             // Update variable data
             sp.setStatus("Updating variable animal data...");
             sp.incrementBar();
-            Animal.updateOnShelterVariableAnimalData();
+            if (!Global.readonly) Animal.updateOnShelterVariableAnimalData();
 
             // Automatically cancel old reservations
             sp.setStatus("Auto cancelling reservations...");
             sp.incrementBar();
-            Adoption.autoCancelReservations();
+            if (!Global.readonly) Adoption.autoCancelReservations();
 
             // Update any litters
             sp.setStatus("Updating animal litters...");
             sp.incrementBar();
-            AnimalLitter.updateLitters();
+            if (!Global.readonly) AnimalLitter.updateLitters();
 
             // Preload some classes
             sp.setStatus("Preloading UI classes...");
