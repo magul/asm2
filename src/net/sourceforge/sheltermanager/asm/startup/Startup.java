@@ -289,13 +289,15 @@ public class Startup implements Runnable {
             // Test whether we can write to it
             sp.setStatus("Testing for read-only database...");
             sp.incrementBar();
+
             try {
-                int firstid = DBConnection.executeForInt("SELECT ID FROM animal ORDER BY ID LIMIT 1");
-                DBConnection.executeAction("UPDATE animal SET ID = " + firstid + " WHERE ID = " + firstid);
+                int firstid = DBConnection.executeForInt(
+                        "SELECT ID FROM animal ORDER BY ID LIMIT 1");
+                DBConnection.executeAction("UPDATE animal SET ID = " + firstid +
+                    " WHERE ID = " + firstid);
                 Global.logInfo("Database is WRITABLE", "Startup.Startup");
                 Global.readonly = false;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Global.logInfo("Database is READ-ONLY", "Startup.Startup");
                 Global.readonly = true;
             }
@@ -390,17 +392,26 @@ public class Startup implements Runnable {
             // Update variable data
             sp.setStatus("Updating variable animal data...");
             sp.incrementBar();
-            if (!Global.readonly) Animal.updateOnShelterVariableAnimalData();
+
+            if (!Global.readonly) {
+                Animal.updateOnShelterVariableAnimalData();
+            }
 
             // Automatically cancel old reservations
             sp.setStatus("Auto cancelling reservations...");
             sp.incrementBar();
-            if (!Global.readonly) Adoption.autoCancelReservations();
+
+            if (!Global.readonly) {
+                Adoption.autoCancelReservations();
+            }
 
             // Update any litters
             sp.setStatus("Updating animal litters...");
             sp.incrementBar();
-            if (!Global.readonly) AnimalLitter.updateLitters();
+
+            if (!Global.readonly) {
+                AnimalLitter.updateLitters();
+            }
 
             // Preload some classes
             sp.setStatus("Preloading UI classes...");

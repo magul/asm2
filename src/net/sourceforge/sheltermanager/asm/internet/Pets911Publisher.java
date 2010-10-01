@@ -459,9 +459,9 @@ public class Pets911Publisher extends Thread {
             Dialog.showInformation(Global.i18n("uiinternet",
                     "Pets911_publishing_complete"),
                 Global.i18n("uiinternet", "Pets911_upload_complete"));
-        }
-        else {
-            Global.logInfo(Global.i18n("uiinternet", "Pets911_upload_complete"), "Pets911Publisher.run");
+        } else {
+            Global.logInfo(Global.i18n("uiinternet", "Pets911_upload_complete"),
+                "Pets911Publisher.run");
             System.exit(0);
         }
 
