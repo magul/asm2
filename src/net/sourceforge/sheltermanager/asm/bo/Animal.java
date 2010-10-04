@@ -1912,6 +1912,13 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     }
 
                     aid = ad.getID().intValue();
+
+                    // If the active movement is a foster and we're treating fosters
+                    // as shelter inventory, then we should mark them as on shelter
+                    if ((movetype == Adoption.MOVETYPE_FOSTER) &&
+                            Configuration.getBoolean("FosterOnShelter")) {
+                        onShelter = true;
+                    }
                 }
 
                 String sql = "UPDATE animal SET ActiveMovementID = " + aid +
