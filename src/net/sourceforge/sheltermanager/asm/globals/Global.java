@@ -392,7 +392,7 @@ public abstract class Global {
      */
     public static int getRecordSearchLimit() {
         // local databases can be unlimited
-        if (DBConnection.DBType == DBConnection.HSQLDB) {
+        if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
             return 0;
         }
 
@@ -433,7 +433,7 @@ public abstract class Global {
      */
     public static void setMaxAllowedPacket() {
         try {
-            if (DBConnection.DBType == DBConnection.MYSQL) {
+            if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 logInfo("Setting MySQL max packet size to 16Mb",
                     "Global.setMaxAllowedPacket");
                 DBConnection.executeAction(
@@ -453,7 +453,7 @@ public abstract class Global {
             }
 
             // We don't need to do anything special for Postgres or HSQL
-            if (DBConnection.DBType == DBConnection.MYSQL) {
+            if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                 logInfo("Setting MySQL to use UTF8", "Global.setUTF8");
                 DBConnection.executeAction("SET NAMES utf8");
             }
