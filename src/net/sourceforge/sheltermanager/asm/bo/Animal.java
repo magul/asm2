@@ -1693,7 +1693,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      */
     public static void findLatestMovementFromList(Adoption ad)
         throws CursorEngineException {
-        if (ad.getEOF()) {
+        if (ad.size() == 0) {
             return;
         }
 
@@ -1715,6 +1715,9 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
         boolean hasMovement = false;
 
+	if (ad.size() == 0) return;
+
+        ad.moveFirst();
         while (!ad.getEOF()) {
             if (ad.getAnimalID().intValue() != animalid) {
                 ad.moveNext();
