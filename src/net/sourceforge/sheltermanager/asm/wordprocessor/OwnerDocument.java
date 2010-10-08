@@ -138,6 +138,10 @@ public class OwnerDocument extends GenerateDocument {
                 owner.getOwnerSurname());
             addTag(Global.i18n("wordprocessor", "OwnerEmail"),
                 owner.getEmailAddress());
+	    addTag(Global.i18n("wordprocessor", "MembershipNumber"),
+	    	owner.getMembershipNumber());
+	    addTag(Global.i18n("wordprocessor", "MembershipExpiryDate"),
+	    	Utils.formatDate(owner.getMembershipExpiryDate()));
 
             // Data held in additional fields
             try {
