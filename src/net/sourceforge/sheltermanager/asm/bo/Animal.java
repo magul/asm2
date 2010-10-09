@@ -1719,9 +1719,9 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
         ad.moveFirst();
         while (!ad.getEOF()) {
+
             if (ad.getAnimalID().intValue() != animalid) {
                 ad.moveNext();
-
                 continue;
             }
 
@@ -1736,12 +1736,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
             if (testDate != null) {
                 if (highestDate == null) {
+		    // No highest date, use first record
                     highestDate = testDate;
                     highestID = ad.getID().intValue();
                 } else if (testDate.after(highestDate)) {
+		    // Higher date, use this record
                     highestDate = testDate;
                     highestID = ad.getID().intValue();
-                }
+                } else if (testDate.equals(highestDate) && ad.getID().intValue() > highestID) {
+		    // Date is same as our highest, but record is newer
+                    highestDate = testDate;
+		    highestID = ad.getID().intValue();
+		}
+
             }
 
             ad.moveNext();
@@ -1827,7 +1834,9 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             boolean hasReserve = false; // Does the animal have a reserve?
             Date lastReturn = null; // Last date the animal was returned
 
-            for (Adoption d : move) {
+            Adoption d = move;
+	    if (d.size() > 0) d.moveFirst();
+	    while (!d.getEOF()) {
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getMovementDate() != null) &&
                         ((d.getReturnDate() == null) ||
@@ -1855,6 +1864,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                         lastReturn = d.getReturnDate();
                     }
                 }
+		d.moveNext();
             }
 
             if (lastReturn != null) {
@@ -3266,8 +3276,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             "Animal.updateAllAnimalStatuses");
 
         try {
-            Animal a = new Animal("");
-            Adoption m = new Adoption("");
+            Animal a = new Animal("ID > 0 ORDER BY ID");
+            Adoption m = new Adoption("ID > 0 ORDER BY ID");
 
             int doneRecords = 0;
             String totalRecords = Long.toString(a.getRecordCount());
