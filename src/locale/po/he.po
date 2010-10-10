@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-07 09:25+0100\n"
-"PO-Revision-Date: 2010-09-14 12:02+0000\n"
+"POT-Creation-Date: 2010-09-29 10:26+0100\n"
+"PO-Revision-Date: 2010-10-02 18:51+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-15 05:12+0000\n"
+"X-Launchpad-Export-Date: 2010-10-03 05:03+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -2984,7 +2984,7 @@ msgstr "קשיש"
 
 #: costtype_1
 msgid "Board and Food"
-msgstr ""
+msgstr "מחייה ומזון"
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
@@ -3617,6 +3617,7 @@ msgstr "חיפוש"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
@@ -3643,6 +3644,7 @@ msgstr "לא"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/account/TrxView
 #. # ui/main/Logout
@@ -4121,6 +4123,11 @@ msgstr ""
 "{5} החזרות ללא העברות נמצאו והוסרו.\n"
 "{6} עמודות תאריכים של mysql תוקנו.\n"
 "{7} קודים של של חיות מחמד תוקנו עבור שנה זו."
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -7019,7 +7026,6 @@ msgstr "הערות חבויות:"
 msgid "Size:"
 msgstr "גודל:"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
@@ -7403,7 +7409,6 @@ msgstr "הקוד הייחודי של חיית מחמד זו לבית מחסה ז
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr "יש לסמן תיבה זו אם חיית המחמד הועברה מבית מחסה אחר"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7433,7 +7438,6 @@ msgid "Invalid Date"
 msgstr "התאריך שגוי"
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8599,6 +8603,11 @@ msgstr "החודש הקודם"
 msgid "Previous year"
 msgstr "השנה הקודמת"
 
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
+msgstr "לשדה הנוסף \"{0}\" חייב להיות ערך."
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -9654,6 +9663,11 @@ msgstr "הוספה ליומן"
 #: store_this_email_in_the_log
 msgid "Store this email in the log for this owner"
 msgstr "שמירת דוא״ל זה ביומן של בעלים אלה"
+
+#. # ui/internet/InternetPublisher
+#: Generate_Thumbnails
+msgid "Generate thumbnail images"
+msgstr "יצירת תמונות ממוזערות"
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -13795,6 +13809,22 @@ msgstr "הצגת מזהה ההמלטה בעת הוספת מספר בעלי חי�
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
 msgstr ""
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr "מחייב?"
+
+#. # ui/system/Options
+#: accounting_period
+msgid "Current accounting period starts:"
+msgstr "תקופת ההתחשבנות הנוכחית מתחילה ב־:"
+
+#. # ui/system/Options
+#: show_period_totals
+msgid "Only show account totals for the current period"
+msgstr "יש להציג סיכומים של חשבונות עבור התקופה הנוכחית בלבד"
 
 #. # ui/users/UserView
 #: Add_a_new_user

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-07 09:25+0100\n"
-"PO-Revision-Date: 2010-09-14 11:57+0000\n"
-"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
+"POT-Creation-Date: 2010-09-29 10:26+0100\n"
+"PO-Revision-Date: 2010-10-07 21:25+0000\n"
+"Last-Translator: Jose Almeida <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-15 05:13+0000\n"
+"X-Launchpad-Export-Date: 2010-10-08 04:46+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3630,6 +3630,7 @@ msgstr "Procura"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
@@ -3656,6 +3657,7 @@ msgstr "Não"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/account/TrxView
 #. # ui/main/Logout
@@ -4137,6 +4139,11 @@ msgstr ""
 "{5} retorna sem um movimento de encontrado e removido.\n"
 "{6} colunas de data do mysql reparadas.\n"
 "{7} códigos de animal inválidos reparados para este ano."
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
+msgstr "Ponte HTTPDB"
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -7050,7 +7057,6 @@ msgstr "Comentários Escondidos:"
 msgid "Size:"
 msgstr "Tamanho:"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
@@ -7434,7 +7440,6 @@ msgstr "Código do Animal no Canil"
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr "Seleccione esta caixa se o animal veio transferido de outro Canil"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7464,7 +7469,6 @@ msgid "Invalid Date"
 msgstr "Data Inválida"
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8638,6 +8642,11 @@ msgstr "Mês anterior"
 msgid "Previous year"
 msgstr "Ano anterior"
 
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
+msgstr "Campo adicional \"{0}\" deve ter um valor."
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -9700,6 +9709,11 @@ msgstr "Adicionar ao log"
 #: store_this_email_in_the_log
 msgid "Store this email in the log for this owner"
 msgstr "Armazenar este e-mail no log para este dono"
+
+#. # ui/internet/InternetPublisher
+#: Generate_Thumbnails
+msgid "Generate thumbnail images"
+msgstr "Gerar miniaturas"
 
 #. # ui/main/Main
 #. # ui/localcache/CacheView
@@ -13890,6 +13904,22 @@ msgstr "Mostrar ID da ninhada quando adicionar vários animais"
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
 msgstr "Mostrar número de entrada quando adicionar vários animais"
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr "Obrigatório?"
+
+#. # ui/system/Options
+#: accounting_period
+msgid "Current accounting period starts:"
+msgstr "Período actual de contabilidade começa:"
+
+#. # ui/system/Options
+#: show_period_totals
+msgid "Only show account totals for the current period"
+msgstr "Mostrar totais da conta apenas para o período actual"
 
 #. # ui/users/UserView
 #: Add_a_new_user

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-07 09:25+0100\n"
-"PO-Revision-Date: 2010-09-27 11:18+0000\n"
+"POT-Creation-Date: 2010-09-29 10:26+0100\n"
+"PO-Revision-Date: 2010-10-01 11:52+0000\n"
 "Last-Translator: Dr Gregory House <housegregory299@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-28 05:26+0000\n"
+"X-Launchpad-Export-Date: 2010-10-02 05:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -3629,6 +3629,7 @@ msgstr "Список"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
@@ -3655,6 +3656,7 @@ msgstr "Нет"
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
 #. # ui/system/Options
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/account/TrxView
 #. # ui/main/Logout
@@ -4118,6 +4120,11 @@ msgid ""
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
 "{7} invalid animal codes fixed for this year."
+msgstr ""
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
 msgstr ""
 
 #. # reports/VaccinationDiary
@@ -7005,7 +7012,6 @@ msgstr ""
 msgid "Size:"
 msgstr ""
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
@@ -7388,7 +7394,6 @@ msgstr ""
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr ""
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7418,7 +7423,6 @@ msgid "Invalid Date"
 msgstr ""
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
@@ -8569,6 +8573,11 @@ msgstr ""
 msgid "Previous year"
 msgstr ""
 
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -9610,6 +9619,11 @@ msgstr "Добавить в журнал"
 #. # ui/internet/EmailForm
 #: store_this_email_in_the_log
 msgid "Store this email in the log for this owner"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Generate_Thumbnails
+msgid "Generate thumbnail images"
 msgstr ""
 
 #. # ui/main/Main
@@ -13716,6 +13730,22 @@ msgstr ""
 #. # ui/system/Options
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
+msgstr ""
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr ""
+
+#. # ui/system/Options
+#: accounting_period
+msgid "Current accounting period starts:"
+msgstr ""
+
+#. # ui/system/Options
+#: show_period_totals
+msgid "Only show account totals for the current period"
 msgstr ""
 
 #. # ui/users/UserView

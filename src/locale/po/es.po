@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-29 09:33+0100\n"
-"PO-Revision-Date: 2010-08-31 13:28+0000\n"
-"Last-Translator: Monkey <monkey.libre@gmail.com>\n"
+"POT-Creation-Date: 2010-10-08 12:19+0100\n"
+"PO-Revision-Date: 2010-10-09 15:52+0000\n"
+"Last-Translator: Fitoschido <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-01 04:08+0000\n"
+"X-Launchpad-Export-Date: 2010-10-10 05:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -216,8 +216,6 @@ msgid "Adopted"
 msgstr "Adoptado"
 
 #. # ui/animal/AnimalFind
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
 #. # bo/Animal
 #. # bo/AnimalLost
 #. # reports/AnimalFigures
@@ -730,17 +728,17 @@ msgstr "Debe proporcionar una descripción de los gastos."
 #. # bo/AuditTrail
 #: audit_create
 msgid "Created {0}"
-msgstr ""
+msgstr "Creado {0}"
 
 #. # bo/AuditTrail
 #: audit_changed
 msgid "Changed {0}"
-msgstr ""
+msgstr "Cambiado {0}"
 
 #. # bo/AuditTrail
 #: audit_deleted
 msgid "Deleted {0}"
-msgstr ""
+msgstr "Borrado {0}"
 
 #. # bo/AuditTrail
 #: audit_moved
@@ -750,12 +748,12 @@ msgstr "Movido {0} desde {1} a {2}"
 #. # bo/AuditTrail
 #: audit_merged
 msgid "Merged {0} into {1}"
-msgstr ""
+msgstr "Fusionado {0} en {1}"
 
 #. # bo/Users
 #: duplicate_username
 msgid "The username {0} has already been used."
-msgstr ""
+msgstr "El nombre de usuario {0} ya ha sido usado."
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -3627,6 +3625,7 @@ msgstr "Buscar"
 
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
@@ -3653,6 +3652,7 @@ msgstr "No"
 
 #. # ui/ui/UI
 #. # ui/ui/ASMConfigForm
+#. # ui/system/ConfigureAdditional
 #. # ui/system/ConfigureDatabase
 #. # ui/system/Options
 #. # ui/owner/OwnerFind
@@ -3853,6 +3853,7 @@ msgstr "La base de datos ha sido actualizada con éxito."
 #. # ui/criteria/DiaryCriteria
 #. # ui/criteria/DateFromTo
 #. # ui/ui/InputTextDialog
+#. # ui/ui/LocaleDialog
 #. # ui/ui/JDBCDlg
 #. # ui/ui/DateInputDlg
 #. # ui/ui/UI
@@ -3988,12 +3989,9 @@ msgstr "No es posible copiar"
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
-"from the {0} file in {1}. Select Yes if you have already done this, "
-"otherwise select No to cancel the copy."
+"from the {0} file. Select Yes if you have already done this, otherwise "
+"select No to cancel the copy."
 msgstr ""
-"Debe haber creado ya la base de datos y haber leído su estructura desde el "
-"archivo {0} en {1}. Seleccione Sí si ya lo ha hecho. Si no es así, escoja No "
-"para cancelar la operación de copia."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4069,18 +4067,6 @@ msgid "Scan"
 msgstr "Análisis"
 
 #. # ui/ui/JDBCDlg
-#. # startup/Startup
-#: asmdatastructuremissing
-msgid ""
-"ASM could not find its data structure in the database specfied. If you are "
-"using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-"{0} directory first."
-msgstr ""
-"ASM no pudo encontrar la estructura de datos en la base de datos "
-"especificada. Si está usando PostgreSQL o MySQL, asegúrese de lanzar primero "
-"el script apropiado en el directorio {0} ."
-
-#. # ui/ui/JDBCDlg
 #: database
 msgid "Database:"
 msgstr "Base de datos:"
@@ -4153,6 +4139,11 @@ msgstr ""
 "{5} regresiones sin un movimiento encontradas y eliminadas.\n"
 "{6} columnas de datos mysql reparados.\n"
 "{7} códigos inválidos de animales corregidos para este año."
+
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -4583,6 +4574,7 @@ msgstr "Informe resumen de entradas y salidas"
 #. # ui/criteria/DiaryCriteria
 #. # ui/criteria/DateFromTo
 #. # ui/ui/InputTextDialog
+#. # ui/ui/LocaleDialog
 #. # ui/ui/JDBCDlg
 #. # ui/ui/DateInputDlg
 #. # ui/ui/UI
@@ -7088,7 +7080,6 @@ msgstr "Tamaño:"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: Save_Error
 msgid "Save Error"
 msgstr "Error al guardar"
@@ -7476,7 +7467,6 @@ msgstr ""
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
 msgid "Error saving to local SQLRecordset: "
 msgstr "Error guardando a local SQLRecordset: "
@@ -7510,7 +7500,6 @@ msgstr "Fecha no válida"
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
 #. # ui/animal/DietEdit
 #. # ui/animal/VaccinationEdit
@@ -8198,7 +8187,6 @@ msgstr "Información acerca de la dieta"
 #. # ui/animal/MediaAdd
 #. # ui/customreport/CustomReportEdit
 #. # bo/Media
-#. # startup/Startup
 #. # db/DatabaseImporter
 #. # db/DatabaseCopier
 #. # db/Diagnostic
@@ -8693,6 +8681,11 @@ msgstr ""
 #. # ui/ui/UI
 #: Previous_Year
 msgid "Previous year"
+msgstr ""
+
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
 msgstr ""
 
 #. # ui/animalname/NamesView
@@ -9254,7 +9247,7 @@ msgstr "Seleccione un vale"
 msgid "Select a Medical Profile"
 msgstr "Seleccione un diagnóstico"
 
-#. # ui/ui/Dialog
+#. # ui/ui/LocaleDialog
 #: select_locale
 msgid "Select Locale"
 msgstr "Seleccione idioma"
@@ -9759,6 +9752,11 @@ msgstr ""
 #. # ui/internet/EmailForm
 #: store_this_email_in_the_log
 msgid "Store this email in the log for this owner"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Generate_Thumbnails
+msgid "Generate thumbnail images"
 msgstr ""
 
 #. # ui/main/Main
@@ -10753,11 +10751,6 @@ msgstr "Añadir contacto"
 #: Add_Found_Animal
 msgid "&Add Found Animal"
 msgstr "&Añadir animal encontrado"
-
-#. # ui/main/Main
-#: Contents_PDF
-msgid "Contents (&Printable PDF)"
-msgstr "Contenidos (PDF i&mprimible)"
 
 #. # ui/main/Main
 #. # ui/animalname/NamesView
@@ -12068,7 +12061,6 @@ msgstr "Personal del refugio"
 msgid "Animal Care Officer"
 msgstr "Cuidador de animales"
 
-#. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # reports/OwnerSearchResults
@@ -12881,6 +12873,7 @@ msgstr "Próximo:"
 msgid "End At:"
 msgstr "Finaliza en:"
 
+#. # ui/ui/LocaleDialog
 #. # ui/system/ConfigureLocal
 #: System_Locale\:
 msgid "System Locale:"
@@ -13324,12 +13317,8 @@ msgstr ""
 "Permitir los clientes de ASM a actualizar la base de datos si es más antigua "
 "que ellos."
 
-#. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
 #. # reports/CustomReportExecute
-#. # startup/Startup
-#. # db/LocateDatabase
-#. # db/DatabaseCopier
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -13968,6 +13957,41 @@ msgstr ""
 #. # ui/system/Options
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
+msgstr ""
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr ""
+
+#. # ui/system/Options
+#: accounting_period
+msgid "Current accounting period starts:"
+msgstr ""
+
+#. # ui/system/Options
+#: show_period_totals
+msgid "Only show account totals for the current period"
+msgstr ""
+
+#. # ui/system/Options
+#. # startup/Startup
+#. # internet/Publisher
+#: internet
+msgid "Internet"
+msgstr "Internet"
+
+#. # ui/system/Options
+#: tpp_signature
+msgid "Third party publisher text:"
+msgstr ""
+
+#. # ui/system/Options
+#: tpp_signature_tooltip
+msgid ""
+"This text will be added to the bottom of animal descriptions when sending "
+"them to PetFinder, RescueGroups, etc."
 msgstr ""
 
 #. # ui/users/UserView
@@ -14936,6 +14960,15 @@ msgstr "(estimado)"
 #~ msgid "Existing Local"
 #~ msgstr "Base de datos local existente"
 
+#~ msgid ""
+#~ "You must have already created the database and loaded the database structure "
+#~ "from the {0} file in {1}. Select Yes if you have already done this, "
+#~ "otherwise select No to cancel the copy."
+#~ msgstr ""
+#~ "Debe haber creado ya la base de datos y haber leído su estructura desde el "
+#~ "archivo {0} en {1}. Seleccione Sí si ya lo ha hecho. Si no es así, escoja No "
+#~ "para cancelar la operación de copia."
+
 #~ msgid "Volunteers.csv"
 #~ msgstr "Volunteers.csv"
 
@@ -15712,9 +15745,6 @@ msgstr "(estimado)"
 
 #~ msgid "Animals On The Shelter"
 #~ msgstr "Animales en el refugio"
-
-#~ msgid "Internet"
-#~ msgstr "Internet"
 
 #~ msgid "Run Database Update"
 #~ msgstr "Ejecutar actualización de la base de datos"
@@ -16513,6 +16543,15 @@ msgstr "(estimado)"
 #~ msgid "Identichip No"
 #~ msgstr "Microchip Nr"
 
+#~ msgid ""
+#~ "ASM could not find its data structure in the database specfied. If you are "
+#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
+#~ "{0} directory first."
+#~ msgstr ""
+#~ "ASM no pudo encontrar la estructura de datos en la base de datos "
+#~ "especificada. Si está usando PostgreSQL o MySQL, asegúrese de lanzar primero "
+#~ "el script apropiado en el directorio {0} ."
+
 #~ msgid " invalid animal codes fixed for this year."
 #~ msgstr " códigos de animales inválidos fijados para este año."
 
@@ -16723,6 +16762,9 @@ msgstr "(estimado)"
 
 #~ msgid "Microchip Re&gistration"
 #~ msgstr "Re&gistro de microchip"
+
+#~ msgid "Contents (&Printable PDF)"
+#~ msgstr "Contenidos (PDF i&mprimible)"
 
 #~ msgid "Configure ASM E&mail Account"
 #~ msgstr "Configurar cuenta de &email para ASM"

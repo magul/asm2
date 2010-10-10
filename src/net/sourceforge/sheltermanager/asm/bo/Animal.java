@@ -1715,13 +1715,16 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
         boolean hasMovement = false;
 
-	if (ad.size() == 0) return;
+        if (ad.size() == 0) {
+            return;
+        }
 
         ad.moveFirst();
-        while (!ad.getEOF()) {
 
+        while (!ad.getEOF()) {
             if (ad.getAnimalID().intValue() != animalid) {
                 ad.moveNext();
+
                 continue;
             }
 
@@ -1736,19 +1739,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
             if (testDate != null) {
                 if (highestDate == null) {
-		    // No highest date, use first record
+                    // No highest date, use first record
                     highestDate = testDate;
                     highestID = ad.getID().intValue();
                 } else if (testDate.after(highestDate)) {
-		    // Higher date, use this record
+                    // Higher date, use this record
                     highestDate = testDate;
                     highestID = ad.getID().intValue();
-                } else if (testDate.equals(highestDate) && ad.getID().intValue() > highestID) {
-		    // Date is same as our highest, but record is newer
+                } else if (testDate.equals(highestDate) &&
+                        (ad.getID().intValue() > highestID)) {
+                    // Date is same as our highest, but record is newer
                     highestDate = testDate;
-		    highestID = ad.getID().intValue();
-		}
-
+                    highestID = ad.getID().intValue();
+                }
             }
 
             ad.moveNext();
@@ -1835,8 +1838,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             Date lastReturn = null; // Last date the animal was returned
 
             Adoption d = move;
-	    if (d.size() > 0) d.moveFirst();
-	    while (!d.getEOF()) {
+
+            if (d.size() > 0) {
+                d.moveFirst();
+            }
+
+            while (!d.getEOF()) {
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getMovementDate() != null) &&
                         ((d.getReturnDate() == null) ||
@@ -1864,7 +1871,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                         lastReturn = d.getReturnDate();
                     }
                 }
-		d.moveNext();
+
+                d.moveNext();
             }
 
             if (lastReturn != null) {
