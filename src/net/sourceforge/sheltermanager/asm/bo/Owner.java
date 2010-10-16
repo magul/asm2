@@ -545,18 +545,26 @@ public class Owner extends UserInfoBO<Owner> {
                     "(SELECT COUNT(*) FROM adoption WHERE OwnerID = owner.ID) AS move, " +
                     "((SELECT COUNT(*) FROM animal WHERE OriginalOwnerID = owner.ID OR " +
                     "BroughtInByOwnerID = owner.ID OR OwnersVetID = owner.ID " +
-                    "OR CurrentVetID = owner.ID) + (SELECT COUNT(*) FROM animalwaitinglist " +
-                    "WHERE OwnerID = owner.ID) + (SELECT COUNT(*) FROM animallost WHERE " +
-                    "OwnerID = owner.ID) + (SELECT COUNT(*) FROM animalfound WHERE " +
+                    "OR CurrentVetID = owner.ID) + " +
+		    "(SELECT COUNT(*) FROM animalwaitinglist " +
+                    "WHERE OwnerID = owner.ID) + " +
+		    "(SELECT COUNT(*) FROM animallost WHERE " +
+                    "OwnerID = owner.ID) + " +
+		    "(SELECT COUNT(*) FROM animalfound WHERE " +
                     "OwnerID = owner.ID)) AS link, " +
                     "(SELECT COUNT(*) FROM log WHERE LinkID = owner.ID AND LinkType = " +
                     Log.LINKTYPE_OWNER +
                     ") AS logs FROM owner WHERE owner.ID = " + id, "owner");
 
-            return new OwnerMarkers((Integer) r.getField("dona"),
-                (Integer) r.getField("vouc"), (Integer) r.getField("pics"),
-                (Integer) r.getField("diar"), (Integer) r.getField("move"),
-                (Integer) r.getField("link"), (Integer) r.getField("logs"));
+            Global.logDebug("Owner markers: donations=" + r.getInt("dona") + 
+	        ", vouchers=" + r.getInt("vouc") +
+	        ", media=" + r.getInt("pics") + ", diary=" + r.getInt("diar") +
+		", movements=" + r.getInt("move") + ", link=" + r.getInt("link") +
+		", logs=" + r.getInt("logs"), "OwnerMarkers.getNumExternalRecords");
+
+            return new OwnerMarkers(r.getInt("dona"), r.getInt("vouc"),
+	    	r.getInt("pics"), r.getInt("diar"), r.getInt("move"),
+		r.getInt("link"), r.getInt("logs"));
         } catch (Exception e) {
             Global.logException(e, Owner.class);
         }
@@ -576,15 +584,15 @@ public class Owner extends UserInfoBO<Owner> {
         public OwnerMarkers() {
         }
 
-        public OwnerMarkers(Integer donations, Integer vouchers, Integer media,
-            Integer diary, Integer movement, Integer links, Integer log) {
-            this.donations = donations.intValue();
-            this.vouchers = vouchers.intValue();
-            this.media = media.intValue();
-            this.diary = diary.intValue();
-            this.movement = movement.intValue();
-            this.links = movement.intValue();
-            this.log = log.intValue();
+        public OwnerMarkers(int donations, int vouchers, int media,
+            int diary, int movement, int links, int log) {
+            this.donations = donations;
+            this.vouchers = vouchers;
+            this.media = media;
+            this.diary = diary;
+            this.movement = movement;
+            this.links = links;
+            this.log = log;
         }
     }
 }

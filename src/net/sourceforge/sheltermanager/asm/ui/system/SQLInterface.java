@@ -114,8 +114,8 @@ public class SQLInterface extends ASMForm {
                         r.moveNext();
                     }
 
-                    table.setTableData(columns, data, (int) r.getRecordCount(),
-                        0);
+                    table.setTableData(columns, data, (int) r.size(), 
+                        1, columns.length);
                 } else {
                     // It's an action query, run it
                     DBConnection.executeAction(query);

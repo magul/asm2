@@ -310,6 +310,8 @@ public class AnimalDocument extends GenerateDocument {
                     "");
             }
 
+            addTag(Global.i18n("wordprocessor", "EntryCategory"),
+	        Utils.nullToEmptyString(animal.getEntryReasonName());
             addTag(Global.i18n("wordprocessor", "ReasonForEntry"),
                 Utils.nullToEmptyString(animal.getReasonForEntry()));
             addTag(Global.i18n("wordprocessor", "ReasonNotBroughtByOwner"),

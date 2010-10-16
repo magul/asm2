@@ -991,6 +991,10 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         rs.setField("EntryReasonID", newValue);
     }
 
+    public String getEntryReasonName() throws CursorEngineException {
+        return LookupCache.getEntryReasonNameForID(getEntryReasonID());
+    }
+
     public Integer getPTSReasonID() throws CursorEngineException {
         return (Integer) rs.getField("PTSReasonID");
     }
@@ -1844,6 +1848,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             }
 
             while (!d.getEOF()) {
+
+                // If there's an open movement, it can't be on shelter
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getMovementDate() != null) &&
                         ((d.getReturnDate() == null) ||
@@ -1851,6 +1857,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     onShelter = false;
                 }
 
+                // Does it have an active reserve?
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getReturnDate() == null) &&
                         (d.getMovementType() == 0) &&
@@ -1860,6 +1867,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     hasReserve = true;
                 }
 
+                // Update the last time the animal was returned
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getReturnDate() != null)) {
                     if (lastReturn == null) {
@@ -1875,6 +1883,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                 d.moveNext();
             }
 
+	    // Override the onshelter flag if the animal is dead
+	    if (a.getDeceasedDate() != null) {
+                onShelter = false;
+	    }
+
+            // Stamp the latest return date if we have one
             if (lastReturn != null) {
                 batch.add("UPDATE animal SET ActiveMovementReturn = '" +
                     Utils.getSQLDate(lastReturn) + "' WHERE ID = " + id);
@@ -1934,10 +1948,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
                     aid = ad.getID().intValue();
 
-                    // If the active movement is a foster and we're treating fosters
-                    // as shelter inventory, then we should mark them as on shelter
+                    // If the active movement is a foster and we're treating 
+		    // fosters as shelter inventory (and the animal isn't
+		    // dead), then we should mark them as on shelter
                     if ((movetype == Adoption.MOVETYPE_FOSTER) &&
-                            Configuration.getBoolean("FosterOnShelter")) {
+                            Configuration.getBoolean("FosterOnShelter")
+			    && a.getDeceasedDate() == null) {
                         onShelter = true;
                     }
                 }
