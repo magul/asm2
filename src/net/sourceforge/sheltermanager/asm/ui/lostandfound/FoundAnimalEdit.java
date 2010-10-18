@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.ui.lostandfound;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
+import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
@@ -42,6 +43,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListEdit;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
@@ -69,6 +71,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     private UI.Button btnSave;
     private UI.Button btnMatch;
     private UI.Button btnCreateAnimal;
+    private UI.Button btnCreateWaitingList;
     private UI.ComboBox cboColour;
     private UI.ComboBox cboSex;
     private UI.ComboBox cboBreed;
@@ -114,6 +117,10 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         if (!Global.currentUserObject.getSecAddAnimal()) {
             btnCreateAnimal.setEnabled(false);
         }
+        
+        if (!Global.currentUserObject.getSecAddWaitingList()) {
+        	btnCreateWaitingList.setEnabled(false);
+        }
 
         // Tabs/View
         if (!Global.currentUserObject.getSecViewAnimalMedia()) {
@@ -133,6 +140,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         btnDelete.setEnabled(!isNewRecord);
         btnMatch.setEnabled(!isNewRecord);
         btnCreateAnimal.setEnabled(!isNewRecord);
+        btnCreateWaitingList.setEnabled(!isNewRecord);
         btnSave.setEnabled(isDirty);
         setSecurity();
     }
@@ -576,6 +584,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                     IconManager.getIcon(
                         IconManager.SCREEN_EDITFOUNDANIMAL_CREATEANIMAL),
                     UI.fp(this, "actionCreateAnimal")));
+        
+        btnCreateWaitingList = (UI.Button) tlbTools.add(UI.getButton(null,
+        		 	i18n("Create_waiting_list_record_from_this_record"), 'w',
+        		 	IconManager.getIcon(
+        		 		IconManager.SCREEN_EDITFOUNDANIMAL_CREATEWAITINGLIST),
+        		 	UI.fp(this, "actionCreateWaitingList")));
 
         add(tlbTools, UI.BorderLayout.NORTH);
     }
@@ -626,6 +640,26 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         }
     }
 
+    public void actionCreateWaitingList() {
+    	try {
+	    	AnimalWaitingList awl = new AnimalWaitingList();
+	    	awl.openRecordset("ID = 0");
+	    	awl.addNew();
+	    	awl.setComments(animal.getComments());
+	    	awl.setOwnerID(animal.getOwnerID());
+	    	awl.setSpeciesID(animal.getSpeciesID());
+	    	awl.setAnimalDescription(animal.getDistFeat());
+	    	
+	    	WaitingListEdit wl = new WaitingListEdit(null);
+	    	wl.openForEdit(awl);
+	    	Global.mainForm.addChild(wl);
+    	}
+    	catch (Exception e) {
+    		Dialog.showError(e.getMessage());
+    		Global.logException(e, getClass());
+    	}
+    }
+    
     public void actionCreateAnimal() {
         try {
             Animal a = new Animal();
@@ -638,6 +672,10 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             a.setMarkings(animal.getDistFeat());
             a.setBaseColourID(animal.getBaseColourID());
             a.setSpeciesID(animal.getSpeciesID());
+            a.setBreedID(animal.getBreedID());
+            a.setBreed2ID(animal.getBreedID());
+            a.setSex(animal.getSex());
+            
             a.setHiddenAnimalDetails(animal.getAreaFound() + " " +
                 animal.getAreaPostcode());
 
@@ -648,7 +686,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
             Integer o = new Integer(1);
             Integer z = new Integer(0);
-            a.setBreedID(LookupCache.getFirstID(LookupCache.getBreedLookup()));
             a.setAnimalTypeID(LookupCache.getFirstID(
                     LookupCache.getAnimalTypeLookup()));
             a.setShelterLocation(LookupCache.getFirstID(
@@ -695,6 +732,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
             Global.mainForm.addChild(ae);
         } catch (Exception e) {
+        	Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }

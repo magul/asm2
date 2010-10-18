@@ -412,6 +412,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITFOUNDANIMAL_DELETE = DELETE;
     public final static String SCREEN_EDITFOUNDANIMAL_MATCH = MATCH;
     public final static String SCREEN_EDITFOUNDANIMAL_CREATEANIMAL = ANIMALADD;
+    public final static String SCREEN_EDITFOUNDANIMAL_CREATEWAITINGLIST = WAITINGLIST;
     public final static String SCREEN_EDITFOUNDANIMAL_MEDIA = MEDIA;
     public final static String SCREEN_EDITFOUNDANIMAL_DIARY = DIARY;
     public final static String SCREEN_EDITFOUNDANIMAL_LOG = LOG;
