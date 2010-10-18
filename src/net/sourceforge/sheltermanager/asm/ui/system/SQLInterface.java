@@ -114,6 +114,9 @@ public class SQLInterface extends ASMForm {
                         r.moveNext();
                     }
 
+                    // Get rid of any existing sort model in case the
+                    // number of columns has changed
+                    table.setSortModel(null);
                     table.setTableData(columns, data, (int) r.size(), 
                         1, columns.length);
                 } else {

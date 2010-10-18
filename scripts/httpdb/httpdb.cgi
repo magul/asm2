@@ -33,6 +33,8 @@ Number of rows affected or ERR Error Message
 COLCOLNAME1\\typeCOLTYPE\\colCOLNAME2\\typeCOLTYPE2...
 ROWVAL1\\fldVAL2\\fld\\null
 
+or ERR Error Message
+
 COLTYPE is a string and one of integer, bigint, varchar, timestamp, float
 \\null is the null type
 \\cr \\lf are escaped carriage returns/line feeds
@@ -265,7 +267,10 @@ else:
     c = getConnection()
     s = c.cursor()
     # Run the query and retrieve all rows
-    s.execute(sql)
+    try:
+        s.execute(sql)
+    except Exception, err:
+        print "ERR", err
     d = s.fetchall()
     # Get the list of columns
     cols = []
