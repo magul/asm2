@@ -210,7 +210,9 @@ class Animal:
     AnimalName = ""
     NonShelterAnimal = 0
     CrueltyCase = 0
-    BaseColourID = 0
+    BondedAnimalID = 0
+    BondedAnimal2ID = 0
+    BaseColourID = 1
     SpeciesID = 1
     BreedID = 1
     Breed2ID = 1
@@ -267,7 +269,7 @@ class Animal:
     HasSpecialNeeds = 0
     ShelterLocation = 1
     DiedOffShelter = 0
-    Size = 0
+    Size = 2
     RabiesTag = ""
     Archived = 0
     ActiveMovementID = 0
@@ -277,6 +279,8 @@ class Animal:
     HasActiveReserve = 0
     MostRecentEntryDate = today()
     TimeOnShelter = ""
+    DaysOnShelter = 0
+    DailyBoardingCost = 0.0
     AnimalAge = ""
     RecordVersion = 0
     CreatedBy = "conversion"
@@ -305,6 +309,8 @@ class Animal:
             ( "AnimalName", ds(self.AnimalName) ),
             ( "NonShelterAnimal", di(self.NonShelterAnimal) ),
             ( "CrueltyCase", di(self.CrueltyCase) ),
+            ( "BondedAnimalID", di(self.BondedAnimalID) ),
+            ( "BondedAnimal2ID", di(self.BondedAnimal2ID) ),
             ( "BaseColourID", di(self.BaseColourID) ),
             ( "SpeciesID", di(self.SpeciesID) ),
             ( "BreedID", di(self.BreedID) ),
@@ -372,6 +378,8 @@ class Animal:
             ( "HasActiveReserve", di(self.HasActiveReserve) ),
             ( "MostRecentEntryDate", dd(self.MostRecentEntryDate) ),
             ( "TimeOnShelter", ds(self.TimeOnShelter) ),
+            ( "DaysOnShelter", di(self.DaysOnShelter) ),
+            ( "DailyBoardingCost", df(self.DailyBoardingCost) ),
             ( "AnimalAge", ds(self.AnimalAge) ),
             ( "RecordVersion", di(self.RecordVersion) ),
             ( "CreatedBy", ds(self.CreatedBy) ),
@@ -383,7 +391,7 @@ class Animal:
 
 class Movement:
     ID = 0
-    AdoptionNumber = 0
+    AdoptionNumber = ""
     AnimalID = 0
     OwnerID = 0
     RetailerID = 0
@@ -450,7 +458,6 @@ class Owner:
     EmailAddress = ""
     IDCheck = 0
     Comments = ""
-    IsGiftAid = 0
     IsBanned = 0
     IsVolunteer = 0
     IsHomeChecker = 0
@@ -464,6 +471,7 @@ class Owner:
     IsFosterer = 0
     IsRetailer = 0
     IsVet = 0
+    IsGiftAid = 0
     HomeCheckAreas = ""
     DateLastHomeChecked = None
     HomeCheckedBy = 0
@@ -488,6 +496,7 @@ class Owner:
     CreatedDate = today()
     LastChangedBy = "conversion"
     LastChangedDate = today()
+    ExtraID = ""
     def __init__(self, ID = 0):
         self.ID = ID
         if ID == 0: self.ID = getid("owner")
@@ -509,7 +518,6 @@ class Owner:
             ( "EmailAddress", ds(self.EmailAddress) ),
             ( "IDCheck", di(self.IDCheck) ),
             ( "Comments", ds(self.Comments) ),
-            ( "IsGiftAid", di(self.IsGiftAid) ),
             ( "IsBanned", di(self.IsBanned) ),
             ( "IsVolunteer", di(self.IsVolunteer) ),
             ( "IsHomeChecker", di(self.IsHomeChecker) ),
@@ -523,6 +531,7 @@ class Owner:
             ( "IsFosterer", di(self.IsFosterer) ),
             ( "IsRetailer", di(self.IsRetailer) ),
             ( "IsVet", di(self.IsVet) ),
+            ( "IsGiftAid", di(self.IsGiftAid) ),
             ( "HomeCheckAreas", ds(self.HomeCheckAreas) ),
             ( "DateLastHomeChecked", dd(self.DateLastHomeChecked) ),
             ( "HomeCheckedBy", di(self.HomeCheckedBy) ),
@@ -558,6 +567,7 @@ class OwnerDonation:
     Date = None
     DateDue = None
     Donation = 0.0
+    IsGiftAid = 0
     Comments = ""
     RecordVersion = 0
     CreatedBy = "conversion"
@@ -576,6 +586,7 @@ class OwnerDonation:
             ( "Date", dd(self.Date) ),
             ( "DateDue", dd(self.DateDue) ),
             ( "Donation", df(self.Donation) ),
+            ( "IsGiftAid", di(self.IsGiftAid) ),
             ( "Comments", ds(self.Comments) ),
             ( "RecordVersion", di(self.RecordVersion) ),
             ( "CreatedBy", ds(self.CreatedBy) ),
