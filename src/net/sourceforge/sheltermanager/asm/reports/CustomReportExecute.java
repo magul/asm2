@@ -276,6 +276,7 @@ public class CustomReportExecute extends Report {
     }
 
     public void setStatusText(String text) {
+        if (isSubReport) return;
         if (toStdOut) {
             Global.logInfo(text, "CustomReportExecute.setStatusText");
         } else {
@@ -284,18 +285,21 @@ public class CustomReportExecute extends Report {
     }
 
     public void setStatusBarMax(int max) {
+        if (isSubReport) return;
         if (!toStdOut) {
             super.setStatusBarMax(max);
         }
     }
 
     public void resetStatusBar() {
+        if (isSubReport) return;
         if (!toStdOut) {
             super.resetStatusBar();
         }
     }
 
     public void incrementStatusBar() {
+        if (isSubReport) return;
         if (!toStdOut) {
             super.incrementStatusBar();
         }
