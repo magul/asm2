@@ -1,6 +1,8 @@
 2.8.3
 ================
 
+*. Stop counting for DaysOnShelter/TimeOnShelter when the animal
+-  is no longer on the shelter!
 *. Subreports shouldn't change status bar/progress meter or they
 -  break progress of the parent
 *. When creating animal records from found animals, breed and

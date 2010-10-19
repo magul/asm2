@@ -2237,6 +2237,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             stopat.setTime(getDeceasedDate());
         }
 
+        // If the animal isn't on shelter, stop counting at the date it
+        // left the shelter
+        if (getActiveMovementDate() != null) {
+            stopat.setTime(getActiveMovementDate());
+        }
+
         // Work out what 16 weeks from stop point was
         Calendar sixteenweeks = (Calendar) stopat.clone();
         sixteenweeks.add(Calendar.WEEK_OF_YEAR, -16);
@@ -2293,6 +2299,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         // If the animal is dead, stop counting at the date of death instead
         if (getDeceasedDate() != null) {
             stopat.setTime(getDeceasedDate());
+        }
+
+        // If the animal isn't on shelter, stop counting at the date it
+        // left the shelter
+        if (getActiveMovementDate() != null) {
+            stopat.setTime(getActiveMovementDate());
         }
 
         long diff = Utils.getDateDiff(stopat, mre);
