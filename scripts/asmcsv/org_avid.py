@@ -44,6 +44,9 @@ def adoption_used(adoption = ""):
 def ft(s):
     return s.strip().title().replace("\\", "")
 
+def ftadd(s):
+    return ft(s.replace("\n", ", "))
+
 # --- START OF CONVERSION ---
 
 # Clear anything from previous runs
@@ -110,7 +113,7 @@ for row in reader:
     o.OwnerSurname = ft(row[LASTNAME])
     o.OwnerName = o.OwnerForeNames + " " + o.OwnerSurname
     o.HomeTelephone = ft(row[TELEPHONE])
-    o.OwnerAddress = ft(row[ADDRESS])
+    o.OwnerAddress = ftadd(row[ADDRESS])
     o.OwnerTown = ft(row[CITY])
     o.OwnerCounty = ft(row[STATE])
     o.OwnerPostcode = ft(row[ZIP])
