@@ -484,6 +484,7 @@ public class Startup implements Runnable {
                 d.chdir("reports");
                 d.putResource("/media/reports/head.dat");
                 d.putResource("/media/reports/foot.dat");
+                d.putResource("/media/reports/nopic.jpg");
 
                 d.chdir("..");
                 d.mkdir("templates");

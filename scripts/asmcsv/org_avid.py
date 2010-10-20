@@ -33,6 +33,20 @@ def findowner(adoption = ""):
             return o
     return None
 
+def findownerbyname(name = ""):
+    """ Looks for an owner with the given name, returns a new
+    one, added to the set if it wasn't found """
+    for o in owners:
+        if o.OwnerName == name:
+            return o
+    o = asm.Owner()
+    o.OwnerName = name
+    sp = name.rfind(" ")
+    o.Surname = name[sp + 1:]
+    o.ForeNames = name[0:sp]
+    owners.append(o)
+    return o
+
 def adoption_used(adoption = ""):
     """ Looks to see if we already have an adoption number used
     returns True if it is """
@@ -206,17 +220,38 @@ for file in files:
         irow += 1
         if irow < 2: continue
 
-        # Add the rabies tag to the animal
-        a = findanimal(row[ADOPTIONNO].strip())
-        if a != None:
-            a.RabiesTag = row[TAG].strip()
-
         # Update the home phone number if we have one
         o = findowner(row[ADOPTIONNO].strip())
         if o != None:
             p = row[PHONE].strip()
             if p != "" and p != "N/A" and p != "**":
                 o.HomeTelephone = p
+
+        # Add the rabies tag to the animal
+        a = findanimal(row[ADOPTIONNO].strip())
+        if a != None:
+            a.RabiesTag = row[TAG].strip()
+        else:
+
+            # This rabies entry doesn't have an adoption number,
+            # create it as a non-shelter animal with original owner
+            # link instead
+            o = findownerbyname(ft(row[OWNERNAME]))
+            o.HomeTelephone = row[PHONE].strip()
+
+            a = asm.Animal()
+            a.NonShelterAnimal = 1
+            a.RabiesTag = ft(row[TAG])
+            a.AnimalName = ft(row[ANIMALNAME])
+            a.AnimalTypeID = 40
+            thedate = getdate(row[MOVEMENTDATE])
+            if thedate == None: thedate = datetime.datetime.today()
+            a.DateBroughtIn = thedate
+            a.DateOfBirth = thedate
+            a.generateCode("N")
+            a.OriginalOwnerID = o.ID
+            animals.append(a)
+
 
 # Now that everything else is done, output stored records
 for a in animals:

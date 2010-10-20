@@ -2178,7 +2178,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Details left pane ========================================
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlLeftTop = UI.getPanel(UI.getBorderLayout());
         UI.Panel pnlThumbnail = UI.getPanel(UI.getGridLayout(4));
         pnlLeftFields = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
 
@@ -2331,10 +2330,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         UI.addComponent(pnlLeftFields, i18n("Date_Of_Birth:"), pdob);
 
         // Lay out the left side
-        pnlLeftTop.add(pnlThumbnail, UI.BorderLayout.NORTH);
-        pnlLeftTop.add(pnlLeftFields, UI.BorderLayout.CENTER);
-        pnlLeft.add(pnlLeftTop, UI.BorderLayout.NORTH);
-        //pnlLeft.add(pnlMarkings, UI.BorderLayout.CENTER);
+        pnlLeft.add(pnlThumbnail, UI.BorderLayout.NORTH);
+        pnlLeft.add(pnlLeftFields, UI.BorderLayout.CENTER);
         pnlDetails.add(pnlLeft);
 
         // Details right pane =========================================

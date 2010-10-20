@@ -81,12 +81,14 @@ public class AnimalPrint extends Report {
             if (mediaName.equals("")) {
                 mediaName = "nopic.jpg";
             }
+            else {
 
-            DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
-                    a.getID().intValue());
-            dbfs.readFile(mediaName,
-                net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
-                File.separator + mediaName);
+                DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
+                        a.getID().intValue());
+                dbfs.readFile(mediaName,
+                    net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
+                    File.separator + mediaName);
+            }
 
             addImage(mediaName, "right", 320, 200);
         } catch (Exception e) {

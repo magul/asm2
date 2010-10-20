@@ -1,6 +1,10 @@
 2.8.3
 ================
 
+*. Added standard nopic.jpg as part of report templates so that
+-  it is always in the temp folder and is used by AnimalPrint
+*. Fixed layout bug with left panel of details pane - unnecesssary
+-  4 pixel border (David McKerlie)
 *. Stop counting for DaysOnShelter/TimeOnShelter when the animal
 -  is no longer on the shelter!
 *. Subreports shouldn't change status bar/progress meter or they
