@@ -80,9 +80,7 @@ public class AnimalPrint extends Report {
             // If we got a blank, return a link to nopic.jpg instead
             if (mediaName.equals("")) {
                 mediaName = "nopic.jpg";
-            }
-            else {
-
+            } else {
                 DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
                         a.getID().intValue());
                 dbfs.readFile(mediaName,

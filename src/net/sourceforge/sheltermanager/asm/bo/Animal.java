@@ -1848,7 +1848,6 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             }
 
             while (!d.getEOF()) {
-
                 // If there's an open movement, it can't be on shelter
                 if ((d.getAnimalID().intValue() == id) &&
                         (d.getMovementDate() != null) &&
@@ -1883,10 +1882,10 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                 d.moveNext();
             }
 
-	    // Override the onshelter flag if the animal is dead
-	    if (a.getDeceasedDate() != null) {
+            // Override the onshelter flag if the animal is dead
+            if (a.getDeceasedDate() != null) {
                 onShelter = false;
-	    }
+            }
 
             // Stamp the latest return date if we have one
             if (lastReturn != null) {
@@ -1949,11 +1948,11 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     aid = ad.getID().intValue();
 
                     // If the active movement is a foster and we're treating 
-		    // fosters as shelter inventory (and the animal isn't
-		    // dead), then we should mark them as on shelter
+                    // fosters as shelter inventory (and the animal isn't
+                    // dead), then we should mark them as on shelter
                     if ((movetype == Adoption.MOVETYPE_FOSTER) &&
-                            Configuration.getBoolean("FosterOnShelter")
-			    && a.getDeceasedDate() == null) {
+                            Configuration.getBoolean("FosterOnShelter") &&
+                            (a.getDeceasedDate() == null)) {
                         onShelter = true;
                     }
                 }

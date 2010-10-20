@@ -117,8 +117,8 @@ public class SQLInterface extends ASMForm {
                     // Get rid of any existing sort model in case the
                     // number of columns has changed
                     table.setSortModel(null);
-                    table.setTableData(columns, data, (int) r.size(), 
-                        1, columns.length);
+                    table.setTableData(columns, data, (int) r.size(), 1,
+                        columns.length);
                 } else {
                     // It's an action query, run it
                     DBConnection.executeAction(query);

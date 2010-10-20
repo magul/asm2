@@ -164,7 +164,8 @@ public class CustomReportExport extends ASMView {
             Global.logDebug("Substituting SQL tags in report",
                 "ExportCustomReportData.generateCSV");
 
-            String sql = CustomReportExecute.substituteSQLTagsForSQL(cr.getSQLCommand()).trim();
+            String sql = CustomReportExecute.substituteSQLTagsForSQL(cr.getSQLCommand())
+                                            .trim();
 
             Global.logDebug("Executing " + sql,
                 "ExportCustomReportData.generateCSV");

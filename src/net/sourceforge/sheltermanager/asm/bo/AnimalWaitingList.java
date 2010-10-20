@@ -40,22 +40,23 @@ public class AnimalWaitingList extends UserInfoBO<AnimalWaitingList> {
         this();
         openRecordset(where);
     }
-    
+
     public void addNew() throws CursorEngineException {
-    	super.addNew();
-    	setAnimalDescription("");
-    	setAutoRemovePolicy(new Integer(0));
-    	setCanAffordDonation(new Integer(0));
-    	setComments("");
-    	setDateOfLastOwnerContact(new Date());
-    	setDatePutOnList(new Date());
-    	setDateRemovedFromList(null);
-    	setOwnerID(new Integer(0));
-    	setReasonForRemoval("");
-    	setReasonForWantingToPart("");
-    	setSpeciesID(new Integer(1));
-    	setUrgency(new Integer(Configuration.getInteger("WaitingListDefaultUrgency") + 1));
-    	setUrgencyUpdateDate(null);
+        super.addNew();
+        setAnimalDescription("");
+        setAutoRemovePolicy(new Integer(0));
+        setCanAffordDonation(new Integer(0));
+        setComments("");
+        setDateOfLastOwnerContact(new Date());
+        setDatePutOnList(new Date());
+        setDateRemovedFromList(null);
+        setOwnerID(new Integer(0));
+        setReasonForRemoval("");
+        setReasonForWantingToPart("");
+        setSpeciesID(new Integer(1));
+        setUrgency(new Integer(Configuration.getInteger(
+                    "WaitingListDefaultUrgency") + 1));
+        setUrgencyUpdateDate(null);
     }
 
     public Integer getID() throws CursorEngineException {

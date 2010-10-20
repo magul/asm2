@@ -117,9 +117,9 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         if (!Global.currentUserObject.getSecAddAnimal()) {
             btnCreateAnimal.setEnabled(false);
         }
-        
+
         if (!Global.currentUserObject.getSecAddWaitingList()) {
-        	btnCreateWaitingList.setEnabled(false);
+            btnCreateWaitingList.setEnabled(false);
         }
 
         // Tabs/View
@@ -584,12 +584,12 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
                     IconManager.getIcon(
                         IconManager.SCREEN_EDITFOUNDANIMAL_CREATEANIMAL),
                     UI.fp(this, "actionCreateAnimal")));
-        
+
         btnCreateWaitingList = (UI.Button) tlbTools.add(UI.getButton(null,
-        		 	i18n("Create_waiting_list_record_from_this_record"), 'w',
-        		 	IconManager.getIcon(
-        		 		IconManager.SCREEN_EDITFOUNDANIMAL_CREATEWAITINGLIST),
-        		 	UI.fp(this, "actionCreateWaitingList")));
+                    i18n("Create_waiting_list_record_from_this_record"), 'w',
+                    IconManager.getIcon(
+                        IconManager.SCREEN_EDITFOUNDANIMAL_CREATEWAITINGLIST),
+                    UI.fp(this, "actionCreateWaitingList")));
 
         add(tlbTools, UI.BorderLayout.NORTH);
     }
@@ -641,25 +641,24 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     }
 
     public void actionCreateWaitingList() {
-    	try {
-	    	AnimalWaitingList awl = new AnimalWaitingList();
-	    	awl.openRecordset("ID = 0");
-	    	awl.addNew();
-	    	awl.setComments(animal.getComments());
-	    	awl.setOwnerID(animal.getOwnerID());
-	    	awl.setSpeciesID(animal.getSpeciesID());
-	    	awl.setAnimalDescription(animal.getDistFeat());
-	    	
-	    	WaitingListEdit wl = new WaitingListEdit(null);
-	    	wl.openForEdit(awl);
-	    	Global.mainForm.addChild(wl);
-    	}
-    	catch (Exception e) {
-    		Dialog.showError(e.getMessage());
-    		Global.logException(e, getClass());
-    	}
+        try {
+            AnimalWaitingList awl = new AnimalWaitingList();
+            awl.openRecordset("ID = 0");
+            awl.addNew();
+            awl.setComments(animal.getComments());
+            awl.setOwnerID(animal.getOwnerID());
+            awl.setSpeciesID(animal.getSpeciesID());
+            awl.setAnimalDescription(animal.getDistFeat());
+
+            WaitingListEdit wl = new WaitingListEdit(null);
+            wl.openForEdit(awl);
+            Global.mainForm.addChild(wl);
+        } catch (Exception e) {
+            Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
+        }
     }
-    
+
     public void actionCreateAnimal() {
         try {
             Animal a = new Animal();
@@ -675,7 +674,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             a.setBreedID(animal.getBreedID());
             a.setBreed2ID(animal.getBreedID());
             a.setSex(animal.getSex());
-            
+
             a.setHiddenAnimalDetails(animal.getAreaFound() + " " +
                 animal.getAreaPostcode());
 
@@ -732,7 +731,7 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
 
             Global.mainForm.addChild(ae);
         } catch (Exception e) {
-        	Dialog.showError(e.getMessage());
+            Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         }
     }
