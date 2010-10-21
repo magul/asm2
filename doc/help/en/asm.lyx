@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 61 (ASM 2.8.3)
+Revision 62 (ASM 2.8.3)
 \end_layout
 
 \begin_layout Chapter*
@@ -895,6 +895,21 @@ From the single search term, this screen searches all aspects of the animal,
  media and movements.
  Animals are shown irrespective of where they are (the location field displays
  where the animal is) or whether or not they are dead.
+\end_layout
+
+\begin_layout Standard
+For example, searching for 
+\begin_inset Quotes eld
+\end_inset
+
+black
+\begin_inset Quotes erd
+\end_inset
+
+ would return animals with black in the name, animals that are black in
+ colour, animals adopted to an owner with the surname black, etc.
+ Results are sorted by relevance, so if the term appears in an animal's
+ name or code, it will be at the top of the list.
 \end_layout
 
 \begin_layout Standard

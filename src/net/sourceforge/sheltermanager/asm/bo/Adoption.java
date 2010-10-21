@@ -97,7 +97,7 @@ public class Adoption extends UserInfoBO<Adoption> {
         Adoption a = new Adoption();
         a.openRecordset("ID = 0");
         a.addNew();
-        a.setAdoptionNumber(a.getID().toString());
+        a.setAdoptionNumber(Utils.zeroPad(a.getID().intValue(), 6));
         a.setAnimalID(getAnimalID());
         a.setOwnerID(getOwnerID());
         a.setRetailerID(getRetailerID());
