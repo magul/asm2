@@ -1,0 +1,31 @@
+Banned Owners
+###
+Auditing
+###
+Any
+###
+Produces a list of owners banned from adopting animals.
+###
+en
+###
+SELECT ownername, owneraddress, ownertown, ownercounty, ownerpostcode
+FROM owner 
+WHERE isbanned = 1
+ORDER BY ownername
+###
+$$HEADER
+HEADER$$
+
+$$BODY
+<p>
+<b>$OWNERNAME</b><br/>
+$OWNERADDRESS<br/>
+$OWNERTOWN $OWNERCOUNTY<br/>
+$OWNERPOSTCODE
+</p>
+BODY$$
+
+$$FOOTER
+</table>
+FOOTER$$
+
