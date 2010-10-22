@@ -67,9 +67,14 @@ def ftadd(s):
 print "DELETE FROM animal;"
 print "DELETE FROM owner;"
 print "DELETE FROM adoption;"
+print "DELETE FROM primarykey;"
 
 print "DELETE FROM internallocation;"
 print asm.Location(Name = "AVID")
+
+print "DELETE FROM breed WHERE ID = 500 OR ID = 501;"
+print asm.Breed(ID = 500, Name = "Unknown Dog", SpeciesID = 1)
+print asm.Breed(ID = 501, Name = "Unknown Cat", SpeciesID = 2)
 
 # Readable references to CSV columns in the file
 AVIDNO = 0
@@ -105,11 +110,17 @@ for row in reader:
     if row[CATDOG].strip() == "cat":
         a.SpeciesID = 2
         a.AnimalTypeID = 11
+        a.BreedID = 501
+        a.Breed2ID = 501
+        a.BreedName = "Unknown Cat"
         atype = "U"
         a.ShelterLocation = 1
     else:
         a.SpeciesID = 1
         a.AnimalTypeID = 2
+        a.BreedID = 500
+        a.Breed2ID = 500
+        a.BreedName = "Unknown Dog"
         atype = "D"
         a.ShelterLocation = 1
     a.Sex = 2
@@ -132,6 +143,10 @@ for row in reader:
     o.OwnerCounty = ft(row[STATE])
     o.OwnerPostcode = ft(row[ZIP])
     o.ExtraID = row[ADOPTIONNO].strip()
+    # Mark the owner as homechecked
+    o.IDCheck = 1
+    o.DateLastHomeChecked = thedate
+    o.Comments = "Pre-ASM conversion"
     owners.append(o)
 
     # And the movement
