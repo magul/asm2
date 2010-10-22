@@ -183,7 +183,7 @@ public class GetReports extends ASMView {
 
                     // Skip if the database type is wrong
                     if (r.database.indexOf("Any") == -1) {
-                        if (DBConnection.DBType == DBConnection.HSQLDB) {
+                        if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
                             if (r.database.indexOf("HSQLDB") == -1) {
                                 Global.logDebug("Skipping, report not HSQLDB",
                                     "GetReports.updateListThread");
@@ -192,7 +192,7 @@ public class GetReports extends ASMView {
                             }
                         }
 
-                        if (DBConnection.DBType == DBConnection.MYSQL) {
+                        if (DBConnection.DBStoreType == DBConnection.MYSQL) {
                             if (r.database.indexOf("MySQL") == -1) {
                                 Global.logDebug("Skipping, report not MySQL",
                                     "GetReports.updateListThread");
@@ -201,7 +201,7 @@ public class GetReports extends ASMView {
                             }
                         }
 
-                        if (DBConnection.DBType == DBConnection.POSTGRESQL) {
+                        if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
                             if (r.database.indexOf("PostgreSQL") == -1) {
                                 Global.logDebug("Skipping, report not HSQLDB",
                                     "GetReports.updateListThread");
