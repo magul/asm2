@@ -264,6 +264,9 @@ for file in files:
             a.DateBroughtIn = thedate
             a.DateOfBirth = thedate
             a.generateCode("N")
+            a.BreedID = 500
+            a.Breed2ID = 501
+            a.BreedName = "Unknown Dog"
             a.OriginalOwnerID = o.ID
             animals.append(a)
 
