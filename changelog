@@ -1,6 +1,10 @@
 2.8.4
 ================
 
+*. Setting non-shelter fills in a deceased date (due to events
+-  firing because it sets died off shelter)
+*. When testing if codes are unique, preload a set of the last
+-  year's codes instead of constantly querying the database
 *. Compare to DBStoreType in GetReports
 *. When cloning movements, the generation of the new adoption number
 -  should be padded to 6 digits like the movement screen

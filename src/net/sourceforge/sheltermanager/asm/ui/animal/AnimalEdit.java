@@ -1396,6 +1396,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             cboType.setEnabled(true);
         }
 
+        // Before we change any death fields, remember
+        // what the deceased date was
+        Date dd = null;
+        try {
+            dd = txtDateDeceased.getDate();
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
         // If this is a non-shelter animal, then it MUST
         // die off the shelter - the flag should be set
         // and disabled
@@ -1405,6 +1415,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         } else {
             chkDiedOffShelter.setEnabled(true);
         }
+
+        // Modifying died off shelter causes an event to fire
+        // that sets the deceased date - set it back again
+        txtDateDeceased.setDate(dd);
+
 
         setSecurity();
     }

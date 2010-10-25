@@ -3168,6 +3168,18 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         String code = "";
         String shortcode = "";
 
+        // Grab a set of codes for upto a year ago we can use so we 
+        // don't have to keep going back to the database
+        SQLRecordset codeset = null;
+        try {
+            codeset = new SQLRecordset(
+                "SELECT ShelterCode FROM animal WHERE CreatedDate >= '" +
+                Utils.getSQLDate(oneyearago) + "'", "animal");
+        }
+        catch (Exception e) {
+            Global.logException(e, Animal.class);
+        }
+
         while (!isUnique) {
             String padyear = Utils.zeroPad(highestyear, 3);
             String nopadyear = Integer.toString(highestyear);
@@ -3191,25 +3203,23 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
             // Test for uniqueness
             try {
-                if (0 == DBConnection.executeForCount(
-                            "SELECT COUNT(*) FROM animal WHERE ShelterCode Like '" +
-                            code + "'")) {
-                    isUnique = true;
-                } else {
-                    Global.logDebug("Code already exists in database, regenerating...",
-                        "Animal.generateAnimalCode");
-
-                    if (highestyear > 0) {
-                        highestyear++;
-                    }
-
-                    if (highestever > 0) {
-                        highestever++;
+                isUnique = true;
+                for (SQLRecordset c : codeset) {
+                    if (c.getString("ShelterCode").equals(code)) {
+                        isUnique = false;
+                        Global.logDebug("Code already exists in database, regenerating...",
+                            "Animal.generateAnimalCode");
+                        if (highestyear > 0) {
+                            highestyear++;
+                        }
+                        if (highestever > 0) {
+                            highestever++;
+                        }
+                        break;
                     }
                 }
-            } catch (Exception e) {
+             } catch (Exception e) {
                 Global.logException(e, Animal.class);
-
                 break;
             }
         }
