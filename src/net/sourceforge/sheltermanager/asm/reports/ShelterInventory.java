@@ -147,11 +147,6 @@ public class ShelterInventory extends Report {
                 addParagraph(spectype);
             }
         }
-
-        theIL.free();
-        theS.free();
-        theIL = null;
-        theS = null;
     }
 
     /** Generates a detailed shelter inventory */
