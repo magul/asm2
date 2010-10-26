@@ -130,7 +130,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 1 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT adoption.MovementDate AS thedate,
 '' AS Reason,
@@ -148,7 +148,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 2 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT adoption.MovementDate AS thedate,
 '' AS Reason,
@@ -166,7 +166,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 3 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT adoption.MovementDate AS thedate,
 '' AS Reason,
@@ -184,7 +184,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 4 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT adoption.MovementDate AS thedate,
 '' AS Reason,
@@ -202,7 +202,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 5 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 
 UNION SELECT adoption.MovementDate AS thedate,
@@ -221,7 +221,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 6 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT adoption.MovementDate AS thedate,
 '' AS Reason,
@@ -239,7 +239,7 @@ AnimalAge,
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 7 AND
-adoption.ReturnDate Is Not Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
+adoption.ReturnDate Is Null AND adoption.MovementDate >= '$@from$' AND adoption.MovementDate <= '$@to$' AND NonShelterAnimal = 0
 
 UNION SELECT DeceasedDate AS thedate,
 '' AS Reason,
