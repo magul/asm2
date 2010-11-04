@@ -516,6 +516,7 @@ public class AnimalFind extends ASMFind {
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
         new SearchResults(tablemodel.getData(), tablemodel.getRowCount(),
+        	AnimalFindColumns.getColumnCount(), AnimalFindColumns.getColumnCount()+1,
             pt.toString());
         tablemodel = null;
     }
@@ -593,13 +594,7 @@ public class AnimalFind extends ASMFind {
         // Reads all the criteria fields and performs the search
 
         // SQL select
-        final String SELECT = "SELECT animal.ID, AnimalTypeID, BreedID, " +
-            "CrossBreed, Breed2ID, BreedName, " +
-            "SpeciesID, ShelterCode, ShortCode, AnimalName, " +
-            "ShelterLocation, DateOfBirth, Sex, Size, " +
-            "BaseColourID, Markings, IdentichipNumber, " +
-            "DateBroughtIn, NonShelterAnimal, ActiveMovementID, " +
-            "HasActiveReserve, ActiveMovementType, ActiveMovementDate, DeceasedDate " +
+        final String SELECT = "SELECT animal.* " +
             "FROM animal ";
         final String MOVEJOIN = "INNER JOIN adoption ON animal.ActiveMovementID = adoption.ID ";
         final String MEDIAJOIN = "INNER JOIN media ON media.LinkID = animal.ID ";
@@ -964,12 +959,7 @@ public class AnimalFind extends ASMFind {
         }
 
         // Create an array of headers for the animals
-        String[] columnheaders = {
-                i18n("Name"), i18n("Code"), i18n("Internal_Loc"),
-                i18n("Species"), i18n("Breed"), i18n("Sex"), i18n("Age"),
-                i18n("Size"), i18n("Colour"), i18n("Features"),
-                i18n("Identichip_No"), i18n("Date_Brought_In")
-            };
+        String[] columnheaders = AnimalFindColumns.getColumnLabels();
 
         StringBuffer sql = new StringBuffer(SELECT);
 
@@ -1007,8 +997,38 @@ public class AnimalFind extends ASMFind {
             Dialog.showError(e.getMessage());
         }
 
+        StringBuffer inclause = new StringBuffer();
+        SQLRecordset add = null;
+        try {
+
+            // Create a monster IN clause from the animal IDs
+        	while (!animal.getEOF()) {
+	        	if (inclause.length() != 0) inclause.append(",");
+	        	inclause.append(Integer.toString(animal.getInt("ID")));
+	        	animal.moveNext();
+	        }
+	    	animal.moveFirst();
+        
+	    	// Grab the additional fields for these animals
+        	String addsql = "SELECT additionalfield.FieldName, " +
+	        	"additional.Value, additional.LinkID FROM " +
+	        	"additional INNER JOIN " +
+	        	"additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +
+	        	"WHERE additional.LinkID IN (" + inclause.toString() + ") AND " +
+	        	"additional.LinkType = 0";
+	        // Global.logDebug("Get additional fields: " + addsql, "AnimalFindText.runSearch");
+        	add = new SQLRecordset(addsql, "additional");
+        }
+        catch (Exception e) {
+        	Global.logException(e, getClass());
+        }
+        
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) animal.getRecordCount()][15];
+        int cols = AnimalFindColumns.getColumnCount() + 3;
+        String[][] datar = new String[animal.size()][cols];
+        int idColumn = cols - 3;
+        int rnameColumn = cols - 2;
+        int dobColumn = cols - 1;
 
         // Initialise the progress meter
         initStatusBarMax((int) animal.getRecordCount());
@@ -1017,42 +1037,19 @@ public class AnimalFind extends ASMFind {
 
         while (!animal.getEOF()) {
             try {
-                datar[i][0] = (String) animal.getField("AnimalName");
-                datar[i][1] = Animal.getAnimalCode(animal.getString(
-                            "ShelterCode"), animal.getString("ShortCode"));
-                datar[i][2] = Animal.getDisplayLocation(animal.getInteger(
-                            "ShelterLocation"),
-                        animal.getInteger("NonShelterAnimal"),
-                        animal.getInteger("ActiveMovementID"),
-                        animal.getInteger("ActiveMovementType"),
-                        animal.getDate("DeceasedDate"));
-                datar[i][3] = LookupCache.getSpeciesName((Integer) animal.getField(
-                            "SpeciesID"));
-                datar[i][4] = (String) animal.getField("BreedName");
-                datar[i][5] = LookupCache.getSexNameForID((Integer) animal.getField(
-                            "Sex"));
-                datar[i][6] = Animal.getAge((Date) animal.getField(
-                            "DateOfBirth"),
-                        (Date) animal.getField("DeceasedDate"));
-                datar[i][7] = LookupCache.getSizeNameForID((Integer) animal.getField(
-                            "Size"));
-                datar[i][8] = LookupCache.getBaseColourName((Integer) animal.getField(
-                            "BaseColourID"));
-                datar[i][9] = Utils.firstChars(Utils.nullToEmptyString(
-                            (String) animal.getField("Markings")), 20);
-                datar[i][10] = Utils.nullToEmptyString((String) animal.getField(
-                            "IdentichipNumber"));
-                datar[i][11] = Utils.formatTableDate((Date) animal.getField(
-                            "DateBroughtIn"));
-                datar[i][12] = animal.getField("ID").toString();
-                datar[i][13] = Animal.getReportAnimalName((String) animal.getField(
+            	for (int z = 0; z < cols - 3; z++) {
+            		datar[i][z] = AnimalFindColumns.format(
+            			AnimalFindColumns.getColumnName(z), animal, add);
+            	}
+                datar[i][idColumn] = animal.getField("ID").toString();
+                datar[i][rnameColumn] = Animal.getReportAnimalName((String) animal.getField(
                             "AnimalName"),
                         (Date) animal.getField("DateOfBirth"),
                         (Date) animal.getField("DeceasedDate"),
                         (Integer) animal.getField("HasActiveReserve"),
                         (Integer) animal.getField("ActiveMovementType"));
-                datar[i][14] = Utils.formatTableDate(animal.getDate(
-                            "DateOfBirth"));
+                datar[i][dobColumn] = Utils.formatTableDate(animal.getDate(
+                        "DateOfBirth"));
                 i++;
             } catch (Exception e) {
                 Global.logException(e, getClass());
@@ -1066,8 +1063,8 @@ public class AnimalFind extends ASMFind {
             incrementStatusBar();
         }
 
-        getTable().setSortModel(new AnimalFind.AnimalFindSortable());
-        setTableData(columnheaders, datar, i, 15, 12);
+        if (AnimalFindColumns.isDefaultColumns()) getTable().setSortModel(new AnimalFind.AnimalFindSortable());
+        setTableData(columnheaders, datar, i, cols, cols - 3);
 
         animal.free();
         animal = null;

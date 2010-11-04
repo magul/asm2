@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. Backend done, search column order can be set with the "SearchColumns"
+-  configuration item - a comma delimited list of either fields in the
+-  animal table, or names of additional fields
 *. Simple search screen searches additional fields
 *. Gift aid reports should group around owner, total up donations
 -  and just show the last donation date as that's all IR need

@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.reports;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindColumns;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
@@ -33,9 +34,13 @@ public class SearchResults extends Report {
     private String[][] searchResults = null;
     private String searchTerm;
     private int max = 0;
+    private int lastcol = 15;
+    private int namecol = 14;
 
-    public SearchResults(String[][] searchResults, int max, String searchTerm) {
+    public SearchResults(String[][] searchResults, int max, int lastcol, int namecol, String searchTerm) {
         this.max = max;
+        this.lastcol = lastcol;
+        this.namecol = namecol;
         this.searchResults = searchResults;
         this.searchTerm = searchTerm;
 
@@ -60,21 +65,8 @@ public class SearchResults extends Report {
 
         tableNew();
 
-        String[] headers = {
-                Global.i18n("reports", "Animal_Name"),
-                Global.i18n("reports", "Code"),
-                Global.i18n("reports", "Internal_Location"),
-                Global.i18n("reports", "Species"),
-                Global.i18n("reports", "Breed"), Global.i18n("reports", "Sex"),
-                Global.i18n("reports", "Age"), Global.i18n("reports", "Size"),
-                Global.i18n("reports", "Colour"),
-                Global.i18n("reports", "Features"),
-                Global.i18n("reports", "Identichip_No"),
-                Global.i18n("reports", "Date_Brought_In")
-            };
-
+        String[] headers = AnimalFindColumns.getColumnLabels();
         tableAddRow();
-
         for (int i = 0; i < headers.length; i++) {
             tableAddCell(bold(headers[i]));
         }
@@ -86,9 +78,9 @@ public class SearchResults extends Report {
         for (int i = 0; i < max; i++) {
             tableAddRow();
 
-            for (int z = 0; z < 12; z++) {
-                if (z == 0) {
-                    tableAddCell(searchResults[i][13]);
+            for (int z = 0; z < lastcol; z++) {
+                if (AnimalFindColumns.getColumnName(z).equals("AnimalName")) {
+                    tableAddCell(searchResults[i][namecol]);
                 } else {
                     tableAddCell(searchResults[i][z]);
                 }
