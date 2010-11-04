@@ -9374,6 +9374,213 @@ Simply fill in the start/end/next values and tick the box to ensure you
 \end_layout
 
 \begin_layout Subsection
+Search
+\end_layout
+
+\begin_layout Standard
+The find animal columns box allows you to specify which columns are used
+ on the find animal screens and in what order they appear.
+\end_layout
+
+\begin_layout Standard
+A comma separated list of field names should be given here.
+ You can also use additional field names for your custom fields, or fields
+ from the following stock set:
+\end_layout
+
+\begin_layout Itemize
+AnimalTypeID 
+\end_layout
+
+\begin_layout Itemize
+AnimalName 
+\end_layout
+
+\begin_layout Itemize
+BaseColourID
+\end_layout
+
+\begin_layout Itemize
+SpeciesID
+\end_layout
+
+\begin_layout Itemize
+BreedName
+\end_layout
+
+\begin_layout Itemize
+CoatType
+\end_layout
+
+\begin_layout Itemize
+Markings
+\end_layout
+
+\begin_layout Itemize
+ShelterCode - the code (or shortcode depending on configuration)
+\end_layout
+
+\begin_layout Itemize
+AcceptanceNumber - the acceptance number or Litter ID depending on configuration
+\end_layout
+
+\begin_layout Itemize
+DateOfBirth
+\end_layout
+
+\begin_layout Itemize
+AgeGroup
+\end_layout
+
+\begin_layout Itemize
+DeceasedDate
+\end_layout
+
+\begin_layout Itemize
+Sex
+\end_layout
+
+\begin_layout Itemize
+IdentichipNumber - Microchip number
+\end_layout
+
+\begin_layout Itemize
+IdentichipDate - Microchip date
+\end_layout
+
+\begin_layout Itemize
+TattooNumber
+\end_layout
+
+\begin_layout Itemize
+TattooDate
+\end_layout
+
+\begin_layout Itemize
+Neutered
+\end_layout
+
+\begin_layout Itemize
+NeuteredDate
+\end_layout
+
+\begin_layout Itemize
+CombiTested - FIV/L tested?
+\end_layout
+
+\begin_layout Itemize
+CombiTestDate - FIV/L test date
+\end_layout
+
+\begin_layout Itemize
+CombiTestResult
+\end_layout
+
+\begin_layout Itemize
+HeartwormTested
+\end_layout
+
+\begin_layout Itemize
+HeartwormTestDate
+\end_layout
+
+\begin_layout Itemize
+HeartwormTestResult
+\end_layout
+
+\begin_layout Itemize
+FLVResult
+\end_layout
+
+\begin_layout Itemize
+Declawed
+\end_layout
+
+\begin_layout Itemize
+HiddenAnimalDetails
+\end_layout
+
+\begin_layout Itemize
+AnimalComments
+\end_layout
+
+\begin_layout Itemize
+ReasonForEntry
+\end_layout
+
+\begin_layout Itemize
+ReasonNO
+\end_layout
+
+\begin_layout Itemize
+DateBroughtIn
+\end_layout
+
+\begin_layout Itemize
+EntryReasonID
+\end_layout
+
+\begin_layout Itemize
+HealthProblems
+\end_layout
+
+\begin_layout Itemize
+PTSReason - Free form deceased reason box
+\end_layout
+
+\begin_layout Itemize
+PTSReasonID - Death category dropdown box
+\end_layout
+
+\begin_layout Itemize
+IsGoodWithCats
+\end_layout
+
+\begin_layout Itemize
+IsGoodWithDogs
+\end_layout
+
+\begin_layout Itemize
+IsGoodWithChildren
+\end_layout
+
+\begin_layout Itemize
+IsHouseTrained
+\end_layout
+
+\begin_layout Itemize
+IsNotAvailableForAdoption
+\end_layout
+
+\begin_layout Itemize
+HasSpecialNeeds
+\end_layout
+
+\begin_layout Itemize
+ShelterLocation
+\end_layout
+
+\begin_layout Itemize
+Size
+\end_layout
+
+\begin_layout Itemize
+RabiesTag
+\end_layout
+
+\begin_layout Itemize
+TimeOnShelter
+\end_layout
+
+\begin_layout Itemize
+DaysOnShelter
+\end_layout
+
+\begin_layout Itemize
+AnimalAge
+\end_layout
+
+\begin_layout Subsection
 Warnings
 \end_layout
 

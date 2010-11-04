@@ -26,6 +26,7 @@ import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
+import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindColumns;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -98,6 +99,7 @@ public class Options extends ASMForm {
     private UI.TextField txtSMTPServer;
     private UI.TextArea txtEmailSignature;
     private UI.TextArea txtTPPublisherSig;
+    private UI.TextArea txtSearchColumns;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
@@ -205,6 +207,7 @@ public class Options extends ASMForm {
         ctl.add(txtLDAPFilter);
         ctl.add(txtLDAPUser);
         ctl.add(txtLDAPPass);
+        ctl.add(txtSearchColumns);
         ctl.add(tblOptions);
 
         return ctl;
@@ -240,6 +243,9 @@ public class Options extends ASMForm {
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
                     "AutoCancelReservesDays")));
+        
+        // Search
+        txtSearchColumns.setText(Configuration.getString("SearchColumns", AnimalFindColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -465,6 +471,9 @@ public class Options extends ASMForm {
             // Mapping Service
             Configuration.setEntry("MappingServiceURL",
                 txtMappingService.getText());
+            
+            // Movements
+            Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
@@ -1083,6 +1092,15 @@ public class Options extends ASMForm {
         UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
         movementoptions.add(pv, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("movements"), null, movementoptions, null);
+        
+        // Search options
+        UI.Panel ps = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+        txtSearchColumns = (UI.TextArea) UI.addComponent(ps,
+        		i18n("animal_search_result_columns"),
+        		UI.getTextArea(i18n("animal_search_result_columns_tooltip")));
+        UI.Panel searchoptions = UI.getPanel(UI.getBorderLayout());
+        searchoptions.add(ps, UI.BorderLayout.CENTER);
+        tabTabs.addTab(i18n("search"), null, searchoptions, null);
 
         // Waiting list options
         UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
