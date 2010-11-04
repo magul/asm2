@@ -425,6 +425,7 @@ public class AnimalFindText extends ASMFind {
         final String ADOPTER = "INNER JOIN adoption ON animal.ID = adoption.AnimalID " +
             "INNER JOIN owner ON adoption.OwnerID = owner.ID";
         final String ORIGINALOWNER = "INNER JOIN owner ON animal.OriginalOwnerID = owner.ID";
+        final String ADDITIONAL = "INNER JOIN additional ON animal.ID = additional.LinkID AND additional.LinkType = 0";
 
         sql = new StringBuffer();
 
@@ -446,6 +447,9 @@ public class AnimalFindText extends ASMFind {
                     "animal.AnimalName", "animal.ShelterCode",
                     "animal.ShortCode", "animal.AcceptanceNumber"
                 }, "", 1);
+            addQuery(new String[] {
+                    "additional.Value"
+                }, ADDITIONAL, 1);
             addQuery(new String[] { "animal.BreedName", "animal.Markings" },
                 "", 2);
             addQuery(new String[] { "log.Comments" },
