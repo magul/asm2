@@ -21,20 +21,28 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
-import net.sourceforge.sheltermanager.asm.bo.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Locale;
+
+import net.sourceforge.sheltermanager.asm.bo.Additional;
+import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
+import net.sourceforge.sheltermanager.asm.bo.Adoption;
+import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
+import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
+import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
+import net.sourceforge.sheltermanager.asm.bo.Diary;
+import net.sourceforge.sheltermanager.asm.bo.Log;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import net.sourceforge.sheltermanager.asm.bo.Media;
+import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
-
-import java.io.File;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Vector;
 
 
 /**

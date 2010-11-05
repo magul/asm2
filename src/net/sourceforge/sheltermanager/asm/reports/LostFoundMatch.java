@@ -192,11 +192,11 @@ public class LostFoundMatch extends Report implements FromToListener {
                         Utils.formatDateLong(al.getDateLost()));
 
                 // Get potential matches
-                Vector matches = al.match(includeShelter, filterByDate, from,
+                Vector<String[]> matches = al.match(includeShelter, filterByDate, from,
                         to, foundAnimalID, animalID);
 
                 // Were there any?
-                Iterator it = matches.iterator();
+                Iterator<String[]> it = matches.iterator();
 
                 if (!it.hasNext()) {
                     // There weren't - if we are dealing with a single

@@ -463,7 +463,7 @@ public class Diagnostic extends Thread {
         setStatusBarMax((int) r.getRecordCount());
 
         int bad = 0;
-        Vector v = new Vector();
+        Vector<Integer> v = new Vector<Integer>();
 
         while (!r.getEOF()) {
             int id = ((Integer) r.getField("ID")).intValue();
@@ -481,7 +481,7 @@ public class Diagnostic extends Thread {
                     Global.logDebug("Type " + type + " not found in " + code,
                         "Diagnostic.invalidCodesThisYear");
                     clearCachedCode(id);
-                    v.add(r.getField("ID"));
+                    v.add(r.getInt("ID"));
                     bad++;
                 }
             }
@@ -492,7 +492,7 @@ public class Diagnostic extends Thread {
                     Global.logDebug("Year " + year + " not found in " + code,
                         "Diagnostic.invalidCodesThisYear");
                     clearCachedCode(id);
-                    v.add(r.getField("ID"));
+                    v.add(r.getInt("ID"));
                     bad++;
                 }
             }
@@ -512,7 +512,7 @@ public class Diagnostic extends Thread {
                 for (int i = 0; i < v.size(); i++) {
                     if (r.getField("ID").equals(v.get(i))) {
                         // Got one, regenerate the code
-                        int id = ((Integer) r.getField("ID")).intValue();
+                        int id = r.getInt("ID");
                         String type = r.getField("AnimalType").toString();
                         Date broughtin = (Date) r.getField("DateBroughtIn");
 

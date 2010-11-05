@@ -40,12 +40,8 @@ import java.util.Date;
 public class AnimalReturnedPreSix extends Report {
     private String sqlFrom = "";
     private String sqlTo = "";
-    private Date from = new Date();
-    private Date to = new Date();
 
     public AnimalReturnedPreSix(Date from, Date to) {
-        this.from = from;
-        this.to = to;
         this.sqlFrom = Utils.getSQLDate(from);
         this.sqlTo = Utils.getSQLDate(to);
         this.start();

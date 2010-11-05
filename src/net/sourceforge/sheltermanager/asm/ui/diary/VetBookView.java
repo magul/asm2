@@ -62,7 +62,10 @@ import java.util.Vector;
  * @version 1.0
  */
 public class VetBookView extends ASMView implements VaccinationParent {
-    final static int ID_FIELD = 7;
+	
+	private static final long serialVersionUID = 9060180950475103344L;
+	
+	final static int ID_FIELD = 7;
     final static int TYPE_FIELD = 8;
     private UI.Button btnComplete;
     private UI.Button btnDelete;
@@ -83,8 +86,8 @@ public class VetBookView extends ASMView implements VaccinationParent {
     /**
      * Sets the tab ordering for the screen using the FlexibleFocusManager class
      */
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(chkShowFuture);
         ctl.add(chkShowCompleted);
         ctl.add(btnNew);
@@ -203,15 +206,23 @@ public class VetBookView extends ASMView implements VaccinationParent {
         }
 
         String sql = "SELECT diary.CreatedBy, DiaryDateTime, DateCompleted, " +
-            "LinkID, LinkType, internallocation.LocationName As Location, Subject, Note, " +
+            "LinkID, LinkType, LinkInfo, '' AS LinkCode, " +
+            "internallocation.LocationName As Location, Subject, Note, " +
             "diary.ID As UID, 'd' As Type FROM diary " +
             "INNER JOIN animal ON animal.ID = diary.LinkID " +
             "INNER JOIN internallocation ON internallocation.ID = animal.ShelterLocation WHERE " +
             critDiary.toString() + " UNION " +
-            "SELECT animalvaccination.CreatedBy, animalvaccination.DateRequired As DiaryDateTime, " +
-            "animalvaccination.DateOfVaccination AS DateComplated, animalvaccination.AnimalID As LinkID, " +
-            Diary.LINKTYPE_ANIMAL +
-            " AS LinkType, internallocation.LocationName AS Location, vaccinationtype.VaccinationType As Subject, vaccinationtype.VaccinationDescription As Note, animalvaccination.ID As UID, " +
+            "SELECT animalvaccination.CreatedBy, " +
+            "animalvaccination.DateRequired As DiaryDateTime, " +
+            "animalvaccination.DateOfVaccination AS DateCompleted, " +
+            "animalvaccination.AnimalID As LinkID, " +
+            Diary.LINKTYPE_ANIMAL + " AS LinkType, " +
+            "animal.AnimalName AS LinkInfo, " +
+            "animal.ShelterCode AS LinkCode, " +
+            "internallocation.LocationName AS Location, " +
+            "vaccinationtype.VaccinationType As Subject, " +
+            "vaccinationtype.VaccinationDescription As Note, " +
+            "animalvaccination.ID As UID, " +
             "'v' As Type FROM animalvaccination " +
             "INNER JOIN vaccinationtype ON vaccinationtype.ID=animalvaccination.VaccinationID " +
             "INNER JOIN animal ON animal.ID=animalvaccination.AnimalID " +
@@ -243,8 +254,9 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 datar[i][0] = (String) uq.getField("CreatedBy");
                 datar[i][1] = Utils.formatTableDateTime((Date) uq.getField(
                             "DiaryDateTime"));
-                datar[i][2] = Diary.getLinkInfo(((Integer) uq.getField("LinkID")).intValue(),
-                        ((Integer) uq.getField("LinkType")).intValue());
+                datar[i][2] = uq.getString("Type").equals("v") ? 
+                		uq.getString("LinkInfo") + " (" + uq.getString("LinkCode") + ")"
+                		: uq.getString("LinkInfo");
                 datar[i][3] = Utils.nullToEmptyString((String) uq.getField(
                             "Location"));
                 datar[i][4] = Utils.formatTableDate((Date) uq.getField(

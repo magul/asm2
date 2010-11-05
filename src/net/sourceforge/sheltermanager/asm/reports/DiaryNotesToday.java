@@ -132,7 +132,7 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
                 tableAddRow();
                 tableAddCell(Utils.formatDateTimeLong(diary.getDiaryDateTime()));
                 tableAddCell(diary.getSubject());
-                tableAddCell(diary.getLinkInfoThis());
+                tableAddCell(diary.getLinkInfo());
                 tableAddCell(diary.getNote());
                 tableFinishRow();
 
@@ -211,7 +211,7 @@ public class DiaryNotesToday extends Report implements DiaryCriteriaListener {
 
                 addParagraph("<i>" +
                     Utils.formatDateTimeLong(diary.getDiaryDateTime()) +
-                    "</i><br>" + "<b>" + diary.getLinkInfoThis() + " " +
+                    "</i><br>" + "<b>" + diary.getLinkInfo() + " " +
                     diary.getSubject() + "</b>");
                 addParagraph(diary.getNote());
                 addHorizontalRule();

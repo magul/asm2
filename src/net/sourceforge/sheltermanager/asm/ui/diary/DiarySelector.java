@@ -56,7 +56,10 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class DiarySelector extends ASMSelector {
-    public int linkID = 0;
+	
+	private static final long serialVersionUID = -399757981432436532L;
+	
+	public int linkID = 0;
     public int linkType = 0;
     private boolean showLinks = false;
     private boolean hasRecords = false;
@@ -93,13 +96,12 @@ public class DiarySelector extends ASMSelector {
         txtName.setText("");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtName);
         ctl.add(chkShowFuture);
         ctl.add(chkShowCompleted);
         ctl.add(getTable());
-
         return ctl;
     }
 
@@ -208,7 +210,7 @@ public class DiarySelector extends ASMSelector {
                 datar[i][0] = diary.getCreatedBy();
                 datar[i][1] = diary.getDiaryForName();
                 datar[i][2] = Utils.formatTableDateTime(diary.getDiaryDateTime());
-                datar[i][3] = diary.getLinkInfoThis();
+                datar[i][3] = diary.getLinkInfo();
                 datar[i][4] = Utils.nullToEmptyString(Utils.formatTableDate(
                             diary.getDateCompleted()));
                 datar[i][5] = diary.getSubject();

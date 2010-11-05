@@ -488,6 +488,7 @@ CREATE TABLE diary (
   Subject varchar(255) NOT NULL ,
   Note text NULL,
   DateCompleted datetime NULL,
+  LinkInfo varchar(255) NULL,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,
   CreatedDate datetime NOT NULL,
@@ -861,7 +862,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2811');
+INSERT INTO configuration VALUES ('DatabaseVersion','2840');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');

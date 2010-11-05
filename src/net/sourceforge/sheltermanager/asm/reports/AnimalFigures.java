@@ -175,15 +175,14 @@ public class AnimalFigures extends Report {
                     sp.moveFirst();
 
                     // Compile list of species for which we have animal data
-                    Vector v = new Vector();
+                    Vector<Integer> v = new Vector<Integer>();
 
                     while (!sp.getEOF()) {
                         if (0 < DBConnection.executeForCount(
                                     "SELECT COUNT(ID) FROM animal WHERE SpeciesID = " +
-                                    sp.getField("ID"))) {
-                            v.add(sp.getField("ID"));
+                                    sp.getInt("ID"))) {
+                            v.add(sp.getInt("ID"));
                         }
-
                         sp.moveNext();
                     }
 
@@ -202,15 +201,14 @@ public class AnimalFigures extends Report {
                 at.moveFirst();
 
                 // Compile list of types for which we have animal data
-                Vector v = new Vector();
+                Vector<Integer> v = new Vector<Integer>();
 
                 while (!at.getEOF()) {
                     if (0 < DBConnection.executeForCount(
                                 "SELECT COUNT(ID) FROM animal WHERE AnimalTypeID = " +
-                                at.getField("ID"))) {
-                        v.add(at.getField("ID"));
+                                at.getInt("ID"))) {
+                        v.add(at.getInt("ID"));
                     }
-
                     at.moveNext();
                 }
 

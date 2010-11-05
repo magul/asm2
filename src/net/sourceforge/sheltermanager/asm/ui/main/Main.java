@@ -21,13 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
-import apple.dts.OSXAdapter;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Vector;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.db.BackToProduction;
 import net.sourceforge.sheltermanager.asm.db.DBUpdate;
 import net.sourceforge.sheltermanager.asm.db.DatabaseCopier;
 import net.sourceforge.sheltermanager.asm.db.DatabaseImporter;
@@ -108,13 +110,7 @@ import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListView;
 import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.io.File;
-
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Vector;
+import apple.dts.OSXAdapter;
 
 
 /**
@@ -124,7 +120,10 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class Main extends ASMWindow {
-    /** HSQLDB Database checkpointer (10 minutes) */
+    
+	private static final long serialVersionUID = 6480558944912213267L;
+
+	/** HSQLDB Database checkpointer (10 minutes) */
     private final static long CHECKPOINT_TIME = 600000;
 
     /** Cache updater (10 minutes) */
@@ -245,9 +244,6 @@ public class Main extends ASMWindow {
     private UI.Menu mnuInternetPets911;
     private UI.MenuItem mnuInternetPets911Publish;
     private UI.MenuItem mnuInternetPets911Settings;
-    private UI.Menu mnuInternetFindMeAPet;
-    private UI.MenuItem mnuInternetFindMeAPetPublish;
-    private UI.MenuItem mnuInternetFindMeAPetSettings;
     private UI.Menu mnuInternetRescueGroups;
     private UI.MenuItem mnuInternetRescueGroupsPublish;
     private UI.MenuItem mnuInternetRescueGroupsSettings;
@@ -295,7 +291,6 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuPreferencesFileTypes;
     private UI.MenuItem mnuPreferencesSwitchDatabase;
     private UI.MenuItem mnuPreferencesLocalCache;
-    private UI.Menu mnuPreferencesOpen;
     private UI.MenuItem mnuPreferencesSettings;
     public UI.ProgressBar pgStatus;
     private UI.Panel pnlStatus;
@@ -335,23 +330,6 @@ public class Main extends ASMWindow {
 
         // Load mail merge list
         refreshMailMerge();
-
-        // Check if this is a dev release and offer the "back to production"
-        // option on the database menu if it is.
-        /* Discontinued due to stability of ASM database
-        if (Global.productVersion.indexOf("DEV") != -1) {
-            JMenuItem mnu = new JMenuItem();
-            mnu.setText("Revert to v" + BackToProduction.lastProduction);
-            mnu.setIcon(IconManager
-                    .getIcon(IconManager.MENU_REVERTTOPRODUCTION));
-            mnu.addActionListener(new swingwt.awt.event.ActionListener() {
-                public void actionPerformed(swingwt.awt.event.ActionEvent evt) {
-                    revertToProductionDatabase();
-                }
-            });
-            mnuSystem.add(mnu);
-        }
-        */
 
         // Ensure that our shutdown routine runs when the VM dies
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
@@ -500,10 +478,9 @@ public class Main extends ASMWindow {
         return jdpDesktop;
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(jdpDesktop);
-
         return ctl;
     }
 
@@ -561,10 +538,6 @@ public class Main extends ASMWindow {
             System.err.println("Error while loading the OSXAdapter:");
             e.printStackTrace();
         }
-    }
-
-    public void revertToProductionDatabase() {
-        BackToProduction.revert();
     }
 
     /**
@@ -1942,7 +1915,7 @@ public class Main extends ASMWindow {
 
     public void actionFileLock() {
         Locked l = new Locked();
-        l.show();
+        l.setVisible(true);
         l = null;
     }
 
@@ -2167,12 +2140,12 @@ public class Main extends ASMWindow {
         login = null;
 
         dontProcessClose = true;
-        this.hide();
+        this.setVisible(false);
         this.dispose();
     }
 
     public void actionFileChangePassword() {
-        new ChangePassword().show();
+        new ChangePassword().setVisible(true);
     }
 
     public void actionSystemAdditionalFields() {
@@ -2441,7 +2414,7 @@ public class Main extends ASMWindow {
 
         // Hide the screen
         dontProcessClose = true;
-        hide();
+        setVisible(false);
         dispose();
 
         // Unhook from modal boxes
@@ -2614,7 +2587,10 @@ public class Main extends ASMWindow {
     }
 
     public class CustomReportMenu extends UI.MenuItem {
-        private String customReportId = null;
+        
+		private static final long serialVersionUID = -1706803115678906205L;
+		
+		private String customReportId = null;
 
         public CustomReportMenu(String customReportId, String text) {
             super();

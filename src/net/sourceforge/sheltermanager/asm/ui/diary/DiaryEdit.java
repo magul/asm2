@@ -45,14 +45,16 @@ import java.util.Vector;
  * @version 1.0
  */
 public class DiaryEdit extends ASMForm {
-    private Diary diary = null;
+    
+	private static final long serialVersionUID = -4034235922204370684L;
+	
+	private Diary diary = null;
     private int linkID = 0;
     private int linkType = 0;
     private DiarySelector parent = null;
     private UI.Button btnOk;
     private UI.ComboBox cboFor;
     private UI.Button btnCancel;
-    private UI.TextArea txtAudit;
     private DateField txtCompleted;
     private DateField txtDate;
     private UI.TextArea txtNote;
@@ -87,8 +89,8 @@ public class DiaryEdit extends ASMForm {
     /**
      * Sets the tab ordering for the screen using the FlexibleFocusManager class
      */
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboFor);
         ctl.add(txtDate.getTextField());
         ctl.add(txtTime);
@@ -136,18 +138,19 @@ public class DiaryEdit extends ASMForm {
             diary = new Diary();
             diary.openRecordset("ID = 0");
             diary.addNew();
+            diary.setLinkInfo(diary.calculateLinkInfoThis());
+            
+            // We're ready to go
+            if (linkID != 0) {
+            		this.setTitle(i18n("new_diary_title",
+                        diary.getLinkInfo()));
+            } else {
+                this.setTitle(i18n("Create_New_Diary_Note"));
+            }
+            
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
         }
-
-        // We're ready to go
-        if (linkID != 0) {
-            this.setTitle(i18n("new_diary_title",
-                    Diary.getLinkInfo(linkID, linkType)));
-        } else {
-            this.setTitle(i18n("Create_New_Diary_Note"));
-        }
-
         isNew = true;
     }
 
@@ -198,7 +201,7 @@ public class DiaryEdit extends ASMForm {
 
             if (linkID != 0) {
                 this.setTitle(i18n("edit_diary_title",
-                        Diary.getLinkInfo(linkID, linkType)));
+                        diary.getLinkInfo()));
             } else {
                 this.setTitle(i18n("Edit_Diary_Note"));
             }
@@ -220,6 +223,7 @@ public class DiaryEdit extends ASMForm {
             diary.setNote(txtNote.getText().trim());
             diary.setLinkID(new Integer(linkID));
             diary.setLinkType(new Integer(linkType));
+            diary.setLinkInfo(diary.calculateLinkInfoThis());
 
             // Date and Time
             try {

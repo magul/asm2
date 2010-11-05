@@ -129,7 +129,7 @@ public class PetFinderImport extends Thread {
                 a.setOwnersVetID(new Integer(0));
 
                 // Generate default code for animal type
-                Animal.AnimalCode ac = a.generateAnimalCode(LookupCache.getAnimalTypeName(
+                Animal.AnimalCode ac = Animal.generateAnimalCode(LookupCache.getAnimalTypeName(
                             a.getAnimalTypeID()), a.getDateBroughtIn());
                 a.setShelterCode(ac.code);
                 a.setShortCode(ac.shortcode);

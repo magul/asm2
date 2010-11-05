@@ -280,7 +280,7 @@ public class Stats extends Report {
 
         // Build a vector of unique postcode areas, along with the
         // number of times a particular area has occurred.
-        Vector areas = new Vector((int) (a.getRecordCount() / 2));
+        Vector<PostcodeAreaCount> areas = new Vector<PostcodeAreaCount>((int) (a.getRecordCount() / 2));
 
         setStatusText(Global.i18n("reports", "Retrieving_data..."));
         setStatusBarMax((int) a.getRecordCount());
@@ -300,10 +300,10 @@ public class Stats extends Report {
                 // Do we have an entry already for this particular
                 // area?
                 boolean alreadyGot = false;
-                Iterator it = areas.iterator();
+                Iterator<PostcodeAreaCount> it = areas.iterator();
 
                 while (it.hasNext()) {
-                    PostcodeAreaCount pc = (PostcodeAreaCount) it.next();
+                    PostcodeAreaCount pc = it.next();
 
                     if (pc.area.equalsIgnoreCase(theArea)) {
                         alreadyGot = true;
@@ -425,7 +425,7 @@ public class Stats extends Report {
 
         // Build a vector of unique postcode areas, along with the
         // number of times a particular area has occurred.
-        Vector areas = new Vector((int) (a.getRecordCount() / 2));
+        Vector<PostcodeAreaCount> areas = new Vector<PostcodeAreaCount>((int) (a.getRecordCount() / 2));
 
         setStatusText(Global.i18n("reports", "Retrieving_data..."));
         setStatusBarMax((int) a.getRecordCount());
@@ -445,7 +445,7 @@ public class Stats extends Report {
                 // Do we have an entry already for this particular
                 // area?
                 boolean alreadyGot = false;
-                Iterator it = areas.iterator();
+                Iterator<PostcodeAreaCount> it = areas.iterator();
 
                 while (it.hasNext()) {
                     PostcodeAreaCount pc = (PostcodeAreaCount) it.next();

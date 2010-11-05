@@ -21,13 +21,18 @@
  */
 package net.sourceforge.sheltermanager.asm.db;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
+import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
-import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.bo.Users;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -35,13 +40,6 @@ import net.sourceforge.sheltermanager.asm.utility.MD5;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.io.ByteArrayOutputStream;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Vector;
 
 
 /**
@@ -59,7 +57,7 @@ public class AutoDBUpdates {
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
             2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732, 2810,
-            2811, 2812
+            2811, 2812, 2840
         };
 
     /**
@@ -880,7 +878,6 @@ public class AutoDBUpdates {
 
                 Global.logInfo("Merging breeds...", "AutoDBUpdates");
 
-                Iterator i = pfBreeds.iterator();
                 SQLRecordset b = new SQLRecordset();
                 b.openRecordset("SELECT * FROM breed WHERE ID = 0", "breed");
 
@@ -1286,8 +1283,6 @@ public class AutoDBUpdates {
                 SQLRecordset af = new SQLRecordset();
                 af.openRecordset("SELECT * FROM animalfound", "animalfound");
 
-                int total = (int) (a.getRecordCount() + awl.getRecordCount() +
-                    al.getRecordCount() + af.getRecordCount());
                 Global.logInfo("Centralising entity records...", "AutoDBUpdates");
 
                 // ANIMAL RECORDS - OO and NP
@@ -4167,13 +4162,38 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    public void update2840() {
+        try {
+            // Add the LinkInfo field to the diary table
+            DBConnection.executeAction(
+                "ALTER TABLE diary ADD LinkInfo VARCHAR(255) NULL");
+            DBConnection.executeAction(
+            	"UPDATE diary SET LinkInfo = ''");
+
+            // Go through every diary record and stamp the link info
+            Global.logInfo("Generating static diary link info...", "update2841");
+            SQLRecordset diary = new SQLRecordset(
+                "SELECT ID, LinkID, LinkType FROM diary", "diary");
+            for (SQLRecordset d : diary) {
+                if (d.getInt("LinkID") != 0) {
+                    String info = Diary.calculateLinkInfo(d.getInt("LinkID"), d.getInt("LinkType"));
+                    info = info.replace('\'', '`');
+                    DBConnection.executeAction("UPDATE diary SET LinkInfo = '" + info + "' WHERE ID = " + d.getInt("ID"));
+                }
+            }
+        } catch (Exception e) {
+            errors.add("diary: ADD LinkInfo");
+            Global.logException(e, getClass());
+        }
+    }
 }
 
 
-class ErrorVector extends Vector {
-    public boolean add(Object o) {
-        Global.logError(o.toString(), "ErrorVector.add");
-
-        return super.add(o);
+class ErrorVector extends Vector<String> {
+	private static final long serialVersionUID = -682107123783073205L;
+	public boolean add(String s) {
+        Global.logError(s, "ErrorVector.add");
+        return super.add(s);
     }
 }

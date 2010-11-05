@@ -21,22 +21,22 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-
 import java.util.Vector;
 
 import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 
 public abstract class ASMForm extends JPanel {
-    /** Used to generate unique numbers for identifying opened tabs */
+    
+	private static final long serialVersionUID = 5271293897764009631L;
+
+	/** Used to generate unique numbers for identifying opened tabs */
     protected static long nextformkey = 0;
 
     /** The default i18n key to use for this form */
@@ -109,7 +109,7 @@ public abstract class ASMForm extends JPanel {
         scroller = s;
     }
 
-    public abstract Vector getTabOrder();
+    public abstract Vector<Object> getTabOrder();
 
     public abstract Object getDefaultFocusedComponent();
 
@@ -146,7 +146,7 @@ public abstract class ASMForm extends JPanel {
         UI.cursorToPointer();
     }
 
-    protected void registerTabOrder(Vector components,
+    protected void registerTabOrder(Vector<Object> components,
         Component focusedComponent) {
         UI.registerTabOrder(components, this, focusedComponent);
     }

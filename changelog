@@ -1,6 +1,8 @@
 2.8.4
 ================
 
+*. Added new LinkInfo field to the diary table to cache static link
+-  data. Improves performance hugely with remote databases
 *. Managed to remove 50 pixels from animal scroller height, better
 -  for lower resolutions
 *. New system option to hide original owner information when

@@ -21,6 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
+import java.io.File;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
@@ -37,22 +45,10 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.mailmerge.CustomMailMerge;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DateFromTo;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
-
-import java.io.File;
-
-import java.math.BigDecimal;
-
-import java.text.DecimalFormat;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Vector;
 
 
 /**
@@ -562,7 +558,7 @@ public class CustomReportExecute extends Report {
 
             // Grab any grouping levels in the HTML to
             // a vector
-            Vector groups = new Vector();
+            Vector<GroupDescriptor> groups = new Vector<GroupDescriptor>();
             groupstart = html.indexOf("$$GROUP_");
 
             while (groupstart != -1) {
@@ -875,7 +871,6 @@ public class CustomReportExecute extends Report {
                         try {
                             valid = true;
 
-                            String body = key.substring(6, key.length());
                             String animalid = key.substring(key.indexOf(".") +
                                     1);
 
@@ -1375,7 +1370,6 @@ public class CustomReportExecute extends Report {
                     valid = true;
 
                     try {
-                        String body = key.substring(6, key.length());
                         String animalid = key.substring(key.indexOf(".") + 1);
 
                         // If animalid isn't numeric, assume it's a fieldname
@@ -1576,7 +1570,7 @@ public class CustomReportExecute extends Report {
     public String substituteSQLTags(String sql) {
         // Hunt through the sql, looking for a start
         // marker to a tag
-        HashMap vars = new HashMap();
+        HashMap<String, String> vars = new HashMap<String, String>();
 
         for (int i = 0; i < sql.length(); i++) {
             if (sql.substring(i, i + 1).equals("$")) {
@@ -1803,7 +1797,7 @@ public class CustomReportExecute extends Report {
 
             // Validate that it is a number
             try {
-                double d = Double.parseDouble(selnumber);
+                Double.parseDouble(selnumber);
             } catch (NumberFormatException e) {
                 selnumber = "0";
             }

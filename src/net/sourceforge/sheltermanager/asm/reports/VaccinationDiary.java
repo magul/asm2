@@ -21,16 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteria;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteriaListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Calendar;
-import java.util.Date;
 
 
 /**

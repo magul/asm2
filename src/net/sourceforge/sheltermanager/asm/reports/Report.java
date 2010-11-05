@@ -364,13 +364,13 @@ public abstract class Report extends Thread {
             return Global.i18n("reports", "No");
         }
 
-        Vector pn = new Vector();
+        Vector<String> pn = new Vector<String>();
         pn.add(Global.i18n("uiwordprocessor", "Unknown"));
         pn.add(Global.i18n("uiwordprocessor", "Negative"));
         pn.add(Global.i18n("uiwordprocessor", "Positive"));
 
         return Utils.formatDate(dt) + " - " +
-        pn.get(posneg.intValue()).toString();
+        	pn.get(posneg.intValue()).toString();
     }
 
     /** Reads the head.dat file from the DBFS server and
@@ -524,7 +524,7 @@ public abstract class Report extends Thread {
      *  external viewer, such as a web browser via a command line
      *  interface.
      */
-    protected void display() {
+	protected void display() {
         // See if the options say we are using our internal
         // browser to display the report
         if (Global.useInternalReportViewer) {
@@ -534,7 +534,7 @@ public abstract class Report extends Thread {
             rv.setVisible(true);
         } else {
             try {
-                FileTypeManager.shellExecute(new File(filename).toURL()
+                FileTypeManager.shellExecute(new File(filename).toURI().toURL()
                                                                .toString());
             } catch (Exception e) {
                 Global.logException(e, getClass());

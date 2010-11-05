@@ -155,15 +155,23 @@ public class Diary extends UserInfoBO<Diary> {
         rs.setField("DateCompleted", newValue);
     }
 
+    public String getLinkInfo() throws CursorEngineException {
+        return (String) rs.getField("LinkInfo");
+    }
+
+    public void setLinkInfo(String newValue) throws CursorEngineException {
+        rs.setField("LinkInfo", newValue);
+    }
+
     /**
      * Returns the link information for this diary note
      */
-    public String getLinkInfoThis() {
+    public String calculateLinkInfoThis() {
         try {
             if (getLinkID().intValue() == 0) {
                 return "";
             } else {
-                return Diary.getLinkInfo(getLinkID().intValue(),
+                return Diary.calculateLinkInfo(getLinkID().intValue(),
                     getLinkType().intValue());
             }
         } catch (Exception e) {
@@ -180,7 +188,7 @@ public class Diary extends UserInfoBO<Diary> {
      *            The type of link
      * @return A string containing human-readable info
      */
-    public static String getLinkInfo(int linkID, int linkType) {
+    public static String calculateLinkInfo(int linkID, int linkType) {
         String output = null;
 
         try {

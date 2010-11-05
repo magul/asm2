@@ -21,17 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.db;
 
+import java.sql.Connection;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.io.File;
-
-import java.sql.Connection;
-
 
 public class DatabaseImporter implements Runnable {
-    private String url = null;
     private Connection c = null;
     private byte dbType = 0;
     private boolean allTables = false;
@@ -53,7 +50,6 @@ public class DatabaseImporter implements Runnable {
             // Connect and do the import
             c = DBConnection.getConnection(s);
             dbType = DBConnection.getDBTypeForUrl(s);
-            url = s;
             new Thread(this).start();
         } catch (Exception e) {
             Global.logException(e, DatabaseImporter.class);
@@ -63,7 +59,6 @@ public class DatabaseImporter implements Runnable {
     /** For single-threaded callers */
     public void start(String url, Connection c, byte dbType, boolean allTables,
         boolean clearBeforeCopy, boolean doDBFS) {
-        this.url = url;
         this.c = c;
         this.dbType = dbType;
         this.allTables = allTables;

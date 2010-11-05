@@ -458,6 +458,7 @@ CREATE MEMORY TABLE diary (
   Subject VARCHAR(255) NOT NULL,
   Note VARCHAR(16384) NULL,
   DateCompleted TIMESTAMP NULL,
+  LinkInfo VARCHAR(255) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
   CreatedDate TIMESTAMP NOT NULL,
@@ -805,7 +806,7 @@ CREATE MEMORY TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2811');
+INSERT INTO configuration VALUES ('DatabaseVersion','2840');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');

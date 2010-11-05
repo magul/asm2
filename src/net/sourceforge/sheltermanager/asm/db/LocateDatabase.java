@@ -295,7 +295,6 @@ public class LocateDatabase {
         }
 
         // Scan the subnet
-        boolean foundOne = false;
         final int MYSQL_PORT = 3306;
         final String MYSQL_TYPE = "1";
         final int POSTGRESQL_PORT = 5432;
@@ -308,7 +307,7 @@ public class LocateDatabase {
         // Pre-generate a list of addresses to scan, starting
         // with the loopback adapter
         String network = local.substring(0, local.lastIndexOf(".")) + ".";
-        Vector v = new Vector(256);
+        Vector<String> v = new Vector<String>(256);
         v.add("127.0.0.1");
 
         // Add the subnet range to scan if the LAN was valid
