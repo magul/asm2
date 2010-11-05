@@ -201,12 +201,16 @@ public class AnimalPrint extends Report {
         addLevelTwoHeader(Global.i18n("uianimal", "entry_details"));
 
         tableNew(true);
-        tableAddRow();
-        tableAddBoldCell(Global.i18n("uianimal", "Original_Owner:"));
-        tableAddCell(owner(a.getOriginalOwner()));
-        tableAddBoldCell(Global.i18n("uianimal", "Brought_In_By:"));
-        tableAddCell(owner(a.getBroughtInByOwner()));
-        tableFinishRow();
+        
+        if (!Configuration.getBoolean("AnimalPrintHideOriginalOwner")) {
+            tableAddRow();
+            tableAddBoldCell(Global.i18n("uianimal", "Original_Owner:"));
+            tableAddCell(owner(a.getOriginalOwner()));
+            tableAddBoldCell(Global.i18n("uianimal", "Brought_In_By:"));
+            tableAddCell(owner(a.getBroughtInByOwner()));
+            tableFinishRow();
+        }
+
         tableAddRow();
         tableAddBoldCell(Global.i18n("uianimal", "Reason_not_by_owner"));
         tableAddCell(a.getReasonNO());

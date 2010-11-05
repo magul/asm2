@@ -9702,6 +9702,26 @@ This causes the monthly animal figures report to separate animals by their
 \begin_layout Itemize
 
 \series bold
+Hide original owner information when printing animal records:
+\series default
+ Some shelters like to use the print animal report as a cage card, since
+ it contains every piece of info about the animal.
+ However, with the original owner information on there, unscrupulous people
+ could try to 
+\begin_inset Quotes eld
+\end_inset
+
+reclaim
+\begin_inset Quotes erd
+\end_inset
+
+ animals they want to adopt by posing as the original owner.
+ This option hides the original owner and brought in by information.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Highlight animals under 6 months, reserved or dead on reports:
 \series default
  Setting this option will cause any report that displays an animal's name

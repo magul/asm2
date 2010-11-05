@@ -1217,6 +1217,12 @@ public class Options extends ASMForm {
                                  .equalsIgnoreCase("Yes"), false));
 
             l.add(new SelectableItem(Global.i18n("uisystem",
+                        "Hide_original_owner_details_when_printing_animal_records"),
+                    "AnimalPrintHideOriginalOwner",
+                    Configuration.getString("AnimalPrintHideOriginalOwner")
+                                 .equalsIgnoreCase("Yes"), false));
+
+            l.add(new SelectableItem(Global.i18n("uisystem",
                         "Highlight_animals_under_6_months,_reserved_or_dead_on_reports"),
                     "HighlightReportAnimals",
                     Configuration.getString("HighlightReportAnimals")
