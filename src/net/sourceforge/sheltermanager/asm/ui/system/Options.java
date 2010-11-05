@@ -21,6 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -40,11 +45,6 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-
 
 /**
  * System Options form
@@ -52,9 +52,9 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class Options extends ASMForm {
-    private UI.TabbedPane tabTabs;
+	private static final long serialVersionUID = -8050802712901337766L;
+	private UI.TabbedPane tabTabs;
     private UI.Button btnSave;
-    private UI.Button btnClose;
     private UI.ComboBox cboDefaultUrgency;
     private UI.ComboBox cboWordProcessor;
     private DateField dtAccountingPeriod;
@@ -104,7 +104,6 @@ public class Options extends ASMForm {
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
     private UI.ComboBox cboBoardingType;
-    private UI.ComboBox cboDefaultBreed;
     private UI.ComboBox cboDefaultColour;
     private UI.ComboBox cboDefaultDeath;
     private UI.ComboBox cboDefaultEntryReason;
@@ -118,6 +117,16 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultType;
     private UI.ComboBox cboDefaultDonationType;
     private UI.ComboBox cboDefaultVaccinationType;
+    private UI.ComboBox cboMapDT1;
+    private UI.ComboBox cboMapAc1;
+    private UI.ComboBox cboMapDT2;
+    private UI.ComboBox cboMapAc2;
+    private UI.ComboBox cboMapDT3;
+    private UI.ComboBox cboMapAc3;
+    private UI.ComboBox cboMapDT4;
+    private UI.ComboBox cboMapAc4;
+    private UI.ComboBox cboMapDT5;
+    private UI.ComboBox cboMapAc5;
     private UI.CheckBox chkUseAutoInsurance;
     private UI.CheckBox chkMatchShelterDB;
     private UI.Spinner spnAutoInsuranceStart;
@@ -186,7 +195,6 @@ public class Options extends ASMForm {
         ctl.add(cboNonShelter);
         ctl.add(cboDefaultInternalLocation);
         ctl.add(cboDefaultEntryReason);
-        //ctl.add(cboDefaultBreed);
         ctl.add(cboDefaultColour);
         ctl.add(cboDefaultDeath);
         ctl.add(cboDefaultReturn);
@@ -195,7 +203,18 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultCoatType);
         ctl.add(cboDefaultDonationType);
         ctl.add(cboDefaultVaccinationType);
+        ctl.add(dtAccountingPeriod);
         ctl.add(cboDonationTargetAccount);
+        ctl.add(cboMapDT1);
+        ctl.add(cboMapAc1);
+        ctl.add(cboMapDT2);
+        ctl.add(cboMapAc2);
+        ctl.add(cboMapDT3);
+        ctl.add(cboMapAc3);
+        ctl.add(cboMapDT4);
+        ctl.add(cboMapAc4);
+        ctl.add(cboMapDT5);
+        ctl.add(cboMapAc5);
         ctl.add(txtDefaultBoardingCost);
         ctl.add(chkUseAutoInsurance);
         ctl.add(spnAutoInsuranceStart);
@@ -315,6 +334,54 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("DonationTargetAccount")),
             cboDonationTargetAccount);
         dtAccountingPeriod.setText(Configuration.getString("AccountingPeriod"));
+        
+        ArrayList<Account.DonationAccountMapping> dms = Account.getDonationAccountMappings();
+        int im = 0;
+        for (Account.DonationAccountMapping dm : dms) {
+        	im++;
+        	switch(im) {
+        		case 1:
+        			Utils.setComboFromID(
+        				LookupCache.getDonationTypeLookup(), 
+        				"DonationName", dm.donationTypeID, cboMapDT1);
+        			Utils.setComboFromID(
+            				LookupCache.getAccountsLookup(), 
+            				"Code", dm.accountID, cboMapAc1);
+        			break;
+        		case 2:
+        			Utils.setComboFromID(
+        				LookupCache.getDonationTypeLookup(), 
+        				"DonationName", dm.donationTypeID, cboMapDT2);
+        			Utils.setComboFromID(
+            				LookupCache.getAccountsLookup(), 
+            				"Code", dm.accountID, cboMapAc2);
+        			break;
+        		case 3:
+        			Utils.setComboFromID(
+        				LookupCache.getDonationTypeLookup(), 
+        				"DonationName", dm.donationTypeID, cboMapDT3);
+        			Utils.setComboFromID(
+            				LookupCache.getAccountsLookup(), 
+            				"Code", dm.accountID, cboMapAc3);
+        			break;
+        		case 4:
+        			Utils.setComboFromID(
+        				LookupCache.getDonationTypeLookup(), 
+        				"DonationName", dm.donationTypeID, cboMapDT4);
+        			Utils.setComboFromID(
+            				LookupCache.getAccountsLookup(), 
+            				"Code", dm.accountID, cboMapAc4);
+        			break;
+        		case 5:
+        			Utils.setComboFromID(
+        				LookupCache.getDonationTypeLookup(), 
+        				"DonationName", dm.donationTypeID, cboMapDT5);
+        			Utils.setComboFromID(
+            				LookupCache.getAccountsLookup(), 
+            				"Code", dm.accountID, cboMapAc5);
+        			break;
+        	}
+        }
 
         // Age Groups
         txtAgeGroup1.setText(Configuration.getString("AgeGroup1", ""));
@@ -380,9 +447,6 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultDeathReason")),
             cboDefaultDeath);
 
-        //Utils.setComboFromID("breed", "BreedName",
-        //    new Integer(Configuration.getInteger("AFDefaultBreed")),
-        //    cboDefaultBreed);
         Utils.setComboFromID(LookupCache.getBaseColourLookup(), "BaseColour",
             new Integer(Configuration.getInteger("AFDefaultColour")),
             cboDefaultColour);
@@ -415,7 +479,7 @@ public class Options extends ASMForm {
         } else if (LDAP.isConfigured()) {
             cboMech.setSelectedIndex(2);
 
-            Map m = LDAP.getSettings();
+            Map<String, String> m = LDAP.getSettings();
             txtLDAPUrl.setText((String) m.get(LDAP.LDAP_URL));
             txtLDAPDN.setText((String) m.get(LDAP.LDAP_DN));
             txtLDAPFilter.setText((String) m.get(LDAP.LDAP_FILTER));
@@ -564,6 +628,59 @@ public class Options extends ASMForm {
 
             Configuration.setEntry("AccountingPeriod",
                 dtAccountingPeriod.getText());
+            
+            String maps = "";
+            if (cboMapDT1.getSelectedIndex() > 0) {
+            	if (!maps.equals("")) maps += ",";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getDonationTypeLookup(),
+            		"DonationName", cboMapDT1);
+            	maps += "=";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getAccountsLookup(),
+            		"Code", cboMapAc1);
+            }
+            if (cboMapDT2.getSelectedIndex() > 0) {
+            	if (!maps.equals("")) maps += ",";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getDonationTypeLookup(),
+            		"DonationName", cboMapDT2);
+            	maps += "=";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getAccountsLookup(),
+            		"Code", cboMapAc2);
+            }
+            if (cboMapDT3.getSelectedIndex() > 0) {
+            	if (!maps.equals("")) maps += ",";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getDonationTypeLookup(),
+            		"DonationName", cboMapDT3);
+            	maps += "=";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getAccountsLookup(),
+            		"Code", cboMapAc3);
+            }
+            if (cboMapDT4.getSelectedIndex() > 0) {
+            	if (!maps.equals("")) maps += ",";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getDonationTypeLookup(),
+            		"DonationName", cboMapDT4);
+            	maps += "=";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getAccountsLookup(),
+            		"Code", cboMapAc4);
+            }
+            if (cboMapDT5.getSelectedIndex() > 0) {
+            	if (!maps.equals("")) maps += ",";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getDonationTypeLookup(),
+            		"DonationName", cboMapDT5);
+            	maps += "=";
+            	maps += Utils.getIDFromCombo(
+            		LookupCache.getAccountsLookup(),
+            		"Code", cboMapAc5);
+            }
+            Configuration.setEntry("DonationAccountMappings", maps);
 
             l = tblAccountOptions.getSelections();
 
@@ -715,16 +832,39 @@ public class Options extends ASMForm {
         tabTabs.addTab(i18n("shelter_info"), null, details, null);
 
         // Accounts
-        UI.Panel pacc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        UI.Panel pacc = UI.getPanel(UI.getGridLayout(3, new int[] { 30, 35, 35 }));
         UI.Panel accounts = UI.getPanel(UI.getBorderLayout());
 
+        dtAccountingPeriod = (DateField) UI.addComponent(pacc,
+                i18n("accounting_period"), UI.getDateField());
+        pacc.add(UI.getLabel());
+        
         cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
                 "Code");
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
-
-        dtAccountingPeriod = (DateField) UI.addComponent(pacc,
-                i18n("accounting_period"), UI.getDateField());
+        pacc.add(UI.getLabel());
+        
+        cboMapDT1 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+        cboMapDT2 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+        cboMapDT3 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+        cboMapDT4 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+        cboMapDT5 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+        cboMapAc1 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
+        cboMapAc2 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
+        cboMapAc3 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
+        cboMapAc4 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
+        cboMapAc5 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
+        UI.addComponent(pacc, i18n("map_donation_to_account"), cboMapDT1);
+        pacc.add(cboMapAc1);
+        UI.addComponent(pacc, i18n("map_donation_to_account"), cboMapDT2);
+        pacc.add(cboMapAc2);
+        UI.addComponent(pacc, i18n("map_donation_to_account"), cboMapDT3);
+        pacc.add(cboMapAc3);
+        UI.addComponent(pacc, i18n("map_donation_to_account"), cboMapDT4);
+        pacc.add(cboMapAc4);
+        UI.addComponent(pacc, i18n("map_donation_to_account"), cboMapDT5);
+        pacc.add(cboMapAc5);
 
         List<SelectableItem> l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Accounts"), null,
@@ -1399,9 +1539,6 @@ public class Options extends ASMForm {
                     i18n("Save_your_changes_and_exit"), 's',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
                     UI.fp(this, "saveData")));
-        /*btnClose = (UI.Button) t.add(UI.getButton(null, null, 'x',
-                    IconManager.getIcon(IconManager.SCREEN_OPTIONS_CLOSE),
-                    UI.fp(this, "dispose")));*/
         add(t, UI.BorderLayout.NORTH);
         add(tabTabs, UI.BorderLayout.CENTER);
     }

@@ -58,7 +58,7 @@ public abstract class LDAP {
      * @return false if authentication fails
      */
     public static boolean authenticate(String user, String password) {
-        Map settings = getSettings();
+        Map<String, String> settings = getSettings();
 
         Properties env = new Properties();
         env.put(Context.INITIAL_CONTEXT_FACTORY,
@@ -84,7 +84,8 @@ public abstract class LDAP {
                 "LDAP.authenticate");
 
             // Do a subtree search from the base DN for the user
-            NamingEnumeration res = ctx.search((String) settings.get(LDAP_DN),
+            NamingEnumeration<SearchResult> res = 
+            	ctx.search((String) settings.get(LDAP_DN),
                     filter,
                     new SearchControls(SearchControls.SUBTREE_SCOPE, 0, 0,
                         null, true, true));
@@ -148,7 +149,7 @@ public abstract class LDAP {
     }
 
     /** Returns a map of the LDAP settings, or null if not configured. */
-    public static Map getSettings() {
+    public static Map<String, String> getSettings() {
         try {
             if (!isConfigured()) {
                 return null;
@@ -174,7 +175,7 @@ public abstract class LDAP {
              * ldapFilter = "(cn={0})"; ldapUser = "cn=admin,dc=robsdomain";
              * ldapPass = "password";
              */
-            HashMap m = new HashMap();
+            HashMap<String, String> m = new HashMap<String, String>();
             m.put(LDAP_URL, ldapUrl);
             m.put(LDAP_DN, ldapDn);
             m.put(LDAP_FILTER, ldapFilter);

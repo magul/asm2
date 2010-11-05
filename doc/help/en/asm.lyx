@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 62 (ASM 2.8.3)
+Revision 63 (ASM 2.8.4)
 \end_layout
 
 \begin_layout Chapter*
@@ -8766,6 +8766,17 @@ ASM contains a full double entry accounting package.
 \begin_layout Itemize
 
 \series bold
+Current accounting period starts:
+\series default
+ If you wish to use accounting periods, put the start date in here.
+ By enabling the show account totals for current period option, the totals
+ shown on the account screen will only include transactions from this date
+ or later.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Donation destination account:
 \series default
  When ASM creates a matching donation transaction, it will use the donation
@@ -8777,12 +8788,12 @@ Donation destination account:
 \begin_layout Itemize
 
 \series bold
-Current accounting period starts:
+Donation/Account mappings:
 \series default
- If you wish to use accounting periods, put the start date in here.
- By enabling the show account totals for current period option, the totals
- shown on the account screen will only include transactions from this date
- or later.
+ In addition to the default donation destination account, you can specify
+ optional mappings, so that when ASM receives a donation of a particular
+ type, it uses the specified destination account for it when creating the
+ matching accounting transaction.
 \end_layout
 
 \begin_layout Itemize

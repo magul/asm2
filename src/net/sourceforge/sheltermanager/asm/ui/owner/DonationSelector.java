@@ -21,11 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -35,10 +38,6 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDonationDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 
 /**
  * Viewing of owner donations
@@ -46,7 +45,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class DonationSelector extends ASMSelector {
-    private boolean hasDonations = false;
+	private static final long serialVersionUID = -5160737061215643754L;
+	private boolean hasDonations = false;
     private int animalID = 0;
     private int ownerID = 0;
     private int movementID = 0;
@@ -98,10 +98,9 @@ public class DonationSelector extends ASMSelector {
         this.movementID = movementID;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
-
         return v;
     }
 
@@ -326,8 +325,8 @@ public class DonationSelector extends ASMSelector {
             OwnerDonation od = new OwnerDonation();
             od.openRecordset("ID = " + id);
 
-            OwnerDonationDocument ownerdonationdoc = new OwnerDonationDocument(od,
-                    ((ownerparent != null) ? ownerparent.media : null));
+            new OwnerDonationDocument(od,
+            		((ownerparent != null) ? ownerparent.media : null));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

@@ -28,6 +28,7 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -318,6 +319,15 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         if (target == 0) {
             target = DBConnection.executeForInt(
                     "SELECT ID FROM accounts WHERE AccountType = 1");
+        }
+        
+        // Look to see if a mapping has been created by the user for this
+        // donation type to a different destination
+        ArrayList<Account.DonationAccountMapping> dms = Account.getDonationAccountMappings();
+        for (Account.DonationAccountMapping dm : dms) {
+        	if (dm.donationTypeID == getDonationTypeID().intValue()) {
+        		target = dm.accountID;
+        	}
         }
 
         // Create the transaction

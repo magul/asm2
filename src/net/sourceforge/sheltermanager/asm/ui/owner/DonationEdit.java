@@ -21,17 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
-import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
-import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
-import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLink;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -40,15 +38,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
 
 
 /**
@@ -58,7 +49,8 @@ import java.util.Vector;
  */
 public class DonationEdit extends ASMForm implements AnimalLinkListener,
     OwnerLinkListener {
-    private DonationSelector parent = null;
+	private static final long serialVersionUID = 9186238748769049351L;
+	private DonationSelector parent = null;
     private OwnerDonation od = null;
     private int animalID = 0;
     private int ownerID = 0;
@@ -88,8 +80,8 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
             "uiowner");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtDateDue.getTextField());
         ctl.add(txtDateReceived.getTextField());
         ctl.add(txtDonation.getTextField());
