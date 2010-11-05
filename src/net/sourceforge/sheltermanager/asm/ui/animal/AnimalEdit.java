@@ -413,7 +413,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public int getScrollHeight() {
-        return 650;
+        return 600;
     }
 
     /** Deactivates screen elements based on security settings */
