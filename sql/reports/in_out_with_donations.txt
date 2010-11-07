@@ -265,6 +265,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
+0 AS Donation,
 'Animals Died On Shelter' AS CategoryName,
 'Animals Out' AS InOut
 FROM animal
@@ -280,7 +281,9 @@ AnimalName,
 AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
+0 AS Donation,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
+
 'Animals Euthanised' AS CategoryName,
 'Animals Out' AS InOut
 FROM animal
@@ -297,6 +300,7 @@ AnimalAge,
 (SELECT Sex FROM lksex WHERE ID = animal.Sex) AS SexName,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
+0 AS Donation,
 'Animals Dead On Arrival' AS CategoryName,
 'Animals Out' AS InOut
 FROM animal
