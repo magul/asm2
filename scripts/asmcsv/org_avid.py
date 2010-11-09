@@ -128,6 +128,7 @@ for row in reader:
     if thedate == None: thedate = datetime.datetime.today()
     a.DateBroughtIn = thedate
     a.DateOfBirth = thedate
+    a.TattooNumber = row[ADOPTIONNO].strip()
     a.ExtraID = row[ADOPTIONNO].strip()
     a.generateCode(atype)
     animals.append(a)
