@@ -93,16 +93,6 @@ public abstract class DBConnection {
 
     public static void loadJDBCDrivers(boolean postgres, boolean mysql,
         boolean hsql) {
-        // Always load our built in Http driver since
-        // its part of our codebase and will always be present
-        try {
-            // String url = "jdbc:http://localhost/httpdb.cgi"
-            Class.forName(
-                "net.sourceforge.sheltermanager.cursorengine.http.HttpDriver");
-        } catch (Exception e) {
-            Global.logException(e, DBConnection.class);
-        }
-
         if (mysql) {
             Global.logInfo("MySQL driver...", "DBConnection.loadJDBCDrivers");
 
@@ -138,6 +128,20 @@ public abstract class DBConnection {
                 Global.logException(e, DBConnection.class);
             }
         }
+
+        // Always load our built in Http driver since
+        // its part of our codebase and will always be present
+	// Also, load it last as we've had issues with it trying
+	// to take URLs for other databases (although it's much
+	// more choosy now)
+        try {
+            // String url = "jdbc:http://localhost/httpdb.cgi"
+            Class.forName(
+                "net.sourceforge.sheltermanager.cursorengine.http.HttpDriver");
+        } catch (Exception e) {
+            Global.logException(e, DBConnection.class);
+        }
+
     }
 
     /** Returns type@host */

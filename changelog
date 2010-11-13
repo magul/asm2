@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. Make HTTP database driver more selective (use jdbc:http prefix)
+-  and load it last to prevent it overriding other drivers in
+-  some circumstances
 *. Option to override upto 5 donation types with alternative
 -  destination accounts
 *. Added new LinkInfo field to the diary table to cache static link

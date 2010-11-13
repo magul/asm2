@@ -22,13 +22,13 @@ public class HttpDriver implements Driver {
 
     @Override
     public boolean acceptsURL(String arg0) throws SQLException {
-        return arg0.indexOf("http") != -1;
+        return arg0.startsWith("jdbc:http");
     }
 
     @Override
     public Connection connect(String arg0, Properties arg1)
         throws SQLException {
-        if (arg0.indexOf("http") != -1) {
+        if (arg0.startsWith("jdbc:http")) {
             HttpConnection c = new HttpConnection(arg0);
             // By asking for the product name, we're making a request
             // of the server and testing this connection is valid
