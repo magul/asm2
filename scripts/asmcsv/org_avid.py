@@ -2,7 +2,8 @@
 
 import asm, csv, sys, datetime
 
-# Import script for AVID, October 19, 2010
+# Import script for AVID, 19th October, 2010
+# Updated: 15th November, 2010
 
 # Collection of converted owner, animal and movement objects so far
 owners = []
@@ -128,7 +129,6 @@ for row in reader:
     if thedate == None: thedate = datetime.datetime.today()
     a.DateBroughtIn = thedate
     a.DateOfBirth = thedate
-    a.TattooNumber = row[ADOPTIONNO].strip()
     a.ExtraID = row[ADOPTIONNO].strip()
     a.generateCode(atype)
     animals.append(a)
@@ -165,9 +165,49 @@ for row in reader:
     a.ActiveMovementDate = thedate
     a.ActiveMovementType = m.MovementType
 
+# ================ ODAS 1995
+# The odas tags files contains more upto date owner telephone information,
+# as well as the odas tag field
+# however, it's split into two rows per record
+TAG = 0
+ANIMALNAME = 1
+DATE = 2
+ADOPTIONNO = 3
+ADOPTERSNAME = 4
+PHONE = 5
 
-# ================ TAGS
-# The tags file contains more upto date owner telephone information,
+files = ( "odas1995", "" )
+for file in files:
+    if file == "": break
+    reader = csv.reader(open(file + ".csv"), dialect="excel")
+
+    irow = 0
+    for row in reader:
+        
+        # Skip first row of header
+        irow += 1
+        if irow < 2: continue
+
+        # Find the matching owner record if there is one
+        o = None
+
+        # Does the row have a tag and the name isn't VOID?
+        if row[TAG].strip() != "" and row[ANIMALNAME].strip() != "VOID":
+            o = findowner(row[ADOPTIONNO])
+            if o != None: 
+                # If we have a number for the owner, update it
+                p = row[PHONE].strip()
+                if p != "" and p != "N/A" and p != "**":
+                    o.HomeTelephone = p
+
+            # Add the ODAS tag to the animal
+            a = findanimal(row[ADOPTIONNO])
+            if a != None:
+                a.TattooNumber = row[TAG].strip()
+
+# ================ ODAS 1996
+# The odas tags files contains more upto date owner telephone information,
+# as well as the odas tag field
 # however, it's split into two rows per record
 TAG = 0
 ANIMALNAME = 1
@@ -179,47 +219,51 @@ HOMEWORK = 5
 PHONE = 5
 CELL = 6
 
-reader = csv.reader(open("tags.csv"), dialect="excel")
-irow = 0
-for row in reader:
-    
-    # Skip first row of header
-    irow += 1
-    if irow < 2: continue
+files = ( "odas1996", "" )
+for file in files:
+    if file == "": break
+    reader = csv.reader(open(file + ".csv"), dialect="excel")
 
-    # Find the matching owner record if there is one
-    o = None
+    irow = 0
+    for row in reader:
+        
+        # Skip first row of header
+        irow += 1
+        if irow < 2: continue
 
-    # Does the row have a tag and the name isn't VOID?
-    if row[TAG].strip() != "" and row[ANIMALNAME].strip() != "VOID":
-        o = findowner(row[ADOPTIONNO])
-        if o != None: 
-            # If we have a home or cell number for the owner, update it
-            p = row[PHONE].strip()
-            c = row[CELL].strip()
-            if p != "" and p != "N/A" and p != "**":
-                o.HomeTelephone = p
-            if c != "" and p.find("N/A") == -1 and c != "**":
-                o.MobileTelephone = c
+        # Find the matching owner record if there is one
+        o = None
 
-        # Add the rabies tag to the animal
-        a = findanimal(row[ADOPTIONNO])
-        if a != None:
-            a.RabiesTag = row[TAG].strip()
+        # Does the row have a tag and the name isn't VOID?
+        if row[TAG].strip() != "" and row[ANIMALNAME].strip() != "VOID":
+            o = findowner(row[ADOPTIONNO])
+            if o != None: 
+                # If we have a home or cell number for the owner, update it
+                p = row[PHONE].strip()
+                c = row[CELL].strip()
+                if p != "" and p != "N/A" and p != "**":
+                    o.HomeTelephone = p
+                if c != "" and p.find("N/A") == -1 and c != "**":
+                    o.MobileTelephone = c
 
-    else:
-        # It's a continuation of the previous row
-        if row[ANIMALNAME].strip() != "VOID":
+            # Add the ODAS tag to the animal
+            a = findanimal(row[ADOPTIONNO])
+            if a != None:
+                a.TattooNumber = row[TAG].strip()
 
-            # Do we have a work phone?
-            p = row[PHONE].strip()
-            if o != None and p != "" and p != "N/A" and p != "**":
-                o.WorkTelephone = p
+        else:
+            # It's a continuation of the previous row
+            if row[ANIMALNAME].strip() != "VOID":
+
+                # Do we have a work phone?
+                p = row[PHONE].strip()
+                if o != None and p != "" and p != "N/A" and p != "**":
+                    o.WorkTelephone = p
 
 
 # ================ RABIES
 
-files = ( "rabies2007", "rabies2008", "rabies2009", "rabies2010" )
+files = ( "rabies2006", "rabies2007", "rabies2008", "rabies2009", "rabies2010" )
 TAG = 0
 ANIMALNAME = 1
 OWNERNAME = 2
