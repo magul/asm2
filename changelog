@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. Default brought in by owner option under defaults tab
+*. Couple of small bugfixes to loading of donation mappings and 
+-  for null bonded ids in imported data
 *. Make HTTP database driver more selective (use jdbc:http prefix)
 -  and load it last to prevent it overriding other drivers in
 -  some circumstances

@@ -32,6 +32,7 @@ import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindColumns;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -139,6 +140,7 @@ public class Options extends ASMForm {
     private UI.TextField txtLDAPUser;
     private UI.TextField txtLDAPPass;
     private UI.TextField txtVetsUser;
+    private OwnerLink olDefaultBroughtInBy;
 
     /** Creates new form Options */
     public Options() {
@@ -203,6 +205,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultCoatType);
         ctl.add(cboDefaultDonationType);
         ctl.add(cboDefaultVaccinationType);
+        ctl.add(olDefaultBroughtInBy);
         ctl.add(dtAccountingPeriod);
         ctl.add(cboDonationTargetAccount);
         ctl.add(cboMapDT1);
@@ -471,6 +474,8 @@ public class Options extends ASMForm {
             "VaccinationType",
             new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
             cboDefaultVaccinationType);
+        
+        olDefaultBroughtInBy.setID(Configuration.getInteger("DefaultBroughtInBy"));
 
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
@@ -612,6 +617,9 @@ public class Options extends ASMForm {
                 Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboDefaultVaccinationType).toString());
 
+            Configuration.setEntry("DefaultBroughtInBy", 
+            	Integer.toString(olDefaultBroughtInBy.getID()));
+            
             l = tblDefaultOptions.getSelections();
 
             for (int i = 0; i < l.length; i++) {
@@ -1075,6 +1083,10 @@ public class Options extends ASMForm {
                 "VaccinationType");
         UI.addComponent(pr, i18n("Default_Vaccination_Type"),
             cboDefaultVaccinationType);
+        
+        olDefaultBroughtInBy = new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE, "");
+        UI.addComponent(pr, i18n("Default_brought_in_by"), 
+        	olDefaultBroughtInBy);
 
         l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,

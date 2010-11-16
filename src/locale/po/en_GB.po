@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2010-11-05 09:36+0000\n"
+"PO-Revision-Date: 2010-11-16 15:13+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -8099,6 +8099,7 @@ msgstr "Media associated with this animal"
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
+#. # db/AutoDBUpdates
 #. # db/Diagnostic
 #. # db/DatabaseCopier
 #. # bo/Diary
@@ -13765,7 +13766,16 @@ msgstr ""
 msgid "Hide original owner information when printing animal records"
 msgstr "Hide original owner information when printing animal records"
 
-#. # ui/users/UserView
+#. # ui/system/Options
+#: map_donation_to_account
+msgid "Destination account for donation:"
+msgstr "Destination account for donation:"
+
+#. # ui/system/Options
+#: Default_brought_in_by
+msgid "Default Brought In By:# ui/users/UserView"
+msgstr "Default Brought In By:# ui/users/UserView"
+
 #: Add_a_new_user
 msgid "Add a new user"
 msgstr "Add a new user"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-05 09:36+0100\n"
+"POT-Creation-Date: 2010-11-16 15:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8102,6 +8102,7 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
+#. # db/AutoDBUpdates
 #. # db/Diagnostic
 #. # db/DatabaseCopier
 #. # bo/Diary
@@ -13768,7 +13769,16 @@ msgstr ""
 msgid "Hide original owner information when printing animal records"
 msgstr ""
 
-#. # ui/users/UserView
+#. # ui/system/Options
+#: map_donation_to_account
+msgid "Destination account for donation:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_brought_in_by
+msgid "Default Brought In By:# ui/users/UserView"
+msgstr ""
+
 #: Add_a_new_user
 msgid "Add a new user"
 msgstr ""

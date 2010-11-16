@@ -315,7 +315,8 @@ public class Account extends UserInfoBO<Account> {
     	String cm = Configuration.getString("DonationAccountMappings");
     	String[] sm = Utils.split(cm, ",");
     	for (int i = 0; i < sm.length; i++) {
-    		m.add(new DonationAccountMapping(sm[i]));
+    		if (sm[i].indexOf("=") != -1)
+    			m.add(new DonationAccountMapping(sm[i]));
     	}
     	return m;
     }

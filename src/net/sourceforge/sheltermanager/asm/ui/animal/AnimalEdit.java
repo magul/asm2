@@ -720,6 +720,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         if (Configuration.getBoolean("AutoNotForAdoption")) {
             chkNotForAdoption.setSelected(true);
         }
+        
+        // Default Brought In By owner
+        if (Configuration.getInteger("DefaultBroughtInBy") != 0) {
+        	embBroughtInBy.setID(Configuration.getInteger("DefaultBroughtInBy"));
+        }
     }
 
     public void loadData() {
@@ -2929,12 +2934,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 loadedEntry = true;
 
                 try {
-                    embOriginalOwner.loadFromID(animal.getOriginalOwnerID()
-                                                      .intValue());
-                    embBroughtInBy.loadFromID(animal.getBroughtInByOwnerID()
-                                                    .intValue());
-                    embBonded1.loadFromID(animal.getBondedAnimalID());
-                    embBonded2.loadFromID(animal.getBondedAnimal2ID());
+                	int ooid = 0;
+                	int biid = 0;
+                	int boid1 = 0;
+                	int boid2 = 0;
+                	if (animal.getOriginalOwnerID() != null) ooid = animal.getOriginalOwnerID().intValue();
+                	if (animal.getBroughtInByOwnerID() != null) biid = animal.getBroughtInByOwnerID().intValue();
+                	if (animal.getBondedAnimalID() != null) boid1 = animal.getBondedAnimalID().intValue();
+                	if (animal.getBondedAnimal2ID() != null) boid2 = animal.getBondedAnimal2ID().intValue();
+                    embOriginalOwner.loadFromID(ooid);
+                    embBroughtInBy.loadFromID(biid);
+                    embBonded1.loadFromID(boid1);
+                    embBonded2.loadFromID(boid2);
                 } catch (Exception e) {
                     Global.logException(e, getClass());
                 }
