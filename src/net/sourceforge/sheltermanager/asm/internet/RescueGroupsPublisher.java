@@ -219,24 +219,20 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     "\", ");
 
                 // dogs (good with)
-                dataFile.append((an.isGoodWithDogs().intValue() == 0)
-                    ? "\"Yes\", " : "\"No\", ");
+                dataFile.append(yesNoUnknown(an.isGoodWithDogs()));
 
                 // cats
-                dataFile.append((an.isGoodWithCats().intValue() == 0)
-                    ? "\"Yes\", " : "\"No\", ");
+                dataFile.append(yesNoUnknown(an.isGoodWithCats()));
 
                 // kids
-                dataFile.append((an.isGoodWithKids().intValue() == 0)
-                    ? "\"Yes\", " : "\"No\", ");
+                dataFile.append(yesNoUnknown(an.isGoodWithKids()));
 
                 // declawed
                 dataFile.append((an.getDeclawed().intValue() == 1)
                     ? "\"Yes\", " : "\"No\", ");
 
                 // housetrained
-                dataFile.append((an.isHouseTrained().intValue() == 0)
-                    ? "\"Yes\", " : "\"No\", ");
+                dataFile.append(yesNoUnknown(an.isHouseTrained()));
 
                 // age
                 /*
