@@ -392,15 +392,15 @@ public class RescueGroupsPublisher extends Thread {
                         "\", ");
 
                     // dogs (good with)
-                    dataFile.append((an.isGoodWithDogs().intValue() != 1)
+                    dataFile.append((an.isGoodWithDogs().intValue() == 0)
                         ? "\"Yes\", " : "\"No\", ");
 
                     // cats
-                    dataFile.append((an.isGoodWithCats().intValue() != 1)
+                    dataFile.append((an.isGoodWithCats().intValue() == 0)
                         ? "\"Yes\", " : "\"No\", ");
 
                     // kids
-                    dataFile.append((an.isGoodWithKids().intValue() != 1)
+                    dataFile.append((an.isGoodWithKids().intValue() == 0)
                         ? "\"Yes\", " : "\"No\", ");
 
                     // declawed
@@ -408,7 +408,7 @@ public class RescueGroupsPublisher extends Thread {
                         ? "\"Yes\", " : "\"No\", ");
 
                     // housetrained
-                    dataFile.append((an.isHouseTrained().intValue() != 1)
+                    dataFile.append((an.isHouseTrained().intValue() == 0)
                         ? "\"Yes\", " : "\"No\", ");
 
                     // age
