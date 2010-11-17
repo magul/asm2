@@ -40,6 +40,7 @@ public class PublishCriteria {
     public boolean forceReupload = false;
     public boolean generateJavascriptDB = false;
     public boolean thumbnails = false;
+    public boolean checkSocket = false;
 
     /** How to order animal data -
         1 = Ascending order of entry to shelter

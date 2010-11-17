@@ -23,7 +23,7 @@ package net.sourceforge.sheltermanager.asm.script;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
-import net.sourceforge.sheltermanager.asm.internet.Publisher;
+import net.sourceforge.sheltermanager.asm.internet.HTMLPublisher;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
@@ -240,7 +240,7 @@ public class PublishWWW {
         }
 
         // Publish on a single thread model for cmd line
-        new Publisher(null, pc).run();
+        new HTMLPublisher(null, pc).run();
 
         // Once it's complete, shutdown the VM
         System.exit(0);

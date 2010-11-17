@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. Refactoring of all publishers to use AbstractPublisher and
+-  FTPPublisher base classes. Duplicate code removed and
+-  small tweaks/optimisations made to improve performance
 *. RescueGroups publisher was sending Yes for No/Unknown on 
 -  good with cats/dogs/kids/housetrained fields
 *. Default brought in by owner option under defaults tab

@@ -23,7 +23,7 @@ package net.sourceforge.sheltermanager.asm.script;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
-import net.sourceforge.sheltermanager.asm.internet.SaveAPetPublisher;
+import net.sourceforge.sheltermanager.asm.internet.AdoptAPetPublisher;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
@@ -164,6 +164,6 @@ public class PublishSaveAPet {
         }
 
         // Publish on a single thread model for cmd line
-        new SaveAPetPublisher(null, pc).run();
+        new AdoptAPetPublisher(null, pc).run();
     }
 }

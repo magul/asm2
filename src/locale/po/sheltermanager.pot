@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-16 15:13+0100\n"
+"POT-Creation-Date: 2010-11-17 14:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -362,7 +362,7 @@ msgid "Auto removed due to lack of owner contact."
 msgstr ""
 
 #. # ui/internet/PetFinderMapSpecies
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #. # bo/LookupCache
 #: Cat
 #: species_2
@@ -375,7 +375,7 @@ msgid "Kittens"
 msgstr ""
 
 #. # ui/internet/PetFinderMapSpecies
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #. # bo/LookupCache
 #: Dog
 #: species_1
@@ -3618,7 +3618,7 @@ msgstr ""
 #. # ui/owner/OwnerFindText
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
@@ -3647,7 +3647,7 @@ msgstr ""
 #. # ui/owner/OwnerFindText
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #. # db/AutoDBUpdates
 #. # wordprocessor/OwnerDonationDocument
 #. # wordprocessor/AnimalDocument
@@ -9168,7 +9168,7 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: View_Site?
 msgid "View Site?"
 msgstr ""
@@ -9190,8 +9190,8 @@ msgstr ""
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
+#. # internet/HTMLPublisher
 #. # internet/PetFinderPublisher
 #: Publishing...
 msgid "Publishing..."
@@ -9207,20 +9207,11 @@ msgstr ""
 msgid "Exclude animals aged under:"
 msgstr ""
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: Web_site_creation_completed.\nWould_you_like_to_view_the_pages_now?
 msgid ""
 "Web site creation completed.\n"
 "Would you like to view the pages now?"
-msgstr ""
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: Determining_Workload...
-msgid "Determining Workload..."
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9269,14 +9260,14 @@ msgstr ""
 
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
+#. # internet/HTMLPublisher
 #. # internet/PetFinderPublisher
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
 msgstr ""
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: retrieving_page_templates
 msgid "Retrieving internet page templates..."
 msgstr ""
@@ -9322,11 +9313,6 @@ msgstr ""
 msgid "Publish Available Animals To PetFinder.com"
 msgstr ""
 
-#. # internet/Pets911Publisher
-#: an_error_occurred_contacting_petfinder.org
-msgid "An error occurred contacting PetFinder.com: "
-msgstr ""
-
 #. # ui/internet/PetFinderSettings
 #: PetFinder_Settings
 msgid "PetFinder.com Settings"
@@ -9370,7 +9356,6 @@ msgstr ""
 msgid "PetFinder Mapping"
 msgstr ""
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_species
@@ -9380,7 +9365,6 @@ msgid ""
 "Would you like to edit them now?"
 msgstr ""
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: Unmapped_Types
@@ -9392,7 +9376,6 @@ msgstr ""
 msgid "Map PetFinder Breeds"
 msgstr ""
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_breeds
@@ -9407,14 +9390,12 @@ msgstr ""
 msgid "PetFinder Breed Mapping"
 msgstr ""
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_types_are_mapped
 msgid "Not all of your PetFinder types are mapped. Publisher cannot continue."
 msgstr ""
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_breeds_are_mapped
@@ -9466,12 +9447,12 @@ msgstr ""
 msgid "AdoptAPet.com Settings"
 msgstr ""
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: saveapet_publishing_complete
 msgid "AdoptAPet.com Publishing Complete."
 msgstr ""
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: saveapet_upload_complete
 msgid "AdoptAPet.com Upload Complete"
 msgstr ""
@@ -9548,7 +9529,7 @@ msgid ""
 " Go to the Email tab under System->Options"
 msgstr ""
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr ""
@@ -9579,7 +9560,7 @@ msgstr ""
 msgid "HTML"
 msgstr ""
 
-#. # internet/Publisher
+#. # internet/FTPPublisher
 #: cannot_upload_directly
 msgid ""
 "You have not set FTP details for your website. ASM cannot publish directly "
@@ -13735,7 +13716,8 @@ msgid "Only show account totals for the current period"
 msgstr ""
 
 #. # ui/system/Options
-#. # internet/Publisher
+#. # ui/internet/InternetPublisher
+#. # internet/HTMLPublisher
 #. # startup/Startup
 #: internet
 msgid "Internet"

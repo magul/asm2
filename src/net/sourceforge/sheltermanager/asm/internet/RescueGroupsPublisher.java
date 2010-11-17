@@ -21,59 +21,46 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import net.sourceforge.sheltermanager.asm.bo.Adoption;
+import java.util.Calendar;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
-import net.sourceforge.sheltermanager.asm.ftp.FTPException;
-import net.sourceforge.sheltermanager.asm.ftp.FTPTransferType;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.internet.*;
+import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
+import net.sourceforge.sheltermanager.asm.ui.internet.PetFinderMapBreed;
+import net.sourceforge.sheltermanager.asm.ui.internet.PetFinderMapSpecies;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-import net.sourceforge.sheltermanager.dbfs.DBFS;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
-import java.util.Calendar;
-import java.util.Date;
 
 
 /**
  * The actual class that does the RescueGroups.org publishing work
  *
  * @author Robin Rawson-Tetley
+ * @version 3.0
  */
-public class RescueGroupsPublisher extends Thread {
-    /** Reference to the parent */
-    private InternetPublisher parent = null;
-    private PublishCriteria publishCriteria = null;
-    private final boolean debug = true;
-
-    /** The upload socket if upload is on */
-    private FTPClient uploadFTP = null;
-
-    /** Animals born after this date will be excluded */
-    private Calendar ageExclusion = null;
+public class RescueGroupsPublisher extends FTPPublisher {
 
     public RescueGroupsPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-        this.parent = parent;
-        this.publishCriteria = publishCriteria;
+    	
+    	// Override certain values for rescuegroups
+    	publishCriteria.uploadDirectly = true;
+    	publishCriteria.ftpRoot = "";
+    	publishCriteria.thumbnails = false;
+
+    	init("rescuegroups", parent, publishCriteria,
+    			Configuration.getString("RescueGroupsFTPURL"),
+    			Configuration.getString("RescueGroupsFTPUser"),
+    			Configuration.getString("RescueGroupsFTPPassword"),
+    			"21", "");
     }
 
-    /** The main application thread */
     public void run() {
+    	
         // Before we start, make sure that all species have been
         // mapped - we reuse the PetFinder mappings for RescueGroups
         // so they know the limits of what they can expect from
@@ -99,93 +86,65 @@ public class RescueGroupsPublisher extends Thread {
             return;
         }
 
-        // Get the publish directory and clean it
-        String publishDir = makePublishDirectory();
-        String shelterId = "";
+        // Check settings
+        String shelterId = Configuration.getString("RescueGroupsFTPUser");
 
-        try {
-            shelterId = Configuration.getString("RescueGroupsFTPUser");
+        if ((shelterId == null) || shelterId.trim().equals("")) {
+            Global.logError(Global.i18n("uiinternet",
+                    "You_need_to_set_your_RescueGroups_settings_before_publishing"),
+                "RescueGroupsPublisher.run");
 
-            if ((shelterId == null) || shelterId.trim().equals("")) {
-                Global.logError(Global.i18n("uiinternet",
-                        "You_need_to_set_your_RescueGroups_settings_before_publishing"),
-                    "RescueGroupsPublisher.run");
-
-                if (parent != null) {
-                    Dialog.showError(Global.i18n("uiinternet",
-                            "You_need_to_set_your_RescueGroups_settings_before_publishing"));
-                    // Re-enable parent buttons
-                    parent.btnClose.setEnabled(true);
-                    parent.btnPublish.setEnabled(true);
-                }
-
-                return;
-            }
-        } catch (Exception e) {
             if (parent != null) {
-                Dialog.showError(e.getMessage());
+                Dialog.showError(Global.i18n("uiinternet",
+                        "You_need_to_set_your_RescueGroups_settings_before_publishing"));
+                // Re-enable parent buttons
+                parent.btnClose.setEnabled(true);
+                parent.btnPublish.setEnabled(true);
             }
-
-            Global.logException(e, getClass());
-
             return;
         }
+        
 
-        // Connect to the remote host and switch to the correct directory
-        openUploadSocket();
-
+        // Open the socket
+        if (!openFTPSocket()) {
+        	if (parent == null) {
+        		System.exit(1);
+        	}
+        	else {
+        		return;
+        	}
+        }
+        
+        // Attempt to create the import/pictures directory and fail silently
+        // if it already exists.
+        mkdir("import");
+        chdir("import");
+        mkdir("pictures");
+        chdir("pictures", "import/pictures");
+        
         // Get a list of animals
-        outputStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
-
-        Animal an = new Animal();
-
-        // Get list of animals, filtering where possible now
-        an.openRecordset(buildWhereFilter());
+        setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+        Animal an = null;
+        try {
+        	an = getMatchingAnimals();
+        }
+        catch (Exception e) {
+        	Global.logException(e, getClass());
+        	if (parent != null) {
+        		Dialog.showError(e.getMessage());
+        	}
+        	else {
+        		System.exit(1);
+        	}
+        }
 
         // Start the progress meter
-        if (parent != null) {
-            Global.mainForm.initStatusBarMax((int) an.getRecordCount());
-        }
-
-        outputStatusText(Global.i18n("uiinternet", "Determining_Workload..."));
-
-        // Calculate how many animal records will match
-        // for the x of x debug output
-        int noAnimals = 0;
-
-        try {
-            while (!an.getEOF()) {
-                if (checkAnimal(an)) {
-                    noAnimals++;
-                }
-
-                an.moveNext();
-
-                if (parent != null) {
-                    Global.mainForm.incrementStatusBar();
-                }
-            }
-        } catch (Exception e) {
-            if (parent != null) {
-                Dialog.showError(e.getMessage());
-            }
-
-            Global.logException(e, getClass());
-
-            return;
-        }
-
+        initStatusBarMax(an.size());
+        
         // Start a new buffer - this is going to be the
-        // CSV file required by 1-800-Save-A-Pet.
+        // CSV file required by RescueGroups.
         StringBuffer dataFile = new StringBuffer();
-
-        // Cycle through the animals
-        if (parent != null) {
-            Global.mainForm.resetStatusBar();
-            Global.mainForm.initStatusBarMax((int) an.getRecordCount());
-        }
-
-        outputStatusText(Global.i18n("uiinternet", "Publishing..."));
+        setStatusText(Global.i18n("uiinternet", "Publishing..."));
 
         try {
             an.moveFirst();
@@ -193,364 +152,216 @@ public class RescueGroupsPublisher extends Thread {
             int anCount = 0;
 
             while (!an.getEOF()) {
-                // Make sure that animal is valid
-                if (checkAnimal(an)) {
-                    anCount++;
+                anCount++;
 
-                    if (debug) {
-                        Global.logInfo("Processing: " + an.getShelterCode() +
-                            ": " + an.getAnimalName() + " (" + anCount +
-                            " of " + noAnimals + ")",
-                            "RescueGroupsPublisher.run");
-                    }
+                Global.logInfo("Processing: " + an.getShelterCode() +
+                    ": " + an.getAnimalName() + " (" + anCount +
+                    " of " + an.size() + ")",
+                    "RescueGroupsPublisher.run");
 
-                    // Get the name of the animal's image file. We use the
-                    // unique media references to cut upload times in
-                    // the future.
-                    String animalweb = an.getWebMedia();
-                    String animalcode = an.getShelterCode();
-                    String animalpic = animalcode + "-1.jpg";
-                    int totalimages = 0;
+                // Rescuegroups allows upto a total of 4 images, so
+                // if we have uploadAll on, stop at 4
+                int totalimages = uploadImages(an, 4);
 
-                    // Copy the animal image to the publish folder and
-                    // rename it as "<ShelterCode>-1.jpg"
-                    if (!animalweb.equals("")) {
-                        if (debug) {
-                            Global.logInfo("Retrieving image.",
-                                "RescueGroupsPublisher.run");
-                        }
+                // Get Petfinder mapped species and breeds
+                String pfSpecies = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());
+                String pfBreed1 = LookupCache.getBreedPetFinderMapping(an.getBreedID());
+                String pfBreed2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
 
-                        try {
-                            DBFS dbfs = Utils.getDBFSDirectoryForLink(0,
-                                    an.getID().intValue());
+                // Build the CSV file entry for this animal
 
-                            try {
-                                dbfs.readFile(animalweb, publishDir +
-                                    animalpic);
+                // orgID
+                dataFile.append(shelterId + ", ");
 
-                                if (debug) {
-                                    Global.logInfo("Retrieved image.",
-                                        "RescueGroupsPublisher.run");
-                                }
+                // animalID
+                dataFile.append(an.getID().toString() + ", ");
 
-                                // If scaling is on, scale the image
-                                if (publishCriteria.scaleImages != 1) {
-                                    scaleImage(publishDir + animalpic,
-                                        publishCriteria.scaleImages);
-                                }
+                // status
+                dataFile.append("\"Available\", ");
 
-                                // Upload the file
-                                if (debug) {
-                                    Global.logInfo("Uploading image.",
-                                        "RescueGroupsPublisher.run");
-                                }
+                // lastUpdated (Unix timestamp field)
+                dataFile.append(an.getLastChangedDate().getTime() + ", ");
 
-                                upload(animalpic);
-                                totalimages++;
+                // rescueID (org name)
+                dataFile.append("\"" +
+                    Configuration.getString("Organisation") + "\", ");
 
-                                if (debug) {
-                                    Global.logInfo("Image uploaded.",
-                                        "RescueGroupsPublisher.run");
-                                }
-                            }
-                            // If an IO Error occurs, the file is already in the
-                            // publish
-                            // directory.
-                            catch (Exception e) {
-                                // Upload the file
-                                if (debug) {
-                                    Global.logInfo("Uploading image.",
-                                        "RescueGroupsPublisher.run");
-                                }
+                // name
+                dataFile.append("\"" + an.getAnimalName() + "\", ");
 
-                                upload(animalpic);
+                // summary TODO:
+                dataFile.append("\"\", ");
 
-                                if (debug) {
-                                    Global.logInfo("Image uploaded.",
-                                        "RescueGroupsPublisher.run");
-                                }
-                            }
+                // species
+                // dataFile.append("\"" + an.getSpeciesName() + "\", ");
+                dataFile.append("\"" + pfSpecies + "\", ");
 
-                            // If the upload all option is set, grab all of
-                            // the images this animal has and save/upload them too
-                            if (publishCriteria.uploadAllImages) {
-                                int idx = 1;
-                                String[] images = dbfs.list();
+                // breed
+                dataFile.append("\"" + an.getBreedName() + "\", ");
 
-                                if (debug) {
-                                    Global.logInfo("Animal has " +
-                                        images.length + " media files",
-                                        "RescueGroupsPublisher.run");
-                                }
+                // primary breed
+                dataFile.append("\"" + pfBreed1 + "\", ");
 
-                                for (int i = 0;
-                                        (i < images.length) &&
-                                        (totalimages <= 4); i++) {
-                                    // Ignore the main web media - we used that
-                                    if (!animalweb.equals(images[i]) &&
-                                            isImage(images[i])) {
-                                        idx++;
-
-                                        String otherpic = animalcode + "-" +
-                                            idx + ".jpg";
-
-                                        if (debug) {
-                                            Global.logInfo(
-                                                "Retrieving additional image: " +
-                                                otherpic + " (" + images[i] +
-                                                ")", "RescueGroupsPublisher.run");
-                                        }
-
-                                        dbfs.readFile(images[i],
-                                            publishDir + otherpic);
-
-                                        // If scaling is on, scale the image
-                                        if (publishCriteria.scaleImages != 1) {
-                                            scaleImage(publishDir + otherpic,
-                                                publishCriteria.scaleImages);
-                                        }
-
-                                        if (debug) {
-                                            Global.logInfo(
-                                                "Uploading additional image: " +
-                                                otherpic + " (" + images[i] +
-                                                ")", "RescueGroupsPublisher.run");
-                                        }
-
-                                        upload(otherpic);
-                                        totalimages++;
-                                    }
-                                }
-                            }
-
-                            dbfs = null;
-                        }
-                        // Ignore errors retrieving files from the media
-                        // server.
-                        catch (Exception e) {
-                        }
-                    } else {
-                        if (debug) {
-                            Global.logInfo("No image available.",
-                                "RescueGroupsPublisher.run");
-                        }
-                    }
-
-                    // Get Petfinder mapped species and breeds
-                    String pfSpecies = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());
-                    String pfBreed1 = LookupCache.getBreedPetFinderMapping(an.getBreedID());
-                    String pfBreed2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
-
-                    // Build the CSV file entry for this animal
-
-                    // orgID
-                    dataFile.append(shelterId + ", ");
-
-                    // animalID
-                    dataFile.append(an.getID().toString() + ", ");
-
-                    // status
-                    dataFile.append("\"Available\", ");
-
-                    // lastUpdated (Unix timestamp field)
-                    dataFile.append(an.getLastChangedDate().getTime() + ", ");
-
-                    // rescueID (org name)
-                    dataFile.append("\"" +
-                        Configuration.getString("Organisation") + "\", ");
-
-                    // name
-                    dataFile.append("\"" + an.getAnimalName() + "\", ");
-
-                    // summary TODO:
+                // secondary breed - send a blank if it's not a crossbreed
+                if (an.getCrossBreed().intValue() == 1) {
+                    dataFile.append("\"" + pfBreed2 + "\", ");
+                } else {
                     dataFile.append("\"\", ");
+                }
 
-                    // species
-                    // dataFile.append("\"" + an.getSpeciesName() + "\", ");
-                    dataFile.append("\"" + pfSpecies + "\", ");
+                // sex
+                dataFile.append("\"" +
+                    LookupCache.getSexNameForID(an.getSex()) + "\", ");
 
-                    // breed
-                    dataFile.append("\"" + an.getBreedName() + "\", ");
+                // mixed
+                dataFile.append("\"" +
+                    ((an.getCrossBreed().intValue() == 1) ? "Yes" : "No") +
+                    "\", ");
 
-                    // primary breed
-                    dataFile.append("\"" + pfBreed1 + "\", ");
+                // dogs (good with)
+                dataFile.append((an.isGoodWithDogs().intValue() == 0)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // secondary breed - send a blank if it's not a crossbreed
-                    if (an.getCrossBreed().intValue() == 1) {
-                        dataFile.append("\"" + pfBreed2 + "\", ");
-                    } else {
-                        dataFile.append("\"\", ");
-                    }
+                // cats
+                dataFile.append((an.isGoodWithCats().intValue() == 0)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // sex
-                    dataFile.append("\"" +
-                        LookupCache.getSexNameForID(an.getSex()) + "\", ");
+                // kids
+                dataFile.append((an.isGoodWithKids().intValue() == 0)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // mixed
-                    dataFile.append("\"" +
-                        ((an.getCrossBreed().intValue() == 1) ? "Yes" : "No") +
-                        "\", ");
+                // declawed
+                dataFile.append((an.getDeclawed().intValue() == 1)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // dogs (good with)
-                    dataFile.append((an.isGoodWithDogs().intValue() == 0)
-                        ? "\"Yes\", " : "\"No\", ");
+                // housetrained
+                dataFile.append((an.isHouseTrained().intValue() == 0)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // cats
-                    dataFile.append((an.isGoodWithCats().intValue() == 0)
-                        ? "\"Yes\", " : "\"No\", ");
+                // age
+                /*
+                 * -- Enum of | Adult | | Baby | | Senior | | Young |
+                 */
 
-                    // kids
-                    dataFile.append((an.isGoodWithKids().intValue() == 0)
-                        ? "\"Yes\", " : "\"No\", ");
+                // Take the age of the animal in years - obviously
+                // this is going to be a bit out of context as some
+                // animals live far longer than others, but we can
+                // address that later. Probably need to hold age
+                // thresholds for different species somewhere.
+                Calendar today = Calendar.getInstance();
+                Calendar abday = Utils.dateToCalendar(an.getDateOfBirth());
+                double ageInYears = Utils.getDateDiff(today, abday);
+                ageInYears = ((((ageInYears / 60) / 24) / 7) / 52);
 
-                    // declawed
-                    dataFile.append((an.getDeclawed().intValue() == 1)
-                        ? "\"Yes\", " : "\"No\", ");
+                String ageName = "Adult";
 
-                    // housetrained
-                    dataFile.append((an.isHouseTrained().intValue() == 0)
-                        ? "\"Yes\", " : "\"No\", ");
+                if (ageInYears < 0.5) {
+                    ageName = "Baby";
+                } else if (ageInYears < 2) {
+                    ageName = "Young";
+                } else if (ageInYears < 9) {
+                    ageName = "Adult";
+                } else {
+                    ageName = "Senior";
+                }
 
-                    // age
-                    /*
-                     * -- Enum of | Adult | | Baby | | Senior | | Young |
-                     */
+                dataFile.append("\"" + ageName + "\", ");
 
-                    // Take the age of the animal in years - obviously
-                    // this is going to be a bit out of context as some
-                    // animals live far longer than others, but we can
-                    // address that later. Probably need to hold age
-                    // thresholds for different species somewhere.
-                    Calendar today = Calendar.getInstance();
-                    Calendar abday = Utils.dateToCalendar(an.getDateOfBirth());
-                    double ageInYears = Utils.getDateDiff(today, abday);
-                    ageInYears = ((((ageInYears / 60) / 24) / 7) / 52);
-
-                    String ageName = "Adult";
-
-                    if (ageInYears < 0.5) {
-                        ageName = "Baby";
-                    } else if (ageInYears < 2) {
-                        ageName = "Young";
-                    } else if (ageInYears < 9) {
-                        ageName = "Adult";
-                    } else {
-                        ageName = "Senior";
-                    }
-
-                    dataFile.append("\"" + ageName + "\", ");
-
-                    // specialNeeds
-                    if (an.getCrueltyCase().intValue() == 1) {
-                        dataFile.append("\"Yes\", ");
-                    } else if (an.isHasSpecialNeeds().intValue() == 1) {
-                        dataFile.append("\"Yes\", ");
-                    } else {
-                        dataFile.append("\"No\", ");
-                    }
-
-                    // altered
-                    dataFile.append((an.getNeutered().intValue() == 1)
-                        ? "\"Yes\", " : "\"No\", ");
-
-                    // size
-                    // -- Enum of S M L XL
-                    // These can map straight from ASMs default sizes
-                    // (pretty lucky there!)
-                    String anSize = "M";
-
-                    if (an.getSize().intValue() == 0) {
-                        anSize = "XL";
-                    } else if (an.getSize().intValue() == 1) {
-                        anSize = "L";
-                    } else if (an.getSize().intValue() == 2) {
-                        anSize = "M";
-                    } else if (an.getSize().intValue() == 3) {
-                        anSize = "S";
-                    }
-
-                    dataFile.append("\"" + anSize + "\", ");
-
-                    // uptodate (refers to shots)
-                    Configuration conf = null;
-                    AnimalVaccination av = new AnimalVaccination();
-                    av.openRecordset("AnimalID = " + an.getID() +
-                        " AND DateOfVaccination Is Not Null");
-                    dataFile.append((!av.getEOF()) ? "\"Yes\", " : "\"No\", ");
-                    av.free();
-                    av = null;
-
-                    // color
-                    dataFile.append("\"" + an.getBaseColourName() + "\", ");
-
-                    // coatLength TODO:
-                    dataFile.append("\"\", ");
-
-                    // pattern TODO:
-                    dataFile.append("\"\", ");
-
-                    // courtesy (what is this?)
+                // specialNeeds
+                if (an.getCrueltyCase().intValue() == 1) {
                     dataFile.append("\"Yes\", ");
+                } else if (an.isHasSpecialNeeds().intValue() == 1) {
+                    dataFile.append("\"Yes\", ");
+                } else {
+                    dataFile.append("\"No\", ");
+                }
 
-                    // description
-                    String comm = an.getWebMediaNotes();
+                // altered
+                dataFile.append((an.getNeutered().intValue() == 1)
+                    ? "\"Yes\", " : "\"No\", ");
 
-                    // No web media, use the animal comments instead
-                    if (comm.equals("")) {
-                        comm = an.getAnimalComments();
-                    }
+                // size
+                // -- Enum of S M L XL
+                // These can map straight from ASMs default sizes
+                // (pretty lucky there!)
+                String anSize = "M";
 
-                    // Add any standard extra text
-                    comm += Configuration.getString("TPPublisherSig");
+                if (an.getSize().intValue() == 0) {
+                    anSize = "XL";
+                } else if (an.getSize().intValue() == 1) {
+                    anSize = "L";
+                } else if (an.getSize().intValue() == 2) {
+                    anSize = "M";
+                } else if (an.getSize().intValue() == 3) {
+                    anSize = "S";
+                }
 
-                    // Strip CR/LF
-                    comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
-                    comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
+                dataFile.append("\"" + anSize + "\", ");
 
-                    // Switch quotes
-                    comm = comm.replace('"', '\'');
-                    dataFile.append("\"" + comm + "\"");
-                    comm = null;
+                // uptodate (refers to shots)
+                AnimalVaccination av = new AnimalVaccination();
+                av.openRecordset("AnimalID = " + an.getID() +
+                    " AND DateOfVaccination Is Not Null");
+                dataFile.append((!av.getEOF()) ? "\"Yes\", " : "\"No\", ");
+                av.free();
+                av = null;
 
-                    // pic1 - pic4 - if we don't have a picture for it, just leave the
-                    // field blank instead
-                    for (int i = 1; i <= 4; i++) {
-                        dataFile.append(", ");
+                // color
+                dataFile.append("\"" + an.getBaseColourName() + "\", ");
 
-                        if (totalimages >= i) {
-                            dataFile.append("\"" + an.getShelterCode() + "-" +
-                                i + ".jpg" + "\"");
-                        } else {
-                            dataFile.append("\"\"");
-                        }
-                    }
+                // coatLength TODO:
+                dataFile.append("\"\", ");
 
-                    // Terminate
-                    dataFile.append("\n");
+                // pattern TODO:
+                dataFile.append("\"\", ");
 
-                    // Mark media records for this animal as published
-                    if (debug) {
-                        Global.logInfo(
-                            "Marking media records published for animal " +
-                            an.getID(), "RescueGroupsPublisher.run");
-                    }
+                // courtesy (what is this?)
+                dataFile.append("\"Yes\", ");
 
-                    DBConnection.executeAction(
-                        "UPDATE media SET LastPublishedRG = '" +
-                        Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-                        an.getID() + " AND LinkTypeID = 0");
+                // description
+                String comm = an.getWebMediaNotes();
 
-                    if (debug) {
-                        Global.logInfo("Finished processing " +
-                            an.getShelterCode(), "RescueGroupsPublisher.run");
+                // No web media, use the animal comments instead
+                if (comm.equals("")) {
+                    comm = an.getAnimalComments();
+                }
+
+                // Add any standard extra text
+                comm += Configuration.getString("TPPublisherSig");
+
+                // Strip CR/LF
+                comm = Utils.replace(comm, new String(new byte[] { 13 }), "");
+                comm = Utils.replace(comm, new String(new byte[] { 10 }), "");
+
+                // Switch quotes
+                comm = comm.replace('"', '\'');
+                dataFile.append("\"" + comm + "\"");
+                comm = null;
+
+                // pic1 - pic4 - if we don't have a picture for it, just leave the
+                // field blank instead
+                for (int i = 1; i <= 4; i++) {
+                    dataFile.append(", ");
+
+                    if (totalimages >= i) {
+                        dataFile.append("\"" + an.getShelterCode() + "-" +
+                            i + ".jpg" + "\"");
+                    } else {
+                        dataFile.append("\"\"");
                     }
                 }
+
+                // Terminate
+                dataFile.append("\n");
+
+                // Mark media records for this animal as published
+                markAnimalPublished("LastPublishedRG", an.getID());
+
+                Global.logInfo("Finished processing " +
+                    an.getShelterCode(), "RescueGroupsPublisher.run");
 
                 an.moveNext();
-
-                if (parent != null) {
-                    Global.mainForm.incrementStatusBar();
-                }
+                incrementStatusBar();
             }
         } catch (Exception e) {
             if (parent != null) {
@@ -573,33 +384,18 @@ public class RescueGroupsPublisher extends Thread {
         saveFile(publishDir + "pets.csv", csvhead + dataFile.toString());
 
         // Upload the files to the site
-        try {
-            uploadFTP.chdir("..");
-
-            if (debug) {
-                Global.logInfo("Uploading data", "RescueGroupsPublisher.run");
-            }
-
-            upload("pets.csv");
-
-            if (debug) {
-                Global.logInfo("Data uploaded", "RescueGroupsPublisher.run");
-            }
-        } catch (Exception e) {
-            if (parent != null) {
-                Dialog.showError(e.getMessage());
-            }
-
-            Global.logException(e, getClass());
-        }
-
+        chdir("..", "import");
+        Global.logInfo("Uploading data", "RescueGroupsPublisher.run");
+        upload("pets.csv");
+        Global.logInfo("Data uploaded", "RescueGroupsPublisher.run");
+            
         if (parent != null) {
             Global.mainForm.resetStatusBar();
             Global.mainForm.setStatusText("");
         }
 
         // Disconnect from the remote host
-        closeUploadSocket();
+        closeFTPSocket();
 
         // Tell user it's finished
         if (parent != null) {
@@ -617,162 +413,6 @@ public class RescueGroupsPublisher extends Thread {
         if (parent != null) {
             parent.btnClose.setEnabled(true);
             parent.btnPublish.setEnabled(true);
-        }
-
-        // Clear up
-        parent = null;
-    }
-
-    private boolean isImage(String s) {
-        s = s.toLowerCase();
-
-        return s.endsWith("jpg") || s.endsWith("jpeg") || s.endsWith("png");
-    }
-
-    private void outputStatusText(String text) {
-        if (parent != null) {
-            Global.mainForm.setStatusText(text);
-        } else {
-            Global.logInfo(text, "RescueGroupsPublisher");
-        }
-    }
-
-    private String makePublishDirectory() {
-        // Make sure we have a publish directory
-        // in the temp folder and destroy it's
-        // contents.
-        File file = new File(Global.tempDirectory + File.separator +
-                "rescuegroups");
-
-        if (file.exists()) {
-        } else {
-            // Create the directory
-            file.mkdirs();
-        }
-
-        return Global.tempDirectory + File.separator + "rescuegroups" +
-        File.separator;
-    }
-
-    /**
-     * Filters the animal list according to selected criteria in the initial
-     * openRecordset to save memory space in having to retrieve the entire set
-     * of animals
-     */
-    private String buildWhereFilter() {
-        StringBuffer sql = new StringBuffer("");
-
-        // If the include case animals option is off, make
-        // sure the animal isn't a case one
-        if (!publishCriteria.includeCase) {
-            sql.append("CrueltyCase = 0");
-        }
-
-        // Only include animals in the selected internal
-        // locations - there must be one selected, so don't
-        // worry about bad SQL with the AND here.
-        // If no locations are specified, then don't do a filter
-        // ie. do all
-        if (publishCriteria.internalLocations != null) {
-            if (!sql.toString().equals("")) {
-                sql.append(" AND ");
-            }
-
-            sql.append("ShelterLocation in (");
-
-            boolean firstLoc = true;
-
-            for (int i = 0; i < publishCriteria.internalLocations.length;
-                    i++) {
-                if (firstLoc) {
-                    firstLoc = false;
-                } else {
-                    sql.append(",");
-                }
-
-                sql.append(publishCriteria.internalLocations[i].toString());
-            }
-
-            sql.append(")");
-        }
-
-        // Check that the animal is old enough to be adopted
-        // according to our exclusion. Calculate the age
-        // exclusion before today and filter to only include
-        // animals with a date of birth before it.
-        Calendar today = Calendar.getInstance();
-        int noWeeks = publishCriteria.excludeUnderWeeks;
-        int noDays = (noWeeks * 7);
-        today.add(Calendar.DAY_OF_YEAR, (noDays * -1));
-
-        if (!sql.toString().equals("")) {
-            sql.append(" AND ");
-        }
-
-        sql.append("DateOfBirth <= '" + Utils.getSQLDate(today) + "'");
-
-        // Filter out dead animals, and ones not for adoption
-        if (!sql.toString().equals("")) {
-            sql.append(" AND ");
-        }
-
-        sql.append("DeceasedDate Is Null AND IsNotAvailableForAdoption = 0");
-
-        // If including fosterers is on, allow ones with an active movement type
-        // of foster as well as on shelter
-        if (publishCriteria.includeFosters) {
-            sql.append(" AND (Archived = 0 OR ActiveMovementType = " +
-                Adoption.MOVETYPE_FOSTER + ")");
-        } else {
-            // Make sure we are on-shelter only (filter out fosters where
-            // foster on shelter set)
-            sql.append(
-                " AND Archived = 0 AND (ActiveMovementType Is Null OR ActiveMovementType <> " +
-                Adoption.MOVETYPE_FOSTER + ")");
-        }
-
-        return sql.toString();
-    }
-
-    /**
-     * Returns true if an animal is ok to be included in the publish
-     */
-    private boolean checkAnimal(Animal a) throws CursorEngineException {
-        // Make sure it has a valid picture
-        if (!publishCriteria.includeWithoutImage) {
-            if (!a.hasValidMedia()) {
-                return false;
-            }
-        }
-
-        // If the include reserves option is off, make
-        // sure it isn't reserved
-        if (!publishCriteria.includeReserved) {
-            if (a.isAnimalReserved()) {
-                return false;
-            }
-        }
-
-        // If we got here, all must be ok
-        return true;
-    }
-
-    /**
-     * Flushes the given content to the named file.
-     */
-    private void saveFile(String filepath, String content) {
-        try {
-            File file = new File(filepath);
-            FileOutputStream out = new FileOutputStream(file);
-            out.write(content.getBytes(Global.CHAR_ENCODING));
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            if (parent != null) {
-                Dialog.showError(e.getMessage());
-            }
-
-            Global.logException(e, getClass());
         }
     }
 
@@ -848,187 +488,4 @@ public class RescueGroupsPublisher extends Thread {
         return retval;
     }
 
-    /**
-     * Reads the configuration settings and opens a connection to the users
-     * remote internet FTP server
-     */
-    private void openUploadSocket() {
-        try {
-            String host = Configuration.getString("RescueGroupsFTPURL");
-            String user = Configuration.getString("RescueGroupsFTPUser");
-            String password = Configuration.getString("RescueGroupsFTPPassword");
-
-            uploadFTP = new FTPClient(host, 21);
-            uploadFTP.login(user, password);
-            uploadFTP.setType(FTPTransferType.BINARY);
-
-            // Attempt to create the import/pictures directory and fail silently
-            // if it already exists.
-            try {
-                uploadFTP.mkdir("import");
-                uploadFTP.chdir("import");
-                uploadFTP.mkdir("pictures");
-                uploadFTP.chdir("pictures");
-            } catch (Exception e) {
-            }
-
-            try {
-                uploadFTP.chdir("import/pictures");
-            } catch (Exception e) {
-            }
-        } catch (Exception e) {
-            if (parent != null) {
-                Dialog.showError(e.getMessage());
-            }
-
-            Global.logException(e, getClass());
-        }
-    }
-
-    /**
-     * Destroys the users internet FTP socket
-     */
-    private void closeUploadSocket() {
-        try {
-            uploadFTP.quit();
-            uploadFTP = null;
-        } catch (Exception e) {
-        }
-    }
-
-    /**
-     * Called before each upload - verifies that the socket is still active by
-     * request a directory. If it cannot get one, the socket is reopened.
-     */
-    private void checkUploadSocket() {
-        // Verify that the upload socket is still live by requesting
-        // a directory for the current file - we are looking for an
-        // error - who cares what comes back (mental note - allow
-        // access to the FTP socket publically).
-        try {
-            String ignoreResponse = uploadFTP.list("*");
-            // Make sure transfers are back to binary
-            uploadFTP.setType(FTPTransferType.BINARY);
-        } catch (FTPException e) {
-            // Destroy the current socket
-            closeUploadSocket();
-            // Open a new one
-            openUploadSocket();
-        } catch (IOException e) {
-            // Destroy the current socket
-            closeUploadSocket();
-            // Open a new one
-            openUploadSocket();
-        }
-    }
-
-    /**
-     * Uploads a file from the publish directory in the temp folder to the
-     * internet site according to the FTP settings. If the file already exists
-     * (and it is not HTML or JavaScript), it is not uploaded again.
-     */
-    private void upload(String filename) {
-        try {
-            String publishDir = Global.tempDirectory + File.separator +
-                "rescuegroups" + File.separator;
-
-            // Make sure the local file actually exists - if it doesn't we
-            // may as well drop out now and not risk blowing up the FTP
-            // connection.
-            File localfile = new File(publishDir + filename);
-
-            if (!localfile.exists()) {
-                return;
-            }
-
-            // If our file has no extension, or is .cfg or .csv then upload it 
-            // over the top regardless of if a file exists
-            try {
-                if ((filename.indexOf(".") == -1) ||
-                        (filename.indexOf(".cfg") != -1) ||
-                        (filename.indexOf(".csv") != -1)) {
-                    uploadFTP.put(publishDir + filename, filename);
-
-                    return;
-                }
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-
-            // Does the file already exist? If so, return
-            // and don't upload
-            try {
-                String alreadyThere = uploadFTP.list(filename);
-
-                if ((alreadyThere.indexOf(filename) != -1) &&
-                        !publishCriteria.forceReupload) {
-                    return;
-                }
-            } catch (FTPException e) {
-                // Do nothing and carry on. The error occurs
-                // because the list command returned no matching files -
-                // hence we need to upload.
-            }
-
-            // Make sure transfers are back to binary
-            uploadFTP.setType(FTPTransferType.BINARY);
-
-            // Upload the file
-            uploadFTP.put(publishDir + filename, filename);
-        }
-        // Ignore errors - if a file already exists then don't try to
-        // upload it again.
-        catch (Exception e) {
-            Global.logException(e, getClass());
-        }
-    }
-
-    /**
-     * Scales an image to a particular size, keeping the aspect ratio.
-     *
-     * @param pathToImage
-     *            The absolute path and name of the image to scale.
-     * @param scalesize
-     *            A string representing the new image size. Your choice is
-     *            300x200, 640x400, 800x600 or 1024x768.
-     */
-    public void scaleImage(String pathToImage, int scalesize) {
-        int width = 320;
-        int height = 200;
-
-        // Work out from the string what the widths and
-        // heights should be
-        if (scalesize == 2) {
-            width = 320;
-            height = 200;
-        }
-
-        if (scalesize == 3) {
-            width = 640;
-            height = 400;
-        }
-
-        if (scalesize == 4) {
-            width = 800;
-            height = 600;
-        }
-
-        if (scalesize == 5) {
-            width = 1024;
-            height = 768;
-        }
-
-        if (scalesize == 6) {
-            width = 300;
-            height = 300;
-        }
-
-        if (scalesize == 7) {
-            width = 95;
-            height = 95;
-        }
-
-        int maxDim = width;
-        UI.scaleImage(pathToImage, pathToImage, width, height);
-    }
 }

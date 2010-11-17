@@ -21,24 +21,24 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.internet;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.PetFinderPublisher;
 import net.sourceforge.sheltermanager.asm.internet.Pets911Publisher;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
-import net.sourceforge.sheltermanager.asm.internet.Publisher;
+import net.sourceforge.sheltermanager.asm.internet.HTMLPublisher;
 import net.sourceforge.sheltermanager.asm.internet.RescueGroupsPublisher;
-import net.sourceforge.sheltermanager.asm.internet.SaveAPetPublisher;
+import net.sourceforge.sheltermanager.asm.internet.AdoptAPetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableList;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.ArrayList;
-import java.util.Vector;
+import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 
 /**
@@ -49,14 +49,15 @@ import java.util.Vector;
  * @version 3.0
  */
 public class InternetPublisher extends ASMForm {
-    public final static int MODE_HTML = 0;
+
+	private static final long serialVersionUID = 7187540311107988441L;
+	
+	public final static int MODE_HTML = 0;
     public final static int MODE_PETFINDER = 1;
     public final static int MODE_PETS911 = 2;
     public final static int MODE_SAVEAPET = 3;
     public final static int MODE_RESCUEGROUPS = 4;
 
-    /** Keeps track of all the location check box components */
-    public Vector locationCheckboxes = new Vector();
     public UI.Button btnClose;
     public UI.Button btnPublish;
     public SelectableList options;
@@ -107,15 +108,8 @@ public class InternetPublisher extends ASMForm {
         }
     }
 
-    public void dispose() {
-        locationCheckboxes.removeAllElements();
-        locationCheckboxes = null;
-        unregisterTabOrder();
-        super.dispose();
-    }
-
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(options);
         ctl.add(btnPublish);
         ctl.add(btnClose);
@@ -147,7 +141,7 @@ public class InternetPublisher extends ASMForm {
 
     public void initComponents() {
         // Basic inclusion
-        ArrayList l = new ArrayList();
+        ArrayList<SelectableItem> l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(i18n("Include"), null, false, true));
         l.add(new SelectableItem(i18n("Include_Reserved_Animals"),
                 "IncludeReserved", false, false));
@@ -255,7 +249,7 @@ public class InternetPublisher extends ASMForm {
         if (mode == MODE_HTML) {
             l.add(new SelectableItem(i18n("Style"), null, false, true));
 
-            Vector v = Publisher.getStyles();
+            Vector<String> v = getStyles();
 
             for (int i = 0; i < v.size(); i++) {
                 l.add(new SelectableItem(v.get(i).toString(),
@@ -321,6 +315,35 @@ public class InternetPublisher extends ASMForm {
         add(p, UI.BorderLayout.SOUTH);
     }
 
+    /** Return the list of available publishing styles (directories
+     *  in dbfs/internet/
+     */
+    private Vector<String> getStyles() {
+        Vector<String> v = new Vector<String>();
+
+        try {
+            DBFS dbfs = new DBFS();
+            dbfs.chdir("internet");
+
+            String[] d = dbfs.list();
+
+            for (int i = 0; i < d.length; i++) {
+                if (d[i].equalsIgnoreCase("pib.dat")) {
+                    v.add(".");
+                }
+
+                if (dbfs.isDir(d[i])) {
+                    v.add(d[i]);
+                }
+            }
+
+            return v;
+        } catch (Exception e) {
+            Global.logException(e, HTMLPublisher.class);
+        }
+        return null;
+    }
+    
     public boolean formClosing() {
         // Only allow closing if the publish button is enabled (so we aren't
         // publishing)
@@ -334,7 +357,7 @@ public class InternetPublisher extends ASMForm {
 
         SelectableItem[] s = options.getSelections();
         PublishCriteria pc = new PublishCriteria();
-        Vector selectedLocations = new Vector();
+        Vector<String> selectedLocations = new Vector<String>();
 
         // Set defaults for mode
         if (mode != MODE_HTML) {
@@ -476,7 +499,7 @@ public class InternetPublisher extends ASMForm {
         switch (mode) {
         case MODE_HTML:
 
-            Publisher p = new Publisher(this, pc);
+            HTMLPublisher p = new HTMLPublisher(this, pc);
             p.start();
             p = null;
 
@@ -500,7 +523,7 @@ public class InternetPublisher extends ASMForm {
 
         case MODE_SAVEAPET:
 
-            SaveAPetPublisher sp = new SaveAPetPublisher(this, pc);
+            AdoptAPetPublisher sp = new AdoptAPetPublisher(this, pc);
             sp.start();
             sp = null;
 
