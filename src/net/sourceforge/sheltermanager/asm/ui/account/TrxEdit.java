@@ -153,6 +153,9 @@ public class TrxEdit extends ASMForm {
         trx.accountId = accountId.intValue();
         setTitle(i18n("Create_Transaction"));
         txtTrxDate.setToToday();
+        btnOwner.setEnabled(false);
+        btnMovement.setEnabled(false);
+        btnAnimal.setEnabled(false);
         isNew = true;
     }
 
@@ -324,18 +327,21 @@ public class TrxEdit extends ASMForm {
     }
 
     public void actionOpenOwner() {
+        if (ownerID == 0) return;
         OwnerEdit oe = new OwnerEdit();
         oe.openForEdit(ownerID);
         Global.mainForm.addChild(oe);
     }
 
     public void actionOpenAnimal() {
+        if (animalID == 0) return;
         AnimalEdit ae = new AnimalEdit();
         ae.openForEdit(animalID);
         Global.mainForm.addChild(ae);
     }
 
     public void actionOpenMovement() {
+        if (movementID == 0) return;
         MovementEdit me = new MovementEdit();
         me.openForEdit(movementID);
         Global.mainForm.addChild(me);

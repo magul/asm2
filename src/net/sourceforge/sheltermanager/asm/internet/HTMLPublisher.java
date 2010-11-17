@@ -267,8 +267,8 @@ public class HTMLPublisher extends FTPPublisher {
             writeJavaScript();
         }
 
-        Global.mainForm.resetStatusBar();
-        Global.mainForm.setStatusText("");
+        resetStatusBar();
+        setStatusText("");
 
         // If uploading was on, disconnect from the remote host
         closeFTPSocket();
