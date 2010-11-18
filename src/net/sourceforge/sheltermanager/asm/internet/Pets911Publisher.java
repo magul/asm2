@@ -75,15 +75,6 @@ public class Pets911Publisher extends FTPPublisher {
             return;
         }
 
-        // Open the socket
-        if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
-        }
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
         Animal an = null;
@@ -97,6 +88,32 @@ public class Pets911Publisher extends FTPPublisher {
         	}
         	else {
         		System.exit(1);
+        	}
+        }
+        
+        // If there aren't any animals, there's no point do
+        // anything
+        if (an.size() == 0) {
+        	if (parent != null) {
+        		Dialog.showInformation(Global.i18n("uiinternet", 
+        			"No_matching_animals_were_found_to_publish"));
+        		return;
+        	}
+        	else {
+        		Global.logError(Global.i18n("uiinternet",
+    			"No_matching_animals_were_found_to_publish"), 
+    			"Pets911Publisher.run");
+        		System.exit(1);
+        	}
+        }
+        
+        // Open the socket
+        if (!openFTPSocket()) {
+        	if (parent == null) {
+        		System.exit(1);
+        	}
+        	else {
+        		return;
         	}
         }
 

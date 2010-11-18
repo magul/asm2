@@ -70,28 +70,12 @@ public class AdoptAPetPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             }
-
-            if (parent != null) {
+            else { 
                 Dialog.showError(Global.i18n("uiinternet",
                         "You_need_to_set_your_save_a_pet_settings_before_publishing"));
             }
-
             return;
         }
-
-        // Open the socket
-        if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
-        }
-        
-        // Go to the photos directory first
-        mkdir("photos");
-        chdir("photos");
         
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
@@ -108,6 +92,37 @@ public class AdoptAPetPublisher extends FTPPublisher {
         		System.exit(1);
         	}
         }
+        
+        // If there aren't any animals, there's no point do
+        // anything
+        if (an.size() == 0) {
+        	if (parent != null) {
+        		Dialog.showInformation(Global.i18n("uiinternet", 
+        			"No_matching_animals_were_found_to_publish"));
+        		return;
+        	}
+        	else {
+        		Global.logError(Global.i18n("uiinternet",
+    			"No_matching_animals_were_found_to_publish"), 
+    			"AdoptAPetPublisher.run");
+        		System.exit(1);
+        	}
+        }
+
+        // Open the socket
+        if (!openFTPSocket()) {
+        	if (parent == null) {
+        		System.exit(1);
+        	}
+        	else {
+        		return;
+        	}
+        }
+        
+        // Go to the photos directory first
+        mkdir("photos");
+        chdir("photos");
+        
 
         // Start the progress meter
         initStatusBarMax(an.size());

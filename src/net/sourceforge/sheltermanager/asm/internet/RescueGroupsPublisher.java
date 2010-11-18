@@ -104,6 +104,37 @@ public class RescueGroupsPublisher extends FTPPublisher {
             return;
         }
         
+        // Get a list of animals
+        setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+        Animal an = null;
+        try {
+        	an = getMatchingAnimals();
+        }
+        catch (Exception e) {
+        	Global.logException(e, getClass());
+        	if (parent != null) {
+        		Dialog.showError(e.getMessage());
+        	}
+        	else {
+        		System.exit(1);
+        	}
+        }
+        
+        // If there aren't any animals, there's no point do
+        // anything
+        if (an.size() == 0) {
+        	if (parent != null) {
+        		Dialog.showInformation(Global.i18n("uiinternet", 
+        			"No_matching_animals_were_found_to_publish"));
+        		return;
+        	}
+        	else {
+        		Global.logError(Global.i18n("uiinternet",
+        			"No_matching_animals_were_found_to_publish"), 
+        			"RescueGroupsPublisher.run");
+        		System.exit(1);
+        	}
+        }
 
         // Open the socket
         if (!openFTPSocket()) {
@@ -121,22 +152,6 @@ public class RescueGroupsPublisher extends FTPPublisher {
         chdir("import");
         mkdir("pictures");
         chdir("pictures", "import/pictures");
-        
-        // Get a list of animals
-        setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
-        Animal an = null;
-        try {
-        	an = getMatchingAnimals();
-        }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		System.exit(1);
-        	}
-        }
 
         // Start the progress meter
         initStatusBarMax(an.size());
@@ -219,20 +234,20 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     "\", ");
 
                 // dogs (good with)
-                dataFile.append(yesNoUnknown(an.isGoodWithDogs()));
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithDogs()) + "\", ");
 
                 // cats
-                dataFile.append(yesNoUnknown(an.isGoodWithCats()));
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithCats()) + "\", ");
 
                 // kids
-                dataFile.append(yesNoUnknown(an.isGoodWithKids()));
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithKids()) + "\", ");
 
                 // declawed
                 dataFile.append((an.getDeclawed().intValue() == 1)
                     ? "\"Yes\", " : "\"No\", ");
 
                 // housetrained
-                dataFile.append(yesNoUnknown(an.isHouseTrained()));
+                dataFile.append("\"" + yesNoUnknown(an.isHouseTrained()) + "\", ");
 
                 // age
                 /*

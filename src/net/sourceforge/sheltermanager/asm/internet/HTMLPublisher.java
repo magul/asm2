@@ -89,6 +89,22 @@ public class HTMLPublisher extends FTPPublisher {
         	}
         }
         
+        // If there aren't any animals, there's no point do
+        // anything
+        if (an.size() == 0) {
+        	if (parent != null) {
+        		Dialog.showInformation(Global.i18n("uiinternet", 
+        			"No_matching_animals_were_found_to_publish"));
+        		return;
+        	}
+        	else {
+        		Global.logError(Global.i18n("uiinternet",
+    			"No_matching_animals_were_found_to_publish"), 
+    			"HTMLPublisher.run");
+        		System.exit(1);
+        	}
+        }
+        
         // Open the FTP socket
         openFTPSocket();
 

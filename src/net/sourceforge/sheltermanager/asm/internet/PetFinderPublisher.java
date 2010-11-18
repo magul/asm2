@@ -95,23 +95,6 @@ public class PetFinderPublisher extends FTPPublisher {
             return;
         }
 
-        // Open the socket
-        if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
-        }
-        
-        // Change to the import/photos directory - we are going
-        // to be uploading photos until right at the end of this process
-        mkdir("import");
-        chdir("import");
-        mkdir("photos");
-        chdir("photos", "import/photos");
-
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
         Animal an = null;
@@ -124,9 +107,42 @@ public class PetFinderPublisher extends FTPPublisher {
         		Dialog.showError(e.getMessage());
         	}
         	else {
+        		Global.logError(Global.i18n("uiinternet",
+    			"No_matching_animals_were_found_to_publish"), 
+    			"PetFinderPublisher.run");
         		System.exit(1);
         	}
         }
+        
+        // If there aren't any animals, there's no point do
+        // anything
+        if (an.size() == 0) {
+        	if (parent != null) {
+        		Dialog.showInformation(Global.i18n("uiinternet", 
+        			"No_matching_animals_were_found_to_publish"));
+        		return;
+        	}
+        	else {
+        		System.exit(1);
+        	}
+        }
+        
+        // Open the socket
+        if (!openFTPSocket()) {
+        	if (parent == null) {
+        		System.exit(1);
+        	}
+        	else {
+        		return;
+        	}
+        }
+                
+        // Change to the import/photos directory, we
+        // do images first and the data file last
+        mkdir("import");
+        chdir("import");
+        mkdir("photos");
+        chdir("photos", "import/photos");
 
         // Start the progress meter
         initStatusBarMax(an.size());

@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. RG Unknown fix broken - broke CSV field delimiters
+*. Graceful termination for publishers when there are no
+-  matching animals
 *. Allow RG to send Unknown for good with fields
 *. Owner/Animal/Movement buttons should be disabled for new trx
 *. Refactoring of all publishers to use AbstractPublisher and
