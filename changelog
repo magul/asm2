@@ -1,6 +1,8 @@
 2.8.4
 ================
 
+*. Fix for if no breeds are available for a species, it can prevent
+-  movements being loaded and displayed
 *. RG Unknown fix broken - broke CSV field delimiters
 *. Graceful termination for publishers when there are no
 -  matching animals

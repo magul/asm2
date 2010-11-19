@@ -1488,9 +1488,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             Global.logException(e, getClass());
         }
 
-        // Select the top item
-        cboBreed.setSelectedIndex(0);
-        cboBreed2.setSelectedIndex(0);
+        // Select the top item - if there is one
+        try {
+            cboBreed.setSelectedIndex(0);
+            cboBreed2.setSelectedIndex(0);
+        }
+        catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     public void typeFocusLost() {
