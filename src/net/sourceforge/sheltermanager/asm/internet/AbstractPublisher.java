@@ -114,6 +114,26 @@ public abstract class AbstractPublisher extends Thread {
     }
 
     /**
+     * For a yes/no/unknown value, returns the string
+     * or empty string for Unknown
+     * @param v The value
+     * @return The string name
+     */
+    protected String yesNoUnknownBlank(Integer v) {
+        switch (v.intValue()) {
+        case 0:
+            return Global.i18n("reports", "Yes");
+
+        case 1:
+            return Global.i18n("reports", "No");
+
+        default:
+            return "";
+        }
+    }
+
+
+    /**
      * Updates the media fields for an animal to mark last published
      * @param field The field name
      * @param id The Animal ID

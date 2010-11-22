@@ -230,15 +230,15 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     "\", ");
 
                 // dogs (good with)
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithDogs()) +
+                dataFile.append("\"" + yesNoUnknownBlank(an.isGoodWithDogs()) +
                     "\", ");
 
                 // cats
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithCats()) +
+                dataFile.append("\"" + yesNoUnknownBlank(an.isGoodWithCats()) +
                     "\", ");
 
                 // kids
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithKids()) +
+                dataFile.append("\"" + yesNoUnknownBlank(an.isGoodWithKids()) +
                     "\", ");
 
                 // declawed
@@ -246,7 +246,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     ? "\"Yes\", " : "\"No\", ");
 
                 // housetrained
-                dataFile.append("\"" + yesNoUnknown(an.isHouseTrained()) +
+                dataFile.append("\"" + yesNoUnknownBlank(an.isHouseTrained()) +
                     "\", ");
 
                 // age
