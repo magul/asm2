@@ -315,15 +315,12 @@ public class FTPPublisher extends AbstractPublisher {
 
     /**
      * Uploads the preferred image for an animal with
-     * the name given
+     * the name given - even if upload is off, we still
+     * pull the image to the local publish folder
      * @param an
      * @param name
      */
     protected void uploadImage(Animal an, String name) {
-        if (!publishCriteria.uploadDirectly) {
-            return;
-        }
-
         try {
             // Only do the file handling if the animal actually has
             // photo media
@@ -357,10 +354,12 @@ public class FTPPublisher extends AbstractPublisher {
                         }
 
                         // Upload the pic and the thumbnail
-                        upload(animalpic);
+                        if (publishCriteria.uploadDirectly) {
+                            upload(animalpic);
 
-                        if (publishCriteria.thumbnails) {
-                            upload("tn_" + animalweb);
+                            if (publishCriteria.thumbnails) {
+                                upload("tn_" + animalweb);
+                            }
                         }
                     }
                     // If an IO Error occurs, the file is already in the
@@ -401,15 +400,13 @@ public class FTPPublisher extends AbstractPublisher {
     /**
      * Uploads all the images for an animal, either with the animal's
      * media ID for a single image, or with the sheltercode-X if
-     * upload all is on
+     * upload all is on - even if upload is off, we still
+     * pull the images to the local publish folder
      * @param an
      * @param max Maximum number to upload or 0 for all
      * @return The number of images uploaded
      */
     protected int uploadImages(Animal an, int max) {
-        if (!publishCriteria.uploadDirectly) {
-            return 0;
-        }
 
         int totalimages = 0;
 

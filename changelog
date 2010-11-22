@@ -1,6 +1,8 @@
 2.8.4
 ================
 
+*. When publishing, still pull images locally even if they aren't
+-  going to be uploaded
 *. Fix for printing from the internal viewer - view scale was overriding
 -  print scale and causing tiny output
 *. Fix for if no breeds are available for a species, it can prevent
