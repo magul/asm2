@@ -21,13 +21,13 @@
 */
 package net.sourceforge.sheltermanager.asm.db;
 
-import java.io.File;
-
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.io.File;
 
 
 /**

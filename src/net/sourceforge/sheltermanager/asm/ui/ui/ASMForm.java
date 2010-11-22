@@ -21,22 +21,22 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
+
 import java.util.Vector;
 
 import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 
 public abstract class ASMForm extends JPanel {
-    
-	private static final long serialVersionUID = 5271293897764009631L;
+    private static final long serialVersionUID = 5271293897764009631L;
 
-	/** Used to generate unique numbers for identifying opened tabs */
+    /** Used to generate unique numbers for identifying opened tabs */
     protected static long nextformkey = 0;
 
     /** The default i18n key to use for this form */

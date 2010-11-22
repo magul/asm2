@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.util.Calendar;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -30,32 +28,30 @@ import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
+import java.util.Calendar;
+
 
 /**
- * The actual class that does the Pets911 publishing work. 
+ * The actual class that does the Pets911 publishing work.
  *
  * @author Robin Rawson-Tetley
  * @version 3.0
  */
 public class Pets911Publisher extends FTPPublisher {
-	
     public Pets911Publisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-    	
-    	// Override certain values for pets911
-    	publishCriteria.uploadDirectly = true;
-    	publishCriteria.ftpRoot = "";
-    	publishCriteria.thumbnails = false;
+        // Override certain values for pets911
+        publishCriteria.uploadDirectly = true;
+        publishCriteria.ftpRoot = "";
+        publishCriteria.thumbnails = false;
 
-    	init("pets911", parent, publishCriteria,
-    			Configuration.getString("Pets911FTPURL"),
-    			Configuration.getString("Pets911FTPUser"),
-    			Configuration.getString("Pets911FTPPassword"),
-    			"21", "");
+        init("pets911", parent, publishCriteria,
+            Configuration.getString("Pets911FTPURL"),
+            Configuration.getString("Pets911FTPUser"),
+            Configuration.getString("Pets911FTPPassword"), "21", "");
     }
 
     public void run() {
-
         String userName = Configuration.getString("Pets911FTPUser");
 
         /** Make sure we have some settings for Pets911 */
@@ -72,54 +68,55 @@ public class Pets911Publisher extends FTPPublisher {
                 Dialog.showError(Global.i18n("uiinternet",
                         "You_need_to_set_your_Pets911_settings_before_publishing"));
             }
+
             return;
         }
 
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+
         Animal an = null;
+
         try {
-        	an = getMatchingAnimals();
+            an = getMatchingAnimals();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            if (parent != null) {
+                Dialog.showError(e.getMessage());
+            } else {
+                System.exit(1);
+            }
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		System.exit(1);
-        	}
-        }
-        
+
         // If there aren't any animals, there's no point do
         // anything
         if (an.size() == 0) {
-        	if (parent != null) {
-        		Dialog.showInformation(Global.i18n("uiinternet", 
-        			"No_matching_animals_were_found_to_publish"));
-        		return;
-        	}
-        	else {
-        		Global.logError(Global.i18n("uiinternet",
-    			"No_matching_animals_were_found_to_publish"), 
-    			"Pets911Publisher.run");
-        		System.exit(1);
-        	}
+            if (parent != null) {
+                Dialog.showInformation(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"));
+
+                return;
+            } else {
+                Global.logError(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"),
+                    "Pets911Publisher.run");
+                System.exit(1);
+            }
         }
-        
+
         // Open the socket
         if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
+            if (parent == null) {
+                System.exit(1);
+            } else {
+                return;
+            }
         }
 
         // Start the progress meter
         initStatusBarMax(an.size());
-        
+
         // Start a new buffer - this is going to be the
         // CSV file required by Pets911.
         StringBuffer dataFile = new StringBuffer();
@@ -132,12 +129,13 @@ public class Pets911Publisher extends FTPPublisher {
 
         try {
             int anCount = 0;
+
             while (!an.getEOF()) {
                 anCount++;
 
-                Global.logInfo("Processing: " + an.getShelterCode() +
-                        ": " + an.getAnimalName() + " (" + anCount +
-                        " of " + an.size() + ")", "Pets911Publisher.run");
+                Global.logInfo("Processing: " + an.getShelterCode() + ": " +
+                    an.getAnimalName() + " (" + anCount + " of " + an.size() +
+                    ")", "Pets911Publisher.run");
 
                 uploadImage(an, an.getShelterCode() + ".jpg");
 
@@ -254,12 +252,11 @@ public class Pets911Publisher extends FTPPublisher {
                 // Mark media records for this animal as published
                 markAnimalPublished("LastPublishedP911", an.getID());
 
-                Global.logInfo("Finished processing " +
-                        an.getShelterCode(), "Pets911Publisher.run");
+                Global.logInfo("Finished processing " + an.getShelterCode(),
+                    "Pets911Publisher.run");
 
                 an.moveNext();
                 incrementStatusBar();
-                
             }
         } catch (Exception e) {
             if (parent != null) {
@@ -280,7 +277,7 @@ public class Pets911Publisher extends FTPPublisher {
         Global.logInfo("Uploading data", "Pets911Publisher.run");
         upload(userName + ".txt");
         Global.logInfo("Data uploaded", "Pets911Publisher.run");
-            
+
         resetStatusBar();
         setStatusText("");
 
@@ -307,5 +304,4 @@ public class Pets911Publisher extends FTPPublisher {
             parent.btnPublish.setEnabled(true);
         }
     }
-
 }

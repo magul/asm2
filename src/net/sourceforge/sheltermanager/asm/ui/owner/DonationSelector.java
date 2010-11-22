@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
@@ -38,6 +34,10 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDonationDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 
 /**
  * Viewing of owner donations
@@ -45,8 +45,8 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
  * @author Robin Rawson-Tetley
  */
 public class DonationSelector extends ASMSelector {
-	private static final long serialVersionUID = -5160737061215643754L;
-	private boolean hasDonations = false;
+    private static final long serialVersionUID = -5160737061215643754L;
+    private boolean hasDonations = false;
     private int animalID = 0;
     private int ownerID = 0;
     private int movementID = 0;
@@ -101,6 +101,7 @@ public class DonationSelector extends ASMSelector {
     public Vector<Object> getTabOrder() {
         Vector<Object> v = new Vector<Object>();
         v.add(getTable());
+
         return v;
     }
 
@@ -326,7 +327,7 @@ public class DonationSelector extends ASMSelector {
             od.openRecordset("ID = " + id);
 
             new OwnerDonationDocument(od,
-            		((ownerparent != null) ? ownerparent.media : null));
+                ((ownerparent != null) ? ownerparent.media : null));
         } catch (Exception e) {
             Global.logException(e, getClass());
         }

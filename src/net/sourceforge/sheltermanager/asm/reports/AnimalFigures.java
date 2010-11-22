@@ -183,6 +183,7 @@ public class AnimalFigures extends Report {
                                     sp.getInt("ID"))) {
                             v.add(sp.getInt("ID"));
                         }
+
                         sp.moveNext();
                     }
 
@@ -209,6 +210,7 @@ public class AnimalFigures extends Report {
                                 at.getInt("ID"))) {
                         v.add(at.getInt("ID"));
                     }
+
                     at.moveNext();
                 }
 

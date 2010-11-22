@@ -62,10 +62,8 @@ import java.util.Vector;
  * @version 1.0
  */
 public class VetBookView extends ASMView implements VaccinationParent {
-	
-	private static final long serialVersionUID = 9060180950475103344L;
-	
-	final static int ID_FIELD = 7;
+    private static final long serialVersionUID = 9060180950475103344L;
+    final static int ID_FIELD = 7;
     final static int TYPE_FIELD = 8;
     private UI.Button btnComplete;
     private UI.Button btnDelete;
@@ -215,9 +213,8 @@ public class VetBookView extends ASMView implements VaccinationParent {
             "SELECT animalvaccination.CreatedBy, " +
             "animalvaccination.DateRequired As DiaryDateTime, " +
             "animalvaccination.DateOfVaccination AS DateCompleted, " +
-            "animalvaccination.AnimalID As LinkID, " +
-            Diary.LINKTYPE_ANIMAL + " AS LinkType, " +
-            "animal.AnimalName AS LinkInfo, " +
+            "animalvaccination.AnimalID As LinkID, " + Diary.LINKTYPE_ANIMAL +
+            " AS LinkType, " + "animal.AnimalName AS LinkInfo, " +
             "animal.ShelterCode AS LinkCode, " +
             "internallocation.LocationName AS Location, " +
             "vaccinationtype.VaccinationType As Subject, " +
@@ -254,9 +251,9 @@ public class VetBookView extends ASMView implements VaccinationParent {
                 datar[i][0] = (String) uq.getField("CreatedBy");
                 datar[i][1] = Utils.formatTableDateTime((Date) uq.getField(
                             "DiaryDateTime"));
-                datar[i][2] = uq.getString("Type").equals("v") ? 
-                		uq.getString("LinkInfo") + " (" + uq.getString("LinkCode") + ")"
-                		: uq.getString("LinkInfo");
+                datar[i][2] = uq.getString("Type").equals("v")
+                    ? (uq.getString("LinkInfo") + " (" +
+                    uq.getString("LinkCode") + ")") : uq.getString("LinkInfo");
                 datar[i][3] = Utils.nullToEmptyString((String) uq.getField(
                             "Location"));
                 datar[i][4] = Utils.formatTableDate((Date) uq.getField(

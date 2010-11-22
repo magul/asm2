@@ -21,12 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.bo;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.BOValidationException;
@@ -34,6 +28,13 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
+
+import java.text.SimpleDateFormat;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashSet;
 
 
 public class Animal extends UserInfoBO<Animal> implements Cloneable {
@@ -3169,12 +3170,12 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         // Grab a set of codes for upto a year ago we can use so we 
         // don't have to keep going back to the database
         SQLRecordset codeset = null;
+
         try {
             codeset = new SQLRecordset(
-                "SELECT ShelterCode FROM animal WHERE CreatedDate >= '" +
-                Utils.getSQLDate(oneyearago) + "'", "animal");
-        }
-        catch (Exception e) {
+                    "SELECT ShelterCode FROM animal WHERE CreatedDate >= '" +
+                    Utils.getSQLDate(oneyearago) + "'", "animal");
+        } catch (Exception e) {
             Global.logException(e, Animal.class);
         }
 
@@ -3202,22 +3203,27 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
             // Test for uniqueness
             try {
                 isUnique = true;
+
                 for (SQLRecordset c : codeset) {
                     if (c.getString("ShelterCode").equals(code)) {
                         isUnique = false;
                         Global.logDebug("Code already exists in database, regenerating...",
                             "Animal.generateAnimalCode");
+
                         if (highestyear > 0) {
                             highestyear++;
                         }
+
                         if (highestever > 0) {
                             highestever++;
                         }
+
                         break;
                     }
                 }
-             } catch (Exception e) {
+            } catch (Exception e) {
                 Global.logException(e, Animal.class);
+
                 break;
             }
         }

@@ -2315,6 +2315,193 @@ public final class UI {
         }
     }
 
+    public static class DocumentRenderer implements Printable {
+        protected int currentPage = -1; //Used to keep track of when
+                                        //the page to print changes.
+        protected JEditorPane jeditorPane; //Container to hold the
+                                           //Document. This object will
+                                           //be used to lay out the
+                                           //Document for printing.
+        protected double pageEndY = 0; //Location of the current page
+                                       //end.
+        protected double pageStartY = 0; //Location of the current page
+                                         //start.
+        protected boolean scaleWidthToFit = true; //boolean to allow control over
+                                                  //whether pages too wide to fit
+                                                  //on a page will be scaled.
+        protected PageFormat pFormat;
+        protected PrinterJob pJob;
+
+        public DocumentRenderer() {
+            pFormat = new PageFormat();
+            pJob = PrinterJob.getPrinterJob();
+        }
+
+        public Document getDocument() {
+            if (jeditorPane != null) {
+                return jeditorPane.getDocument();
+            } else {
+                return null;
+            }
+        }
+
+        public boolean getScaleWidthToFit() {
+            return scaleWidthToFit;
+        }
+
+        public void pageDialog() {
+            pFormat = pJob.pageDialog(pFormat);
+        }
+
+        public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) {
+            double scale = 1.0;
+            Graphics2D graphics2D;
+            View rootView;
+            graphics2D = (Graphics2D) graphics;
+            jeditorPane.setSize((int) pageFormat.getImageableWidth(),
+                Integer.MAX_VALUE);
+            jeditorPane.validate();
+            rootView = jeditorPane.getUI().getRootView(jeditorPane);
+
+            if ((scaleWidthToFit) &&
+                    (jeditorPane.getMinimumSize().getWidth() > pageFormat.getImageableWidth())) {
+                scale = pageFormat.getImageableWidth() / jeditorPane.getMinimumSize()
+                                                                    .getWidth();
+                graphics2D.scale(scale, scale);
+            }
+
+            graphics2D.setClip((int) (pageFormat.getImageableX() / scale),
+                (int) (pageFormat.getImageableY() / scale),
+                (int) (pageFormat.getImageableWidth() / scale),
+                (int) (pageFormat.getImageableHeight() / scale));
+
+            if (pageIndex > currentPage) {
+                currentPage = pageIndex;
+                pageStartY += pageEndY;
+                pageEndY = graphics2D.getClipBounds().getHeight();
+            }
+
+            graphics2D.translate(graphics2D.getClipBounds().getX(),
+                graphics2D.getClipBounds().getY());
+
+            Rectangle allocation = new Rectangle(0, (int) -pageStartY,
+                    (int) (jeditorPane.getMinimumSize().getWidth()),
+                    (int) (jeditorPane.getPreferredSize().getHeight()));
+
+            if (printView(graphics2D, allocation, rootView)) {
+                return Printable.PAGE_EXISTS;
+            } else {
+                pageStartY = 0;
+                pageEndY = 0;
+                currentPage = -1;
+
+                return Printable.NO_SUCH_PAGE;
+            }
+        }
+
+        public void print(HTMLDocument htmlDocument) {
+            setDocument(htmlDocument);
+            printDialog();
+        }
+
+        public void print(JEditorPane jedPane) {
+            setDocument(jedPane);
+            printDialog();
+        }
+
+        public void print(PlainDocument plainDocument) {
+            setDocument(plainDocument);
+            printDialog();
+        }
+
+        protected void printDialog() {
+            if (pJob.printDialog()) {
+                pJob.setPrintable(this, pFormat);
+
+                try {
+                    pJob.print();
+                } catch (PrinterException printerException) {
+                    pageStartY = 0;
+                    pageEndY = 0;
+                    currentPage = -1;
+                    System.out.println("Error Printing Document");
+                }
+            }
+        }
+
+        protected boolean printView(Graphics2D graphics2D, Shape allocation,
+            View view) {
+            boolean pageExists = false;
+            Rectangle clipRectangle = graphics2D.getClipBounds();
+            Shape childAllocation;
+            View childView;
+
+            if ((view.getViewCount() > 0) &&
+                    !view.getElement().getName().equalsIgnoreCase("td")) {
+                for (int i = 0; i < view.getViewCount(); i++) {
+                    childAllocation = view.getChildAllocation(i, allocation);
+
+                    if (childAllocation != null) {
+                        childView = view.getView(i);
+
+                        if (printView(graphics2D, childAllocation, childView)) {
+                            pageExists = true;
+                        }
+                    }
+                }
+            } else {
+                if (allocation.getBounds().getMaxY() >= clipRectangle.getY()) {
+                    pageExists = true;
+
+                    if ((allocation.getBounds().getHeight() > clipRectangle.getHeight()) &&
+                            (allocation.intersects(clipRectangle))) {
+                        view.paint(graphics2D, allocation);
+                    } else {
+                        if (allocation.getBounds().getY() >= clipRectangle.getY()) {
+                            if (allocation.getBounds().getMaxY() <= clipRectangle.getMaxY()) {
+                                view.paint(graphics2D, allocation);
+                            } else {
+                                if (allocation.getBounds().getY() < pageEndY) {
+                                    pageEndY = allocation.getBounds().getY();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return pageExists;
+        }
+
+        protected void setContentType(String type) {
+            jeditorPane.setContentType(type);
+        }
+
+        public void setDocument(HTMLDocument htmlDocument) {
+            jeditorPane = new JEditorPane();
+            setDocument("text/html", htmlDocument);
+        }
+
+        public void setDocument(JEditorPane jedPane) {
+            jeditorPane = new JEditorPane();
+            setDocument(jedPane.getContentType(), jedPane.getDocument());
+        }
+
+        public void setDocument(PlainDocument plainDocument) {
+            jeditorPane = new JEditorPane();
+            setDocument("text/plain", plainDocument);
+        }
+
+        protected void setDocument(String type, Document document) {
+            setContentType(type);
+            jeditorPane.setDocument(document);
+        }
+
+        public void setScaleWidthToFit(boolean scaleWidth) {
+            scaleWidthToFit = scaleWidth;
+        }
+    }
+
     public static class HTMLBrowser extends JEditorPane
         implements HyperlinkListener, Printable, Serializable {
         private Label status = null;
@@ -2378,52 +2565,23 @@ public final class UI {
             HTMLBrowser.super.setPage(url);
         }
 
-        public int print(Graphics g, PageFormat pf, int pageIndex)
+        public int print(Graphics g, PageFormat pf, int pi)
             throws PrinterException {
-            Graphics2D g2 = (Graphics2D) g;
-            g2.setColor(Color.black); //set default foreground color to black
-
-            RepaintManager.currentManager(this).setDoubleBufferingEnabled(false);
-
-            java.awt.Dimension d = this.getSize(); //get size of document
-            double panelWidth = d.width; //width in pixels
-            double panelHeight = d.height; //height in pixels
-            double pageHeight = pf.getImageableHeight(); //height of printer page
-            double pageWidth = pf.getImageableWidth(); //width of printer page
-            double scale = pageWidth / panelWidth;
-            int totalNumPages = (int) Math.ceil((scale * panelHeight) / pageHeight);
-            Global.logDebug("print scale factor: " + pageWidth + " / " +
-                panelWidth + " = " + scale + " : pages = " + totalNumPages,
-                "HTMLBrowser.print");
-
-            // Make sure not print empty pages
-            if (pageIndex >= totalNumPages) {
-                return Printable.NO_SUCH_PAGE;
-            }
-
-            // Shift Graphic to line up with beginning of print-imageable region
-            g2.translate(pf.getImageableX(), pf.getImageableY());
-            // Shift Graphic to line up with beginning of next page to print
-            g2.translate(0f, -pageIndex * pageHeight);
-            // Scale the page so the width fits...
-            g2.scale(scale, scale);
-            this.paint(g2); //repaint the page for printing
-
-            return Printable.PAGE_EXISTS;
+            // We use DocumentRenderer to print the document directly,
+            // so this routine doesn't do anything on purpose
+            return Printable.NO_SUCH_PAGE;
         }
 
         public boolean print() {
-            PrinterJob pj = PrinterJob.getPrinterJob();
-            pj.setPrintable(this);
-            pj.printDialog();
-
             try {
-                pj.print();
-            } catch (Exception PrintException) {
+                new DocumentRenderer().print(this);
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+
                 return false;
             }
-
-            return true;
         }
 
         public void paint(Graphics g) {

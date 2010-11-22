@@ -720,10 +720,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         if (Configuration.getBoolean("AutoNotForAdoption")) {
             chkNotForAdoption.setSelected(true);
         }
-        
+
         // Default Brought In By owner
         if (Configuration.getInteger("DefaultBroughtInBy") != 0) {
-        	embBroughtInBy.setID(Configuration.getInteger("DefaultBroughtInBy"));
+            embBroughtInBy.setID(Configuration.getInteger("DefaultBroughtInBy"));
         }
     }
 
@@ -1404,10 +1404,10 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Before we change any death fields, remember
         // what the deceased date was
         Date dd = null;
+
         try {
             dd = txtDateDeceased.getDate();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
 
@@ -1424,7 +1424,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         // Modifying died off shelter causes an event to fire
         // that sets the deceased date - set it back again
         txtDateDeceased.setDate(dd);
-
 
         setSecurity();
     }
@@ -1492,8 +1491,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             cboBreed.setSelectedIndex(0);
             cboBreed2.setSelectedIndex(0);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, getClass());
         }
     }
@@ -2939,14 +2937,27 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                 loadedEntry = true;
 
                 try {
-                	int ooid = 0;
-                	int biid = 0;
-                	int boid1 = 0;
-                	int boid2 = 0;
-                	if (animal.getOriginalOwnerID() != null) ooid = animal.getOriginalOwnerID().intValue();
-                	if (animal.getBroughtInByOwnerID() != null) biid = animal.getBroughtInByOwnerID().intValue();
-                	if (animal.getBondedAnimalID() != null) boid1 = animal.getBondedAnimalID().intValue();
-                	if (animal.getBondedAnimal2ID() != null) boid2 = animal.getBondedAnimal2ID().intValue();
+                    int ooid = 0;
+                    int biid = 0;
+                    int boid1 = 0;
+                    int boid2 = 0;
+
+                    if (animal.getOriginalOwnerID() != null) {
+                        ooid = animal.getOriginalOwnerID().intValue();
+                    }
+
+                    if (animal.getBroughtInByOwnerID() != null) {
+                        biid = animal.getBroughtInByOwnerID().intValue();
+                    }
+
+                    if (animal.getBondedAnimalID() != null) {
+                        boid1 = animal.getBondedAnimalID().intValue();
+                    }
+
+                    if (animal.getBondedAnimal2ID() != null) {
+                        boid2 = animal.getBondedAnimal2ID().intValue();
+                    }
+
                     embOriginalOwner.loadFromID(ooid);
                     embBroughtInBy.loadFromID(biid);
                     embBonded1.loadFromID(boid1);

@@ -131,9 +131,9 @@ public abstract class DBConnection {
 
         // Always load our built in Http driver since
         // its part of our codebase and will always be present
-	// Also, load it last as we've had issues with it trying
-	// to take URLs for other databases (although it's much
-	// more choosy now)
+        // Also, load it last as we've had issues with it trying
+        // to take URLs for other databases (although it's much
+        // more choosy now)
         try {
             // String url = "jdbc:http://localhost/httpdb.cgi"
             Class.forName(
@@ -141,7 +141,6 @@ public abstract class DBConnection {
         } catch (Exception e) {
             Global.logException(e, DBConnection.class);
         }
-
     }
 
     /** Returns type@host */

@@ -56,10 +56,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class DiarySelector extends ASMSelector {
-	
-	private static final long serialVersionUID = -399757981432436532L;
-	
-	public int linkID = 0;
+    private static final long serialVersionUID = -399757981432436532L;
+    public int linkID = 0;
     public int linkType = 0;
     private boolean showLinks = false;
     private boolean hasRecords = false;
@@ -102,6 +100,7 @@ public class DiarySelector extends ASMSelector {
         ctl.add(chkShowFuture);
         ctl.add(chkShowCompleted);
         ctl.add(getTable());
+
         return ctl;
     }
 

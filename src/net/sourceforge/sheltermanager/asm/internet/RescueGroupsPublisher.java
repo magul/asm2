@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.util.Calendar;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -35,6 +33,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.Calendar;
+
 
 /**
  * The actual class that does the RescueGroups.org publishing work
@@ -43,24 +43,20 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
  * @version 3.0
  */
 public class RescueGroupsPublisher extends FTPPublisher {
-
     public RescueGroupsPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-    	
-    	// Override certain values for rescuegroups
-    	publishCriteria.uploadDirectly = true;
-    	publishCriteria.ftpRoot = "";
-    	publishCriteria.thumbnails = false;
+        // Override certain values for rescuegroups
+        publishCriteria.uploadDirectly = true;
+        publishCriteria.ftpRoot = "";
+        publishCriteria.thumbnails = false;
 
-    	init("rescuegroups", parent, publishCriteria,
-    			Configuration.getString("RescueGroupsFTPURL"),
-    			Configuration.getString("RescueGroupsFTPUser"),
-    			Configuration.getString("RescueGroupsFTPPassword"),
-    			"21", "");
+        init("rescuegroups", parent, publishCriteria,
+            Configuration.getString("RescueGroupsFTPURL"),
+            Configuration.getString("RescueGroupsFTPUser"),
+            Configuration.getString("RescueGroupsFTPPassword"), "21", "");
     }
 
     public void run() {
-    	
         // Before we start, make sure that all species have been
         // mapped - we reuse the PetFinder mappings for RescueGroups
         // so they know the limits of what they can expect from
@@ -101,51 +97,52 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 parent.btnClose.setEnabled(true);
                 parent.btnPublish.setEnabled(true);
             }
+
             return;
         }
-        
+
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+
         Animal an = null;
+
         try {
-        	an = getMatchingAnimals();
+            an = getMatchingAnimals();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            if (parent != null) {
+                Dialog.showError(e.getMessage());
+            } else {
+                System.exit(1);
+            }
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		System.exit(1);
-        	}
-        }
-        
+
         // If there aren't any animals, there's no point do
         // anything
         if (an.size() == 0) {
-        	if (parent != null) {
-        		Dialog.showInformation(Global.i18n("uiinternet", 
-        			"No_matching_animals_were_found_to_publish"));
-        		return;
-        	}
-        	else {
-        		Global.logError(Global.i18n("uiinternet",
-        			"No_matching_animals_were_found_to_publish"), 
-        			"RescueGroupsPublisher.run");
-        		System.exit(1);
-        	}
+            if (parent != null) {
+                Dialog.showInformation(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"));
+
+                return;
+            } else {
+                Global.logError(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"),
+                    "RescueGroupsPublisher.run");
+                System.exit(1);
+            }
         }
 
         // Open the socket
         if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
+            if (parent == null) {
+                System.exit(1);
+            } else {
+                return;
+            }
         }
-        
+
         // Attempt to create the import/pictures directory and fail silently
         // if it already exists.
         mkdir("import");
@@ -155,7 +152,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
 
         // Start the progress meter
         initStatusBarMax(an.size());
-        
+
         // Start a new buffer - this is going to be the
         // CSV file required by RescueGroups.
         StringBuffer dataFile = new StringBuffer();
@@ -169,10 +166,9 @@ public class RescueGroupsPublisher extends FTPPublisher {
             while (!an.getEOF()) {
                 anCount++;
 
-                Global.logInfo("Processing: " + an.getShelterCode() +
-                    ": " + an.getAnimalName() + " (" + anCount +
-                    " of " + an.size() + ")",
-                    "RescueGroupsPublisher.run");
+                Global.logInfo("Processing: " + an.getShelterCode() + ": " +
+                    an.getAnimalName() + " (" + anCount + " of " + an.size() +
+                    ")", "RescueGroupsPublisher.run");
 
                 // Rescuegroups allows upto a total of 4 images, so
                 // if we have uploadAll on, stop at 4
@@ -198,8 +194,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 dataFile.append(an.getLastChangedDate().getTime() + ", ");
 
                 // rescueID (org name)
-                dataFile.append("\"" +
-                    Configuration.getString("Organisation") + "\", ");
+                dataFile.append("\"" + Configuration.getString("Organisation") +
+                    "\", ");
 
                 // name
                 dataFile.append("\"" + an.getAnimalName() + "\", ");
@@ -234,20 +230,24 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     "\", ");
 
                 // dogs (good with)
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithDogs()) + "\", ");
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithDogs()) +
+                    "\", ");
 
                 // cats
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithCats()) + "\", ");
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithCats()) +
+                    "\", ");
 
                 // kids
-                dataFile.append("\"" + yesNoUnknown(an.isGoodWithKids()) + "\", ");
+                dataFile.append("\"" + yesNoUnknown(an.isGoodWithKids()) +
+                    "\", ");
 
                 // declawed
                 dataFile.append((an.getDeclawed().intValue() == 1)
                     ? "\"Yes\", " : "\"No\", ");
 
                 // housetrained
-                dataFile.append("\"" + yesNoUnknown(an.isHouseTrained()) + "\", ");
+                dataFile.append("\"" + yesNoUnknown(an.isHouseTrained()) +
+                    "\", ");
 
                 // age
                 /*
@@ -355,8 +355,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
                     dataFile.append(", ");
 
                     if (totalimages >= i) {
-                        dataFile.append("\"" + an.getShelterCode() + "-" +
-                            i + ".jpg" + "\"");
+                        dataFile.append("\"" + an.getShelterCode() + "-" + i +
+                            ".jpg" + "\"");
                     } else {
                         dataFile.append("\"\"");
                     }
@@ -368,8 +368,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 // Mark media records for this animal as published
                 markAnimalPublished("LastPublishedRG", an.getID());
 
-                Global.logInfo("Finished processing " +
-                    an.getShelterCode(), "RescueGroupsPublisher.run");
+                Global.logInfo("Finished processing " + an.getShelterCode(),
+                    "RescueGroupsPublisher.run");
 
                 an.moveNext();
                 incrementStatusBar();
@@ -399,7 +399,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
         Global.logInfo("Uploading data", "RescueGroupsPublisher.run");
         upload("pets.csv");
         Global.logInfo("Data uploaded", "RescueGroupsPublisher.run");
-            
+
         if (parent != null) {
             Global.mainForm.resetStatusBar();
             Global.mainForm.setStatusText("");
@@ -498,5 +498,4 @@ public class RescueGroupsPublisher extends FTPPublisher {
 
         return retval;
     }
-
 }

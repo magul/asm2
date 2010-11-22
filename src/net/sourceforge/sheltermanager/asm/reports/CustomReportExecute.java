@@ -21,14 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
-import java.io.File;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
@@ -49,6 +41,17 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.File;
+
+import java.math.BigDecimal;
+
+import java.text.DecimalFormat;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Vector;
 
 
 /**

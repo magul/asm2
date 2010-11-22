@@ -327,21 +327,30 @@ public class TrxEdit extends ASMForm {
     }
 
     public void actionOpenOwner() {
-        if (ownerID == 0) return;
+        if (ownerID == 0) {
+            return;
+        }
+
         OwnerEdit oe = new OwnerEdit();
         oe.openForEdit(ownerID);
         Global.mainForm.addChild(oe);
     }
 
     public void actionOpenAnimal() {
-        if (animalID == 0) return;
+        if (animalID == 0) {
+            return;
+        }
+
         AnimalEdit ae = new AnimalEdit();
         ae.openForEdit(animalID);
         Global.mainForm.addChild(ae);
     }
 
     public void actionOpenMovement() {
-        if (movementID == 0) return;
+        if (movementID == 0) {
+            return;
+        }
+
         MovementEdit me = new MovementEdit();
         me.openForEdit(movementID);
         Global.mainForm.addChild(me);

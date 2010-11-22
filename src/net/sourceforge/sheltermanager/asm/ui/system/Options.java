@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -46,6 +41,11 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
 
 /**
  * System Options form
@@ -53,8 +53,8 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
  * @author Robin Rawson-Tetley
  */
 public class Options extends ASMForm {
-	private static final long serialVersionUID = -8050802712901337766L;
-	private UI.TabbedPane tabTabs;
+    private static final long serialVersionUID = -8050802712901337766L;
+    private UI.TabbedPane tabTabs;
     private UI.Button btnSave;
     private UI.ComboBox cboDefaultUrgency;
     private UI.ComboBox cboWordProcessor;
@@ -265,9 +265,10 @@ public class Options extends ASMForm {
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
                     "AutoCancelReservesDays")));
-        
+
         // Search
-        txtSearchColumns.setText(Configuration.getString("SearchColumns", AnimalFindColumns.DEFAULT_COLUMNS));
+        txtSearchColumns.setText(Configuration.getString("SearchColumns",
+                AnimalFindColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -337,53 +338,54 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("DonationTargetAccount")),
             cboDonationTargetAccount);
         dtAccountingPeriod.setText(Configuration.getString("AccountingPeriod"));
-        
+
         ArrayList<Account.DonationAccountMapping> dms = Account.getDonationAccountMappings();
         int im = 0;
+
         for (Account.DonationAccountMapping dm : dms) {
-        	im++;
-        	switch(im) {
-        		case 1:
-        			Utils.setComboFromID(
-        				LookupCache.getDonationTypeLookup(), 
-        				"DonationName", dm.donationTypeID, cboMapDT1);
-        			Utils.setComboFromID(
-            				LookupCache.getAccountsLookup(), 
-            				"Code", dm.accountID, cboMapAc1);
-        			break;
-        		case 2:
-        			Utils.setComboFromID(
-        				LookupCache.getDonationTypeLookup(), 
-        				"DonationName", dm.donationTypeID, cboMapDT2);
-        			Utils.setComboFromID(
-            				LookupCache.getAccountsLookup(), 
-            				"Code", dm.accountID, cboMapAc2);
-        			break;
-        		case 3:
-        			Utils.setComboFromID(
-        				LookupCache.getDonationTypeLookup(), 
-        				"DonationName", dm.donationTypeID, cboMapDT3);
-        			Utils.setComboFromID(
-            				LookupCache.getAccountsLookup(), 
-            				"Code", dm.accountID, cboMapAc3);
-        			break;
-        		case 4:
-        			Utils.setComboFromID(
-        				LookupCache.getDonationTypeLookup(), 
-        				"DonationName", dm.donationTypeID, cboMapDT4);
-        			Utils.setComboFromID(
-            				LookupCache.getAccountsLookup(), 
-            				"Code", dm.accountID, cboMapAc4);
-        			break;
-        		case 5:
-        			Utils.setComboFromID(
-        				LookupCache.getDonationTypeLookup(), 
-        				"DonationName", dm.donationTypeID, cboMapDT5);
-        			Utils.setComboFromID(
-            				LookupCache.getAccountsLookup(), 
-            				"Code", dm.accountID, cboMapAc5);
-        			break;
-        	}
+            im++;
+
+            switch (im) {
+            case 1:
+                Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                    "DonationName", dm.donationTypeID, cboMapDT1);
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    dm.accountID, cboMapAc1);
+
+                break;
+
+            case 2:
+                Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                    "DonationName", dm.donationTypeID, cboMapDT2);
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    dm.accountID, cboMapAc2);
+
+                break;
+
+            case 3:
+                Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                    "DonationName", dm.donationTypeID, cboMapDT3);
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    dm.accountID, cboMapAc3);
+
+                break;
+
+            case 4:
+                Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                    "DonationName", dm.donationTypeID, cboMapDT4);
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    dm.accountID, cboMapAc4);
+
+                break;
+
+            case 5:
+                Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
+                    "DonationName", dm.donationTypeID, cboMapDT5);
+                Utils.setComboFromID(LookupCache.getAccountsLookup(), "Code",
+                    dm.accountID, cboMapAc5);
+
+                break;
+            }
         }
 
         // Age Groups
@@ -474,8 +476,9 @@ public class Options extends ASMForm {
             "VaccinationType",
             new Integer(Configuration.getInteger("AFDefaultVaccinationType")),
             cboDefaultVaccinationType);
-        
-        olDefaultBroughtInBy.setID(Configuration.getInteger("DefaultBroughtInBy"));
+
+        olDefaultBroughtInBy.setID(Configuration.getInteger(
+                "DefaultBroughtInBy"));
 
         // Authentication
         if (Configuration.getBoolean("AutoLoginOSUsers")) {
@@ -540,7 +543,7 @@ public class Options extends ASMForm {
             // Mapping Service
             Configuration.setEntry("MappingServiceURL",
                 txtMappingService.getText());
-            
+
             // Movements
             Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
 
@@ -617,9 +620,9 @@ public class Options extends ASMForm {
                 Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboDefaultVaccinationType).toString());
 
-            Configuration.setEntry("DefaultBroughtInBy", 
-            	Integer.toString(olDefaultBroughtInBy.getID()));
-            
+            Configuration.setEntry("DefaultBroughtInBy",
+                Integer.toString(olDefaultBroughtInBy.getID()));
+
             l = tblDefaultOptions.getSelections();
 
             for (int i = 0; i < l.length; i++) {
@@ -636,58 +639,69 @@ public class Options extends ASMForm {
 
             Configuration.setEntry("AccountingPeriod",
                 dtAccountingPeriod.getText());
-            
+
             String maps = "";
+
             if (cboMapDT1.getSelectedIndex() > 0) {
-            	if (!maps.equals("")) maps += ",";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getDonationTypeLookup(),
-            		"DonationName", cboMapDT1);
-            	maps += "=";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getAccountsLookup(),
-            		"Code", cboMapAc1);
+                if (!maps.equals("")) {
+                    maps += ",";
+                }
+
+                maps += Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboMapDT1);
+                maps += "=";
+                maps += Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboMapAc1);
             }
+
             if (cboMapDT2.getSelectedIndex() > 0) {
-            	if (!maps.equals("")) maps += ",";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getDonationTypeLookup(),
-            		"DonationName", cboMapDT2);
-            	maps += "=";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getAccountsLookup(),
-            		"Code", cboMapAc2);
+                if (!maps.equals("")) {
+                    maps += ",";
+                }
+
+                maps += Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboMapDT2);
+                maps += "=";
+                maps += Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboMapAc2);
             }
+
             if (cboMapDT3.getSelectedIndex() > 0) {
-            	if (!maps.equals("")) maps += ",";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getDonationTypeLookup(),
-            		"DonationName", cboMapDT3);
-            	maps += "=";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getAccountsLookup(),
-            		"Code", cboMapAc3);
+                if (!maps.equals("")) {
+                    maps += ",";
+                }
+
+                maps += Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboMapDT3);
+                maps += "=";
+                maps += Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboMapAc3);
             }
+
             if (cboMapDT4.getSelectedIndex() > 0) {
-            	if (!maps.equals("")) maps += ",";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getDonationTypeLookup(),
-            		"DonationName", cboMapDT4);
-            	maps += "=";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getAccountsLookup(),
-            		"Code", cboMapAc4);
+                if (!maps.equals("")) {
+                    maps += ",";
+                }
+
+                maps += Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboMapDT4);
+                maps += "=";
+                maps += Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboMapAc4);
             }
+
             if (cboMapDT5.getSelectedIndex() > 0) {
-            	if (!maps.equals("")) maps += ",";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getDonationTypeLookup(),
-            		"DonationName", cboMapDT5);
-            	maps += "=";
-            	maps += Utils.getIDFromCombo(
-            		LookupCache.getAccountsLookup(),
-            		"Code", cboMapAc5);
+                if (!maps.equals("")) {
+                    maps += ",";
+                }
+
+                maps += Utils.getIDFromCombo(LookupCache.getDonationTypeLookup(),
+                    "DonationName", cboMapDT5);
+                maps += "=";
+                maps += Utils.getIDFromCombo(LookupCache.getAccountsLookup(),
+                    "Code", cboMapAc5);
             }
+
             Configuration.setEntry("DonationAccountMappings", maps);
 
             l = tblAccountOptions.getSelections();
@@ -846,18 +860,23 @@ public class Options extends ASMForm {
         dtAccountingPeriod = (DateField) UI.addComponent(pacc,
                 i18n("accounting_period"), UI.getDateField());
         pacc.add(UI.getLabel());
-        
+
         cboDonationTargetAccount = UI.getCombo(LookupCache.getAccountsLookup(),
                 "Code");
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
         pacc.add(UI.getLabel());
-        
-        cboMapDT1 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
-        cboMapDT2 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
-        cboMapDT3 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
-        cboMapDT4 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
-        cboMapDT5 = UI.getCombo(LookupCache.getDonationTypeLookup(), "DonationName", "");
+
+        cboMapDT1 = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName", "");
+        cboMapDT2 = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName", "");
+        cboMapDT3 = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName", "");
+        cboMapDT4 = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName", "");
+        cboMapDT5 = UI.getCombo(LookupCache.getDonationTypeLookup(),
+                "DonationName", "");
         cboMapAc1 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
         cboMapAc2 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
         cboMapAc3 = UI.getCombo(LookupCache.getAccountsLookup(), "Code", "");
@@ -1083,10 +1102,10 @@ public class Options extends ASMForm {
                 "VaccinationType");
         UI.addComponent(pr, i18n("Default_Vaccination_Type"),
             cboDefaultVaccinationType);
-        
-        olDefaultBroughtInBy = new OwnerLink(OwnerLink.MODE_ONELINE, OwnerLink.FILTER_NONE, "");
-        UI.addComponent(pr, i18n("Default_brought_in_by"), 
-        	olDefaultBroughtInBy);
+
+        olDefaultBroughtInBy = new OwnerLink(OwnerLink.MODE_ONELINE,
+                OwnerLink.FILTER_NONE, "");
+        UI.addComponent(pr, i18n("Default_brought_in_by"), olDefaultBroughtInBy);
 
         l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
@@ -1244,12 +1263,13 @@ public class Options extends ASMForm {
         UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
         movementoptions.add(pv, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("movements"), null, movementoptions, null);
-        
+
         // Search options
-        UI.Panel ps = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70}));
+        UI.Panel ps = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         txtSearchColumns = (UI.TextArea) UI.addComponent(ps,
-        		i18n("animal_search_result_columns"),
-        		UI.getTextArea(i18n("animal_search_result_columns_tooltip")));
+                i18n("animal_search_result_columns"),
+                UI.getTextArea(i18n("animal_search_result_columns_tooltip")));
+
         UI.Panel searchoptions = UI.getPanel(UI.getBorderLayout());
         searchoptions.add(ps, UI.BorderLayout.CENTER);
         tabTabs.addTab(i18n("search"), null, searchoptions, null);

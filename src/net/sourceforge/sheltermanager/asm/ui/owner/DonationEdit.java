@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -41,6 +37,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 
 /**
  * Edit a donation
@@ -49,8 +49,8 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
  */
 public class DonationEdit extends ASMForm implements AnimalLinkListener,
     OwnerLinkListener {
-	private static final long serialVersionUID = 9186238748769049351L;
-	private DonationSelector parent = null;
+    private static final long serialVersionUID = 9186238748769049351L;
+    private DonationSelector parent = null;
     private OwnerDonation od = null;
     private int animalID = 0;
     private int ownerID = 0;

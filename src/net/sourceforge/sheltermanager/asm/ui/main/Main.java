@@ -21,10 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Vector;
+import apple.dts.OSXAdapter;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -110,7 +107,11 @@ import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListView;
 import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-import apple.dts.OSXAdapter;
+
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Vector;
 
 
 /**
@@ -120,10 +121,9 @@ import apple.dts.OSXAdapter;
  * @author Robin Rawson-Tetley
  */
 public class Main extends ASMWindow {
-    
-	private static final long serialVersionUID = 6480558944912213267L;
+    private static final long serialVersionUID = 6480558944912213267L;
 
-	/** HSQLDB Database checkpointer (10 minutes) */
+    /** HSQLDB Database checkpointer (10 minutes) */
     private final static long CHECKPOINT_TIME = 600000;
 
     /** Cache updater (10 minutes) */
@@ -481,6 +481,7 @@ public class Main extends ASMWindow {
     public Vector<Object> getTabOrder() {
         Vector<Object> ctl = new Vector<Object>();
         ctl.add(jdpDesktop);
+
         return ctl;
     }
 
@@ -2587,10 +2588,8 @@ public class Main extends ASMWindow {
     }
 
     public class CustomReportMenu extends UI.MenuItem {
-        
-		private static final long serialVersionUID = -1706803115678906205L;
-		
-		private String customReportId = null;
+        private static final long serialVersionUID = -1706803115678906205L;
+        private String customReportId = null;
 
         public CustomReportMenu(String customReportId, String text) {
             super();

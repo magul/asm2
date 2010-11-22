@@ -22,8 +22,8 @@
 package net.sourceforge.sheltermanager.asm.script;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
 import net.sourceforge.sheltermanager.asm.internet.HTMLPublisher;
+import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 

@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.io.File;
-import java.util.Calendar;
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -34,25 +30,32 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-/** 
+import java.io.File;
+
+import java.util.Calendar;
+import java.util.Date;
+
+
+/**
  * Contains basic functionality for internet publishing
  * @author Robin Rawson-Tetley
  */
 public abstract class AbstractPublisher extends Thread {
-	
     /** Reference to the UI if we were started from one */
     protected InternetPublisher parent = null;
-    
+
     /** The publishing criteria */
     protected PublishCriteria publishCriteria = null;
-    
+
     /** The number of animals to be published */
     protected int totalAnimals = 0;
-    
+
     /** The name of the publisher, used for generating the temp folder */
     protected String publisherName = "";
+
     /** The path to the temp folder */
     protected String publishDirectory = "";
+
     /** Same as publishDirectory, but with trailing separator */
     protected String publishDir = "";
 
@@ -62,30 +65,36 @@ public abstract class AbstractPublisher extends Thread {
      * @param publishCriteria
      * @param name
      */
-    protected void init(String publisherName, InternetPublisher parent, PublishCriteria publishCriteria) {
-    	this.publisherName = publisherName;
-    	this.parent = parent;
-    	this.publishCriteria = publishCriteria;
-    	makePublishDirectory();
+    protected void init(String publisherName, InternetPublisher parent,
+        PublishCriteria publishCriteria) {
+        this.publisherName = publisherName;
+        this.parent = parent;
+        this.publishCriteria = publishCriteria;
+        makePublishDirectory();
     }
 
-    /** 
-     * Creates the publish temporary directory 
+    /**
+     * Creates the publish temporary directory
      * @param name The name of the target temp folder
-     * @return The full path to the temp folder with trailing separator 
+     * @return The full path to the temp folder with trailing separator
      */
     protected String makePublishDirectory() {
-    	publishDirectory = Global.tempDirectory + File.separator + publisherName;
+        publishDirectory = Global.tempDirectory + File.separator +
+            publisherName;
+
         File file = new File(publishDirectory);
+
         if (file.exists()) {
         } else {
             // Create the directory
             file.mkdirs();
         }
+
         publishDir = publishDirectory + File.separator;
+
         return publishDir;
     }
-    
+
     /**
      * For a yes/no/unknown value, returns the string
      * @param v The value
@@ -111,28 +120,27 @@ public abstract class AbstractPublisher extends Thread {
      * @return true if the update was successful
      */
     protected boolean markAnimalPublished(String field, int id) {
-    	try {
-    		Global.logDebug(
-	            "Marking media records published for animal " +
-	            id + " in field " + field, getClass().getName() + ".markAnimalPublished");
-	    	DBConnection.executeAction(
-	            "UPDATE media SET " + field + " = '" +
-	            Utils.getSQLDate(new Date()) + "' WHERE LinkID = " +
-	            id + " AND LinkTypeID = 0");
-	    	return true;
-    	}
-    	catch (Exception e) {
-    		Global.logException(e, getClass());
-    		return false;
-    	}
+        try {
+            Global.logDebug("Marking media records published for animal " + id +
+                " in field " + field,
+                getClass().getName() + ".markAnimalPublished");
+            DBConnection.executeAction("UPDATE media SET " + field + " = '" +
+                Utils.getSQLDate(new Date()) + "' WHERE LinkID = " + id +
+                " AND LinkTypeID = 0");
+
+            return true;
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            return false;
+        }
     }
-    
+
     /**
      * Gets the list of matching animals for the criteria
      * given.
      */
     protected Animal getMatchingAnimals() throws Exception {
-    	
         StringBuffer sql = new StringBuffer("");
 
         // If the include case animals option is off, make
@@ -140,24 +148,26 @@ public abstract class AbstractPublisher extends Thread {
         if (!publishCriteria.includeCase) {
             sql.append("CrueltyCase = 0");
         }
-        
+
         // Make sure it has a valid picture if the option is off
         if (!publishCriteria.includeWithoutImage) {
-        	if (sql.length() != 0) {
+            if (sql.length() != 0) {
                 sql.append(" AND ");
             }
-        	sql.append("EXISTS(SELECT ID FROM media " +
-        		"WHERE WebsitePhoto = 1 AND LinkID = animal.ID " +
-        		"AND LinkTypeID = 0)");
+
+            sql.append("EXISTS(SELECT ID FROM media " +
+                "WHERE WebsitePhoto = 1 AND LinkID = animal.ID " +
+                "AND LinkTypeID = 0)");
         }
 
         // If the include reserves option is off, make
         // sure it isn't reserved
         if (!publishCriteria.includeReserved) {
-        	if (sql.length() != 0) {
+            if (sql.length() != 0) {
                 sql.append(" AND ");
             }
-        	sql.append("HasActiveReserve = 0");
+
+            sql.append("HasActiveReserve = 0");
         }
 
         // Only include animals in the selected internal
@@ -171,6 +181,7 @@ public abstract class AbstractPublisher extends Thread {
             }
 
             sql.append("ShelterLocation in (");
+
             boolean firstLoc = true;
 
             for (int i = 0; i < publishCriteria.internalLocations.length;
@@ -183,6 +194,7 @@ public abstract class AbstractPublisher extends Thread {
 
                 sql.append(publishCriteria.internalLocations[i].toString());
             }
+
             sql.append(")");
         }
 
@@ -198,12 +210,14 @@ public abstract class AbstractPublisher extends Thread {
         if (sql.length() != 0) {
             sql.append(" AND ");
         }
+
         sql.append("DateOfBirth <= '" + Utils.getSQLDate(today) + "'");
 
         // Filter out dead animals, and ones not for adoption
         if (sql.length() != 0) {
             sql.append(" AND ");
         }
+
         sql.append("DeceasedDate Is Null AND IsNotAvailableForAdoption = 0");
 
         // If including fosterers is on, allow ones with an active movement type
@@ -223,35 +237,39 @@ public abstract class AbstractPublisher extends Thread {
         switch (publishCriteria.order) {
         case 0:
             sql.append(" ORDER BY MostRecentEntryDate");
+
             break;
 
         case 1:
             sql.append(" ORDER BY MostRecentEntryDate DESC");
+
             break;
 
         default:
             sql.append(" ORDER BY MostRecentEntryDate");
+
             break;
         }
 
         // Grab the set and return it
         return new Animal(sql.toString());
     }
-    
+
     /**
      * Flushes the given content to the named file.
      */
     protected void saveFile(String filepath, String content) {
         try {
-        	Utils.writeFile(filepath, content.getBytes(Global.CHAR_ENCODING));
+            Utils.writeFile(filepath, content.getBytes(Global.CHAR_ENCODING));
         } catch (Exception e) {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
+
             Global.logException(e, getClass());
         }
     }
-    
+
     /**
      * Returns true if the filename given has a valid image extension
      * @param s
@@ -259,9 +277,10 @@ public abstract class AbstractPublisher extends Thread {
      */
     protected boolean isImage(String s) {
         s = s.toLowerCase();
+
         return s.endsWith("jpg") || s.endsWith("jpeg") || s.endsWith("png");
     }
-    
+
     /**
      * Generates a thumbnail (70px on longest side)
      * @param pathToImage Publishing directory
@@ -285,53 +304,69 @@ public abstract class AbstractPublisher extends Thread {
     protected void scaleImage(String pathToImage, int scalesize) {
         int width = 320;
         int height = 200;
-        switch(scalesize) {
-	        case 2:
-	            width = 320;
-	            height = 200;
-	            break;
-	        case 3:
-	            width = 640;
-	            height = 400;
-	            break;
-	        case 4:
-	            width = 800;
-	            height = 600;
-	            break;
-	        case 5:
-	            width = 1024;
-	            height = 768;
-	            break;
-	        case 6:
-	            width = 300;
-	            height = 300;
-	            break;
-	        case 7:
-	            width = 95;
-	            height = 95;
-	            break;
+
+        switch (scalesize) {
+        case 2:
+            width = 320;
+            height = 200;
+
+            break;
+
+        case 3:
+            width = 640;
+            height = 400;
+
+            break;
+
+        case 4:
+            width = 800;
+            height = 600;
+
+            break;
+
+        case 5:
+            width = 1024;
+            height = 768;
+
+            break;
+
+        case 6:
+            width = 300;
+            height = 300;
+
+            break;
+
+        case 7:
+            width = 95;
+            height = 95;
+
+            break;
         }
+
         UI.scaleImage(pathToImage, pathToImage, width, height);
     }
-    
+
     protected void initStatusBarMax(int max) {
-    	if (parent != null)
-    		Global.mainForm.initStatusBarMax(max);
+        if (parent != null) {
+            Global.mainForm.initStatusBarMax(max);
+        }
     }
-    
+
     protected void setStatusText(String s) {
-    	if (parent != null)
-    		Global.mainForm.setStatusText(s);
+        if (parent != null) {
+            Global.mainForm.setStatusText(s);
+        }
     }
-    
+
     protected void resetStatusBar() {
-    	if (parent != null)
-    		Global.mainForm.resetStatusBar();
+        if (parent != null) {
+            Global.mainForm.resetStatusBar();
+        }
     }
-    
+
     protected void incrementStatusBar() {
-    	if (parent != null)
-    		Global.mainForm.incrementStatusBar();
+        if (parent != null) {
+            Global.mainForm.incrementStatusBar();
+        }
     }
-	
 }

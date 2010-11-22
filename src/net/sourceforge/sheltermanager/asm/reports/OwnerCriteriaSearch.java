@@ -21,14 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**

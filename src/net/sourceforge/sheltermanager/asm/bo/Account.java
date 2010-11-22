@@ -309,37 +309,41 @@ public class Account extends UserInfoBO<Account> {
 
         return rounded;
     }
-    
+
     public static ArrayList<DonationAccountMapping> getDonationAccountMappings() {
-    	ArrayList<DonationAccountMapping> m = new ArrayList<DonationAccountMapping>();
-    	String cm = Configuration.getString("DonationAccountMappings");
-    	String[] sm = Utils.split(cm, ",");
-    	for (int i = 0; i < sm.length; i++) {
-    		if (sm[i].indexOf("=") != -1)
-    			m.add(new DonationAccountMapping(sm[i]));
-    	}
-    	return m;
+        ArrayList<DonationAccountMapping> m = new ArrayList<DonationAccountMapping>();
+        String cm = Configuration.getString("DonationAccountMappings");
+        String[] sm = Utils.split(cm, ",");
+
+        for (int i = 0; i < sm.length; i++) {
+            if (sm[i].indexOf("=") != -1) {
+                m.add(new DonationAccountMapping(sm[i]));
+            }
+        }
+
+        return m;
     }
 
     public static class DonationAccountMapping {
-    	public int donationTypeID = 0;
-    	public int accountID = 0;
-    	public DonationAccountMapping(int donationTypeID, int accountID) {
-    		this.donationTypeID = donationTypeID;
-    		this.accountID = accountID;
-    	}
-    	public DonationAccountMapping(String m) {
-    		try {
-	    		String[] b = m.split("=");
-	    		donationTypeID = Integer.parseInt(b[0]);
-	    		accountID = Integer.parseInt(b[1]);
-    		}
-    		catch (Exception e) {
-    			Global.logException(e, DonationAccountMapping.class);
-    		}
-    	}
+        public int donationTypeID = 0;
+        public int accountID = 0;
+
+        public DonationAccountMapping(int donationTypeID, int accountID) {
+            this.donationTypeID = donationTypeID;
+            this.accountID = accountID;
+        }
+
+        public DonationAccountMapping(String m) {
+            try {
+                String[] b = m.split("=");
+                donationTypeID = Integer.parseInt(b[0]);
+                accountID = Integer.parseInt(b[1]);
+            } catch (Exception e) {
+                Global.logException(e, DonationAccountMapping.class);
+            }
+        }
     }
-    
+
     public static class Balances {
         public double balance;
         public double reconciled;

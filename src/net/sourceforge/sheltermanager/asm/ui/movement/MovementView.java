@@ -53,10 +53,8 @@ import java.util.Vector;
  * @version 1.0
  */
 public class MovementView extends ASMView implements MovementParent {
-    
-	private static final long serialVersionUID = 4861006878229526425L;
-	
-	public final static int MODE_RESERVATION = 0;
+    private static final long serialVersionUID = 4861006878229526425L;
+    public final static int MODE_RESERVATION = 0;
     public final static int MODE_FOSTERS = 1;
     public final static int MODE_RETAILERS = 2;
     private String[][] tabledata = null;

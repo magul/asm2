@@ -1,6 +1,8 @@
 2.8.4
 ================
 
+*. Fix for printing from the internal viewer - view scale was overriding
+-  print scale and causing tiny output
 *. Fix for if no breeds are available for a species, it can prevent
 -  movements being loaded and displayed
 *. RG Unknown fix broken - broke CSV field delimiters

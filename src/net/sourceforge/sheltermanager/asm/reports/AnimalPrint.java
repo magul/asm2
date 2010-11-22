@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Locale;
-
 import net.sourceforge.sheltermanager.asm.bo.Additional;
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
@@ -43,6 +39,11 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.File;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 /**
@@ -209,7 +210,7 @@ public class AnimalPrint extends Report {
         addLevelTwoHeader(Global.i18n("uianimal", "entry_details"));
 
         tableNew(true);
-        
+
         if (!Configuration.getBoolean("AnimalPrintHideOriginalOwner")) {
             tableAddRow();
             tableAddBoldCell(Global.i18n("uianimal", "Original_Owner:"));

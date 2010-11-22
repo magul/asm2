@@ -37,7 +37,8 @@ public class SearchResults extends Report {
     private int lastcol = 15;
     private int namecol = 14;
 
-    public SearchResults(String[][] searchResults, int max, int lastcol, int namecol, String searchTerm) {
+    public SearchResults(String[][] searchResults, int max, int lastcol,
+        int namecol, String searchTerm) {
         this.max = max;
         this.lastcol = lastcol;
         this.namecol = namecol;
@@ -67,6 +68,7 @@ public class SearchResults extends Report {
 
         String[] headers = AnimalFindColumns.getColumnLabels();
         tableAddRow();
+
         for (int i = 0; i < headers.length; i++) {
             tableAddCell(bold(headers[i]));
         }

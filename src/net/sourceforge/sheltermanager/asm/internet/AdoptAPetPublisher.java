@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.io.File;
-import java.util.Calendar;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -33,6 +30,10 @@ import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 
+import java.io.File;
+
+import java.util.Calendar;
+
 
 /**
  * The actual class that does the AdoptAPet.com publishing work
@@ -41,24 +42,20 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  * @version 3.0
  */
 public class AdoptAPetPublisher extends FTPPublisher {
-
     public AdoptAPetPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-    	
-    	// Override certain values for adoptapet
-    	publishCriteria.uploadDirectly = true;
-    	publishCriteria.ftpRoot = "";
-    	publishCriteria.thumbnails = false;
+        // Override certain values for adoptapet
+        publishCriteria.uploadDirectly = true;
+        publishCriteria.ftpRoot = "";
+        publishCriteria.thumbnails = false;
 
-    	init("adoptapet", parent, publishCriteria,
-    			Configuration.getString("SaveAPetFTPURL"),
-    			Configuration.getString("SaveAPetFTPUser"),
-    			Configuration.getString("SaveAPetFTPPassword"),
-    			"21", "");
+        init("adoptapet", parent, publishCriteria,
+            Configuration.getString("SaveAPetFTPURL"),
+            Configuration.getString("SaveAPetFTPUser"),
+            Configuration.getString("SaveAPetFTPPassword"), "21", "");
     }
 
     public void run() {
-    	
         String shelterId = Configuration.getString("SaveAPetFTPUser");
 
         // Make sure we have some settings for AdoptAPet
@@ -69,64 +66,63 @@ public class AdoptAPetPublisher extends FTPPublisher {
 
             if (parent == null) {
                 System.exit(1);
-            }
-            else { 
+            } else {
                 Dialog.showError(Global.i18n("uiinternet",
                         "You_need_to_set_your_save_a_pet_settings_before_publishing"));
             }
+
             return;
         }
-        
+
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+
         Animal an = null;
+
         try {
-        	an = getMatchingAnimals();
+            an = getMatchingAnimals();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            if (parent != null) {
+                Dialog.showError(e.getMessage());
+            } else {
+                System.exit(1);
+            }
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		System.exit(1);
-        	}
-        }
-        
+
         // If there aren't any animals, there's no point do
         // anything
         if (an.size() == 0) {
-        	if (parent != null) {
-        		Dialog.showInformation(Global.i18n("uiinternet", 
-        			"No_matching_animals_were_found_to_publish"));
-        		return;
-        	}
-        	else {
-        		Global.logError(Global.i18n("uiinternet",
-    			"No_matching_animals_were_found_to_publish"), 
-    			"AdoptAPetPublisher.run");
-        		System.exit(1);
-        	}
+            if (parent != null) {
+                Dialog.showInformation(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"));
+
+                return;
+            } else {
+                Global.logError(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"),
+                    "AdoptAPetPublisher.run");
+                System.exit(1);
+            }
         }
 
         // Open the socket
         if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
+            if (parent == null) {
+                System.exit(1);
+            } else {
+                return;
+            }
         }
-        
+
         // Go to the photos directory first
         mkdir("photos");
         chdir("photos");
-        
 
         // Start the progress meter
         initStatusBarMax(an.size());
-        
+
         // Start a new buffer - this is going to be the
         // CSV file required by AdoptAPet.
         StringBuffer dataFile = new StringBuffer();
@@ -134,15 +130,16 @@ public class AdoptAPetPublisher extends FTPPublisher {
 
         try {
             int anCount = 0;
+
             while (!an.getEOF()) {
                 anCount++;
 
-                Global.logInfo("Processing: " + an.getShelterCode() +
-                        ": " + an.getAnimalName() + " (" + anCount +
-                        " of " + an.size() + ")", "SaveAPetPublisher.run");
+                Global.logInfo("Processing: " + an.getShelterCode() + ": " +
+                    an.getAnimalName() + " (" + anCount + " of " + an.size() +
+                    ")", "SaveAPetPublisher.run");
 
                 uploadImage(an, an.getShelterCode() + ".jpg");
-                
+
                 // Build the CSV file entry for this animal:
                 // - Use the petfinder mapping since it's already set
                 // as standard to find out whether it's a dog or cat.
@@ -154,6 +151,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                 if (!pfMap.equalsIgnoreCase("Dog") &&
                         !pfMap.equalsIgnoreCase("Cat")) {
                     an.moveNext();
+
                     continue;
                 }
 
@@ -223,8 +221,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
 
                 // Sex
                 // -- Can only be M/F
-                dataFile.append("\"" + an.getSexName().substring(0, 1) +
-                    "\",");
+                dataFile.append("\"" + an.getSexName().substring(0, 1) + "\",");
 
                 // Colour
                 // -- Relies on map created by the shelter
@@ -281,8 +278,8 @@ public class AdoptAPetPublisher extends FTPPublisher {
                     ? "\"1\"," : "\"0\",");
 
                 // Spayed/Neutered
-                dataFile.append((an.getNeutered().intValue() == 1)
-                    ? "\"1\"," : "\"0\",");
+                dataFile.append((an.getNeutered().intValue() == 1) ? "\"1\","
+                                                                   : "\"0\",");
 
                 // Shots current
                 AnimalVaccination av = new AnimalVaccination();
@@ -297,8 +294,8 @@ public class AdoptAPetPublisher extends FTPPublisher {
                     ? "\"1\"," : "\"0\",");
 
                 // Declawed
-                dataFile.append((an.getDeclawed().intValue() == 1)
-                    ? "\"1\"," : "\"0\",");
+                dataFile.append((an.getDeclawed().intValue() == 1) ? "\"1\","
+                                                                   : "\"0\",");
 
                 // Special needs
                 if (an.getCrueltyCase().intValue() == 1) {
@@ -315,8 +312,8 @@ public class AdoptAPetPublisher extends FTPPublisher {
                 // Mark media records for this animal as published
                 markAnimalPublished("LastPublishedAP", an.getID());
 
-                Global.logInfo("Finished processing " +
-                    an.getShelterCode(), "SaveAPetPublisher.run");
+                Global.logInfo("Finished processing " + an.getShelterCode(),
+                    "SaveAPetPublisher.run");
 
                 an.moveNext();
                 incrementStatusBar();
@@ -325,6 +322,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             }
+
             Global.logException(e, getClass());
         }
 
@@ -341,7 +339,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
         Global.logInfo("Uploading data", "SaveAPetPublisher.run");
         upload("pets.csv");
         Global.logInfo("Data uploaded", "SaveAPetPublisher.run");
-        
+
         Global.logInfo("Uploading data map", "SaveAPetPublisher.run");
         upload("import.cfg");
         Global.logInfo("Data map uploaded.", "SaveAPetPublisher.run");
@@ -371,7 +369,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
             parent.btnPublish.setEnabled(true);
         }
     }
-    
+
     /** Returns the contents of the mappings file (import.cfg) for
      *  AdoptAPet.com
      * @return
@@ -575,7 +573,9 @@ public class AdoptAPetPublisher extends FTPPublisher {
         // those.
         if (!f.exists()) {
             try {
-            	Utils.writeFile(ADOPT_A_PET_MAPPINGS, defmap.getBytes(Global.CHAR_ENCODING));
+                Utils.writeFile(ADOPT_A_PET_MAPPINGS,
+                    defmap.getBytes(Global.CHAR_ENCODING));
+
                 return defmap;
             } catch (Exception e) {
                 Global.logException(e, AdoptAPetPublisher.class);
@@ -583,11 +583,12 @@ public class AdoptAPetPublisher extends FTPPublisher {
         } else {
             // Read the mappings from the file instead.
             try {
-            	return Utils.readFile(ADOPT_A_PET_MAPPINGS);
+                return Utils.readFile(ADOPT_A_PET_MAPPINGS);
             } catch (Exception e) {
                 Global.logException(e, AdoptAPetPublisher.class);
             }
         }
+
         return defmap;
     }
 }

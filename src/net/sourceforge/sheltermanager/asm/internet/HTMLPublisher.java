@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.io.File;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -34,6 +32,8 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
+import java.io.File;
+
 
 /**
  * The HTML publisher
@@ -42,7 +42,6 @@ import net.sourceforge.sheltermanager.dbfs.DBFS;
  * @version 3.0
  */
 public class HTMLPublisher extends FTPPublisher {
-
     /** The javaScript file */
     private String javaScript = "";
     private int javaArrayElement = 0;
@@ -53,17 +52,17 @@ public class HTMLPublisher extends FTPPublisher {
     /** The number of animals to be published */
     private int totalAnimals = 0;
 
-    public HTMLPublisher(InternetPublisher parent, PublishCriteria publishCriteria) {
-    	init("publish", parent, publishCriteria,
-    		Configuration.getString("FTPURL"),
-    		Configuration.getString("FTPUser"),
-    		Configuration.getString("FTPPassword"),
-    		Configuration.getString("FTPPort"),
-    		Configuration.getString("FTPRootDirectory"));
+    public HTMLPublisher(InternetPublisher parent,
+        PublishCriteria publishCriteria) {
+        init("publish", parent, publishCriteria,
+            Configuration.getString("FTPURL"),
+            Configuration.getString("FTPUser"),
+            Configuration.getString("FTPPassword"),
+            Configuration.getString("FTPPort"),
+            Configuration.getString("FTPRootDirectory"));
     }
 
     public void run() {
-    	
         // Get the header, footer and body information
         setStatusText(Global.i18n("uiinternet", "retrieving_page_templates"));
 
@@ -75,36 +74,37 @@ public class HTMLPublisher extends FTPPublisher {
 
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+
         Animal an = null;
+
         try {
-        	an = getMatchingAnimals();
+            an = getMatchingAnimals();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            if (parent != null) {
+                Dialog.showError(e.getMessage());
+            } else {
+                System.exit(1);
+            }
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		System.exit(1);
-        	}
-        }
-        
+
         // If there aren't any animals, there's no point do
         // anything
         if (an.size() == 0) {
-        	if (parent != null) {
-        		Dialog.showInformation(Global.i18n("uiinternet", 
-        			"No_matching_animals_were_found_to_publish"));
-        		return;
-        	}
-        	else {
-        		Global.logError(Global.i18n("uiinternet",
-    			"No_matching_animals_were_found_to_publish"), 
-    			"HTMLPublisher.run");
-        		System.exit(1);
-        	}
+            if (parent != null) {
+                Dialog.showInformation(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"));
+
+                return;
+            } else {
+                Global.logError(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"),
+                    "HTMLPublisher.run");
+                System.exit(1);
+            }
         }
-        
+
         // Open the FTP socket
         openFTPSocket();
 
@@ -120,6 +120,7 @@ public class HTMLPublisher extends FTPPublisher {
         // for the NavBar information and thus how many
         // pages will be generated
         totalAnimals = an.size();
+
         int noPages = 0;
         int animalsPerPage = publishCriteria.animalsPerPage;
 
@@ -150,6 +151,7 @@ public class HTMLPublisher extends FTPPublisher {
                     publishCriteria.extension + "\">" + Integer.toString(i) +
                     "</a>&nbsp;");
             }
+
             navBar = theNav.toString();
         }
 
@@ -166,8 +168,8 @@ public class HTMLPublisher extends FTPPublisher {
         setStatusText(Global.i18n("uiinternet", "Publishing..."));
 
         try {
-
             int anCount = 0;
+
             while (!an.getEOF()) {
                 anCount++;
 
@@ -175,14 +177,14 @@ public class HTMLPublisher extends FTPPublisher {
                 if ((publishCriteria.limit > 0) &&
                         (anCount > publishCriteria.limit)) {
                     Global.logInfo("Hit publish limit of " +
-                        publishCriteria.limit + ", stopping.",
-                        "Publisher.run");
+                        publishCriteria.limit + ", stopping.", "Publisher.run");
+
                     break;
                 }
 
-                Global.logInfo("Processing: " + an.getShelterCode() +
-                        ": " + an.getAnimalName() + " (" + anCount +
-                        " of " + totalAnimals + ")", "Publisher.run");
+                Global.logInfo("Processing: " + an.getShelterCode() + ": " +
+                    an.getAnimalName() + " (" + anCount + " of " +
+                    totalAnimals + ")", "Publisher.run");
 
                 // Upload all the images for this animal to our 
                 // current FTP directory
@@ -205,25 +207,22 @@ public class HTMLPublisher extends FTPPublisher {
                     an.clearWebMediaFlags();
 
                     Global.logInfo("Finished processing " +
-                            an.getShelterCode(), "Publisher.run");
+                        an.getShelterCode(), "Publisher.run");
                 } else {
-                    Global.logInfo("Current page complete.",
-                            "Publisher.run");
+                    Global.logInfo("Current page complete.", "Publisher.run");
 
                     // No, append the footer, flush the page
                     // out to the publish folder and optionally
                     // upload it to the internet site
                     thisPage.append(footer);
 
-                    Global.logInfo("Saving page to disk.",
-                            "Publisher.run");
+                    Global.logInfo("Saving page to disk.", "Publisher.run");
                     saveFile(publishDir + thisPageName, thisPage.toString());
                     Global.logInfo("Page saved to disk.", "Publisher.run");
 
                     // Upload if the option is set
                     if (publishCriteria.uploadDirectly) {
-                        Global.logInfo("Uploading page.",
-                                "Publisher.run");
+                        Global.logInfo("Uploading page.", "Publisher.run");
 
                         upload(thisPageName);
                         Global.logInfo("Page uploaded.", "Publisher.run");
@@ -246,8 +245,8 @@ public class HTMLPublisher extends FTPPublisher {
                     thisPage.append(substituteBodyTags(body, an));
                     itemsOnPage++;
 
-                    Global.logInfo("Finished processing" +
-                            an.getShelterCode(), "Publisher.run");
+                    Global.logInfo("Finished processing" + an.getShelterCode(),
+                        "Publisher.run");
                 }
 
                 // Mark media records for this animal as published
@@ -255,7 +254,6 @@ public class HTMLPublisher extends FTPPublisher {
 
                 an.moveNext();
                 incrementStatusBar();
-
             }
         } catch (Exception e) {
             if (parent != null) {
@@ -517,7 +515,6 @@ public class HTMLPublisher extends FTPPublisher {
      * Writes the JavaScript database out to a file called db.js
      */
     private void writeJavaScript() {
-
         // Add declarations to the front
         String decs = "";
         String idx = Integer.toString(javaArrayElement);
@@ -632,6 +629,7 @@ public class HTMLPublisher extends FTPPublisher {
         text = text.replace('"', '\'');
         text = Utils.replace(text, new String(new byte[] { 13, 10 }), " ");
         text = text.replace('\n', ' ');
+
         return text;
     }
 

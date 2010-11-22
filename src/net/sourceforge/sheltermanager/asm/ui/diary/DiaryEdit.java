@@ -45,10 +45,8 @@ import java.util.Vector;
  * @version 1.0
  */
 public class DiaryEdit extends ASMForm {
-    
-	private static final long serialVersionUID = -4034235922204370684L;
-	
-	private Diary diary = null;
+    private static final long serialVersionUID = -4034235922204370684L;
+    private Diary diary = null;
     private int linkID = 0;
     private int linkType = 0;
     private DiarySelector parent = null;
@@ -139,18 +137,17 @@ public class DiaryEdit extends ASMForm {
             diary.openRecordset("ID = 0");
             diary.addNew();
             diary.setLinkInfo(diary.calculateLinkInfoThis());
-            
+
             // We're ready to go
             if (linkID != 0) {
-            		this.setTitle(i18n("new_diary_title",
-                        diary.getLinkInfo()));
+                this.setTitle(i18n("new_diary_title", diary.getLinkInfo()));
             } else {
                 this.setTitle(i18n("Create_New_Diary_Note"));
             }
-            
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
         }
+
         isNew = true;
     }
 
@@ -200,8 +197,7 @@ public class DiaryEdit extends ASMForm {
             }
 
             if (linkID != 0) {
-                this.setTitle(i18n("edit_diary_title",
-                        diary.getLinkInfo()));
+                this.setTitle(i18n("edit_diary_title", diary.getLinkInfo()));
             } else {
                 this.setTitle(i18n("Edit_Diary_Note"));
             }

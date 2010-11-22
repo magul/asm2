@@ -84,9 +84,8 @@ public abstract class LDAP {
                 "LDAP.authenticate");
 
             // Do a subtree search from the base DN for the user
-            NamingEnumeration<SearchResult> res = 
-            	ctx.search((String) settings.get(LDAP_DN),
-                    filter,
+            NamingEnumeration<SearchResult> res = ctx.search((String) settings.get(
+                        LDAP_DN), filter,
                     new SearchControls(SearchControls.SUBTREE_SCOPE, 0, 0,
                         null, true, true));
 

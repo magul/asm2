@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.util.Calendar;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -35,30 +33,28 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
+import java.util.Calendar;
+
 
 /**
  * The actual class that does the PetFinder publishing work.
  * @author Robin Rawson-Tetley
  */
 public class PetFinderPublisher extends FTPPublisher {
-
     public PetFinderPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-    	
-    	// Override certain values for petfinder
-    	publishCriteria.uploadDirectly = true;
-    	publishCriteria.ftpRoot = "";
-    	publishCriteria.thumbnails = false;
-    	
-    	init("petfinder", parent, publishCriteria,
-    			Configuration.getString("PetFinderFTPURL"),
-    			Configuration.getString("PetFinderFTPUser"),
-    			Configuration.getString("PetFinderFTPPassword"),
-    			"21", "");
+        // Override certain values for petfinder
+        publishCriteria.uploadDirectly = true;
+        publishCriteria.ftpRoot = "";
+        publishCriteria.thumbnails = false;
+
+        init("petfinder", parent, publishCriteria,
+            Configuration.getString("PetFinderFTPURL"),
+            Configuration.getString("PetFinderFTPUser"),
+            Configuration.getString("PetFinderFTPPassword"), "21", "");
     }
 
     public void run() {
-    	
         // Before we start, make sure that all species have been
         // mapped:
         if (!checkMappedSpecies()) {
@@ -83,6 +79,7 @@ public class PetFinderPublisher extends FTPPublisher {
         }
 
         String shelterId = "";
+
         try {
             shelterId = Configuration.getString("PetFinderFTPUser");
         } catch (Exception e) {
@@ -97,46 +94,46 @@ public class PetFinderPublisher extends FTPPublisher {
 
         // Get a list of animals
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
+
         Animal an = null;
+
         try {
-        	an = getMatchingAnimals();
+            an = getMatchingAnimals();
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+
+            if (parent != null) {
+                Dialog.showError(e.getMessage());
+            } else {
+                Global.logError(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"),
+                    "PetFinderPublisher.run");
+                System.exit(1);
+            }
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        	if (parent != null) {
-        		Dialog.showError(e.getMessage());
-        	}
-        	else {
-        		Global.logError(Global.i18n("uiinternet",
-    			"No_matching_animals_were_found_to_publish"), 
-    			"PetFinderPublisher.run");
-        		System.exit(1);
-        	}
-        }
-        
+
         // If there aren't any animals, there's no point do
         // anything
         if (an.size() == 0) {
-        	if (parent != null) {
-        		Dialog.showInformation(Global.i18n("uiinternet", 
-        			"No_matching_animals_were_found_to_publish"));
-        		return;
-        	}
-        	else {
-        		System.exit(1);
-        	}
+            if (parent != null) {
+                Dialog.showInformation(Global.i18n("uiinternet",
+                        "No_matching_animals_were_found_to_publish"));
+
+                return;
+            } else {
+                System.exit(1);
+            }
         }
-        
+
         // Open the socket
         if (!openFTPSocket()) {
-        	if (parent == null) {
-        		System.exit(1);
-        	}
-        	else {
-        		return;
-        	}
+            if (parent == null) {
+                System.exit(1);
+            } else {
+                return;
+            }
         }
-                
+
         // Change to the import/photos directory, we
         // do images first and the data file last
         mkdir("import");
@@ -146,7 +143,7 @@ public class PetFinderPublisher extends FTPPublisher {
 
         // Start the progress meter
         initStatusBarMax(an.size());
-        
+
         // Start a new buffer - this is going to be the
         // CSV file required by PetFinder.
         StringBuffer dataFile = new StringBuffer();
@@ -157,16 +154,17 @@ public class PetFinderPublisher extends FTPPublisher {
 
         try {
             int anCount = 0;
+
             while (!an.getEOF()) {
                 anCount++;
 
-                Global.logInfo("Processing: " + an.getShelterCode() +
-                    ": " + an.getAnimalName() + " (" + anCount +
-                    " of " + an.size() + ")", "PetFinderPublisher.run");
+                Global.logInfo("Processing: " + an.getShelterCode() + ": " +
+                    an.getAnimalName() + " (" + anCount + " of " + an.size() +
+                    ")", "PetFinderPublisher.run");
 
                 // Upload images
                 uploadImages(an);
-                
+
                 // Build the CSV file entry for this animal:
 
                 // Animal
@@ -364,8 +362,8 @@ public class PetFinderPublisher extends FTPPublisher {
                 // Mark media records for this animal as published
                 markAnimalPublished("LastPublishedPF", an.getID());
 
-                Global.logInfo("Finished processing " +
-                        an.getShelterCode(), "PetFinderPublisher.run");
+                Global.logInfo("Finished processing " + an.getShelterCode(),
+                    "PetFinderPublisher.run");
 
                 an.moveNext();
                 incrementStatusBar();
@@ -407,7 +405,7 @@ public class PetFinderPublisher extends FTPPublisher {
         Global.logInfo("Uploading data", "PetFinderPublisher.run");
         upload(shelterId);
         Global.logInfo("Data uploaded", "PetFinderPublisher.run");
-        
+
         Global.logInfo("Uploading data map", "PetFinderPublisher.run");
         upload(shelterId + "import.cfg");
         Global.logInfo("Data map uploaded.", "PetFinderPublisher.run");

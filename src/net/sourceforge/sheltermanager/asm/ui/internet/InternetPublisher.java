@@ -21,17 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.internet;
 
-import java.util.ArrayList;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.internet.AdoptAPetPublisher;
+import net.sourceforge.sheltermanager.asm.internet.HTMLPublisher;
 import net.sourceforge.sheltermanager.asm.internet.PetFinderPublisher;
 import net.sourceforge.sheltermanager.asm.internet.Pets911Publisher;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
-import net.sourceforge.sheltermanager.asm.internet.HTMLPublisher;
 import net.sourceforge.sheltermanager.asm.internet.RescueGroupsPublisher;
-import net.sourceforge.sheltermanager.asm.internet.AdoptAPetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
@@ -39,6 +36,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.SelectableList;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.util.ArrayList;
+import java.util.Vector;
 
 
 /**
@@ -49,15 +49,12 @@ import net.sourceforge.sheltermanager.dbfs.DBFS;
  * @version 3.0
  */
 public class InternetPublisher extends ASMForm {
-
-	private static final long serialVersionUID = 7187540311107988441L;
-	
-	public final static int MODE_HTML = 0;
+    private static final long serialVersionUID = 7187540311107988441L;
+    public final static int MODE_HTML = 0;
     public final static int MODE_PETFINDER = 1;
     public final static int MODE_PETS911 = 2;
     public final static int MODE_SAVEAPET = 3;
     public final static int MODE_RESCUEGROUPS = 4;
-
     public UI.Button btnClose;
     public UI.Button btnPublish;
     public SelectableList options;
@@ -341,9 +338,10 @@ public class InternetPublisher extends ASMForm {
         } catch (Exception e) {
             Global.logException(e, HTMLPublisher.class);
         }
+
         return null;
     }
-    
+
     public boolean formClosing() {
         // Only allow closing if the publish button is enabled (so we aren't
         // publishing)

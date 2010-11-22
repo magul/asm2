@@ -334,8 +334,8 @@ public class AnimalFindText extends ASMFind {
     public void actionPrint() {
         SortableTableModel tablemodel = (SortableTableModel) table.getModel();
         new SearchResults(tablemodel.getData(), tablemodel.getRowCount(),
-        	AnimalFindColumns.getColumnCount(), AnimalFindColumns.getColumnCount()+1,
-            txtSearch.getText());
+            AnimalFindColumns.getColumnCount(),
+            AnimalFindColumns.getColumnCount() + 1, txtSearch.getText());
 
         tablemodel = null;
     }
@@ -426,8 +426,7 @@ public class AnimalFindText extends ASMFind {
 
         // If no term was given, do an on-shelter search
         if (term.length() == 0) {
-            sql.append(
-                "SELECT animal.*, animal.ID AS priority " + 
+            sql.append("SELECT animal.*, animal.ID AS priority " +
                 "FROM animal " +
                 "WHERE Archived = 0 ORDER BY animal.AnimalName");
         } else {
@@ -436,9 +435,7 @@ public class AnimalFindText extends ASMFind {
                     "animal.AnimalName", "animal.ShelterCode",
                     "animal.ShortCode", "animal.AcceptanceNumber"
                 }, "", 1);
-            addQuery(new String[] {
-                    "additional.Value"
-                }, ADDITIONAL, 1);
+            addQuery(new String[] { "additional.Value" }, ADDITIONAL, 1);
             addQuery(new String[] { "animal.BreedName", "animal.Markings" },
                 "", 2);
             addQuery(new String[] { "log.Comments" },
@@ -551,34 +548,38 @@ public class AnimalFindText extends ASMFind {
         } catch (Exception e) {
             Global.logException(e, getClass());
         }
-        
+
         // Create a monster IN clause from the animal IDs
         StringBuffer inclause = new StringBuffer();
+
         for (Integer i : uid) {
-        	if (inclause.length() != 0) inclause.append(",");
-        	inclause.append(Integer.toString(i.intValue())); // i.toString formats we don't want that
+            if (inclause.length() != 0) {
+                inclause.append(",");
+            }
+
+            inclause.append(Integer.toString(i.intValue())); // i.toString formats we don't want that
         }
-        
+
         // Grab the additional fields for these animals
         SQLRecordset add = null;
+
         try {
-        	String addsql = "SELECT additionalfield.FieldName, " +
-	        	"additional.Value, additional.LinkID FROM " +
-	        	"additional INNER JOIN " +
-	        	"additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +
-	        	"WHERE additional.LinkID IN (" + inclause.toString() + ") AND " +
-	        	"additional.LinkType = 0";
-	        // Global.logDebug("Get additional fields: " + addsql, "AnimalFindText.runSearch");
-        	add = new SQLRecordset(addsql, "additional");
-        }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
+            String addsql = "SELECT additionalfield.FieldName, " +
+                "additional.Value, additional.LinkID FROM " +
+                "additional INNER JOIN " +
+                "additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +
+                "WHERE additional.LinkID IN (" + inclause.toString() +
+                ") AND " + "additional.LinkType = 0";
+            // Global.logDebug("Get additional fields: " + addsql, "AnimalFindText.runSearch");
+            add = new SQLRecordset(addsql, "additional");
+        } catch (Exception e) {
+            Global.logException(e, getClass());
         }
 
         // Create an array to hold the results for the table
         int cols = AnimalFindColumns.getColumnCount() + 3;
         String[][] datar = new String[uid.size()][cols];
-        
+
         int idColumn = cols - 3;
         int rnameColumn = cols - 2;
         int dobColumn = cols - 1;
@@ -595,7 +596,8 @@ public class AnimalFindText extends ASMFind {
                 boolean seenit = false;
 
                 for (int z = 0; z < i; z++) {
-                    if (datar[z][idColumn].equals(animal.getField("ID").toString())) {
+                    if (datar[z][idColumn].equals(animal.getField("ID")
+                                                            .toString())) {
                         seenit = true;
 
                         break;
@@ -614,10 +616,11 @@ public class AnimalFindText extends ASMFind {
             }
 
             try {
-            	for (int z = 0; z < cols - 3; z++) {
-            		datar[i][z] = AnimalFindColumns.format(
-            			AnimalFindColumns.getColumnName(z), animal, add);
-            	}
+                for (int z = 0; z < (cols - 3); z++) {
+                    datar[i][z] = AnimalFindColumns.format(AnimalFindColumns.getColumnName(
+                                z), animal, add);
+                }
+
                 datar[i][idColumn] = animal.getField("ID").toString();
                 datar[i][rnameColumn] = Animal.getReportAnimalName((String) animal.getField(
                             "AnimalName"),
@@ -644,7 +647,10 @@ public class AnimalFindText extends ASMFind {
             incrementStatusBar();
         }
 
-        if (AnimalFindColumns.isDefaultColumns()) getTable().setSortModel(new AnimalFindText.AnimalFindSortable());
+        if (AnimalFindColumns.isDefaultColumns()) {
+            getTable().setSortModel(new AnimalFindText.AnimalFindSortable());
+        }
+
         setTableData(columnheaders, datar, i, cols, cols - 3);
 
         animal.free();

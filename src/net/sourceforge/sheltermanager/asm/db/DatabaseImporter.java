@@ -21,11 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.db;
 
-import java.sql.Connection;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.sql.Connection;
 
 
 public class DatabaseImporter implements Runnable {

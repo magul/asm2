@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.db;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -40,6 +35,12 @@ import net.sourceforge.sheltermanager.asm.utility.MD5;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.io.ByteArrayOutputStream;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Vector;
 
 
 /**
@@ -4168,18 +4169,21 @@ public class AutoDBUpdates {
             // Add the LinkInfo field to the diary table
             DBConnection.executeAction(
                 "ALTER TABLE diary ADD LinkInfo VARCHAR(255) NULL");
-            DBConnection.executeAction(
-            	"UPDATE diary SET LinkInfo = ''");
+            DBConnection.executeAction("UPDATE diary SET LinkInfo = ''");
 
             // Go through every diary record and stamp the link info
             Global.logInfo("Generating static diary link info...", "update2841");
-            SQLRecordset diary = new SQLRecordset(
-                "SELECT ID, LinkID, LinkType FROM diary", "diary");
+
+            SQLRecordset diary = new SQLRecordset("SELECT ID, LinkID, LinkType FROM diary",
+                    "diary");
+
             for (SQLRecordset d : diary) {
                 if (d.getInt("LinkID") != 0) {
-                    String info = Diary.calculateLinkInfo(d.getInt("LinkID"), d.getInt("LinkType"));
+                    String info = Diary.calculateLinkInfo(d.getInt("LinkID"),
+                            d.getInt("LinkType"));
                     info = info.replace('\'', '`');
-                    DBConnection.executeAction("UPDATE diary SET LinkInfo = '" + info + "' WHERE ID = " + d.getInt("ID"));
+                    DBConnection.executeAction("UPDATE diary SET LinkInfo = '" +
+                        info + "' WHERE ID = " + d.getInt("ID"));
                 }
             }
         } catch (Exception e) {
@@ -4191,9 +4195,11 @@ public class AutoDBUpdates {
 
 
 class ErrorVector extends Vector<String> {
-	private static final long serialVersionUID = -682107123783073205L;
-	public boolean add(String s) {
+    private static final long serialVersionUID = -682107123783073205L;
+
+    public boolean add(String s) {
         Global.logError(s, "ErrorVector.add");
+
         return super.add(s);
     }
 }
