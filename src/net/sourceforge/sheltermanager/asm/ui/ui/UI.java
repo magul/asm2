@@ -407,16 +407,26 @@ public final class UI {
     }
 
     public static CurrencyField getCurrencyField() {
-        return getCurrencyField(null);
+        return getCurrencyField(true);
     }
+
+    public static CurrencyField getCurrencyField(boolean selectOnFocus) {
+        return getCurrencyField(selectOnFocus, null, null);
+    }
+
 
     public static CurrencyField getCurrencyField(String tooltiptext) {
-        return getCurrencyField(tooltiptext, null);
+        return getCurrencyField(true, tooltiptext, null);
     }
 
-    public static CurrencyField getCurrencyField(String tooltiptext,
+    public static CurrencyField getCurrencyField(String tooltiptext, 
+        FunctionPointer onChange) {
+        return getCurrencyField(true, tooltiptext, onChange);
+    }
+
+    public static CurrencyField getCurrencyField(boolean selectOnFocus, String tooltiptext,
         final FunctionPointer onChange) {
-        CurrencyField d = new CurrencyField();
+        final CurrencyField d = new CurrencyField();
 
         if (!isLTR()) {
             d.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
@@ -424,6 +434,14 @@ public final class UI {
 
         if (tooltiptext != null) {
             d.setToolTipText(tooltiptext);
+        }
+
+        if (selectOnFocus) {
+            d.getTextField().addFocusListener(new FocusAdapter() {
+                public void focusGained(FocusEvent e) {
+                    d.getTextField().selectAll();
+                }
+            });
         }
 
         if (onChange != null) {
