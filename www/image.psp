@@ -12,9 +12,49 @@
                "media" for the image data for media record with id
 """
 
+import base64
+import db
+
+def send_nopic():
+    """
+    Sends the nopic jpeg file
+    """
+    s = db.query_string("SELECT Content FROM dbfs WHERE Path Like '/reports' AND Name Like 'nopic.jpg'")
+    req.write(base64.b64decode(s))
+
 req.content_type = "image/jpeg"
 req.send_http_header()
 
+mode = "animal"
+id = 0
 
+if form.has_key("type"):
+    mode = form["type"]
+    id = int(form["id"])
+
+if mode == "animal":
+    # Find the media record
+    mname = db.query_string("SELECT MediaName FROM media WHERE WebsitePhoto = 1 AND LinkID = %d AND LinkTypeID = 0" % id)
+    if mname == "":
+        send_nopic()
+    else:
+        s = db.query_string("SELECT Content FROM dbfs WHERE Path Like '/animal/%d' AND Name Like '%s'" % (id, mname))
+        req.write(base64.b64decode(s))
+
+elif mode == "thumb":
+    # TODO:
+    send_nopic()
+
+elif mode == "media":
+    # Find the media record
+    mname = db.query_string("SELECT MediaName FROM media WHERE WebsitePhoto = 1 AND ID = %d" % id)
+    if mname == "":
+        send_nopic()
+    else:
+        s = db.query_string("SELECT Content FROM dbfs WHERE Name Like '%s'" % mname)
+        req.write(base64.b64decode(s))
+
+else:
+    send_nopic()
 
 %>

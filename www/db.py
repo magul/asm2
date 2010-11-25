@@ -5,7 +5,7 @@
         contains methods for running queries against the database
 """
 
-import time, cgi, sys
+import time, datetime
 
 from config import *
 
@@ -52,7 +52,7 @@ def query_tuple(sql):
         as a grid of tuples
     """
     # Grab a connection and cursor
-    c = getConnection()
+    c = connection()
     s = c.cursor()
     # Run the query and retrieve all rows
     s.execute(sql)
@@ -68,7 +68,7 @@ def query_json(sql):
         as a JSON array with column names
     """
     # Grab a connection and cursor
-    c = getConnection()
+    c = connection()
     s = c.cursor()
     # Run the query
     s.execute(sql)
@@ -105,7 +105,7 @@ def execute(sql):
     """
         Runs the action query given and returns rows affected
     """
-    c = getConnection()
+    c = connection()
     s = c.cursor()
     s.execute(sql)
     rv = s.rowcount
@@ -124,14 +124,14 @@ def get_id(table):
         field and returning that +1 (or 1 if the table
         has no records)
     """
-    d = runQuery2("SELECT Max(ID) FROM %s" % table)
+    d = query_tuple("SELECT Max(ID) FROM %s" % table)
     if (len(d) == 0) | (d[0][0] == None):
         return 1
     else:
         return d[0][0] + 1
    
 def query_int(sql):
-    r = runQuery2(sql)
+    r = query_tuple(sql)
     try:
         v = r[0][0]
         return int(v)
@@ -139,7 +139,7 @@ def query_int(sql):
         return int(0)
 
 def query_float(sql):
-    r = runQuery2(sql)
+    r = query_tuple(sql)
     try:
         v = r[0][0]
         return float(v)
@@ -147,7 +147,7 @@ def query_float(sql):
         return float(0)
 
 def query_string(sql):
-    r = runQuery2(sql)
+    r = query_tuple(sql)
     try :
         v = r[0][0]
         return v.encode('ascii', 'ignore')
@@ -167,7 +167,7 @@ def python2db(d):
     return "%d-%02d-%02d" % ( d.year, d.month, d.day )
 
 def dd(d):
-    """ Formats a value as a date for the database """
+    """ Formats a python date as a date for the database """
     if d == None: return "NULL"
     return "'%d-%02d-%02d'" % ( d.year, d.month, d.day )
 

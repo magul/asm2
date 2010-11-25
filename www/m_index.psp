@@ -1,7 +1,6 @@
 <%
 
-from mod_python import apache
-reports = apache.import_module("/home/robin/workspace/sheltermanager/www/reports.py")
+import reports
 
 %>
 <html>

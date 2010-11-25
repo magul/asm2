@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
+import base64
+
 import db
+import i18n
+import lookup
 
 """
         ASM reporting module, contains all code necessary for 
@@ -107,10 +111,12 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # TODO:
-            # Look it up from the DB
-            # Substitute header/footer tags
-            return "TODO:"
+            # Look it up from the DB and Base64 decode it
+            s = db.query_string("SELECT Content FROM dbfs WHERE Name = 'head.dat' AND Path = '/reports'")
+            if s != "":
+                s = base64.b64decode(s)
+            s = self._SubstituteTemplateHeaderFooter(s)
+            return s
 
     def _ReadFooter(self):
         """
@@ -123,10 +129,12 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # TODO:
-            # Look it up from the DB
-            # Substitute header/footer tags
-            return "TODO:"
+            # Look it up from the DB and Base64 decode it
+            s = db.query_string("SELECT Content FROM dbfs WHERE Name = 'foot.dat' AND Path = '/reports'")
+            if s != "":
+                s = base64.b64decode(s)
+            s = self._SubstituteTemplateHeaderFooter(s)
+            return s
 
     def _Append(self, s):
         self.output += str(s)
@@ -309,12 +317,12 @@ class Report:
                     except Exception, e:
                         value = e
 
-            # {IMAGE.animalid} - substitutes a link to the image.cgi
+            # {IMAGE.animalid} - substitutes a link to the image.psp
             # page to direct the browser to retrieve an image
             if key.lower().startswith("image"):
                 valid = True
                 animalid = key[key.find(".")+1:]
-                value = "%simage.cgi?type=animal&id=%s" % (db.BASE, animalid)
+                value = "image.psp?type=animal&id=%s" % animalid
 
 
             # {SUBREPORT.[title].[parentField]} - embed a subreport
@@ -338,6 +346,20 @@ class Report:
 
         # Output the HTML to the report
         self._Append(out)
+
+    def _SubstituteTemplateHeaderFooter(self, s):
+        """
+        Substitutes special tokens in the report template
+        header and footer. 's' is the header/footer to
+        find tokens in, return value is the substituted 
+        header/footer.
+        """
+        s = s.replace("$$TITLE$$", self.title)
+        s = s.replace("$$DATE$$", i18n.python2display(db.today()))
+        s = s.replace("$$VERSION$$", i18n.get_version())
+        s = s.replace("$$USER$$", "TODO") # TODO:
+        s = s.replace("$$REGISTEREDTO$$", lookup.config_get("Organisation"))
+        return s
 
     def _SubstituteHeaderFooter(self, headfoot, text, rs, rowindex):
         """
@@ -747,12 +769,12 @@ class Report:
                         except Exception, e:
                             value = e
 
-                # {IMAGE.animalid} - substitutes a link to the image.cgi
+                # {IMAGE.animalid} - substitutes a link to the image.psp
                 # page to direct the browser to retrieve an image
                 if key.lower().startswith("image"):
                     valid = True
                     animalid = key[key.find(".")+1:]
-                    value = "%simage.cgi?type=animal&id=%s" % (db.BASE, animalid)
+                    value = "image.psp?type=animal&id=%s" % animalid
 
 
                 # {SUBREPORT.[title].[parentField]} - embed a subreport
@@ -768,7 +790,7 @@ class Report:
                     value = r.Execute(crid, [("PARENTKEY", fields[2])] )
 
                 if valid:
-                    tempbody = tempbody[0:starkey] + value + tempbody[endkey+1:]
+                    tempbody = tempbody[0:startkey] + value + tempbody[endkey+1:]
 
                 # next key
                 startkey = tempbody.find("{", startkey+1)
