@@ -1,4 +1,5 @@
 AddHandler mod_python .psp .psp_ 
 PythonHandler mod_python.psp
 PythonPath "sys.path + ['/home/robin/workspace/sheltermanager/www']"
+PythonOptimize On
 PythonDebug On
