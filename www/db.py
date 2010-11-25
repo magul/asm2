@@ -10,7 +10,7 @@ import time, datetime
 from config import *
 
 if DBTYPE == "MYSQL": import MySQLdb
-if DBTYPE == "POSTGRESQL": import pyPgSQL
+if DBTYPE == "POSTGRESQL": from pyPgSQL import PgSQL
 if DBTYPE == "SQLITE": from pysqlite2 import dbapi2 as sqlite
     
 def connection():
@@ -24,7 +24,8 @@ def connection():
 def query(sql):
     """
         Runs the query given and returns the resultset
-        as a list of dictionaries
+        as a list of dictionaries. All fieldnames are
+	uppercased when returned.
     """
     # Grab a connection and cursor
     c = connection()
@@ -38,7 +39,7 @@ def query(sql):
         # Intialise a map for each row
         rowmap = {}
         for i in xrange(0, len(row)):
-            rowmap[s.description[i][0]] = row[i]
+            rowmap[s.description[i][0].upper()] = row[i]
         l.append(rowmap)
 
     # Close the cursor and connection

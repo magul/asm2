@@ -29,9 +29,10 @@ def get_available_reports(include_with_criteria = True):
     reports = []
     rs = db.query("SELECT ID, Category, Title, HTMLBody, SQLCommand " +
         "FROM customreport ORDER BY Category, Title")
+
     for r in rs:
-        html = r["HTMLBody"]
-        sql = r["SQLCommand"]
+        html = r["HTMLBODY"]
+        sql = r["SQLCOMMAND"]
 
         # Ignore built in reports, mail merges and graphs
         if len(html) < 6:
@@ -43,7 +44,7 @@ def get_available_reports(include_with_criteria = True):
                 continue
 
         # We're good
-        reports.append( (r["Category"], r["ID"], r["Title"]) )
+        reports.append( (r["CATEGORY"], r["ID"], r["TITLE"]) )
 
     return reports
 
@@ -93,11 +94,11 @@ class Report:
         if len(rs) == 0: return
 
         r = rs[0]
-        self.title = r["Title"]
-        self.html = r["HTMLBody"]
-        self.sql = r["SQLCommand"]
-        self.omitCriteria = r["OmitCriteria"] > 0
-        self.omitHeaderFooter = r["OmitHeaderFooter"] > 0
+        self.title = r["TITLE"]
+        self.html = r["HTMLBODY"]
+        self.sql = r["SQLCOMMAND"]
+        self.omitCriteria = r["OMITCRITERIA"] > 0
+        self.omitHeaderFooter = r["OMITHEADERFOOTER"] > 0
         self.isSubReport = self.sql.find("PARENTKEY") != -1
 
     def _ReadHeader(self):
@@ -175,7 +176,6 @@ class Report:
         # Replace any fields in the block based on the last row
         # in the group
         for k, v in rs[gd.lastGroupEndPosition].iteritems():
-            out = out.replace("$" + k.upper(), self._DisplayValue(v))
             out = out.replace("$" + k, self._DisplayValue(v))
 
         # Find calculation keys in our block
@@ -620,7 +620,7 @@ class Report:
             gd = GroupDescriptor();
             gd.header = ghtml[ghstart:ghend];
             gd.footer = ghtml[ghend+6:];
-            gd.fieldName = ghtml[8:ghstart-6].strip();
+            gd.fieldName = ghtml[8:ghstart-6].strip().upper();
             groups.append(gd);
             groupstart = self.html.find("$$GROUP_", groupend);
 
@@ -735,7 +735,6 @@ class Report:
             # while we substitute fields for tags
             tempbody = cbody
             for k, v in rs[row].iteritems():
-                tempbody = tempbody.replace("$" + k.upper(), self._DisplayValue(v))
                 tempbody = tempbody.replace("$" + k, self._DisplayValue(v))
 
             # Update the last value for each group

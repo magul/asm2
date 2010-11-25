@@ -1,19 +1,58 @@
 <%
 
+from config import *
 import reports
 
 %>
-<html>
-<body>
-<h1>ASM Mobile Interface</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Animal Shelter Manager</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<style type="text/css" media="screen">@import "iui/iui.css";</style>
+<script type="application/x-javascript" src="iui/iui.js"></script>
+</head>
 
-<h2>Available Reports</h2>
-<ul>
+<body>
+<div class="toolbar">
+    <h1 id="pageTitle"></h1>
+    <a id="backButton" class="button" href="#"></a>
+</div>
+
+<ul id="home" title="ASM" selected="true">
+    <li><a href="#reports">Generate Report</a></li>
+    <li class="group">Animal</li>
+    <li><a href="#vacc">Vaccinate Animal</a></li>
+    <li><a href="#med">Medicate Animal</a></li>
+    <li><a href="#log">Add Log to Animal</a></li>
+</ul>
+
+<ul id="reports" title="Reports">
 <%
 ar = reports.get_available_reports(False)
+group = ""
 for r in ar:
-    req.write("<li><a href=\"m_report.psp?id=%d\">%s</a></li>" % ( r[1], r[2] ))
+    if group != r[0]:
+        group = r[0]
+	req.write("<li class=\"group\">%s</li>" % group)
+    req.write("<li><a href=\"m_report.psp?id=%d\" target=\"_self\">%s</a></li>" % ( r[1], r[2] ))
+
 %>
+</ul>
+
+<ul id="vacc" title="Vaccinate">
+<!-- Output list of animals needing vaccination -->
+</ul>
+
+<ul id="med" title="Medicate">
+<!-- Output list of animals needing medical treatment -->
+</ul>
+
+
+<ul id="log" title="Log">
+<!-- combo with on shelter animals, log types, text box, do as dialog -->
+</ul>
 
 </body>
 </html>
