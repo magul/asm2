@@ -1,0 +1,20 @@
+<%
+
+from mod_python import apache
+reports = apache.import_module("/home/robin/workspace/sheltermanager/www/reports.py")
+
+%>
+<html>
+<body>
+<h1>ASM Mobile Interface</h1>
+
+<h2>Available Reports</h2>
+<ul>
+<%
+ar = reports.get_available_reports(False)
+for r in ar:
+    req.write("<li><a href=\"m_report.psp?id=%d\">%s</a></li>" % ( r[1], r[2] ))
+%>
+
+</body>
+</html>

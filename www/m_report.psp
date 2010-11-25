@@ -1,0 +1,12 @@
+<%
+
+from mod_python import apache
+reports = apache.import_module("/home/robin/workspace/sheltermanager/www/reports.py")
+
+crid = 0
+if form.has_key("id"):
+    crid = int(form["id"])
+
+req.write(reports.execute(crid))
+
+%>
