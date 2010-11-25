@@ -5,7 +5,52 @@ import db
 """
         ASM reporting module, contains all code necessary for 
         generating reports and producing HTML output
+
+        Usage:
+        
+        reports.execute(customreportid, [params])
+
 """
+
+HEADER = 0
+FOOTER = 1
+
+def get_available_reports(include_with_criteria = True):
+    """
+    Returns a list of reports available for running. The return
+    value is a tuple of category, ID and title.
+    If include_with_criteria is false, only reports that don't
+    have ASK or VAR tags are included.
+    """
+    reports = []
+    rs = db.query("SELECT ID, Category, Title, HTMLBody, SQLCommand " +
+        "FROM customreport ORDER BY Category, Title")
+    for r in rs:
+        html = r["HTMLBody"]
+        sql = r["SQLCommand"]
+
+        # Ignore built in reports, mail merges and graphs
+        if len(html) < 6:
+            continue
+
+        # If we're excluding reports with criteria, check now
+        if not include_with_criteria:
+            if sql.find("$ASK") != -1 or sql.find("$VAR") != -1:
+                continue
+
+        # We're good
+        reports.append( (r["Category"], r["ID"], r["Title"]) )
+
+    return reports
+
+def execute(customreportid, params = None):
+    """
+    Executes a custom report by its ID. 'params' is a tuple of 
+    parameters. See the Report._SubstituteSQLParameters function for
+    more info.
+    """
+    r = Report()
+    return r.Execute(customreportid, params)
 
 class GroupDescriptor:
     """
@@ -37,7 +82,13 @@ class Report:
         Reads the report info from the database and populates
         our local class variables
         """
-        r = db.query("SELECT * FROM customreport WHERE ID = %s" % str(reportId))
+        rs = db.query("SELECT Title, HTMLBody, SQLCommand, OmitCriteria, " +
+            "OmitHeaderFooter FROM customreport WHERE ID = %s" % str(reportId))
+        
+        # Can't do anything if the ID was invalid
+        if len(rs) == 0: return
+
+        r = rs[0]
         self.title = r["Title"]
         self.html = r["HTMLBody"]
         self.sql = r["SQLCommand"]
@@ -45,7 +96,7 @@ class Report:
         self.omitHeaderFooter = r["OmitHeaderFooter"] > 0
         self.isSubReport = self.sql.find("PARENTKEY") != -1
 
-    def _ReadHeader():
+    def _ReadHeader(self):
         """
         Reads the report header from the DBFS. If the omitHeaderFooter
         flag is set, returns a basic header, if it's a subreport,
@@ -56,11 +107,12 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # Look it up from the DB
             # TODO:
-            pass
+            # Look it up from the DB
+            # Substitute header/footer tags
+            return "TODO:"
 
-    def _ReadFooter():
+    def _ReadFooter(self):
         """
         Reads the report footer from the DBFS. If the omitHeaderFooter
         flag is set, returns a basic footer, if it's a subreport,
@@ -71,21 +123,30 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # Look it up from the DB
             # TODO:
-            pass
+            # Look it up from the DB
+            # Substitute header/footer tags
+            return "TODO:"
 
-    def _Append(s):
-        output += s
-        return output
+    def _Append(self, s):
+        self.output += str(s)
+        return self.output
 
-    def _p(s):
+    def _p(self, s):
         self._Append("<p>%s</p>" % s)
 
-    def _hr(s):
+    def _hr(self, s):
         self._Append("<hr />")
 
-    def _OutputGroupBlock(self, gd, headfoot, rs, rowindex) {
+    def _DisplayValue(self, v):
+        """
+        Returns the display version of any value
+        """
+        if v == None: return ""
+        # TODO: Date formatting
+        return str(v)
+
+    def _OutputGroupBlock(self, gd, headfoot, rs, rowindex):
         """
         Outputs a group block, 'gd' is the group descriptor,
         'headfoot' is 0 for header, 1 for footer, 'rs' is
@@ -106,7 +167,8 @@ class Report:
         # Replace any fields in the block based on the last row
         # in the group
         for k, v in rs[gd.lastGroupEndPosition].iteritems():
-            out = out.replace("$" + k, _DisplayValue(v))
+            out = out.replace("$" + k.upper(), self._DisplayValue(v))
+            out = out.replace("$" + k, self._DisplayValue(v))
 
         # Find calculation keys in our block
         startkey = out.find("{")
@@ -140,7 +202,7 @@ class Report:
             # {COUNT.field}
             if key.lower().startswith("count"):
                 valid = True
-                value = str(gd.lastGroupStartPosition - gd.lastGroupEndPosition)
+                value = str(gd.lastGroupEndPosition - gd.lastGroupStartPosition + 1)
 
             # {AVG.field[.round]}
             if key.lower().startswith("avg"):
@@ -158,7 +220,7 @@ class Report:
                 for i in range(gd.lastGroupStartPosition, gd.lastGroupEndPosition):
                     try:
                         total += rs[i][fields[1]]
-                        num++
+                        num += 1
                     except Exception, e:
                         # Ignore anything that wasn't a number
                         pass
@@ -179,7 +241,7 @@ class Report:
                 for i in range(gd.lastGroupStartPosition, gd.lastGroupEndPosition):
                     try:
                         if str(rs[i][fields[1]]).strip().lower() == str(fields[2]).strip().lower():
-                            matched++
+                            matched += 1
                     except Exception, e:
                         # Ignore errors
                         pass
@@ -219,13 +281,13 @@ class Report:
             if key.lower().startswith("first"):
                 valid = True
                 fields = key.lower().split(".")
-                value = str(rs[gd.lastGroupStartPosition][fields[1])
+                value = str(rs[gd.lastGroupStartPosition][fields[1]])
 
             # {LAST.field}
             if key.lower().startswith("last"):
                 valid = True
                 fields = key.lower().split(".")
-                value = str(rs[gd.lastGroupStartPosition][fields[1])
+                value = str(rs[gd.lastGroupStartPosition][fields[1]])
 
             # {SQL.sql} - arbitrary sql command, output first
             # column of first row
@@ -265,7 +327,7 @@ class Report:
 
                 # Get the content from it
                 r = Report()
-                value = r.Execute(crid, None)
+                value = r.Execute(crid, [("PARENTKEY", fields[2])] )
 
             # Modify our block with the token value
             if valid:
@@ -275,7 +337,7 @@ class Report:
             startkey = out.find("{", startkey+1)
 
         # Output the HTML to the report
-        _Append(out)
+        self._Append(out)
 
     def _SubstituteHeaderFooter(self, headfoot, text, rs, rowindex):
         """
@@ -290,23 +352,144 @@ class Report:
         gd.lastGroupStartPosition = 0;
         gd.footer = text;
         gd.header = text;
-        self._OutputGroupBlock(gd, headfoot, rs);
+        self._OutputGroupBlock(gd, headfoot, rs, rowindex);
 
+    def _SubstituteSQLParameters(self, params):
+        """
+        Substitutes tokens in the report SQL.
+        'params' is expected to be a list of parameters, each
+        parameter is a tuple, containing the variable name and a substitution value. 
+        If the parameter wasn't from a var tag, the variable name will contain 
+        ASK<x> where <x> is the nth ASK tag in the SQL. In addition, the
+        PARENTKEY type is used for passing a value to a subreport.
+        The return value is the substituted SQL.
+        """
+
+        s = self.sql
+        sp = s.find("$")
+        asktagsseen = 0
+        while sp != -1:
+            
+            ep = s.find("$", sp+1)
+            token = s[sp+1:ep]
+            value = ""
+
+            # ASK tag
+            if token.startswith("ASK"):
+                asktagsseen += 1
+
+                # Loop through the list of parameters, skipping
+                # ASK tags until we get to the correct value
+                pop = asktagsseen
+                for p in params:
+                    if p[0].startswith("ASK"):
+                        pop -= 1
+                        if pop == 0: 
+                            value = p[1]
+                            break
+
+            # VAR tag
+            if token.startswith("VAR"):
+                # Just remove it from the SQL altogether
+                value = ""
+
+            # Variable replacement
+            if token.startswith("@"):
+                vname = token[1:]
+                for p in params:
+                    if p[0] == vname:
+                        value = p[1]
+                        break
+
+            # CURRENT_DATE
+            if token.startswith("CURRENT_DATE"):
+                value = db.python2db(db.today())
+
+            # USER
+            if token.startswith("USER"):
+                value = "" # TODO: Need to sort this out
+
+            # PARENTKEY
+            if token.startswith("PARENTKEY"):
+                for p in params:
+                    if p[0] == "PARENTKEY":
+                        value = p[1]
+                        break
+
+            # Do the replace
+            s = s[0:sp] + value + s[ep+1:]
+
+            # Next token
+            sp = s.find("$", sp)
+
+        return s
 
     def GetParams(self, reportId):
         """
         Returns a list of parameters required for a report, 
         with their types
         'reportId' is the ID of the report to get parameters for.
-        A list of parameters, each item is a list containing a
-        type and a question string.
+        Returns a list of parameters, each item is a list containing a
+        variable name (or ASK for a one-shot ask), a type 
+        (DATE, ANIMAL, LITTER, SPECIES, LOCATION, TYPE, NUMBER, STRING)
+        and a question string.
         """
         self._ReadReport(reportId)
-        #TODO:
-        pass
+        params = []
 
+        s = self.sql
+        sp = s.find("$")
+        while sp != -1:
+            
+            # Has to be ASK or VAR - if it isn't, keep looking
+            if s[sp:sp+4] != "$ASK" and s[sp:sp+4] != "$VAR":
+                sp = s.find("$", sp+1)
+                continue
 
-    def Execute(self, reportId, params):
+            ep = s.find("$", sp+1)
+            token = s[sp+1:ep]
+            paramtype = ""
+            varname = ""
+            question = ""
+
+            # ASK
+            if token.startswith("ASK"):                
+                varname = "ASK"
+
+                # Get the type
+                nsp = token.find(" ", 5)
+                if nsp == -1: nsp = len(token)
+                paramtype = s[5:nsp]
+
+                # Does the type need a string?
+                if paramtype == "DATE" or paramtype == "NUMBER" or paramtype == "STRING":
+                    question = token[nsp+1:]
+
+            # VAR
+            if token.startswith("VAR"):
+                fields = token.split(" ")
+                
+                # Get the name
+                varname = fields[1]
+
+                # The type
+                paramtype = fields[2]
+
+                # And the string if it needs one
+                if paramtype == "DATE" or paramtype == "NUMBER" or paramtype == "STRING":
+                    sp1 = token.find(" ", 5)
+                    sp2 = token.find(sp1 + 1)
+                    question = token[sp2+1:]
+
+            # Bundle them up
+            params.append((varname, paramtype, question))
+
+            # Next token
+            sp = s.find("$", ep+1)
+
+        return params
+
+    def Execute(self, reportId, params = None):
         """
         Executes a report
         'reportId' is the ID of the report to run, 'params' is a list
@@ -315,18 +498,18 @@ class Report:
         Return value is the HTML output of the report.
         """
         self._ReadReport(reportId)
-        output = ""
+        self.output = ""
 
         # Substitute our parameters in the SQL
         self._SubstituteSQLParameters(params)
 
         # Is it a graph? We aren't doing anything with those right now
-        if html.upper().strip() == "GRAPH":
+        if self.html.upper().strip() == "GRAPH":
             # TODO: Implement graphs
             return
 
         # Is it a mail merge? Can't do anything with those either
-        if html.upper().strip() == "MAIL":
+        if self.html.upper().strip() == "MAIL":
             # TODO: Implement mail merge
             return
 
@@ -334,10 +517,13 @@ class Report:
         self._Append(self._ReadHeader())
 
         # Generate the report
-        self._Generate(self, reportId, params)
+        self._Generate(reportId, params)
 
         # Add the HTML footer to our report
         self._Append(self._ReadFooter())
+
+        # We're done
+        return self.output
 
     def _Generate(self, reportId, params):
         """
@@ -412,7 +598,7 @@ class Report:
             gd = GroupDescriptor();
             gd.header = ghtml[ghstart:ghend];
             gd.footer = ghtml[ghend+6:];
-            gd.fieldName = ghtml[8:ghstart-6).strip();
+            gd.fieldName = ghtml[8:ghstart-6].strip();
             groups.append(gd);
             groupstart = self.html.find("$$GROUP_", groupend);
 
@@ -450,8 +636,8 @@ class Report:
         queries = self.sql.split(";")
 
         # Make sure the last query is a SELECT or (SELECT
-        if queries[len(queries)-1].lower().startswith("select") or
-           queries[len(queries)-1].lower().startswith("(select"):
+        if not queries[-1].lower().startswith("select") and \
+           not queries[-1].lower().startswith("(select"):
             self._p("There must be at least one SELECT query and it must be last to run")
             return
 
@@ -479,608 +665,124 @@ class Report:
             return
 
         # Add the header to the report
-        _SubstituteHeaderFooter(0, cheader, rs)
+        self._SubstituteHeaderFooter(HEADER, cheader, rs, 0)
+
+        # Construct our report
+        for row in range(0, len(rs)):
+
+            # If an outer group has changed, we need to end
+            # the inner groups first
+            if not first_record:
+                # This same flag is used to determine whether or
+                # not to update the header
+                cascade = False
+
+                # Loop through the groups in ascending order.
+                # If the switch value for an outer group changes,
+                # we need to force finishing of its inner groups.
+                for gd in groups:
+                    if cascade or not gd.lastFieldValue == rs[row][gd.fieldName]:
+                        # Mark this one for update
+                        gd.forceFinish = True
+                        gd.lastGroupEndPosition = row
+                        cascade = True
+                    else:
+                        gd.forceFinish = False
+
+                # Now do each group footer in reverse order
+                for gd in reversed(groups):
+                    if gd.forceFinish:
+                        # Output the footer, switching the
+                        # field values and calculating any totals
+                        self._OutputGroupBlock(gd, FOOTER, rs, row)
+
+            # Do each header in ascending order
+            for gd in groups:
+                if gd.forceFinish or first_record:
+                    # Mark the position
+                    gd.lastGroupStartPosition = row
+                    gd.lastGroupEndPosition = row
+
+                    # Output the header, switching field values
+                    # and calculating any totals
+                    self._OutputGroupBlock(gd, HEADER, rs, row)
+
+            first_record = False
+
+            # Make a temp string to hold the body block 
+            # while we substitute fields for tags
+            tempbody = cbody
+            for k, v in rs[row].iteritems():
+                tempbody = tempbody.replace("$" + k.upper(), self._DisplayValue(v))
+                tempbody = tempbody.replace("$" + k, self._DisplayValue(v))
+
+            # Update the last value for each group
+            for gd in groups:
+                gd.lastFieldValue = rs[row][gd.fieldName]
+
+            # Deal with any non-field/calculation keys
+            startkey = tempbody.find("{")
+            while startkey != -1:
+                endkey = tempbody.find("}", startkey)
+                key = tempbody[startkey+1:endkey]
+                value = ""
+                valid = False
+
+                # {SQL.sql}
+                if key.lower().startswith("sql"):
+                    valid = True
+                    asql = key[4:]
+                    if asql.lower().startswith("select"):
+                        # Select - return first row/column
+                        try:
+                            x = db.query_tuple(asql)
+                            value = str(x[0][0])
+                        except Exception, e:
+                            value = e
+                    else:
+                        # Action query, run it
+                        try:
+                            value = ""
+                            db.execute(asql)
+                        except Exception, e:
+                            value = e
+
+                # {IMAGE.animalid} - substitutes a link to the image.cgi
+                # page to direct the browser to retrieve an image
+                if key.lower().startswith("image"):
+                    valid = True
+                    animalid = key[key.find(".")+1:]
+                    value = "%simage.cgi?type=animal&id=%s" % (db.BASE, animalid)
+
+
+                # {SUBREPORT.[title].[parentField]} - embed a subreport
+                if key.lower().startswith("subreport"):
+                    valid = True
+                    fields = key.lower().split(".")
+                    
+                    # Get custom report ID from title
+                    crid = db.query_int("SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
+
+                    # Get the content from it
+                    r = Report()
+                    value = r.Execute(crid, [("PARENTKEY", fields[2])] )
 
+                if valid:
+                    tempbody = tempbody[0:starkey] + value + tempbody[endkey+1:]
 
-"""
-        while (!rs.getEOF()) {
-            // Add each group footer in reverse order, unless
-            // this is the first record, in which case we haven't
-            // started yet!
+                # next key
+                startkey = tempbody.find("{", startkey+1)
 
-            // If an outer group has changed, we need to end the
-            // inner groups first.
-            if (!firstRecord) {
-                // Loop through the groups in ascending order. If
-                // the switch value for an outer group changes, we
-                // need to force finishing of it's inner groups
+            # Add the substituted body block to our report
+            self._Append(tempbody)
 
-                // This same flag is used to determine whether or
-                // not to update the header
-                boolean cascade = false;
+        # Add the final group footers if there are any
+        row = len(rs) - 1
+        for gd in reversed(groups):
+            gd.lastGroupEndPosition = row
+            self._OutputGroupBlock(gd, FOOTER, rs, row)
 
-                for (int i = 0; i < group.length; i++) {
-                    GroupDescriptor gd = (GroupDescriptor) group[i];
+        # And the report footer
+        self._SubstituteHeaderFooter(FOOTER, cfooter, rs, row)
 
-                    if (gd.lastFieldValue == null) {
-                        gd.lastFieldValue = "";
-                    }
 
-                    if (!gd.lastFieldValue.equals(rs.getField(gd.fieldName)) ||
-                            cascade) {
-                        // Mark this one for update
-                        gd.forceFinish = true;
-                        gd.lastGroupEndPosition = rs.getAbsolutePosition() -
-                            1;
-                        cascade = true;
-                    } else {
-                        gd.forceFinish = false;
-                    }
-                }
-
-                for (int i = group.length - 1; i >= 0; i--) {
-                    GroupDescriptor gd = (GroupDescriptor) group[i];
-
-                    if (gd.forceFinish) {
-                        // Output the footer, switching
-                        // field values and calculating totals
-                        // where necessary
-                        outputGroupBlock(gd, 1, rs);
-                    }
-                }
-            }
-
-            // Now do each header in ascending order
-            for (int i = 0; i < group.length; i++) {
-                GroupDescriptor gd = (GroupDescriptor) group[i];
-
-                if (gd.forceFinish || firstRecord) {
-                    // Mark the position
-                    gd.lastGroupStartPosition = rs.getAbsolutePosition();
-                    gd.lastGroupEndPosition = rs.getAbsolutePosition();
-
-                    // Output the header, switching
-                    // field values and calculating totals
-                    // where necessary
-                    outputGroupBlock(gd, 0, rs);
-                }
-            }
-
-            firstRecord = false;
-
-            // Make a temp string to hold the body while
-            // we substitute fields for tags
-            tempbody = new String(cbody);
-
-            for (int i = 1; i <= rs.getFieldCount(); i++) {
-                tempbody = Utils.replace(tempbody,
-                        "$" + rs.getFieldName(i),
-                        displayValue(rs.getField(rs.getFieldName(i))));
-            }
-
-            // Update the last value for each group
-            for (int i = 0; i < group.length; i++) {
-                GroupDescriptor gd = (GroupDescriptor) group[i];
-                gd.lastFieldValue = rs.getField(gd.fieldName);
-            }
-
-            // Find any non-field keys
-            // Look for calculation keys
-            int startKey = tempbody.indexOf("{");
-
-            while (startKey != -1) {
-                int endKey = tempbody.indexOf("}", startKey);
-                String key = tempbody.substring(startKey + 1, endKey);
-                String value = "";
-                boolean valid = false;
-
-                // {SQL.[sql]} - arbitrary sql command
-                if (Utils.englishLower(key).startsWith("sql")) {
-                    String field = key.substring(4, key.length());
-                    valid = true;
-
-                    try {
-                        // If it's an action query, execute it
-                        if (Utils.englishLower(field).startsWith("create") ||
-                                Utils.englishLower(field).startsWith("drop") ||
-                                Utils.englishLower(field)
-                                         .startsWith("insert") ||
-                                Utils.englishLower(field)
-                                         .startsWith("update") ||
-                                Utils.englishLower(field)
-                                         .startsWith("delete")) {
-                            DBConnection.executeAction(field);
-                            value = "";
-                        } else {
-                            SQLRecordset rs2 = new SQLRecordset();
-                            rs2.openRecordset(field, "animal");
-
-                            if (rs2.getEOF()) {
-                                value = "[EOF]";
-                            } else {
-                                if (rs2.getField(rs2.getFieldName(1)) == null) {
-                                    value = "null";
-                                } else {
-                                    value = rs2.getField(rs2.getFieldName(1))
-                                               .toString();
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        value = "[" + e.getMessage() + "]";
-                        Global.logException(e, getClass());
-                    }
-                }
-
-                // {IMAGE.[animalid]} - retreives an animal's image from
-                // the database, saves it in the temp folder and then
-                // inserts the filename
-                if (Utils.englishLower(key).startsWith("image")) {
-                    try {
-                        valid = true;
-
-                        String animalid = key.substring(key.indexOf(".") +
-                                1);
-
-                        // If animalid isn't numeric, assume it's a fieldname
-                        // instead and look it up
-                        try {
-                            Integer.parseInt(animalid);
-                        } catch (NumberFormatException e) {
-                            Global.logDebug("IMAGE parameter isn't numeric, assuming fieldname and looking up.",
-                                "CustomReportExecute.run");
-
-                            try {
-                                animalid = rs.getField(animalid).toString();
-                                Global.logDebug(
-                                    "Looked up field, got ID = " +
-                                    animalid, "CustomReportExecute.run");
-                            } catch (Exception ex) {
-                                // Yep, that didn't work, log and give up
-                                Global.logException(ex, getClass());
-
-                                break;
-                            }
-                        }
-
-                        Global.logDebug("IMAGE tag, got animal id: " +
-                            animalid, "CustomReportExecute.run");
-
-                        Animal a = new Animal();
-                        a.openRecordset("ID = " + animalid);
-
-                        String mediaName = a.getWebMedia();
-
-                        // If we got a blank, return a link to nopic.jpg instead
-                        if (mediaName.equals("")) {
-                            mediaName = "nopic.jpg";
-                        }
-
-                        DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
-                                Integer.parseInt(animalid));
-                        dbfs.readFile(mediaName,
-                            net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
-                            File.separator + mediaName);
-                        value = mediaName;
-                    } catch (Exception e) {
-                        value = "[" + e.getMessage() + "]";
-                        Global.logException(e, getClass());
-                    }
-                }
-
-                // {SUBREPORT.[title].[parentField]} - embed
-                // a subreport.
-                if (Utils.englishLower(key).startsWith("subreport")) {
-                    valid = true;
-
-                    String body = key.substring(10, key.length());
-
-                    // Break it up
-                    String[] bits = Utils.split(body, ".");
-                    String title = bits[0];
-                    String parent = bits[1];
-                    String parentkey = rs.getString(parent);
-
-                    // Lookup custom report ID from title
-                    Global.logDebug("Including custom report '" + title +
-                        "' with key '" + parentkey + "'",
-                        "CustomReportExecute.generateReport");
-
-                    CustomReport subr = new CustomReport();
-                    subr.openRecordset("Title Like '" + title + "'");
-
-                    String id = subr.getID().toString();
-
-                    // Call the report
-                    setWaitingOnSubReport(true);
-                    new CustomReportExecute(id, parentkey,
-                        new ReportDoneListener() {
-                            public void reportCompleted(String rep) {
-                                lastSubReport = rep;
-
-                                // If it has a <BODY> tag, then
-                                // chop either side since it will be
-                                // embedded
-                                int bodys = lastSubReport.indexOf("<body");
-
-                                if (bodys == -1) {
-                                    bodys = lastSubReport.indexOf("<BODY");
-                                }
-
-                                if (bodys != -1) {
-                                    int bodye = lastSubReport.indexOf(
-                                            "</body>");
-
-                                    if (bodye == -1) {
-                                        bodye = lastSubReport.indexOf(
-                                                "</BODY>");
-                                    }
-
-                                    if (bodye != -1) {
-                                        lastSubReport = lastSubReport.substring(lastSubReport.indexOf(
-                                                    ">", bodys) + 1, bodye);
-                                    }
-                                }
-
-                                setWaitingOnSubReport(false);
-                            }
-                        });
-
-                    // Wait for it to finish
-                    while (isWaitingOnSubReport()) {
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                        }
-                    }
-
-                    // Substitute the report value
-                    value = lastSubReport;
-                }
-
-                if (valid) {
-                    tempbody = tempbody.substring(0, startKey) + value +
-                        tempbody.substring(endKey + 1, tempbody.length());
-                }
-
-                startKey = tempbody.indexOf("{", startKey + 1);
-            }
-
-            // Append into the report
-            addHTML(tempbody);
-
-            // Ditch string reference
-            tempbody = null;
-
-            rs.moveNext();
-            incrementStatusBar();
-        }
-
-        // Add the final group footers if there are any
-        for (int i = group.length - 1; i >= 0; i--) {
-            GroupDescriptor gd = (GroupDescriptor) group[i];
-            // Output the footer, switching
-            // field values and calculating totals
-            // where necessary
-            gd.lastGroupEndPosition = (int) rs.getRecordCount();
-            outputGroupBlock(gd, 1, rs);
-        }
-
-        // Add the report footer
-        substituteHFValues(1, cfooter, rs);
-
-
-    // If the report length is zero, there's nothing to display, so
-    // finish gracefully and stop. This occurs when a user cancels input
-    if (report.length() == 0) {
-        setStatusText("");
-        report = null;
-        filename = null;
-        tablespec = null;
-
-        return;
-    }
-
-    if (!isSubReport) {
-        report.append(getFooter());
-    }
-
-
-    } catch (Exception e) {
-        Dialog.showError(e.getMessage());
-        Global.logException(e, getClass());
-    } finally {
-        rs.free();
-        rs = null;
-        cheader = null;
-        cbody = null;
-        cfooter = null;
-        resetStatusBar();
-    }
-}
-
-
-    /**
-     * Rounds a number to the set number of decimal places and
-     * returns it as a readable string.
-     */
-    private String roundToDP(BigDecimal value, int dp) {
-        final String zeroes = "00000000000000000000000000000000000000000";
-        value = value.setScale(dp, BigDecimal.ROUND_HALF_UP);
-
-        DecimalFormat df = new DecimalFormat("0." + zeroes.substring(0, dp));
-
-        return df.format(value.doubleValue());
-    }
-
-    /** Converts a recordset value for display - nulls become empty strings */
-    public String displayValue(Object o) {
-        if (o == null) {
-            return "";
-        }
-
-        if (o instanceof Date) {
-            return Utils.formatDate((Date) o);
-        }
-
-        return o.toString();
-    }
-
-    /**
-     * Scans the SQL code for any of our keys to substitute and processes them
-     * accordingly.
-     *
-     *
-     */
-    public String substituteSQLTags(String sql) {
-        // Hunt through the sql, looking for a start
-        // marker to a tag
-        HashMap<String, String> vars = new HashMap<String, String>();
-
-        for (int i = 0; i < sql.length(); i++) {
-            if (sql.substring(i, i + 1).equals("$")) {
-                int tagstart = i;
-                int tagend = sql.indexOf("$", i + 1);
-
-                // Default string to replace the tag with
-                replaceWith = "";
-
-                // Grab the whole tag and split it into pieces
-                String ftag = sql.substring(i + 1, tagend);
-                String[] tagbits = Utils.split(ftag, " ");
-                String tagtype = tagbits[0];
-
-                // Mark the spaces for variable length message tags
-                int firstspace = ftag.indexOf(" ");
-                int secondspace = ftag.indexOf(" ", firstspace + 1);
-                int thirdspace = -1;
-
-                if (secondspace != -1) {
-                    thirdspace = ftag.indexOf(" ", secondspace + 1);
-                }
-
-                // DATE tag
-                if (tagtype.equalsIgnoreCase("CURRENT_DATE")) {
-                    replaceWith = Utils.getSQLDate(new Date());
-                }
-
-                // USER tag
-                if (tagtype.equalsIgnoreCase("USER")) {
-                    replaceWith = Global.currentUserName;
-                }
-
-                // PARENTKEY tag
-                if (tagtype.equalsIgnoreCase("PARENTKEY")) {
-                    replaceWith = subReportParentFieldValue;
-                }
-
-                // ASK tag
-                if (tagtype.equalsIgnoreCase("ASK")) {
-                    // Check what they are asking for
-                    String askedFor = tagbits[1];
-                    String mess = "";
-
-                    if (secondspace != -1) {
-                        mess = ftag.substring(secondspace + 1, ftag.length());
-                    }
-
-                    replaceWith = handleAskTag(askedFor, mess);
-                }
-
-                // VAR tag
-                if (tagtype.equalsIgnoreCase("VAR")) {
-                    // Var is just like ASK, except it has a variable
-                    // name before the type and message
-                    String varname = tagbits[1];
-                    String askedFor = tagbits[2];
-                    String mess = "";
-
-                    if (thirdspace != -1) {
-                        mess = ftag.substring(thirdspace + 1, ftag.length());
-                    }
-
-                    String varvalue = handleAskTag(askedFor, mess);
-                    vars.put(varname, varvalue);
-                    // Var tags don't get replaced, we access the variable
-                    // with a $@VARNAME$ tag
-                    replaceWith = "";
-                }
-
-                // @ (variable output tag)
-                if (tagtype.startsWith("@")) {
-                    replaceWith = (String) vars.get(tagtype.substring(1));
-
-                    if (replaceWith == null) {
-                        replaceWith = "";
-                    }
-                }
-
-                // Throw away the tag and replace it with the substitution
-                // string
-                sql = sql.substring(0, tagstart) + replaceWith +
-                    sql.substring(tagend + 1, sql.length());
-            }
-        }
-
-        return sql;
-    }
-
-    /**
-     * Handles asking the user for something from an ASK or VAR tag
-     * @param askedFor the kind of prompt to display
-     * @param message The message to display if appropriate
-     */
-    private String handleAskTag(String askedFor, final String message) {
-        // DATE
-        if (askedFor.equalsIgnoreCase("DATE")) {
-            seldate = Dialog.getDateInput(message, "Enter Date");
-
-            if (seldate.equals("")) {
-                return "CANCEL";
-            }
-
-            // Format it for replacement
-            try {
-                replaceWith = Utils.getSQLDate(seldate);
-            } catch (Exception e) {
-                replaceWith = Utils.getSQLDate(Calendar.getInstance());
-            }
-
-            // Add it to the crit list
-            crit += (message + ": " + seldate + "<br/>");
-        }
-
-        // SPECIES
-        if (askedFor.equalsIgnoreCase("SPECIES")) {
-            replaceWith = Integer.toString(Dialog.getSpecies());
-
-            try {
-                crit += (Global.i18n("reports", "Species") + ": " +
-                LookupCache.getSpeciesName(new Integer(replaceWith)) + "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // ANIMAL
-        if (askedFor.equalsIgnoreCase("ANIMAL")) {
-            replaceWith = Integer.toString(Dialog.getAnimal(true));
-
-            try {
-                crit += (Global.i18n("reports", "animal") + ": " +
-                DBConnection.executeForString(
-                    "SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
-                "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // ALLANIMAL
-        if (askedFor.equalsIgnoreCase("ALLANIMAL")) {
-            replaceWith = Integer.toString(Dialog.getAnimal(false));
-
-            try {
-                crit += (Global.i18n("reports", "animal") + ": " +
-                DBConnection.executeForString(
-                    "SELECT ShelterCode FROM animal WHERE ID = " + replaceWith) +
-                "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // LITTER
-        if (askedFor.equalsIgnoreCase("LITTER")) {
-            replaceWith = Dialog.getLitter(0);
-
-            try {
-                crit += ((Configuration.getBoolean("AutoLitterIdentification")
-                ? Global.i18n("uianimal", "litter_id")
-                : Global.i18n("uianimal", "Acceptance_No:")) + " " +
-                replaceWith + "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // ANIMAL TYPE
-        if (askedFor.equalsIgnoreCase("TYPE")) {
-            replaceWith = Integer.toString(Dialog.getAnimalType());
-
-            try {
-                crit += (Global.i18n("reports", "animaltype") + ": " +
-                LookupCache.getAnimalTypeName(new Integer(replaceWith)) +
-                "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // INTERNAL LOCATION
-        if (askedFor.equalsIgnoreCase("LOCATION")) {
-            replaceWith = Integer.toString(Dialog.getInternalLocation());
-
-            try {
-                crit += (Global.i18n("reports", "Internal_Location") + ": " +
-                LookupCache.getInternalLocationName(new Integer(replaceWith)) +
-                "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // DIET
-        if (askedFor.equalsIgnoreCase("DIET")) {
-            replaceWith = Integer.toString(Dialog.getDiet());
-
-            try {
-                crit += (Global.i18n("reports", "Diet") + ": " +
-                LookupCache.getDietName(new Integer(replaceWith)) + "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // VOUCHER
-        if (askedFor.equalsIgnoreCase("VOUCHER")) {
-            replaceWith = Integer.toString(Dialog.getVoucher());
-
-            try {
-                crit += (Global.i18n("reports", "Voucher") + ": " +
-                LookupCache.getVoucherName(new Integer(replaceWith)) + "<br/>");
-            } catch (Exception e) {
-                Global.logException(e, getClass());
-            }
-        }
-
-        // NUMBER
-        if (askedFor.equalsIgnoreCase("NUMBER")) {
-            // Take the message string and use it to
-            // prompt the user for the number
-            selnumber = Dialog.getInput(message, "Input Number");
-
-            // Validate that it is a number
-            try {
-                Double.parseDouble(selnumber);
-            } catch (NumberFormatException e) {
-                selnumber = "0";
-            }
-
-            // return it
-            replaceWith = selnumber;
-            crit += (message + ": " + selnumber + "<br/>");
-        }
-
-        // STRING
-        if (askedFor.equalsIgnoreCase("STRING")) {
-            // Take the message string and use it to
-            // prompt the user for the string
-            replaceWith = Dialog.getInput(message, "Input String");
-            crit += (message + ": " + replaceWith + "<br/>");
-        }
-
-        return replaceWith;
-    }
-
-"""

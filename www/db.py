@@ -5,15 +5,9 @@
         contains methods for running queries against the database
 """
 
-DBTYPE = "MYSQL" # MYSQL, SQLITE or POSTGRESQL
-BASE = "http://localhost/sheltermanager/www/"
-HOST = "localhost"
-USERNAME = "root"
-PASSWORD = "root"
-DATABASE = "asm"
-SQLITE_FILE = ""
-
 import time, cgi, sys
+
+from config import *
 
 if DBTYPE == "MYSQL": import MySQLdb
 if DBTYPE == "POSTGRESQL": import pyPgSQL
@@ -161,8 +155,16 @@ def query_string(sql):
         return str("")
 
 def today():
-    """ Returns today as a Python date """
+    """ Returns today as a python date """
     return datetime.date.today()
+
+def db2python(d):
+    """ Returns a python date from a database date """
+    return datetime.fromtimestamp(time.strptime("%Y-%m-%d", d))
+
+def python2db(d):
+    """ Returns a database date from a Python date """
+    return "%d-%02d-%02d" % ( d.year, d.month, d.day )
 
 def dd(d):
     """ Formats a value as a date for the database """
