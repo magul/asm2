@@ -1,0 +1,60 @@
+<%
+
+import db
+import i18n
+import lookup
+
+# Database info
+dbo = db.DatabaseInfo()
+dbo.dbtype = "MYSQL"
+dbo.host = "localhost"
+dbo.username = "root"
+dbo.password = "root"
+dbo.database = "asm"
+
+# Get Authentication info
+database = ""
+username = ""
+password = ""
+if form.has_key("database"): database = form["database"]
+if form.has_key("username"): username = form["username"]
+if form.has_key("password"): password = form["password"]
+
+# If a database was supplied, then this is a sheltermanager.com
+# piece of authentication - we need to update our databaseinfo
+# based on the database supplied - look up user/password 
+# from the account file
+if database != "":
+    
+    dbo.host = "localhost:6432"
+    dbo.dbtype = "POSTGRESQL"
+    dbo.database = database
+    
+    f = open("/root/pg_users/%s" % database)
+    lines = f.readlines()
+    f.close()
+
+    for l in lines:
+        if l.startswith("User:"): dbo.username = l.split(":")[1].strip()
+        if l.startswith("Pass:"): dbo.password = l.split(":")[1].strip()
+
+# Connect to the database and authenticate the username and password
+user = lookup.authenticate(dbo, username, password)
+if user != None:
+
+    # We're good, create the session for this user
+    session["dbo"] = dbo
+    session["user"] = username
+    session["logintime"] = i18n.now()
+    session["super"] = user["SUPERUSER"] == 1
+    session["security"] = user["SECURITYMAP"]
+    session.save()
+
+    # Let them through
+    psp.redirect("m_index.psp")
+
+else:
+    # Things didn't go so well, go back
+    psp.redirect("m_login.psp")
+
+%>

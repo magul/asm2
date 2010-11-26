@@ -7,28 +7,36 @@
 
 import time, datetime
 
-from config import *
+class DatabaseInfo:
+    dbtype = "MYSQL" # MYSQL, SQLITE or POSTGRESQL
+    host = "localhost"
+    username = "root"
+    password = "root"
+    database = "asm"
+    sqlite_file = ""
 
-if DBTYPE == "MYSQL": import MySQLdb
-if DBTYPE == "POSTGRESQL": from pyPgSQL import PgSQL
-if DBTYPE == "SQLITE": from pysqlite2 import dbapi2 as sqlite
-    
-def connection():
+def connection(dbo):
     """
         Creates a connection to the database and returns it
     """
-    if DBTYPE == "MYSQL": return MySQLdb.connect(host=HOST, user=USERNAME, passwd=PASSWORD, db=DATABASE)
-    if DBTYPE == "POSTGRESQL": return PgSQL.connect(None, USERNAME, PASSWORD, HOST, DATABASE)
-    if DBTYPE == "SQLITE": return sqlite.connect(SQLITE_FILE)
+    if dbo.dbtype == "MYSQL": 
+        import MySQLdb
+        return MySQLdb.connect(host=dbo.host, user=dbo.username, passwd=dbo.password, db=dbo.database)
+    if dbo.dbtype == "POSTGRESQL": 
+        from pyPgSQL import PgSQL
+        return PgSQL.connect(None, dbo.username, dbo.password, dbo.host, dbo.database)
+    if dbo.dbtype == "SQLITE": 
+        from pysqlite2 import dbapi2 as sqlite
+        return sqlite.connect(dbo.sqlite_file)
     
-def query(sql):
+def query(dbo, sql):
     """
         Runs the query given and returns the resultset
         as a list of dictionaries. All fieldnames are
 	uppercased when returned.
     """
     # Grab a connection and cursor
-    c = connection()
+    c = connection(dbo)
     s = c.cursor()
     # Run the query and retrieve all rows
     s.execute(sql)
@@ -47,13 +55,13 @@ def query(sql):
     c.close()
     return l
 
-def query_tuple(sql):
+def query_tuple(dbo, sql):
     """
         Runs the query given and returns the resultset
         as a grid of tuples
     """
     # Grab a connection and cursor
-    c = connection()
+    c = connection(dbo)
     s = c.cursor()
     # Run the query and retrieve all rows
     s.execute(sql)
@@ -63,13 +71,13 @@ def query_tuple(sql):
     c.close()
     return d
 
-def query_json(sql):
+def query_json(dbo, sql):
     """
         Runs the query given and returns the resultset
         as a JSON array with column names
     """
     # Grab a connection and cursor
-    c = connection()
+    c = connection(dbo)
     s = c.cursor()
     # Run the query
     s.execute(sql)
@@ -102,11 +110,11 @@ def query_json(sql):
     c.close()
     return json
      
-def execute(sql):
+def execute(dbo, sql):
     """
         Runs the action query given and returns rows affected
     """
-    c = connection()
+    c = connection(dbo)
     s = c.cursor()
     s.execute(sql)
     rv = s.rowcount
@@ -118,37 +126,37 @@ def execute(sql):
 def is_number(x):
     return isinstance(x, (int, long, float, complex))
 
-def get_id(table):
+def get_id(dbo, table):
     """
         Returns the next ID in sequence for a table.
         Does this by basically doing a MAX on the ID
         field and returning that +1 (or 1 if the table
         has no records)
     """
-    d = query_tuple("SELECT Max(ID) FROM %s" % table)
+    d = query_tuple(dbo, "SELECT Max(ID) FROM %s" % table)
     if (len(d) == 0) | (d[0][0] == None):
         return 1
     else:
         return d[0][0] + 1
    
-def query_int(sql):
-    r = query_tuple(sql)
+def query_int(dbo, sql):
+    r = query_tuple(dbo, sql)
     try:
         v = r[0][0]
         return int(v)
     except:
         return int(0)
 
-def query_float(sql):
-    r = query_tuple(sql)
+def query_float(dbo, sql):
+    r = query_tuple(dbo, sql)
     try:
         v = r[0][0]
         return float(v)
     except:
         return float(0)
 
-def query_string(sql):
-    r = query_tuple(sql)
+def query_string(dbo, sql):
+    r = query_tuple(dbo, sql)
     try :
         v = r[0][0]
         return v.encode('ascii', 'ignore')
@@ -186,6 +194,10 @@ def di(i):
     """ Formats a value as an integer for the database """
     if i == None: return "NULL"
     return str(i)
+
+def escape(s):
+    """ Makes a value safe for queries """
+    return s.replace("'", "''")
 
 def make_insert_sql(table, s):
     """

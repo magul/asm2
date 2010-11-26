@@ -19,7 +19,7 @@ import lookup
 HEADER = 0
 FOOTER = 1
 
-def get_available_reports(include_with_criteria = True):
+def get_available_reports(dbo, include_with_criteria = True):
     """
     Returns a list of reports available for running. The return
     value is a tuple of category, ID and title.
@@ -27,7 +27,7 @@ def get_available_reports(include_with_criteria = True):
     have ASK or VAR tags are included.
     """
     reports = []
-    rs = db.query("SELECT ID, Category, Title, HTMLBody, SQLCommand " +
+    rs = db.query(dbo, "SELECT ID, Category, Title, HTMLBody, SQLCommand " +
         "FROM customreport ORDER BY Category, Title")
 
     for r in rs:
@@ -48,13 +48,19 @@ def get_available_reports(include_with_criteria = True):
 
     return reports
 
-def execute(customreportid, params = None):
+def get_title(dbo, customreportid):
+    """
+    Returns the title of a custom report from its ID
+    """
+    return db.query_string(dbo, "SELECT Title FROM customreport WHERE ID = %s" % str(customreportid))
+
+def execute(dbo, customreportid, params = None):
     """
     Executes a custom report by its ID. 'params' is a tuple of 
     parameters. See the Report._SubstituteSQLParameters function for
     more info.
     """
-    r = Report()
+    r = Report(dbo)
     return r.Execute(customreportid, params)
 
 class GroupDescriptor:
@@ -70,7 +76,7 @@ class GroupDescriptor:
     lastGroupEndPosition = 0
 
 class Report:
-
+    dbo = None
     reportId = 0
     criteria = ""
     queries = []
@@ -82,12 +88,15 @@ class Report:
     isSubReport = False
     output = ""
     
+    def __init__(self, dbo):
+        self.dbo = dbo
+
     def _ReadReport(self, reportId):
         """
         Reads the report info from the database and populates
         our local class variables
         """
-        rs = db.query("SELECT Title, HTMLBody, SQLCommand, OmitCriteria, " +
+        rs = db.query(self.dbo, "SELECT Title, HTMLBody, SQLCommand, OmitCriteria, " +
             "OmitHeaderFooter FROM customreport WHERE ID = %s" % str(reportId))
         
         # Can't do anything if the ID was invalid
@@ -113,7 +122,7 @@ class Report:
             return ""
         else:
             # Look it up from the DB and Base64 decode it
-            s = db.query_string("SELECT Content FROM dbfs WHERE Name = 'head.dat' AND Path = '/reports'")
+            s = db.query_string(self.dbo, "SELECT Content FROM dbfs WHERE Name = 'head.dat' AND Path = '/reports'")
             if s != "":
                 s = base64.b64decode(s)
             s = self._SubstituteTemplateHeaderFooter(s)
@@ -131,7 +140,7 @@ class Report:
             return ""
         else:
             # Look it up from the DB and Base64 decode it
-            s = db.query_string("SELECT Content FROM dbfs WHERE Name = 'foot.dat' AND Path = '/reports'")
+            s = db.query_string(self.dbo, "SELECT Content FROM dbfs WHERE Name = 'foot.dat' AND Path = '/reports'")
             if s != "":
                 s = base64.b64decode(s)
             s = self._SubstituteTemplateHeaderFooter(s)
@@ -305,7 +314,7 @@ class Report:
                 if asql.lower().startswith("select"):
                     # Select - return first row/column
                     try:
-                        x = db.query_tuple(asql)
+                        x = db.query_tuple(self.dbo, asql)
                         value = str(x[0][0])
                     except Exception, e:
                         value = e
@@ -313,7 +322,7 @@ class Report:
                     # Action query, run it
                     try:
                         value = ""
-                        db.execute(asql)
+                        db.execute(self.dbo, asql)
                     except Exception, e:
                         value = e
 
@@ -331,7 +340,7 @@ class Report:
                 fields = key.lower().split(".")
                 
                 # Get custom report ID from title
-                crid = db.query_int("SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
+                crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
 
                 # Get the content from it
                 r = Report()
@@ -358,7 +367,7 @@ class Report:
         s = s.replace("$$DATE$$", i18n.python2display(db.today()))
         s = s.replace("$$VERSION$$", i18n.get_version())
         s = s.replace("$$USER$$", "TODO") # TODO:
-        s = s.replace("$$REGISTEREDTO$$", lookup.config_get("Organisation"))
+        s = s.replace("$$REGISTEREDTO$$", lookup.config_get(self.dbo, "Organisation"))
         return s
 
     def _SubstituteHeaderFooter(self, headfoot, text, rs, rowindex):
@@ -669,7 +678,7 @@ class Report:
             if q.lower().startswith("select"):
                 # SELECT for results
                 try:
-                    rs = db.query(q)
+                    rs = db.query(self.dbo, q)
                 except Exception,e:
                     self._p(e)
             else:
@@ -756,7 +765,7 @@ class Report:
                     if asql.lower().startswith("select"):
                         # Select - return first row/column
                         try:
-                            x = db.query_tuple(asql)
+                            x = db.query_tuple(self.dbo, asql)
                             value = str(x[0][0])
                         except Exception, e:
                             value = e
@@ -764,7 +773,7 @@ class Report:
                         # Action query, run it
                         try:
                             value = ""
-                            db.execute(asql)
+                            db.execute(self.dbo, asql)
                         except Exception, e:
                             value = e
 
@@ -782,7 +791,7 @@ class Report:
                     fields = key.lower().split(".")
                     
                     # Get custom report ID from title
-                    crid = db.query_int("SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
+                    crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
 
                     # Get the content from it
                     r = Report()

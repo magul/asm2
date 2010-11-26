@@ -1,6 +1,14 @@
 <%
 
-from config import *
+# Is there a session for the current user?
+if session.is_new():
+    psp.redirect("m_login.psp")
+if not session.has_key("user"):
+    psp.redirect("m_login.psp")
+dbo = session["dbo"]
+
+import animal
+import i18n
 import reports
 
 %>
@@ -26,24 +34,72 @@ import reports
     <li><a href="#vacc">Vaccinate Animal</a></li>
     <li><a href="#med">Medicate Animal</a></li>
     <li><a href="#log">Add Log to Animal</a></li>
+    <li class="group">Diary</li>
+    <li><a href="#diary">Complete Tasks</a></li>
 </ul>
+
+
 
 <ul id="reports" title="Reports">
 <%
-ar = reports.get_available_reports(False)
+ar = reports.get_available_reports(dbo, False)
 group = ""
 for r in ar:
     if group != r[0]:
         group = r[0]
 	req.write("<li class=\"group\">%s</li>" % group)
-    req.write("<li><a href=\"m_report.psp?id=%d\" target=\"_self\">%s</a></li>" % ( r[1], r[2] ))
+    req.write("<li><a href=\"m_report.psp?id=%d\">%s</a></li>" % ( r[1], r[2] ))
 
 %>
 </ul>
 
+
+
+
+
 <ul id="vacc" title="Vaccinate">
-<!-- Output list of animals needing vaccination -->
+<%
+vacc = animal.get_awaiting_vacc(dbo)
+group = ""
+vaccforms = ""
+for v in vacc:
+
+    required = i18n.python2display(v["DATEREQUIRED"])
+
+    if group != required:
+        group = required
+        req.write("<li class=\"group\">%s</li>" % group)
+
+    # Create the list item
+    req.write("<li><a href=\"#v%s\">%s - %s (%s)</a></li>" %
+        ( str(v["VACCID"]), v["ANIMALNAME"], v["SHELTERCODE"], v["VACCINATIONTYPE"]  ))
+
+    # Create the dialog page
+    vaccforms += "<div id=\"v%s\" title=\"%s\" class=\"panel\">" % ( str(v["VACCID"]), v["VACCINATIONTYPE"] )
+    vaccforms += "<fieldset>"
+    vaccforms += "<div class=\"row\"><label>Animal:</label>"
+    vaccforms += "<p>%s %s<p></div>" % ( v["SHELTERCODE"], v["ANIMALNAME"] )
+    vaccforms += "<div class=\"row\"><label>Vaccination:</label>"
+    vaccforms += "<p>%s %s</p></div>" % ( required, v["VACCINATIONTYPE"] )
+    vaccforms += "<div class=\"row\"><label>Comments:</label>"
+    vaccforms += "<p>%s</p></div>" % v["COMMENTS"]
+    vaccforms += "<div class=\"row\"><a class=\"whiteButton\" " 
+    vaccforms += "href=\"m_post?type=vacc&id=%s\">Vaccinate</a></div>" % str(v["VACCID"])
+    vaccforms += "</fieldset></div>"
+
+%>
 </ul>
+
+<%
+#  Output vacc dialog pages
+if len(vacc) > 0:
+    req.write(vaccforms)
+
+%>
+
+
+
+
 
 <ul id="med" title="Medicate">
 <!-- Output list of animals needing medical treatment -->
@@ -52,6 +108,11 @@ for r in ar:
 
 <ul id="log" title="Log">
 <!-- combo with on shelter animals, log types, text box, do as dialog -->
+</ul>
+
+
+<ul id="diary" title="Diary">
+<!-- list of diary entries for the current user -->
 </ul>
 
 </body>

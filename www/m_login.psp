@@ -1,0 +1,51 @@
+<%
+
+SMCOM = False
+
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Login</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<style type="text/css" media="screen">@import "iui/iuix.css";</style>
+<script type="application/x-javascript" src="iui/iuix.js"></script>
+</head>
+
+<body>
+
+<div class="toolbar">
+    <h1 id="pageTitle"></h1>
+    <a id="backButton" class="button" href="#"></a>
+</div>
+
+<div id="login" class="panel" selected="true">
+<form id="loginform" action="m_login_post.psp" target="_self" method="post">
+<h2>Login</h2>
+<fieldset>
+<% 
+if SMCOM: 
+    req.write("""
+    <div class="row">
+        <label>Account:</label>
+        <input type="text" name="database" />
+    </div>
+    """)
+
+%>
+    <div class="row">
+        <label>Username:</label>
+        <input type="text" name="username" />
+    </div>
+    <div class="row">
+        <label>Password:</label>
+        <input type="password" name="password" />
+    </div>
+</fieldset>
+<a class="whiteButton" href="javascript:document.forms[0].submit()" type="submit">Login</a>
+</form>
+</div>
+
+</body>
+</html>

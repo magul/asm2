@@ -8,7 +8,8 @@ import datetime
 import time
 
 VERSION = "3.00"
-DATE_FORMAT = "%d/%m/%Y"
+DISPLAY_DATE_FORMAT = "%d/%m/%Y"
+DB_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 def get_version():
     """
@@ -22,6 +23,10 @@ def python2display(d):
     a Python date, return value is a display string.
     """
     if d == None: return ""
-    return time.strftime(DATE_FORMAT, d.timetuple())
+    return time.strftime(DISPLAY_DATE_FORMAT, d.timetuple())
 
-
+def now():
+    """
+    Returns a python date representing now
+    """
+    return datetime.datetime.now()

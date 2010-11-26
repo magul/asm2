@@ -1,11 +1,31 @@
 <%
 
+# Is there a session for the current user?
+if session.is_new():
+    psp.redirect("m_login.psp")
+if not session.has_key("user"):
+    psp.redirect("m_login.psp")
+dbo = session["dbo"]
+
 import reports
 
 crid = 0
 if form.has_key("id"):
     crid = int(form["id"])
 
-req.write(reports.execute(crid))
+s = reports.execute(dbo, crid)
+title = reports.get_title(dbo, crid)
+
+# Strip either side of the body tags so that the
+# report content is injected as a dialog 
+# into our smartphone UI
+sl = s.lower()
+bp = sl.find("body")
+bt = sl.find(">", bp) + 1
+eb = sl.find("</body")
+s = s[bt:eb]
+s = "<div id=\"report\" title=\"%s\" class=\"panel\">%s</div>" % ( title, s )
+
+req.write(s)
 
 %>
