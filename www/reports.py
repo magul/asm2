@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import base64
+import datetime
 
 import db
 import i18n
@@ -36,6 +37,10 @@ def get_available_reports(dbo, include_with_criteria = True):
 
         # Ignore built in reports, mail merges and graphs
         if len(html) < 6:
+            continue
+
+        # Ignore subreports
+        if sql.find("$PARENTKEY$") != -1:
             continue
 
         # If we're excluding reports with criteria, check now
@@ -161,7 +166,8 @@ class Report:
         Returns the display version of any value
         """
         if v == None: return ""
-        # TODO: Date formatting
+        if (str(v)).find("00.00") != -1:
+            return i18n.python2display(v)
         return str(v)
 
     def _OutputGroupBlock(self, gd, headfoot, rs, rowindex):
@@ -186,6 +192,7 @@ class Report:
         # in the group
         for k, v in rs[gd.lastGroupEndPosition].iteritems():
             out = out.replace("$" + k, self._DisplayValue(v))
+            out = out.replace("$" + k.lower(), self._DisplayValue(v))
 
         # Find calculation keys in our block
         startkey = out.find("{")
@@ -691,7 +698,7 @@ class Report:
         first_record = True
 
         # If there are no records, show a message to say so
-        if len(rs) == 0:
+        if rs == None or len(rs) == 0:
             self._p("No data to show on the report.")
             return
 
@@ -715,7 +722,7 @@ class Report:
                     if cascade or not gd.lastFieldValue == rs[row][gd.fieldName]:
                         # Mark this one for update
                         gd.forceFinish = True
-                        gd.lastGroupEndPosition = row
+                        gd.lastGroupEndPosition = row - 1
                         cascade = True
                     else:
                         gd.forceFinish = False
@@ -745,6 +752,7 @@ class Report:
             tempbody = cbody
             for k, v in rs[row].iteritems():
                 tempbody = tempbody.replace("$" + k, self._DisplayValue(v))
+                tempbody = tempbody.replace("$" + k.lower(), self._DisplayValue(v))
 
             # Update the last value for each group
             for gd in groups:

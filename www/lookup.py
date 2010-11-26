@@ -41,11 +41,6 @@ def authenticate(dbo, username, password):
     # hashlib.md5.hexdigest
     javapassword = password[1:]
 
-    f = open("/tmp/asmlog", "w")
-    f.write("username: " + username + ", password: " + password)
-    f.flush()
-    f.close()
-
     users = db.query(dbo, "SELECT * FROM users WHERE UPPER(UserName) LIKE UPPER('" + username + "')")
     for u in users:
         if u["PASSWORD"].strip() == password or u["PASSWORD"].strip() == javapassword:

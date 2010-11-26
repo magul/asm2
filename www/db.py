@@ -47,7 +47,12 @@ def query(dbo, sql):
         # Intialise a map for each row
         rowmap = {}
         for i in xrange(0, len(row)):
-            rowmap[s.description[i][0].upper()] = row[i]
+            v = row[i]
+            if type(v) == str:
+                if v != None:
+                    v = v.replace("`", "'")
+            rowmap[s.description[i][0].upper()] = v
+
         l.append(rowmap)
 
     # Close the cursor and connection
@@ -158,7 +163,7 @@ def query_float(dbo, sql):
 def query_string(dbo, sql):
     r = query_tuple(dbo, sql)
     try :
-        v = r[0][0]
+        v = r[0][0].replace("`", "'")
         return v.encode('ascii', 'ignore')
     except:
         return str("")
