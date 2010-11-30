@@ -310,6 +310,39 @@ public class Account extends UserInfoBO<Account> {
         return rounded;
     }
 
+    /** Calculates the balance for this account to a certain date, starting at
+      * another date */
+    public static double getAccountBalanceFromToDate(Integer accountId, Date start, Date limit)
+        throws Exception {
+
+        // If the two dates given are the same, we can save some time
+        if (start.equals(limit)) return 0;
+
+        // Withdrawals
+        double withdrawal = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " +
+                accountId + "AND TrxDate >= '" + Utils.getSQLDate(start) + "'" +
+                " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+
+        // Deposits
+        double deposit = DBConnection.executeForDouble(
+                "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
+                accountId + " AND TrxDate >= '" + Utils.getSQLDate(start) + "'" + 
+                "AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+        double rounded = Utils.round(deposit - withdrawal, 2);
+
+        int accountType = DBConnection.executeForInt(
+                "SELECT AccountType FROM accounts WHERE ID = " + accountId);
+
+        // Income and expense accounts should always be positive
+        if ((accountType == INCOME) || (accountType == EXPENSE)) {
+            rounded = Math.abs(rounded);
+        }
+
+        return rounded;
+    }
+
+
     public static ArrayList<DonationAccountMapping> getDonationAccountMappings() {
         ArrayList<DonationAccountMapping> m = new ArrayList<DonationAccountMapping>();
         String cm = Configuration.getString("DonationAccountMappings");

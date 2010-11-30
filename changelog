@@ -1,6 +1,9 @@
 2.8.4
 ================
 
+*. Accounting period applies to transaction view now - balances will be
+-  calculated from accounting period start now and transactions prior
+-  to that filtered out from the screens.
 *. Currency fields select contents on focus so that on tabbing
 -  in they can be typed over
 *. Rescuegroups publisher requires blank instead of unknown
