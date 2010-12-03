@@ -351,7 +351,7 @@ public class DonationSelector extends ASMSelector {
             }
 
             // Set the date received to today
-            od.setDateReceived(new Date());
+            od.setDateReceived(Utils.getTodayNoTime());
 
             // Do we have a frequency > 0, the nextcreated flag isn't set
             // and there's a datereceived and a datedue?

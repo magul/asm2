@@ -332,6 +332,16 @@ public abstract class Utils {
         return SQLRecordset.getSQLRepresentationOfDateOnly(calendarToDate(c));
     }
 
+    /** Returns todays date with no time information */
+    public static Date getTodayNoTime() {
+        try {
+            return parseDate(formatDate(new Date()));    
+        }
+        catch (Exception e) {
+            return new Date();
+        }
+    }
+
     /** Returns a java Date as a calendar. Returns null
      *  if the date is null.
      * @param d
