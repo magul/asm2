@@ -1,7 +1,7 @@
 DELETE FROM accounts;
-INSERT INTO accounts VALUES (1, 'Income::Donation', 'Incoming donations (misc)', 5, 1, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (1, 'Income::Donation', 'Einkommende Spenden (misc)', 5, 1, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (2, 'Income::Adoption', 'Adoption fee donations', 5, 2, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (3, 'Income::WaitingList', 'Waiting list donations', 5, 3, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (3, 'Income::WaitingList', 'Spenden Warteliste', 5, 3, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (4, 'Income::EntryDonation', 'Donations for animals entering the shelter', 5, 4, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (5, 'Income::Sponsorship', 'Sponsorship donations', 5, 5, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (6, 'Income::Shop', 'Income from an on-site shop', 5, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
@@ -11,13 +11,13 @@ INSERT INTO accounts VALUES (9, 'Bank::Current', 'Bank current account', 1, 0, 0
 INSERT INTO accounts VALUES (10, 'Bank::Deposit', 'Bank deposit account', 1, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (11, 'Bank::Savings', 'Bank savings account', 1, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (12, 'Asset::Premises', 'Premises', 8, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (13, 'Expenses::Phone', 'Telephone Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (14, 'Expenses::Electricity', 'Electricity Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (15, 'Expenses::Water', 'Water Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (16, 'Expenses::Gas', 'Gas Bills', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (13, 'Expenses::Phone', 'Telefonrechnungen', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (14, 'Expenses::Electricity', 'Stromrechnungen', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (15, 'Expenses::Water', 'Wasserrechnungen', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (16, 'Expenses::Gas', 'Gasrechnungen', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (17, 'Expenses::Postage', 'Postage costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 INSERT INTO accounts VALUES (18, 'Expenses::Stationary', 'Stationary costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
-INSERT INTO accounts VALUES (19, 'Expenses::Food', 'Animal food costs', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
+INSERT INTO accounts VALUES (19, 'Expenses::Food', 'Tier-Futter Kosten', 4, 0, 0, 'translate', '2010-06-14 11:51:00', 'translate', '2010-06-14 11:51:00');
 DELETE FROM animaltype;
 INSERT INTO animaltype VALUES (2, 'D (Hund)', NULL);
 INSERT INTO animaltype VALUES (10, 'F (Streunender Hund)', NULL);

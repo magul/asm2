@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-29 10:26+0100\n"
-"PO-Revision-Date: 2010-10-02 18:51+0000\n"
+"POT-Creation-Date: 2010-11-05 09:36+0100\n"
+"PO-Revision-Date: 2010-11-07 06:36+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-03 05:03+0000\n"
+"X-Launchpad-Export-Date: 2010-11-08 05:19+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. # bo/DiaryTaskHead
@@ -199,6 +199,7 @@ msgstr "מת"
 
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animalname/NamesEdit
 #. # internet/Pets911Publisher
@@ -219,6 +220,7 @@ msgid "Adopted"
 msgstr "מאומץ"
 
 #. # reports/AnimalFigures
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalFind
 #. # bo/AnimalLost
 #. # bo/Animal
@@ -226,6 +228,7 @@ msgstr "מאומץ"
 msgid "On Shelter"
 msgstr "בבית המחסה"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalFind
 #. # bo/Animal
 #: Dead
@@ -3612,6 +3615,7 @@ msgstr "חיפוש"
 #. # reports/InOut
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
 #. # ui/ui/UI
@@ -3639,6 +3643,7 @@ msgstr "לא"
 #. # reports/InOut
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animal/MediaSelector
 #. # ui/ui/UI
@@ -3666,6 +3671,7 @@ msgid "Yes"
 msgstr "כן"
 
 #. # reports/Report
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/GenerateDocument
 #: lksposneg_1
@@ -3978,6 +3984,8 @@ msgid ""
 "from the {0} file. Select Yes if you have already done this, otherwise "
 "select No to cancel the copy."
 msgstr ""
+"כבר היה עליך ליצור את מסד הנתונים ולטעון את מבנה מסד הנתונים מהקובץ {0}. יש "
+"לבחור בכן אם כבר עשית זאת, אחרת יש לבחור בלא כדי לבטל את ההעתקה."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4127,7 +4135,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
-msgstr ""
+msgstr "גשר HTTPDB"
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -4180,20 +4188,16 @@ msgstr "טלפון בעבודה"
 msgid "Home Telephone"
 msgstr "טלפון בבית"
 
-#. # reports/SearchResults
 #. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: Colour
 msgid "Colour"
 msgstr "צבע"
 
-#. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/internet/PetFinderMapBreed
@@ -4205,7 +4209,6 @@ msgstr "גזע"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
-#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #. # reports/LongTermAnimals
@@ -4213,9 +4216,8 @@ msgstr "גזע"
 #. # reports/TransferIn
 #. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/internet/PetFinderMapSpecies
@@ -4231,25 +4233,23 @@ msgid "Species"
 msgstr "זן"
 
 #. # reports/InOut
-#. # reports/SearchResults
 #. # reports/UnCombiTestedCats
 #. # reports/OwnerCriteriaSearch
 #. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
 msgstr "גיל"
 
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Markings
 msgid "Markings"
 msgstr "סימונים"
 
+#. # ui/animal/AnimalFindColumns
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
 #: Neutered
@@ -4263,10 +4263,9 @@ msgid "Adoption Date"
 msgstr "תאריך האימוץ"
 
 #. # reports/InOut
-#. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -4293,7 +4292,6 @@ msgstr "מין"
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
-#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -4318,9 +4316,8 @@ msgstr "כתובת הדוא\"ל"
 #. # reports/WaitingList
 #. # ui/animal/VaccinationView
 #. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/MediaSelector
-#. # ui/animal/AnimalFind
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/animalname/NamesView
@@ -4353,6 +4350,7 @@ msgstr "כותרת"
 #. # reports/ShelterInventory
 #. # reports/Vets
 #. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AdditionalFieldView
 #. # ui/animal/AnimalFind
@@ -5057,10 +5055,8 @@ msgstr "שיטת ההכנסה"
 msgid "Animal Search Results (generated on {0}) "
 msgstr "תוצאות חיפוש חיות המחמד (נוצר ב־{0}) "
 
-#. # reports/SearchResults
 #. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #: Features
@@ -5071,7 +5067,6 @@ msgstr "תכונות"
 #. # reports/UnderSixNotLitter
 #. # reports/NotMicroChipped
 #. # reports/NeverVaccinated
-#. # reports/SearchResults
 #. # reports/UnCombiTestedCats
 #. # reports/CustomReportExecute
 #. # reports/UnneuteredSixMonths
@@ -5080,26 +5075,21 @@ msgid "Internal Location"
 msgstr "מיקום פנימי"
 
 #. # reports/InOut
-#. # reports/SearchResults
 #. # reports/TransferIn
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #: Date_Brought_In
 msgid "Date Brought In"
 msgstr "תאריך ההכנסה לבית המחסה"
 
 #. # reports/InOut
-#. # reports/SearchResults
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #: Identichip_No
 msgid "Microchip No"
 msgstr "שבב מס׳"
 
-#. # reports/SearchResults
 #. # reports/OwnerCriteriaSearch
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
@@ -5560,7 +5550,6 @@ msgstr "לא הוחזרו חיות מחמד בתוך חצי שנה של אימו
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
-#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -5570,8 +5559,7 @@ msgstr "לא הוחזרו חיות מחמד בתוך חצי שנה של אימו
 #. # reports/Vets
 #. # ui/animal/VaccinationView
 #. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/system/Options
@@ -5621,8 +5609,7 @@ msgstr "אין אימוצים בקובץ."
 #. # reports/AnimalReturnedPreSix
 #. # reports/LongTermAnimals
 #. # reports/TransferIn
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #: Internal_Loc
 msgid "Internal Loc"
 msgstr "מיקום פנימי"
@@ -5645,6 +5632,7 @@ msgstr "מיקום פנימי"
 #. # reports/Vets
 #. # ui/animal/VaccinationView
 #. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
@@ -6095,6 +6083,7 @@ msgstr "אילוף לשהיה ביתית"
 #. # reports/MedicalDiary
 #. # reports/OwnerCriteriaSearch
 #. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
 #. # ui/animal/VaccinationSelector
 #. # ui/medical/ProfileEdit
@@ -6272,7 +6261,6 @@ msgstr "עריכת התנועות לחשבון זה"
 #. # reports/NotMicroChipped
 #. # reports/MedicalDiary
 #. # reports/NeverVaccinated
-#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/UnCombiTestedCats
 #. # reports/AnimalReturnedPreSix
@@ -6282,8 +6270,7 @@ msgstr "עריכת התנועות לחשבון זה"
 #. # reports/Vets
 #. # ui/animal/VaccinationView
 #. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/system/Options
@@ -6295,6 +6282,7 @@ msgstr "עריכת התנועות לחשבון זה"
 #. # bo/Account
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFind
 #: Code
 #: Code\:
 msgid "Code:"
@@ -6318,6 +6306,7 @@ msgstr "קוד:"
 #. # reports/Vets
 #. # ui/animal/VaccinationView
 #. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/VaccinationSelector
 #. # ui/animal/CostSelector
 #. # ui/diary/VetBookView
@@ -6447,6 +6436,7 @@ msgstr "הצגת תנועות:"
 #. # bo/OwnerDonation
 #. # bo/AnimalLitter
 #. # bo/Log
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterEdit
 #. # ui/animal/CostEdit
 #. # ui/diary/DiaryEdit
@@ -6582,6 +6572,7 @@ msgstr "המלטות של חיות מחמד"
 msgid "View the animals in this litter"
 msgstr "צפייה בחיות המחמד בהמלטה זו"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
 #: Acceptance
 msgid "Acceptance"
@@ -6600,7 +6591,9 @@ msgstr "יש הערות: "
 #. # ui/animal/AnimalFindText
 #. # ui/ui/UI
 #. # ui/owner/OwnerFindText
+#. # ui/system/Options
 #: Search
+#: search
 msgid "Search"
 msgstr "חיפוש"
 
@@ -6641,8 +6634,7 @@ msgstr "סוג: "
 
 #. # reports/Report
 #. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/owner/DonationSelector
 #. # bo/OwnerDonation
 #. # bo/Animal
@@ -7013,6 +7005,7 @@ msgstr ""
 msgid "Species:"
 msgstr "זן:"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
 #: Hidden_Comments\:
@@ -7045,12 +7038,14 @@ msgid "Delete the selected vaccination records"
 msgstr "מחיקת רשומות החיסון הנבחרות"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Neutered\:
 msgid "Neutered/Spayed:"
 msgstr "מעוקרת/מסורס:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Combi-Tested\:
 msgid "Combi-Tested:"
@@ -7189,6 +7184,7 @@ msgid "Comments:"
 msgstr "הערות:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Health_Problems\:
 msgid "Health Problems:"
@@ -7328,6 +7324,7 @@ msgid "Any distinguishing markings or features the animal has"
 msgstr "כל סימן מזהה או תכונות מראה מיוחדות שיש לחיית המחמד"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
 #: Date_Of_Birth\:
@@ -7425,6 +7422,7 @@ msgstr "התאריך בו חיית המחמד הגיעה אל בית המחסה"
 msgid "Tick this box if the animal was dead on entry to the shelter"
 msgstr "יש לסמן תיבה זו במידה ובעל החיים מת בכניסתו לבית המחסה"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Reason_for_Entry\:
 msgid "Reason for Entry:"
@@ -7502,6 +7500,7 @@ msgstr "התאריך שהוזן אינו תקני: "
 msgid "breed"
 msgstr "גזע"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
@@ -7614,6 +7613,7 @@ msgid "Complete the selected vaccination treatments"
 msgstr "השלמת טיפולי החיסון הנבחר"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
 #: Rabies_Tag
@@ -7633,12 +7633,14 @@ msgid "Entry Reason:"
 msgstr "סיבת הכניסה:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Reason_not_by_owner
 msgid "Reason not from owner:"
 msgstr "הסיבה שלא הובאה על ידי הבעלים:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Entry_Category
 msgid "Entry Category:"
@@ -7853,6 +7855,7 @@ msgid "Move this animal"
 msgstr "העברת חיית מחמד זו"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
@@ -7910,6 +7913,7 @@ msgid "An error occurred capturing the image from the default video device."
 msgstr "ארעה שגיאה בעת לכידת תמונה מהתקן הווידאו כברירת המחדל."
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Tattoo\:
 msgid "Tattoo:"
@@ -7921,6 +7925,7 @@ msgid "The Tattoo Number"
 msgstr "מספר הקעקוע"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/AnimalDocument
 #. # bo/Animal
@@ -7970,6 +7975,7 @@ msgid "Generate a new animal code"
 msgstr "יצירת קוד חיית מחמד חדש"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Heartworm_Tested\:
 msgid "Heartworm Tested:"
@@ -7981,24 +7987,28 @@ msgid "The date the animal was last heartworm tested"
 msgstr "התאריך בו נבדקה תולעת הלב אצל חיית המחמד"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: good_with_cats
 msgid "Good with Cats:"
 msgstr "ידידותי לחתולים:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: good_with_dogs
 msgid "Good with Dogs:"
 msgstr "ידידותי לכלבים:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: good_with_kids
 msgid "Good with Kids:"
 msgstr "ידידותי לילדים:"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: housetrained
 msgid "Housetrained:"
@@ -8014,6 +8024,7 @@ msgstr ""
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalFind
 #: Not_for_adoption
 #: Not_Available_For_Adoption
@@ -8262,6 +8273,7 @@ msgid ""
 msgstr "האם ברצונך להעלות את השינויים לקובץ מדיה זה בחזרה אל השרת?"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: special_needs
 msgid "Special Needs?"
@@ -8314,6 +8326,8 @@ msgstr "כולל מחוץ לבית המחסה"
 
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalFind
 #. # ui/system/ConfigureAdditional
 #. # ui/owner/OwnerEdit
 #. # ui/customreport/CustomReportEdit
@@ -8367,6 +8381,7 @@ msgid "Simple"
 msgstr "פשוט"
 
 #. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #: Coat_Type
 msgid "Coat Type:"
@@ -10268,6 +10283,11 @@ msgstr "קבוצת גיל:"
 msgid "Age Group"
 msgstr "קבוצת גיל"
 
+#. # ui/lostandfound/FoundAnimalEdit
+#: Create_waiting_list_record_from_this_record
+msgid "Create a waiting list entry from this record"
+msgstr "יצירת רשומת רשימת המתנה מרשומה זו"
+
 #. # ui/main/Main
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
@@ -10478,7 +10498,6 @@ msgstr "עריכת כל ההערות ביומן"
 
 #. # reports/InOut
 #. # reports/MedicalDiary
-#. # reports/SearchResults
 #. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #. # reports/LongTermAnimals
@@ -10486,9 +10505,8 @@ msgstr "עריכת כל ההערות ביומן"
 #. # reports/TransferIn
 #. # reports/CustomReportExecute
 #. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/internet/PetFinderMapSpecies
@@ -11956,7 +11974,6 @@ msgid "Animal Care Officer"
 msgstr "הממונה על חוק צער בעלי חיים השירותים הוטרינריים משרד החקלאות"
 
 #. # reports/OwnerSearchResults
-#. # ui/system/Options
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
 #. # mailmerge/CustomMailMerge
@@ -13825,6 +13842,43 @@ msgstr "תקופת ההתחשבנות הנוכחית מתחילה ב־:"
 #: show_period_totals
 msgid "Only show account totals for the current period"
 msgstr "יש להציג סיכומים של חשבונות עבור התקופה הנוכחית בלבד"
+
+#. # ui/system/Options
+#. # internet/Publisher
+#. # startup/Startup
+#: internet
+msgid "Internet"
+msgstr "אינטרנט"
+
+#. # ui/system/Options
+#: tpp_signature
+msgid "Third party publisher text:"
+msgstr "טקסט למפיץ צד שלישי:"
+
+#. # ui/system/Options
+#: tpp_signature_tooltip
+msgid ""
+"This text will be added to the bottom of animal descriptions when sending "
+"them to PetFinder, RescueGroups, etc."
+msgstr ""
+"טקסט זה יתווסף לתחתית תיאור חיית המחמד בעת שליחתו ל־PetFinder, RescueGroups "
+"וכו׳."
+
+#. # ui/system/Options
+#: animal_search_result_columns
+msgid "Find animal columns:"
+msgstr "עמודות בחיפוש חיות מחמד:"
+
+#. # ui/system/Options
+#: animal_search_result_columns_tooltip
+msgid ""
+"A comma separated list of fieldnames to be displayed when finding animals."
+msgstr "רשימה מופרדת בפסיקים של שמות שדות שיוצגו בעת חיפוש חיות מחמד."
+
+#. # ui/system/Options
+#: Hide_original_owner_details_when_printing_animal_records
+msgid "Hide original owner information when printing animal records"
+msgstr "הסתרת פרטי הבעלים המקוריים בעת הדפסת רשומות חיות המחמד"
 
 #. # ui/users/UserView
 #: Add_a_new_user
