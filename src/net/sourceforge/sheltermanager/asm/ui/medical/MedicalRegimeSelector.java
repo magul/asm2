@@ -151,11 +151,9 @@ public class MedicalRegimeSelector extends ASMSelector {
         if (animalID != 0) {
             am.openRecordset("AnimalID = " + animalID);
         } else {
-            // Show all active entries with a start date before or = today
+            // Show all active entries 
             am.openRecordset("Status = " + AnimalMedical.STATUS_ACTIVE +
-                " AND " + "StartDate <= '" +
-                Utils.getSQLDate(Calendar.getInstance()) + "' AND " +
-                "EXISTS(SELECT Archived FROM animal WHERE ID = animalmedical.AnimalID AND Archived = 0)");
+                " AND EXISTS(SELECT Archived FROM animal WHERE ID = animalmedical.AnimalID AND Archived = 0)");
         }
 
         // Create an array to hold the results for the table
