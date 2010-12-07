@@ -282,10 +282,11 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
      *  transaction in the accounts package
      */
     public void updateAccountTrx() throws Exception {
-
         // If creating matching transactions is disabled, don't do anything
         if (!Configuration.getBoolean("CreateDonationTrx")) {
-            Global.logDebug("Matching donation disabled, bailing.","updateAccountTrx");
+            Global.logDebug("Matching donation disabled, bailing.",
+                "updateAccountTrx");
+
             return;
         }
 
@@ -293,6 +294,7 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         // transaction yet
         if (getDateReceived() == null) {
             Global.logDebug("No date received, bailing.", "updateAccountTrx");
+
             return;
         }
 
@@ -317,11 +319,13 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
 
         // Now grab the target account for donations
         int target = Configuration.getInteger("DonationTargetAccount");
-        Global.logDebug("Found default account mapping to account " + target, "updateAccountTrx");
+        Global.logDebug("Found default account mapping to account " + target,
+            "updateAccountTrx");
 
         // If no target is configured, look for the first bank account on file
         if (target == 0) {
-            Global.logDebug("No target account, using first bank account.", "updateAccountTrx");
+            Global.logDebug("No target account, using first bank account.",
+                "updateAccountTrx");
             target = DBConnection.executeForInt(
                     "SELECT ID FROM accounts WHERE AccountType = 1");
         }
@@ -332,7 +336,8 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
 
         for (Account.DonationAccountMapping dm : dms) {
             if (dm.donationTypeID == getDonationTypeID().intValue()) {
-                Global.logDebug("Found override account mapping to account " + dm.accountID, "updateAccountTrx");
+                Global.logDebug("Found override account mapping to account " +
+                    dm.accountID, "updateAccountTrx");
                 target = dm.accountID;
             }
         }
@@ -348,7 +353,8 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         t.setTrxDate(getDateReceived());
         t.save(Global.currentUserName);
 
-        Global.logDebug("Transaction " + getComments() + ": created", "updateAccountTrx");
+        Global.logDebug("Transaction " + getComments() + ": created",
+            "updateAccountTrx");
     }
 
     public void validate() throws BOValidationException {

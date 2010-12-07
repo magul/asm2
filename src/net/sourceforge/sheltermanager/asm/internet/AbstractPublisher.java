@@ -132,7 +132,6 @@ public abstract class AbstractPublisher extends Thread {
         }
     }
 
-
     /**
      * Updates the media fields for an animal to mark last published
      * @param field The field name

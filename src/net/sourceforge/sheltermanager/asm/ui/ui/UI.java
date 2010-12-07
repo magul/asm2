@@ -414,18 +414,17 @@ public final class UI {
         return getCurrencyField(selectOnFocus, null, null);
     }
 
-
     public static CurrencyField getCurrencyField(String tooltiptext) {
         return getCurrencyField(true, tooltiptext, null);
     }
 
-    public static CurrencyField getCurrencyField(String tooltiptext, 
+    public static CurrencyField getCurrencyField(String tooltiptext,
         FunctionPointer onChange) {
         return getCurrencyField(true, tooltiptext, onChange);
     }
 
-    public static CurrencyField getCurrencyField(boolean selectOnFocus, String tooltiptext,
-        final FunctionPointer onChange) {
+    public static CurrencyField getCurrencyField(boolean selectOnFocus,
+        String tooltiptext, final FunctionPointer onChange) {
         final CurrencyField d = new CurrencyField();
 
         if (!isLTR()) {
@@ -438,10 +437,10 @@ public final class UI {
 
         if (selectOnFocus) {
             d.getTextField().addFocusListener(new FocusAdapter() {
-                public void focusGained(FocusEvent e) {
-                    d.getTextField().selectAll();
-                }
-            });
+                    public void focusGained(FocusEvent e) {
+                        d.getTextField().selectAll();
+                    }
+                });
         }
 
         if (onChange != null) {

@@ -312,11 +312,12 @@ public class Account extends UserInfoBO<Account> {
 
     /** Calculates the balance for this account to a certain date, starting at
       * another date */
-    public static double getAccountBalanceFromToDate(Integer accountId, Date start, Date limit)
-        throws Exception {
-
+    public static double getAccountBalanceFromToDate(Integer accountId,
+        Date start, Date limit) throws Exception {
         // If the two dates given are the same, we can save some time
-        if (start.equals(limit)) return 0;
+        if (start.equals(limit)) {
+            return 0;
+        }
 
         // Withdrawals
         double withdrawal = DBConnection.executeForDouble(
@@ -327,8 +328,8 @@ public class Account extends UserInfoBO<Account> {
         // Deposits
         double deposit = DBConnection.executeForDouble(
                 "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
-                accountId + " AND TrxDate >= '" + Utils.getSQLDate(start) + "'" + 
-                "AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
+                accountId + " AND TrxDate >= '" + Utils.getSQLDate(start) +
+                "'" + "AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
         double rounded = Utils.round(deposit - withdrawal, 2);
 
         int accountType = DBConnection.executeForInt(
@@ -341,7 +342,6 @@ public class Account extends UserInfoBO<Account> {
 
         return rounded;
     }
-
 
     public static ArrayList<DonationAccountMapping> getDonationAccountMappings() {
         ArrayList<DonationAccountMapping> m = new ArrayList<DonationAccountMapping>();

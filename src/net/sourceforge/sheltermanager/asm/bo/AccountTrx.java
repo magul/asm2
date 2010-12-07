@@ -236,14 +236,15 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
         Date period = null;
         double balance = 0;
+
         try {
             period = Utils.parseDate(Configuration.getString("AccountingPeriod"));
+
             if (!Configuration.getBoolean("AccountPeriodTotals")) {
                 // Only use the period if showing totals is on
                 period = null;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // No period date
         }
 
@@ -252,8 +253,9 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             // is higher - the from date supplied or the accounting period.
             // This means that the balance for each account effectively
             // resets for each accounting period when editing transactions.
-            if (period.getTime() > from.getTime())
+            if (period.getTime() > from.getTime()) {
                 from = period;
+            }
         }
 
         // We don't have a period start date, use the from date
@@ -266,10 +268,10 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             "AccountTrx.getTransactions");
 
         // Get our starting balance
-        if (period != null ) {
-            balance = Account.getAccountBalanceFromToDate(accountId, period, from);
-        }
-        else {
+        if (period != null) {
+            balance = Account.getAccountBalanceFromToDate(accountId, period,
+                    from);
+        } else {
             balance = Account.getAccountBalanceToDate(accountId, from);
         }
 

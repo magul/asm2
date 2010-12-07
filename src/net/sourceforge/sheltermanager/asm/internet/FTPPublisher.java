@@ -407,7 +407,6 @@ public class FTPPublisher extends AbstractPublisher {
      * @return The number of images uploaded
      */
     protected int uploadImages(Animal an, int max) {
-
         int totalimages = 0;
 
         try {

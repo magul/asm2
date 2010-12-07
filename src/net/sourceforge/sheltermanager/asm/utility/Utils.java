@@ -335,9 +335,8 @@ public abstract class Utils {
     /** Returns todays date with no time information */
     public static Date getTodayNoTime() {
         try {
-            return parseDate(formatDate(new Date()));    
-        }
-        catch (Exception e) {
+            return parseDate(formatDate(new Date()));
+        } catch (Exception e) {
             return new Date();
         }
     }
