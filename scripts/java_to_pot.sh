@@ -8,6 +8,7 @@ cd `dirname $0`/../src/locale
 # Create master template file of all English properties
 for F in $FILES; do
     cat $F.properties >> po/t.properties
+    echo "\n" >> po/t.properties
 done
 
 # Convert it to a .pot file
