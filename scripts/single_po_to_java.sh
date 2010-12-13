@@ -30,7 +30,7 @@ for L in $1; do
 done
 
 # Copy the new properties files into the locale
-mv src/locale/po/*.properties src/locale
+mv $LDIR/po/*.properties $LDIR
 
 # Update the database scripts if necessary
-scripts/java_to_database.sh
+$THISDIR/java_to_database.sh
