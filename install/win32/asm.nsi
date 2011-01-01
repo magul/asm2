@@ -71,6 +71,7 @@ Section "Animal Shelter Manager" Client
   File ..\..\lib\mysql.jar
   File ..\..\lib\postgresql.jar
   File ..\..\lib\hsqldb.jar
+  File ..\..\lib\edtftpj.jar
 
   SetOutPath $INSTDIR
   File java6.zip

@@ -15,6 +15,8 @@ unzip ../../lib/mysql.jar
 rm -rf META-INF
 unzip ../../lib/postgresql.jar
 rm -rf META-INF
+unzip ../../lib/edtftpj.jar
+rm -rf META-INF
 zip -r9 ../fatone.jar *
 
 cd ..

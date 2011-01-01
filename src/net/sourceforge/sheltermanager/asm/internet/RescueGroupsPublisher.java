@@ -37,7 +37,8 @@ import java.util.Calendar;
 
 
 /**
- * The actual class that does the RescueGroups.org publishing work
+ * The actual class that does the RescueGroups.org publishing work.
+ * NB: 01/01/2011, RG only accept active FTP connections
  *
  * @author Robin Rawson-Tetley
  * @version 3.0
@@ -53,7 +54,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
         init("rescuegroups", parent, publishCriteria,
             Configuration.getString("RescueGroupsFTPURL"),
             Configuration.getString("RescueGroupsFTPUser"),
-            Configuration.getString("RescueGroupsFTPPassword"), "21", "");
+            Configuration.getString("RescueGroupsFTPPassword"), "21", "", false);
     }
 
     public void run() {

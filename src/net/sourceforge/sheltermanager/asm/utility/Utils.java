@@ -21,19 +21,6 @@
 */
 package net.sourceforge.sheltermanager.asm.utility;
 
-import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.Media;
-import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
-import net.sourceforge.sheltermanager.asm.ftp.FTPException;
-import net.sourceforge.sheltermanager.asm.ftp.FTPTransferType;
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-import net.sourceforge.sheltermanager.dbfs.DBFS;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -41,23 +28,31 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 import java.net.URL;
-
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
+
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
+import net.sourceforge.sheltermanager.asm.bo.Media;
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import com.enterprisedt.net.ftp.FTPClient;
+import com.enterprisedt.net.ftp.FTPException;
+import com.enterprisedt.net.ftp.FTPTransferType;
 
 
 /**

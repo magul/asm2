@@ -21,18 +21,20 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
+import java.io.File;
+import java.io.IOException;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.ftp.FTPClient;
-import net.sourceforge.sheltermanager.asm.ftp.FTPException;
-import net.sourceforge.sheltermanager.asm.ftp.FTPTransferType;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
-import java.io.File;
-import java.io.IOException;
+import com.enterprisedt.net.ftp.FTPClient;
+import com.enterprisedt.net.ftp.FTPConnectMode;
+import com.enterprisedt.net.ftp.FTPException;
+import com.enterprisedt.net.ftp.FTPTransferType;
 
 
 /**
@@ -60,6 +62,9 @@ public class FTPPublisher extends AbstractPublisher {
 
     /** Current FTP directory */
     protected String currentFTPDirectory = "";
+    
+    /** Active or Passive FTP */
+    protected boolean isPassive = true;
 
     /** Initialise the publisher */
     protected void init(String publisherName, InternetPublisher parent,
@@ -74,6 +79,23 @@ public class FTPPublisher extends AbstractPublisher {
             this.password = password;
             this.port = port;
             this.root = root;
+        }
+    }
+    
+    /** Initialise the publisher, specifying active or passive connections */
+    protected void init(String publisherName, InternetPublisher parent,
+        PublishCriteria publishCriteria, String host, String user,
+        String password, String port, String root, boolean isPassive) {
+        super.init(publisherName, parent, publishCriteria);
+
+        // Open the FTP socket
+        if (publishCriteria.uploadDirectly) {
+            this.host = host;
+            this.user = user;
+            this.password = password;
+            this.port = port;
+            this.root = root;
+            this.isPassive = isPassive;
         }
     }
 
@@ -103,6 +125,7 @@ public class FTPPublisher extends AbstractPublisher {
             uploadFTP = new FTPClient(host, Integer.parseInt(port));
             uploadFTP.login(user, password);
             uploadFTP.setType(FTPTransferType.BINARY);
+            uploadFTP.setConnectMode( isPassive ? FTPConnectMode.PASV: FTPConnectMode.ACTIVE);
 
             if (!root.trim().equals("")) {
                 chdir(this.root);

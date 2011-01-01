@@ -13,7 +13,7 @@ cp ../../logo/asm2009/asm.xpm asm
 # Startup shell script
 echo '#!/bin/sh
 INSTDIR=`dirname $0`
-java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/asm.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup
+java -Xmx256m -cp "$INSTDIR/lib/edtftpj.jar:$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/asm.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup
 
 ' > asm/run.sh
 chmod +x asm/run.sh
@@ -37,7 +37,7 @@ chmod +x asm/run_hsqlserver.sh
 # Command line interface script
 echo '#!/bin/sh
 INSTDIR=`dirname $0`
-java -Xmx256m -cp "$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar:$INSTDIR/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
+java -Xmx256m -cp "$INSTDIR/lib/edtftpj.jar:$INSTDIR/lib/charting-0.94.jar:$INSTDIR/lib/mysql.jar:$INSTDIR/lib/postgresql.jar:$INSTDIR/lib/hsqldb.jar:$INSTDIR/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
 
 ' > asm/runcmd.sh
 chmod +x asm/runcmd.sh

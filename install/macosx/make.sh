@@ -65,7 +65,7 @@ INST=`pwd`
 # startup. We also want a Mac menubar at the top of the screen.
 
 # Swing renderer
-java -Xmx256m -Xdock:name="Animal Shelter Manager" -Xdock:icon=Contents/Resources/asm.icns -Dapple.laf.useScreenMenuBar="true" -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.startup.Startup
+java -Xmx256m -Xdock:name="Animal Shelter Manager" -Xdock:icon=Contents/Resources/asm.icns -Dapple.laf.useScreenMenuBar="true" -cp "$INST/lib/edtftpj.jar:$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.startup.Startup
 
 ' > ASM.app/Contents/MacOS/asm
 chmod +x ASM.app/Contents/MacOS/asm
@@ -74,7 +74,7 @@ chmod +x ASM.app/Contents/MacOS/asm
 # Command line interface start script
 echo '#!/bin/sh
 INST=`dirname $0`
-java -Xmx256m -cp "$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
+java -Xmx256m -cp "$INST/lib/edtftpj.jar:$INST/lib/charting-0.94.jar:$INST/lib/postgresql.jar:$INST/lib/hsqldb.jar:$INST/lib/mysql.jar:$INST/asm.jar" net.sourceforge.sheltermanager.asm.script.Startup $@
 ' > ASM.app/asmcmd
 chmod +x ASM.app/asmcmd
 
