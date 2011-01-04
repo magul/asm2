@@ -1008,24 +1008,22 @@ class StartupProgress extends ASMWindow {
     }
 
     public void dispose() {
-        throbber.stop();
-
+        if (throbber != null) throbber.stop();
         if (!applet) {
             super.dispose();
         }
     }
 
     public void setMax(int i) {
-        bar.setMaximum(i);
+        if (bar != null) bar.setMaximum(i);
     }
 
     public void incrementBar() {
-        bar.setValue(bar.getValue() + 1);
+        if (bar != null) bar.setValue(bar.getValue() + 1);
     }
 
     public void setStatus(String s) {
-        status.setText(s);
-
+        if (status != null) status.setText(s);
         Global.logInfo(s, "Startup.setStatus");
     }
 
