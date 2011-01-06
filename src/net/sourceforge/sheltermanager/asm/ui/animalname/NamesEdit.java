@@ -36,6 +36,7 @@ import java.util.Vector;
  *
  * @author robin
  */
+@SuppressWarnings("serial")
 public class NamesEdit extends ASMForm {
     private NamesView parent = null;
     private AnimalName an = null;
@@ -51,8 +52,8 @@ public class NamesEdit extends ASMForm {
             IconManager.getIcon(IconManager.SCREEN_EDITNAMES), "uianimalname");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtName);
         ctl.add(cboSex);
         ctl.add(btnOk);

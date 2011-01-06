@@ -30,19 +30,20 @@ import java.util.Vector;
  * Base class for embedded forms with a toolbar around a table.
  * Also has an optional panel below the toolbar
  */
+@SuppressWarnings("serial")
 public abstract class ASMSelector extends UI.Panel {
     /** The default i18n key to use for this tableview */
     protected String i18nKey = "";
     protected UI.ToolBar toolbar = null;
     protected UI.Table table = null;
     protected UI.Panel toppanel = null;
-    protected Vector selectionButtons = new Vector();
+    protected Vector<UI.Button> selectionButtons = new Vector<UI.Button>();
     protected boolean hasTopPanel = false;
     protected boolean multiselect = true;
     protected ASMCellRenderer renderer = null;
     protected boolean disableDoubleClick = false;
 
-    public abstract Vector getTabOrder();
+    public abstract Vector<Object> getTabOrder();
 
     public abstract Object getDefaultFocusedComponent();
 
@@ -140,7 +141,7 @@ public abstract class ASMSelector extends UI.Panel {
         setSecurity();
     }
 
-    protected void registerTabOrder(Vector components, Object focusedComponent) {
+    protected void registerTabOrder(Vector<Object> components, Object focusedComponent) {
         if ((components == null) || (focusedComponent == null)) {
             return;
         }

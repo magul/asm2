@@ -21,13 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.util.Vector;
 
 
 /**
@@ -35,6 +34,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class FileTypeEdit extends ASMForm {
     private FileTypes ft = null;
     private int selRow = 0;
@@ -66,8 +66,8 @@ public class FileTypeEdit extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtExtension);
         ctl.add(txtProgram);
         ctl.add(btnOk);

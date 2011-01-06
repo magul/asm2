@@ -43,6 +43,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class LogEdit extends ASMForm {
     private Log log = null;
 
@@ -66,8 +67,8 @@ public class LogEdit extends ASMForm {
         init("", IconManager.getIcon(IconManager.SCREEN_EDITLOG), "uilog");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboLogType);
         ctl.add(txtDate.getTextField());
         ctl.add(txtComments);

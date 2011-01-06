@@ -39,8 +39,9 @@ import java.util.Vector;
  * This class contains all code for editing accounts
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class AccountEdit extends ASMForm {
-    private Account account = null;
+	private Account account = null;
     private AccountView parent = null;
     private UI.Button btnOk;
     private UI.Button btnCancel;

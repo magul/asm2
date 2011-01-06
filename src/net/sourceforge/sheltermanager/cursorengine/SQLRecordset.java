@@ -28,23 +28,20 @@
   */
 package net.sourceforge.sheltermanager.cursorengine;
 
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.sql.Types;
-
 import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.Locale;
+
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 /**
@@ -70,8 +67,6 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     private int mNoRows = 0;
     private String mTableName = "";
 
-    /** Iterator looking at the first item? */
-    private boolean firstItem = true;
     private int iteratorIndex = 0;
 
     public SQLRecordset() {
@@ -87,7 +82,8 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         openRecordset(sql, table);
     }
 
-    public SQLRecordset clone() throws CloneNotSupportedException {
+    @SuppressWarnings("unchecked")
+	public SQLRecordset clone() throws CloneNotSupportedException {
         SQLRecordset r = (SQLRecordset) super.clone();
         Collections.copy(mtheRows, r.mtheRows);
         Collections.copy(mtheFields, r.mtheFields);

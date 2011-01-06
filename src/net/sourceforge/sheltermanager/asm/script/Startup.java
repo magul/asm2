@@ -21,18 +21,12 @@
 */
 package net.sourceforge.sheltermanager.asm.script;
 
-import net.sourceforge.sheltermanager.asm.db.LocateDatabase;
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.localcache.LocalCache;
-import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
 import java.io.File;
 import java.io.FileInputStream;
-
-import java.util.Locale;
 import java.util.Properties;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 
 /**
@@ -57,7 +51,6 @@ public class Startup {
         // Default to a tmp dir in user's home
         String tempDir = System.getProperty("user.home") + File.separator +
             ".asm";
-        String dataDir = "";
 
         // Assign the global temp directory
         Global.tempDirectory = tempDir;

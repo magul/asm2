@@ -36,6 +36,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class Logout extends ASMDialog {
     private UI.Button btnCancel;
     private UI.Button btnClose;
@@ -71,8 +72,8 @@ public class Logout extends ASMDialog {
         return chkStop;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(chkStop);
 
         if (!Configuration.getBoolean("AutoLoginOSUsers")) {

@@ -35,6 +35,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class DiaryView extends ASMForm {
     private DiarySelector diary = new DiarySelector(true);
 
@@ -56,7 +57,7 @@ public class DiaryView extends ASMForm {
         return false;
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         return diary.getTabOrder();
     }
 

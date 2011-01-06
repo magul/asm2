@@ -21,21 +21,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
-import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
-import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-
-import java.text.ParseException;
-
-import java.util.Vector;
 
 
 /**
@@ -43,6 +38,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class AdditionalFieldEdit extends ASMForm {
     private AdditionalField af = null;
 
@@ -65,8 +61,8 @@ public class AdditionalFieldEdit extends ASMForm {
             "uisystem");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtFieldName);
         ctl.add(txtFieldLabel);
         ctl.add(cboFieldLink);

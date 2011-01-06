@@ -123,7 +123,7 @@ public class PublishRescueGroups {
                                              .replace('*', '%');
                         String[] locnames = Utils.split(locs, ",");
 
-                        Vector locations = new Vector();
+                        Vector<Integer> locations = new Vector<Integer>();
                         SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {

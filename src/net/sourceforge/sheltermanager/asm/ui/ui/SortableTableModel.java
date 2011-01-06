@@ -38,6 +38,7 @@ import javax.swing.table.*;
  *
  * Written by R.Rawson-Tetley, June, 2002.
  */
+@SuppressWarnings("serial")
 public class SortableTableModel extends AbstractTableModel {
     private String[] columnNames;
     private String[][] data;
@@ -121,7 +122,8 @@ public class SortableTableModel extends AbstractTableModel {
         data[row][col] = (String) o;
     }
 
-    public Class getColumnClass(int c) {
+    @SuppressWarnings("unchecked")
+	public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();
     }
 
@@ -212,7 +214,6 @@ public class SortableTableModel extends AbstractTableModel {
     // margin pixels are added to the left and right
     // (resulting in an additional width of 2*margin pixels).
     public void packColumn(int vColIndex, int margin) {
-        TableModel model = this;
         DefaultTableColumnModel colModel = (DefaultTableColumnModel) table.getColumnModel();
         TableColumn col = colModel.getColumn(vColIndex);
         int width = 0;

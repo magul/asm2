@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import java.util.Vector;
 
 
+@SuppressWarnings("serial")
 public class SQLInterface extends ASMForm {
     UI.Table table = null;
     UI.TextArea sql = null;
@@ -45,8 +46,8 @@ public class SQLInterface extends ASMForm {
     public void setSecurity() {
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(sql);
 
         return v;

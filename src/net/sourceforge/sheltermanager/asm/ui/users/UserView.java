@@ -39,6 +39,7 @@ import java.util.Vector;
 /**
  * Allows viewing of the system users, with facilities to manipulate them.
  */
+@SuppressWarnings("serial")
 public class UserView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnEdit;
@@ -52,8 +53,8 @@ public class UserView extends ASMView {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
         ctl.add(btnNew);
         ctl.add(btnEdit);

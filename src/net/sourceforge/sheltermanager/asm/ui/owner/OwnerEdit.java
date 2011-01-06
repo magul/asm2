@@ -71,6 +71,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class OwnerEdit extends ASMForm implements SearchListener,
     OwnerLinkListener {
     private Owner owner = null;
@@ -89,10 +90,12 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.Button btnDelete;
     private UI.Button btnDiaryTask;
     private UI.Button btnDoc;
-    private UI.Button btnEmail;
+    @SuppressWarnings("unused")
+	private UI.Button btnEmail;
     private UI.Button btnMerge;
     private UI.Button btnSave;
-    private UI.Button btnMap;
+    @SuppressWarnings("unused")
+	private UI.Button btnMap;
     private UI.CheckBox chkGiftAid;
     private UI.CheckBox chkBanned;
     private UI.CheckBox chkHomeCheck;
@@ -109,7 +112,6 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.TabbedPane tabTabs;
     private UI.ToolBar tlbTools;
     private UI.TextArea txtAddress;
-    private UI.TextArea txtAudit;
     private UI.TextArea txtComments;
     private UI.ComboBox cboCounty;
     private UI.TextField txtEmail;
@@ -224,8 +226,8 @@ public class OwnerEdit extends ASMForm implements SearchListener,
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtNameTitle);
         ctl.add(txtNameInitials);
         ctl.add(txtNameForenames);
@@ -1652,7 +1654,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
 
     public void changedTown() {
         // Filter the county selection box
-        Vector v = LookupCache.getCountiesForTown(cboTown.getSelectedItem()
+        Vector<String> v = LookupCache.getCountiesForTown(cboTown.getSelectedItem()
                                                          .toString());
 
         if (v.size() == 0) {
@@ -1705,7 +1707,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void actionDocument() {
-        OwnerDocument od = new OwnerDocument(owner, media);
+        new OwnerDocument(owner, media);
     }
 
     public void actionHistoryDoubleClick() {

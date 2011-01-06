@@ -42,6 +42,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class LitterView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnEdit;
@@ -70,8 +71,8 @@ public class LitterView extends ASMView {
         }
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(chkShowExpired);
         v.add(getTable());
 

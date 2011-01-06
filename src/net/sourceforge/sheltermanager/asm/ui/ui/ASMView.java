@@ -32,17 +32,18 @@ import javax.swing.Icon;
  * Base class for View forms with a toolbar around a table.
  * Also has an optional panel below the toolbar
  */
+@SuppressWarnings("serial")
 public abstract class ASMView extends ASMForm {
     protected UI.ToolBar toolbar = null;
     protected UI.Table table = null;
     protected UI.Panel toppanel = null;
-    protected Vector selectionButtons = new Vector();
+    protected Vector<Object> selectionButtons = new Vector<Object>();
     protected boolean hasTopPanel = false;
     protected boolean multiselect = true;
     protected ASMCellRenderer renderer = null;
     protected boolean disableDoubleClick = false;
 
-    public abstract Vector getTabOrder();
+    public abstract Vector<Object> getTabOrder();
 
     public abstract Object getDefaultFocusedComponent();
 

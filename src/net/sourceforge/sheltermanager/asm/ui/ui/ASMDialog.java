@@ -21,20 +21,19 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 import java.awt.Component;
-import java.awt.LayoutManager;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
 import java.util.Vector;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
+
+@SuppressWarnings("serial")
 public abstract class ASMDialog extends JDialog {
     /** The default i18n key to use for this form */
     protected String i18nKey = "";
@@ -76,7 +75,7 @@ public abstract class ASMDialog extends JDialog {
         super.setTitle(UI.mnemonicRemove(title));
     }
 
-    public abstract Vector getTabOrder();
+    public abstract Vector<Object> getTabOrder();
 
     public abstract Object getDefaultFocusedComponent();
 
@@ -98,7 +97,7 @@ public abstract class ASMDialog extends JDialog {
         }
     }
      */
-    private void registerTabOrder(Vector components, Component focusedComponent) {
+    private void registerTabOrder(Vector<Object> components, Component focusedComponent) {
         UI.registerTabOrder(components, this, focusedComponent);
     }
 

@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
@@ -37,11 +39,8 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Vector;
 
-import javax.swing.table.TableModel;
-
-
+@SuppressWarnings("serial")
 public class CostSelector extends ASMSelector {
     /** The animal ID for the link */
     public int animalID = 0;
@@ -70,7 +69,7 @@ public class CostSelector extends ASMSelector {
         addBoardBar();
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         return null;
     }
 

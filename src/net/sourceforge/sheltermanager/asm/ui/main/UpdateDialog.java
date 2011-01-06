@@ -21,33 +21,32 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.ConfigureLocal;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.HTMLViewer;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.util.Vector;
 
 
 /**
  * Shows updates from the sheltermanager website
  */
+@SuppressWarnings("serial")
 public class UpdateDialog extends ASMDialog {
     private UI.Button btnClose;
     private UI.CheckBox chkShowUpdates;
-    private Vector updates = null;
+    private Vector<UpdateEntry> updates = null;
 
-    public UpdateDialog(Vector updates) {
+    public UpdateDialog(Vector<UpdateEntry> updates) {
         this.updates = updates;
         init(Global.i18n("uimain", "Updates"),
             IconManager.getIcon(IconManager.SCREEN_UPDATES), "uimain", false);
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(chkShowUpdates);
         v.add(btnClose);
 

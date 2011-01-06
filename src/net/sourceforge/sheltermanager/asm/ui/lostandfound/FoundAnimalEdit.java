@@ -61,6 +61,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
     private MediaSelector media = null;
     private AnimalFound animal = null;
@@ -158,8 +159,8 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtDate.getTextField());
         ctl.add(txtReported.getTextField());
         ctl.add(cboAgeGroup);
@@ -683,7 +684,6 @@ public class FoundAnimalEdit extends ASMForm implements OwnerLinkListener {
             a.setDateBroughtIn(new Date());
             a.setMostRecentEntryDate(new Date());
 
-            Integer o = new Integer(1);
             Integer z = new Integer(0);
             a.setAnimalTypeID(LookupCache.getFirstID(
                     LookupCache.getAnimalTypeLookup()));

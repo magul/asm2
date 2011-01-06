@@ -45,6 +45,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class OwnerFind extends ASMFind {
     public final static int FILTER_ALL = 0;
     public final static int FILTER_ADOPTERS = 1;
@@ -128,8 +129,8 @@ public class OwnerFind extends ASMFind {
         return null;
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtName);
         ctl.add(txtAddress);
 

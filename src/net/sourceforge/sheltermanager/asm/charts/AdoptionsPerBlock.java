@@ -21,17 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.charts;
 
-import de.progra.charting.model.ObjectChartDataModel;
+import java.util.Calendar;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
-import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Calendar;
+import de.progra.charting.model.ObjectChartDataModel;
 
 
 /**
@@ -41,7 +39,6 @@ import java.util.Calendar;
  * @author Robin Rawson-Tetley
  */
 public class AdoptionsPerBlock extends Chart {
-    private String monthname = "";
     private String year = "";
     private int selectedYear = 0;
     private int speciesID = 0;
@@ -86,17 +83,8 @@ public class AdoptionsPerBlock extends Chart {
 
         setStatusBarMax(12);
 
-        double totDogs = 0;
-        double totCats = 0;
-        double totMisc = 0;
-        double totalDogs = 0;
-        double totalCats = 0;
-        double totalMisc = 0;
 
         for (int i = 0; i < 12; i++) {
-            totDogs = 0;
-            totCats = 0;
-            totMisc = 0;
 
             // Calculate month boundaries
             Calendar firstDayOfMonth = Calendar.getInstance();

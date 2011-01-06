@@ -21,19 +21,17 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.io.File;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-
-import java.io.File;
-
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.Vector;
 
 
 /**
@@ -41,6 +39,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class FileTypes extends ASMView {
     String[][] data = null;
     String[] columnheaders = {
@@ -65,8 +64,8 @@ public class FileTypes extends ASMView {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
         ctl.add(btnNew);
         ctl.add(btnDelete);
@@ -105,8 +104,8 @@ public class FileTypes extends ASMView {
             data = new String[types.values().size()][2];
 
             int i = 0;
-            Enumeration itk = types.keys();
-            Iterator itv = types.values().iterator();
+            Enumeration<Object> itk = types.keys();
+            Iterator<Object> itv = types.values().iterator();
 
             while (itk.hasMoreElements()) {
                 data[i][0] = (String) itk.nextElement();

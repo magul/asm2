@@ -21,20 +21,23 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import net.sourceforge.sheltermanager.asm.bo.*;
+import java.io.File;
+import java.util.Date;
+import java.util.Vector;
+
+import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.*;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-import net.sourceforge.sheltermanager.dbfs.*;
-
-import java.io.*;
-
-import java.util.*;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 
 /**
@@ -42,6 +45,7 @@ import java.util.*;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class MediaAdd extends ASMForm {
     /** The last path used when adding media */
     public static String lastPath = "";
@@ -109,8 +113,8 @@ public class MediaAdd extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtFileName);
         ctl.add(txtNotes);
         ctl.add(btnBrowse);
@@ -384,7 +388,7 @@ public class MediaAdd extends ASMForm {
             txtFileName.setText(MediaCapture.getCaptureFileName());
 
             // Show the capture window, previewing this image
-            new VideoCaptureWindow().show();
+            new VideoCaptureWindow().setVisible(true);
         }
     }
 
@@ -441,8 +445,8 @@ public class MediaAdd extends ASMForm {
             return null;
         }
 
-        public Vector getTabOrder() {
-            return new Vector();
+        public Vector<Object> getTabOrder() {
+            return new Vector<Object>();
         }
 
         public void doCapture() {

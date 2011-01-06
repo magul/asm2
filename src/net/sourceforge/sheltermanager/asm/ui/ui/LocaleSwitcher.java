@@ -36,6 +36,7 @@ import javax.swing.border.*;
   * Small component that shows the current locale with a flag
   * and allows a popup menu to choose another locale
   */
+@SuppressWarnings("serial")
 public class LocaleSwitcher extends JLabel {
     public final static int LANG_ONLY = 0;
     public final static int FULL = 1;

@@ -39,6 +39,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class CustomReportView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnNew;
@@ -77,8 +78,8 @@ public class CustomReportView extends ASMView {
     public void setLink(int x, int y) {
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;

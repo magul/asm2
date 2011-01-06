@@ -21,33 +21,103 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.font.*;
-import java.awt.geom.*;
-import java.awt.image.*;
-import java.awt.print.*;
-
-import java.io.*;
-
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.LayoutManager;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
-
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JPopupMenu;
+import javax.swing.JProgressBar;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JSpinner;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToolBar;
+import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.plaf.FontUIResource;
-import javax.swing.table.*;
-import javax.swing.text.*;
-import javax.swing.text.html.*;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import javax.swing.text.Document;
+import javax.swing.text.PlainDocument;
+import javax.swing.text.View;
+import javax.swing.text.html.HTMLDocument;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 
 /**
@@ -188,7 +258,7 @@ public final class UI {
      * @param style The font style to set - use a negative number to leave unchanged
      */
     public static void swingSetDefaultFontName(String fontname, int style) {
-        java.util.Enumeration keys = UIManager.getDefaults().keys();
+        java.util.Enumeration<Object> keys = UIManager.getDefaults().keys();
 
         while (keys.hasMoreElements()) {
             Object key = keys.nextElement();
@@ -828,11 +898,11 @@ public final class UI {
     }
 
     public static ComboBox getCombo(FunctionPointer onChange) {
-        return getCombo((Vector) null, onChange);
+        return getCombo((Vector<Object>) null, onChange);
     }
 
     public static ComboBox getCombo(String description, FunctionPointer onChange) {
-        return getCombo(description, (Vector) null, onChange);
+        return getCombo(description, (Vector<Object>) null, onChange);
     }
 
     public static ComboBox getCombo(String sql, String field) {
@@ -904,29 +974,29 @@ public final class UI {
         return c;
     }
 
-    public static ComboBox getCombo(Vector items) {
+    public static ComboBox getCombo(Vector<?> items) {
         return getCombo(items, null);
     }
 
-    public static ComboBox getCombo(String description, Vector items) {
+    public static ComboBox getCombo(String description, Vector<?> items) {
         return getCombo(description, items, null, null);
     }
 
-    public static ComboBox getCombo(Vector items, final FunctionPointer onChange) {
+    public static ComboBox getCombo(Vector<?> items, final FunctionPointer onChange) {
         return getCombo("", items, onChange);
     }
 
-    public static ComboBox getCombo(String description, Vector items,
+    public static ComboBox getCombo(String description, Vector<?> items,
         final FunctionPointer onChange) {
         return getCombo(description, items, onChange, null);
     }
 
-    public static ComboBox getCombo(String description, Vector items,
+    public static ComboBox getCombo(String description, Vector<?> items,
         String allstring) {
         return getCombo(description, items, null, allstring);
     }
 
-    public static ComboBox getCombo(String description, Vector items,
+    public static ComboBox getCombo(String description, Vector<?> items,
         final FunctionPointer onChange, String allstring) {
         final ComboBox c = new ComboBox(description, onChange);
         c.setEditable(false);
@@ -1422,7 +1492,8 @@ public final class UI {
         return getTextField(tooltip, onChange, onLeave, onEnterPressed, 255);
     }
 
-    public static TextField getTextField(String tooltip,
+    @SuppressWarnings("serial")
+	public static TextField getTextField(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave,
         final FunctionPointer onEnterPressed, final int maxchars) {
         TextField t = new TextField() {
@@ -1511,7 +1582,8 @@ public final class UI {
         return getTextArea(tooltip, onChange, onLeave, 16384);
     }
 
-    public static TextArea getTextArea(String tooltip,
+    @SuppressWarnings("serial")
+	public static TextArea getTextArea(String tooltip,
         final FunctionPointer onChange, final FunctionPointer onLeave,
         final int maxchars) {
         TextArea t = new TextArea() {
@@ -1672,7 +1744,7 @@ public final class UI {
         return t;
     }
 
-    public static void registerTabOrder(Vector components, Object parent,
+    public static void registerTabOrder(Vector<Object> components, Object parent,
         Object focusedComponent) {
         if (Global.focusManager != null) {
             Global.focusManager.addComponentSet(components, parent,
@@ -1837,6 +1909,7 @@ public final class UI {
             d.edit(new java.io.File(file));
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("EDIT failed, falling back to OPEN");
             // Fall back to Open if we can't edit
             d.open(new java.io.File(file));
         }
@@ -1863,7 +1936,7 @@ public final class UI {
      */
     public static JPopupMenu toolbarToPopupMenu(JToolBar t) {
         JPopupMenu p = new JPopupMenu();
-        Vector dupes = new Vector();
+        Vector<String> dupes = new Vector<String>();
 
         for (int i = 0; i < t.getComponentCount(); i++) {
             if (t.getComponent(i) instanceof JButton) {
@@ -2310,19 +2383,22 @@ public final class UI {
         return new BoxLayout(p, axis);
     }
 
-    public static class VerticalSplitPane extends JSplitPane {
+    @SuppressWarnings("serial")
+	public static class VerticalSplitPane extends JSplitPane {
         public VerticalSplitPane(Component c1, Component c2) {
             super(JSplitPane.VERTICAL_SPLIT, true, c1, c2);
         }
     }
 
-    public static class HorizontalSplitPane extends JSplitPane {
+    @SuppressWarnings("serial")
+	public static class HorizontalSplitPane extends JSplitPane {
         public HorizontalSplitPane(Component c1, Component c2) {
             super(JSplitPane.HORIZONTAL_SPLIT, true, c1, c2);
         }
     }
 
-    public static class ScrollPane extends JScrollPane {
+    @SuppressWarnings("serial")
+	public static class ScrollPane extends JScrollPane {
         public ScrollPane(UI.Panel p) {
             super(p);
         }
@@ -2519,7 +2595,8 @@ public final class UI {
         }
     }
 
-    public static class HTMLBrowser extends JEditorPane
+    @SuppressWarnings("serial")
+	public static class HTMLBrowser extends JEditorPane
         implements HyperlinkListener, Printable, Serializable {
         private Label status = null;
         private FunctionPointer onHyperlinkClick = null;
@@ -2619,7 +2696,8 @@ public final class UI {
     }
 
     /** Class to handle ASM tables */
-    public static class Table extends JTable implements MouseListener,
+    @SuppressWarnings("serial")
+	public static class Table extends JTable implements MouseListener,
         KeyListener {
         private boolean multiselect = false;
         private FunctionPointer onClick = null;
@@ -2808,7 +2886,8 @@ public final class UI {
         }
     }
 
-    public static class Button extends JButton {
+    @SuppressWarnings("serial")
+	public static class Button extends JButton {
         public Button() {
             if (useDefaultTooltip) {
                 setToolTipText(TOOLTIP_DEFAULT);
@@ -2816,7 +2895,8 @@ public final class UI {
         }
     }
 
-    public static class CheckBox extends JCheckBox {
+    @SuppressWarnings("serial")
+	public static class CheckBox extends JCheckBox {
         public CheckBox() {
             if (useDefaultTooltip) {
                 setToolTipText(TOOLTIP_DEFAULT);
@@ -2824,7 +2904,8 @@ public final class UI {
         }
     }
 
-    public static class ComboBox extends JPanel implements KeyListener {
+    @SuppressWarnings("serial")
+	public static class ComboBox extends JPanel implements KeyListener {
         public boolean noEvents = false;
         FunctionPointer onChange = null;
         JComboBox cbo = new JComboBox();
@@ -2877,7 +2958,7 @@ public final class UI {
             // Is it a space? Are we showing the
             // search button? Is the box not
             // editable? If so, fire the search
-            if ((e.getKeyCode() == e.VK_SPACE) && shownSearch &&
+            if ((e.getKeyCode() == KeyEvent.VK_SPACE) && shownSearch &&
                     !cbo.isEditable()) {
                 actionSearch();
             }
@@ -3003,7 +3084,8 @@ public final class UI {
         }
     }
 
-    public static class Spinner extends JSpinner {
+    @SuppressWarnings("serial")
+	public static class Spinner extends JSpinner {
         public Spinner(int min, int max, String tooltip,
             final FunctionPointer onChange) {
             super(new SpinnerNumberModel(min, min, max, 1));
@@ -3032,7 +3114,8 @@ public final class UI {
         }
     }
 
-    public static class Label extends JLabel {
+    @SuppressWarnings("serial")
+	public static class Label extends JLabel {
         public Label() {
             super();
 
@@ -3075,7 +3158,8 @@ public final class UI {
         }
     }
 
-    public static class List extends JList implements MouseListener {
+    @SuppressWarnings("serial")
+	public static class List extends JList implements MouseListener {
         FunctionPointer onClick = null;
         FunctionPointer onDoubleClick = null;
 
@@ -3122,7 +3206,8 @@ public final class UI {
         }
     }
 
-    public static class Panel extends JPanel {
+    @SuppressWarnings("serial")
+	public static class Panel extends JPanel {
         private int preferredWidth = -1;
         private int preferredHeight = -1;
 
@@ -3220,13 +3305,16 @@ public final class UI {
         }
     }
 
-    public static class MenuBar extends JMenuBar {
+    @SuppressWarnings("serial")
+	public static class MenuBar extends JMenuBar {
     }
 
-    public static class Menu extends JMenu {
+    @SuppressWarnings("serial")
+	public static class Menu extends JMenu {
     }
 
-    public static class MenuItem extends JMenuItem {
+    @SuppressWarnings("serial")
+	public static class MenuItem extends JMenuItem {
         public MenuItem() {
             super();
         }
@@ -3247,10 +3335,12 @@ public final class UI {
         }
     }
 
-    public static class Separator extends JSeparator {
+    @SuppressWarnings("serial")
+	public static class Separator extends JSeparator {
     }
 
-    public static class PasswordField extends JPasswordField {
+    @SuppressWarnings("serial")
+	public static class PasswordField extends JPasswordField {
         public PasswordField() {
             setWidth(UI.getTextBoxWidth());
 
@@ -3268,10 +3358,12 @@ public final class UI {
         }
     }
 
-    public static class ProgressBar extends JProgressBar {
+    @SuppressWarnings("serial")
+	public static class ProgressBar extends JProgressBar {
     }
 
-    public static class RadioButton extends JRadioButton {
+    @SuppressWarnings("serial")
+	public static class RadioButton extends JRadioButton {
         public RadioButton() {
             if (useDefaultTooltip) {
                 setToolTipText(TOOLTIP_DEFAULT);
@@ -3279,8 +3371,10 @@ public final class UI {
         }
     }
 
-    public static class ToolBar extends JToolBar {
-        private boolean platformToolbar = !Global.buttonHotkeys;
+    @SuppressWarnings("serial")
+	public static class ToolBar extends JToolBar {
+        @SuppressWarnings("unused")
+		private boolean platformToolbar = !Global.buttonHotkeys;
 
         public ToolBar() {
             super();
@@ -3309,7 +3403,8 @@ public final class UI {
         }
     }
 
-    public static class TextField extends JTextField {
+    @SuppressWarnings("serial")
+	public static class TextField extends JTextField {
         public TextField() {
             setWidth(UI.getTextBoxWidth());
 
@@ -3323,7 +3418,8 @@ public final class UI {
         }
     }
 
-    public static class SearchTextField extends UI.Panel {
+    @SuppressWarnings("serial")
+	public static class SearchTextField extends UI.Panel {
         UI.TextField t = null;
         UI.Button btn = null;
 
@@ -3376,7 +3472,8 @@ public final class UI {
         }
     }
 
-    public static class TabbedPane extends JTabbedPane {
+    @SuppressWarnings("serial")
+	public static class TabbedPane extends JTabbedPane {
         public TabbedPane() {
             setTabPlacement(Global.TABALIGN);
         }
@@ -3401,7 +3498,8 @@ public final class UI {
         }
     }
 
-    public static class TextArea extends JTextArea {
+    @SuppressWarnings("serial")
+	public static class TextArea extends JTextArea {
         public TextArea() {
             super(6, 18);
 
@@ -3414,7 +3512,8 @@ public final class UI {
         }
     }
 
-    public static class FileChooser extends JFileChooser {
+    @SuppressWarnings("serial")
+	public static class FileChooser extends JFileChooser {
         public FileChooser() {
             super();
         }
@@ -3441,7 +3540,8 @@ public final class UI {
         }
     }
 
-    public static class FlowLayout extends java.awt.FlowLayout {
+    @SuppressWarnings("serial")
+	public static class FlowLayout extends java.awt.FlowLayout {
         public FlowLayout() {
             super();
         }
@@ -3455,16 +3555,19 @@ public final class UI {
         }
     }
 
-    public static class BorderLayout extends java.awt.BorderLayout {
+    @SuppressWarnings("serial")
+	public static class BorderLayout extends java.awt.BorderLayout {
     }
 
-    public static class TableLayout extends SWTTableLayout {
+    @SuppressWarnings("serial")
+	public static class TableLayout extends SWTTableLayout {
         public TableLayout(int rows, int cols, int hgap, int vgap) {
             super(rows, cols, hgap, vgap);
         }
     }
 
-    public static class DesktopPane extends ASMDesktop {
+    @SuppressWarnings("serial")
+	public static class DesktopPane extends ASMDesktop {
         /** When the tab changes, update the audit info icon
          *  on the main screen */
         protected void newTabSelected(ASMForm f) {
@@ -3472,12 +3575,14 @@ public final class UI {
         }
     }
 
-    public static class BoxLayout extends javax.swing.BoxLayout {
+    @SuppressWarnings("serial")
+	public static class BoxLayout extends javax.swing.BoxLayout {
         public BoxLayout(UI.Panel p, int axis) {
             super(p, axis);
         }
     }
 
-    public static class Dimension extends java.awt.Dimension {
+    @SuppressWarnings("serial")
+	public static class Dimension extends java.awt.Dimension {
     }
 }

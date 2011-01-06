@@ -38,6 +38,7 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class OwnerLink extends UI.Panel implements SearchListener {
     public final static int MODE_FULL = 0;
     public final static int MODE_ONELINE = 1;
@@ -54,11 +55,6 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     private UI.Button btnFind;
     private UI.Button btnNew;
     private UI.Button btnOpen;
-    private UI.Panel pnlAddress;
-    private UI.Panel pnlDetail;
-    private UI.Panel pnlName;
-    private UI.Panel pnlPostcode;
-    private UI.ToolBar tlb;
     private UI.TextArea txtAddress;
     private UI.TextField txtHomeTelephone;
     private UI.TextField txtMobileTelephone;

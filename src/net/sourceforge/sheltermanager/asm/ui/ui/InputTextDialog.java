@@ -27,6 +27,7 @@ import java.util.Vector;
 /**
  * Shows a box for text input
  */
+@SuppressWarnings("serial")
 public class InputTextDialog extends ASMDialog {
     String message = "";
     UI.TextField txt = null;
@@ -37,7 +38,7 @@ public class InputTextDialog extends ASMDialog {
         this.message = message;
         init(title, IconManager.getIcon(IconManager.QUESTION), "uierror", false);
         UI.centerWindow(this);
-        show();
+        setVisible(true);
     }
 
     public void initComponents() {
@@ -71,8 +72,8 @@ public class InputTextDialog extends ASMDialog {
         return txt;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(txt);
         v.add(btnOk);
         v.add(btnCancel);

@@ -21,18 +21,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.splash;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.FunctionPointer;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.ArrayList;
-import java.util.Vector;
 
 
 /**
@@ -41,14 +39,13 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class About extends ASMDialog {
     private final static String HOME_PAGE = "http://sheltermanager.sf.net";
     private UI.Label lblUrl;
     private UI.Button btnOk;
     private UI.HTMLBrowser edSys;
     private UI.HTMLBrowser edCredits;
-    private ArrayList names = new ArrayList();
-    private ArrayList values = new ArrayList();
 
     /** Creates new form About */
     public About() {
@@ -95,8 +92,8 @@ public class About extends ASMDialog {
         return btnOk;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(btnOk);
 
         return v;

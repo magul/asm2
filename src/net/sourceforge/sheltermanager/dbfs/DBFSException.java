@@ -22,7 +22,10 @@
 package net.sourceforge.sheltermanager.dbfs;
 
 public class DBFSException extends Exception {
-    public DBFSException() {
+    
+	private static final long serialVersionUID = -7035666564832183285L;
+
+	public DBFSException() {
         super();
     }
 

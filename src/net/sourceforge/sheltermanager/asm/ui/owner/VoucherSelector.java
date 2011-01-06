@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerVoucher;
@@ -28,13 +30,10 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.util.Vector;
 
 
 /**
@@ -42,6 +41,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class VoucherSelector extends ASMSelector {
     public int ownerID = 0;
     public String[][] tabledata;
@@ -84,8 +84,8 @@ public class VoucherSelector extends ASMSelector {
         actionEdit();
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;

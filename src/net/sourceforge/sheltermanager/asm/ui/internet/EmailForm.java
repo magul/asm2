@@ -43,15 +43,15 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class EmailForm extends ASMForm {
-    private EmailFormListener parent = null;
+
+	private static final long serialVersionUID = 3682212161945751993L;
+	private EmailFormListener parent = null;
     private int ownerid = 0;
     private OwnerEdit parentOwnerForm;
     private UI.Panel pnlFields;
     private UI.Panel pnlHead;
     private UI.Panel pnlBody;
-    private UI.Panel pnlTo;
     private UI.Panel pnlTop;
-    private UI.Panel pnlSubject;
     private UI.Panel pnlLog;
     private UI.Button btnCancel;
     private UI.Button btnSend;
@@ -78,8 +78,8 @@ public class EmailForm extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtFrom);
         ctl.add(txtTo);
         ctl.add(txtCC);
@@ -120,7 +120,7 @@ public class EmailForm extends ASMForm {
         pnlBody.remove(pnlFields);
     }
 
-    public void addFields(Vector fields) {
+    public void addFields(Vector<String> fields) {
         lstFields.setListData(fields);
         fields = null;
     }

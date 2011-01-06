@@ -40,6 +40,7 @@ import java.util.Vector;
 /**
  * Class for embedding media facilities in a frame.
  */
+@SuppressWarnings("serial")
 public class DietSelector extends ASMSelector {
     /** The animal ID for the link */
     public int animalID = 0;
@@ -60,7 +61,7 @@ public class DietSelector extends ASMSelector {
         init("uianimal", false);
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         return null;
     }
 

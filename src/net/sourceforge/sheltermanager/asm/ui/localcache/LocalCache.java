@@ -46,7 +46,7 @@ import java.util.Vector;
  * of what they have stored locally.
  */
 public class LocalCache {
-    private Vector theCache = new Vector();
+    private Vector<CacheEntry> theCache = new Vector<CacheEntry>();
     private boolean fileEof = false;
 
     /**
@@ -103,7 +103,7 @@ public class LocalCache {
     }
 
     public void removeAllEntries() {
-        Iterator i = theCache.iterator();
+        Iterator<CacheEntry> i = theCache.iterator();
 
         while (i.hasNext()) {
             CacheEntry c = (CacheEntry) i.next();
@@ -142,8 +142,6 @@ public class LocalCache {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(in,
                         Global.CHAR_ENCODING));
-
-            String s = "";
 
             while (!fileEof) {
                 // All data should be written in sets of
@@ -190,7 +188,7 @@ public class LocalCache {
             FileOutputStream out = new FileOutputStream(new File(Global.tempDirectory +
                         File.separator + "cache.data"));
 
-            Iterator i = theCache.iterator();
+            Iterator<CacheEntry> i = theCache.iterator();
 
             while (i.hasNext()) {
                 CacheEntry c = (CacheEntry) i.next();
@@ -206,7 +204,7 @@ public class LocalCache {
         }
     }
 
-    public Vector getEntries() {
+    public Vector<CacheEntry> getEntries() {
         return theCache;
     }
 

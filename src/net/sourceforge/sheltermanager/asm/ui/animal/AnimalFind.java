@@ -56,6 +56,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class AnimalFind extends ASMFind {
     private UI.Button btnHotGenForm;
     private UI.Button btnHotDiaryTask;
@@ -162,8 +163,8 @@ public class AnimalFind extends ASMFind {
         return false;
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtAnimalName);
         ctl.add(cboType);
         ctl.add(cboSpecies);
@@ -397,10 +398,7 @@ public class AnimalFind extends ASMFind {
 
         Animal animal = new Animal();
         animal.openRecordset("ID=" + id);
-
-        AnimalDocument ad = new AnimalDocument(animal);
-        ad = null;
-        animal = null;
+        new AnimalDocument(animal);
     }
 
     public void actionDiaryTask() {

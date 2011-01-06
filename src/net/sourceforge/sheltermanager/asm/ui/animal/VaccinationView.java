@@ -21,10 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
-import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteria;
@@ -40,16 +43,13 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 
 /**
  * Quick editing of vaccination records.
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class VaccinationView extends ASMView implements VaccinationParent,
     DiaryCriteriaListener {
     public int type = 0;
@@ -98,8 +98,8 @@ public class VaccinationView extends ASMView implements VaccinationParent,
         startForm();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(chkDeceased);
         ctl.add(chkOffShelter);
         ctl.add(btnEditVacc);

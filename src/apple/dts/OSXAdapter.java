@@ -58,9 +58,10 @@ Copyright � 2003-2007 Apple, Inc., All Rights Reserved
 //package apple.dts.samplecode.osxadapter; 
 package apple.dts;
 
-import java.lang.reflect.*;
-
-import java.util.HashMap;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 
 public class OSXAdapter implements InvocationHandler {
@@ -156,7 +157,8 @@ public class OSXAdapter implements InvocationHandler {
     }
 
     // setHandler creates a Proxy object from the passed OSXAdapter and adds it as an ApplicationListener
-    public static void setHandler(OSXAdapter adapter) {
+    @SuppressWarnings("unchecked")
+	public static void setHandler(OSXAdapter adapter) {
         try {
             Class applicationClass = Class.forName("com.apple.eawt.Application");
 

@@ -25,8 +25,6 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMConfigForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 
-import java.util.Vector;
-
 
 /**
  * This class contains all code for editing Pets911 settings for the Pets911
@@ -34,6 +32,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class Pets911Settings extends ASMConfigForm {
     public Pets911Settings() {
         super(new ConfigItem[] {

@@ -21,6 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.CustomReportExecute;
@@ -28,16 +32,9 @@ import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
-import net.sourceforge.sheltermanager.asm.ui.ui.TablePrefs;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.io.File;
-import java.io.FileOutputStream;
-
-import java.util.Vector;
 
 
 /**
@@ -46,6 +43,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class CustomReportExport extends ASMView {
     private UI.Button btnGenCSV;
     private UI.Button btnView;
@@ -79,8 +77,8 @@ public class CustomReportExport extends ASMView {
     public void setSecurity() {
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;

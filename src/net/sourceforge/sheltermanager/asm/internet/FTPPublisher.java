@@ -103,7 +103,8 @@ public class FTPPublisher extends AbstractPublisher {
     * Opens a connection to the users remote internet FTP server
     * @return true if the operation was successful
     */
-    protected boolean openFTPSocket() {
+    @SuppressWarnings("deprecation")
+	protected boolean openFTPSocket() {
         if (!publishCriteria.uploadDirectly) {
             return false;
         }
@@ -165,7 +166,8 @@ public class FTPPublisher extends AbstractPublisher {
      * requesting a directory. If it cannot get one, the socket is reopened
      * and the current FTP directory returned to.
      */
-    protected void checkFTPSocket() {
+    @SuppressWarnings("deprecation")
+	protected void checkFTPSocket() {
         if (!publishCriteria.uploadDirectly) {
             return;
         }
@@ -204,7 +206,8 @@ public class FTPPublisher extends AbstractPublisher {
      * internet site according to the FTP settings. If the file already exists
      * (and it is not our extension), it is not uploaded again.
      */
-    protected void upload(String filename) {
+    @SuppressWarnings("deprecation")
+	protected void upload(String filename) {
         if (!publishCriteria.uploadDirectly) {
             return;
         }
@@ -315,7 +318,8 @@ public class FTPPublisher extends AbstractPublisher {
      * Looks at the directory the upload socket is pointing to and removes any
      * existing HTML files.
      */
-    protected void clearExistingHTML() {
+    @SuppressWarnings("deprecation")
+	protected void clearExistingHTML() {
         if (!publishCriteria.uploadDirectly) {
             return;
         }

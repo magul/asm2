@@ -21,20 +21,18 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
-import net.sourceforge.sheltermanager.asm.ui.ui.TablePrefs;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Date;
-import java.util.Vector;
 
 
 /**
@@ -44,6 +42,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class NotAdoptionView extends ASMView {
     private UI.Button btnRefresh;
     private UI.Button btnView;
@@ -55,8 +54,8 @@ public class NotAdoptionView extends ASMView {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(btnRefresh);
         ctl.add(btnView);
         ctl.add(getTable());

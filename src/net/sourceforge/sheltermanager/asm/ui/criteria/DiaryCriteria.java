@@ -21,18 +21,16 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.criteria;
 
+import java.text.ParseException;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.DateFormatException;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.text.ParseException;
-
-import java.util.Vector;
 
 
 /**
@@ -41,6 +39,7 @@ import java.util.Vector;
  *
  * @author  Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class DiaryCriteria extends ASMForm {
     public static final int UPTO_TODAY = 0;
     public static final int UPTO_SPECIFIED = 1;
@@ -71,8 +70,8 @@ public class DiaryCriteria extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(radNormal);
         ctl.add(radUpto);
         ctl.add(txtUpto.getTextField());

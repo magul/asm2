@@ -39,8 +39,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+@SuppressWarnings("serial")
 public class AdditionalFieldView extends UI.Panel {
-    private boolean hasData = false;
     private ArrayList<Object> additionalComponents = new ArrayList<Object>();
     private HashMap<Integer, Boolean> mandatoryFields = new HashMap<Integer, Boolean>();
     private HashMap<Integer, String> fieldLabels = new HashMap<Integer, String>();
@@ -56,8 +56,6 @@ public class AdditionalFieldView extends UI.Panel {
         if (f.getRecordCount() == 0) {
             return;
         }
-
-        hasData = true;
 
         // Draw them out - use two panels, one grid for non-textareas
         // and one for the text areas. Arrange them so textareas fill
@@ -371,11 +369,12 @@ public class AdditionalFieldView extends UI.Panel {
      * @param o
      * @return
      */
-    private int getComponentID(Object o) {
+    @SuppressWarnings("unchecked")
+	private int getComponentID(Object o) {
         try {
             Class c = o.getClass();
-            Method m = c.getMethod("getName", null);
-            Object s = m.invoke(o, null);
+            Method m = c.getMethod("getName", (Class[]) null);
+            Object s = m.invoke(o, (Object[]) null);
 
             return Integer.parseInt(s.toString());
         } catch (Exception e) {

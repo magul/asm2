@@ -21,8 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.lookups;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.db.DBPetFinder;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -32,13 +33,12 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Vector;
-
 
 /**
  * Map breeds to species
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class BreedSpeciesMapping extends ASMView {
     private UI.Button btnView;
     private UI.Button btnAll;
@@ -49,8 +49,8 @@ public class BreedSpeciesMapping extends ASMView {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(btnView);
         ctl.add(getTable());
 
@@ -170,14 +170,14 @@ public class BreedSpeciesMapping extends ASMView {
                 2);
 
         // Prompt the user to change it
-        Vector species = new Vector();
+        Vector<String> species = new Vector<String>();
 
         try {
             SQLRecordset sp = LookupCache.getSpeciesLookup();
             sp.moveFirst();
 
             while (!sp.getEOF()) {
-                species.add(sp.getField("SpeciesName"));
+                species.add(sp.getString("SpeciesName"));
                 sp.moveNext();
             }
         } catch (Exception e) {

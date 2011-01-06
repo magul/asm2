@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.Vector;
 
 
+@SuppressWarnings("serial")
 public class VaccinationSelector extends ASMSelector
     implements VaccinationParent {
     private int animalid = 0;
@@ -58,8 +59,8 @@ public class VaccinationSelector extends ASMSelector
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
 
         return ctl;

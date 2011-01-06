@@ -43,11 +43,9 @@ import java.util.Vector;
  * @see net.sourceforge.sheltermanager.asm.ui.splash.Splash
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class Login extends ASMWindow {
-    /**
-     * If set, the application will be killed when this screen is closed.
-     */
-    private boolean killOnClose = true;
+
     private UI.Button btnExit;
     private UI.Button btnLogin;
     private UI.PasswordField txtPassword;
@@ -92,13 +90,12 @@ public class Login extends ASMWindow {
         Global.focusManager.removeComponentSet(this);
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtUsername);
         ctl.add(txtPassword);
         ctl.add(btnLogin);
         ctl.add(btnExit);
-
         return ctl;
     }
 
@@ -126,7 +123,6 @@ public class Login extends ASMWindow {
         Dialog.theParent = main;
 
         // Close this screen
-        killOnClose = false;
         this.dispose();
 
         // Display the main screen

@@ -33,6 +33,7 @@ import java.io.File;
 import java.util.Vector;
 
 
+@SuppressWarnings("serial")
 public class HTMLViewer extends ASMForm {
     private final static int MAX_HISTORY = 200;
 
@@ -115,8 +116,8 @@ public class HTMLViewer extends ASMForm {
         return ed;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(ed);
 
         return v;

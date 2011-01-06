@@ -48,6 +48,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class VaccinationEdit extends ASMForm {
     private AnimalVaccination anivacc = null;
     private VaccinationParent editanimal = null;
@@ -68,8 +69,8 @@ public class VaccinationEdit extends ASMForm {
             "uianimal");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboVaccinationType);
         ctl.add(txtDateRequired.getTextField());
         ctl.add(txtDateGiven.getTextField());

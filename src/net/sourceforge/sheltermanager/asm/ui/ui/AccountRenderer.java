@@ -21,19 +21,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.awt.*;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
+import java.awt.Font;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
+@SuppressWarnings("serial")
 public class AccountRenderer extends DefaultTableCellRenderer
     implements ASMCellRenderer {
     private Color odd = new Color(204, 229, 209);

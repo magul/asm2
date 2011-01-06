@@ -21,9 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.lookups;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -33,8 +34,6 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Vector;
-
 
 /**
  * This class contains all code for viewing a list of lookups
@@ -42,6 +41,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class LookupView extends ASMView {
     public static final int ANIMALTYPE = 0;
     public static final int BASECOLOUR = 1;
@@ -83,8 +83,8 @@ public class LookupView extends ASMView {
         setLookupType(lookupType);
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(btnNew);
         ctl.add(btnView);
         ctl.add(btnDelete);

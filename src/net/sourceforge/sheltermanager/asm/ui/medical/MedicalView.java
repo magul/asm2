@@ -34,6 +34,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class MedicalView extends ASMForm {
     private MedicalSelector medical = new MedicalSelector();
 
@@ -48,8 +49,8 @@ public class MedicalView extends ASMForm {
         return medical;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(medical);
 
         return v;

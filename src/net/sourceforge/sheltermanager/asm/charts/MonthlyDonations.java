@@ -21,19 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.charts;
 
-import de.progra.charting.model.ObjectChartDataModel;
+import java.util.Calendar;
 
-import net.sourceforge.sheltermanager.asm.bo.Adoption;
-import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
-import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Calendar;
+import de.progra.charting.model.ObjectChartDataModel;
 
 
 /**
@@ -43,7 +38,6 @@ import java.util.Calendar;
  * @author Robin Rawson-Tetley
  */
 public class MonthlyDonations extends Chart {
-    private String monthname = "";
     private String year = "";
     private int selectedYear = 0;
 

@@ -21,26 +21,39 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
-import java.awt.*;
-import java.awt.event.*;
-
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**
  * Tabbed pane that allows close buttons
  */
+@SuppressWarnings("serial")
 public class ASMDesktop extends JPanel {
     JPanel tabs = null;
     JPanel viewer = null;
     CardLayout viewlayout = null;
-    Vector forms = new Vector();
+    Vector<ASMTab> forms = new Vector<ASMTab>();
     ASMForm currentview = null;
 
     public ASMDesktop() {
@@ -182,6 +195,7 @@ public class ASMDesktop extends JPanel {
 }
 
 
+@SuppressWarnings("serial")
 class ASMTab extends JPanel implements MouseListener {
     String title = "";
     String tooltip = "";

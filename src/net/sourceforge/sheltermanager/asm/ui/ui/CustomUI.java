@@ -21,6 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Properties;
+import java.util.Vector;
+
+import javax.swing.Icon;
+import javax.swing.JMenu;
+import javax.swing.JToolBar;
+
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -31,26 +40,15 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.MovementDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDocument;
 
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import java.util.Properties;
-import java.util.Vector;
-
-import javax.swing.Icon;
-import javax.swing.JMenu;
-import javax.swing.JToolBar;
-
 
 /**
  * Handles extra bits of the UI that users can configure through
  * ~/.asm/plugins.properties
  */
 public class CustomUI {
-    private static Vector customAnimalButtons = new Vector();
-    private static Vector customOwnerButtons = new Vector();
-    private static Vector customMovementButtons = new Vector();
+    private static Vector<CustomButton> customAnimalButtons = new Vector<CustomButton>();
+    private static Vector<CustomButton> customOwnerButtons = new Vector<CustomButton>();
+    private static Vector<CustomButton> customMovementButtons = new Vector<CustomButton>();
 
     /** Generates the custom additional buttons for the animal form */
     public static void readCustomAnimalButtons(Properties p) {

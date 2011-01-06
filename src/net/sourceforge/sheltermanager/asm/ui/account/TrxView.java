@@ -45,6 +45,7 @@ import java.util.Vector;
  * Screen for displaying transactions
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class TrxView extends ASMView {
     private UI.Button btnRefresh;
     private UI.Button btnNew;

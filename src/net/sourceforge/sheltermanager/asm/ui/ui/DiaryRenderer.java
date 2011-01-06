@@ -34,6 +34,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
+@SuppressWarnings("serial")
 public class DiaryRenderer extends DefaultTableCellRenderer
     implements ASMCellRenderer {
     private Color col = new Color(0, 0, 88);

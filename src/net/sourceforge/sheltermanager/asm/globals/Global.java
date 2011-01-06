@@ -506,7 +506,8 @@ public abstract class Global {
         logMessage(message, "DEBUG", location);
     }
 
-    public static void logException(Exception e, Class location) {
+    @SuppressWarnings("unchecked")
+	public static void logException(Exception e, Class location) {
         StringWriter sw = new StringWriter();
         e.printStackTrace(new PrintWriter(sw));
         logMessage(sw.toString(), "ERROR", location.getName());

@@ -47,6 +47,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class LinkSelector extends ASMSelector {
     private static final int ORIGINAL_OWNER = 0;
     private static final int BROUGHT_IN_BY = 1;
@@ -78,8 +79,8 @@ public class LinkSelector extends ASMSelector {
         this.ownerID = ownerID;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
         v.add(btnView);
 

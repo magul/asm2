@@ -21,6 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.lostandfound;
 
+import java.text.ParseException;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -32,11 +35,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.text.ParseException;
-
-import java.util.Date;
-import java.util.Vector;
-
 
 /**
  * This class contains all code for searching the found animal database.
@@ -44,6 +42,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class FoundAnimalFind extends ASMFind {
     public UI.ComboBox cboColour;
     public UI.ComboBox cboSpecies;
@@ -66,8 +65,8 @@ public class FoundAnimalFind extends ASMFind {
             "uilostandfound", 4, false, false);
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtContact);
         ctl.add(txtArea);
         ctl.add(txtPostcode);

@@ -47,6 +47,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class MediaSelector extends ASMSelector {
     /** The link type, passed from the calling form */
     public int linkType = 0;
@@ -79,8 +80,8 @@ public class MediaSelector extends ASMSelector {
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
 
         return ctl;
@@ -654,20 +655,16 @@ public class MediaSelector extends ASMSelector {
 
 class ImagePreviewer extends Thread {
     private String mediaName;
-    private int mediaID;
     private UI.Label previewPane;
     private int linkType;
     private int linkID;
-    private MediaSelector parent;
 
     public ImagePreviewer(String mediaName, int mediaID, UI.Label previewPane,
         int linkType, int linkID, MediaSelector parent) {
         this.mediaName = mediaName;
-        this.mediaID = mediaID;
         this.previewPane = previewPane;
         this.linkType = linkType;
         this.linkID = linkID;
-        this.parent = parent;
     }
 
     public void run() {

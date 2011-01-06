@@ -30,6 +30,7 @@ import java.util.Vector;
 /**
  * Shows a list for selection input
  */
+@SuppressWarnings("serial")
 public class InputListDialog extends ASMDialog {
     String message = "";
     UI.List lst = null;
@@ -52,7 +53,7 @@ public class InputListDialog extends ASMDialog {
         }
 
         UI.centerWindow(this);
-        show();
+        setVisible(true);
     }
 
     public void initComponents() {
@@ -103,7 +104,7 @@ public class InputListDialog extends ASMDialog {
         }
 
         // Make subset of data
-        Vector v = new Vector();
+        Vector<Object> v = new Vector<Object>();
 
         for (int i = 0; i < values.length; i++) {
             if (values[i].toString().toLowerCase().indexOf(s.toLowerCase()) != -1) {
@@ -124,8 +125,8 @@ public class InputListDialog extends ASMDialog {
         return values.length > UI.listSearchThreshold();
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
 
         if (showSearch()) {
             v.add(search.getTextField());
@@ -170,7 +171,7 @@ public class InputListDialog extends ASMDialog {
             txt = UI.getTextField();
             txt.addKeyListener(new KeyAdapter() {
                     public void keyPressed(KeyEvent e) {
-                        if (e.getKeyCode() == e.VK_ENTER) {
+                        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                             SearchBar.this.onSearch.call();
                         }
                     }

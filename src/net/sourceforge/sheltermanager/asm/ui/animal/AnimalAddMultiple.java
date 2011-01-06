@@ -1,7 +1,9 @@
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -15,10 +17,8 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.util.Date;
-import java.util.Vector;
 
-
+@SuppressWarnings("serial")
 public class AnimalAddMultiple extends ASMForm {
     private UI.Button btnNew;
     private UI.Button btnClone;
@@ -46,8 +46,8 @@ public class AnimalAddMultiple extends ASMForm {
     }
 
     @Override
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(btnNew);
         v.add(btnClone);
         v.add(btnSave);
@@ -180,7 +180,7 @@ public class AnimalAddMultiple extends ASMForm {
                         new int[] { 10, 40, 10, 40 }));
             UI.Panel pextra = UI.getPanel(UI.getGridLayout(6,
                         new int[] { 10, 15, 10, 15, 10, 15 }));
-            Vector tabs = new Vector();
+            Vector<Object> tabs = new Vector<Object>();
 
             // Basic panel
             txtName = (UI.SearchTextField) UI.addComponent(pbasic,
@@ -320,7 +320,7 @@ public class AnimalAddMultiple extends ASMForm {
                 if (Configuration.getBoolean("SuggestPopularBreeds")) {
                     Integer speciesID = Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
                             "SpeciesName", cboSpecies);
-                    Vector v = LookupCache.getBreedsForSpecies(speciesID);
+                    Vector<String> v = LookupCache.getBreedsForSpecies(speciesID);
 
                     for (int i = 0; i < v.size(); i++) {
                         cboBreed.addItem(v.get(i).toString());

@@ -46,6 +46,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class VoucherEdit extends ASMForm {
     private OwnerVoucher voucher = null;
 
@@ -69,8 +70,8 @@ public class VoucherEdit extends ASMForm {
             "uiowner");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboVoucher);
         ctl.add(txtIssueDate.getTextField());
         ctl.add(txtExpiryDate.getTextField());

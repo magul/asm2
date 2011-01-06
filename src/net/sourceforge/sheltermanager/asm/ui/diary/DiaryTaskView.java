@@ -40,6 +40,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class DiaryTaskView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnNew;
@@ -165,8 +166,8 @@ public class DiaryTaskView extends ASMView {
         return false;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;

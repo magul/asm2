@@ -32,11 +32,11 @@ import java.util.*;
  * @author  robin
  */
 public class LoadClasses {
-    private Vector classes = null;
+    private Vector<String> classes = null;
 
     public LoadClasses() {
         // Class list
-        classes = new Vector(150);
+        classes = new Vector<String>(150);
 
         classes.add("net.sourceforge.sheltermanager.asm.bo.Adoption");
         classes.add("net.sourceforge.sheltermanager.asm.bo.Animal");
@@ -186,11 +186,11 @@ public class LoadClasses {
     }
 
     public void load() {
-        Iterator i = classes.iterator();
+        Iterator<String> i = classes.iterator();
         String className = "";
 
         while (i.hasNext()) {
-            className = (String) i.next();
+            className = i.next();
 
             try {
                 Class.forName(className);

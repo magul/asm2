@@ -42,6 +42,7 @@ import javax.swing.table.TableColumn;
  * To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Generation - Code and Comments
  */
+@SuppressWarnings("serial")
 public class SelectableTable extends JTable implements SelectableComponent {
     SelectableItem[] items = null;
 
@@ -57,7 +58,7 @@ public class SelectableTable extends JTable implements SelectableComponent {
                 (SelectableModel) getModel()));
     }
 
-    public void setItems(List l) {
+    public void setItems(List<SelectableItem> l) {
         SelectableItem[] its = new SelectableItem[l.size()];
 
         for (int i = 0; i < l.size(); i++)
@@ -77,6 +78,7 @@ public class SelectableTable extends JTable implements SelectableComponent {
 }
 
 
+@SuppressWarnings("serial")
 class SelectableModel extends AbstractTableModel {
     private SelectableItem[] items = null;
 
@@ -160,6 +162,7 @@ class SelectableModel extends AbstractTableModel {
 }
 
 
+@SuppressWarnings("serial")
 class SelectableRenderer extends DefaultTableCellRenderer {
     private SelectableModel tablemodel = null;
 
@@ -188,6 +191,7 @@ class SelectableRenderer extends DefaultTableCellRenderer {
 }
 
 
+@SuppressWarnings("serial")
 class SelectableDisplayRenderer extends DefaultTableCellRenderer {
     private SelectableModel tablemodel = null;
 

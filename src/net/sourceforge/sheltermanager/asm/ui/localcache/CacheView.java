@@ -38,6 +38,7 @@ import java.util.Vector;
  * Allows viewing and destruction of the local cache.
  *
  */
+@SuppressWarnings("serial")
 public class CacheView extends ASMView {
     private UI.Button btnDelete;
     private UI.Button btnPurge;
@@ -50,8 +51,8 @@ public class CacheView extends ASMView {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;
@@ -87,8 +88,8 @@ public class CacheView extends ASMView {
     }
 
     public void updateList() {
-        Vector cache = Global.localCache.getEntries();
-        Iterator i = cache.iterator();
+        Vector<CacheEntry> cache = Global.localCache.getEntries();
+        Iterator<CacheEntry> i = cache.iterator();
 
         int rows = cache.toArray().length;
 

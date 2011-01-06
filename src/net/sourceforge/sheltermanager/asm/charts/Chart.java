@@ -21,6 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.charts;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.ui.reportviewer.ReportViewer;
+import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
+import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import de.progra.charting.ChartEncoder;
 import de.progra.charting.DefaultChart;
 import de.progra.charting.model.ObjectChartDataModel;
@@ -29,16 +37,6 @@ import de.progra.charting.render.InterpolationChartRenderer;
 import de.progra.charting.render.LineChartRenderer;
 import de.progra.charting.render.PieChartRenderer;
 import de.progra.charting.render.PlotChartRenderer;
-
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.reportviewer.ReportViewer;
-import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.io.File;
-import java.io.FileOutputStream;
 
 
 /**

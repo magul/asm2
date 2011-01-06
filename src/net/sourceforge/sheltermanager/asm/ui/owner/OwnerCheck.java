@@ -21,15 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.util.Vector;
 
 
 /**
@@ -38,6 +37,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class OwnerCheck extends ASMForm {
     private OwnerEdit parent = null;
     private Owner ownerlist = null;
@@ -60,8 +60,8 @@ public class OwnerCheck extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(tbl);
         ctl.add(btnIgnore);
         ctl.add(btnAbandon);

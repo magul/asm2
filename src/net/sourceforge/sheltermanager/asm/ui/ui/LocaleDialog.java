@@ -21,36 +21,29 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.db.LocateDatabase;
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.io.File;
-
-import java.sql.Connection;
-
 import java.util.Vector;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
+
+@SuppressWarnings("serial")
 public class LocaleDialog extends ASMDialog {
     private LocaleSwitcher ls;
     private UI.Button btnCancel;
     private UI.Button btnOk;
-    private UI.Button btnScan;
+    @SuppressWarnings("unused")
+	private UI.Button btnScan;
 
     public LocaleDialog() {
         super();
         Dialog.lastLocale = "";
         init(Global.i18n("uierror", "select_locale"),
             IconManager.getIcon(IconManager.SCREEN_LOCALE), "uierror", false);
-        show();
+        setVisible(true);
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(btnOk);
         ctl.add(btnCancel);
 

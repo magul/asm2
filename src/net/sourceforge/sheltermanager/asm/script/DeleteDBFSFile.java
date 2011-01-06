@@ -22,9 +22,7 @@
 package net.sourceforge.sheltermanager.asm.script;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.dbfs.*;
-
-import java.io.File;
+import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 
 /**

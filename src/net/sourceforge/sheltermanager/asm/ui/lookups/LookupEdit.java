@@ -41,6 +41,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class LookupEdit extends ASMForm {
     private String tableName = "";
     private String nameField = "";
@@ -81,8 +82,8 @@ public class LookupEdit extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtName);
         ctl.add(txtDesc);
         ctl.add(btnOk);

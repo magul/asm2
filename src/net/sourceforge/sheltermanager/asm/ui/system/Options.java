@@ -52,15 +52,12 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class Options extends ASMForm {
-    private static final long serialVersionUID = -8050802712901337766L;
     private UI.TabbedPane tabTabs;
-    private UI.Button btnSave;
     private UI.ComboBox cboDefaultUrgency;
     private UI.ComboBox cboWordProcessor;
     private DateField dtAccountingPeriod;
-    private UI.Panel pnlButtons;
-    private UI.Panel pnlDoc;
     private SelectableList tblOptions;
     private SelectableList tblCodeOptions;
     private SelectableList tblDefaultOptions;
@@ -1567,7 +1564,7 @@ public class Options extends ASMForm {
         tabTabs.addTab(i18n("options"), null, tblOptions, null);
 
         UI.ToolBar t = new UI.ToolBar();
-        btnSave = (UI.Button) t.add(UI.getButton(null,
+        	t.add(UI.getButton(null,
                     i18n("Save_your_changes_and_exit"), 's',
                     IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
                     UI.fp(this, "saveData")));

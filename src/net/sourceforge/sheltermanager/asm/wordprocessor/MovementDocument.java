@@ -149,7 +149,7 @@ public class MovementDocument extends GenerateDocument {
             OwnerDocument od = new OwnerDocument(movement.getOwner(), true);
 
             // Merge all the tags from the animal into the movement
-            Iterator i = ad.searchtags.iterator();
+            Iterator<SearchTag> i = ad.searchtags.iterator();
 
             while (i.hasNext()) {
                 searchtags.add(i.next());

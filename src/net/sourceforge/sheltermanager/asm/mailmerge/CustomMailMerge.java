@@ -21,15 +21,10 @@
 */
 package net.sourceforge.sheltermanager.asm.mailmerge;
 
-import net.sourceforge.sheltermanager.asm.bo.*;
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.utility.*;
-import net.sourceforge.sheltermanager.cursorengine.*;
-
-import java.text.ParseException;
-
-import java.util.Date;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 
 /**

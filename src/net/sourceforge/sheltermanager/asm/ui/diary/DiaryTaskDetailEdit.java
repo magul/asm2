@@ -39,6 +39,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class DiaryTaskDetailEdit extends ASMForm {
     DiaryTaskDetail dtd = null;
     DiaryTaskHeadEdit parent = null;
@@ -64,8 +65,8 @@ public class DiaryTaskDetailEdit extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboFor);
         ctl.add(spnPivot);
         ctl.add(txtSubject);

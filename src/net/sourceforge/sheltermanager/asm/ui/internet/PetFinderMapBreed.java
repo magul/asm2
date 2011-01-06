@@ -43,6 +43,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class PetFinderMapBreed extends ASMView {
     private UI.Button btnView;
 
@@ -54,8 +55,8 @@ public class PetFinderMapBreed extends ASMView {
         updateList();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(btnView);
         ctl.add(getTable());
 

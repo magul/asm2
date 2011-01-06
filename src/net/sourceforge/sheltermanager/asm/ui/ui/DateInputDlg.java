@@ -21,12 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
 import java.util.Vector;
 
 
+@SuppressWarnings("serial")
 public class DateInputDlg extends ASMDialog {
     private DateField db;
     private UI.Button btnCancel;
@@ -39,7 +37,7 @@ public class DateInputDlg extends ASMDialog {
         init(title, IconManager.getIcon(IconManager.QUESTION), "uierror", false);
         db.setToToday();
         UI.centerWindow(this);
-        show();
+        setVisible(true);
     }
 
     public void initComponents() {
@@ -73,8 +71,8 @@ public class DateInputDlg extends ASMDialog {
         return db;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(db);
         v.add(btnOk);
         v.add(btnCancel);

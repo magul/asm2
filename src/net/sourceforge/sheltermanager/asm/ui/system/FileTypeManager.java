@@ -21,6 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Properties;
+
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -28,13 +33,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import java.util.Properties;
 
 
 /**
@@ -124,7 +122,8 @@ public class FileTypeManager {
      * applications - 2008/10/29 had to disable due to complaints
      * of hanging on various Windows machines
      */
-    private static void scanWin32Dir(File dir) throws Exception {
+    @SuppressWarnings("unused")
+	private static void scanWin32Dir(File dir) throws Exception {
         if (Global.showDebug) {
             Global.logDebug("Scanning: " + checkWin32Path(dir),
                 "FileTypeManager.scanWin32Dir");
@@ -669,16 +668,5 @@ public class FileTypeManager {
             Dialog.showError(e.getMessage());
             Global.logException(e, FileTypeManager.class);
         }
-    }
-}
-
-
-class FileType {
-    private String commandline = "";
-    private String filetype = "";
-
-    public FileType(String commandline, String filetype) {
-        this.commandline = commandline;
-        this.filetype = filetype;
     }
 }

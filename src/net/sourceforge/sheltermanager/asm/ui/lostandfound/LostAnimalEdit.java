@@ -21,7 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.lostandfound;
 
-import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
@@ -45,11 +48,6 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Vector;
-
 
 /**
  * This class contains all code for editing found animal records.
@@ -57,6 +55,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
     private MediaSelector media = null;
     private AnimalLost animal = null;
@@ -135,8 +134,8 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtDate.getTextField());
         ctl.add(txtReported.getTextField());
         ctl.add(cboAgeGroup);

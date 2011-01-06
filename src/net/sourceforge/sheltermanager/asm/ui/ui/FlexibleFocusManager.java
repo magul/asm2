@@ -26,15 +26,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.*;
-import net.sourceforge.sheltermanager.asm.utility.*;
-
 import java.awt.Component;
-import java.awt.event.*;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.util.Iterator;
+import java.util.Vector;
 
-import java.util.*;
+import javax.swing.FocusManager;
+import javax.swing.JComponent;
 
-import javax.swing.*;
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**
@@ -49,7 +50,7 @@ public class FlexibleFocusManager extends FocusManager {
     public final static int GRAB_FOCUS_TIMEOUT = 250;
 
     /** All loaded tab order sets */
-    private Vector sets = new Vector();
+    private Vector<FrameInfo> sets = new Vector<FrameInfo>();
 
     public FlexibleFocusManager() {
         super();
@@ -81,7 +82,7 @@ public class FlexibleFocusManager extends FocusManager {
         }
     }
 
-    public void addComponentSet(Vector focusOrder, Object frame,
+    public void addComponentSet(Vector<Object> focusOrder, Object frame,
         final Object firstComponent) {
         // Process the set - if we have any of our composite components
         // in the list, use their appropriate embedded component instead
@@ -107,7 +108,7 @@ public class FlexibleFocusManager extends FocusManager {
     }
 
     public void removeComponentSet(Object frame) {
-        Vector toRemove = new Vector();
+        Vector<FrameInfo> toRemove = new Vector<FrameInfo>();
 
         // Find any tab sets belonging to this frame and mark them for removal
         for (int i = 0; i < sets.size(); i++) {
@@ -175,10 +176,10 @@ public class FlexibleFocusManager extends FocusManager {
         // Find the current component
         int i = 0;
 
-        Iterator it = sets.iterator();
+        Iterator<FrameInfo> it = sets.iterator();
 
         while (it.hasNext()) {
-            FrameInfo f = (FrameInfo) it.next();
+            FrameInfo f = it.next();
             Object[] focusOrder = f.components.toArray();
             i = 0;
 
@@ -217,10 +218,10 @@ public class FlexibleFocusManager extends FocusManager {
         // Find the current component
         int i = 0;
 
-        Iterator it = sets.iterator();
+        Iterator<FrameInfo> it = sets.iterator();
 
         while (it.hasNext()) {
-            FrameInfo f = (FrameInfo) it.next();
+            FrameInfo f = it.next();
             Object[] focusOrder = f.components.toArray();
             i = 0;
 
@@ -255,9 +256,9 @@ public class FlexibleFocusManager extends FocusManager {
 
 class FrameInfo {
     public Object theFrame = null;
-    public Vector components = null;
+    public Vector<Object> components = null;
 
-    public FrameInfo(Vector components, Object theFrame) {
+    public FrameInfo(Vector<Object> components, Object theFrame) {
         this.theFrame = theFrame;
         this.components = components;
     }

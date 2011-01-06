@@ -32,7 +32,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.SearchListener;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 /**
@@ -40,6 +39,7 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class AnimalLink extends UI.Panel implements SearchListener {
     private int animalID = 0;
     private AnimalLinkListener parent = null;

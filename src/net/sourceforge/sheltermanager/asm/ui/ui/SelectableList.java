@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 import java.util.List;
 
 
@@ -34,6 +32,7 @@ import java.util.List;
  * @author Robin Rawson-Tetley
  *
  */
+@SuppressWarnings("serial")
 public class SelectableList extends UI.Panel {
     private SelectableComponent component = null;
 
@@ -42,7 +41,7 @@ public class SelectableList extends UI.Panel {
         setItems(items);
     }
 
-    public SelectableList(List l) {
+    public SelectableList(List<SelectableItem> l) {
         getComponent();
         setItems(l);
     }
@@ -64,7 +63,7 @@ public class SelectableList extends UI.Panel {
         component.setItems(items);
     }
 
-    public void setItems(List l) {
+    public void setItems(List<SelectableItem> l) {
         component.setItems(l);
     }
 

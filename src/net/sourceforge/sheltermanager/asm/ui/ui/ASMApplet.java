@@ -30,6 +30,7 @@ import java.awt.*;
 import javax.swing.*;
 
 
+@SuppressWarnings("serial")
 public class ASMApplet extends JApplet {
     JLabel status = null;
 

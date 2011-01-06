@@ -21,7 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.script;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**

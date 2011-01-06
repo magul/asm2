@@ -21,19 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.awt.*;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
+@SuppressWarnings("serial")
 public class WaitingListRenderer extends DefaultTableCellRenderer
     implements ASMCellRenderer {
     /** Urgency colours for background */

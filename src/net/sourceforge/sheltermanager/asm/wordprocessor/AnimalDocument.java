@@ -21,6 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 import net.sourceforge.sheltermanager.asm.bo.Additional;
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
@@ -33,16 +38,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.MediaSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
-
-import java.io.File;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
 
 
 /**

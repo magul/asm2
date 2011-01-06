@@ -21,6 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.users;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Users;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
@@ -30,15 +34,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableList;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.MD5;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
 
 
 /**
@@ -47,17 +45,17 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class UserEdit extends ASMForm {
     private Users user = null;
     private UserView parent = null;
-    private Vector ctl = null;
-    private List items = new ArrayList();
+    private Vector<Object> ctl = null;
+    private ArrayList<SelectableItem> items = new ArrayList<SelectableItem>();
     public boolean isNew = false;
     private UI.Button btnCancel;
     private UI.Button btnClone;
     private UI.Button btnOk;
     private UI.CheckBox chkIsSuper;
-    private UI.Panel pnlBottom;
     private SelectableList tblOptions;
     private UI.Panel pnlTop;
     private UI.Label lblPassword;
@@ -69,7 +67,7 @@ public class UserEdit extends ASMForm {
     /** Creates new form EditUser */
     public UserEdit(UserView theparent) {
         parent = theparent;
-        ctl = new Vector();
+        ctl = new Vector<Object>();
         init(Global.i18n("uiusers", "Edit_User"),
             IconManager.getIcon(IconManager.SCREEN_EDITUSER), "uiusers");
     }
@@ -85,7 +83,7 @@ public class UserEdit extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         ctl.add(txtUserName);
         ctl.add(txtRealName);
         ctl.add(txtPassword);
@@ -356,10 +354,10 @@ public class UserEdit extends ASMForm {
             // Clear the map before we start
             user.setSecurityMap("");
 
-            Iterator i = items.iterator();
+            Iterator<SelectableItem> i = items.iterator();
 
             while (i.hasNext()) {
-                SelectableItem it = (SelectableItem) i.next();
+                SelectableItem it = i.next();
 
                 if (it.isSelected() && !it.isHeader()) {
                     user.setSecurityFlag(it.getValue().toString());

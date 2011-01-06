@@ -40,6 +40,7 @@ import java.util.Vector;
  * species based on groups.
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class ConfigureLookups extends ASMForm {
     public UI.Button btnCancel;
     public UI.Button btnOk;
@@ -55,8 +56,8 @@ public class ConfigureLookups extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(options);
         ctl.add(btnOk);
         ctl.add(btnCancel);
@@ -83,7 +84,7 @@ public class ConfigureLookups extends ASMForm {
     }
 
     public void initComponents() {
-        ArrayList l = new ArrayList();
+        ArrayList<SelectableItem> l = new ArrayList<SelectableItem>();
 
         if (be(220)) {
             l.add(new SelectableItem(i18n("Dogs"), "dogs", true, false));

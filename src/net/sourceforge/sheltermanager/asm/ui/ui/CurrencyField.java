@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
  *
  * Allows editing of currency fields.
  */
+@SuppressWarnings("serial")
 public class CurrencyField extends UI.Panel {
     private UI.TextField txt = new UI.TextField();
 
@@ -67,10 +68,8 @@ public class CurrencyField extends UI.Panel {
         }
 
         // Make sure it is formattable as a number
-        float f = 0;
-
         try {
-            f = Float.parseFloat(outtext);
+        	Float.parseFloat(outtext);
         } catch (NumberFormatException e) {
             Dialog.showError(Global.i18n("uibeans",
                     "The_currency_figure_you_entered_was_invalid."));

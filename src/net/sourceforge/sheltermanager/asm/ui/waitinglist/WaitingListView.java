@@ -48,6 +48,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class WaitingListView extends ASMView {
     private UI.Button btnComplete;
     private UI.Button btnDelete;

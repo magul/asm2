@@ -21,6 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
+import java.text.ParseException;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -32,12 +35,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.DateFormatException;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.text.ParseException;
-
-import java.util.Vector;
 
 
 /**
@@ -45,6 +43,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class MedicalEdit extends ASMForm {
     private MedicalSelector parent = null;
     private AnimalMedical am = null;
@@ -75,8 +74,8 @@ public class MedicalEdit extends ASMForm {
         enableScreenParts();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtTreatmentName);
         ctl.add(txtDosage);
         ctl.add(txtCost.getTextField());

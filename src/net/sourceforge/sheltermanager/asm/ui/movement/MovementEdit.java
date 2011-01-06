@@ -21,20 +21,20 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.movement;
 
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.AnimalFound;
-import net.sourceforge.sheltermanager.asm.bo.AnimalLost;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
-import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
-import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFind;
-import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindText;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLink;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiarySelector;
@@ -50,18 +50,11 @@ import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.MovementDocument;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
 
 
 /**
@@ -70,6 +63,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class MovementEdit extends ASMForm implements DateChangedListener,
     OwnerLinkListener, AnimalLinkListener {
     /** Reference to parent list */
@@ -214,8 +208,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtNumber);
         ctl.add(txtInsurance);
         ctl.add(txtReservationDate);
@@ -318,7 +312,6 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             olOwnerName.setEnabled(false);
             embAnimal.setEnabled(true);
         } else if (animal != 0) {
-            Animal obj = new Animal();
             embAnimal.loadFromID(selectedAnimalID);
             embAnimal.setEnabled(false);
             olOwnerName.setEnabled(true);
@@ -395,8 +388,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 ownerID = movement.getOwnerID().intValue();
             }
 
-            String retailername = "";
-
+            @SuppressWarnings("unused")
+			String retailername = "";
             if (movement.getRetailerID().intValue() == 0) {
                 retailername = i18n("(none)");
             } else {
@@ -1113,7 +1106,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     }
 
     public void actionDocument() {
-        MovementDocument md = new MovementDocument(movement, parent);
+        new MovementDocument(movement, parent);
     }
 
     public void actionSave() {

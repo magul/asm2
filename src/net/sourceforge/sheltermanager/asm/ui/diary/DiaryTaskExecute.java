@@ -21,6 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.diary;
 
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.DiaryTaskDetail;
@@ -33,16 +37,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.DateFormatException;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDocument;
-import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Vector;
 
 
 /**
@@ -50,6 +47,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class DiaryTaskExecute extends ASMForm {
     private Animal animal = null;
     private Owner owner = null;
@@ -82,8 +80,8 @@ public class DiaryTaskExecute extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboDiaryTask);
         ctl.add(btnOk);
         ctl.add(btnCancel);
@@ -119,7 +117,7 @@ public class DiaryTaskExecute extends ASMForm {
             newDiary.openRecordset("ID = 0");
 
             // Keep a list of the notes we create
-            Vector notes = new Vector();
+            Vector<Integer> notes = new Vector<Integer>();
 
             while (!dtd.getEOF()) {
                 newDiary.addNew();
@@ -230,7 +228,7 @@ public class DiaryTaskExecute extends ASMForm {
             newDiary.openRecordset("ID = 0");
 
             // Keep a list of the notes we create
-            Vector notes = new Vector();
+            Vector<Integer> notes = new Vector<Integer>();
 
             while (!dtd.getEOF()) {
                 newDiary.addNew();

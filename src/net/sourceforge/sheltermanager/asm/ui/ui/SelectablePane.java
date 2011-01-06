@@ -21,17 +21,21 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
-import java.awt.*;
-import java.awt.event.*;
-
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.Scrollable;
 import javax.swing.border.EtchedBorder;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**
@@ -40,6 +44,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author Robin Rawson-Tetley
  *
  */
+@SuppressWarnings("serial")
 public class SelectablePane extends UI.Panel implements SelectableComponent {
     SelectableItem[] items = null;
 
@@ -51,7 +56,7 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
         }
     }
 
-    public void setItems(List l) {
+    public void setItems(List<SelectableItem> l) {
         SelectableItem[] its = new SelectableItem[l.size()];
 
         for (int i = 0; i < l.size(); i++)
@@ -136,6 +141,7 @@ public class SelectablePane extends UI.Panel implements SelectableComponent {
 }
 
 
+@SuppressWarnings("serial")
 class ScrollPanel extends JPanel implements Scrollable {
     public ScrollPanel() {
         super();

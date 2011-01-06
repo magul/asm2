@@ -21,6 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
+import java.util.Collections;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -36,16 +39,13 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Collections;
-import java.util.Vector;
 
 
 /**
  * This class contains all code for editing accounts
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class TrxEdit extends ASMForm {
     private AccountTrx.Trx trx = null;
     private TrxView parent = null;

@@ -21,12 +21,12 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
-import net.sourceforge.sheltermanager.asm.bo.*;
+import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.io.File;
 
 
 /**

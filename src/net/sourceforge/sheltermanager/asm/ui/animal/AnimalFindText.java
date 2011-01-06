@@ -21,7 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import net.sourceforge.sheltermanager.asm.bo.Adoption;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
@@ -34,7 +37,6 @@ import net.sourceforge.sheltermanager.asm.ui.diary.DiaryEdit;
 import net.sourceforge.sheltermanager.asm.ui.diary.DiaryTaskExecute;
 import net.sourceforge.sheltermanager.asm.ui.movement.MovementEdit;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMFind;
-import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
@@ -44,14 +46,6 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.text.MessageFormat;
-import java.text.ParseException;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 
 /**
  * This class implements a fulltext search (web search engine style)
@@ -59,6 +53,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class AnimalFindText extends ASMFind {
     private UI.Button btnHotGenForm;
     private UI.Button btnHotDiaryTask;
@@ -131,8 +126,8 @@ public class AnimalFindText extends ASMFind {
         return false;
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtSearch);
         ctl.add(table);
         ctl.add(btnSearch);
@@ -215,10 +210,7 @@ public class AnimalFindText extends ASMFind {
 
         Animal animal = new Animal();
         animal.openRecordset("ID=" + id);
-
-        AnimalDocument ad = new AnimalDocument(animal);
-        ad = null;
-        animal = null;
+        new AnimalDocument(animal);
     }
 
     public void actionDiaryTask() {

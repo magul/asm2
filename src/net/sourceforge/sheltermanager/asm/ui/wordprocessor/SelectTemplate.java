@@ -44,6 +44,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class SelectTemplate extends ASMForm implements DBFSBrowserParent {
     /** The type of files we are dealing with */
     private String fileextension = "";
@@ -72,8 +73,8 @@ public class SelectTemplate extends ASMForm implements DBFSBrowserParent {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(browser);
 
         return ctl;

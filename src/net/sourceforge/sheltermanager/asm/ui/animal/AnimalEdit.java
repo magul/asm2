@@ -21,10 +21,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.io.File;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
-import net.sourceforge.sheltermanager.asm.bo.Animal.AnimalCode;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
@@ -35,6 +41,7 @@ import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
+import net.sourceforge.sheltermanager.asm.bo.Animal.AnimalCode;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.AnimalPrint;
 import net.sourceforge.sheltermanager.asm.reports.LostFoundMatch;
@@ -48,7 +55,6 @@ import net.sourceforge.sheltermanager.asm.ui.owner.OwnerEdit;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
-import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.CustomUI;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateChangedListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -63,15 +69,6 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
-import java.io.File;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Vector;
-
 
 /**
  * This class contains all code for editing animal records.
@@ -79,6 +76,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class AnimalEdit extends ASMForm implements DateChangedListener,
     OwnerLinkListener, AnimalLinkListener {
     /** Tab indexes */
@@ -116,7 +114,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     /** True if a logical instead of internal location is displayed */
     private boolean showingLogicalLocation = false;
-    private Vector ctl = null;
+    private Vector<Object> ctl = null;
 
     /**
      * Determines whether the data on the form has changed since it was loaded.
@@ -181,9 +179,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.Label lblLocationText;
     private UI.Panel pnlDetails;
     private UI.Panel pnlLeftFields;
-    private UI.Label lblNonShelter;
-    private UI.Label lblNonShelterSpace;
-    private UI.Label lblNonShelterSpace2;
     private UI.TabbedPane tabTabs;
     private UI.ToolBar tlbTools;
     private UI.TextField txtAcceptanceNumber;
@@ -294,8 +289,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        ctl = new Vector<Object>();
         ctl.add(chkNonShelter);
         ctl.add(chkNotForAdoption);
         ctl.add(chkCrueltyCase);
@@ -1443,7 +1438,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             if (Configuration.getBoolean("SuggestPopularBreeds")) {
                 Integer speciesID = Utils.getIDFromCombo(LookupCache.getSpeciesLookup(),
                         "SpeciesName", cboSpecies);
-                Vector v = LookupCache.getBreedsForSpecies(speciesID);
+                Vector<String> v = LookupCache.getBreedsForSpecies(speciesID);
 
                 for (int i = 0; i < v.size(); i++) {
                     cboBreed.addItem(v.get(i).toString());
@@ -2122,12 +2117,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void initComponents() {
-        Vector testresults = new Vector();
+        Vector<String> testresults = new Vector<String>();
         testresults.add(Global.i18n("uiwordprocessor", "Unknown"));
         testresults.add(Global.i18n("uiwordprocessor", "Negative"));
         testresults.add(Global.i18n("uiwordprocessor", "Positive"));
 
-        Vector yesnounknown = new Vector();
+        Vector<String> yesnounknown = new Vector<String>();
         yesnounknown.add(i18n("Yes"));
         yesnounknown.add(i18n("No"));
         yesnounknown.add(i18n("Unknown"));
@@ -3105,8 +3100,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     public void actionDocument() {
         // Create a new AnimalDocument and that should do the rest for us.
-        AnimalDocument ad = new AnimalDocument(animal, animalmedia);
-        ad = null;
+        new AnimalDocument(animal, animalmedia);
     }
 
     public void actionMediaNotes() {
@@ -3195,6 +3189,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 }
 
 
+@SuppressWarnings("serial")
 class AnimalCodeField extends UI.Panel {
     UI.TextField code = null;
     UI.TextField shortcode = null;

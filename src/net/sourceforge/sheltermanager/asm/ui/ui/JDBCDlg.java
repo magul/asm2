@@ -34,6 +34,7 @@ import java.sql.Connection;
 import java.util.Vector;
 
 
+@SuppressWarnings("serial")
 public class JDBCDlg extends ASMDialog {
     private UI.ComboBox cboType;
     private UI.TextField txtHostname;
@@ -52,11 +53,11 @@ public class JDBCDlg extends ASMDialog {
         init(title, IconManager.getIcon(IconManager.SCREEN_JDBCDLG), "db", false);
         cboType.setSelectedIndex(0);
         changeType();
-        show();
+        setVisible(true);
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboType);
         ctl.add(txtHostname);
         ctl.add(txtDatabase);

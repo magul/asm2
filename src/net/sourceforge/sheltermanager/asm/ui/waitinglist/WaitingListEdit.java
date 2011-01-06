@@ -21,6 +21,11 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.waitinglist;
 
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
@@ -37,20 +42,12 @@ import net.sourceforge.sheltermanager.asm.ui.log.LogSelector;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLinkListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
-import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
-import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
 
 
 /**
@@ -59,6 +56,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     private AnimalWaitingList awl = null;
     private WaitingListView parent = null;
@@ -75,7 +73,6 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
     private UI.CheckBox chkCanAffordDonation;
     private OwnerLink embOwner;
     private UI.TabbedPane tabTabs;
-    private UI.ToolBar tlbTools;
     private UI.Spinner spnAutoRemovePolicy;
     private UI.TextArea txtComments;
     private DateField txtDateOfLastOwnerContact;
@@ -112,8 +109,8 @@ public class WaitingListEdit extends ASMForm implements OwnerLinkListener {
         }
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboSpecies);
         ctl.add(txtDatePutOn.getTextField());
         ctl.add(txtDescription);

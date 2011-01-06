@@ -21,15 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
-import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.MD5;
-
-import java.util.Vector;
 
 
 /**
@@ -37,6 +35,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class ChangePassword extends ASMDialog {
     private UI.Button btnOk;
     private UI.Button btnCancel;
@@ -109,8 +108,8 @@ public class ChangePassword extends ASMDialog {
         return txtPass;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(txtPass);
         v.add(txtNew);
         v.add(txtConf);

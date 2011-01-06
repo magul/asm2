@@ -43,6 +43,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class LogSelector extends ASMSelector {
     /** The ID for the link */
     public int linkID = 0;
@@ -103,8 +104,8 @@ public class LogSelector extends ASMSelector {
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboLogType);
         ctl.add(getTable());
 

@@ -21,7 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.bo.Animal;
+import java.awt.Frame;
+import java.util.Calendar;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
@@ -29,14 +35,6 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.awt.Frame;
-
-import java.util.Calendar;
-import java.util.Vector;
-
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 
 public abstract class Dialog {
@@ -202,8 +200,7 @@ public abstract class Dialog {
     }
 
     public static String getJDBCUrl(String title) {
-        JDBCDlg jd = new JDBCDlg(title);
-
+        new JDBCDlg(title);
         return lastJDBC;
     }
 
@@ -321,7 +318,7 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a species from the user */
     public static int getSpecies() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
@@ -376,7 +373,7 @@ public abstract class Dialog {
      * string if all was selected.
      */
     public static String getDiaryUser() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
@@ -385,7 +382,7 @@ public abstract class Dialog {
                 "diary");
 
             while (!rs.getEOF()) {
-                theList.add(rs.getField("DiaryForName"));
+                theList.add(rs.getString("DiaryForName"));
                 rs.moveNext();
             }
 
@@ -420,7 +417,7 @@ public abstract class Dialog {
     }
 
     public static int getAnimalType(boolean includeall) {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
 
         if (includeall) {
             theList.add(Global.i18n("uierror", "(all)"));
@@ -431,7 +428,7 @@ public abstract class Dialog {
             at.moveFirst();
 
             while (!at.getEOF()) {
-                theList.add(at.getField("AnimalType").toString());
+                theList.add(at.getString("AnimalType"));
                 at.moveNext();
             }
 
@@ -461,7 +458,7 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request an internal location from the user */
     public static int getInternalLocation() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
@@ -469,7 +466,7 @@ public abstract class Dialog {
             il.moveFirst();
 
             while (!il.getEOF()) {
-                theList.add(il.getField("LocationName"));
+                theList.add(il.getString("LocationName"));
                 il.moveNext();
             }
 
@@ -500,7 +497,7 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a diet from the user */
     public static int getDiet() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
@@ -508,7 +505,7 @@ public abstract class Dialog {
             d.moveFirst();
 
             while (!d.getEOF()) {
-                theList.add(d.getField("DietName"));
+                theList.add(d.getString("DietName"));
                 d.moveNext();
             }
 
@@ -537,7 +534,7 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a voucher from the user */
     public static int getVoucher() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
         theList.add(Global.i18n("uierror", "(all)"));
 
         try {
@@ -545,7 +542,7 @@ public abstract class Dialog {
             v.moveFirst();
 
             while (!v.getEOF()) {
-                theList.add(v.getField("VoucherName").toString());
+                theList.add(v.getString("VoucherName"));
                 v.moveNext();
             }
 
@@ -575,7 +572,7 @@ public abstract class Dialog {
 
     /** Uses a JOptionPane to request a medical profile from the user */
     public static int getMedicalProfile() {
-        Vector theList = new Vector();
+        Vector<String> theList = new Vector<String>();
 
         try {
             MedicalProfile mp = new MedicalProfile();

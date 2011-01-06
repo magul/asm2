@@ -21,14 +21,13 @@
 */
 package net.sourceforge.sheltermanager.asm.script;
 
-import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.internet.Pets911Publisher;
 import net.sourceforge.sheltermanager.asm.internet.PublishCriteria;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Vector;
 
 
 /**
@@ -118,7 +117,7 @@ public class PublishPets911 {
                                              .replace('*', '%');
                         String[] locnames = Utils.split(locs, ",");
 
-                        Vector locations = new Vector();
+                        Vector<Integer> locations = new Vector<Integer>();
                         SQLRecordset il = new SQLRecordset();
 
                         for (int z = 0; z < locnames.length; z++) {

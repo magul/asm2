@@ -34,13 +34,12 @@ import java.util.Vector;
  * Configuration of database parameters
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class ConfigureDatabase extends ASMForm {
     private UI.Spinner spnRecordSearchLimit;
     private UI.ComboBox cboIncomingMediaScaling;
     private UI.Spinner spnMaxMediaFileSize;
     private UI.CheckBox chkAllowDBUpdates;
-    private UI.Button btnOk;
-    private UI.Button btnCancel;
 
     public ConfigureDatabase() {
         init(Global.i18n("uisystem", "configure_database"),
@@ -49,8 +48,8 @@ public class ConfigureDatabase extends ASMForm {
         loadData();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(spnRecordSearchLimit);
         ctl.add(cboIncomingMediaScaling);
         ctl.add(spnMaxMediaFileSize);
@@ -131,10 +130,10 @@ public class ConfigureDatabase extends ASMForm {
                 i18n("allow_db_updates"),
                 UI.getCheckBox("", i18n("allow_db_updates_tooltip")));
 
-        btnOk = (UI.Button) pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
-                    UI.fp(this, "saveData")));
-        btnCancel = (UI.Button) pb.add(UI.getButton(i18n("Cancel"), null, 'c',
-                    null, UI.fp(this, "dispose")));
+        pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
+                UI.fp(this, "saveData")));
+        pb.add(UI.getButton(i18n("Cancel"), null, 'c',
+                null, UI.fp(this, "dispose")));
 
         add(p, UI.BorderLayout.NORTH);
         add(pn, UI.BorderLayout.CENTER);

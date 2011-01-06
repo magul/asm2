@@ -21,14 +21,14 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.mailmerge.OwnerMailMerge;
 import net.sourceforge.sheltermanager.asm.reports.OwnerSearchResults;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMFind;
-import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
@@ -37,13 +37,6 @@ import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
-import java.text.MessageFormat;
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 
 /**
  * This class implements a fulltext search (web search engine style)
@@ -51,6 +44,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class OwnerFindText extends ASMFind {
     private UI.Button btnClear;
     private UI.Button btnPrint;
@@ -112,8 +106,8 @@ public class OwnerFindText extends ASMFind {
         extraClause = clause;
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtSearch);
         ctl.add(table);
         ctl.add(btnSearch);
@@ -343,7 +337,7 @@ public class OwnerFindText extends ASMFind {
         }
 
         // Count the unique IDs
-        Vector uid = new Vector();
+        Vector<Integer> uid = new Vector<Integer>();
         int dups = 0;
 
         try {
@@ -361,7 +355,7 @@ public class OwnerFindText extends ASMFind {
                     }
 
                     if (!alreadygot) {
-                        uid.add(owner.getField("ID"));
+                        uid.add(owner.getInteger("ID"));
                     }
 
                     owner.moveNext();

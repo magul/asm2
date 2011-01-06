@@ -39,6 +39,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class MediaEdit extends ASMForm {
     private Media media = null;
     private MediaSelector parent = null;
@@ -83,12 +84,11 @@ public class MediaEdit extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtNotes);
         ctl.add(btnOk);
         ctl.add(btnCancel);
-
         return ctl;
     }
 

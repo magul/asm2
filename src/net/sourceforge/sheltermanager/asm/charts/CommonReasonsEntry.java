@@ -38,7 +38,6 @@ import java.util.Calendar;
  * @author Robin Rawson-Tetley
  */
 public class CommonReasonsEntry extends Chart {
-    private String monthname = "";
     private String year = "";
     private int selectedYear = 0;
 

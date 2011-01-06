@@ -21,17 +21,15 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.io.File;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DBFSBrowser;
 import net.sourceforge.sheltermanager.asm.ui.ui.DBFSBrowserParent;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-
-import java.io.File;
-
-import java.util.Vector;
 
 
 /**
@@ -40,6 +38,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class MediaFiles extends ASMForm implements DBFSBrowserParent {
     private UI.ToolBar tb;
     private UI.Button btnUpload;
@@ -49,7 +48,6 @@ public class MediaFiles extends ASMForm implements DBFSBrowserParent {
     private UI.Button btnEdit;
     private UI.Button btnExportDir;
     private UI.Button btnImportDir;
-    private UI.Button btnImportFromFS;
     private DBFSBrowser browser;
 
     public MediaFiles() {
@@ -62,8 +60,8 @@ public class MediaFiles extends ASMForm implements DBFSBrowserParent {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(browser);
 
         return ctl;

@@ -21,8 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
-import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
@@ -31,14 +32,13 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 
-import java.util.Vector;
-
 
 /**
  * Handles editing of medical profiles
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class ProfileEdit extends ASMForm {
     private ProfileView parent = null;
     private MedicalProfile mp = null;
@@ -67,8 +67,8 @@ public class ProfileEdit extends ASMForm {
             IconManager.getIcon(IconManager.SCREEN_EDITPROFILE), "uimedical");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtProfileName);
         ctl.add(txtTreatmentName);
         ctl.add(txtDosage);

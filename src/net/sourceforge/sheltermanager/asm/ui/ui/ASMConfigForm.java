@@ -21,19 +21,19 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 import java.util.Vector;
+
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 
 
 /**
  * Superclass of forms that use text fields to edit
  * entries in the configuration table
  */
+@SuppressWarnings("serial")
 public class ASMConfigForm extends ASMForm {
     ConfigItem[] items = null;
-    Vector taborder = new Vector();
+    Vector<Object> taborder = new Vector<Object>();
 
     /**
      * @param items The list of items to show
@@ -161,7 +161,7 @@ public class ASMConfigForm extends ASMForm {
     public void setSecurity() {
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         return taborder;
     }
 

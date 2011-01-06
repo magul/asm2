@@ -38,6 +38,7 @@ import java.util.Vector;
  * Edits the asm.properties file for the local user
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class ConfigureLocal extends ASMForm {
     private UI.Button btnCancel;
     private UI.Button btnOk;
@@ -63,8 +64,8 @@ public class ConfigureLocal extends ASMForm {
         loadData();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboSkin);
         ctl.add(cboLabelAlign);
         ctl.add(cboTabAlign);

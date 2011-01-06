@@ -44,6 +44,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class ReportViewer extends ASMForm {
     /** True if we're using the stock ASM template and scaling by adjusting font sizes */
     private boolean contentScale = false;
@@ -53,7 +54,8 @@ public class ReportViewer extends ASMForm {
     private String filename = "";
     private int baseFontSize = 11;
     private String filecontents = "";
-    private String reportTitle = "";
+    @SuppressWarnings("unused")
+	private String reportTitle = "";
     private UI.Button btnExternal;
     private UI.Button btnPrint;
     private UI.Button btnZoomIn;
@@ -188,8 +190,8 @@ public class ReportViewer extends ASMForm {
         }
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(edOutput);
         ctl.add(btnPrint);
         ctl.add(btnExternal);
@@ -246,7 +248,8 @@ public class ReportViewer extends ASMForm {
         edOutput.print();
     }
 
-    public void actionExternal() {
+    @SuppressWarnings("deprecation")
+	public void actionExternal() {
         try {
             FileTypeManager.shellExecute(new File(filename).toURL().toString());
         } catch (Exception e) {

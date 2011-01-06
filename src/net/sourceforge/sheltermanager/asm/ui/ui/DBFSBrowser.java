@@ -46,6 +46,7 @@ import javax.swing.ListCellRenderer;
  * Component to handle browsing the DBFS
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class DBFSBrowser extends JPanel implements MouseListener {
     final static String DIR = " <dir>";
     private DBFSBrowserParent parent = null;
@@ -96,7 +97,7 @@ public class DBFSBrowser extends JPanel implements MouseListener {
             String[] entries = dbfs.list();
 
             // Read each one and make an entry in the list
-            Vector en = new Vector();
+            Vector<String> en = new Vector<String>();
 
             // Add the ".." directory
             en.add(DIR + " ..");

@@ -27,7 +27,7 @@ import java.util.List;
 public interface SelectableComponent {
     void setItems(SelectableItem[] items);
 
-    void setItems(List l);
+    void setItems(List<SelectableItem> l);
 
     SelectableItem[] getSelections();
 }

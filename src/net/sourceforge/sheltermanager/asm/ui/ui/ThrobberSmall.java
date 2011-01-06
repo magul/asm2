@@ -28,6 +28,7 @@ import javax.swing.border.EmptyBorder;
 /**
  * Displays a spinning throbber
  */
+@SuppressWarnings("serial")
 public class ThrobberSmall extends UI.Panel implements Runnable {
     static ImageIcon[] images = new ImageIcon[13];
 
@@ -68,7 +69,7 @@ public class ThrobberSmall extends UI.Panel implements Runnable {
             l.setIcon(images[index]);
 
             try {
-                Thread.currentThread().sleep(100);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 break;
             }

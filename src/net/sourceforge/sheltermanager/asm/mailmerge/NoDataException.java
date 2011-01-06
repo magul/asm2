@@ -33,7 +33,10 @@ package net.sourceforge.sheltermanager.asm.mailmerge;
  * @author  robin
  */
 public class NoDataException extends java.lang.Exception {
-    /**
+
+	private static final long serialVersionUID = -1949537129716754648L;
+
+	/**
      * Creates a new instance of <code>NoDataException</code> without detail message.
      */
     public NoDataException() {

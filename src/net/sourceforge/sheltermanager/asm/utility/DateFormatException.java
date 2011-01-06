@@ -31,7 +31,10 @@ package net.sourceforge.sheltermanager.asm.utility;
  * @version 1.0
  */
 public class DateFormatException extends java.lang.Exception {
-    public DateFormatException(String message) {
+
+	private static final long serialVersionUID = 2763701194538299318L;
+
+	public DateFormatException(String message) {
         super(message);
     }
 }

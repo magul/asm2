@@ -41,6 +41,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class DiaryTaskHeadEdit extends ASMForm {
     DiaryTaskHead dth = null;
     DiaryTaskView parent = null;
@@ -71,8 +72,8 @@ public class DiaryTaskHeadEdit extends ASMForm {
         loadData();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtName);
         ctl.add(cboType);
         ctl.add(btnNewTask);

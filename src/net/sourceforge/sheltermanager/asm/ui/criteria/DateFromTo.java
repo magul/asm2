@@ -39,6 +39,7 @@ import java.util.*;
  * argument.
  *
  */
+@SuppressWarnings("serial")
 public class DateFromTo extends ASMForm {
     /** Constants that determine which report to open
      *  when OK is pressed. This means that criteria screens
@@ -129,8 +130,8 @@ public class DateFromTo extends ASMForm {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtFrom.getTextField());
         ctl.add(txtTo.getTextField());
         ctl.add(btnOk);

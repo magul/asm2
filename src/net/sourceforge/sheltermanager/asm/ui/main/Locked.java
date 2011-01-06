@@ -37,6 +37,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class Locked extends ASMDialog {
     private UI.Button btnOk;
     private UI.PasswordField txtPass;
@@ -107,8 +108,8 @@ public class Locked extends ASMDialog {
         return txtPass;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(txtPass);
         v.add(btnOk);
 

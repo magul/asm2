@@ -40,13 +40,14 @@ public class FunctionPointer {
         o = instance;
 
         try {
-            m = o.getClass().getMethod(method, null);
+            m = o.getClass().getMethod(method, (Class[]) null);
         } catch (Exception e) {
             Global.logException(e, FunctionPointer.class);
         }
     }
 
-    public FunctionPointer(Object instance, String method, Class[] args) {
+    @SuppressWarnings("unchecked")
+	public FunctionPointer(Object instance, String method, Class[] args) {
         o = instance;
 
         try {
@@ -58,7 +59,7 @@ public class FunctionPointer {
 
     public Object call() {
         try {
-            return m.invoke(o, null);
+            return m.invoke(o, (Object[]) null);
         } catch (Exception e) {
             Global.logException(e, FunctionPointer.class);
 

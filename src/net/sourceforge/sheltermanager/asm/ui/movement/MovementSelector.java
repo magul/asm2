@@ -48,6 +48,7 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  * @version 1.0
  */
+@SuppressWarnings("serial")
 public class MovementSelector extends ASMSelector implements MovementParent {
     private final static int DEATH_COLUMN = 8;
 
@@ -110,8 +111,8 @@ public class MovementSelector extends ASMSelector implements MovementParent {
         super.dispose();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
 
         return ctl;
@@ -388,7 +389,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
         movement.openRecordset("ID = " + id);
 
         // Generate the doc
-        MovementDocument md = new MovementDocument(movement, this);
+        new MovementDocument(movement, this);
     }
 
     public void actionDelete() {

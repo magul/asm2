@@ -21,11 +21,8 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.utility.*;
-
 import java.awt.Image;
 import java.awt.event.ActionListener;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -38,11 +35,13 @@ import javax.swing.JFileChooser;
  * Special JFileChooser accessory that allows images to
  * be previewed when they are selected in the chooser.
  */
+@SuppressWarnings("serial")
 public class FilePreviewPane extends UI.Panel implements PropertyChangeListener,
     ActionListener {
     /** The parent FileChooser */
     protected UI.FileChooser chooser = null;
-    private UI.Label lblPreview;
+    @SuppressWarnings("unused")
+	private UI.Label lblPreview;
     private UI.Label lblImage;
     private UI.Label lblImageInfo;
 

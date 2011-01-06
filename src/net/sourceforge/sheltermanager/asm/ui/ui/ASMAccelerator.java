@@ -35,7 +35,7 @@ import javax.swing.KeyStroke;
  * Bundles up translation of keystrokes
  */
 public class ASMAccelerator {
-    static Hashtable keys = new Hashtable(50);
+    static Hashtable<String, Integer> keys = new Hashtable<String, Integer>(50);
 
     static {
         keys.put("a", new Integer(KeyEvent.VK_A));

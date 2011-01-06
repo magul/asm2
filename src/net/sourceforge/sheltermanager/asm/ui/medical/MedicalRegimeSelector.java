@@ -21,25 +21,21 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
-import net.sourceforge.sheltermanager.asm.bo.AnimalMedicalTreatment;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
-import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
-import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 
 /** Represents the treatment view pane */
+@SuppressWarnings("serial")
 public class MedicalRegimeSelector extends ASMSelector {
     private int animalID = 0;
     private UI.Button btnNew;
@@ -90,8 +86,8 @@ public class MedicalRegimeSelector extends ASMSelector {
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
 
         return ctl;

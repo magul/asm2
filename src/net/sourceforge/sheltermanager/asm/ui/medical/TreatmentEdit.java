@@ -43,6 +43,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class TreatmentEdit extends ASMForm {
     private MedicalSelector parent = null;
     private AnimalMedicalTreatment amt = null;
@@ -65,8 +66,8 @@ public class TreatmentEdit extends ASMForm {
     /**
      * Sets the tab ordering for the screen using the FlexibleFocusManager class
      */
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtDateRequired.getTextField());
         ctl.add(txtDateGiven.getTextField());
         ctl.add(cboGivenBy);

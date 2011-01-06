@@ -21,22 +21,21 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.db.AutoDBUpdates;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
-import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.TableData;
 import net.sourceforge.sheltermanager.asm.ui.ui.TableRow;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Vector;
 
 
 /**
@@ -45,6 +44,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class GetReports extends ASMView {
     private final static String REPORTS_URL = System.getProperty("asm.reportsurl",
             "http://www.sheltermanager.com/repo/reports.txt");
@@ -76,8 +76,8 @@ public class GetReports extends ASMView {
     public void setLink(int x, int y) {
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(chkMyLocale);
         v.add(getTable());
 
@@ -111,7 +111,8 @@ public class GetReports extends ASMView {
             }.start();
     }
 
-    public synchronized void updateListThread() {
+    @SuppressWarnings("unchecked")
+	public synchronized void updateListThread() {
         try {
             if (reports == null) {
                 // Open the list of custom reports so we can omit reports
@@ -364,6 +365,7 @@ public class GetReports extends ASMView {
 }
 
 
+@SuppressWarnings("unchecked")
 class InstallableReport implements Comparable {
     public String name;
     public String category;

@@ -21,6 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.startup;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Locale;
+import java.util.Properties;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
@@ -41,18 +48,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.FlexibleFocusManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.Throbber;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import java.util.Locale;
-import java.util.Properties;
-import java.util.Vector;
 
 
 /**
@@ -67,7 +65,8 @@ public class Startup implements Runnable {
     public static boolean applet = false;
     public static ASMApplet appletHandle = null;
     public static String appletUser = null;
-    private String[] args = null;
+    @SuppressWarnings("unused")
+	private String[] args = null;
     private String jdbcurl = null;
     private StartupProgress sp = null;
 
@@ -78,9 +77,9 @@ public class Startup implements Runnable {
     public Startup(String[] args, String jdbcurl, String user, ASMApplet a) {
         this.args = args;
         this.jdbcurl = jdbcurl;
-        this.applet = true;
-        this.appletHandle = a;
-        this.appletUser = user;
+        Startup.applet = true;
+        Startup.appletHandle = a;
+        Startup.appletUser = user;
         Global.applet = true;
         Global.appletHandle = a;
         Global.appletUser = user;
@@ -964,7 +963,9 @@ public class Startup implements Runnable {
 
 
 class StartupProgress extends ASMWindow {
-    private UI.Label status = null;
+    
+	private static final long serialVersionUID = -1528287235874516408L;
+	private UI.Label status = null;
     private UI.ProgressBar bar = null;
     private Throbber throbber = null;
     private ASMApplet appletHandle = null;
@@ -1041,7 +1042,7 @@ class StartupProgress extends ASMWindow {
         return null;
     }
 
-    public Vector getTabOrder() {
+    public Vector<Object> getTabOrder() {
         return null;
     }
 }

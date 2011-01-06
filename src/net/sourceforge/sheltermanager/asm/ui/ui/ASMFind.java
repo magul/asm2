@@ -21,23 +21,19 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import net.sourceforge.sheltermanager.asm.globals.Global;
-
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.HierarchyListener;
-
 import java.util.Vector;
 
 import javax.swing.Icon;
+
+import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**
  * Superclass of all search forms
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public abstract class ASMFind extends ASMForm {
     protected UI.Button btnSearch;
     protected UI.Button btnOpen;
@@ -48,7 +44,7 @@ public abstract class ASMFind extends ASMForm {
     protected int criteriacols = 2;
     protected boolean hasleftbar = false;
     protected boolean selectionMode = false;
-    protected Vector disableButtons = new Vector();
+    protected Vector<UI.Button> disableButtons = new Vector<UI.Button>();
     protected StringBuffer sqlCriteria = null;
 
     public abstract void itemSelected(int id);

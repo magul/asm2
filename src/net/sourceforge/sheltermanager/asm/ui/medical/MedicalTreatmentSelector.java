@@ -44,6 +44,7 @@ import java.util.Vector;
  */
 
 /** Represents the treatment view pane */
+@SuppressWarnings("serial")
 public class MedicalTreatmentSelector extends ASMSelector {
     private MedicalSelector mparent;
     private int animalID = 0;
@@ -96,8 +97,8 @@ public class MedicalTreatmentSelector extends ASMSelector {
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(getTable());
 
         return ctl;
@@ -275,9 +276,6 @@ public class MedicalTreatmentSelector extends ASMSelector {
             Global.logException(e, getClass());
         }
 
-        // Create our new table model and shove it into the table
-        SortableTableModel model = new SortableTableModel();
-
         if (animalID != 0) {
             setTableData(columnheaders, datar, i, 9);
         } else {
@@ -346,7 +344,6 @@ public class MedicalTreatmentSelector extends ASMSelector {
             }
 
             int lastRow = mparent.regimeview.getTable().getSelectedRow();
-            int[] selrows = getTable().getSelectedRows();
             SortableTableModel treatmentmodel = (SortableTableModel) getTable()
                                                                          .getModel();
 

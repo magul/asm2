@@ -40,6 +40,7 @@ import javax.swing.JDialog;
  *
  * Allows editing of date fields.
  */
+@SuppressWarnings("serial")
 public class DateField extends UI.Panel {
     DateChangedListener dateListener = null;
     private String focusText = "";
@@ -325,7 +326,7 @@ public class DateField extends UI.Panel {
         }
 
         picker.setDates();
-        picker.show();
+        picker.setVisible(true);
     }
 
     /**
@@ -377,6 +378,7 @@ public class DateField extends UI.Panel {
 }
 
 
+@SuppressWarnings("serial")
 class DatePicker extends JDialog {
     static Color WHITE = Color.WHITE;
     static Color GRAY = new Color(230, 230, 230);
@@ -507,7 +509,6 @@ class DatePicker extends JDialog {
             Calendar c = Calendar.getInstance();
 
             // Find a sunday
-            int today = c.get(Calendar.DAY_OF_WEEK);
             c.set(Calendar.DAY_OF_WEEK, 1);
 
             String[] h = new String[7];
@@ -565,7 +566,7 @@ class DatePicker extends JDialog {
             java.util.Calendar cal = java.util.Calendar.getInstance();
             cal.set(year, month, Integer.parseInt(day));
             parent.setText(sdf.format(cal.getTime()));
-            hide();
+            setVisible(false);
             parent.txt.grabFocus();
             parent.fireDateChangedListener();
         }

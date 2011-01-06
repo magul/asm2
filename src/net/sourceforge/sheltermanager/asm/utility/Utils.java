@@ -417,7 +417,8 @@ public abstract class Utils {
      * @param localtempdir The directory on the local disk relative to the
      * temp folder. Use an empty string for the temp folder itself.
      */
-    public static void ftpCopyImages(String ftpsourcedir, String localtempdir) {
+    @SuppressWarnings("deprecation")
+	public static void ftpCopyImages(String ftpsourcedir, String localtempdir) {
         String ftpserver = "";
         String ftplogin = "";
         String ftppassword = "";
@@ -463,7 +464,8 @@ public abstract class Utils {
      * store the images in
      * @param A directory mask of files you want to copy - eg: *.jpg
      */
-    private static void ftpTransferImages(FTPClient ftp, String localtempdir,
+    @SuppressWarnings("deprecation")
+	private static void ftpTransferImages(FTPClient ftp, String localtempdir,
         String filemask) {
         // Make the relative temp dir into an absolute path
         String abspath = net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
@@ -940,7 +942,8 @@ public abstract class Utils {
      * Gets an open FTP client socket on the correct directory for the
      * media link type and ID given, creating them if necessary.
      */
-    public static FTPClient getFTPDirectoryForLink(int linkType, int linkID)
+    @SuppressWarnings("deprecation")
+	public static FTPClient getFTPDirectoryForLink(int linkType, int linkID)
         throws Exception {
         // Read FTP server configuration
         String ftpserver = "";
@@ -1019,7 +1022,8 @@ public abstract class Utils {
      * @param ftp The FTP client
      * @return A Vector of FTPDirEntry objects
      */
-    public Vector ftpListDirectory(FTPClient ftp) {
+    @SuppressWarnings("deprecation")
+	public Vector<FTPDirEntry> ftpListDirectory(FTPClient ftp) {
         try {
             // Get a full directory listing
             String list = ftp.list("*", true);
@@ -1028,7 +1032,7 @@ public abstract class Utils {
             String[] entries = Utils.split(list, "\n");
 
             // Read each one and make an entry in the list
-            Vector en = new Vector();
+            Vector<FTPDirEntry> en = new Vector<FTPDirEntry>();
 
             for (int i = 0; i < entries.length; i++) {
                 // See if we have been returned parent information (starts with a "..:")
@@ -1039,7 +1043,7 @@ public abstract class Utils {
 
                 // Make sure the entry is not already in our list. If it is,
                 // discard it.
-                Iterator it = en.iterator();
+                Iterator<FTPDirEntry> it = en.iterator();
                 FTPDirEntry testEntry = null;
                 boolean alreadyInList = false;
 
@@ -1538,7 +1542,7 @@ public abstract class Utils {
     public static String[] readFile(FileInputStream fs) {
         // Reads a complete file of data from a file, throwing away the
         // Chr(13) and Chr(10)s.
-        Vector output = new Vector();
+        Vector<String> output = new Vector<String>();
         StringBuffer sb = new StringBuffer("");
         Integer iob;
         int nb = -1;
@@ -1669,9 +1673,8 @@ public abstract class Utils {
     }
 
     /** Sorts a vector of strings into alphabetical order */
-    public static void sortVectorOfStrings(Vector v) {
+    public static void sortVectorOfStrings(Vector<String> v) {
         boolean done = false;
-
         while (!done) {
             done = true;
 
@@ -1727,7 +1730,8 @@ public abstract class Utils {
     }
 
     /** Returns the contents of a URL as a string */
-    public static String getURL(String url) throws Exception {
+    @SuppressWarnings("deprecation")
+	public static String getURL(String url) throws Exception {
         Global.logDebug("Requesting " + url + " ...", "Utils.getURL");
 
         URL u = new URL(url);

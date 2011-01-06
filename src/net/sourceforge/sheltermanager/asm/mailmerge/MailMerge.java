@@ -113,7 +113,7 @@ public class MailMerge extends Thread implements EmailFormListener {
                 }
 
                 // Build a vector of available fields for this source
-                Vector fields = new Vector();
+                Vector<String> fields = new Vector<String>();
 
                 for (int i = 0; i < cols; i++) {
                     Global.logDebug("Got column: " + theData[0][i],

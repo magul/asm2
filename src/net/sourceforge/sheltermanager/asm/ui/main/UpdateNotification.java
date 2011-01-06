@@ -21,11 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
-import net.sourceforge.sheltermanager.asm.db.AutoDBUpdates;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-
-import java.util.Vector;
 
 
 /**
@@ -36,7 +35,7 @@ public class UpdateNotification extends Thread {
     private final static String UPDATES_URL = System.getProperty("asm.updatesurl",
             "http://www.sheltermanager.com/repo/updates.txt");
 
-    public void UpdateNotification() {
+    public UpdateNotification() {
     }
 
     public void run() {
@@ -52,7 +51,7 @@ public class UpdateNotification extends Thread {
         }
 
         // Split them up and make a list
-        Vector v = new Vector();
+        Vector<UpdateEntry> v = new Vector<UpdateEntry>();
 
         String[] messages = Utils.split(updates, "\\");
 
@@ -85,7 +84,7 @@ public class UpdateNotification extends Thread {
 
         if (v.size() > 0) {
             UpdateDialog d = new UpdateDialog(v);
-            d.show();
+            d.setVisible(true);
         }
     }
 }

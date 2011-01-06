@@ -38,6 +38,7 @@ import java.util.Vector;
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class NamesView extends ASMView {
     private UI.Button btnView;
     private UI.Button btnDelete;
@@ -97,8 +98,8 @@ public class NamesView extends ASMView {
         return btnNew;
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(btnNew);
         v.add(btnView);
         v.add(btnDelete);

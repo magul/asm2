@@ -38,6 +38,7 @@ import java.util.Vector;
 
 
 /** Represents the treatment view pane */
+@SuppressWarnings("serial")
 public class MedicalRegimeTreatmentSelector extends ASMSelector {
     private int medicalID = 0;
     private UI.Button btnNew;
@@ -91,8 +92,8 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
         return getTable();
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(getTable());
 
         return v;

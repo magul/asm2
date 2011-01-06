@@ -21,6 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import java.text.ParseException;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -33,17 +36,13 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
-import java.text.ParseException;
-
-import java.util.Calendar;
-import java.util.Vector;
-
 
 /**
  * This class contains all code for editing individual diet records.
  *
  * @author Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class DietEdit extends ASMForm {
     private AnimalDiet diet = null;
     private String audit = null;
@@ -63,8 +62,8 @@ public class DietEdit extends ASMForm {
             "uianimal");
     }
 
-    public Vector getTabOrder() {
-        Vector ctl = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> ctl = new Vector<Object>();
         ctl.add(cboDiet);
         ctl.add(txtStartDate.getTextField());
         ctl.add(txtComments);
@@ -110,7 +109,6 @@ public class DietEdit extends ASMForm {
         }
 
         // Date required
-        Calendar cal = Calendar.getInstance();
         txtStartDate.setToToday();
         isNew = true;
     }

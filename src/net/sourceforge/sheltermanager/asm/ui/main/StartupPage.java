@@ -13,6 +13,7 @@ import java.util.*;
  * Startup form that shows ASM news and the current diary
  * for today.
  */
+@SuppressWarnings("serial")
 public class StartupPage extends ASMForm {
     //UI.HTMLBrowser diarynotes = null;
     ReportViewer diarynotes = null;
@@ -73,8 +74,8 @@ public class StartupPage extends ASMForm {
             }.start();
     }
 
-    public Vector getTabOrder() {
-        Vector v = new Vector();
+    public Vector<Object> getTabOrder() {
+        Vector<Object> v = new Vector<Object>();
         v.add(diarynotes);
 
         return v;

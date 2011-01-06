@@ -19,6 +19,7 @@ import java.awt.*;
  *
  * @author  Robin Rawson-Tetley
  */
+@SuppressWarnings("serial")
 public class SWTTableLayout implements LayoutManager, java.io.Serializable {
     protected int hgap = 4;
     protected int vgap = 4;
@@ -185,11 +186,7 @@ public class SWTTableLayout implements LayoutManager, java.io.Serializable {
     }
 
     public void layoutContainer(Container parent) {
-        Insets insets = parent.getInsets();
         int ncomponents = parent.getComponentCount();
-        int nrows = rows;
-        int ncols = cols;
-
         if (ncomponents == 0) {
             return;
         }
