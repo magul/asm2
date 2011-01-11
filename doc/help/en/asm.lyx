@@ -11471,6 +11471,16 @@ AgeGroup - The animal's age group (the defaults are Baby, Adult, Young Adult
 \end_layout
 
 \begin_layout Itemize
+DisplayAge - If the EstimatedDOB flag is set, outputs the age group, if
+ not, outputs a string representation of the animal's age.
+\end_layout
+
+\begin_layout Itemize
+DisplayDOB - If the EstimatedDOB flag is set, outputs the age group, if
+ not, outputs the animal's date of birth.
+\end_layout
+
+\begin_layout Itemize
 DeceasedDate - The date the animal died (if applicable)
 \end_layout
 
