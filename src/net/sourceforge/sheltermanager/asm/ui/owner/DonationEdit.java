@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
+import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -325,6 +326,11 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
             // Update the accounting system - regardless of whether it's
             // enabled or not so that things are kept correctly in sync
             od.updateAccountTrx();
+            
+            // If this donation mapped to a movement, update that
+            // movement's denormalised donation total field 
+            if (movementID != 0)
+            	Adoption.updateDonation(movementID);
 
             // Update parent
             parent.updateList();

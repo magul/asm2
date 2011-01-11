@@ -1,6 +1,9 @@
 2.8.5
 ================
 
+*. Adoption donation total updates after each save of a donation
+-  against it instead of when the screen closes (fixes race bug with
+-  altering a donation then generating adoption document)
 *. Reconciliation filter for accounting transactions
 *. Use aname for HTML publisher javascript output as name is
 -  reserved on Safari
