@@ -521,7 +521,7 @@ public class HTMLPublisher extends FTPPublisher {
 
         decs += ("var publishDate = \"" + Utils.getReadableTodaysDate() +
         "\";\n");
-        decs += ("var name = new Array(" + idx + ");\n");
+        decs += ("var aname = new Array(" + idx + ");\n");
         decs += ("var age = new Array(" + idx + ");\n");
         decs += ("var image = new Array(" + idx + ");\n");
         decs += ("var breed = new Array(" + idx + ");\n");
@@ -564,7 +564,7 @@ public class HTMLPublisher extends FTPPublisher {
         try {
             String idx = Integer.toString(javaArrayElement);
 
-            javaScript += ("name[" + idx + "] = \"" + a.getAnimalName() +
+            javaScript += ("aname[" + idx + "] = \"" + a.getAnimalName() +
             "\";\n");
             javaScript += ("image[" + idx + "] = \"" +
             (a.getWebMedia().equals("") ? "nopic.jpg" : a.getWebMedia()) +
