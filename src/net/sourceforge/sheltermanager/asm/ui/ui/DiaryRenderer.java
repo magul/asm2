@@ -66,7 +66,8 @@ public class DiaryRenderer extends DefaultTableCellRenderer
             // setFont(table.getFont().deriveFont(Font.ITALIC)
             // .deriveFont(12.0f));
         } else {
-            setToolTipText(value.toString());
+            if (value != null)
+                setToolTipText(value.toString());
 
             // If the date on this value is after today, then
             // show it in reversed font.
