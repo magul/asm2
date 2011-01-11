@@ -398,6 +398,10 @@ public abstract class Global {
 
         return Configuration.getInteger("RecordSearchLimit");
     }
+    
+    public static boolean getNoPrintWidthScaling() {
+    	return Configuration.getBoolean("NoPrintWidthScaling");
+    }
 
     public static boolean getShowShortCodes() {
         return Configuration.getBoolean("UseShortShelterCodes");

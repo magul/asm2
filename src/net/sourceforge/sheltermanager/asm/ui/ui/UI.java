@@ -2425,9 +2425,13 @@ public final class UI {
         protected PageFormat pFormat;
         protected PrinterJob pJob;
 
-        public DocumentRenderer() {
+        public DocumentRenderer(boolean scale) {
             pFormat = new PageFormat();
             pJob = PrinterJob.getPrinterJob();
+        }
+        
+        public DocumentRenderer() {
+        	this(!Global.getNoPrintWidthScaling());
         }
 
         public Document getDocument() {

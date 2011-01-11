@@ -1414,6 +1414,12 @@ public class Options extends ASMForm {
                     "NoMediaThumbnails",
                     Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
+            
+            l.add(new SelectableItem(Global.i18n("uisystem",
+            		"When_printing_dont_scale_to_page_width"),
+            		"NoPrintWidthScaling",
+            		Configuration.getString("NoPrintWidthScaling")
+            					  .equalsIgnoreCase("Yes"), false));
 
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",

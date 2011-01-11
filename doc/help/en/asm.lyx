@@ -9779,6 +9779,17 @@ Don't show media thumbnails on animal or owner screens:
  This can improve performance slightly on slower database connections.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+When printing reports, don't scale to match page width: 
+\series default
+Normally, when printing reports, ASM will try and scale them to match the
+ width of the paper.
+ Turning this option on tells ASM not to do that and allows you to manually
+ set the width of your reports via HTML tags.
+\end_layout
+
 \begin_layout Subsection
 Database and System
 \end_layout
