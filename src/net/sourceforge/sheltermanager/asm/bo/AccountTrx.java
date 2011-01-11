@@ -31,6 +31,11 @@ import java.util.Date;
 
 
 public class AccountTrx extends UserInfoBO<AccountTrx> {
+	
+	public final static int BOTH = 0;
+	public final static int RECONCILED = 1;
+	public final static int NONRECONCILED = 2;
+	
     public AccountTrx() {
         tableName = "accountstrx";
     }
@@ -231,7 +236,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
      * @param to The to date
      */
     public static ArrayList<Trx> getTransactions(Integer accountId, Date from,
-        Date to) throws Exception {
+        Date to, int reconciled) throws Exception {
         ArrayList<Trx> v = new ArrayList<Trx>();
 
         Date period = null;
@@ -257,12 +262,19 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
                 from = period;
             }
         }
-
+        
+        // Sort out filtering by reconciled if one has been passed
+        String recfilter = "";
+        if (reconciled == RECONCILED)
+        	recfilter = " AND Reconciled = 1";
+        else if (reconciled == NONRECONCILED)
+        	recfilter = " AND Reconciled = 0";
+        
         // We don't have a period start date, use the from date
         AccountTrx t = new AccountTrx();
         t.openRecordset("TrxDate >= '" + Utils.getSQLDate(from) +
             "' AND TrxDate <= '" + Utils.getSQLDate(to) +
-            "' AND (SourceAccountID = " + accountId +
+            "'" + recfilter + " AND (SourceAccountID = " + accountId +
             " OR DestinationAccountID = " + accountId + ") ORDER BY TrxDate");
         Global.logDebug("Identified " + t.size() + " transactions for account",
             "AccountTrx.getTransactions");
