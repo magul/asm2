@@ -108,6 +108,8 @@ public class AnimalDocument extends GenerateDocument {
                 animal.getBreedName());
             addTag(Global.i18n("wordprocessor", "InternalLocation"),
                 animal.getShelterLocationName());
+            addTag(Global.i18n("wordprocessor", "CoatType"), 
+            	animal.getCoatTypeName());
             addTag(Global.i18n("wordprocessor", "HealthProblems"),
                 Utils.nullToEmptyString(animal.getHealthProblems()));
             addTag(Global.i18n("wordprocessor", "AnimalCreatedBy"),
