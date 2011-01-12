@@ -9389,14 +9389,14 @@ Search
 \end_layout
 
 \begin_layout Standard
-The find animal columns box allows you to specify which columns are used
- on the find animal screens and in what order they appear.
+The find animal and owner columns boxes allows you to specify which columns
+ are used on the find animal screens and in what order they appear.
 \end_layout
 
 \begin_layout Standard
 A comma separated list of field names should be given here.
- You can also use additional field names for your custom fields, or fields
- from the following stock set:
+ You can also use additional field names for your custom fields.
+ For animals, the available fields are:
 \end_layout
 
 \begin_layout Itemize
@@ -9589,6 +9589,202 @@ DaysOnShelter
 
 \begin_layout Itemize
 AnimalAge
+\end_layout
+
+\begin_layout Standard
+For owners, the fields are:
+\end_layout
+
+\begin_layout Itemize
+OwnerTitle
+\end_layout
+
+\begin_layout Itemize
+OwnerInitials
+\end_layout
+
+\begin_layout Itemize
+OwnerForeNames
+\end_layout
+
+\begin_layout Itemize
+OwnerSurname
+\end_layout
+
+\begin_layout Itemize
+OwnerName
+\end_layout
+
+\begin_layout Itemize
+OwnerAddress
+\end_layout
+
+\begin_layout Itemize
+OwnerTown (the city for US users)
+\end_layout
+
+\begin_layout Itemize
+OwnerCounty (the state for US users)
+\end_layout
+
+\begin_layout Itemize
+OwnerPostcode (the zipcode for US users)
+\end_layout
+
+\begin_layout Itemize
+HomeTelephone
+\end_layout
+
+\begin_layout Itemize
+WorkTelephone
+\end_layout
+
+\begin_layout Itemize
+MobileTelephone (cellphone for US users)
+\end_layout
+
+\begin_layout Itemize
+EmailAddress
+\end_layout
+
+\begin_layout Itemize
+IDCheck (a flag whether the owner has been homechecked)
+\end_layout
+
+\begin_layout Itemize
+Comments
+\end_layout
+
+\begin_layout Itemize
+IsBanned
+\end_layout
+
+\begin_layout Itemize
+IsVolunteer
+\end_layout
+
+\begin_layout Itemize
+IsHomeChecker
+\end_layout
+
+\begin_layout Itemize
+IsMember
+\end_layout
+
+\begin_layout Itemize
+MembershipExpiryDate
+\end_layout
+
+\begin_layout Itemize
+MembershipNumber
+\end_layout
+
+\begin_layout Itemize
+IsDonor
+\end_layout
+
+\begin_layout Itemize
+IsShelter
+\end_layout
+
+\begin_layout Itemize
+IsACO
+\end_layout
+
+\begin_layout Itemize
+IsStaff
+\end_layout
+
+\begin_layout Itemize
+IsFosterer
+\end_layout
+
+\begin_layout Itemize
+IsRetailer
+\end_layout
+
+\begin_layout Itemize
+IsVet
+\end_layout
+
+\begin_layout Itemize
+IsGiftAid
+\end_layout
+
+\begin_layout Itemize
+HomeCheckAreas
+\end_layout
+
+\begin_layout Itemize
+DateLastHomeChecked
+\end_layout
+
+\begin_layout Itemize
+HomeCheckedBy
+\end_layout
+
+\begin_layout Itemize
+MatchAdded
+\end_layout
+
+\begin_layout Itemize
+MatchExpires
+\end_layout
+
+\begin_layout Itemize
+MatchActive
+\end_layout
+
+\begin_layout Itemize
+MatchSex
+\end_layout
+
+\begin_layout Itemize
+MatchSize
+\end_layout
+
+\begin_layout Itemize
+MatchAgeFrom
+\end_layout
+
+\begin_layout Itemize
+MatchAgeTo
+\end_layout
+
+\begin_layout Itemize
+MatchAnimalType
+\end_layout
+
+\begin_layout Itemize
+MatchSpecies
+\end_layout
+
+\begin_layout Itemize
+MatchBreed
+\end_layout
+
+\begin_layout Itemize
+MatchBreed2
+\end_layout
+
+\begin_layout Itemize
+MatchGoodWithCats
+\end_layout
+
+\begin_layout Itemize
+MatchGoodWithDogs
+\end_layout
+
+\begin_layout Itemize
+MatchGoodWithChildren
+\end_layout
+
+\begin_layout Itemize
+MatchHouseTrained
+\end_layout
+
+\begin_layout Itemize
+MatchCommentsContain
 \end_layout
 
 \begin_layout Subsection
