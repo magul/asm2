@@ -369,80 +369,75 @@ public class OwnerFindText extends ASMFind {
             Global.logException(e, getClass());
         }
 
-        // Create an array to hold the results for the table
-        String[][] tabledata = new String[(int) uid.size()][13];
+        // Handle additional fields
+        StringBuffer inclause = new StringBuffer();
+        SQLRecordset add = null;
 
+        try {
+            // Create a monster IN clause from the owner IDs
+            while (!owner.getEOF()) {
+                if (inclause.length() != 0) {
+                    inclause.append(",");
+                }
+
+                inclause.append(Integer.toString(owner.getInt("ID")));
+                owner.moveNext();
+            }
+
+            owner.moveFirst();
+
+            // Grab the additional fields for these owners
+            String addsql = "SELECT additionalfield.FieldName, " +
+                "additional.Value, additional.LinkID FROM " +
+                "additional INNER JOIN " +
+                "additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +
+                "WHERE additional.LinkID IN (" + inclause.toString() +
+                ") AND " + "additional.LinkType = 1";
+            // Global.logDebug("Get additional fields: " + addsql, "OwnerFind.runSearch");
+            add = new SQLRecordset(addsql, "additional");
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
+
+        // Create an array to hold the results for the table
+        int cols = OwnerFindColumns.getColumnCount() + 1;
+        String[][] datar = new String[owner.size()][cols];
+        int idColumn = cols - 1;
+        
         // Initialise the progress meter
         initStatusBarMax((int) uid.size());
 
-        // Create an array of headers for the details
-        String[] columnheaders = {
-                i18n("Name"), i18n("Surname"), i18n("Banned"),
-                i18n("Homechecked"), i18n("Address"), i18n("Town"),
-                i18n("County"), i18n("Postcode"), i18n("Home_Tel"),
-                i18n("Work_Tel"), i18n("Mobile_Te"), i18n("email")
-            };
-
         int i = 0;
-
         while (!owner.getEOF()) {
+        	
             // Add this owner record to the table data if we haven't
             // already seen its ID before
             try {
                 boolean seenit = false;
-
                 for (int z = 0; z < i; z++) {
-                    if (tabledata[z][12].equals(owner.getField("ID").toString())) {
+                    if (datar[z][idColumn].equals(owner.getField("ID").toString())) {
                         seenit = true;
-
                         break;
                     }
                 }
 
                 if (seenit) {
                     owner.moveNext();
-
                     continue;
                 }
             } catch (Exception e) {
                 Global.logException(e, getClass());
-
                 break;
             }
-
+        	
+            // Add this owner record to the table data
             try {
-                tabledata[i][0] = owner.getField("OwnerName").toString();
-                tabledata[i][1] = owner.getField("OwnerSurname").toString();
-
-                if (owner.getField("IsBanned").equals(new Integer(0))) {
-                    tabledata[i][2] = i18n("No");
-                } else {
-                    tabledata[i][2] = i18n("Yes");
+            	for (int z = 0; z < (cols - 1); z++) {
+                    datar[i][z] = OwnerFindColumns.format(OwnerFindColumns.getColumnName(
+                                z), owner, add);
                 }
-
-                if (owner.getField("IDCheck").equals(new Integer(0))) {
-                    tabledata[i][3] = i18n("No");
-                } else {
-                    tabledata[i][3] = i18n("Yes");
-                }
-
-                tabledata[i][4] = Utils.formatAddress(Utils.nullToEmptyString(
-                            (String) owner.getField("OwnerAddress")));
-                tabledata[i][5] = Utils.nullToEmptyString((String) owner.getField(
-                            "OwnerTown"));
-                tabledata[i][6] = Utils.nullToEmptyString((String) owner.getField(
-                            "OwnerCounty"));
-                tabledata[i][7] = Utils.nullToEmptyString((String) owner.getField(
-                            "OwnerPostcode"));
-                tabledata[i][8] = Utils.nullToEmptyString((String) owner.getField(
-                            "HomeTelephone"));
-                tabledata[i][9] = Utils.nullToEmptyString((String) owner.getField(
-                            "WorkTelephone"));
-                tabledata[i][10] = Utils.nullToEmptyString((String) owner.getField(
-                            "MobileTelephone"));
-                tabledata[i][11] = Utils.nullToEmptyString((String) owner.getField(
-                            "EmailAddress"));
-                tabledata[i][12] = owner.getField("ID").toString();
+            	datar[i][idColumn] = owner.getField("ID").toString();
+                
             } catch (Exception e) {
             }
 
@@ -456,12 +451,11 @@ public class OwnerFindText extends ASMFind {
             incrementStatusBar();
         }
 
-        setTableData(columnheaders, tabledata, i, 12);
+        setTableData(OwnerFindColumns.getColumnLabels(), datar, i, cols, idColumn);
 
         owner.free();
         owner = null;
-        tabledata = null;
-        columnheaders = null;
+        
         UI.cursorToPointer();
     }
 }

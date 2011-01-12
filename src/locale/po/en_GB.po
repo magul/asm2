@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2011-01-11 15:35+0000\n"
+"PO-Revision-Date: 2011-01-12 13:22+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -195,6 +195,7 @@ msgstr "Died"
 #. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
 #. # ui/animalname/NamesEdit
+#. # ui/owner/OwnerFindColumns
 #. # internet/Pets911Publisher
 #. # internet/AbstractPublisher
 #. # wordprocessor/GenerateDocument
@@ -347,6 +348,7 @@ msgid ""
 msgstr ""
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/animal/AnimalFind
 #: retailer
 #: lksmovementtype_8
@@ -3557,6 +3559,7 @@ msgstr "Notes"
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
 #: lksfieldtype_3
 #: Number
 msgid "Number"
@@ -3612,8 +3615,7 @@ msgstr "Lookup"
 #. # ui/system/ConfigureDatabase
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/HTMLPublisher
@@ -3642,8 +3644,7 @@ msgstr "No"
 #. # ui/account/TrxView
 #. # ui/main/Logout
 #. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/HTMLPublisher
@@ -3662,6 +3663,7 @@ msgstr "Yes"
 #. # reports/Report
 #. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalEdit
+#. # ui/owner/OwnerFindColumns
 #. # wordprocessor/GenerateDocument
 #: lksposneg_1
 #: Negative
@@ -4176,6 +4178,7 @@ msgstr "Colour"
 #. # ui/internet/PetFinderMapBreed
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Breed
 msgid "Breed"
 msgstr "Breed"
@@ -4200,6 +4203,7 @@ msgstr "Breed"
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListView
 #: Species
 msgid "Species"
@@ -4247,6 +4251,7 @@ msgstr "Adoption Date"
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/animalname/NamesView
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # wordprocessor/AnimalDocument
 #. # bo/LookupCache
 #. # bo/AnimalLost
@@ -4298,8 +4303,6 @@ msgstr "Email Address"
 #. # ui/diary/DiaryTaskView
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #. # mailmerge/OwnerMailMerge
@@ -4339,6 +4342,7 @@ msgstr "Title"
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #. # ui/owner/OwnerFindText
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
@@ -4387,16 +4391,13 @@ msgstr "ID"
 #. # reports/OwnerSearchResults
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #. # mailmerge/OwnerMailMerge
 #: Postcode
 msgid "Postcode"
 msgstr "Postcode"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Surname
 msgid "Surname"
 msgstr "Surname"
@@ -4430,8 +4431,6 @@ msgstr "Bulk Email Complete"
 #. # reports/WaitingList
 #. # ui/movement/MovementSelector
 #. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #. # mailmerge/OwnerMailMerge
@@ -4440,16 +4439,12 @@ msgid "Address"
 msgstr "Address"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # mailmerge/OwnerMailMerge
 #: Town
 msgid "Town"
 msgstr "Town"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # mailmerge/OwnerMailMerge
 #: County
 msgid "County"
@@ -5063,6 +5058,7 @@ msgstr "Microchip No"
 #. # ui/animal/AnimalFind
 #. # ui/system/Options
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # wordprocessor/AnimalDocument
 #. # bo/LookupCache
 #. # bo/Animal
@@ -5616,6 +5612,7 @@ msgstr "Internal Loc"
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
+#. # ui/owner/OwnerFindColumns
 #: Type
 #: type
 msgid "Type"
@@ -6015,6 +6012,7 @@ msgstr "Shelter Code"
 #. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithCats
 #: Good_with_cats
 msgid "Good with cats"
@@ -6024,6 +6022,7 @@ msgstr "Good with cats"
 #. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithDogs
 #: Good_with_dogs
 msgid "Good with dogs"
@@ -6033,6 +6032,7 @@ msgstr "Good with dogs"
 #. # wordprocessor/AnimalDocument
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithChildren
 #: Good_with_kids
 #: Good_with_children
@@ -6042,6 +6042,7 @@ msgstr "Good with children"
 #. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Housetrained
 msgid "Housetrained"
 msgstr "Housetrained"
@@ -6060,6 +6061,7 @@ msgstr "Housetrained"
 #. # ui/medical/ProfileView
 #. # ui/medical/MedicalEdit
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # db/AutoDBUpdates
 #. # bo/AnimalLost
 #. # bo/AnimalWaitingList
@@ -7151,6 +7153,7 @@ msgstr "The reason the animal was put to sleep"
 #. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
 #. # ui/owner/VoucherEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListEdit
 #: Comments\:
 msgid "Comments:"
@@ -7287,6 +7290,7 @@ msgstr "Given"
 #. # ui/animal/AnimalAddMultiple
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
 #: Name\:
 msgid "Name:"
 msgstr "Name:"
@@ -7329,6 +7333,7 @@ msgstr "Generate an animal letter/form"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
 #. # ui/system/Options
 #: Address\:
 #: Organisation_Address\:
@@ -7780,6 +7785,7 @@ msgstr "Issue Date:"
 #. # ui/owner/VoucherEdit
 #. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
 #: Expiry_Date\:
 #: Expiry_Date
 msgid "Expiry Date:"
@@ -8040,6 +8046,7 @@ msgstr "Original owner information and how the animal came into the shelter"
 #. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: vet
 #: Vet
 msgid "Vet"
@@ -8289,6 +8296,8 @@ msgstr "Include Off Shelter"
 #. # ui/animal/AnimalFind
 #. # ui/system/ConfigureAdditional
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindText
 #. # ui/customreport/CustomReportEdit
 #. # db/DatabaseImporter
 #. # db/Diagnostic
@@ -10446,6 +10455,7 @@ msgstr "Edit All Diary Notes"
 #. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListView
 #: Species
 msgid "&Species"
@@ -11120,6 +11130,7 @@ msgstr "Status"
 
 #. # ui/medical/MedicalEdit
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # bo/AnimalMedical
 #: Active
 msgid "Active"
@@ -11659,8 +11670,7 @@ msgid ""
 msgstr ""
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #: Work_Tel
 msgid "Work Tel"
 msgstr "Work Tel"
@@ -11672,7 +11682,7 @@ msgstr "Address contains:"
 
 #. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #. # ui/owner/OwnerEdit
 #: Homechecked
 #: ID_Check
@@ -11712,8 +11722,6 @@ msgid "A full, or part email address for the owner"
 msgstr "A full, or part email address for the owner"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Home_Tel
 msgid "Home Tel"
 msgstr "Home Tel"
@@ -11739,26 +11747,31 @@ msgid "Check this box if this owner is a member of your organisation"
 msgstr "Check this box if this owner is a member of your organisation"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Member
 msgid "Member"
 msgstr "Member"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameTitle\:
 msgid "Title:"
 msgstr "Title:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameInitials\:
 msgid "Initials:"
 msgstr "Initials:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameForenames\:
 msgid "Forenames:"
 msgstr "Forenames:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameSurname\:
 msgid "Surname:"
 msgstr "Surname:"
@@ -11789,6 +11802,7 @@ msgid "Work Tel:"
 msgstr "Work Tel:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Volunteer
 msgid "Volunteer"
 msgstr "Volunteer"
@@ -11800,6 +11814,7 @@ msgstr "Suspect Owner"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #: Homecheck_Areas\:
 msgid "Homecheck Areas:"
 msgstr "Homecheck Areas:"
@@ -11811,6 +11826,7 @@ msgstr "Error reading configuration:\n"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #: Email\:
 msgid "Email:"
 msgstr "Email:"
@@ -11824,12 +11840,13 @@ msgstr "Possible Matching Owners"
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
 #: Banned
 msgid "Banned"
 msgstr "Banned"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Homechecker
 msgid "Homechecker"
 msgstr "Homechecker"
@@ -11840,6 +11857,7 @@ msgid "The date this owner was last homechecked"
 msgstr "The date this owner was last homechecked"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Donor
 msgid "Donor"
 msgstr "Donor"
@@ -11880,23 +11898,24 @@ msgid "Show:"
 msgstr "Show:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: other_animal_shelter
 msgid "Other Animal Shelter"
 msgstr "Other Animal Shelter"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: is_staff
 msgid "Shelter Staff"
 msgstr "Shelter Staff"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: is_animal_care_officer
 msgid "Animal Care Officer"
 msgstr "Animal Care Officer"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #. # mailmerge/CustomMailMerge
 #: email
 msgid "Email"
@@ -11970,6 +11989,7 @@ msgid "Staff"
 msgstr "Staff"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Fosters_Animals
 msgid "Fosters Animals"
 msgstr "Fosters Animals"
@@ -11985,11 +12005,13 @@ msgid "Fosterers"
 msgstr "Fosterers"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: town
 msgid "Town:"
 msgstr "Town:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: county
 msgid "County:"
 msgstr "County:"
@@ -12019,6 +12041,7 @@ msgid "Date Due"
 msgstr "Date Due"
 
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
 #. # ui/system/Options
 #: Telephone\:
 #: Organisation_Telephone\:
@@ -12087,6 +12110,7 @@ msgstr "Issue Date"
 
 #. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
 #: Expiry_Date
 msgid "Expiry Date"
 msgstr "Expiry Date"
@@ -12225,28 +12249,30 @@ msgid "Check for owners with similar addresses"
 msgstr "Check for owners with similar addresses"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Mobile_Tel
 msgid "Mobile Tel:"
 msgstr "Mobile Tel:"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Mobile_Te
 msgid "Mobile Tel"
 msgstr "Mobile Tel"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Age_From
 msgid "Age From"
 msgstr "Age From"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Age_To
 msgid "Age To"
 msgstr "Age To"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Comments_contain
 msgid "Comments contain"
 msgstr "Comments contain"
@@ -12369,11 +12395,13 @@ msgid "Additional information about the owner"
 msgstr "Additional information about the owner"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Match_added
 msgid "Match Added"
 msgstr "Match Added"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Match_expires
 msgid "Match Expires"
 msgstr "Match Expires"
@@ -12389,6 +12417,7 @@ msgid "Tick this box if this owner has been homechecked"
 msgstr "Tick this box if this owner has been homechecked"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Checked_By
 msgid "Checked By:"
 msgstr "Checked By:"
@@ -12441,6 +12470,7 @@ msgid "Gift Aid Registered"
 msgstr "Gift Aid Registered"
 
 #. # ui/owner/DonationEdit
+#. # ui/owner/OwnerFindColumns
 #: Gift_Aid
 msgid "Gift Aid"
 msgstr "Gift Aid"
@@ -13789,6 +13819,17 @@ msgstr "Default Brought In By:"
 #: When_printing_dont_scale_to_page_width
 msgid "When printing reports, don't scale to match page width"
 msgstr "When printing reports, don't scale to match page width"
+
+#. # ui/system/Options
+#: owner_search_result_columns
+msgid "Find owner columns:"
+msgstr "Find owner columns:"
+
+#. # ui/system/Options
+#: owner_search_result_columns_tooltip
+msgid ""
+"A comma separated list of fieldnames to be displayed when finding owners."
+msgstr ""
 
 #. # ui/users/UserView
 #: Add_a_new_user

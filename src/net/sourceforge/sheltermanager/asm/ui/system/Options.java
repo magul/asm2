@@ -21,12 +21,18 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindColumns;
+import net.sourceforge.sheltermanager.asm.ui.owner.OwnerFindColumns;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
@@ -40,11 +46,6 @@ import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
 
 
 /**
@@ -98,6 +99,7 @@ public class Options extends ASMForm {
     private UI.TextArea txtEmailSignature;
     private UI.TextArea txtTPPublisherSig;
     private UI.TextArea txtSearchColumns;
+    private UI.TextArea txtOwnerSearchColumns;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
@@ -227,6 +229,7 @@ public class Options extends ASMForm {
         ctl.add(txtLDAPUser);
         ctl.add(txtLDAPPass);
         ctl.add(txtSearchColumns);
+        ctl.add(txtOwnerSearchColumns);
         ctl.add(tblOptions);
 
         return ctl;
@@ -266,6 +269,8 @@ public class Options extends ASMForm {
         // Search
         txtSearchColumns.setText(Configuration.getString("SearchColumns",
                 AnimalFindColumns.DEFAULT_COLUMNS));
+        txtOwnerSearchColumns.setText(Configuration.getString("OwnerSearchColumns",
+                OwnerFindColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -543,6 +548,7 @@ public class Options extends ASMForm {
 
             // Movements
             Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
+            Configuration.setEntry("OwnerSearchColumns", txtOwnerSearchColumns.getText());
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
@@ -1266,6 +1272,9 @@ public class Options extends ASMForm {
         txtSearchColumns = (UI.TextArea) UI.addComponent(ps,
                 i18n("animal_search_result_columns"),
                 UI.getTextArea(i18n("animal_search_result_columns_tooltip")));
+        txtOwnerSearchColumns = (UI.TextArea) UI.addComponent(ps,
+                i18n("owner_search_result_columns"),
+                UI.getTextArea(i18n("owner_search_result_columns_tooltip")));
 
         UI.Panel searchoptions = UI.getPanel(UI.getBorderLayout());
         searchoptions.add(ps, UI.BorderLayout.CENTER);
