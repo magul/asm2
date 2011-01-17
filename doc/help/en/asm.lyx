@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -9391,12 +9391,16 @@ Search
 \begin_layout Standard
 The find animal and owner columns boxes allows you to specify which columns
  are used on the find animal screens and in what order they appear.
+ The waiting list columns box operates similarly.
 \end_layout
 
 \begin_layout Standard
 A comma separated list of field names should be given here.
  You can also use additional field names for your custom fields.
- For animals, the available fields are:
+\end_layout
+
+\begin_layout Subsubsection*
+Animal Fields:
 \end_layout
 
 \begin_layout Itemize
@@ -9591,8 +9595,8 @@ DaysOnShelter
 AnimalAge
 \end_layout
 
-\begin_layout Standard
-For owners, the fields are:
+\begin_layout Subsubsection*
+Owner Fields:
 \end_layout
 
 \begin_layout Itemize
@@ -9785,6 +9789,86 @@ MatchHouseTrained
 
 \begin_layout Itemize
 MatchCommentsContain
+\end_layout
+
+\begin_layout Subsubsection*
+Waiting List Fields:
+\end_layout
+
+\begin_layout Itemize
+Rank
+\end_layout
+
+\begin_layout Itemize
+SpeciesID
+\end_layout
+
+\begin_layout Itemize
+DatePutOnList
+\end_layout
+
+\begin_layout Itemize
+OwnerName
+\end_layout
+
+\begin_layout Itemize
+OwnerAddress
+\end_layout
+
+\begin_layout Itemize
+OwnerTown
+\end_layout
+
+\begin_layout Itemize
+OwnerCounty
+\end_layout
+
+\begin_layout Itemize
+OwnerPostcode
+\end_layout
+
+\begin_layout Itemize
+HomeTelephone
+\end_layout
+
+\begin_layout Itemize
+WorkTelephone
+\end_layout
+
+\begin_layout Itemize
+MobileTelephone
+\end_layout
+
+\begin_layout Itemize
+AnimalDescription
+\end_layout
+
+\begin_layout Itemize
+ReasonForWantingToPart
+\end_layout
+
+\begin_layout Itemize
+CanAffordDonation
+\end_layout
+
+\begin_layout Itemize
+Urgency
+\end_layout
+
+\begin_layout Itemize
+DateRemovedFromList
+\end_layout
+
+\begin_layout Itemize
+DateOfLastOwnerContact
+\end_layout
+
+\begin_layout Itemize
+ReasonForRemoval
+\end_layout
+
+\begin_layout Itemize
+Comments
 \end_layout
 
 \begin_layout Subsection

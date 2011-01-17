@@ -42,6 +42,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableItem;
 import net.sourceforge.sheltermanager.asm.ui.ui.SelectableList;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.ui.waitinglist.WaitingListViewColumns;
 import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
@@ -100,6 +101,7 @@ public class Options extends ASMForm {
     private UI.TextArea txtTPPublisherSig;
     private UI.TextArea txtSearchColumns;
     private UI.TextArea txtOwnerSearchColumns;
+    private UI.TextArea txtWLViewColumns;
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
@@ -230,6 +232,7 @@ public class Options extends ASMForm {
         ctl.add(txtLDAPPass);
         ctl.add(txtSearchColumns);
         ctl.add(txtOwnerSearchColumns);
+        ctl.add(txtWLViewColumns);
         ctl.add(tblOptions);
 
         return ctl;
@@ -271,6 +274,8 @@ public class Options extends ASMForm {
                 AnimalFindColumns.DEFAULT_COLUMNS));
         txtOwnerSearchColumns.setText(Configuration.getString("OwnerSearchColumns",
                 OwnerFindColumns.DEFAULT_COLUMNS));
+        txtWLViewColumns.setText(Configuration.getString("WaitingListViewColumns",
+                WaitingListViewColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -549,6 +554,7 @@ public class Options extends ASMForm {
             // Movements
             Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
             Configuration.setEntry("OwnerSearchColumns", txtOwnerSearchColumns.getText());
+            Configuration.setEntry("WaitingListViewColumns", txtWLViewColumns.getText());
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
@@ -1275,6 +1281,9 @@ public class Options extends ASMForm {
         txtOwnerSearchColumns = (UI.TextArea) UI.addComponent(ps,
                 i18n("owner_search_result_columns"),
                 UI.getTextArea(i18n("owner_search_result_columns_tooltip")));
+        txtWLViewColumns = (UI.TextArea) UI.addComponent(ps,
+                i18n("waiting_list_view_columns"),
+                UI.getTextArea(i18n("waiting_list_view_columns_tooltip")));
 
         UI.Panel searchoptions = UI.getPanel(UI.getBorderLayout());
         searchoptions.add(ps, UI.BorderLayout.CENTER);

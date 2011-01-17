@@ -21,11 +21,16 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.waitinglist;
 
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Vector;
+
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.reports.WaitingList;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
@@ -35,11 +40,6 @@ import net.sourceforge.sheltermanager.asm.ui.ui.WaitingListRenderer;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Vector;
 
 
 /**
@@ -63,14 +63,15 @@ public class WaitingListView extends ASMView {
     private UI.TextField txtAddress;
     private UI.TextField txtContactName;
     private UI.TextField txtDescription;
-    private SQLRecordset ranks = null;
 
     /** Creates new form ViewWaitingList */
     public WaitingListView() {
         updateWaitingList();
         init(Global.i18n("uiwaitinglist", "Waiting_List"),
             IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST),
-            "uiwaitinglist", true, true, new WaitingListRenderer(10, 11));
+            "uiwaitinglist", true, true, new WaitingListRenderer(
+            		WaitingListViewColumns.getColumnCount() + 1, 
+            		WaitingListViewColumns.getColumnCount() + 2));
         updateList();
     }
 
@@ -117,11 +118,6 @@ public class WaitingListView extends ASMView {
 
     /** Fills the list according to the criteria selected */
     public void updateList() {
-        // Clear our cache of the waiting list, used to figure out rankings
-        if (ranks != null) {
-            ranks.free();
-            ranks = null;
-        }
 
         // Record any existing selection
         int lastSel = getTable().getSelectedRow();
@@ -183,7 +179,10 @@ public class WaitingListView extends ASMView {
         try {
             // Get the data
             rs.openRecordset(
-                "SELECT animalwaitinglist.*, owner.OwnerName, owner.OwnerAddress, owner.HomeTelephone FROM animalwaitinglist INNER JOIN owner ON " +
+                "SELECT animalwaitinglist.*, owner.OwnerName, owner.OwnerAddress, " +
+                "owner.OwnerTown, owner.OwnerCounty, owner.OwnerPostcode, " + 
+                "owner.HomeTelephone, owner.WorkTelephone, owner.MobileTelephone " +
+                "FROM animalwaitinglist INNER JOIN owner ON " +
                 "owner.ID = animalwaitinglist.OwnerID WHERE " + crit,
                 "animalwaitinglist");
         } catch (Exception e) {
@@ -193,39 +192,27 @@ public class WaitingListView extends ASMView {
         }
 
         // Create an array to hold the results for the table
-        String[][] datar = new String[(int) rs.getRecordCount()][12];
-
-        // Create an array of headers for the table
-        String[] columnheaders = {
-                i18n("Rank"), i18n("Name"), i18n("Address"), i18n("Telephone"),
-                i18n("Date_Put_On"), i18n("Date_Removed"), i18n("Urgency"),
-                i18n("Species"), i18n("Description:")
-            };
+        int cols = WaitingListViewColumns.getColumnCount();
+        String[][] datar = new String[rs.size()][cols + 3];
+        int idColumn = cols;
+        int urgencyColumn = cols + 1;
+        int hiliteColumn = cols + 2;
 
         // Build the data
         int i = 0;
 
         try {
             while (!rs.getEOF()) {
-                datar[i][0] = getRank((Integer) rs.getField("ID"));
-                datar[i][1] = (String) rs.getField("OwnerName");
-                datar[i][2] = Utils.formatAddress((String) rs.getField(
-                            "OwnerAddress"));
-                datar[i][3] = (String) rs.getField("HomeTelephone");
-                datar[i][4] = Utils.formatTableDate((Date) rs.getField(
-                            "DatePutOnList"));
-                datar[i][5] = Utils.nullToEmptyString(Utils.formatTableDate(
-                            (Date) rs.getField("DateRemovedFromList")));
-                datar[i][6] = formatUrgencyNumberAsString(((Integer) rs.getField(
-                            "Urgency")).intValue());
-                datar[i][7] = LookupCache.getSpeciesName((Integer) rs.getField(
-                            "SpeciesID"));
-                datar[i][8] = (String) rs.getField("AnimalDescription");
-                datar[i][9] = rs.getField("ID").toString();
-                datar[i][10] = rs.getString("Urgency");
-                datar[i][11] = (Configuration.getString("WaitingListHighlights")
-                                             .indexOf(rs.getString("ID") + " ") != -1)
-                    ? "1" : "0";
+                for (int z = 0; z < WaitingListViewColumns.getColumnCount(); z++) {
+                    datar[i][z] = WaitingListViewColumns.format(WaitingListViewColumns.getColumnName(
+                                z), rs);
+                }
+
+                datar[i][idColumn] = rs.getString("ID");
+                datar[i][urgencyColumn] = rs.getString("Urgency");
+                datar[i][hiliteColumn] = (Configuration.getString("WaitingListHighlights")
+                        .indexOf(rs.getString("ID") + " ") != -1)
+                        ? "1" : "0";
 
                 i++;
                 rs.moveNext();
@@ -237,7 +224,7 @@ public class WaitingListView extends ASMView {
             Global.logException(e, getClass());
         }
 
-        setTableData(columnheaders, datar, i, 12, 9);
+        setTableData(WaitingListViewColumns.getColumnLabels(), datar, i, cols + 3, idColumn);
 
         // Go to previous selection
         if (lastSel != -1) {
@@ -246,63 +233,7 @@ public class WaitingListView extends ASMView {
         }
     }
 
-    /**
-     * Calculates the rank (order) of any item on the waiting list
-     * - if the item is no longer on the list, an empty string is returned
-     */
-    public String getRank(Integer id) {
-        try {
-            if (ranks == null) {
-                ranks = new SQLRecordset();
-
-                if (!Configuration.getBoolean("WaitingListRankBySpecies")) {
-                    ranks.openRecordset("SELECT ID FROM animalwaitinglist " +
-                        "WHERE DateRemovedFromList Is Null ORDER BY Urgency, DatePutOnList",
-                        "animalwaitinglist");
-                } else {
-                    ranks.openRecordset(
-                        "SELECT SpeciesID, ID FROM animalwaitinglist " +
-                        "WHERE DateRemovedFromList Is Null ORDER BY SpeciesID, Urgency, DatePutOnList",
-                        "animalwaitinglist");
-                }
-            } else {
-                ranks.moveFirst();
-            }
-
-            int i = 1;
-            Integer lastspecies = new Integer(0);
-
-            while (!ranks.getEOF()) {
-                // If we're ranking by species, reset when the species changes
-                if (Configuration.getBoolean("WaitingListRankBySpecies")) {
-                    if (!lastspecies.equals(ranks.getField("SpeciesID"))) {
-                        lastspecies = (Integer) ranks.getField("SpeciesID");
-                        i = 1;
-                    }
-                }
-
-                if (ranks.getField("ID").equals(id)) {
-                    return Integer.toString(i);
-                }
-
-                i++;
-                ranks.moveNext();
-            }
-        } catch (Exception e) {
-            Global.logException(e, getClass());
-        }
-
-        return "";
-    }
-
-    private String formatUrgencyNumberAsString(int urgency) {
-        return LookupCache.getUrgencyNameForID(new Integer(urgency));
-    }
-
-    private int formatUrgencyNameAsNumber(String urgency) {
-        return LookupCache.getUrgencyIDForName(urgency).intValue();
-    }
-
+    
     public void tableDoubleClicked() {
         actionEdit();
     }
@@ -330,6 +261,15 @@ public class WaitingListView extends ASMView {
     }
 
     public void loadData() {
+    }
+    
+    @SuppressWarnings("unused")
+	private String formatUrgencyNumberAsString(int urgency) {
+        return LookupCache.getUrgencyNameForID(new Integer(urgency));
+    }
+
+    private int formatUrgencyNameAsNumber(String urgency) {
+        return LookupCache.getUrgencyIDForName(urgency).intValue();
     }
 
     /**
@@ -445,9 +385,7 @@ public class WaitingListView extends ASMView {
 
                 if (AuditTrail.enabled()) {
                     AuditTrail.changed("animalwaitinglist",
-                        getTable().getValueAt(selrows[i], 7).toString() + " " +
-                        getTable().getValueAt(selrows[i], 8).toString() + " " +
-                        getTable().getValueAt(selrows[i], 1).toString());
+                    	getAuditTableInfo(i));
                 }
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
@@ -510,7 +448,7 @@ public class WaitingListView extends ASMView {
         // waiting list report.
         SortableTableModel tablemodel = (SortableTableModel) getTable()
                                                                  .getModel();
-        new net.sourceforge.sheltermanager.asm.reports.WaitingList(tablemodel);
+        new WaitingList(tablemodel);
     }
 
     public void actionDelete() {
@@ -538,11 +476,7 @@ public class WaitingListView extends ASMView {
 
                     if (AuditTrail.enabled()) {
                         AuditTrail.deleted("animalwaitinglist",
-                            getTable().getValueAt(selrows[i], 7).toString() +
-                            " " +
-                            getTable().getValueAt(selrows[i], 8).toString() +
-                            " " +
-                            getTable().getValueAt(selrows[i], 1).toString());
+                        		getAuditTableInfo(i));
                     }
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
@@ -554,6 +488,14 @@ public class WaitingListView extends ASMView {
         }
     }
 
+    public String getAuditTableInfo(int row) {
+    	String s = "";
+    	for (int i = 0; i < WaitingListViewColumns.getColumnCount(); i++) {
+    		s += table.getModel().getValueAt(row, i).toString() + " ";
+    	}
+    	return s;
+    }
+    
     public void actionEdit() {
         int id = getTable().getSelectedID();
 
