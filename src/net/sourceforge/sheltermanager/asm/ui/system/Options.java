@@ -547,6 +547,13 @@ public class Options extends ASMForm {
 
                 return false;
             }
+            
+            if (txtCodingFormat.getText().indexOf("N") != -1 &&
+            	txtCodingFormat.getText().indexOf("Y") == -1) {
+            	Dialog.showError(i18n("Invalid_codeformat_need_y_with_n"),
+            		i18n("Invalid_codeformat"));
+            	return false;
+            }
 
             // Options
             SelectableItem[] l = tblOptions.getSelections();
