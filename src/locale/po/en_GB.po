@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2011-01-17 13:48+0000\n"
+"PO-Revision-Date: 2011-01-18 12:07+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +364,7 @@ msgstr "Auto removed due to lack of owner contact."
 
 #. # bo/LookupCache
 #. # internet/AdoptAPetPublisher
+#. # internet/AvidRegistration
 #. # ui/internet/PetFinderMapSpecies
 #: Cat
 #: species_2
@@ -377,6 +378,7 @@ msgstr "Kittens"
 
 #. # bo/LookupCache
 #. # internet/AdoptAPetPublisher
+#. # internet/AvidRegistration
 #. # ui/internet/PetFinderMapSpecies
 #: Dog
 #: species_1
@@ -6972,6 +6974,7 @@ msgid ""
 "this animal. Are you sure you wish to close?"
 msgstr ""
 
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
@@ -7019,6 +7022,7 @@ msgstr "Dead On Arrival:"
 msgid "Delete the selected vaccination records"
 msgstr "Delete the selected vaccination records"
 
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindColumns
 #. # reports/AnimalPrint
@@ -7097,6 +7101,7 @@ msgstr "Save this record"
 msgid "Create a new animal by copying this one"
 msgstr "Create a new animal by copying this one"
 
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
 #. # ui/lostandfound/LostAnimalEdit
@@ -7291,6 +7296,7 @@ msgstr "Unsaved Changes"
 msgid "Given"
 msgstr "Given"
 
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
@@ -7352,6 +7358,7 @@ msgstr "Address:"
 msgid "The animal's breed"
 msgstr "The animal's breed"
 
+#. # internet/AvidRegistration
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/OwnerEdit
@@ -10139,6 +10146,7 @@ msgstr "Date Found:"
 msgid "Features:"
 msgstr "Features:"
 
+#. # internet/AvidRegistration
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lostandfound/LostAnimalFind
@@ -11677,6 +11685,11 @@ msgid ""
 "together."
 msgstr ""
 
+#. # ui/movement/MovementEdit
+#: Register_with_pettrac
+msgid "Register this animal/owner information with PETtrac"
+msgstr "Register this animal/owner information with PETtrac"
+
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
 #. # reports/OwnerSearchResults
@@ -11925,6 +11938,7 @@ msgid "Animal Care Officer"
 msgstr "Animal Care Officer"
 
 #. # mailmerge/CustomMailMerge
+#. # internet/AvidRegistration
 #. # reports/OwnerSearchResults
 #: email
 msgid "Email"
@@ -12020,6 +12034,7 @@ msgstr "Fosterers"
 msgid "Town:"
 msgstr "Town:"
 
+#. # internet/AvidRegistration
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
@@ -13855,6 +13870,36 @@ msgid ""
 "A comma separated list of fieldnames to be displayed when viewing the "
 "waiting list."
 msgstr ""
+
+#. # ui/system/Options
+#: pettrac_avid
+msgid "PETtrac/AVID"
+msgstr "PETtrac/AVID"
+
+#. # ui/system/Options
+#: avid_url
+msgid "Http Form POST URL:"
+msgstr "Http Form POST URL:"
+
+#. # ui/system/Options
+#: avid_org_name
+msgid "Org Name:"
+msgstr "Org Name:"
+
+#. # ui/system/Options
+#: avid_org_serial
+msgid "Org Serial:"
+msgstr "Org Serial:"
+
+#. # ui/system/Options
+#: avid_org_postcode
+msgid "Org Postcode:"
+msgstr "Org Postcode:"
+
+#. # ui/system/Options
+#: avid_org_password
+msgid "Org Password:"
+msgstr "Org Password:"
 
 #. # ui/users/UserView
 #: Add_a_new_user

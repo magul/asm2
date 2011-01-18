@@ -465,6 +465,7 @@ public abstract class IconManager {
     public final static String SCREEN_EDITMOVEMENT_GENERATEDOC = DOCUMENT;
     public final static String SCREEN_EDITMOVEMENT_VIEWANIMAL = ANIMAL;
     public final static String SCREEN_EDITMOVEMENT_VIEWOWNER = OWNERLINK;
+    public final static String SCREEN_EDITMOVEMENT_PETTRAC = "actions-Pettrac-24.png";
     public final static String SCREEN_FOSTERBOOK = BOOK;
     public final static String SCREEN_FOSTERBOOK_REFRESH = REFRESH;
     public final static String SCREEN_FOSTERBOOK_NEW = NEW;

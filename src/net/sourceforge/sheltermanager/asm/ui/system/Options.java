@@ -30,6 +30,7 @@ import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.internet.AvidRegistration;
 import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalFindColumns;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerFindColumns;
@@ -97,6 +98,11 @@ public class Options extends ASMForm {
     private UI.TextField txtMappingService;
     private UI.TextField txtEmailAddress;
     private UI.TextField txtSMTPServer;
+    private UI.TextField txtAvidUrl;
+    private UI.TextField txtAvidOrgName;
+    private UI.TextField txtAvidOrgSerial;
+    private UI.TextField txtAvidOrgPostcode;
+    private UI.TextField txtAvidOrgPassword;
     private UI.TextArea txtEmailSignature;
     private UI.TextArea txtTPPublisherSig;
     private UI.TextArea txtSearchColumns;
@@ -230,6 +236,11 @@ public class Options extends ASMForm {
         ctl.add(txtLDAPFilter);
         ctl.add(txtLDAPUser);
         ctl.add(txtLDAPPass);
+        ctl.add(txtAvidUrl);
+        ctl.add(txtAvidOrgName);
+        ctl.add(txtAvidOrgSerial);
+        ctl.add(txtAvidOrgPostcode);
+        ctl.add(txtAvidOrgPassword);
         ctl.add(txtSearchColumns);
         ctl.add(txtOwnerSearchColumns);
         ctl.add(txtWLViewColumns);
@@ -321,6 +332,13 @@ public class Options extends ASMForm {
         txtEmailAddress.setText(Configuration.getString("EmailAddress"));
         txtSMTPServer.setText(Configuration.getString("SMTPServer"));
         txtEmailSignature.setText(Configuration.getString("EmailSignature"));
+        
+        // Pettrac
+        txtAvidUrl.setText(Configuration.getString("AvidURL", AvidRegistration.DEFAULT_PETTRAC_URL));
+        txtAvidOrgName.setText(Configuration.getString("AvidOrgName"));
+        txtAvidOrgSerial.setText(Configuration.getString("AvidOrgSerial"));
+        txtAvidOrgPostcode.setText(Configuration.getString("AvidOrgPostcode"));
+        txtAvidOrgPassword.setText(Configuration.getString("AvidOrgPassword"));
 
         // Shelter Details
         txtOrgName.setText(Configuration.getString("Organisation"));
@@ -581,6 +599,13 @@ public class Options extends ASMForm {
             Configuration.setEntry("EmailAddress", txtEmailAddress.getText());
             Configuration.setEntry("SMTPServer", txtSMTPServer.getText());
             Configuration.setEntry("EmailSignature", txtEmailSignature.getText());
+            
+            // Pettrac/AVID
+            Configuration.setEntry("AvidURL", txtAvidUrl.getText());
+            Configuration.setEntry("AvidOrgName", txtAvidOrgName.getText());
+            Configuration.setEntry("AvidOrgSerial", txtAvidOrgSerial.getText());
+            Configuration.setEntry("AvidOrgPostcode", txtAvidOrgPostcode.getText());
+            Configuration.setEntry("AvidOrgPassword", txtAvidOrgPassword.getText());
 
             // Defaults
             Configuration.setEntry("AFDefaultSpecies",
@@ -1272,6 +1297,24 @@ public class Options extends ASMForm {
         UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
         movementoptions.add(pv, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("movements"), null, movementoptions, null);
+        
+        // PETtrac/AVID options (only valid for UK)
+        UI.Panel ppa = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        txtAvidUrl = (UI.TextField) UI.addComponent(ppa,
+        		i18n("avid_url"), UI.getTextField());
+        txtAvidOrgName = (UI.TextField) UI.addComponent(ppa,
+        		i18n("avid_org_name"), UI.getTextField());
+        txtAvidOrgSerial = (UI.TextField) UI.addComponent(ppa,
+        		i18n("avid_org_serial"), UI.getTextField());
+        txtAvidOrgPostcode = (UI.TextField) UI.addComponent(ppa,
+        		i18n("avid_org_postcode"), UI.getTextField());
+        txtAvidOrgPassword = (UI.TextField) UI.addComponent(ppa,
+        		i18n("avid_org_password"), UI.getTextField());
+        
+        UI.Panel pettracoptions = UI.getPanel(UI.getBorderLayout());
+        pettracoptions.add(ppa, UI.BorderLayout.NORTH);
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB"))
+        	tabTabs.addTab(i18n("pettrac_avid"), null, pettracoptions, null);
 
         // Search options
         UI.Panel ps = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));

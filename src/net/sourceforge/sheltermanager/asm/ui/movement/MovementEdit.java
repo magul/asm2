@@ -34,6 +34,7 @@ import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.internet.AvidRegistration;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalEdit;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLink;
 import net.sourceforge.sheltermanager.asm.ui.animal.AnimalLinkListener;
@@ -111,6 +112,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
     private UI.Button btnSave;
     private UI.Button btnViewAnimal;
     private UI.Button btnViewOwner;
+    private UI.Button btnPettrac;
     private UI.ComboBox cboMovementType;
     private UI.ComboBox cboReturnReason;
     private UI.TabbedPane tabTabs;
@@ -866,6 +868,19 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                         IconManager.SCREEN_EDITMOVEMENT_VIEWOWNER),
                     UI.fp(this, "actionViewOwner")));
 
+    	btnPettrac = UI.getButton(null,
+    			i18n("Register_with_pettrac"), 'r',
+    			IconManager.getIcon(
+    				IconManager.SCREEN_EDITMOVEMENT_PETTRAC),
+    			UI.fp(this, "actionRegisterPettrac"));
+        
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+        	tlbTools.add(btnPettrac);
+        	if (Configuration.getString("AvidOrgSerial", "").equals("")) {
+        		btnPettrac.setEnabled(false);
+        	}
+        }
+        
         add(tlbTools, UI.BorderLayout.NORTH);
 
         // Details pane ============================================
@@ -1103,6 +1118,11 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             txtInsurance.setText(movement.generateInsuranceNumber());
             dataChanged();
         }
+    }
+    
+    public void actionRegisterPettrac() {
+    	AvidRegistration a = new AvidRegistration(movement);
+    	a.register();
     }
 
     public void actionDocument() {
