@@ -65,6 +65,7 @@ public class Options extends ASMForm {
     private SelectableList tblCodeOptions;
     private SelectableList tblDefaultOptions;
     private SelectableList tblAccountOptions;
+    private SelectableList tblLostAndFoundOptions;
     private UI.Spinner spnUrgency;
     private UI.Spinner spnCancelReserves;
     private UI.Spinner spnMatchSpecies;
@@ -136,7 +137,6 @@ public class Options extends ASMForm {
     private UI.ComboBox cboMapDT5;
     private UI.ComboBox cboMapAc5;
     private UI.CheckBox chkUseAutoInsurance;
-    private UI.CheckBox chkMatchShelterDB;
     private UI.Spinner spnAutoInsuranceStart;
     private UI.Spinner spnAutoInsuranceEnd;
     private UI.Spinner spnAutoInsuranceNext;
@@ -444,8 +444,6 @@ public class Options extends ASMForm {
                     "MatchWithin2Weeks", 5)));
         spnMatchPointFloor.setValue(new Integer(Configuration.getInteger(
                     "MatchPointFloor", 20)));
-        chkMatchShelterDB.setSelected(Configuration.getBoolean(
-                "MatchIncludeShelter"));
 
         // Defaults
         Utils.setComboFromID(LookupCache.getSpeciesLookup(), "SpeciesName",
@@ -746,7 +744,6 @@ public class Options extends ASMForm {
             Configuration.setEntry("DonationAccountMappings", maps);
 
             l = tblAccountOptions.getSelections();
-
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
                     Configuration.setEntry(l[i].getValue().toString(),
@@ -785,8 +782,14 @@ public class Options extends ASMForm {
                 spnMatchDateWithin2Weeks.getValue().toString());
             Configuration.setEntry("MatchPointFloor",
                 spnMatchPointFloor.getValue().toString());
-            Configuration.setEntry("MatchIncludeShelter",
-                chkMatchShelterDB.isSelected() ? "Yes" : "No");
+            
+            l = tblLostAndFoundOptions.getSelections();
+            for (int i = 0; i < l.length; i++) {
+                if ((l[i] != null) && (l[i].getValue() != null)) {
+                    Configuration.setEntry(l[i].getValue().toString(),
+                        (l[i].isSelected() ? "Yes" : "No"));
+                }
+            }
 
             // Shelter Details
             String selcountry = cboOrgCountry.getSelectedItem().toString();
@@ -1277,11 +1280,26 @@ public class Options extends ASMForm {
                 i18n("postcode_matches"), UI.getSpinner(0, 100));
         spnMatchDateWithin2Weeks = (UI.Spinner) UI.addComponent(plf,
                 i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
-        chkMatchShelterDB = (UI.CheckBox) UI.addComponent(plf, "",
-                UI.getCheckBox(i18n("include_shelter")));
+
+        l = new ArrayList<SelectableItem>();
+        l.add(new SelectableItem(Global.i18n("uisystem", "lost_and_found"), null,
+                false, true));
+
+        l.add(new SelectableItem(Global.i18n("uisystem", 
+    			"disable_lost_and_found"), "DisableLostAndFound",
+    			Configuration.getString("DisableLostAndFound")
+        					.equalsIgnoreCase("Yes"), false));
+        
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "include_shelter"), "MatchIncludeShelter",
+                Configuration.getString("MatchIncludeShelter")
+                             .equalsIgnoreCase("Yes"), false));
+
+        tblLostAndFoundOptions = new SelectableList(l);
 
         UI.Panel lostandfound = UI.getPanel(UI.getBorderLayout());
         lostandfound.add(plf, UI.BorderLayout.NORTH);
+        lostandfound.add(tblLostAndFoundOptions);
         tabTabs.addTab(i18n("lost_and_found"), null, lostandfound, null);
 
         // Mapping service options

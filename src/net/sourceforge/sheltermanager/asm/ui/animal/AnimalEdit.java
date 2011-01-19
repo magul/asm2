@@ -2166,10 +2166,14 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VIEWOWNER),
                     UI.fp(this, "actionViewOwner")));
 
-        btnMatchLost = (UI.Button) tlbTools.add(UI.getButton(null,
+        btnMatchLost = UI.getButton(null,
                     i18n("look_in_lost_animal_database"), 'm',
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_LOSTFOUND),
-                    UI.fp(this, "actionMatchLost")));
+                    UI.fp(this, "actionMatchLost"));
+        
+        if (!Configuration.getBoolean("DisableLostAndFound")) {
+        	tlbTools.add(btnMatchLost);
+        }
 
         btnCreateLitter = (UI.Button) tlbTools.add(UI.getButton(null,
                     i18n("Create_a_litter_from_this_animal"), 'u',

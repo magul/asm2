@@ -1320,7 +1320,10 @@ public class Main extends ASMWindow {
         mnuFileLostAndFound.add(mnuFileFoundAnimals);
         mnuFileLostAndFound.add(UI.getSeparator());
         mnuFileLostAndFound.add(mnuFileMatchLostAndFound);
-        mnuFile.add(mnuFileLostAndFound);
+        
+        if (!Configuration.getBoolean("DisableLostAndFound")) {
+        	mnuFile.add(mnuFileLostAndFound);
+        }
 
         if (!Configuration.getBoolean("DisableAccounts")) {
             mnuFile.add(mnuFileAccount);
@@ -1663,7 +1666,7 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_ADDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsAddLost"));
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnAddLostAnimal);
         }
 
@@ -1672,7 +1675,7 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_FINDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsFindLost"));
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnFindLostAnimal);
         }
 
@@ -1681,7 +1684,7 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_ADDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsAddFound"));
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnAddFoundAnimal);
         }
 
@@ -1690,7 +1693,7 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_FINDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsFindFound"));
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnFindFoundAnimal);
         }
 
@@ -1700,11 +1703,11 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_MATCHLOSTANDFOUND)),
                 UI.fp(this, "actionFileMatchLostAndFound"));
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnMatchLostandFound);
         }
 
-        if (Global.toolbarSize > 0) {
+        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.addSeparator();
         }
 

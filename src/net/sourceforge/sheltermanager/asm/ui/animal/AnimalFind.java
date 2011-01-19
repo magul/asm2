@@ -375,7 +375,9 @@ public class AnimalFind extends ASMFind {
                 i18n("look_in_lost_animal_database"), 'n',
                 IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_LOSTFOUND),
                 UI.fp(this, "actionMatchLost"));
-        addLeftbarItem(btnHotLostFound, true);
+        if (!Configuration.getBoolean("DisableLostAndFound")) {
+        	addLeftbarItem(btnHotLostFound, true);
+        }
 
         btnHotMedia = UI.getButton(null, i18n("Add_new_media_to_this_animal"),
                 'e',
