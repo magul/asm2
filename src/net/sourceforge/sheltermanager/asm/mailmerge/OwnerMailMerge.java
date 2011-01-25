@@ -23,30 +23,28 @@ package net.sourceforge.sheltermanager.asm.mailmerge;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.SortableTableModel;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 
 
 /**
- * Produces a mail merge source of all animals
- * who have been adopted in the last 3 months and
- * not returned.
+ * Produces a mail merge from the owner find screen results.
  *
  * @author  Robin Rawson-Tetley
  */
 public class OwnerMailMerge extends MailMerge {
-    SortableTableModel model = null;
 
-    public OwnerMailMerge(SortableTableModel tablemodel) {
-        model = tablemodel;
+	SortableTableModel model = null;
+	String[] colnames = null;
+
+    public OwnerMailMerge(SortableTableModel model, String[] colnames) {
+        this.model = model;
+        this.colnames = colnames;
         this.start();
     }
 
     protected String getFileName() {
         return "OwnerSearch.csv";
-    }
-
-    protected int getEmailColumn() {
-        return 1;
     }
 
     protected void getData() throws CursorEngineException, NoDataException {
@@ -55,44 +53,40 @@ public class OwnerMailMerge extends MailMerge {
                     "there_are_no_owners_matching_your_criteria"));
         }
 
-        // Set array bounds
-        cols = 8;
+        // Set array bounds - add a row for the CSV header
         rows = model.getRowCount() + 1;
+        cols = colnames.length;
         theData = new String[(int) rows][cols];
-
         setStatusBarMax(rows);
 
         // Set header
-        theData[0][0] = Global.i18n("mailmerge", "Name");
-        theData[0][1] = Global.i18n("mailmerge", "Email_Address");
-        theData[0][2] = Global.i18n("mailmerge", "Address");
-        theData[0][3] = Global.i18n("mailmerge", "Town");
-        theData[0][4] = Global.i18n("mailmerge", "County");
-        theData[0][5] = Global.i18n("mailmerge", "Postcode");
-        theData[0][6] = Global.i18n("mailmerge", "Home_Telephone");
-        theData[0][7] = Global.i18n("mailmerge", "Work_Telephone");
+        for (int i = 0; i < cols; i++) {
+        	theData[0][i] = colnames[i];
+        	
+        	// If there's an email column, flag it
+            if (colnames[i].toLowerCase().indexOf("email") != -1) {
+                emailColumn = i;
+            }
+        }
 
         // Build data
-        for (int i = 0; i < (rows - 1); i++) {
-            // Fill out the entry
-
-            // Convert owner address back to breaks
-            String address = (String) model.getValueAt(i, 4);
-            address = address.replace(',', '\n');
-
-            theData[i + 1][0] = (String) model.getValueAt(i, 0);
-            theData[i + 1][1] = (String) model.getValueAt(i, 11);
-            theData[i + 1][2] = address;
-            theData[i + 1][3] = (String) model.getValueAt(i, 5);
-            theData[i + 1][4] = (String) model.getValueAt(i, 6);
-            theData[i + 1][5] = (String) model.getValueAt(i, 7);
-            theData[i + 1][6] = (String) model.getValueAt(i, 8);
-            theData[i + 1][7] = (String) model.getValueAt(i, 9);
+        for (int i = 1; i < rows; i++) {
+            
+        	// Fill out the entry
+        	for (int z = 0; z < cols; z++) {
+        		
+        		theData[i][z] = Utils.nullToEmptyString((String)model.getValueAt(i - 1, z));
+        		
+        		// If it's an address, convert commas to breaks
+        		if (colnames[z].toLowerCase().indexOf("address") != -1) {
+        			theData[i][z] = model.getValueAt(i - 1, z).toString().replace(',', '\n');
+        		}        		
+        		
+        	}
 
             incrementStatusBar();
         }
 
         resetStatusBar();
-        model = null;
     }
 }

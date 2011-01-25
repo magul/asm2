@@ -159,7 +159,7 @@ public class MailMerge extends Thread implements EmailFormListener {
 
     /** Override this method in subclass to return column with email address */
     protected int getEmailColumn() {
-        return 0;
+        return emailColumn;
     }
 
     /**
@@ -225,7 +225,7 @@ public class MailMerge extends Thread implements EmailFormListener {
 
             // Now output the data ------------
             boolean firstField = false;
-            byte[] comma = new String(",").getBytes();
+            byte[] comma = new String(",").getBytes(Global.CHAR_ENCODING);
 
             setStatusBarMax(rows);
 
@@ -239,7 +239,6 @@ public class MailMerge extends Thread implements EmailFormListener {
                         firstField = false;
                     }
 
-                    ;
                     out.write(new String("\"" + theData[z][i] + "\"").getBytes(
                             Global.CHAR_ENCODING));
                 }

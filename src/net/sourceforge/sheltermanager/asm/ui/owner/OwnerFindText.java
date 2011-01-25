@@ -164,7 +164,7 @@ public class OwnerFindText extends ASMFind {
         }
 
         // Pass the data on to the Mail Merge class for this job
-        new OwnerMailMerge((SortableTableModel) getTable().getModel());
+        new OwnerMailMerge((SortableTableModel) getTable().getModel(), OwnerFindColumns.getColumnNames());
     }
 
     public void actionAdvanced() {

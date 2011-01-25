@@ -34,16 +34,11 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 public class CustomMailMerge extends MailMerge {
     private String title = null;
     private String sql = null;
-    private int emailColumn = 0;
 
     public CustomMailMerge(String sql, String title) {
         this.sql = sql;
         this.title = title;
         this.start();
-    }
-
-    protected int getEmailColumn() {
-        return emailColumn;
     }
 
     protected String getFileName() {
