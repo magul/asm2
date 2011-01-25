@@ -163,6 +163,7 @@ public class DiaryTaskExecute extends ASMForm {
                 // Create the animal link
                 newDiary.setLinkID(animal.getID());
                 newDiary.setLinkType(new Integer(Diary.LINKTYPE_ANIMAL));
+                newDiary.setLinkInfo(Diary.calculateLinkInfo(animal.getID(), Diary.LINKTYPE_ANIMAL));
 
                 // Remember it
                 notes.add(newDiary.getID());
@@ -273,6 +274,7 @@ public class DiaryTaskExecute extends ASMForm {
                 // Create the owner link
                 newDiary.setLinkID(owner.getID());
                 newDiary.setLinkType(new Integer(Diary.LINKTYPE_OWNER));
+                newDiary.setLinkInfo(Diary.calculateLinkInfo(owner.getID(), Diary.LINKTYPE_OWNER));
 
                 // Remember it
                 notes.add(newDiary.getID());
