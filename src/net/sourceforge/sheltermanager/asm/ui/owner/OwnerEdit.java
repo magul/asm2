@@ -1696,8 +1696,22 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void changedMember() {
+    	
         txtMembershipExpiryDate.setEnabled(chkIsMember.isSelected());
         txtMembershipNumber.setEnabled(chkIsMember.isSelected());
+        
+        // If the membership number is blank and the owner is a member,
+        // create a default number by padding the owner ID
+        try {
+	        if (chkIsMember.isSelected() && 
+	        	txtMembershipNumber.getText().trim().equals("")) {
+	        	txtMembershipNumber.setText(Utils.zeroPad(owner.getID().intValue(), 8));
+	        }
+        }
+        catch (Exception e) {
+        	Global.logException(e, getClass());
+        }
+        
         dataChanged();
     }
 
