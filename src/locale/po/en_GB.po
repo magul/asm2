@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2011-01-25 14:20+0000\n"
+"PO-Revision-Date: 2011-01-25 15:55+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -7124,6 +7124,7 @@ msgid "Create a new animal by copying this one"
 msgstr "Create a new animal by copying this one"
 
 #. # internet/AvidRegistration
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
 #. # ui/lostandfound/LostAnimalEdit
@@ -7503,6 +7504,7 @@ msgstr "A date you entered was not valid: "
 #. # internet/PetFinderPublisher
 #. # ui/customreport/CustomReportEdit
 #. # ui/system/Options
+#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/lookups/LookupView
@@ -8626,6 +8628,11 @@ msgstr "Previous year"
 #: additional_field_empty
 msgid "Additional field \"{0}\" must have a value."
 msgstr "Additional field \"{0}\" must have a value."
+
+#. # ui/animal/AnimalFind
+#: Out_Between\:_
+msgid "Out Between: "
+msgstr "Out Between: "
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name

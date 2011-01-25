@@ -68,6 +68,7 @@ public class AnimalFind extends ASMFind {
     private UI.Button btnPrint;
     private UI.Button btnSimple;
     public UI.ComboBox cboInternalLocation;
+    public UI.ComboBox cboBreed;
     public UI.ComboBox cboLocation;
     public UI.ComboBox cboReserved;
     public UI.ComboBox cboSex;
@@ -88,6 +89,8 @@ public class AnimalFind extends ASMFind {
     public UI.TextField txtAnimalName;
     public DateField txtDateFrom;
     public DateField txtDateTo;
+    public DateField txtOutFrom;
+    public DateField txtOutTo;
     public UI.TextField txtFeatures;
     public UI.TextField txtHasComments;
     public UI.TextField txtHiddenComments;
@@ -166,23 +169,26 @@ public class AnimalFind extends ASMFind {
     public Vector<Object> getTabOrder() {
         Vector<Object> ctl = new Vector<Object>();
         ctl.add(txtAnimalName);
+        ctl.add(txtShelterCode);
+        if (!Configuration.getBoolean("DontShowLitterID")) ctl.add(txtAcceptanceNo);
         ctl.add(cboType);
         ctl.add(cboSpecies);
+        ctl.add(cboBreed);
         ctl.add(cboSex);
-        ctl.add(txtShelterCode);
-        ctl.add(txtAcceptanceNo);
         ctl.add(cboReserved);
         ctl.add(cboLocation);
         ctl.add(cboInternalLocation);
         ctl.add(cboSize);
+        ctl.add(txtHasComments);
         ctl.add(txtDateFrom.getTextField());
         ctl.add(txtDateTo.getTextField());
-        ctl.add(txtIdentichipNo);
+        ctl.add(txtFeatures);
+        ctl.add(txtOutFrom.getTextField());
+        ctl.add(txtOutTo.getTextField());
+        ctl.add(txtAdoptionNo);
         ctl.add(txtAgeFrom);
         ctl.add(txtAgeTo);
-        ctl.add(txtHasComments);
-        ctl.add(txtFeatures);
-        ctl.add(txtAdoptionNo);
+        if (!Configuration.getBoolean("DontShowMicrochip")) ctl.add(txtIdentichipNo);
         ctl.add(txtInsuranceNo);
         ctl.add(txtRabiesTag);
         ctl.add(txtHiddenComments);
@@ -191,10 +197,10 @@ public class AnimalFind extends ASMFind {
         ctl.add(chkTransfersOnly);
         ctl.add(chkIncludeDeceased);
         ctl.add(chkIncludeNonShelter);
-        ctl.add(chkGoodWithKids);
-        ctl.add(chkGoodWithCats);
-        ctl.add(chkGoodWithDogs);
-        ctl.add(chkHousetrained);
+        if (!Configuration.getBoolean("DontShowGoodWith")) ctl.add(chkGoodWithKids);
+        if (!Configuration.getBoolean("DontShowGoodWith")) ctl.add(chkGoodWithCats);
+        if (!Configuration.getBoolean("DontShowGoodWith")) ctl.add(chkGoodWithDogs);
+        if (!Configuration.getBoolean("DontShowGoodWith")) ctl.add(chkHousetrained);
         ctl.add(table);
         ctl.add(btnSearch);
         ctl.add(btnOpen);
@@ -213,24 +219,32 @@ public class AnimalFind extends ASMFind {
         txtAnimalName = (UI.TextField) UI.addComponent(p, i18n("Name:_"),
                 UI.getTextField());
 
+        txtShelterCode = (UI.TextField) UI.addComponent(p, i18n("Code:_"),
+                UI.getTextField());
+        
+        if (!Configuration.getBoolean("DontShowLitterID")) {
+        	txtAcceptanceNo = (UI.TextField) UI.addComponent(p,
+                (Global.getUsingAutoLitterID() ? i18n("litter_id")
+                                               : i18n("Acc._No:_")),
+                UI.getTextField());
+        } else {
+        	txtAcceptanceNo = UI.getTextField();
+        }
+
         cboType = (UI.ComboBox) UI.addComponent(p, i18n("Type:_"),
                 UI.getCombo(i18n("Type:_"), LookupCache.getAnimalTypeLookup(),
                     "AnimalType", i18n("(all)")));
-
+        
         cboSpecies = (UI.ComboBox) UI.addComponent(p, i18n("Species:_"),
                 UI.getCombo(i18n("Species:_"), LookupCache.getSpeciesLookup(),
                     "SpeciesName", i18n("(all)")));
 
+        cboBreed = (UI.ComboBox) UI.addComponent(p, i18n("Breed:"),
+                UI.getCombo(i18n("Breed:"), LookupCache.getBreedLookup(),
+                    "BreedName", i18n("(all)")));
+        
         cboSex = (UI.ComboBox) UI.addComponent(p, i18n("Sex:_"),
                 UI.getCombo(LookupCache.getSexLookup(), "Sex", i18n("(all)")));
-
-        txtShelterCode = (UI.TextField) UI.addComponent(p, i18n("Code:_"),
-                UI.getTextField());
-
-        txtAcceptanceNo = (UI.TextField) UI.addComponent(p,
-                (Global.getUsingAutoLitterID() ? i18n("litter_id")
-                                               : i18n("Acc._No:_")),
-                UI.getTextField());
 
         cboReserved = (UI.ComboBox) UI.addComponent(p, i18n("Reserved:_"),
                 UI.getCombo());
@@ -267,29 +281,39 @@ public class AnimalFind extends ASMFind {
         cboSize = (UI.ComboBox) UI.addComponent(p, i18n("Size:"),
                 UI.getCombo(LookupCache.getSizeLookup(), "Size", i18n("(all)")));
 
+        txtHasComments = (UI.TextField) UI.addComponent(p,
+                i18n("Has_Comments:_"), UI.getTextField());
+        
         txtDateFrom = (DateField) UI.addComponent(p, i18n("In_Between:_"),
                 UI.getDateField());
 
         txtDateTo = (DateField) UI.addComponent(p, i18n("and:_"),
                 UI.getDateField());
+        
+        txtFeatures = (UI.TextField) UI.addComponent(p, i18n("Features_"),
+                UI.getTextField());
+        
+        txtOutFrom = (DateField) UI.addComponent(p, i18n("Out_Between:_"),
+        		UI.getDateField());
+        
+        txtOutTo = (DateField) UI.addComponent(p, i18n("and:_"),
+        		UI.getDateField());
 
-        txtIdentichipNo = (UI.TextField) UI.addComponent(p,
-                i18n("Identichip_No:_"), UI.getTextField());
-
+        txtAdoptionNo = (UI.TextField) UI.addComponent(p,
+                i18n("Adoption_No:_"), UI.getTextField());
+        
         txtAgeFrom = (UI.TextField) UI.addComponent(p, i18n("Aged_between:_"),
                 UI.getTextField());
 
         txtAgeTo = (UI.TextField) UI.addComponent(p, i18n("and:_"),
                 UI.getTextField());
 
-        txtHasComments = (UI.TextField) UI.addComponent(p,
-                i18n("Has_Comments:_"), UI.getTextField());
-
-        txtFeatures = (UI.TextField) UI.addComponent(p, i18n("Features_"),
-                UI.getTextField());
-
-        txtAdoptionNo = (UI.TextField) UI.addComponent(p,
-                i18n("Adoption_No:_"), UI.getTextField());
+        if (!Configuration.getBoolean("DontShowMicrochip")) {
+        	txtIdentichipNo = (UI.TextField) UI.addComponent(p,
+                i18n("Identichip_No:_"), UI.getTextField());
+        } else {
+        	txtIdentichipNo = UI.getTextField();
+        }
 
         txtInsuranceNo = (UI.TextField) UI.addComponent(p,
                 i18n("Insurance_No:_"), UI.getTextField());
@@ -320,19 +344,19 @@ public class AnimalFind extends ASMFind {
 
         chkGoodWithKids = UI.getCheckBox(i18n("Good_with_kids"),
                 i18n("tick_this_box_to_only_show_animals_who_are_good_with_children"));
-        p.add(chkGoodWithKids);
+        if (!Configuration.getBoolean("DontShowGoodWith")) p.add(chkGoodWithKids);
 
         chkGoodWithCats = UI.getCheckBox(i18n("Good_with_cats"),
                 i18n("tick_this_box_to_only_show_animals_who_are_good_with_cats"));
-        p.add(chkGoodWithCats);
+        if (!Configuration.getBoolean("DontShowGoodWith")) p.add(chkGoodWithCats);
 
         chkGoodWithDogs = UI.getCheckBox(i18n("Good_with_dogs"),
                 i18n("tick_this_box_to_only_show_animals_who_are_good_with_dogs"));
-        p.add(chkGoodWithDogs);
+        if (!Configuration.getBoolean("DontShowGoodWith")) p.add(chkGoodWithDogs);
 
         chkHousetrained = UI.getCheckBox(i18n("Housetrained"),
                 i18n("tick_this_box_to_only_show_animals_who_are_housetrained"));
-        p.add(chkHousetrained);
+        if (!Configuration.getBoolean("DontShowGoodWith")) p.add(chkHousetrained);
     }
 
     public void initToolbar() {
@@ -608,6 +632,8 @@ public class AnimalFind extends ASMFind {
                 (String) cboType.getSelectedItem()).intValue();
         int speciesid = Utils.getID("species", "SpeciesName",
                 (String) cboSpecies.getSelectedItem()).intValue();
+        int breedid = Utils.getID("breed", "BreedName",
+        		(String) cboBreed.getSelectedItem()).intValue();
         int intlocid = Utils.getID("internallocation", "LocationName",
                 (String) cboInternalLocation.getSelectedItem()).intValue();
         String logloc = (String) cboLocation.getSelectedItem();
@@ -636,6 +662,12 @@ public class AnimalFind extends ASMFind {
                 addSqlCriteria("SpeciesID=" + speciesid);
                 addDisplay(i18n("Species:"),
                     LookupCache.getSpeciesName(speciesid));
+            }
+            
+            if (breedid != 0) {
+            	addSqlCriteria("(BreedID=" + breedid + " OR Breed2ID=" + breedid + ")");
+            	addDisplay(i18n("Breed:"),
+            		LookupCache.getBreedName(breedid));
             }
 
             if (intlocid != 0) {
@@ -940,6 +972,20 @@ public class AnimalFind extends ASMFind {
             addSqlCriteria("AdoptionNumber Like '%" + txtAdoptionNo.getText() +
                 "%'");
             needMoveJoin = true;
+        }
+        
+        // Left shelter date
+        if (!txtOutFrom.getText().equals("") && !txtOutTo.getText().equals("")) {
+            try {
+            	addSqlCriteria("ActiveMovementDate BETWEEN '" +
+                        Utils.getSQLDate(txtOutFrom.getText()) + "' AND '" +
+                        Utils.getSQLDate(txtOutTo.getText()) + "'");
+            } catch (NumberFormatException e) {
+                // Ignore number format exceptions - just don't
+                // apply this criteria
+            } catch (Exception e) {
+                Global.logException(e, getClass());
+            }
         }
 
         // Media Notes
