@@ -112,6 +112,7 @@ public class Options extends ASMForm {
     private CurrencyField txtDefaultBoardingCost;
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
+    private UI.CheckBox chkDisableWaitingList;
     private UI.ComboBox cboBoardingType;
     private UI.ComboBox cboDefaultColour;
     private UI.ComboBox cboDefaultDeath;
@@ -163,6 +164,7 @@ public class Options extends ASMForm {
         ctl.add(txtOrgTelephone);
         ctl.add(txtOrgTelephone2);
         ctl.add(cboWordProcessor);
+        ctl.add(chkDisableWaitingList);
         ctl.add(spnUrgency);
         ctl.add(cboDefaultUrgency);
         ctl.add(chkRankBySpecies);
@@ -267,6 +269,7 @@ public class Options extends ASMForm {
     /** Loads the data and fills the boxes */
     public void loadData() {
         // Waiting List
+    	chkDisableWaitingList.setSelected(Configuration.getBoolean("DisableWaitingList"));
         spnUrgency.setValue(new Integer(Configuration.getInteger(
                     "WaitingListUrgencyUpdatePeriod")));
 
@@ -275,6 +278,9 @@ public class Options extends ASMForm {
 
         chkRankBySpecies.setSelected(Configuration.getBoolean(
                 "WaitingListRankBySpecies"));
+        
+        txtWLViewColumns.setText(Configuration.getString("WaitingListViewColumns",
+                WaitingListViewColumns.DEFAULT_COLUMNS));
 
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
@@ -285,8 +291,6 @@ public class Options extends ASMForm {
                 AnimalFindColumns.DEFAULT_COLUMNS));
         txtOwnerSearchColumns.setText(Configuration.getString("OwnerSearchColumns",
                 OwnerFindColumns.DEFAULT_COLUMNS));
-        txtWLViewColumns.setText(Configuration.getString("WaitingListViewColumns",
-                WaitingListViewColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -574,10 +578,9 @@ public class Options extends ASMForm {
             Configuration.setEntry("MappingServiceURL",
                 txtMappingService.getText());
 
-            // Movements
+            // Search
             Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
             Configuration.setEntry("OwnerSearchColumns", txtOwnerSearchColumns.getText());
-            Configuration.setEntry("WaitingListViewColumns", txtWLViewColumns.getText());
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
@@ -588,12 +591,14 @@ public class Options extends ASMForm {
                 "CostTypeName", cboBoardingType);
 
             // Waiting List
+            Configuration.setEntry("DisableWaitingList", chkDisableWaitingList.isSelected() ? "Yes" : "No");
             Configuration.setEntry("WaitingListUrgencyUpdatePeriod",
                 spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
             Configuration.setEntry("WaitingListRankBySpecies",
                 chkRankBySpecies.isSelected() ? "Yes" : "No");
+            Configuration.setEntry("WaitingListViewColumns", txtWLViewColumns.getText());
 
             // Movements
             Configuration.setEntry("AutoCancelReservesDays",
@@ -1349,9 +1354,6 @@ public class Options extends ASMForm {
         txtOwnerSearchColumns = (UI.TextArea) UI.addComponent(ps,
                 i18n("owner_search_result_columns"),
                 UI.getTextArea(i18n("owner_search_result_columns_tooltip")));
-        txtWLViewColumns = (UI.TextArea) UI.addComponent(ps,
-                i18n("waiting_list_view_columns"),
-                UI.getTextArea(i18n("waiting_list_view_columns_tooltip")));
 
         UI.Panel searchoptions = UI.getPanel(UI.getBorderLayout());
         searchoptions.add(ps, UI.BorderLayout.CENTER);
@@ -1359,6 +1361,10 @@ public class Options extends ASMForm {
 
         // Waiting list options
         UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        
+        chkDisableWaitingList = UI.getCheckBox(i18n("disable_waiting_list"));
+        UI.addComponent(pl, "", chkDisableWaitingList);
+        
         spnUrgency = (UI.Spinner) UI.addComponent(pl,
                 i18n("Update_Waiting_List_Period:"),
                 UI.getSpinner(0, 9999,
@@ -1372,9 +1378,15 @@ public class Options extends ASMForm {
 
         chkRankBySpecies = UI.getCheckBox(i18n("separate_the_ranks_by_species"));
         UI.addComponent(pl, "", chkRankBySpecies);
+        
+        UI.Panel plc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
+        txtWLViewColumns = (UI.TextArea) UI.addComponent(plc,
+                i18n("waiting_list_view_columns"),
+                UI.getTextArea(i18n("waiting_list_view_columns_tooltip")));
 
         UI.Panel waitinglist = UI.getPanel(UI.getBorderLayout());
         waitinglist.add(pl, UI.BorderLayout.NORTH);
+        waitinglist.add(plc, UI.BorderLayout.CENTER);
         tabTabs.addTab(i18n("waiting_list"), null, waitinglist, null);
 
         // Word processor options

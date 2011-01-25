@@ -1293,9 +1293,14 @@ public class Main extends ASMWindow {
         mnuFileAnimal.add(mnuFileAnimalAddAnimals);
         mnuFileAnimal.add(mnuFileAnimalFindAnimal);
         mnuFileAnimal.add(UI.getSeparator());
-        mnuFileAnimal.add(mnuFileAnimalAddWLEntry);
-        mnuFileAnimal.add(mnuFileAnimalWaitingList);
-        mnuFileAnimal.add(UI.getSeparator());
+        
+        // Disable waiting list functionality if option set
+        if (!Configuration.getBoolean("DisableWaitingList")) {
+	        mnuFileAnimal.add(mnuFileAnimalAddWLEntry);
+	        mnuFileAnimal.add(mnuFileAnimalWaitingList);
+	        mnuFileAnimal.add(UI.getSeparator());
+        }
+        
         mnuFileAnimal.add(mnuFileAnimalReservationBook);
         mnuFileAnimal.add(mnuFileAnimalFosterBook);
 
@@ -1746,8 +1751,11 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_WAITINGLIST)),
                 UI.fp(this, "actionFileAnimalWaitingList"));
 
-        if (Global.toolbarSize > 0) {
-            tlbTools.add(btnWaitingList);
+        // Disable waiting list functionality if option set
+        if (!Configuration.getBoolean("DisableWaitingList")) {
+	        if (Global.toolbarSize > 0) {
+	            tlbTools.add(btnWaitingList);
+	        }
         }
 
         btnAddDiary = UI.getButton(null, i18n("Add_Diary_Note"),
