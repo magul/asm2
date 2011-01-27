@@ -29,4 +29,4 @@ cp -v ../logo/asm.ico scratch/asm.ico
 tar --exclude build --exclude bin --exclude cdimage --exclude .svn -cvf scratch/sheltermanager-`cat ../install/deb/VERSION`_devenvironment.tar ../../sheltermanager
 
 # Build ISO
-mkisofs -R --iso-level 4 -o ../build/asm.iso scratch
+genisoimage -R --iso-level 4 -o ../build/asm.iso scratch

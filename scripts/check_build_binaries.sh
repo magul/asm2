@@ -1,5 +1,5 @@
 #!/bin/sh
-BINARIES="ant java sh lyx inkscape convert latex2html dpkg alien tar zip unzip bzip2 wine doxygen mkisofs prop2po recode"
+BINARIES="ant java sh lyx inkscape convert latex2html dpkg alien tar zip unzip bzip2 wine doxygen genisoimage prop2po recode"
 
 for i in $BINARIES; do
 	printf "    $i: "
