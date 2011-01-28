@@ -107,12 +107,12 @@ lbl_data:
 
   ; Main launcher from batch file
   FileOpen $FH "$INSTDIR\asm.bat" w
-  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup'
+  FileWrite $FH '"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\edtftpj.jar:$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.startup.Startup'
   FileClose $FH
 
   ; Command line interface
   FileOpen $FH "$INSTDIR\asmcmd.bat" w
-  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.script.Startup %1 %2 %3 %4 %5 %6 %7 %8 %9'
+  FileWrite $FH '@echo off$\r$\n"$INSTDIR\java\bin\java" -cp "$INSTDIR\asm.jar;$INSTDIR\lib\charting-0.94.jar;$INSTDIR\lib\edtftpj.jar;$INSTDIR\lib\mysql.jar;$INSTDIR\lib\postgresql.jar;$INSTDIR\lib\hsqldb.jar" net.sourceforge.sheltermanager.asm.script.Startup %1 %2 %3 %4 %5 %6 %7 %8 %9'
   FileClose $FH
 
   ; Write the uninstaller, since the installer always insists on
