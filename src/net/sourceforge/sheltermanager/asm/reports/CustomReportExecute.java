@@ -1599,7 +1599,7 @@ public class CustomReportExecute extends Report {
 
                 // DATE tag
                 if (tagtype.equalsIgnoreCase("CURRENT_DATE")) {
-                    replaceWith = Utils.getSQLDate(new Date());
+                    replaceWith = Utils.getSQLDateOnly(new Date());
                 }
 
                 // USER tag

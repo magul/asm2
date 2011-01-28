@@ -327,6 +327,11 @@ public abstract class Utils {
         return SQLRecordset.getSQLRepresentationOfDateOnly(calendarToDate(c));
     }
 
+    /** Returns an SQL date from the date given, throwing away time info */
+    public static String getSQLDateOnly(Date d) {
+        return SQLRecordset.getSQLRepresentationOfDateOnly(d);
+    }
+
     /** Returns todays date with no time information */
     public static Date getTodayNoTime() {
         try {
