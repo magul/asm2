@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.waitinglist;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AnimalWaitingList;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
@@ -40,6 +36,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.WaitingListRenderer;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Vector;
 
 
 /**
@@ -69,9 +69,9 @@ public class WaitingListView extends ASMView {
         updateWaitingList();
         init(Global.i18n("uiwaitinglist", "Waiting_List"),
             IconManager.getIcon(IconManager.SCREEN_VIEWWAITINGLIST),
-            "uiwaitinglist", true, true, new WaitingListRenderer(
-            		WaitingListViewColumns.getColumnCount() + 1, 
-            		WaitingListViewColumns.getColumnCount() + 2));
+            "uiwaitinglist", true, true,
+            new WaitingListRenderer(WaitingListViewColumns.getColumnCount() +
+                1, WaitingListViewColumns.getColumnCount() + 2));
         updateList();
     }
 
@@ -118,7 +118,6 @@ public class WaitingListView extends ASMView {
 
     /** Fills the list according to the criteria selected */
     public void updateList() {
-
         // Record any existing selection
         int lastSel = getTable().getSelectedRow();
 
@@ -180,7 +179,7 @@ public class WaitingListView extends ASMView {
             // Get the data
             rs.openRecordset(
                 "SELECT animalwaitinglist.*, owner.OwnerName, owner.OwnerAddress, " +
-                "owner.OwnerTown, owner.OwnerCounty, owner.OwnerPostcode, " + 
+                "owner.OwnerTown, owner.OwnerCounty, owner.OwnerPostcode, " +
                 "owner.HomeTelephone, owner.WorkTelephone, owner.MobileTelephone " +
                 "FROM animalwaitinglist INNER JOIN owner ON " +
                 "owner.ID = animalwaitinglist.OwnerID WHERE " + crit,
@@ -203,16 +202,18 @@ public class WaitingListView extends ASMView {
 
         try {
             while (!rs.getEOF()) {
-                for (int z = 0; z < WaitingListViewColumns.getColumnCount(); z++) {
+                for (int z = 0; z < WaitingListViewColumns.getColumnCount();
+                        z++) {
                     datar[i][z] = WaitingListViewColumns.format(WaitingListViewColumns.getColumnName(
                                 z), rs);
                 }
 
                 datar[i][idColumn] = rs.getString("ID");
                 datar[i][urgencyColumn] = rs.getString("Urgency");
-                datar[i][hiliteColumn] = (Configuration.getString("WaitingListHighlights")
-                        .indexOf(rs.getString("ID") + " ") != -1)
-                        ? "1" : "0";
+                datar[i][hiliteColumn] = (Configuration.getString(
+                        "WaitingListHighlights")
+                                                       .indexOf(rs.getString(
+                            "ID") + " ") != -1) ? "1" : "0";
 
                 i++;
                 rs.moveNext();
@@ -224,7 +225,8 @@ public class WaitingListView extends ASMView {
             Global.logException(e, getClass());
         }
 
-        setTableData(WaitingListViewColumns.getColumnLabels(), datar, i, cols + 3, idColumn);
+        setTableData(WaitingListViewColumns.getColumnLabels(), datar, i,
+            cols + 3, idColumn);
 
         // Go to previous selection
         if (lastSel != -1) {
@@ -233,7 +235,6 @@ public class WaitingListView extends ASMView {
         }
     }
 
-    
     public void tableDoubleClicked() {
         actionEdit();
     }
@@ -262,9 +263,9 @@ public class WaitingListView extends ASMView {
 
     public void loadData() {
     }
-    
+
     @SuppressWarnings("unused")
-	private String formatUrgencyNumberAsString(int urgency) {
+    private String formatUrgencyNumberAsString(int urgency) {
         return LookupCache.getUrgencyNameForID(new Integer(urgency));
     }
 
@@ -384,8 +385,7 @@ public class WaitingListView extends ASMView {
                 DBConnection.executeAction(sql);
 
                 if (AuditTrail.enabled()) {
-                    AuditTrail.changed("animalwaitinglist",
-                    	getAuditTableInfo(i));
+                    AuditTrail.changed("animalwaitinglist", getAuditTableInfo(i));
                 }
             } catch (Exception e) {
                 Dialog.showError(e.getMessage());
@@ -476,7 +476,7 @@ public class WaitingListView extends ASMView {
 
                     if (AuditTrail.enabled()) {
                         AuditTrail.deleted("animalwaitinglist",
-                        		getAuditTableInfo(i));
+                            getAuditTableInfo(i));
                     }
                 } catch (Exception e) {
                     Dialog.showError(UI.messageDeleteError() + e.getMessage());
@@ -489,13 +489,15 @@ public class WaitingListView extends ASMView {
     }
 
     public String getAuditTableInfo(int row) {
-    	String s = "";
-    	for (int i = 0; i < WaitingListViewColumns.getColumnCount(); i++) {
-    		s += table.getModel().getValueAt(row, i).toString() + " ";
-    	}
-    	return s;
+        String s = "";
+
+        for (int i = 0; i < WaitingListViewColumns.getColumnCount(); i++) {
+            s += (table.getModel().getValueAt(row, i).toString() + " ");
+        }
+
+        return s;
     }
-    
+
     public void actionEdit() {
         int id = getTable().getSelectedID();
 

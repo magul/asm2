@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.users;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Users;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.owner.OwnerLink;
@@ -37,6 +33,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.MD5;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 
 /**

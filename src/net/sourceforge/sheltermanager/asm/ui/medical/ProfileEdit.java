@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -31,6 +29,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.CurrencyField;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+
+import java.util.Vector;
 
 
 /**

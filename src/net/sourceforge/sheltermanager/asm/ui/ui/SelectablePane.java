@@ -21,6 +21,8 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.Rectangle;
@@ -28,14 +30,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.Scrollable;
 import javax.swing.border.EtchedBorder;
-
-import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**

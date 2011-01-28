@@ -293,7 +293,8 @@ public class Email {
      * Opens an email form with no to address,
      * and a blank subject/body
      */
-    public static void multiEmailForm(EmailFormListener parent, Vector<String> fieldlist) {
+    public static void multiEmailForm(EmailFormListener parent,
+        Vector<String> fieldlist) {
         UI.cursorToWait();
 
         EmailForm emf = new EmailForm();

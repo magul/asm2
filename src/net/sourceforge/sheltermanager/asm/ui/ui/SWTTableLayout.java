@@ -187,6 +187,7 @@ public class SWTTableLayout implements LayoutManager, java.io.Serializable {
 
     public void layoutContainer(Container parent) {
         int ncomponents = parent.getComponentCount();
+
         if (ncomponents == 0) {
             return;
         }

@@ -31,9 +31,9 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 public class OwnerFindColumns {
     public static final String DEFAULT_COLUMNS = "OwnerName," +
-    	"OwnerSurname,MembershipNumber,IsBanned,IDCheck,OwnerAddress,\n" +
-    	"OwnerTown,OwnerCounty,OwnerPostcode,HomeTelephone,WorkTelephone,\n" +
-    	"MobileTelephone,EmailAddress";
+        "OwnerSurname,MembershipNumber,IsBanned,IDCheck,OwnerAddress,\n" +
+        "OwnerTown,OwnerCounty,OwnerPostcode,HomeTelephone,WorkTelephone,\n" +
+        "MobileTelephone,EmailAddress";
 
     private static String i18n(String key) {
         return Global.i18n("uiowner", key);
@@ -52,8 +52,8 @@ public class OwnerFindColumns {
 
     /** Returns an array of column names */
     public static String[] getColumnNames() {
-        String[] names = Utils.split(Configuration.getString("OwnerSearchColumns",
-                    DEFAULT_COLUMNS), ",");
+        String[] names = Utils.split(Configuration.getString(
+                    "OwnerSearchColumns", DEFAULT_COLUMNS), ",");
 
         for (int i = 0; i < names.length; i++) {
             names[i] = names[i].trim();
@@ -463,7 +463,7 @@ public class OwnerFindColumns {
         }
 
         if (n.equalsIgnoreCase("MatchSize")) {
-        	return LookupCache.getSizeNameForID(r.getInt("MatchSize"));
+            return LookupCache.getSizeNameForID(r.getInt("MatchSize"));
         }
 
         if (n.equalsIgnoreCase("MatchAgeFrom")) {
@@ -487,7 +487,7 @@ public class OwnerFindColumns {
         }
 
         if (n.equalsIgnoreCase("MatchBreed2")) {
-        	return LookupCache.getBreedName(r.getInt("MatchBreed2"));
+            return LookupCache.getBreedName(r.getInt("MatchBreed2"));
         }
 
         if (n.equalsIgnoreCase("MatchGoodWithCats")) {
@@ -495,15 +495,15 @@ public class OwnerFindColumns {
         }
 
         if (n.equalsIgnoreCase("MatchGoodWithDogs")) {
-        	return yesNoUnknown(r.getInt("MatchGoodWithDogs"));
+            return yesNoUnknown(r.getInt("MatchGoodWithDogs"));
         }
 
         if (n.equalsIgnoreCase("MatchGoodWithChildren")) {
-        	return yesNoUnknown(r.getInt("MatchGoodWithChildren"));
+            return yesNoUnknown(r.getInt("MatchGoodWithChildren"));
         }
 
         if (n.equalsIgnoreCase("MatchHouseTrained")) {
-        	return yesNoUnknown(r.getInt("MatchHouseTrained"));
+            return yesNoUnknown(r.getInt("MatchHouseTrained"));
         }
 
         if (n.equalsIgnoreCase("MatchCommentsContain")) {

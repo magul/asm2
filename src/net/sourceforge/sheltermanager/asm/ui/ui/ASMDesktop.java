@@ -21,6 +21,8 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -31,6 +33,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -41,8 +44,6 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
-
-import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**

@@ -58,12 +58,11 @@ package net.sourceforge.sheltermanager.cursorengine;
  * @version 1.0
  */
 public class BOValidationException extends java.lang.Exception {
-    
-	private static final long serialVersionUID = 3727884884452343147L;
+    private static final long serialVersionUID = 3727884884452343147L;
 
-	/**
-     * Creates a new instance of <code>BOValidationException</code> without detail message.
-     */
+    /**
+    * Creates a new instance of <code>BOValidationException</code> without detail message.
+    */
     public BOValidationException() {
     }
 

@@ -55,7 +55,7 @@ public class ReportViewer extends ASMForm {
     private int baseFontSize = 11;
     private String filecontents = "";
     @SuppressWarnings("unused")
-	private String reportTitle = "";
+    private String reportTitle = "";
     private UI.Button btnExternal;
     private UI.Button btnPrint;
     private UI.Button btnZoomIn;
@@ -249,7 +249,7 @@ public class ReportViewer extends ASMForm {
     }
 
     @SuppressWarnings("deprecation")
-	public void actionExternal() {
+    public void actionExternal() {
         try {
             FileTypeManager.shellExecute(new File(filename).toURL().toString());
         } catch (Exception e) {

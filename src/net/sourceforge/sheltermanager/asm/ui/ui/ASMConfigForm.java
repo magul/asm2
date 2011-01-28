@@ -21,9 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
+
+import java.util.Vector;
 
 
 /**

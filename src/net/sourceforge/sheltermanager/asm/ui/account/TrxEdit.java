@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.account;
 
-import java.util.Collections;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -39,6 +36,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.util.Collections;
+import java.util.Vector;
 
 
 /**

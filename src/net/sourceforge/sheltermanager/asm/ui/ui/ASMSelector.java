@@ -141,7 +141,8 @@ public abstract class ASMSelector extends UI.Panel {
         setSecurity();
     }
 
-    protected void registerTabOrder(Vector<Object> components, Object focusedComponent) {
+    protected void registerTabOrder(Vector<Object> components,
+        Object focusedComponent) {
         if ((components == null) || (focusedComponent == null)) {
             return;
         }

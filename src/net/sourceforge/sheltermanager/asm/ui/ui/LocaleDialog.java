@@ -21,9 +21,9 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
+
+import java.util.Vector;
 
 
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class LocaleDialog extends ASMDialog {
     private UI.Button btnCancel;
     private UI.Button btnOk;
     @SuppressWarnings("unused")
-	private UI.Button btnScan;
+    private UI.Button btnScan;
 
     public LocaleDialog() {
         super();

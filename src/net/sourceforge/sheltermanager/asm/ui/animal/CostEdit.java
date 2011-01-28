@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.text.ParseException;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -37,6 +34,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.text.ParseException;
+
+import java.util.Vector;
 
 
 @SuppressWarnings("serial")

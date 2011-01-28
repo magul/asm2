@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -48,6 +43,11 @@ import net.sourceforge.sheltermanager.asm.utility.LDAP;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 
 /**
@@ -269,7 +269,8 @@ public class Options extends ASMForm {
     /** Loads the data and fills the boxes */
     public void loadData() {
         // Waiting List
-    	chkDisableWaitingList.setSelected(Configuration.getBoolean("DisableWaitingList"));
+        chkDisableWaitingList.setSelected(Configuration.getBoolean(
+                "DisableWaitingList"));
         spnUrgency.setValue(new Integer(Configuration.getInteger(
                     "WaitingListUrgencyUpdatePeriod")));
 
@@ -278,9 +279,9 @@ public class Options extends ASMForm {
 
         chkRankBySpecies.setSelected(Configuration.getBoolean(
                 "WaitingListRankBySpecies"));
-        
-        txtWLViewColumns.setText(Configuration.getString("WaitingListViewColumns",
-                WaitingListViewColumns.DEFAULT_COLUMNS));
+
+        txtWLViewColumns.setText(Configuration.getString(
+                "WaitingListViewColumns", WaitingListViewColumns.DEFAULT_COLUMNS));
 
         // Movements
         spnCancelReserves.setValue(new Integer(Configuration.getInteger(
@@ -289,8 +290,8 @@ public class Options extends ASMForm {
         // Search
         txtSearchColumns.setText(Configuration.getString("SearchColumns",
                 AnimalFindColumns.DEFAULT_COLUMNS));
-        txtOwnerSearchColumns.setText(Configuration.getString("OwnerSearchColumns",
-                OwnerFindColumns.DEFAULT_COLUMNS));
+        txtOwnerSearchColumns.setText(Configuration.getString(
+                "OwnerSearchColumns", OwnerFindColumns.DEFAULT_COLUMNS));
 
         // Diary
         txtVetsUser.setText(Global.getVetsDiaryUser());
@@ -336,9 +337,10 @@ public class Options extends ASMForm {
         txtEmailAddress.setText(Configuration.getString("EmailAddress"));
         txtSMTPServer.setText(Configuration.getString("SMTPServer"));
         txtEmailSignature.setText(Configuration.getString("EmailSignature"));
-        
+
         // Pettrac
-        txtAvidUrl.setText(Configuration.getString("AvidURL", AvidRegistration.DEFAULT_PETTRAC_URL));
+        txtAvidUrl.setText(Configuration.getString("AvidURL",
+                AvidRegistration.DEFAULT_PETTRAC_URL));
         txtAvidOrgName.setText(Configuration.getString("AvidOrgName"));
         txtAvidOrgSerial.setText(Configuration.getString("AvidOrgSerial"));
         txtAvidOrgPostcode.setText(Configuration.getString("AvidOrgPostcode"));
@@ -549,12 +551,13 @@ public class Options extends ASMForm {
 
                 return false;
             }
-            
-            if (txtCodingFormat.getText().indexOf("N") != -1 &&
-            	txtCodingFormat.getText().indexOf("Y") == -1) {
-            	Dialog.showError(i18n("Invalid_codeformat_need_y_with_n"),
-            		i18n("Invalid_codeformat"));
-            	return false;
+
+            if ((txtCodingFormat.getText().indexOf("N") != -1) &&
+                    (txtCodingFormat.getText().indexOf("Y") == -1)) {
+                Dialog.showError(i18n("Invalid_codeformat_need_y_with_n"),
+                    i18n("Invalid_codeformat"));
+
+                return false;
             }
 
             // Options
@@ -580,7 +583,8 @@ public class Options extends ASMForm {
 
             // Search
             Configuration.setEntry("SearchColumns", txtSearchColumns.getText());
-            Configuration.setEntry("OwnerSearchColumns", txtOwnerSearchColumns.getText());
+            Configuration.setEntry("OwnerSearchColumns",
+                txtOwnerSearchColumns.getText());
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
@@ -591,14 +595,16 @@ public class Options extends ASMForm {
                 "CostTypeName", cboBoardingType);
 
             // Waiting List
-            Configuration.setEntry("DisableWaitingList", chkDisableWaitingList.isSelected() ? "Yes" : "No");
+            Configuration.setEntry("DisableWaitingList",
+                chkDisableWaitingList.isSelected() ? "Yes" : "No");
             Configuration.setEntry("WaitingListUrgencyUpdatePeriod",
                 spnUrgency.getValue().toString());
             Configuration.setEntry("WaitingListDefaultUrgency",
                 Integer.toString(cboDefaultUrgency.getSelectedIndex()));
             Configuration.setEntry("WaitingListRankBySpecies",
                 chkRankBySpecies.isSelected() ? "Yes" : "No");
-            Configuration.setEntry("WaitingListViewColumns", txtWLViewColumns.getText());
+            Configuration.setEntry("WaitingListViewColumns",
+                txtWLViewColumns.getText());
 
             // Movements
             Configuration.setEntry("AutoCancelReservesDays",
@@ -609,13 +615,15 @@ public class Options extends ASMForm {
             Configuration.setEntry("EmailAddress", txtEmailAddress.getText());
             Configuration.setEntry("SMTPServer", txtSMTPServer.getText());
             Configuration.setEntry("EmailSignature", txtEmailSignature.getText());
-            
+
             // Pettrac/AVID
             Configuration.setEntry("AvidURL", txtAvidUrl.getText());
             Configuration.setEntry("AvidOrgName", txtAvidOrgName.getText());
             Configuration.setEntry("AvidOrgSerial", txtAvidOrgSerial.getText());
-            Configuration.setEntry("AvidOrgPostcode", txtAvidOrgPostcode.getText());
-            Configuration.setEntry("AvidOrgPassword", txtAvidOrgPassword.getText());
+            Configuration.setEntry("AvidOrgPostcode",
+                txtAvidOrgPostcode.getText());
+            Configuration.setEntry("AvidOrgPassword",
+                txtAvidOrgPassword.getText());
 
             // Defaults
             Configuration.setEntry("AFDefaultSpecies",
@@ -749,6 +757,7 @@ public class Options extends ASMForm {
             Configuration.setEntry("DonationAccountMappings", maps);
 
             l = tblAccountOptions.getSelections();
+
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
                     Configuration.setEntry(l[i].getValue().toString(),
@@ -787,8 +796,9 @@ public class Options extends ASMForm {
                 spnMatchDateWithin2Weeks.getValue().toString());
             Configuration.setEntry("MatchPointFloor",
                 spnMatchPointFloor.getValue().toString());
-            
+
             l = tblLostAndFoundOptions.getSelections();
+
             for (int i = 0; i < l.length; i++) {
                 if ((l[i] != null) && (l[i].getValue() != null)) {
                     Configuration.setEntry(l[i].getValue().toString(),
@@ -1287,16 +1297,16 @@ public class Options extends ASMForm {
                 i18n("datewithin2weeks_matches"), UI.getSpinner(0, 100));
 
         l = new ArrayList<SelectableItem>();
-        l.add(new SelectableItem(Global.i18n("uisystem", "lost_and_found"), null,
-                false, true));
+        l.add(new SelectableItem(Global.i18n("uisystem", "lost_and_found"),
+                null, false, true));
 
-        l.add(new SelectableItem(Global.i18n("uisystem", 
-    			"disable_lost_and_found"), "DisableLostAndFound",
-    			Configuration.getString("DisableLostAndFound")
-        					.equalsIgnoreCase("Yes"), false));
-        
         l.add(new SelectableItem(Global.i18n("uisystem",
-                    "include_shelter"), "MatchIncludeShelter",
+                    "disable_lost_and_found"), "DisableLostAndFound",
+                Configuration.getString("DisableLostAndFound")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem", "include_shelter"),
+                "MatchIncludeShelter",
                 Configuration.getString("MatchIncludeShelter")
                              .equalsIgnoreCase("Yes"), false));
 
@@ -1327,24 +1337,26 @@ public class Options extends ASMForm {
         UI.Panel movementoptions = UI.getPanel(UI.getBorderLayout());
         movementoptions.add(pv, UI.BorderLayout.NORTH);
         tabTabs.addTab(i18n("movements"), null, movementoptions, null);
-        
+
         // PETtrac/AVID options (only valid for UK)
         UI.Panel ppa = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        txtAvidUrl = (UI.TextField) UI.addComponent(ppa,
-        		i18n("avid_url"), UI.getTextField());
+        txtAvidUrl = (UI.TextField) UI.addComponent(ppa, i18n("avid_url"),
+                UI.getTextField());
         txtAvidOrgName = (UI.TextField) UI.addComponent(ppa,
-        		i18n("avid_org_name"), UI.getTextField());
+                i18n("avid_org_name"), UI.getTextField());
         txtAvidOrgSerial = (UI.TextField) UI.addComponent(ppa,
-        		i18n("avid_org_serial"), UI.getTextField());
+                i18n("avid_org_serial"), UI.getTextField());
         txtAvidOrgPostcode = (UI.TextField) UI.addComponent(ppa,
-        		i18n("avid_org_postcode"), UI.getTextField());
+                i18n("avid_org_postcode"), UI.getTextField());
         txtAvidOrgPassword = (UI.TextField) UI.addComponent(ppa,
-        		i18n("avid_org_password"), UI.getTextField());
-        
+                i18n("avid_org_password"), UI.getTextField());
+
         UI.Panel pettracoptions = UI.getPanel(UI.getBorderLayout());
         pettracoptions.add(ppa, UI.BorderLayout.NORTH);
-        if (Global.settings_Locale.equalsIgnoreCase("en_GB"))
-        	tabTabs.addTab(i18n("pettrac_avid"), null, pettracoptions, null);
+
+        if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
+            tabTabs.addTab(i18n("pettrac_avid"), null, pettracoptions, null);
+        }
 
         // Search options
         UI.Panel ps = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
@@ -1361,10 +1373,10 @@ public class Options extends ASMForm {
 
         // Waiting list options
         UI.Panel pl = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
-        
+
         chkDisableWaitingList = UI.getCheckBox(i18n("disable_waiting_list"));
         UI.addComponent(pl, "", chkDisableWaitingList);
-        
+
         spnUrgency = (UI.Spinner) UI.addComponent(pl,
                 i18n("Update_Waiting_List_Period:"),
                 UI.getSpinner(0, 9999,
@@ -1378,7 +1390,7 @@ public class Options extends ASMForm {
 
         chkRankBySpecies = UI.getCheckBox(i18n("separate_the_ranks_by_species"));
         UI.addComponent(pl, "", chkRankBySpecies);
-        
+
         UI.Panel plc = UI.getPanel(UI.getGridLayout(2, new int[] { 30, 70 }));
         txtWLViewColumns = (UI.TextArea) UI.addComponent(plc,
                 i18n("waiting_list_view_columns"),
@@ -1512,12 +1524,12 @@ public class Options extends ASMForm {
                     "NoMediaThumbnails",
                     Configuration.getString("NoMediaThumbnails")
                                  .equalsIgnoreCase("Yes"), false));
-            
+
             l.add(new SelectableItem(Global.i18n("uisystem",
-            		"When_printing_dont_scale_to_page_width"),
-            		"NoPrintWidthScaling",
-            		Configuration.getString("NoPrintWidthScaling")
-            					  .equalsIgnoreCase("Yes"), false));
+                        "When_printing_dont_scale_to_page_width"),
+                    "NoPrintWidthScaling",
+                    Configuration.getString("NoPrintWidthScaling")
+                                 .equalsIgnoreCase("Yes"), false));
 
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",
@@ -1668,10 +1680,9 @@ public class Options extends ASMForm {
         tabTabs.addTab(i18n("options"), null, tblOptions, null);
 
         UI.ToolBar t = new UI.ToolBar();
-        	t.add(UI.getButton(null,
-                    i18n("Save_your_changes_and_exit"), 's',
-                    IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
-                    UI.fp(this, "saveData")));
+        t.add(UI.getButton(null, i18n("Save_your_changes_and_exit"), 's',
+                IconManager.getIcon(IconManager.SCREEN_OPTIONS_SAVE),
+                UI.fp(this, "saveData")));
         add(t, UI.BorderLayout.NORTH);
         add(tabTabs, UI.BorderLayout.CENTER);
     }

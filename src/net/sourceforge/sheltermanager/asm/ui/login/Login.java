@@ -45,7 +45,6 @@ import java.util.Vector;
  */
 @SuppressWarnings("serial")
 public class Login extends ASMWindow {
-
     private UI.Button btnExit;
     private UI.Button btnLogin;
     private UI.PasswordField txtPassword;
@@ -96,6 +95,7 @@ public class Login extends ASMWindow {
         ctl.add(txtPassword);
         ctl.add(btnLogin);
         ctl.add(btnExit);
+
         return ctl;
     }
 

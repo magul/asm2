@@ -46,7 +46,6 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** The SQL used to open the current set */
     protected String sql = "";
-
     private int iteratorIndex = 0;
 
     /** Wraps recordset functionality and encapsulates where clause.
@@ -116,7 +115,7 @@ public abstract class NormalBO<T> implements Iterator<T>, Iterable<T> {
 
     /** Iterator::next */
     @SuppressWarnings("unchecked")
-	public T next() {
+    public T next() {
         try {
             iteratorIndex++;
             rs.setAbsolutePosition(iteratorIndex);

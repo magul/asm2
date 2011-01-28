@@ -22,7 +22,6 @@
 package net.sourceforge.sheltermanager.asm.script;
 
 
-
 /**
  * This class actually parses the command sent at the command line and executes
  * it.

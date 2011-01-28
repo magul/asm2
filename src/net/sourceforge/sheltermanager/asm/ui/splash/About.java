@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.splash;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.FileTypeManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
@@ -31,6 +29,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Vector;
 
 
 /**

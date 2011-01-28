@@ -26,16 +26,17 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 import java.awt.Component;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+
 import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.FocusManager;
 import javax.swing.JComponent;
-
-import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**

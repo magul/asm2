@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -33,6 +30,9 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Date;
+import java.util.Vector;
 
 
 /**

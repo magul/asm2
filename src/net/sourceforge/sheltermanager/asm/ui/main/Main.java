@@ -1293,14 +1293,14 @@ public class Main extends ASMWindow {
         mnuFileAnimal.add(mnuFileAnimalAddAnimals);
         mnuFileAnimal.add(mnuFileAnimalFindAnimal);
         mnuFileAnimal.add(UI.getSeparator());
-        
+
         // Disable waiting list functionality if option set
         if (!Configuration.getBoolean("DisableWaitingList")) {
-	        mnuFileAnimal.add(mnuFileAnimalAddWLEntry);
-	        mnuFileAnimal.add(mnuFileAnimalWaitingList);
-	        mnuFileAnimal.add(UI.getSeparator());
+            mnuFileAnimal.add(mnuFileAnimalAddWLEntry);
+            mnuFileAnimal.add(mnuFileAnimalWaitingList);
+            mnuFileAnimal.add(UI.getSeparator());
         }
-        
+
         mnuFileAnimal.add(mnuFileAnimalReservationBook);
         mnuFileAnimal.add(mnuFileAnimalFosterBook);
 
@@ -1325,9 +1325,9 @@ public class Main extends ASMWindow {
         mnuFileLostAndFound.add(mnuFileFoundAnimals);
         mnuFileLostAndFound.add(UI.getSeparator());
         mnuFileLostAndFound.add(mnuFileMatchLostAndFound);
-        
+
         if (!Configuration.getBoolean("DisableLostAndFound")) {
-        	mnuFile.add(mnuFileLostAndFound);
+            mnuFile.add(mnuFileLostAndFound);
         }
 
         if (!Configuration.getBoolean("DisableAccounts")) {
@@ -1671,7 +1671,8 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_ADDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsAddLost"));
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnAddLostAnimal);
         }
 
@@ -1680,7 +1681,8 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_FINDLOSTANIMAL)),
                 UI.fp(this, "actionFileLostAnimalsFindLost"));
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnFindLostAnimal);
         }
 
@@ -1689,7 +1691,8 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_ADDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsAddFound"));
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnAddFoundAnimal);
         }
 
@@ -1698,7 +1701,8 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_FINDFOUNDANIMAL)),
                 UI.fp(this, "actionFileFoundAnimalsFindFound"));
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnFindFoundAnimal);
         }
 
@@ -1708,11 +1712,13 @@ public class Main extends ASMWindow {
                         IconManager.BUTTON_MATCHLOSTANDFOUND)),
                 UI.fp(this, "actionFileMatchLostAndFound"));
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.add(btnMatchLostandFound);
         }
 
-        if (Global.toolbarSize > 0 && !Configuration.getBoolean("DisableLostAndFound")) {
+        if ((Global.toolbarSize > 0) &&
+                !Configuration.getBoolean("DisableLostAndFound")) {
             tlbTools.addSeparator();
         }
 
@@ -1753,9 +1759,9 @@ public class Main extends ASMWindow {
 
         // Disable waiting list functionality if option set
         if (!Configuration.getBoolean("DisableWaitingList")) {
-	        if (Global.toolbarSize > 0) {
-	            tlbTools.add(btnWaitingList);
-	        }
+            if (Global.toolbarSize > 0) {
+                tlbTools.add(btnWaitingList);
+            }
         }
 
         btnAddDiary = UI.getButton(null, i18n("Add_Diary_Note"),

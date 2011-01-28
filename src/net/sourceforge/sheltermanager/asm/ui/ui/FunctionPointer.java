@@ -47,7 +47,7 @@ public class FunctionPointer {
     }
 
     @SuppressWarnings("unchecked")
-	public FunctionPointer(Object instance, String method, Class[] args) {
+    public FunctionPointer(Object instance, String method, Class[] args) {
         o = instance;
 
         try {

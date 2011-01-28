@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -32,6 +30,8 @@ import net.sourceforge.sheltermanager.asm.ui.animal.MediaSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.util.Date;
 
 
 /**

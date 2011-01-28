@@ -21,13 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.startup;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.Locale;
-import java.util.Properties;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
@@ -52,6 +45,14 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import java.util.Locale;
+import java.util.Properties;
+import java.util.Vector;
+
 
 /**
  * This class contains the program entry point and startup code.
@@ -66,7 +67,7 @@ public class Startup implements Runnable {
     public static ASMApplet appletHandle = null;
     public static String appletUser = null;
     @SuppressWarnings("unused")
-	private String[] args = null;
+    private String[] args = null;
     private String jdbcurl = null;
     private StartupProgress sp = null;
 
@@ -963,9 +964,8 @@ public class Startup implements Runnable {
 
 
 class StartupProgress extends ASMWindow {
-    
-	private static final long serialVersionUID = -1528287235874516408L;
-	private UI.Label status = null;
+    private static final long serialVersionUID = -1528287235874516408L;
+    private UI.Label status = null;
     private UI.ProgressBar bar = null;
     private Throbber throbber = null;
     private ASMApplet appletHandle = null;
@@ -1009,22 +1009,32 @@ class StartupProgress extends ASMWindow {
     }
 
     public void dispose() {
-        if (throbber != null) throbber.stop();
+        if (throbber != null) {
+            throbber.stop();
+        }
+
         if (!applet) {
             super.dispose();
         }
     }
 
     public void setMax(int i) {
-        if (bar != null) bar.setMaximum(i);
+        if (bar != null) {
+            bar.setMaximum(i);
+        }
     }
 
     public void incrementBar() {
-        if (bar != null) bar.setValue(bar.getValue() + 1);
+        if (bar != null) {
+            bar.setValue(bar.getValue() + 1);
+        }
     }
 
     public void setStatus(String s) {
-        if (status != null) status.setText(s);
+        if (status != null) {
+            status.setText(s);
+        }
+
         Global.logInfo(s, "Startup.setStatus");
     }
 

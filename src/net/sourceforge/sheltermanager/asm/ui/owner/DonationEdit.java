@@ -326,11 +326,12 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
             // Update the accounting system - regardless of whether it's
             // enabled or not so that things are kept correctly in sync
             od.updateAccountTrx();
-            
+
             // If this donation mapped to a movement, update that
             // movement's denormalised donation total field 
-            if (movementID != 0)
-            	Adoption.updateDonation(movementID);
+            if (movementID != 0) {
+                Adoption.updateDonation(movementID);
+            }
 
             // Update parent
             parent.updateList();

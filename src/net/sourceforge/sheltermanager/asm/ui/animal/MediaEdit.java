@@ -89,6 +89,7 @@ public class MediaEdit extends ASMForm {
         ctl.add(txtNotes);
         ctl.add(btnOk);
         ctl.add(btnCancel);
+
         return ctl;
     }
 

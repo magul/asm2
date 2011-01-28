@@ -41,7 +41,7 @@ import java.util.Vector;
  */
 @SuppressWarnings("serial")
 public class AccountEdit extends ASMForm {
-	private Account account = null;
+    private Account account = null;
     private AccountView parent = null;
     private UI.Button btnOk;
     private UI.Button btnCancel;

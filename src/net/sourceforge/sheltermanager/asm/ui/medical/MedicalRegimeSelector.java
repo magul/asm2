@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.medical;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -32,6 +30,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.Vector;
 
 
 /** Represents the treatment view pane */

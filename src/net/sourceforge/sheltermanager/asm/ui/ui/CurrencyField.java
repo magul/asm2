@@ -69,7 +69,7 @@ public class CurrencyField extends UI.Panel {
 
         // Make sure it is formattable as a number
         try {
-        	Float.parseFloat(outtext);
+            Float.parseFloat(outtext);
         } catch (NumberFormatException e) {
             Dialog.showError(Global.i18n("uibeans",
                     "The_currency_figure_you_entered_was_invalid."));

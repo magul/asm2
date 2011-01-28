@@ -21,13 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.main;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.system.ConfigureLocal;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMDialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+
+import java.util.Vector;
 
 
 /**

@@ -59,10 +59,9 @@ package net.sourceforge.sheltermanager.cursorengine;
  * @version 1.0
  */
 public class CursorEngineException extends java.lang.Exception {
-    
-	private static final long serialVersionUID = 5524563589221829851L;
+    private static final long serialVersionUID = 5524563589221829851L;
 
-	public CursorEngineException(String message) {
+    public CursorEngineException(String message) {
         super(message);
     }
 }

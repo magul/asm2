@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
@@ -38,6 +36,8 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Vector;
 
 
 @SuppressWarnings("serial")

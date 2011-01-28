@@ -35,7 +35,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 @SuppressWarnings("serial")
 public class MedicalSelector extends UI.Panel {
     @SuppressWarnings("unused")
-	private int animalID = 0;
+    private int animalID = 0;
     private UI.TabbedPane tabTabs;
     MedicalRegimeSelector regimeview = new MedicalRegimeSelector(this);
     MedicalRegimeTreatmentSelector regimetview = new MedicalRegimeTreatmentSelector(this);

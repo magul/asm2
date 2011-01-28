@@ -43,9 +43,8 @@ import java.util.Vector;
  * @author Robin Rawson-Tetley
  */
 public class EmailForm extends ASMForm {
-
-	private static final long serialVersionUID = 3682212161945751993L;
-	private EmailFormListener parent = null;
+    private static final long serialVersionUID = 3682212161945751993L;
+    private EmailFormListener parent = null;
     private int ownerid = 0;
     private OwnerEdit parentOwnerForm;
     private UI.Panel pnlFields;

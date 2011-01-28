@@ -21,17 +21,18 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
-import java.io.File;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+
+import java.io.File;
+
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Vector;
 
 
 /**

@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.bo.Additional;
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
@@ -40,6 +35,12 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.File;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -108,8 +109,8 @@ public class AnimalDocument extends GenerateDocument {
                 animal.getBreedName());
             addTag(Global.i18n("wordprocessor", "InternalLocation"),
                 animal.getShelterLocationName());
-            addTag(Global.i18n("wordprocessor", "CoatType"), 
-            	animal.getCoatTypeName());
+            addTag(Global.i18n("wordprocessor", "CoatType"),
+                animal.getCoatTypeName());
             addTag(Global.i18n("wordprocessor", "HealthProblems"),
                 Utils.nullToEmptyString(animal.getHealthProblems()));
             addTag(Global.i18n("wordprocessor", "AnimalCreatedBy"),
@@ -124,14 +125,14 @@ public class AnimalDocument extends GenerateDocument {
                 Utils.formatDate(animal.getDateOfBirth()));
             addTag(Global.i18n("wordprocessor", "AgeGroup"),
                 animal.getAgeGroup());
-        	String displayage = animal.getEstimatedDOB().intValue() == 1 ?
-                animal.getAgeGroup() : animal.getAge();
-            addTag(Global.i18n("wordprocessor", "DisplayAge"),
-            	displayage);
-            String displaydob = animal.getEstimatedDOB().intValue() == 1 ?
-            	animal.getAgeGroup() : Utils.formatDate(animal.getDateOfBirth());
-            addTag(Global.i18n("wordprocessor", "DisplayDOB"),
-            	displaydob);
+
+            String displayage = (animal.getEstimatedDOB().intValue() == 1)
+                ? animal.getAgeGroup() : animal.getAge();
+            addTag(Global.i18n("wordprocessor", "DisplayAge"), displayage);
+
+            String displaydob = (animal.getEstimatedDOB().intValue() == 1)
+                ? animal.getAgeGroup() : Utils.formatDate(animal.getDateOfBirth());
+            addTag(Global.i18n("wordprocessor", "DisplayDOB"), displaydob);
             addTag(Global.i18n("wordprocessor", "BondedWith"),
                 animal.getBondedAnimalDisplay());
             addTag(Global.i18n("wordprocessor", "EstimatedDOB"),

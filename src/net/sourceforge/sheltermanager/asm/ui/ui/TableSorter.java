@@ -48,8 +48,8 @@ import javax.swing.table.TableModel;
 
 
 public class TableSorter extends TableMap {
-	private static final long serialVersionUID = -4194393405352533665L;
-	int[] indexes;
+    private static final long serialVersionUID = -4194393405352533665L;
+    int[] indexes;
     Vector<Integer> sortingColumns = new Vector<Integer>();
     boolean ascending = true;
     int compares;
@@ -68,7 +68,7 @@ public class TableSorter extends TableMap {
     }
 
     @SuppressWarnings("unchecked")
-	public int compareRowsByColumn(int row1, int row2, int column) {
+    public int compareRowsByColumn(int row1, int row2, int column) {
         Class type = model.getColumnClass(column);
         TableModel data = model;
 

@@ -21,9 +21,6 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.criteria;
 
-import java.text.ParseException;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMForm;
 import net.sourceforge.sheltermanager.asm.ui.ui.DateField;
@@ -31,6 +28,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import java.text.ParseException;
+
+import java.util.Vector;
 
 
 /**

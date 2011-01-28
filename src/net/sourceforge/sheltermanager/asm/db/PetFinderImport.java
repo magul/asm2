@@ -175,17 +175,19 @@ class PetFinderSQLRow {
         // Parse the row
         String speciesname = nextTag();
         @SuppressWarnings("unused")
-		String unknown1 = nextTag();
+        String unknown1 = nextTag();
         String breedname = nextTag();
         String agename = nextTag();
         name = nextTag();
+
         @SuppressWarnings("unused")
-		String pfcode = nextTag();
+        String pfcode = nextTag();
         String sizename = nextTag();
         String sexname = nextTag();
         notes = nextTag();
+
         @SuppressWarnings("unused")
-		String unknown2 = nextTag();
+        String unknown2 = nextTag();
         String neuteredname = nextTag();
         String entereddate = nextTag();
 

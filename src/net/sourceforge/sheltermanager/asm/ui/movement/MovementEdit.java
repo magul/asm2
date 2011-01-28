@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.movement;
 
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
@@ -56,6 +51,12 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.MovementDocument;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.text.ParseException;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
 
 
 /**
@@ -391,7 +392,8 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             }
 
             @SuppressWarnings("unused")
-			String retailername = "";
+            String retailername = "";
+
             if (movement.getRetailerID().intValue() == 0) {
                 retailername = i18n("(none)");
             } else {
@@ -868,19 +870,18 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                         IconManager.SCREEN_EDITMOVEMENT_VIEWOWNER),
                     UI.fp(this, "actionViewOwner")));
 
-    	btnPettrac = UI.getButton(null,
-    			i18n("Register_with_pettrac"), 'r',
-    			IconManager.getIcon(
-    				IconManager.SCREEN_EDITMOVEMENT_PETTRAC),
-    			UI.fp(this, "actionRegisterPettrac"));
-        
+        btnPettrac = UI.getButton(null, i18n("Register_with_pettrac"), 'r',
+                IconManager.getIcon(IconManager.SCREEN_EDITMOVEMENT_PETTRAC),
+                UI.fp(this, "actionRegisterPettrac"));
+
         if (Global.settings_Locale.equalsIgnoreCase("en_GB")) {
-        	tlbTools.add(btnPettrac);
-        	if (Configuration.getString("AvidOrgSerial", "").equals("")) {
-        		btnPettrac.setEnabled(false);
-        	}
+            tlbTools.add(btnPettrac);
+
+            if (Configuration.getString("AvidOrgSerial", "").equals("")) {
+                btnPettrac.setEnabled(false);
+            }
         }
-        
+
         add(tlbTools, UI.BorderLayout.NORTH);
 
         // Details pane ============================================
@@ -1119,10 +1120,10 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
             dataChanged();
         }
     }
-    
+
     public void actionRegisterPettrac() {
-    	AvidRegistration a = new AvidRegistration(movement);
-    	a.register();
+        AvidRegistration a = new AvidRegistration(movement);
+        a.register();
     }
 
     public void actionDocument() {

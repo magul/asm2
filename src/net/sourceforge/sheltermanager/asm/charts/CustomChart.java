@@ -21,9 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.charts;
 
+import de.progra.charting.model.ObjectChartDataModel;
+
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-import de.progra.charting.model.ObjectChartDataModel;
 
 
 /**

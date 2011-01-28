@@ -398,9 +398,9 @@ public abstract class Global {
 
         return Configuration.getInteger("RecordSearchLimit");
     }
-    
+
     public static boolean getNoPrintWidthScaling() {
-    	return Configuration.getBoolean("NoPrintWidthScaling");
+        return Configuration.getBoolean("NoPrintWidthScaling");
     }
 
     public static boolean getShowShortCodes() {
@@ -511,7 +511,7 @@ public abstract class Global {
     }
 
     @SuppressWarnings("unchecked")
-	public static void logException(Exception e, Class location) {
+    public static void logException(Exception e, Class location) {
         StringWriter sw = new StringWriter();
         e.printStackTrace(new PrintWriter(sw));
         logMessage(sw.toString(), "ERROR", location.getName());

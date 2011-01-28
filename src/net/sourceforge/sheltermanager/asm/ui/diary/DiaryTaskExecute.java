@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.diary;
 
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
 import net.sourceforge.sheltermanager.asm.bo.DiaryTaskDetail;
@@ -40,6 +36,11 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDocument;
+
+import java.text.ParseException;
+
+import java.util.Calendar;
+import java.util.Vector;
 
 
 /**
@@ -163,7 +164,8 @@ public class DiaryTaskExecute extends ASMForm {
                 // Create the animal link
                 newDiary.setLinkID(animal.getID());
                 newDiary.setLinkType(new Integer(Diary.LINKTYPE_ANIMAL));
-                newDiary.setLinkInfo(Diary.calculateLinkInfo(animal.getID(), Diary.LINKTYPE_ANIMAL));
+                newDiary.setLinkInfo(Diary.calculateLinkInfo(animal.getID(),
+                        Diary.LINKTYPE_ANIMAL));
 
                 // Remember it
                 notes.add(newDiary.getID());
@@ -274,7 +276,8 @@ public class DiaryTaskExecute extends ASMForm {
                 // Create the owner link
                 newDiary.setLinkID(owner.getID());
                 newDiary.setLinkType(new Integer(Diary.LINKTYPE_OWNER));
-                newDiary.setLinkInfo(Diary.calculateLinkInfo(owner.getID(), Diary.LINKTYPE_OWNER));
+                newDiary.setLinkInfo(Diary.calculateLinkInfo(owner.getID(),
+                        Diary.LINKTYPE_OWNER));
 
                 // Remember it
                 notes.add(newDiary.getID());

@@ -91,11 +91,11 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     private UI.Button btnDiaryTask;
     private UI.Button btnDoc;
     @SuppressWarnings("unused")
-	private UI.Button btnEmail;
+    private UI.Button btnEmail;
     private UI.Button btnMerge;
     private UI.Button btnSave;
     @SuppressWarnings("unused")
-	private UI.Button btnMap;
+    private UI.Button btnMap;
     private UI.CheckBox chkGiftAid;
     private UI.CheckBox chkBanned;
     private UI.CheckBox chkHomeCheck;
@@ -1655,7 +1655,7 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     public void changedTown() {
         // Filter the county selection box
         Vector<String> v = LookupCache.getCountiesForTown(cboTown.getSelectedItem()
-                                                         .toString());
+                                                                 .toString());
 
         if (v.size() == 0) {
             v = LookupCache.getOwnerCounties();
@@ -1696,22 +1696,21 @@ public class OwnerEdit extends ASMForm implements SearchListener,
     }
 
     public void changedMember() {
-    	
         txtMembershipExpiryDate.setEnabled(chkIsMember.isSelected());
         txtMembershipNumber.setEnabled(chkIsMember.isSelected());
-        
+
         // If the membership number is blank and the owner is a member,
         // create a default number by padding the owner ID
         try {
-	        if (chkIsMember.isSelected() && 
-	        	txtMembershipNumber.getText().trim().equals("")) {
-	        	txtMembershipNumber.setText(Utils.zeroPad(owner.getID().intValue(), 8));
-	        }
+            if (chkIsMember.isSelected() &&
+                    txtMembershipNumber.getText().trim().equals("")) {
+                txtMembershipNumber.setText(Utils.zeroPad(
+                        owner.getID().intValue(), 8));
+            }
+        } catch (Exception e) {
+            Global.logException(e, getClass());
         }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
-        }
-        
+
         dataChanged();
     }
 

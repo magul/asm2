@@ -21,13 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import java.awt.Frame;
-import java.util.Calendar;
-import java.util.Vector;
-
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.MedicalProfile;
@@ -35,6 +28,14 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.awt.Frame;
+
+import java.util.Calendar;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public abstract class Dialog {
@@ -201,6 +202,7 @@ public abstract class Dialog {
 
     public static String getJDBCUrl(String title) {
         new JDBCDlg(title);
+
         return lastJDBC;
     }
 

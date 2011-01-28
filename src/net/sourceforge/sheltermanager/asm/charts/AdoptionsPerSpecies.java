@@ -21,7 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.charts;
 
-import java.util.Calendar;
+import de.progra.charting.model.ObjectChartDataModel;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -29,7 +29,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
-import de.progra.charting.model.ObjectChartDataModel;
+
+import java.util.Calendar;
 
 
 /**

@@ -21,12 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.globals.Global;
+
 import java.awt.Component;
+
 import java.util.Vector;
 
 import javax.swing.Icon;
-
-import net.sourceforge.sheltermanager.asm.globals.Global;
 
 
 /**

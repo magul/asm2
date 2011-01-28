@@ -33,9 +33,8 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
  * @author  Robin Rawson-Tetley
  */
 public class OwnerMailMerge extends MailMerge {
-
-	SortableTableModel model = null;
-	String[] colnames = null;
+    SortableTableModel model = null;
+    String[] colnames = null;
 
     public OwnerMailMerge(SortableTableModel model, String[] colnames) {
         this.model = model;
@@ -61,9 +60,9 @@ public class OwnerMailMerge extends MailMerge {
 
         // Set header
         for (int i = 0; i < cols; i++) {
-        	theData[0][i] = colnames[i];
-        	
-        	// If there's an email column, flag it
+            theData[0][i] = colnames[i];
+
+            // If there's an email column, flag it
             if (colnames[i].toLowerCase().indexOf("email") != -1) {
                 emailColumn = i;
             }
@@ -71,18 +70,17 @@ public class OwnerMailMerge extends MailMerge {
 
         // Build data
         for (int i = 1; i < rows; i++) {
-            
-        	// Fill out the entry
-        	for (int z = 0; z < cols; z++) {
-        		
-        		theData[i][z] = Utils.nullToEmptyString((String)model.getValueAt(i - 1, z));
-        		
-        		// If it's an address, convert commas to breaks
-        		if (colnames[z].toLowerCase().indexOf("address") != -1) {
-        			theData[i][z] = model.getValueAt(i - 1, z).toString().replace(',', '\n');
-        		}        		
-        		
-        	}
+            // Fill out the entry
+            for (int z = 0; z < cols; z++) {
+                theData[i][z] = Utils.nullToEmptyString((String) model.getValueAt(i -
+                            1, z));
+
+                // If it's an address, convert commas to breaks
+                if (colnames[z].toLowerCase().indexOf("address") != -1) {
+                    theData[i][z] = model.getValueAt(i - 1, z).toString()
+                                         .replace(',', '\n');
+                }
+            }
 
             incrementStatusBar();
         }

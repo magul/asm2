@@ -1,9 +1,14 @@
 package net.sourceforge.sheltermanager.cursorengine.http;
 
+import net.sourceforge.sheltermanager.asm.utility.Utils;
+
 import java.io.InputStream;
 import java.io.Reader;
+
 import java.math.BigDecimal;
+
 import java.net.URL;
+
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.Clob;
@@ -21,20 +26,20 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.sql.Types;
+
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
-
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 public class HttpResultSet implements ResultSet {
     private final static String NULL_VALUE = "\\null";
     @SuppressWarnings("unused")
-	private Connection c;
+    private Connection c;
     @SuppressWarnings("unused")
-	private String url;
+    private String url;
     private ArrayList<String> lines;
     private ArrayList<String> colnames = new ArrayList<String>();
     private ArrayList<Integer> coltypes = new ArrayList<Integer>();

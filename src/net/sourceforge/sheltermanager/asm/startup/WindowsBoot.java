@@ -61,10 +61,9 @@ public class WindowsBoot {
         s.append("-XX:+UseConcMarkSweepGC ");
 
         // Classpath
-        s.append("-cp \"" + d + "asm.jar;" + d + "lib\\edtftpj.jar;" + d + 
-            "lib\\charting-0.94.jar;" + d +
-            "lib\\mysql.jar;" + d + "lib\\postgresql.jar;" + d +
-            "lib\\hsqldb.jar\" ");
+        s.append("-cp \"" + d + "asm.jar;" + d + "lib\\edtftpj.jar;" + d +
+            "lib\\charting-0.94.jar;" + d + "lib\\mysql.jar;" + d +
+            "lib\\postgresql.jar;" + d + "lib\\hsqldb.jar\" ");
 
         // Bootclass
         s.append("net.sourceforge.sheltermanager.asm.startup.Startup");

@@ -21,11 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.system;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.Properties;
-
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -33,6 +28,12 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.GenerateDocument;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import java.util.Properties;
 
 
 /**
@@ -123,7 +124,7 @@ public class FileTypeManager {
      * of hanging on various Windows machines
      */
     @SuppressWarnings("unused")
-	private static void scanWin32Dir(File dir) throws Exception {
+    private static void scanWin32Dir(File dir) throws Exception {
         if (Global.showDebug) {
             Global.logDebug("Scanning: " + checkWin32Path(dir),
                 "FileTypeManager.scanWin32Dir");

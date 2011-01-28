@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.db.AutoDBUpdates;
@@ -36,6 +32,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.TableRow;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
 
 
 /**
@@ -112,7 +112,7 @@ public class GetReports extends ASMView {
     }
 
     @SuppressWarnings("unchecked")
-	public synchronized void updateListThread() {
+    public synchronized void updateListThread() {
         try {
             if (reports == null) {
                 // Open the list of custom reports so we can omit reports

@@ -21,12 +21,13 @@
 */
 package net.sourceforge.sheltermanager.asm.script;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Properties;
-
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+import java.util.Properties;
 
 
 /**

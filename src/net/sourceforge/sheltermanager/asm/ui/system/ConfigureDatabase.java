@@ -130,10 +130,9 @@ public class ConfigureDatabase extends ASMForm {
                 i18n("allow_db_updates"),
                 UI.getCheckBox("", i18n("allow_db_updates_tooltip")));
 
-        pb.add(UI.getButton(i18n("Ok"), null, 'o', null,
-                UI.fp(this, "saveData")));
-        pb.add(UI.getButton(i18n("Cancel"), null, 'c',
-                null, UI.fp(this, "dispose")));
+        pb.add(UI.getButton(i18n("Ok"), null, 'o', null, UI.fp(this, "saveData")));
+        pb.add(UI.getButton(i18n("Cancel"), null, 'c', null,
+                UI.fp(this, "dispose")));
 
         add(p, UI.BorderLayout.NORTH);
         add(pn, UI.BorderLayout.CENTER);

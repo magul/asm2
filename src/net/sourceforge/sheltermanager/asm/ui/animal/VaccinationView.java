@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
@@ -42,6 +38,10 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Vector;
 
 
 /**

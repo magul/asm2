@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.customreport;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.CustomReportExecute;
@@ -35,6 +31,11 @@ import net.sourceforge.sheltermanager.asm.ui.ui.IconManager;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.io.File;
+import java.io.FileOutputStream;
+
+import java.util.Vector;
 
 
 /**

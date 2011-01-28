@@ -21,15 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Properties;
-import java.util.Vector;
-
-import javax.swing.Icon;
-import javax.swing.JMenu;
-import javax.swing.JToolBar;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -39,6 +30,16 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.MovementDocument;
 import net.sourceforge.sheltermanager.asm.wordprocessor.OwnerDocument;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import java.util.Properties;
+import java.util.Vector;
+
+import javax.swing.Icon;
+import javax.swing.JMenu;
+import javax.swing.JToolBar;
 
 
 /**

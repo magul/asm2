@@ -75,17 +75,19 @@ public class TrxView extends ASMView {
                     });
 
             dtFrom = UI.getDateField();
+
             Calendar onemonth = Calendar.getInstance();
             onemonth.add(Calendar.MONTH, -1);
             dtFrom.setDate(Utils.calendarToDate(onemonth));
 
             dtTo = UI.getDateField();
+
             Calendar now = Calendar.getInstance();
             dtTo.setDate(Utils.calendarToDate(now));
-            
+
             cboReconciled = UI.getCombo(new String[] {
-            		i18n("Both"), i18n("Reconciled"), i18n("Non_reconciled")
-            });
+                        i18n("Both"), i18n("Reconciled"), i18n("Non_reconciled")
+                    });
 
             UI.addComponent(getTopPanel(), i18n("show_most_recent"), dtFrom);
             UI.addComponent(getTopPanel(), i18n("to"), dtTo);
@@ -167,8 +169,8 @@ public class TrxView extends ASMView {
             startThrobber();
 
             // Grab the list
-            trx = AccountTrx.getTransactions(account.getID(), from, to, 
-            	cboReconciled.getSelectedIndex());
+            trx = AccountTrx.getTransactions(account.getID(), from, to,
+                    cboReconciled.getSelectedIndex());
 
             String[][] datar = new String[trx.size()][9];
 

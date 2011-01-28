@@ -21,25 +21,9 @@
 */
 package net.sourceforge.sheltermanager.asm.utility;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Vector;
+import com.enterprisedt.net.ftp.FTPClient;
+import com.enterprisedt.net.ftp.FTPException;
+import com.enterprisedt.net.ftp.FTPTransferType;
 
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Media;
@@ -50,9 +34,28 @@ import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
-import com.enterprisedt.net.ftp.FTPClient;
-import com.enterprisedt.net.ftp.FTPException;
-import com.enterprisedt.net.ftp.FTPTransferType;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import java.net.URL;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Vector;
 
 
 /**
@@ -423,7 +426,7 @@ public abstract class Utils {
      * temp folder. Use an empty string for the temp folder itself.
      */
     @SuppressWarnings("deprecation")
-	public static void ftpCopyImages(String ftpsourcedir, String localtempdir) {
+    public static void ftpCopyImages(String ftpsourcedir, String localtempdir) {
         String ftpserver = "";
         String ftplogin = "";
         String ftppassword = "";
@@ -470,7 +473,7 @@ public abstract class Utils {
      * @param A directory mask of files you want to copy - eg: *.jpg
      */
     @SuppressWarnings("deprecation")
-	private static void ftpTransferImages(FTPClient ftp, String localtempdir,
+    private static void ftpTransferImages(FTPClient ftp, String localtempdir,
         String filemask) {
         // Make the relative temp dir into an absolute path
         String abspath = net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
@@ -948,7 +951,7 @@ public abstract class Utils {
      * media link type and ID given, creating them if necessary.
      */
     @SuppressWarnings("deprecation")
-	public static FTPClient getFTPDirectoryForLink(int linkType, int linkID)
+    public static FTPClient getFTPDirectoryForLink(int linkType, int linkID)
         throws Exception {
         // Read FTP server configuration
         String ftpserver = "";
@@ -1028,7 +1031,7 @@ public abstract class Utils {
      * @return A Vector of FTPDirEntry objects
      */
     @SuppressWarnings("deprecation")
-	public Vector<FTPDirEntry> ftpListDirectory(FTPClient ftp) {
+    public Vector<FTPDirEntry> ftpListDirectory(FTPClient ftp) {
         try {
             // Get a full directory listing
             String list = ftp.list("*", true);
@@ -1680,6 +1683,7 @@ public abstract class Utils {
     /** Sorts a vector of strings into alphabetical order */
     public static void sortVectorOfStrings(Vector<String> v) {
         boolean done = false;
+
         while (!done) {
             done = true;
 
@@ -1736,7 +1740,7 @@ public abstract class Utils {
 
     /** Returns the contents of a URL as a string */
     @SuppressWarnings("deprecation")
-	public static String getURL(String url) throws Exception {
+    public static String getURL(String url) throws Exception {
         Global.logDebug("Requesting " + url + " ...", "Utils.getURL");
 
         URL u = new URL(url);

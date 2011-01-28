@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
@@ -45,6 +41,10 @@ import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Vector;
 
 
 /**
@@ -187,8 +187,9 @@ public class AnimalFindText extends ASMFind {
                 i18n("look_in_lost_animal_database"), 'n',
                 IconManager.getIcon(IconManager.SCREEN_FINDANIMAL_LOSTFOUND),
                 UI.fp(this, "actionMatchLost"));
+
         if (!Configuration.getBoolean("DisableLostAndFound")) {
-        	addLeftbarItem(btnHotLostFound, true);
+            addLeftbarItem(btnHotLostFound, true);
         }
 
         btnHotMedia = UI.getButton(null, i18n("Add_new_media_to_this_animal"),

@@ -25,10 +25,9 @@ import java.util.Vector;
 
 
 public class TableData extends Vector<TableRow> {
-	
-	private static final long serialVersionUID = -8439920271447078314L;
+    private static final long serialVersionUID = -8439920271447078314L;
 
-	public boolean add(TableRow r) {
+    public boolean add(TableRow r) {
         return super.add(r);
     }
 

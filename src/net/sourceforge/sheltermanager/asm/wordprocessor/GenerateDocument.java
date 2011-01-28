@@ -21,21 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Vector;
-import java.util.zip.Deflater;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipOutputStream;
-
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.reportviewer.ReportViewer;
@@ -46,6 +31,22 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.utility.WordProcessorListener;
 import net.sourceforge.sheltermanager.dbfs.Base64;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
+import java.util.zip.Deflater;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 
 /**
@@ -443,7 +444,7 @@ public abstract class GenerateDocument extends Thread
 
         try {
             ZipFile z = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = z.entries();
+            Enumeration<?extends ZipEntry> entries = z.entries();
 
             while (entries.hasMoreElements()) {
                 ZipEntry entry = (ZipEntry) entries.nextElement();

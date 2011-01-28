@@ -21,8 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Media;
@@ -37,6 +35,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.SearchListener;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
+
+import java.util.Vector;
 
 
 /**
@@ -246,7 +246,8 @@ public class OwnerFind extends ASMFind {
         }
 
         // Pass the data on to the Mail Merge class for this job
-        new OwnerMailMerge((SortableTableModel) getTable().getModel(), OwnerFindColumns.getColumnNames());
+        new OwnerMailMerge((SortableTableModel) getTable().getModel(),
+            OwnerFindColumns.getColumnNames());
     }
 
     public void actionSimple() {
@@ -593,7 +594,7 @@ public class OwnerFind extends ASMFind {
         int cols = OwnerFindColumns.getColumnCount() + 1;
         String[][] datar = new String[owner.size()][cols];
         int idColumn = cols - 1;
-        
+
         // Initialise the progress meter
         initStatusBarMax((int) owner.getRecordCount());
 
@@ -602,13 +603,12 @@ public class OwnerFind extends ASMFind {
         while (!owner.getEOF()) {
             // Add this owner record to the table data
             try {
-            	
-            	for (int z = 0; z < (cols - 1); z++) {
+                for (int z = 0; z < (cols - 1); z++) {
                     datar[i][z] = OwnerFindColumns.format(OwnerFindColumns.getColumnName(
                                 z), owner, add);
                 }
-            	datar[i][idColumn] = owner.getField("ID").toString();
-                
+
+                datar[i][idColumn] = owner.getField("ID").toString();
             } catch (Exception e) {
             }
 
@@ -622,7 +622,8 @@ public class OwnerFind extends ASMFind {
             incrementStatusBar();
         }
 
-        setTableData(OwnerFindColumns.getColumnLabels(), datar, i, cols, idColumn);
+        setTableData(OwnerFindColumns.getColumnLabels(), datar, i, cols,
+            idColumn);
 
         owner.free();
         owner = null;

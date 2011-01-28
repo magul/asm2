@@ -370,7 +370,7 @@ public class AdditionalFieldView extends UI.Panel {
      * @return
      */
     @SuppressWarnings("unchecked")
-	private int getComponentID(Object o) {
+    private int getComponentID(Object o) {
         try {
             Class c = o.getClass();
             Method m = c.getMethod("getName", (Class[]) null);

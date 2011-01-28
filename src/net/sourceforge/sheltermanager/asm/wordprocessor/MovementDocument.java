@@ -21,10 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
-import java.io.File;
-import java.util.Date;
-import java.util.Iterator;
-
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -35,6 +31,11 @@ import net.sourceforge.sheltermanager.asm.ui.movement.MovementParent;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.File;
+
+import java.util.Date;
+import java.util.Iterator;
 
 
 /**

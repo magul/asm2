@@ -21,8 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.io.File;
-import java.io.IOException;
+import com.enterprisedt.net.ftp.FTPClient;
+import com.enterprisedt.net.ftp.FTPConnectMode;
+import com.enterprisedt.net.ftp.FTPException;
+import com.enterprisedt.net.ftp.FTPTransferType;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -31,10 +33,8 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
-import com.enterprisedt.net.ftp.FTPClient;
-import com.enterprisedt.net.ftp.FTPConnectMode;
-import com.enterprisedt.net.ftp.FTPException;
-import com.enterprisedt.net.ftp.FTPTransferType;
+import java.io.File;
+import java.io.IOException;
 
 
 /**
@@ -62,7 +62,7 @@ public class FTPPublisher extends AbstractPublisher {
 
     /** Current FTP directory */
     protected String currentFTPDirectory = "";
-    
+
     /** Active or Passive FTP */
     protected boolean isPassive = true;
 
@@ -81,7 +81,7 @@ public class FTPPublisher extends AbstractPublisher {
             this.root = root;
         }
     }
-    
+
     /** Initialise the publisher, specifying active or passive connections */
     protected void init(String publisherName, InternetPublisher parent,
         PublishCriteria publishCriteria, String host, String user,
@@ -104,7 +104,7 @@ public class FTPPublisher extends AbstractPublisher {
     * @return true if the operation was successful
     */
     @SuppressWarnings("deprecation")
-	protected boolean openFTPSocket() {
+    protected boolean openFTPSocket() {
         if (!publishCriteria.uploadDirectly) {
             return false;
         }
@@ -126,7 +126,8 @@ public class FTPPublisher extends AbstractPublisher {
             uploadFTP = new FTPClient(host, Integer.parseInt(port));
             uploadFTP.login(user, password);
             uploadFTP.setType(FTPTransferType.BINARY);
-            uploadFTP.setConnectMode( isPassive ? FTPConnectMode.PASV: FTPConnectMode.ACTIVE);
+            uploadFTP.setConnectMode(isPassive ? FTPConnectMode.PASV
+                                               : FTPConnectMode.ACTIVE);
 
             if (!root.trim().equals("")) {
                 chdir(this.root);
@@ -167,7 +168,7 @@ public class FTPPublisher extends AbstractPublisher {
      * and the current FTP directory returned to.
      */
     @SuppressWarnings("deprecation")
-	protected void checkFTPSocket() {
+    protected void checkFTPSocket() {
         if (!publishCriteria.uploadDirectly) {
             return;
         }
@@ -207,7 +208,7 @@ public class FTPPublisher extends AbstractPublisher {
      * (and it is not our extension), it is not uploaded again.
      */
     @SuppressWarnings("deprecation")
-	protected void upload(String filename) {
+    protected void upload(String filename) {
         if (!publishCriteria.uploadDirectly) {
             return;
         }
@@ -319,7 +320,7 @@ public class FTPPublisher extends AbstractPublisher {
      * existing HTML files.
      */
     @SuppressWarnings("deprecation")
-	protected void clearExistingHTML() {
+    protected void clearExistingHTML() {
         if (!publishCriteria.uploadDirectly) {
             return;
         }

@@ -21,16 +21,10 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
-import java.io.File;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Vector;
-
 import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.Animal.AnimalCode;
 import net.sourceforge.sheltermanager.asm.bo.AnimalLitter;
 import net.sourceforge.sheltermanager.asm.bo.AnimalName;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
@@ -41,7 +35,6 @@ import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
-import net.sourceforge.sheltermanager.asm.bo.Animal.AnimalCode;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.reports.AnimalPrint;
 import net.sourceforge.sheltermanager.asm.reports.LostFoundMatch;
@@ -68,6 +61,15 @@ import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
+
+import java.io.File;
+
+import java.text.ParseException;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Vector;
 
 
 /**
@@ -2166,13 +2168,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_VIEWOWNER),
                     UI.fp(this, "actionViewOwner")));
 
-        btnMatchLost = UI.getButton(null,
-                    i18n("look_in_lost_animal_database"), 'm',
-                    IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_LOSTFOUND),
-                    UI.fp(this, "actionMatchLost"));
-        
+        btnMatchLost = UI.getButton(null, i18n("look_in_lost_animal_database"),
+                'm',
+                IconManager.getIcon(IconManager.SCREEN_EDITANIMAL_LOSTFOUND),
+                UI.fp(this, "actionMatchLost"));
+
         if (!Configuration.getBoolean("DisableLostAndFound")) {
-        	tlbTools.add(btnMatchLost);
+            tlbTools.add(btnMatchLost);
         }
 
         btnCreateLitter = (UI.Button) tlbTools.add(UI.getButton(null,

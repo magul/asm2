@@ -30,10 +30,8 @@ import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 
 public class WaitingListViewColumns {
-    
     public static final String DEFAULT_COLUMNS = "Rank,OwnerName,OwnerAddress,HomeTelephone,DatePutOnList,\n" +
-    		"DateRemovedFromList,Urgency,SpeciesID,AnimalDescription";
-    
+        "DateRemovedFromList,Urgency,SpeciesID,AnimalDescription";
     private static SQLRecordset ranks = null;
 
     private static String i18n(String key) {
@@ -53,8 +51,8 @@ public class WaitingListViewColumns {
 
     /** Returns an array of column names */
     public static String[] getColumnNames() {
-        String[] names = Utils.split(Configuration.getString("WaitingListViewColumns",
-                    DEFAULT_COLUMNS), ",");
+        String[] names = Utils.split(Configuration.getString(
+                    "WaitingListViewColumns", DEFAULT_COLUMNS), ",");
 
         for (int i = 0; i < names.length; i++) {
             names[i] = names[i].trim();
@@ -79,7 +77,7 @@ public class WaitingListViewColumns {
     public static String getColumnName(int index) {
         return getColumnNames()[index];
     }
-    
+
     /** Returns the label for a given column */
     public static String getColumnLabel(int index) {
         String n = getColumnName(index);
@@ -87,7 +85,7 @@ public class WaitingListViewColumns {
         if (n.equalsIgnoreCase("Rank")) {
             return i18n("Rank");
         }
-        
+
         if (n.equalsIgnoreCase("SpeciesID")) {
             return i18n("Species");
         }
@@ -103,29 +101,29 @@ public class WaitingListViewColumns {
         if (n.equalsIgnoreCase("OwnerAddress")) {
             return i18n("Address");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerTown")) {
             return Global.i18n("uiowner", "town");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerCounty")) {
-        	return Global.i18n("uiowner", "county");
+            return Global.i18n("uiowner", "county");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerPostcode")) {
-        	return Global.i18n("uiowner", "Postcode");
+            return Global.i18n("uiowner", "Postcode");
         }
 
         if (n.equalsIgnoreCase("HomeTelephone")) {
-        	return Global.i18n("uiowner", "Telephone:");
+            return Global.i18n("uiowner", "Telephone:");
         }
 
         if (n.equalsIgnoreCase("WorkTelephone")) {
-        	return Global.i18n("uiowner", "Work_Tel");
+            return Global.i18n("uiowner", "Work_Tel");
         }
 
         if (n.equalsIgnoreCase("MobileTelephone")) {
-        	return Global.i18n("uiowner", "Mobile_Te");
+            return Global.i18n("uiowner", "Mobile_Te");
         }
 
         if (n.equalsIgnoreCase("AnimalDescription")) {
@@ -201,11 +199,11 @@ public class WaitingListViewColumns {
     public static String format(String colname, SQLRecordset r)
         throws CursorEngineException {
         String n = colname;
-        
+
         if (n.equalsIgnoreCase("Rank")) {
-        	return getRank(r.getInt("ID"));
+            return getRank(r.getInt("ID"));
         }
-        
+
         if (n.equalsIgnoreCase("SpeciesID")) {
             return LookupCache.getSpeciesName(r.getInt("SpeciesID"));
         }
@@ -221,15 +219,15 @@ public class WaitingListViewColumns {
         if (n.equalsIgnoreCase("OwnerAddress")) {
             return r.getString("OwnerAddress");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerTown")) {
             return r.getString("OwnerTown");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerCounty")) {
             return r.getString("OwnerCounty");
         }
-        
+
         if (n.equalsIgnoreCase("OwnerPostcode")) {
             return r.getString("OwnerPostcode");
         }
@@ -281,7 +279,7 @@ public class WaitingListViewColumns {
         // Give up
         return "";
     }
-    
+
     /**
      * Calculates the rank (order) of any item on the waiting list
      * - if the item is no longer on the list, an empty string is returned
@@ -330,5 +328,4 @@ public class WaitingListViewColumns {
 
         return "";
     }
-    
 }

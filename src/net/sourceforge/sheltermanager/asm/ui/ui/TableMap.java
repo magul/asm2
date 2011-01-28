@@ -39,9 +39,8 @@ import javax.swing.table.*;
 
 
 public class TableMap extends AbstractTableModel implements TableModelListener {
-
-	private static final long serialVersionUID = -8832203983260228974L;
-	protected TableModel model;
+    private static final long serialVersionUID = -8832203983260228974L;
+    protected TableModel model;
 
     public TableModel getModel() {
         return model;
@@ -75,7 +74,7 @@ public class TableMap extends AbstractTableModel implements TableModelListener {
     }
 
     @SuppressWarnings("unchecked")
-	public Class getColumnClass(int aColumn) {
+    public Class getColumnClass(int aColumn) {
         return model.getColumnClass(aColumn);
     }
 

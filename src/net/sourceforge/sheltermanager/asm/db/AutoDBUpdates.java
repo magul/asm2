@@ -114,8 +114,9 @@ public class AutoDBUpdates {
                     Global.logInfo("Updating database to " + dbv +
                         ", please wait...", "AutoDBUpdates");
                     checkUpdateAllowed();
-                    getClass().getMethod("update" + Integer.toString(dbv), 
-                    	(Class[]) null).invoke(this, (Object[]) null);
+                    getClass()
+                        .getMethod("update" + Integer.toString(dbv),
+                        (Class[]) null).invoke(this, (Object[]) null);
 
                     // Update our database version to the update we just ran
                     v = dbv;
