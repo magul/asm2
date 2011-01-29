@@ -113,6 +113,7 @@ public class Options extends ASMForm {
     private UI.CheckBox chkCreateBoardingCostAdoption;
     private UI.CheckBox chkRankBySpecies;
     private UI.CheckBox chkDisableWaitingList;
+    private UI.ComboBox cboAccountView;
     private UI.ComboBox cboBoardingType;
     private UI.ComboBox cboDefaultColour;
     private UI.ComboBox cboDefaultDeath;
@@ -217,6 +218,7 @@ public class Options extends ASMForm {
         ctl.add(olDefaultBroughtInBy);
         ctl.add(dtAccountingPeriod);
         ctl.add(cboDonationTargetAccount);
+        ctl.add(cboAccountView);
         ctl.add(cboMapDT1);
         ctl.add(cboMapAc1);
         ctl.add(cboMapDT2);
@@ -369,6 +371,7 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("DonationTargetAccount")),
             cboDonationTargetAccount);
         dtAccountingPeriod.setText(Configuration.getString("AccountingPeriod"));
+        cboAccountView.setSelectedIndex(Configuration.getInteger("DefaultAccountViewPeriod"));
 
         ArrayList<Account.DonationAccountMapping> dms = Account.getDonationAccountMappings();
         int im = 0;
@@ -692,6 +695,9 @@ public class Options extends ASMForm {
             Configuration.setEntry("AccountingPeriod",
                 dtAccountingPeriod.getText());
 
+            Configuration.setEntry("DefaultAccountViewPeriod",
+                Integer.toString(cboAccountView.getSelectedIndex()));
+
             String maps = "";
 
             if (cboMapDT1.getSelectedIndex() > 0) {
@@ -924,6 +930,15 @@ public class Options extends ASMForm {
                 "Code");
         UI.addComponent(pacc, i18n("Donation_destination_account"),
             cboDonationTargetAccount);
+        pacc.add(UI.getLabel());
+
+        String[] views = new String[] {
+            i18n("this_month"), i18n("this_week"), i18n("this_year"),
+            i18n("last_month"), i18n("last_week")
+        };
+        cboAccountView = UI.getCombo(views); 
+        UI.addComponent(pacc, i18n("default_trx_view"),
+            cboAccountView);
         pacc.add(UI.getLabel());
 
         cboMapDT1 = UI.getCombo(LookupCache.getDonationTypeLookup(),

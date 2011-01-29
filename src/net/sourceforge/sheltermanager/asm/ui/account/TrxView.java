@@ -24,6 +24,7 @@ package net.sourceforge.sheltermanager.asm.ui.account;
 import net.sourceforge.sheltermanager.asm.bo.Account;
 import net.sourceforge.sheltermanager.asm.bo.AccountTrx;
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.ui.ASMView;
 import net.sourceforge.sheltermanager.asm.ui.ui.AccountRenderer;
@@ -59,6 +60,12 @@ public class TrxView extends ASMView {
     private Account account = null;
     private boolean hasRecords = false;
 
+    private final static int THIS_MONTH = 0;
+    private final static int THIS_WEEK = 1;
+    private final static int THIS_YEAR = 2;
+    private final static int LAST_MONTH = 3;
+    private final static int LAST_WEEK = 4;
+
     // Visible list of transactions
     private ArrayList<AccountTrx.Trx> trx = null;
 
@@ -75,15 +82,41 @@ public class TrxView extends ASMView {
                     });
 
             dtFrom = UI.getDateField();
-
-            Calendar onemonth = Calendar.getInstance();
-            onemonth.add(Calendar.MONTH, -1);
-            dtFrom.setDate(Utils.calendarToDate(onemonth));
-
             dtTo = UI.getDateField();
 
-            Calendar now = Calendar.getInstance();
-            dtTo.setDate(Utils.calendarToDate(now));
+            int accountView = THIS_MONTH;
+            accountView = Configuration.getInteger("DefaultAccountViewPeriod");
+
+            Calendar from = Calendar.getInstance();
+            Calendar to = Calendar.getInstance();
+
+            switch (accountView) {
+                case (LAST_MONTH):
+                    from.add(Calendar.MONTH, -1);
+                    break;
+                case (THIS_MONTH):
+                    from.set(Calendar.DAY_OF_MONTH, 1);
+                    to.add(Calendar.MONTH, 1);
+                    to.set(Calendar.DAY_OF_MONTH, 1);
+                    to.add(Calendar.DAY_OF_YEAR, -1);
+                    break;
+                case (THIS_WEEK):
+                    from.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                    to.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+                    break;
+                case (LAST_WEEK):
+                    from.add(Calendar.DAY_OF_YEAR, -7);
+                    break;
+                case (THIS_YEAR):
+                    from.set(Calendar.DAY_OF_YEAR, 1);
+                    to.add(Calendar.YEAR, 1);
+                    to.set(Calendar.DAY_OF_YEAR, 1);
+                    to.add(Calendar.DAY_OF_YEAR, -1);
+                    break;
+            }
+
+            dtFrom.setDate(Utils.calendarToDate(from));
+            dtTo.setDate(Utils.calendarToDate(to));
 
             cboReconciled = UI.getCombo(new String[] {
                         i18n("Both"), i18n("Reconciled"), i18n("Non_reconciled")
