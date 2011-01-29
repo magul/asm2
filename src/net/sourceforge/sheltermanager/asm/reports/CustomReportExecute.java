@@ -727,11 +727,12 @@ public class CustomReportExecute extends Report {
                 "CustomReport.generateReport");
 
             // If there aren't any records, show a no data found message,
-            // clean up and call it a day
+            // clean up and call it a day - don't output anything
+            // for subreports though
             if (rs.size() == 0) {
-                addParagraph(Global.i18n("reports", "No_data"));
+                if (!isSubReport) 
+                    addParagraph(Global.i18n("reports", "No_data"));
                 dropTemporaryTables();
-
                 return;
             }
 

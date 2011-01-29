@@ -698,8 +698,10 @@ class Report:
         first_record = True
 
         # If there are no records, show a message to say so
+        # but only if it's not a subreport
         if rs == None or len(rs) == 0:
-            self._p("No data to show on the report.")
+            if not self.isSubReport:
+                self._p("No data to show on the report.")
             return
 
         # Add the header to the report
