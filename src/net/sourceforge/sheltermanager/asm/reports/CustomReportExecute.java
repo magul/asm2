@@ -732,6 +732,8 @@ public class CustomReportExecute extends Report {
             if (rs.size() == 0) {
                 if (!isSubReport) 
                     addParagraph(Global.i18n("reports", "No_data"));
+		if (isSubReport)
+            	    monitor.reportCompleted("");
                 dropTemporaryTables();
                 return;
             }
