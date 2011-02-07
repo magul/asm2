@@ -124,6 +124,8 @@ import java.util.Date;
  * ChangeFoundAnimals           cfa
  * DeleteLostAnimals            dla
  * DeleteFoundAnimals           dfa
+ * ViewLostAnimals              vla
+ * ViewFoundAnimals             vfa
  * MatchLostAndFoundAnimals     mlaf
  * ViewWaitingList              vwl
  * AddWaitingList               awl
@@ -567,6 +569,14 @@ public class Users extends NormalBO<Users> {
 
     public boolean getSecChangeFoundAnimals() {
         return getSecurityFlag("cfa");
+    }
+
+    public boolean getSecViewLostAnimals() {
+        return getSecurityFlag("vla");
+    }
+
+    public boolean getSecViewFoundAnimals() {
+        return getSecurityFlag("vfa");
     }
 
     public boolean getSecDeleteLostAnimals() {

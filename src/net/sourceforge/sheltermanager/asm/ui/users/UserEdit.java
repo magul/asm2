@@ -264,9 +264,11 @@ public class UserEdit extends ASMForm {
             createBox(i18n("Add_Lost_Animals"), "ala");
             createBox(i18n("Change_Lost_Animals"), "cla");
             createBox(i18n("Delete_Lost_Animals"), "dla");
+            createBox(i18n("View_Lost_Animals"), "vla");
             createBox(i18n("Add_Found_Animals"), "afa");
             createBox(i18n("Change_Found_Animals"), "cfa");
             createBox(i18n("Delete_Found_Animals"), "dfa");
+            createBox(i18n("View_Found_Animals"), "vfa");
             createBox(i18n("Match_Lost_and_Found_Animals"), "mlaf");
             createLabel(i18n("Waiting_List:"));
             createBox(i18n("View_Waiting_List"), "vwl");

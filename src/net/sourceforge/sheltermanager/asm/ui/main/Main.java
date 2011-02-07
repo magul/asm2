@@ -572,8 +572,8 @@ public class Main extends ASMWindow {
         this.mnuDiaryPrintVacc.setEnabled(Global.currentUserObject.getSecPrintVaccinationDiary());
         this.mnuFileLostAnimalsAddLost.setEnabled(Global.currentUserObject.getSecAddLostAnimal());
         this.mnuFileFoundAnimalsAddFound.setEnabled(Global.currentUserObject.getSecAddFoundAnimal());
-        this.mnuFileLostAnimalsFindLost.setEnabled(Global.currentUserObject.getSecChangeLostAnimals());
-        this.mnuFileFoundAnimalsFindFound.setEnabled(Global.currentUserObject.getSecChangeFoundAnimals());
+        this.mnuFileLostAnimalsFindLost.setEnabled(Global.currentUserObject.getSecViewLostAnimals());
+        this.mnuFileFoundAnimalsFindFound.setEnabled(Global.currentUserObject.getSecViewFoundAnimals());
         this.mnuFileMatchLostAndFound.setEnabled(Global.currentUserObject.getSecMatchLostAndFoundAnimals());
         this.mnuFileAnimalReservationBook.setEnabled(Global.currentUserObject.getSecViewAnimalMovements());
         this.mnuFileAnimalFosterBook.setEnabled(Global.currentUserObject.getSecViewAnimalMovements());
@@ -610,8 +610,8 @@ public class Main extends ASMWindow {
         this.btnPrintDiary.setEnabled(Global.currentUserObject.getSecPrintDiaryNotes());
         this.btnAddFoundAnimal.setEnabled(Global.currentUserObject.getSecAddFoundAnimal());
         this.btnAddLostAnimal.setEnabled(Global.currentUserObject.getSecAddLostAnimal());
-        this.btnFindLostAnimal.setEnabled(Global.currentUserObject.getSecChangeLostAnimals());
-        this.btnFindFoundAnimal.setEnabled(Global.currentUserObject.getSecChangeFoundAnimals());
+        this.btnFindLostAnimal.setEnabled(Global.currentUserObject.getSecViewLostAnimals());
+        this.btnFindFoundAnimal.setEnabled(Global.currentUserObject.getSecViewFoundAnimals());
         this.btnMatchLostandFound.setEnabled(Global.currentUserObject.getSecMatchLostAndFoundAnimals());
         this.btnReservations.setEnabled(Global.currentUserObject.getSecViewAnimalMovements());
         this.btnFosterBook.setEnabled(Global.currentUserObject.getSecViewAnimalMovements());
