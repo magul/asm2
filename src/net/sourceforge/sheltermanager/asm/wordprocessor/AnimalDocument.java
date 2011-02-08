@@ -304,6 +304,9 @@ public class AnimalDocument extends GenerateDocument {
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerMobilePhone"),
                     Utils.nullToEmptyString(animal.getOriginalOwner()
                                                   .getMobileTelephone()));
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerEmail"),
+                    Utils.nullToEmptyString(animal.getOriginalOwner()
+                                                  .getEmailAddress()));
             } catch (Exception e) {
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerName"), "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerAddress"), "");
