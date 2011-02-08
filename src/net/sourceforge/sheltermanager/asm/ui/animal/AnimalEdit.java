@@ -2202,7 +2202,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Details left pane ========================================
         UI.Panel pnlLeft = UI.getPanel(UI.getBorderLayout());
-        UI.Panel pnlThumbnail = UI.getPanel(UI.getGridLayout(4));
+        UI.Panel pnlThumbnail = UI.getPanel(UI.getGridLayout(4), true);
         pnlLeftFields = UI.getPanel(UI.getGridLayout(2, new int[] { 40, 60 }));
 
         // Thumbnail panel
