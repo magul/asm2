@@ -256,12 +256,14 @@ public abstract class AbstractPublisher extends Thread {
         switch (publishCriteria.order) {
         case 0:
             sql.append(" ORDER BY MostRecentEntryDate");
-
             break;
 
         case 1:
             sql.append(" ORDER BY MostRecentEntryDate DESC");
+            break;
 
+        case 2:
+            sql.append(" ORDER BY AnimalName");
             break;
 
         default:

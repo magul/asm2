@@ -275,6 +275,9 @@ public class InternetPublisher extends ASMForm {
                     true, false, "ord"));
             l.add(new SelectableItem(i18n("Most_recent_descending"),
                     "ordmrdesc", false, false, "ord"));
+            l.add(new SelectableItem(i18n("alphabetical_by_name"),
+                    "ordalasc", false, false, "ord"));
+
         }
 
         // Limit option (only valid for html)
@@ -458,9 +461,16 @@ public class InternetPublisher extends ASMForm {
             if (s[i].getValue().toString().startsWith("ord")) {
                 if (s[i].isSelected()) {
                     if (s[i].getValue().toString().indexOf("mrasc") != -1) {
+                        pc.order = 0;
+                    } 
+                    else if (s[i].getValue().toString().indexOf("mrdesc") != -1) {
                         pc.order = 1;
-                    } else {
+                    }
+                    else if (s[i].getValue().toString().indexOf("alasc") != -1) {
                         pc.order = 2;
+                    }
+                    else {
+                        pc.order = 0;
                     }
                 }
             }

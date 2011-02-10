@@ -50,7 +50,7 @@ import java.util.Vector;
  *              thumbnails
  *              extension=<file extension - html is the default>
  *              style=<style dir or . for base>
- *              order=<0 or 1, where 0 = most recent asc, 1 = desc>
+ *              order=<0-2, where 0 = most recent asc, 1 = desc, 2 = name>
  *              limit=<0 or a number of records to limit animals to>
  *              scaleimages=<1 to 7, where:
  *                              1 = No scaling
