@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -730,11 +730,16 @@ public class CustomReportExecute extends Report {
             // clean up and call it a day - don't output anything
             // for subreports though
             if (rs.size() == 0) {
-                if (!isSubReport) 
+                if (!isSubReport) {
                     addParagraph(Global.i18n("reports", "No_data"));
-		if (isSubReport)
-            	    monitor.reportCompleted("");
+                }
+
+                if (isSubReport) {
+                    monitor.reportCompleted("");
+                }
+
                 dropTemporaryTables();
+
                 return;
             }
 

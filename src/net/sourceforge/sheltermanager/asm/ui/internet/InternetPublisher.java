@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -275,9 +275,8 @@ public class InternetPublisher extends ASMForm {
                     true, false, "ord"));
             l.add(new SelectableItem(i18n("Most_recent_descending"),
                     "ordmrdesc", false, false, "ord"));
-            l.add(new SelectableItem(i18n("alphabetical_by_name"),
-                    "ordalasc", false, false, "ord"));
-
+            l.add(new SelectableItem(i18n("alphabetical_by_name"), "ordalasc",
+                    false, false, "ord"));
         }
 
         // Limit option (only valid for html)
@@ -462,14 +461,11 @@ public class InternetPublisher extends ASMForm {
                 if (s[i].isSelected()) {
                     if (s[i].getValue().toString().indexOf("mrasc") != -1) {
                         pc.order = 0;
-                    } 
-                    else if (s[i].getValue().toString().indexOf("mrdesc") != -1) {
+                    } else if (s[i].getValue().toString().indexOf("mrdesc") != -1) {
                         pc.order = 1;
-                    }
-                    else if (s[i].getValue().toString().indexOf("alasc") != -1) {
+                    } else if (s[i].getValue().toString().indexOf("alasc") != -1) {
                         pc.order = 2;
-                    }
-                    else {
+                    } else {
                         pc.order = 0;
                     }
                 }

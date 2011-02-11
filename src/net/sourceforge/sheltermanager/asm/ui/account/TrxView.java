@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -48,6 +48,11 @@ import java.util.Vector;
  */
 @SuppressWarnings("serial")
 public class TrxView extends ASMView {
+    private final static int THIS_MONTH = 0;
+    private final static int THIS_WEEK = 1;
+    private final static int THIS_YEAR = 2;
+    private final static int LAST_MONTH = 3;
+    private final static int LAST_WEEK = 4;
     private UI.Button btnRefresh;
     private UI.Button btnNew;
     private UI.Button btnEdit;
@@ -59,12 +64,6 @@ public class TrxView extends ASMView {
     private UI.ComboBox cboReconciled;
     private Account account = null;
     private boolean hasRecords = false;
-
-    private final static int THIS_MONTH = 0;
-    private final static int THIS_WEEK = 1;
-    private final static int THIS_YEAR = 2;
-    private final static int LAST_MONTH = 3;
-    private final static int LAST_WEEK = 4;
 
     // Visible list of transactions
     private ArrayList<AccountTrx.Trx> trx = null;
@@ -91,28 +90,37 @@ public class TrxView extends ASMView {
             Calendar to = Calendar.getInstance();
 
             switch (accountView) {
-                case (LAST_MONTH):
-                    from.add(Calendar.MONTH, -1);
-                    break;
-                case (THIS_MONTH):
-                    from.set(Calendar.DAY_OF_MONTH, 1);
-                    to.add(Calendar.MONTH, 1);
-                    to.set(Calendar.DAY_OF_MONTH, 1);
-                    to.add(Calendar.DAY_OF_YEAR, -1);
-                    break;
-                case (THIS_WEEK):
-                    from.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-                    to.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-                    break;
-                case (LAST_WEEK):
-                    from.add(Calendar.DAY_OF_YEAR, -7);
-                    break;
-                case (THIS_YEAR):
-                    from.set(Calendar.DAY_OF_YEAR, 1);
-                    to.add(Calendar.YEAR, 1);
-                    to.set(Calendar.DAY_OF_YEAR, 1);
-                    to.add(Calendar.DAY_OF_YEAR, -1);
-                    break;
+            case (LAST_MONTH):
+                from.add(Calendar.MONTH, -1);
+
+                break;
+
+            case (THIS_MONTH):
+                from.set(Calendar.DAY_OF_MONTH, 1);
+                to.add(Calendar.MONTH, 1);
+                to.set(Calendar.DAY_OF_MONTH, 1);
+                to.add(Calendar.DAY_OF_YEAR, -1);
+
+                break;
+
+            case (THIS_WEEK):
+                from.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                to.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+
+                break;
+
+            case (LAST_WEEK):
+                from.add(Calendar.DAY_OF_YEAR, -7);
+
+                break;
+
+            case (THIS_YEAR):
+                from.set(Calendar.DAY_OF_YEAR, 1);
+                to.add(Calendar.YEAR, 1);
+                to.set(Calendar.DAY_OF_YEAR, 1);
+                to.add(Calendar.DAY_OF_YEAR, -1);
+
+                break;
             }
 
             dtFrom.setDate(Utils.calendarToDate(from));

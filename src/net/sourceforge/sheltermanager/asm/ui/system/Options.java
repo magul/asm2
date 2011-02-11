@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -371,7 +371,8 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("DonationTargetAccount")),
             cboDonationTargetAccount);
         dtAccountingPeriod.setText(Configuration.getString("AccountingPeriod"));
-        cboAccountView.setSelectedIndex(Configuration.getInteger("DefaultAccountViewPeriod"));
+        cboAccountView.setSelectedIndex(Configuration.getInteger(
+                "DefaultAccountViewPeriod"));
 
         ArrayList<Account.DonationAccountMapping> dms = Account.getDonationAccountMappings();
         int im = 0;
@@ -933,12 +934,11 @@ public class Options extends ASMForm {
         pacc.add(UI.getLabel());
 
         String[] views = new String[] {
-            i18n("this_month"), i18n("this_week"), i18n("this_year"),
-            i18n("last_month"), i18n("last_week")
-        };
-        cboAccountView = UI.getCombo(views); 
-        UI.addComponent(pacc, i18n("default_trx_view"),
-            cboAccountView);
+                i18n("this_month"), i18n("this_week"), i18n("this_year"),
+                i18n("last_month"), i18n("last_week")
+            };
+        cboAccountView = UI.getCombo(views);
+        UI.addComponent(pacc, i18n("default_trx_view"), cboAccountView);
         pacc.add(UI.getLabel());
 
         cboMapDT1 = UI.getCombo(LookupCache.getDonationTypeLookup(),

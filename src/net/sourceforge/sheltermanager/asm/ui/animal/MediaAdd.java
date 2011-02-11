@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -191,13 +191,12 @@ public class MediaAdd extends ASMForm {
                 // Scale and save the image, change our links to
                 // the scaled file instead.
                 if (UI.scaleImage(filename,
-                    Global.tempDirectory + File.separator + "scaled.jpg",
-                    width, height)) {
+                            Global.tempDirectory + File.separator +
+                            "scaled.jpg", width, height)) {
                     filename = Global.tempDirectory + File.separator +
                         "scaled.jpg";
                     mf = new File(filename);
-                }
-                else {
+                } else {
                     // Failed scaling the image, the error will already have
                     // been logged by UI.scaleImage so we just bail out now.
                     return;

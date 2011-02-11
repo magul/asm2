@@ -1,6 +1,6 @@
 /*
  Animal Shelter Manager
- Copyright(c)2000-2010, R. Rawson-Tetley
+ Copyright(c)2000-2011, R. Rawson-Tetley
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -2115,9 +2115,11 @@ public final class UI {
             inImage.flush();
             inImage = null;
             outImage = null;
+
             return true;
         } catch (Exception e) {
             Global.logException(e, UI.class);
+
             return false;
         }
     }
