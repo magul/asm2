@@ -2106,7 +2106,7 @@ public final class UI {
         return ret;
     }
 
-    public static void scaleImage(String inputfile, String outputfile,
+    public static boolean scaleImage(String inputfile, String outputfile,
         int width, int height) {
         try {
             Image inImage = UI.loadImage(inputfile);
@@ -2115,8 +2115,10 @@ public final class UI {
             inImage.flush();
             inImage = null;
             outImage = null;
+            return true;
         } catch (Exception e) {
             Global.logException(e, UI.class);
+            return false;
         }
     }
 

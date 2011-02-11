@@ -190,12 +190,18 @@ public class MediaAdd extends ASMForm {
 
                 // Scale and save the image, change our links to
                 // the scaled file instead.
-                UI.scaleImage(filename,
+                if (UI.scaleImage(filename,
                     Global.tempDirectory + File.separator + "scaled.jpg",
-                    width, height);
-                filename = Global.tempDirectory + File.separator +
-                    "scaled.jpg";
-                mf = new File(filename);
+                    width, height)) {
+                    filename = Global.tempDirectory + File.separator +
+                        "scaled.jpg";
+                    mf = new File(filename);
+                }
+                else {
+                    // Failed scaling the image, the error will already have
+                    // been logged by UI.scaleImage so we just bail out now.
+                    return;
+                }
             }
         }
 
