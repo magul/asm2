@@ -460,7 +460,7 @@ class Report:
             # Next token
             sp = s.find("$", sp)
 
-        return s
+        self.sql = s
 
     def GetParams(self, reportId):
         """
