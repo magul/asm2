@@ -1,7 +1,5 @@
 package net.sourceforge.sheltermanager.asm.startup;
 
-import net.sourceforge.sheltermanager.asm.utility.Utils;
-
 import java.io.File;
 
 
@@ -34,7 +32,7 @@ public class HSQLManager {
         // Construct exec args
         StringBuffer s = new StringBuffer();
 
-        boolean isWin = (Utils.englishLower(System.getProperty("os.name"))
+        boolean isWin = (System.getProperty("os.name").toLowerCase()
                               .indexOf("windows") != -1);
 
         // Base exe
