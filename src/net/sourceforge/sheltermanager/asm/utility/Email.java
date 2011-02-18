@@ -165,7 +165,7 @@ public class Email {
         String[] cc = Utils.split(cc_address, ",");
 
         for (int i = 0; i < to.length; i++) {
-            sstr = "RCPT TO: <" + to[i] + ">";
+            sstr = "RCPT TO: <" + to[i].trim() + ">";
             send.print(sstr);
             send.print(EOL);
             send.flush();
@@ -178,7 +178,7 @@ public class Email {
 
         if (cc_address.length() > 0) {
             for (int i = 0; i < cc.length; i++) {
-                sstr = "RCPT TO: <" + cc[i] + ">";
+                sstr = "RCPT TO: <" + cc[i].trim() + ">";
                 send.print(sstr);
                 send.print(EOL);
                 send.flush();

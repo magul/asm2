@@ -75,8 +75,10 @@ public class OwnerMailMerge extends MailMerge {
                 theData[i][z] = Utils.nullToEmptyString((String) model.getValueAt(i -
                             1, z));
 
-                // If it's an address, convert commas to breaks
-                if (colnames[z].toLowerCase().indexOf("address") != -1) {
+                // If it's an address (but not email), convert 
+                // commas to breaks
+                if (colnames[z].toLowerCase().indexOf("address") != -1 &&
+                    colnames[z].toLowerCase().indexOf("email") == -1) {
                     theData[i][z] = model.getValueAt(i - 1, z).toString()
                                          .replace(',', '\n');
                 }
