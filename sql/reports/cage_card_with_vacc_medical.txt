@@ -155,8 +155,21 @@ FOOTER$$
 +++
 SUBREPORT_CageCardMedicalHistory
 +++
-SELECT TreatmentName, StartDate, Dosage, TreatmentsGiven, 
-TreatmentsRemaining, Comments
+SELECT TreatmentName, StartDate, Dosage, 
+(SELECT COUNT(*) 
+FROM animalmedicaltreatment 
+WHERE animalmedicalid = animalmedical.id 
+AND DateGiven IS NOT NULL) 
+AS TreatmentsGiven, 
+(SELECT AVG(TotalTreatments) 
+FROM animalmedicaltreatment 
+WHERE animalmedicalid = animalmedical.id) - 
+(SELECT COUNT(*) 
+FROM animalmedicaltreatment 
+WHERE animalmedicalid = animalmedical.id 
+AND DateGIven IS NOT NULL) 
+AS TreatmentsRemaining, 
+Comments
 FROM animalmedical
 WHERE animalmedical.AnimalID = $PARENTKEY$
 +++
