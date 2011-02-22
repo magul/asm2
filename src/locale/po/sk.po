@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-07-01 10:01+0100\n"
+"POT-Creation-Date: 2011-02-08 11:50+0100\n"
 "PO-Revision-Date: 2010-07-01 11:08+0000\n"
 "Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-02 03:38+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-02-09 05:10+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -178,8 +178,8 @@ msgstr "Musíte zadať dátum, kedy bolo nahlásené nájdenie zvieraťa"
 msgid "You must enter the date the animal was found."
 msgstr "Musíte zadať dátum, kedy bolo zviera nájdené"
 
-#. # reports/AnimalFigures
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: Stolen
 #: lksmovementtype_6
 msgid "Stolen"
@@ -197,13 +197,17 @@ msgstr "Musíte zadať meno pre toto zviera"
 msgid "Died"
 msgstr "Uhynuté"
 
+#. # bo/Animal
+#. # internet/AbstractPublisher
+#. # internet/Pets911Publisher
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/owner/OwnerFindColumns
+#. # ui/animalname/NamesEdit
+#. # ui/waitinglist/WaitingListViewColumns
+#. # wordprocessor/GenerateDocument
 #. # reports/Report
 #. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animalname/NamesEdit
-#. # internet/Pets911Publisher
-#. # wordprocessor/GenerateDocument
-#. # bo/Animal
 #: Unknown
 #: lksex_2
 #: lksynun_2
@@ -211,25 +215,25 @@ msgstr "Uhynuté"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#. # reports/AnimalFigures
-#. # ui/animal/AnimalFind
 #. # bo/Animal
+#. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: Adopted
 msgid "Adopted"
 msgstr "Adoptované"
 
-#. # reports/AnimalFigures
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # bo/AnimalLost
 #. # bo/Animal
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalFigures
 #: On_Shelter
 msgid "On Shelter"
 msgstr "V útulku"
 
-#. # ui/animal/AnimalFind
 #. # bo/Animal
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #: Dead
 msgid "Deceased"
 msgstr "Uhynuté"
@@ -249,8 +253,8 @@ msgstr "Musíte zadať dátum narodenia tohto zvieraťa"
 msgid "You must enter a date the animal was brought into the shelter."
 msgstr "Musíte zadať dátum, kedy bolo toto zviera prijaté do útulku"
 
-#. # reports/AnimalFigures
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: Escaped
 #: lksmovementtype_4
 msgid "Escaped"
@@ -269,8 +273,8 @@ msgid ""
 msgstr ""
 "Zviera nemôže byť označené ako uhynuté skôr než bolo prijaté do útulku"
 
-#. # ui/movement/MovementEdit
 #. # bo/Adoption
+#. # ui/movement/MovementEdit
 #: You_must_select_an_owner_for_this_type_of_movement.
 msgid "You must select an owner for this type of movement."
 msgstr "Musíte zadať majiteľa pre tento typ pohybu"
@@ -286,9 +290,9 @@ msgstr "Toto zviera už má záznam o pohybe. Nemôžete vytvoriť nový."
 msgid "You must select an animal."
 msgstr "Musíte vybrať zviera"
 
-#. # ui/animal/MediaAdd
 #. # ui/system/Options
 #. # ui/system/ConfigureDatabase
+#. # ui/animal/MediaAdd
 #. # ui/internet/InternetPublisher
 #: None
 #: lksmovementtype_0
@@ -297,15 +301,15 @@ msgid "None"
 msgstr "Žiadne"
 
 #. # ui/animal/AnimalFind
-#. # reports/ShelterInventory
 #. # bo/Animal
+#. # reports/ShelterInventory
 #: Fostered
 #: fostered
 msgid "Fostered"
 msgstr "V dočasnej opatere"
 
-#. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: Reservation
 #: lksmovementtype_9
 msgid "Reservation"
@@ -359,6 +363,7 @@ msgstr ""
 "vytvorené sprostredkovateľské pohyby."
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/animal/AnimalFind
 #: retailer
 #: lksmovementtype_8
@@ -372,10 +377,10 @@ msgid "Auto removed due to lack of owner contact."
 msgstr ""
 "Automaticky odstránené z dôvodu zanedbania kontaktu zo strany majiteľa."
 
-#. # ui/animal/LitterView
-#. # ui/internet/PetFinderMapSpecies
-#. # internet/SaveAPetPublisher
 #. # bo/LookupCache
+#. # internet/AdoptAPetPublisher
+#. # internet/AvidRegistration
+#. # ui/internet/PetFinderMapSpecies
 #: Cat
 #: species_2
 msgid "Cat"
@@ -386,10 +391,10 @@ msgstr "Mačka"
 msgid "Kittens"
 msgstr "Mačiatka"
 
-#. # ui/animal/LitterView
-#. # ui/internet/PetFinderMapSpecies
-#. # internet/SaveAPetPublisher
 #. # bo/LookupCache
+#. # internet/AdoptAPetPublisher
+#. # internet/AvidRegistration
+#. # ui/internet/PetFinderMapSpecies
 #: Dog
 #: species_1
 msgid "Dog"
@@ -499,73 +504,73 @@ msgstr "Musíte zvoliť typ poukážky"
 msgid "Non-Shelter Animal"
 msgstr "Neumiestnené zvieratá"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: One_Off
 #: lksdonationfreq_0
 msgid "One-Off"
 msgstr "Jednorázovo"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: treatment
 msgid "treatment"
 msgstr "ošetrenie"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: treatment_every
 msgid "treatments every"
 msgstr "ošetrenie každých"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: days
 msgid "days"
 msgstr "dní"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/internet/InternetPublisher
 #. # ui/waitinglist/WaitingListEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
 #: weeks
 msgid "weeks"
 msgstr "týždne"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: years
 msgid "years"
 msgstr "roky"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: months
 msgid "months"
 msgstr "mesiacov"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: Unspecified
 msgid "Unspecified"
 msgstr "Nedefinované"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: treatments
 msgid "treatments"
 msgstr "ošetrenia"
@@ -575,8 +580,8 @@ msgstr "ošetrenia"
 msgid "This medical profile is currently in use and cannot be deleted."
 msgstr "Tento lekársky záznam nemôže byť vymazaný, pretože sa práve používa."
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: You_must_supply_a_dosage
 msgid "You must supply a dosage"
 msgstr "Musíte zadať dávkovanie"
@@ -586,26 +591,26 @@ msgstr "Musíte zadať dávkovanie"
 msgid "Medical profiles must have a name"
 msgstr "Zdravotný záznam musí mať názov"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: You_must_supply_a_treatment_name
 msgid "You must supply a treatment name"
 msgstr "Musíte zadať názov ošetrenia"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Number_of_treatments_must_be_numeric
 msgid "Number of treatments must be numeric"
 msgstr "Počet ošetrení musí byť numerický"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Number_of_frequencies_must_be_numeric
 msgid "Number of frequencies must be numeric"
 msgstr "Počet ošetrení musí byť numerický"
 
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #: Total_number_of_treatments_must_be_numeric
 msgid "Total number of treatments must be numeric"
 msgstr "Celkový počet ošetrení musí byť numerický"
@@ -636,9 +641,9 @@ msgstr "Hotovo."
 msgid "{0} years and {1} months"
 msgstr "{0} rokov a {1} mesiacov"
 
-#. # ui/internet/InternetPublisher
 #. # bo/Adoption
 #. # bo/Animal
+#. # ui/internet/InternetPublisher
 #: x_weeks
 msgid "{0} weeks."
 msgstr "{0} týždňov"
@@ -749,6 +754,11 @@ msgstr ""
 msgid "Merged {0} into {1}"
 msgstr ""
 
+#. # bo/Users
+#: duplicate_username
+msgid "The username {0} has already been used."
+msgstr ""
+
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
 msgid "Monthly Donation analysis (by type) for "
@@ -774,12 +784,12 @@ msgstr "Dôvody príjmu zvieraťa pre "
 msgid "Monthly Adoption analysis (by species) for "
 msgstr "Mesačná analýza adopcií (podľa druhu) pre "
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Oct
 msgid "Oct"
 msgstr "Okt"
@@ -789,101 +799,101 @@ msgstr "Okt"
 msgid "Monthly Adoption analysis (by location, "
 msgstr "Mesačná štatistika adpocií "
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Jul
 msgid "Jul"
 msgstr "júl"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Aug
 msgid "Aug"
 msgstr "Aug"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Which_year_is_this_graph_for?
 msgid "Which year is this graph for?"
 msgstr "Pre ktorý rok je tento graf?"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Jan
 msgid "Jan"
 msgstr "Jan"
 
+#. # bo/Users
+#. # charts/AdoptionsPerBlock
 #. # ui/ui/UI
 #. # ui/users/UserEdit
-#. # charts/AdoptionsPerBlock
-#. # bo/Users
 #: all
 msgid "all"
 msgstr "všetky"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Sep
 msgid "Sep"
 msgstr "Sep"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Nov
 msgid "Nov"
 msgstr "Nov"
 
-#. # reports/AnimalFigures
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
+#. # reports/AnimalFigures
 #: May
 msgid "May"
 msgstr "Máj"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Apr
 msgid "Apr"
 msgstr "Apr"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Dec
 msgid "Dec"
 msgstr "Dec"
@@ -893,32 +903,32 @@ msgstr "Dec"
 msgid " species) for "
 msgstr " druhov) pre "
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Mar
 msgid "Mar"
 msgstr "Mar"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Jun
 msgid "Jun"
 msgstr "Jún"
 
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/DonationsPerSpecies
 #. # charts/AdoptionsPerBlock
+#. # charts/DonationsPerSpecies
+#. # charts/MonthlyDonations
 #. # charts/AdoptionsPerSpecies
 #. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
 #: Feb
 msgid "Feb"
 msgstr "Feb"
@@ -1200,11 +1210,10 @@ msgid "White and Black"
 msgstr "Bieločierna"
 
 #: basecolour_6
-msgid "Torti"
-msgstr "Korytnačinová"
+msgid "Tortie"
+msgstr ""
 
 #: basecolour_7
-#: breed_300_2
 msgid "Tabby"
 msgstr "Pruhovaná mačka"
 
@@ -1282,8 +1291,8 @@ msgid "White and Tan"
 msgstr "Biela a svetlohnedá"
 
 #: basecolour_27
-msgid "Torti and White"
-msgstr "Korytnačinová a biela"
+msgid "Tortie and White"
+msgstr ""
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1336,6 +1345,81 @@ msgstr "Bielohnedá"
 #: basecolour_41
 msgid "Green"
 msgstr "Zelená"
+
+#: basecolour_42
+msgid "Amber"
+msgstr ""
+
+#: basecolour_43
+msgid "Black Tortie"
+msgstr ""
+
+#: basecolour_44
+msgid "Blue Tortie"
+msgstr ""
+
+#: basecolour_45
+msgid "Chocolate"
+msgstr ""
+
+#: basecolour_46
+msgid "Chocolate Tortie"
+msgstr ""
+
+#: basecolour_47
+#: breed_326_7
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+#: basecolour_48
+msgid "Cinnamon Tortoiseshell"
+msgstr ""
+
+#: basecolour_49
+msgid "Fawn"
+msgstr ""
+
+#: basecolour_50
+msgid "Fawn Tortoiseshell"
+msgstr ""
+
+#: basecolour_51
+msgid "Golden"
+msgstr ""
+
+#: basecolour_52
+msgid "Light Amber"
+msgstr ""
+
+#: basecolour_53
+#: breed_342_7
+msgid "Lilac"
+msgstr "Lilac"
+
+#: basecolour_54
+msgid "Lilac Tortie"
+msgstr ""
+
+#: basecolour_55
+msgid "Ruddy"
+msgstr ""
+
+#: basecolour_56
+msgid "Seal"
+msgstr ""
+
+#: basecolour_57
+#: breed_353_7
+msgid "Silver"
+msgstr "Silver"
+
+#: basecolour_58
+msgid "Sorrel"
+msgstr ""
+
+#: basecolour_59
+msgid "Sorrel Tortoiseshell"
+msgstr ""
 
 #: breed_1_1
 msgid "Affenpinscher"
@@ -2300,14 +2384,6 @@ msgstr "Cymric"
 msgid "Devon Rex"
 msgstr "Devon Rex"
 
-#: breed_241_2
-msgid "Dilute Calico"
-msgstr "Dilute Calico"
-
-#: breed_242_2
-msgid "Dilute Tortoiseshell"
-msgstr "Dilute Tortoiseshell"
-
 #: breed_243_2
 msgid "Domestic Long Hair"
 msgstr "Domáca dlhosrstá"
@@ -2446,14 +2522,6 @@ msgstr "Tiger"
 msgid "Tonkinese"
 msgstr "Tonkinese"
 
-#: breed_309_2
-msgid "Torbie"
-msgstr "Torbie"
-
-#: breed_310_2
-msgid "Tortoiseshell"
-msgstr "Tortoiseshell"
-
 #: breed_311_2
 msgid "Turkish Angora"
 msgstr "Turkish Angora"
@@ -2461,10 +2529,6 @@ msgstr "Turkish Angora"
 #: breed_312_2
 msgid "Turkish Van"
 msgstr "Turkish Van"
-
-#: breed_313_2
-msgid "Tuxedo"
-msgstr "Tuxedo"
 
 #: breed_314_7
 msgid "American"
@@ -2509,10 +2573,6 @@ msgstr "Champagne DArgent"
 #: breed_324_7
 msgid "Checkered Giant"
 msgstr "Checkered Giant"
-
-#: breed_326_7
-msgid "Cinnamon"
-msgstr "Cinnamon"
 
 #: breed_327_7
 msgid "Crème DArgent"
@@ -2566,10 +2626,6 @@ msgstr "Hotot"
 msgid "Jersey Wooly"
 msgstr "Jersey Wooly"
 
-#: breed_342_7
-msgid "Lilac"
-msgstr "Lilac"
-
 #: breed_343_7
 msgid "Lop Eared"
 msgstr "Lop Eared"
@@ -2610,10 +2666,6 @@ msgstr "Rhinelander"
 #: breed_352_7
 msgid "Satin"
 msgstr "Satin"
-
-#: breed_353_7
-msgid "Silver"
-msgstr "Silver"
 
 #: breed_354_7
 msgid "Silver Fox"
@@ -3072,10 +3124,10 @@ msgstr "Vrhy"
 msgid "In/Out"
 msgstr "Dnu/Von"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/system/Options
+#. # ui/animal/AnimalEdit
 #. # ui/owner/OwnerEdit
+#. # reports/AnimalPrint
 #. # db/AutoDBUpdates
 #: customreport_46_category
 #: customreport_47_category
@@ -3252,15 +3304,15 @@ msgstr "Hryzúce"
 msgid "Standard"
 msgstr "Štandard"
 
-#. # reports/Retailer
-#. # reports/InOut
-#. # db/AutoDBUpdates
+#. # bo/Adoption
 #. # bo/LookupCache
 #. # bo/OwnerDonation
-#. # bo/Adoption
-#. # reports/AnimalPrint
+#. # reports/InOut
+#. # reports/Retailer
+#. # db/AutoDBUpdates
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
+#. # reports/AnimalPrint
 #: donationtype_1
 #: Donation
 #: donation
@@ -3336,6 +3388,7 @@ msgid "Very Large"
 msgstr "Veľmi veľké"
 
 #. # internet/Pets911Publisher
+#. # ui/system/ConfigureLocal
 #: lksize_1
 #: Large
 msgid "Large"
@@ -3430,8 +3483,8 @@ msgstr "Premiestnenie"
 msgid "Reclaimed"
 msgstr "Odobraté"
 
-#. # reports/AnimalFigures
 #. # ui/animal/AnimalFind
+#. # reports/AnimalFigures
 #: lksmovementtype_7
 #: Released_To_Wild
 msgid "Released To Wild"
@@ -3441,15 +3494,45 @@ msgstr "Vypustené do prírody"
 msgid "Cancelled Reservation"
 msgstr "Zrušená rezervácia"
 
+#. # bo/Animal
+#. # bo/AnimalName
+#. # bo/LookupCache
+#. # charts/DonationsPerSpecies
+#. # charts/AdoptionsPerSpecies
+#. # charts/CommonReasonsEntry
+#. # charts/CustomChart
+#. # ui/customreport/CustomReportEdit
+#. # ui/customreport/CustomReportExport
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/CostSelector
+#. # ui/animal/AnimalFindText
+#. # ui/animal/NotAdoptionView
+#. # ui/ui/Dialog
+#. # ui/ui/JDBCDlg
+#. # ui/owner/OwnerEdit
+#. # ui/owner/DonationSelector
+#. # ui/lookups/LookupView
+#. # reports/Stats
+#. # reports/AnimalPrint
+#. # reports/AnimalFigures
+#. # reports/CustomReportExecute
+#. # db/DatabaseCopier
+#. # db/DatabaseImporter
+#. # db/Diagnostic
+#. # db/AutoDBUpdates
+#. # startup/Startup
+#. # utility/Utils
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
-#. # ui/main/Main
-#. # ui/movement/MovementSelector
 #. # ui/owner/DonationEdit
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
 #: lksmedialink_0
 #: lksdiarylink_1
 #: lksfieldlink_0
 #: lksloglink_0
+#: animal
 #: Animal
 msgid "Animal"
 msgstr "Zviera"
@@ -3466,15 +3549,15 @@ msgstr "Stratené zviera"
 msgid "Found Animal"
 msgstr "Nájdené zviera"
 
-#. # reports/ReturnedAnimals
-#. # reports/AnimalPrint
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
-#. # ui/main/Main
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationEdit
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
+#. # reports/AnimalPrint
+#. # reports/ReturnedAnimals
 #: lksmedialink_3
 #: lksdiarylink_2
 #: lksfieldlink_1
@@ -3483,8 +3566,8 @@ msgstr "Nájdené zviera"
 msgid "Owner"
 msgstr "Majiteľ"
 
-#. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: lksmedialink_4
 #: lksdiarylink_6
 #: lksloglink_5
@@ -3539,40 +3622,41 @@ msgstr "Text"
 msgid "Notes"
 msgstr "Poznámnky"
 
-#. # reports/MedicalDiary
-#. # reports/LostFoundMatch
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
+#. # reports/LostFoundMatch
+#. # reports/MedicalDiary
 #: lksfieldtype_3
 #: Number
 msgid "Number"
 msgstr "Číslo"
 
-#. # reports/DiaryNotesToday
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/LitterView
-#. # ui/animal/MediaSelector
-#. # ui/animal/CostSelector
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
-#. # ui/owner/OwnerEdit
-#. # ui/owner/LinkSelector
-#. # ui/log/LogSelector
-#. # db/AutoDBUpdates
-#. # db/Diagnostic
-#. # bo/Media
-#. # bo/OwnerDonation
 #. # bo/AnimalLitter
 #. # bo/Log
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/animal/LitterView
+#. # ui/animal/NotAdoptionView
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/log/LogSelector
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # reports/DiaryNotesToday
+#. # db/Diagnostic
+#. # db/AutoDBUpdates
 #: lksfieldtype_4
 #: Date
 msgid "Date"
@@ -3586,75 +3670,80 @@ msgstr "Peniaze"
 msgid "Lookup"
 msgstr "Zoznam"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # internet/AbstractPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
+#. # internet/HTMLPublisher
+#. # ui/system/ConfigureAdditional
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/animal/MediaSelector
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/ui/ASMConfigForm
+#. # ui/ui/UI
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindColumns
+#. # ui/main/Logout
+#. # ui/waitinglist/WaitingListViewColumns
+#. # wordprocessor/GenerateDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # reports/InOut
 #: lksyesno_0
 #: lksynun_1
 #: No
 msgid "No"
 msgstr "Nie"
 
-#. # reports/InOut
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/ui/UI
-#. # ui/ui/ASMConfigForm
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/account/TrxView
-#. # ui/main/Logout
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # internet/AbstractPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # db/AutoDBUpdates
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/OwnerDonationDocument
+#. # internet/HTMLPublisher
+#. # ui/system/ConfigureAdditional
+#. # ui/system/Options
+#. # ui/system/ConfigureDatabase
+#. # ui/animal/MediaSelector
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/ui/ASMConfigForm
+#. # ui/ui/UI
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindColumns
+#. # ui/account/TrxView
+#. # ui/main/Logout
+#. # ui/waitinglist/WaitingListViewColumns
+#. # wordprocessor/GenerateDocument
 #. # wordprocessor/AnimalDocument
 #. # wordprocessor/OwnerDocument
-#. # wordprocessor/GenerateDocument
+#. # wordprocessor/OwnerDonationDocument
+#. # reports/Report
+#. # reports/OwnerCriteriaSearch
+#. # reports/InOut
+#. # db/AutoDBUpdates
 #: lksyesno_1
 #: lksynun_0
 #: Yes
 msgid "Yes"
 msgstr "Áno"
 
-#. # reports/Report
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #. # wordprocessor/GenerateDocument
+#. # reports/Report
 #: lksposneg_1
 #: Negative
 msgid "Negative"
 msgstr "Negatívne"
 
-#. # reports/Report
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/GenerateDocument
+#. # reports/Report
 #: lksposneg_2
 #: Positive
 msgid "Positive"
@@ -3813,38 +3902,39 @@ msgstr "Update databázy úspešný"
 
 #. # ui/system/SQLInterface
 #. # db/DBUpdate
+#. # ui/customreport/CustomReportEdit
+#. # ui/system/ConfigureLocal
+#. # ui/system/FileTypeEdit
+#. # ui/system/ConfigureLookups
+#. # ui/system/AdditionalFieldEdit
+#. # ui/system/ConfigureDatabase
 #. # ui/animal/DietEdit
-#. # ui/animal/MediaAdd
-#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
 #. # ui/animal/CostEdit
-#. # ui/ui/UI
+#. # ui/animal/LitterEdit
+#. # ui/animal/MediaAdd
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiaryTaskExecute
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/criteria/DiaryCriteria
+#. # ui/criteria/DateFromTo
+#. # ui/ui/InputListDialog
 #. # ui/ui/DateInputDlg
 #. # ui/ui/InputTextDialog
-#. # ui/ui/InputListDialog
+#. # ui/ui/LocaleDialog
 #. # ui/ui/JDBCDlg
+#. # ui/ui/UI
+#. # ui/owner/VoucherEdit
+#. # ui/lookups/LookupEdit
+#. # ui/animalname/NamesEdit
+#. # ui/main/Locked
+#. # ui/main/ChangePassword
+#. # ui/log/LogEdit
+#. # ui/splash/About
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # ui/animalname/NamesEdit
-#. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLookups
-#. # ui/system/ConfigureDatabase
-#. # ui/system/AdditionalFieldEdit
-#. # ui/system/ConfigureLocal
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/users/UserEdit
-#. # ui/splash/About
-#. # ui/main/ChangePassword
-#. # ui/main/Locked
-#. # ui/criteria/DateFromTo
-#. # ui/criteria/DiaryCriteria
-#. # ui/lookups/LookupEdit
-#. # ui/owner/VoucherEdit
-#. # ui/log/LogEdit
-#. # ui/customreport/CustomReportEdit
 #. # ui/owner/DonationEdit
 #. # db/Diagnostic
 #: OK
@@ -3877,13 +3967,13 @@ msgstr "Užívateľ:"
 
 #. # ui/ui/JDBCDlg
 #. # utility/LDAP
-#. # ui/internet/PetFinderSettings
-#. # ui/internet/SaveAPetSettings
 #. # ui/internet/FTPSettings
 #. # ui/internet/Pets911Settings
+#. # ui/internet/SaveAPetSettings
+#. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
-#. # ui/login/Login
 #. # bo/Users
+#. # ui/login/Login
 #. # ui/system/Options
 #: password
 #: Password\:
@@ -3953,12 +4043,9 @@ msgstr "Nemôžem skopírovať"
 #: need_schema
 msgid ""
 "You must have already created the database and loaded the database structure "
-"from the {0} file in {1}. Select Yes if you have already done this, "
-"otherwise select No to cancel the copy."
+"from the {0} file. Select Yes if you have already done this, otherwise "
+"select No to cancel the copy."
 msgstr ""
-"Musíte mať už vytvorenú databázu a načítanú štruktúru databázy z  {0} "
-"súborov v {1}. Zvoľte Áno ak ste tak už urobili alebo Nie pre zrušenie "
-"kopírovania"
 
 #. # db/DatabaseCopier
 #: continue
@@ -3995,20 +4082,20 @@ msgstr "Kopírovanie {0}..."
 msgid "Import Database"
 msgstr "Importovať databázu"
 
-#. # db/DatabaseImporter
 #. # db/PetFinderImport
+#. # db/DatabaseImporter
 #: import_successful
 msgid "Import completed successfully."
 msgstr "Import úspešne ukončený"
 
-#. # db/DatabaseImporter
 #. # db/PetFinderImport
+#. # db/DatabaseImporter
 #: import_complete
 msgid "Import Complete"
 msgstr "Import hotový"
 
-#. # db/DatabaseImporter
 #. # db/PetFinderImport
+#. # db/DatabaseImporter
 #: importing_table
 msgid "Importing {0}..."
 msgstr "Importovanie {0}..."
@@ -4032,18 +4119,6 @@ msgstr "Nemôžem sa pripojiť"
 #: scan
 msgid "Scan"
 msgstr "Scan"
-
-#. # ui/ui/JDBCDlg
-#. # startup/Startup
-#: asmdatastructuremissing
-msgid ""
-"ASM could not find its data structure in the database specfied. If you are "
-"using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-"{0} directory first."
-msgstr ""
-"ASM nemôže nájsť štruktúru dát v zadanej databáze. Ak používate PostgreSQL "
-"alebo MySQL, uistite sa, že ste spustili správny script v {0} adresári "
-"najprv."
 
 #. # ui/ui/JDBCDlg
 #: database
@@ -4081,8 +4156,8 @@ msgstr "Select PetFinder export file to process"
 msgid "Recalculating adoption donations..."
 msgstr "Prepočítavanie adopčných darov..."
 
-#. # db/DatabaseImporter
 #. # db/DatabaseCopier
+#. # db/DatabaseImporter
 #: want_to_include_dbfs
 msgid ""
 "Do you want to include media files? If you have a lot, this operation will "
@@ -4090,8 +4165,8 @@ msgid ""
 msgstr ""
 "Chcete zahrnúť súbory? Ak ich máte veľa, táto operácia môže trvať dlhšie."
 
-#. # db/DatabaseImporter
 #. # db/DatabaseCopier
+#. # db/DatabaseImporter
 #: include_dbfs
 msgid "Include Media?"
 msgstr "Zahrnúť súbory?"
@@ -4117,64 +4192,38 @@ msgstr ""
 "{6} mysql date columns repaired.\n"
 "{7} invalid animal codes fixed for this year."
 
+#. # ui/ui/JDBCDlg
+#: httpdb
+msgid "HTTPDB Bridge"
+msgstr ""
+
 #. # reports/VaccinationDiary
-#. # mailmerge/OffShelterVaccinations
 #: Vaccination_Type
 msgid "Vaccination Type"
 msgstr "Typ vakcinácie"
 
-#. # mailmerge/OffShelterVaccinations
-#: OffShelterVaccinations.csv
-msgid "OffShelterVaccinations.csv"
-msgstr "OffShelterVaccinations.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#: Off-Shelter_Vaccination_Mail_Merge
-msgid "Off-Shelter Vaccination Mail Merge"
-msgstr "Vakcinácie mimo útulku - hromadná korešpondencia"
-
-#. # mailmerge/OffShelterVaccinations
-#: There_are_no_required_vaccinations_on_that_date.
-msgid "There are no required vaccinations on that date."
-msgstr "Žiadne požadované vakcinácie pre tento dátum"
-
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_start_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the start date you would like to prepare vaccination letters for"
-msgstr ""
-"Prosím, zadajte počiatočný dátum, pre ktorý majú byť vytvorené vakcinačné "
-"listy"
-
-#. # reports/VaccinationDiary
-#. # reports/MedicalDiary
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeTreatmentSelector
-#. # mailmerge/OffShelterVaccinations
+#. # reports/MedicalDiary
+#. # reports/VaccinationDiary
 #: Date_Required
 msgid "Date Required"
 msgstr "Vyžadovaný dátum"
 
-#. # mailmerge/OffShelterVaccinations
-#: Please_enter_the_end_date_you_would_like_to_prepare_vaccination_letters_for
-msgid ""
-"Please enter the end date you would like to prepare vaccination letters for"
-msgstr "Prosím, vložte koncový dátum pre pripravenie vakcinačných listov"
-
-#. # reports/VaccinationDiary
-#. # reports/MedicalDiary
-#. # reports/DiaryNotesToday
-#. # reports/Report
-#. # reports/Vets
 #. # ui/animal/MediaEdit
 #. # ui/ui/Dialog
 #. # wordprocessor/MovementDocument
+#. # reports/MedicalDiary
+#. # reports/Vets
+#. # reports/DiaryNotesToday
+#. # reports/VaccinationDiary
 #. # utility/Utils
 #: Error
 msgid "Error"
 msgstr "Chyba"
 
 #. # mailmerge/MailMerge
+#. # mailmerge/CustomMailMerge
 #: There_are_no_records_to_add_to_the_mail_merge_source.
 msgid "There are no records to add to the mail merge source."
 msgstr ""
@@ -4191,496 +4240,235 @@ msgstr "Vytváram na disk..."
 msgid "Reading data, please wait..."
 msgstr "Načítavam dáta, prosím čakajte"
 
-#. # mailmerge/ChipRegistration
-#: ChipRegistrations.csv
-msgid "ChipRegistrations.csv"
-msgstr "ChipRegistrations.csv"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip registration "
-"letters for"
-msgstr ""
-"Prosím, zadajte počiatočný dátum, pre ktorý majú byť vytvorené listy o "
-"registráciách čipov"
-
-#. # mailmerge/ChipRegistration
-#: There_are_no_required_chip_registrations_between_those_dates.
-msgid "There are no required chip registrations between those dates."
-msgstr "Neexistujú žiadne požadované registrácie medzi týmito dátumami."
-
-#. # mailmerge/ChipRegistration
-#: Chip_Registration_Mail_Merge
-msgid "Chip Registration Mail Merge"
-msgstr "Hromadná korešpondencia - registrácia čipov"
-
-#. # mailmerge/ChipRegistration
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_registration_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip registration "
-"letters for"
-msgstr ""
-"Prosím, zadajte koncový dátum, pre ktorý majú byť vytvorené listy o "
-"registráciách čipov"
-
-#. # mailmerge/ChipCancellation
-#: Chip_Cancellation_Mail_Merge
-msgid "Chip Cancellation Mail Merge"
-msgstr "Hromadný mail o zrušení čipov"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
-#: Work_Telephone
-msgid "Work Telephone"
-msgstr "Telefón do práce"
-
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_start_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the start date you would like to prepare chip cancellation "
-"letters for"
-msgstr "Uveďte prosím začiatočný dátum prípravy listov o zrušení čipov"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/OwnerCriteriaSearch
-#: Shelter_Code
-#: Sheltercode
-msgid "Shelter Code"
-msgstr "Kód útulku"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # reports/Retailer
-#: Owner_Name
-#: owner_name
-msgid "Owner Name"
-msgstr "Meno majiteľa"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
-#: Home_Telephone
-msgid "Home Telephone"
-msgstr "Telefón domov"
-
-#. # reports/LostFoundMatch
-#. # reports/SearchResults
-#. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/LostAnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/Vets
 #: Colour
 msgid "Colour"
 msgstr "Farba"
 
-#. # reports/SearchResults
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/internet/PetFinderMapBreed
-#. # ui/lookups/BreedSpeciesMapping
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/owner/OwnerFindColumns
+#. # ui/lookups/BreedSpeciesMapping
+#. # reports/OwnerCriteriaSearch
 #: Breed
 msgid "Breed"
 msgstr "Plemeno"
 
-#. # mailmerge/ChipCancellation
-#: ChipCancellations.csv
-msgid "ChipCancellations.csv"
-msgstr "ChipCancellations.csv"
-
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/LostFoundMatch
-#. # reports/SearchResults
-#. # reports/AnimalReturnedPostSix
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/TransferIn
-#. # reports/CustomReportExecute
-#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/NotAdoptionView
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/main/Main
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/lookups/LookupView
-#. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
-#. # ui/owner/OwnerEdit
-#. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
+#. # ui/waitinglist/WaitingListViewColumns
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/AnimalReturnedPreSix
+#. # reports/OwnerCriteriaSearch
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/CustomReportExecute
+#. # reports/AnimalReturnedPostSix
 #: Species
 msgid "Species"
 msgstr "Druhy"
 
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Microchip_Number
-msgid "Microchip Number"
-msgstr "Číslo mikročipu"
-
-#. # reports/InOut
-#. # reports/SearchResults
+#. # ui/animal/AnimalFindColumns
+#. # wordprocessor/AnimalDocument
 #. # reports/UnCombiTestedCats
 #. # reports/OwnerCriteriaSearch
+#. # reports/InOut
 #. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/AnimalDocument
 #: Age
 msgid "Age"
 msgstr "Vek"
 
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/AnimalDocument
 #. # bo/Animal
+#. # ui/animal/AnimalFindColumns
+#. # wordprocessor/AnimalDocument
 #: Markings
 msgid "Markings"
 msgstr "Značenie"
 
-#. # mailmerge/ChipCancellation
-#. # ui/movement/MovementView
-#: Return_Date
-#: return_date
-msgid "Return Date"
-msgstr "Dátum vrátenia"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/AnimalDocument
 #. # bo/Animal
+#. # ui/animal/AnimalFindColumns
+#. # wordprocessor/AnimalDocument
 #: Neutered
 msgid "Neutered"
 msgstr "Kastrované"
 
-#. # reports/Retailer
 #. # reports/InOut
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # reports/Retailer
 #: Adoption_Date
 msgid "Adoption Date"
 msgstr "Dátum adopcie"
 
-#. # mailmerge/ChipCancellation
-#: There_are_no_required_chip_cancellations_between_those_dates.
-msgid "There are no required chip cancellations between those dates."
-msgstr "Medzi týmito dátumami nie je požadované zrušenie čipov"
-
-#. # mailmerge/ChipCancellation
-#: Please_enter_the_end_date_you_would_like_to_prepare_chip_cancellation_letters_for
-msgid ""
-"Please enter the end date you would like to prepare chip cancellation "
-"letters for"
-msgstr "Uveďte prosím konečný dátum prípravy listov o zrušení čipov"
-
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#: Date_Of_Birth
-msgid "Date Of Birth"
-msgstr "Dátum narodenia"
-
-#. # reports/InOut
-#. # reports/SearchResults
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/animalname/NamesView
-#. # ui/owner/OwnerEdit
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
-#. # wordprocessor/AnimalDocument
-#. # bo/LookupCache
+#. # bo/AnimalLost
 #. # bo/Animal
 #. # bo/AnimalName
+#. # bo/LookupCache
+#. # bo/AnimalFound
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/AnimalAddMultiple
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/animalname/NamesView
+#. # wordprocessor/AnimalDocument
+#. # reports/OwnerCriteriaSearch
+#. # reports/InOut
 #: Sex
 msgid "Sex"
 msgstr "Pohlavie"
 
-#. # mailmerge/AdoptedNoReturn
-#: There_are_no_adoptions_matching_your_criteria.
-msgid "There are no adoptions matching your criteria."
-msgstr "Neexistujú žiadne adopcie, ktoré by vyhovovali vašim kritériám."
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_2
-msgid "Address 2"
-msgstr "Adresa 2"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_3
-msgid "Address 3"
-msgstr "Adresa 3"
-
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_closing_date_of_adoptions_to_include
-msgid "Please enter the closing date of adoptions to include"
-msgstr "Prosím, zadajte koncový dátum adopcií, ktoré majú byť zahrnuté"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Forenames
-msgid "Forenames"
-msgstr "Mená"
-
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnCombiTestedCats
+#. # reports/NotMicroChipped
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/NoMediaAttached
+#. # reports/AnimalReturnedPostSix
 #. # reports/VaccinationDiary
 #. # reports/Retailer
-#. # reports/NoMediaAttached
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/SearchResults
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/TransferIn
-#. # reports/UnneuteredSixMonths
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
 #: Animal_Name
 msgid "Animal Name"
 msgstr "Meno zvieraťa"
 
-#. # mailmerge/AdoptedNoReturn
-#: AdoptedNoReturn.csv
-msgid "AdoptedNoReturn.csv"
-msgstr "AdoptedNoReturn.csv"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#: Initials
-msgid "Initials"
-msgstr "Iniciály"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#: Email_Address
-msgid "Email Address"
-msgstr "Emailová adresa"
-
-#. # reports/Stats
-#. # reports/ShelterInventory
-#. # reports/OwnerSearchResults
-#. # reports/OwnerCriteriaSearch
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # reports/WaitingList
-#. # ui/animal/VaccinationView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/MediaSelector
-#. # ui/animal/AnimalFind
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/animalname/NamesView
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryTaskView
-#. # ui/movement/MovementView
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # ui/waitinglist/WaitingListView
-#. # db/AutoDBUpdates
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
 #. # bo/DiaryTaskHead
 #. # bo/Animal
 #. # bo/AnimalName
+#. # ui/animal/VaccinationView
+#. # ui/animal/MediaSelector
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/NotAdoptionView
+#. # ui/diary/DiaryTaskExecute
+#. # ui/diary/DiaryTaskView
+#. # ui/owner/OwnerCheck
+#. # ui/movement/MovementView
+#. # ui/animalname/NamesView
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
+#. # reports/Stats
+#. # reports/ShelterInventory
+#. # reports/OwnerSearchResults
+#. # reports/AnimalPrint
+#. # reports/OwnerCriteriaSearch
+#. # reports/Vets
+#. # reports/WaitingList
+#. # db/AutoDBUpdates
 #: Name
 msgid "Name"
 msgstr "Meno"
 
-#. # ui/customreport/GetReports
-#. # ui/customreport/CustomReportView
-#. # ui/customreport/CustomReportExport
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #. # bo/CustomReport
+#. # ui/customreport/CustomReportView
+#. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportExport
 #: Title
 msgid "Title"
 msgstr "Titul"
 
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_1
-msgid "Address 1"
-msgstr "Adresa 1"
-
-#. # reports/Stats
-#. # reports/AnimalFigures
-#. # reports/ShelterInventory
-#. # reports/Vets
-#. # ui/animal/NotAdoptionView
+#. # bo/Account
+#. # bo/MedicalProfile
+#. # bo/Owner
+#. # bo/CustomReport
+#. # bo/Adoption
+#. # bo/AnimalLitter
+#. # bo/DiaryTaskDetail
+#. # bo/AnimalLost
+#. # bo/Diary
+#. # bo/Log
+#. # bo/DiaryTaskHead
+#. # bo/AnimalWaitingList
+#. # bo/OwnerVoucher
+#. # bo/Animal
+#. # bo/Media
+#. # bo/AnimalName
+#. # bo/LookupCache
+#. # bo/AnimalMedicalTreatment
+#. # bo/AnimalCost
+#. # bo/AdditionalField
+#. # bo/AnimalMedical
+#. # bo/Users
+#. # bo/AnimalDiet
+#. # bo/AnimalVaccination
+#. # bo/AnimalFound
+#. # bo/AccountTrx
+#. # bo/OwnerDonation
+#. # script/PublishPF
+#. # script/PublishWWW
+#. # script/PublishSaveAPet
+#. # script/PublishPets911
+#. # script/PublishRescueGroups
+#. # charts/AdoptionsPerBlock
+#. # charts/MonthlyDonations
+#. # charts/CommonReasonsEntry
+#. # charts/CommonReasonsReturn
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/AnimalFindText
 #. # ui/animal/AdditionalFieldView
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/internet/PetFinderMapBreed
+#. # ui/animal/NotAdoptionView
 #. # ui/internet/PetFinderMapSpecies
 #. # ui/internet/InternetPublisher
+#. # ui/internet/PetFinderMapBreed
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/lookups/LookupEdit
 #. # ui/lookups/LookupView
-#. # ui/movement/MovementEdit
 #. # ui/movement/MovementView
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListView
-#. # db/AutoDBUpdates
+#. # reports/Stats
+#. # reports/ShelterInventory
+#. # reports/Vets
+#. # reports/AnimalFigures
 #. # db/Diagnostic
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#. # charts/CommonReasonsReturn
-#. # charts/MonthlyDonations
-#. # charts/AdoptionsPerBlock
-#. # charts/CommonReasonsEntry
+#. # db/AutoDBUpdates
 #. # utility/Utils
-#. # script/PublishSaveAPet
-#. # script/PublishPets911
-#. # script/PublishWWW
-#. # script/PublishRescueGroups
-#. # script/PublishPF
-#. # bo/LookupCache
-#. # bo/AnimalLost
-#. # bo/AnimalWaitingList
-#. # bo/Account
-#. # bo/Diary
-#. # bo/CustomReport
-#. # bo/AnimalVaccination
-#. # bo/Media
-#. # bo/DiaryTaskHead
-#. # bo/DiaryTaskDetail
-#. # bo/AnimalMedicalTreatment
-#. # bo/Owner
-#. # bo/AnimalFound
-#. # bo/OwnerVoucher
-#. # bo/AdditionalField
-#. # bo/OwnerDonation
-#. # bo/Adoption
-#. # bo/AnimalLitter
-#. # bo/Users
-#. # bo/AnimalDiet
-#. # bo/Animal
-#. # bo/AnimalCost
-#. # bo/AccountTrx
-#. # bo/AnimalName
-#. # bo/AnimalMedical
-#. # bo/Log
-#. # bo/MedicalProfile
 #: ID
 msgid "ID"
 msgstr "ID"
 
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_5
-msgid "Address 5"
-msgstr "Adresa 5"
-
-#. # reports/OwnerSearchResults
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
+#. # reports/OwnerSearchResults
 #: Postcode
 msgid "Postcode"
 msgstr "PSČ"
 
-#. # mailmerge/AdoptedNoReturn
-#: Please_enter_the_start_date_of_adoptions_to_include
-msgid "Please enter the start date of adoptions to include"
-msgstr "Prosím, zadajte počiatočný dátum adopcií, ktoré majú byť zahrnuté"
-
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/ChipCancellation
-#: Address_4
-msgid "Address 4"
-msgstr "Adresa 5"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "Non-Returned Adoptions"
-msgstr "Nevrátené adopcie"
-
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # mailmerge/OffShelterVaccinations
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
 #: Surname
 msgid "Surname"
 msgstr "Priezvisko"
@@ -4710,41 +4498,22 @@ msgstr "Pošli hromadný email"
 msgid "Bulk Email Complete"
 msgstr "Hromadný email dokončený"
 
+#. # ui/owner/OwnerCheck
+#. # ui/movement/MovementSelector
+#. # ui/waitinglist/WaitingListViewColumns
 #. # reports/OwnerSearchResults
 #. # reports/WaitingList
-#. # ui/movement/MovementSelector
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
-#. # mailmerge/OwnerMailMerge
 #: Address
 msgid "Address"
 msgstr "Adresa"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: Town
 msgid "Town"
 msgstr "Mesto"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#. # mailmerge/ChipRegistration
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#. # mailmerge/AdoptedNoReturn
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/ChipCancellation
 #: County
 msgid "County"
 msgstr "Okres"
@@ -4753,33 +4522,6 @@ msgstr "Okres"
 #: error_occurred_sending_mail_to
 msgid "An error occurred sending email to {0}: {1}"
 msgstr "Vyskytla sa chyba pri posielaní emailu {0}: {1}"
-
-#. # mailmerge/ExpiringMembers
-#: Show_members_expiring_before
-msgid "Show members expiring before"
-msgstr "Zobraziť členov expirujúcich pred"
-
-#. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "Expiring Members"
-msgstr "Expirujúci členovia"
-
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
-#: Membership_Expiry
-msgid "MembershipExpiry"
-msgstr "MembershipExpiry"
-
-#. # mailmerge/ExpiringMembers
-#: ExpiringMembers.csv
-msgid "ExpiringMembers.csv"
-msgstr "ExpiringMembers.csv"
-
-#. # mailmerge/Members
-#: Members.csv
-msgid "Members.csv"
-msgstr "Members.csv"
 
 #. # ui/criteria/DiaryCriteria
 #: Show_everything_upto_this_date\:
@@ -4841,36 +4583,37 @@ msgstr "Dnu/Von Report"
 msgid "In/Out Summary Report"
 msgstr "Dnu/Von zhrňujúci report"
 
+#. # ui/system/ConfigureLocal
+#. # ui/system/FileTypeEdit
+#. # ui/system/ConfigureLookups
+#. # ui/system/AdditionalFieldEdit
+#. # ui/system/ConfigureDatabase
 #. # ui/animal/DietEdit
-#. # ui/animal/MediaAdd
-#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/MediaEdit
 #. # ui/animal/CostEdit
-#. # ui/ui/UI
+#. # ui/animal/LitterEdit
+#. # ui/animal/MediaAdd
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiaryTaskExecute
+#. # ui/diary/DiaryTaskDetailEdit
+#. # ui/criteria/DiaryCriteria
+#. # ui/criteria/DateFromTo
+#. # ui/ui/InputListDialog
 #. # ui/ui/DateInputDlg
 #. # ui/ui/InputTextDialog
-#. # ui/ui/InputListDialog
+#. # ui/ui/LocaleDialog
 #. # ui/ui/JDBCDlg
+#. # ui/ui/UI
+#. # ui/owner/VoucherEdit
+#. # ui/lookups/LookupEdit
+#. # ui/animalname/NamesEdit
+#. # ui/main/Logout
+#. # ui/main/ChangePassword
+#. # ui/log/LogEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # ui/animalname/NamesEdit
-#. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLookups
-#. # ui/system/ConfigureDatabase
-#. # ui/system/AdditionalFieldEdit
-#. # ui/system/ConfigureLocal
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskDetailEdit
 #. # ui/users/UserEdit
-#. # ui/main/ChangePassword
-#. # ui/main/Logout
-#. # ui/criteria/DateFromTo
-#. # ui/criteria/DiaryCriteria
-#. # ui/lookups/LookupEdit
-#. # ui/owner/VoucherEdit
-#. # ui/log/LogEdit
 #. # ui/internet/EmailForm
 #. # ui/owner/DonationEdit
 #: Cancel
@@ -4903,24 +4646,24 @@ msgstr "Zhoda stratených a nájdených zvierat"
 msgid "Animal Species"
 msgstr "Druhy zvierat"
 
-#. # reports/WaitingList
+#. # bo/AnimalWaitingList
+#. # bo/LookupCache
 #. # ui/system/Options
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
-#. # bo/LookupCache
-#. # bo/AnimalWaitingList
+#. # reports/WaitingList
 #: Urgency
 msgid "Urgency"
 msgstr "Dôležitosť"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # reports/WaitingList
-#. # ui/waitinglist/WaitingListView
 #: Date_Removed
 msgid "Date Removed"
 msgstr "Dátum odstránenia"
 
 #. # reports/WaitingList
-#. # ui/waitinglist/WaitingListView
 #. # db/AutoDBUpdates
 #: Telephone
 msgid "Telephone"
@@ -4932,7 +4675,6 @@ msgid "Waiting List (generated on {0}) "
 msgstr "Zoznam čakajúcich (generovaný {0}) "
 
 #. # reports/WaitingList
-#. # ui/waitinglist/WaitingListView
 #: Date_Put_On
 msgid "Date Put On"
 msgstr "Dátum pridania"
@@ -4952,9 +4694,9 @@ msgstr "Žiadne záznamy v diári alebo vakcináciách nevyhovujú vašim krité
 msgid "Vet Diary between {0} and {1}"
 msgstr "Veterinárny diár medzi {0} a {1}"
 
-#. # reports/Vets
 #. # ui/animal/VaccinationView
 #. # ui/diary/VetBookView
+#. # reports/Vets
 #: Location
 msgid "Location"
 msgstr "Miesto"
@@ -4964,23 +4706,24 @@ msgstr "Miesto"
 msgid "Vet Diary upto {0} "
 msgstr "Diár veterinára do {0} "
 
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # ui/animal/DietSelector
-#. # ui/animal/CostSelector
-#. # ui/internet/PetFinderMapBreed
-#. # ui/internet/PetFinderMapSpecies
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/localcache/CacheView
-#. # ui/customreport/GetReports
 #. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
 #. # bo/AccountTrx
+#. # ui/customreport/GetReports
+#. # ui/localcache/CacheView
+#. # ui/animal/CostSelector
+#. # ui/animal/DietSelector
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # reports/AnimalPrint
+#. # reports/LostFoundMatch
+#. # reports/Vets
 #: Description
 msgid "Description"
 msgstr "Popis"
@@ -5020,14 +4763,14 @@ msgstr "(Všetky zvieratá)"
 msgid "(On Shelter)"
 msgstr "(V útulku)"
 
-#. # reports/VaccinationDiary
 #. # ui/animal/VaccinationView
+#. # reports/VaccinationDiary
 #: Vaccination_Diary_Criteria
 msgid "Vaccination Diary Criteria"
 msgstr "Kritériá pre denník vakcinácií"
 
-#. # reports/VaccinationDiary
 #. # reports/MedicalDiary
+#. # reports/VaccinationDiary
 #: No_animals_match_your_criteria.
 msgid "No animals match your criteria."
 msgstr "Žiadne zvieratá nevyhovujú zadaným kritériám."
@@ -5063,8 +4806,8 @@ msgstr "Všetky zvieratá v útulku zvoleného druhu sú súčasťou vrhu."
 msgid "All animals on the shelter of that species are older than six months."
 msgstr "Všetky zvieratá tohto druhu v útulku sú staršie ako 6 mesiacov."
 
-#. # reports/InOut
 #. # reports/UnderSixNotLitter
+#. # reports/InOut
 #: Acceptance_Number
 msgid "Acceptance Number"
 msgstr "Číslo príjmu"
@@ -5114,8 +4857,8 @@ msgstr "4 týždne"
 msgid "8 weeks"
 msgstr "8 týždňov"
 
-#. # reports/UnCombiTestedCats
 #. # ui/internet/InternetPublisher
+#. # reports/UnCombiTestedCats
 #: 1_week
 msgid "1 week"
 msgstr "1 týždeň"
@@ -5180,9 +4923,10 @@ msgstr "5 týždňov"
 msgid "6 weeks"
 msgstr "6 týždňov"
 
+#. # ui/movement/MovementView
+#. # reports/TransferIn
 #. # reports/OwnerSearchResults
 #. # reports/SearchResults
-#. # reports/TransferIn
 #: Total__
 msgid "Total: {0}"
 msgstr "Celkom: {0}"
@@ -5213,9 +4957,9 @@ msgstr "Prázdne PSČ"
 msgid "Total "
 msgstr "Celkom "
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # reports/Stats
 #. # reports/WaitingList
-#. # ui/waitinglist/WaitingListView
 #: Rank
 msgid "Rank"
 msgstr "Hodnotenie"
@@ -5349,60 +5093,48 @@ msgstr "Spôsob prijatia"
 msgid "Animal Search Results (generated on {0}) "
 msgstr "Výsledky vyhľadávania zvierat (generované {0}) "
 
-#. # reports/SearchResults
-#: Short_Code
-msgid "Short Code"
-msgstr "Skrátený kód"
-
-#. # reports/SearchResults
-#. # reports/Vets
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
+#. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/Vets
 #: Features
 msgid "Features"
 msgstr "Znaky (vzhľad)"
 
-#. # reports/NoMediaAttached
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
 #. # reports/NeverVaccinated
-#. # reports/SearchResults
 #. # reports/UnCombiTestedCats
-#. # reports/CustomReportExecute
+#. # reports/NotMicroChipped
 #. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/NoMediaAttached
+#. # reports/CustomReportExecute
 #: Internal_Location
 msgid "Internal Location"
 msgstr "Interné umiestnenie"
 
-#. # reports/InOut
-#. # reports/SearchResults
+#. # ui/animal/AnimalFindColumns
 #. # reports/TransferIn
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # reports/InOut
 #: Date_Brought_In
 msgid "Date Brought In"
 msgstr "Dátum prijatia"
 
+#. # ui/animal/AnimalFindColumns
 #. # reports/InOut
-#. # reports/SearchResults
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #: Identichip_No
-msgid "Identichip No"
-msgstr "Číslo mikročipu"
+msgid "Microchip No"
+msgstr ""
 
-#. # reports/SearchResults
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/system/Options
-#. # ui/owner/OwnerEdit
-#. # wordprocessor/AnimalDocument
-#. # bo/LookupCache
 #. # bo/Animal
+#. # bo/LookupCache
+#. # ui/system/Options
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # wordprocessor/AnimalDocument
+#. # reports/OwnerCriteriaSearch
 #: Size
 msgid "Size"
 msgstr "Veľkosť"
@@ -5422,6 +5154,7 @@ msgstr "Dĺžka"
 msgid "Reason For Return"
 msgstr "Dôvod vrátenia"
 
+#. # ui/ui/Dialog
 #. # reports/ReturnedAnimals
 #: There_are_no_animals_on_the_shelter
 msgid "There are no animals on the shelter"
@@ -5447,11 +5180,6 @@ msgstr "Dátum vrátenia"
 #: Generating_
 msgid "Generating report: {0}"
 msgstr "Generujem report: {0}"
-
-#. # reports/Report
-#: Error_occurred_retrieving_templates_
-msgid "Error occurred retrieving templates: {0} "
-msgstr "Chyba pri získavaní šablóny: {0} "
 
 #. # reports/Report
 #. # reports/CustomReportExecute
@@ -5500,56 +5228,26 @@ msgid "Animals on the shelter that have never been vaccinated at {0} "
 msgstr "Animals on the shelter that have never been vaccinated at {0} "
 
 #. # reports/LostFoundMatch
-#: 80%
-msgid "80%"
-msgstr "80%"
-
-#. # reports/LostFoundMatch
 #: Lost/Found_Animal_Match_Report_At_
 msgid "Lost/Found Animal Match Report At {0} "
 msgstr "Report zhody stratených a nájdených zvierat {0} "
-
-#. # reports/LostFoundMatch
-#: 60%
-msgid "60%"
-msgstr "60%"
 
 #. # reports/LostFoundMatch
 #: Percentage_Match
 msgid "Percentage Match"
 msgstr "Percentuálna zhoda"
 
-#. # reports/LostFoundMatch
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/LostFoundMatch
 #: Contact
 msgid "Contact"
 msgstr "Kontakt"
 
 #. # reports/LostFoundMatch
-#: 90%
-msgid "90%"
-msgstr "90%"
-
-#. # reports/LostFoundMatch
-#: 70%
-msgid "70%"
-msgstr "70%"
-
-#. # reports/LostFoundMatch
-#: Set_Match_Floor
-msgid "Set Match Floor"
-msgstr "Nastaviť mieru zohdy"
-
-#. # reports/LostFoundMatch
 #: Area_Found
 msgid "Area Found"
 msgstr "Oblasť nájdenia"
-
-#. # reports/LostFoundMatch
-#: At_what_level_should_the_report_show_matches?
-msgid "At what level should the report show matches?"
-msgstr "Na akom leveli má tento report zobraziť zhody?"
 
 #. # reports/LostFoundMatch
 #: Date_Found
@@ -5562,11 +5260,6 @@ msgid "Area Postcode"
 msgstr "PSČ"
 
 #. # reports/LostFoundMatch
-#: 30%
-msgid "30%"
-msgstr "30%"
-
-#. # reports/LostFoundMatch
 #: No_matches_found.
 msgid "No matches found."
 msgstr "Nenájdené žiadne zhody."
@@ -5575,11 +5268,6 @@ msgstr "Nenájdené žiadne zhody."
 #: Distinguishing_Features
 msgid "Distinguishing Features"
 msgstr "Rozpoznávacie znaky"
-
-#. # reports/LostFoundMatch
-#: 50%
-msgid "50%"
-msgstr "50%"
 
 #. # reports/LongTermAnimals
 #: Date_Of_Entry
@@ -5711,8 +5399,8 @@ msgstr "Dátum odobratia"
 msgid "Returned Date"
 msgstr "Dátum vrátenia"
 
-#. # reports/InOut
 #. # reports/TransferIn
+#. # reports/InOut
 #: Brought_In_By
 msgid "Brought In By"
 msgstr "Prijaté od"
@@ -5844,14 +5532,14 @@ msgstr "Spolu utečených zvierat: {0}"
 msgid "Animals Died On The Shelter"
 msgstr "Zvieratá uhynuté v útulku"
 
-#. # reports/DiaryNotesToday
-#. # reports/AnimalPrint
-#. # reports/Vets
+#. # bo/DiaryTaskDetail
+#. # bo/Diary
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
-#. # bo/Diary
-#. # bo/DiaryTaskDetail
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # reports/DiaryNotesToday
 #: Subject
 msgid "Subject"
 msgstr "Predmet"
@@ -5871,8 +5559,8 @@ msgstr "Diár pre {0}"
 msgid "Diary between {0} and {1} "
 msgstr "Diár medzi {0} a {1} "
 
-#. # reports/DiaryNotesToday
 #. # ui/criteria/DiaryCriteria
+#. # reports/DiaryNotesToday
 #: Diary_Criteria
 msgid "Diary Criteria"
 msgstr "Kritériá pre diár"
@@ -5892,48 +5580,47 @@ msgstr "Zvieratá vrátené do 6 mesiacov od adopcie {0} "
 msgid "No animals have been returned within 6 months of adoption."
 msgstr "Žiadne zviera nebolo vrátené do 6 mesiacov od adopcie."
 
+#. # bo/Account
+#. # ui/system/Options
+#. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/NotAdoptionView
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnCombiTestedCats
+#. # reports/NotMicroChipped
+#. # reports/ShelterInventory
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/NoMediaAttached
+#. # reports/Vets
+#. # reports/AnimalReturnedPostSix
 #. # reports/VaccinationDiary
 #. # reports/Retailer
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/TransferIn
-#. # reports/UnneuteredSixMonths
-#. # reports/Vets
-#. # ui/animal/VaccinationView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/system/Options
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/account/TrxEdit
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
-#. # bo/Account
 #: Code
 msgid "Code"
 msgstr "Kód"
 
-#. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
 #. # reports/ReturnedAnimals
+#. # reports/AnimalReturnedPostSix
 #: Date_Adopted
 msgid "Date Adopted"
 msgstr "Dátum adopcie"
 
-#. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
+#. # reports/AnimalReturnedPostSix
 #: Reason_for_Return
 msgid "Reason for Return"
 msgstr "Dôvod vrátenia"
@@ -5948,54 +5635,56 @@ msgstr "Žiadne zvieratá neboli vrátené po 6 mesiacoch od adopcie."
 msgid "Animals returned after 6 months of adoption at {0} "
 msgstr "Zvieratá vrátené po 6 mesiacoch od adopcie {0} "
 
-#. # reports/AnimalReturnedPostSix
 #. # reports/AnimalReturnedPreSix
+#. # reports/AnimalReturnedPostSix
 #: No_adoptions_on_file.
 msgid "No adoptions on file."
 msgstr "Žiadne adopcie."
 
-#. # reports/VaccinationDiary
+#. # ui/animal/AnimalFindColumns
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/AnimalReturnedPreSix
 #. # reports/InOut
 #. # reports/MedicalDiary
 #. # reports/AnimalReturnedPostSix
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/TransferIn
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
+#. # reports/VaccinationDiary
 #: Internal_Loc
 msgid "Internal Loc"
 msgstr "Interné umiestnenie"
 
-#. # reports/VaccinationDiary
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/AnimalPrint
-#. # reports/TransferIn
-#. # reports/UnneuteredSixMonths
-#. # reports/Vets
-#. # ui/animal/VaccinationView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/CostSelector
-#. # ui/diary/VetBookView
-#. # ui/diary/DiaryTaskView
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/movement/MovementView
-#. # ui/log/LogSelector
+#. # ui/customreport/CustomReportView
 #. # ui/customreport/GetReports
+#. # ui/animal/VaccinationView
+#. # ui/animal/CostSelector
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/NotAdoptionView
+#. # ui/diary/DiaryTaskView
+#. # ui/diary/VetBookView
+#. # ui/movement/MovementView
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/log/LogSelector
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnCombiTestedCats
+#. # reports/NotMicroChipped
+#. # reports/ShelterInventory
+#. # reports/AnimalPrint
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/NoMediaAttached
+#. # reports/Vets
+#. # reports/AnimalReturnedPostSix
+#. # reports/VaccinationDiary
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationSelector
+#. # ui/owner/OwnerFindColumns
 #. # ui/owner/DonationEdit
 #: Type
 #: type
@@ -6060,9 +5749,9 @@ msgstr "Celkové zhrnutie:"
 msgid "Which year is this report for?"
 msgstr "Pre ktorý rok je tento report?"
 
-#. # reports/AnimalFigures
-#. # reports/AnimalPrint
 #. # ui/movement/MovementSelector
+#. # reports/AnimalPrint
+#. # reports/AnimalFigures
 #: Returned
 msgid "Returned"
 msgstr "Vrátené"
@@ -6162,8 +5851,8 @@ msgstr "Jún"
 msgid "Day Of Month"
 msgstr "Deň mesiaca"
 
-#. # reports/AnimalFigures
 #. # reports/InOut
+#. # reports/AnimalFigures
 #: Put_To_Sleep
 msgid "Put To Sleep"
 msgstr "Utratených"
@@ -6228,23 +5917,23 @@ msgstr "{0} vrátených"
 msgid "On Foster (in figures)"
 msgstr "V domácej opatere (prehľad)"
 
-#. # reports/CustomReportExecute
+#. # bo/LookupCache
+#. # ui/customreport/CustomReportEdit
 #. # ui/animal/AnimalFind
 #. # ui/ui/Dialog
 #. # ui/lookups/LookupView
-#. # ui/customreport/CustomReportEdit
+#. # reports/CustomReportExecute
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/LookupCache
 #: animaltype
 msgid "Animal Type"
 msgstr "Druh zvieraťa"
 
+#. # ui/owner/OwnerEdit
 #. # reports/OwnerSearchResults
 #. # reports/SearchResults
 #. # reports/CustomReportExecute
-#. # ui/owner/OwnerEdit
 #: criteria
 msgid "Criteria"
 msgstr "Kritériá"
@@ -6270,6 +5959,11 @@ msgid "Average Time At Retailer"
 msgstr "Priemerný čas u sprostredkovateľa"
 
 #. # reports/Retailer
+#: owner_name
+msgid "Owner Name"
+msgstr "Meno majiteľa"
+
+#. # reports/Retailer
 #: all_retailers
 msgid "All Retailers"
 msgstr "Všetci sprostredkovatelia"
@@ -6280,11 +5974,6 @@ msgid "Date Entered Retailer"
 msgstr "Dátum presunu k sprostredkovateľovi"
 
 #. # reports/CustomReportExecute
-#: Invalid_standard_report
-msgid "Invalid standard report: {0}"
-msgstr "Chybný štandardný report: {0}"
-
-#. # reports/CustomReportExecute
 #: internal_reports_cannot_be_redirected_to_stdout
 msgid ""
 "Internal reports cannot be redirected to stdout. Please select a custom "
@@ -6293,18 +5982,18 @@ msgstr ""
 "Interné reporty nemôžu byť presmerované na stdout. Prosím zvoľte vlastný "
 "report."
 
-#. # reports/CustomReportExecute
 #. # ui/animal/DietSelector
-#. # reports/AnimalPrint
+#. # reports/CustomReportExecute
+#. # bo/Animal
+#. # bo/LookupCache
+#. # ui/customreport/CustomReportEdit
 #. # ui/animal/AnimalEdit
 #. # ui/ui/Dialog
 #. # ui/lookups/LookupView
-#. # ui/customreport/CustomReportEdit
+#. # reports/AnimalPrint
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/LookupCache
-#. # bo/Animal
 #: Diet
 #: diet
 msgid "Diet"
@@ -6340,12 +6029,12 @@ msgstr "Liečebný diár medzi {0} a {1}"
 msgid "Treatment Type"
 msgstr "Typ ošetrenia"
 
-#. # reports/MedicalDiary
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileView
-#. # bo/AnimalMedical
 #. # bo/MedicalProfile
+#. # bo/AnimalMedical
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/ProfileView
+#. # reports/MedicalDiary
 #: Dosage
 msgid "Dosage"
 msgstr "Dávka"
@@ -6370,8 +6059,8 @@ msgstr "Zmienka"
 msgid "{0} (plus {1})"
 msgstr "{0} (plus {1})"
 
-#. # reports/CustomReportExecute
 #. # ui/customreport/CustomReportEdit
+#. # reports/CustomReportExecute
 #: there_must_be_at_least_one_select_query_and_it_must_be_the_last_to_run
 msgid ""
 "There must be at least one SELECT query and it must be the last to run."
@@ -6395,72 +6084,84 @@ msgid "No matches found for this owner's criteria."
 msgstr "Žiadne zhody pre kritériá tohto majiteľa."
 
 #. # reports/OwnerCriteriaSearch
+#: Sheltercode
+msgid "Shelter Code"
+msgstr "Kód útulku"
+
 #. # wordprocessor/AnimalDocument
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithCats
 #: Good_with_cats
 msgid "Good with cats"
 msgstr "Znášanlivosť s mačkami"
 
-#. # reports/OwnerCriteriaSearch
 #. # wordprocessor/AnimalDocument
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithDogs
 #: Good_with_dogs
 msgid "Good with dogs"
 msgstr "Znášanlivosť so psami"
 
-#. # reports/OwnerCriteriaSearch
 #. # wordprocessor/AnimalDocument
+#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: GoodWithChildren
 #: Good_with_kids
 #: Good_with_children
 msgid "Good with children"
 msgstr "Znášanlivosť s deťmi"
 
-#. # reports/OwnerCriteriaSearch
 #. # ui/animal/AnimalFind
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # reports/OwnerCriteriaSearch
 #: Housetrained
 msgid "Housetrained"
 msgstr "Naučené na byt"
 
-#. # reports/VaccinationDiary
-#. # reports/MedicalDiary
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
-#. # ui/animal/VaccinationSelector
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#. # ui/medical/ProfileView
-#. # ui/medical/MedicalEdit
-#. # ui/owner/OwnerEdit
-#. # db/AutoDBUpdates
-#. # bo/AnimalLost
-#. # bo/AnimalWaitingList
-#. # bo/AnimalVaccination
-#. # bo/AnimalMedicalTreatment
+#. # bo/MedicalProfile
 #. # bo/Owner
-#. # bo/AnimalFound
-#. # bo/OwnerVoucher
-#. # bo/OwnerDonation
 #. # bo/Adoption
 #. # bo/AnimalLitter
-#. # bo/AnimalDiet
-#. # bo/AnimalMedical
+#. # bo/AnimalLost
 #. # bo/Log
-#. # bo/MedicalProfile
-#. # reports/AnimalPrint
+#. # bo/AnimalWaitingList
+#. # bo/OwnerVoucher
+#. # bo/AnimalMedicalTreatment
+#. # bo/AnimalMedical
+#. # bo/AnimalDiet
+#. # bo/AnimalVaccination
+#. # bo/AnimalFound
+#. # bo/OwnerDonation
+#. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/LitterView
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalEdit
+#. # ui/medical/ProfileView
+#. # ui/medical/MedicalRegimeTreatmentSelector
+#. # reports/OwnerCriteriaSearch
+#. # reports/MedicalDiary
+#. # reports/VaccinationDiary
+#. # db/AutoDBUpdates
+#. # ui/owner/VoucherSelector
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
-#. # ui/owner/VoucherSelector
+#. # reports/AnimalPrint
 #: Comments
 #: comments
 msgid "Comments"
@@ -6560,6 +6261,11 @@ msgstr "Grafy nemôžu byť odoslané na stdout."
 msgid "Litter ID"
 msgstr "ID vrhu"
 
+#. # reports/CustomReportExecute
+#: No_data
+msgid "No matching data was found for the report."
+msgstr ""
+
 #. # ui/account/AccountView
 #: Add_a_new_account
 msgid "Add a new account"
@@ -6576,8 +6282,8 @@ msgid "Delete the selected accounts"
 msgstr "Vymazať označené kontá"
 
 #. # ui/animal/VaccinationView
-#. # ui/animal/LitterView
 #. # ui/animal/CostSelector
+#. # ui/animal/LitterView
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
 #. # ui/account/AccountView
@@ -6597,72 +6303,75 @@ msgstr "Označiť všetko v zvolených kontách ako vysporiadané dnes"
 msgid "Edit the transactions for this account"
 msgstr "Upraviť transakcie pre toto konto"
 
+#. # bo/Account
+#. # ui/system/Options
+#. # ui/animal/VaccinationView
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/NotAdoptionView
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnCombiTestedCats
+#. # reports/NotMicroChipped
+#. # reports/ShelterInventory
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/NoMediaAttached
+#. # reports/Vets
+#. # reports/AnimalReturnedPostSix
 #. # reports/VaccinationDiary
 #. # reports/Retailer
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/TransferIn
-#. # reports/UnneuteredSixMonths
-#. # reports/Vets
-#. # ui/animal/VaccinationView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/system/Options
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/account/TrxEdit
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
-#. # bo/Account
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Code
 #: Code\:
 msgid "Code:"
 msgstr "Kód:"
 
-#. # reports/VaccinationDiary
-#. # reports/NoMediaAttached
-#. # reports/ShelterInventory
-#. # reports/InOut
-#. # reports/UnderSixNotLitter
-#. # reports/NotMicroChipped
-#. # reports/MedicalDiary
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPostSix
-#. # reports/UnCombiTestedCats
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/AnimalPrint
-#. # reports/TransferIn
-#. # reports/UnneuteredSixMonths
-#. # reports/Vets
-#. # ui/animal/VaccinationView
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/CostSelector
-#. # ui/diary/VetBookView
-#. # ui/diary/DiaryTaskView
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/movement/MovementView
-#. # ui/log/LogSelector
+#. # ui/customreport/CustomReportView
 #. # ui/customreport/GetReports
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostEdit
+#. # ui/animal/VaccinationView
+#. # ui/animal/CostSelector
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/VaccinationSelector
+#. # ui/animal/NotAdoptionView
+#. # ui/diary/DiaryTaskView
+#. # ui/diary/VetBookView
+#. # ui/movement/MovementView
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/log/LogSelector
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/NeverVaccinated
+#. # reports/AnimalReturnedPreSix
+#. # reports/UnCombiTestedCats
+#. # reports/NotMicroChipped
+#. # reports/ShelterInventory
+#. # reports/AnimalPrint
+#. # reports/UnneuteredSixMonths
+#. # reports/UnderSixNotLitter
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/NoMediaAttached
+#. # reports/Vets
+#. # reports/AnimalReturnedPostSix
+#. # reports/VaccinationDiary
 #. # ui/animal/AnimalFind
+#. # ui/animal/CostEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
 #: Type
@@ -6670,34 +6379,36 @@ msgstr "Kód:"
 msgid "Type:"
 msgstr "Typ:"
 
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # ui/animal/DietSelector
-#. # ui/animal/CostSelector
-#. # ui/internet/PetFinderMapBreed
-#. # ui/internet/PetFinderMapSpecies
-#. # ui/account/AccountEdit
-#. # ui/account/AccountView
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/localcache/CacheView
-#. # ui/customreport/GetReports
 #. # bo/Account
 #. # bo/CustomReport
 #. # bo/AnimalCost
 #. # bo/AccountTrx
+#. # ui/customreport/GetReports
+#. # ui/localcache/CacheView
+#. # ui/animal/CostSelector
+#. # ui/animal/DietSelector
+#. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
+#. # ui/lookups/BreedSpeciesMapping
+#. # ui/account/AccountView
+#. # ui/account/AccountEdit
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # reports/AnimalPrint
+#. # reports/LostFoundMatch
+#. # reports/Vets
 #. # ui/animal/CostEdit
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
 #: Description
 #: Description\:
 msgid "Description:"
 msgstr "Popis:"
 
-#. # ui/account/AccountView
-#. # ui/account/TrxView
 #. # bo/AccountTrx
+#. # ui/account/AccountView
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
 #: Reconciled
 msgid "Reconciled"
 msgstr "Vysporiadané"
@@ -6752,32 +6463,33 @@ msgstr "Všetky"
 msgid "Show Transactions:"
 msgstr "Zobraziť transakcie:"
 
-#. # reports/DiaryNotesToday
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # ui/animal/NotAdoptionView
-#. # ui/animal/LitterView
-#. # ui/animal/MediaSelector
-#. # ui/animal/CostSelector
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
-#. # ui/owner/OwnerEdit
-#. # ui/owner/LinkSelector
-#. # ui/log/LogSelector
-#. # db/AutoDBUpdates
-#. # db/Diagnostic
-#. # bo/Media
-#. # bo/OwnerDonation
 #. # bo/AnimalLitter
 #. # bo/Log
-#. # ui/animal/LitterEdit
+#. # bo/Media
+#. # bo/OwnerDonation
+#. # ui/animal/MediaSelector
+#. # ui/animal/CostSelector
+#. # ui/animal/LitterView
+#. # ui/animal/NotAdoptionView
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerEdit
+#. # ui/owner/LinkSelector
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/account/TrxEdit
+#. # ui/account/TrxView
+#. # ui/log/LogSelector
+#. # reports/AnimalPrint
+#. # reports/Vets
+#. # reports/DiaryNotesToday
+#. # db/Diagnostic
+#. # db/AutoDBUpdates
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/LitterEdit
 #. # ui/diary/DiaryEdit
 #. # ui/movement/MovementEdit
 #. # ui/log/LogEdit
@@ -6845,6 +6557,47 @@ msgstr "Pridať transakciu"
 msgid "Income::"
 msgstr "Príjem::"
 
+#. # ui/internet/EmailForm
+#. # ui/account/TrxView
+#: to
+msgid "to"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_owner
+msgid "View this owner"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: donation_from
+msgid "Donation From:"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_animal
+msgid "View this animal"
+msgstr ""
+
+#. # ui/account/TrxEdit
+#: view_this_movement
+msgid "View this movement"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Reconciled\:
+msgid "Reconciled:"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Non_reconciled
+msgid "Non-Reconciled"
+msgstr ""
+
+#. # ui/account/TrxView
+#: Both
+msgid "Both"
+msgstr ""
+
 #. # ui/animal/LitterView
 #: Delete_this_litter
 msgid "Delete this litter"
@@ -6885,6 +6638,7 @@ msgstr "Vrhy zvierat"
 msgid "View the animals in this litter"
 msgstr "Prezrieť zvieratá v tomto vrhu"
 
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
 #: Acceptance
 msgid "Acceptance"
@@ -6903,16 +6657,19 @@ msgstr "Má komentáre: "
 #. # ui/animal/AnimalFindText
 #. # ui/ui/UI
 #. # ui/owner/OwnerFindText
+#. # ui/system/Options
 #: Search
+#: search
 msgid "Search"
 msgstr "Vyhľadávanie"
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
+#. # ui/animal/AnimalFindText
+#. # ui/animal/AnimalLink
 #. # ui/lostandfound/LostAnimalFind
-#. # ui/owner/OwnerFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerLink
 #: Clear
 #: clear
@@ -6930,19 +6687,23 @@ msgid "Tick this box to include deceased animals"
 msgstr "Označte toto ak zahrnúť aj uhynuté"
 
 #. # ui/animal/AnimalFind
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: Type\:_
 #: Type\:
 msgid "Type: "
 msgstr "Typ: "
 
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #. # bo/Animal
+#. # bo/OwnerDonation
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/NotAdoptionView
+#. # ui/owner/DonationSelector
+#. # reports/Report
 #: ShortCode
 msgid "ShortCode"
 msgstr "Krátky kód"
@@ -6958,8 +6719,8 @@ msgid "Internal Loc: "
 msgstr "Interné umiestnenie: "
 
 #. # ui/animal/AnimalFind
-#. # ui/animalname/NamesEdit
 #. # ui/diary/DiaryTaskHeadEdit
+#. # ui/animalname/NamesEdit
 #: Name\:_
 msgid "Name: "
 msgstr "Meno: "
@@ -6976,8 +6737,8 @@ msgid "Sex: "
 msgstr "Pohlavie: "
 
 #. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: Bad_Date
 msgid "Bad Date"
 msgstr "Zlý dátum"
@@ -7002,12 +6763,13 @@ msgstr "Otvoriť"
 msgid "Unreserved"
 msgstr "Nerezervované"
 
+#. # ui/reportviewer/ReportViewer
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
-#. # ui/reportviewer/ReportViewer
+#. # ui/owner/OwnerFind
+#. # ui/movement/MovementView
 #: Print
 msgid "Print"
 msgstr "Tlačiť"
@@ -7032,11 +6794,11 @@ msgstr "Uprostred: "
 msgid "Features: "
 msgstr "Znaky (vzhľad): "
 
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/ui/Dialog
 #. # ui/system/Options
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/ui/Dialog
 #. # ui/owner/OwnerEdit
 #. # ui/log/LogSelector
 #. # ui/waitinglist/WaitingListView
@@ -7049,8 +6811,8 @@ msgstr "(všetko)"
 msgid "Insurance No: "
 msgstr "Číslo poistky: "
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # ui/main/Main
 #: Find_Animal
 msgid "Find Animal"
@@ -7088,8 +6850,8 @@ msgstr "(obe)"
 
 #. # ui/animal/AnimalFind
 #: Identichip_No\:_
-msgid "Identichip No: "
-msgstr "Číslo čipu: "
+msgid "Microchip No: "
+msgstr ""
 
 #. # ui/animal/VaccinationView
 #. # ui/main/Main
@@ -7142,47 +6904,29 @@ msgid "Acceptance:"
 msgstr "Prijatie"
 
 #. # ui/animal/LitterEdit
-#: Select_a_mother_from_the_shelter_animals
-msgid "Select a mother from the shelter animals"
-msgstr "Vyberte matku z útulkových zvierat"
-
-#. # ui/animal/LitterEdit
-#: Or_date\:
-msgid "Or date:"
-msgstr "Alebo dátum:"
-
-#. # ui/animal/LitterEdit
 #: Create_New_Litter
 msgid "Create New Litter"
 msgstr "Vytvoriť nový vrh"
-
-#. # ui/animal/LitterEdit
-#: The_period_after_which_this_litter_should_expire_if_no_expiry_date_is_entered_below
-msgid ""
-"The period after which this litter should expire if no expiry date is "
-"entered below"
-msgstr ""
-"Doba, po ktorej by mal tento vrh vypršať, ak nie, dátum sa zadáva nižšie"
 
 #. # ui/animal/LitterEdit
 #: Mother\:
 msgid "Mother:"
 msgstr "Matka:"
 
-#. # reports/AnimalPrint
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/movement/MovementEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/VoucherEdit
+#. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: Number\:
 msgid "Number:"
 msgstr "Číslo:"
 
+#. # charts/Chart
 #. # ui/animal/VaccinationView
 #. # ui/ui/ASMSelector
-#. # charts/Chart
 #. # utility/Utils
 #: ...
 msgid "..."
@@ -7240,16 +6984,16 @@ msgstr "Dátum kedy bolo zviera vakcinované"
 msgid "New Vaccination"
 msgstr "Nová vakcinácia"
 
-#. # reports/AnimalPrint
 #. # ui/animal/VaccinationEdit
 #. # ui/medical/TreatmentEdit
+#. # reports/AnimalPrint
 #: Date_Given\:
 msgid "Date Given:"
 msgstr "Podané dňa:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/VaccinationEdit
 #. # ui/medical/TreatmentEdit
+#. # reports/AnimalPrint
 #: Date_Required\:
 msgid "Date Required:"
 msgstr "Požadované dňa:"
@@ -7274,8 +7018,9 @@ msgstr "Komentáre k vakcinácii"
 msgid "Create a new vaccination treatment"
 msgstr "Vytvoriť novú vakcináciu"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # reports/AnimalPrint
 #: Location\:
 msgid "Location:"
 msgstr "Umiestnenie:"
@@ -7285,13 +7030,13 @@ msgstr "Umiestnenie:"
 msgid "Create a litter from this animal"
 msgstr "Vytvoriť vrh na základe tohto zvieraťa"
 
+#. # ui/customreport/CustomReportEdit
+#. # ui/system/FileTypes
 #. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/system/FileTypes
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
-#. # ui/customreport/CustomReportEdit
+#. # ui/movement/MovementEdit
 #. # ui/waitinglist/WaitingListEdit
 #: You_have_unsaved_changes_-_are_you_sure_you_wish_to_close?
 msgid "You have unsaved changes - are you sure you wish to close?"
@@ -7313,42 +7058,44 @@ msgstr ""
 "napriek tomu, ale mali by ste doplniť informácie o vakcináciách pre toto "
 "zviera. Naozaj chcete zatvoriť editáciu zvieraťa?"
 
-#. # reports/AnimalPrint
+#. # internet/AvidRegistration
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/AnimalAddMultiple
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/waitinglist/WaitingListEdit
 #. # ui/waitinglist/WaitingListView
+#. # reports/AnimalPrint
 #: Species\:
 msgid "Species:"
 msgstr "Druhy:"
 
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
 msgstr "Skryté komentáre:"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Size\:
 msgid "Size:"
 msgstr "Veľkosť:"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Save_Error
 msgid "Save Error"
 msgstr "Chyba ukladania"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Dead_On_Arrival\:
 msgid "Dead On Arrival:"
 msgstr "Prijaté uhynuté:"
@@ -7359,14 +7106,17 @@ msgstr "Prijaté uhynuté:"
 msgid "Delete the selected vaccination records"
 msgstr "Vymazať označené vakcinácie"
 
-#. # reports/AnimalPrint
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Neutered\:
 msgid "Neutered/Spayed:"
 msgstr "Kastrované:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Combi-Tested\:
 msgid "Combi-Tested:"
 msgstr "Combi-Test:"
@@ -7376,9 +7126,14 @@ msgstr "Combi-Test:"
 msgid "The animal's basic colour"
 msgstr "Základná farba zvieraťa"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/AnimalPrint
 #: Sex\:
 msgid "Sex:"
 msgstr "Pohlavie:"
@@ -7389,6 +7144,7 @@ msgid "The reason the animal was not brought in by its owner"
 msgstr "Dôvod, prečo nebolo zviera prijaté od jeho majiteľa"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal_acceptance_number_from_head_office
 msgid "The animal acceptance number from head office"
 msgstr "Príjmové číslo zvieraťa"
@@ -7398,8 +7154,8 @@ msgstr "Príjmové číslo zvieraťa"
 msgid "Animal comments you do not want to appear on any documents"
 msgstr "Komentáre k zvieraťu, ktoré sa nemajú objaviť v žiadnych dokumentoch"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Brought_In_By\:
 msgid "Brought In By:"
 msgstr "Prijaté od:"
@@ -7411,15 +7167,15 @@ msgid "Edit the highlighted vaccination record"
 msgstr "Upraviť označenú vakcináciu"
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
+#. # ui/animal/AnimalEdit
+#. # ui/animal/LitterEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
+#. # ui/movement/MovementEdit
+#. # ui/users/UserEdit
 #: Save_this_record
 msgid "Save this record"
 msgstr "Uložiť tento záznam"
@@ -7429,14 +7185,21 @@ msgstr "Uložiť tento záznam"
 msgid "Create a new animal by copying this one"
 msgstr "Vytvoriť nové zviera kopírovaním tohto"
 
-#. # reports/AnimalPrint
+#. # internet/AvidRegistration
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/AnimalPrint
 #: Breed\:
 msgid "Breed:"
 msgstr "Plemeno:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Date_Deceased\:
 msgid "Date Deceased:"
 msgstr "Dátum úmrtia:"
@@ -7462,9 +7225,9 @@ msgid ""
 "Tick this box if the animal died off the shelter (keep out of figures)"
 msgstr "Označte toto ak zviera zomrelo mimo útulku (nezahrnúť do prehľadov)"
 
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #: Generate_a_diary_task_for_this_animal
 msgid "Generate a diary task for this animal"
 msgstr "Vytvoriť záznam v diári pre toto zviera"
@@ -7474,42 +7237,48 @@ msgstr "Vytvoriť záznam v diári pre toto zviera"
 msgid "The reason the animal was put to sleep"
 msgstr "Dôvod, prečo bolo zviera utratené"
 
-#. # reports/AnimalPrint
+#. # ui/animal/AnimalFind
 #. # ui/animal/DietEdit
+#. # ui/animal/VaccinationEdit
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/AnimalFind
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/medical/TreatmentEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
 #. # ui/owner/VoucherEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/medical/TreatmentEdit
+#. # reports/AnimalPrint
 #: Comments\:
 msgid "Comments:"
 msgstr "Komentáre:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Health_Problems\:
 msgid "Health Problems:"
 msgstr "Zdravotné problémy:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Transfer_In\:
 msgid "Transfer In:"
 msgstr "Presun do:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # reports/AnimalPrint
+#. # reports/CustomReportExecute
 #: Acceptance_No\:
 msgid "Acceptance No:"
 msgstr "Príjmové číslo:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: The_animal's_name
 msgid "The animal's name"
 msgstr "Meno zvieraťa"
@@ -7519,10 +7288,10 @@ msgstr "Meno zvieraťa"
 msgid "Tick this box if the animal was put to sleep"
 msgstr "Označte toto, ak bolo zviera utratené"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # reports/AnimalPrint
 #: Dist._Features\:
 msgid "Dist. Features:"
 msgstr "Rozpoznávacie znaky:"
@@ -7532,8 +7301,8 @@ msgstr "Rozpoznávacie znaky:"
 msgid "Delete this animal"
 msgstr "Vymazať toto zviera"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Put_To_Sleep\:
 msgid "Put To Sleep:"
 msgstr "Utratené:"
@@ -7558,18 +7327,18 @@ msgstr "Dátum úmrtia zvieraťa"
 msgid "Edit Animal"
 msgstr "Upraviť zviera"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Original_Owner\:
 msgid "Original Owner:"
 msgstr "Pôvodný majiteľ:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Identichipped\:
-msgid "Identichipped:"
-msgstr "Čipované:"
+msgid "Microchipped:"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_size
@@ -7586,21 +7355,22 @@ msgstr "Pohlavie zvieraťa"
 msgid "Animal comments you want to see on documents"
 msgstr "Komentáre k zvieraťu, ktoré majú byť videné na dokumentoch"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
+#. # reports/AnimalPrint
 #: Base_Colour\:
 msgid "Base Colour:"
 msgstr "Základná farba:"
 
-#. # ui/animal/AnimalEdit
+#. # ui/customreport/CustomReportEdit
+#. # ui/system/FileTypes
 #. # ui/animal/MediaSelector
+#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/DBFSBrowser
-#. # ui/system/FileTypes
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
-#. # ui/customreport/CustomReportEdit
+#. # ui/movement/MovementEdit
 #. # ui/waitinglist/WaitingListEdit
 #: Unsaved_Changes
 msgid "Unsaved Changes"
@@ -7612,10 +7382,14 @@ msgstr "Neuložené zmeny"
 msgid "Given"
 msgstr "Dané"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
+#. # internet/AvidRegistration
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
+#. # reports/AnimalPrint
 #: Name\:
 msgid "Name:"
 msgstr "Meno:"
@@ -7625,8 +7399,10 @@ msgstr "Meno:"
 msgid "Any distinguishing markings or features the animal has"
 msgstr "Akékoľvek odlišujúce znaky, ktoré zviera má"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # ui/animal/AnimalAddMultiple
+#. # reports/AnimalPrint
 #: Date_Of_Birth\:
 msgid "Date Of Birth:"
 msgstr "Dátum narodenia:"
@@ -7647,15 +7423,16 @@ msgstr "Druh zvieraťa"
 msgid "Failed Create"
 msgstr "Neúspešné vytvorenie"
 
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #: Generate_an_animal_letter/form
 msgid "Generate an animal letter/form"
 msgstr "Vytvoriť formulár/list k zvieraťu"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
 #. # ui/system/Options
 #: Address\:
 #: Organisation_Address\:
@@ -7667,6 +7444,7 @@ msgstr "Adresa:"
 msgid "The animal's breed"
 msgstr "Plemeno zvieraťa"
 
+#. # internet/AvidRegistration
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/owner/OwnerEdit
@@ -7693,8 +7471,8 @@ msgstr "Požadované"
 
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
-msgid "The Identichip Number"
-msgstr "Číslo mikročipu"
+msgid "The Microchip Number"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7706,7 +7484,6 @@ msgstr "Unikátny kód pre toto zviera"
 msgid "Tick this box if the animal was transferred from another shelter"
 msgstr "Označte toto, ak zviera bolo presunuté z iného útulku"
 
-#. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #: Error_saving_to_local_SQLRecordset\:_
@@ -7724,6 +7501,7 @@ msgid "Tick this box if the animal was dead on entry to the shelter"
 msgstr "Označte toto, ak zviera bolo prijaté uhynuté"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
 #: Reason_for_Entry\:
 msgid "Reason for Entry:"
 msgstr "Dôvod príjmu"
@@ -7736,25 +7514,25 @@ msgid "Invalid Date"
 msgstr "Nesprávny dátum"
 
 #. # ui/animal/DietEdit
-#. # ui/animal/AnimalEdit
-#. # ui/animal/LitterEdit
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/animal/LitterEdit
 #. # ui/diary/DiaryEdit
 #. # ui/diary/DiaryTaskDetailEdit
 #. # ui/diary/DiaryTaskHeadEdit
-#. # ui/users/UserEdit
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
 #. # ui/lookups/LookupEdit
 #. # ui/movement/MovementEdit
 #. # ui/log/LogEdit
 #. # ui/waitinglist/WaitingListEdit
+#. # ui/users/UserEdit
 #: Validation_Error
 msgid "Validation Error"
 msgstr "Chyba validácie"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Generate_a_random_name_for_this_animal
 msgid "Generate a random name for this animal"
 msgstr "Generovať náhodné meno pre toto zviera"
@@ -7764,15 +7542,15 @@ msgstr "Generovať náhodné meno pre toto zviera"
 msgid "The reason the animal was brought to the shelter"
 msgstr "Dôvod, prečo bolo zviera prijaté do útulku"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Died_Off_Shelter\:
 msgid "Died Off Shelter:"
 msgstr "Uhynuté mimo útulku"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Date_Brought_In\:
 msgid "Date Brought In:"
 msgstr "Dátum prijatia:"
@@ -7784,23 +7562,28 @@ msgstr "Dátum prijatia:"
 msgid "A date you entered was not valid: "
 msgstr "Dátum, ktorý ste zadali nie je platný: "
 
-#. # ui/system/Options
-#. # ui/lookups/LookupView
-#. # ui/customreport/CustomReportEdit
+#. # bo/LookupCache
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # db/DatabaseImporter
-#. # db/AutoDBUpdates
-#. # db/Diagnostic
+#. # ui/customreport/CustomReportEdit
+#. # ui/system/Options
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/lookups/LookupView
 #. # db/DatabaseCopier
-#. # bo/LookupCache
+#. # db/DatabaseImporter
+#. # db/Diagnostic
+#. # db/AutoDBUpdates
 #: breed
 msgid "breed"
 msgstr "plemeno"
 
 #. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
+#. # ui/animal/AnimalFindColumns
 #. # ui/movement/MovementEdit
+#. # ui/waitinglist/WaitingListViewColumns
+#. # reports/AnimalPrint
 #: PTS_Reason\:
 #: Reason\:
 msgid "Reason:"
@@ -7875,8 +7658,8 @@ msgstr "Vyhľadať súbor na pridanie"
 msgid "Local File:"
 msgstr "Lokálny súbor:"
 
-#. # ui/animal/MediaAdd
 #. # ui/animal/MediaEdit
+#. # ui/animal/MediaAdd
 #: Notes\:
 msgid "Notes:"
 msgstr "Poznámky:"
@@ -7896,9 +7679,9 @@ msgstr "Skryté komentáre: "
 msgid "Original Owner Name:"
 msgstr "Meno pôvodného majiteľa:"
 
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
 #: look_in_lost_animal_database
 msgid "Look for a potential match in the lost animal database"
 msgstr "Vyhľadať potencionálnu zhodu v databáze stratených zvierat"
@@ -7909,17 +7692,18 @@ msgstr "Vyhľadať potencionálnu zhodu v databáze stratených zvierat"
 msgid "Complete the selected vaccination treatments"
 msgstr "Vykonať označené vakcinácie"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Rabies_Tag
 msgid "Rabies Tag: "
 msgstr "Lyssetka: "
 
 #. # ui/animal/AnimalEdit
 #: the_animals_rabies_tag
-msgid "This animals rabies tag"
-msgstr "Lyssetka tohto zvieraťa"
+msgid "This animal's rabies tag"
+msgstr ""
 
 #. # reports/AnimalPrint
 #. # ui/waitinglist/WaitingListEdit
@@ -7928,20 +7712,22 @@ msgstr "Lyssetka tohto zvieraťa"
 msgid "Entry Reason:"
 msgstr "Dôvod príjmu:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Reason_not_by_owner
 msgid "Reason not from owner:"
 msgstr "Dôvod prečo nie od majiteľa:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Entry_Category
 msgid "Entry Category:"
 msgstr "Kategória prijatia:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Death_Category
 msgid "Death Category:"
 msgstr "Kategória úmrtia:"
@@ -7961,15 +7747,18 @@ msgstr "Zobraziť iba presuny:"
 msgid "Media Notes Contain:"
 msgstr "Poznámky k súboru obsahujú:"
 
-#. # reports/AnimalPrint
+#. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
 #. # ui/animal/LitterEdit
-#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalAddMultiple
+#. # reports/AnimalPrint
+#. # reports/CustomReportExecute
 #: litter_id
 msgid "Litter ID:"
 msgstr "ID vrhu:"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
 msgid "The litter identifier if this animal is part of a litter"
 msgstr "ID vrhu, ak je toto zviera súčasťou vrhu"
@@ -7984,17 +7773,17 @@ msgstr "Unikátne ID pre tento vrh"
 msgid "Find the litter this animal belongs to"
 msgstr "Vyhľadať vrh, ku ktorému zviera patrí"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: select_from_active_litters
 msgid "Select from active litters"
 msgstr "Vybrať z aktívnych vrhov"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: Active_Litters
 msgid "Active Litters"
 msgstr "Aktívne vrhy"
 
-#. # ui/animal/AnimalEdit
+#. # ui/ui/Dialog
 #: there_are_no_active_litters_on_file
 msgid "There are no active litters on file"
 msgstr "Neexistujú žiadne aktívne vrhy"
@@ -8013,8 +7802,8 @@ msgstr ""
 msgid "Find this animal's littermates"
 msgstr "Nájsť členov vrhu podľa tohto zvieraťa"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalFind
+#. # reports/AnimalPrint
 #: Non-Shelter
 msgid "Non-Shelter"
 msgstr "Neútulkové"
@@ -8050,15 +7839,15 @@ msgstr "Upraviť túto diétu"
 msgid "Delete this diet"
 msgstr "Vymazať túto diétu"
 
-#. # reports/AnimalPrint
 #. # ui/animal/DietEdit
+#. # reports/AnimalPrint
 #: Diet_Type\:
 msgid "Diet Type:"
 msgstr "Typ diéty:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/DietEdit
 #. # ui/medical/MedicalEdit
+#. # reports/AnimalPrint
 #: Start_Date\:
 msgid "Start Date:"
 msgstr "Dátum začiatku:"
@@ -8100,7 +7889,11 @@ msgid "Issue Date:"
 msgstr "Dátum vydania:"
 
 #. # ui/owner/VoucherEdit
+#. # ui/animal/LitterEdit
+#. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
 #: Expiry_Date\:
+#: Expiry_Date
 msgid "Expiry Date:"
 msgstr "Dátum expirácie:"
 
@@ -8124,28 +7917,29 @@ msgstr "Označte toto, ak sa majú zahrnúť aj neútulkové zvieratá"
 msgid "Details:"
 msgstr "Detaily:"
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: generate_a_diary_note_for_this_animal
 msgid "Generate a diary note for this animal"
 msgstr "Generovať poznámku v diári pre toto zviera"
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Add_new_media_to_this_animal
 msgid "Add new media to this animal"
 msgstr "Pridať nový súbor pre toto zviera"
 
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #: Move_this_animal
 msgid "Move this animal"
 msgstr "Presunúť toto zviera"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/AnimalDocument
 #. # bo/Animal
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # wordprocessor/AnimalDocument
+#. # reports/AnimalPrint
 #: Declawed
 msgid "Declawed:"
 msgstr "Vytrhnuté pazúriky:"
@@ -8199,8 +7993,9 @@ msgstr ""
 msgid "An error occurred capturing the image from the default video device."
 msgstr "Stala sa chyba počas záznamu obrazu z prednastaveného zariadenia"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Tattoo\:
 msgid "Tattoo:"
 msgstr "Tetovanie:"
@@ -8210,24 +8005,25 @@ msgstr "Tetovanie:"
 msgid "The Tattoo Number"
 msgstr "Číslo tetovania"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/AnimalDocument
 #. # bo/Animal
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # wordprocessor/AnimalDocument
+#. # reports/AnimalPrint
 #: FLVResult
 msgid "FLV Result"
 msgstr "Výsledky FLV"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: FIVResult
 msgid "FIV Result"
 msgstr "Výsledky FIV"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
-msgid "The date the animal was identichipped"
-msgstr "Dátum, kedy bolo zviera začipované"
+msgid "The date the animal was microchipped"
+msgstr ""
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_had_the_tattoo
@@ -8266,8 +8062,9 @@ msgstr ""
 msgid "Generate a new animal code"
 msgstr "Generovať nový kód zvieraťa"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Heartworm_Tested\:
 msgid "Heartworm Tested:"
 msgstr "Test na vlasovca psieho"
@@ -8277,26 +8074,30 @@ msgstr "Test na vlasovca psieho"
 msgid "The date the animal was last heartworm tested"
 msgstr "Dátum, kedy bolo zviera naposledy testované na vlasovca psieho"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: good_with_cats
 msgid "Good with Cats:"
 msgstr "Znášanlivosť s mačkami:"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: good_with_dogs
 msgid "Good with Dogs:"
 msgstr "Znášanlivosť so psami"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: good_with_kids
 msgid "Good with Kids:"
 msgstr "Znášanlivosť s deťmi"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: housetrained
 msgid "Housetrained:"
 msgstr "Naučené na byt"
@@ -8310,16 +8111,17 @@ msgstr ""
 "Označte toto, ak toto zviera nie je na adopciu (vyradiť z publikovania)"
 
 #. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Not_for_adoption
 #: Not_Available_For_Adoption
 msgid "Not for adoption"
 msgstr "Nie je na adopciu"
 
 #. # ui/animal/MediaAdd
-#. # ui/ui/ASMDesktop
 #. # ui/internet/InternetPublisher
+#. # ui/ui/ASMDesktop
 #. # ui/main/UpdateDialog
 #: Close
 msgid "Close"
@@ -8335,8 +8137,8 @@ msgstr "Záznam videa"
 msgid "Adoptable"
 msgstr "Na adopciu"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: animal_details
 msgid "Animal Details"
 msgstr "Detaily o zvierati"
@@ -8346,8 +8148,8 @@ msgstr "Detaily o zvierati"
 msgid "Basic Animal Information"
 msgstr "Základné informácie o zvierati"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: entry_details
 msgid "Entry Details"
 msgstr "Detaily záznamu"
@@ -8357,9 +8159,10 @@ msgstr "Detaily záznamu"
 msgid "Original owner information and how the animal came into the shelter"
 msgstr "Informácie o pôvodnom majiteľovi a ako sa zviera dostalo do útulu"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: vet
 #: Vet
 msgid "Vet"
@@ -8370,8 +8173,8 @@ msgstr "Veterinár"
 msgid "Details of the animal's vet and any health problems"
 msgstr "Detaily o veterinárovi zvieraťa a zdravotné problémy"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #. # db/AutoDBUpdates
 #: death
 msgid "Death"
@@ -8382,8 +8185,8 @@ msgstr "Úhyn"
 msgid "Information if the animal is deceased"
 msgstr "Informácie ak bolo zviera utratené"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #: Vaccination
 msgid "Vaccination"
 msgstr "Vakcinácia"
@@ -8403,18 +8206,17 @@ msgstr "Liečebný"
 msgid "Diet Information"
 msgstr "Informácie o diéte"
 
-#. # ui/animal/MediaAdd
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaSelector
-#. # ui/animal/MediaEdit
-#. # ui/owner/OwnerEdit
+#. # bo/Media
 #. # ui/customreport/CustomReportEdit
+#. # ui/animal/MediaEdit
+#. # ui/animal/MediaSelector
+#. # ui/animal/AnimalEdit
+#. # ui/animal/MediaAdd
+#. # ui/owner/OwnerEdit
+#. # wordprocessor/GenerateDocument
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # wordprocessor/GenerateDocument
-#. # bo/Media
-#. # startup/Startup
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/waitinglist/WaitingListEdit
@@ -8428,23 +8230,24 @@ msgstr "Súbory"
 msgid "Media associated with this animal"
 msgstr "Súbory k tomuto zvieraťu"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/ui/Dialog
-#. # ui/system/Options
-#. # ui/diary/DiarySelector
-#. # ui/diary/DiaryEdit
-#. # ui/diary/VetBookView
-#. # ui/owner/OwnerEdit
+#. # bo/Diary
 #. # ui/customreport/CustomReportEdit
+#. # ui/system/Options
+#. # ui/animal/AnimalEdit
+#. # ui/diary/DiaryEdit
+#. # ui/diary/DiarySelector
+#. # ui/diary/VetBookView
+#. # ui/ui/Dialog
+#. # ui/owner/OwnerEdit
+#. # reports/AnimalPrint
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/Diary
+#. # db/AutoDBUpdates
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/main/Main
 #. # ui/movement/MovementEdit
+#. # ui/main/Main
 #. # ui/waitinglist/WaitingListEdit
 #: diary
 #: Diary
@@ -8461,17 +8264,17 @@ msgstr "Informácie z diára pre toto zviera"
 msgid "Details of animal movement transactions"
 msgstr "Detaily o pohyboch zvieraťa"
 
-#. # reports/AnimalPrint
+#. # bo/Log
+#. # ui/customreport/CustomReportEdit
 #. # ui/animal/AnimalEdit
-#. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/lookups/LookupView
 #. # ui/log/LogSelector
 #. # ui/log/LogEdit
-#. # ui/customreport/CustomReportEdit
+#. # reports/AnimalPrint
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/Log
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/movement/MovementEdit
@@ -8513,17 +8316,12 @@ msgid ""
 "This file is {0}Kb in size. ASM has been set not to allow files over {1}Kb."
 msgstr "Tento súbor má {0}Kb. ASM nemôže prijať súbor väčší ako {1}Kb."
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/owner/LinkSelector
+#. # reports/AnimalPrint
 #: Owners_Vet
 msgid "Owner's Vet:"
 msgstr "Majiteľov veterinár"
-
-#. # ui/animal/LitterView
-#: active_litters
-msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-msgstr "{0} aktívnych vrhov ({1} mačiek, {2} psov a {3} rôznych)"
 
 #. # ui/ui/ASMFind
 #: search_complete
@@ -8536,12 +8334,12 @@ msgid "Edit Animal - {0}, {1} ({2} {3}) aged {4}"
 msgstr "Upraviť zviera - {0}, {1} ({2} {3}) vekom {4}"
 
 #. # ui/animal/AnimalEdit
+#. # ui/diary/DiaryEdit
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
 #. # ui/ui/UI
-#. # ui/diary/DiaryEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
+#. # ui/movement/MovementEdit
 #. # ui/waitinglist/WaitingListEdit
 #: created_lastchange
 msgid ""
@@ -8563,8 +8361,9 @@ msgid ""
 "Would you like to upload your changes to this media file back to the server?"
 msgstr "Chcete nahrať zmeny k tomuto súboru naspäť na server?"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: special_needs
 msgid "Special Needs?"
 msgstr "Špeciálne požiadavky?"
@@ -8602,8 +8401,8 @@ msgstr ""
 "Zmenili ste typ a kód vygenerovaný skôr. ASM vygeneruje namiesto toho nový "
 "kód pre typ zvieraťa {0}."
 
-#. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFind
+#. # ui/animal/VaccinationView
 #: include_deceased
 msgid "Include Deceased"
 msgstr "Zahrnúť uhynuté"
@@ -8613,15 +8412,19 @@ msgstr "Zahrnúť uhynuté"
 msgid "Include Off Shelter"
 msgstr "Zahrnúť zvieratá mimo útulku"
 
-#. # reports/AnimalPrint
-#. # ui/animal/AnimalEdit
-#. # ui/system/ConfigureAdditional
-#. # ui/owner/OwnerEdit
+#. # bo/Additional
 #. # ui/customreport/CustomReportEdit
+#. # ui/system/ConfigureAdditional
+#. # ui/animal/AnimalFind
+#. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindText
+#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFind
+#. # reports/AnimalPrint
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/Additional
 #: additional
 msgid "Additional"
 msgstr "Doplnkové"
@@ -8633,11 +8436,13 @@ msgid "Additional information about the animal"
 msgstr "Doplnkové informácie o zvierati"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: Crossbreed
 msgid "Crossbreed"
 msgstr "Kríženec"
 
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalAddMultiple
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
 msgstr "Označte toto ak zviera je kríženec"
@@ -8665,8 +8470,9 @@ msgstr "Pokročilé"
 msgid "Simple"
 msgstr "Jednoduché"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # ui/animal/AnimalFindColumns
+#. # reports/AnimalPrint
 #: Coat_Type
 msgid "Coat Type:"
 msgstr "Typ srsti:"
@@ -8714,7 +8520,7 @@ msgid ""
 "Click OK when you have finished making your changes and saved the file."
 msgstr "Kliknite na OK, ak ste ukončili zmeny a uložte súbor."
 
-#. # ui/animal/LitterEdit
+#. # ui/animal/LitterView
 #: Expires
 msgid "Expires:"
 msgstr "Vyprší:"
@@ -8725,20 +8531,20 @@ msgstr "Vyprší:"
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr "Skompletizovať a preplánovať označené vakcinácie na nasledujúci rok"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
+#. # ui/movement/MovementEdit
+#. # ui/users/UserEdit
+#. # reports/AnimalPrint
 #: Donations
 msgid "Donations"
 msgstr "Dary"
 
-#. # reports/AnimalPrint
 #. # ui/animal/VaccinationEdit
 #. # ui/animal/CostEdit
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
+#. # reports/AnimalPrint
 #: Cost\:
 msgid "Cost:"
 msgstr "Výdavok:"
@@ -8753,8 +8559,8 @@ msgstr "Preferované pre dokumenty"
 msgid "Mark this media as preferred for use with documents"
 msgstr "Označte tento súbor ak je preferovaným pre dokumenty"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
 #. # ui/system/Options
 #: Costs
 #: costs
@@ -8786,8 +8592,8 @@ msgstr "Denné výdavky:"
 msgid "The daily cost of food and board for this animal"
 msgstr "Denné výdavky na potravu a pod. pre toto zviera"
 
-#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # reports/AnimalPrint
 #: On_shelter_days_total_cost
 msgid "On shelter for {0} days. Total cost: {1}"
 msgstr "V útulku {0} dní. Celkové výdavky: {1}"
@@ -8802,32 +8608,118 @@ msgstr "Nový výdavok"
 msgid "Edit Cost"
 msgstr "Upraviť výdavok"
 
-#. # reports/AnimalPrint
-#. # ui/animal/CostSelector
 #. # bo/AccountTrx
+#. # ui/animal/CostSelector
+#. # reports/AnimalPrint
 #: Amount
 msgid "Amount"
 msgstr "Suma"
 
-#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # reports/AnimalPrint
 #: cost_totals
 msgid ""
 "Vaccinations: {0}, Medical Treatments: {1}, Costs: {2}, Total Costs: {3}"
 msgstr ""
 "Vakcinácie: {0}, Liečebné ošetrenia: {1}, Náklady: {2}, Náklady spolu: {3}"
 
-#. # reports/AnimalPrint
 #. # ui/animal/CostSelector
+#. # reports/AnimalPrint
 #: cost_balance
 msgid "Total Donations: {0}, Balance: {1}"
 msgstr "Spolu prostr. darov: {0}, Zostatok: {1}"
 
-#. # ui/animal/LitterView
 #. # ui/animal/LitterEdit
+#. # ui/animal/LitterView
 #: Number_in_litter
 msgid "Number in litter:"
 msgstr "Poradie vo vrhu:"
+
+#. # ui/animal/AnimalEdit
+#. # reports/AnimalPrint
+#: Bonded
+msgid "Bonded With:"
+msgstr ""
+
+#. # ui/animal/AnimalLink
+#. # ui/ui/Dialog
+#: Select_an_animal
+msgid "Select an animal"
+msgstr "Vyberte zviera"
+
+#. # ui/animal/AnimalLink
+#: edit_this_animal
+msgid "Edit this animal"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: include_expired
+msgid "Include Expired"
+msgstr ""
+
+#. # ui/animal/LitterView
+#: Expires
+msgid "Expires"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#. # ui/main/Main
+#. # ui/users/UserEdit
+#: Add_Animals
+msgid "Add Animals"
+msgstr "Pridať zvieratá"
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Add_Animal
+msgid "Add animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Clone_Animal
+msgid "Add animal by copying last animal"
+msgstr ""
+
+#. # ui/animal/AnimalAddMultiple
+#: Multiple_Save
+msgid "Save all animals"
+msgstr ""
+
+#. # ui/ui/UI
+#. # ui/system/Options
+#: This_Month
+#: this_month
+msgid "This month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Next_Month
+msgid "Next month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Next_Year
+msgid "Next year"
+msgstr ""
+
+#. # ui/ui/UI
+#: Previous_Month
+msgid "Previous month"
+msgstr ""
+
+#. # ui/ui/UI
+#: Previous_Year
+msgid "Previous year"
+msgstr ""
+
+#. # ui/animal/AdditionalFieldView
+#: additional_field_empty
+msgid "Additional field \"{0}\" must have a value."
+msgstr ""
+
+#. # ui/animal/AnimalFind
+#: Out_Between\:_
+msgid "Out Between: "
+msgstr ""
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8870,8 +8762,8 @@ msgstr "Upraviť meno"
 msgid "The currency figure you entered was invalid."
 msgstr "Znak meny, ktorý ste zadali je neplatný."
 
-#. # ui/users/UserEdit
 #. # ui/customreport/CustomReportView
+#. # ui/users/UserEdit
 #: Custom_Reports
 msgid "Reports"
 msgstr "Reporty"
@@ -8921,10 +8813,10 @@ msgstr "SQL príkaz na spustenie vlastného reportu"
 msgid "The HTML to format and present your custom report"
 msgstr "HTML na naformátovanie vášho vlastného reportu"
 
-#. # ui/customreport/GetReports
 #. # ui/customreport/CustomReportView
-#. # ui/customreport/CustomReportExport
 #. # ui/customreport/CustomReportEdit
+#. # ui/customreport/GetReports
+#. # ui/customreport/CustomReportExport
 #: category
 msgid "Category"
 msgstr "Kategória"
@@ -8941,8 +8833,8 @@ msgstr ""
 msgid "Generate a CSV file from this report"
 msgstr "Generovať CSV súbor z tohto reportu"
 
-#. # ui/main/Main
 #. # ui/customreport/CustomReportExport
+#. # ui/main/Main
 #: export_custom_report_data
 msgid "Export Custom Report as CSV"
 msgstr "Exportovať vlastný report ako CSV"
@@ -8973,8 +8865,6 @@ msgid "Install Additional Reports"
 msgstr "Inštalovať doplnkové reporty"
 
 #. # ui/system/Options
-#. # ui/splash/About
-#. # ui/customreport/GetReports
 #: Database
 msgid "Database"
 msgstr "Databáza"
@@ -8985,12 +8875,12 @@ msgstr "Databáza"
 msgid "Locale"
 msgstr "Lokalizácia"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Graph
 msgid "Graph"
 msgstr "Graf"
 
-#. # ui/customreport/GetReports
+#. # bo/CustomReport
 #: Report
 msgid "Report"
 msgstr "Report"
@@ -8999,6 +8889,25 @@ msgstr "Report"
 #: Install_this_report
 msgid "Install this report"
 msgstr "Inštalovať tento report"
+
+#. # bo/CustomReport
+#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFind
+#. # ui/main/Main
+#: Mailmerge
+#: Mail_Merge
+msgid "Mail Merge"
+msgstr "Hromadná korešpondencia"
+
+#. # bo/CustomReport
+#: Builtin
+msgid "Built In"
+msgstr ""
+
+#. # ui/customreport/GetReports
+#: my_locale
+msgid "Only show reports for my locale ({0})"
+msgstr ""
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -9076,8 +8985,8 @@ msgid "New Diary Task"
 msgstr "Nová úloha v diári"
 
 #. # ui/diary/DiaryTaskView
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Edit_Diary_Tasks
 msgid "Edit Diary Tasks"
 msgstr "Upraviť úlohy v diári"
@@ -9108,19 +9017,19 @@ msgstr "Vytvoriť novú úlohu v diári"
 msgid "Add a new diary note"
 msgstr "Pridať novú poznámku v diári"
 
-#. # reports/AnimalPrint
+#. # bo/DiaryTaskDetail
+#. # bo/Diary
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/VetBookView
-#. # bo/Diary
-#. # bo/DiaryTaskDetail
+#. # reports/AnimalPrint
 #: Note
 msgid "Note"
 msgstr "Poznámka"
 
-#. # reports/AnimalPrint
 #. # ui/diary/DiarySelector
 #. # ui/diary/DiaryTaskHeadEdit
+#. # reports/AnimalPrint
 #: For
 msgid "For"
 msgstr "Pre"
@@ -9131,9 +9040,9 @@ msgstr "Pre"
 msgid "Edit the selected diary note"
 msgstr "Upraviť vybranú poznámku v diári"
 
-#. # reports/AnimalPrint
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
+#. # reports/AnimalPrint
 #: Created_By
 msgid "Created By"
 msgstr "Vytvoril"
@@ -9260,11 +9169,11 @@ msgstr "Zobraziť nasledujúce:"
 msgid "Show Completed:"
 msgstr "Zobraziť dokončené:"
 
-#. # reports/AnimalPrint
-#. # ui/medical/MedicalEdit
+#. # bo/AnimalMedical
 #. # ui/diary/DiarySelector
 #. # ui/diary/VetBookView
-#. # bo/AnimalMedical
+#. # ui/medical/MedicalEdit
+#. # reports/AnimalPrint
 #: Completed
 msgid "Completed"
 msgstr "Dokončené"
@@ -9371,7 +9280,7 @@ msgstr "Vyberte poukaz"
 msgid "Select a Medical Profile"
 msgstr "Vyberte liečebný profil"
 
-#. # ui/ui/Dialog
+#. # ui/ui/LocaleDialog
 #: select_locale
 msgid "Select Locale"
 msgstr "Zvoliť lokalizáciu"
@@ -9380,6 +9289,22 @@ msgstr "Zvoliť lokalizáciu"
 #: Information
 msgid "Information"
 msgstr "Informácie"
+
+#. # ui/ui/Dialog
+#: Warning
+msgid "Warning"
+msgstr ""
+
+#. # ui/ui/Dialog
+#. # reports/ReturnedAnimals
+#: There_are_no_animals_on_the_shelter
+msgid "There are no animals on the shelter."
+msgstr ""
+
+#. # ui/ui/Dialog
+#: Select_Animal
+msgid "Select Animal"
+msgstr ""
 
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
@@ -9401,7 +9326,7 @@ msgstr "Generovať JavaScript databázu"
 msgid "Publish"
 msgstr "Publikovať"
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: View_Site?
 msgid "View Site?"
 msgstr "Prezrieť stránku?"
@@ -9421,11 +9346,11 @@ msgstr "Zahrnúť týrané zvieratá"
 msgid "Publish Animals Available For Adoption"
 msgstr "Publikovať zvieratá dostupné na adopciu"
 
+#. # internet/AdoptAPetPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
 #. # internet/PetFinderPublisher
+#. # internet/HTMLPublisher
 #: Publishing...
 msgid "Publishing..."
 msgstr "Publikujem..."
@@ -9440,7 +9365,7 @@ msgstr "Uploadnuť priamo na internet"
 msgid "Exclude animals aged under:"
 msgstr "Nezahrnúť zvieratá mladšie ako:"
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: Web_site_creation_completed.\nWould_you_like_to_view_the_pages_now?
 msgid ""
 "Web site creation completed.\n"
@@ -9448,15 +9373,6 @@ msgid ""
 msgstr ""
 "Webstránka vytvorená.\n"
 "Chcete si ju pozrieť teraz?"
-
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
-#. # internet/PetFinderPublisher
-#: Determining_Workload...
-msgid "Determining Workload..."
-msgstr "Determining Workload..."
 
 #. # ui/internet/InternetPublisher
 #: Scale_Images\:
@@ -9478,20 +9394,20 @@ msgstr "Nastavenie FTP"
 msgid "Port:"
 msgstr "Port:"
 
-#. # ui/internet/SaveAPetSettings
 #. # ui/internet/FTPSettings
+#. # ui/internet/SaveAPetSettings
 #. # ui/internet/RescueGroupsSettings
-#. # ui/internet/Pets911Settings
 #. # ui/login/Login
+#. # ui/internet/Pets911Settings
 #: Username\:
 #: Username
 msgid "Username:"
 msgstr "Užívateľské meno:"
 
-#. # ui/internet/PetFinderSettings
-#. # ui/internet/SaveAPetSettings
 #. # ui/internet/FTPSettings
 #. # ui/internet/Pets911Settings
+#. # ui/internet/SaveAPetSettings
+#. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
 #: Host_URL\:
 msgid "Host URL:"
@@ -9502,16 +9418,16 @@ msgstr "Host URL:"
 msgid "Root:"
 msgstr "Root:"
 
+#. # internet/AdoptAPetPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
-#. # internet/Publisher
-#. # internet/SaveAPetPublisher
 #. # internet/PetFinderPublisher
+#. # internet/HTMLPublisher
 #: retrieving_animal_list
 msgid "Retrieving animal database..."
 msgstr "Získavam databázu zvierat..."
 
-#. # internet/Publisher
+#. # internet/HTMLPublisher
 #: retrieving_page_templates
 msgid "Retrieving internet page templates..."
 msgstr "Získavam šablóny internetovej stránky..."
@@ -9522,6 +9438,7 @@ msgid "Send Email"
 msgstr "Poslať email"
 
 #. # ui/internet/EmailForm
+#. # ui/account/TrxView
 #: to
 msgid "To:"
 msgstr "Komu:"
@@ -9556,11 +9473,6 @@ msgstr "Poslať hromadný e-mail"
 msgid "Publish Available Animals To PetFinder.com"
 msgstr "Publish Available Animals To PetFinder.com"
 
-#. # internet/Pets911Publisher
-#: an_error_occurred_contacting_petfinder.org
-msgid "An error occurred contacting PetFinder.com: "
-msgstr "An error occurred contacting PetFinder.com: "
-
 #. # ui/internet/PetFinderSettings
 #: PetFinder_Settings
 msgid "PetFinder.com Settings"
@@ -9581,8 +9493,8 @@ msgstr "PetFinder.com Upload Complete"
 msgid "Shelter ID:"
 msgstr "ID útulku?"
 
-#. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
 #: PetFinder
 msgid "PetFinder"
 msgstr "PetFinder"
@@ -9592,19 +9504,18 @@ msgstr "PetFinder"
 msgid "Map PetFinder Types to Species"
 msgstr "Map PetFinder Types to Species"
 
-#. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
 #: Select_petfinder_type
 msgid "Select the PetFinder type"
 msgstr "Select the PetFinder type"
 
-#. # ui/internet/PetFinderMapBreed
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
 #: PetFinder_mapping
 msgid "PetFinder Mapping"
 msgstr "PetFinder Mapping"
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_species
@@ -9617,7 +9528,6 @@ msgstr ""
 "have not been mapped to the correct PetFinder types.\n"
 "Would you like to edit them now?"
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: Unmapped_Types
@@ -9629,7 +9539,6 @@ msgstr "Unmapped Types"
 msgid "Map PetFinder Breeds"
 msgstr "Map PetFinder Breeds"
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: unmapped_petfinder_breeds
@@ -9647,7 +9556,6 @@ msgstr ""
 msgid "PetFinder Breed Mapping"
 msgstr "PetFinder Breed Mapping"
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_types_are_mapped
@@ -9656,7 +9564,6 @@ msgid ""
 msgstr ""
 "Not all of your PetFinder types are mapped. Publisher cannot continue."
 
-#. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
 #: not_all_your_petfinder_breeds_are_mapped
@@ -9710,12 +9617,12 @@ msgstr "Publish Available Animals to AdoptAPet.com"
 msgid "AdoptAPet.com Settings"
 msgstr "AdoptAPet.com Settings"
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: saveapet_publishing_complete
 msgid "AdoptAPet.com Publishing Complete."
 msgstr "AdoptAPet.com Publishing Complete."
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: saveapet_upload_complete
 msgid "AdoptAPet.com Upload Complete"
 msgstr "AdoptAPet.com Upload Complete"
@@ -9796,7 +9703,7 @@ msgstr ""
 "Potrebujete nastaviť vašu e-mailovú adresu a SMTP server.\n"
 " Nastavte ju pod Email v Systém->Nastavenia"
 
-#. # internet/SaveAPetPublisher
+#. # internet/AdoptAPetPublisher
 #: You_need_to_set_your_save_a_pet_settings_before_publishing
 msgid "You need to configure your AdoptAPet.com settings before publishing."
 msgstr "You need to configure your AdoptAPet.com settings before publishing."
@@ -9821,8 +9728,55 @@ msgstr "Dlhšie v útulku ako prvé"
 msgid "Newest first"
 msgstr "Novšie ako prvé"
 
-#. # ui/main/Main
+#. # ui/internet/EmailForm
+#. # wordprocessor/GenerateDocument
+#: HTML
+msgid "HTML"
+msgstr ""
+
+#. # internet/FTPPublisher
+#: cannot_upload_directly
+msgid ""
+"You have not set FTP details for your website. ASM cannot publish directly "
+"to the internet."
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: from
+msgid "From:"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: cc
+msgid "CC:"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: add_to_log
+msgid "Add to log"
+msgstr ""
+
+#. # ui/internet/EmailForm
+#: store_this_email_in_the_log
+msgid "Store this email in the log for this owner"
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: Generate_Thumbnails
+msgid "Generate thumbnail images"
+msgstr ""
+
+#. # internet/AdoptAPetPublisher
+#. # internet/Pets911Publisher
+#. # internet/RescueGroupsPublisher
+#. # internet/PetFinderPublisher
+#. # internet/HTMLPublisher
+#: No_matching_animals_were_found_to_publish
+msgid "No matching animals were found to publish."
+msgstr ""
+
 #. # ui/localcache/CacheView
+#. # ui/main/Main
 #: View_Local_Cache
 msgid "View Local Cache"
 msgstr "Zobraziť lokálnu cache"
@@ -9857,19 +9811,19 @@ msgstr "Dátum/Čas"
 msgid "Warning: Local cache index not found."
 msgstr "Pozor: lokálny index cache nenájdený."
 
-#. # reports/AnimalPrint
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
+#. # ui/movement/MovementEdit
 #. # ui/log/LogSelector
 #. # ui/waitinglist/WaitingListEdit
+#. # reports/AnimalPrint
 #: Details
 msgid "Details"
 msgstr "Detaily"
 
-#. # reports/AnimalPrint
 #. # ui/log/LogEdit
+#. # reports/AnimalPrint
 #: Log_Type\:
 msgid "Log Type:"
 msgstr "Typ logu:"
@@ -9899,8 +9853,8 @@ msgstr "Upraviť log"
 msgid "Unable to read log record:\n"
 msgstr "Nemôžem načítať log:\n"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Log_Types
 msgid "Log Types"
 msgstr "Typy logu"
@@ -9941,11 +9895,6 @@ msgstr "Ukončiť"
 msgid "Invalid Password"
 msgstr "Neplatné heslo"
 
-#. # ui/splash/About
-#: Version_
-msgid "Version "
-msgstr "Verzia "
-
 #. # ui/login/Login
 #: Login
 msgid "Login"
@@ -9971,8 +9920,8 @@ msgstr "Názov plemena"
 msgid "Colour Description"
 msgstr "Popis farby"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Internal_Locations
 msgid "Internal Locations"
 msgstr "Interné umiestnenia"
@@ -9982,8 +9931,8 @@ msgstr "Interné umiestnenia"
 msgid "Breed Description"
 msgstr "Popis plemena"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Vaccination_Types
 msgid "Vaccination Types"
 msgstr "Typy vakcinácií"
@@ -9993,18 +9942,18 @@ msgstr "Typy vakcinácií"
 msgid "Species Name"
 msgstr "Názov druhu"
 
-#. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
-#. # ui/internet/PetFinderMapBreed
+#. # ui/system/MediaFiles
 #. # ui/internet/PetFinderMapSpecies
+#. # ui/internet/PetFinderMapBreed
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/lookups/LookupView
 #: Edit
 msgid "Edit"
 msgstr "Upraviť"
 
-#. # ui/system/MediaFiles
 #. # ui/system/ConfigureAdditional
+#. # ui/system/MediaFiles
 #. # ui/lookups/LookupView
 #: Delete
 msgid "Delete"
@@ -10024,8 +9973,8 @@ msgstr ""
 "Tento záznam sa používa v databáze. \n"
 "Musíte najprv odstrániť všetky záznamy, ktoré využívajú tieto záznamy."
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Breeds
 msgid "Breeds"
 msgstr "Plemená"
@@ -10040,8 +9989,8 @@ msgstr "Základné farby"
 msgid "Animal Type Name"
 msgstr "Názov typu zvieraťa"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Animal_Types
 msgid "Animal Types"
 msgstr "Typy zvierat"
@@ -10087,8 +10036,8 @@ msgstr "Popis druhov"
 msgid "Create New "
 msgstr "Vytvoriť nové "
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Entry_Reasons
 msgid "Entry Reasons"
 msgstr "Dôvody príjmu"
@@ -10103,8 +10052,8 @@ msgstr "Názov dôvodu"
 msgid "Reason Description"
 msgstr "Popis dôvodu"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Death_Reasons
 msgid "Death Reasons"
 msgstr "Dôvody úmrtia"
@@ -10119,8 +10068,8 @@ msgstr "Názov diéty"
 msgid "Diet Description"
 msgstr "Popis diéty"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Diets
 msgid "Diets"
 msgstr "Diéty"
@@ -10135,9 +10084,9 @@ msgstr "Názov poukazu"
 msgid "Voucher Description"
 msgstr "Popis poukazu"
 
-#. # ui/main/Main
-#. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Vouchers
 msgid "Vouchers"
 msgstr "Poukazy"
@@ -10221,14 +10170,14 @@ msgstr "Typy výdavkov"
 msgid "Find Lost Animal"
 msgstr "Vyhľadať stratené zviera"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: Area_Contains\:
 msgid "Area Contains:"
 msgstr "Oblasť obsahuje:"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: and
 msgid "and"
 msgstr "a"
@@ -10249,21 +10198,21 @@ msgstr "Nájdené medzi:"
 msgid "Find Found Animal"
 msgstr "Vyhľadať nájdené zviera"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: Contact_contains\:
 msgid "Contact contains:"
 msgstr "Kontakt obsahuje:"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFind
 #: Postcode_contains\:
 msgid "Postcode contains:"
 msgstr "PSČ obsahuje:"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerEdit
 #: Area
 msgid "Area"
@@ -10334,10 +10283,11 @@ msgstr "Dátum nájdenia:"
 msgid "Features:"
 msgstr "Znaky (vzhľad):"
 
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
+#. # internet/AvidRegistration
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: Colour\:
 msgid "Colour:"
 msgstr "Farba:"
@@ -10370,8 +10320,8 @@ msgstr "Oblasť, v ktorej bolo zviera nájdené"
 msgid "Contact Details:"
 msgstr "Kontaktné detaily:"
 
-#. # ui/lostandfound/FoundAnimalFind
 #. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
 #: Reference_number_must_be_numeric
 msgid "Reference number must be numeric"
 msgstr "Referenčné číslo musí byť numerické"
@@ -10411,6 +10361,25 @@ msgstr "Vytvoriť nový záznam zvieraťa z tohto záznamu"
 msgid "Area Lost:"
 msgstr "Oblasť straty:"
 
+#. # ui/lostandfound/LostAnimalEdit
+#. # ui/lostandfound/FoundAnimalEdit
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#: Age_Group\:
+msgid "Age Group:"
+msgstr ""
+
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#: Age_Group
+msgid "Age Group"
+msgstr ""
+
+#. # ui/lostandfound/FoundAnimalEdit
+#: Create_waiting_list_record_from_this_record
+msgid "Create a waiting list entry from this record"
+msgstr ""
+
 #. # ui/main/Main
 #: Produce_a_report_matching_lost_and_found_animals
 msgid "Produce a report matching lost and found animals"
@@ -10421,9 +10390,9 @@ msgstr "Vytvoriť report zhôd stratených a nájdených zvierat"
 msgid "O&ff The Shelter"
 msgstr "Mimo útulku"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFind
+#. # ui/main/Main
 #: Mail_Merge
 msgid "&Mail Merge"
 msgstr "&Hromadná korešpondencia"
@@ -10443,14 +10412,14 @@ msgstr "&Možnosti"
 msgid "Find a Lost Animal"
 msgstr "Vyhľadať stratené zviera"
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: System
 msgid "System"
 msgstr "Systém"
 
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Match_Lost_and_Found_Animals
 msgid "Match Lost and Found Animals"
 msgstr "Porovnať stratené a nájdené zvieratá"
@@ -10475,8 +10444,8 @@ msgstr "Vyhľadať majiteľa"
 msgid "Add a new animal"
 msgstr "Pridať zviera"
 
-#. # ui/main/Main
 #. # ui/localcache/CacheView
+#. # ui/main/Main
 #: View_Local_Cache
 msgid "View Local &Cache"
 msgstr "Zobraziť \"Local Cache\""
@@ -10523,51 +10492,35 @@ msgstr "&Súbor"
 
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
-#. # ui/main/Main
-#. # ui/movement/MovementSelector
 #. # ui/owner/DonationEdit
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
 #: Animal
 msgid "&Animal"
 msgstr "&Zviera"
 
-#. # ui/main/Main
-#: All_Members
-msgid "All Members"
-msgstr "Všetci členovia"
-
-#. # reports/ReturnedAnimals
-#. # reports/AnimalPrint
 #. # ui/diary/DiaryTaskHeadEdit
 #. # ui/diary/DiaryTaskView
-#. # ui/main/Main
-#. # ui/movement/MovementSelector
-#. # ui/movement/MovementView
 #. # ui/owner/OwnerEdit
 #. # ui/owner/DonationEdit
+#. # ui/movement/MovementView
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
+#. # reports/AnimalPrint
+#. # reports/ReturnedAnimals
 #: Owner
 msgid "&Owner"
 msgstr "&Majiteľ"
 
-#. # ui/main/Main
-#: Owner_Merge
-msgid "&Owner Mail Merge"
-msgstr "Vlastníci - hromadná korešpondencia"
-
-#. # ui/main/Main
-#. # mailmerge/AdoptedNoReturn
-#: Non-Returned_Adoptions
-msgid "&Non-Returned Adoptions"
-msgstr "Adopcie bez vrátení"
-
-#. # ui/animal/AnimalFindText
 #. # ui/animal/AnimalFind
+#. # ui/animal/AnimalFindText
 #. # ui/main/Main
 #: Find_Animal
 msgid "&Find Animal"
 msgstr "&Vyhľadať zviera"
 
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Print_Diary_Notes
 msgid "&Print Diary Notes"
 msgstr "Vytlačiť poznámky v diári"
@@ -10578,12 +10531,7 @@ msgid "Database Tools"
 msgstr "Nástroje databázy"
 
 #. # ui/main/Main
-#: Off_Shelter_Vaccinations
-msgid "Off Shelter &Vaccinations"
-msgstr "Vakcinácie mimo útulku"
-
 #. # ui/splash/About
-#. # ui/main/Main
 #: About...
 msgid "&About..."
 msgstr "&O programe..."
@@ -10618,8 +10566,8 @@ msgstr "&Diár vakcinácií"
 msgid "Add Diary &Note"
 msgstr "Pridať poznámku do diára"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Internal_Locations
 msgid "Internal &Locations"
 msgstr "Interné &umiestnena"
@@ -10628,11 +10576,6 @@ msgstr "Interné &umiestnena"
 #: FTP_Settings
 msgid "Website &FTP Settings"
 msgstr "Web &FTP nastavenia"
-
-#. # ui/main/Main
-#: Microchip_Cancellations
-msgid "Microchip &Cancellations"
-msgstr "Zrušenia mikročipov"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/main/Main
@@ -10645,32 +10588,28 @@ msgstr "Vyhľadať stratené zviera"
 msgid "Edit All Diary Notes"
 msgstr "Upraviť všetky poznámky v diári"
 
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/LostFoundMatch
-#. # reports/SearchResults
-#. # reports/AnimalReturnedPostSix
-#. # reports/AnimalReturnedPreSix
-#. # reports/LongTermAnimals
-#. # reports/OwnerCriteriaSearch
-#. # reports/TransferIn
-#. # reports/CustomReportExecute
-#. # ui/animal/NotAdoptionView
+#. # ui/animal/AnimalFindColumns
 #. # ui/animal/LitterView
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
+#. # ui/animal/NotAdoptionView
 #. # ui/internet/PetFinderMapSpecies
-#. # ui/main/Main
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #. # ui/lookups/BreedSpeciesMapping
 #. # ui/lookups/LookupView
-#. # ui/movement/MovementSelector
 #. # ui/movement/MovementView
-#. # ui/owner/OwnerEdit
-#. # ui/waitinglist/WaitingListView
-#. # mailmerge/ChipRegistration
-#. # mailmerge/ChipCancellation
+#. # ui/movement/MovementSelector
+#. # ui/main/Main
+#. # ui/waitinglist/WaitingListViewColumns
+#. # reports/TransferIn
+#. # reports/LongTermAnimals
+#. # reports/AnimalReturnedPreSix
+#. # reports/OwnerCriteriaSearch
+#. # reports/InOut
+#. # reports/MedicalDiary
+#. # reports/CustomReportExecute
+#. # reports/AnimalReturnedPostSix
 #: Species
 msgid "&Species"
 msgstr "&Druhy"
@@ -10686,8 +10625,8 @@ msgstr "&Stratené zvieratá"
 msgid "&Find Found Animal"
 msgstr "&Vyhľadať nájdené zviera"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Animal_Types
 msgid "Animal &Types"
 msgstr "Druhy zvierat"
@@ -10697,8 +10636,8 @@ msgstr "Druhy zvierat"
 msgid "&Add Lost Animal"
 msgstr "&Pridať stratené zviera"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Reservation_Book
 msgid "Reservation Book"
 msgstr "Rezervácie"
@@ -10724,14 +10663,14 @@ msgid "&Add Owner"
 msgstr "&Pridať majiteľa"
 
 #. # ui/diary/DiaryTaskView
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Edit_Diary_Tasks
 msgid "Edit Diary &Tasks"
 msgstr "Upraviť úlohy v diári"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Reservation_Book
 msgid "&Reservation Book"
 msgstr "&Rezervácie"
@@ -10753,15 +10692,15 @@ msgstr "Vakcinácie"
 msgid "&Reports"
 msgstr "&Reporty"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Vaccination_Types
 msgid "&Vaccination Types"
 msgstr "&Druhy vakcinácií"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFind
+#. # ui/main/Main
 #: Find_Owner
 msgid "&Find Owner"
 msgstr "Vyhľadať majiteľa"
@@ -10772,27 +10711,22 @@ msgid "Publish &Animals Available for Adoption"
 msgstr "Publikovať zvieratá dostupné na adopciu"
 
 #. # ui/main/Main
-#: Microchip_Registration
-msgid "Microchip Re&gistration"
-msgstr "Mikročipy"
-
 #. # ui/users/UserEdit
-#. # ui/main/Main
 #: Edit_System_Users
 msgid "Edit System &Users"
 msgstr "Upraviť systémových používateľov"
 
 #. # ui/lostandfound/LostAnimalEdit
 #. # ui/lostandfound/FoundAnimalEdit
-#. # ui/main/Main
 #. # ui/movement/MovementEdit
+#. # ui/main/Main
 #. # ui/waitinglist/WaitingListEdit
 #: Diary
 msgid "&Diary"
 msgstr "Diár"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Breeds
 msgid "&Breeds"
 msgstr "Plemená"
@@ -10819,11 +10753,6 @@ msgid "&All Animals"
 msgstr "Všetky zvieratá"
 
 #. # ui/main/Main
-#: Adoption_Merge
-msgid "&Adoption Mail Merge"
-msgstr "Adopcie - hromadná korešpondencia"
-
-#. # ui/main/Main
 #: Found_Animals
 msgid "&Found Animals"
 msgstr "&Nájdené zvieratá"
@@ -10837,11 +10766,6 @@ msgstr "Pridať majiteľa"
 #: Add_Found_Animal
 msgid "&Add Found Animal"
 msgstr "Pridať nájdené  zviera"
-
-#. # ui/main/Main
-#: Contents_PDF
-msgid "Contents (&Printable PDF)"
-msgstr "Obsah (tlačiteľné PDF)"
 
 #. # ui/animalname/NamesView
 #. # ui/main/Main
@@ -10879,14 +10803,14 @@ msgstr "Konfigurovať typy súborov"
 msgid "Uncategorised"
 msgstr "Nekategorizované"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Death_Reasons
 msgid "&Death Reasons"
 msgstr "&Dôvody úhynu"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Entry_Reasons
 msgid "&Entry Reasons"
 msgstr "&Dôvody príjmu"
@@ -10916,8 +10840,8 @@ msgstr "PetFinder &Species Mappings"
 msgid "Locked"
 msgstr "Uzamknuté"
 
-#. # ui/main/ChangePassword
 #. # ui/main/Locked
+#. # ui/main/ChangePassword
 #: incorrect_password
 msgid "Incorrect Password"
 msgstr "Nesprávne heslo"
@@ -10927,33 +10851,33 @@ msgstr "Nesprávne heslo"
 msgid "Loc&k"
 msgstr "Uzamknúť"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Foster_Book
 msgid "&Foster Book"
 msgstr "Domáca opatera"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Retailer_Book
 msgid "R&etailer Book"
 msgstr "Sprostredkovatelia"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Diets
 msgid "D&iets"
 msgstr "Diéty"
 
-#. # ui/main/Main
-#. # ui/lookups/LookupView
 #. # ui/owner/OwnerEdit
+#. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Vouchers
 msgid "Vo&uchers"
 msgstr "Poukazy"
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: Credits
 msgid "C&redits"
 msgstr "C&redits"
@@ -10968,8 +10892,8 @@ msgstr "Upraviť liečebné profily"
 msgid "&Medical Diary"
 msgstr "Liečebný diár"
 
-#. # ui/medical/MedicalView
 #. # ui/main/Main
+#. # ui/medical/MedicalView
 #: Medical_Book
 msgid "Medical &Book"
 msgstr "Liečby"
@@ -11040,8 +10964,8 @@ msgstr "Upraviť diár veterinára"
 msgid "Donation T&ypes"
 msgstr "Typy darov"
 
-#. # ui/main/Main
 #. # ui/customreport/CustomReportExport
+#. # ui/main/Main
 #: export_custom_report_data
 msgid "E&xport Custom Report Data"
 msgstr "Exportovať dáta vlastného reportu"
@@ -11104,17 +11028,11 @@ msgstr "Bude použitá nová databáza po reštarte ASM."
 msgid "PetFinder &Breed Mapping"
 msgstr "PetFinder &Breed Mapping"
 
-#. # ui/main/Main
 #. # ui/lookups/LookupView
+#. # ui/main/Main
 #: Log_Types
 msgid "Log Ty&pes"
 msgstr "Typy logov"
-
-#. # ui/main/Main
-#. # mailmerge/ExpiringMembers
-#: Expiring_Members
-msgid "&Expiring Members"
-msgstr "Expirujúce členstvá"
 
 #. # ui/main/Main
 #: Close_Active_Tab
@@ -11150,11 +11068,6 @@ msgstr "Konfigurovať doplnkové políčka"
 #: Import_PetFinder
 msgid "Import &PetFinder Data"
 msgstr "Import &PetFinder Data"
-
-#. # ui/main/Main
-#: All_Members
-msgid "&All Members"
-msgstr "Všetci členovia"
 
 #. # ui/main/Main
 #: Remove_unwanted_breeds
@@ -11216,14 +11129,14 @@ msgstr "Skontrolovať aktualizácie"
 msgid "&Get more reports from sheltermanager.com ..."
 msgstr "Získať viac reportov zo sheltermanager.com ..."
 
-#. # ui/main/StartupPage
 #. # globals/Global
+#. # ui/main/StartupPage
 #: Welcome
 msgid "Welcome"
 msgstr "Vitajte"
 
-#. # ui/main/ChangePassword
 #. # ui/main/Main
+#. # ui/main/ChangePassword
 #: Change_Password
 msgid "Change &Password"
 msgstr "Zmeniť heslo"
@@ -11248,26 +11161,38 @@ msgstr "Nové heslo:"
 msgid "Confirm Password:"
 msgstr "Potvrdiť heslo:"
 
+#. # ui/animal/AnimalAddMultiple
+#. # ui/main/Main
+#. # ui/users/UserEdit
+#: Add_Animals
+msgid "Add Animal&s"
+msgstr ""
+
+#. # ui/main/Main
+#: Refresh_Active_Tab
+msgid "Refresh Active Tab"
+msgstr ""
+
 #. # ui/medical/ProfileView
 #: Profile_Name
 msgid "Profile Name"
 msgstr "Názov profilu"
 
-#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
 #: Treatment_Name
 msgid "Treatment Name"
 msgstr "Názov ošetrenia"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/ProfileView
-#. # ui/medical/MedicalEdit
-#. # ui/owner/DonationEdit
-#. # db/AutoDBUpdates
 #. # bo/LookupCache
 #. # bo/OwnerDonation
+#. # ui/owner/DonationEdit
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalRegimeSelector
+#. # ui/medical/MedicalEdit
+#. # ui/medical/ProfileView
+#. # db/AutoDBUpdates
 #: Frequency
 msgid "Frequency"
 msgstr "Frekvencia"
@@ -11349,22 +11274,23 @@ msgstr "Vytvoriť nový liečebný profil"
 msgid "Ends after"
 msgstr "Ukončiť po"
 
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalTreatmentSelector
 #. # bo/AnimalMedical
+#. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
 #: Status
 msgid "Status"
 msgstr "Status"
 
-#. # ui/medical/MedicalEdit
-#. # ui/owner/OwnerEdit
 #. # bo/AnimalMedical
+#. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/medical/MedicalEdit
 #: Active
 msgid "Active"
 msgstr "Aktívne"
 
-#. # ui/medical/MedicalEdit
 #. # bo/AnimalMedical
+#. # ui/medical/MedicalEdit
 #: Held
 msgid "Held"
 msgstr "Podržať"
@@ -11443,8 +11369,8 @@ msgstr "Podané kým:"
 msgid "Bring all treatments upto date"
 msgstr ""
 
-#. # ui/medical/MedicalView
 #. # ui/main/Main
+#. # ui/medical/MedicalView
 #: Medical_Book
 msgid "Medical Book"
 msgstr "Liečby"
@@ -11477,8 +11403,8 @@ msgstr ""
 msgid "Finishes After"
 msgstr "Končí po"
 
-#. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/MedicalTreatmentSelector
+#. # ui/medical/MedicalRegimeSelector
 #: Refresh
 msgid "Refresh"
 msgstr "Obnoviť"
@@ -11494,10 +11420,10 @@ msgstr "Spolu dnes"
 msgid "Create a new manual treatment"
 msgstr "Vytvoriť nové ošetrenie manuálne"
 
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/medical/ProfileEdit
 #. # ui/medical/MedicalEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
 #: treatment_periods
 msgid "Treatment Periods"
 msgstr "Opakovanie ošetrenia"
@@ -11527,8 +11453,8 @@ msgstr "Vytvoriť novú rezerváciu"
 msgid "View the animal for this reservation"
 msgstr "Zobraziť zviera tejto rezervácie"
 
-#. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: Cancelled\:
 msgid "Cancelled:"
 msgstr "Zrušené:"
@@ -11537,12 +11463,6 @@ msgstr "Zrušené:"
 #: WARNING\:_This_owner_has_not_passed_a_home_check.
 msgid "WARNING: This owner has not passed a home check."
 msgstr "UPOZORNENIE: Tento majiteľ neprešiel kontrolou."
-
-#. # ui/movement/MovementEdit
-#. # ui/owner/DonationEdit
-#: Select_an_animal
-msgid "Select an animal"
-msgstr "Vyberte zviera"
 
 #. # ui/movement/MovementEdit
 #: This_movement_record_already_has_an_insurance_number._Remove_it_if_you_wish_to_generate_another.
@@ -11743,8 +11663,8 @@ msgstr "Vytvoriť dokument pre tento pohyb"
 msgid "View the owner"
 msgstr "Zobraziť majiteľa"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Foster_Book
 msgid "Foster Book"
 msgstr "Domáca opatera"
@@ -11759,8 +11679,8 @@ msgstr "Kategória vrátenia:"
 msgid "[none]"
 msgstr "[nie je]"
 
-#. # ui/main/Main
 #. # ui/movement/MovementView
+#. # ui/main/Main
 #: Retailer_Book
 msgid "Retailer Book"
 msgstr "Sprostredkovatelia"
@@ -11815,8 +11735,8 @@ msgstr "Zobraziť zviera tohto sprostredkovateľského pohybu"
 msgid "View the retailer for this movement"
 msgstr "Zobraziť sprostredkovateľa pre tento pohyb"
 
-#. # reports/AnimalPrint
 #. # ui/movement/MovementEdit
+#. # reports/AnimalPrint
 #: from_retailer
 msgid "From Retailer:"
 msgstr "Od sprostredkovateľa:"
@@ -11849,6 +11769,11 @@ msgstr "Zadajte dátum vrátenia pohybu"
 #: return_movement
 msgid "Return Movement"
 msgstr "Vrátiť pohyb"
+
+#. # ui/movement/MovementView
+#: return_date
+msgid "Return Date"
+msgstr "Dátum vrátenia"
 
 #. # ui/movement/MovementView
 #: this_movement_is_already_returned
@@ -11905,9 +11830,21 @@ msgstr ""
 msgid "Active Criteria"
 msgstr "Aktívne kritériá"
 
+#. # ui/movement/MovementEdit
+#: This_animal_is_bonded_with
+msgid ""
+"This animal is bonded with {0}. Please make sure they are being adopted "
+"together."
+msgstr ""
+
+#. # ui/movement/MovementEdit
+#: Register_with_pettrac
+msgid "Register this animal/owner information with PETtrac"
+msgstr ""
+
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Work_Tel
 msgid "Work Tel"
 msgstr "Pracovný telefón"
@@ -11917,9 +11854,9 @@ msgstr "Pracovný telefón"
 msgid "Address contains:"
 msgstr "Adresa obsahuje:"
 
-#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFindColumns
+#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerEdit
 #: Homechecked
 #: ID_Check
@@ -11946,9 +11883,9 @@ msgstr "Komentár obsahuje. Použite medzery na oddelenie jednotlivých slov"
 msgid "Select"
 msgstr "Vybrať"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerFind
+#. # ui/main/Main
 #: Find_Owner
 msgid "Find Owner"
 msgstr "Vyhľadať majiteľa"
@@ -11959,8 +11896,6 @@ msgid "A full, or part email address for the owner"
 msgstr "Celá alebo časť adresy majiteľa"
 
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Home_Tel
 msgid "Home Tel"
 msgstr "Domáci telefón"
@@ -11986,26 +11921,31 @@ msgid "Check this box if this owner is a member of your organisation"
 msgstr "Označte toto ak majiteľ je členom vašej organizácie"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Member
 msgid "Member"
 msgstr "Člen"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameTitle\:
 msgid "Title:"
 msgstr "Titul:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameInitials\:
 msgid "Initials:"
 msgstr "Iniciály:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameForenames\:
 msgid "Forenames:"
 msgstr "Meno:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: NameSurname\:
 msgid "Surname:"
 msgstr "Priezvisko:"
@@ -12036,6 +11976,7 @@ msgid "Work Tel:"
 msgstr "Pracovný telefón:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Volunteer
 msgid "Volunteer"
 msgstr "Dobrovoľník"
@@ -12047,6 +11988,7 @@ msgstr "Podozrivý majiteľ"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #: Homecheck_Areas\:
 msgid "Homecheck Areas:"
 msgstr "Oblasti kontroly"
@@ -12058,6 +12000,7 @@ msgstr "Chyba načítavania konfigurácie:\n"
 
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
+#. # ui/owner/OwnerFindColumns
 #: Email\:
 msgid "Email:"
 msgstr "Email:"
@@ -12067,16 +12010,17 @@ msgstr "Email:"
 msgid "Possible Matching Owners"
 msgstr "Možné zhody majiteľov"
 
-#. # reports/OwnerSearchResults
 #. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerCheck
 #. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
+#. # ui/owner/OwnerCheck
+#. # ui/owner/OwnerFindColumns
+#. # reports/OwnerSearchResults
 #: Banned
 msgid "Banned"
 msgstr "Zakázaný"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Homechecker
 msgid "Homechecker"
 msgstr "Kontrolór"
@@ -12087,6 +12031,7 @@ msgid "The date this owner was last homechecked"
 msgstr "Dátum, kedy bol majiteľ naposledy kontrolovaný"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Donor
 msgid "Donor"
 msgstr "Darca"
@@ -12127,37 +12072,31 @@ msgid "Show:"
 msgstr "Zobraziť:"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: other_animal_shelter
 msgid "Other Animal Shelter"
 msgstr "Ostatné útulky"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: is_staff
 msgid "Shelter Staff"
 msgstr "Zamestnanci útulku"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: is_animal_care_officer
 msgid "Animal Care Officer"
 msgstr "Opatrovateľ zvierat"
 
-#. # ui/main/Main
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
-#: Mail_Merge
-msgid "Mail Merge"
-msgstr "Hromadná korešpondencia"
-
+#. # mailmerge/OwnerMailMerge
+#. # mailmerge/CustomMailMerge
+#. # internet/AvidRegistration
 #. # reports/OwnerSearchResults
-#. # ui/system/Options
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: email
 msgid "Email"
 msgstr "Email"
 
-#. # mailmerge/Members
-#. # mailmerge/ExpiringMembers
 #. # mailmerge/OwnerMailMerge
 #: there_are_no_owners_matching_your_criteria
 msgid "There are no owners matching your criteria."
@@ -12226,6 +12165,7 @@ msgid "Staff"
 msgstr "Dobrovoľníci"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Fosters_Animals
 msgid "Fosters Animals"
 msgstr "Zvieratá v domácej opatere"
@@ -12241,11 +12181,16 @@ msgid "Fosterers"
 msgstr "Domáca opatera"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #: town
 msgid "Town:"
 msgstr "Mesto:"
 
+#. # internet/AvidRegistration
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #: county
 msgid "County:"
 msgstr "County:"
@@ -12260,21 +12205,23 @@ msgstr "Mesto obsahuje:"
 msgid "County contains:"
 msgstr "County obsahuje:"
 
-#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
+#. # reports/AnimalPrint
 #: date_received
 msgid "Date Received"
 msgstr "Dátum prijatia"
 
-#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
+#. # reports/AnimalPrint
 #: date_due
 msgid "Date Due"
 msgstr "Dátum"
 
 #. # ui/owner/OwnerLink
+#. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/system/Options
 #: Telephone\:
 #: Organisation_Telephone\:
@@ -12342,7 +12289,9 @@ msgstr "Vymazať tento poukaz"
 msgid "Issue Date"
 msgstr "Dátum vydania"
 
+#. # ui/animal/LitterEdit
 #. # ui/owner/VoucherSelector
+#. # ui/owner/OwnerFindColumns
 #: Expiry_Date
 msgid "Expiry Date"
 msgstr "Dátum expirácie"
@@ -12481,28 +12430,31 @@ msgid "Check for owners with similar addresses"
 msgstr "Skontrolovať majiteľov s podobnými adresami"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Mobile_Tel
 msgid "Mobile Tel:"
 msgstr "Mobil:"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # reports/OwnerSearchResults
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindText
 #: Mobile_Te
 msgid "Mobile Tel"
 msgstr "Mobil"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Age_From
 msgid "Age From"
 msgstr "Vek od"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Age_To
 msgid "Age To"
 msgstr "Vek do"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Comments_contain
 msgid "Comments contain"
 msgstr "Komentáre obsahujú"
@@ -12512,8 +12464,8 @@ msgstr "Komentáre obsahujú"
 msgid "Check this box if this owner is a veterinary surgery or clinic"
 msgstr "Označte toto ak tento majiteľ je veterinárna ordinácia alebo klinika"
 
-#. # ui/owner/OwnerFind
 #. # globals/Global
+#. # ui/owner/OwnerFind
 #: Vets
 msgid "Vets"
 msgstr "Veterinári"
@@ -12528,8 +12480,8 @@ msgstr "Mobil:"
 msgid "Generate Document/Receipt"
 msgstr "Generovať dokument/doklad"
 
-#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
+#. # reports/AnimalPrint
 #: receipt_number
 msgid "Receipt Number"
 msgstr "Číslo dokladu"
@@ -12569,9 +12521,9 @@ msgstr "Linky"
 msgid "Other owner information"
 msgstr "Ostatné informácie o majiteľovi"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
 #. # ui/owner/LinkSelector
+#. # reports/AnimalPrint
 #: Owners_Vet
 msgid "Owner's Vet"
 msgstr "Majiteľov veterinár"
@@ -12631,11 +12583,13 @@ msgid "Additional information about the owner"
 msgstr "Doplnkové informácie o majiteľovi"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Match_added
 msgid "Match Added"
 msgstr "Pridané"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Match_expires
 msgid "Match Expires"
 msgstr "Vyprší"
@@ -12651,6 +12605,7 @@ msgid "Tick this box if this owner has been homechecked"
 msgstr "Označte toto ak tento majiteľ bol skontrolovaný"
 
 #. # ui/owner/OwnerEdit
+#. # ui/owner/OwnerFindColumns
 #: Checked_By
 msgid "Checked By:"
 msgstr "Skontrolovaný kým:"
@@ -12685,9 +12640,9 @@ msgstr "Zobraziť tohto majiteľa na mape"
 msgid "Potential Adopters"
 msgstr "Potencionálni adopční"
 
-#. # reports/AnimalPrint
 #. # ui/owner/DonationSelector
 #. # ui/owner/DonationEdit
+#. # reports/AnimalPrint
 #: frequency
 msgid "Frequency:"
 msgstr "Frekvencia:"
@@ -12702,6 +12657,7 @@ msgstr "Ak je tento majiteľ členom, jeho číslo členstva"
 msgid "Gift Aid Registered"
 msgstr ""
 
+#. # ui/owner/OwnerFindColumns
 #. # ui/owner/DonationEdit
 #: Gift_Aid
 msgid "Gift Aid"
@@ -12747,76 +12703,16 @@ msgstr "Zväčšiť"
 msgid "Zoom Out"
 msgstr "Zmenšiť"
 
-#. # ui/splash/About
-#: User_Directory\:_
-msgid "User Directory: "
-msgstr "Adresár používateľa: "
-
-#. # ui/splash/About
-#: Vendor\:_
-msgid "Vendor: "
-msgstr "Vendor: "
-
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: About...
 msgid "About..."
 msgstr "O..."
-
-#. # ui/splash/About
-#: User_Home\:_
-msgid "User Home: "
-msgstr "Domáci adresár: "
-
-#. # ui/splash/About
-#: OS_Name\:_
-msgid "OS Name: "
-msgstr "Meno OS: "
-
-#. # ui/splash/About
-#: Java_Version\:_
-msgid "Java Version: "
-msgstr "Java Verzia: "
-
-#. # ui/splash/About
-#: User_Name\:_
-msgid "User Name: "
-msgstr "Používateľské meno: "
-
-#. # ui/splash/About
-#: Vendor_URL\:_
-msgid "Vendor URL: "
-msgstr "Vendor URL: "
-
-#. # ui/splash/About
-#: Class_Path\:_
-msgid "Class Path: "
-msgstr "Class Path: "
-
-#. # ui/splash/About
-#: OS_Architecture\:_
-msgid "OS Architecture: "
-msgstr "OS Architecture: "
-
-#. # ui/splash/About
-#: Java_Home\:_
-msgid "Java Home: "
-msgstr "Java Home: "
 
 #. # globals/Global
 #: Copyright
 msgid "Copyright"
 msgstr "Copyright"
-
-#. # ui/splash/About
-#: OS_Version\:_
-msgid "OS Version: "
-msgstr "Verzia OS: "
-
-#. # ui/splash/About
-#: Class_Version\:_
-msgid "Class Version: "
-msgstr "Class Version: "
 
 #. # globals/Global
 #: Version
@@ -12828,8 +12724,8 @@ msgstr "Verzia"
 msgid "Visit the Animal Shelter Manager website"
 msgstr "Navštívte webstránku ASM"
 
-#. # ui/splash/About
 #. # ui/main/Main
+#. # ui/splash/About
 #: Credits
 msgid "Credits"
 msgstr "Autori"
@@ -12949,8 +12845,8 @@ msgstr "Pridať nový typ súboru"
 msgid "Delete the selected type"
 msgstr "Vymazať označený typ"
 
-#. # ui/system/FileTypes
 #. # ui/system/FileTypeEdit
+#. # ui/system/FileTypes
 #: Extension
 msgid "Extension"
 msgstr "Koncovka"
@@ -12960,8 +12856,8 @@ msgstr "Koncovka"
 msgid "Save the list of filetypes"
 msgstr "Uložiť zoznam typov súborov"
 
-#. # ui/system/FileTypes
 #. # ui/system/FileTypeEdit
+#. # ui/system/FileTypes
 #: Edit_File_Types
 msgid "Edit File Types"
 msgstr "Upraviť typy súborov"
@@ -13010,6 +12906,7 @@ msgid "End At:"
 msgstr "Skončiť na:"
 
 #. # ui/system/ConfigureLocal
+#. # ui/ui/LocaleDialog
 #: System_Locale\:
 msgid "System Locale:"
 msgstr "System Locale:"
@@ -13029,8 +12926,8 @@ msgstr "Konfigurovať lokálne nastavenia"
 msgid "Tick this box to start ASM in a maximised window"
 msgstr "Označte toto pre spustenie ASM v maximalizovanom okne"
 
-#. # ui/system/Options
 #. # ui/system/ConfigureLocal
+#. # ui/system/Options
 #: Save_your_changes_and_exit
 msgid "Save your changes and exit"
 msgstr "Uložiť zmeny a skončiť"
@@ -13064,8 +12961,8 @@ msgstr "IP adresa/hostname SMTP servera"
 
 #. # ui/system/Options
 #: show_short_shelter_code
-msgid "Show short shelter codes on find animal screen"
-msgstr "Zobrazovať krátke kódy na obrazovke nájdených zvierat"
+msgid "Show short shelter codes on screens and reports"
+msgstr ""
 
 #. # ui/system/Options
 #: foster_as_on_shelter
@@ -13077,9 +12974,9 @@ msgstr "Zvieratá v domácej opatere sú súčasťou útulku"
 msgid "Default Waiting List Urgency:"
 msgstr "Predvolená urgencia zoznamu čakajúcich"
 
-#. # ui/animal/MediaAdd
 #. # ui/system/Options
 #. # ui/system/ConfigureDatabase
+#. # ui/animal/MediaAdd
 #. # ui/internet/InternetPublisher
 #: None
 msgid "[None]"
@@ -13434,12 +13331,8 @@ msgstr "Povoliť updatey databázy:"
 msgid "Allow ASM clients to update the database if it is older than them."
 msgstr ""
 
-#. # reports/CustomReportExecute
-#. # ui/ui/JDBCDlg
 #. # ui/system/SQLInterface
-#. # db/LocateDatabase
-#. # db/DatabaseCopier
-#. # startup/Startup
+#. # reports/CustomReportExecute
 #: sql
 msgid "SQL"
 msgstr "SQL"
@@ -13755,11 +13648,6 @@ msgid "Mapping Service URL:"
 msgstr "URL systému pre mapy:"
 
 #. # ui/system/Options
-#: Automatic_Insurance_Numbers
-msgid "Automatic Insurance Numbers"
-msgstr ""
-
-#. # ui/system/Options
 #: Auto_attach_generated_media
 msgid "Automatically attach generated documents as media"
 msgstr ""
@@ -13914,6 +13802,318 @@ msgstr ""
 #. # ui/system/Options
 #: Keep_audit_trail
 msgid "Keep a full audit trail"
+msgstr ""
+
+#. # ui/system/Options
+#: disable_shortcodes_editing
+msgid "Hide short shelter codes on the animal details screen"
+msgstr ""
+
+#. # ui/system/Options
+#: how_many_points_to_show_on_report
+msgid "Points required to appear on match report:"
+msgstr ""
+
+#. # ui/system/Options
+#: species_matches
+msgid "Points given for matching species:"
+msgstr ""
+
+#. # ui/system/Options
+#: breed_matches
+msgid "Points given for matching breed:"
+msgstr ""
+
+#. # ui/system/Options
+#: colour_matches
+msgid "Points given for matching colour:"
+msgstr ""
+
+#. # ui/system/Options
+#: age_group_matches
+msgid "Points given for matching age group:"
+msgstr ""
+
+#. # ui/system/Options
+#: sex_matches
+msgid "Points given for matching sex:"
+msgstr ""
+
+#. # ui/system/Options
+#: area_matches
+msgid "Points given for lost/found areas matching:"
+msgstr ""
+
+#. # ui/system/Options
+#: features_matches
+msgid "Points given for features matching:"
+msgstr ""
+
+#. # ui/system/Options
+#: postcode_matches
+msgid "Points given for matching postcode:"
+msgstr ""
+
+#. # ui/system/Options
+#: datewithin2weeks_matches
+msgid "Points given for found within 2 weeks of being lost:"
+msgstr ""
+
+#. # ui/system/Options
+#: lost_and_found
+msgid "Lost and Found"
+msgstr ""
+
+#. # ui/system/Options
+#: include_shelter
+msgid "When matching lost animals, include shelter animals"
+msgstr ""
+
+#. # ui/system/Options
+#: remove_bonded_field
+msgid "Remove the Bonded With fields from the entry details screen"
+msgstr ""
+
+#. # ui/system/Options
+#: email_signature
+msgid "Email signature:"
+msgstr ""
+
+#. # ui/system/Options
+#: Insurance
+msgid "Insurance"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Look_and_Feel
+msgid "Look and Feel:"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Default
+msgid "Default"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Native_Platform
+msgid "Native Platform"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Metal
+msgid "Metal"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Metal_for_GTK
+msgid "Metal for GTK"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Toolbar_Size
+msgid "Toolbar Size:"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: No_Toolbar
+msgid "No Toolbar"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Tiny
+msgid "Tiny"
+msgstr ""
+
+#. # ui/system/ConfigureLocal
+#: Normal
+msgid "Normal"
+msgstr ""
+
+#. # ui/system/Options
+#: Adding_multiple_animals
+msgid "Adding Multiple Animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_breed
+msgid "Show breed field(s) when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_colour
+msgid "Show colour when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_location
+msgid "Show location when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_litterid
+msgid "Show Litter ID when adding multiple animals"
+msgstr ""
+
+#. # ui/system/Options
+#: add_animals_show_acceptance
+msgid "Show Acceptance Number when adding multiple animals"
+msgstr ""
+
+#. # ui/system/ConfigureAdditional
+#. # ui/system/AdditionalFieldEdit
+#: mandatory
+msgid "Mandatory?"
+msgstr ""
+
+#. # ui/system/Options
+#: accounting_period
+msgid "Current accounting period starts:"
+msgstr ""
+
+#. # ui/system/Options
+#: show_period_totals
+msgid "Only show account totals for the current period"
+msgstr ""
+
+#. # internet/HTMLPublisher
+#. # ui/system/Options
+#. # ui/internet/InternetPublisher
+#. # startup/Startup
+#: internet
+msgid "Internet"
+msgstr ""
+
+#. # ui/system/Options
+#: tpp_signature
+msgid "Third party publisher text:"
+msgstr ""
+
+#. # ui/system/Options
+#: tpp_signature_tooltip
+msgid ""
+"This text will be added to the bottom of animal descriptions when sending "
+"them to PetFinder, RescueGroups, etc."
+msgstr ""
+
+#. # ui/system/Options
+#: animal_search_result_columns
+msgid "Find animal columns:"
+msgstr ""
+
+#. # ui/system/Options
+#: animal_search_result_columns_tooltip
+msgid ""
+"A comma separated list of fieldnames to be displayed when finding animals."
+msgstr ""
+
+#. # ui/system/Options
+#: Hide_original_owner_details_when_printing_animal_records
+msgid "Hide original owner information when printing animal records"
+msgstr ""
+
+#. # ui/system/Options
+#: map_donation_to_account
+msgid "Destination account for donation:"
+msgstr ""
+
+#. # ui/system/Options
+#: Default_brought_in_by
+msgid "Default Brought In By:"
+msgstr ""
+
+#. # ui/system/Options
+#: When_printing_dont_scale_to_page_width
+msgid "When printing reports, don't scale to match page width"
+msgstr ""
+
+#. # ui/system/Options
+#: owner_search_result_columns
+msgid "Find owner columns:"
+msgstr ""
+
+#. # ui/system/Options
+#: owner_search_result_columns_tooltip
+msgid ""
+"A comma separated list of fieldnames to be displayed when finding owners."
+msgstr ""
+
+#. # ui/system/Options
+#: waiting_list_view_columns
+msgid "Waiting list columns:"
+msgstr ""
+
+#. # ui/system/Options
+#: waiting_list_view_columns_tooltip
+msgid ""
+"A comma separated list of fieldnames to be displayed when viewing the "
+"waiting list."
+msgstr ""
+
+#. # ui/system/Options
+#: pettrac_avid
+msgid "PETtrac/AVID"
+msgstr ""
+
+#. # ui/system/Options
+#: avid_url
+msgid "Http Form POST URL:"
+msgstr ""
+
+#. # ui/system/Options
+#: avid_org_name
+msgid "Org Name:"
+msgstr ""
+
+#. # ui/system/Options
+#: avid_org_serial
+msgid "Org Serial:"
+msgstr ""
+
+#. # ui/system/Options
+#: avid_org_postcode
+msgid "Org Postcode:"
+msgstr ""
+
+#. # ui/system/Options
+#: avid_org_password
+msgid "Org Password:"
+msgstr ""
+
+#. # ui/system/Options
+#: Invalid_codeformat_need_y_with_n
+msgid ""
+"Your coding format is invalid - if you have NNN codes, you must have a Y to "
+"make it unique."
+msgstr ""
+
+#. # ui/system/Options
+#: disable_lost_and_found
+msgid "Disable lost and found functionality"
+msgstr ""
+
+#. # ui/system/Options
+#: disable_waiting_list
+msgid "Disable Waiting List"
+msgstr ""
+
+#. # ui/system/Options
+#: default_trx_view
+msgid "Default transaction view:"
+msgstr ""
+
+#. # ui/system/Options
+#: this_week
+msgid "This week"
+msgstr ""
+
+#. # ui/system/Options
+#: this_year
+msgid "This year"
+msgstr ""
+
+#. # ui/system/Options
+#: last_month
+msgid "Last 30 days"
 msgstr ""
 
 #. # ui/users/UserView
@@ -14071,13 +14271,8 @@ msgstr "Upraviť nájdené zvieratá"
 msgid "Add Animal Media"
 msgstr "Pridať súbor k zvieraťu"
 
-#. # ui/users/UserEdit
-#: Add_Animals
-msgid "Add Animals"
-msgstr "Pridať zvieratá"
-
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Edit_System_Users
 msgid "Edit System Users"
 msgstr "Upraviť používateľov systému"
@@ -14127,8 +14322,8 @@ msgstr "Sprístupniť systémové menu"
 msgid "Super User: "
 msgstr "Super užívateľ: "
 
-#. # ui/users/UserView
 #. # ui/users/UserEdit
+#. # ui/users/UserView
 #: Real_Name
 msgid "Real Name: "
 msgstr "Skutočné meno: "
@@ -14173,8 +14368,8 @@ msgstr "Upraviť moje poznámky v diári"
 msgid "Delete Diary Notes"
 msgstr "Vymazať poznámky v diári"
 
-#. # ui/users/UserView
 #. # ui/users/UserEdit
+#. # ui/users/UserView
 #: Username\:_
 msgid "Username: "
 msgstr "Uživateľské meno: "
@@ -14209,8 +14404,8 @@ msgstr "Zobraziť vakcinácie zvieraťa"
 msgid "Delete Lost Animals"
 msgstr "Vymazať stratené zvieratá"
 
-#. # ui/users/UserEdit
 #. # ui/main/Main
+#. # ui/users/UserEdit
 #: Print_Diary_Notes
 msgid "Print Diary Notes"
 msgstr "Vytlačiť poznámky v diári"
@@ -14310,8 +14505,8 @@ msgstr ""
 msgid "Bulk Complete Waiting List Entries"
 msgstr ""
 
-#. # ui/users/UserEdit
 #. # ui/customreport/CustomReportView
+#. # ui/users/UserEdit
 #: Custom_Reports
 msgid "Custom Reports"
 msgstr "Vlastné reporty"
@@ -14476,11 +14671,11 @@ msgstr "Zobraziť logy"
 msgid "View Owner Vouchers"
 msgstr "Zobraziť poukazy"
 
-#. # reports/AnimalPrint
 #. # ui/animal/AnimalEdit
-#. # ui/users/UserEdit
-#. # ui/movement/MovementEdit
 #. # ui/owner/OwnerEdit
+#. # ui/movement/MovementEdit
+#. # ui/users/UserEdit
+#. # reports/AnimalPrint
 #: Donations
 msgid "Donations:"
 msgstr "Dary:"
@@ -14575,6 +14770,16 @@ msgstr "Upraviť transakcie"
 msgid "Delete Accounts"
 msgstr "Vymazať kontá"
 
+#. # ui/users/UserEdit
+#: View_Lost_Animals
+msgid "View Lost Animals"
+msgstr ""
+
+#. # ui/users/UserEdit
+#: View_Found_Animals
+msgid "View Found Animals"
+msgstr ""
+
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
 msgid "HTML Viewer"
@@ -14626,6 +14831,7 @@ msgstr "Upraviť zoznam čakajúcich"
 msgid "Clone this record"
 msgstr "Duplikovať tento záznam"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
 #: Date_Put_On\:
 msgid "Date Put On:"
@@ -14636,19 +14842,19 @@ msgstr ""
 msgid "A date you entered was not valid: \n"
 msgstr "Dátum, ktorý ste zadali, nie je platný: \n"
 
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/ui/Dialog
-#. # ui/lookups/LookupView
-#. # ui/customreport/CustomReportEdit
-#. # ui/waitinglist/WaitingListView
+#. # bo/LookupCache
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
+#. # ui/customreport/CustomReportEdit
+#. # ui/animal/AnimalFind
+#. # ui/lostandfound/LostAnimalFind
+#. # ui/lostandfound/FoundAnimalFind
+#. # ui/ui/Dialog
+#. # ui/lookups/LookupView
+#. # ui/waitinglist/WaitingListView
+#. # db/DatabaseCopier
 #. # db/DatabaseImporter
 #. # db/Diagnostic
-#. # db/DatabaseCopier
-#. # bo/LookupCache
 #: species
 msgid "species"
 msgstr "druhy"
@@ -14658,6 +14864,7 @@ msgstr "druhy"
 msgid "Date Removed:"
 msgstr "Dátum odobratia:"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
 #: Donation?
 msgid "Donation?"
@@ -14686,17 +14893,18 @@ msgid ""
 msgstr ""
 "Automaticky vymazať tento záznam po počte týždňov (alebo 0 pre nikdy)"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
 #: date_of_last_owner_contact
 msgid "Date Of Last Owner Contact:"
 msgstr "Dátum posledného kontaktu majiteľa"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
+#. # bo/MedicalProfile
+#. # bo/AnimalMedical
 #. # ui/internet/InternetPublisher
 #. # ui/waitinglist/WaitingListEdit
-#. # bo/AnimalMedical
-#. # bo/MedicalProfile
+#. # ui/medical/ProfileEdit
+#. # ui/medical/MedicalEdit
 #: weeks
 msgid "weeks."
 msgstr "týždňov"
@@ -14726,6 +14934,7 @@ msgstr ""
 msgid "Edit Waiting List Entry - {0}"
 msgstr "Upraviť záznam v zozname čakajúcich - {0}"
 
+#. # ui/waitinglist/WaitingListViewColumns
 #. # ui/waitinglist/WaitingListEdit
 #: Removal_Reason\:
 msgid "Removal Reason:"
@@ -14734,6 +14943,11 @@ msgstr "Dôvod odstránenia:"
 #. # ui/waitinglist/WaitingListView
 #: toggle_highlighting_of_the_selected_waiting_list_entries
 msgid "Toggle highlighting of the selected entries "
+msgstr ""
+
+#. # ui/waitinglist/WaitingListEdit
+#: Tick_this_box_if_the_owner_made_a_donation
+msgid "Tick this box if this owner made a donation"
 msgstr ""
 
 #. # ui/wordprocessor/SelectTemplate
@@ -14751,20 +14965,330 @@ msgstr "Priložiť vygenerovaný dokument ako súbor?"
 msgid "(estimated)"
 msgstr "(odhadovaný)"
 
+#~ msgid "Torti"
+#~ msgstr "Korytnačinová"
+
+#~ msgid "There are no required vaccinations on that date."
+#~ msgstr "Žiadne požadované vakcinácie pre tento dátum"
+
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare vaccination letters for"
+#~ msgstr "Prosím, vložte koncový dátum pre pripravenie vakcinačných listov"
+
+#~ msgid "ChipRegistrations.csv"
+#~ msgstr "ChipRegistrations.csv"
+
+#~ msgid "Home Telephone"
+#~ msgstr "Telefón domov"
+
+#~ msgid "Work Telephone"
+#~ msgstr "Telefón do práce"
+
+#~ msgid "Microchip Number"
+#~ msgstr "Číslo mikročipu"
+
+#~ msgid "ChipCancellations.csv"
+#~ msgstr "ChipCancellations.csv"
+
+#~ msgid "Date Of Birth"
+#~ msgstr "Dátum narodenia"
+
+#~ msgid "Email Address"
+#~ msgstr "Emailová adresa"
+
+#~ msgid "AdoptedNoReturn.csv"
+#~ msgstr "AdoptedNoReturn.csv"
+
+#~ msgid "Initials"
+#~ msgstr "Iniciály"
+
+#~ msgid "80%"
+#~ msgstr "80%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "70%"
+#~ msgstr "70%"
+
+#~ msgid "90%"
+#~ msgstr "90%"
+
+#~ msgid "50%"
+#~ msgstr "50%"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
 #~ msgid "CSV Generation Complete"
 #~ msgstr "Generácia CSV kompletná"
+
+#~ msgid "Version "
+#~ msgstr "Verzia "
+
+#~ msgid "All Members"
+#~ msgstr "Všetci členovia"
+
+#~ msgid "&Non-Returned Adoptions"
+#~ msgstr "Adopcie bez vrátení"
+
+#~ msgid "Microchip Re&gistration"
+#~ msgstr "Mikročipy"
+
+#~ msgid "Off Shelter &Vaccinations"
+#~ msgstr "Vakcinácie mimo útulku"
+
+#~ msgid "&Expiring Members"
+#~ msgstr "Expirujúce členstvá"
+
+#~ msgid "&All Members"
+#~ msgstr "Všetci členovia"
 
 #~ msgid "No image viewer"
 #~ msgstr "Žiadny prehliadač obrázkov"
 
+#~ msgid "Torti and White"
+#~ msgstr "Korytnačinová a biela"
+
+#~ msgid "Members.csv"
+#~ msgstr "Members.csv"
+
+#~ msgid "MembershipExpiry"
+#~ msgstr "MembershipExpiry"
+
+#~ msgid "ExpiringMembers.csv"
+#~ msgstr "ExpiringMembers.csv"
+
+#~ msgid "Dilute Tortoiseshell"
+#~ msgstr "Dilute Tortoiseshell"
+
+#~ msgid "Dilute Calico"
+#~ msgstr "Dilute Calico"
+
+#~ msgid "Torbie"
+#~ msgstr "Torbie"
+
+#~ msgid "Tortoiseshell"
+#~ msgstr "Tortoiseshell"
+
+#~ msgid "Tuxedo"
+#~ msgstr "Tuxedo"
+
+#~ msgid ""
+#~ "You must have already created the database and loaded the database structure "
+#~ "from the {0} file in {1}. Select Yes if you have already done this, "
+#~ "otherwise select No to cancel the copy."
+#~ msgstr ""
+#~ "Musíte mať už vytvorenú databázu a načítanú štruktúru databázy z  {0} "
+#~ "súborov v {1}. Zvoľte Áno ak ste tak už urobili alebo Nie pre zrušenie "
+#~ "kopírovania"
+
+#~ msgid "OffShelterVaccinations.csv"
+#~ msgstr "OffShelterVaccinations.csv"
+
+#~ msgid "&Adoption Mail Merge"
+#~ msgstr "Adopcie - hromadná korešpondencia"
+
 #~ msgid "Mail Merge Source Generated"
 #~ msgstr "Zdroj hromadnej korešpondencie vygenerovaný"
+
+#~ msgid "Off-Shelter Vaccination Mail Merge"
+#~ msgstr "Vakcinácie mimo útulku - hromadná korešpondencia"
+
+#~ msgid "&Owner Mail Merge"
+#~ msgstr "Vlastníci - hromadná korešpondencia"
 
 #~ msgid "Successfully built mail merge source as file:"
 #~ msgstr "Hromadná korešpondencia úspešne vytvorené ako súbor:"
 
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare chip registration "
+#~ "letters for"
+#~ msgstr ""
+#~ "Prosím, zadajte koncový dátum, pre ktorý majú byť vytvorené listy o "
+#~ "registráciách čipov"
+
+#~ msgid "Chip Registration Mail Merge"
+#~ msgstr "Hromadná korešpondencia - registrácia čipov"
+
+#~ msgid "There are no required chip registrations between those dates."
+#~ msgstr "Neexistujú žiadne požadované registrácie medzi týmito dátumami."
+
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare chip registration "
+#~ "letters for"
+#~ msgstr ""
+#~ "Prosím, zadajte počiatočný dátum, pre ktorý majú byť vytvorené listy o "
+#~ "registráciách čipov"
+
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare vaccination letters for"
+#~ msgstr ""
+#~ "Prosím, zadajte počiatočný dátum, pre ktorý majú byť vytvorené vakcinačné "
+#~ "listy"
+
+#~ msgid "There are no adoptions matching your criteria."
+#~ msgstr "Neexistujú žiadne adopcie, ktoré by vyhovovali vašim kritériám."
+
+#~ msgid "Address 2"
+#~ msgstr "Adresa 2"
+
+#~ msgid "Forenames"
+#~ msgstr "Mená"
+
+#~ msgid "Address 3"
+#~ msgstr "Adresa 3"
+
+#~ msgid "Please enter the closing date of adoptions to include"
+#~ msgstr "Prosím, zadajte koncový dátum adopcií, ktoré majú byť zahrnuté"
+
+#~ msgid "Address 1"
+#~ msgstr "Adresa 1"
+
+#~ msgid "Address 5"
+#~ msgstr "Adresa 5"
+
+#~ msgid "Address 4"
+#~ msgstr "Adresa 5"
+
+#~ msgid "Please enter the start date of adoptions to include"
+#~ msgstr "Prosím, zadajte počiatočný dátum adopcií, ktoré majú byť zahrnuté"
+
+#~ msgid "Show members expiring before"
+#~ msgstr "Zobraziť členov expirujúcich pred"
+
+#~ msgid "Expiring Members"
+#~ msgstr "Expirujúci členovia"
+
+#~ msgid ""
+#~ "ASM could not find its data structure in the database specfied. If you are "
+#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
+#~ "{0} directory first."
+#~ msgstr ""
+#~ "ASM nemôže nájsť štruktúru dát v zadanej databáze. Ak používate PostgreSQL "
+#~ "alebo MySQL, uistite sa, že ste spustili správny script v {0} adresári "
+#~ "najprv."
+
 #~ msgid "Create a CVS file on disk"
 #~ msgstr "Vytvoriť CVS súbor na disk"
 
+#~ msgid "Select a mother from the shelter animals"
+#~ msgstr "Vyberte matku z útulkových zvierat"
+
+#~ msgid "Or date:"
+#~ msgstr "Alebo dátum:"
+
+#~ msgid "The Identichip Number"
+#~ msgstr "Číslo mikročipu"
+
+#~ msgid "This animals rabies tag"
+#~ msgstr "Lyssetka tohto zvieraťa"
+
+#~ msgid "The date the animal was identichipped"
+#~ msgstr "Dátum, kedy bolo zviera začipované"
+
+#~ msgid "Identichip No"
+#~ msgstr "Číslo mikročipu"
+
+#~ msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
+#~ msgstr "{0} aktívnych vrhov ({1} mačiek, {2} psov a {3} rôznych)"
+
+#~ msgid "An error occurred contacting PetFinder.com: "
+#~ msgstr "An error occurred contacting PetFinder.com: "
+
+#~ msgid "Java Version: "
+#~ msgstr "Java Verzia: "
+
+#~ msgid "User Name: "
+#~ msgstr "Používateľské meno: "
+
+#~ msgid "OS Name: "
+#~ msgstr "Meno OS: "
+
+#~ msgid "OS Version: "
+#~ msgstr "Verzia OS: "
+
 #~ msgid "No HTML Viewer"
 #~ msgstr "Žiadny HTML prehliadač"
+
+#~ msgid "Chip Cancellation Mail Merge"
+#~ msgstr "Hromadný mail o zrušení čipov"
+
+#~ msgid ""
+#~ "Please enter the start date you would like to prepare chip cancellation "
+#~ "letters for"
+#~ msgstr "Uveďte prosím začiatočný dátum prípravy listov o zrušení čipov"
+
+#~ msgid "There are no required chip cancellations between those dates."
+#~ msgstr "Medzi týmito dátumami nie je požadované zrušenie čipov"
+
+#~ msgid "Non-Returned Adoptions"
+#~ msgstr "Nevrátené adopcie"
+
+#~ msgid ""
+#~ "Please enter the end date you would like to prepare chip cancellation "
+#~ "letters for"
+#~ msgstr "Uveďte prosím konečný dátum prípravy listov o zrušení čipov"
+
+#~ msgid "Short Code"
+#~ msgstr "Skrátený kód"
+
+#~ msgid "Error occurred retrieving templates: {0} "
+#~ msgstr "Chyba pri získavaní šablóny: {0} "
+
+#~ msgid "Identichip No: "
+#~ msgstr "Číslo čipu: "
+
+#~ msgid "Identichipped:"
+#~ msgstr "Čipované:"
+
+#~ msgid "Contents (&Printable PDF)"
+#~ msgstr "Obsah (tlačiteľné PDF)"
+
+#~ msgid "Microchip &Cancellations"
+#~ msgstr "Zrušenia mikročipov"
+
+#~ msgid "Class Version: "
+#~ msgstr "Class Version: "
+
+#~ msgid "Java Home: "
+#~ msgstr "Java Home: "
+
+#~ msgid "Invalid standard report: {0}"
+#~ msgstr "Chybný štandardný report: {0}"
+
+#~ msgid "Set Match Floor"
+#~ msgstr "Nastaviť mieru zohdy"
+
+#~ msgid "At what level should the report show matches?"
+#~ msgstr "Na akom leveli má tento report zobraziť zhody?"
+
+#~ msgid ""
+#~ "The period after which this litter should expire if no expiry date is "
+#~ "entered below"
+#~ msgstr ""
+#~ "Doba, po ktorej by mal tento vrh vypršať, ak nie, dátum sa zadáva nižšie"
+
+#~ msgid "Determining Workload..."
+#~ msgstr "Determining Workload..."
+
+#~ msgid "User Directory: "
+#~ msgstr "Adresár používateľa: "
+
+#~ msgid "User Home: "
+#~ msgstr "Domáci adresár: "
+
+#~ msgid "Vendor URL: "
+#~ msgstr "Vendor URL: "
+
+#~ msgid "Class Path: "
+#~ msgstr "Class Path: "
+
+#~ msgid "OS Architecture: "
+#~ msgstr "OS Architecture: "
+
+#~ msgid "Vendor: "
+#~ msgstr "Vendor: "
+
+#~ msgid "Show short shelter codes on find animal screen"
+#~ msgstr "Zobrazovať krátke kódy na obrazovke nájdených zvierat"
