@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2010-09-02 16:33+0000\n"
-"Last-Translator: Benedictus Lambrechts <lambrechts.benedictus@gmail.com>\n"
+"PO-Revision-Date: 2011-02-23 13:52+0000\n"
+"Last-Translator: Geert Valk  <Unknown>\n"
 "Language-Team: Benedictus\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:07+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-02-24 04:48+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
 "Language: nl\n"
 
 #. # bo/DiaryTaskHead
@@ -737,32 +737,32 @@ msgstr "Je moet een omschrijving opgeven voor de kost."
 #. # bo/AuditTrail
 #: audit_create
 msgid "Created {0}"
-msgstr ""
+msgstr "Aangemaakt"
 
 #. # bo/AuditTrail
 #: audit_changed
 msgid "Changed {0}"
-msgstr ""
+msgstr "Veranderd"
 
 #. # bo/AuditTrail
 #: audit_deleted
 msgid "Deleted {0}"
-msgstr ""
+msgstr "Verwijderd"
 
 #. # bo/AuditTrail
 #: audit_moved
 msgid "Moved {0} from {1} to {2}"
-msgstr ""
+msgstr "Verplaatst"
 
 #. # bo/AuditTrail
 #: audit_merged
 msgid "Merged {0} into {1}"
-msgstr ""
+msgstr "Samengevoegd"
 
 #. # bo/Users
 #: duplicate_username
 msgid "The username {0} has already been used."
-msgstr ""
+msgstr "De gebruikersnaam is al in gebruik"
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -777,12 +777,12 @@ msgstr "Giftenanalyse per maand (per diersoort) voor "
 #. # charts/CommonReasonsReturn
 #: Adoption_Return_Reasons_for_
 msgid "Adoption Return Reasons for "
-msgstr "Terugbrengreden na adoptie voor "
+msgstr "Terugbreng reden na adoptie voor "
 
 #. # charts/CommonReasonsEntry
 #: Animal_Entry_Reasons_for_
 msgid "Animal Entry Reasons for "
-msgstr "Binnenkomstredenen voor "
+msgstr "Binnenkomst redenen voor "
 
 #. # charts/AdoptionsPerSpecies
 #: Monthly_Adoption_analysis_(by_species)_for_
@@ -1020,155 +1020,155 @@ msgstr "Wachtlijst"
 
 #: accounts_1_5_1_code
 msgid "Income::Donation"
-msgstr ""
+msgstr "Inkomsten: Donatie"
 
 #: accounts_1_desc
 msgid "Incoming donations (misc)"
-msgstr ""
+msgstr "Inkomsten donaties (diversen)"
 
 #: accounts_2_5_2_code
 msgid "Income::Adoption"
-msgstr ""
+msgstr "Inkomsten: Adoptie"
 
 #: accounts_2_desc
 msgid "Adoption fee donations"
-msgstr ""
+msgstr "Adoptie kosten donaties"
 
 #: accounts_3_5_3_code
 msgid "Income::WaitingList"
-msgstr ""
+msgstr "Inkomsten: Wachtlijst"
 
 #: accounts_3_desc
 msgid "Waiting list donations"
-msgstr ""
+msgstr "Wachtlijst donaties"
 
 #: accounts_4_5_4_code
 msgid "Income::EntryDonation"
-msgstr ""
+msgstr "Inkomsten: Invoeren donatie"
 
 #: accounts_4_desc
 msgid "Donations for animals entering the shelter"
-msgstr ""
+msgstr "Donaties voor dieren die het asiel binnenkomen"
 
 #: accounts_5_5_5_code
 msgid "Income::Sponsorship"
-msgstr ""
+msgstr "Inkomsten: Sponsors"
 
 #: accounts_5_desc
 msgid "Sponsorship donations"
-msgstr ""
+msgstr "Sponsors donaties"
 
 #: accounts_6_5_0_code
 msgid "Income::Shop"
-msgstr ""
+msgstr "Inkomsten: Winkel"
 
 #: accounts_6_desc
 msgid "Income from an on-site shop"
-msgstr ""
+msgstr "Inkomsten van Asiel winkel"
 
 #: accounts_7_5_0_code
 msgid "Income::Interest"
-msgstr ""
+msgstr "Inkomsten: Rente"
 
 #: accounts_7_desc
 msgid "Bank account interest"
-msgstr ""
+msgstr "Rente bankrekening"
 
 #: accounts_8_5_0_code
 msgid "Income::OpeningBalances"
-msgstr ""
+msgstr "Inkomsten: Open balans"
 
 #: accounts_8_desc
 msgid "Opening balances"
-msgstr ""
+msgstr "Open balans"
 
 #: accounts_9_1_0_code
 msgid "Bank::Current"
-msgstr ""
+msgstr "Bank: Huidige status"
 
 #: accounts_9_desc
 msgid "Bank current account"
-msgstr ""
+msgstr "Bank huidige rekening"
 
 #: accounts_10_1_0_code
 msgid "Bank::Deposit"
-msgstr ""
+msgstr "Bank: Storting"
 
 #: accounts_10_desc
 msgid "Bank deposit account"
-msgstr ""
+msgstr "Bank rekening"
 
 #: accounts_11_1_0_code
 msgid "Bank::Savings"
-msgstr ""
+msgstr "Bank: Spaarrekening"
 
 #: accounts_11_desc
 msgid "Bank savings account"
-msgstr ""
+msgstr "Bank spaarrekening"
 
 #: accounts_12_8_0_code
 msgid "Asset::Premises"
-msgstr ""
+msgstr "Bezitting: Pand"
 
 #: accounts_12_desc
 msgid "Premises"
-msgstr ""
+msgstr "Pand"
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
-msgstr ""
+msgstr "Kosten: Telefoon"
 
 #: accounts_13_desc
 msgid "Telephone Bills"
-msgstr ""
+msgstr "Telefoon Rekening"
 
 #: accounts_14_4_0_code
 msgid "Expenses::Electricity"
-msgstr ""
+msgstr "Kosten: Electriciteit"
 
 #: accounts_14_desc
 msgid "Electricity Bills"
-msgstr ""
+msgstr "Electriciteitsrekening"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
-msgstr ""
+msgstr "Kosten: Water"
 
 #: accounts_15_desc
 msgid "Water Bills"
-msgstr ""
+msgstr "Waterrekening"
 
 #: accounts_16_4_0_code
 msgid "Expenses::Gas"
-msgstr ""
+msgstr "Kosten: Gas"
 
 #: accounts_16_desc
 msgid "Gas Bills"
-msgstr ""
+msgstr "Gasrekening"
 
 #: accounts_17_4_0_code
 msgid "Expenses::Postage"
-msgstr ""
+msgstr "Kosten: Verzendkosten"
 
 #: accounts_17_desc
 msgid "Postage costs"
-msgstr ""
+msgstr "Verzendkosten"
 
 #: accounts_18_4_0_code
 msgid "Expenses::Stationary"
-msgstr ""
+msgstr "Kosten: Drukwerk"
 
 #: accounts_18_desc
 msgid "Stationary costs"
-msgstr ""
+msgstr "Drukwerk kosten"
 
 #: accounts_19_4_0_code
 msgid "Expenses::Food"
-msgstr ""
+msgstr "Kosten: Eten"
 
 #: accounts_19_desc
 msgid "Animal food costs"
-msgstr ""
+msgstr "Kosten Dierenvoer"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -1216,7 +1216,7 @@ msgstr "Wit en zwart"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "Schildpad"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1297,7 +1297,7 @@ msgstr "Wit en lichtbruin"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "Schildpad met wit"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1353,78 +1353,78 @@ msgstr "Groen"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "Amber"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "Zwart schildpad"
 
 #: basecolour_44
 msgid "Blue Tortie"
-msgstr ""
+msgstr "Blauw schildpad"
 
 #: basecolour_45
 msgid "Chocolate"
-msgstr ""
+msgstr "Chocolade bruin"
 
 #: basecolour_46
 msgid "Chocolate Tortie"
-msgstr ""
+msgstr "Chocolade schildpad"
 
 #: basecolour_47
 #: breed_326_7
 msgid "Cinnamon"
-msgstr ""
+msgstr "Warm bruin"
 
 #: basecolour_48
 msgid "Cinnamon Tortoiseshell"
-msgstr ""
+msgstr "Bruin schildpad"
 
 #: basecolour_49
 msgid "Fawn"
-msgstr ""
+msgstr "Beige"
 
 #: basecolour_50
 msgid "Fawn Tortoiseshell"
-msgstr ""
+msgstr "Beige schildpad"
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "Goudkleurig"
 
 #: basecolour_52
 msgid "Light Amber"
-msgstr ""
+msgstr "Licht amber"
 
 #: basecolour_53
 #: breed_342_7
 msgid "Lilac"
-msgstr ""
+msgstr "Lilac (duifgrijs)"
 
 #: basecolour_54
 msgid "Lilac Tortie"
-msgstr ""
+msgstr "Lilac schildpad"
 
 #: basecolour_55
 msgid "Ruddy"
-msgstr ""
+msgstr "Somali (wildkleur)"
 
 #: basecolour_56
 msgid "Seal"
-msgstr ""
+msgstr "Seal point - Donker bruin"
 
 #: basecolour_57
 #: breed_353_7
 msgid "Silver"
-msgstr ""
+msgstr "Zilver"
 
 #: basecolour_58
 msgid "Sorrel"
-msgstr ""
+msgstr "Oranje bruin"
 
 #: basecolour_59
 msgid "Sorrel Tortoiseshell"
-msgstr ""
+msgstr "Oranje bruin schildpad"
 
 #: breed_1_1
 msgid "Affenpinscher"
@@ -1440,11 +1440,11 @@ msgstr "Airedaleterriër"
 
 #: breed_4_1
 msgid "Akbash"
-msgstr ""
+msgstr "Akbash"
 
 #: breed_5_1
 msgid "Akita"
-msgstr ""
+msgstr "Akita"
 
 #: breed_6_1
 msgid "Alaskan Malamute"
@@ -1456,7 +1456,7 @@ msgstr "Amerikaanse buldog"
 
 #: breed_8_1
 msgid "American Eskimo Dog"
-msgstr ""
+msgstr "Amerikaanse Eskimo"
 
 #: breed_9_1
 msgid "American Staffordshire Terrier"
@@ -1548,7 +1548,7 @@ msgstr "Zwarte labrador retriever"
 
 #: breed_31_1
 msgid "Black Mouth Cur"
-msgstr ""
+msgstr "Black Mouth C"
 
 #: breed_32_1
 msgid "Bloodhound"
@@ -1580,7 +1580,7 @@ msgstr "Vlaamse koehond"
 
 #: breed_39_1
 msgid "Boykin Spaniel"
-msgstr ""
+msgstr "Boykin Spaniel"
 
 #: breed_40_1
 msgid "Boxer"
@@ -1620,11 +1620,11 @@ msgstr "Cane corso"
 
 #: breed_49_1
 msgid "Carolina Dog"
-msgstr ""
+msgstr "Amerikaanse Dingo"
 
 #: breed_50_1
 msgid "Catahoula Leopard Dog"
-msgstr ""
+msgstr "Catahoula Leopard Dog"
 
 #: breed_51_1
 msgid "Cattle Dog"
@@ -1648,11 +1648,11 @@ msgstr "Chinese gekuifde naakthond"
 
 #: breed_56_1
 msgid "Chinese Foo Dog"
-msgstr ""
+msgstr "Chinese Foo Hond"
 
 #: breed_57_1
 msgid "Chocolate Labrador Retriever"
-msgstr ""
+msgstr "Chocolade Labrador Retriever"
 
 #: breed_58_1
 msgid "Chow Chow"
@@ -1664,7 +1664,7 @@ msgstr "Clumberspaniël"
 
 #: breed_60_1
 msgid "Cockapoo"
-msgstr ""
+msgstr "Cockapoo"
 
 #: breed_61_1
 msgid "Cocker Spaniel"
@@ -1676,7 +1676,7 @@ msgstr "Schotse herdershond"
 
 #: breed_63_1
 msgid "Coonhound"
-msgstr ""
+msgstr "Coonhound"
 
 #: breed_64_1
 msgid "Corgi"
@@ -1724,7 +1724,7 @@ msgstr "Engelse cockerspaniël"
 
 #: breed_75_1
 msgid "English Coonhound"
-msgstr ""
+msgstr "Engelse Coonhound"
 
 #: breed_76_1
 msgid "English Pointer"
@@ -1736,7 +1736,7 @@ msgstr "Engelse setter"
 
 #: breed_78_1
 msgid "English Shepherd"
-msgstr ""
+msgstr "Engelse Shepherd"
 
 #: breed_79_1
 msgid "English Springer Spaniel"
@@ -1752,7 +1752,7 @@ msgstr "Entlebucher sennenhond"
 
 #: breed_82_1
 msgid "Eskimo Dog"
-msgstr ""
+msgstr "Eskimo hond"
 
 #: breed_83_1
 msgid "Field Spaniel"
@@ -1800,7 +1800,7 @@ msgstr "Duitse staande korthaar"
 
 #: breed_94_1
 msgid "German Wirehaired Pointer"
-msgstr ""
+msgstr "Duitse Staande"
 
 #: breed_95_1
 msgid "Glen of Imaal Terrier"
@@ -1860,7 +1860,7 @@ msgstr "Ierse setter"
 
 #: breed_109_1
 msgid "Irish Terrier"
-msgstr ""
+msgstr "Ierse Terrier"
 
 #: breed_110_1
 msgid "Irish Water Spaniel"
@@ -1892,7 +1892,7 @@ msgstr "Koreaanse jindohond"
 
 #: breed_117_1
 msgid "Kai Dog"
-msgstr ""
+msgstr "Kai Hond"
 
 #: breed_118_1
 msgid "Karelian Bear Dog"
@@ -1932,7 +1932,7 @@ msgstr "Lakelandterriër"
 
 #: breed_127_1
 msgid "Lancashire Heeler"
-msgstr ""
+msgstr "Lancashire Heeler"
 
 #: breed_128_1
 msgid "Lhasa Apso"
@@ -1964,7 +1964,7 @@ msgstr "Mastiff"
 
 #: breed_135_1
 msgid "McNab"
-msgstr ""
+msgstr "McNab"
 
 #: breed_136_1
 msgid "Miniature Pinscher"
@@ -1972,15 +1972,15 @@ msgstr "Dwergpinscher"
 
 #: breed_137_1
 msgid "Mountain Cur"
-msgstr ""
+msgstr "Mountain Cur"
 
 #: breed_138_1
 msgid "Mountain Dog"
-msgstr ""
+msgstr "Berghond"
 
 #: breed_139_1
 msgid "Munsterlander"
-msgstr ""
+msgstr "Münsterlander"
 
 #: breed_140_1
 msgid "Neapolitan Mastiff"
@@ -1988,7 +1988,7 @@ msgstr "Mastino napoletano"
 
 #: breed_141_1
 msgid "New Guinea Singing Dog"
-msgstr ""
+msgstr "New Guinea Singing Dog"
 
 #: breed_142_1
 msgid "Newfoundland Dog"
@@ -2056,7 +2056,7 @@ msgstr "Pitbull"
 
 #: breed_158_1
 msgid "Plott Hound"
-msgstr ""
+msgstr "Plott Hound"
 
 #: breed_159_1
 msgid "Portugese Podengo"
@@ -2064,7 +2064,7 @@ msgstr "Podengo português"
 
 #: breed_160_1
 msgid "Pointer"
-msgstr ""
+msgstr "Pointer"
 
 #: breed_161_1
 msgid "Polish Lowland Sheepdog"
@@ -2072,7 +2072,7 @@ msgstr "Poolse laaglandherder"
 
 #: breed_162_1
 msgid "Pomeranian"
-msgstr ""
+msgstr "Pomeranian"
 
 #: breed_163_1
 msgid "Poodle"
@@ -2100,11 +2100,11 @@ msgstr "Pumi"
 
 #: breed_169_1
 msgid "Rat Terrier"
-msgstr ""
+msgstr "Rat Terrier"
 
 #: breed_170_1
 msgid "Redbone Coonhound"
-msgstr ""
+msgstr "Redbone Coonhound"
 
 #: breed_171_1
 msgid "Retriever"
@@ -2196,7 +2196,7 @@ msgstr "Sloughi"
 
 #: breed_193_1
 msgid "Smooth Fox Terrier"
-msgstr ""
+msgstr "Fox Terrier"
 
 #: breed_194_1
 msgid "Spaniel"
@@ -2244,11 +2244,11 @@ msgstr "Tosa"
 
 #: breed_205_1
 msgid "Toy Fox Terrier"
-msgstr ""
+msgstr "Copy text \t Toy Fox Terrier"
 
 #: breed_206_1
 msgid "Treeing Walker Coonhound"
-msgstr ""
+msgstr "Treeing Walker Coonhound"
 
 #: breed_207_1
 msgid "Vizsla"
@@ -2260,7 +2260,7 @@ msgstr "Weimarse staande hond"
 
 #: breed_209_1
 msgid "Welsh Corgi"
-msgstr ""
+msgstr "Welsh Corgi"
 
 #: breed_210_1
 msgid "Welsh Terrier"
@@ -2284,7 +2284,7 @@ msgstr "Whippet"
 
 #: breed_215_1
 msgid "White German Shepherd"
-msgstr ""
+msgstr "Witte Duitse Herder"
 
 #: breed_216_1
 msgid "Wire-haired Pointing Griffon"
@@ -2292,7 +2292,7 @@ msgstr "Griffon Korthals"
 
 #: breed_217_1
 msgid "Wirehaired Terrier"
-msgstr ""
+msgstr "Wirehaired Terrier"
 
 #: breed_218_1
 msgid "Yellow Labrador Retriever"
@@ -2320,7 +2320,7 @@ msgstr "Amerikaans korthaar"
 
 #: breed_224_2
 msgid "American Wirehair"
-msgstr ""
+msgstr "Amerikaanse Wirehair"
 
 #: breed_225_2
 msgid "Applehead Siamese"
@@ -2340,7 +2340,7 @@ msgstr "Birmaan"
 
 #: breed_229_2
 msgid "Bobtail"
-msgstr ""
+msgstr "Bobtail"
 
 #: breed_230_2
 msgid "Bombay"
@@ -2356,7 +2356,7 @@ msgstr "Burmees"
 
 #: breed_233_2
 msgid "Burmilla"
-msgstr ""
+msgstr "Burmilla"
 
 #: breed_234_2
 msgid "Calico"
@@ -2375,7 +2375,7 @@ msgstr "Chartreux"
 #: breed_379_10
 #: species_10
 msgid "Chinchilla"
-msgstr ""
+msgstr "Chinchilla"
 
 #: breed_238_2
 msgid "Cornish Rex"
@@ -2383,7 +2383,7 @@ msgstr "Cornish rex"
 
 #: breed_239_2
 msgid "Cymric"
-msgstr ""
+msgstr "Cymric"
 
 #: breed_240_2
 msgid "Devon Rex"
@@ -2391,15 +2391,15 @@ msgstr "Devon rex"
 
 #: breed_243_2
 msgid "Domestic Long Hair"
-msgstr ""
+msgstr "Britse langhaar"
 
 #: breed_252_2
 msgid "Domestic Medium Hair"
-msgstr ""
+msgstr "Britse halflang haar"
 
 #: breed_261_2
 msgid "Domestic Short Hair"
-msgstr ""
+msgstr "Britse korthaar"
 
 #: breed_271_2
 msgid "Egyptian Mau"
@@ -2411,17 +2411,17 @@ msgstr "Exotic"
 
 #: breed_273_2
 msgid "Extra-Toes Cat (Hemingway Polydactyl)"
-msgstr ""
+msgstr "Kat met extra tenen"
 
 #: breed_274_2
 #: breed_337_7
 msgid "Havana"
-msgstr ""
+msgstr "Havana"
 
 #: breed_275_2
 #: breed_338_7
 msgid "Himalayan"
-msgstr ""
+msgstr "Himalaya Kat"
 
 #: breed_276_2
 msgid "Japanese Bobtail"
@@ -2429,11 +2429,11 @@ msgstr "Japanse stompstaartkat"
 
 #: breed_277_2
 msgid "Javanese"
-msgstr ""
+msgstr "Javaans"
 
 #: breed_278_2
 msgid "Korat"
-msgstr ""
+msgstr "Korat"
 
 #: breed_279_2
 msgid "Maine Coon"
@@ -2465,7 +2465,7 @@ msgstr "Oosters korthaar"
 
 #: breed_286_2
 msgid "Oriental Tabby"
-msgstr ""
+msgstr "Oosterse Tabby"
 
 #: breed_287_2
 msgid "Persian"
@@ -2473,11 +2473,11 @@ msgstr "Pers"
 
 #: breed_288_2
 msgid "Pixie-Bob"
-msgstr ""
+msgstr "Pixie-Bob"
 
 #: breed_289_2
 msgid "Ragamuffin"
-msgstr ""
+msgstr "Ragamuffin"
 
 #: breed_290_2
 msgid "Ragdoll"
@@ -2501,7 +2501,7 @@ msgstr "Siamees"
 
 #: breed_295_2
 msgid "Siberian"
-msgstr ""
+msgstr "Siberian"
 
 #: breed_296_2
 msgid "Singapura"
@@ -2537,15 +2537,15 @@ msgstr "Turkse Van"
 
 #: breed_314_7
 msgid "American"
-msgstr ""
+msgstr "Amerikaans"
 
 #: breed_315_7
 msgid "American Fuzzy Lop"
-msgstr ""
+msgstr "Amerikaanse Fuzzy Lop - Konijn"
 
 #: breed_316_7
 msgid "American Sable"
-msgstr ""
+msgstr "Amerikaanse Sable - Konijn"
 
 #: breed_317_7
 msgid "Angora Rabbit"
@@ -2561,47 +2561,47 @@ msgstr "Van Beveren"
 
 #: breed_320_7
 msgid "Britannia Petite"
-msgstr ""
+msgstr "Britannia - Konijn"
 
 #: breed_321_7
 msgid "Bunny Rabbit"
-msgstr ""
+msgstr "Jong konijn"
 
 #: breed_322_7
 msgid "Californian"
-msgstr ""
+msgstr "Californian - Konijn"
 
 #: breed_323_7
 msgid "Champagne DArgent"
-msgstr ""
+msgstr "Champagne DArgent - Konijn"
 
 #: breed_324_7
 msgid "Checkered Giant"
-msgstr ""
+msgstr "Vlaamse reus - Konijn"
 
 #: breed_327_7
 msgid "Crème DArgent"
-msgstr ""
+msgstr "Crème DArgent - Konijn"
 
 #: breed_328_7
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch - Konijn"
 
 #: breed_329_7
 msgid "Dwarf"
-msgstr ""
+msgstr "Dwerg Konijn"
 
 #: breed_330_7
 msgid "Dwarf Eared"
-msgstr ""
+msgstr "Dwerg konijn"
 
 #: breed_331_7
 msgid "English Lop"
-msgstr ""
+msgstr "Engelse Lop - Konijn"
 
 #: breed_332_7
 msgid "English Spot"
-msgstr ""
+msgstr "Engelse Spot - Konijn"
 
 #: breed_333_7
 msgid "Flemish Giant"
@@ -2609,76 +2609,76 @@ msgstr "Vlaamse reus"
 
 #: breed_334_7
 msgid "Florida White"
-msgstr ""
+msgstr "Florida White - Konijn"
 
 #: breed_335_7
 msgid "French-Lop"
-msgstr ""
+msgstr "Franse Lop - Konijn"
 
 #: breed_336_7
 msgid "Harlequin"
-msgstr ""
+msgstr "Harlekijn - Konijn"
 
 #: breed_339_7
 msgid "Holland Lop"
-msgstr ""
+msgstr "Hollandse Lop - Konijn"
 
 #: breed_340_7
 msgid "Hotot"
-msgstr ""
+msgstr "Hotot - Konijn"
 
 #: breed_341_7
 msgid "Jersey Wooly"
-msgstr ""
+msgstr "Jersey Wooly - Konijn"
 
 #: breed_343_7
 msgid "Lop Eared"
-msgstr ""
+msgstr "Hangoor konijn"
 
 #: breed_344_7
 msgid "Mini-Lop"
-msgstr ""
+msgstr "Mini-lop - Konijn"
 
 #: breed_345_7
 msgid "Mini Rex"
-msgstr ""
+msgstr "Mini Rex - Konijn"
 
 #: breed_346_7
 msgid "Netherland Dwarf"
-msgstr ""
+msgstr "Nederlands dwerg konijn"
 
 #: breed_347_7
 msgid "New Zealand"
-msgstr ""
+msgstr "Nieuw-Zeeland"
 
 #: breed_348_7
 #: breed_368_24
 msgid "Palomino"
-msgstr ""
+msgstr "Palomino - Konijn"
 
 #: breed_349_7
 msgid "Polish"
-msgstr ""
+msgstr "Pools"
 
 #: breed_350_7
 msgid "Rex"
-msgstr ""
+msgstr "Rex - Konijn"
 
 #: breed_351_7
 msgid "Rhinelander"
-msgstr ""
+msgstr "Rhinelander - Konijn"
 
 #: breed_352_7
 msgid "Satin"
-msgstr ""
+msgstr "Satijn konijn"
 
 #: breed_354_7
 msgid "Silver Fox"
-msgstr ""
+msgstr "Zilver vos - Konijn"
 
 #: breed_355_7
 msgid "Silver Marten"
-msgstr ""
+msgstr "Zilver Marten - Konijn"
 
 #: breed_357_24
 msgid "Appaloosa"
@@ -2702,15 +2702,15 @@ msgstr "Koudbloed"
 
 #: breed_362_24
 msgid "Gaited"
-msgstr ""
+msgstr "Gangpaard"
 
 #: breed_363_24
 msgid "Grade"
-msgstr ""
+msgstr "Grade"
 
 #: breed_364_24
 msgid "Missouri Foxtrotter"
-msgstr ""
+msgstr "Missouri Foxtrotter - Paard"
 
 #: breed_365_24
 msgid "Morgan"
@@ -2726,15 +2726,15 @@ msgstr "Pintopony"
 
 #: breed_369_24
 msgid "Paso Fino"
-msgstr ""
+msgstr "Paso Fino - Paard"
 
 #: breed_370_24
 msgid "Percheron"
-msgstr ""
+msgstr "Percheron - Paard"
 
 #: breed_371_24
 msgid "Peruvian Paso"
-msgstr ""
+msgstr "Peruvian Paso - Paard"
 
 #: breed_372_25
 #: species_25
@@ -2751,7 +2751,7 @@ msgstr "Saddlebred"
 
 #: breed_375_24
 msgid "Standardbred"
-msgstr ""
+msgstr "Draver"
 
 #: breed_376_24
 msgid "Thoroughbred"
@@ -2851,11 +2851,11 @@ msgstr "Grijze roodstaart"
 
 #: breed_399_3
 msgid "Amazon"
-msgstr ""
+msgstr "Amazone"
 
 #: breed_400_3
 msgid "Brotogeris"
-msgstr ""
+msgstr "Brotogeris  - Vogel"
 
 #: breed_401_3
 msgid "Budgie/Budgerigar"
@@ -2863,7 +2863,7 @@ msgstr "Grasparkiet"
 
 #: breed_402_3
 msgid "Caique"
-msgstr ""
+msgstr "Caique - Vogel"
 
 #: breed_403_3
 msgid "Canary"
@@ -2935,7 +2935,7 @@ msgstr "Ara"
 
 #: breed_419_3
 msgid "Mynah"
-msgstr ""
+msgstr "Mynah - Vogel"
 
 #: breed_420_3
 msgid "Ostrich"
@@ -2943,7 +2943,7 @@ msgstr "Struisvogel"
 
 #: breed_421_3
 msgid "Parakeet (Other)"
-msgstr ""
+msgstr "Parkiet"
 
 #: breed_422_3
 msgid "Parrot (Other)"
@@ -2951,7 +2951,7 @@ msgstr "Parkiet (andere)"
 
 #: breed_423_3
 msgid "Parrotlet"
-msgstr ""
+msgstr "Papagaai"
 
 #: breed_424_3
 msgid "Peacock/Pea fowl"
@@ -2967,7 +2967,7 @@ msgstr "Duif"
 
 #: breed_427_3
 msgid "Pionus"
-msgstr ""
+msgstr "Pionus - Vogel"
 
 #: breed_428_3
 msgid "Poicephalus/Senegal"
@@ -2983,15 +2983,15 @@ msgstr "Nandoe"
 
 #: breed_431_3
 msgid "Ringneck/Psittacula"
-msgstr ""
+msgstr "Halsband parkiet"
 
 #: breed_432_3
 msgid "Rosella"
-msgstr ""
+msgstr "Rosella"
 
 #: breed_433_3
 msgid "Softbill (Other)"
-msgstr ""
+msgstr "Softbill - Vogel"
 
 #: breed_434_3
 msgid "Swan"
@@ -3049,7 +3049,7 @@ msgstr "Ouder"
 
 #: costtype_1
 msgid "Board and Food"
-msgstr ""
+msgstr "Verblijf en voer"
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
@@ -3307,7 +3307,7 @@ msgstr "Bijtend"
 
 #: diet_1
 msgid "Standard"
-msgstr ""
+msgstr "Standaard"
 
 #. # bo/Adoption
 #. # bo/LookupCache
@@ -4051,6 +4051,9 @@ msgid ""
 "from the {0} file. Select Yes if you have already done this, otherwise "
 "select No to cancel the copy."
 msgstr ""
+"U moet de database al aangemaakt hebben en de database structuur moet "
+"geladen worden met het {0} bestand. Kies Ja als u dit al heeft gedaan. Kies "
+"Nee om de kopie te verwijderen."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4201,7 +4204,7 @@ msgstr ""
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
-msgstr ""
+msgstr "HTTPDB Bridge"
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -4481,6 +4484,7 @@ msgstr "Familienaam"
 #: how_to_merge
 msgid "Do you want to create a CSV file or do a bulk email?"
 msgstr ""
+"Wilt u een CRV bestand aanmaken of een email met meerdere geadresseerden"
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4490,7 +4494,7 @@ msgstr "Mailsamenvoegingstype"
 #. # mailmerge/MailMerge
 #: produce_cvs
 msgid "Create a CSV file on disk"
-msgstr ""
+msgstr "Maak een CSV bestand aan op uw schijf"
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -5135,7 +5139,7 @@ msgstr "Binnenkomstdatum"
 #. # reports/InOut
 #: Identichip_No
 msgid "Microchip No"
-msgstr ""
+msgstr "Microchip nummer"
 
 #. # bo/Animal
 #. # bo/LookupCache
@@ -6279,22 +6283,22 @@ msgstr "Nest-ID"
 #. # reports/CustomReportExecute
 #: No_data
 msgid "No matching data was found for the report."
-msgstr ""
+msgstr "Er is geen data gevonden voor het rapport"
 
 #. # ui/account/AccountView
 #: Add_a_new_account
 msgid "Add a new account"
-msgstr ""
+msgstr "Een nieuw rekening toevoegen"
 
 #. # ui/account/AccountView
 #: Edit_the_selected_account
 msgid "Edit the selected account"
-msgstr ""
+msgstr "Bewerk de geselecteerde rekening"
 
 #. # ui/account/AccountView
 #: Delete_the_selected_accounts
 msgid "Delete the selected accounts"
-msgstr ""
+msgstr "Verwijderen de geselecteerde rekening"
 
 #. # ui/animal/VaccinationView
 #. # ui/animal/CostSelector
@@ -6311,12 +6315,12 @@ msgstr "Ververs de lijst"
 #. # ui/account/AccountView
 #: Mark_everything_in_the_selected_accounts_reconciled_to_today
 msgid "Mark everything in the selected accounts reconciled to today"
-msgstr ""
+msgstr "Laat alle betaalde rekening zien tot nu toe"
 
 #. # ui/account/AccountView
 #: Edit_the_transactions_for_this_account
 msgid "Edit the transactions for this account"
-msgstr ""
+msgstr "Bewerk de transacties voor deze rekening"
 
 #. # bo/Account
 #. # ui/system/Options
@@ -6426,35 +6430,35 @@ msgstr "Omschrijving:"
 #. # ui/account/TrxView
 #: Reconciled
 msgid "Reconciled"
-msgstr ""
+msgstr "Rekening betaald"
 
 #. # ui/account/AccountView
 #. # ui/account/TrxView
 #: Balance
 msgid "Balance"
-msgstr ""
+msgstr "Balans"
 
 #. # ui/system/Options
 #. # ui/account/AccountView
 #. # ui/main/Main
 #: Accounts
 msgid "Accounts"
-msgstr ""
+msgstr "Rekeningen"
 
 #. # ui/account/AccountEdit
 #: Create_New_Account
 msgid "Create New Account"
-msgstr ""
+msgstr "Nieuwe rekening aanmaken"
 
 #. # ui/account/AccountEdit
 #: edit_account
 msgid "Edit Account - {0}"
-msgstr ""
+msgstr "Rekening aanpassen"
 
 #. # ui/account/AccountEdit
 #: Save_this_account_and_exit
 msgid "Save this account and exit"
-msgstr ""
+msgstr "Bewaar deze rekening en afsluiten"
 
 #. # ui/diary/DiaryEdit
 #. # ui/account/AccountEdit
@@ -6466,17 +6470,17 @@ msgstr "Afsluiten zonder opslaan"
 #. # ui/account/TrxView
 #: transactions_for
 msgid "Transactions - {0}"
-msgstr ""
+msgstr "Transacties"
 
 #. # ui/account/TrxView
 #: All
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #. # ui/account/TrxView
 #: show_most_recent
 msgid "Show Transactions:"
-msgstr ""
+msgstr "Laat transacties zien"
 
 #. # bo/AnimalLitter
 #. # bo/Log
@@ -6517,101 +6521,101 @@ msgstr "Datum:"
 #. # ui/account/TrxView
 #: Account
 msgid "Account:"
-msgstr ""
+msgstr "Rekening:"
 
 #. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #: Deposit
 msgid "Deposit:"
-msgstr ""
+msgstr "Storting"
 
 #. # ui/account/TrxEdit
 #. # ui/account/TrxView
 #: Withdrawal
 msgid "Withdrawal:"
-msgstr ""
+msgstr "Opname"
 
 #. # ui/account/TrxEdit
 #: Create_Transaction
 msgid "Create Transaction"
-msgstr ""
+msgstr "Maak transactie aan"
 
 #. # ui/account/TrxEdit
 #: Edit_Transaction
 msgid "Edit Transaction"
-msgstr ""
+msgstr "Transactie bewerken"
 
 #. # ui/account/TrxEdit
 #: Save_this_transaction_and_exit
 msgid "Save this transaction and exit"
-msgstr ""
+msgstr "Opslaan van transactie en afsluiten"
 
 #. # ui/account/TrxView
 #: Edit_the_selected_transaction
 msgid "Edit the selected transaction"
-msgstr ""
+msgstr "Bewerk de geselecteerde transactie"
 
 #. # ui/account/TrxView
 #: Delete_the_selected_transactions
 msgid "Delete the selected transactions"
-msgstr ""
+msgstr "Verwijder de geselecteerde transactie"
 
 #. # ui/account/TrxView
 #: Reconcile_the_selected_transactions
 msgid "Reconcile the selected transactions"
-msgstr ""
+msgstr "Betaal de geselecteerde transacties"
 
 #. # ui/account/TrxView
 #: Add_a_transaction
 msgid "Add a transaction"
-msgstr ""
+msgstr "Transactie toevoegen"
 
 #. # ui/lookups/LookupEdit
 #. # db/AutoDBUpdates
 #: income_prefix
 msgid "Income::"
-msgstr ""
+msgstr "Inkomsten"
 
 #. # ui/internet/EmailForm
 #. # ui/account/TrxView
 #: to
 msgid "to"
-msgstr ""
+msgstr "naar"
 
 #. # ui/account/TrxEdit
 #: view_this_owner
 msgid "View this owner"
-msgstr ""
+msgstr "Bekijk deze eigenaar"
 
 #. # ui/account/TrxEdit
 #: donation_from
 msgid "Donation From:"
-msgstr ""
+msgstr "Donatie van:"
 
 #. # ui/account/TrxEdit
 #: view_this_animal
 msgid "View this animal"
-msgstr ""
+msgstr "Bekijk dit dier"
 
 #. # ui/account/TrxEdit
 #: view_this_movement
 msgid "View this movement"
-msgstr ""
+msgstr "Bekijk deze"
 
 #. # ui/account/TrxView
 #: Reconciled\:
 msgid "Reconciled:"
-msgstr ""
+msgstr "Betalen"
 
 #. # ui/account/TrxView
 #: Non_reconciled
 msgid "Non-Reconciled"
-msgstr ""
+msgstr "Niet-betaald"
 
 #. # ui/account/TrxView
 #: Both
 msgid "Both"
-msgstr ""
+msgstr "Beiden"
 
 #. # ui/animal/LitterView
 #: Delete_this_litter
@@ -6866,7 +6870,7 @@ msgstr "(beiden)"
 #. # ui/animal/AnimalFind
 #: Identichip_No\:_
 msgid "Microchip No: "
-msgstr ""
+msgstr "Nummer Microchip "
 
 #. # ui/animal/VaccinationView
 #. # ui/main/Main
@@ -7313,7 +7317,7 @@ msgstr "Vink dit aan als het dier is ingeslapen"
 #. # reports/AnimalPrint
 #: Dist._Features\:
 msgid "Dist. Features:"
-msgstr ""
+msgstr "Onderscheidende kenmerken"
 
 #. # ui/animal/AnimalEdit
 #: Delete_this_animal
@@ -7357,7 +7361,7 @@ msgstr "Oorspronkelijke eigenaar:"
 #. # reports/AnimalPrint
 #: Identichipped\:
 msgid "Microchipped:"
-msgstr ""
+msgstr "Microchip aangebracht:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_size
@@ -7492,7 +7496,7 @@ msgstr "Vereist"
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
 msgid "The Microchip Number"
-msgstr ""
+msgstr "Microchip nummer"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7725,7 +7729,7 @@ msgstr "Rabies-status: "
 #. # ui/animal/AnimalEdit
 #: the_animals_rabies_tag
 msgid "This animal's rabies tag"
-msgstr ""
+msgstr "Hondsdolheids inentingsnummer"
 
 #. # reports/AnimalPrint
 #. # ui/waitinglist/WaitingListEdit
@@ -8048,7 +8052,7 @@ msgstr "FIV-resultaat"
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
 msgid "The date the animal was microchipped"
-msgstr ""
+msgstr "Datum waarom de microchip is aangebracht"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_had_the_tattoo
@@ -8657,13 +8661,13 @@ msgstr "Totaal aan giften: {0}, saldo: {1}"
 #. # ui/animal/LitterView
 #: Number_in_litter
 msgid "Number in litter:"
-msgstr ""
+msgstr "Aantal jongen"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Bonded
 msgid "Bonded With:"
-msgstr ""
+msgstr "Gekoppeld met:"
 
 #. # ui/animal/AnimalLink
 #. # ui/ui/Dialog
@@ -8674,17 +8678,17 @@ msgstr "Kies een dier"
 #. # ui/animal/AnimalLink
 #: edit_this_animal
 msgid "Edit this animal"
-msgstr ""
+msgstr "Bewerk dit dier"
 
 #. # ui/animal/LitterView
 #: include_expired
 msgid "Include Expired"
-msgstr ""
+msgstr "Voeg vervaldag toe"
 
 #. # ui/animal/LitterView
 #: Expires
 msgid "Expires"
-msgstr ""
+msgstr "Vervalt"
 
 #. # ui/animal/AnimalAddMultiple
 #. # ui/main/Main
@@ -8696,54 +8700,54 @@ msgstr "Voeg dieren toe"
 #. # ui/animal/AnimalAddMultiple
 #: Multiple_Add_Animal
 msgid "Add animal"
-msgstr ""
+msgstr "Dier toevoegen"
 
 #. # ui/animal/AnimalAddMultiple
 #: Multiple_Clone_Animal
 msgid "Add animal by copying last animal"
-msgstr ""
+msgstr "Dier toevoegen door een kopie te maken van het vorige dier"
 
 #. # ui/animal/AnimalAddMultiple
 #: Multiple_Save
 msgid "Save all animals"
-msgstr ""
+msgstr "Alle dieren opslaan"
 
 #. # ui/ui/UI
 #. # ui/system/Options
 #: This_Month
 #: this_month
 msgid "This month"
-msgstr ""
+msgstr "Deze Maand"
 
 #. # ui/ui/UI
 #: Next_Month
 msgid "Next month"
-msgstr ""
+msgstr "Volgende maand"
 
 #. # ui/ui/UI
 #: Next_Year
 msgid "Next year"
-msgstr ""
+msgstr "Volgend jaar"
 
 #. # ui/ui/UI
 #: Previous_Month
 msgid "Previous month"
-msgstr ""
+msgstr "Vorige maand"
 
 #. # ui/ui/UI
 #: Previous_Year
 msgid "Previous year"
-msgstr ""
+msgstr "Vorig jaar"
 
 #. # ui/animal/AdditionalFieldView
 #: additional_field_empty
 msgid "Additional field \"{0}\" must have a value."
-msgstr ""
+msgstr "Het extra veld moet een waarde bevatten"
 
 #. # ui/animal/AnimalFind
 #: Out_Between\:_
 msgid "Out Between: "
-msgstr ""
+msgstr "Niet aanwezig tussen: "
 
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
@@ -8929,12 +8933,12 @@ msgstr "Mailsamenvoeging"
 #. # bo/CustomReport
 #: Builtin
 msgid "Built In"
-msgstr ""
+msgstr "Ingebouwd"
 
 #. # ui/customreport/GetReports
 #: my_locale
 msgid "Only show reports for my locale ({0})"
-msgstr ""
+msgstr "Laat alleen de rapportages zien van mijn persoonlijke"
 
 #. # ui/diary/DiaryEdit
 #: The_subject_of_the_note
@@ -9322,18 +9326,18 @@ msgstr "Informatie"
 #. # ui/ui/Dialog
 #: Warning
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 #. # ui/ui/Dialog
 #. # reports/ReturnedAnimals
 #: There_are_no_animals_on_the_shelter
 msgid "There are no animals on the shelter."
-msgstr ""
+msgstr "Er zijn geen dieren in het asiel"
 
 #. # ui/ui/Dialog
 #: Select_Animal
 msgid "Select Animal"
-msgstr ""
+msgstr "Kies dier"
 
 #. # ui/internet/InternetPublisher
 #: Include_Reserved_Animals
@@ -9741,28 +9745,28 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: Order
 msgid "Order"
-msgstr ""
+msgstr "Opdracht"
 
 #. # ui/internet/InternetPublisher
 #: Limit
 msgid "Limit"
-msgstr ""
+msgstr "Limiet"
 
 #. # ui/internet/InternetPublisher
 #: Most_recent_ascending
 msgid "Longest on shelter first"
-msgstr ""
+msgstr "Oudste dier in het asiel eerst"
 
 #. # ui/internet/InternetPublisher
 #: Most_recent_descending
 msgid "Newest first"
-msgstr ""
+msgstr "Nieuwste dier eerst"
 
 #. # ui/internet/EmailForm
 #. # wordprocessor/GenerateDocument
 #: HTML
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #. # internet/FTPPublisher
 #: cannot_upload_directly
@@ -9770,31 +9774,33 @@ msgid ""
 "You have not set FTP details for your website. ASM cannot publish directly "
 "to the internet."
 msgstr ""
+"U heeft nog geen FTP gegevens ingevoerd voor uw website. ASM kan de "
+"informatie niet direct op het internet plaatsen."
 
 #. # ui/internet/EmailForm
 #: from
 msgid "From:"
-msgstr ""
+msgstr "Van:"
 
 #. # ui/internet/EmailForm
 #: cc
 msgid "CC:"
-msgstr ""
+msgstr "CC:"
 
 #. # ui/internet/EmailForm
 #: add_to_log
 msgid "Add to log"
-msgstr ""
+msgstr "Toevoegen aan het logboek"
 
 #. # ui/internet/EmailForm
 #: store_this_email_in_the_log
 msgid "Store this email in the log for this owner"
-msgstr ""
+msgstr "Sla deze email op"
 
 #. # ui/internet/InternetPublisher
 #: Generate_Thumbnails
 msgid "Generate thumbnail images"
-msgstr ""
+msgstr "Maak miniatuur foto's aan"
 
 #. # internet/AdoptAPetPublisher
 #. # internet/Pets911Publisher
@@ -9803,7 +9809,7 @@ msgstr ""
 #. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
-msgstr ""
+msgstr "Geen overeenkomstige dieren gevonden"
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main
@@ -10398,18 +10404,18 @@ msgstr "Gebied vermist:"
 #. # ui/lostandfound/FoundAnimalFind
 #: Age_Group\:
 msgid "Age Group:"
-msgstr ""
+msgstr "Leeftijdsgroep:"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #: Age_Group
 msgid "Age Group"
-msgstr ""
+msgstr "Leeftijdsgroep"
 
 #. # ui/lostandfound/FoundAnimalEdit
 #: Create_waiting_list_record_from_this_record
 msgid "Create a waiting list entry from this record"
-msgstr ""
+msgstr "Maak een wachtlijst aan voor deze invoer"
 
 #. # ui/main/Main
 #: Produce_a_report_matching_lost_and_found_animals
@@ -11198,12 +11204,12 @@ msgstr "Bevestig wachtwoord:"
 #. # ui/users/UserEdit
 #: Add_Animals
 msgid "Add Animal&s"
-msgstr ""
+msgstr "Voeg dieren toe"
 
 #. # ui/main/Main
 #: Refresh_Active_Tab
 msgid "Refresh Active Tab"
-msgstr ""
+msgstr "Ververs actieve tab"
 
 #. # ui/medical/ProfileView
 #: Profile_Name
@@ -11865,11 +11871,13 @@ msgid ""
 "This animal is bonded with {0}. Please make sure they are being adopted "
 "together."
 msgstr ""
+"Dit dier is gekoppeld aan {0}. Zorg ervoor dat beiden dieren samen "
+"geadopteerd worden"
 
 #. # ui/movement/MovementEdit
 #: Register_with_pettrac
 msgid "Register this animal/owner information with PETtrac"
-msgstr ""
+msgstr "Registeer dit dier / deze eigenaar bij Amivedi"
 
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
@@ -12703,12 +12711,12 @@ msgstr "Duidt deze gift aan als ontvangen"
 #. # ui/owner/OwnerEdit
 #: you_cannot_edit_your_owner_record
 msgid "You are not allowed to view your owner record."
-msgstr ""
+msgstr "U bent niet gemachtigd om de eigenaarsgegevens te bekijken"
 
 #. # ui/owner/OwnerEdit
 #: you_cannot_edit_staff_records
 msgid "You are not allowed to view staff records."
-msgstr ""
+msgstr "U bent niet gemachtigd om de medewerkersgegevens te bekijken"
 
 #. # ui/reportviewer/ReportViewer
 #: View_This_Report_In_External_Browser
@@ -12999,7 +13007,7 @@ msgstr "Het IP-adress of naam van de SMTP-server"
 #. # ui/system/Options
 #: show_short_shelter_code
 msgid "Show short shelter codes on screens and reports"
-msgstr ""
+msgstr "Laat de verkorte asiel codes zien op het scherm"
 
 #. # ui/system/Options
 #: foster_as_on_shelter
@@ -13781,73 +13789,75 @@ msgstr "Scheid wachtlijstrang per soort"
 #. # ui/system/Options
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
-msgstr ""
+msgstr "Eenmaal toegewezen kunnen codes niet meer veranderd worden."
 
 #. # ui/system/Options
 #: Remove_unwanted_fields
 msgid "Remove Unwanted Fields"
-msgstr ""
+msgstr "Verwijder ongewenste velden"
 
 #. # ui/system/Options
 #: remove_town_and_county_fields
 msgid "Remove the town/county fields from the owner screen"
-msgstr ""
+msgstr "Verwijder de stad/land velden van het eigenaar scherm"
 
 #. # ui/system/Options
 #: remove_coattype_field
 msgid "Remove the coat type field from the animal screen"
-msgstr ""
+msgstr "Verwijder het vacht type veld van het dier scherm"
 
 #. # ui/system/Options
 #: remove_microchip_fields
 msgid "Remove the microchip fields from the animal screen"
-msgstr ""
+msgstr "Verwijder het microchip veld van het dieren scherm"
 
 #. # ui/system/Options
 #: remove_tattoo_fields
 msgid "Remove the tattoo fields from the animal screen"
-msgstr ""
+msgstr "Verwijder het tatoeage veld van het dieren scherm"
 
 #. # ui/system/Options
 #: remove_neutered_fields
 msgid "Remove the spay/neuter fields from the animal screen"
-msgstr ""
+msgstr "Verwijder de castratie / sterilisatie velden van het dier scherm"
 
 #. # ui/system/Options
 #: remove_declawed_field
 msgid "Remove the declawed field from the animal screen"
-msgstr ""
+msgstr "Verwijder de nagels verwijderen veld van het dier scherm"
 
 #. # ui/system/Options
 #: remove_heartworm_fields
 msgid "Remove the heartworm test fields from the animal screen"
-msgstr ""
+msgstr "Verwijder de wormen test velden van het dier scherm"
 
 #. # ui/system/Options
 #: remove_combitest_fields
 msgid "Remove the Combi/FIV/L test fields from the animal screen"
-msgstr ""
+msgstr "Verwijder de Combinatie/FIV/L test velden van het dier scherm"
 
 #. # ui/system/Options
 #: remove_goodwith_fields
 msgid ""
 "Remove the \"Good With...\" and Housetrained fields from the animal screen"
 msgstr ""
+"Verwijder het \"Kan goed omgaan met...\" en zindelijk veld van het dier "
+"scherm"
 
 #. # ui/system/Options
 #: remove_litter_field
 msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
-msgstr ""
+msgstr "Verwijder het aantal jongen van het dier scherm"
 
 #. # ui/system/Options
 #: disable_accounts_functionality
 msgid "Disable Accounts Functionality"
-msgstr ""
+msgstr "Schakel de gebruikers functionaliteit uit"
 
 #. # ui/system/Options
 #: Donation_destination_account
 msgid "Donation destination account:"
-msgstr ""
+msgstr "Rekening nummer voor donaties:"
 
 #. # ui/system/Options
 #: creating_matching_trx
@@ -13855,36 +13865,38 @@ msgid ""
 "Creating donations and donation types creates matching accounts and "
 "transactions"
 msgstr ""
+"Aanmaken van donaties en donatie types creerd bijbehorende rekeningen en "
+"transacties"
 
 #. # ui/system/Options
 #: Keep_audit_trail
 msgid "Keep a full audit trail"
-msgstr ""
+msgstr "Hou een compleet logboek bij"
 
 #. # ui/system/Options
 #: disable_shortcodes_editing
 msgid "Hide short shelter codes on the animal details screen"
-msgstr ""
+msgstr "Verberg de asiel afkortingen van het dier scherm"
 
 #. # ui/system/Options
 #: how_many_points_to_show_on_report
 msgid "Points required to appear on match report:"
-msgstr ""
+msgstr "Onderdelen die in de rapport moeten verschijnen"
 
 #. # ui/system/Options
 #: species_matches
 msgid "Points given for matching species:"
-msgstr ""
+msgstr "Punten voor soorten"
 
 #. # ui/system/Options
 #: breed_matches
 msgid "Points given for matching breed:"
-msgstr ""
+msgstr "Punten voor rassen"
 
 #. # ui/system/Options
 #: colour_matches
 msgid "Points given for matching colour:"
-msgstr ""
+msgstr "Punten voor overeenkomst in kleur"
 
 #. # ui/system/Options
 #: age_group_matches
@@ -13934,12 +13946,12 @@ msgstr ""
 #. # ui/system/Options
 #: email_signature
 msgid "Email signature:"
-msgstr ""
+msgstr "Email handtekening:"
 
 #. # ui/system/Options
 #: Insurance
 msgid "Insurance"
-msgstr ""
+msgstr "Verzekering"
 
 #. # ui/system/ConfigureLocal
 #: Look_and_Feel
@@ -13949,7 +13961,7 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: Default
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #. # ui/system/ConfigureLocal
 #: Native_Platform
@@ -13959,7 +13971,7 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: Metal
 msgid "Metal"
-msgstr ""
+msgstr "Metaal"
 
 #. # ui/system/ConfigureLocal
 #: Metal_for_GTK
@@ -13969,42 +13981,42 @@ msgstr ""
 #. # ui/system/ConfigureLocal
 #: Toolbar_Size
 msgid "Toolbar Size:"
-msgstr ""
+msgstr "Toolbar grootte"
 
 #. # ui/system/ConfigureLocal
 #: No_Toolbar
 msgid "No Toolbar"
-msgstr ""
+msgstr "Geen toolbar"
 
 #. # ui/system/ConfigureLocal
 #: Tiny
 msgid "Tiny"
-msgstr ""
+msgstr "Heel klein"
 
 #. # ui/system/ConfigureLocal
 #: Normal
 msgid "Normal"
-msgstr ""
+msgstr "Normaal"
 
 #. # ui/system/Options
 #: Adding_multiple_animals
 msgid "Adding Multiple Animals"
-msgstr ""
+msgstr "Meerdere dieren toevoegen"
 
 #. # ui/system/Options
 #: add_animals_show_breed
 msgid "Show breed field(s) when adding multiple animals"
-msgstr ""
+msgstr "Laat het ras zien bij het toevoegen van meerdere dieren"
 
 #. # ui/system/Options
 #: add_animals_show_colour
 msgid "Show colour when adding multiple animals"
-msgstr ""
+msgstr "Laat de kleur zien bij het toevoegen van meerdere dieren"
 
 #. # ui/system/Options
 #: add_animals_show_location
 msgid "Show location when adding multiple animals"
-msgstr ""
+msgstr "Laat de locatie zien bij het toevoegen van meerdere dieren"
 
 #. # ui/system/Options
 #: add_animals_show_litterid
@@ -14020,17 +14032,17 @@ msgstr ""
 #. # ui/system/AdditionalFieldEdit
 #: mandatory
 msgid "Mandatory?"
-msgstr ""
+msgstr "Verplicht ?"
 
 #. # ui/system/Options
 #: accounting_period
 msgid "Current accounting period starts:"
-msgstr ""
+msgstr "Huidige administratieve periode start:"
 
 #. # ui/system/Options
 #: show_period_totals
 msgid "Only show account totals for the current period"
-msgstr ""
+msgstr "Laat alleen de rekening totalen zien voor de huidige periode"
 
 #. # internet/HTMLPublisher
 #. # ui/system/Options
@@ -14051,11 +14063,13 @@ msgid ""
 "This text will be added to the bottom of animal descriptions when sending "
 "them to PetFinder, RescueGroups, etc."
 msgstr ""
+"Deze tekst zal toegevoegd worden aan de onderkant van de beschrijving van de "
+"dieren, wanneer deze naar Amivedi gestuurd wordt."
 
 #. # ui/system/Options
 #: animal_search_result_columns
 msgid "Find animal columns:"
-msgstr ""
+msgstr "Vind dieren kolommen"
 
 #. # ui/system/Options
 #: animal_search_result_columns_tooltip
@@ -14067,6 +14081,8 @@ msgstr ""
 #: Hide_original_owner_details_when_printing_animal_records
 msgid "Hide original owner information when printing animal records"
 msgstr ""
+"Verberg de informatie van de oorspronkelijke eigenaar bij het printen van de "
+"gegevens van het dier"
 
 #. # ui/system/Options
 #: map_donation_to_account
@@ -14076,17 +14092,17 @@ msgstr ""
 #. # ui/system/Options
 #: Default_brought_in_by
 msgid "Default Brought In By:"
-msgstr ""
+msgstr "Standaard Binnen gebracht door:"
 
 #. # ui/system/Options
 #: When_printing_dont_scale_to_page_width
 msgid "When printing reports, don't scale to match page width"
-msgstr ""
+msgstr "Pas bij het printen van rapporten niet de schaal aan."
 
 #. # ui/system/Options
 #: owner_search_result_columns
 msgid "Find owner columns:"
-msgstr ""
+msgstr "Vind de eigenaar kolommen"
 
 #. # ui/system/Options
 #: owner_search_result_columns_tooltip
@@ -14097,7 +14113,7 @@ msgstr ""
 #. # ui/system/Options
 #: waiting_list_view_columns
 msgid "Waiting list columns:"
-msgstr ""
+msgstr "Wachtlijst kolommen"
 
 #. # ui/system/Options
 #: waiting_list_view_columns_tooltip
@@ -14109,32 +14125,32 @@ msgstr ""
 #. # ui/system/Options
 #: pettrac_avid
 msgid "PETtrac/AVID"
-msgstr ""
+msgstr "Amivedi"
 
 #. # ui/system/Options
 #: avid_url
 msgid "Http Form POST URL:"
-msgstr ""
+msgstr "Http Form POST URL:"
 
 #. # ui/system/Options
 #: avid_org_name
 msgid "Org Name:"
-msgstr ""
+msgstr "Organisatie naam:"
 
 #. # ui/system/Options
 #: avid_org_serial
 msgid "Org Serial:"
-msgstr ""
+msgstr "Organisatie nummer:"
 
 #. # ui/system/Options
 #: avid_org_postcode
 msgid "Org Postcode:"
-msgstr ""
+msgstr "Organisatie postcode:"
 
 #. # ui/system/Options
 #: avid_org_password
 msgid "Org Password:"
-msgstr ""
+msgstr "Organisatie wachtwoord:"
 
 #. # ui/system/Options
 #: Invalid_codeformat_need_y_with_n
@@ -14146,32 +14162,32 @@ msgstr ""
 #. # ui/system/Options
 #: disable_lost_and_found
 msgid "Disable lost and found functionality"
-msgstr ""
+msgstr "Uitschakelen functionaliteit \"verloren en gevonden\""
 
 #. # ui/system/Options
 #: disable_waiting_list
 msgid "Disable Waiting List"
-msgstr ""
+msgstr "Schakel wachtlijst uit"
 
 #. # ui/system/Options
 #: default_trx_view
 msgid "Default transaction view:"
-msgstr ""
+msgstr "Standaard transactie scherm"
 
 #. # ui/system/Options
 #: this_week
 msgid "This week"
-msgstr ""
+msgstr "Deze Week"
 
 #. # ui/system/Options
 #: this_year
 msgid "This year"
-msgstr ""
+msgstr "Dit jaar"
 
 #. # ui/system/Options
 #: last_month
 msgid "Last 30 days"
-msgstr ""
+msgstr "Afgelopen 30 dagen"
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14790,52 +14806,52 @@ msgstr "Bekijk dierkost"
 #. # ui/users/UserEdit
 #: Owner_Record
 msgid "Owner Record:"
-msgstr ""
+msgstr "Gegevens eigenaar"
 
 #. # ui/users/UserEdit
 #: View_Staff_Owner_Records
 msgid "View Staff Owner Records"
-msgstr ""
+msgstr "Bekijk gegevens eigenaar"
 
 #. # ui/users/UserEdit
 #: Accounts\:
 msgid "Accounts:"
-msgstr ""
+msgstr "Gebruikers:"
 
 #. # ui/users/UserEdit
 #: Add_Accounts
 msgid "Add Accounts"
-msgstr ""
+msgstr "Gebruiker toevoegen"
 
 #. # ui/users/UserEdit
 #: View_Accounts
 msgid "View Accounts"
-msgstr ""
+msgstr "Overzicht gebruikers"
 
 #. # ui/users/UserEdit
 #: Change_Accounts
 msgid "Change Accounts"
-msgstr ""
+msgstr "Gebruiker aanpassen"
 
 #. # ui/users/UserEdit
 #: Change_Transactions
 msgid "Change Transactions"
-msgstr ""
+msgstr "Vertaling aanpassen"
 
 #. # ui/users/UserEdit
 #: Delete_Accounts
 msgid "Delete Accounts"
-msgstr ""
+msgstr "Gebrukers verwijderen"
 
 #. # ui/users/UserEdit
 #: View_Lost_Animals
 msgid "View Lost Animals"
-msgstr ""
+msgstr "Overzicht verloren dieren"
 
 #. # ui/users/UserEdit
 #: View_Found_Animals
 msgid "View Found Animals"
-msgstr ""
+msgstr "Overzicht gevonden dieren"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
@@ -15006,7 +15022,7 @@ msgstr ""
 #. # ui/waitinglist/WaitingListEdit
 #: Tick_this_box_if_the_owner_made_a_donation
 msgid "Tick this box if this owner made a donation"
-msgstr ""
+msgstr "Vink deze box wanneer de eigenaar een donatie heeft gedaan."
 
 #. # ui/wordprocessor/SelectTemplate
 #: Select_a_Document_Template
