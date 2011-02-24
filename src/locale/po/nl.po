@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2011-02-23 13:52+0000\n"
+"PO-Revision-Date: 2011-02-24 12:00+0000\n"
 "Last-Translator: Geert Valk  <Unknown>\n"
 "Language-Team: Benedictus\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-24 04:48+0000\n"
-"X-Generator: Launchpad (build 12351)\n"
+"X-Launchpad-Export-Date: 2011-02-24 13:37+0000\n"
+"X-Generator: Launchpad (build 12438)\n"
 "Language: nl\n"
 
 #. # bo/DiaryTaskHead
@@ -13901,32 +13901,32 @@ msgstr "Punten voor overeenkomst in kleur"
 #. # ui/system/Options
 #: age_group_matches
 msgid "Points given for matching age group:"
-msgstr ""
+msgstr "Punten voor overeenkomst leeftijd"
 
 #. # ui/system/Options
 #: sex_matches
 msgid "Points given for matching sex:"
-msgstr ""
+msgstr "Punten voor overeenkomst geslacht"
 
 #. # ui/system/Options
 #: area_matches
 msgid "Points given for lost/found areas matching:"
-msgstr ""
+msgstr "Punten voor overeenkomst verloren/gevonden"
 
 #. # ui/system/Options
 #: features_matches
 msgid "Points given for features matching:"
-msgstr ""
+msgstr "Punten voor overeenkomst kenmerken"
 
 #. # ui/system/Options
 #: postcode_matches
 msgid "Points given for matching postcode:"
-msgstr ""
+msgstr "Punten voor overeenkomst postcode"
 
 #. # ui/system/Options
 #: datewithin2weeks_matches
 msgid "Points given for found within 2 weeks of being lost:"
-msgstr ""
+msgstr "Punten voor \"gevonden\" binnen 2 weken naar \"verloren\" melding"
 
 #. # ui/system/Options
 #: lost_and_found
@@ -13937,11 +13937,13 @@ msgstr "Vermist en Gevonden"
 #: include_shelter
 msgid "When matching lost animals, include shelter animals"
 msgstr ""
+"Bij het maken van een vergelijking tussen verloren dieren, tevens asiel "
+"dieren meenemen"
 
 #. # ui/system/Options
 #: remove_bonded_field
 msgid "Remove the Bonded With fields from the entry details screen"
-msgstr ""
+msgstr "Verwijder de 'gekoppeld met' velden van het invoerscherm"
 
 #. # ui/system/Options
 #: email_signature
@@ -13956,7 +13958,7 @@ msgstr "Verzekering"
 #. # ui/system/ConfigureLocal
 #: Look_and_Feel
 msgid "Look and Feel:"
-msgstr ""
+msgstr "Vormgeving"
 
 #. # ui/system/ConfigureLocal
 #: Default
@@ -13966,7 +13968,7 @@ msgstr "Standaard"
 #. # ui/system/ConfigureLocal
 #: Native_Platform
 msgid "Native Platform"
-msgstr ""
+msgstr "Orginele platform"
 
 #. # ui/system/ConfigureLocal
 #: Metal
@@ -13976,7 +13978,7 @@ msgstr "Metaal"
 #. # ui/system/ConfigureLocal
 #: Metal_for_GTK
 msgid "Metal for GTK"
-msgstr ""
+msgstr "Metal voor GTK"
 
 #. # ui/system/ConfigureLocal
 #: Toolbar_Size
@@ -14022,11 +14024,14 @@ msgstr "Laat de locatie zien bij het toevoegen van meerdere dieren"
 #: add_animals_show_litterid
 msgid "Show Litter ID when adding multiple animals"
 msgstr ""
+"Laat het nummer van de jonge dieren zien wanneer meerdere dieren toegevoegd "
+"worden."
 
 #. # ui/system/Options
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
 msgstr ""
+"Laat het acceptatie nummer zien wanneer meerdere dieren toegevoegd worden."
 
 #. # ui/system/ConfigureAdditional
 #. # ui/system/AdditionalFieldEdit
@@ -14055,7 +14060,7 @@ msgstr "Internet"
 #. # ui/system/Options
 #: tpp_signature
 msgid "Third party publisher text:"
-msgstr ""
+msgstr "Tekst die gepubliceerd wordt bij een derde partij"
 
 #. # ui/system/Options
 #: tpp_signature_tooltip
@@ -14076,6 +14081,8 @@ msgstr "Vind dieren kolommen"
 msgid ""
 "A comma separated list of fieldnames to be displayed when finding animals."
 msgstr ""
+"Een lijst, gescheiden door comma tekens, wordt getoond wanneer er naar "
+"dieren gezocht wordt."
 
 #. # ui/system/Options
 #: Hide_original_owner_details_when_printing_animal_records
@@ -14087,7 +14094,7 @@ msgstr ""
 #. # ui/system/Options
 #: map_donation_to_account
 msgid "Destination account for donation:"
-msgstr ""
+msgstr "Rekening waar de donatie moet uitkomen"
 
 #. # ui/system/Options
 #: Default_brought_in_by
@@ -14109,6 +14116,8 @@ msgstr "Vind de eigenaar kolommen"
 msgid ""
 "A comma separated list of fieldnames to be displayed when finding owners."
 msgstr ""
+"Een lijst, gescheiden door comma tekens, wordt getoond wanneer er naar "
+"eigenaren gezocht wordt."
 
 #. # ui/system/Options
 #: waiting_list_view_columns
@@ -14121,6 +14130,8 @@ msgid ""
 "A comma separated list of fieldnames to be displayed when viewing the "
 "waiting list."
 msgstr ""
+"Een lijst, gescheiden door comma tekens, wordt getoond wanneer de wachtlijst "
+"getoond wordt."
 
 #. # ui/system/Options
 #: pettrac_avid
@@ -14158,6 +14169,8 @@ msgid ""
 "Your coding format is invalid - if you have NNN codes, you must have a Y to "
 "make it unique."
 msgstr ""
+"Uw codering is niet correct - wanneer u NNN codes heeft, moet u een Y maken "
+"zodat deze uniek is"
 
 #. # ui/system/Options
 #: disable_lost_and_found
@@ -15017,7 +15030,7 @@ msgstr "Verwijderingsreden:"
 #. # ui/waitinglist/WaitingListView
 #: toggle_highlighting_of_the_selected_waiting_list_entries
 msgid "Toggle highlighting of the selected entries "
-msgstr ""
+msgstr "Verander de keuze van de geselecteerde items "
 
 #. # ui/waitinglist/WaitingListEdit
 #: Tick_this_box_if_the_owner_made_a_donation
