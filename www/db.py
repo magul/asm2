@@ -5,7 +5,7 @@
         contains methods for running queries against the database
 """
 
-import os, time, datetime
+import os, time, datetime, i18n
 
 class DatabaseInfo:
     """
@@ -233,6 +233,7 @@ def make_insert_sql(table, s):
     fl = ""
     fv = ""
     for r in s:
+        if r == None: break
         if fl != "": 
             fl += ", "
             fv += ", "
@@ -267,6 +268,7 @@ def make_update_sql(table, cond, s):
     o = "UPDATE %s SET " % table
     first = True
     for r in s:
+        if r == None: break
         if not first:
             o += ", "
         first = False
@@ -284,7 +286,7 @@ def make_update_user_sql(table, username, cond, s):
     l = list(s)
     l.append(("LastChangedBy", ds(username)))
     l.append(("LastChangedDate", dd(i18n.now())))
-    return make_update_sql(table, cond, s);
+    return make_update_sql(table, cond, l);
 
 def tokenise(s):
     """ Escapes chr 13/10 as \lf and \cr """

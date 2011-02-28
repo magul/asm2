@@ -39,10 +39,12 @@ def get_vaccinations_outstanding(dbo):
 
 def update_vaccination_today(dbo, username, vaccid):
     """
-    Marks a vaccination record as given today
+    Marks a vaccination record as given today. 
     """
     db.execute(dbo, db.make_update_user_sql("animalvaccination", username, "ID = %d" % vaccid, (
-        ( "DateOfVaccination", i18n.now() ) )))
+        ( "DateOfVaccination", db.dd(i18n.now()) ), 
+        None )
+        ))
 
 def get_most_recent_entry(dbo, animalid):
     """

@@ -1,0 +1,34 @@
+<%
+
+# Is there a session for the current user?
+if session.is_new():
+    psp.redirect("m_login.psp")
+if not session.has_key("user"):
+    psp.redirect("m_login.psp")
+
+dbo = session["dbo"]
+username = session["user"]
+
+animalid = 0
+tid = 0
+posttype = ""
+
+if form.has_key("type"): posttype = form["type"]
+if form.has_key("id"): tid = int(form["id"])
+if form.has_key("animalid"): animalid = int(form["animalid"])
+
+import animal
+
+if posttype == "vacc":
+    
+    # We're vaccinating an animal
+    a = animal.get_animal(dbo, animalid)
+    animal.update_vaccination_today(dbo, username, tid)
+
+    req.write("""
+        <div class=\"panel\">
+        <p>Vaccination marked as given for %s - %s</p>
+        <a class=\"whiteButton\" href=\"m_index.psp#vacc\">More Vaccinations</a>
+        </div>""" % (a["ANIMALNAME"], a["SHELTERCODE"]))
+
+%>
