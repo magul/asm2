@@ -5,15 +5,25 @@
         contains methods for running queries against the database
 """
 
-import time, datetime
+import os, time, datetime
 
 class DatabaseInfo:
+    """
+    Handles information on connecting to a database. The default values
+    here should be set to the location of your database.
+    """
     dbtype = "MYSQL" # MYSQL, SQLITE or POSTGRESQL
     host = "localhost"
     username = "root"
     password = "root"
     database = "asm"
     sqlite_file = ""
+
+def is_smcom():
+    """
+    Returns true if we're running on the sheltermanager.com server
+    """
+    return os.path.exists("/var/www/sheltermanager.com")
 
 def connection(dbo):
     """
@@ -168,6 +178,14 @@ def query_string(dbo, sql):
     except:
         return str("")
 
+def query_date(dbo, sql):
+    r = query_tuple(dbo, sql)
+    try:
+        v = r[0][0]
+        return v
+    except:
+        return None
+
 def today():
     """ Returns today as a python date """
     return datetime.date.today()
@@ -222,6 +240,22 @@ def make_insert_sql(table, s):
         fv += r[1]
     return "INSERT INTO %s (%s) VALUES (%s);" % ( table, fl, fv )
 
+def make_insert_user_sql(table, username, s):
+    """
+    Creates insert sql for a user, 'table' is the table name,
+    username is the name of the user to be stamped in the fields
+    's' is a tuple of tuples containing the field names
+    and values, eg:
+    
+    make_insert_user_sql("animal", "jeff", ( ( "ID", di(52) ), ( "AnimalName", ds("Indy") ) ))
+    """
+    l = list(s)
+    l.append(("CreatedBy", ds(username)))
+    l.append(("CreatedDate", dd(i18n.now())))
+    l.append(("LastChangedBy", ds(username)))
+    l.append(("LastChangedDate", dd(i18n.now())))
+    return make_insert_sql(table, l)
+
 def make_update_sql(table, cond, s):
     """
     Creates update sql, 'table' is the table name,
@@ -238,6 +272,19 @@ def make_update_sql(table, cond, s):
         first = False
         o += r[0] + "=" + r[1]
     return o
+
+def make_update_user_sql(table, username, cond, s):
+    """
+    Creates update sql for a given user, 'table' is the table 
+    name, username is the username of the user making the change,
+    cond is the where condition eg:
+
+    make_update_user_sql("animal", "jeff", "ID = 52", (( "AnimalName", ds("James") )))
+    """
+    l = list(s)
+    l.append(("LastChangedBy", ds(username)))
+    l.append(("LastChangedDate", dd(i18n.now())))
+    return make_update_sql(table, cond, s);
 
 def tokenise(s):
     """ Escapes chr 13/10 as \lf and \cr """

@@ -6,11 +6,6 @@ import lookup
 
 # Database info
 dbo = db.DatabaseInfo()
-dbo.dbtype = "MYSQL"
-dbo.host = "localhost"
-dbo.username = "root"
-dbo.password = "root"
-dbo.database = "asm"
 
 # Get Authentication info
 database = ""

@@ -59,7 +59,7 @@ for r in ar:
 
 <ul id="vacc" title="Vaccinate">
 <%
-vacc = animal.get_awaiting_vacc(dbo)
+vacc = animal.get_vaccinations_outstanding(dbo)
 group = ""
 vaccforms = ""
 for v in vacc:
@@ -84,7 +84,7 @@ for v in vacc:
     vaccforms += "<div class=\"row\"><label>Comments:</label>"
     vaccforms += "<p>%s</p></div>" % v["COMMENTS"]
     vaccforms += "<div class=\"row\"><a class=\"whiteButton\" " 
-    vaccforms += "href=\"m_post?type=vacc&id=%s\">Vaccinate</a></div>" % str(v["VACCID"])
+    vaccforms += "href=\"m_post.psp?type=vacc&id=%s&animalid=%s\">Vaccinate</a></div>" % (str(v["VACCID"]), str(v["ANIMALID"]))
     vaccforms += "</fieldset></div>"
 
 %>
