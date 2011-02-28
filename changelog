@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. Fixed RescueGroups publishing bug that caused a mismatch between
+-  animalID and the pic1 field if uploadAll was turned off
 *. Final translation update (additional Dutch from Geert Valk)
 *. Medical history subreport mines totals from treatment table
 -  instead of using aggregate totals from animalmedical as broken
