@@ -5,7 +5,7 @@
         contains methods for running queries against the database
 """
 
-import os, time, datetime, i18n
+import os, datetime, i18n
 
 class DatabaseInfo:
     """
@@ -109,7 +109,7 @@ def query_json(dbo, sql):
             if d[i] == None: 
                 value = "null"
             # if it's numeric
-            elif isnumber(d[i]): 
+            elif is_number(d[i]): 
                 value = str(d[i])
             # if it's a string
             else:
@@ -190,12 +190,9 @@ def today():
     """ Returns today as a python date """
     return datetime.date.today()
 
-def db2python(d):
-    """ Returns a python date from a database date """
-    return datetime.fromtimestamp(time.strptime("%Y-%m-%d", d))
-
 def python2db(d):
-    """ Returns a database date from a Python date """
+    """ Formats a python date as a date for the database """
+    if d == None: return "NULL"
     return "%d-%02d-%02d" % ( d.year, d.month, d.day )
 
 def dd(d):
@@ -273,6 +270,8 @@ def make_update_sql(table, cond, s):
             o += ", "
         first = False
         o += r[0] + "=" + r[1]
+    if cond != "":
+        o += " WHERE " + cond
     return o
 
 def make_update_user_sql(table, username, cond, s):

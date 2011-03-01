@@ -11,6 +11,10 @@ import animal
 import i18n
 import reports
 
+ar = reports.get_available_reports(dbo, False)
+vacc = animal.get_vaccinations_outstanding(dbo)
+med = animal.get_treatments_outstanding(dbo)
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -29,10 +33,23 @@ import reports
 </div>
 
 <ul id="home" title="ASM" selected="true">
-    <li><a href="#reports">Generate Report</a></li>
+
+<%
+if len(ar) > 0:
+    req.write("""<li><a href="#reports">Generate Report</a></li>""")
+%>
+
     <li class="group">Animal</li>
-    <li><a href="#vacc">Vaccinate Animal</a></li>
-    <li><a href="#med">Medicate Animal</a></li>
+
+<%
+if len(vacc) > 0:
+    req.write("""<li><a href="#vacc">Vaccinate Animal</a></li>""")
+
+if len(med) > 0:
+    req.write("""<li><a href="#med">Medicate Animal</a></li>""")
+
+%>
+
     <li><a href="#log">Add Log to Animal</a></li>
     <li class="group">Diary</li>
     <li><a href="#diary">Complete Tasks</a></li>
@@ -40,9 +57,10 @@ import reports
 
 
 
+
+
 <ul id="reports" title="Reports">
 <%
-ar = reports.get_available_reports(dbo, False)
 group = ""
 for r in ar:
     if group != r[0]:
@@ -59,7 +77,6 @@ for r in ar:
 
 <ul id="vacc" title="Vaccinate">
 <%
-vacc = animal.get_vaccinations_outstanding(dbo)
 group = ""
 vaccforms = ""
 for v in vacc:
@@ -102,8 +119,47 @@ if len(vacc) > 0:
 
 
 <ul id="med" title="Medicate">
-<!-- Output list of animals needing medical treatment -->
+<%
+group = ""
+medforms = ""
+for m in med:
+
+    required = i18n.python2display(m["DATEREQUIRED"])
+
+    if group != required:
+        group = required
+        req.write("<li class=\"group\">%s</li>" % group)
+
+    # Create the list item
+    req.write("<li><a href=\"#m%s\">%s - %s (%s)</a></li>" %
+        ( str(m["AMTID"]), m["ANIMALNAME"], m["SHELTERCODE"], m["TREATMENTNAME"]  ))
+
+    # Create the dialog page
+    medforms += "<div id=\"m%s\" title=\"%s\" class=\"panel\">" % ( str(m["AMTID"]), m["TREATMENTNAME"] )
+    medforms += "<fieldset>"
+    medforms += "<div class=\"row\"><label>Animal:</label>"
+    medforms += "<p>%s %s<p></div>" % ( m["SHELTERCODE"], m["ANIMALNAME"] )
+    medforms += "<div class=\"row\"><label>Treatment:</label>"
+    medforms += "<p>%s %s<br />%s</p></div>" % ( required, m["TREATMENTNAME"], m["DOSAGE"] )
+    medforms += "<div class=\"row\"><label>Comments:</label>"
+    medforms += "<p>%s</p></div>" % m["AMCOMMENTS"]
+    medforms += "<div class=\"row\"><a class=\"whiteButton\" " 
+    medforms += "href=\"m_post.psp?type=med&id=%s&animalid=%s&medicalid=%s\">Medicate</a></div>" % (
+        str(m["AMTID"]), str(m["ANIMALID"]), str(m["AMID"]))
+    medforms += "</fieldset></div>"
+
+%>
 </ul>
+
+<%
+#  Output med dialog pages
+if len(med) > 0:
+    req.write(medforms)
+
+%>
+
+
+
 
 
 <ul id="log" title="Log">

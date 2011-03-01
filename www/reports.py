@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
 import base64
-import datetime
-
 import db
 import i18n
 import lookup
@@ -158,7 +156,7 @@ class Report:
     def _p(self, s):
         self._Append("<p>%s</p>" % s)
 
-    def _hr(self, s):
+    def _hr(self):
         self._Append("<hr />")
 
     def _DisplayValue(self, v):
@@ -347,10 +345,10 @@ class Report:
                 fields = key.lower().split(".")
                 
                 # Get custom report ID from title
-                crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
+                crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + fields[1] + "'");
 
                 # Get the content from it
-                r = Report()
+                r = Report(self.dbo)
                 value = r.Execute(crid, [("PARENTKEY", fields[2])] )
 
             # Modify our block with the token value
@@ -691,7 +689,7 @@ class Report:
             else:
                 # Action
                 try:
-                    db.execute(q)
+                    db.execute(self.dbo, q)
                 except Exception,e:
                     self._p(e)
 
@@ -801,10 +799,10 @@ class Report:
                     fields = key.lower().split(".")
                     
                     # Get custom report ID from title
-                    crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + title + "'");
+                    crid = db.query_int(self.dbo, "SELECT ID FROM customreport WHERE Title LIKE '" + fields[1] + "'");
 
                     # Get the content from it
-                    r = Report()
+                    r = Report(self.dbo)
                     value = r.Execute(crid, [("PARENTKEY", fields[2])] )
 
                 if valid:

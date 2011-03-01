@@ -5,28 +5,29 @@
 """
 
 import db
+import i18n
 import time
 
 def cstring(dbo, key, default = ""):
-    rows = db.query("SELECT ITEMVALUE FROM configuration WHERE ITEMNAME LIKE '%s'" % key)
+    rows = db.query(dbo, "SELECT ITEMVALUE FROM configuration WHERE ITEMNAME LIKE '%s'" % key)
     if len(rows) == 0: return default
     return rows[0]["ITEMVALUE"]
 
 def cboolean(dbo, key):
-    v = string(dbo, key, "No")
+    v = cstring(dbo, key, "No")
     return v == "Yes" or v == "True"
 
 def cint(dbo, key):
-    v = string(dbo, key, "0")
+    v = cstring(dbo, key, "0")
     return int(v)
 
 def cfloat(dbo, key):
-    v = string(dbo, key, "0.0")
+    v = cstring(dbo, key, "0.0")
     return float(v)
 
 def cset(dbo, key, value = ""):
-    db.execute("DELETE FROM configuration WHERE ItemName LIKE '%s'" % key)
-    db.execute("INSERT INTO configuration VALUES ('%s', '%s')" % ( key, value ))
+    db.execute(dbo, "DELETE FROM configuration WHERE ItemName LIKE '%s'" % key)
+    db.execute(dbo, "INSERT INTO configuration VALUES ('%s', '%s')" % ( key, value ))
 
 
 
@@ -35,7 +36,7 @@ def age_group(dbo, band):
     return cfloat(dbo, "AgeGroup%d" % band)
 
 def age_group_name(dbo, band):
-    return cstring(dbo, "AgeGroup%dName")
+    return cstring(dbo, "AgeGroup%dName" % band)
 
 def foster_on_shelter(dbo):
     return cboolean(dbo, "FosterOnShelter")

@@ -12,7 +12,7 @@ def daily(dbo):
     """
     Tasks to run once each day
     """
-    animal.update_all_animal_variable_data(dbo)
+    animal.update_all_variable_animal_data(dbo)
 
 
 

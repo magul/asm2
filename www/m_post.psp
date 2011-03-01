@@ -9,13 +9,15 @@ if not session.has_key("user"):
 dbo = session["dbo"]
 username = session["user"]
 
-animalid = 0
 tid = 0
+animalid = 0
+medicalid = 0
 posttype = ""
 
 if form.has_key("type"): posttype = form["type"]
 if form.has_key("id"): tid = int(form["id"])
 if form.has_key("animalid"): animalid = int(form["animalid"])
+if form.has_key("medicalid"): medicalid = int(form["medicalid"])
 
 import animal
 
@@ -29,6 +31,18 @@ if posttype == "vacc":
         <div class=\"panel\">
         <p>Vaccination marked as given for %s - %s</p>
         <a class=\"whiteButton\" href=\"m_index.psp#vacc\">More Vaccinations</a>
+        </div>""" % (a["ANIMALNAME"], a["SHELTERCODE"]))
+
+if posttype == "med":
+    
+    # We're treating an animal
+    a = animal.get_animal(dbo, animalid)
+    animal.update_treatment_today(dbo, username, tid, medicalid)
+
+    req.write("""
+        <div class=\"panel\">
+        <p>Treatment marked as given for %s - %s</p>
+        <a class=\"whiteButton\" href=\"m_index.psp#med\">More Medications</a>
         </div>""" % (a["ANIMALNAME"], a["SHELTERCODE"]))
 
 %>
