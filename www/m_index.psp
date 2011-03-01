@@ -161,7 +161,8 @@ if len(med) > 0:
 
 
 
-
+<%
+"""
 <ul id="log" title="Log">
 <!-- combo with on shelter animals, log types, text box, do as dialog -->
 </ul>
@@ -170,6 +171,8 @@ if len(med) > 0:
 <ul id="diary" title="Diary">
 <!-- list of diary entries for the current user -->
 </ul>
+"""
+%>
 
 </body>
 </html>
