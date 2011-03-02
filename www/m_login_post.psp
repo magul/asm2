@@ -24,7 +24,13 @@ if database != "":
     dbo.host = "localhost:6432"
     dbo.dbtype = "POSTGRESQL"
     dbo.database = database
-    
+
+    # If we don't have a user file for the account given,
+    # then drop back to the login screen
+    if not os.path.exists("/root/pg_users/%s" % database):
+        psp.redirect("m_login.psp")
+        sys.exit(0)
+
     f = open("/root/pg_users/%s" % database)
     lines = f.readlines()
     f.close()
