@@ -106,7 +106,7 @@ public class FTPPublisher extends AbstractPublisher {
     @SuppressWarnings("deprecation")
     protected boolean openFTPSocket() {
         if (!publishCriteria.uploadDirectly) {
-            return false;
+            return true;
         }
 
         try {
@@ -276,6 +276,10 @@ public class FTPPublisher extends AbstractPublisher {
      * @param newdir
      */
     protected void mkdir(String newdir) {
+    	if (!publishCriteria.uploadDirectly) {
+            return;
+        }
+    	
         try {
             uploadFTP.mkdir(newdir);
         } catch (Exception e) {
@@ -311,6 +315,9 @@ public class FTPPublisher extends AbstractPublisher {
      * @param fromroot The directory from the root for coming back here
      */
     protected void chdir(String newdir, String fromroot) {
+    	if (!publishCriteria.uploadDirectly) {
+            return;
+        }
         chdir(newdir);
         currentFTPDirectory = fromroot;
     }

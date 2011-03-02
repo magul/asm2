@@ -68,6 +68,7 @@ public class PublishRescueGroups {
 
         // Create our publish criteria
         PublishCriteria pc = new PublishCriteria();
+        pc.uploadDirectly = true;
 
         // Set values from arguments
         if (args.length > 0) {

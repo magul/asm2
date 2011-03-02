@@ -44,7 +44,6 @@ import java.util.Calendar;
 public class AdoptAPetPublisher extends FTPPublisher {
     public AdoptAPetPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
-        // Override certain values for adoptapet
         publishCriteria.uploadDirectly = true;
         publishCriteria.ftpRoot = "";
         publishCriteria.thumbnails = false;

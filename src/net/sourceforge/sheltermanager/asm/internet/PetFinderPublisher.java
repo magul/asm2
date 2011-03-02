@@ -44,7 +44,6 @@ public class PetFinderPublisher extends FTPPublisher {
     public PetFinderPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
         // Override certain values for petfinder
-        publishCriteria.uploadDirectly = true;
         publishCriteria.ftpRoot = "";
         publishCriteria.thumbnails = false;
 

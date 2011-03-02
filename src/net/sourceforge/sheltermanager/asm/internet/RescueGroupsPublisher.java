@@ -47,7 +47,6 @@ public class RescueGroupsPublisher extends FTPPublisher {
     public RescueGroupsPublisher(InternetPublisher parent,
         PublishCriteria publishCriteria) {
         // Override certain values for rescuegroups
-        publishCriteria.uploadDirectly = true;
         publishCriteria.ftpRoot = "";
         publishCriteria.thumbnails = false;
 
@@ -355,7 +354,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 	// if uploadAll isn't on, there was just one image
                 	// with the sheltercode as the name
                 	if (!publishCriteria.uploadAllImages) {
-                		dataFile.append("\"" + an.getShelterCode() + ".jpg\", \"\", \"\", \"\"");
+                		dataFile.append(", \"" + an.getShelterCode() + ".jpg\", \"\", \"\", \"\"");
                 	}
                 	else {
                 		// Upload is on, output an entry for each image
@@ -374,7 +373,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 }
                 else {
                 	// Leave it blank
-                	dataFile.append("\"\", \"\", \"\", \"\"");
+                	dataFile.append(", \"\", \"\", \"\", \"\"");
                 }
 
                 // Terminate
