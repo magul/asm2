@@ -5,9 +5,7 @@
         the database
 """
 
-import db
-
-NONE = 0
+NO_MOVEMENT = 0
 ADOPTION = 1
 FOSTER = 2
 TRANSFER = 3

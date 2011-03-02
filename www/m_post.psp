@@ -20,6 +20,7 @@ if form.has_key("animalid"): animalid = int(form["animalid"])
 if form.has_key("medicalid"): medicalid = int(form["medicalid"])
 
 import animal
+from i18n import _
 
 if posttype == "vacc":
     
@@ -29,9 +30,12 @@ if posttype == "vacc":
 
     req.write("""
         <div class=\"panel\">
-        <p>Vaccination marked as given for %s - %s</p>
-        <a class=\"whiteButton\" href=\"m_index.psp#vacc\">More Vaccinations</a>
-        </div>""" % (a["ANIMALNAME"], a["SHELTERCODE"]))
+        <p>%s</p>
+        <a class=\"whiteButton\" href=\"m_index.psp#vacc\">%s</a>
+        </div>""" % (
+        _("Vaccination marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
+        _("More Vaccinations")
+        ))
 
 if posttype == "med":
     
@@ -41,8 +45,11 @@ if posttype == "med":
 
     req.write("""
         <div class=\"panel\">
-        <p>Treatment marked as given for %s - %s</p>
-        <a class=\"whiteButton\" href=\"m_index.psp#med\">More Medications</a>
-        </div>""" % (a["ANIMALNAME"], a["SHELTERCODE"]))
+        <p>%s</p>
+        <a class=\"whiteButton\" href=\"m_index.psp#med\">%s</a>
+        </div>""" % (
+        _("Treatment marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
+        _("More Medications")
+        ))
 
 %>

@@ -10,6 +10,7 @@ dbo = session["dbo"]
 import animal
 import i18n
 import reports
+from i18n import _
 
 ar = reports.get_available_reports(dbo, False)
 vacc = animal.get_vaccinations_outstanding(dbo)
@@ -20,7 +21,11 @@ med = animal.get_treatments_outstanding(dbo)
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Animal Shelter Manager</title>
+<title>
+<%
+req.write(_("Animal Shelter Manager"))
+%>
+</title>
 <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 <style type="text/css" media="screen">@import "iui/iuix.css";</style>
 <script type="application/x-javascript" src="iui/iuix.js"></script>
@@ -32,35 +37,32 @@ med = animal.get_treatments_outstanding(dbo)
     <a id="backButton" class="button" href="#"></a>
 </div>
 
-<ul id="home" title="ASM" selected="true">
 
 <%
+
+# MAIN MENU =====================================================
+req.write("<ul id='home' title='%s' selected='true'>" % _("ASM"))
+
 if len(ar) > 0:
-    req.write("""<li><a href="#reports">Generate Report</a></li>""")
-%>
+    req.write("<li><a href='#reports'>%s</a></li>" % _("Generate Report"))
+    
+req.write("<li class='group'>%s</li>" % _("Animal"))
 
-    <li class="group">Animal</li>
-
-<%
 if len(vacc) > 0:
-    req.write("""<li><a href="#vacc">Vaccinate Animal</a></li>""")
+    req.write("<li><a href='#vacc'>%s</a></li>" % _("Vaccinate Animal"))
 
 if len(med) > 0:
-    req.write("""<li><a href="#med">Medicate Animal</a></li>""")
+    req.write("<li><a href='#med'>%s</a></li>" % _("Medicate Animal"))
 
-%>
+#req.write("<li><a href='#log'>%s</a></li>" % _("Add Log to Animal"))
+req.write("<li class='group'>%s</li>" % _("Diary"))
+#req.write("<li><a href='#diary'>%s</a></li>" % _("Complete Tasks"))
 
-    <li><a href="#log">Add Log to Animal</a></li>
-    <li class="group">Diary</li>
-    <li><a href="#diary">Complete Tasks</a></li>
-</ul>
-
+req.write("</ul>")
 
 
-
-
-<ul id="reports" title="Reports">
-<%
+# REPORTS ======================================================
+req.write("<ul id='reports' title='%s'>" % _("Reports"))
 group = ""
 for r in ar:
     if group != r[0]:
@@ -68,15 +70,13 @@ for r in ar:
 	req.write("<li class=\"group\">%s</li>" % group)
     req.write("<li><a href=\"m_report.psp?id=%d\">%s</a></li>" % ( r[1], r[2] ))
 
-%>
-</ul>
+req.write("</ul>")
 
 
 
 
-
-<ul id="vacc" title="Vaccinate">
-<%
+# VACCINATIONS =================================================
+req.write("<ul id='vacc' title='%s'>" % _("Vaccinate"))
 group = ""
 vaccforms = ""
 for v in vacc:
@@ -104,22 +104,16 @@ for v in vacc:
     vaccforms += "href=\"m_post.psp?type=vacc&id=%s&animalid=%s\">Vaccinate</a></div>" % (str(v["VACCID"]), str(v["ANIMALID"]))
     vaccforms += "</fieldset></div>"
 
-%>
-</ul>
+req.write("</ul>")
 
-<%
 #  Output vacc dialog pages
 if len(vacc) > 0:
     req.write(vaccforms)
 
-%>
 
 
-
-
-
-<ul id="med" title="Medicate">
-<%
+# MEDICATIONS ==========================================
+req.write("<ul id='med' title='%s'>" % _("Medicate"))
 group = ""
 medforms = ""
 for m in med:
@@ -148,20 +142,13 @@ for m in med:
         str(m["AMTID"]), str(m["ANIMALID"]), str(m["AMID"]))
     medforms += "</fieldset></div>"
 
-%>
-</ul>
+req.write("</ul>")
 
-<%
 #  Output med dialog pages
 if len(med) > 0:
     req.write(medforms)
 
-%>
 
-
-
-
-<%
 """
 <ul id="log" title="Log">
 <!-- combo with on shelter animals, log types, text box, do as dialog -->

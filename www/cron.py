@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     # Have any command line arguments been passed to override the
     # defaults?
-    if len(sys.argv >= 6):
+    if len(sys.argv) >= 6:
         dbo.dbtype = sys.argv[1]
         dbo.host = sys.argv[2]
         dbo.username = sys.argv[3]

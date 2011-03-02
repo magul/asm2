@@ -168,14 +168,13 @@ class Report:
             return i18n.python2display(v)
         return str(v)
 
-    def _OutputGroupBlock(self, gd, headfoot, rs, rowindex):
+    def _OutputGroupBlock(self, gd, headfoot, rs):
         """
         Outputs a group block, 'gd' is the group descriptor,
         'headfoot' is 0 for header, 1 for footer, 'rs' is
         the resultset and 'rowindex' is the row of results being
         looked at
         """
-        
         out = gd.footer
         if headfoot == 0:
             out = gd.header
@@ -375,7 +374,7 @@ class Report:
         s = s.replace("$$REGISTEREDTO$$", lookup.config_get(self.dbo, "Organisation"))
         return s
 
-    def _SubstituteHeaderFooter(self, headfoot, text, rs, rowindex):
+    def _SubstituteHeaderFooter(self, headfoot, text, rs):
         """
         Outputs the header and footer blocks, 
         'headfoot' - 0 = main header, 1 = footer
@@ -388,7 +387,7 @@ class Report:
         gd.lastGroupStartPosition = 0;
         gd.footer = text;
         gd.header = text;
-        self._OutputGroupBlock(gd, headfoot, rs, rowindex);
+        self._OutputGroupBlock(gd, headfoot, rs);
 
     def _SubstituteSQLParameters(self, params):
         """
@@ -553,7 +552,7 @@ class Report:
         self._Append(self._ReadHeader())
 
         # Generate the report
-        self._Generate(reportId, params)
+        self._Generate()
 
         # Add the HTML footer to our report
         self._Append(self._ReadFooter())
@@ -561,7 +560,7 @@ class Report:
         # We're done
         return self.output
 
-    def _Generate(self, reportId, params):
+    def _Generate(self):
         """
         Does the work of generating the report content
         """
@@ -651,7 +650,6 @@ class Report:
 
             orderBy = lsql[startorder:]
             ok = False
-            lastsort = 0
 
             for gd in groups:
                 ok = -1 != orderBy.find(gd.fieldName.lower())
@@ -703,7 +701,7 @@ class Report:
             return
 
         # Add the header to the report
-        self._SubstituteHeaderFooter(HEADER, cheader, rs, 0)
+        self._SubstituteHeaderFooter(HEADER, cheader, rs)
 
         # Construct our report
         for row in range(0, len(rs)):
@@ -732,7 +730,7 @@ class Report:
                     if gd.forceFinish:
                         # Output the footer, switching the
                         # field values and calculating any totals
-                        self._OutputGroupBlock(gd, FOOTER, rs, row)
+                        self._OutputGroupBlock(gd, FOOTER, rs)
 
             # Do each header in ascending order
             for gd in groups:
@@ -743,7 +741,7 @@ class Report:
 
                     # Output the header, switching field values
                     # and calculating any totals
-                    self._OutputGroupBlock(gd, HEADER, rs, row)
+                    self._OutputGroupBlock(gd, HEADER, rs)
 
             first_record = False
 
@@ -818,9 +816,9 @@ class Report:
         row = len(rs) - 1
         for gd in reversed(groups):
             gd.lastGroupEndPosition = row
-            self._OutputGroupBlock(gd, FOOTER, rs, row)
+            self._OutputGroupBlock(gd, FOOTER, rs)
 
         # And the report footer
-        self._SubstituteHeaderFooter(FOOTER, cfooter, rs, row)
+        self._SubstituteHeaderFooter(FOOTER, cfooter, rs)
 
 
