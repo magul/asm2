@@ -1,4 +1,4 @@
-all:	tags compile clean
+all:	compile tags clean
 
 tags:
 	@echo "[tags] ============================"
@@ -10,6 +10,7 @@ clean:
 
 compile:
 	@echo "[compile] ============================"
+	rm -f tags
 	# 400 lines per method, 20 returns, 20 args, 60 locals
 	pychecker -L 400 -R 20 -J 20 -K 60 *.py
 

@@ -13,7 +13,7 @@ crid = 0
 if form.has_key("id"):
     crid = int(form["id"])
 
-s = reports.execute(dbo, crid)
+s = reports.execute(dbo, crid, session["user"])
 title = reports.get_title(dbo, crid)
 
 # Strip either side of the body tags so that the

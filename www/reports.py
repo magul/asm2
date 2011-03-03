@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 import base64
+import configuration
 import db
 import i18n
-import lookup
 
 """
         ASM reporting module, contains all code necessary for 
@@ -57,14 +57,15 @@ def get_title(dbo, customreportid):
     """
     return db.query_string(dbo, "SELECT Title FROM customreport WHERE ID = %s" % str(customreportid))
 
-def execute(dbo, customreportid, params = None):
+def execute(dbo, customreportid, username = "system", params = None):
     """
     Executes a custom report by its ID. 'params' is a tuple of 
-    parameters. See the Report._SubstituteSQLParameters function for
+    parameters. username is the name of the user running the 
+    report. See the Report._SubstituteSQLParameters function for
     more info.
     """
     r = Report(dbo)
-    return r.Execute(customreportid, params)
+    return r.Execute(customreportid, username, params)
 
 class GroupDescriptor:
     """
@@ -80,6 +81,7 @@ class GroupDescriptor:
 
 class Report:
     dbo = None
+    user = ""
     reportId = 0
     criteria = ""
     queries = []
@@ -370,8 +372,8 @@ class Report:
         s = s.replace("$$TITLE$$", self.title)
         s = s.replace("$$DATE$$", i18n.python2display(db.today()))
         s = s.replace("$$VERSION$$", i18n.get_version())
-        s = s.replace("$$USER$$", "TODO") # TODO:
-        s = s.replace("$$REGISTEREDTO$$", lookup.config_get(self.dbo, "Organisation"))
+        s = s.replace("$$USER$$", self.user)
+        s = s.replace("$$REGISTEREDTO$$", configuration.organisation(self.dbo))
         return s
 
     def _SubstituteHeaderFooter(self, headfoot, text, rs):
@@ -442,7 +444,7 @@ class Report:
 
             # USER
             if token.startswith("USER"):
-                value = "" # TODO: Need to sort this out
+                value = self.user
 
             # PARENTKEY
             if token.startswith("PARENTKEY"):
@@ -524,14 +526,16 @@ class Report:
 
         return params
 
-    def Execute(self, reportId, params = None):
+    def Execute(self, reportId, username = "system", params = None):
         """
         Executes a report
-        'reportId' is the ID of the report to run, 'params' is a list
+        'reportId' is the ID of the report to run, 'username' is the
+        name of the user running the reoprt, 'params' is a list
         of values in order to substitute tokens in the report SQL for.
         They should all be strings and will be literally replaced.
         Return value is the HTML output of the report.
         """
+        self.user = username
         self._ReadReport(reportId)
         self.output = ""
 

@@ -172,7 +172,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
 
                 // Rescuegroups allows upto a total of 4 images, so
                 // if we have uploadAll on, stop at 4
-                int totalimages = uploadImages(an, 4);
+                int totalimages = uploadImages(an, false, 4);
 
                 // Get Petfinder mapped species and breeds
                 String pfSpecies = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());

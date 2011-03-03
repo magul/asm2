@@ -188,7 +188,7 @@ public class HTMLPublisher extends FTPPublisher {
 
                 // Upload all the images for this animal to our 
                 // current FTP directory
-                uploadImages(an);
+                uploadImages(an, true);
 
                 // Update our ongoing JavaScript database if
                 // the option is switched on

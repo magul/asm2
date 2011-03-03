@@ -41,6 +41,9 @@ def age_group_name(dbo, band):
 def foster_on_shelter(dbo):
     return cboolean(dbo, "FosterOnShelter")
 
+def organisation(dbo):
+    return cstring(dbo, "Organisation", "")
+
 def set_variable_data_updated_today(dbo):
     cset(dbo, "VariableAnimalDataUpdated", time.strftime("%Y%m%d", i18n.now().timetuple()))
 

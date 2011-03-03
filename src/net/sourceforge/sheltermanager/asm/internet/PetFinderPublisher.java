@@ -162,7 +162,7 @@ public class PetFinderPublisher extends FTPPublisher {
                     ")", "PetFinderPublisher.run");
 
                 // Upload images
-                uploadImages(an);
+                uploadImages(an, false);
 
                 // Build the CSV file entry for this animal:
 

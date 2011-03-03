@@ -20,13 +20,14 @@ if form.has_key("animalid"): animalid = int(form["animalid"])
 if form.has_key("medicalid"): medicalid = int(form["medicalid"])
 
 import animal
+import medical
 from i18n import _
 
 if posttype == "vacc":
     
     # We're vaccinating an animal
     a = animal.get_animal(dbo, animalid)
-    animal.update_vaccination_today(dbo, username, tid)
+    medical.update_vaccination_today(dbo, username, tid)
 
     req.write("""
         <div class=\"panel\">
@@ -41,7 +42,7 @@ if posttype == "med":
     
     # We're treating an animal
     a = animal.get_animal(dbo, animalid)
-    animal.update_treatment_today(dbo, username, tid, medicalid)
+    medical.update_treatment_today(dbo, username, tid, medicalid)
 
     req.write("""
         <div class=\"panel\">

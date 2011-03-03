@@ -426,10 +426,11 @@ public class FTPPublisher extends AbstractPublisher {
      * media ID for a single image, or with the sheltercode-X if
      * upload all is on
      * @param an
+     * @param mediaIDAsName Whether to use the Media ID if uploadall is off
      * @return The number of images uploaded
      */
-    protected int uploadImages(Animal an) {
-        return uploadImages(an, 0);
+    protected int uploadImages(Animal an, boolean mediaIDAsName) {
+        return uploadImages(an, mediaIDAsName, 0);
     }
 
     /**
@@ -438,10 +439,11 @@ public class FTPPublisher extends AbstractPublisher {
      * upload all is on - even if upload is off, we still
      * pull the images to the local publish folder
      * @param an
+     * @param mediaIDAsName Whether to use the Media ID if uploadall is off
      * @param max Maximum number to upload or 0 for all
      * @return The number of images uploaded
      */
-    protected int uploadImages(Animal an, int max) {
+    protected int uploadImages(Animal an, boolean mediaIDAsName, int max) {
         int totalimages = 0;
 
         try {
@@ -464,56 +466,29 @@ public class FTPPublisher extends AbstractPublisher {
                             an.getID().intValue());
 
                     try {
-                        dbfs.readFile(animalweb, publishDir + animalweb);
-
+                    	// Handle the preferred image for this animal.
+                		animalpic = animalcode + ".jpg";
+                    	if (mediaIDAsName) animalpic = animalweb;
+                    	if (publishCriteria.uploadAllImages) animalpic = animalcode + "-1.jpg";
+                    	
+	                    dbfs.readFile(animalweb, publishDir + animalpic);
+	
                         // If scaling is on, scale the image
                         if (publishCriteria.scaleImages != 1) {
-                            scaleImage(publishDir + animalweb,
+                            scaleImage(publishDir + animalpic,
                                 publishCriteria.scaleImages);
                         }
 
                         // If thumbnails are on, generate one
                         if (publishCriteria.thumbnails) {
-                            generateThumbnail(publishDir, animalweb,
-                                "tn_" + animalweb);
+                            generateThumbnail(publishDir, animalpic,
+                                "tn_" + animalpic);
                         }
-
-                        // If upload all was set, the user wants the
-                        // image filename to map to the animal's sheltercode
-                        // instead of the media filename (plus index the
-                        // images code-1.jpg, code-2.jpg). We won't
-                        // bother uploading the main media file in this event
-                        // either.
-                        if (publishCriteria.uploadAllImages) {
-                            dbfs.readFile(animalweb, publishDir + animalpic);
-
-                            if (publishCriteria.scaleImages != 1) {
-                                scaleImage(publishDir + animalpic,
-                                    publishCriteria.scaleImages);
-                            }
-
-                            if (publishCriteria.thumbnails) {
-                                generateThumbnail(publishDir, animalpic,
-                                    "tn_" + animalpic);
-                            }
-
-                            if (publishCriteria.uploadDirectly) {
-                                upload(animalpic);
-
-                                if (publishCriteria.thumbnails) {
-                                    upload("tn_" + animalpic);
-                                }
-                            }
-                        } else {
-                            // If we're not uploading all images, just do the
-                            // main media file in the old way
-                            if (publishCriteria.uploadDirectly) {
-                                upload(animalweb);
-
-                                if (publishCriteria.thumbnails) {
-                                    upload("tn_" + animalweb);
-                                }
-                            }
+                    	if (publishCriteria.uploadDirectly) {
+                    		upload(animalpic);	
+                    		if (publishCriteria.thumbnails) {
+                    			upload("tn_" + animalpic);
+                    		}
                         }
                     }
                     // If an IO Error occurs, the file is already in the
@@ -521,11 +496,11 @@ public class FTPPublisher extends AbstractPublisher {
                     catch (Exception e) {
                     }
 
-                    // If the upload all option is set, grab all of
+                    // If the upload all option is set, grab the rest of
                     // the images this animal has (upto the max
                     // argument) and save them. If max is zero, then
                     // we will upload everything, since totalimages
-                    // enters this loop at 1
+                    // enters this loop at 1.
                     if (publishCriteria.uploadAllImages) {
                         int idx = 1;
                         String[] images = dbfs.list();

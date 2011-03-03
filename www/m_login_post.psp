@@ -2,7 +2,7 @@
 
 import db
 import i18n
-import lookup
+import users
 
 # Database info
 dbo = db.DatabaseInfo()
@@ -40,7 +40,7 @@ if database != "":
         if l.startswith("Pass:"): dbo.password = l.split(":")[1].strip()
 
 # Connect to the database and authenticate the username and password
-user = lookup.authenticate(dbo, username, password)
+user = users.authenticate(dbo, username, password)
 if user != None:
 
     # We're good, create the session for this user
