@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
-import base64
 import configuration
 import db
+import dbfs
 import i18n
 
 """
@@ -126,10 +126,8 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # Look it up from the DB and Base64 decode it
-            s = db.query_string(self.dbo, "SELECT Content FROM dbfs WHERE Name = 'head.dat' AND Path = '/reports'")
-            if s != "":
-                s = base64.b64decode(s)
+            # Look it up from the DB
+            s = dbfs.get_string(self.dbo, "/reports", "head.dat")
             s = self._SubstituteTemplateHeaderFooter(s)
             return s
 
@@ -144,10 +142,8 @@ class Report:
         elif self.isSubReport:
             return ""
         else:
-            # Look it up from the DB and Base64 decode it
-            s = db.query_string(self.dbo, "SELECT Content FROM dbfs WHERE Name = 'foot.dat' AND Path = '/reports'")
-            if s != "":
-                s = base64.b64decode(s)
+            # Look it up from the DB
+            s = dbfs.get_string(self.dbo, "/reports", "foot.dat")
             s = self._SubstituteTemplateHeaderFooter(s)
             return s
 

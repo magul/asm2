@@ -8,13 +8,14 @@ if not session.has_key("user"):
 dbo = session["dbo"]
 
 import animal
+import medical
 import i18n
 import reports
 from i18n import _
 
 ar = reports.get_available_reports(dbo, False)
-vacc = animal.get_vaccinations_outstanding(dbo)
-med = animal.get_treatments_outstanding(dbo)
+vacc = medical.get_vaccinations_outstanding(dbo)
+med = medical.get_treatments_outstanding(dbo)
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML1.0 Strict//EN"
