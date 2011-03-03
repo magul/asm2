@@ -7,7 +7,9 @@ import time
 def cstring(dbo, key, default = ""):
     rows = db.query(dbo, "SELECT ITEMVALUE FROM configuration WHERE ITEMNAME LIKE '%s'" % key)
     if len(rows) == 0: return default
-    return rows[0]["ITEMVALUE"]
+    v = rows[0]["ITEMVALUE"]
+    if v == "": return default
+    return v
 
 def cboolean(dbo, key):
     v = cstring(dbo, key, "No")
@@ -15,11 +17,17 @@ def cboolean(dbo, key):
 
 def cint(dbo, key):
     v = cstring(dbo, key, "0")
-    return int(v)
+    try:
+        return int(v)
+    except:
+        return int(0)
 
 def cfloat(dbo, key):
-    v = cstring(dbo, key, "0.0")
-    return float(v)
+    v = cstring(dbo, key, "0")
+    try:
+        return float(v)
+    except:
+        return float(0)
 
 def cset(dbo, key, value = ""):
     db.execute(dbo, "DELETE FROM configuration WHERE ItemName LIKE '%s'" % key)

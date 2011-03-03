@@ -85,16 +85,17 @@ def date_diff(date1, date2):
     (datetime) date1
     (datetime) date2
     """
-    days = date_diff_days(date1, date2)
-    weeks = days / 7
+    days = int(date_diff_days(date1, date2))
+    if days < 0: days = 0
+    weeks = int(days / 7)
     
     # If it's less than 16 weeks, show as weeks
     if weeks < 16:
         return _("{0} weeks.").format(weeks)
     else:
         # Show in years and months
-        weeks = days / 7
-        years = weeks / 52
+        weeks = int(days / 7)
+        years = int(weeks / 52)
         months = float(weeks % 52)
         months = int((months / 52.0) * 12)
         return _("{0} years and {1} months.").format(years, months)
