@@ -1,9 +1,5 @@
 #!/usr/bin/python
 
-"""
-        ASM internationalisation functions
-"""
-
 import datetime
 import time
 

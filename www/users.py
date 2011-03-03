@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Module containing code for retrieving lookup data
-        from ASM databases.
-"""
-
 import db
 import hashlib
 

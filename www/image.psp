@@ -12,15 +12,15 @@
                "media" for the image data for media record with id
 """
 
-import base64
 import db
+import dbfs
+import media
 
 def send_nopic(dbo):
     """
     Sends the nopic jpeg file
     """
-    s = db.query_string(dbo, "SELECT Content FROM dbfs WHERE Path Like '/reports' AND Name Like 'nopic.jpg'")
-    req.write(base64.b64decode(s))
+    req.write(dbfs.get_string(dbo, "/reports", "nopic.jpg"))
 
 
 # Get the database info from the session, if there isn't any,
@@ -39,26 +39,22 @@ if session.has_key("dbo"):
         id = int(form["id"])
 
     if mode == "animal":
-        # Find the media record
-        mname = db.query_string(dbo, "SELECT MediaName FROM media WHERE WebsitePhoto = 1 AND LinkID = %d AND LinkTypeID = 0" % id)
+        mname = media.get_web_preferred_name(dbo, media.LINK_ANIMAL, id)
         if mname == "":
             send_nopic()
         else:
-            s = db.query_string(dbo, "SELECT Content FROM dbfs WHERE Path Like '/animal/%d' AND Name Like '%s'" % (id, mname))
-            req.write(base64.b64decode(s))
+            req.write(dbfs.get_string(dbo, mname))
 
     elif mode == "thumb":
         # TODO:
         send_nopic(dbo)
 
     elif mode == "media":
-        # Find the media record
-        mname = db.query_string(dbo, "SELECT MediaName FROM media WHERE WebsitePhoto = 1 AND ID = %d" % id)
+        mname = media.get_name_for_id(dbo, id)
         if mname == "":
             send_nopic()
         else:
-            s = db.query_string(dbo, "SELECT Content FROM dbfs WHERE Name Like '%s'" % mname)
-            req.write(base64.b64decode(s))
+            req.write(dbfs.get_string(dbo, mname))
 
     else:
         send_nopic(dbo)

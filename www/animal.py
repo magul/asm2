@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Encapsulates functionality for the animal part of
-        the database
-"""
-
 import configuration
 import db
 import i18n

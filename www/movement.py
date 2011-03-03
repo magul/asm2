@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Encapsulates functionality for the movement part of
-        the database
-"""
-
 NO_MOVEMENT = 0
 ADOPTION = 1
 FOSTER = 2

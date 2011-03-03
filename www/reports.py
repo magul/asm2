@@ -5,16 +5,6 @@ import db
 import dbfs
 import i18n
 
-"""
-        ASM reporting module, contains all code necessary for 
-        generating reports and producing HTML output
-
-        Usage:
-        
-        reports.execute(customreportid, [params])
-
-"""
-
 HEADER = 0
 FOOTER = 1
 
@@ -62,7 +52,8 @@ def execute(dbo, customreportid, username = "system", params = None):
     Executes a custom report by its ID. 'params' is a tuple of 
     parameters. username is the name of the user running the 
     report. See the Report._SubstituteSQLParameters function for
-    more info.
+    more info. Return value is a string containing the report as an
+    HTML document.
     """
     r = Report(dbo)
     return r.Execute(customreportid, username, params)

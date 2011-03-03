@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Database access module for ASM
-        contains methods for running queries against the database
-"""
-
 import os, datetime, i18n
 
 class DatabaseInfo:

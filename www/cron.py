@@ -1,9 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Regular tasks that need to be performed on a schedule
-"""
-
 import animal
 import db
 import sys

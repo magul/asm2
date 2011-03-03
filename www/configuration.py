@@ -1,9 +1,5 @@
 #!/usr/bin/python
 
-"""
-        Encapsulates functionality for configuration part of the database
-"""
-
 import db
 import i18n
 import time
