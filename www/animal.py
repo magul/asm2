@@ -163,7 +163,7 @@ def get_latest_movement(dbo, animalid):
     reserve = db.query(dbo, "SELECT * FROM adoption WHERE " +
         "AnimalID = %d AND ReservationDate Is Not Null ORDER BY ReservationDate DESC" % animalid)
     move = db.query(dbo, "SELECT * FROM adoption WHERE " +
-        "AnimalID = %d AND MovementDate Is Not Null ORDER BY MovementDate DESC" % animalid)
+        "AnimalID = %d AND MovementDate Is Not Null AND ReturnDate Is Null ORDER BY MovementDate DESC" % animalid)
 
     # If we don't have any movements, used the latest reservation
     if len(move) == 0: 

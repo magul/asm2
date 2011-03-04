@@ -10,9 +10,9 @@ def daily(dbo):
     """
 
     # Update on shelter animal location fields
-    animal.update_all_animal_statuses(dbo)
+    animal.update_on_shelter_animal_statuses(dbo)
 
-    # Update on shelter animal variable data (age, time on shelter, etc)
+    # Update all animal variable data (age, time on shelter, etc)
     animal.update_all_variable_animal_data(dbo)
 
 
