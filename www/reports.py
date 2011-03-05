@@ -150,15 +150,17 @@ class Report:
 
     def _ReplaceFields(self, s, k, v):
         """
-        Replaces field tokens in HTML for real fields. Looks
-        for returned case, lowercase, uppercase and capitalised
-        for fields ending in Name
+        Replaces field tokens in HTML for real fields. 
         s is the html string, k is the fieldname, v is the value
         """
-        s = s.replace("$" + k, v)
-        s = s.replace("$" + k.upper(), v)
-        s = s.replace("$" + k.lower(), v)
-        s = s.replace("$" + k.lower().capitalize().replace("name", "Name"))
+        lc = s.lower()
+        tok = lc.find("$")
+        while tok != -1:
+            if lc[tok+1:tok+1+len(k)] == k.lower():
+                foundtok = s[tok+1:tok+1+len(k)]
+                s = s.replace("$" + foundtok, v)
+                lc = s.lower()
+            tok = lc.find("$", tok+1) 
         return s
         
     def _DisplayValue(self, v):
