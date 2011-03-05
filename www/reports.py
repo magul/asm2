@@ -148,6 +148,19 @@ class Report:
     def _hr(self):
         self._Append("<hr />")
 
+    def _ReplaceFields(self, s, k, v):
+        """
+        Replaces field tokens in HTML for real fields. Looks
+        for returned case, lowercase, uppercase and capitalised
+        for fields ending in Name
+        s is the html string, k is the fieldname, v is the value
+        """
+        s = s.replace("$" + k, v)
+        s = s.replace("$" + k.upper(), v)
+        s = s.replace("$" + k.lower(), v)
+        s = s.replace("$" + k.lower().capitalize().replace("name", "Name"))
+        return s
+        
     def _DisplayValue(self, v):
         """
         Returns the display version of any value
@@ -177,8 +190,7 @@ class Report:
         # Replace any fields in the block based on the last row
         # in the group
         for k, v in rs[gd.lastGroupEndPosition].iteritems():
-            out = out.replace("$" + k, self._DisplayValue(v))
-            out = out.replace("$" + k.lower(), self._DisplayValue(v))
+            out = self._ReplaceFields(out, k, self._DisplayValue(v))
 
         # Find calculation keys in our block
         startkey = out.find("{")
@@ -740,8 +752,7 @@ class Report:
             # while we substitute fields for tags
             tempbody = cbody
             for k, v in rs[row].iteritems():
-                tempbody = tempbody.replace("$" + k, self._DisplayValue(v))
-                tempbody = tempbody.replace("$" + k.lower(), self._DisplayValue(v))
+                tempbody = self._ReplaceFields(tempbody, k, self._DisplayValue(v))
 
             # Update the last value for each group
             for gd in groups:
