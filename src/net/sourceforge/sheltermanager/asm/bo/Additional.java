@@ -72,7 +72,7 @@ public class Additional {
                 try {
                     // Try an update first
                     int co = DBConnection.executeUpdate(
-                            "UPDATE additional SET Value = '" + f.value +
+                            "UPDATE additional SET Value = '" + f.value.replace('\'', '`') + 
                             "' WHERE LinkType = " + linkType +
                             " AND LinkID = " + linkID +
                             " AND AdditionalFieldID = " + f.fieldID);
@@ -82,7 +82,7 @@ public class Additional {
                         DBConnection.executeAction("INSERT INTO additional " +
                             "(LinkType, LinkID, AdditionalFieldID, Value) VALUES (" +
                             linkType + ", " + linkID + ", " + f.fieldID +
-                            ", '" + f.value + "')");
+                            ", '" + f.value.replace('\'', '`') + "')");
                     }
                 } catch (Exception e) {
                     Global.logError("Failed adding field " + f.fieldName +
