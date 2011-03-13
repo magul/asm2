@@ -521,6 +521,13 @@ public class FileTypeManager {
         try {
             // Is our file a URL? If so, open it with the system browser
             if (file.indexOf(":/") != -1) {
+
+                // If we're using Windows XP, remove the escaped spaces
+                // or it will barf when it hits IE6
+                if (file.indexOf("Documents%20and") != -1) {
+                    file = Utils.replace(file, "%20", " ");
+                }
+
                 Global.logInfo("Browsing to: " + file,
                     "FileTypeManager.shellExecuteOS");
                 UI.osBrowse(file);
