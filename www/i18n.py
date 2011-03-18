@@ -5,20 +5,17 @@ import time
 
 VERSION = "3.00"
 
-# Default locale, overridden by calls to set_locale 
-# from pages and modules
-locale = "en_GB"
-
-def _(english):
+def _(locale, english):
     """
-    Returns a translation string for an English phrase. 
-
+    Returns a translation string for an English phrase in
+    the locale given.
     """
-    global locale
-
-    # If we're dealing with UK English, then just
-    # return the English phrase
-    if locale == "en_GB":
+    # If we're dealing with English, then just
+    # return the English phrase. I hate that I'm doing
+    # this, but I'm going with the accepted standard of
+    # US English being default even though we invented
+    # the bloody language.
+    if locale == "en":
         return english
 
     # Otherwise, look up the phrase in the correct
@@ -26,46 +23,32 @@ def _(english):
     # TODO:
     return english
 
-def get_locale():
-    """
-    Returns the locale currently in use
-    """
-    global locale
-    return locale
-
-def set_locale(newlocale):
-    """
-    Sets the locale to be used for subsequent calls
-    """
-    global locale
-    locale = newlocale
-
 def get_version():
     """
     Returns the version of ASM
     """
     return VERSION
 
-def get_display_date_format():
+def get_display_date_format(locale):
     """
     Returns the display date format for the current locale
     """
     # TODO: Have a key that internationalises this
     return "%d/%m/%Y"
 
-def get_currency_symbol():
+def get_currency_symbol(locale):
     """
     Returns the currency symbol for the current locale
     """
     return u"\xc2"
 
-def python2display(d):
+def python2display(locale, d):
     """
     Formats a python date as a display string. 'd' is
     a Python date, return value is a display string.
     """
     if d == None: return ""
-    return time.strftime(get_display_date_format(), d.timetuple())
+    return time.strftime(get_display_date_format(locale), d.timetuple())
 
 def date_diff_days(date1, date2):
     """
@@ -77,7 +60,7 @@ def date_diff_days(date1, date2):
     delta = date2 - date1
     return delta.days
 
-def date_diff(date1, date2):
+def date_diff(locale, date1, date2):
     """
     Returns a string representing the difference between two
     dates. Eg: 6 weeks and 3 days.
@@ -91,14 +74,14 @@ def date_diff(date1, date2):
     
     # If it's less than 16 weeks, show as weeks
     if weeks < 16:
-        return _("{0} weeks.").format(weeks)
+        return _(locale, "{0} weeks.").format(weeks)
     else:
         # Show in years and months
         weeks = int(days / 7)
         years = int(weeks / 52)
         months = float(weeks % 52)
         months = int((months / 52.0) * 12)
-        return _("{0} years and {1} months.").format(years, months)
+        return _(locale, "{0} years and {1} months.").format(years, months)
 
 def now():
     """

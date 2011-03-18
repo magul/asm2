@@ -43,6 +43,10 @@ if database != "":
 user = users.authenticate(dbo, username, password)
 if user != None:
 
+    # Get the preferred locale for the user
+    dbo.locale = users.locale(dbo, username)
+    session["locale"] = dbo.locale 
+
     # We're good, create the session for this user
     session["dbo"] = dbo
     session["user"] = username

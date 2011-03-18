@@ -60,7 +60,7 @@ def get_time_on_shelter(dbo, animalid):
         stop = animal["ACTIVEMOVEMENTDATE"]
 
     # Format it as time period
-    return i18n.date_diff(mre, stop)
+    return i18n.date_diff(dbo.locale, mre, stop)
 
 def get_days_on_shelter(dbo, animalid):
     """
@@ -152,7 +152,7 @@ def get_age(dbo, animalid):
         stop = deceased
 
     # Format it as time period
-    return i18n.date_diff(dob, stop)
+    return i18n.date_diff(dbo.locale, dob, stop)
 
 def get_latest_movement(dbo, animalid):
     """

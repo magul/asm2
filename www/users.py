@@ -3,9 +3,25 @@
 import db
 import hashlib
 
+def locale(dbo, username = ""):
+    """
+    Returns the selected locale for a user, or for the
+    first user in the system if not specified
+    """
+    if username == "":
+        sql = "SELECT Locale FROM users LIMIT 1"
+    else:
+        sql = "SELECT Locale FROM users WHERE UPPER(UserName) LIKE UPPER('" + username + "')"
+    try:
+        return db.query_string(dbo, sql)
+    except:
+        # Locale column doesn't exist in the table, default
+        # to English instead
+        return "en"
+
 def authenticate(dbo, username, password):
     """
-    Authenticates whether a username and password or valid.
+    Authenticates whether a username and password are valid.
     Returns None if authentication failed, or a user row
     """
     username = db.escape(username)

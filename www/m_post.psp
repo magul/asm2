@@ -8,6 +8,7 @@ if not session.has_key("user"):
 
 dbo = session["dbo"]
 username = session["user"]
+l = session["locale"]
 
 tid = 0
 animalid = 0
@@ -34,8 +35,8 @@ if posttype == "vacc":
         <p>%s</p>
         <a class=\"whiteButton\" href=\"m_index.psp#vacc\">%s</a>
         </div>""" % (
-        _("Vaccination marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
-        _("More Vaccinations")
+        _(l, "Vaccination marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
+        _(l, "More Vaccinations")
         ))
 
 if posttype == "med":
@@ -49,8 +50,8 @@ if posttype == "med":
         <p>%s</p>
         <a class=\"whiteButton\" href=\"m_index.psp#med\">%s</a>
         </div>""" % (
-        _("Treatment marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
-        _("More Medications")
+        _(l, "Treatment marked as given for {0} - {1}").format(a["ANIMALNAME"], a["SHELTERCODE"]),
+        _(l, "More Medications")
         ))
 
 %>

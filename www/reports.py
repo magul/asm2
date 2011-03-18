@@ -169,7 +169,7 @@ class Report:
         """
         if v == None: return ""
         if (str(v)).find("00.00") != -1:
-            return i18n.python2display(v)
+            return i18n.python2display(self.dbo.locale, v)
         return str(v)
 
     def _OutputGroupBlock(self, gd, headfoot, rs):
@@ -371,7 +371,7 @@ class Report:
         header/footer.
         """
         s = s.replace("$$TITLE$$", self.title)
-        s = s.replace("$$DATE$$", i18n.python2display(db.today()))
+        s = s.replace("$$DATE$$", i18n.python2display(self.dbo.locale, db.today()))
         s = s.replace("$$VERSION$$", i18n.get_version())
         s = s.replace("$$USER$$", self.user)
         s = s.replace("$$REGISTEREDTO$$", configuration.organisation(self.dbo))

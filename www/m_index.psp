@@ -6,6 +6,7 @@ if session.is_new():
 if not session.has_key("user"):
     psp.redirect("m_login.psp")
 dbo = session["dbo"]
+l = session["locale"]
 
 import animal
 import medical
@@ -24,7 +25,7 @@ med = medical.get_treatments_outstanding(dbo)
 <head>
 <title>
 <%
-req.write(_("Animal Shelter Manager"))
+req.write(_(l, "Animal Shelter Manager"))
 %>
 </title>
 <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
@@ -42,28 +43,28 @@ req.write(_("Animal Shelter Manager"))
 <%
 
 # MAIN MENU =====================================================
-req.write("<ul id='home' title='%s' selected='true'>" % _("ASM"))
+req.write("<ul id='home' title='%s' selected='true'>" % _(l, "ASM"))
 
 if len(ar) > 0:
-    req.write("<li><a href='#reports'>%s</a></li>" % _("Generate Report"))
+    req.write("<li><a href='#reports'>%s</a></li>" % _(l, "Generate Report"))
     
-req.write("<li class='group'>%s</li>" % _("Animal"))
+req.write("<li class='group'>%s</li>" % _(l, "Animal"))
 
 if len(vacc) > 0:
-    req.write("<li><a href='#vacc'>%s</a></li>" % _("Vaccinate Animal"))
+    req.write("<li><a href='#vacc'>%s</a></li>" % _(l, "Vaccinate Animal"))
 
 if len(med) > 0:
-    req.write("<li><a href='#med'>%s</a></li>" % _("Medicate Animal"))
+    req.write("<li><a href='#med'>%s</a></li>" % _(l, "Medicate Animal"))
 
-#req.write("<li><a href='#log'>%s</a></li>" % _("Add Log to Animal"))
-req.write("<li class='group'>%s</li>" % _("Diary"))
-#req.write("<li><a href='#diary'>%s</a></li>" % _("Complete Tasks"))
+#req.write("<li><a href='#log'>%s</a></li>" % _(l, "Add Log to Animal"))
+req.write("<li class='group'>%s</li>" % _(l, "Diary"))
+#req.write("<li><a href='#diary'>%s</a></li>" % _(l, "Complete Tasks"))
 
 req.write("</ul>")
 
 
 # REPORTS ======================================================
-req.write("<ul id='reports' title='%s'>" % _("Reports"))
+req.write("<ul id='reports' title='%s'>" % _(l, "Reports"))
 group = ""
 for r in ar:
     if group != r[0]:
@@ -77,12 +78,12 @@ req.write("</ul>")
 
 
 # VACCINATIONS =================================================
-req.write("<ul id='vacc' title='%s'>" % _("Vaccinate"))
+req.write("<ul id='vacc' title='%s'>" % _(l, "Vaccinate"))
 group = ""
 vaccforms = ""
 for v in vacc:
 
-    required = i18n.python2display(v["DATEREQUIRED"])
+    required = i18n.python2display(l, v["DATEREQUIRED"])
 
     if group != required:
         group = required
@@ -95,14 +96,14 @@ for v in vacc:
     # Create the dialog page
     vaccforms += "<div id=\"v%s\" title=\"%s\" class=\"panel\">" % ( str(v["VACCID"]), v["VACCINATIONTYPE"] )
     vaccforms += "<fieldset>"
-    vaccforms += "<div class=\"row\"><label>Animal:</label>"
+    vaccforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Animal")
     vaccforms += "<p>%s %s<p></div>" % ( v["SHELTERCODE"], v["ANIMALNAME"] )
-    vaccforms += "<div class=\"row\"><label>Vaccination:</label>"
+    vaccforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Vaccination")
     vaccforms += "<p>%s %s</p></div>" % ( required, v["VACCINATIONTYPE"] )
-    vaccforms += "<div class=\"row\"><label>Comments:</label>"
+    vaccforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Comments")
     vaccforms += "<p>%s</p></div>" % v["COMMENTS"]
     vaccforms += "<div class=\"row\"><a class=\"whiteButton\" " 
-    vaccforms += "href=\"m_post.psp?type=vacc&id=%s&animalid=%s\">Vaccinate</a></div>" % (str(v["VACCID"]), str(v["ANIMALID"]))
+    vaccforms += "href=\"m_post.psp?type=vacc&id=%s&animalid=%s\">%s</a></div>" % (str(v["VACCID"]), str(v["ANIMALID"]), _(l, "Vaccinate"))
     vaccforms += "</fieldset></div>"
 
 req.write("</ul>")
@@ -114,12 +115,12 @@ if len(vacc) > 0:
 
 
 # MEDICATIONS ==========================================
-req.write("<ul id='med' title='%s'>" % _("Medicate"))
+req.write("<ul id='med' title='%s'>" % _(l, "Medicate"))
 group = ""
 medforms = ""
 for m in med:
 
-    required = i18n.python2display(m["DATEREQUIRED"])
+    required = i18n.python2display(l, m["DATEREQUIRED"])
 
     if group != required:
         group = required
@@ -132,15 +133,15 @@ for m in med:
     # Create the dialog page
     medforms += "<div id=\"m%s\" title=\"%s\" class=\"panel\">" % ( str(m["AMTID"]), m["TREATMENTNAME"] )
     medforms += "<fieldset>"
-    medforms += "<div class=\"row\"><label>Animal:</label>"
+    medforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Animal")
     medforms += "<p>%s %s<p></div>" % ( m["SHELTERCODE"], m["ANIMALNAME"] )
-    medforms += "<div class=\"row\"><label>Treatment:</label>"
+    medforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Treatment")
     medforms += "<p>%s %s<br />%s</p></div>" % ( required, m["TREATMENTNAME"], m["DOSAGE"] )
-    medforms += "<div class=\"row\"><label>Comments:</label>"
+    medforms += "<div class=\"row\"><label>%s:</label>" % _(l, "Comments")
     medforms += "<p>%s</p></div>" % m["AMCOMMENTS"]
     medforms += "<div class=\"row\"><a class=\"whiteButton\" " 
-    medforms += "href=\"m_post.psp?type=med&id=%s&animalid=%s&medicalid=%s\">Medicate</a></div>" % (
-        str(m["AMTID"]), str(m["ANIMALID"]), str(m["AMID"]))
+    medforms += "href=\"m_post.psp?type=med&id=%s&animalid=%s&medicalid=%s\">%s</a></div>" % (
+        str(m["AMTID"]), str(m["ANIMALID"]), str(m["AMID"]), _(l, "Medicate"))
     medforms += "</fieldset></div>"
 
 req.write("</ul>")

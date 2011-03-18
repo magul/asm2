@@ -3,6 +3,7 @@
 import animal
 import db
 import sys
+import users
 
 def daily(dbo):
     """
@@ -34,6 +35,8 @@ if __name__ == "__main__":
         dbo.password = sys.argv[5]
         dbo.database = sys.argv[6]
         dbo.sqlite_file = sys.argv[7]
-
+    
+    # Get the locale from the first user in the system
+    dbo.locale = users.locale(dbo)
     daily(dbo)
 

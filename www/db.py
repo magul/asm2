@@ -13,6 +13,7 @@ class DatabaseInfo:
     password = "root"
     database = "asm"
     sqlite_file = ""
+    locale = "en"
 
 def is_smcom():
     """
