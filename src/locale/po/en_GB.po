@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2011-02-08 11:50+0000\n"
+"PO-Revision-Date: 2011-03-22 09:03+0000\n"
 "Last-Translator: Robin Rawson-Tetley <robin@rawsontetley.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -4152,13 +4152,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "HTTPDB Bridge"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr "Recalculating medical totals..."
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -9670,6 +9676,11 @@ msgstr "Generate thumbnail images"
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
 msgstr "No matching animals were found to publish."
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
+msgstr "Alphabetical"
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main

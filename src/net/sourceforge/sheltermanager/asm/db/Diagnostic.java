@@ -64,9 +64,12 @@ public class Diagnostic extends Thread {
             int omed = orphanedMedicals();
             int onm = returnedNonMovements();
             int icode = invalidCodesThisYear();
+            int rmt = recalculateMedicalTotals();
 
             if ((orepair == 0) && (omove == 0) && (omedia == 0) &&
-                    (ovacc == 0) && (icode == 0) && (omed == 0)) {
+                    (ovacc == 0) && (icode == 0) && (omed == 0) &&
+                    (onm == 0) && (mdate == 0) && (icode == 0) &&
+                    (rmt == 0) ) {
                 Dialog.showInformation(Global.i18n("db",
                         "No_errors_were_found_during_diagnostics."),
                     Global.i18n("db", "Scan_complete"));
@@ -75,7 +78,8 @@ public class Diagnostic extends Thread {
                         Integer.toString(orepair), Integer.toString(omove),
                         Integer.toString(omedia), Integer.toString(ovacc),
                         Integer.toString(omed), Integer.toString(onm),
-                        Integer.toString(mdate), Integer.toString(icode)),
+                        Integer.toString(mdate), Integer.toString(icode),
+                        Integer.toString(rmt)),
                     Global.i18n("db", "Errors_Found_and_Repaired"));
             }
         } catch (Exception e) {
@@ -408,6 +412,29 @@ public class Diagnostic extends Thread {
         setStatusText("");
 
         return badFound;
+    }
+    
+    public int recalculateMedicalTotals() throws CursorEngineException, Exception {
+    	
+    	setStatusText(Global.i18n("db", 
+    		"Recalculating_medical_totals"));
+    	
+    	AnimalMedical am = new AnimalMedical();
+        am.openRecordset("Status = " +
+            Integer.toString(AnimalMedical.STATUS_ACTIVE));
+        
+        setStatusBarMax((int) am.getRecordCount());
+        
+        while (!am.getEOF()) {
+            am.updateTreatmentTotals();
+            am.moveNext();
+            incrementStatusBar();
+        }
+        
+        resetStatusBar();
+        setStatusText("");
+        return (int) am.getRecordCount();
+    	
     }
 
     /**

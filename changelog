@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. Wordwrap should be disabled in dialogs if a linebreak is present
+*. Added recalculation of medical totals to diagnostic
 *. Fixed problem with incorrect medical count tallies (breaks
 -  some reports and wordkeys)
 *. Fixed bug with escaped URLs on XP/IE6 when viewing reports
