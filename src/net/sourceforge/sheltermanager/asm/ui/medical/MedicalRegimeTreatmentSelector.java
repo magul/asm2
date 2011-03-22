@@ -186,7 +186,7 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
             int lastRow = mparent.regimeview.getTable().getSelectedRow();
 
             AnimalMedicalTreatment amt = new AnimalMedicalTreatment();
-            amt.openRecordset("AnimalMedicalID = " + id);
+            amt.openRecordset("AnimalMedicalID = " + medicalID);
 
             while (!amt.getEOF()) {
                 if (amt.getDateGiven() == null) {
@@ -203,19 +203,22 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
 
             // Generate any new treatments required
             AnimalMedical am = new AnimalMedical();
-            am.openRecordset("ID = " + id);
-            am.generateTreatments();
-
-            // If our regime is complete as a result,
-            // we need to update the whole list
-            if (am.getStatus().intValue() == AnimalMedical.STATUS_COMPLETED) {
-                mparent.regimeview.updateList();
-                // Return the medical entry back to the last selected one
-                mparent.regimeview.getTable()
-                                  .changeSelection(lastRow, 0, false, false);
-                mparent.regimeview.updateList();
-            } else {
-                updateList();
+            am.openRecordset("ID = " + medicalID);
+            
+            if (!am.getEOF()) {
+	            am.generateTreatments();
+	
+	            // If our regime is complete as a result,
+	            // we need to update the whole list
+	            if (am.getStatus().intValue() == AnimalMedical.STATUS_COMPLETED) {
+	                mparent.regimeview.updateList();
+	                // Return the medical entry back to the last selected one
+	                mparent.regimeview.getTable()
+	                                  .changeSelection(lastRow, 0, false, false);
+	                mparent.regimeview.updateList();
+	            } else {
+	                updateList();
+	            }
             }
 
             am.free();
@@ -266,14 +269,16 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
             // Generate any new treatments required
             AnimalMedical am = new AnimalMedical();
             am.openRecordset("ID = " + medicalID);
-            am.generateTreatments();
-
-            mparent.regimeview.updateList();
-
-            // Return the medical entry back to the last selected one
-            mparent.regimeview.getTable()
-                              .changeSelection(lastRow, 0, false, false);
-            updateList();
+            if (!am.getEOF()) {
+	            am.generateTreatments();
+	
+	            mparent.regimeview.updateList();
+	
+	            // Return the medical entry back to the last selected one
+	            mparent.regimeview.getTable()
+	                              .changeSelection(lastRow, 0, false, false);
+	            updateList();
+            }
 
             am.free();
             am = null;
@@ -295,6 +300,13 @@ public class MedicalRegimeTreatmentSelector extends ASMSelector {
                 String sql = "DELETE FROM animalmedicaltreatment WHERE ID = " +
                     tid;
                 DBConnection.executeAction(sql);
+                
+                // Recalculate number of treatments given
+                AnimalMedical am = new AnimalMedical();
+                am.openRecordset("ID = " + medicalID);
+                if (!am.getEOF()) {
+    	            am.updateTreatmentTotals();
+                }
 
                 if (AuditTrail.enabled()) {
                     AuditTrail.deleted("animalmedicaltreatment",

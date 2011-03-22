@@ -360,7 +360,7 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
         // If there aren't any treatment records, create
         // one now.
         AnimalMedicalTreatment amt = new AnimalMedicalTreatment();
-        amt.openRecordset("AnimalMedicalID = " + getID());
+        amt.openRecordset("AnimalMedicalID = " + getID() + " ORDER BY ID");
 
         if (amt.getEOF()) {
             Global.logDebug("No treatment records, creating",
@@ -384,24 +384,39 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
             generateTreatment(amt.getDateGiven(), false);
         }
 
-        // Add up the tallies now where appropriate
+        // Update aggregate totals for treatments given/remaining
+        updateTreatmentTotals();
 
         // If set to unspecified, then don't bother as it will
         // never finish
         if (getTreatmentRule().intValue() == 1) {
             return;
         }
+    }
+    
+    /**
+     * Updates the treatments given and remaining totals.
+     */
+    public void updateTreatmentTotals() {
+    	
+    	try {
+	        int given = DBConnection.executeForCount(
+	        	"SELECT COUNT(*) FROM animalmedicaltreatment WHERE AnimalMedicalID = " +
+	        	Integer.toString(this.getID()) + " AND DateGiven Is Not Null");
+	        int remaining = getTotalNumberOfTreatments().intValue() - given;
+        	
+        	setTreatmentsGiven(new Integer(given));
+        	setTreatmentsRemaining(new Integer(remaining));
 
-        // Add up the tallies
-        setTreatmentsGiven(new Integer(getTreatmentsGiven().intValue() + 1));
-        setTreatmentsRemaining(new Integer(getTreatmentsRemaining().intValue() -
-                1));
-
-        // We need to save the record to keep the tallies
-        String sql = "UPDATE animalmedical SET TreatmentsGiven = " +
-            getTreatmentsGiven() + ", TreatmentsRemaining = " +
-            getTreatmentsRemaining() + " WHERE ID = " + getID();
-        DBConnection.executeAction(sql);
+	        String sql = "UPDATE animalmedical SET TreatmentsGiven = " +
+	            getTreatmentsGiven() + ", TreatmentsRemaining = " +
+	            getTreatmentsRemaining() + " WHERE ID = " + getID();
+	        DBConnection.executeAction(sql);
+	        
+    	}
+    	catch (Exception e) {
+    		Global.logException(e, getClass());
+    	}
     }
 
     /**

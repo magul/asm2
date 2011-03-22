@@ -62,6 +62,15 @@ def update_vaccination_today(dbo, username, vaccid):
         None )
         ))
 
+def calculate_given_remaining(dbo, amid):
+    """
+    Calculates the number of treatments given and remaining
+    """
+    given = db.query_int(dbo, "SELECT COUNT(*) FROM animalmedicaltreatment " +
+        "WHERE AnimalMedicalID = %d AND DateGiven Is Not Null" % amid)
+    db.execute(dbo, "UPDATE animalmedical SET " +
+        "TreatmentsGiven = %d, TreatmentsRemaining = (TotalNumberOfTreatments - %d) WHERE ID = %d" % (given, given, amid))
+
 def update_medical_treatments(dbo, username, amid):
     """
     Called on creation of an animalmedical record and after the saving
@@ -161,6 +170,17 @@ def insert_treatments(dbo, username, amid, requireddate, isstart = True):
         ))
         db.execute(dbo, sql)
 
+    # Update the number of treatments given and remaining
+    calculate_given_remaining(dbo, amid)
+
+def delete_treatment(dbo, username, amtid, amid):
+    """
+    Deletes a treatment record
+    """
+    db.execute(dbo, "DELETE FROM animalmedicaltreatment WHERE ID = %d" % amtid)
+    calculate_given_remaining(dbo, amid)
+    update_medical_treatments(dbo, username, amid)
+
 def update_treatment_today(dbo, username, amtid, amid):
     """
     Marks a treatment record as given today. 
@@ -171,12 +191,10 @@ def update_treatment_today(dbo, username, amtid, amid):
         )))
 
     # Update number of treatments given and remaining
-    db.execute(dbo, "UPDATE animalmedical SET " +
-        "TreatmentsGiven = TreatmentsGiven + 1, " +
-        "TreatmentsRemaining = TreatmentsRemaining - 1 " +
-        "WHERE ID = %d" % amid)
+    calculate_given_remaining(dbo, amid)
 
     # Generate next treatments in sequence or complete the
     # medical record appropriately
     update_medical_treatments(dbo, username, amid)
+
 
