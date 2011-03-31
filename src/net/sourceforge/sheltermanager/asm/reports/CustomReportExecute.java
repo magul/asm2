@@ -916,15 +916,17 @@ public class CustomReportExecute extends Report {
 
                             // If we got a blank, return a link to nopic.jpg instead
                             if (mediaName.equals("")) {
-                                mediaName = "nopic.jpg";
+                                value = "nopic.jpg";
                             }
+                            else {
 
-                            DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
-                                    Integer.parseInt(animalid));
-                            dbfs.readFile(mediaName,
-                                net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
-                                File.separator + mediaName);
-                            value = mediaName;
+                                DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
+                                        Integer.parseInt(animalid));
+                                dbfs.readFile(mediaName,
+                                    net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
+                                    File.separator + mediaName);
+                                value = mediaName;
+                            }
                         } catch (Exception e) {
                             value = "[" + e.getMessage() + "]";
                             Global.logException(e, getClass());
@@ -1414,15 +1416,17 @@ public class CustomReportExecute extends Report {
 
                         // If we got a blank, return a link to nopic.jpg instead
                         if (mediaName.equals("")) {
-                            mediaName = "nopic.jpg";
-                        }
+                            value = "nopic.jpg";
+                        } 
+                        else {
 
-                        DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
-                                Integer.parseInt(animalid));
-                        dbfs.readFile(mediaName,
-                            net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
-                            File.separator + mediaName);
-                        value = mediaName;
+                            DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
+                                    Integer.parseInt(animalid));
+                            dbfs.readFile(mediaName,
+                                net.sourceforge.sheltermanager.asm.globals.Global.tempDirectory +
+                                File.separator + mediaName);
+                            value = mediaName;
+                        }
                     } catch (Exception e) {
                         value = "[" + e.getMessage() + "]";
                         Global.logException(e, getClass());
