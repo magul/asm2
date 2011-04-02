@@ -17,7 +17,7 @@ SELECT * FROM (
 
 SELECT council.OwnerName AS coun,
 CAST('Intake' AS varchar) AS heading,
-CAST('Cats' AS varchar AS species,
+CAST('Cats' AS varchar) AS species,
 1 AS theorder,
 COUNT(DISTINCT animal.id) AS val
 FROM animal
@@ -27,9 +27,9 @@ AND DateBroughtIn >= '$@from$' AND DateBroughtIn <= '$@to$'
 AND UPPER(council.ownername) LIKE '%$@patt$%'
 GROUP BY coun
 
-SELECT council.OwnerName AS coun,
+UNION SELECT council.OwnerName AS coun,
 CAST('Intake' AS varchar) AS heading,
-CAST('Dogs' AS varchar AS species,
+CAST('Dogs' AS varchar) AS species,
 1 AS theorder,
 COUNT(DISTINCT animal.id) AS val
 FROM animal
