@@ -229,13 +229,15 @@ public class FTPPublisher extends AbstractPublisher {
                 checkFTPSocket();
             }
 
-            // If our file is our designated extension, or 
-            // JavaScript, then just upload it over the top
+            // If the file is our designated extension, or 
+            // JavaScript, or a CSV file, or it has no extension, 
+            // then just upload it over the top
             try {
                 if ((filename.indexOf("." + publishCriteria.extension) != -1) ||
-                        (filename.indexOf(".js") != -1)) {
+                    (filename.indexOf(".js") != -1) ||
+                    (filename.indexOf(".") != -1) ||
+                    (filename.indexOf(".csv") != -1)) {
                     uploadFTP.put(publishDir + filename, filename);
-
                     return;
                 }
             } catch (Exception e) {
