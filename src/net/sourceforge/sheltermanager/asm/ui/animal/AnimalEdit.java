@@ -513,6 +513,13 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         chkDiedOffShelter.setEnabled(b);
         cboPTSReason.setEnabled(b);
         txtPTSReason.setEnabled(b);
+        // If this is a non-shelter animal, then it MUST
+        // die off the shelter - the flag should be set
+        // and disabled
+        if (chkNonShelter.isSelected()) {
+            chkDiedOffShelter.setSelected(true);
+            chkDiedOffShelter.setEnabled(false);
+        }
         dataChanged();
     }
 
@@ -1398,16 +1405,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             cboType.setEnabled(true);
         }
 
-        // Before we change any death fields, remember
-        // what the deceased date was
-        Date dd = null;
-
-        try {
-            dd = txtDateDeceased.getDate();
-        } catch (Exception e) {
-            Global.logException(e, getClass());
-        }
-
         // If this is a non-shelter animal, then it MUST
         // die off the shelter - the flag should be set
         // and disabled
@@ -1417,10 +1414,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         } else {
             chkDiedOffShelter.setEnabled(true);
         }
-
-        // Modifying died off shelter causes an event to fire
-        // that sets the deceased date - set it back again
-        txtDateDeceased.setDate(dd);
 
         setSecurity();
     }
@@ -2074,21 +2067,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     /**
-     * Checks if the DOA, DOS or PTS boxes have been ticked, but the date
-     * deceased is blank. If so, it fills in todays date.
-     */
-    public void fillDateDeceased() {
-        if ((chkPTS.isSelected() || chkDOA.isSelected() ||
-                chkDiedOffShelter.isSelected()) &&
-                txtDateDeceased.getText().equals("")) {
-            try {
-                txtDateDeceased.setText(Utils.formatDate(Calendar.getInstance()));
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    /**
      * This Routine is called whenever something attempts to close the form to
      * verify if it should be allowed to close, and whether or not to show any
      * warning messages for unsaved changes etc.
@@ -2652,18 +2630,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         chkDOA = (UI.CheckBox) UI.addComponent(pnlPTS,
                 UI.getCheckBox(i18n("Dead_On_Arrival:"),
                     i18n("Tick_this_box_if_the_animal_was_dead_on_entry_to_the_shelter"),
-                    UI.fp(this, "deathChanged")));
+                    UI.fp(this, "dataChanged")));
         pnlPTS.add(UI.getLabel());
 
         chkPTS = (UI.CheckBox) UI.addComponent(pnlPTS,
                 UI.getCheckBox(i18n("Put_To_Sleep:"),
                     i18n("Tick_this_box_if_the_animal_was_put_to_sleep"),
-                    UI.fp(this, "deathChanged")));
+                    UI.fp(this, "dataChanged")));
 
         chkDiedOffShelter = (UI.CheckBox) UI.addComponent(pnlPTS,
                 UI.getCheckBox(i18n("Died_Off_Shelter:"),
                     i18n("Tick_this_box_if_the_animal_died_off_the_shelter_(keep_out_of_figures)"),
-                    UI.fp(this, "diedOffShelterChanged")));
+                    UI.fp(this, "dataChanged")));
 
         cboPTSReason = (UI.ComboBox) UI.addComponent(pnlPTS,
                 i18n("Death_Category"),
@@ -2839,7 +2817,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
     public void diedOffShelterChanged() {
         dataChanged();
-        fillDateDeceased();
     }
 
     public void genCode() {
@@ -3085,11 +3062,6 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     public void typeChanged() {
         checkType();
         dataChanged();
-    }
-
-    public void deathChanged() {
-        dataChanged();
-        fillDateDeceased();
     }
 
     public void actionRandomName() {

@@ -1,6 +1,9 @@
 2.8.6
 ================
 
+*. Fixed bug where making an animal non-shelter would tick died off
+-  shelter, which would then fill in a deceased date next time
+-  you opened that animal
 *. FTP Publisher wouldn't upload csv files over the top of old ones
 -  (stopped animals updating with adoptapet.com)
 *. {IMAGE} with no image was not linking to nopic.jpg correctly
