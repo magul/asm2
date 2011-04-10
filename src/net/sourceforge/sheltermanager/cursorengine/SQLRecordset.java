@@ -826,6 +826,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         // Loop through our available rows and find the ones that
         // need saving, updating or deleting:
         l = 1;
+        ArrayList<String> batch = new ArrayList<String>();
 
         while (l <= mNoRows) {
             SQLRowData rd = (SQLRowData) mtheRows.get(l);
@@ -839,17 +840,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
                 SQLFieldDescriptor fd = (SQLFieldDescriptor) mtheFields.get(0);
                 S.append("DELETE FROM " + mTableName + " WHERE " + fd.name +
                     " = " + rd.theRowData[0]);
-
-                try {
-                    DBConnection.executeAction(c, S.toString());
-                } catch (Exception e) {
-                    if (breakOnException) {
-                        System.out.println(S.toString());
-                        throw e;
-                    } else {
-                        e.printStackTrace();
-                    }
-                }
+                batch.add(S.toString());
             }
 
             if (rd.needsSaving) {
@@ -890,16 +881,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
                     S.append(")");
 
                     // Execute our insert
-                    try {
-                        DBConnection.executeAction(c, S.toString());
-                    } catch (Exception e) {
-                        if (breakOnException) {
-                            System.out.println(S.toString());
-                            throw e;
-                        } else {
-                            e.printStackTrace();
-                        }
-                    }
+                    batch.add(S.toString());
 
                     // Record is no longer new
                     rd.isNew = false;
@@ -931,16 +913,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
                     S.append(" WHERE " + fd.name + "=" + rd.theRowData[1]);
 
                     // Execute it
-                    try {
-                        DBConnection.executeAction(c, S.toString());
-                    } catch (Exception e) {
-                        if (breakOnException) {
-                            System.out.println(S.toString());
-                            throw e;
-                        } else {
-                            e.printStackTrace();
-                        }
-                    }
+                    batch.add(S.toString());
 
                     // Doesn't need saving any more
                     rd.needsSaving = false;
@@ -949,6 +922,14 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
             l++;
         }
+
+        // Run all save updates as a batch
+        try {
+            DBConnection.executeAction(c, batch);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

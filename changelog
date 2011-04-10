@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. Use batch mode for saves - massively improves performance when
+-  copying databases remotely
 *. Fixed bug where making an animal non-shelter would tick died off
 -  shelter, which would then fill in a deceased date next time
 -  you opened that animal
