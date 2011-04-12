@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. HTML publisher will publish a blank page if there are no matching
+-  animals (useful for shelters that occasionally have no adoptables)
 *. Added $$TIME$$ and $$DATETIME$$ keys for report and internet
 -  templates to show the current time and date and time
 *. Use batch mode for saves - massively improves performance when
