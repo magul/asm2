@@ -464,12 +464,15 @@ public abstract class Report extends Thread {
     protected String substituteKeys(String searchin) {
         // Make output string
         String output = new String(searchin);
-        String todaysdate = Utils.getReadableTodaysDate();
 
         // $$TITLE$$ tag //
         output = Utils.replace(output, "$$TITLE$$", getTitle());
         // $$DATE$$ tag //
-        output = Utils.replace(output, "$$DATE$$", todaysdate);
+        output = Utils.replace(output, "$$DATE$$", Utils.formatDateLong(new Date()));
+        // $$TIME$$ tag //
+        output = Utils.replace(output, "$$TIME$$", Utils.formatTime(new Date()));
+        // $$DATETIME$$ tag //
+        output = Utils.replace(output, "$$DATETIME$$", Utils.formatDateTimeLong(new Date()));
         // $$VERSION$$ tag //
         output = Utils.replace(output, "$$VERSION$$",
                 net.sourceforge.sheltermanager.asm.globals.Global.productVersion);

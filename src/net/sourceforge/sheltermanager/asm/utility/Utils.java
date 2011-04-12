@@ -133,7 +133,7 @@ public abstract class Utils {
      * @return A string representing today in the format dddd, dxx mmmm yyyy
      */
     public static String getReadableTodaysDate() {
-        return formatDateLong(new Date());
+        return formatDateTimeLong(new Date());
     }
 
     /**

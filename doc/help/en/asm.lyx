@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 64 (ASM 2.8.5)
+Revision 65 (ASM 2.8.6)
 \end_layout
 
 \begin_layout Chapter*
@@ -7566,7 +7566,15 @@ $$USER$$ - Substitutes the current system user, including their real name
 \end_layout
 
 \begin_layout Itemize
-$$DATE$$ - The current date and time
+$$DATE$$ - The current date
+\end_layout
+
+\begin_layout Itemize
+$$TIME$$ - The current time
+\end_layout
+
+\begin_layout Itemize
+$$DATETIME$$ - The current date and time
 \end_layout
 
 \begin_layout Itemize

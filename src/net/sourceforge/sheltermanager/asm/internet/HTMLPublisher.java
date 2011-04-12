@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
+import java.util.Date;
 
 
 /**
@@ -437,7 +438,6 @@ public class HTMLPublisher extends FTPPublisher {
     private String substituteHFTag(String searchin, int page) {
         // Make output string
         String output = new String(searchin);
-        String todaysdate = Utils.getReadableTodaysDate();
 
         // $$NAV$$ tag
         String navThisPage = Utils.replace(navBar,
@@ -450,7 +450,11 @@ public class HTMLPublisher extends FTPPublisher {
                 Integer.toString(totalAnimals));
 
         // $$DATE$$ tag //
-        output = Utils.replace(output, "$$DATE$$", todaysdate);
+        output = Utils.replace(output, "$$DATE$$", Utils.formatDateLong(new Date()));
+        // $$DATETIME$$ tag //
+        output = Utils.replace(output, "$$DATETIME$$", Utils.formatDateTimeLong(new Date()));
+        // $$TIME$$ tag //
+        output = Utils.replace(output, "$$TIME$$", Utils.formatTime(new Date()));
         // $$VERSION$$ tag //
         output = Utils.replace(output, "$$VERSION$$", Global.productVersion);
 

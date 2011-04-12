@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. Added $$TIME$$ and $$DATETIME$$ keys for report and internet
+-  templates to show the current time and date and time
 *. Use batch mode for saves - massively improves performance when
 -  copying databases remotely
 *. Fixed bug where making an animal non-shelter would tick died off
