@@ -235,7 +235,7 @@ public class FTPPublisher extends AbstractPublisher {
             try {
                 if ((filename.indexOf("." + publishCriteria.extension) != -1) ||
                     (filename.indexOf(".js") != -1) ||
-                    (filename.indexOf(".") != -1) ||
+                    (filename.indexOf(".") == -1) ||
                     (filename.indexOf(".csv") != -1)) {
                     uploadFTP.put(publishDir + filename, filename);
                     return;
