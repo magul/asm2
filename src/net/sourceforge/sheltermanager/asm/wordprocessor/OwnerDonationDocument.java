@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.wordprocessor;
 
+import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
@@ -32,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.util.Date;
+import java.util.Iterator;
 
 
 /**
@@ -42,7 +44,8 @@ import java.util.Date;
  * @version 1.0
  */
 public class OwnerDonationDocument extends GenerateDocument {
-    /** The owner object */
+    
+    Animal animal = null;
     Owner owner = null;
     OwnerDonation od = null;
 
@@ -58,10 +61,10 @@ public class OwnerDonationDocument extends GenerateDocument {
     public OwnerDonationDocument(OwnerDonation od, MediaSelector uiparent) {
         try {
             this.uiparent = uiparent;
-            owner = new Owner();
-            owner.openRecordset("ID = " + od.getOwnerID());
             this.od = od;
-
+            owner = od.getOwner();
+            int animalid = od.getAnimalID().intValue();
+            if (animalid > 0) animal = new Animal("ID = " + animalid);
             generateDocument();
         } catch (Exception e) {
             Global.logException(e, this.getClass());
@@ -73,51 +76,6 @@ public class OwnerDonationDocument extends GenerateDocument {
      */
     public void generateSearchTags() {
         try {
-            addTag(Global.i18n("wordprocessor", "OwnerComments"),
-                Utils.nullToEmptyString(owner.getComments()));
-            addTag(Global.i18n("wordprocessor", "OwnerCreatedBy"),
-                owner.getCreatedBy());
-            addTag(Global.i18n("wordprocessor", "OwnerCreatedByName"),
-                LookupCache.getRealName(owner.getCreatedBy()));
-            addTag(Global.i18n("wordprocessor", "OwnerCreatedDate"),
-                Utils.formatDate(owner.getCreatedDate()));
-            addTag(Global.i18n("wordprocessor", "HomeTelephone"),
-                Utils.nullToEmptyString(owner.getHomeTelephone()));
-            addTag(Global.i18n("wordprocessor", "OwnerID"),
-                owner.getID().toString());
-            addTag(Global.i18n("wordprocessor", "IDCheck"),
-                (owner.getIDCheck().intValue() == 1)
-                ? Global.i18n("uiwordprocessor", "Yes")
-                : Global.i18n("uiwordprocessor", "No"));
-            addTag(Global.i18n("wordprocessor", "OwnerLastChangedDate"),
-                Utils.formatDate(owner.getLastChangedDate()));
-            addTag(Global.i18n("wordprocessor", "OwnerLastChangedBy"),
-                owner.getLastChangedBy());
-            addTag(Global.i18n("wordprocessor", "OwnerLastChangedByName"),
-                LookupCache.getRealName(owner.getLastChangedBy()));
-            addTag(Global.i18n("wordprocessor", "OwnerAddress"),
-                Utils.formatAddress(owner.getOwnerAddress()));
-            addTag(Global.i18n("wordprocessor", "OwnerTown"),
-                Utils.nullToEmptyString(owner.getOwnerTown()));
-            addTag(Global.i18n("wordprocessor", "OwnerCounty"),
-                Utils.nullToEmptyString(owner.getOwnerCounty()));
-            addTag(Global.i18n("wordprocessor", "OwnerName"),
-                owner.getOwnerName());
-            addTag(Global.i18n("wordprocessor", "OwnerPostcode"),
-                Utils.nullToEmptyString(owner.getOwnerPostcode()));
-            addTag(Global.i18n("wordprocessor", "WorkTelephone"),
-                Utils.nullToEmptyString(owner.getWorkTelephone()));
-            addTag(Global.i18n("wordprocessor", "MobileTelephone"),
-                Utils.nullToEmptyString(owner.getMobileTelephone()));
-
-            addTag(Global.i18n("wordprocessor", "OwnerTitle"),
-                owner.getOwnerTitle());
-            addTag(Global.i18n("wordprocessor", "OwnerInitials"),
-                owner.getOwnerInitials());
-            addTag(Global.i18n("wordprocessor", "OwnerForenames"),
-                owner.getOwnerForenames());
-            addTag(Global.i18n("wordprocessor", "OwnerSurname"),
-                owner.getOwnerSurname());
 
             // Generate Donation info
             addTag(Global.i18n("wordprocessor", "DonationID"),
@@ -150,6 +108,28 @@ public class OwnerDonationDocument extends GenerateDocument {
                 (owner.getIsGiftAid().intValue() == 1)
                 ? Global.i18n("uiwordprocessor", "Yes")
                 : Global.i18n("uiwordprocessor", "No"));
+
+            // Generate animal tags if there's an animal link
+            if (animal != null) {
+                AnimalDocument ad = new AnimalDocument(animal, true);
+
+                // Merge all the tags from the animal into the movement
+                Iterator<SearchTag> i = ad.searchtags.iterator();
+
+                while (i.hasNext()) {
+                    searchtags.add(i.next());
+                }
+            }
+
+            // Now generate owner tags
+            OwnerDocument od = new OwnerDocument(owner, true);
+
+            // Merge owner tags
+            Iterator<SearchTag> oi = od.searchtags.iterator();
+
+            while (oi.hasNext()) {
+                searchtags.add(oi.next());
+            }
 
             // Generate a document title based on the owner information
             // and the doc selected
