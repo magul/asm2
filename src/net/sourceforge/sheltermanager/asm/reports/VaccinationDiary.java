@@ -21,12 +21,13 @@
  */
 package net.sourceforge.sheltermanager.asm.reports;
 
-import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteria;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteriaListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
+
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -97,7 +98,15 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
 
     public void generateReport() {
         try {
-            AnimalVaccination av = new AnimalVaccination();
+            String sql = "SELECT av.DateRequired, av.Comments, a.AnimalName, " +
+                "a.ShelterCode, a.ShortCode, at.AnimalType, il.LocationName, " +
+                "vt.VaccinationType " +
+                "FROM animalvaccination av " +
+                "INNER JOIN animal a ON a.ID = av.AnimalID " +
+                "INNER JOIN animaltype at ON at.ID = a.AnimalTypeID " +
+                "INNER JOIN internallocation il ON il.ID = a.ShelterLocation " +
+                "INNER JOIN vaccinationtype vt ON vt.ID = av.VaccinationID " +
+                "WHERE ";
 
             switch (type) {
             case DiaryCriteria.UPTO_TODAY:
@@ -106,27 +115,37 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
                 upto.set(Calendar.HOUR_OF_DAY, 23);
                 upto.set(Calendar.MINUTE, 59);
                 upto.set(Calendar.SECOND, 59);
-                av.openRecordset(
-                    "DateOfVaccination Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(upto) + "'");
+                sql += "DateOfVaccination Is Null AND DateRequired <= '" +
+                    Utils.getSQLDate(upto) + "'";
 
                 break;
 
             case DiaryCriteria.UPTO_SPECIFIED:
-                av.openRecordset(
-                    "DateOfVaccination Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(dateUpto) + "'");
+                sql += "DateOfVaccination Is Null AND DateRequired <= '" +
+                    Utils.getSQLDate(dateUpto) + "'";
 
                 break;
 
             case DiaryCriteria.BETWEEN_TWO:
-                av.openRecordset(
-                    "DateOfVaccination Is Null AND DateRequired >= '" +
+                sql += "DateOfVaccination Is Null AND DateRequired >= '" +
                     Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
-                    Utils.getSQLDate(dateTo) + "'");
+                    Utils.getSQLDate(dateTo) + "'";
 
                 break;
             }
+
+            switch (reportType) {
+                case VACC_ALL:
+                    break;
+                case VACC_ONSHELTER:
+                    sql += " AND Archived = 0";
+                    break;
+                case VACC_OFFSHELTER:
+                    sql += " AND Archived = 1"; 
+                    break;
+            }
+
+            SQLRecordset av = new SQLRecordset(sql);
 
             if (av.getEOF()) {
                 addParagraph(Global.i18n("reports",
@@ -145,49 +164,15 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
                 tableFinishRow();
 
                 while (!av.getEOF()) {
-                    try {
-                        // Select whether the animal is worthy according
-                        // to the report type
-                        boolean okToAdd = false;
-
-                        switch (reportType) {
-                        case VACC_ALL:
-                            okToAdd = true;
-
-                            break;
-
-                        case VACC_ONSHELTER:
-                            okToAdd = av.getAnimal().isAnimalOnShelter();
-
-                            break;
-
-                        case VACC_OFFSHELTER:
-                            okToAdd = !av.getAnimal().isAnimalOnShelter() &&
-                                (av.getAnimal().getDeceasedDate() == null);
-
-                            break;
-                        }
-
-                        if (okToAdd) {
-                            tableAddRow();
-                            tableAddCell(code(av.getAnimal()));
-                            tableAddCell(av.getAnimal().getReportAnimalName());
-                            tableAddCell(av.getAnimal().getAnimalTypeName());
-                            tableAddCell(av.getAnimal().getShelterLocationName());
-                            tableAddCell(av.getVaccinationName());
-                            tableAddCell(Utils.formatDateLong(
-                                    av.getDateRequired()));
-                            tableAddCell(Utils.nullToEmptyString(
-                                    av.getComments()));
-                            tableFinishRow();
-                        }
-                    }
-                    // Ignore exceptions - the record just won't be shown
-                    // This is for problems in older data where some vaccination
-                    // records still exist without animals.
-                    catch (Exception e) {
-                    }
-
+                    tableAddRow();
+                    tableAddCell(code(av));
+                    tableAddCell(av.getString("AnimalName"));
+                    tableAddCell(av.getString("AnimalType"));
+                    tableAddCell(av.getString("LocationName"));
+                    tableAddCell(av.getString("VaccinationType"));
+                    tableAddCell(Utils.formatDateLong(av.getDate("DateRequired")));
+                    tableAddCell(av.getString("Comments"));
+                    tableFinishRow();
                     av.moveNext();
                     incrementStatusBar();
                 }

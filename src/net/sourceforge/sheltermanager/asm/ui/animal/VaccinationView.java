@@ -38,6 +38,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -168,84 +169,64 @@ public class VaccinationView extends ASMView implements VaccinationParent,
     }
 
     public synchronized void updateListThreaded() {
-        AnimalVaccination av = new AnimalVaccination();
         boolean deceased = chkDeceased.isSelected();
         boolean offshelter = chkOffShelter.isSelected();
 
+        String sql = "SELECT av.DateOfVaccination, av.DateRequired, a.AnimalName, " +
+            "a.ShelterCode, a.ShortCode, a.ShelterLocation, a.NonShelterAnimal, " +
+            "a.DeceasedDate, a.ActiveMovementID, a.ActiveMovementType, av.Comments, " +
+            "vt.VaccinationType, a.ID AS AnimalID, av.ID AS AnimalVaccinationID " +
+            "FROM animalvaccination av " +
+            "INNER JOIN animal a ON av.AnimalID = a.ID " +
+            "INNER JOIN vaccinationtype vt ON av.VaccinationID = vt.ID " +
+            "WHERE ";
+
         switch (type) {
         case DiaryCriteria.UPTO_TODAY:
-            av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDate(Calendar.getInstance()) + "'");
-
+            sql += "DateOfVaccination Is Null AND DateRequired <= '" +
+                Utils.getSQLDate(Calendar.getInstance()) + "'";
             break;
 
         case DiaryCriteria.UPTO_SPECIFIED:
-            av.openRecordset("DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDate(dateUpto) + "'");
-
+            sql += "DateOfVaccination Is Null AND DateRequired <= '" +
+                Utils.getSQLDate(dateUpto) + "'";
             break;
 
         case DiaryCriteria.BETWEEN_TWO:
-            av.openRecordset("DateOfVaccination Is Null AND DateRequired >= '" +
+            sql += "DateOfVaccination Is Null AND DateRequired >= '" +
                 Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
-                Utils.getSQLDate(dateTo) + "'");
-
+                Utils.getSQLDate(dateTo) + "'";
             break;
         }
 
-        // Set progress meter
-        initStatusBarMax((int) av.getRecordCount());
-        setStatusText(i18n("Filling_list..."));
-
-        // loop through the data
-        int i = 0;
-        TableData data = new TableData();
+        if (!deceased) sql += " AND DeceasedDate Is Null";
+        if (!offshelter) sql += " AND Archived = 0";
 
         try {
+            SQLRecordset av = new SQLRecordset(sql);
+
+            initStatusBarMax((int) av.getRecordCount());
+            setStatusText(i18n("Filling_list..."));
+
+            int i = 0;
+            TableData data = new TableData();
+
             while (!av.getEOF()) {
                 TableRow row = new TableRow(9);
 
-                if (av.getAnimal() == null) {
-                    row.set(0, "...");
-                    row.set(1, "...");
-                    row.set(2, "...");
-                } else {
-                    row.set(0, av.getAnimal().getCode());
-                    row.set(1, av.getAnimal().getAnimalName());
-                    row.set(2, av.getAnimal().getLocation());
-                }
+                row.set(0, Animal.getAnimalCode(av.getString("ShelterCode"), av.getString("ShortCode")));
+                row.set(1, av.getString("AnimalName"));
+                row.set(2, Animal.getDisplayLocation(av.getInt("ShelterLocation"), 
+                    av.getInt("NonShelterAnimal"), av.getInt("ActiveMovementID"),
+                    av.getInt("ActiveMovementType"), av.getDate("DeceasedDate")));
+                row.set(3, av.getString("VaccinationType"));
+                row.set(4, Utils.formatTableDate(av.getDate("DateRequired")));
+                row.set(5, Utils.formatTableDate(av.getDate("DateOfVaccination")));
+                row.set(6, Utils.nullToEmptyString(av.getString("Comments")));
+                row.set(7, av.getString("AnimalID"));
+                row.set(8, av.getString("AnimalVaccinationID"));
 
-                row.set(3, av.getVaccinationTypeName());
-
-                try {
-                    row.set(4, Utils.formatTableDate(av.getDateRequired()));
-                    row.set(5, Utils.formatTableDate(av.getDateOfVaccination()));
-                } catch (Exception e) {
-                }
-
-                row.set(6, Utils.nullToEmptyString(av.getComments()));
-                row.set(7, av.getAnimalID().toString());
-                row.set(8, av.getID().toString());
-
-                // If the animal is off shelter or deceased and the box isn't
-                // ticked, don't add it to the list
-                boolean show = true;
-
-                if ((av.getAnimal().getDeceasedDate() != null) && !deceased) {
-                    show = false;
-                }
-
-                if (!av.getAnimal().fastIsAnimalOnShelter() && !offshelter) {
-                    show = false;
-                }
-
-                if ((av.getAnimal().getDeceasedDate() != null) && deceased) {
-                    show = true;
-                }
-
-                if (show) {
-                    data.add(row);
-                }
+                data.add(row);
 
                 i++;
                 av.moveNext();
@@ -254,13 +235,12 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
             resetStatusBar();
 
-            // Create an array of headers for the accounts
             String[] columnheaders = {
                     i18n("Code"), i18n("Name"), i18n("Location"), i18n("Type"),
                     i18n("Required"), i18n("Given"), i18n("Comments")
                 };
             setTableData(columnheaders, data.toTableData(), data.size(), 9, 8);
-        } catch (CursorEngineException e) {
+        } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
         } finally {

@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. Fixed terrible vaccination diary report/book performance by
+-  reducing them both to one single query for all data
 *. Protect against null selected items in DBFS browser
 *. Added declawed cats report to repository
 *. Donation documents can now include animal and full owner information
