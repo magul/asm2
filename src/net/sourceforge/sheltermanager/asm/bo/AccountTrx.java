@@ -426,8 +426,16 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             lastChangedBy = t.getLastChangedBy();
             lastChangedDate = t.getLastChangedDate();
 
+            // If this account is both the source and the destination,
+            // then indicate an error and don't adjust the balance
+            if (t.getSourceAccountID().equals(thisAccount) && t.getDestinationAccountID().equals(thisAccount)) {
+                withdrawal = 0;
+                deposit = 0;
+                otherAccountId = thisAccount;
+                otherAccountCode = "<-->";
+            }
             // If this account is the source, then this is a withdrawal
-            if (t.getSourceAccountID().equals(thisAccount)) {
+            else if (t.getSourceAccountID().equals(thisAccount)) {
                 withdrawal = t.getAmount().doubleValue();
                 deposit = 0;
                 otherAccountId = t.getDestinationAccountID().intValue();

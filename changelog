@@ -1,6 +1,7 @@
 2.8.6
 ================
 
+*. Fixed bug with source == dest on transactions
 *. Fixed performance issue with loading transaction lists
 *. Fixed terrible vaccination diary report/book performance by
 -  reducing them both to one single query for all data
