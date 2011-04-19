@@ -179,8 +179,8 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         Integer accountId) throws Exception {
         AccountTrx t = new AccountTrx();
         t.openRecordset("ID = " + transactionId);
-
-        return new Trx(t, accountId, 0);
+        Account a = new Account("ID > 0");
+        return new Trx(t, accountId, 0, a);
     }
 
     public static void markReconciled(Integer transactionId)
@@ -271,7 +271,6 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             recfilter = " AND Reconciled = 0";
         }
 
-        // We don't have a period start date, use the from date
         AccountTrx t = new AccountTrx();
         t.openRecordset("TrxDate >= '" + Utils.getSQLDate(from) +
             "' AND TrxDate <= '" + Utils.getSQLDate(to) + "'" + recfilter +
@@ -279,6 +278,8 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             " OR DestinationAccountID = " + accountId + ") ORDER BY TrxDate");
         Global.logDebug("Identified " + t.size() + " transactions for account",
             "AccountTrx.getTransactions");
+
+        Account a = new Account("ID > 0");
 
         // Get our starting balance
         if (period != null) {
@@ -290,7 +291,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
         // Generate our list of transactions
         while (!t.getEOF()) {
-            Trx x = new Trx(t, accountId, balance);
+            Trx x = new Trx(t, accountId, balance, a);
             v.add(x);
             balance = x.balance;
             t.moveNext();
@@ -340,10 +341,11 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
         // Get our starting balance
         double balance = Account.getAccountBalanceToDate(accountId, cutoff);
+        Account a = new Account("ID > 0");
 
         // Generate our list of transactions
         while (!t.getEOF()) {
-            Trx x = new Trx(t, accountId, balance);
+            Trx x = new Trx(t, accountId, balance, a);
             v.add(x);
             balance = x.balance;
             t.moveNext();
@@ -409,7 +411,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public Trx() {
         }
 
-        public Trx(AccountTrx t, Integer thisAccount, double startbalance)
+        public Trx(AccountTrx t, Integer thisAccount, double startbalance, Account a)
             throws Exception {
             id = t.getID().intValue();
             accountId = thisAccount.intValue();
@@ -429,9 +431,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
                 withdrawal = t.getAmount().doubleValue();
                 deposit = 0;
                 otherAccountId = t.getDestinationAccountID().intValue();
-                otherAccountCode = DBConnection.executeForString(
-                        "SELECT Code FROM accounts WHERE ID = " +
-                        otherAccountId);
+                otherAccountCode = codeForID(a, otherAccountId);  
                 balance -= withdrawal;
             }
             // it's a deposit
@@ -439,10 +439,20 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
                 deposit = t.getAmount().doubleValue();
                 withdrawal = 0;
                 otherAccountId = t.getSourceAccountID().intValue();
-                otherAccountCode = DBConnection.executeForString(
-                        "SELECT Code FROM accounts WHERE ID = " +
-                        otherAccountId);
+                otherAccountCode = codeForID(a, otherAccountId); 
                 balance += deposit;
+            }
+        }
+
+        public String codeForID(Account acc, Integer id) {
+            try {
+                for (Account a : acc) {
+                    if (a.getID().equals(id)) return a.getCode();
+                }
+                return "";
+            }
+            catch (Exception e) {
+                return "";
             }
         }
     }

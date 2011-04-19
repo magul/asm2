@@ -256,20 +256,27 @@ public class Account extends UserInfoBO<Account> {
         }
 
         SQLRecordset rs = new SQLRecordset("SELECT ID, AccountType, " +
-                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID" +
-                periodFilter + "), 0) - " +
-                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID" +
-                periodFilter + "), 0) AS balance, " +
-                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" +
-                periodFilter + "), 0) - " +
-                "COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" +
-                periodFilter + "), 0) AS reconciled " + "FROM accounts",
+                "(SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = accounts.ID" +
+                periodFilter + ") AS dest, " +
+                "(SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = accounts.ID" +
+                periodFilter + ") AS src, " +
+                "(SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" +
+                periodFilter + ") AS recdest,  " +
+                "(SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" +
+                periodFilter + ") AS recsrc " +
+                "FROM accounts",
                 "accounts");
         HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
 
         for (SQLRecordset r : rs) {
-            double bal = r.getDouble("balance");
-            double rec = r.getDouble("reconciled");
+            double dest = r.getDouble("dest");
+            double src = r.getDouble("src");
+            double recdest = r.getDouble("recdest");
+            double recsrc = r.getDouble("recsrc");
+
+            double bal = dest - src;
+            double rec = recdest - recsrc;
+
             bal = Utils.round(bal, 2);
             rec = Utils.round(rec, 2);
 
