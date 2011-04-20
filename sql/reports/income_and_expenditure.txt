@@ -14,7 +14,7 @@ $VAR to DATE Enter to date$
 SELECT 
 a.Code,
 ABS(COALESCE((SELECT SUM(Amount) FROM accountstrx
-WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0)) AS fig,
+WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0)) AS amt,
 l.AccountType
 FROM accounts a
 INNER JOIN lksaccounttype l ON l.ID = a.AccountType
@@ -31,7 +31,7 @@ $$HEAD
 $$FOOT
 <tr>
 <td>Total $ACCOUNTTYPE:</td>
-<td align="right"><b>{SUM.FIG.2}</b></td>
+<td align="right"><b>{SUM.AMT.2}</b></td>
 </tr>
 </table>
 GROUP$$
@@ -39,7 +39,7 @@ GROUP$$
 $$BODY
 <tr>
 <td>$CODE</td>
-<td align="right">$FIG</td>
+<td align="right">$AMT</td>
 </tr>
 BODY$$
 

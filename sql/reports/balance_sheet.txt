@@ -16,7 +16,7 @@ SELECT * FROM (
 SELECT 
 a.Code,
 COALESCE((SELECT SUM(Amount) FROM accountstrx
-WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) AS fig,
+WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) AS amt,
 a.AccountType AS atype,
 'Assets' AS type
 FROM accounts a
@@ -26,7 +26,7 @@ WHERE a.AccountType IN (1, 7, 8, 6)
 UNION SELECT 
 a.Code,
 ABS(COALESCE((SELECT SUM(Amount) FROM accountstrx
-WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0)) AS fig,
+WHERE accountstrx.DestinationAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0) - COALESCE((SELECT SUM(Amount) FROM accountstrx WHERE accountstrx.SourceAccountID = a.ID AND accountstrx.TrxDate BETWEEN '$@from$' AND '$@to$'), 0)) AS amt,
 a.AccountType AS atype,
 'Liabilities' AS type
 FROM accounts a
@@ -48,7 +48,7 @@ $$HEAD
 <table>
 $$FOOT
 <td></td>
-<td align="right"><b>{SUM.FIG.2}</b></td>
+<td align="right"><b>{SUM.AMT.2}</b></td>
 </table>
 </td>
 GROUP$$
@@ -56,7 +56,7 @@ GROUP$$
 $$BODY
 <tr>
 <td>$CODE</td>
-<td align="right">$FIG</td>
+<td align="right">$AMT</td>
 </tr>
 BODY$$
 
