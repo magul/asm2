@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. OpenOffice image replacement uses same scheme as MOOXML to
+-  locate placeholder - more reliable and does not require content edit
 *. All currency fields now stored as integers to counter
 -  floating point arithmetic issues in accounts package
 *. Fixed bug with source == dest on transactions

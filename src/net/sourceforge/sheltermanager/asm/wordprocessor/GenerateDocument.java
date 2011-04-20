@@ -655,8 +655,8 @@ public abstract class GenerateDocument extends Thread
      * in the document
      */
     protected void processOpenOfficeImage() {
-        final String LINK_HREF = "link:href=\"";
         final String MAGIC_TAG = "draw:name=\"media\"";
+        final int PLACEHOLDER_SIZE = 2897;
         String oodir = Global.tempDirectory + File.separator + "openoffice";
 
         Global.logDebug("Processing OpenOffice image...",
@@ -688,36 +688,30 @@ public abstract class GenerateDocument extends Thread
                 return;
             }
 
-            // Rename it into the openoffice tree
-            String justfile = mediafile.substring(mediafile.lastIndexOf(
-                        File.separator) + 1);
-            Utils.renameFile(new File(mediafile),
-                new File(oodir + File.separator + "Pictures" + File.separator +
-                    justfile));
+            // Search the Pictures folder for our placeholder
+            // image - we can recognise it by it's size
+            File tg = new File(oodir + File.separator + "Pictures");
+            String[] dir = tg.list();
+            for (int i = 0; i < dir.length; i++) {
+                if (dir[i].indexOf(".jpeg") != -1 || dir[i].indexOf(".jpg") != -1) {
+                    String target = oodir + File.separator + "Pictures" +
+                        File.separator + dir[i];
+                    File ph = new File(target);
 
-            // Replace the next link:href attribute
-            int starthref = s.indexOf(LINK_HREF, tag);
+                    if (Global.showDebug) {
+                        Global.logDebug("Found file: " + dir[i] + ", size=" +
+                            ph.length(), "processOpenOfficeImage");
+                    }
 
-            // Couldn't find it, something is wrong, bail
-            if (starthref == -1) {
-                Global.logDebug("Couldn't find image link, bailing out",
-                    "processOpenOfficeImage");
-
-                return;
+                    // Is this file size correct? If so, delete it and
+                    // replace it with our media file instead
+                    if (ph.length() == PLACEHOLDER_SIZE) {
+                        ph.delete();
+                        Utils.renameFile(new File(mediafile), new File(target));
+                        break;
+                    }
+                }
             }
-
-            // Get the end marker as well and adjust the start
-            // so we're into the attribute contents
-            starthref += LINK_HREF.length();
-
-            int endhref = s.indexOf("\"", starthref);
-
-            // Replace the picture link with a link to our media
-            s = s.substring(0, starthref) + "Pictures/" + justfile +
-                s.substring(endhref);
-
-            // Replace the file on the disk with this one
-            Utils.writeFile(localfile, s.getBytes(Global.CHAR_ENCODING));
 
             Global.logDebug("Finished processing OpenOffice image.",
                 "GenerateDocument.processOpenOfficeImage");
