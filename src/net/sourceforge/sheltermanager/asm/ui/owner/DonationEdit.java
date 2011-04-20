@@ -117,7 +117,7 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
         try {
             txtDateDue.setText(Utils.formatDate(od.getDateDue()));
             txtDateReceived.setText(Utils.formatDate(od.getDateReceived()));
-            txtDonation.setText(od.getDonation().toString());
+            txtDonation.setValue(od.getDonation().intValue());
             cboFrequency.setSelectedIndex(((Integer) od.getFrequency()).intValue());
             chkGiftAid.setSelected(od.getIsGiftAid().intValue() == 1);
             Utils.setComboFromID(LookupCache.getDonationTypeLookup(),
@@ -150,8 +150,8 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
             od.setMovementID(new Integer(movementID));
 
             if (movementID > 0) {
-                this.txtDonation.setText(LookupCache.getDonationAmountForMovementSpecies(
-                        movementID).toString());
+                this.txtDonation.setValue(LookupCache.getDonationAmountForMovementSpecies(
+                        movementID).intValue());
             }
 
             // Set default donation type if we have one
@@ -251,7 +251,7 @@ public class DonationEdit extends ASMForm implements AnimalLinkListener,
         try {
             od.setDateReceived(Utils.parseDate(txtDateReceived.getText()));
             od.setDateDue(Utils.parseDate(txtDateDue.getText()));
-            od.setDonation(new Double(txtDonation.getText()));
+            od.setDonation(new Integer(txtDonation.getValue()));
             od.setFrequency(new Integer(cboFrequency.getSelectedIndex()));
             od.setIsGiftAid(new Integer(chkGiftAid.isSelected() ? 1 : 0));
 

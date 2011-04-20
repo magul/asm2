@@ -269,16 +269,12 @@ public class Account extends UserInfoBO<Account> {
         HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
 
         for (SQLRecordset r : rs) {
-            double dest = r.getDouble("dest");
-            double src = r.getDouble("src");
-            double recdest = r.getDouble("recdest");
-            double recsrc = r.getDouble("recsrc");
-
-            double bal = dest - src;
-            double rec = recdest - recsrc;
-
-            bal = Utils.round(bal, 2);
-            rec = Utils.round(rec, 2);
+            int dest = r.getInt("dest");
+            int src = r.getInt("src");
+            int recdest = r.getInt("recdest");
+            int recsrc = r.getInt("recsrc");
+            int bal = dest - src;
+            int rec = recdest - recsrc;
 
             if ((r.getInt("AccountType") == INCOME) ||
                     (r.getInt("AccountType") == EXPENSE)) {
@@ -293,33 +289,33 @@ public class Account extends UserInfoBO<Account> {
     }
 
     /** Calculates the balance for this account to a certain date */
-    public static double getAccountBalanceToDate(Integer accountId, Date limit)
+    public static int getAccountBalanceToDate(Integer accountId, Date limit)
         throws Exception {
         // Withdrawals
-        double withdrawal = DBConnection.executeForDouble(
+        int withdrawal = DBConnection.executeForInt(
                 "SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " +
                 accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
 
         // Deposits
-        double deposit = DBConnection.executeForDouble(
+        int deposit = DBConnection.executeForInt(
                 "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
                 accountId + " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
-        double rounded = Utils.round(deposit - withdrawal, 2);
+        int balance = deposit - withdrawal;
 
         int accountType = DBConnection.executeForInt(
                 "SELECT AccountType FROM accounts WHERE ID = " + accountId);
 
         // Income and expense accounts should always be positive
         if ((accountType == INCOME) || (accountType == EXPENSE)) {
-            rounded = Math.abs(rounded);
+            balance = Math.abs(balance);
         }
 
-        return rounded;
+        return balance;
     }
 
     /** Calculates the balance for this account to a certain date, starting at
       * another date */
-    public static double getAccountBalanceFromToDate(Integer accountId,
+    public static int getAccountBalanceFromToDate(Integer accountId,
         Date start, Date limit) throws Exception {
         // If the two dates given are the same, we can save some time
         if (start.equals(limit)) {
@@ -327,27 +323,27 @@ public class Account extends UserInfoBO<Account> {
         }
 
         // Withdrawals
-        double withdrawal = DBConnection.executeForDouble(
+        int withdrawal = DBConnection.executeForInt(
                 "SELECT SUM(Amount) FROM accountstrx WHERE SourceAccountID = " +
                 accountId + "AND TrxDate >= '" + Utils.getSQLDate(start) + "'" +
                 " AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
 
         // Deposits
-        double deposit = DBConnection.executeForDouble(
+        int deposit = DBConnection.executeForInt(
                 "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
                 accountId + " AND TrxDate >= '" + Utils.getSQLDate(start) +
                 "'" + "AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
-        double rounded = Utils.round(deposit - withdrawal, 2);
+        int balance= deposit - withdrawal;
 
         int accountType = DBConnection.executeForInt(
                 "SELECT AccountType FROM accounts WHERE ID = " + accountId);
 
         // Income and expense accounts should always be positive
         if ((accountType == INCOME) || (accountType == EXPENSE)) {
-            rounded = Math.abs(rounded);
+            balance = Math.abs(balance);
         }
 
-        return rounded;
+        return balance;
     }
 
     public static ArrayList<DonationAccountMapping> getDonationAccountMappings() {
@@ -385,10 +381,10 @@ public class Account extends UserInfoBO<Account> {
     }
 
     public static class Balances {
-        public double balance;
-        public double reconciled;
+        public int balance;
+        public int reconciled;
 
-        public Balances(double balance, double reconciled) {
+        public Balances(int balance, int reconciled) {
             this.balance = balance;
             this.reconciled = reconciled;
         }

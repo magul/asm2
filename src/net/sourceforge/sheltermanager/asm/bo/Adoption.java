@@ -254,11 +254,11 @@ public class Adoption extends UserInfoBO<Adoption> {
         rs.setField("ReservationDate", newValue);
     }
 
-    public Double getDonation() throws CursorEngineException {
-        return new Double(rs.getDouble("Donation"));
+    public Integer getDonation() throws CursorEngineException {
+        return new Integer(rs.getInt("Donation"));
     }
 
-    public void setDonation(Double newValue) throws CursorEngineException {
+    public void setDonation(Integer newValue) throws CursorEngineException {
         rs.setField("Donation", newValue);
     }
 
@@ -630,7 +630,7 @@ public class Adoption extends UserInfoBO<Adoption> {
 
             // Check for blank or null donation and change it to 0
             if (getDonation() == null) {
-                setDonation(new Double(0));
+                setDonation(new Integer(0));
             }
 
             if (getAnimalID().intValue() == 0) {
@@ -892,7 +892,7 @@ public class Adoption extends UserInfoBO<Adoption> {
             c.addNew();
 
             // Calculate on shelter cost for this animal
-            double cost = DBConnection.executeForSum(
+            int cost = DBConnection.executeForInt(
                     "SELECT (DaysOnShelter * DailyBoardingCost) " +
                     "FROM animal WHERE ID = " + getAnimalID());
 
@@ -903,7 +903,7 @@ public class Adoption extends UserInfoBO<Adoption> {
 
             c.setAnimalID(getAnimalID());
             c.setCostDate(getMovementDate());
-            c.setCostAmount(new Double(cost));
+            c.setCostAmount(new Integer(cost));
             c.setCostTypeID(new Integer(costtype));
             c.setDescription(getAnimal().getTimeOnShelter());
             c.save(Global.currentUserName);

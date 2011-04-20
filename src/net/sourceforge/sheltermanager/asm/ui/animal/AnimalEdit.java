@@ -665,9 +665,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Default daily boarding cost
         try {
-            animal.setDailyBoardingCost(new Double(Configuration.getDouble(
+            animal.setDailyBoardingCost(new Integer(Configuration.getInteger(
                         "DefaultDailyBoardingCost")));
-            animalcosts.setDailyBoardingCost(Configuration.getDouble(
+            animalcosts.setDailyBoardingCost(Configuration.getInteger(
                     "DefaultDailyBoardingCost"));
         } catch (Exception e) {
             Global.logException(e, getClass());

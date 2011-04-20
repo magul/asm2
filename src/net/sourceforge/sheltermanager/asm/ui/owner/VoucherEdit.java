@@ -139,7 +139,7 @@ public class VoucherEdit extends ASMForm {
 
             Utils.setComboFromID(LookupCache.getVoucherLookup(), "VoucherName",
                 voucher.getVoucherID(), cboVoucher);
-            this.txtAmount.setText(voucher.getValue().toString());
+            this.txtAmount.setValue(voucher.getValue().intValue());
             this.txtComments.setText(Utils.nullToEmptyString(
                     voucher.getComments()));
             this.lblID.setText(voucher.getNumber());
@@ -158,7 +158,7 @@ public class VoucherEdit extends ASMForm {
             try {
                 voucher.setDateIssued(txtIssueDate.getDate());
                 voucher.setDateExpired(txtExpiryDate.getDate());
-                voucher.setValue(new Double(txtAmount.getValue()));
+                voucher.setValue(new Integer(txtAmount.getValue()));
             } catch (ParseException e) {
                 Global.logException(e, getClass());
             }

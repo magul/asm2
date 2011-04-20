@@ -160,7 +160,7 @@ public class VaccinationEdit extends ASMForm {
         try {
             int vid = Utils.getIDFromCombo(LookupCache.getVaccinationTypeLookup(),
                     "VaccinationType", cboVaccinationType).intValue();
-            double lastcost = DBConnection.executeForDouble(
+            int lastcost = DBConnection.executeForInt(
                     "SELECT Cost FROM animalvaccination WHERE VaccinationID = " +
                     vid +
                     " AND Cost > 0 ORDER BY DateOfVaccination DESC LIMIT 1");
@@ -185,7 +185,7 @@ public class VaccinationEdit extends ASMForm {
             Utils.setComboFromID(LookupCache.getVaccinationTypeLookup(),
                 "VaccinationType", anivacc.getVaccinationID(),
                 cboVaccinationType);
-            this.txtCost.setValue(anivacc.getCost().doubleValue());
+            this.txtCost.setValue(anivacc.getCost().intValue());
             this.txtComments.setText(Utils.nullToEmptyString(
                     anivacc.getComments()));
             audit = UI.messageAudit(anivacc.getCreatedDate(),
@@ -213,7 +213,7 @@ public class VaccinationEdit extends ASMForm {
                 Global.logException(e, getClass());
             }
 
-            anivacc.setCost(new Double(txtCost.getValue()));
+            anivacc.setCost(new Integer(txtCost.getValue()));
             anivacc.setVaccinationID(Utils.getIDFromCombo(
                     LookupCache.getVaccinationTypeLookup(), "VaccinationType",
                     cboVaccinationType));

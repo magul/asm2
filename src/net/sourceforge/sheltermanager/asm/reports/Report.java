@@ -284,12 +284,11 @@ public abstract class Report extends Thread {
                                           : r.getString("ShelterCode");
     }
 
-    public String money(Double d) {
+    public String money(Integer d) {
         if (d == null) {
-            d = new Double(0);
+            d = new Integer(0);
         }
-
-        return Global.currencySymbol + d.toString();
+        return Utils.formatCurrency(d);
     }
 
     public String date(Date d) {

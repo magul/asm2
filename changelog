@@ -1,6 +1,8 @@
 2.8.6
 ================
 
+*. All currency fields now stored as integers to counter
+-  floating point arithmetic issues in accounts package
 *. Fixed bug with source == dest on transactions
 *. Fixed performance issue with loading transaction lists
 *. Fixed terrible vaccination diary report/book performance by

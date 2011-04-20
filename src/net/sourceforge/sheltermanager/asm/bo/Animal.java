@@ -929,11 +929,11 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         rs.setField("MostRecentEntryDate", newValue);
     }
 
-    public Double getDailyBoardingCost() throws CursorEngineException {
-        return (Double) rs.getField("DailyBoardingCost");
+    public Integer getDailyBoardingCost() throws CursorEngineException {
+        return (Integer) rs.getField("DailyBoardingCost");
     }
 
-    public void setDailyBoardingCost(Double newValue)
+    public void setDailyBoardingCost(Integer newValue)
         throws CursorEngineException {
         rs.setField("DailyBoardingCost", newValue);
     }
@@ -2603,7 +2603,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         setHasSpecialNeeds(z);
 
         setArchived(z);
-        setDailyBoardingCost(new Double(0));
+        setDailyBoardingCost(z);
         setActiveMovementID(z);
         setHasActiveReserve(z);
     }

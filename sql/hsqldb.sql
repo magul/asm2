@@ -17,7 +17,7 @@ CREATE MEMORY TABLE accountstrx (
   TrxDate TIMESTAMP NOT NULL,
   Description VARCHAR(255) NULL,
   Reconciled INTEGER NOT NULL,
-  Amount FLOAT NOT NULL,
+  Amount INTEGER NOT NULL,
   SourceAccountID INTEGER NOT NULL,
   DestinationAccountID INTEGER NOT NULL,
   OwnerDonationID INTEGER NULL,
@@ -79,7 +79,7 @@ CREATE MEMORY TABLE adoption (
   InsuranceNumber VARCHAR(50) NULL,
   ReasonForReturn VARCHAR(16384) NULL,
   ReservationDate TIMESTAMP NULL,
-  Donation FLOAT NULL,
+  Donation INTEGER NULL,
   ReservationCancelledDate TIMESTAMP NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
@@ -170,7 +170,7 @@ CREATE MEMORY TABLE animal (
   MostRecentEntryDate TIMESTAMP NOT NULL,
   TimeOnShelter VARCHAR(255) NULL,
   DaysOnShelter INTEGER NULL,
-  DailyBoardingCost FLOAT NULL,
+  DailyBoardingCost INTEGER NULL,
   AnimalAge VARCHAR(255) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -194,7 +194,7 @@ CREATE MEMORY TABLE animalcost (
   AnimalID INTEGER NOT NULL,
   CostTypeID INTEGER NOT NULL,
   CostDate TIMESTAMP NOT NULL, 
-  CostAmount FLOAT NOT NULL,
+  CostAmount INTEGER NOT NULL,
   Description VARCHAR(16384) NOT NULL,
   RecordVersion INTEGER NOT NULL, 
   CreatedBy VARCHAR(255) NOT NULL,
@@ -286,7 +286,7 @@ CREATE MEMORY TABLE animalmedical (
   MedicalProfileID INTEGER NOT NULL,
   TreatmentName VARCHAR(255) NOT NULL,
   StartDate TIMESTAMP NOT NULL,
-  Cost FLOAT NOT NULL,
+  Cost INTEGER NOT NULL,
   Dosage VARCHAR(255) NULL,
   TimingRule INTEGER NOT NULL,
   TimingRuleFrequency INTEGER NOT NULL,
@@ -345,7 +345,7 @@ CREATE MEMORY TABLE animalvaccination (
   VaccinationID INTEGER NOT NULL,
   DateOfVaccination TIMESTAMP NULL,
   DateRequired TIMESTAMP NOT NULL,
-  Cost FLOAT NULL,
+  Cost INTEGER NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -624,36 +624,12 @@ CREATE MEMORY TABLE media (
 );
 CREATE INDEX media_LinkID ON media (LinkID);
 
-CREATE MEMORY TABLE medicalpayment (
-  ID INTEGER NOT NULL PRIMARY KEY,
-  AnimalMedicalID INTEGER NOT NULL,
-  MedicalPaymentTypeID INTEGER NOT NULL,
-  OwnerDonationID INTEGER NOT NULL,
-  VetOwnerID INTEGER NOT NULL,
-  Amount FLOAT NOT NULL,
-  Comments VARCHAR(16384) NULL,
-  RecordVersion INTEGER NOT NULL,
-  CreatedBy VARCHAR(255) NOT NULL,
-  CreatedDate TIMESTAMP NOT NULL,
-  LastChangedBy VARCHAR(255) NOT NULL,
-  LastChangedDate TIMESTAMP NOT NULL
-);
-CREATE INDEX medicalpayment_MedicalPaymentTypeID ON medicalpayment (MedicalPaymentTypeID);
-CREATE INDEX medicalpayment_AnimalMedicalID ON medicalpayment (AnimalMedicalID);
-CREATE INDEX medicalpayment_OwnerDonationID ON medicalpayment (OwnerDonationID);
-
-CREATE MEMORY TABLE medicalpaymenttype (
-  ID INTEGER NOT NULL PRIMARY KEY,
-  MedicalPaymentTypeName VARCHAR(255) NOT NULL,
-  MedicalPaymentTypeDescription VARCHAR(255) NULL
-);
-
 CREATE MEMORY TABLE medicalprofile (
   ID INTEGER NOT NULL PRIMARY KEY,
   ProfileName VARCHAR(255) NOT NULL,
   TreatmentName VARCHAR(255) NOT NULL,
   Dosage VARCHAR(255) NULL,
-  Cost FLOAT NOT NULL,
+  Cost INTEGER NOT NULL,
   TimingRule INTEGER NOT NULL,
   TimingRuleFrequency INTEGER NOT NULL,
   TimingRuleNoFrequencies INTEGER NOT NULL,
@@ -733,7 +709,7 @@ CREATE MEMORY TABLE ownerdonation (
   DonationTypeID INTEGER NOT NULL,
   Date TIMESTAMP NULL,
   DateDue TIMESTAMP NULL,
-  Donation FLOAT NOT NULL,
+  Donation INTEGER NOT NULL,
   IsGiftAid INTEGER NOT NULL,
   Frequency INTEGER NOT NULL,
   NextCreated INTEGER NOT NULL,
@@ -753,7 +729,7 @@ CREATE MEMORY TABLE ownervoucher (
   VoucherID INTEGER NOT NULL,
   DateIssued TIMESTAMP NOT NULL,
   DateExpired TIMESTAMP NOT NULL,
-  Value FLOAT NOT NULL,
+  Value INTEGER NOT NULL,
   Comments VARCHAR(16384) NULL,
   RecordVersion INTEGER NOT NULL,
   CreatedBy VARCHAR(255) NOT NULL,
@@ -806,7 +782,7 @@ CREATE MEMORY TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2840');
+INSERT INTO configuration VALUES ('DatabaseVersion','2860');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -865,5 +841,5 @@ INSERT INTO configuration VALUES ('DefaultDateBroughtIn', 'Yes');
 INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
 INSERT INTO configuration VALUES ('CreateBoardingCostOnAdoption', 'Yes');
 INSERT INTO configuration VALUES ('BoardingCostType', '1');
-INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '20');
+INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '2000');
 INSERT INTO configuration VALUES ('CreateDonationTrx', 'Yes');

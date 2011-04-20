@@ -133,7 +133,7 @@ public class DonationSelector extends ASMSelector {
 
         // Build the data
         int i = 0;
-        double runningTotal = 0;
+        int runningTotal = 0;
 
         try {
             while (!od.getEOF()) {
@@ -143,7 +143,7 @@ public class DonationSelector extends ASMSelector {
                 datar[i][1] = Utils.nullToEmptyString(Utils.formatTableDate(
                             od.getDateReceived()));
                 datar[i][2] = Utils.nullToEmptyString(od.getReceiptNum());
-                datar[i][3] = Utils.formatCurrency(od.getDonation().doubleValue());
+                datar[i][3] = Utils.formatCurrency(od.getDonation().intValue());
                 datar[i][4] = od.getDonationTypeName();
                 datar[i][5] = LookupCache.getDonationFreqForID(od.getFrequency());
 
@@ -199,7 +199,7 @@ public class DonationSelector extends ASMSelector {
                 datar[i][7] = od.getID().toString();
 
                 // Keep a running total of donations displayed
-                runningTotal += od.getDonation().doubleValue();
+                runningTotal += od.getDonation().intValue();
 
                 i++;
                 od.moveNext();

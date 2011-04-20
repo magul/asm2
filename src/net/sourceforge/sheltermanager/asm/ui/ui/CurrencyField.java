@@ -100,21 +100,15 @@ public class CurrencyField extends UI.Panel {
         return outtext;
     }
 
-    public double getValue() {
-        return Double.parseDouble(toNumber());
+    public int getValue() {
+        double d = Double.parseDouble(toNumber());
+        return (int) (d * 100);
     }
 
-    public void setValue(double d) {
-        setText(Double.toString(d));
-    }
-
-    /**
-     * Sets the text of the box. Note that currency symbols will prefixed, so do
-     * not include them.
-     */
-    public void setText(String value) {
-        txt.setText(Global.currencySymbol + value);
-        // Reformat
+    public void setValue(int i) {
+    	double d = (double) i / 100;
+        String v = Double.toString(d);
+        txt.setText(Global.currencySymbol + v);
         txt.setText(Global.currencySymbol + toNumber());
     }
 

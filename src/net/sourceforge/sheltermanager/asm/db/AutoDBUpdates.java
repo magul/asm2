@@ -58,7 +58,7 @@ public class AutoDBUpdates {
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
             2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732, 2810,
-            2811, 2812, 2840
+            2811, 2812, 2840, 2860
         };
 
     /**
@@ -4192,6 +4192,76 @@ public class AutoDBUpdates {
             Global.logException(e, getClass());
         }
     }
+
+    public void update2860() {
+        try {
+
+            // Recalculate any additional fields that are currency (need
+        	// multiplying by 100)
+        	SQLRecordset ac = new SQLRecordset("SELECT ID FROM additionalfield WHERE FieldType = 5");
+        	if (ac.size() > 0) {
+        		String inclause = "";
+        		for (SQLRecordset af : ac) {
+        			if (!inclause.equals("")) inclause += ",";
+        			inclause += ac.getInt("ID");
+        		}
+        		ArrayList<String> updates = new ArrayList<String>();
+        		SQLRecordset aval = new SQLRecordset("SELECT * FROM additional " + 
+        			"WHERE AdditionalFieldID IN (" + inclause + ")"); 
+        		for (SQLRecordset av : aval) {
+        			String val = av.getString("Value");
+        			try {
+        				double dval = Double.parseDouble(val);
+        				dval *= 100;
+        				int ival = (int) dval;
+        				updates.add("UPDATE additional SET Value ='" + Integer.toString(ival) + "' WHERE " +
+        					"AdditionalFieldID = " + aval.getInt("AdditionalFieldID") + " AND " +
+        					"LinkID = " + aval.getInt("LinkID") + " AND " +
+        					"LinkType = " + aval.getInt("LinkType"));
+        			}
+        			catch (Exception e) {
+        			}
+        		}
+        		if (updates.size() > 0)
+        			DBConnection.executeAction(updates);
+        	}
+
+            // Change all monetary column types to integers
+            String[] columns = new String[] { 
+                "accountstrx.Amount.O", "adoption.Donation.N",
+                "animal.DailyBoardingCost.N", "animalcost.CostAmount.O",
+                "animalmedical.Cost.N", "animalvaccination.Cost.N",
+                "medicalprofile.Cost.N", "ownerdonation.Donation.O", 
+                "ownervoucher.Value.O" };
+
+            for (int i = 0; i < columns.length; i++) {
+                String[] b = Utils.split(columns[i], ".");
+                String table = b[0];
+                String field = b[1];
+                String nullclause = b[2].equals("O") ? "NOT NULL" : "NULL";
+
+                // Shunt everything up by two decimal places
+                DBConnection.executeAction("UPDATE " + table + " SET " + field + " = " + field + " * 100");
+
+                // Now change the column type
+                if (DBConnection.DBStoreType == DBConnection.HSQLDB) {
+                    DBConnection.executeAction(
+                        "ALTER TABLE " + table + " ALTER COLUMN " + field + " INTEGER " + nullclause);
+                } else if (DBConnection.DBStoreType == DBConnection.MYSQL) {
+                    DBConnection.executeAction(
+                        "ALTER TABLE " + table + " MODIFY " + field + " int(11) " + nullclause);
+                } else if (DBConnection.DBStoreType == DBConnection.POSTGRESQL) {
+                    DBConnection.executeAction(
+                        "ALTER TABLE " + table + " ALTER COLUMN " + field + " TYPE INTEGER");
+                }
+            }
+
+        } catch (Exception e) {
+            errors.add("float: MODIFY TO INTEGER");
+            Global.logException(e, getClass());
+        }
+    }
+
 }
 
 

@@ -49,7 +49,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         setTrxDate(new Date());
         setDescription("");
         setReconciled(new Integer(0));
-        setAmount(new Double(0));
+        setAmount(new Integer(0));
         setSourceAccountID(new Integer(0));
         setDestinationAccountID(new Integer(0));
         setOwnerDonationID(new Integer(0));
@@ -102,11 +102,11 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         rs.setField("Reconciled", newValue);
     }
 
-    public Double getAmount() throws CursorEngineException {
-        return (Double) rs.getField("Amount");
+    public Integer getAmount() throws CursorEngineException {
+        return (Integer) rs.getField("Amount");
     }
 
-    public void setAmount(Double newValue) throws CursorEngineException {
+    public void setAmount(Integer newValue) throws CursorEngineException {
         rs.setField("Amount", newValue);
     }
 
@@ -209,11 +209,11 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         if (x.deposit > 0) {
             t.setSourceAccountID(new Integer(x.otherAccountId));
             t.setDestinationAccountID(new Integer(x.accountId));
-            t.setAmount(new Double(x.deposit));
+            t.setAmount(new Integer(x.deposit));
         } else {
             t.setSourceAccountID(new Integer(x.accountId));
             t.setDestinationAccountID(new Integer(x.otherAccountId));
-            t.setAmount(new Double(x.withdrawal));
+            t.setAmount(new Integer(x.withdrawal));
         }
 
         // If there's a matching owner donation, update the amount 
@@ -239,7 +239,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         ArrayList<Trx> v = new ArrayList<Trx>();
 
         Date period = null;
-        double balance = 0;
+        int balance = 0;
 
         try {
             period = Utils.parseDate(Configuration.getString("AccountingPeriod"));
@@ -340,7 +340,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             "AccountTrx.getTransactions");
 
         // Get our starting balance
-        double balance = Account.getAccountBalanceToDate(accountId, cutoff);
+        int balance = Account.getAccountBalanceToDate(accountId, cutoff);
         Account a = new Account("ID > 0");
 
         // Generate our list of transactions
@@ -399,10 +399,10 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public Date date = new Date();
         public String description = "";
         public int reconciled = 0;
-        public double deposit = 0;
-        public double withdrawal = 0;
-        public double amount = 0;
-        public double balance = 0;
+        public int deposit = 0;
+        public int withdrawal = 0;
+        public int amount = 0;
+        public int balance = 0;
         public String createdBy = "";
         public Date createdDate = null;
         public String lastChangedBy = "";
@@ -411,7 +411,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public Trx() {
         }
 
-        public Trx(AccountTrx t, Integer thisAccount, double startbalance, Account a)
+        public Trx(AccountTrx t, Integer thisAccount, int startbalance, Account a)
             throws Exception {
             id = t.getID().intValue();
             accountId = thisAccount.intValue();
@@ -419,7 +419,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             description = t.getDescription();
             reconciled = t.getReconciled().intValue();
             ownerDonationId = t.getOwnerDonationID().intValue();
-            amount = t.getAmount().doubleValue();
+            amount = t.getAmount().intValue();
             balance = startbalance;
             createdBy = t.getCreatedBy();
             createdDate = t.getCreatedDate();
@@ -436,7 +436,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             }
             // If this account is the source, then this is a withdrawal
             else if (t.getSourceAccountID().equals(thisAccount)) {
-                withdrawal = t.getAmount().doubleValue();
+                withdrawal = t.getAmount().intValue();
                 deposit = 0;
                 otherAccountId = t.getDestinationAccountID().intValue();
                 otherAccountCode = codeForID(a, otherAccountId);  
@@ -444,7 +444,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
             }
             // it's a deposit
             else {
-                deposit = t.getAmount().doubleValue();
+                deposit = t.getAmount().intValue();
                 withdrawal = 0;
                 otherAccountId = t.getSourceAccountID().intValue();
                 otherAccountCode = codeForID(a, otherAccountId); 

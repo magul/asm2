@@ -115,11 +115,11 @@ public class AnimalCost extends UserInfoBO<AnimalCost> {
         rs.setField("CostDate", newValue);
     }
 
-    public Double getCostAmount() throws CursorEngineException {
-        return (Double) rs.getField("CostAmount");
+    public Integer getCostAmount() throws CursorEngineException {
+        return (Integer) rs.getField("CostAmount");
     }
 
-    public void setCostAmount(Double newValue) throws CursorEngineException {
+    public void setCostAmount(Integer newValue) throws CursorEngineException {
         rs.setField("CostAmount", newValue);
     }
 

@@ -117,7 +117,7 @@ public class MonthlyDonations extends Chart {
             while (!dt.getEOF()) {
                 dtname[col] = dt.getField("DonationName").toString();
                 model[col][i] = (int) DBConnection.executeForSum(
-                        "SELECT SUM(Donation) AS Total FROM ownerdonation " +
+                        "SELECT SUM(Donation) / 100 AS Total FROM ownerdonation " +
                         "WHERE Date >= '" + firstDay + "' AND " + "Date < '" +
                         lastDay + "' AND " + "DonationTypeID = " +
                         dt.getField("ID"));

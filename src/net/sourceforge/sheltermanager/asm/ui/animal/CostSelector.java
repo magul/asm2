@@ -52,7 +52,7 @@ public class CostSelector extends ASMSelector {
      * A flag to say whether there is anything interesting in this control
      */
     private boolean hasCost = false;
-    private double totalboardcost = 0;
+    private int totalboardcost = 0;
     private int daysonshelter = 0;
     private UI.Button btnAdd;
     private UI.Button btnDelete;
@@ -113,7 +113,7 @@ public class CostSelector extends ASMSelector {
 
             if (a.getArchived().intValue() == 0) {
                 daysonshelter = a.getDaysOnShelter();
-                txtBoardingCost.setValue(a.getDailyBoardingCost().doubleValue());
+                txtBoardingCost.setValue(a.getDailyBoardingCost().intValue());
                 updateOnShelterCost();
                 getTopPanel().setVisible(true);
                 invalidate();
@@ -139,12 +139,12 @@ public class CostSelector extends ASMSelector {
         return totalboardcost;
     }
 
-    public void setDailyBoardingCost(double d) {
+    public void setDailyBoardingCost(int d) {
         txtBoardingCost.setValue(d);
     }
 
     public void updateOnShelterCost() {
-        totalboardcost = txtBoardingCost.getValue() * (double) daysonshelter;
+        totalboardcost = txtBoardingCost.getValue() * (int) daysonshelter;
         lblBoardCost.setText(i18n("On_shelter_days_total_cost",
                 Integer.toString(daysonshelter),
                 Utils.formatCurrency(totalboardcost)));
@@ -169,11 +169,11 @@ public class CostSelector extends ASMSelector {
                 "(SELECT SUM(Donation) FROM ownerdonation WHERE AnimalID = animal.ID) AS totdon " +
                 "FROM animal WHERE ID = " + animalID, "animal");
 
-            double tv = tots.getDouble("totvacc");
-            double tm = tots.getDouble("totmed");
-            double tc = tots.getDouble("totcost");
-            double td = tots.getDouble("totdon");
-            double ta = tv + tm + tc + totalboardcost;
+            int tv = tots.getInt("totvacc");
+            int tm = tots.getInt("totmed");
+            int tc = tots.getInt("totcost");
+            int td = tots.getInt("totdon");
+            int ta = tv + tm + tc + totalboardcost;
             String s = i18n("cost_totals", Utils.formatCurrency(tv),
                     Utils.formatCurrency(tm), Utils.formatCurrency(tc),
                     "<b>" + Utils.formatCurrency(ta)) + "</b><br />" +

@@ -90,11 +90,11 @@ public class OwnerVoucher extends UserInfoBO<OwnerVoucher> {
         return newnum;
     }
 
-    public Double getValue() throws CursorEngineException {
-        return (Double) rs.getField("Value");
+    public Integer getValue() throws CursorEngineException {
+        return (Integer) rs.getField("Value");
     }
 
-    public void setValue(Double newValue) throws CursorEngineException {
+    public void setValue(Integer newValue) throws CursorEngineException {
         rs.setField("Value", newValue);
     }
 
@@ -142,7 +142,7 @@ public class OwnerVoucher extends UserInfoBO<OwnerVoucher> {
         try {
             // Check for blank or null donation and change it to 0
             if (getValue() == null) {
-                setValue(new Double(0));
+                setValue(new Integer(0));
             }
 
             if ((getVoucherID() == null) || (getVoucherID().intValue() == 0)) {

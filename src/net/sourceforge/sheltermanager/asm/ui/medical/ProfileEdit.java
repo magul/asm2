@@ -136,7 +136,7 @@ public class ProfileEdit extends ASMForm {
             txtProfileName.setText(mp.getProfileName());
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
-            txtCost.setValue(mp.getCost().doubleValue());
+            txtCost.setValue(mp.getCost().intValue());
 
             if (mp.getTimingRule().intValue() == 0) {
                 radOneOff.setSelected(true);
@@ -333,7 +333,7 @@ public class ProfileEdit extends ASMForm {
             mp.setProfileName(txtProfileName.getText());
             mp.setTreatmentName(txtTreatmentName.getText());
             mp.setDosage(txtDosage.getText());
-            mp.setCost(new Double(txtCost.getValue()));
+            mp.setCost(new Integer(txtCost.getValue()));
 
             if (radOneOff.isSelected()) {
                 mp.setTimingRule(new Integer(0));

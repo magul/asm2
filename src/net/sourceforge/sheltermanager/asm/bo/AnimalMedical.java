@@ -230,11 +230,11 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
         rs.setField("Status", newValue);
     }
 
-    public Double getCost() throws CursorEngineException {
-        return new Double(rs.getDouble("Cost"));
+    public Integer getCost() throws CursorEngineException {
+        return new Integer(rs.getInt("Cost"));
     }
 
-    public void setCost(Double newValue) throws CursorEngineException {
+    public void setCost(Integer newValue) throws CursorEngineException {
         rs.setField("Cost", newValue);
     }
 

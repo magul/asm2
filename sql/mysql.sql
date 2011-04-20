@@ -19,7 +19,7 @@ CREATE TABLE accountstrx (
   TrxDate datetime NOT NULL,
   Description varchar(255) NULL,
   Reconciled smallint NOT NULL,
-  Amount double NOT NULL,
+  Amount int(11) NOT NULL,
   SourceAccountID int(11) NOT NULL,
   DestinationAccountID int(11) NOT NULL,
   OwnerDonationID int(11) NULL,
@@ -87,7 +87,7 @@ CREATE TABLE adoption (
   InsuranceNumber varchar(50) NULL,
   ReasonForReturn text NULL,
   ReservationDate datetime NULL,
-  Donation double NULL,
+  Donation int(11) NULL,
   ReservationCancelledDate datetime NULL,
   Comments text NULL,
   RecordVersion int NOT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE animal (
   MostRecentEntryDate datetime NOT NULL,
   TimeOnShelter varchar(255) NULL,
   DaysOnShelter int(11) NULL,
-  DailyBoardingCost double NULL,
+  DailyBoardingCost int(11) NULL,
   AnimalAge varchar(255) NULL,
   RecordVersion int NOT NULL,
   CreatedBy varchar(255) NOT NULL,
@@ -208,7 +208,7 @@ CREATE TABLE animalcost (
   AnimalID int(11) NOT NULL,
   CostTypeID int(11) NOT NULL,
   CostDate TIMESTAMP NOT NULL, 
-  CostAmount double NOT NULL,
+  CostAmount int(11) NOT NULL,
   Description TEXT NULL,
   RecordVersion int NOT NULL, 
   CreatedBy varchar(255) NOT NULL,
@@ -305,7 +305,7 @@ CREATE TABLE animalmedical (
   TreatmentName varchar(255) NOT NULL ,
   StartDate datetime NOT NULL,
   Dosage varchar(255) NULL,
-  Cost double NOT NULL,
+  Cost int(11) NOT NULL,
   TimingRule tinyint NOT NULL ,
   TimingRuleFrequency smallint NOT NULL ,
   TimingRuleNoFrequencies smallint NOT NULL ,
@@ -367,7 +367,7 @@ CREATE TABLE animalvaccination (
   VaccinationID int(11) NOT NULL ,
   DateOfVaccination datetime NULL,
   DateRequired datetime NOT NULL,
-  Cost double NULL,
+  Cost int(11) NULL,
   Comments text NULL,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,
@@ -671,38 +671,12 @@ CREATE TABLE media (
   KEY IX_MediaLinkID (LinkID)
 ) TYPE=MyISAM;
 
-CREATE TABLE medicalpayment (
-  ID int(11) NOT NULL ,
-  AnimalMedicalID int(11) NOT NULL ,
-  MedicalPaymentTypeID int(11) NOT NULL ,
-  OwnerDonationID int(11) NOT NULL ,
-  VetOwnerID int(11) NOT NULL ,
-  Amount double NOT NULL ,
-  Comments TEXT NULL,
-  RecordVersion int NOT NULL ,
-  CreatedBy varchar(255) NOT NULL ,
-  CreatedDate datetime NOT NULL,
-  LastChangedBy varchar(255) NOT NULL ,
-  LastChangedDate datetime NOT NULL,
-  PRIMARY KEY  (ID),
-  KEY IX_MedicalPaymentTypeID (MedicalPaymentTypeID),
-  KEY IX_AnimalMedicalID (AnimalMedicalID),
-  KEY IX_OwnerDonationID (OwnerDonationID)
-) TYPE=MyISAM;
-
-CREATE TABLE medicalpaymenttype (
-  ID int(11) NOT NULL ,
-  MedicalPaymentTypeName varchar(255) NOT NULL,
-  MedicalPaymentTypeDescription varchar(255) NULL,
-  PRIMARY KEY  (ID)
-) TYPE=MyISAM;
-
 CREATE TABLE medicalprofile (
   ID int(11) NOT NULL ,
   ProfileName varchar(255) NOT NULL ,
   TreatmentName varchar(255) NOT NULL ,
   Dosage varchar(255) NULL,
-  Cost double NOT NULL,
+  Cost int(11) NOT NULL,
   TimingRule tinyint NOT NULL ,
   TimingRuleFrequency smallint NOT NULL ,
   TimingRuleNoFrequencies smallint NOT NULL ,
@@ -784,7 +758,7 @@ CREATE TABLE ownerdonation (
   DonationTypeID int(11) NOT NULL ,
   Date datetime NULL,
   DateDue datetime NULL,
-  Donation double NOT NULL,
+  Donation int(11) NOT NULL,
   IsGiftAid tinyint(4) NOT NULL,
   Frequency smallint NOT NULL,
   NextCreated tinyint(4) NOT NULL,
@@ -805,7 +779,7 @@ CREATE TABLE ownervoucher (
   VoucherID int(11) NOT NULL ,
   DateIssued datetime NOT NULL,
   DateExpired datetime NOT NULL,
-  Value double NOT NULL ,
+  Value int(11) NOT NULL ,
   Comments text NULL,
   RecordVersion int NOT NULL ,
   CreatedBy varchar(255) NOT NULL ,
@@ -862,7 +836,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2840');
+INSERT INTO configuration VALUES ('DatabaseVersion','2860');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
@@ -921,5 +895,5 @@ INSERT INTO configuration VALUES ('DefaultDateBroughtIn', 'Yes');
 INSERT INTO configuration VALUES ('AutoCancelReservesDays', '14');
 INSERT INTO configuration VALUES ('CreateBoardingCostOnAdoption', 'Yes');
 INSERT INTO configuration VALUES ('BoardingCostType', '1');
-INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '20');
+INSERT INTO configuration VALUES ('DefaultDailyBoardingCost', '2000');
 INSERT INTO configuration VALUES ('CreateDonationTrx', 'Yes');

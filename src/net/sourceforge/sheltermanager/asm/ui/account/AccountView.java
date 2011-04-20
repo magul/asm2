@@ -125,8 +125,8 @@ public class AccountView extends ASMView {
             initStatusBarMax(accounts.size());
 
             for (Account a : accounts) {
-                double balance = balances.get(a.getID()).balance;
-                double reconciled = balances.get(a.getID()).reconciled;
+                int balance = balances.get(a.getID()).balance;
+                int reconciled = balances.get(a.getID()).reconciled;
                 datar[i][0] = a.getCode();
                 datar[i][1] = a.getAccountTypeName();
                 datar[i][2] = a.getDescription();

@@ -142,11 +142,11 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         rs.setField("DateDue", newValue);
     }
 
-    public Double getDonation() throws CursorEngineException {
-        return new Double(rs.getDouble("Donation"));
+    public Integer getDonation() throws CursorEngineException {
+        return new Integer(rs.getInt("Donation"));
     }
 
-    public void setDonation(Double newValue) throws CursorEngineException {
+    public void setDonation(Integer newValue) throws CursorEngineException {
         rs.setField("Donation", newValue);
     }
 
@@ -253,7 +253,7 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         setDonationTypeID(z);
         setFrequency(z);
         setNextCreated(z);
-        setDonation(new Double(0));
+        setDonation(new Integer(0));
         setComments("");
         setIsGiftAid(z);
     }
@@ -361,7 +361,7 @@ public class OwnerDonation extends UserInfoBO<OwnerDonation> {
         try {
             // Check for blank or null donation and change it to 0
             if (getDonation() == null) {
-                setDonation(new Double(0));
+                setDonation(new Integer(0));
             }
 
             if ((getDateDue() == null) && (getDateReceived() == null)) {

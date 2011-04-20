@@ -141,20 +141,19 @@ public abstract class Utils {
      * @param amount
      * @return A formatted currency amount for the locale.
      */
-    public static String formatCurrency(double amount) {
+    public static String formatCurrency(int amount) {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-
-        return nf.format(amount);
+        return nf.format( ((double) amount) / 100 );
     }
 
-    public static String formatCurrency(Double amount) {
-        return formatCurrency(amount.doubleValue());
+    public static String formatCurrency(Integer amount) {
+        return formatCurrency(amount.intValue());
     }
 
     public static String formatCurrency(Object o) {
-        if (o instanceof Double) {
+        if (o instanceof Integer) {
             if (o != null) {
-                return formatCurrency((Double) o);
+                return formatCurrency((Integer) o);
             }
         }
 

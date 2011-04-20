@@ -146,7 +146,7 @@ public class MedicalEdit extends ASMForm {
             txtStartDate.setText(Utils.formatDate(am.getStartDate()));
             txtTreatmentName.setText(am.getTreatmentName());
             txtDosage.setText(am.getDosage());
-            txtCost.setValue(am.getCost().doubleValue());
+            txtCost.setValue(am.getCost().intValue());
             cboStatus.setSelectedIndex(am.getStatus().intValue());
 
             if (am.getTimingRule().intValue() == 0) {
@@ -212,7 +212,7 @@ public class MedicalEdit extends ASMForm {
             // Fill on-screen boxes
             txtTreatmentName.setText(mp.getTreatmentName());
             txtDosage.setText(mp.getDosage());
-            txtCost.setValue(mp.getCost().doubleValue());
+            txtCost.setValue(mp.getCost().intValue());
 
             if (mp.getTimingRule().intValue() == 0) {
                 radMultiple.setSelected(false);
@@ -412,7 +412,7 @@ public class MedicalEdit extends ASMForm {
             am.setStatus(new Integer(cboStatus.getSelectedIndex()));
             am.setTreatmentName(txtTreatmentName.getText());
             am.setDosage(txtDosage.getText());
-            am.setCost(new Double(txtCost.getValue()));
+            am.setCost(new Integer(txtCost.getValue()));
 
             if (radOneOff.isSelected()) {
                 am.setTimingRule(new Integer(0));

@@ -280,7 +280,7 @@ public class AdditionalFieldView extends UI.Panel {
 
                 if (o instanceof CurrencyField) {
                     int id = Integer.parseInt(((CurrencyField) o).getName());
-                    String text = ((CurrencyField) o).getText();
+                    String text = Integer.toString(((CurrencyField) o).getValue());
                     String validationFail = Global.i18n("uianimal",
                             "additional_field_empty", fieldLabels.get(id));
                     boolean mandatory = mandatoryFields.get(id).booleanValue();
@@ -422,7 +422,7 @@ public class AdditionalFieldView extends UI.Panel {
                 }
 
                 if (o instanceof CurrencyField) {
-                    ((CurrencyField) o).setValue(Double.parseDouble(af.value));
+                    ((CurrencyField) o).setValue(Integer.parseInt(af.value));
                 }
 
                 if (o instanceof UI.TextField) {

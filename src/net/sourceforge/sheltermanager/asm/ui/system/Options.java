@@ -299,7 +299,7 @@ public class Options extends ASMForm {
         txtVetsUser.setText(Global.getVetsDiaryUser());
 
         // Costs
-        txtDefaultBoardingCost.setValue(Configuration.getDouble(
+        txtDefaultBoardingCost.setValue(Configuration.getInteger(
                 "DefaultDailyBoardingCost"));
         chkCreateBoardingCostAdoption.setSelected(Configuration.getBoolean(
                 "CreateBoardingCostOnAdoption"));
@@ -592,7 +592,7 @@ public class Options extends ASMForm {
 
             // Costs
             Configuration.setEntry("DefaultDailyBoardingCost",
-                new Double(txtDefaultBoardingCost.getValue()).toString());
+                new Integer(txtDefaultBoardingCost.getValue()).toString());
             Configuration.setEntry("CreateBoardingCostOnAdoption",
                 chkCreateBoardingCostAdoption.isSelected() ? "Yes" : "No");
             Utils.getIDFromCombo(LookupCache.getCostTypeLookup(),

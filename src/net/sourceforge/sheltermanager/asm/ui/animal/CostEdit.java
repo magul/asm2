@@ -136,7 +136,7 @@ public class CostEdit extends ASMForm {
 
             Utils.setComboFromID(LookupCache.getCostTypeLookup(),
                 "CostTypeName", cost.getCostTypeID(), cboCostType);
-            txtCostAmount.setValue(cost.getCostAmount().doubleValue());
+            txtCostAmount.setValue(cost.getCostAmount().intValue());
             txtDescription.setText(Utils.nullToEmptyString(
                     cost.getDescription()));
             audit = UI.messageAudit(cost.getCreatedDate(), cost.getCreatedBy(),
@@ -161,7 +161,7 @@ public class CostEdit extends ASMForm {
 
             cost.setCostTypeID(Utils.getIDFromCombo(
                     LookupCache.getCostTypeLookup(), "CostTypeName", cboCostType));
-            cost.setCostAmount(new Double(txtCostAmount.getValue()));
+            cost.setCostAmount(new Integer(txtCostAmount.getValue()));
         } catch (CursorEngineException e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
@@ -200,7 +200,7 @@ public class CostEdit extends ASMForm {
         try {
             int cid = Utils.getIDFromCombo(LookupCache.getCostTypeLookup(),
                     "CostTypeName", cboCostType).intValue();
-            double lastcost = DBConnection.executeForDouble(
+            int lastcost = DBConnection.executeForInt(
                     "SELECT CostAmount FROM animalcost WHERE CostTypeID = " +
                     cid + " ORDER BY CostDate DESC LIMIT 1");
             txtCostAmount.setValue(lastcost);

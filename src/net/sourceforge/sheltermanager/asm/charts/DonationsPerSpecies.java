@@ -77,7 +77,7 @@ public class DonationsPerSpecies extends Chart {
 
         SQLRecordset spec = new SQLRecordset();
         spec.openRecordset(
-            "SELECT SpeciesID, SpeciesName, SUM(ownerdonation.Donation) AS TotOfSpecies FROM animal " +
+            "SELECT SpeciesID, SpeciesName, SUM(ownerdonation.Donation) / 100 AS TotOfSpecies FROM animal " +
             "INNER JOIN adoption ON adoption.AnimalID = animal.ID " +
             "INNER JOIN ownerdonation ON ownerdonation.MovementID = adoption.ID " +
             "INNER JOIN species ON animal.SpeciesID = species.ID " +
@@ -120,7 +120,7 @@ public class DonationsPerSpecies extends Chart {
 
             while (!spec.getEOF()) {
                 model[sp][i] = DBConnection.executeForSum(
-                        "SELECT Sum(ownerdonation.Donation) FROM ownerdonation " +
+                        "SELECT Sum(ownerdonation.Donation) / 100 FROM ownerdonation " +
                         "INNER JOIN adoption ON adoption.ID = ownerdonation.MovementID " +
                         "INNER JOIN animal ON adoption.AnimalID = animal.ID WHERE " +
                         "ownerdonation.Date >= '" + firstDay + "' AND " +
