@@ -677,23 +677,39 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     }
 
     public double getDouble(String fieldName) throws CursorEngineException {
-        Double d = (Double) getField(fieldName);
+        Object o = getField(fieldName);
 
-        if (d == null) {
+        if (o == null) {
             return 0;
         }
 
-        return d.doubleValue();
+        if (o instanceof Integer) {
+            return (double) ((Integer) o).intValue();
+        }
+
+        if (o instanceof Double) {
+            return ((Double) o).doubleValue();
+        }
+
+        return 0;
     }
 
     public int getInteger(String fieldName) throws CursorEngineException {
-        Integer i = (Integer) getField(fieldName);
+        Object o = getField(fieldName);
 
-        if (i == null) {
+        if (o == null) {
             return 0;
         }
 
-        return i.intValue();
+        if (o instanceof Double) {
+            return (int) ((Double) o).doubleValue();
+        }
+
+        if (o instanceof Integer) {
+            return ((Integer) o).intValue();
+        }
+
+        return 0;
     }
 
     public int getInt(String fieldName) throws CursorEngineException {
