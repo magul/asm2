@@ -77,8 +77,8 @@ public class OwnerMailMerge extends MailMerge {
 
                 // If it's an address (but not email), convert 
                 // commas to breaks
-                if (colnames[z].toLowerCase().indexOf("address") != -1 &&
-                    colnames[z].toLowerCase().indexOf("email") == -1) {
+                if ((colnames[z].toLowerCase().indexOf("address") != -1) &&
+                        (colnames[z].toLowerCase().indexOf("email") == -1)) {
                     theData[i][z] = model.getValueAt(i - 1, z).toString()
                                          .replace(',', '\n');
                 }

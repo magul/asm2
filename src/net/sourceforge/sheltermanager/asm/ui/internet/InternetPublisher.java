@@ -215,11 +215,12 @@ public class InternetPublisher extends ASMForm {
                     "UploadAllImages", true, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
-            
+
             // If we have debug enabled, allow disabling of direct upload
-            if (Global.showDebug)
-            	l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
-                    "UploadDirectly", true, false));
+            if (Global.showDebug) {
+                l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
+                        "UploadDirectly", true, false));
+            }
         }
 
         // Upload Options (for saveapet)
@@ -229,11 +230,12 @@ public class InternetPublisher extends ASMForm {
                     false, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
-            
+
             // If we have debug enabled, allow disabling of direct upload
-            if (Global.showDebug)
-            	l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
-                    "UploadDirectly", true, false));
+            if (Global.showDebug) {
+                l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
+                        "UploadDirectly", true, false));
+            }
         }
 
         // Upload Options (for pets911)
@@ -241,11 +243,12 @@ public class InternetPublisher extends ASMForm {
             l.add(new SelectableItem(i18n("Upload_Options"), null, false, true));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
-            
+
             // If we have debug enabled, allow disabling of direct upload
-            if (Global.showDebug)
-            	l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
-                    "UploadDirectly", true, false));
+            if (Global.showDebug) {
+                l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
+                        "UploadDirectly", true, false));
+            }
         }
 
         // Upload Options (for rescuegroups)
@@ -255,11 +258,12 @@ public class InternetPublisher extends ASMForm {
                     "UploadAllImages", true, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
-            
+
             // If we have debug enabled, allow disabling of direct upload
-            if (Global.showDebug)
-            	l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
-                    "UploadDirectly", true, false));
+            if (Global.showDebug) {
+                l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
+                        "UploadDirectly", true, false));
+            }
         }
 
         // Style (only valid for html)

@@ -26,7 +26,6 @@ import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteria;
 import net.sourceforge.sheltermanager.asm.ui.criteria.DiaryCriteriaListener;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
-
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 
 import java.util.Calendar;
@@ -100,8 +99,7 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
         try {
             String sql = "SELECT av.DateRequired, av.Comments, a.AnimalName, " +
                 "a.ShelterCode, a.ShortCode, at.AnimalType, il.LocationName, " +
-                "vt.VaccinationType " +
-                "FROM animalvaccination av " +
+                "vt.VaccinationType " + "FROM animalvaccination av " +
                 "INNER JOIN animal a ON a.ID = av.AnimalID " +
                 "INNER JOIN animaltype at ON at.ID = a.AnimalTypeID " +
                 "INNER JOIN internallocation il ON il.ID = a.ShelterLocation " +
@@ -115,34 +113,38 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
                 upto.set(Calendar.HOUR_OF_DAY, 23);
                 upto.set(Calendar.MINUTE, 59);
                 upto.set(Calendar.SECOND, 59);
-                sql += "DateOfVaccination Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(upto) + "'";
+                sql += ("DateOfVaccination Is Null AND DateRequired <= '" +
+                Utils.getSQLDate(upto) + "'");
 
                 break;
 
             case DiaryCriteria.UPTO_SPECIFIED:
-                sql += "DateOfVaccination Is Null AND DateRequired <= '" +
-                    Utils.getSQLDate(dateUpto) + "'";
+                sql += ("DateOfVaccination Is Null AND DateRequired <= '" +
+                Utils.getSQLDate(dateUpto) + "'");
 
                 break;
 
             case DiaryCriteria.BETWEEN_TWO:
-                sql += "DateOfVaccination Is Null AND DateRequired >= '" +
-                    Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
-                    Utils.getSQLDate(dateTo) + "'";
+                sql += ("DateOfVaccination Is Null AND DateRequired >= '" +
+                Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
+                Utils.getSQLDate(dateTo) + "'");
 
                 break;
             }
 
             switch (reportType) {
-                case VACC_ALL:
-                    break;
-                case VACC_ONSHELTER:
-                    sql += " AND Archived = 0";
-                    break;
-                case VACC_OFFSHELTER:
-                    sql += " AND Archived = 1"; 
-                    break;
+            case VACC_ALL:
+                break;
+
+            case VACC_ONSHELTER:
+                sql += " AND Archived = 0";
+
+                break;
+
+            case VACC_OFFSHELTER:
+                sql += " AND Archived = 1";
+
+                break;
             }
 
             SQLRecordset av = new SQLRecordset(sql);

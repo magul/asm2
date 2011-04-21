@@ -393,30 +393,28 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
             return;
         }
     }
-    
+
     /**
      * Updates the treatments given and remaining totals.
      */
     public void updateTreatmentTotals() {
-    	
-    	try {
-	        int given = DBConnection.executeForCount(
-	        	"SELECT COUNT(*) FROM animalmedicaltreatment WHERE AnimalMedicalID = " +
-	        	Integer.toString(this.getID()) + " AND DateGiven Is Not Null");
-	        int remaining = getTotalNumberOfTreatments().intValue() - given;
-        	
-        	setTreatmentsGiven(new Integer(given));
-        	setTreatmentsRemaining(new Integer(remaining));
+        try {
+            int given = DBConnection.executeForCount(
+                    "SELECT COUNT(*) FROM animalmedicaltreatment WHERE AnimalMedicalID = " +
+                    Integer.toString(this.getID()) +
+                    " AND DateGiven Is Not Null");
+            int remaining = getTotalNumberOfTreatments().intValue() - given;
 
-	        String sql = "UPDATE animalmedical SET TreatmentsGiven = " +
-	            getTreatmentsGiven() + ", TreatmentsRemaining = " +
-	            getTreatmentsRemaining() + " WHERE ID = " + getID();
-	        DBConnection.executeAction(sql);
-	        
-    	}
-    	catch (Exception e) {
-    		Global.logException(e, getClass());
-    	}
+            setTreatmentsGiven(new Integer(given));
+            setTreatmentsRemaining(new Integer(remaining));
+
+            String sql = "UPDATE animalmedical SET TreatmentsGiven = " +
+                getTreatmentsGiven() + ", TreatmentsRemaining = " +
+                getTreatmentsRemaining() + " WHERE ID = " + getID();
+            DBConnection.executeAction(sql);
+        } catch (Exception e) {
+            Global.logException(e, getClass());
+        }
     }
 
     /**

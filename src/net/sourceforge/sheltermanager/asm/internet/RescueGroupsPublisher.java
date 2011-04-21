@@ -351,29 +351,28 @@ public class RescueGroupsPublisher extends FTPPublisher {
 
                 // pic1 - pic4
                 if (totalimages > 0) {
-                	// if uploadAll isn't on, there was just one image
-                	// with the sheltercode as the name
-                	if (!publishCriteria.uploadAllImages) {
-                		dataFile.append(", \"" + an.getShelterCode() + ".jpg\", \"\", \"\", \"\"");
-                	}
-                	else {
-                		// Upload is on, output an entry for each image
-                		// we uploaded upto a maximum of 4
-		                for (int i = 1; i <= 4; i++) {
-		                    dataFile.append(", ");
-		
-		                    if (totalimages >= i) {
-		                        dataFile.append("\"" + an.getShelterCode() + "-" + i +
-		                            ".jpg" + "\"");
-		                    } else {
-		                        dataFile.append("\"\"");
-		                    }
-		                }
-                	}
-                }
-                else {
-                	// Leave it blank
-                	dataFile.append(", \"\", \"\", \"\", \"\"");
+                    // if uploadAll isn't on, there was just one image
+                    // with the sheltercode as the name
+                    if (!publishCriteria.uploadAllImages) {
+                        dataFile.append(", \"" + an.getShelterCode() +
+                            ".jpg\", \"\", \"\", \"\"");
+                    } else {
+                        // Upload is on, output an entry for each image
+                        // we uploaded upto a maximum of 4
+                        for (int i = 1; i <= 4; i++) {
+                            dataFile.append(", ");
+
+                            if (totalimages >= i) {
+                                dataFile.append("\"" + an.getShelterCode() +
+                                    "-" + i + ".jpg" + "\"");
+                            } else {
+                                dataFile.append("\"\"");
+                            }
+                        }
+                    }
+                } else {
+                    // Leave it blank
+                    dataFile.append(", \"\", \"\", \"\", \"\"");
                 }
 
                 // Terminate

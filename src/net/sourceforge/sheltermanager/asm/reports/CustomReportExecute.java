@@ -819,7 +819,8 @@ public class CustomReportExecute extends Report {
                 for (int i = 1; i <= rs.getFieldCount(); i++) {
                     tempbody = Utils.replace(tempbody,
                             "$" + rs.getFieldName(i),
-                            displayValue(rs.getFieldName(i), rs.getField(rs.getFieldName(i))));
+                            displayValue(rs.getFieldName(i),
+                                rs.getField(rs.getFieldName(i))));
                 }
 
                 // Update the last value for each group
@@ -918,9 +919,7 @@ public class CustomReportExecute extends Report {
                             // If we got a blank, return a link to nopic.jpg instead
                             if (mediaName.equals("")) {
                                 value = "nopic.jpg";
-                            }
-                            else {
-
+                            } else {
                                 DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
                                         Integer.parseInt(animalid));
                                 dbfs.readFile(mediaName,
@@ -1060,9 +1059,9 @@ public class CustomReportExecute extends Report {
             }
         }
     }
-    
+
     private boolean isCurrency(String field) {
-    	return CURRENCY_FIELDS.indexOf(field.toUpperCase()) != -1;
+        return CURRENCY_FIELDS.indexOf(field.toUpperCase()) != -1;
     }
 
     public static void dropTemporaryTable(String sqlCreate) {
@@ -1113,7 +1112,8 @@ public class CustomReportExecute extends Report {
 
             for (int i = 1; i <= rs.getFieldCount(); i++) {
                 out = Utils.replace(out, "$" + rs.getFieldName(i),
-                        displayValue(rs.getFieldName(i), rs.getField(rs.getFieldName(i))));
+                        displayValue(rs.getFieldName(i),
+                            rs.getField(rs.getFieldName(i))));
             }
 
             // Look for calculation keys
@@ -1146,9 +1146,13 @@ public class CustomReportExecute extends Report {
                     // Count backwards to start of group
                     while (rs.getAbsolutePosition() >= gd.lastGroupStartPosition) {
                         try {
-                        	BigDecimal fd = new BigDecimal((rs.getField(fields[1]).toString()));
-                        	if (isCurrency(fields[1]))
-                        		fd = fd.divide(new BigDecimal(100));
+                            BigDecimal fd = new BigDecimal((rs.getField(
+                                        fields[1]).toString()));
+
+                            if (isCurrency(fields[1])) {
+                                fd = fd.divide(new BigDecimal(100));
+                            }
+
                             total = total.add(fd);
                         } catch (Exception e) {
                             // Ignore non-numbers
@@ -1206,9 +1210,13 @@ public class CustomReportExecute extends Report {
                     // hit the beginning of the recordset
                     while (rs.getAbsolutePosition() >= gd.lastGroupStartPosition) {
                         try {
-                        	BigDecimal fd = new BigDecimal((rs.getField(fields[1]).toString()));
-                        	if (isCurrency(fields[1]))
-                        		fd = fd.divide(new BigDecimal(100));
+                            BigDecimal fd = new BigDecimal((rs.getField(
+                                        fields[1]).toString()));
+
+                            if (isCurrency(fields[1])) {
+                                fd = fd.divide(new BigDecimal(100));
+                            }
+
                             total = total.add(fd);
                             num++;
                         } catch (Exception e) {
@@ -1293,7 +1301,10 @@ public class CustomReportExecute extends Report {
                         }
                     }
 
-                    if (isCurrency(gd.fieldName)) min = min / 100;
+                    if (isCurrency(gd.fieldName)) {
+                        min = min / 100;
+                    }
+
                     value = Double.toString(min);
                 }
 
@@ -1325,7 +1336,10 @@ public class CustomReportExecute extends Report {
                         }
                     }
 
-                    if (isCurrency(gd.fieldName)) max = max / 100;
+                    if (isCurrency(gd.fieldName)) {
+                        max = max / 100;
+                    }
+
                     value = Double.toString(max);
                 }
 
@@ -1338,8 +1352,14 @@ public class CustomReportExecute extends Report {
                     try {
                         rs.setAbsolutePosition(gd.lastGroupStartPosition);
                         value = "";
-                        double first = Double.parseDouble(rs.getField(field).toString());
-                        if (isCurrency(field)) first /= 100;
+
+                        double first = Double.parseDouble(rs.getField(field)
+                                                            .toString());
+
+                        if (isCurrency(field)) {
+                            first /= 100;
+                        }
+
                         value = Double.toString(first);
                     } catch (Exception e) {
                     }
@@ -1354,8 +1374,14 @@ public class CustomReportExecute extends Report {
                     try {
                         rs.setAbsolutePosition(gd.lastGroupEndPosition);
                         value = "";
-                        double last = Double.parseDouble(rs.getField(field).toString());
-                        if (isCurrency(field)) last /= 100;
+
+                        double last = Double.parseDouble(rs.getField(field)
+                                                           .toString());
+
+                        if (isCurrency(field)) {
+                            last /= 100;
+                        }
+
                         value = Double.toString(last);
                     } catch (Exception e) {
                     }
@@ -1434,9 +1460,7 @@ public class CustomReportExecute extends Report {
                         // If we got a blank, return a link to nopic.jpg instead
                         if (mediaName.equals("")) {
                             value = "nopic.jpg";
-                        } 
-                        else {
-
+                        } else {
                             DBFS dbfs = Utils.getDBFSDirectoryForLink(Media.LINKTYPE_ANIMAL,
                                     Integer.parseInt(animalid));
                             dbfs.readFile(mediaName,
@@ -1582,7 +1606,6 @@ public class CustomReportExecute extends Report {
 
     /** Converts a recordset value for display - nulls become empty strings */
     public String displayValue(String fieldname, Object o) {
-    	
         if (o == null) {
             return "";
         }
@@ -1590,11 +1613,12 @@ public class CustomReportExecute extends Report {
         if (o instanceof Date) {
             return Utils.formatDate((Date) o);
         }
-        
+
         if (CURRENCY_FIELDS.indexOf(fieldname.toUpperCase()) != -1) {
-        	double v = Double.parseDouble(o.toString());
-        	v /= 100;
-        	return Double.toString(v);
+            double v = Double.parseDouble(o.toString());
+            v /= 100;
+
+            return Double.toString(v);
         }
 
         return o.toString();

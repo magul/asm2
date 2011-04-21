@@ -826,6 +826,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         // Loop through our available rows and find the ones that
         // need saving, updating or deleting:
         l = 1;
+
         ArrayList<String> batch = new ArrayList<String>();
 
         while (l <= mNoRows) {
@@ -929,7 +930,6 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     /**

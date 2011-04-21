@@ -288,6 +288,7 @@ public abstract class Report extends Thread {
         if (d == null) {
             d = new Integer(0);
         }
+
         return Utils.formatCurrency(d);
     }
 
@@ -467,11 +468,13 @@ public abstract class Report extends Thread {
         // $$TITLE$$ tag //
         output = Utils.replace(output, "$$TITLE$$", getTitle());
         // $$DATE$$ tag //
-        output = Utils.replace(output, "$$DATE$$", Utils.formatDateLong(new Date()));
+        output = Utils.replace(output, "$$DATE$$",
+                Utils.formatDateLong(new Date()));
         // $$TIME$$ tag //
         output = Utils.replace(output, "$$TIME$$", Utils.formatTime(new Date()));
         // $$DATETIME$$ tag //
-        output = Utils.replace(output, "$$DATETIME$$", Utils.formatDateTimeLong(new Date()));
+        output = Utils.replace(output, "$$DATETIME$$",
+                Utils.formatDateTimeLong(new Date()));
         // $$VERSION$$ tag //
         output = Utils.replace(output, "$$VERSION$$",
                 net.sourceforge.sheltermanager.asm.globals.Global.productVersion);

@@ -234,10 +234,11 @@ public class FTPPublisher extends AbstractPublisher {
             // then just upload it over the top
             try {
                 if ((filename.indexOf("." + publishCriteria.extension) != -1) ||
-                    (filename.indexOf(".js") != -1) ||
-                    (filename.indexOf(".") == -1) ||
-                    (filename.indexOf(".csv") != -1)) {
+                        (filename.indexOf(".js") != -1) ||
+                        (filename.indexOf(".") == -1) ||
+                        (filename.indexOf(".csv") != -1)) {
                     uploadFTP.put(publishDir + filename, filename);
+
                     return;
                 }
             } catch (Exception e) {
@@ -278,10 +279,10 @@ public class FTPPublisher extends AbstractPublisher {
      * @param newdir
      */
     protected void mkdir(String newdir) {
-    	if (!publishCriteria.uploadDirectly) {
+        if (!publishCriteria.uploadDirectly) {
             return;
         }
-    	
+
         try {
             uploadFTP.mkdir(newdir);
         } catch (Exception e) {
@@ -317,9 +318,10 @@ public class FTPPublisher extends AbstractPublisher {
      * @param fromroot The directory from the root for coming back here
      */
     protected void chdir(String newdir, String fromroot) {
-    	if (!publishCriteria.uploadDirectly) {
+        if (!publishCriteria.uploadDirectly) {
             return;
         }
+
         chdir(newdir);
         currentFTPDirectory = fromroot;
     }
@@ -468,13 +470,19 @@ public class FTPPublisher extends AbstractPublisher {
                             an.getID().intValue());
 
                     try {
-                    	// Handle the preferred image for this animal.
-                		animalpic = animalcode + ".jpg";
-                    	if (mediaIDAsName) animalpic = animalweb;
-                    	if (publishCriteria.uploadAllImages) animalpic = animalcode + "-1.jpg";
-                    	
-	                    dbfs.readFile(animalweb, publishDir + animalpic);
-	
+                        // Handle the preferred image for this animal.
+                        animalpic = animalcode + ".jpg";
+
+                        if (mediaIDAsName) {
+                            animalpic = animalweb;
+                        }
+
+                        if (publishCriteria.uploadAllImages) {
+                            animalpic = animalcode + "-1.jpg";
+                        }
+
+                        dbfs.readFile(animalweb, publishDir + animalpic);
+
                         // If scaling is on, scale the image
                         if (publishCriteria.scaleImages != 1) {
                             scaleImage(publishDir + animalpic,
@@ -486,11 +494,13 @@ public class FTPPublisher extends AbstractPublisher {
                             generateThumbnail(publishDir, animalpic,
                                 "tn_" + animalpic);
                         }
-                    	if (publishCriteria.uploadDirectly) {
-                    		upload(animalpic);	
-                    		if (publishCriteria.thumbnails) {
-                    			upload("tn_" + animalpic);
-                    		}
+
+                        if (publishCriteria.uploadDirectly) {
+                            upload(animalpic);
+
+                            if (publishCriteria.thumbnails) {
+                                upload("tn_" + animalpic);
+                            }
                         }
                     }
                     // If an IO Error occurs, the file is already in the

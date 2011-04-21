@@ -44,7 +44,6 @@ import java.util.Iterator;
  * @version 1.0
  */
 public class OwnerDonationDocument extends GenerateDocument {
-    
     Animal animal = null;
     Owner owner = null;
     OwnerDonation od = null;
@@ -63,8 +62,13 @@ public class OwnerDonationDocument extends GenerateDocument {
             this.uiparent = uiparent;
             this.od = od;
             owner = od.getOwner();
+
             int animalid = od.getAnimalID().intValue();
-            if (animalid > 0) animal = new Animal("ID = " + animalid);
+
+            if (animalid > 0) {
+                animal = new Animal("ID = " + animalid);
+            }
+
             generateDocument();
         } catch (Exception e) {
             Global.logException(e, this.getClass());
@@ -76,7 +80,6 @@ public class OwnerDonationDocument extends GenerateDocument {
      */
     public void generateSearchTags() {
         try {
-
             // Generate Donation info
             addTag(Global.i18n("wordprocessor", "DonationID"),
                 od.getID().toString());

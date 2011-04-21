@@ -404,12 +404,12 @@ public class MedicalTreatmentSelector extends ASMSelector {
                 String sql = "DELETE FROM animalmedicaltreatment WHERE ID = " +
                     tid;
                 DBConnection.executeAction(sql);
-                
+
                 // Recalculate totals
                 AnimalMedical am = new AnimalMedical();
                 am.openRecordset("Status = " +
                     Integer.toString(AnimalMedical.STATUS_ACTIVE));
-                
+
                 while (!am.getEOF()) {
                     am.updateTreatmentTotals();
                     am.moveNext();

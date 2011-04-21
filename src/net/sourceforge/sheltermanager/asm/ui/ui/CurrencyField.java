@@ -102,11 +102,12 @@ public class CurrencyField extends UI.Panel {
 
     public int getValue() {
         double d = Double.parseDouble(toNumber());
+
         return (int) (d * 100);
     }
 
     public void setValue(int i) {
-    	double d = (double) i / 100;
+        double d = (double) i / 100;
         String v = Double.toString(d);
         txt.setText(Global.currencySymbol + v);
         txt.setText(Global.currencySymbol + toNumber());

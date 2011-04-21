@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.wordprocessor.AnimalDocument;
 import net.sourceforge.sheltermanager.dbfs.DBFS;
 
 import java.io.File;
+
 import java.util.Date;
 
 
@@ -434,9 +435,11 @@ public class HTMLPublisher extends FTPPublisher {
                 Integer.toString(totalAnimals));
 
         // $$DATE$$ tag //
-        output = Utils.replace(output, "$$DATE$$", Utils.formatDateLong(new Date()));
+        output = Utils.replace(output, "$$DATE$$",
+                Utils.formatDateLong(new Date()));
         // $$DATETIME$$ tag //
-        output = Utils.replace(output, "$$DATETIME$$", Utils.formatDateTimeLong(new Date()));
+        output = Utils.replace(output, "$$DATETIME$$",
+                Utils.formatDateTimeLong(new Date()));
         // $$TIME$$ tag //
         output = Utils.replace(output, "$$TIME$$", Utils.formatTime(new Date()));
         // $$VERSION$$ tag //

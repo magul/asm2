@@ -183,24 +183,32 @@ public class VaccinationView extends ASMView implements VaccinationParent,
 
         switch (type) {
         case DiaryCriteria.UPTO_TODAY:
-            sql += "DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDate(Calendar.getInstance()) + "'";
+            sql += ("DateOfVaccination Is Null AND DateRequired <= '" +
+            Utils.getSQLDate(Calendar.getInstance()) + "'");
+
             break;
 
         case DiaryCriteria.UPTO_SPECIFIED:
-            sql += "DateOfVaccination Is Null AND DateRequired <= '" +
-                Utils.getSQLDate(dateUpto) + "'";
+            sql += ("DateOfVaccination Is Null AND DateRequired <= '" +
+            Utils.getSQLDate(dateUpto) + "'");
+
             break;
 
         case DiaryCriteria.BETWEEN_TWO:
-            sql += "DateOfVaccination Is Null AND DateRequired >= '" +
-                Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
-                Utils.getSQLDate(dateTo) + "'";
+            sql += ("DateOfVaccination Is Null AND DateRequired >= '" +
+            Utils.getSQLDate(dateFrom) + "' AND DateRequired <= '" +
+            Utils.getSQLDate(dateTo) + "'");
+
             break;
         }
 
-        if (!deceased) sql += " AND DeceasedDate Is Null";
-        if (!offshelter) sql += " AND Archived = 0";
+        if (!deceased) {
+            sql += " AND DeceasedDate Is Null";
+        }
+
+        if (!offshelter) {
+            sql += " AND Archived = 0";
+        }
 
         try {
             SQLRecordset av = new SQLRecordset(sql);
@@ -214,14 +222,20 @@ public class VaccinationView extends ASMView implements VaccinationParent,
             while (!av.getEOF()) {
                 TableRow row = new TableRow(9);
 
-                row.set(0, Animal.getAnimalCode(av.getString("ShelterCode"), av.getString("ShortCode")));
+                row.set(0,
+                    Animal.getAnimalCode(av.getString("ShelterCode"),
+                        av.getString("ShortCode")));
                 row.set(1, av.getString("AnimalName"));
-                row.set(2, Animal.getDisplayLocation(av.getInt("ShelterLocation"), 
-                    av.getInt("NonShelterAnimal"), av.getInt("ActiveMovementID"),
-                    av.getInt("ActiveMovementType"), av.getDate("DeceasedDate")));
+                row.set(2,
+                    Animal.getDisplayLocation(av.getInt("ShelterLocation"),
+                        av.getInt("NonShelterAnimal"),
+                        av.getInt("ActiveMovementID"),
+                        av.getInt("ActiveMovementType"),
+                        av.getDate("DeceasedDate")));
                 row.set(3, av.getString("VaccinationType"));
                 row.set(4, Utils.formatTableDate(av.getDate("DateRequired")));
-                row.set(5, Utils.formatTableDate(av.getDate("DateOfVaccination")));
+                row.set(5,
+                    Utils.formatTableDate(av.getDate("DateOfVaccination")));
                 row.set(6, Utils.nullToEmptyString(av.getString("Comments")));
                 row.set(7, av.getString("AnimalID"));
                 row.set(8, av.getString("AnimalVaccinationID"));

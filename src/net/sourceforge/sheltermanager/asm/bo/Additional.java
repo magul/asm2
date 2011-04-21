@@ -72,9 +72,9 @@ public class Additional {
                 try {
                     // Try an update first
                     int co = DBConnection.executeUpdate(
-                            "UPDATE additional SET Value = '" + f.value.replace('\'', '`') + 
-                            "' WHERE LinkType = " + linkType +
-                            " AND LinkID = " + linkID +
+                            "UPDATE additional SET Value = '" +
+                            f.value.replace('\'', '`') + "' WHERE LinkType = " +
+                            linkType + " AND LinkID = " + linkID +
                             " AND AdditionalFieldID = " + f.fieldID);
 
                     // If no records were updated, do an insert instead

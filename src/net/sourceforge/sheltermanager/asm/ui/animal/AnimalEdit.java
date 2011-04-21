@@ -513,6 +513,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         chkDiedOffShelter.setEnabled(b);
         cboPTSReason.setEnabled(b);
         txtPTSReason.setEnabled(b);
+
         // If this is a non-shelter animal, then it MUST
         // die off the shelter - the flag should be set
         // and disabled
@@ -520,6 +521,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             chkDiedOffShelter.setSelected(true);
             chkDiedOffShelter.setEnabled(false);
         }
+
         dataChanged();
     }
 

@@ -75,15 +75,15 @@ public abstract class Dialog {
 
     /** Wraps a message by replacing spaces with line breaks */
     private static String wordWrap(String s) {
-
         if (s == null) {
             return "";
         }
 
         // If there's already a line break in the source,
         // don't do anything
-        if (s.indexOf("\n") != -1) return s;
-
+        if (s.indexOf("\n") != -1) {
+            return s;
+        }
 
         final int WRAP = 100; // No chars to wrap at
         int lastpos = 0;

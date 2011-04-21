@@ -577,33 +577,11 @@ public abstract class GenerateDocument extends Thread
      * 2897 bytes in size and replaces it with the animal's media
      */
     protected void processMOOXMLImage() {
-        final String PLACEHOLDER = "placeholder.jpg";
         final int PLACEHOLDER_SIZE = 2897;
 
         String moodir = Global.tempDirectory + File.separator + "mooxml";
 
         try {
-            String s = Utils.readFile(localfile);
-
-            // Do we have any instances of our placeholder image
-            // in the document?
-            int tag = s.indexOf(PLACEHOLDER);
-
-            if (tag == -1) {
-                // No - don't bother doing anything
-                if (Global.showDebug) {
-                    Global.logDebug("No placeholder found, abandoning",
-                        "processMOOXMLImage");
-                }
-
-                return;
-            } else {
-                if (Global.showDebug) {
-                    Global.logDebug("Found placeholder image, scanning",
-                        "processMOOXMLImage");
-                }
-            }
-
             // Grab the media and save it into the unpacked
             // mooxml file image, renaming it to image<id>.jpeg
             String mediafile = getImage();
@@ -655,7 +633,6 @@ public abstract class GenerateDocument extends Thread
      * in the document
      */
     protected void processOpenOfficeImage() {
-        final String MAGIC_TAG = "draw:name=\"media\"";
         final int PLACEHOLDER_SIZE = 2897;
         String oodir = Global.tempDirectory + File.separator + "openoffice";
 
@@ -663,19 +640,6 @@ public abstract class GenerateDocument extends Thread
             "processOpenOfficeImage");
 
         try {
-            String s = Utils.readFile(localfile);
-
-            // Do we have the magic tag to say we want an animal image?
-            int tag = s.indexOf(MAGIC_TAG);
-
-            if (tag == -1) {
-                // No - don't bother doing anything
-                Global.logDebug("Couldn't find draw:name tag, bailing out",
-                    "processOpenOfficeImage");
-
-                return;
-            }
-
             // Grab the media and save it into the unpacked
             // openoffice file image
             String mediafile = getImage();
@@ -692,8 +656,10 @@ public abstract class GenerateDocument extends Thread
             // image - we can recognise it by it's size
             File tg = new File(oodir + File.separator + "Pictures");
             String[] dir = tg.list();
+
             for (int i = 0; i < dir.length; i++) {
-                if (dir[i].indexOf(".jpeg") != -1 || dir[i].indexOf(".jpg") != -1) {
+                if ((dir[i].indexOf(".jpeg") != -1) ||
+                        (dir[i].indexOf(".jpg") != -1)) {
                     String target = oodir + File.separator + "Pictures" +
                         File.separator + dir[i];
                     File ph = new File(target);
@@ -708,6 +674,7 @@ public abstract class GenerateDocument extends Thread
                     if (ph.length() == PLACEHOLDER_SIZE) {
                         ph.delete();
                         Utils.renameFile(new File(mediafile), new File(target));
+
                         break;
                     }
                 }

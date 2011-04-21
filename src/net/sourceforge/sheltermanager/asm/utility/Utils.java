@@ -143,7 +143,8 @@ public abstract class Utils {
      */
     public static String formatCurrency(int amount) {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-        return nf.format( ((double) amount) / 100 );
+
+        return nf.format(((double) amount) / 100);
     }
 
     public static String formatCurrency(Integer amount) {

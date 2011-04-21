@@ -179,7 +179,9 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         Integer accountId) throws Exception {
         AccountTrx t = new AccountTrx();
         t.openRecordset("ID = " + transactionId);
+
         Account a = new Account("ID > 0");
+
         return new Trx(t, accountId, 0, a);
     }
 
@@ -411,8 +413,8 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public Trx() {
         }
 
-        public Trx(AccountTrx t, Integer thisAccount, int startbalance, Account a)
-            throws Exception {
+        public Trx(AccountTrx t, Integer thisAccount, int startbalance,
+            Account a) throws Exception {
             id = t.getID().intValue();
             accountId = thisAccount.intValue();
             date = t.getTrxDate();
@@ -428,7 +430,8 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
 
             // If this account is both the source and the destination,
             // then indicate an error and don't adjust the balance
-            if (t.getSourceAccountID().equals(thisAccount) && t.getDestinationAccountID().equals(thisAccount)) {
+            if (t.getSourceAccountID().equals(thisAccount) &&
+                    t.getDestinationAccountID().equals(thisAccount)) {
                 withdrawal = 0;
                 deposit = 0;
                 otherAccountId = thisAccount;
@@ -439,7 +442,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
                 withdrawal = t.getAmount().intValue();
                 deposit = 0;
                 otherAccountId = t.getDestinationAccountID().intValue();
-                otherAccountCode = codeForID(a, otherAccountId);  
+                otherAccountCode = codeForID(a, otherAccountId);
                 balance -= withdrawal;
             }
             // it's a deposit
@@ -447,7 +450,7 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
                 deposit = t.getAmount().intValue();
                 withdrawal = 0;
                 otherAccountId = t.getSourceAccountID().intValue();
-                otherAccountCode = codeForID(a, otherAccountId); 
+                otherAccountCode = codeForID(a, otherAccountId);
                 balance += deposit;
             }
         }
@@ -455,11 +458,13 @@ public class AccountTrx extends UserInfoBO<AccountTrx> {
         public String codeForID(Account acc, Integer id) {
             try {
                 for (Account a : acc) {
-                    if (a.getID().equals(id)) return a.getCode();
+                    if (a.getID().equals(id)) {
+                        return a.getCode();
+                    }
                 }
+
                 return "";
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 return "";
             }
         }

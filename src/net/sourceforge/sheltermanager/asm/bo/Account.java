@@ -263,9 +263,7 @@ public class Account extends UserInfoBO<Account> {
                 "(SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND DestinationAccountID = accounts.ID" +
                 periodFilter + ") AS recdest,  " +
                 "(SELECT SUM(Amount) FROM accountstrx WHERE Reconciled = 1 AND SourceAccountID = accounts.ID" +
-                periodFilter + ") AS recsrc " +
-                "FROM accounts",
-                "accounts");
+                periodFilter + ") AS recsrc " + "FROM accounts", "accounts");
         HashMap<Integer, Account.Balances> bals = new HashMap<Integer, Account.Balances>(rs.size());
 
         for (SQLRecordset r : rs) {
@@ -333,7 +331,7 @@ public class Account extends UserInfoBO<Account> {
                 "SELECT SUM(Amount) FROM accountstrx WHERE DestinationAccountID = " +
                 accountId + " AND TrxDate >= '" + Utils.getSQLDate(start) +
                 "'" + "AND TrxDate < '" + Utils.getSQLDate(limit) + "'");
-        int balance= deposit - withdrawal;
+        int balance = deposit - withdrawal;
 
         int accountType = DBConnection.executeForInt(
                 "SELECT AccountType FROM accounts WHERE ID = " + accountId);

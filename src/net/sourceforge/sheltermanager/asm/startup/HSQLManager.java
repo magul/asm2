@@ -33,7 +33,7 @@ public class HSQLManager {
         StringBuffer s = new StringBuffer();
 
         boolean isWin = (System.getProperty("os.name").toLowerCase()
-                              .indexOf("windows") != -1);
+                               .indexOf("windows") != -1);
 
         // Base exe
         String javabin = (isWin ? "javaw.exe" : "java");

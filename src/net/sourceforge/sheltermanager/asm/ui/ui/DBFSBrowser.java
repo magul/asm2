@@ -145,7 +145,9 @@ public class DBFSBrowser extends JPanel implements MouseListener {
         // If we still don't have a selected item (bizarrely, this
         // happens on some machines, not sure what events are
         // triggering it), then don't do anything
-        if (selitem == null) return;
+        if (selitem == null) {
+            return;
+        }
 
         // Sort out the button clicks
 
