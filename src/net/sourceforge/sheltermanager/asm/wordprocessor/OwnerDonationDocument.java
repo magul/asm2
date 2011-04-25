@@ -88,7 +88,7 @@ public class OwnerDonationDocument extends GenerateDocument {
             addTag(Global.i18n("wordprocessor", "DonationDateDue"),
                 Utils.formatDate(od.getDateDue()));
             addTag(Global.i18n("wordprocessor", "DonationAmount"),
-                od.getDonation().toString());
+                Utils.formatCurrency(od.getDonation()));
             addTag(Global.i18n("wordprocessor", "DonationComments"),
                 od.getComments());
             addTag(Global.i18n("wordprocessor", "DonationCreatedBy"),

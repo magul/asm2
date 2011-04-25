@@ -134,7 +134,7 @@ public class MovementDocument extends GenerateDocument {
             String donation = "";
 
             if (movement.getDonation() != null) {
-                donation = movement.getDonation().toString();
+                donation = Utils.formatCurrency(movement.getDonation());
             }
 
             addTag(Global.i18n("wordprocessor", "AdoptionDonation"), donation);
