@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.owner;
 
 import net.sourceforge.sheltermanager.asm.bo.AuditTrail;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
 import net.sourceforge.sheltermanager.asm.globals.Global;
@@ -269,6 +270,17 @@ public class DonationSelector extends ASMSelector {
 
                 String sql = "DELETE FROM ownerdonation WHERE ID = " + id;
                 DBConnection.executeAction(sql);
+
+                // If we're syncing transactions and there's a matching 
+                // transaction, remove it
+                if (Configuration.getBoolean("CreateDonationTrx")) {
+                    DBConnection.executeAction(
+                        "DELETE FROM accountstrx WHERE OwnerDonationID = " + id);
+                    AuditTrail.deleted("accountstrx",
+                        od.getDonationTypeName() + " " +
+                        od.getOwner().getOwnerName() + " " +
+                        Utils.firstChars(od.getOwner().getOwnerAddress(), 20));
+                }
 
                 if (AuditTrail.enabled()) {
                     AuditTrail.changed("ownerdonation",
