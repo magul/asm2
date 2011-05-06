@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 
@@ -101,16 +102,17 @@ public class CurrencyField extends UI.Panel {
     }
 
     public int getValue() {
-        double d = Double.parseDouble(toNumber());
-
-        return (int) (d * 100);
+        String num = toNumber();
+        num = Utils.replace(num, ".", "");
+        return Integer.parseInt(num);
     }
 
     public void setValue(int i) {
-        double d = (double) i / 100;
-        String v = Double.toString(d);
-        txt.setText(Global.currencySymbol + v);
-        txt.setText(Global.currencySymbol + toNumber());
+        String num = Integer.toString(i);
+        if (num.length() > 2) {
+            num = num.substring(0, num.length() - 2) + "." + num.substring(num.length() - 2);
+            txt.setText(Global.currencySymbol + num);
+        }
     }
 
     public void setToolTipText(String newvalue) {
