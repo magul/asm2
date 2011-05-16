@@ -65,6 +65,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     private Media preferredWebMedia = null;
     private Media preferredDocMedia = null;
     private Owner originalowner = null;
+    private Owner currentowner = null;
     private Owner broughtinbyowner = null;
     private Owner ownersvet = null;
 
@@ -1150,6 +1151,18 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         } else {
             return originalowner;
         }
+    }
+
+    public Owner getCurrentOwner() throws CursorEngineException {
+        if (currentowner != null) {
+            currentowner = new Owner();
+            currentowner.openRecordset(
+                "ID = (SELECT OwnerID FROM adoption WHERE adoption.ID = " + getActiveMovementID() + ")");
+            if (currentowner.getEOF()) {
+                currentowner = null;
+            }
+        }
+        return currentowner;
     }
 
     public Integer getBroughtInByOwnerID() throws CursorEngineException {

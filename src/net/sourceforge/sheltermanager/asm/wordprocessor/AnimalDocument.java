@@ -319,6 +319,54 @@ public class AnimalDocument extends GenerateDocument {
                     "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerMobilePhone"),
                     "");
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerEmail"),
+                    "");
+            }
+
+            try {
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerName"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getOwnerName()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerAddress"),
+                    Utils.formatAddress(animal.getCurrentOwner()
+                                              .getOwnerAddress()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerTown"),
+                    Utils.formatAddress(animal.getCurrentOwner().getOwnerTown()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerCounty"),
+                    Utils.formatAddress(animal.getCurrentOwner()
+                                              .getOwnerCounty()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerPostcode"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getOwnerPostcode()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerPhone"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getHomeTelephone()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerHomePhone"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getHomeTelephone()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerWorkPhone"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getWorkTelephone()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerMobilePhone"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getMobileTelephone()));
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerEmail"),
+                    Utils.nullToEmptyString(animal.getCurrentOwner()
+                                                  .getEmailAddress()));
+            } catch (Exception e) {
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerName"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerAddress"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerTown"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerPostcode"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerPhone"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerHomePhone"),
+                    "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerWorkPhone"),
+                    "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerMobilePhone"),
+                    "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerEmail"),
+                    "");
             }
 
             addTag(Global.i18n("wordprocessor", "EntryCategory"),

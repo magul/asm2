@@ -597,25 +597,26 @@ public abstract class GenerateDocument extends Thread
                     File.separator + "media");
 
             String[] dir = tg.list();
+            if (dir != null) {
+                for (int i = 0; i < dir.length; i++) {
+                    if (dir[i].indexOf(".jpeg") != -1) {
+                        String target = moodir + File.separator + "word" +
+                            File.separator + "media" + File.separator + dir[i];
+                        File ph = new File(target);
 
-            for (int i = 0; i < dir.length; i++) {
-                if (dir[i].indexOf(".jpeg") != -1) {
-                    String target = moodir + File.separator + "word" +
-                        File.separator + "media" + File.separator + dir[i];
-                    File ph = new File(target);
+                        if (Global.showDebug) {
+                            Global.logDebug("Found file: " + dir[i] + ", size=" +
+                                ph.length(), "processMOOXMLImage");
+                        }
 
-                    if (Global.showDebug) {
-                        Global.logDebug("Found file: " + dir[i] + ", size=" +
-                            ph.length(), "processMOOXMLImage");
-                    }
+                        // Is this file size correct? If so, delete it and
+                        // replace it with our media file instead
+                        if (ph.length() == PLACEHOLDER_SIZE) {
+                            ph.delete();
+                            Utils.renameFile(new File(mediafile), new File(target));
 
-                    // Is this file size correct? If so, delete it and
-                    // replace it with our media file instead
-                    if (ph.length() == PLACEHOLDER_SIZE) {
-                        ph.delete();
-                        Utils.renameFile(new File(mediafile), new File(target));
-
-                        break;
+                            break;
+                        }
                     }
                 }
             }
@@ -655,27 +656,29 @@ public abstract class GenerateDocument extends Thread
             // Search the Pictures folder for our placeholder
             // image - we can recognise it by it's size
             File tg = new File(oodir + File.separator + "Pictures");
+            
             String[] dir = tg.list();
+            if (dir != null) {
+                for (int i = 0; i < dir.length; i++) {
+                    if ((dir[i].indexOf(".jpeg") != -1) ||
+                            (dir[i].indexOf(".jpg") != -1)) {
+                        String target = oodir + File.separator + "Pictures" +
+                            File.separator + dir[i];
+                        File ph = new File(target);
 
-            for (int i = 0; i < dir.length; i++) {
-                if ((dir[i].indexOf(".jpeg") != -1) ||
-                        (dir[i].indexOf(".jpg") != -1)) {
-                    String target = oodir + File.separator + "Pictures" +
-                        File.separator + dir[i];
-                    File ph = new File(target);
+                        if (Global.showDebug) {
+                            Global.logDebug("Found file: " + dir[i] + ", size=" +
+                                ph.length(), "processOpenOfficeImage");
+                        }
 
-                    if (Global.showDebug) {
-                        Global.logDebug("Found file: " + dir[i] + ", size=" +
-                            ph.length(), "processOpenOfficeImage");
-                    }
+                        // Is this file size correct? If so, delete it and
+                        // replace it with our media file instead
+                        if (ph.length() == PLACEHOLDER_SIZE) {
+                            ph.delete();
+                            Utils.renameFile(new File(mediafile), new File(target));
 
-                    // Is this file size correct? If so, delete it and
-                    // replace it with our media file instead
-                    if (ph.length() == PLACEHOLDER_SIZE) {
-                        ph.delete();
-                        Utils.renameFile(new File(mediafile), new File(target));
-
-                        break;
+                            break;
+                        }
                     }
                 }
             }
