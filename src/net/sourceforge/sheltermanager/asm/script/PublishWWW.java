@@ -42,7 +42,10 @@ import java.util.Vector;
  *              includefosters
  *              excludeunder=<weeks>
  *              animalsperpage=<number to show on a page>
- *                ftproot=<override stored ftp root>
+ *              ftproot=<override stored ftp root>
+ *              ftphost=<override stored ftp host>
+ *              ftpuser=<override stored ftp user>
+ *              ftppass=<override stored ftp pass>
  *              forcereupload
  *              uploaddirectly
  *              uploadall
@@ -115,6 +118,21 @@ public class PublishWWW {
                                     .startsWith("ftproot" +
                             ScriptParser.equalsSymbol)) {
                     pc.ftpRoot = args[i].substring(args[i].indexOf(
+                                ScriptParser.equalsSymbol) + 1);
+                } else if (Utils.englishLower(args[i])
+                                    .startsWith("ftphost" +
+                            ScriptParser.equalsSymbol)) {
+                    pc.ftpHost = args[i].substring(args[i].indexOf(
+                                ScriptParser.equalsSymbol) + 1);
+                } else if (Utils.englishLower(args[i])
+                                    .startsWith("ftpuser" +
+                            ScriptParser.equalsSymbol)) {
+                    pc.ftpUser = args[i].substring(args[i].indexOf(
+                                ScriptParser.equalsSymbol) + 1);
+                } else if (Utils.englishLower(args[i])
+                                    .startsWith("ftppass" +
+                            ScriptParser.equalsSymbol)) {
+                    pc.ftpPass = args[i].substring(args[i].indexOf(
                                 ScriptParser.equalsSymbol) + 1);
                 } else if (Utils.englishLower(args[i])
                                     .startsWith("animalsperpage" +

@@ -70,7 +70,9 @@ public class PublishCriteria {
     /** Array of internal location ID fields as Strings*/
     public Object[] internalLocations = null;
 
-    /** Replace FTP root - null denotes use system
-     *  setting. */
+    /** Override FTP settings */
     public String ftpRoot = null;
+    public String ftpHost = null;
+    public String ftpUser = null;
+    public String ftpPass = null;
 }

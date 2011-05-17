@@ -10853,6 +10853,18 @@ ftproot=<root>: Overrides the system set FTP Root Directory from the publisher
 \end_layout
 
 \begin_layout Itemize
+ftphost=<host>: Overrides the system set FTP Host
+\end_layout
+
+\begin_layout Itemize
+ftpuser=<user>: Overrides the system set FTP user
+\end_layout
+
+\begin_layout Itemize
+ftppass=<password>: Overrides the system set FTP password
+\end_layout
+
+\begin_layout Itemize
 scaleimages=<scale>: Sets image scaling from the following values.
  1 = No Scaling, 2 = 320x200, 3 = 640x480, 4 = 800x600, 5 = 1024x768, 6
  = 300x300, 7 = 95x95

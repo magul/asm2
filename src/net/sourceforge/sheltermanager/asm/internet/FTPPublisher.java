@@ -117,10 +117,22 @@ public class FTPPublisher extends AbstractPublisher {
                 return false;
             }
 
-            // Override the FTP root if we were given one
+            // Override the FTP settings if we were given any
             // with the criteria
             if (publishCriteria.ftpRoot != null) {
                 this.root = publishCriteria.ftpRoot;
+            }
+
+            if (publishCriteria.ftpHost != null) {
+                this.host = publishCriteria.ftpHost;
+            }
+
+            if (publishCriteria.ftpUser != null) {
+                this.user = publishCriteria.ftpUser;
+            }
+
+            if (publishCriteria.ftpPass != null) {
+                this.password = publishCriteria.ftpPass;
             }
 
             uploadFTP = new FTPClient(host, Integer.parseInt(port));
