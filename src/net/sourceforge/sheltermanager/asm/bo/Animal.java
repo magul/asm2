@@ -2621,14 +2621,14 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         setHasActiveReserve(z);
     }
 
+    /** Creates a clone of this object */
     public Animal clone() throws CloneNotSupportedException {
         Animal a = (Animal) super.clone();
         a.rs = rs.clone();
-
         return a;
     }
 
-    /** Clones an animal and all its satellite records (with the exception
+    /** Copies an animal and all its satellite records (with the exception
      *  of media). Because of this, the cloned animal has to be saved
      *  before it is returned from this method.
      */

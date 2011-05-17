@@ -230,11 +230,9 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     }
 
     public void dispose() {
-        if (!Global.isCacheActiveAnimals()) {
-            try {
-                animal.free();
-            } catch (Exception e) {
-            }
+        try {
+            animal.free();
+        } catch (Exception e) {
         }
 
         try {
@@ -533,7 +531,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             isNewRecord = false;
             isLoading = true;
-            this.animal = animal;
+            this.animal = animal.clone();
             loadData();
             enableButtons();
             enableOnShelterTabs();
@@ -572,7 +570,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         try {
             isNewRecord = true;
             isLoading = true;
-            this.animal = animal;
+            this.animal = animal.clone();
             loadData(false);
             enableOnShelterTabs();
             enableNonAnimalTabs(false);
