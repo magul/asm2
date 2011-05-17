@@ -1909,11 +1909,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     id);
             }
 
+            // Get current active movement type and id
+            int movetype = 0;
+            if (a.getActiveMovementType() != null) movetype = a.getActiveMovementType().intValue();
+            int aid = 0;
+            if (a.getActiveMovementID() != null) aid = a.getActiveMovementID().intValue();
+
             // If the animal is on shelter, it has no active movement
             if (onShelter) {
                 batch.add(
                     "UPDATE animal SET ActiveMovementID = 0, ActiveMovementDate = NULL, " +
                     "ActiveMovementType = NULL WHERE ID = " + id);
+                movetype = 0;
+                aid = 0;
             } else {
                 // Find the latest movement for our animal in our list
                 if (move.size() > 0) {
@@ -1923,8 +1931,6 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                 findLatestMovementFromList(move, id);
 
                 Adoption ad = move;
-                int movetype = 0;
-                int aid = 0;
                 String amd = "null";
                 String rd = "null";
 
@@ -1974,7 +1980,19 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     "ActiveMovementType = " + movetype +
                     ", ActiveMovementReturn = " + rd + " WHERE ID = " + id;
                 batch.add(sql);
+
             }
+
+            // Update any diary notes for this animal
+            String dsql = "UPDATE diary SET LinkInfo = '" +
+                a.getCode().replace("'", "`") + " " + 
+                a.getAnimalName().replace("'", "`") + " - " +
+                Animal.getDisplayLocation(a.getShelterLocation(), 
+                    a.getNonShelterAnimal(), aid, movetype,
+                    a.getDeceasedDate()) +
+                "' WHERE LinkID = " + 
+                a.getID() + " AND LinkType = " + Diary.LINKTYPE_ANIMAL;
+            batch.add(dsql);
 
             // Mark the on shelter/reserve
             batch.add("UPDATE animal SET Archived = " +
