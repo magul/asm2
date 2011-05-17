@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2011-01-31 11:33+0000\n"
-"Last-Translator: Andrey Olykainen <Unknown>\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-04-03 16:44+0000\n"
+"Last-Translator: Andrey Barilov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:10+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-04-13 04:54+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -251,7 +251,7 @@ msgstr "Необходимо указать дату рождения живот
 #. # bo/Animal
 #: You_must_enter_a_date_the_animal_was_brought_into_the_shelter.
 msgid "You must enter a date the animal was brought into the shelter."
-msgstr "Необходимо указать дату, когда животное прибыло в приют."
+msgstr "Необходимо указать дату, когда животное принято в приют."
 
 #. # ui/animal/AnimalFind
 #. # reports/AnimalFigures
@@ -271,7 +271,7 @@ msgid ""
 "An animal cannot be marked as deceased before it was brought into the "
 "shelter."
 msgstr ""
-"Дата смерти животного не может быть более ранней чем дата прибытия в приют."
+"Дата смерти животного не может быть более ранней чем дата приёма в приют."
 
 #. # bo/Adoption
 #. # ui/movement/MovementEdit
@@ -718,7 +718,7 @@ msgstr "Вы не можете создавать поиска без некот
 #. # bo/Animal
 #: You_must_select_two_different_breeds_for_a_crossbreed_animal.
 msgid "You must select two different breeds for a crossbreed animal."
-msgstr "Вы должны выбрать две различные породы для скрещивания животных."
+msgstr "Необходимо выбрать две разные породы для животных помеси."
 
 #. # bo/OwnerDonation
 #: donation_must_have_an_owner
@@ -803,7 +803,7 @@ msgstr "Окт"
 #. # charts/AdoptionsPerBlock
 #: Monthly_Adoption_analysis_(by_location,_
 msgid "Monthly Adoption analysis (by location, "
-msgstr "Ежемесячный анализ Усыновление (по месту нахождения "
+msgstr "Ежемесячный анализ пристроеных животных (по местунахождения "
 
 #. # charts/AdoptionsPerBlock
 #. # charts/DonationsPerSpecies
@@ -1217,7 +1217,7 @@ msgstr "Белый с чёрным"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "Черепаховый"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1298,7 +1298,7 @@ msgstr "Белый с палевым"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "Черепаховый и Белый"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1354,11 +1354,11 @@ msgstr "Зелёный"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "Янтарный"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "Черная Черепаха"
 
 #: basecolour_44
 msgid "Blue Tortie"
@@ -1391,7 +1391,7 @@ msgstr ""
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "Золотой"
 
 #: basecolour_52
 msgid "Light Amber"
@@ -3054,7 +3054,7 @@ msgstr "Board and Food"
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
-msgstr "Номера для микрочипом животных"
+msgstr "Животные без микрочипа"
 
 #. # db/AutoDBUpdates
 #: customreport_36_category
@@ -3262,7 +3262,7 @@ msgstr "Движение график"
 
 #: customreport_63_028
 msgid "Monthly Adoptions By Location"
-msgstr "Ежемесячный усыновления По местонахождению"
+msgstr "Пристроеные за месяц животные по местонахождению"
 
 #: customreport_64_029
 msgid "Animal Entry Reasons"
@@ -3375,7 +3375,7 @@ msgstr "Оставленo без присмотра"
 
 #: internallocation_1
 msgid "No Locations"
-msgstr "Нет страна"
+msgstr "Нет местонахождений"
 
 #. # ui/animalname/NamesEdit
 #: lksex_0
@@ -4201,21 +4201,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} ???????????????????????? ???????????? ??????????????????????????????.\n"
-"{1} orphaned movement records found and removed.\n"
-"{2} orphaned media records found and removed.\n"
-"{3} orphaned vaccination records found and removed.\n"
-"{4} orphaned medical records found and removed.\n"
-"{5} returns without a movement found and removed.\n"
-"{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "HTTPDB ????????"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -5080,8 +5078,7 @@ msgstr "Всего {0}: {1}"
 #. # reports/ShelterInventory
 #: Animal_Breakdown_by_Location_and_Species
 msgid "Animal Breakdown by Location and Species"
-msgstr ""
-"?????????????????????????? ???????????????? ???? ?????????????? ?? ??????????"
+msgstr "Разбивка животных по местонахождениям и видам"
 
 #. # reports/ShelterInventory
 #: Detailed_Shelter_Animal_Inventory_at_
@@ -5118,7 +5115,7 @@ msgstr "Returned adoption to {0}"
 #. # reports/ShelterInventory
 #: Brought_Into_Shelter
 msgid "Brought Into Shelter"
-msgstr "Brought Into Shelter"
+msgstr "Приняты в приют"
 
 #. # reports/ShelterInventory
 #: Method_of_Entry
@@ -5154,13 +5151,13 @@ msgstr "Внутреннее местоположение"
 #. # reports/InOut
 #: Date_Brought_In
 msgid "Date Brought In"
-msgstr "Date Brought In"
+msgstr "Дата приёма"
 
 #. # ui/animal/AnimalFindColumns
 #. # reports/InOut
 #: Identichip_No
 msgid "Microchip No"
-msgstr "?????????? ??????????????????"
+msgstr "Номер микрочипа"
 
 #. # bo/Animal
 #. # bo/LookupCache
@@ -5235,12 +5232,12 @@ msgstr "???????????????????? ????????????"
 #. # reports/NotMicroChipped
 #: Non-microchipped_animals_on_the_shelter_at_
 msgid "Non-microchipped animals on the shelter at {0}"
-msgstr "Non-microchipped animals on the shelter at {0}"
+msgstr "Нечипованые животные в приюте на {0}"
 
 #. # reports/NotMicroChipped
 #: All_animals_on_the_shelter_have_been_microchipped.
 msgid "All animals on the shelter have been microchipped."
-msgstr "All animals on the shelter have been microchipped."
+msgstr "Все животные в приюте чипованы."
 
 #. # reports/NoMediaAttached
 #: There_are_no_animals_on_the_shelter_of_the_species_you_selected.
@@ -5307,7 +5304,7 @@ msgstr "???? ?????????????? ????????????????????????."
 #. # reports/LostFoundMatch
 #: Distinguishing_Features
 msgid "Distinguishing Features"
-msgstr "?????????????????????????? ??????????????????????"
+msgstr "Особые признаки"
 
 #. # reports/LongTermAnimals
 #: Date_Of_Entry
@@ -5342,7 +5339,7 @@ msgstr "?????????? ???????????????????? ????????????????: {0}"
 #. # reports/InOut
 #: Total_Animals_Brought_In_
 msgid "Total Animals Brought In: {0}"
-msgstr "Total Animals Brought In: {0}"
+msgstr "Всего принято животных: {0}"
 
 #. # reports/InOut
 #: Animals_Fostered
@@ -5443,7 +5440,7 @@ msgstr "Дата возврата"
 #. # reports/InOut
 #: Brought_In_By
 msgid "Brought In By"
-msgstr "Brought In By"
+msgstr "Кем сдано"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Others_
@@ -5535,7 +5532,7 @@ msgstr "???????????????? ??"
 #. # reports/InOut
 #: Animals_Brought_In
 msgid "Animals Brought In"
-msgstr "????????????????, ?????????????????????? ??"
+msgstr "Принято животных"
 
 #. # reports/InOut
 #: PTS_Reason
@@ -6083,7 +6080,7 @@ msgstr "Дозировка"
 #. # reports/MedicalDiary
 #: Regime_Comments
 msgid "Regime Comments"
-msgstr "?????????? ??????????????????????????????"
+msgstr "Примечания к плану лечения"
 
 #. # bo/AnimalLost
 #: n_a
@@ -6205,7 +6202,7 @@ msgstr "Housetrained"
 #: Comments
 #: comments
 msgid "Comments"
-msgstr "??????????????????????"
+msgstr "Примечания"
 
 #. # reports/AnimalFigures
 #: SubTotal
@@ -6301,7 +6298,7 @@ msgstr "Graphs cannot be sent to stdout."
 #: Litter_ID
 #: litterid
 msgid "Litter ID"
-msgstr "Litter ID"
+msgstr "ID помёта"
 
 #. # reports/CustomReportExecute
 #: No_data
@@ -6694,7 +6691,7 @@ msgstr "Adoption No: "
 #. # ui/animal/AnimalFind
 #: Has_Comments\:_
 msgid "Has Comments: "
-msgstr "?? ??????????????????????????: "
+msgstr "Примечания содержат: "
 
 #. # ui/animal/AnimalFindText
 #. # ui/ui/UI
@@ -6748,7 +6745,7 @@ msgstr "Тип: "
 #. # reports/Report
 #: ShortCode
 msgid "ShortCode"
-msgstr "Краткий код"
+msgstr "КороткийКод"
 
 #. # ui/animal/AnimalFind
 #: Acc._No\:_
@@ -6788,7 +6785,7 @@ msgstr "Bad Date"
 #. # ui/animal/AnimalFind
 #: Location\:_
 msgid "Location: "
-msgstr "????????????????????????: "
+msgstr "Местонахождение: "
 
 #. # ui/animal/AnimalFind
 #: Aged_between\:_
@@ -6834,7 +6831,7 @@ msgstr "?? ???????????? ??: "
 #. # ui/animal/AnimalFind
 #: Features_
 msgid "Features: "
-msgstr "??????????????????????: "
+msgstr "Особенности: "
 
 #. # ui/system/Options
 #. # ui/animal/AnimalFind
@@ -6893,7 +6890,7 @@ msgstr "(??????)"
 #. # ui/animal/AnimalFind
 #: Identichip_No\:_
 msgid "Microchip No: "
-msgstr "?????????? ??????????????????: "
+msgstr "Номер микрочипа: "
 
 #. # ui/animal/VaccinationView
 #. # ui/main/Main
@@ -7055,7 +7052,7 @@ msgstr "Тип лечения:"
 #. # ui/animal/VaccinationEdit
 #: Any_comments_about_the_vaccination
 msgid "Any comments about the vaccination treatment"
-msgstr "Any comments about the vaccination treatment"
+msgstr "Примечания к данному типу вакцинации"
 
 #. # ui/animal/VaccinationSelector
 #: New_vaccination_record
@@ -7067,7 +7064,7 @@ msgstr "Create a new vaccination treatment"
 #. # reports/AnimalPrint
 #: Location\:
 msgid "Location:"
-msgstr "????????????????????????:"
+msgstr "Местонахождение:"
 
 #. # ui/animal/AnimalEdit
 #: Create_a_litter_from_this_animal
@@ -7125,7 +7122,7 @@ msgstr "Вид:"
 #. # ui/animal/AnimalFindColumns
 #: Hidden_Comments\:
 msgid "Hidden Comments:"
-msgstr "?????????????? ??????????????????????:"
+msgstr "Скрытые примечания:"
 
 #. # ui/animal/AnimalFind
 #. # ui/animal/AnimalEdit
@@ -7187,7 +7184,7 @@ msgstr "Пол:"
 #. # ui/animal/AnimalEdit
 #: The_reason_the_animal_was_not_brought_by_its_owner
 msgid "The reason the animal was not brought in by its owner"
-msgstr "The reason the animal was not brought in by its owner"
+msgstr "Причина, по которой животное сдано не его хозяйном"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
@@ -7198,13 +7195,14 @@ msgstr "The animal acceptance number from head office"
 #. # ui/animal/AnimalEdit
 #: Animal_comments_you_do_not_want_to_appear_on_any_documents
 msgid "Animal comments you do not want to appear on any documents"
-msgstr "Animal comments you do not want to appear on any documents"
+msgstr ""
+"Информация о животном, которая не будет публиковаться в каких либо документах"
 
 #. # ui/animal/AnimalEdit
 #. # reports/AnimalPrint
 #: Brought_In_By\:
 msgid "Brought In By:"
-msgstr "Brought In By:"
+msgstr "Кем сдано:"
 
 #. # ui/animal/VaccinationView
 #. # ui/animal/VaccinationSelector
@@ -7303,7 +7301,7 @@ msgstr "?????????????? ?????????????????? ??????????????????"
 #. # reports/AnimalPrint
 #: Comments\:
 msgid "Comments:"
-msgstr "??????????????????????:"
+msgstr "Примечания:"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindColumns
@@ -7345,7 +7343,7 @@ msgstr ""
 #. # reports/AnimalPrint
 #: Dist._Features\:
 msgid "Dist. Features:"
-msgstr "Dist. ??????????????????????:"
+msgstr "Особые признаки:"
 
 #. # ui/animal/AnimalEdit
 #: Delete_this_animal
@@ -7389,7 +7387,7 @@ msgstr "???????????????????????????? ????????????:"
 #. # reports/AnimalPrint
 #: Identichipped\:
 msgid "Microchipped:"
-msgstr "????????????????:"
+msgstr "С микрочипом:"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_size
@@ -7404,7 +7402,7 @@ msgstr "Пол животного"
 #. # ui/animal/AnimalEdit
 #: Animal_comments_you_want_to_see_on_documents
 msgid "Animal comments you want to see on documents"
-msgstr "Animal comments you want to see on documents"
+msgstr "Информация о животном, которая будет опубликована в документах"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
@@ -7448,7 +7446,7 @@ msgstr "Имя:"
 #. # ui/animal/AnimalEdit
 #: Any_distinguishing_markings_or_features_the_animal_has
 msgid "Any distinguishing markings or features the animal has"
-msgstr "Any distinguishing markings or features the animal has"
+msgstr "Любые особые отметины или признаки животного"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalFindColumns
@@ -7526,7 +7524,7 @@ msgstr "??????????????????"
 #. # ui/animal/AnimalEdit
 #: The_Identichip_Number
 msgid "The Microchip Number"
-msgstr "?????????? ??????????????????"
+msgstr "Номер микрочипа"
 
 #. # ui/animal/AnimalEdit
 #: The_animal's_unique_shelter_code
@@ -7549,7 +7547,7 @@ msgstr "???????????? ?????? ???????????????????? ?? SQLRecordset: "
 #. # ui/animal/AnimalEdit
 #: The_date_the_animal_was_brought_into_the_shelter
 msgid "The date the animal was brought into the shelter"
-msgstr "The date the animal was brought into the shelter"
+msgstr "Дата приёма животного в приют"
 
 #. # ui/animal/AnimalEdit
 #: Tick_this_box_if_the_animal_was_dead_on_entry_to_the_shelter
@@ -7613,7 +7611,7 @@ msgstr "Died Off Shelter:"
 #. # reports/AnimalPrint
 #: Date_Brought_In\:
 msgid "Date Brought In:"
-msgstr "Date Brought In:"
+msgstr "Дата приёма"
 
 #. # ui/animal/AnimalEdit
 #. # ui/lostandfound/LostAnimalEdit
@@ -7732,7 +7730,7 @@ msgstr "Add New Media"
 #. # ui/animal/AnimalFind
 #: Hidden_Comments\:_
 msgid "Hidden Comments: "
-msgstr "?????????????? ??????????????????????: "
+msgstr "Скрытые примечания: "
 
 #. # ui/animal/AnimalFind
 #: find_original_owner_name
@@ -7795,7 +7793,7 @@ msgstr "?????????????????? ????????????:"
 #. # ui/animal/AnimalEdit
 #: Last_Location
 msgid "Last Location:"
-msgstr "?????????????????? ????????????????????????:"
+msgstr "Последнее местонахождение:"
 
 #. # ui/animal/AnimalFind
 #: Show_Only_Transfers
@@ -7815,13 +7813,13 @@ msgstr "Media Notes Contain:"
 #. # reports/CustomReportExecute
 #: litter_id
 msgid "Litter ID:"
-msgstr "Litter ID:"
+msgstr "ID помёта:"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
 #: the_litter_identifier_if_this_animal_is_part_of_a_litter
 msgid "The litter identifier if this animal is part of a litter"
-msgstr "The litter identifier if this animal is part of a litter"
+msgstr "Идентификатор помёта, если это животное является частью такового"
 
 #. # ui/animal/LitterEdit
 #: unique_identifier_for_this_litter
@@ -7871,7 +7869,7 @@ msgstr "Не относится к приюту"
 #. # ui/animal/AnimalEdit
 #: Non-Shelter\:
 msgid "Non-Shelter:"
-msgstr "Не относится к приюту"
+msgstr "Не относится к приюту:"
 
 #. # ui/animal/AnimalEdit
 #: check_this_box_if_this_animal_is_not_a_shelter_animal
@@ -7941,7 +7939,7 @@ msgstr "The date the animal started this diet"
 #. # ui/animal/DietEdit
 #: Any_comments_about_the_diet
 msgid "Any comments about the diet"
-msgstr "?????????? ?????????????????????? ???? ???????????? ??????????????"
+msgstr "Примечания к данному типу диеты"
 
 #. # ui/owner/VoucherEdit
 #: Issue_Date\:
@@ -8064,12 +8062,12 @@ msgstr "An error occurred capturing the image from the default video device."
 #. # reports/AnimalPrint
 #: Tattoo\:
 msgid "Tattoo:"
-msgstr "????????????????????:"
+msgstr "Татуйровка:"
 
 #. # ui/animal/AnimalEdit
 #: The_Tattoo_Number
 msgid "The Tattoo Number"
-msgstr "The Tattoo Number"
+msgstr "Номер татуйровки"
 
 #. # bo/Animal
 #. # ui/animal/AnimalEdit
@@ -8089,12 +8087,12 @@ msgstr "FIV Result"
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_was_identichipped
 msgid "The date the animal was microchipped"
-msgstr "The date the animal was microchipped"
+msgstr "Дата ввода микрочипа животному"
 
 #. # ui/animal/AnimalEdit
 #: the_date_the_animal_had_the_tattoo
 msgid "The date the animal had the tattoo"
-msgstr "The date the animal had the tattoo"
+msgstr "Дата татуйрования животного"
 
 #. # ui/animal/AnimalFind
 #: tick_this_box_to_only_show_animals_who_are_good_with_children
@@ -8175,7 +8173,7 @@ msgstr "Поставьте галочку, если животное"
 #: Not_for_adoption
 #: Not_Available_For_Adoption
 msgid "Not for adoption"
-msgstr "???? ?????? ????????????????"
+msgstr "Не для передачи"
 
 #. # ui/animal/MediaAdd
 #. # ui/internet/InternetPublisher
@@ -8351,7 +8349,7 @@ msgstr "Any other information about the animal"
 #. # ui/main/Main
 #: Not_For_Adoption_Book
 msgid "Not For Adoption Book"
-msgstr "Not For Adoption Book"
+msgstr "Запрещены для передачи"
 
 #. # ui/animal/NotAdoptionView
 #: View_the_animal_record
@@ -8500,18 +8498,18 @@ msgstr "Additional information about the animal"
 #. # ui/animal/AnimalAddMultiple
 #: Crossbreed
 msgid "Crossbreed"
-msgstr "Crossbreed"
+msgstr "Помесь с"
 
 #. # ui/animal/AnimalEdit
 #. # ui/animal/AnimalAddMultiple
 #: tick_this_box_if_this_animal_is_a_crossbreed
 msgid "Tick this box if this animal is a crossbreed"
-msgstr "Поставьте галочку, если животное"
+msgstr "Поставьте галочку, если животное является помесью"
 
 #. # ui/animal/AnimalEdit
 #: If_the_animal_is_a_cross_the_second_breed
 msgid "If this animal is a crossbreed, the secondary breed"
-msgstr "If this animal is a crossbreed, the secondary breed"
+msgstr "Дополнительная порода в помеси"
 
 #. # ui/animal/AnimalFindText
 #. # ui/owner/OwnerFindText
@@ -8562,12 +8560,12 @@ msgstr "Current Vet:"
 #. # ui/animal/AnimalEdit
 #: Estimate
 msgid "Estimate"
-msgstr "Estimate"
+msgstr "Предполагаемая"
 
 #. # ui/animal/AnimalEdit
 #: is_this_date_of_birth_an_estimate
 msgid "Tick this box if this date of birth is an estimate"
-msgstr "Поставьте галочку, если эта дата рождения примерная"
+msgstr "Поставьте галочку, если эта дата рождения предполагаемая"
 
 #. # ui/ui/UI
 #: Permission_Denied_Save
@@ -9316,7 +9314,7 @@ msgstr "Выберите тип животного"
 #. # ui/ui/Dialog
 #: select_internal_location
 msgid "Select Internal Location"
-msgstr "Select Internal Location"
+msgstr "Выберите внутреннее местонахождение"
 
 #. # ui/ui/Dialog
 #: select_user
@@ -9445,7 +9443,7 @@ msgstr "Scale Images:"
 #. # ui/internet/InternetPublisher
 #: Include_Animals_In_Location\:
 msgid "Include Animals In Location:"
-msgstr "Include Animals In Location:"
+msgstr "Включая животных, находящихся в:"
 
 #. # ui/internet/FTPSettings
 #: Internet_Site_FTP_Settings
@@ -9835,9 +9833,13 @@ msgstr "Generate thumbnail images"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -9989,7 +9991,7 @@ msgstr "Описание окраса"
 #. # ui/main/Main
 #: Internal_Locations
 msgid "Internal Locations"
-msgstr "Internal Locations"
+msgstr "Внутренние местонахождения"
 
 #. # ui/lookups/LookupView
 #: Breed_Description
@@ -10073,7 +10075,7 @@ msgstr "Описание вакцинации"
 #. # ui/lookups/LookupView
 #: Location_Name
 msgid "Location Name"
-msgstr "Название местоположения"
+msgstr "Название местонахождения"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/lookups/LookupView
@@ -10274,7 +10276,7 @@ msgstr "Contact contains:"
 #. # ui/owner/OwnerFind
 #: Postcode_contains\:
 msgid "Postcode contains:"
-msgstr "В почтовом индексе есть:"
+msgstr "Почтовый индекс содержит:"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
@@ -10348,7 +10350,7 @@ msgstr "Date Found:"
 #. # ui/lostandfound/FoundAnimalEdit
 #: Features\:
 msgid "Features:"
-msgstr "??????????????????????:"
+msgstr "Особенности:"
 
 #. # internet/AvidRegistration
 #. # ui/lostandfound/LostAnimalEdit
@@ -10639,7 +10641,7 @@ msgstr "???????????????? ???????????????????? ?? ????????????"
 #. # ui/main/Main
 #: Internal_Locations
 msgid "Internal &Locations"
-msgstr "Internal &Locations"
+msgstr "Внутренние &местонахождения"
 
 #. # ui/main/Main
 #: FTP_Settings
@@ -11059,7 +11061,7 @@ msgstr "&Authentication"
 #. # ui/main/Main
 #: Not_For_Adoption_Book
 msgid "&Not For Adoption Book"
-msgstr "&Not For Adoption Book"
+msgstr "&Запрещены для передачи"
 
 #. # ui/main/Main
 #: Publish_adoptable_animals_to_SaveAPet.com
@@ -12871,7 +12873,7 @@ msgstr "Warn when adopting to an owner who has brought an animal in"
 msgid ""
 "Warn when adopting to an owner in the same postcode as the original owner"
 msgstr ""
-"Warn when adopting to an owner in the same postcode as the original owner"
+"Предупреждать, если почтовые индексы нового и бывшего хозяев совпадают"
 
 #. # ui/system/Options
 #: Prefill_new_media_notes_with_animal_comments
@@ -12938,8 +12940,8 @@ msgid ""
 "Show Internal Location of animals who have left the shelter as logical "
 "location instead"
 msgstr ""
-"Show Internal Location of animals who have left the shelter as logical "
-"location instead"
+"Заменить внутреннее местонахождение покинувших приют животных на их "
+"фактическое местонахождение."
 
 #. # ui/system/Options
 #: Dont_autoarchive_animal_records_on_exit
@@ -13075,7 +13077,7 @@ msgstr "IP-??????????/?????? ?????????? ???????????? SMTP ??????????????"
 #. # ui/system/Options
 #: show_short_shelter_code
 msgid "Show short shelter codes on screens and reports"
-msgstr "Show short shelter codes on screens and reports"
+msgstr "Показывать короткий код приюта в закладках и отчётах"
 
 #. # ui/system/Options
 #: foster_as_on_shelter
@@ -13106,18 +13108,18 @@ msgid ""
 "Enforce animal codes entered by users conform to the selected animal code "
 "scheme"
 msgstr ""
-"Enforce animal codes entered by users conform to the selected animal code "
-"scheme"
+"Приводить введённые вручную коды животных в соответствии с выбранной схемой "
+"нумерации"
 
 #. # ui/system/Options
 #: Automatic_Litter_Identification
 msgid "Use Automatic Litter Identification"
-msgstr "Use Automatic Litter Identification"
+msgstr "Использовать автоматическую нумерацию помётов"
 
 #. # ui/system/Options
 #: Default_Internal_Location\:
 msgid "Default Internal Location:"
-msgstr "Default Internal Location:"
+msgstr "Внутреннее местонахождение по умолчанию"
 
 #. # ui/system/Options
 #: Default_Entry_Reason\:
@@ -13373,17 +13375,17 @@ msgstr "Формат кода животных:"
 #. # ui/system/Options
 #: short_coding_format
 msgid "Animal shortcode format:"
-msgstr "Формат кода животных:"
+msgstr "Формат короткого кода животных:"
 
 #. # ui/system/Options
 #: coding_format_tooltip
 msgid "Format string for codes, eg: TYYYYNNN"
-msgstr "Format string for codes, eg: TYYYYNNN"
+msgstr "Строка формата кода, напр. TYYYYNNN"
 
 #. # ui/system/Options
 #: short_coding_format_tooltip
 msgid "Format string for short codes, eg: NNNT"
-msgstr "Format string for short codes, eg: NNNT"
+msgstr "Строка формата короткого кода, напр. NNNT"
 
 #. # ui/system/ConfigureLocal
 #: heartbeat_interval
@@ -13471,8 +13473,8 @@ msgid ""
 "Your coding format is invalid - you can specify NNN OR UUU codes in a "
 "format, but not both at the same time."
 msgstr ""
-"Your coding format is invalid - you can specify NNN OR UUU codes in a "
-"format, but not both at the same time."
+"Выбранный вами формат кода не правильный - в формате разрешается указать NNN "
+"ИЛИ UUU коды, но не оба одновременно."
 
 #. # ui/system/Options
 #: Invalid_codeformat
@@ -13653,7 +13655,7 @@ msgstr "Finished removing unwanted breeds and species."
 #. # ui/system/Options
 #: mark_new_animals_not_for_adoption
 msgid "Mark new animals as not for adoption"
-msgstr "Mark new animals as not for adoption"
+msgstr "По умолчанию присваивать новым животным статус \"Не для передачи\""
 
 #. # ui/system/Options
 #: shelter_info
@@ -13798,7 +13800,7 @@ msgstr "Default Coat Type:"
 #. # ui/system/Options
 #: Default_date_brought_in_to_today
 msgid "Default today as the brought in date for new animals"
-msgstr "Default today as the brought in date for new animals"
+msgstr "По умолчанию указывать текущую дату приёма новых животных"
 
 #. # ui/system/Options
 #: auto_cancel_reserves
@@ -13852,7 +13854,7 @@ msgstr "Separate waiting list rank by species"
 #. # ui/system/Options
 #: once_assigned_codes_cannot_be_changed
 msgid "Once assigned, codes cannot be changed"
-msgstr "Once assigned, codes cannot be changed"
+msgstr "Уже присвоены коды животных не могут быть изменены"
 
 #. # ui/system/Options
 #: Remove_unwanted_fields
@@ -13872,12 +13874,12 @@ msgstr "Remove the coat type field from the animal screen"
 #. # ui/system/Options
 #: remove_microchip_fields
 msgid "Remove the microchip fields from the animal screen"
-msgstr "Remove the microchip fields from the animal screen"
+msgstr "Удалить поля микрочипа из карточки животного"
 
 #. # ui/system/Options
 #: remove_tattoo_fields
 msgid "Remove the tattoo fields from the animal screen"
-msgstr "Remove the tattoo fields from the animal screen"
+msgstr "Удалить поля татуйрования из карточки животного"
 
 #. # ui/system/Options
 #: remove_neutered_fields
@@ -13909,7 +13911,7 @@ msgstr ""
 #. # ui/system/Options
 #: remove_litter_field
 msgid "Remove the Litter ID/Acceptance Number field from the animal screen"
-msgstr "Remove the Litter ID/Acceptance Number field from the animal screen"
+msgstr "Удалить поле ID помёта/Номер приёма из карточки животного"
 
 #. # ui/system/Options
 #: disable_accounts_functionality
@@ -13938,7 +13940,7 @@ msgstr "Keep a full audit trail"
 #. # ui/system/Options
 #: disable_shortcodes_editing
 msgid "Hide short shelter codes on the animal details screen"
-msgstr "Hide short shelter codes on the animal details screen"
+msgstr "Прятать короткие коды в карточках животных"
 
 #. # ui/system/Options
 #: how_many_points_to_show_on_report
@@ -13978,12 +13980,12 @@ msgstr "Points given for lost/found areas matching:"
 #. # ui/system/Options
 #: features_matches
 msgid "Points given for features matching:"
-msgstr "Points given for features matching:"
+msgstr "Очки за совпадение особых признаков:"
 
 #. # ui/system/Options
 #: postcode_matches
 msgid "Points given for matching postcode:"
-msgstr "Points given for matching postcode:"
+msgstr "Очки за совпадение почтовых индексов:"
 
 #. # ui/system/Options
 #: datewithin2weeks_matches
@@ -14063,32 +14065,32 @@ msgstr "Normal"
 #. # ui/system/Options
 #: Adding_multiple_animals
 msgid "Adding Multiple Animals"
-msgstr "Adding Multiple Animals"
+msgstr "Множественное добавление животных"
 
 #. # ui/system/Options
 #: add_animals_show_breed
 msgid "Show breed field(s) when adding multiple animals"
-msgstr "Show breed field(s) when adding multiple animals"
+msgstr "Показывать поле(-я) породы при множественном добавлении животных"
 
 #. # ui/system/Options
 #: add_animals_show_colour
 msgid "Show colour when adding multiple animals"
-msgstr "Show colour when adding multiple animals"
+msgstr "Показывать окрас при множественном добавлении животных"
 
 #. # ui/system/Options
 #: add_animals_show_location
 msgid "Show location when adding multiple animals"
-msgstr "Show location when adding multiple animals"
+msgstr "Показывать местонахождение при множественном добавлении животных"
 
 #. # ui/system/Options
 #: add_animals_show_litterid
 msgid "Show Litter ID when adding multiple animals"
-msgstr "Show Litter ID when adding multiple animals"
+msgstr "Показывать ID помёта при множественном добавлении животных"
 
 #. # ui/system/Options
 #: add_animals_show_acceptance
 msgid "Show Acceptance Number when adding multiple animals"
-msgstr "Show Acceptance Number when adding multiple animals"
+msgstr "Показывать номер приёма при множественном добавлении животных"
 
 #. # ui/system/ConfigureAdditional
 #. # ui/system/AdditionalFieldEdit
@@ -14153,7 +14155,7 @@ msgstr "Destination account for donation:"
 #. # ui/system/Options
 #: Default_brought_in_by
 msgid "Default Brought In By:"
-msgstr ""
+msgstr "По умолчанию кем сдано:"
 
 #. # ui/system/Options
 #: When_printing_dont_scale_to_page_width
@@ -14206,7 +14208,7 @@ msgstr ""
 #. # ui/system/Options
 #: avid_org_postcode
 msgid "Org Postcode:"
-msgstr ""
+msgstr "Почтовый индекс организации:"
 
 #. # ui/system/Options
 #: avid_org_password
@@ -14219,6 +14221,8 @@ msgid ""
 "Your coding format is invalid - if you have NNN codes, you must have a Y to "
 "make it unique."
 msgstr ""
+"Выбранный вами формат кода не правильный - если используются NNN коды, "
+"включите также Y, чтобы сделать их уникальными."
 
 #. # ui/system/Options
 #: disable_lost_and_found
@@ -15097,7 +15101,7 @@ msgstr "Attach generated document as media?"
 #. # wordprocessor/AnimalDocument
 #: estimated
 msgid "(estimated)"
-msgstr "(estimated)"
+msgstr "(предполагаемая)"
 
 #~ msgid "Dilute Tortoiseshell"
 #~ msgstr "Разбавленная черепаховая"
@@ -15185,6 +15189,25 @@ msgstr "(estimated)"
 
 #~ msgid "Cr??me DArgent"
 #~ msgstr "Cr??me DArgent"
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} ???????????????????????? ???????????? ??????????????????????????????.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
 
 #~ msgid "This animals rabies tag"
 #~ msgstr "This animals rabies tag"

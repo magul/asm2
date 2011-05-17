@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2010-12-29 13:19+0000\n"
-"Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-03-11 21:14+0000\n"
+"Last-Translator: Miguel adre <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:10+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-04-13 04:54+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -60,7 +60,7 @@ msgstr "Es necesario indicar al menos una fecha para la nota."
 #. # bo/Diary
 #: Bad_movement_link
 msgid "Bad movement link"
-msgstr "Mal movimiento de enlace"
+msgstr "Enlace de movimiento erróneo"
 
 #. # bo/Diary
 #: Bad_animal_link
@@ -1217,7 +1217,7 @@ msgstr "Blanco y Negro"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "Tortie"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1298,7 +1298,7 @@ msgstr "Blanco y Canela"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "Tortie Blanco"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1354,23 +1354,23 @@ msgstr "Verde"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "Ámbar"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "Tortie Negro"
 
 #: basecolour_44
 msgid "Blue Tortie"
-msgstr ""
+msgstr "Tortie Azul"
 
 #: basecolour_45
 msgid "Chocolate"
-msgstr ""
+msgstr "Chocolate"
 
 #: basecolour_46
 msgid "Chocolate Tortie"
-msgstr ""
+msgstr "Tortie Chocolate"
 
 #: basecolour_47
 #: breed_326_7
@@ -1379,23 +1379,23 @@ msgstr "Cinnamon"
 
 #: basecolour_48
 msgid "Cinnamon Tortoiseshell"
-msgstr ""
+msgstr "Tortie Canela"
 
 #: basecolour_49
 msgid "Fawn"
-msgstr ""
+msgstr "Amarillo Marrón"
 
 #: basecolour_50
 msgid "Fawn Tortoiseshell"
-msgstr ""
+msgstr "Tortie Amarillo Marrón"
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "Dorado"
 
 #: basecolour_52
 msgid "Light Amber"
-msgstr ""
+msgstr "Ámbar claro"
 
 #: basecolour_53
 #: breed_342_7
@@ -1404,15 +1404,15 @@ msgstr "Lilac"
 
 #: basecolour_54
 msgid "Lilac Tortie"
-msgstr ""
+msgstr "Tortie Lila"
 
 #: basecolour_55
 msgid "Ruddy"
-msgstr ""
+msgstr "Colorado"
 
 #: basecolour_56
 msgid "Seal"
-msgstr ""
+msgstr "Foca"
 
 #: basecolour_57
 #: breed_353_7
@@ -1421,11 +1421,11 @@ msgstr "Plateado"
 
 #: basecolour_58
 msgid "Sorrel"
-msgstr ""
+msgstr "Alazán"
 
 #: basecolour_59
 msgid "Sorrel Tortoiseshell"
-msgstr ""
+msgstr "Tortie Alazán"
 
 #: breed_1_1
 msgid "Affenpinscher"
@@ -4192,21 +4192,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} tablas corruptas reparadas.\n"
-"{1} movimientos de registros huérfanos encontrados y eliminados.\n"
-"{2} registros multimedia huérfanos encontrados y eliminados.\n"
-"{3} registros de vacunación huérfanos encontrados y eliminados.\n"
-"{4} registros médicos huérfanos encontrados y eliminados.\n"
-"{5} regresiones sin un movimiento encontradas y eliminadas.\n"
-"{6} columnas de datos mysql reparados.\n"
-"{7} códigos inválidos de animales corregidos para este año."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "Puente HTTPDB"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -6620,17 +6618,17 @@ msgstr "Ver este movimiento"
 #. # ui/account/TrxView
 #: Reconciled\:
 msgid "Reconciled:"
-msgstr ""
+msgstr "Conciliado:"
 
 #. # ui/account/TrxView
 #: Non_reconciled
 msgid "Non-Reconciled"
-msgstr ""
+msgstr "No conciliado"
 
 #. # ui/account/TrxView
 #: Both
 msgid "Both"
-msgstr ""
+msgstr "Ambos"
 
 #. # ui/animal/LitterView
 #: Delete_this_litter
@@ -7745,7 +7743,7 @@ msgstr "Chapa de la rabia: "
 #. # ui/animal/AnimalEdit
 #: the_animals_rabies_tag
 msgid "This animal's rabies tag"
-msgstr ""
+msgstr "Etiqueta de rabia de este animal"
 
 #. # reports/AnimalPrint
 #. # ui/waitinglist/WaitingListEdit
@@ -9836,9 +9834,13 @@ msgstr "Generar imágenes de previsualización"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -17100,6 +17102,25 @@ msgstr "(estimado)"
 #~ "Usted necesita configurar su dirección de correo electrónico y servidor "
 #~ "SMTP.\n"
 #~ "Vaya a Sistema-> Configurar ASM cuenta de correo electrónico"
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} tablas corruptas reparadas.\n"
+#~ "{1} movimientos de registros huérfanos encontrados y eliminados.\n"
+#~ "{2} registros multimedia huérfanos encontrados y eliminados.\n"
+#~ "{3} registros de vacunación huérfanos encontrados y eliminados.\n"
+#~ "{4} registros médicos huérfanos encontrados y eliminados.\n"
+#~ "{5} regresiones sin un movimiento encontradas y eliminadas.\n"
+#~ "{6} columnas de datos mysql reparados.\n"
+#~ "{7} códigos inválidos de animales corregidos para este año."
 
 #~ msgid "An error occurred accessing the object: "
 #~ msgstr "Ha ocurrido un error accediendo al objeto "

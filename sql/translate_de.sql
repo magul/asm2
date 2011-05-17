@@ -374,7 +374,7 @@ INSERT INTO breed VALUES (324, 'Checkered Giant', '', '', 7);
 INSERT INTO breed VALUES (325, 'Chinchilla', '', '', 7);
 INSERT INTO breed VALUES (326, 'Cinnamon', '', '', 7);
 INSERT INTO breed VALUES (327, 'Crème DArgen', '', '', 7);
-INSERT INTO breed VALUES (328, 'Dutch', '', '', 7);
+INSERT INTO breed VALUES (328, 'Niederländisch', '', '', 7);
 INSERT INTO breed VALUES (329, 'Dwarf', '', '', 7);
 INSERT INTO breed VALUES (330, 'Dwarf Eared', '', '', 7);
 INSERT INTO breed VALUES (331, 'English Lop', '', '', 7);

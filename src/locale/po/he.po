@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2010-12-10 16:47+0000\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-04-21 21:14+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:08+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-04-22 04:46+0000\n"
+"X-Generator: Launchpad (build 12758)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -1202,7 +1202,7 @@ msgstr "לבן ושחור"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "טורטי"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1283,7 +1283,7 @@ msgstr "לבן וחום־צהבהב"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "טורטי ולבן"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1339,70 +1339,70 @@ msgstr "ירוק"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "ענבר"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "טורטי שחור"
 
 #: basecolour_44
 msgid "Blue Tortie"
-msgstr ""
+msgstr "טורטי כחול"
 
 #: basecolour_45
 msgid "Chocolate"
-msgstr ""
+msgstr "שוקולד"
 
 #: basecolour_46
 msgid "Chocolate Tortie"
-msgstr ""
+msgstr "טורטי שוקולד"
 
 #: basecolour_47
 #: breed_326_7
 msgid "Cinnamon"
-msgstr ""
+msgstr "קינמון"
 
 #: basecolour_48
 msgid "Cinnamon Tortoiseshell"
-msgstr ""
+msgstr "שריון צב בגוון קינמון"
 
 #: basecolour_49
 msgid "Fawn"
-msgstr ""
+msgstr "עופר"
 
 #: basecolour_50
 msgid "Fawn Tortoiseshell"
-msgstr ""
+msgstr "שיריון צב בגוון עופר"
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "מוזהב"
 
 #: basecolour_52
 msgid "Light Amber"
-msgstr ""
+msgstr "ענבר בהיר"
 
 #: basecolour_53
 #: breed_342_7
 msgid "Lilac"
-msgstr ""
+msgstr "לילך"
 
 #: basecolour_54
 msgid "Lilac Tortie"
-msgstr ""
+msgstr "טורטי לילך"
 
 #: basecolour_55
 msgid "Ruddy"
-msgstr ""
+msgstr "אדמדם"
 
 #: basecolour_56
 msgid "Seal"
-msgstr ""
+msgstr "כלב ים"
 
 #: basecolour_57
 #: breed_353_7
 msgid "Silver"
-msgstr ""
+msgstr "כסוף"
 
 #: basecolour_58
 msgid "Sorrel"
@@ -4174,21 +4174,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} טבלאות פגומות תוקנו.\n"
-"{1} רשומות העברה יתומות נמצאו והוסרו.\n"
-"{2} רשומות מדיה יתומות נמצאו והוסרו.\n"
-"{3} רשומות חיסון יתומות נמצאו והוסרו.\n"
-"{4} רשומות רפואיות יתומות נמצאו והוסרו.\n"
-"{5} החזרות ללא העברות נמצאו והוסרו.\n"
-"{6} עמודות תאריכים של mysql תוקנו.\n"
-"{7} קודים של של חיות מחמד תוקנו עבור שנה זו."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "גשר HTTPDB"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -6569,17 +6567,17 @@ msgstr "צפייה בהעברה זו"
 #. # ui/account/TrxView
 #: Reconciled\:
 msgid "Reconciled:"
-msgstr ""
+msgstr "לאחר אישור:"
 
 #. # ui/account/TrxView
 #: Non_reconciled
 msgid "Non-Reconciled"
-msgstr ""
+msgstr "ללא אישור"
 
 #. # ui/account/TrxView
 #: Both
 msgid "Both"
-msgstr ""
+msgstr "שניהם"
 
 #. # ui/animal/LitterView
 #: Delete_this_litter
@@ -7685,7 +7683,7 @@ msgstr "תג שם: "
 #. # ui/animal/AnimalEdit
 #: the_animals_rabies_tag
 msgid "This animal's rabies tag"
-msgstr ""
+msgstr "תג הכלבת של חיית המחמד"
 
 #. # reports/AnimalPrint
 #. # ui/waitinglist/WaitingListEdit
@@ -9743,10 +9741,14 @@ msgstr "יצירת תמונות ממוזערות"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
-msgstr ""
+msgstr "לא נמצאו חיות מחמד תואמות לפרסום."
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
+msgstr "אלפביתי"
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main
@@ -11807,7 +11809,7 @@ msgstr "חיית מחמד זו מאוגדת עם {0}. נא לוודא שחיות
 #. # ui/movement/MovementEdit
 #: Register_with_pettrac
 msgid "Register this animal/owner information with PETtrac"
-msgstr ""
+msgstr "רישום פרטי הבעלים/חיית המחמד ב־PETtrac"
 
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
@@ -13769,7 +13771,7 @@ msgstr "יצירת תרומות וסוגי תרומות יוצרת תנועות 
 #. # ui/system/Options
 #: Keep_audit_trail
 msgid "Keep a full audit trail"
-msgstr ""
+msgstr "שמירה על מסלול הביקורת בשלמותו"
 
 #. # ui/system/Options
 #: disable_shortcodes_editing
@@ -13988,65 +13990,65 @@ msgstr "חשבון היעד לתרומות:"
 #. # ui/system/Options
 #: Default_brought_in_by
 msgid "Default Brought In By:"
-msgstr ""
+msgstr "בררת המחדל לשדה המוסר:"
 
 #. # ui/system/Options
 #: When_printing_dont_scale_to_page_width
 msgid "When printing reports, don't scale to match page width"
-msgstr ""
+msgstr "בעת הדפסת הדוחות אין לשנות את הגודל כדי להתאים לרוחב הדף"
 
 #. # ui/system/Options
 #: owner_search_result_columns
 msgid "Find owner columns:"
-msgstr ""
+msgstr "העמודות בחיפוש בעלים:"
 
 #. # ui/system/Options
 #: owner_search_result_columns_tooltip
 msgid ""
 "A comma separated list of fieldnames to be displayed when finding owners."
-msgstr ""
+msgstr "רשימה המופרדת בפסיקים של שמות שדות שיופיעו בעת חיפוש אחר בעלים."
 
 #. # ui/system/Options
 #: waiting_list_view_columns
 msgid "Waiting list columns:"
-msgstr ""
+msgstr "עמודות ברשימת ההמתנה:"
 
 #. # ui/system/Options
 #: waiting_list_view_columns_tooltip
 msgid ""
 "A comma separated list of fieldnames to be displayed when viewing the "
 "waiting list."
-msgstr ""
+msgstr "רשימה המופרדת בפסיקים של שמות שדות שיופיעו בעת צפייה ברשימת ההמתנה."
 
 #. # ui/system/Options
 #: pettrac_avid
 msgid "PETtrac/AVID"
-msgstr ""
+msgstr "PETtrac/AVID"
 
 #. # ui/system/Options
 #: avid_url
 msgid "Http Form POST URL:"
-msgstr ""
+msgstr "כתובת ה־POST של טופס ה־HTTP:"
 
 #. # ui/system/Options
 #: avid_org_name
 msgid "Org Name:"
-msgstr ""
+msgstr "שם הארגון:"
 
 #. # ui/system/Options
 #: avid_org_serial
 msgid "Org Serial:"
-msgstr ""
+msgstr "המס׳ הסידורי של הארגון:"
 
 #. # ui/system/Options
 #: avid_org_postcode
 msgid "Org Postcode:"
-msgstr ""
+msgstr "המיקוד של הארגון:"
 
 #. # ui/system/Options
 #: avid_org_password
 msgid "Org Password:"
-msgstr ""
+msgstr "ססמת הארגון:"
 
 #. # ui/system/Options
 #: Invalid_codeformat_need_y_with_n
@@ -14054,36 +14056,38 @@ msgid ""
 "Your coding format is invalid - if you have NNN codes, you must have a Y to "
 "make it unique."
 msgstr ""
+"הגדרת התבנית שלך שגויה – אם יש לך קודים מסוג NNN, אמור להיות לך Y כדי להפוך "
+"אותם לייחודיים."
 
 #. # ui/system/Options
 #: disable_lost_and_found
 msgid "Disable lost and found functionality"
-msgstr ""
+msgstr "נטרול תכונת האבידות והמציאות"
 
 #. # ui/system/Options
 #: disable_waiting_list
 msgid "Disable Waiting List"
-msgstr ""
+msgstr "נטרול רשימת ההמתנה"
 
 #. # ui/system/Options
 #: default_trx_view
 msgid "Default transaction view:"
-msgstr ""
+msgstr "תצוגת העסקאות בבררת מחדל:"
 
 #. # ui/system/Options
 #: this_week
 msgid "This week"
-msgstr ""
+msgstr "השבוע"
 
 #. # ui/system/Options
 #: this_year
 msgid "This year"
-msgstr ""
+msgstr "השנה"
 
 #. # ui/system/Options
 #: last_month
 msgid "Last 30 days"
-msgstr ""
+msgstr "30 הימים האחרונים"
 
 #. # ui/users/UserView
 #: Add_a_new_user
@@ -14742,12 +14746,12 @@ msgstr "מחיקת חשבונות"
 #. # ui/users/UserEdit
 #: View_Lost_Animals
 msgid "View Lost Animals"
-msgstr ""
+msgstr "צפייה בחיות מחמד שאבדו"
 
 #. # ui/users/UserEdit
 #: View_Found_Animals
 msgid "View Found Animals"
-msgstr ""
+msgstr "צפייה בחיות מחמד שנמצאו"
 
 #. # ui/ui/HTMLViewer
 #: HTML_Viewer
@@ -15481,6 +15485,25 @@ msgstr "(מוערך)"
 
 #~ msgid "Successfully built mail merge source as file:"
 #~ msgstr "מקור מיזוג הדואר נבנה בהצלחה בתור הקובץ:"
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} טבלאות פגומות תוקנו.\n"
+#~ "{1} רשומות העברה יתומות נמצאו והוסרו.\n"
+#~ "{2} רשומות מדיה יתומות נמצאו והוסרו.\n"
+#~ "{3} רשומות חיסון יתומות נמצאו והוסרו.\n"
+#~ "{4} רשומות רפואיות יתומות נמצאו והוסרו.\n"
+#~ "{5} החזרות ללא העברות נמצאו והוסרו.\n"
+#~ "{6} עמודות תאריכים של mysql תוקנו.\n"
+#~ "{7} קודים של של חיות מחמד תוקנו עבור שנה זו."
 
 #~ msgid "An invalid report handle was passed."
 #~ msgstr "An invalid report handle was passed."

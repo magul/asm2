@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2010-06-03 09:33+0000\n"
-"Last-Translator: Yiğit Ateş <yigitates@ceviri.ubuntu-tr.net>\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-05-14 12:03+0000\n"
+"Last-Translator: Sedat Mercan <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:11+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-05-15 04:45+0000\n"
+"X-Generator: Launchpad (build 12959)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -40,7 +40,7 @@ msgstr "Bir konu girmelisiniz."
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_day_pivot.
 msgid "You must set a day pivot."
-msgstr ""
+msgstr "Günlük özet ayarlamanız gerekli."
 
 #. # bo/Diary
 #: You_must_set_the_diary_note_for_someone's_attention.
@@ -140,17 +140,17 @@ msgstr "Hayvanın kayıp bildirim tarihini girmelisiniz."
 #. # bo/AnimalLitter
 #: No_litters_cancelled.
 msgid "No litters cancelled."
-msgstr ""
+msgstr "Hiç kabin iptal edilmemiş."
 
 #. # bo/AnimalLitter
 #: litters_cancelled
 msgid "{0} litter(s) cancelled."
-msgstr ""
+msgstr "{0} kabin iptaledilmiş."
 
 #. # bo/AnimalLitter
 #: You_must_enter_the_number_of_animals_in_the_litter.
 msgid "You must enter the number of animals in the litter."
-msgstr ""
+msgstr "Kabindeki hayvan için numara girmelisiniz."
 
 #. # bo/AnimalLitter
 #: You_must_enter_a_date.
@@ -236,7 +236,7 @@ msgstr "Sığınakta"
 #. # ui/animal/AnimalFindColumns
 #: Dead
 msgid "Deceased"
-msgstr ""
+msgstr "Ölmüş"
 
 #. # ui/animal/AnimalFind
 #: Transferred
@@ -318,7 +318,7 @@ msgstr "Rezervasyon"
 #. # bo/AnimalLitter
 #: updating_and_cancelling_litters
 msgid "Updating and cancelling animal litters..."
-msgstr ""
+msgstr "Hayvan kabinleri güncellenmiş ve iptal edilmiş."
 
 #. # bo/Animal
 #: auto_archiving_records
@@ -712,12 +712,12 @@ msgstr "Melez hayvanlar için iki farklı ırk seçmelisiniz."
 #. # bo/OwnerDonation
 #: donation_must_have_an_owner
 msgid "Donations must be linked to an owner."
-msgstr ""
+msgstr "Bağış, Bağış sahibi ile ilişkilendirilmeli."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_date_for_the_cost
 msgid "You must supply a date for the cost."
-msgstr ""
+msgstr "Maliyet için tarih vermelisiniz."
 
 #. # bo/AnimalCost
 #: you_must_supply_a_description_for_the_cost
@@ -727,32 +727,32 @@ msgstr "Maliyet için bir tanım girmelisiniz."
 #. # bo/AuditTrail
 #: audit_create
 msgid "Created {0}"
-msgstr ""
+msgstr "{0} Yaratılmış"
 
 #. # bo/AuditTrail
 #: audit_changed
 msgid "Changed {0}"
-msgstr ""
+msgstr "Değişen {0}"
 
 #. # bo/AuditTrail
 #: audit_deleted
 msgid "Deleted {0}"
-msgstr ""
+msgstr "Silinen {0}"
 
 #. # bo/AuditTrail
 #: audit_moved
 msgid "Moved {0} from {1} to {2}"
-msgstr ""
+msgstr "{1} den {2} ye {0} Taşınmış"
 
 #. # bo/AuditTrail
 #: audit_merged
 msgid "Merged {0} into {1}"
-msgstr ""
+msgstr "{0} dan {1} a genişletilmiş."
 
 #. # bo/Users
 #: duplicate_username
 msgid "The username {0} has already been used."
-msgstr ""
+msgstr "Kullanıcı Adı {0} zaten kullanılıyor."
 
 #. # charts/MonthlyDonations
 #: Monthly_Donation_analysis_(by_type)_for_
@@ -1010,155 +1010,155 @@ msgstr "Bekleme listesi ("
 
 #: accounts_1_5_1_code
 msgid "Income::Donation"
-msgstr ""
+msgstr "Gelir::Bağış"
 
 #: accounts_1_desc
 msgid "Incoming donations (misc)"
-msgstr ""
+msgstr "Gelen Bağışlar (Diğer)"
 
 #: accounts_2_5_2_code
 msgid "Income::Adoption"
-msgstr ""
+msgstr "Gelir::Sahiplenme"
 
 #: accounts_2_desc
 msgid "Adoption fee donations"
-msgstr ""
+msgstr "Sahiplenme Bağışları"
 
 #: accounts_3_5_3_code
 msgid "Income::WaitingList"
-msgstr ""
+msgstr "Gelir::Beklenen"
 
 #: accounts_3_desc
 msgid "Waiting list donations"
-msgstr ""
+msgstr "Bağış beklenenler"
 
 #: accounts_4_5_4_code
 msgid "Income::EntryDonation"
-msgstr ""
+msgstr "Gelir::Bağış Girişi"
 
 #: accounts_4_desc
 msgid "Donations for animals entering the shelter"
-msgstr ""
+msgstr "Barınağa giren hayvanlar için bağışlar"
 
 #: accounts_5_5_5_code
 msgid "Income::Sponsorship"
-msgstr ""
+msgstr "Gelir::Sponsorlar"
 
 #: accounts_5_desc
 msgid "Sponsorship donations"
-msgstr ""
+msgstr "Sponsor Bağışları"
 
 #: accounts_6_5_0_code
 msgid "Income::Shop"
-msgstr ""
+msgstr "Gelir::Mağaza"
 
 #: accounts_6_desc
 msgid "Income from an on-site shop"
-msgstr ""
+msgstr "Web Mağzası Gelirleri"
 
 #: accounts_7_5_0_code
 msgid "Income::Interest"
-msgstr ""
+msgstr "Gelir::Faizler"
 
 #: accounts_7_desc
 msgid "Bank account interest"
-msgstr ""
+msgstr "Banka Faizi"
 
 #: accounts_8_5_0_code
 msgid "Income::OpeningBalances"
-msgstr ""
+msgstr "Gelir::Açılan Bakiyeler"
 
 #: accounts_8_desc
 msgid "Opening balances"
-msgstr ""
+msgstr "Açılan Bakiyeler"
 
 #: accounts_9_1_0_code
 msgid "Bank::Current"
-msgstr ""
+msgstr "Banka::Geçerli"
 
 #: accounts_9_desc
 msgid "Bank current account"
-msgstr ""
+msgstr "Geçerli Banka Hesabı"
 
 #: accounts_10_1_0_code
 msgid "Bank::Deposit"
-msgstr ""
+msgstr "Banka::Mevduat"
 
 #: accounts_10_desc
 msgid "Bank deposit account"
-msgstr ""
+msgstr "Banka Mevduat Hesabı"
 
 #: accounts_11_1_0_code
 msgid "Bank::Savings"
-msgstr ""
+msgstr "Banka::Tasarruf"
 
 #: accounts_11_desc
 msgid "Bank savings account"
-msgstr ""
+msgstr "Banka tasarruf hesabı"
 
 #: accounts_12_8_0_code
 msgid "Asset::Premises"
-msgstr ""
+msgstr "Varlık::Emlak"
 
 #: accounts_12_desc
 msgid "Premises"
-msgstr ""
+msgstr "Emlaklar"
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
-msgstr ""
+msgstr "Giderler::Telefon"
 
 #: accounts_13_desc
 msgid "Telephone Bills"
-msgstr ""
+msgstr "Telefon Gideri"
 
 #: accounts_14_4_0_code
 msgid "Expenses::Electricity"
-msgstr ""
+msgstr "Giderler::Elektrik"
 
 #: accounts_14_desc
 msgid "Electricity Bills"
-msgstr ""
+msgstr "Elektrik Gideri"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
-msgstr ""
+msgstr "Giderler::Su"
 
 #: accounts_15_desc
 msgid "Water Bills"
-msgstr ""
+msgstr "Su Gideri"
 
 #: accounts_16_4_0_code
 msgid "Expenses::Gas"
-msgstr ""
+msgstr "Giderler::Doğalgaz"
 
 #: accounts_16_desc
 msgid "Gas Bills"
-msgstr ""
+msgstr "Doğalgaz Gideri"
 
 #: accounts_17_4_0_code
 msgid "Expenses::Postage"
-msgstr ""
+msgstr "Giderler::Posta"
 
 #: accounts_17_desc
 msgid "Postage costs"
-msgstr ""
+msgstr "Posta Gideri"
 
 #: accounts_18_4_0_code
 msgid "Expenses::Stationary"
-msgstr ""
+msgstr "Giderler::Sabit"
 
 #: accounts_18_desc
 msgid "Stationary costs"
-msgstr ""
+msgstr "Sabit Giderler"
 
 #: accounts_19_4_0_code
 msgid "Expenses::Food"
-msgstr ""
+msgstr "Giderler::Yemek"
 
 #: accounts_19_desc
 msgid "Animal food costs"
-msgstr ""
+msgstr "Hayvan Yemek Gideri"
 
 #: animaltype_2
 msgid "D (Dog)"
@@ -1206,7 +1206,7 @@ msgstr "Beyaz ve Siyah"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "Parçalı"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1287,7 +1287,7 @@ msgstr "Beyaz ve Kızıl Kahverengi"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "Parçalı Beyaz"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1343,15 +1343,15 @@ msgstr "Yeşil"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "Kehribar"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "Siyah Parçalı"
 
 #: basecolour_44
 msgid "Blue Tortie"
-msgstr ""
+msgstr "Mavi Parçalı"
 
 #: basecolour_45
 msgid "Chocolate"
@@ -1359,7 +1359,7 @@ msgstr ""
 
 #: basecolour_46
 msgid "Chocolate Tortie"
-msgstr ""
+msgstr "Çikolata Parçalı"
 
 #: basecolour_47
 #: breed_326_7
@@ -1368,23 +1368,23 @@ msgstr "Cinnamon"
 
 #: basecolour_48
 msgid "Cinnamon Tortoiseshell"
-msgstr ""
+msgstr "Parçalı Tarçın Rengi"
 
 #: basecolour_49
 msgid "Fawn"
-msgstr ""
+msgstr "Açık Kahverengi"
 
 #: basecolour_50
 msgid "Fawn Tortoiseshell"
-msgstr ""
+msgstr "Parçalı Açık Kahverengi"
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "Altın"
 
 #: basecolour_52
 msgid "Light Amber"
-msgstr ""
+msgstr "Açık Kehribar"
 
 #: basecolour_53
 #: breed_342_7
@@ -1393,15 +1393,15 @@ msgstr "Lilac"
 
 #: basecolour_54
 msgid "Lilac Tortie"
-msgstr ""
+msgstr "Parçalı Eflatun"
 
 #: basecolour_55
 msgid "Ruddy"
-msgstr ""
+msgstr "Kırmızı"
 
 #: basecolour_56
 msgid "Seal"
-msgstr ""
+msgstr "Kurşuni"
 
 #: basecolour_57
 #: breed_353_7
@@ -1410,11 +1410,11 @@ msgstr "Silver"
 
 #: basecolour_58
 msgid "Sorrel"
-msgstr ""
+msgstr "Kızıl kahverengi"
 
 #: basecolour_59
 msgid "Sorrel Tortoiseshell"
-msgstr ""
+msgstr "Parçalı Kızıl Kahverengi"
 
 #: breed_1_1
 msgid "Affenpinscher"
@@ -3039,7 +3039,7 @@ msgstr "Yaşlı"
 
 #: costtype_1
 msgid "Board and Food"
-msgstr ""
+msgstr "Yiyecek Kutusu"
 
 #: customreport_36_001
 msgid "Non-Microchipped Animals"
@@ -3065,11 +3065,11 @@ msgstr "Hiç Aşılanmamış Hayvanlar"
 
 #: customreport_39_004
 msgid "Non-Neutered/Spayed Animals Aged Over 6 Months"
-msgstr ""
+msgstr "6 Ay Üstü olmayan kısırlaştırılmış / kısırlaştırılmamış Hayvanlar"
 
 #: customreport_40_005
 msgid "Cats Not Combi-Tested"
-msgstr ""
+msgstr "Kediler Henüz Kombine-Test edilmemiş"
 
 #: customreport_41_006
 msgid "Monthly Animal Figures"
@@ -3096,28 +3096,28 @@ msgstr "Barınak Envanteri"
 #: customreport_66_category
 #: Inventories
 msgid "Inventories"
-msgstr ""
+msgstr "Envanterler"
 
 #: customreport_44_009
 msgid "Detailed Shelter Inventory"
-msgstr ""
+msgstr "Ayrıntılı Barınak Envanteri"
 
 #: customreport_45_010
 msgid "Animals Not Part Of A Litter"
-msgstr ""
+msgstr "Hayvanlar bir kabine atanmamış"
 
 #. # reports/AnimalFigures
 #. # db/AutoDBUpdates
 #: customreport_45_category
 #: Litters
 msgid "Litters"
-msgstr ""
+msgstr "Kabinler"
 
 #. # db/AutoDBUpdates
 #: customreport_46_011
 #: In/Out
 msgid "In/Out"
-msgstr ""
+msgstr "Giriş/Çıkış"
 
 #. # ui/system/Options
 #. # ui/animal/AnimalEdit
@@ -3297,7 +3297,7 @@ msgstr "Isırma"
 
 #: diet_1
 msgid "Standard"
-msgstr ""
+msgstr "Standard"
 
 #. # bo/Adoption
 #. # bo/LookupCache
@@ -3316,7 +3316,7 @@ msgstr "Bağış"
 
 #: donationtype_2
 msgid "Adoption Fee"
-msgstr ""
+msgstr "Sahiplendirme Ücreti"
 
 #: donationtype_3
 msgid "Waiting List Donation"
@@ -3328,7 +3328,7 @@ msgstr "Giriş Bağışı"
 
 #: donationtype_5
 msgid "Animal Sponsorship"
-msgstr ""
+msgstr "Hayvan  Sponsoru"
 
 #: entryreason_1
 msgid "Marriage/Relationship split"
@@ -3436,7 +3436,7 @@ msgstr "Kredi Kartı"
 
 #: lksaccounttype_3
 msgid "Loan"
-msgstr ""
+msgstr "Ödünç ver"
 
 #: lksaccounttype_4
 msgid "Expense"
@@ -3448,19 +3448,19 @@ msgstr "Gelir"
 
 #: lksaccounttype_6
 msgid "Pension"
-msgstr ""
+msgstr "Pansiyon"
 
 #: lksaccounttype_7
 msgid "Shares"
-msgstr ""
+msgstr "Paylaşımlar"
 
 #: lksaccounttype_8
 msgid "Asset"
-msgstr ""
+msgstr "Varlık"
 
 #: lksaccounttype_9
 msgid "Liability"
-msgstr ""
+msgstr "Borçlar"
 
 #: lksmovementtype_1
 msgid "Adoption"
@@ -3582,23 +3582,23 @@ msgstr "Bekleme Listesi"
 
 #: lksdonationfreq_1
 msgid "Weekly"
-msgstr ""
+msgstr "Haftalık"
 
 #: lksdonationfreq_2
 msgid "Monthly"
-msgstr ""
+msgstr "Aylık"
 
 #: lksdonationfreq_3
 msgid "Quarterly"
-msgstr ""
+msgstr "3 Aylık"
 
 #: lksdonationfreq_4
 msgid "Half-Yearly"
-msgstr ""
+msgstr "Altı Aylık"
 
 #: lksdonationfreq_5
 msgid "Annually"
-msgstr ""
+msgstr "Yıllık"
 
 #: lksfieldtype_0
 msgid "Yes/No"
@@ -3734,7 +3734,7 @@ msgstr "Evet"
 #: lksposneg_1
 #: Negative
 msgid "Negative"
-msgstr ""
+msgstr "Negatif"
 
 #. # ui/animal/AnimalEdit
 #. # wordprocessor/GenerateDocument
@@ -3742,7 +3742,7 @@ msgstr ""
 #: lksposneg_2
 #: Positive
 msgid "Positive"
-msgstr ""
+msgstr "Pozitif"
 
 #. # bo/AnimalWaitingList
 #: lkurgency_1
@@ -4041,6 +4041,8 @@ msgid ""
 "from the {0} file. Select Yes if you have already done this, otherwise "
 "select No to cancel the copy."
 msgstr ""
+"{0} Dosyasına önceden veritabanı oluşturulmuş ve veritabanı yapısı yüklenmiş "
+"olmalı. Eğer Zaten oluşturduysanız Evet'i seçin vazgeçmek için Hayır'ı seçin."
 
 #. # db/DatabaseCopier
 #: continue
@@ -4177,21 +4179,28 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} bozuk tablolar onarıldı.\n"
-"{1} bağlantısız hareket kayıtları bulundu ve silindi.\n"
-"{2} bağlantısız medya kayıtları bulundu ve silindi.\n"
-"{3} bağlantısız aşı kayıtları bulunduve silindi.\n"
-"{4} bağlantısız tıbbi kayıtlar bulundu ve silindi.\n"
-"{5} hareketi olmayan iadeler bulundu ve silindi.\n"
-"{6} msql tarih sütunları düzeltildi.\n"
-"{7} bu yıl için geçersizhayvan kodları düzeltildi."
+"{0} Bozuk tablolar onarıldı.\n"
+"{1} Sahipsiz hareket kayıtlarını bulundu ve kaldırıldı.\n"
+"{2} Sahipsiz ortam kayıtları bulundu ve kaldırıldı.\n"
+"{3} Sahipsiz aşı kayıtları  bulundu ve kaldırıldı.\n"
+"{4} Sahipsiz tıbbi kayıtları  bulundu ve kaldırıldı.\n"
+"{5} Boş hareketler bulundu ve kaldırıldı.\n"
+"{6} Mysql tarih sütunları onarıldı.\n"
+"{7} Bu yıl için geçersiz hayvan kodları düzeltildi.\n"
+"{8} Tıbbi toplamlar yeniden hesaplandı."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
-msgstr ""
+msgstr "HTTPDB Köprüsü"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr "Tıbbi toplamlar yeniden hesaplanıyor."
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -4471,6 +4480,7 @@ msgstr "Soyad"
 #: how_to_merge
 msgid "Do you want to create a CSV file or do a bulk email?"
 msgstr ""
+"CSV dosyası oluşturmak veya toplu e-posta gönderimi yapmak istiyor musunuz?"
 
 #. # mailmerge/MailMerge
 #: merge_type
@@ -4480,7 +4490,7 @@ msgstr "Mail Birleştirme Türü"
 #. # mailmerge/MailMerge
 #: produce_cvs
 msgid "Create a CSV file on disk"
-msgstr ""
+msgstr "Diskte bir CSV dosyası oluştur"
 
 #. # mailmerge/MailMerge
 #: do_bulk
@@ -4575,7 +4585,7 @@ msgstr "Giriş/Çıkış Raporu"
 #. # ui/criteria/DateFromTo
 #: In/Out_Summary_Report
 msgid "In/Out Summary Report"
-msgstr ""
+msgstr "Giriş/Çıkış Özet Raporu"
 
 #. # ui/system/ConfigureLocal
 #. # ui/system/FileTypeEdit
@@ -4618,27 +4628,27 @@ msgstr "İptal"
 #. # ui/criteria/DateFromTo
 #: Date_From\:
 msgid "Date From:"
-msgstr ""
+msgstr "Tarihinden:"
 
 #. # ui/criteria/DateFromTo
 #: There_was_a_problem_with_one_of_the_dates_you_entered.
 msgid "There was a problem with one of the dates you entered."
-msgstr ""
+msgstr "Girdiğiniz tarih ile ilgili bir sorun var."
 
 #. # ui/criteria/DateFromTo
 #: Date_To\:
 msgid "Date To:"
-msgstr ""
+msgstr "Tarihine:"
 
 #. # ui/criteria/DateFromTo
 #: Lost/Found_Matching_Report
 msgid "Lost/Found Matching Report"
-msgstr ""
+msgstr "Kayıp/Bulunan Eşleştirme Raporu"
 
 #. # reports/WaitingList
 #: Animal_Species
 msgid "Animal Species"
-msgstr ""
+msgstr "Hayvan Türleri"
 
 #. # bo/AnimalWaitingList
 #. # bo/LookupCache
@@ -4649,7 +4659,7 @@ msgstr ""
 #. # reports/WaitingList
 #: Urgency
 msgid "Urgency"
-msgstr ""
+msgstr "Aciliyet"
 
 #. # ui/waitinglist/WaitingListViewColumns
 #. # reports/WaitingList
@@ -4681,24 +4691,24 @@ msgstr "{0} için Veteriner Ajandası"
 #. # reports/Vets
 #: No_diary_or_vaccination_entries_matched_your_criteria.
 msgid "No diary or vaccination entries matched your criteria."
-msgstr ""
+msgstr "Aramanıza uygun aşı veya günlük bilgisi bulunamadı."
 
 #. # reports/Vets
 #: Vet_Diary_between_
 msgid "Vet Diary between {0} and {1}"
-msgstr ""
+msgstr "{0} ve {1} arasındaki Veteriner Günlükleri"
 
 #. # ui/animal/VaccinationView
 #. # ui/diary/VetBookView
 #. # reports/Vets
 #: Location
 msgid "Location"
-msgstr ""
+msgstr "Konum:"
 
 #. # reports/Vets
 #: Vet_Diary_upto_
 msgid "Vet Diary upto {0} "
-msgstr ""
+msgstr "{0} ye kadar olan Veteriner Günlüğü "
 
 #. # bo/Account
 #. # bo/CustomReport
@@ -4720,7 +4730,7 @@ msgstr ""
 #. # reports/Vets
 #: Description
 msgid "Description"
-msgstr ""
+msgstr "Açıklama"
 
 #. # reports/Vets
 #: Vet_Diary_Criteria
@@ -4791,7 +4801,7 @@ msgstr ""
 #: All_animals_on_the_shelter_of_the_selected_species_are_part_of_a_litter.
 msgid ""
 "All animals on the shelter of the selected species are part of a litter."
-msgstr ""
+msgstr "Barınak için seçilen türlerdeki tüm hayvanlar bir kabine atanmış."
 
 #. # reports/UnderSixNotLitter
 #: All_animals_on_the_shelter_of_that_species_are_older_than_six_months.
@@ -5037,32 +5047,32 @@ msgstr "Toplam {0}: {1}"
 #. # reports/ShelterInventory
 #: Animal_Breakdown_by_Location_and_Species
 msgid "Animal Breakdown by Location and Species"
-msgstr ""
+msgstr "Konuma ve Türe göre Hayvan Dağılımı"
 
 #. # reports/ShelterInventory
 #: Detailed_Shelter_Animal_Inventory_at_
 msgid "Detailed Shelter Animal Inventory at {0}"
-msgstr ""
+msgstr "{0}'a Ayrıntılı Barınak Hayvan Envanter"
 
 #. # reports/ShelterInventory
 #: Shelter_Animal_Inventory_at_
 msgid "Shelter Animal Inventory at {0}"
-msgstr ""
+msgstr "{0} Barınak Hayvan Envanteri"
 
 #. # reports/ShelterInventory
 #: Date_Entered_Shelter
 msgid "Date Entered Shelter"
-msgstr ""
+msgstr "Barınağa Giriş Tarihi"
 
 #. # reports/ShelterInventory
 #: transfer_from_
 msgid "Returned transfer from {0}"
-msgstr ""
+msgstr "Transferden dönmüş {0}"
 
 #. # reports/ShelterInventory
 #: fostering_to_
 msgid "Returned fostering to {0}"
-msgstr ""
+msgstr "{0} destek için geri dönen"
 
 #. # reports/ShelterInventory
 #: adoption_to_
@@ -5072,17 +5082,17 @@ msgstr ""
 #. # reports/ShelterInventory
 #: Brought_Into_Shelter
 msgid "Brought Into Shelter"
-msgstr ""
+msgstr "Barınak içine getirilmiş"
 
 #. # reports/ShelterInventory
 #: Method_of_Entry
 msgid "Method of Entry"
-msgstr ""
+msgstr "Giriş Metodu"
 
 #. # reports/SearchResults
 #: Animal_Search_Results_
 msgid "Animal Search Results (generated on {0}) "
-msgstr ""
+msgstr "({0} tarihinde oluşturulan) Hayvan Arama Sonuçları "
 
 #. # ui/animal/AnimalFindColumns
 #. # ui/lostandfound/LostAnimalFind
@@ -5090,7 +5100,7 @@ msgstr ""
 #. # reports/Vets
 #: Features
 msgid "Features"
-msgstr ""
+msgstr "Özellikler"
 
 #. # reports/NeverVaccinated
 #. # reports/UnCombiTestedCats
@@ -5101,20 +5111,20 @@ msgstr ""
 #. # reports/CustomReportExecute
 #: Internal_Location
 msgid "Internal Location"
-msgstr ""
+msgstr "Dahili Lokasyon"
 
 #. # ui/animal/AnimalFindColumns
 #. # reports/TransferIn
 #. # reports/InOut
 #: Date_Brought_In
 msgid "Date Brought In"
-msgstr ""
+msgstr "Getirilme tarihi"
 
 #. # ui/animal/AnimalFindColumns
 #. # reports/InOut
 #: Identichip_No
 msgid "Microchip No"
-msgstr ""
+msgstr "Mikroçip No"
 
 #. # bo/Animal
 #. # bo/LookupCache
@@ -5128,80 +5138,80 @@ msgstr ""
 #. # reports/OwnerCriteriaSearch
 #: Size
 msgid "Size"
-msgstr ""
+msgstr "Boyut"
 
 #. # reports/ReturnedAnimals
 #: No_animals_have_entered_the_shelter_and_been_returned_in_this_period.
 msgid "No animals have entered the shelter and been returned in this period."
-msgstr ""
+msgstr "Bu dönemde hiçbir hayvan barınağa iade edilmedi."
 
 #. # reports/ReturnedAnimals
 #: Length
 msgid "Length"
-msgstr ""
+msgstr "Uzunluk"
 
 #. # reports/ReturnedAnimals
 #: Reason_For_Return
 msgid "Reason For Return"
-msgstr ""
+msgstr "Dönüş Nedeni"
 
 #. # ui/ui/Dialog
 #. # reports/ReturnedAnimals
 #: There_are_no_animals_on_the_shelter
 msgid "There are no animals on the shelter"
-msgstr ""
+msgstr "Barınakta hiç hayvan yok"
 
 #. # reports/ReturnedAnimals
 #: returned_animal_details
 msgid "{0} - {1}: {2} {3} (type {4}), last located on {5} "
-msgstr ""
+msgstr "{0} - {1}: {2} {3} (tip {4}), son olarak {5} bulunan "
 
 #. # reports/ReturnedAnimals
 #: Returned_animals_report_between_
 msgid "Returned animals report between {0} and {1}"
-msgstr ""
+msgstr "{0} ve {1} arasında Geri Dönen hayvanlar raporu"
 
 #. # reports/ReturnedAnimals
 #: Date_Returned
 msgid "Date Returned"
-msgstr ""
+msgstr "Dönüş Tarihi"
 
 #. # reports/Report
 #. # reports/CustomReportExecute
 #: Generating_
 msgid "Generating report: {0}"
-msgstr ""
+msgstr "Oluşturulan Rapor: {0}"
 
 #. # reports/Report
 #. # reports/CustomReportExecute
 #: Outputting_to_disk
 msgid "Outputting to disk: {0} "
-msgstr ""
+msgstr "Diske kaydedilen: {0} "
 
 #. # reports/Report
 #: Untitled_Report
 msgid "Untitled Report"
-msgstr ""
+msgstr "İsimsiz Rapor"
 
 #. # reports/NotMicroChipped
 #: Non-microchipped_animals_on_the_shelter_at_
 msgid "Non-microchipped animals on the shelter at {0}"
-msgstr ""
+msgstr "Barınaktaki mikroçip olmayan hayvanlar {0}"
 
 #. # reports/NotMicroChipped
 #: All_animals_on_the_shelter_have_been_microchipped.
 msgid "All animals on the shelter have been microchipped."
-msgstr ""
+msgstr "Barınaktaki tüm hayvanlar mikroçipli."
 
 #. # reports/NoMediaAttached
 #: There_are_no_animals_on_the_shelter_of_the_species_you_selected.
 msgid "There are no animals on the shelter of the species you selected."
-msgstr ""
+msgstr "Barınakta seçtiğiniz türlerde hiçbir hayvan yoktur."
 
 #. # reports/NoMediaAttached
 #: All_animals_on_the_shelter_have_media_attached.
 msgid "All animals on the shelter have media attached."
-msgstr ""
+msgstr "Barınak üzerindeki tüm hayvanlarda ortam var."
 
 #. # reports/NoMediaAttached
 #: Animals_on_the_shelter_with_no_media_attached_at_
@@ -5211,215 +5221,215 @@ msgstr ""
 #. # reports/NeverVaccinated
 #: No_animals_on_the_shelter_have_never_been_vaccinated.
 msgid "No animals on the shelter have never been vaccinated."
-msgstr ""
+msgstr "Barınakta hiç aşılanmış hayvan bulunmuyor."
 
 #. # reports/NeverVaccinated
 #: Animals_on_the_shelter_that_have_never_been_vaccinated_at_
 msgid "Animals on the shelter that have never been vaccinated at {0} "
-msgstr ""
+msgstr "Barınakta hiç aşılanmamış hayvan {0} "
 
 #. # reports/LostFoundMatch
 #: Lost/Found_Animal_Match_Report_At_
 msgid "Lost/Found Animal Match Report At {0} "
-msgstr ""
+msgstr "Kayıp/Bulunan Hayvan Raporu {0} "
 
 #. # reports/LostFoundMatch
 #: Percentage_Match
 msgid "Percentage Match"
-msgstr ""
+msgstr "Eşleme Oranı"
 
 #. # ui/lostandfound/LostAnimalFind
 #. # ui/lostandfound/FoundAnimalFind
 #. # reports/LostFoundMatch
 #: Contact
 msgid "Contact"
-msgstr ""
+msgstr "Iletişim"
 
 #. # reports/LostFoundMatch
 #: Area_Found
 msgid "Area Found"
-msgstr ""
+msgstr "Bulunma Alanı"
 
 #. # reports/LostFoundMatch
 #: Date_Found
 msgid "Date Found"
-msgstr ""
+msgstr "Bulunma Tarihi"
 
 #. # reports/LostFoundMatch
 #: Area_Postcode
 msgid "Area Postcode"
-msgstr ""
+msgstr "Posta Kodu"
 
 #. # reports/LostFoundMatch
 #: No_matches_found.
 msgid "No matches found."
-msgstr ""
+msgstr "Hiçbir eşleşme bulunamadı."
 
 #. # reports/LostFoundMatch
 #: Distinguishing_Features
 msgid "Distinguishing Features"
-msgstr ""
+msgstr "Ayırt edici özellikleri"
 
 #. # reports/LongTermAnimals
 #: Date_Of_Entry
 msgid "Date Of Entry"
-msgstr ""
+msgstr "Giriş Tarihi"
 
 #. # reports/LongTermAnimals
 #: No_animals_on_file.
 msgid "No animals on file."
-msgstr ""
+msgstr "Dosyada Hiç Hayvan Yok"
 
 #. # reports/LongTermAnimals
 #: Long_Term_Animals_title
 msgid "Long Term Animals (On the shelter for 3 months or more) at {0} "
-msgstr ""
+msgstr "{0} Uzun Vadeli Hayvanlar (3 ay veya daha fazla) "
 
 #. # reports/LongTermAnimals
 #: There_are_no_long_term_animals_on_the_shelter.
 msgid "There are no long term animals on the shelter."
-msgstr ""
+msgstr "Barınak'ta uzun süreli hayvan bulunmamaktadır."
 
 #. # reports/InOut
 #: Animals_Adopted
 msgid "Animals Adopted"
-msgstr ""
+msgstr "Sahiplenen Hayvanlar"
 
 #. # reports/InOut
 #: Total_Animals_Stolen_
 msgid "Total Animals Stolen: {0}"
-msgstr ""
+msgstr "Toplam çalınan hayvan: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Brought_In_
 msgid "Total Animals Brought In: {0}"
-msgstr ""
+msgstr "Toplam Getirilen Hayvan: {0}"
 
 #. # reports/InOut
 #: Animals_Fostered
 msgid "Animals Fostered"
-msgstr ""
+msgstr "Beslenen Hayvalar"
 
 #. # reports/InOut
 #: Total_Animals_Adopted_
 msgid "Total Animals Adopted: {0}"
-msgstr ""
+msgstr "Sahiplendirilen Toplam Hayvan: {0}"
 
 #. # reports/InOut
 #: Animals_Stolen
 msgid "Animals Stolen"
-msgstr ""
+msgstr "Çalınan Hayvanlar"
 
 #. # reports/InOut
 #: Date_Transferred
 msgid "Date Transferred"
-msgstr ""
+msgstr "Transfer Tarihi"
 
 #. # reports/InOut
 #: Total_Animals_In_
 msgid "Total Animals In: {0} "
-msgstr ""
+msgstr "İçerideki Toplam Hayvan: {0} "
 
 #. # reports/InOut
 #: Total_Animals_Transferred_
 msgid "Total Animals Transferred: {0}"
-msgstr ""
+msgstr "Transfer edilen toplam hayvan: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Transferring_Out_
 msgid "Total Animals Returned From Transferring Out: {0}"
-msgstr ""
+msgstr "Dışarıya Transferden Dönen Toplam Hayvan: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Adoption_
 msgid "Total Animals Returned From Adoption: {0}"
-msgstr ""
+msgstr "Sahiplendirmeden Dönen Toplam Hayvan: {0}"
 
 #. # reports/InOut
 #: Returned_From
 msgid "Returned From"
-msgstr ""
+msgstr "Dönmüş"
 
 #. # reports/InOut
 #: Animals_Returned_From_Transferring_Out
 msgid "Animals Returned From Transferring Out"
-msgstr ""
+msgstr "Dışarıya transfer edilenlerden dönen hayvanlar"
 
 #. # reports/InOut
 #: Animals_Released_To_Wild
 msgid "Animals Released To Wild"
-msgstr ""
+msgstr "Doğaya salınan hayvanlar"
 
 #. # reports/InOut
 #: Total_Animals_Reclaimed_
 msgid "Total Animals Reclaimed: {0}"
-msgstr ""
+msgstr "Toplam İyileştrilmiş Hayvanlar : {0}"
 
 #. # reports/InOut
 #: Fostered_To
 msgid "Fostered To"
-msgstr ""
+msgstr "Beslenen"
 
 #. # reports/InOut
 #: Adopted_To
 msgid "Adopted To"
-msgstr ""
+msgstr "Sahiplendirilen"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Fostering_
 msgid "Total Animals Returned From Fostering: {0}"
-msgstr ""
+msgstr "Geçici aileden dönen hayvan toplamı: {0}"
 
 #. # reports/InOut
 #: Animals_Transferred_In
 msgid "Animals Transferred In"
-msgstr ""
+msgstr "İçeri transfer edilen hayvanlar"
 
 #. # reports/InOut
 #: Animals_Transferred
 msgid "Animals Transferred"
-msgstr ""
+msgstr "Transfer edilmiş hayvanlar"
 
 #. # reports/InOut
 #: Date_Reclaimed
 msgid "Date Reclaimed"
-msgstr ""
+msgstr "İyileşme tarihi"
 
 #. # reports/InOut
 #: Returned_Date
 msgid "Returned Date"
-msgstr ""
+msgstr "Dönüş Tarihi"
 
 #. # reports/TransferIn
 #. # reports/InOut
 #: Brought_In_By
 msgid "Brought In By"
-msgstr ""
+msgstr "tarafından getirilen"
 
 #. # reports/InOut
 #: Total_Animals_Returned_From_Others_
 msgid "Total Animals Returned From Others: {0}"
-msgstr ""
+msgstr "Diğerlerinden dönen hayvan toplamı: {0}"
 
 #. # reports/InOut
 #: Animals_Out
 msgid "Animals Out"
-msgstr ""
+msgstr "Hayvan Çıkış"
 
 #. # reports/InOut
 #: Date_Deceased
 msgid "Date Deceased"
-msgstr ""
+msgstr "Ölüm Tarihi"
 
 #. # reports/InOut
 #: Date_Fostered
 msgid "Date Fostered"
-msgstr ""
+msgstr "Besleme Tarihi"
 
 #. # reports/InOut
 #: Animals_Escaped
 msgid "Animals Escaped"
-msgstr ""
+msgstr "Hayvan Kaçmış"
 
 #. # reports/InOut
 #: Daily_In/Out_Report_between_
@@ -5429,99 +5439,99 @@ msgstr ""
 #. # reports/InOut
 #: Total_Animals_Out_
 msgid "Total Animals Out: {0} "
-msgstr ""
+msgstr "Toplam Çıkan Hayvan: {0} "
 
 #. # reports/InOut
 #: Date_Escaped
 msgid "Date Escaped"
-msgstr ""
+msgstr "Kaçış Tarihi"
 
 #. # reports/InOut
 #: Total_Animals_Died_On_Shelter_
 msgid "Total Animals Died On Shelter: {0}"
-msgstr ""
+msgstr "Barınakta toplam ölen hayvan : {0}"
 
 #. # reports/InOut
 #: Total_Animals_Transferred_In_
 msgid "Total Animals Transferred In: {0}"
-msgstr ""
+msgstr "İçeri Transfer edilmiş hayvan Toplamı: {0}"
 
 #. # reports/InOut
 #: Animals_Reclaimed
 msgid "Animals Reclaimed"
-msgstr ""
+msgstr "İyileştrilmiş Hayvanlar"
 
 #. # reports/InOut
 #. # reports/Retailer
 #: Total_Donations_
 #: retailer_total_donations
 msgid "Total Donations: {0}"
-msgstr ""
+msgstr "Toplam Bağış: {0}"
 
 #. # reports/InOut
 #: Date_Stolen
 msgid "Date Stolen"
-msgstr ""
+msgstr "Çalınma Tarihi"
 
 #. # reports/InOut
 #: Date_Released
 msgid "Date Released"
-msgstr ""
+msgstr "Çıkış Tarihi"
 
 #. # reports/InOut
 #: Returned_By
 msgid "Returned By"
-msgstr ""
+msgstr "Tarafından Döndü"
 
 #. # reports/InOut
 #: Animals_Returned_From_Adoption
 msgid "Animals Returned From Adoption"
-msgstr ""
+msgstr "Sahiplendirmeden dönmüş hayvanlar"
 
 #. # reports/InOut
 #: Animals_In
 msgid "Animals In"
-msgstr ""
+msgstr "Hayvan İçeride"
 
 #. # reports/InOut
 #: Animals_Brought_In
 msgid "Animals Brought In"
-msgstr ""
+msgstr "İçeriye alınmış hayvanlar"
 
 #. # reports/InOut
 #: PTS_Reason
 msgid "PTS Reason"
-msgstr ""
+msgstr "PTS Nedeni"
 
 #. # reports/InOut
 #: Total_Animals_Fostered_
 msgid "Total Animals Fostered: {0}"
-msgstr ""
+msgstr "Geçici Ailedeki Hayvan Toplamı: {0}"
 
 #. # reports/InOut
 #: Animals_Returned_From_Others
 msgid "Animals Returned From Others"
-msgstr ""
+msgstr "Diğerlerinden dönen hayvanlar"
 
 #. # reports/InOut
 #: Animals_Returned_From_Fostering
 msgid "Animals Returned From Fostering"
-msgstr ""
+msgstr "Geçici aileden dönen hayvanlar"
 
 #. # reports/InOut
 #: Total_Animals_Released_
 msgid "Total Animals Released: {0}"
-msgstr ""
+msgstr "Çıkan hayvan toplamı: {0}"
 
 #. # reports/InOut
 #: Total_Animals_Escaped_
 msgid "Total Animals Escaped: {0}"
-msgstr ""
+msgstr "Kaçan hayvan toplamı: {0}"
 
 #. # reports/InOut
 #: Animals_Died_On_The_Shelter
 msgid "Animals Died On The Shelter"
-msgstr ""
+msgstr "Barınakta Ölen Hayvanlar"
 
 #. # bo/DiaryTaskDetail
 #. # bo/Diary
@@ -5533,43 +5543,43 @@ msgstr ""
 #. # reports/DiaryNotesToday
 #: Subject
 msgid "Subject"
-msgstr ""
+msgstr "Konu"
 
 #. # reports/DiaryNotesToday
 #: No_diary_notes_match_your_criteria.
 msgid "No diary notes match your criteria."
-msgstr ""
+msgstr "Aradığınız kriterlerde günlük bulunamadı"
 
 #. # reports/DiaryNotesToday
 #: Diary_for_
 msgid "Diary for {0}"
-msgstr ""
+msgstr "{0} için günlük"
 
 #. # reports/DiaryNotesToday
 #: Diary_between_
 msgid "Diary between {0} and {1} "
-msgstr ""
+msgstr "{0} ve {1} arasındaki ajanda "
 
 #. # ui/criteria/DiaryCriteria
 #. # reports/DiaryNotesToday
 #: Diary_Criteria
 msgid "Diary Criteria"
-msgstr ""
+msgstr "Günlük Kriteri"
 
 #. # reports/DiaryNotesToday
 #: Diary_upto_
 msgid "Diary upto {0}"
-msgstr ""
+msgstr "{0} yüksek olan ajanda"
 
 #. # reports/AnimalReturnedPreSix
 #: Animals_returned_within_6_months_of_adoption_at_
 msgid "Animals returned within 6 months of adoption at {0} "
-msgstr ""
+msgstr "6 ay içinde sahiplendirmeden dönen hayvan {0} "
 
 #. # reports/AnimalReturnedPreSix
 #: No_animals_have_been_returned_within_6_months_of_adoption.
 msgid "No animals have been returned within 6 months of adoption."
-msgstr ""
+msgstr "6 Ay içinde dönüş yapan hayvan yok."
 
 #. # bo/Account
 #. # ui/system/Options
@@ -5601,20 +5611,20 @@ msgstr ""
 #. # reports/Retailer
 #: Code
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. # reports/AnimalReturnedPreSix
 #. # reports/ReturnedAnimals
 #. # reports/AnimalReturnedPostSix
 #: Date_Adopted
 msgid "Date Adopted"
-msgstr ""
+msgstr "Kabul Tarihi"
 
 #. # reports/AnimalReturnedPreSix
 #. # reports/AnimalReturnedPostSix
 #: Reason_for_Return
 msgid "Reason for Return"
-msgstr ""
+msgstr "Dönüş Nedeni"
 
 #. # reports/AnimalReturnedPostSix
 #: No_animals_have_been_returned_after_6_months_of_adoption.
@@ -5630,7 +5640,7 @@ msgstr ""
 #. # reports/AnimalReturnedPostSix
 #: No_adoptions_on_file.
 msgid "No adoptions on file."
-msgstr ""
+msgstr "Dosyada sahiplenme yok"
 
 #. # ui/animal/AnimalFindColumns
 #. # reports/TransferIn
@@ -5680,27 +5690,27 @@ msgstr ""
 #: Type
 #: type
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. # reports/AnimalFigures
 #: Select_Month
 msgid "Select Month"
-msgstr ""
+msgstr "Ayı Seç"
 
 #. # reports/AnimalFigures
 #: _stolen
 msgid "{0} stolen"
-msgstr ""
+msgstr "{0} çalınmış"
 
 #. # reports/AnimalFigures
 #: Returned_To_Owner
 msgid "Returned To Owner"
-msgstr ""
+msgstr "Sahibinden Dönen"
 
 #. # reports/AnimalFigures
 #: April
 msgid "April"
-msgstr ""
+msgstr "Nisan"
 
 #. # reports/AnimalFigures
 #: To_Fostering
@@ -5710,7 +5720,7 @@ msgstr ""
 #. # ui/system/ConfigureLookups
 #: Cats
 msgid "Cats"
-msgstr ""
+msgstr "Kediler"
 
 #. # reports/AnimalFigures
 #: _returned_from_other_(transfers,_released,_escaped,_stolen_or_reclaimed)
@@ -5726,59 +5736,59 @@ msgstr ""
 #. # reports/AnimalFigures
 #: July
 msgid "July"
-msgstr ""
+msgstr "Temmuz"
 
 #. # reports/AnimalFigures
 #: Summary_Totals\:
 msgid "Summary Totals:"
-msgstr ""
+msgstr "Toplam Özeti:"
 
 #. # reports/AnimalFigures
 #: Which_year_is_this_report_for?
 msgid "Which year is this report for?"
-msgstr ""
+msgstr "Bu rapor hangi yıl için?"
 
 #. # ui/movement/MovementSelector
 #. # reports/AnimalPrint
 #. # reports/AnimalFigures
 #: Returned
 msgid "Returned"
-msgstr ""
+msgstr "Dönmüş"
 
 #. # reports/AnimalFigures
 #: Transferred_Out
 msgid "Transferred Out"
-msgstr ""
+msgstr "Dışarı Transfer"
 
 #. # reports/AnimalFigures
 #: Avg
 msgid "Avg"
-msgstr ""
+msgstr "Ortalama"
 
 #. # ui/system/ConfigureLookups
 #: Dogs
 msgid "Dogs"
-msgstr ""
+msgstr "Köpekler"
 
 #. # reports/AnimalFigures
 #: Transferred_In
 msgid "Transferred In"
-msgstr ""
+msgstr "İçeri Transfer"
 
 #. # reports/AnimalFigures
 #: August
 msgid "August"
-msgstr ""
+msgstr "Ağustos"
 
 #. # reports/AnimalFigures
 #: PTS
 msgid "PTS"
-msgstr ""
+msgstr "PTS"
 
 #. # reports/AnimalFigures
 #: January
 msgid "January"
-msgstr ""
+msgstr "Ocak"
 
 #. # reports/AnimalFigures
 #: From_Fostering
@@ -5788,7 +5798,7 @@ msgstr ""
 #. # reports/AnimalFigures
 #: February
 msgid "February"
-msgstr ""
+msgstr "Şubat"
 
 #. # reports/AnimalFigures
 #: _to_foster_home
@@ -5798,17 +5808,17 @@ msgstr ""
 #. # reports/AnimalFigures
 #: March
 msgid "March"
-msgstr ""
+msgstr "Mart"
 
 #. # reports/AnimalFigures
 #: Incoming
 msgid "Incoming"
-msgstr ""
+msgstr "Gelen"
 
 #. # reports/AnimalFigures
 #: From_Other
 msgid "From Other"
-msgstr ""
+msgstr "Diğerlerinden"
 
 #. # reports/AnimalFigures
 #: November
@@ -5838,7 +5848,7 @@ msgstr ""
 #. # reports/AnimalFigures
 #: Day_Of_Month
 msgid "Day Of Month"
-msgstr ""
+msgstr "Haftanın Günleri"
 
 #. # reports/InOut
 #. # reports/AnimalFigures
@@ -5859,12 +5869,12 @@ msgstr ""
 #. # reports/AnimalFigures
 #: _escaped
 msgid "{0} escaped"
-msgstr ""
+msgstr "{0} kaçmış"
 
 #. # reports/AnimalFigures
 #: Day_Total
 msgid "Day Total"
-msgstr ""
+msgstr "Dün Toplamı"
 
 #. # reports/AnimalFigures
 #: Day_total_of_last_day_of_previous_month
@@ -5879,17 +5889,17 @@ msgstr ""
 #. # reports/AnimalFigures
 #: December
 msgid "December"
-msgstr ""
+msgstr "Aralık"
 
 #. # reports/AnimalFigures
 #: _transferred_out
 msgid "{0} transferred out"
-msgstr ""
+msgstr "{0} dışarı transfer"
 
 #. # reports/AnimalFigures
 #: unwanted_including
 msgid "{0} (including {1}) "
-msgstr ""
+msgstr "{0} (içeren {1}) "
 
 #. # reports/AnimalFigures
 #: Animal_Figures_for_
@@ -5899,7 +5909,7 @@ msgstr ""
 #. # reports/AnimalFigures
 #: _returned
 msgid "{0} returned"
-msgstr ""
+msgstr "{0} dönmüş"
 
 #. # reports/AnimalFigures
 #: on_foster_in_figures
@@ -5917,7 +5927,7 @@ msgstr ""
 #. # db/Diagnostic
 #: animaltype
 msgid "Animal Type"
-msgstr ""
+msgstr "Hayvan Tipi"
 
 #. # ui/owner/OwnerEdit
 #. # reports/OwnerSearchResults
@@ -5925,7 +5935,7 @@ msgstr ""
 #. # reports/CustomReportExecute
 #: criteria
 msgid "Criteria"
-msgstr ""
+msgstr "Kriter"
 
 #. # reports/AnimalFigures
 #: to_other
@@ -5950,7 +5960,7 @@ msgstr ""
 #. # reports/Retailer
 #: owner_name
 msgid "Owner Name"
-msgstr "Sahip Adı"
+msgstr "Sahibinin Adı"
 
 #. # reports/Retailer
 #: all_retailers
@@ -9708,9 +9718,13 @@ msgstr ""
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -14943,6 +14957,25 @@ msgstr ""
 
 #~ msgid "There are no required vaccinations on that date."
 #~ msgstr "Bu tarihte gerekli aşı yok."
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} bozuk tablolar onarıldı.\n"
+#~ "{1} bağlantısız hareket kayıtları bulundu ve silindi.\n"
+#~ "{2} bağlantısız medya kayıtları bulundu ve silindi.\n"
+#~ "{3} bağlantısız aşı kayıtları bulunduve silindi.\n"
+#~ "{4} bağlantısız tıbbi kayıtlar bulundu ve silindi.\n"
+#~ "{5} hareketi olmayan iadeler bulundu ve silindi.\n"
+#~ "{6} msql tarih sütunları düzeltildi.\n"
+#~ "{7} bu yıl için geçersizhayvan kodları düzeltildi."
 
 #~ msgid "Unable to write output file "
 #~ msgstr "Çıktı dosyasını yazamıyor "

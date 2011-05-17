@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
 "PO-Revision-Date: 2011-02-19 15:13+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-20 04:41+0000\n"
-"X-Generator: Launchpad (build 12351)\n"
+"X-Launchpad-Export-Date: 2011-04-13 04:53+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -4181,21 +4181,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} uszkodzona tablica naprawiona.\n"
-"{1} osierocone wpisy przesunięcia znalezione i usunięte.\n"
-"{2} osierocone wpisy mediów znalezione i usunięte.\n"
-"{3} osierocone wpisy szczepień znalezione i usunięte.\n"
-"{4} osierocone wpisy opieki weterynaryjnej znalezione i usunięte.\n"
-"{5} zwroty bez wystawionych przeniesień znalezione i usunięte.\n"
-"{6} kolumna daty mysql naprawiona.\n"
-"{7} nieprawidłowe kody zwierząt naprawione."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "Most HTTPDB"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -9794,10 +9792,14 @@ msgstr "Generuj miniatury zdjęć"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
 msgstr "Nie znaleziono zwierząt odpowiadających kryteriom publikacji."
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
+msgstr ""
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main
@@ -15132,6 +15134,25 @@ msgstr "(szacowana)"
 
 #~ msgid "Home Telephone"
 #~ msgstr "Telefon Domowy"
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} uszkodzona tablica naprawiona.\n"
+#~ "{1} osierocone wpisy przesunięcia znalezione i usunięte.\n"
+#~ "{2} osierocone wpisy mediów znalezione i usunięte.\n"
+#~ "{3} osierocone wpisy szczepień znalezione i usunięte.\n"
+#~ "{4} osierocone wpisy opieki weterynaryjnej znalezione i usunięte.\n"
+#~ "{5} zwroty bez wystawionych przeniesień znalezione i usunięte.\n"
+#~ "{6} kolumna daty mysql naprawiona.\n"
+#~ "{7} nieprawidłowe kody zwierząt naprawione."
 
 #~ msgid "An error occurred contacting PetFinder.com: "
 #~ msgstr "Wystąpił błąd w trakcie komunikacji z PetFinder.com: "

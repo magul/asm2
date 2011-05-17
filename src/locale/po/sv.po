@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2010-10-01 11:54+0000\n"
-"Last-Translator: Robin Rawson-Tetley <db@sheltermanager.com>\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-05-03 21:26+0000\n"
+"Last-Translator: Gustaf Grytterhielm <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:11+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-05-04 04:42+0000\n"
+"X-Generator: Launchpad (build 12758)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
 msgid "You must give the diary task a name."
-msgstr ""
+msgstr "Du måste namnge journalens uppgift"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_who_the_task_is_for
@@ -35,7 +35,7 @@ msgstr ""
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_subject.
 msgid "You must set a subject."
-msgstr ""
+msgstr "Du måste ange ett ämne"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_a_day_pivot.
@@ -45,7 +45,7 @@ msgstr "Du måste ange en dagspivot."
 #. # bo/Diary
 #: You_must_set_the_diary_note_for_someone's_attention.
 msgid "You must set the diary note for someone's attention."
-msgstr ""
+msgstr "Du måste ange journalens anteckning för någons uppmärksamhet"
 
 #. # bo/Diary
 #: Bad_lost_animal_link
@@ -105,7 +105,7 @@ msgstr "Ogiltig ägarlänk"
 #. # bo/AnimalWaitingList
 #: You_must_supply_the_date_this_entry_was_put_on_the_list.
 msgid "You must supply the date this entry was put on the list."
-msgstr ""
+msgstr "Du måste ange datumet när detta inlägg var tillagt i listan"
 
 #. # bo/AnimalWaitingList
 #: You_must_enter_the_contact_name.
@@ -1042,11 +1042,11 @@ msgstr "Väntelista gåvor"
 
 #: accounts_4_5_4_code
 msgid "Income::EntryDonation"
-msgstr ""
+msgstr "Intäkt::Förstagångsdonation"
 
 #: accounts_4_desc
 msgid "Donations for animals entering the shelter"
-msgstr ""
+msgstr "Donationer för besökande djur i hemmet"
 
 #: accounts_5_5_5_code
 msgid "Income::Sponsorship"
@@ -1058,7 +1058,7 @@ msgstr ""
 
 #: accounts_6_5_0_code
 msgid "Income::Shop"
-msgstr ""
+msgstr "Intäkt::Butik"
 
 #: accounts_6_desc
 msgid "Income from an on-site shop"
@@ -1070,7 +1070,7 @@ msgstr ""
 
 #: accounts_7_desc
 msgid "Bank account interest"
-msgstr ""
+msgstr "Bankränta"
 
 #: accounts_8_5_0_code
 msgid "Income::OpeningBalances"
@@ -1082,27 +1082,27 @@ msgstr ""
 
 #: accounts_9_1_0_code
 msgid "Bank::Current"
-msgstr ""
+msgstr "Bank::Nuvarande"
 
 #: accounts_9_desc
 msgid "Bank current account"
-msgstr ""
+msgstr "Bank nuvarande konto"
 
 #: accounts_10_1_0_code
 msgid "Bank::Deposit"
-msgstr ""
+msgstr "Bank::Uttag"
 
 #: accounts_10_desc
 msgid "Bank deposit account"
-msgstr ""
+msgstr "Bankuttagsbelopp"
 
 #: accounts_11_1_0_code
 msgid "Bank::Savings"
-msgstr ""
+msgstr "Bank::Sparande"
 
 #: accounts_11_desc
 msgid "Bank savings account"
-msgstr ""
+msgstr "Bankkontosparande"
 
 #: accounts_12_8_0_code
 msgid "Asset::Premises"
@@ -1114,23 +1114,23 @@ msgstr ""
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
-msgstr ""
+msgstr "Utgifter::Telefon"
 
 #: accounts_13_desc
 msgid "Telephone Bills"
-msgstr ""
+msgstr "Telefonräkningar"
 
 #: accounts_14_4_0_code
 msgid "Expenses::Electricity"
-msgstr ""
+msgstr "Utgifter::Elektricitet"
 
 #: accounts_14_desc
 msgid "Electricity Bills"
-msgstr ""
+msgstr "Elräkningar"
 
 #: accounts_15_4_0_code
 msgid "Expenses::Water"
-msgstr ""
+msgstr "Utgifter::Vatten"
 
 #: accounts_15_desc
 msgid "Water Bills"
@@ -4185,20 +4185,18 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} korrupta tabeller reparerade.\n"
-"{1} föräldralösa förflyttningsregister hittade och borttagna.\n"
-"{2} föräldralösa mediaregister hittade och borttagna.\n"
-"{3} föräldralösa vaccinationsjournaler hittade och borttagna.\n"
-"{4} föräldralösa medicinjournaler hittade och borttagna.\n"
-"{5} återlämningar utan förflyttningar hittade och borttagna.\n"
-"{6} mysql datumkolumner reparerade.\n"
-"{7} ogiltiga djurkoder åtgärdade för det här året."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
+msgstr ""
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
 msgstr ""
 
 #. # reports/VaccinationDiary
@@ -9738,9 +9736,13 @@ msgstr ""
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -15179,6 +15181,25 @@ msgstr "(beräknade)"
 
 #~ msgid "Create a CVS file on disk"
 #~ msgstr "Skapa en CSV fil på datorn."
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} korrupta tabeller reparerade.\n"
+#~ "{1} föräldralösa förflyttningsregister hittade och borttagna.\n"
+#~ "{2} föräldralösa mediaregister hittade och borttagna.\n"
+#~ "{3} föräldralösa vaccinationsjournaler hittade och borttagna.\n"
+#~ "{4} föräldralösa medicinjournaler hittade och borttagna.\n"
+#~ "{5} återlämningar utan förflyttningar hittade och borttagna.\n"
+#~ "{6} mysql datumkolumner reparerade.\n"
+#~ "{7} ogiltiga djurkoder åtgärdade för det här året."
 
 #~ msgid "An error occurred generating the report: {0}"
 #~ msgstr "Ett fel inträffade under skapandet av rapporten: {0}"

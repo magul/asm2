@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
 "PO-Revision-Date: 2011-01-02 10:24+0000\n"
 "Last-Translator: Almufadado <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:10+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-04-13 04:54+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -4188,21 +4188,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} tabelas corrmpidas reparadas.\n"
-"{1} registos de movimentos de órfãos encontrados e removidos.\n"
-"{2} registos de órfãos encontrados e removidos.\n"
-"{3} registos de vacinações de órfãos encontrados e removidos.\n"
-"{4} registos médicos de órfãos encontrados e removidos.\n"
-"{5} retorna sem um movimento de encontrado e removido.\n"
-"{6} colunas de data do mysql reparadas.\n"
-"{7} códigos de animal inválidos reparados para este ano."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "Ponte HTTPDB"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -9787,9 +9785,13 @@ msgstr "Gerar miniaturas"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -15066,6 +15068,25 @@ msgstr "(estimado)"
 
 #~ msgid "Work Telephone"
 #~ msgstr "Telefone do Local de Trabalho"
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} tabelas corrmpidas reparadas.\n"
+#~ "{1} registos de movimentos de órfãos encontrados e removidos.\n"
+#~ "{2} registos de órfãos encontrados e removidos.\n"
+#~ "{3} registos de vacinações de órfãos encontrados e removidos.\n"
+#~ "{4} registos médicos de órfãos encontrados e removidos.\n"
+#~ "{5} retorna sem um movimento de encontrado e removido.\n"
+#~ "{6} colunas de data do mysql reparadas.\n"
+#~ "{7} códigos de animal inválidos reparados para este ano."
 
 #~ msgid "Home Telephone"
 #~ msgstr "Telefone Pessoal"

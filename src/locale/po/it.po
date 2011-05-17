@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
-"PO-Revision-Date: 2011-01-12 10:09+0000\n"
-"Last-Translator: Francesco Placco <che-cco@libero.it>\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
+"PO-Revision-Date: 2011-05-15 16:18+0000\n"
+"Last-Translator: Guybrush88 <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-09 05:09+0000\n"
-"X-Generator: Launchpad (build 12177)\n"
+"X-Launchpad-Export-Date: 2011-05-16 04:44+0000\n"
+"X-Generator: Launchpad (build 12959)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -25,7 +25,7 @@ msgstr "Devi dare un nome al diario dei compiti."
 #. # bo/DiaryTaskDetail
 #: You_must_set_who_the_task_is_for
 msgid "You must set who the task is for"
-msgstr "Devi impostare di chi è il compito"
+msgstr "Devi impostare per chi è il compito"
 
 #. # bo/DiaryTaskDetail
 #: You_must_set_the_note_text.
@@ -65,7 +65,7 @@ msgstr "Devi fornire almeno una data per la nota sull'agenda"
 #. # bo/Diary
 #: Bad_movement_link
 msgid "Bad movement link"
-msgstr "collegamento al trasferimento mancante"
+msgstr "Collegamento al trasferimento mancante"
 
 #. # bo/Diary
 #: Bad_animal_link
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: accounts_12_desc
 msgid "Premises"
-msgstr ""
+msgstr "Sul posto"
 
 #: accounts_13_4_0_code
 msgid "Expenses::Phone"
@@ -1224,7 +1224,7 @@ msgstr "Bianco e Nero"
 
 #: basecolour_6
 msgid "Tortie"
-msgstr ""
+msgstr "Tortie"
 
 #: basecolour_7
 msgid "Tabby"
@@ -1305,7 +1305,7 @@ msgstr "Bianco e Marroncino chiaro"
 
 #: basecolour_27
 msgid "Tortie and White"
-msgstr ""
+msgstr "Tortie e Bianco"
 
 #: basecolour_28
 msgid "Tabby and White"
@@ -1361,23 +1361,23 @@ msgstr "Verde"
 
 #: basecolour_42
 msgid "Amber"
-msgstr ""
+msgstr "Ambra"
 
 #: basecolour_43
 msgid "Black Tortie"
-msgstr ""
+msgstr "Tortie Nero"
 
 #: basecolour_44
 msgid "Blue Tortie"
-msgstr ""
+msgstr "Tortie Blu"
 
 #: basecolour_45
 msgid "Chocolate"
-msgstr ""
+msgstr "Cioccolato"
 
 #: basecolour_46
 msgid "Chocolate Tortie"
-msgstr ""
+msgstr "Tortie Cioccolato"
 
 #: basecolour_47
 #: breed_326_7
@@ -1390,7 +1390,7 @@ msgstr ""
 
 #: basecolour_49
 msgid "Fawn"
-msgstr ""
+msgstr "Cerbiatto"
 
 #: basecolour_50
 msgid "Fawn Tortoiseshell"
@@ -1398,11 +1398,11 @@ msgstr ""
 
 #: basecolour_51
 msgid "Golden"
-msgstr ""
+msgstr "Dorato"
 
 #: basecolour_52
 msgid "Light Amber"
-msgstr ""
+msgstr "Ambra chiara"
 
 #: basecolour_53
 #: breed_342_7
@@ -1419,7 +1419,7 @@ msgstr ""
 
 #: basecolour_56
 msgid "Seal"
-msgstr ""
+msgstr "Foca"
 
 #: basecolour_57
 #: breed_353_7
@@ -4198,21 +4198,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} tabelle corrotte riparate.\n"
-"{1} Registrazioni dei movimenti orfani trovate e riparate.\n"
-"{2} Registrazioni dei file multimediali trovate e riparate.\n"
-"{3} Registrazioni delle vaccinazioni trovate e riparte.\n"
-"{4} Registrazioni mediche trovate e ripate.\n"
-"{5} Risultati senza movimento trovati e riparati.\n"
-"{6} Colonne di dati di mysql riparate.\n"
-"{7} Codici di animali invalidi riparati per questo anno."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "HTTPDB Bridge"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -6624,7 +6622,7 @@ msgstr "Non riconciliato"
 #. # ui/account/TrxView
 #: Both
 msgid "Both"
-msgstr ""
+msgstr "Entrambi"
 
 #. # ui/animal/LitterView
 #: Delete_this_litter
@@ -9789,9 +9787,13 @@ msgstr ""
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -14989,6 +14991,25 @@ msgstr ""
 #~ "ASM non riesce a trovare la sua struttura di dati nel database specificato. "
 #~ "Se stai usando PostgreSQL o MySQL, assicurati per prima cosa tu stia "
 #~ "eseguendo gli script appropriati nella {0} directory."
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} tabelle corrotte riparate.\n"
+#~ "{1} Registrazioni dei movimenti orfani trovate e riparate.\n"
+#~ "{2} Registrazioni dei file multimediali trovate e riparate.\n"
+#~ "{3} Registrazioni delle vaccinazioni trovate e riparte.\n"
+#~ "{4} Registrazioni mediche trovate e ripate.\n"
+#~ "{5} Risultati senza movimento trovati e riparati.\n"
+#~ "{6} Colonne di dati di mysql riparate.\n"
+#~ "{7} Codici di animali invalidi riparati per questo anno."
 
 #~ msgid ""
 #~ "Please enter the end date you would like to prepare vaccination letters for"

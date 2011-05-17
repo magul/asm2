@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 11:50+0100\n"
+"POT-Creation-Date: 2011-04-12 07:19+0100\n"
 "PO-Revision-Date: 2011-02-24 12:00+0000\n"
 "Last-Translator: Geert Valk  <Unknown>\n"
 "Language-Team: Benedictus\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-24 13:37+0000\n"
-"X-Generator: Launchpad (build 12438)\n"
+"X-Launchpad-Export-Date: 2011-04-13 04:51+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
 "Language: nl\n"
 
 #. # bo/DiaryTaskHead
@@ -4190,21 +4190,19 @@ msgid ""
 "{4} orphaned medical records found and removed.\n"
 "{5} returns without a movement found and removed.\n"
 "{6} mysql date columns repaired.\n"
-"{7} invalid animal codes fixed for this year."
+"{7} invalid animal codes fixed for this year.\n"
+"{8} medical totals recalculated correctly."
 msgstr ""
-"{0} beschadigde tabellen gerepareerd.\n"
-"{1} ongekoppelde mutatierecords gevonden en verwijderd.\n"
-"{2} ongekoppelde mediarecords gevonden en verwijderd.\n"
-"{3} ongekoppelde vaccinatierecords gevonden en verwijderd.\n"
-"{4} ongekoppelde medische records gevonden en verwijderd.\n"
-"{5} terugbrengingen zonder mutatie gevonden en verwijderd.\n"
-"{6} mysql datumkolommen gerepareerd.\n"
-"{7} ongeldige diercodes gerepareerd voor dit jaar."
 
 #. # ui/ui/JDBCDlg
 #: httpdb
 msgid "HTTPDB Bridge"
 msgstr "HTTPDB Bridge"
+
+#. # db/Diagnostic
+#: Recalculating_medical_totals
+msgid "Recalculating medical totals..."
+msgstr ""
 
 #. # reports/VaccinationDiary
 #: Vaccination_Type
@@ -9806,10 +9804,14 @@ msgstr "Maak miniatuur foto's aan"
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
-#. # internet/HTMLPublisher
 #: No_matching_animals_were_found_to_publish
 msgid "No matching animals were found to publish."
 msgstr "Geen overeenkomstige dieren gevonden"
+
+#. # ui/internet/InternetPublisher
+#: alphabetical_by_name
+msgid "Alphabetical"
+msgstr ""
 
 #. # ui/localcache/CacheView
 #. # ui/main/Main
@@ -16843,6 +16845,25 @@ msgstr "(geschat)"
 #~ "ASM kan zijn gegevensstructuur niet in de opgegeven databank vinden. Als je "
 #~ "PostgreSQL of MySQL gebruikt, kijk dan na of je eerst het passende script in "
 #~ "de {0} map liet lopen."
+
+#~ msgid ""
+#~ "{0} corrupted tables repaired.\n"
+#~ "{1} orphaned movement records found and removed.\n"
+#~ "{2} orphaned media records found and removed.\n"
+#~ "{3} orphaned vaccination records found and removed.\n"
+#~ "{4} orphaned medical records found and removed.\n"
+#~ "{5} returns without a movement found and removed.\n"
+#~ "{6} mysql date columns repaired.\n"
+#~ "{7} invalid animal codes fixed for this year."
+#~ msgstr ""
+#~ "{0} beschadigde tabellen gerepareerd.\n"
+#~ "{1} ongekoppelde mutatierecords gevonden en verwijderd.\n"
+#~ "{2} ongekoppelde mediarecords gevonden en verwijderd.\n"
+#~ "{3} ongekoppelde vaccinatierecords gevonden en verwijderd.\n"
+#~ "{4} ongekoppelde medische records gevonden en verwijderd.\n"
+#~ "{5} terugbrengingen zonder mutatie gevonden en verwijderd.\n"
+#~ "{6} mysql datumkolommen gerepareerd.\n"
+#~ "{7} ongeldige diercodes gerepareerd voor dit jaar."
 
 #~ msgid "There are no required chip cancellations between those dates."
 #~ msgstr "Er zijn geen chipannulaties vereist in deze periode."
