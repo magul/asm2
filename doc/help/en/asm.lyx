@@ -66,7 +66,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 65 (ASM 2.8.6)
+Revision 66 (ASM 2.8.7)
 \end_layout
 
 \begin_layout Chapter*
@@ -7841,6 +7841,25 @@ Note:
 \end_layout
 
 \begin_layout Section
+SmartTag PETID
+\end_layout
+
+\begin_layout Standard
+ASM can integrate with SmartTag PETID, a company that supply collar tags
+ to shelters for free in the US.
+ Each tag has a unique number on it and if your locale is set to US and
+ you have SmartTag PETID Settings in your database, you can enter tag informatio
+n in fields on the animal details screen.
+\end_layout
+
+\begin_layout Standard
+When you publish to SmartTag, ASM finds all animals with a SmartTag that
+ have been adopted and sends their information (along with owner info and
+ a picture) to SmartTag so they can be identified in the event they are
+ lost.
+\end_layout
+
+\begin_layout Section
 AVID/PETtrac
 \end_layout
 
@@ -11065,6 +11084,25 @@ tal.org (a portal site run by rescuegroups.org).
 
 \begin_layout Standard
 genearatejavascriptdb, uploaddirectly, animalsperpage, uploadall.
+\end_layout
+
+\begin_layout Subsection
+publishsmarttag
+\begin_inset Index
+status open
+
+\begin_layout Plain Layout
+publishsmarttag
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This command causes ASM to send any outstanding animals that have been adopted
+ recently with a SmartTag PETID to SmartTag for their records.
 \end_layout
 
 \begin_layout Subsection
