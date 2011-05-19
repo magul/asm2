@@ -267,7 +267,7 @@ public class SmartTagPublisher extends FTPPublisher {
                 	dataFile.append("\"\", ");	
                 
                 // purebred (Y or N)
-                dataFile.append("\"" + (an.getCrossBreed().intValue() == 1 ? "Y" : "N") + "\", ");
+                dataFile.append("\"" + (an.getCrossBreed().intValue() == 0 ? "Y" : "N") + "\", ");
                 
                 // gender
                 dataFile.append("\"" + an.getSexName() + "\", ");
