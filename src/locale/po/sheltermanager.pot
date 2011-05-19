@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-17 14:28+0100\n"
+"POT-Creation-Date: 2011-05-19 11:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3951,6 +3951,7 @@ msgstr ""
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #. # bo/Users
 #. # ui/login/Login
 #. # ui/system/Options
@@ -8644,6 +8645,32 @@ msgstr ""
 msgid "Out Between: "
 msgstr ""
 
+#. # bo/Animal
+#. # ui/animal/AnimalEdit
+#: SmartTag
+msgid "SmartTag PETID"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: The_SmartTag_PETID
+msgid "The SmartTag PETID tag number"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: Annual
+msgid "Annual"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: 5_Year
+msgid "5 Year"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: Lifetime
+msgid "Lifetime"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -9267,6 +9294,7 @@ msgid "Publish Animals Available For Adoption"
 msgstr ""
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9315,6 +9343,7 @@ msgstr ""
 #. # ui/internet/FTPSettings
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #. # ui/login/Login
 #. # ui/internet/Pets911Settings
 #: Username\:
@@ -9327,6 +9356,7 @@ msgstr ""
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #: Host_URL\:
 msgid "Host URL:"
 msgstr ""
@@ -9337,6 +9367,7 @@ msgid "Root:"
 msgstr ""
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9399,11 +9430,6 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: petfinder_publishing_complete
 msgid "Publishing to PetFinder.com is complete."
-msgstr ""
-
-#. # internet/PetFinderPublisher
-#: petfinder_upload_complete
-msgid "PetFinder.com Upload Complete"
 msgstr ""
 
 #. # ui/internet/PetFinderSettings
@@ -9501,11 +9527,6 @@ msgid "Pets911.com publishing complete."
 msgstr ""
 
 #. # internet/Pets911Publisher
-#: Pets911_upload_complete
-msgid "Pets911.com upload complete"
-msgstr ""
-
-#. # internet/Pets911Publisher
 #: You_need_to_set_your_Pets911_settings_before_publishing
 msgid "You need to configure your Pets911 settings before publishing."
 msgstr ""
@@ -9578,11 +9599,6 @@ msgstr ""
 #. # internet/RescueGroupsPublisher
 #: rescue_groups_publishing_complete
 msgid "RescueGroups.org Publishing Complete."
-msgstr ""
-
-#. # internet/RescueGroupsPublisher
-#: rescue_groups_upload_complete
-msgid "RescueGroups.org Upload Complete"
 msgstr ""
 
 #. # ui/internet/InternetPublisher
@@ -9671,6 +9687,7 @@ msgid "Generate thumbnail images"
 msgstr ""
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9681,6 +9698,28 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: alphabetical_by_name
 msgid "Alphabetical"
+msgstr ""
+
+#. # internet/SmartTagPublisher
+#: You_need_to_set_your_SmartTag_settings_before_publishing
+msgid "You need to configure your SmartTag PETID settings before publishing."
+msgstr ""
+
+#. # internet/SmartTagPublisher
+#: SmartTag_publishing_complete
+msgid "Publishing to SmartTag PETID is complete."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#. # ui/main/Main
+#: Update_SmartTag
+msgid "Update SmartTag PETID"
+msgstr ""
+
+#. # ui/internet/SmartTagSettings
+#. # ui/main/Main
+#: SmartTag_Settings
+msgid "SmartTag PETID Settings"
 msgstr ""
 
 #. # ui/localcache/CacheView
