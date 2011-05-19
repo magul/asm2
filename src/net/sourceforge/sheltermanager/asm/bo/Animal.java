@@ -791,6 +791,47 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setTattooDate(Date newValue) throws CursorEngineException {
         rs.setField("TattooDate", newValue);
     }
+    
+    public Integer getSmartTag() throws CursorEngineException {
+        return rs.getInt("SmartTag");
+    }
+
+    public void setSmartTag(Integer newValue) throws CursorEngineException {
+        rs.setField("SmartTag", newValue);
+    }
+    
+    public String getSmartTagNumber() throws CursorEngineException {
+        return (String) rs.getField("SmartTagNumber");
+    }
+
+    public void setSmartTagNumber(String newValue) throws CursorEngineException {
+        rs.setField("SmartTagNumber", newValue);
+    }
+    
+    /** 0 = ANNUAL, 1 = 5 YEAR, 2 = LIFETIME */
+    public Integer getSmartTagType() throws CursorEngineException {
+        return rs.getInt("SmartTagType");
+    }
+
+    public void setSmartTagType(Integer newValue) throws CursorEngineException {
+        rs.setField("SmartTagType", newValue);
+    }
+    
+    public Date getSmartTagDate() throws CursorEngineException {
+        return (Date) rs.getField("SmartTagDate");
+    }
+
+    public void setSmartTagDate(Date newValue) throws CursorEngineException {
+        rs.setField("SmartTagDate", newValue);
+    }
+    
+    public Date getSmartTagSentDate() throws CursorEngineException {
+        return (Date) rs.getField("SmartTagSentDate");
+    }
+
+    public void setSmartTagSentDate(Date newValue) throws CursorEngineException {
+        rs.setField("SmartTagSentDate", newValue);
+    }
 
     public Integer getNeutered() throws CursorEngineException {
         return (Integer) rs.getField("Neutered");
@@ -1153,16 +1194,15 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         }
     }
 
-    public Owner getCurrentOwner() throws CursorEngineException {
-        if (currentowner != null) {
-            currentowner = new Owner();
-            currentowner.openRecordset(
-                "ID = (SELECT OwnerID FROM adoption WHERE adoption.ID = " + getActiveMovementID() + ")");
-            if (currentowner.getEOF()) {
-                currentowner = null;
-            }
-        }
-        return currentowner;
+    /** Returns the current owner, because it's indirect and not based on a
+     *  field in the recordset, we can't cache this value so use it with care
+     * @return The current owner for the animal (the owner from the active movement)
+     * @throws CursorEngineException
+     */
+    public Owner getCurrentOwner() throws Exception {
+    	int ownerid = DBConnection.executeForInt("SELECT OwnerID FROM adoption " +
+    		"WHERE adoption.ID = " + getActiveMovementID());
+    	return new Owner("ID = " + ownerid);
     }
 
     public Integer getBroughtInByOwnerID() throws CursorEngineException {
@@ -2632,6 +2672,8 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
         setIsNotAvailableForAdoption(z);
         setHeartwormTested(z);
         setHasSpecialNeeds(z);
+        setSmartTag(z);
+        setSmartTagType(z);
 
         setArchived(z);
         setDailyBoardingCost(z);

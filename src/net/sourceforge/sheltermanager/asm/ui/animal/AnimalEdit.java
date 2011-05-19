@@ -152,6 +152,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.ComboBox cboSize;
     public UI.ComboBox cboSpecies;
     private UI.ComboBox cboType;
+    private UI.ComboBox cboSmartTagType;
     private UI.ComboBox cboGoodCats;
     private UI.ComboBox cboGoodDogs;
     private UI.ComboBox cboGoodKids;
@@ -162,6 +163,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private UI.CheckBox chkDiedOffShelter;
     private UI.CheckBox chkIdentichipped;
     private UI.CheckBox chkTattoo;
+    private UI.CheckBox chkSmartTag;
     private UI.CheckBox chkNeutered;
     private UI.CheckBox chkDeclawed;
     private UI.CheckBox chkNonShelter;
@@ -197,6 +199,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
     private DateField txtIdentichipDate;
     private UI.TextField txtTattooNumber;
     private DateField txtTattooDate;
+    private UI.TextField txtSmartTagNumber;
     private UI.TextArea txtMarkings;
     private DateField txtNeutered;
     private DateField txtHeartwormTestDate;
@@ -337,6 +340,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             ctl.add(txtTattooDate);
             ctl.add(txtTattooNumber);
         }
+        
+        if (showSmartTag()) {
+        	ctl.add(chkSmartTag);
+        	ctl.add(txtSmartTagNumber);
+        	ctl.add(cboSmartTagType);
+        }
 
         if (!Configuration.getBoolean("DontShowNeutered")) {
             ctl.add(chkNeutered);
@@ -393,6 +402,12 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
         ctl.addAll(additional.getAdditionalComponents());
 
         return ctl;
+    }
+    
+    /** Returns true if we should show smart tag fields */
+    public boolean showSmartTag() {
+    	return Locale.getDefault().getCountry().equals("US") && 
+    		!Configuration.getString("SmartTagFTPUser", "").equals("");
     }
 
     public Object getDefaultFocusedComponent() {
@@ -797,6 +812,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                     animal.getIdentichipNumber()));
             this.txtTattooNumber.setText(Utils.nullToEmptyString(
                     animal.getTattooNumber()));
+            this.txtSmartTagNumber.setText(Utils.nullToEmptyString(
+            		animal.getSmartTagNumber()));
             this.txtShelterCode.setCode(Utils.nullToEmptyString(
                     animal.getShelterCode()));
             this.txtShelterCode.setShortCode(Utils.nullToEmptyString(
@@ -842,6 +859,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             this.cboGoodKids.setSelectedIndex(animal.isGoodWithKids().intValue());
             this.cboHouseTrained.setSelectedIndex(animal.isHouseTrained()
                                                         .intValue());
+            this.cboSmartTagType.setSelectedIndex(animal.getSmartTagType().intValue());
 
             if (Locale.getDefault().equals(Locale.US)) {
                 cboFLVTestResult.setSelectedIndex(animal.getFLVTestResult()
@@ -856,6 +874,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                                                      .equals(y));
             this.chkIdentichipped.setSelected(animal.getIdentichipped().equals(y));
             this.chkTattoo.setSelected(animal.getTattoo().equals(y));
+            this.chkSmartTag.setSelected(animal.getSmartTag().equals(y));
             this.chkNeutered.setSelected(animal.getNeutered().equals(y));
             this.chkDeclawed.setSelected(animal.getDeclawed().equals(y));
             this.chkPTS.setSelected(animal.getPutToSleep().equals(y));
@@ -1779,6 +1798,17 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             animal.setTattooNumber(txtTattooNumber.getText());
             animal.setShelterCode(txtShelterCode.getCode());
             animal.setShortCode(txtShelterCode.getShortCode());
+            
+            // Deal with smart tag numbers, if the number changes, set
+            // the date at the backend to today and clear the sent to 
+            // SmartTag date
+            animal.setSmartTag(chkSmartTag.isSelected() ? 1 : 0);
+            if (!Utils.nullToEmptyString(animal.getSmartTagNumber()).equals(txtSmartTagNumber.getText())) {
+            	animal.setSmartTagNumber(txtSmartTagNumber.getText());
+            	animal.setSmartTagDate(new Date());
+            	animal.setSmartTagSentDate(null);
+            	animal.setSmartTagType(cboSmartTagType.getSelectedIndex());
+            }
 
             // Reparse the code and store the numeric portion in the
             // id fields for later quick calculations
@@ -2344,7 +2374,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         // Top panel
 
-        // Row 1
+        // Row
         chkIdentichipped = UI.getCheckBox(i18n("Identichipped:"),
                 i18n("the_date_the_animal_was_identichipped"),
                 UI.fp(this, "dataChanged"));
@@ -2361,7 +2391,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             pnlRightTop.add(txtIdentichipNo);
         }
 
-        // Row 2
+        // Row
         chkTattoo = UI.getCheckBox(i18n("Tattoo:"), null,
                 UI.fp(this, "dataChanged"));
 
@@ -2376,8 +2406,24 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             pnlRightTop.add(txtTattooDate);
             pnlRightTop.add(txtTattooNumber);
         }
+        
+        chkSmartTag = UI.getCheckBox(i18n("SmartTag"), null,
+                UI.fp(this, "dataChanged"));
 
-        // Row 3
+        txtSmartTagNumber = UI.getTextField(i18n("The_SmartTag_PETID"),
+                UI.fp(this, "dataChanged"));
+        
+        cboSmartTagType = UI.getCombo(new String[] { 
+        	i18n("Annual"), i18n("5_Year"), i18n("Lifetime")
+        }, UI.fp(this, "dataChanged"));
+
+        if (showSmartTag()) {
+            UI.addComponent(pnlRightTop, chkSmartTag);
+            pnlRightTop.add(txtSmartTagNumber);
+            pnlRightTop.add(cboSmartTagType);
+        }
+
+        // Row
         chkNeutered = UI.getCheckBox(i18n("Neutered:"), null,
                 UI.fp(this, "dataChanged"));
 
@@ -2409,7 +2455,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             pnlRightTop.add(UI.getLabel());
         }
 
-        // Row 4
+        // Row
         chkHeartwormTested = UI.getCheckBox(i18n("Heartworm_Tested:"), null,
                 UI.fp(this, "dataChanged"));
 
@@ -2425,7 +2471,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             pnlRightTop.add(cboHeartwormTestResult);
         }
 
-        // Row 5
+        // Row
         chkCombiTested = UI.getCheckBox(i18n("Combi-Tested:"), null,
                 UI.fp(this, "dataChanged"));
 

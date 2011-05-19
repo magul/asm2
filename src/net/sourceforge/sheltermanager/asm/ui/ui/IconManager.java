@@ -359,9 +359,11 @@ public abstract class IconManager {
     public final static String SCREEN_FINDMEAPETPUBLISH = WEB;
     public final static String SCREEN_FINDMEAPETSETTINGS = WEB;
     public final static String SCREEN_RESCUEGROUPSPUBLISH = WEB;
+    public final static String SCREEN_SMARTTAGPUBLISH = WEB;
     public final static String SCREEN_RESCUEGROUPSSETTINGS = WEB;
     public final static String SCREEN_SAVEAPETPUBLISH = WEB;
     public final static String SCREEN_SAVEAPETSETTINGS = WEB;
+    public final static String SCREEN_SMARTTAGSETTINGS = WEB;
     public final static String SCREEN_PUBLISH = WEB;
 
     // LOCALCACHE package
@@ -719,6 +721,9 @@ public abstract class IconManager {
     public final static String MENU_INTERNETPETS911 = MENUBLANK;
     public final static String MENU_INTERNETPETS911PUBLISH = "actions-Web-16.png";
     public final static String MENU_INTERNETPETS911SETTINGS = "system-Basic-16.png";
+    public final static String MENU_INTERNETSMARTTAG = MENUBLANK;
+    public final static String MENU_INTERNETSMARTTAGPUBLISH = "actions-Web-16.png";
+    public final static String MENU_INTERNETSMARTTAGSETTINGS = "system-Basic-16.png";
     public final static String MENU_INTERNETRESCUEGROUPS = MENUBLANK;
     public final static String MENU_INTERNETRESCUEGROUPSPUBLISH = "actions-Web-16.png";
     public final static String MENU_INTERNETRESCUEGROUPSSETTINGS = "system-Basic-16.png";

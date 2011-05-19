@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
+import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.MediaSelector;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -324,35 +325,27 @@ public class AnimalDocument extends GenerateDocument {
             }
 
             try {
+            	Owner co = animal.getCurrentOwner();
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerName"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getOwnerName()));
+                    Utils.nullToEmptyString(co.getOwnerName()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerAddress"),
-                    Utils.formatAddress(animal.getCurrentOwner()
-                                              .getOwnerAddress()));
+                    Utils.formatAddress(co.getOwnerAddress()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerTown"),
-                    Utils.formatAddress(animal.getCurrentOwner().getOwnerTown()));
+                    Utils.formatAddress(co.getOwnerTown()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerCounty"),
-                    Utils.formatAddress(animal.getCurrentOwner()
-                                              .getOwnerCounty()));
+                    Utils.formatAddress(co.getOwnerCounty()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerPostcode"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getOwnerPostcode()));
+                    Utils.nullToEmptyString(co.getOwnerPostcode()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerPhone"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getHomeTelephone()));
+                    Utils.nullToEmptyString(co.getHomeTelephone()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerHomePhone"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getHomeTelephone()));
+                    Utils.nullToEmptyString(co.getHomeTelephone()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerWorkPhone"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getWorkTelephone()));
+                    Utils.nullToEmptyString(co.getWorkTelephone()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerMobilePhone"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getMobileTelephone()));
+                    Utils.nullToEmptyString(co.getMobileTelephone()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerEmail"),
-                    Utils.nullToEmptyString(animal.getCurrentOwner()
-                                                  .getEmailAddress()));
+                    Utils.nullToEmptyString(co.getEmailAddress()));
             } catch (Exception e) {
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerName"), "");
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerAddress"), "");

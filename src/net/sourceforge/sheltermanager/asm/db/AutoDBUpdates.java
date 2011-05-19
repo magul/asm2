@@ -58,7 +58,7 @@ public class AutoDBUpdates {
             2021, 2023, 2100, 2102, 2210, 2301, 2302, 2303, 2310, 2350, 2390,
             2500, 2600, 2601, 2610, 2611, 2621, 2641, 2700, 2701, 2702, 2703,
             2704, 2705, 2706, 2707, 2708, 2720, 2721, 2730, 2731, 2732, 2810,
-            2811, 2812, 2840, 2860
+            2811, 2812, 2840, 2860, 2870
         };
 
     /**
@@ -4277,6 +4277,34 @@ public class AutoDBUpdates {
             }
         } catch (Exception e) {
             errors.add("float: MODIFY TO INTEGER");
+            Global.logException(e, getClass());
+        }
+    }
+
+    public void update2870() {
+        try {
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD SmartTag INTEGER NULL");
+            DBConnection.executeAction(
+            	"ALTER TABLE animal ADD SmartTagType INTEGER NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD SmartTagNumber VARCHAR(255) NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD SmartTagDate " +
+                (DBConnection.DBStoreType == DBConnection.MYSQL ?
+                "datetime" : "TIMESTAMP") + " NULL");
+            DBConnection.executeAction(
+                "ALTER TABLE animal ADD SmartTagSentDate " +
+                (DBConnection.DBStoreType == DBConnection.MYSQL ?
+                "datetime" : "TIMESTAMP") + " NULL");
+            DBConnection.executeAction(
+            	"UPDATE animal SET SmartTag = 0");
+            DBConnection.executeAction(
+        		"UPDATE animal SET SmartTagType = 0");
+            DBConnection.executeAction(
+    			"UPDATE animal SET SmartTagNumber = ''");
+        } catch (Exception e) {
+            errors.add("animal: ADD SmartTag fields");
             Global.logException(e, getClass());
         }
     }

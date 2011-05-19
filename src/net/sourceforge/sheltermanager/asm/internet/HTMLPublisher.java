@@ -86,6 +86,8 @@ public class HTMLPublisher extends FTPPublisher {
 
             if (parent != null) {
                 Dialog.showError(e.getMessage());
+                enableParentButtons();
+                return;
             } else {
                 System.exit(1);
             }

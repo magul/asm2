@@ -68,6 +68,7 @@ public class Pets911Publisher extends FTPPublisher {
                         "You_need_to_set_your_Pets911_settings_before_publishing"));
             }
 
+            enableParentButtons();
             return;
         }
 
@@ -95,6 +96,7 @@ public class Pets911Publisher extends FTPPublisher {
                 Dialog.showInformation(Global.i18n("uiinternet",
                         "No_matching_animals_were_found_to_publish"));
 
+                enableParentButtons();
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -109,6 +111,7 @@ public class Pets911Publisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
+            	enableParentButtons();
                 return;
             }
         }
@@ -290,17 +293,14 @@ public class Pets911Publisher extends FTPPublisher {
         if (parent != null) {
             Dialog.showInformation(Global.i18n("uiinternet",
                     "Pets911_publishing_complete"),
-                Global.i18n("uiinternet", "Pets911_upload_complete"));
+                Global.i18n("uiinternet", "Pets911_publishing_complete"));
         } else {
-            Global.logInfo(Global.i18n("uiinternet", "Pets911_upload_complete"),
+            Global.logInfo(Global.i18n("uiinternet", "Pets911_publishing_complete"),
                 "Pets911Publisher.run");
             System.exit(0);
         }
 
         // Re-enable buttons
-        if (parent != null) {
-            parent.btnClose.setEnabled(true);
-            parent.btnPublish.setEnabled(true);
-        }
+        enableParentButtons();
     }
 }

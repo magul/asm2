@@ -70,6 +70,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                         "You_need_to_set_your_save_a_pet_settings_before_publishing"));
             }
 
+            enableParentButtons();
             return;
         }
 
@@ -97,6 +98,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                 Dialog.showInformation(Global.i18n("uiinternet",
                         "No_matching_animals_were_found_to_publish"));
 
+                enableParentButtons();
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -111,6 +113,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
+            	enableParentButtons();
                 return;
             }
         }
@@ -363,10 +366,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
         }
 
         // Re-enable buttons
-        if (parent != null) {
-            parent.btnClose.setEnabled(true);
-            parent.btnPublish.setEnabled(true);
-        }
+        enableParentButtons();
     }
 
     /** Returns the contents of the mappings file (import.cfg) for

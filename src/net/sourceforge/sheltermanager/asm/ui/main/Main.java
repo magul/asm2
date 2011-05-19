@@ -65,6 +65,7 @@ import net.sourceforge.sheltermanager.asm.ui.internet.PetFinderSettings;
 import net.sourceforge.sheltermanager.asm.ui.internet.Pets911Settings;
 import net.sourceforge.sheltermanager.asm.ui.internet.RescueGroupsSettings;
 import net.sourceforge.sheltermanager.asm.ui.internet.SaveAPetSettings;
+import net.sourceforge.sheltermanager.asm.ui.internet.SmartTagSettings;
 import net.sourceforge.sheltermanager.asm.ui.localcache.CacheView;
 import net.sourceforge.sheltermanager.asm.ui.login.Login;
 import net.sourceforge.sheltermanager.asm.ui.lookups.BreedSpeciesMapping;
@@ -247,6 +248,9 @@ public class Main extends ASMWindow {
     private UI.Menu mnuInternetRescueGroups;
     private UI.MenuItem mnuInternetRescueGroupsPublish;
     private UI.MenuItem mnuInternetRescueGroupsSettings;
+    private UI.Menu mnuInternetSmartTag;
+    private UI.MenuItem mnuInternetSmartTagPublish;
+    private UI.MenuItem mnuInternetSmartTagSettings;
     private UI.Menu mnuInternetSaveAPet;
     private UI.MenuItem mnuInternetSaveAPetPublish;
     private UI.MenuItem mnuInternetSaveAPetSettings;
@@ -1211,6 +1215,19 @@ public class Main extends ASMWindow {
                 's',
                 IconManager.getIcon(IconManager.MENU_INTERNETPETS911SETTINGS),
                 UI.fp(this, "actionInternetPets911Settings"));
+        
+        mnuInternetSmartTag = UI.getMenu(i18n("Update_SmartTag"),
+                ' ', IconManager.getIcon(IconManager.MENU_INTERNETSMARTTAG));
+
+        mnuInternetSmartTagPublish = UI.getMenuItem(i18n("Update_SmartTag"),
+                'p',
+                IconManager.getIcon(IconManager.MENU_INTERNETSMARTTAGPUBLISH),
+                UI.fp(this, "actionInternetSmartTagPublish"));
+
+        mnuInternetSmartTagSettings = UI.getMenuItem(i18n("SmartTag_Settings"),
+                's',
+                IconManager.getIcon(IconManager.MENU_INTERNETSMARTTAGSETTINGS),
+                UI.fp(this, "actionInternetSmartTagSettings"));
 
         mnuMailMerge = UI.getMenu(i18n("Mail_Merge"));
 
@@ -1469,6 +1486,10 @@ public class Main extends ASMWindow {
             mnuInternetPets911.add(UI.getSeparator());
             mnuInternetPets911.add(mnuInternetPets911Settings);
             mnuInternet.add(mnuInternetPets911);
+            mnuInternetSmartTag.add(mnuInternetSmartTagPublish);
+            mnuInternetSmartTag.add(UI.getSeparator());
+            mnuInternetSmartTag.add(mnuInternetSmartTagSettings);
+            mnuInternet.add(mnuInternetSmartTag);
         }
 
         mnuMenu.add(mnuInternet);
@@ -1810,6 +1831,16 @@ public class Main extends ASMWindow {
     public void actionInternetPets911Settings() {
         cursorToWait();
         addChild(new Pets911Settings());
+    }
+    
+    public void actionInternetSmartTagPublish() {
+        cursorToWait();
+        addChild(new InternetPublisher(InternetPublisher.MODE_SMARTTAG));
+    }
+
+    public void actionInternetSmartTagSettings() {
+        cursorToWait();
+        addChild(new SmartTagSettings());
     }
 
     public void actionInternetRescueGroupsPublish() {

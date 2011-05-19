@@ -62,23 +62,13 @@ public class RescueGroupsPublisher extends FTPPublisher {
         // so they know the limits of what they can expect from
         // us.
         if (!checkMappedSpecies()) {
-            if (parent != null) {
-                // Re-enable buttons
-                parent.btnClose.setEnabled(true);
-                parent.btnPublish.setEnabled(true);
-            }
-
+        	enableParentButtons();
             return;
         }
 
         // and breeds...
         if (!checkMappedBreeds()) {
-            if (parent != null) {
-                // Re-enable buttons
-                parent.btnClose.setEnabled(true);
-                parent.btnPublish.setEnabled(true);
-            }
-
+        	enableParentButtons();
             return;
         }
 
@@ -97,7 +87,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 parent.btnClose.setEnabled(true);
                 parent.btnPublish.setEnabled(true);
             }
-
+            
+            enableParentButtons();
             return;
         }
 
@@ -124,7 +115,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
             if (parent != null) {
                 Dialog.showInformation(Global.i18n("uiinternet",
                         "No_matching_animals_were_found_to_publish"));
-
+                enableParentButtons();
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -139,6 +130,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
+            	enableParentButtons();
                 return;
             }
         }
@@ -425,7 +417,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
         if (parent != null) {
             Dialog.showInformation(Global.i18n("uiinternet",
                     "rescue_groups_publishing_complete"),
-                Global.i18n("uiinternet", "rescue_groups_upload_complete"));
+                Global.i18n("uiinternet", "rescue_groups_publishing_complete"));
         } else {
             Global.logInfo(Global.i18n("uiinternet",
                     "rescue_groups_publishing_complete"),
@@ -434,10 +426,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
         }
 
         // Re-enable buttons
-        if (parent != null) {
-            parent.btnClose.setEnabled(true);
-            parent.btnPublish.setEnabled(true);
-        }
+        enableParentButtons();
     }
 
     /**

@@ -137,6 +137,11 @@ CREATE TABLE animal (
   Tattoo tinyint(4) NOT NULL,
   TattooNumber varchar(255) NULL,
   TattooDate datetime NULL,
+  SmartTag tinyint(4) NOT NULL,
+  SmartTagNumber varchar(255) NULL,
+  SmartTagDate datetime NULL,
+  SmartTagSentDate datetime NULL,
+  SmartTagType tinyint(4) NULL,
   Neutered tinyint(4) NOT NULL,
   NeuteredDate datetime NULL,
   CombiTested tinyint(4) NOT NULL,
@@ -836,7 +841,7 @@ CREATE TABLE vaccinationtype (
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);
 
-INSERT INTO configuration VALUES ('DatabaseVersion','2860');
+INSERT INTO configuration VALUES ('DatabaseVersion','2870');
 INSERT INTO configuration VALUES ('Organisation', 'Organisation');
 INSERT INTO configuration VALUES ('OrganisationAddress', 'Address');
 INSERT INTO configuration VALUES ('OrganisationTelephone', 'Telephone');
