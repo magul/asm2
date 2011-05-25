@@ -694,6 +694,7 @@ public class DBFS {
     private static void fsImport(File sd, DBFS dbfs) {
         try {
             File[] f = sd.listFiles();
+            if (f == null) return;
 
             for (int i = 0; i < f.length; i++) {
                 // If it's a directory, make one in the DBFS
