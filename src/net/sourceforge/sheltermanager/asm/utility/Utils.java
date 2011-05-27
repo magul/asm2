@@ -659,7 +659,7 @@ public abstract class Utils {
      * @param theCombo A reference to the combo box to set
      */
     public static void setComboFromID(SQLRecordset lookup, String fieldName,
-        Integer idValue, UI.ComboBox theCombo) {
+        Integer idValue, final UI.ComboBox theCombo) {
         try {
             // Drop out for invalid ID
             if (idValue == null) {
@@ -691,7 +691,14 @@ public abstract class Utils {
                 if (theitem.equals(lookup.getField(fieldName))) {
                     // We have a match - select it and break
                     theCombo.setSelectedIndex(i);
-
+                    // Some users have reported repaint issues
+                    // force the combo to repaint when we change it
+                    UI.invokeLater(new Runnable() {
+                        public void run() {
+                            theCombo.invalidate();
+                            theCombo.repaint();
+                        }
+                    });
                     return;
                 }
 

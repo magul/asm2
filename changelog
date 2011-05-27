@@ -1,6 +1,8 @@
 2.8.7
 ================
 
+*. Added force repaint when combo boxes are changed to try and
+-  work around a Swing repaint issue being reported
 *. Fixed bug where importing the DBFS from the filesystem could
 -  fail with an NPE if given an empty directory
 *. Fixed problem reading current owner for word processing
