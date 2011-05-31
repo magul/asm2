@@ -126,6 +126,10 @@ public class WaitingListViewColumns {
             return Global.i18n("uiowner", "Mobile_Te");
         }
 
+        if (n.equalsIgnoreCase("EmailAddress")) {
+            return Global.i18n("uiowner", "Email:");
+        }
+
         if (n.equalsIgnoreCase("AnimalDescription")) {
             return i18n("Description:");
         }
@@ -242,6 +246,10 @@ public class WaitingListViewColumns {
 
         if (n.equalsIgnoreCase("MobileTelephone")) {
             return r.getString("MobileTelephone");
+        }
+
+        if (n.equalsIgnoreCase("EmailAddress")) {
+            return r.getString("EmailAddress");
         }
 
         if (n.equalsIgnoreCase("AnimalDescription")) {

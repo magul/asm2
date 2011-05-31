@@ -180,7 +180,8 @@ public class WaitingListView extends ASMView {
             rs.openRecordset(
                 "SELECT animalwaitinglist.*, owner.OwnerName, owner.OwnerAddress, " +
                 "owner.OwnerTown, owner.OwnerCounty, owner.OwnerPostcode, " +
-                "owner.HomeTelephone, owner.WorkTelephone, owner.MobileTelephone " +
+                "owner.HomeTelephone, owner.WorkTelephone, owner.MobileTelephone, " +
+                "owner.EmailAddress " + 
                 "FROM animalwaitinglist INNER JOIN owner ON " +
                 "owner.ID = animalwaitinglist.OwnerID WHERE " + crit,
                 "animalwaitinglist");
