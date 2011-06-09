@@ -62,13 +62,15 @@ public class RescueGroupsPublisher extends FTPPublisher {
         // so they know the limits of what they can expect from
         // us.
         if (!checkMappedSpecies()) {
-        	enableParentButtons();
+            enableParentButtons();
+
             return;
         }
 
         // and breeds...
         if (!checkMappedBreeds()) {
-        	enableParentButtons();
+            enableParentButtons();
+
             return;
         }
 
@@ -87,8 +89,9 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 parent.btnClose.setEnabled(true);
                 parent.btnPublish.setEnabled(true);
             }
-            
+
             enableParentButtons();
+
             return;
         }
 
@@ -116,6 +119,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 Dialog.showInformation(Global.i18n("uiinternet",
                         "No_matching_animals_were_found_to_publish"));
                 enableParentButtons();
+
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -130,7 +134,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
-            	enableParentButtons();
+                enableParentButtons();
+
                 return;
             }
         }

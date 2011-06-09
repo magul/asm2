@@ -340,11 +340,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             ctl.add(txtTattooDate);
             ctl.add(txtTattooNumber);
         }
-        
+
         if (showSmartTag()) {
-        	ctl.add(chkSmartTag);
-        	ctl.add(txtSmartTagNumber);
-        	ctl.add(cboSmartTagType);
+            ctl.add(chkSmartTag);
+            ctl.add(txtSmartTagNumber);
+            ctl.add(cboSmartTagType);
         }
 
         if (!Configuration.getBoolean("DontShowNeutered")) {
@@ -403,11 +403,11 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
 
         return ctl;
     }
-    
+
     /** Returns true if we should show smart tag fields */
     public boolean showSmartTag() {
-    	return Locale.getDefault().getCountry().equals("US") && 
-    		!Configuration.getString("SmartTagFTPUser", "").equals("");
+        return Locale.getDefault().getCountry().equals("US") &&
+        !Configuration.getString("SmartTagFTPUser", "").equals("");
     }
 
     public Object getDefaultFocusedComponent() {
@@ -813,7 +813,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             this.txtTattooNumber.setText(Utils.nullToEmptyString(
                     animal.getTattooNumber()));
             this.txtSmartTagNumber.setText(Utils.nullToEmptyString(
-            		animal.getSmartTagNumber()));
+                    animal.getSmartTagNumber()));
             this.txtShelterCode.setCode(Utils.nullToEmptyString(
                     animal.getShelterCode()));
             this.txtShelterCode.setShortCode(Utils.nullToEmptyString(
@@ -859,7 +859,8 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             this.cboGoodKids.setSelectedIndex(animal.isGoodWithKids().intValue());
             this.cboHouseTrained.setSelectedIndex(animal.isHouseTrained()
                                                         .intValue());
-            this.cboSmartTagType.setSelectedIndex(animal.getSmartTagType().intValue());
+            this.cboSmartTagType.setSelectedIndex(animal.getSmartTagType()
+                                                        .intValue());
 
             if (Locale.getDefault().equals(Locale.US)) {
                 cboFLVTestResult.setSelectedIndex(animal.getFLVTestResult()
@@ -1798,16 +1799,18 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             animal.setTattooNumber(txtTattooNumber.getText());
             animal.setShelterCode(txtShelterCode.getCode());
             animal.setShortCode(txtShelterCode.getShortCode());
-            
+
             // Deal with smart tag numbers, if the number changes, set
             // the date at the backend to today and clear the sent to 
             // SmartTag date
             animal.setSmartTag(chkSmartTag.isSelected() ? 1 : 0);
-            if (!Utils.nullToEmptyString(animal.getSmartTagNumber()).equals(txtSmartTagNumber.getText())) {
-            	animal.setSmartTagNumber(txtSmartTagNumber.getText());
-            	animal.setSmartTagDate(new Date());
-            	animal.setSmartTagSentDate(null);
-            	animal.setSmartTagType(cboSmartTagType.getSelectedIndex());
+
+            if (!Utils.nullToEmptyString(animal.getSmartTagNumber())
+                          .equals(txtSmartTagNumber.getText())) {
+                animal.setSmartTagNumber(txtSmartTagNumber.getText());
+                animal.setSmartTagDate(new Date());
+                animal.setSmartTagSentDate(null);
+                animal.setSmartTagType(cboSmartTagType.getSelectedIndex());
             }
 
             // Reparse the code and store the numeric portion in the
@@ -2406,16 +2409,16 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
             pnlRightTop.add(txtTattooDate);
             pnlRightTop.add(txtTattooNumber);
         }
-        
+
         chkSmartTag = UI.getCheckBox(i18n("SmartTag"), null,
                 UI.fp(this, "dataChanged"));
 
         txtSmartTagNumber = UI.getTextField(i18n("The_SmartTag_PETID"),
                 UI.fp(this, "dataChanged"));
-        
-        cboSmartTagType = UI.getCombo(new String[] { 
-        	i18n("Annual"), i18n("5_Year"), i18n("Lifetime")
-        }, UI.fp(this, "dataChanged"));
+
+        cboSmartTagType = UI.getCombo(new String[] {
+                    i18n("Annual"), i18n("5_Year"), i18n("Lifetime")
+                }, UI.fp(this, "dataChanged"));
 
         if (showSmartTag()) {
             UI.addComponent(pnlRightTop, chkSmartTag);

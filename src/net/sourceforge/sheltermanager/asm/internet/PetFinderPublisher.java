@@ -58,12 +58,14 @@ public class PetFinderPublisher extends FTPPublisher {
         // mapped:
         if (!checkMappedSpecies()) {
             enableParentButtons();
+
             return;
         }
 
         // and breeds...
         if (!checkMappedBreeds()) {
             enableParentButtons();
+
             return;
         }
 
@@ -78,6 +80,7 @@ public class PetFinderPublisher extends FTPPublisher {
 
             Global.logException(e, getClass());
             enableParentButtons();
+
             return;
         }
 
@@ -108,6 +111,7 @@ public class PetFinderPublisher extends FTPPublisher {
                 Dialog.showInformation(Global.i18n("uiinternet",
                         "No_matching_animals_were_found_to_publish"));
                 enableParentButtons();
+
                 return;
             } else {
                 System.exit(1);
@@ -119,7 +123,8 @@ public class PetFinderPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
-            	enableParentButtons();
+                enableParentButtons();
+
                 return;
             }
         }

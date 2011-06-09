@@ -1215,9 +1215,9 @@ public class Main extends ASMWindow {
                 's',
                 IconManager.getIcon(IconManager.MENU_INTERNETPETS911SETTINGS),
                 UI.fp(this, "actionInternetPets911Settings"));
-        
-        mnuInternetSmartTag = UI.getMenu(i18n("Update_SmartTag"),
-                ' ', IconManager.getIcon(IconManager.MENU_INTERNETSMARTTAG));
+
+        mnuInternetSmartTag = UI.getMenu(i18n("Update_SmartTag"), ' ',
+                IconManager.getIcon(IconManager.MENU_INTERNETSMARTTAG));
 
         mnuInternetSmartTagPublish = UI.getMenuItem(i18n("Update_SmartTag"),
                 'p',
@@ -1832,7 +1832,7 @@ public class Main extends ASMWindow {
         cursorToWait();
         addChild(new Pets911Settings());
     }
-    
+
     public void actionInternetSmartTagPublish() {
         cursorToWait();
         addChild(new InternetPublisher(InternetPublisher.MODE_SMARTTAG));

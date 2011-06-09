@@ -21,9 +21,6 @@
  */
 package net.sourceforge.sheltermanager.asm.internet;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -33,6 +30,10 @@ import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
+
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
 
 
 /**
@@ -72,6 +73,7 @@ public class SmartTagPublisher extends FTPPublisher {
             }
 
             enableParentButtons();
+
             return;
         }
 
@@ -79,14 +81,14 @@ public class SmartTagPublisher extends FTPPublisher {
         setStatusText(Global.i18n("uiinternet", "retrieving_animal_list"));
 
         Animal an = null;
-        String filter = "SmartTag = 1 AND SmartTagNumber <> '' AND " + 
-        	"SmartTagSentDate Is Null AND " +
-        	"ActiveMovementID > 0";
-        
+        String filter = "SmartTag = 1 AND SmartTagNumber <> '' AND " +
+            "SmartTagSentDate Is Null AND " + "ActiveMovementID > 0";
+
         try {
             an = new Animal(filter);
         } catch (Exception e) {
             Global.logException(e, getClass());
+
             if (parent != null) {
                 Dialog.showError(e.getMessage());
             } else {
@@ -102,6 +104,7 @@ public class SmartTagPublisher extends FTPPublisher {
                         "No_matching_animals_were_found_to_publish"));
 
                 enableParentButtons();
+
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -116,7 +119,8 @@ public class SmartTagPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
-            	enableParentButtons();
+                enableParentButtons();
+
                 return;
             }
         }
@@ -130,13 +134,14 @@ public class SmartTagPublisher extends FTPPublisher {
         setStatusText(Global.i18n("uiinternet", "Publishing..."));
 
         // Add the header
-        dataFile.append("accountid,sourcesystem,sourcesystemidkey,sourcesystemanimalkey," +
-        	"sourcesystemownerkey,signupidassigned,signuptype,signupeffectivedate,signupbatchpostdt," +
-        	"feecharged,feecollected,ownerfname,ownermname,ownerlname,addressstreetnumber," +
-        	"addressstreetdir,addressstreetname,addressstreettype,addresscity,addressstate," +
-        	"addresspostal,addressctry,owneremail,owneremail2,owneremail3,ownerhomephone,ownerworkphone," +
-        	"ownerthirdphone,petname,species,primarybreed,crossbreed,purebred,gender,sterilized," +
-        	"primarycolor,secondcolor,sizecategory,agecategory,declawed,animalstatus\n");
+        dataFile.append(
+            "accountid,sourcesystem,sourcesystemidkey,sourcesystemanimalkey," +
+            "sourcesystemownerkey,signupidassigned,signuptype,signupeffectivedate,signupbatchpostdt," +
+            "feecharged,feecollected,ownerfname,ownermname,ownerlname,addressstreetnumber," +
+            "addressstreetdir,addressstreetname,addressstreettype,addresscity,addressstate," +
+            "addresspostal,addressctry,owneremail,owneremail2,owneremail3,ownerhomephone,ownerworkphone," +
+            "ownerthirdphone,petname,species,primarybreed,crossbreed,purebred,gender,sterilized," +
+            "primarycolor,secondcolor,sizecategory,agecategory,declawed,animalstatus\n");
 
         try {
             int anCount = 0;
@@ -154,144 +159,171 @@ public class SmartTagPublisher extends FTPPublisher {
 
                 // accountid
                 dataFile.append("\"" + userName + "\",");
-                
+
                 // sourcesystem
                 dataFile.append("\"ASM\",");
-                
+
                 // sourcesystemanimalkey (also corresponds to image name)
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
-                
+
                 // sourcesystemidkey
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
-                
+
                 // signupidassigned
                 dataFile.append("\"" + an.getSmartTagNumber() + "\", ");
-                
+
                 // signuptype
                 String sttype = "IDTAG-ANNUAL";
+
                 switch (an.getSmartTagType().intValue()) {
-	                case 0: sttype = "IDTAG-ANNUAL"; break;
-	                case 1: sttype = "IDTAG-5 YEAR"; break;
-	                case 2: sttype = "IDTAG-LIFETIME"; break;
+                case 0:
+                    sttype = "IDTAG-ANNUAL";
+
+                    break;
+
+                case 1:
+                    sttype = "IDTAG-5 YEAR";
+
+                    break;
+
+                case 2:
+                    sttype = "IDTAG-LIFETIME";
+
+                    break;
                 }
+
                 dataFile.append("\"" + sttype + "\", ");
-                
+
                 // signupeffectivedate
                 dataFile.append("\"" + an.getSmartTagDate() + "\", ");
-                
+
                 // signupbatchpostdt - only used by resending mechanism and we don't do that
                 dataFile.append("\"\", ");
-                
+
                 // feecharged
                 dataFile.append("\"\",");
-                
+
                 // feecollected
                 dataFile.append("\"\",");
-                
+
                 Owner o = an.getCurrentOwner();
                 String add = o.getOwnerAddress();
                 String fline = add;
-                if (fline.indexOf("\n") != -1) fline = add.substring(0, add.indexOf("\n"));
+
+                if (fline.indexOf("\n") != -1) {
+                    fline = add.substring(0, add.indexOf("\n"));
+                }
+
                 String[] street = Utils.split(fline, " ");
                 String houseno = "";
                 String streetname = fline;
+
                 if (street.length > 1) {
-                	houseno = street[0];
-                	streetname = fline.substring(fline.indexOf(" ") + 1);
+                    houseno = street[0];
+                    streetname = fline.substring(fline.indexOf(" ") + 1);
                 }
-                
+
                 // ownerfname
                 dataFile.append("\"" + o.getOwnerForenames() + "\", ");
-                 
+
                 // ownermname
                 dataFile.append("\"\", ");
-                
+
                 // ownerlname
                 dataFile.append("\"" + o.getOwnerSurname() + "\", ");
-                
+
                 // addressstreetnumber
                 dataFile.append("\"" + houseno + "\", ");
-                
+
                 // addressstreetdir
                 dataFile.append("\"\", ");
-                
+
                 // addressstreetname
                 dataFile.append("\"" + streetname + "\", ");
-                
+
                 // addressstreettype
                 dataFile.append("\"\", ");
-                
+
                 // addresscity
                 dataFile.append("\"" + o.getOwnerTown() + "\", ");
-                
+
                 // addressstate
                 dataFile.append("\"" + o.getOwnerCounty() + "\", ");
-                
+
                 // addresspostal
                 dataFile.append("\"" + o.getOwnerPostcode() + "\", ");
-                
+
                 // addressctry
                 dataFile.append("\"USA\", ");
-                
+
                 // owneremail
                 dataFile.append("\"" + o.getEmailAddress() + "\", ");
-                
+
                 // owneremail2
                 dataFile.append("\"\", ");
-                
+
                 // owneremail3
                 dataFile.append("\"\", ");
-                
+
                 // ownerhomephone
                 dataFile.append("\"" + o.getHomeTelephone() + "\", ");
-                
+
                 // ownerworkphone
                 dataFile.append("\"" + o.getWorkTelephone() + "\", ");
-                
+
                 // ownerthirdphone
                 dataFile.append("\"" + o.getMobileTelephone() + "\", ");
-                
+
                 // petname
                 dataFile.append("\"" + an.getAnimalName() + "\", ");
-                
+
                 // species
-                dataFile.append("\"" + LookupCache.getSpeciesName(an.getSpeciesID()) + "\", ");
-                
+                dataFile.append("\"" +
+                    LookupCache.getSpeciesName(an.getSpeciesID()) + "\", ");
+
                 // primarybreed
-                dataFile.append("\"" + LookupCache.getBreedName(an.getBreedID()) + "\", ");
-                
+                dataFile.append("\"" +
+                    LookupCache.getBreedName(an.getBreedID()) + "\", ");
+
                 // crossbreed (second breed)
-                if (an.getCrossBreed().intValue() == 1)
-                	dataFile.append("\"" + LookupCache.getBreedName(an.getBreed2ID()) + "\", ");
-                else
-                	dataFile.append("\"\", ");	
-                
+                if (an.getCrossBreed().intValue() == 1) {
+                    dataFile.append("\"" +
+                        LookupCache.getBreedName(an.getBreed2ID()) + "\", ");
+                } else {
+                    dataFile.append("\"\", ");
+                }
+
                 // purebred (Y or N)
-                dataFile.append("\"" + (an.getCrossBreed().intValue() == 0 ? "Y" : "N") + "\", ");
-                
+                dataFile.append("\"" +
+                    ((an.getCrossBreed().intValue() == 0) ? "Y" : "N") +
+                    "\", ");
+
                 // gender
                 dataFile.append("\"" + an.getSexName() + "\", ");
-                
+
                 // sterilized (Y or N)
-                dataFile.append("\"" + (an.getNeutered().intValue() == 1 ? "Y" : "N") + "\", ");
-                
+                dataFile.append("\"" +
+                    ((an.getNeutered().intValue() == 1) ? "Y" : "N") + "\", ");
+
                 // primarycolor
                 dataFile.append("\"" + an.getBaseColourName() + "\", ");
-                
+
                 // secondcolor
                 dataFile.append("\"\", ");
-                
+
                 // sizecategory
                 dataFile.append("\"" + an.getSizeName() + "\", ");
-                
+
                 // agecategory
                 dataFile.append("\"" + an.getAgeGroup() + "\", ");
-                
+
                 // declawed (Y or N)
-                dataFile.append("\"" + (an.getDeclawed().intValue() == 1 ? "Y" : "N") + "\", ");
-                
+                dataFile.append("\"" +
+                    ((an.getDeclawed().intValue() == 1) ? "Y" : "N") + "\", ");
+
                 // animalstatus (blank or D for Deceased)
-                dataFile.append("\"" + (an.getDeceasedDate() != null ? "D" : "") + "\"");
+                dataFile.append("\"" +
+                    ((an.getDeceasedDate() != null) ? "D" : "") + "\"");
 
                 // Terminate
                 dataFile.append("\n");
@@ -302,7 +334,6 @@ public class SmartTagPublisher extends FTPPublisher {
                 an.moveNext();
                 incrementStatusBar();
             }
-            
         } catch (Exception e) {
             if (parent != null) {
                 Dialog.showError(e.getMessage());
@@ -325,14 +356,13 @@ public class SmartTagPublisher extends FTPPublisher {
         Global.logInfo("Uploading data", "SmartTagPublisher.run");
         upload(filename);
         Global.logInfo("Data uploaded", "SmartTagPublisher.run");
-        
+
         try {
-	        // Flag our batch as sent
-	        DBConnection.executeAction("UPDATE animal SET SmartTagSentDate = '" + Utils.getSQLDate(new Date()) +
-	        	"' WHERE " + filter);
-        }
-        catch (Exception e) {
-        	Global.logException(e, getClass());
+            // Flag our batch as sent
+            DBConnection.executeAction("UPDATE animal SET SmartTagSentDate = '" +
+                Utils.getSQLDate(new Date()) + "' WHERE " + filter);
+        } catch (Exception e) {
+            Global.logException(e, getClass());
         }
 
         resetStatusBar();
@@ -343,14 +373,14 @@ public class SmartTagPublisher extends FTPPublisher {
 
         // Tell user it's finished
         if (parent != null) {
-        	Global.logInfo(Global.i18n("uiinternet", "SmartTag_publishing_complete"),
-            	"SmartTagPublisher.run");
+            Global.logInfo(Global.i18n("uiinternet",
+                    "SmartTag_publishing_complete"), "SmartTagPublisher.run");
             Dialog.showInformation(Global.i18n("uiinternet",
                     "SmartTag_publishing_complete"),
                 Global.i18n("uiinternet", "SmartTag_publishing_complete"));
         } else {
-            Global.logInfo(Global.i18n("uiinternet", "SmartTag_publishing_complete"),
-                "SmartTagPublisher.run");
+            Global.logInfo(Global.i18n("uiinternet",
+                    "SmartTag_publishing_complete"), "SmartTagPublisher.run");
             System.exit(0);
         }
 

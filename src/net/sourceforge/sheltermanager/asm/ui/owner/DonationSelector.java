@@ -275,7 +275,8 @@ public class DonationSelector extends ASMSelector {
                 // transaction, remove it
                 if (Configuration.getBoolean("CreateDonationTrx")) {
                     DBConnection.executeAction(
-                        "DELETE FROM accountstrx WHERE OwnerDonationID = " + id);
+                        "DELETE FROM accountstrx WHERE OwnerDonationID = " +
+                        id);
                     AuditTrail.deleted("accountstrx",
                         od.getDonationTypeName() + " " +
                         od.getOwner().getOwnerName() + " " +

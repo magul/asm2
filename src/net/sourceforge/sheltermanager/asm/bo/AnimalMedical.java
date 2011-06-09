@@ -345,7 +345,6 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
      * step
      */
     public void generateTreatments() throws Exception {
-
         // Update aggregate totals for treatments given/remaining
         updateTreatmentTotals();
 
@@ -454,7 +453,9 @@ public class AnimalMedical extends UserInfoBO<AnimalMedical> {
         }
 
         // If Given >= Total, then we can mark this as completed
-        if (getTreatmentsGiven().intValue() >= (getTotalNumberOfTreatments().intValue() * getTimingRule().intValue())) {
+        if (getTreatmentsGiven().intValue() >= (getTotalNumberOfTreatments()
+                                                        .intValue() * getTimingRule()
+                                                                              .intValue())) {
             setStatus(new Integer(STATUS_COMPLETED));
 
             // We need to save the record to keep the status

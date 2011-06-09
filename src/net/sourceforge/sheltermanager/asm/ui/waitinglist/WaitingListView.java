@@ -181,7 +181,7 @@ public class WaitingListView extends ASMView {
                 "SELECT animalwaitinglist.*, owner.OwnerName, owner.OwnerAddress, " +
                 "owner.OwnerTown, owner.OwnerCounty, owner.OwnerPostcode, " +
                 "owner.HomeTelephone, owner.WorkTelephone, owner.MobileTelephone, " +
-                "owner.EmailAddress " + 
+                "owner.EmailAddress " +
                 "FROM animalwaitinglist INNER JOIN owner ON " +
                 "owner.ID = animalwaitinglist.OwnerID WHERE " + crit,
                 "animalwaitinglist");

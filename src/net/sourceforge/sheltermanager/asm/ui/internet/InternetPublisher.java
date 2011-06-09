@@ -102,13 +102,14 @@ public class InternetPublisher extends ASMForm {
                     "Publish_Available_Animals_To_RescueGroups"),
                 IconManager.getIcon(IconManager.SCREEN_RESCUEGROUPSPUBLISH),
                 "uiinternet");
+
             break;
-            
+
         case MODE_SMARTTAG:
-            init(Global.i18n("uiinternet",
-                    "Update_SmartTag"),
+            init(Global.i18n("uiinternet", "Update_SmartTag"),
                 IconManager.getIcon(IconManager.SCREEN_SMARTTAGPUBLISH),
                 "uiinternet");
+
             break;
         }
     }
@@ -145,55 +146,55 @@ public class InternetPublisher extends ASMForm {
     }
 
     public void initComponents() {
-    	
-    	ArrayList<SelectableItem> l = new ArrayList<SelectableItem>();
-    	
-    	// criteria isn't valid for smarttag
-    	if (mode != MODE_SMARTTAG) {
-    		
-	        // Basic inclusion
-	        l.add(new SelectableItem(i18n("Include"), null, false, true));
-	        l.add(new SelectableItem(i18n("Include_Reserved_Animals"),
-	                "IncludeReserved", false, false));
-	        l.add(new SelectableItem(i18n("Include_Fostered_Animals"),
-	                "IncludeFostered", false, false));
-	        l.add(new SelectableItem(i18n("Include_Case_Animals"), "IncludeCase",
-	                false, false));
-	        l.add(new SelectableItem(i18n("Include_Without_Image"),
-	                "IncludeNoImage", false, false));
-	
-	        // Aged under
-	        l.add(new SelectableItem(i18n("Exclude_animals_aged_under:"), null,
-	                false, true));
-	        l.add(new SelectableItem(i18n("x_weeks", "52"), "under52", false,
-	                false, "weeks"));
-	        l.add(new SelectableItem(i18n("x_weeks", "26"), "under26", true, false,
-	                "weeks"));
-	        l.add(new SelectableItem(i18n("x_weeks", "20"), "under20", false,
-	                false, "weeks"));
-	        l.add(new SelectableItem(i18n("x_weeks", "16"), "under16", false,
-	                false, "weeks"));
-	        l.add(new SelectableItem(i18n("x_weeks", "8"), "under8", false, false,
-	                "weeks"));
-	        l.add(new SelectableItem(i18n("1_week"), "under1", false, false, "weeks"));
-	
-	        // Locations
-	        l.add(new SelectableItem(i18n("Include_Animals_In_Location:"), null,
-	                false, true));
-	
-	        try {
-	            SQLRecordset r = LookupCache.getInternalLocationLookup();
-	            r.moveFirst();
-	
-	            while (!r.getEOF()) {
-	                l.add(new SelectableItem(r.getField("LocationName").toString(),
-	                        "location" + r.getField("ID"), true, false));
-	                r.moveNext();
-	            }
-	        } catch (Exception e) {
-	            Global.logException(e, InternetPublisher.class);
-	        }
-    	}
+        ArrayList<SelectableItem> l = new ArrayList<SelectableItem>();
+
+        // criteria isn't valid for smarttag
+        if (mode != MODE_SMARTTAG) {
+            // Basic inclusion
+            l.add(new SelectableItem(i18n("Include"), null, false, true));
+            l.add(new SelectableItem(i18n("Include_Reserved_Animals"),
+                    "IncludeReserved", false, false));
+            l.add(new SelectableItem(i18n("Include_Fostered_Animals"),
+                    "IncludeFostered", false, false));
+            l.add(new SelectableItem(i18n("Include_Case_Animals"),
+                    "IncludeCase", false, false));
+            l.add(new SelectableItem(i18n("Include_Without_Image"),
+                    "IncludeNoImage", false, false));
+
+            // Aged under
+            l.add(new SelectableItem(i18n("Exclude_animals_aged_under:"), null,
+                    false, true));
+            l.add(new SelectableItem(i18n("x_weeks", "52"), "under52", false,
+                    false, "weeks"));
+            l.add(new SelectableItem(i18n("x_weeks", "26"), "under26", true,
+                    false, "weeks"));
+            l.add(new SelectableItem(i18n("x_weeks", "20"), "under20", false,
+                    false, "weeks"));
+            l.add(new SelectableItem(i18n("x_weeks", "16"), "under16", false,
+                    false, "weeks"));
+            l.add(new SelectableItem(i18n("x_weeks", "8"), "under8", false,
+                    false, "weeks"));
+            l.add(new SelectableItem(i18n("1_week"), "under1", false, false,
+                    "weeks"));
+
+            // Locations
+            l.add(new SelectableItem(i18n("Include_Animals_In_Location:"),
+                    null, false, true));
+
+            try {
+                SQLRecordset r = LookupCache.getInternalLocationLookup();
+                r.moveFirst();
+
+                while (!r.getEOF()) {
+                    l.add(new SelectableItem(r.getField("LocationName")
+                                              .toString(),
+                            "location" + r.getField("ID"), true, false));
+                    r.moveNext();
+                }
+            } catch (Exception e) {
+                Global.logException(e, InternetPublisher.class);
+            }
+        }
 
         // Animals per page (only valid for html)
         if (mode == MODE_HTML) {
@@ -279,13 +280,13 @@ public class InternetPublisher extends ASMForm {
                         "UploadDirectly", true, false));
             }
         }
-        
+
         // Upload Options (for smarttag)
         if (mode == MODE_SMARTTAG) {
             l.add(new SelectableItem(i18n("Upload_Options"), null, false, true));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
-            
+
             // If we have debug enabled, allow disabling of direct upload
             if (Global.showDebug) {
                 l.add(new SelectableItem(i18n("Upload_directly_to_the_internet"),
@@ -591,7 +592,7 @@ public class InternetPublisher extends ASMForm {
             rg = null;
 
             break;
-            
+
         case MODE_SMARTTAG:
 
             SmartTagPublisher st = new SmartTagPublisher(this, pc);

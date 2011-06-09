@@ -597,6 +597,7 @@ public abstract class GenerateDocument extends Thread
                     File.separator + "media");
 
             String[] dir = tg.list();
+
             if (dir != null) {
                 for (int i = 0; i < dir.length; i++) {
                     if (dir[i].indexOf(".jpeg") != -1) {
@@ -605,15 +606,16 @@ public abstract class GenerateDocument extends Thread
                         File ph = new File(target);
 
                         if (Global.showDebug) {
-                            Global.logDebug("Found file: " + dir[i] + ", size=" +
-                                ph.length(), "processMOOXMLImage");
+                            Global.logDebug("Found file: " + dir[i] +
+                                ", size=" + ph.length(), "processMOOXMLImage");
                         }
 
                         // Is this file size correct? If so, delete it and
                         // replace it with our media file instead
                         if (ph.length() == PLACEHOLDER_SIZE) {
                             ph.delete();
-                            Utils.renameFile(new File(mediafile), new File(target));
+                            Utils.renameFile(new File(mediafile),
+                                new File(target));
 
                             break;
                         }
@@ -656,8 +658,9 @@ public abstract class GenerateDocument extends Thread
             // Search the Pictures folder for our placeholder
             // image - we can recognise it by it's size
             File tg = new File(oodir + File.separator + "Pictures");
-            
+
             String[] dir = tg.list();
+
             if (dir != null) {
                 for (int i = 0; i < dir.length; i++) {
                     if ((dir[i].indexOf(".jpeg") != -1) ||
@@ -667,15 +670,17 @@ public abstract class GenerateDocument extends Thread
                         File ph = new File(target);
 
                         if (Global.showDebug) {
-                            Global.logDebug("Found file: " + dir[i] + ", size=" +
-                                ph.length(), "processOpenOfficeImage");
+                            Global.logDebug("Found file: " + dir[i] +
+                                ", size=" + ph.length(),
+                                "processOpenOfficeImage");
                         }
 
                         // Is this file size correct? If so, delete it and
                         // replace it with our media file instead
                         if (ph.length() == PLACEHOLDER_SIZE) {
                             ph.delete();
-                            Utils.renameFile(new File(mediafile), new File(target));
+                            Utils.renameFile(new File(mediafile),
+                                new File(target));
 
                             break;
                         }

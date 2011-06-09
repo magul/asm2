@@ -694,11 +694,12 @@ public abstract class Utils {
                     // Some users have reported repaint issues
                     // force the combo to repaint when we change it
                     UI.invokeLater(new Runnable() {
-                        public void run() {
-                            theCombo.invalidate();
-                            theCombo.repaint();
-                        }
-                    });
+                            public void run() {
+                                theCombo.invalidate();
+                                theCombo.repaint();
+                            }
+                        });
+
                     return;
                 }
 

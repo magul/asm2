@@ -4286,23 +4286,21 @@ public class AutoDBUpdates {
             DBConnection.executeAction(
                 "ALTER TABLE animal ADD SmartTag INTEGER NULL");
             DBConnection.executeAction(
-            	"ALTER TABLE animal ADD SmartTagType INTEGER NULL");
+                "ALTER TABLE animal ADD SmartTagType INTEGER NULL");
             DBConnection.executeAction(
                 "ALTER TABLE animal ADD SmartTagNumber VARCHAR(255) NULL");
-            DBConnection.executeAction(
-                "ALTER TABLE animal ADD SmartTagDate " +
-                (DBConnection.DBStoreType == DBConnection.MYSQL ?
-                "datetime" : "TIMESTAMP") + " NULL");
+            DBConnection.executeAction("ALTER TABLE animal ADD SmartTagDate " +
+                ((DBConnection.DBStoreType == DBConnection.MYSQL) ? "datetime"
+                                                                  : "TIMESTAMP") +
+                " NULL");
             DBConnection.executeAction(
                 "ALTER TABLE animal ADD SmartTagSentDate " +
-                (DBConnection.DBStoreType == DBConnection.MYSQL ?
-                "datetime" : "TIMESTAMP") + " NULL");
-            DBConnection.executeAction(
-            	"UPDATE animal SET SmartTag = 0");
-            DBConnection.executeAction(
-        		"UPDATE animal SET SmartTagType = 0");
-            DBConnection.executeAction(
-    			"UPDATE animal SET SmartTagNumber = ''");
+                ((DBConnection.DBStoreType == DBConnection.MYSQL) ? "datetime"
+                                                                  : "TIMESTAMP") +
+                " NULL");
+            DBConnection.executeAction("UPDATE animal SET SmartTag = 0");
+            DBConnection.executeAction("UPDATE animal SET SmartTagType = 0");
+            DBConnection.executeAction("UPDATE animal SET SmartTagNumber = ''");
         } catch (Exception e) {
             errors.add("animal: ADD SmartTag fields");
             Global.logException(e, getClass());

@@ -791,7 +791,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setTattooDate(Date newValue) throws CursorEngineException {
         rs.setField("TattooDate", newValue);
     }
-    
+
     public Integer getSmartTag() throws CursorEngineException {
         return rs.getInt("SmartTag");
     }
@@ -799,7 +799,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setSmartTag(Integer newValue) throws CursorEngineException {
         rs.setField("SmartTag", newValue);
     }
-    
+
     public String getSmartTagNumber() throws CursorEngineException {
         return (String) rs.getField("SmartTagNumber");
     }
@@ -807,7 +807,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setSmartTagNumber(String newValue) throws CursorEngineException {
         rs.setField("SmartTagNumber", newValue);
     }
-    
+
     /** 0 = ANNUAL, 1 = 5 YEAR, 2 = LIFETIME */
     public Integer getSmartTagType() throws CursorEngineException {
         return rs.getInt("SmartTagType");
@@ -816,7 +816,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setSmartTagType(Integer newValue) throws CursorEngineException {
         rs.setField("SmartTagType", newValue);
     }
-    
+
     public Date getSmartTagDate() throws CursorEngineException {
         return (Date) rs.getField("SmartTagDate");
     }
@@ -824,7 +824,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public void setSmartTagDate(Date newValue) throws CursorEngineException {
         rs.setField("SmartTagDate", newValue);
     }
-    
+
     public Date getSmartTagSentDate() throws CursorEngineException {
         return (Date) rs.getField("SmartTagSentDate");
     }
@@ -1200,9 +1200,11 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
      * @throws CursorEngineException
      */
     public Owner getCurrentOwner() throws Exception {
-    	int ownerid = DBConnection.executeForInt("SELECT OwnerID FROM adoption " +
-    		"WHERE adoption.ID = " + getActiveMovementID());
-    	return new Owner("ID = " + ownerid);
+        int ownerid = DBConnection.executeForInt(
+                "SELECT OwnerID FROM adoption " + "WHERE adoption.ID = " +
+                getActiveMovementID());
+
+        return new Owner("ID = " + ownerid);
     }
 
     public Integer getBroughtInByOwnerID() throws CursorEngineException {
@@ -1951,9 +1953,16 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
 
             // Get current active movement type and id
             int movetype = 0;
-            if (a.getActiveMovementType() != null) movetype = a.getActiveMovementType().intValue();
+
+            if (a.getActiveMovementType() != null) {
+                movetype = a.getActiveMovementType().intValue();
+            }
+
             int aid = 0;
-            if (a.getActiveMovementID() != null) aid = a.getActiveMovementID().intValue();
+
+            if (a.getActiveMovementID() != null) {
+                aid = a.getActiveMovementID().intValue();
+            }
 
             // If the animal is on shelter, it has no active movement
             if (onShelter) {
@@ -2020,18 +2029,16 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
                     "ActiveMovementType = " + movetype +
                     ", ActiveMovementReturn = " + rd + " WHERE ID = " + id;
                 batch.add(sql);
-
             }
 
             // Update any diary notes for this animal
             String dsql = "UPDATE diary SET LinkInfo = '" +
-                a.getCode().replace("'", "`") + " " + 
+                a.getCode().replace("'", "`") + " " +
                 a.getAnimalName().replace("'", "`") + " - " +
-                Animal.getDisplayLocation(a.getShelterLocation(), 
-                    a.getNonShelterAnimal(), aid, movetype,
-                    a.getDeceasedDate()) +
-                "' WHERE LinkID = " + 
-                a.getID() + " AND LinkType = " + Diary.LINKTYPE_ANIMAL;
+                Animal.getDisplayLocation(a.getShelterLocation(),
+                    a.getNonShelterAnimal(), aid, movetype, a.getDeceasedDate()) +
+                "' WHERE LinkID = " + a.getID() + " AND LinkType = " +
+                Diary.LINKTYPE_ANIMAL;
             batch.add(dsql);
 
             // Mark the on shelter/reserve
@@ -2685,6 +2692,7 @@ public class Animal extends UserInfoBO<Animal> implements Cloneable {
     public Animal clone() throws CloneNotSupportedException {
         Animal a = (Animal) super.clone();
         a.rs = rs.clone();
+
         return a;
     }
 

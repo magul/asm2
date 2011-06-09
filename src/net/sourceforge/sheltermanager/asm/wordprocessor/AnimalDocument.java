@@ -320,12 +320,11 @@ public class AnimalDocument extends GenerateDocument {
                     "");
                 addTag(Global.i18n("wordprocessor", "OriginalOwnerMobilePhone"),
                     "");
-                addTag(Global.i18n("wordprocessor", "OriginalOwnerEmail"),
-                    "");
+                addTag(Global.i18n("wordprocessor", "OriginalOwnerEmail"), "");
             }
 
             try {
-            	Owner co = animal.getCurrentOwner();
+                Owner co = animal.getCurrentOwner();
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerName"),
                     Utils.nullToEmptyString(co.getOwnerName()));
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerAddress"),
@@ -352,14 +351,11 @@ public class AnimalDocument extends GenerateDocument {
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerTown"), "");
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerPostcode"), "");
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerPhone"), "");
-                addTag(Global.i18n("wordprocessor", "CurrentOwnerHomePhone"),
-                    "");
-                addTag(Global.i18n("wordprocessor", "CurrentOwnerWorkPhone"),
-                    "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerHomePhone"), "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerWorkPhone"), "");
                 addTag(Global.i18n("wordprocessor", "CurrentOwnerMobilePhone"),
                     "");
-                addTag(Global.i18n("wordprocessor", "CurrentOwnerEmail"),
-                    "");
+                addTag(Global.i18n("wordprocessor", "CurrentOwnerEmail"), "");
             }
 
             addTag(Global.i18n("wordprocessor", "EntryCategory"),

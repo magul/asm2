@@ -71,6 +71,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
             }
 
             enableParentButtons();
+
             return;
         }
 
@@ -99,6 +100,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                         "No_matching_animals_were_found_to_publish"));
 
                 enableParentButtons();
+
                 return;
             } else {
                 Global.logError(Global.i18n("uiinternet",
@@ -113,7 +115,8 @@ public class AdoptAPetPublisher extends FTPPublisher {
             if (parent == null) {
                 System.exit(1);
             } else {
-            	enableParentButtons();
+                enableParentButtons();
+
                 return;
             }
         }

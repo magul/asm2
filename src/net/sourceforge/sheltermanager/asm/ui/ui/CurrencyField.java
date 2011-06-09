@@ -22,9 +22,9 @@
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
-import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.ui.ui.UI;
+import net.sourceforge.sheltermanager.asm.utility.Utils;
 
 
 /**
@@ -104,13 +104,16 @@ public class CurrencyField extends UI.Panel {
     public int getValue() {
         String num = toNumber();
         num = Utils.replace(num, ".", "");
+
         return Integer.parseInt(num);
     }
 
     public void setValue(int i) {
         String num = Integer.toString(i);
+
         if (num.length() > 2) {
-            num = num.substring(0, num.length() - 2) + "." + num.substring(num.length() - 2);
+            num = num.substring(0, num.length() - 2) + "." +
+                num.substring(num.length() - 2);
             txt.setText(Global.currencySymbol + num);
         }
     }

@@ -94,16 +94,16 @@ public abstract class AbstractPublisher extends Thread {
 
         return publishDir;
     }
-    
+
     /**
      * Re-enables the publish buttons on the parent
      * form if we have one.
      */
     protected void enableParentButtons() {
-	    if (parent != null) {
-	        parent.btnClose.setEnabled(true);
-	        parent.btnPublish.setEnabled(true);
-	    }
+        if (parent != null) {
+            parent.btnClose.setEnabled(true);
+            parent.btnPublish.setEnabled(true);
+        }
     }
 
     /**
