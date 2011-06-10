@@ -48,9 +48,20 @@
 a, a:hover, a:visited, a:active {
     color: #069;
 }
-.ldesc, .lname, .lage, .lstatus, .lsex, .lbreed {
+.ldesc, .lname, .lage, .lstatus, .lsex, .lbreed, .lgood {
     font-weight: bold;
 }
+</style>
+<script type="text/javascript">
+function showImage(imgid, name) {
+    var img = document.getElementById(imgid);
+    img.src = name;
+}
+function blankImage(imgid) {
+    var img = document.getElementById(imgid);
+    img.style.display = "none";
+}
+</script>
 </style>
 
 <body>
