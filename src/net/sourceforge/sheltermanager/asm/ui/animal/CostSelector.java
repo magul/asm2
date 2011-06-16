@@ -209,7 +209,7 @@ public class CostSelector extends ASMSelector {
                             ac.getCostDate()));
                 tabledata[i][1] = ac.getCostTypeName();
                 tabledata[i][2] = Utils.formatCurrency(ac.getCostAmount()
-                                                         .doubleValue());
+                                                         .intValue());
                 tabledata[i][3] = ac.getDescription();
                 tabledata[i][4] = ac.getID().toString();
                 hasCost = true;
