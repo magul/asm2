@@ -246,7 +246,7 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_Date (Date)" +
-                    ") TYPE=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("ownerdonation: Table creation");
@@ -264,7 +264,7 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_Title (Title)" +
-                    ") TYPE=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("customreport: Table creation");
@@ -311,7 +311,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lksex (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "Sex varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksex VALUES (0, 'Female')";
                 DBConnection.executeAction(sql);
@@ -328,7 +328,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lksize (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "Size varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksize VALUES (0, 'Very Large')";
                 DBConnection.executeAction(sql);
@@ -347,7 +347,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lksmovementtype (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "MovementType varchar(40) NOT NULL, " +
-                    "PRIMARY KEY  (ID) " + ") Type=MyISAM;";
+                    "PRIMARY KEY  (ID) " + ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksmovementtype VALUES (0, 'None')";
                 DBConnection.executeAction(sql);
@@ -380,7 +380,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lksmedialink (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "LinkType varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksmedialink VALUES (0, 'Animal')";
                 DBConnection.executeAction(sql);
@@ -401,7 +401,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lksdiarylink (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "LinkType varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksdiarylink VALUES (0, 'None')";
                 DBConnection.executeAction(sql);
@@ -426,7 +426,7 @@ public class AutoDBUpdates {
                 String sql = "CREATE TABLE lkurgency (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
                     "Urgency varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lkurgency VALUES (1, 'Urgent')";
                 DBConnection.executeAction(sql);
@@ -594,7 +594,7 @@ public class AutoDBUpdates {
                     "ID int(11) NOT NULL default '0'," +
                     "ReasonName varchar(255) NOT NULL default ''," +
                     "ReasonDescription varchar(255) default NULL," +
-                    "PRIMARY KEY  (ID)" + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID)" + ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO entryreason VALUES (1, 'Marriage/Relationship split', '')";
                 DBConnection.executeAction(sql);
@@ -626,7 +626,7 @@ public class AutoDBUpdates {
                     "  ID int(11) NOT NULL default '0'," +
                     "  ReasonName varchar(255) NOT NULL default ''," +
                     "  ReasonDescription varchar(255) default NULL," +
-                    "  PRIMARY KEY  (ID)" + ") TYPE=MyISAM;";
+                    "  PRIMARY KEY  (ID)" + ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO deathreason VALUES (1, 'Dead On Arrival', '')";
                 DBConnection.executeAction(sql);
@@ -1463,7 +1463,7 @@ public class AutoDBUpdates {
                     "ID int(11) NOT NULL default '0', " +
                     "DietName varchar(255) NOT NULL default '', " +
                     "DietDescription varchar(255) default NULL, " +
-                    "PRIMARY KEY  (ID) " + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID) " + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "INSERT INTO diet VALUES (1, 'Standard', '')";
@@ -1486,7 +1486,7 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default '', " +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00', " +
                     "PRIMARY KEY  (ID), " + "KEY IX_AnimalID (AnimalID), " +
-                    "KEY IX_DietID (DietID) " + ") TYPE=MyISAM;";
+                    "KEY IX_DietID (DietID) " + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("animaldiet: table creation");
@@ -1498,7 +1498,7 @@ public class AutoDBUpdates {
                     "ID int(11) NOT NULL default '0', " +
                     "VoucherName varchar(255) NOT NULL default '', " +
                     "VoucherDescription varchar(255) default NULL, " +
-                    "PRIMARY KEY  (ID) " + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID) " + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "INSERT INTO voucher VALUES (1, 'Neuter/Spay', '')";
@@ -1524,7 +1524,7 @@ public class AutoDBUpdates {
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00', " +
                     "PRIMARY KEY  (ID), " + "KEY IX_OwnerID (OwnerID), " +
                     "KEY IX_VoucherID (VoucherID), " +
-                    "KEY IX_DateExpired (DateExpired) " + ") TYPE=MyISAM;";
+                    "KEY IX_DateExpired (DateExpired) " + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("ownervoucher: table creation");
@@ -1613,7 +1613,7 @@ public class AutoDBUpdates {
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_AnimalID (AnimalID)," +
                     "KEY IX_MedicalProfileID (MedicalProfileID)" +
-                    ") TYPE=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE animalmedicaltreatment (" +
@@ -1630,7 +1630,7 @@ public class AutoDBUpdates {
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_AnimalID (AnimalID)," +
                     "KEY IX_AnimalMedicalID (AnimalMedicalID)," +
-                    "KEY IX_DateRequired (DateRequired)" + ") TYPE=MyISAM;";
+                    "KEY IX_DateRequired (DateRequired)" + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE medicalprofile (" +
@@ -1649,7 +1649,7 @@ public class AutoDBUpdates {
                     "CreatedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
-                    "PRIMARY KEY  (ID)," + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID)," + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("medical tables: creation");
@@ -1680,7 +1680,7 @@ public class AutoDBUpdates {
                     "CreatedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
-                    "PRIMARY KEY  (ID)," + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID)," + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 // Ignore errors - some people will already have it
@@ -1723,14 +1723,14 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_LogTypeID (LogTypeID)," +
-                    "KEY IX_LinkID (LinkID)" + ") TYPE=MyISAM;";
+                    "KEY IX_LinkID (LinkID)" + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE logtype (" +
                     "ID int(11) NOT NULL default '0'," +
                     "LogTypeName varchar(255) NOT NULL default ''," +
                     "LogTypeDescription varchar(255) NULL," +
-                    "PRIMARY KEY  (ID)" + ") TYPE=MyISAM;";
+                    "PRIMARY KEY  (ID)" + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "INSERT INTO logtype VALUES (1, 'Bite', '');";
@@ -1745,7 +1745,7 @@ public class AutoDBUpdates {
                 sql = "CREATE TABLE lksloglink (" +
                     "ID smallint NOT NULL DEFAULT '0'," +
                     "LinkType varchar(40) NOT NULL," + "PRIMARY KEY  (ID)" +
-                    ") Type=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
 
                 sql = "INSERT INTO lksloglink VALUES (0, 'Animal');";
@@ -1992,7 +1992,7 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY (ID)," + "KEY IX_AdoptionID (AdoptionID)" +
-                    ") TYPE=MyISAM;";
+                    ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("creation of adoptiondonation table");
@@ -2092,7 +2092,7 @@ public class AutoDBUpdates {
                 DBConnection.executeAction(sql);
                 sql = "ALTER TABLE ownerdonation ADD DonationTypeID int(11) NOT NULL default '1'";
                 DBConnection.executeAction(sql);
-                sql = "CREATE TABLE donationtype ( ID int(11) NOT NULL default '0', DonationName varchar(255) NOT NULL default '', DonationDescription varchar(255) default NULL,  PRIMARY KEY  (ID) ) TYPE=MyISAM;";
+                sql = "CREATE TABLE donationtype ( ID int(11) NOT NULL default '0', DonationName varchar(255) NOT NULL default '', DonationDescription varchar(255) default NULL,  PRIMARY KEY  (ID) );";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO donationtype VALUES (1, 'Donation', '')";
                 DBConnection.executeAction(sql);
@@ -2197,14 +2197,14 @@ public class AutoDBUpdates {
                     "KEY IX_MedicalPaymentTypeID (MedicalPaymentTypeID)," +
                     "KEY IX_AnimalMedicalID (AnimalMedicalID)," +
                     "KEY IX_OwnerDonationID (OwnerDonationID)" +
-                    ") TYPE=MyISAM";
+                    ")";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE medicalpaymenttype (" +
                     "ID int(11) NOT NULL default '0'," +
                     "MedicalPaymentTypeName varchar(255) NOT NULL," +
                     "MedicalPaymentTypeDescription varchar(255) NULL," +
-                    "PRIMARY KEY  (ID)" + ") TYPE=MyISAM";
+                    "PRIMARY KEY  (ID)" + ")";
                 DBConnection.executeAction(sql);
 
                 sql = "INSERT INTO medicalpaymenttype VALUES ('1', 'Fee', '')";
@@ -2261,7 +2261,7 @@ public class AutoDBUpdates {
                     "Name varchar(255) NOT NULL default '', " +
                     "Content LONGTEXT NULL, " + "PRIMARY KEY  (ID), " +
                     "KEY IX_Path (Path), " + "KEY IX_Name (Name) " +
-                    ") TYPE=MyISAM";
+                    ")";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("dbfs: table creation");

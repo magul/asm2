@@ -12,7 +12,7 @@ CREATE TABLE accounts (
 
   PRIMARY KEY (ID),
   KEY IX_AccountsCode(Code)
-) Type=MyISAM;
+);
 
 CREATE TABLE accountstrx (
   ID int(11) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE accountstrx (
   KEY IX_TrxDate(TrxDate),
   KEY IX_TrxSource(SourceAccountID),
   KEY IX_TrxDest(DestinationAccountID)
-) Type=MyISAM;
+);
 
 CREATE TABLE lksaccounttype (
   ID int(11) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE additionalfield (
 
   PRIMARY KEY (ID),
   KEY IX_LinkType(LinkType)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE additional (
   LinkType int(11) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE additional (
   Value text,
   PRIMARY KEY (LinkType, LinkID, AdditionalFieldID),
   KEY IX_LinkTypeID (LinkType, LinkID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE adoption (
   ID int(11) NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE adoption (
   KEY IX_RetailerID (RetailerID),
   KEY IX_MovementDate (MovementDate),
   KEY IX_ReturnDate (ReturnDate)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animal (
   ID int(11) NOT NULL,
@@ -206,7 +206,7 @@ CREATE TABLE animal (
   KEY IX_AnimalMostRecentEntryDate (MostRecentEntryDate),
   KEY IX_AnimalUniqueCodeID (UniqueCodeID),
   KEY IX_AnimalYearCodeID (YearCodeID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalcost (
   ID int(11) NOT NULL,
@@ -224,7 +224,7 @@ CREATE TABLE animalcost (
   KEY IX_animalcost_AnimalID (AnimalID),
   KEY IX_animalcost_CostTypeID (CostTypeID),
   KEY IX_animalcost_CostDate (CostDate)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animaldiet (
   ID int(11) NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE animaldiet (
   PRIMARY KEY  (ID),
   KEY IX_AnimalID (AnimalID),
   KEY IX_DietID (DietID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalfound (
   ID int(11) NOT NULL,
@@ -263,7 +263,7 @@ CREATE TABLE animalfound (
   LastChangedBy varchar(255) NOT NULL ,
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animallitter (
   ID int(11) NOT NULL ,
@@ -278,7 +278,7 @@ CREATE TABLE animallitter (
   RecordVersion int NOT NULL ,
   PRIMARY KEY  (ID),
   KEY IX_ParentAnimalID (ParentAnimalID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animallost (
   ID int(11) NOT NULL ,
@@ -301,7 +301,7 @@ CREATE TABLE animallost (
   LastChangedBy varchar(255) NOT NULL ,
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalmedical (
   ID int(11) NOT NULL ,
@@ -328,7 +328,7 @@ CREATE TABLE animalmedical (
   PRIMARY KEY  (ID),
   KEY IX_AnimalID (AnimalID),
   KEY IX_MedicalProfileID (MedicalProfileID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalmedicaltreatment (
   ID int(11) NOT NULL ,
@@ -349,7 +349,7 @@ CREATE TABLE animalmedicaltreatment (
   KEY IX_AnimalID (AnimalID),
   KEY IX_AnimalMedicalID (AnimalMedicalID),
   KEY IX_DateRequired (DateRequired)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalname (
   ID int(11) NOT NULL ,
@@ -357,14 +357,14 @@ CREATE TABLE animalname (
   Sex tinyint(4) NOT NULL ,
   RecordVersion int NOT NULL ,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animaltype (
   ID int(11) NOT NULL ,
   AnimalType varchar(255) NOT NULL ,
   AnimalDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalvaccination (
   ID int(11) NOT NULL ,
@@ -381,7 +381,7 @@ CREATE TABLE animalvaccination (
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID),
   KEY IX_AnimalAnimalVaccination (AnimalID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE animalwaitinglist (
   ID int(11) NOT NULL ,
@@ -408,7 +408,7 @@ CREATE TABLE animalwaitinglist (
   KEY IX_SpeciesID (SpeciesID),
   KEY IX_Urgency (Urgency),
   KEY IX_DatePutOnList (DatePutOnList)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE audittrail (
   Action int(11) NOT NULL,
@@ -427,7 +427,7 @@ CREATE TABLE basecolour (
   BaseColour varchar(255) NOT NULL ,
   BaseColourDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE breed (
   ID int(11) NOT NULL ,
@@ -436,19 +436,19 @@ CREATE TABLE breed (
   PetFinderBreed varchar(255) NULL,
   SpeciesID int(11) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE configuration (
   ItemName varchar(255) NOT NULL ,
   ItemValue varchar(255) NOT NULL 
-) TYPE=MyISAM;
+);
 
 CREATE TABLE costtype (
   ID int(11) NOT NULL,
   CostTypeName varchar(255) NOT NULL,
   CostTypeDescription varchar(255) NULL,
   PRIMARY KEY (ID)
-) Type=MyISAM;
+);
   
 CREATE TABLE customreport (
   ID int(11) NOT NULL,
@@ -465,7 +465,7 @@ CREATE TABLE customreport (
   Category varchar(100) NULL,
   PRIMARY KEY  (ID),
   KEY IX_Title (Title)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE dbfs (
   ID int(11) NOT NULL ,
@@ -475,14 +475,14 @@ CREATE TABLE dbfs (
   PRIMARY KEY  (ID),
   KEY IX_Path (Path),
   KEY IX_Name (Name)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE deathreason (
   ID int(11) NOT NULL ,
   ReasonName varchar(255) NOT NULL ,
   ReasonDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE diary (
   ID int(11) NOT NULL ,
@@ -501,7 +501,7 @@ CREATE TABLE diary (
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID),
   KEY IX_DiaryDiaryForName (DiaryForName)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE diarytaskdetail (
   ID int(11) NOT NULL ,
@@ -513,7 +513,7 @@ CREATE TABLE diarytaskdetail (
   RecordVersion int NOT NULL ,
   PRIMARY KEY  (ID),
   KEY IX_DiaryTaskHeadID (DiaryTaskHeadID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE diarytaskhead (
   ID int(11) NOT NULL ,
@@ -521,100 +521,100 @@ CREATE TABLE diarytaskhead (
   RecordType smallint NOT NULL ,
   RecordVersion int NOT NULL ,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE diet (
   ID int(11) NOT NULL ,
   DietName varchar(255) NOT NULL ,
   DietDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE donationtype (
   ID int(11) NOT NULL ,
   DonationName varchar(255) NOT NULL ,
   DonationDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE entryreason (
   ID int(11) NOT NULL ,
   ReasonName varchar(255) NOT NULL ,
   ReasonDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE internallocation (
   ID int(11) NOT NULL ,
   LocationName varchar(255) NOT NULL ,
   LocationDescription varchar(255) NULL
-) TYPE=MyISAM;
+);
 
 CREATE TABLE lkcoattype (
   ID int(11) NOT NULL DEFAULT '0',
   CoatType VARCHAR(40) NOT NULL,
   PRIMARY KEY (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksex (
   ID smallint NOT NULL DEFAULT '0',
   Sex varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksize (
   ID smallint NOT NULL DEFAULT '0',
   Size varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksmovementtype (
   ID smallint NOT NULL DEFAULT '0',
   MovementType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksfieldlink (
   ID smallint NOT NULL DEFAULT '0',
   LinkType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksfieldtype (
   ID smallint NOT NULL DEFAULT '0',
   FieldType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksmedialink (
   ID smallint NOT NULL DEFAULT '0',
   LinkType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksdiarylink (
   ID smallint NOT NULL DEFAULT '0',
   LinkType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksdonationfreq (
   ID smallint NOT NULL DEFAULT '0',
   Frequency varchar(50) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksloglink (
   ID smallint NOT NULL DEFAULT '0',
   LinkType varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-) Type=MyISAM;
+);
 
 CREATE TABLE lkurgency (
   ID smallint NOT NULL DEFAULT '0',
   Urgency varchar(40) NOT NULL,
   PRIMARY KEY  (ID)
-  ) Type=MyISAM;
+);
 
 CREATE TABLE lksyesno (
   ID INTEGER NOT NULL PRIMARY KEY,
@@ -646,14 +646,14 @@ CREATE TABLE log (
   PRIMARY KEY  (ID),
   KEY IX_LogTypeID (LogTypeID),
   KEY IX_LinkID (LinkID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE logtype (
   ID int(11) NOT NULL ,
   LogTypeName varchar(255) NOT NULL ,
   LogTypeDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE media (
   ID int(11) NOT NULL ,
@@ -674,7 +674,7 @@ CREATE TABLE media (
   RecordVersion int(11) NOT NULL ,
   PRIMARY KEY  (ID),
   KEY IX_MediaLinkID (LinkID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE medicalprofile (
   ID int(11) NOT NULL ,
@@ -694,7 +694,7 @@ CREATE TABLE medicalprofile (
   LastChangedBy varchar(255) NOT NULL ,
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE owner (
   ID int(11) NOT NULL ,
@@ -753,7 +753,7 @@ CREATE TABLE owner (
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID),
   FULLTEXT KEY IX_OwnerOwnerName (OwnerName)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ownerdonation (
   ID int(11) NOT NULL ,
@@ -776,7 +776,7 @@ CREATE TABLE ownerdonation (
   PRIMARY KEY  (ID),
   KEY IX_OwnerID (OwnerID),
   KEY IX_Date (Date)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ownervoucher (
   ID int(11) NOT NULL ,
@@ -795,13 +795,13 @@ CREATE TABLE ownervoucher (
   KEY IX_OwnerID (OwnerID),
   KEY IX_VoucherID (VoucherID),
   KEY IX_DateExpired (DateExpired)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE primarykey (
   TableName varchar(255) NOT NULL ,
   NextID int(11) NOT NULL ,
   KEY IX_PrimaryKeyTableName (TableName)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE species (
   ID int(11) NOT NULL ,
@@ -809,7 +809,7 @@ CREATE TABLE species (
   SpeciesDescription varchar(255) NULL,
   PetFinderSpecies varchar(100) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE users (
   ID int(11) NOT NULL,
@@ -822,21 +822,21 @@ CREATE TABLE users (
   RecordVersion int NOT NULL,
   PRIMARY KEY  (ID),
   KEY IX_UsersUserName (UserName)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE voucher (
   ID int(11) NOT NULL ,
   VoucherName varchar(255) NOT NULL ,
   VoucherDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE vaccinationtype (
   ID int(11) NOT NULL ,
   VaccinationType varchar(255) NOT NULL ,
   VaccinationDescription varchar(255) NULL,
   PRIMARY KEY  (ID)
-) TYPE=MyISAM;
+);
 
 INSERT INTO users VALUES (1,'user','Default system user', 'd107d09f5bbe40cade3de5c71e9e9b7',1,0,'', 0);
 INSERT INTO users VALUES (2,'guest','Default guest user', '84e0343a0486ff05530df6c705c8bb4',0,0,'', 0);

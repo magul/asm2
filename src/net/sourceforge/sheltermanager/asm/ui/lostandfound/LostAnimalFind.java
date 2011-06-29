@@ -233,7 +233,7 @@ public class LostAnimalFind extends ASMFind {
             addSqlCriteria("AnimalTypeID=" + speciesid);
         }
 
-        if (!sexid.equals("0")) {
+        if (!cboSex.getSelectedItem().toString().equals(i18n("(all)"))) {
             addSqlCriteria("Sex=" + sexid);
         }
 
