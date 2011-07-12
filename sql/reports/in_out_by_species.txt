@@ -26,7 +26,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
 'Animals Brought In' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 WHERE IsTransfer = 0 AND DateBroughtIn >= '$@from$' AND DateBroughtIn <= '$@to$' AND NonShelterAnimal = 0
 
@@ -42,7 +42,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
 'Animals Transferred In' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 WHERE IsTransfer = 1 AND DateBroughtIn >= '$@from$' AND DateBroughtIn <= '$@to$' AND NonShelterAnimal = 0
 
@@ -58,7 +58,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Returned From Adoption' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 1 AND adoption.MovementDate Is Not Null AND adoption.ReturnDate >= '$@from$' AND adoption.ReturnDate <= '$@to$' AND NonShelterAnimal = 0
@@ -75,7 +75,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Returned From Fostering' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 2 AND adoption.MovementDate Is Not Null AND adoption.ReturnDate >= '$@from$' AND adoption.ReturnDate <= '$@to$' AND NonShelterAnimal = 0
@@ -92,7 +92,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Returned From Transfer' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 3 AND adoption.MovementDate Is Not Null AND adoption.ReturnDate >= '$@from$' AND adoption.ReturnDate <= '$@to$' AND NonShelterAnimal = 0
@@ -109,7 +109,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Returned From Other' AS CategoryName,
-'Animals In' AS InOut
+'Animals In' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType NOT IN (1, 2, 3) AND adoption.MovementDate Is Not Null AND adoption.ReturnDate >= '$@from$' AND adoption.ReturnDate <= '$@to$' AND NonShelterAnimal = 0
@@ -126,7 +126,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Adopted' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 1 AND
@@ -144,7 +144,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Fostered' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 2 AND
@@ -162,7 +162,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Transferred Out' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 3 AND
@@ -180,7 +180,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 '' AS OwnerName,
 'Animals Escaped' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 4 AND
@@ -198,7 +198,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = adoption.OwnerID) AS OwnerName,
 'Animals Reclaimed' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 5 AND
@@ -217,7 +217,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 '' AS OwnerName,
 'Animals Stolen' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 6 AND
@@ -235,7 +235,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 '' AS OwnerName,
 'Animals Released To Wild' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 INNER JOIN adoption ON adoption.AnimalID = animal.ID
 WHERE adoption.MovementType = 7 AND
@@ -253,7 +253,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
 'Animals Died On Shelter' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND PutToSleep = 0 AND IsDOA = 0
 
@@ -269,7 +269,7 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
 'Animals Euthanised' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND PutToSleep = 1 AND IsDOA = 0
 
@@ -285,22 +285,22 @@ AnimalAge,
 (SELECT LocationName FROM internallocation WHERE ID = animal.ShelterLocation) AS Location,
 (SELECT OwnerName FROM owner WHERE ID = animal.BroughtInByOwnerID) AS OwnerName,
 'Animals Dead On Arrival' AS CategoryName,
-'Animals Out' AS InOut
+'Animals Out' AS OutOrIn
 FROM animal
 WHERE DeceasedDate >= '$@from$' AND DeceasedDate <= '$@to$' AND DiedOffShelter = 0 AND NonShelterAnimal = 0 AND IsDOA = 1
 
 ) dummy
 WHERE thedate >= '$@from$' AND thedate <= '$@to$'
-ORDER BY InOut, CategoryName, SpeciesName, thedate
+ORDER BY OutOrIn, CategoryName, SpeciesName, thedate
 ###
 $$HEADER
 HEADER$$
 
-$$GROUP_InOut
+$$GROUP_OutOrIn
 $$HEAD
-<h1>$InOut</h1>
+<h1>$OutOrIn</h1>
 $$FOOT
-<h1>Total $InOut: {COUNT.thedate}</h1>
+<h1>Total $OutOrIn: {COUNT.thedate}</h1>
 GROUP$$
 
 $$GROUP_CategoryName
