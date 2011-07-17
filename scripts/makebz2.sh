@@ -13,6 +13,7 @@ tar -cjvf asm.tar.bz2 \
 	AUTHORS \
 	COPYING \
         changelog \
+        lib \
 	src \
 	doxygen \
 	install/macosx/*.sh \
@@ -28,5 +29,6 @@ tar -cjvf asm.tar.bz2 \
 	doc/help/en/*.sh \
 	doc/help/en/Makefile \
 	scripts \
-	Makefile > /dev/null
+	Makefile \
+        VERSION > /dev/null
 	
