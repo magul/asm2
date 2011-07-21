@@ -15,7 +15,7 @@ FROM animal
 INNER JOIN internallocation ON animal.ShelterLocation = internallocation.ID
 INNER JOIN animaltype ON animal.AnimalTypeID = animaltype.ID
 INNER JOIN species ON animal.SpeciesID = species.ID
-WHERE Archived = 0
+WHERE Archived = 0 AND Neutered = 0
 AND DateOfBirth >= '$ASK DATE Animals born after$'
 ###
 $$HEADER
