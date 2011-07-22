@@ -190,9 +190,8 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 // lastUpdated (Unix timestamp field)
                 dataFile.append(an.getLastChangedDate().getTime() + ", ");
 
-                // rescueID (org name)
-                dataFile.append("\"" + Configuration.getString("Organisation") +
-                    "\", ");
+                // rescueID (ID of animal at rescue)
+                dataFile.append("\"" + an.getShelterCode() + "\", ");
 
                 // name
                 dataFile.append("\"" + an.getAnimalName() + "\", ");
