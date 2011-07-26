@@ -25,6 +25,8 @@ import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.main.ShutdownThread;
 import net.sourceforge.sheltermanager.dbfs.Base64;
 
+import java.net.URL;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -50,6 +52,18 @@ public class ASMApplet extends JApplet {
         try {
             new Thread(new Startup(new String[0], jdbcurl, user, this)).start();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void gotoUrl(String url) {
+        try {
+            if (url.indexOf("//") == -1)
+                url = getCodeBase() + url;
+            URL u = new URL(url);
+            getAppletContext().showDocument(u, "_self");
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }

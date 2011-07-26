@@ -210,6 +210,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuFileSaveTab;
     private UI.MenuItem mnuFileRefreshTab;
     private UI.MenuItem mnuFileExit;
+    private UI.MenuItem mnuFileLogoutSM;
     private UI.Menu mnuFileFoundAnimals;
     private UI.MenuItem mnuFileFoundAnimalsAddFound;
     private UI.MenuItem mnuFileFoundAnimalsFindFound;
@@ -939,6 +940,10 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_FILEEXIT),
                 UI.fp(this, "actionFileExit"));
 
+        mnuFileLogoutSM = UI.getMenuItem(i18n("Logout"), 't',
+                IconManager.getIcon(IconManager.MENU_FILEEXIT),
+                UI.fp(this, "actionFileLogoutSM"));
+
         mnuDiary = UI.getMenu(i18n("Diary"));
 
         mnuDiaryPrintVacc = UI.getMenu(i18n("Vaccination_Diary"), 'V',
@@ -1376,10 +1381,17 @@ public class Main extends ASMWindow {
         mnuFile.add(mnuFileCloseTab);
 
         // Closing the browser window exits an applet, no need
-        // for the exit option
+        // for the exit option, but for sheltermanager.com,
+        // we want to show the logout option
         if (!Startup.applet) {
             mnuFile.add(UI.getSeparator());
             mnuFile.add(mnuFileExit);
+        }
+
+        // Show logout option for sheltermanager.com
+        if (Startup.applet && DBConnection.url.indexOf("sheltermanager.com") != -1) {
+            mnuFile.add(UI.getSeparator());
+            mnuFile.add(mnuFileLogoutSM);
         }
 
         mnuMenu.add(mnuFile);
@@ -2335,6 +2347,10 @@ public class Main extends ASMWindow {
 
     public void actionFileExit() {
         promptForClose();
+    }
+
+    public void actionFileLogoutSM() {
+        Startup.appletHandle.gotoUrl("logout.cgi");
     }
 
     public void actionCloseTab() {
