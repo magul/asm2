@@ -166,6 +166,9 @@ public class SmartTagPublisher extends FTPPublisher {
                 // sourcesystemanimalkey (also corresponds to image name)
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
 
+                // sourcesystemownerkey
+                dataFile.append("\"" + an.getCurrentOwner().getID().toString() + "\", ");
+
                 // sourcesystemidkey
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
 
