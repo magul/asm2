@@ -146,33 +146,18 @@ public class AdoptAPetPublisher extends FTPPublisher {
                 uploadImage(an, an.getShelterCode() + ".jpg");
 
                 // Build the CSV file entry for this animal:
-                // - Use the petfinder mapping since it's already set
-                // as standard to find out whether it's a dog or cat.
-                String pfMap = LookupCache.getSpeciesPetFinderMapping(an.getSpeciesID());
-
-                // If it isn't a dog or cat, don't bother with this record
-                // as AdoptAPet.com don't do anything else and skip
-                // to the next one.
-                if (!pfMap.equalsIgnoreCase("Dog") &&
-                        !pfMap.equalsIgnoreCase("Cat")) {
-                    an.moveNext();
-
-                    continue;
-                }
 
                 // Id
                 dataFile.append("\"" + an.getShelterCode() + "\",");
 
-                // Animal
-                dataFile.append("\"" + pfMap + "\",");
+                // Species
+                dataFile.append("\"" + LookupCache.getSpeciesName(an.getSpeciesID()) + "\",");
 
                 // Breed
-                String pfBMap = LookupCache.getBreedPetFinderMapping(an.getBreedID());
-                dataFile.append("\"" + pfBMap + "\",");
+                dataFile.append("\"" + LookupCache.getBreedName(an.getBreedID()) + "\",");
 
                 // Breed2
-                String pfBMap2 = LookupCache.getBreedPetFinderMapping(an.getBreed2ID());
-                dataFile.append("\"" + pfBMap2 + "\",");
+                dataFile.append("\"" + LookupCache.getBreedName(an.getBreed2ID()) + "\",");
 
                 // Age
                 /*
