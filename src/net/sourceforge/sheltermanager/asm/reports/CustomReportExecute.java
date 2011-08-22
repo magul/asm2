@@ -1615,10 +1615,7 @@ public class CustomReportExecute extends Report {
         }
 
         if (CURRENCY_FIELDS.indexOf(fieldname.toUpperCase()) != -1) {
-            double v = Double.parseDouble(o.toString());
-            v /= 100;
-
-            return Double.toString(v);
+            return Utils.formatCurrency(Integer.parseInt(o.toString()));
         }
 
         return o.toString();
