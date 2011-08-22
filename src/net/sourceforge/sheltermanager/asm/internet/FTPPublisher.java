@@ -242,11 +242,12 @@ public class FTPPublisher extends AbstractPublisher {
             }
 
             // If the file is our designated extension, or 
-            // JavaScript, or a CSV file, or it has no extension, 
+            // JavaScript, or a CFG file, a CSV file, or it has no extension, 
             // then just upload it over the top
             try {
                 if ((filename.indexOf("." + publishCriteria.extension) != -1) ||
                         (filename.indexOf(".js") != -1) ||
+                        (filename.indexOf(".cfg") != -1) ||
                         (filename.indexOf(".") == -1) ||
                         (filename.indexOf(".csv") != -1)) {
                     uploadFTP.put(publishDir + filename, filename);
