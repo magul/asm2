@@ -197,7 +197,7 @@ CREATE TABLE animal (
   PRIMARY KEY  (ID),
   UNIQUE KEY IX_AnimalShelterCode (ShelterCode),
   KEY IX_AnimalAnimalTypeID (AnimalTypeID),
-  FULLTEXT KEY IX_AnimalAnimalName (AnimalName),
+  KEY IX_AnimalAnimalName (AnimalName),
   KEY IX_AnimalAnimalSpecies (SpeciesID),
   KEY IX_AnimalDateBroughtIn (DateBroughtIn),
   KEY IX_AnimalActiveMovementID (ActiveMovementID),
@@ -752,7 +752,7 @@ CREATE TABLE owner (
   LastChangedBy varchar(255) NOT NULL ,
   LastChangedDate datetime NOT NULL,
   PRIMARY KEY  (ID),
-  FULLTEXT KEY IX_OwnerOwnerName (OwnerName)
+  KEY IX_OwnerOwnerName (OwnerName)
 );
 
 CREATE TABLE ownerdonation (
