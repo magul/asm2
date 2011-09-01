@@ -116,6 +116,11 @@ public class CurrencyField extends UI.Panel {
                 num.substring(num.length() - 2);
             txt.setText(Global.currencySymbol + num);
         }
+        else {
+            num = "0." + Utils.zeroPad(i, 2);
+            txt.setText(Global.currencySymbol + num);
+        }
+
     }
 
     public void setToolTipText(String newvalue) {
