@@ -167,7 +167,8 @@ public class SmartTagPublisher extends FTPPublisher {
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
 
                 // sourcesystemownerkey
-                dataFile.append("\"" + an.getCurrentOwner().getID().toString() + "\", ");
+                dataFile.append("\"" + an.getCurrentOwner().getID().toString() +
+                    "\", ");
 
                 // sourcesystemidkey
                 dataFile.append("\"" + an.getShelterCode() + "\", ");

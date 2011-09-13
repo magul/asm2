@@ -1389,7 +1389,8 @@ public class Main extends ASMWindow {
         }
 
         // Show logout option for sheltermanager.com
-        if (Startup.applet && DBConnection.url.indexOf("sheltermanager.com") != -1) {
+        if (Startup.applet &&
+                (DBConnection.url.indexOf("sheltermanager.com") != -1)) {
             mnuFile.add(UI.getSeparator());
             mnuFile.add(mnuFileLogoutSM);
         }

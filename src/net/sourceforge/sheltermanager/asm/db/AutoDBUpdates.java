@@ -245,8 +245,7 @@ public class AutoDBUpdates {
                     "CreatedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
-                    "PRIMARY KEY  (ID)," + "KEY IX_Date (Date)" +
-                    ");";
+                    "PRIMARY KEY  (ID)," + "KEY IX_Date (Date)" + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("ownerdonation: Table creation");
@@ -263,8 +262,7 @@ public class AutoDBUpdates {
                     "CreatedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
-                    "PRIMARY KEY  (ID)," + "KEY IX_Title (Title)" +
-                    ");";
+                    "PRIMARY KEY  (ID)," + "KEY IX_Title (Title)" + ");";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("customreport: Table creation");
@@ -310,8 +308,7 @@ public class AutoDBUpdates {
                 // Lookup table for Sex
                 String sql = "CREATE TABLE lksex (" +
                     "ID smallint NOT NULL DEFAULT '0', " +
-                    "Sex varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " +
-                    ");";
+                    "Sex varchar(40) NOT NULL, " + "PRIMARY KEY  (ID) " + ");";
                 DBConnection.executeAction(sql);
                 sql = "INSERT INTO lksex VALUES (0, 'Female')";
                 DBConnection.executeAction(sql);
@@ -1612,8 +1609,7 @@ public class AutoDBUpdates {
                     "LastChangedBy varchar(255) NOT NULL default ''," +
                     "LastChangedDate datetime NOT NULL default '0000-00-00 00:00:00'," +
                     "PRIMARY KEY  (ID)," + "KEY IX_AnimalID (AnimalID)," +
-                    "KEY IX_MedicalProfileID (MedicalProfileID)" +
-                    ");";
+                    "KEY IX_MedicalProfileID (MedicalProfileID)" + ");";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE animalmedicaltreatment (" +
@@ -2196,8 +2192,7 @@ public class AutoDBUpdates {
                     "PRIMARY KEY  (ID)," +
                     "KEY IX_MedicalPaymentTypeID (MedicalPaymentTypeID)," +
                     "KEY IX_AnimalMedicalID (AnimalMedicalID)," +
-                    "KEY IX_OwnerDonationID (OwnerDonationID)" +
-                    ")";
+                    "KEY IX_OwnerDonationID (OwnerDonationID)" + ")";
                 DBConnection.executeAction(sql);
 
                 sql = "CREATE TABLE medicalpaymenttype (" +
@@ -2260,8 +2255,7 @@ public class AutoDBUpdates {
                     "Path varchar(255) NOT NULL default '/', " +
                     "Name varchar(255) NOT NULL default '', " +
                     "Content LONGTEXT NULL, " + "PRIMARY KEY  (ID), " +
-                    "KEY IX_Path (Path), " + "KEY IX_Name (Name) " +
-                    ")";
+                    "KEY IX_Path (Path), " + "KEY IX_Name (Name) " + ")";
                 DBConnection.executeAction(sql);
             } catch (Exception e) {
                 errors.add("dbfs: table creation");

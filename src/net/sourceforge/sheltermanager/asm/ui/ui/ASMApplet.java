@@ -25,9 +25,9 @@ import net.sourceforge.sheltermanager.asm.startup.Startup;
 import net.sourceforge.sheltermanager.asm.ui.main.ShutdownThread;
 import net.sourceforge.sheltermanager.dbfs.Base64;
 
-import java.net.URL;
-
 import java.awt.*;
+
+import java.net.URL;
 
 import javax.swing.*;
 
@@ -58,12 +58,13 @@ public class ASMApplet extends JApplet {
 
     public void gotoUrl(String url) {
         try {
-            if (url.indexOf("//") == -1)
+            if (url.indexOf("//") == -1) {
                 url = getCodeBase() + url;
+            }
+
             URL u = new URL(url);
             getAppletContext().showDocument(u, "_self");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
