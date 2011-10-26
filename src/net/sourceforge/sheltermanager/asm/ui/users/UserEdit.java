@@ -33,6 +33,7 @@ import net.sourceforge.sheltermanager.asm.ui.ui.UI;
 import net.sourceforge.sheltermanager.asm.utility.MD5;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
+import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -111,7 +112,9 @@ public class UserEdit extends ASMForm {
         // If we're using applet users, then we shouldn't be able
         // to edit usernames as there will be a matching username
         // somewhere else - divorcing the two will break things
-        if (Global.appletUser != null) {
+        // (does not apply to sheltermanager.com)
+        if (Global.appletUser != null && 
+            DBConnection.url.indexOf("sheltermanager.com") == -1) {
             txtUserName.setEnabled(false);
         }
     }

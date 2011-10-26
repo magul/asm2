@@ -45,9 +45,16 @@ public class UserView extends ASMView {
     private UI.Button btnEdit;
     private UI.Button btnNew;
     private UI.Button btnPassword;
+    private String masteruser = "";
 
     /** Creates new form ViewUsers */
     public UserView() {
+        if (DBConnection.url.indexOf("sheltermanager.com") != -1) {
+            String u = DBConnection.url;
+            int spos = u.indexOf("//") + 2;
+            int epos = u.indexOf(":", spos);
+            masteruser = u.substring(spos, epos);
+        }
         init(Global.i18n("uiusers", "System_Users"),
             IconManager.getIcon(IconManager.SCREEN_VIEWUSERS), "uiusers");
         updateList();
@@ -102,9 +109,9 @@ public class UserView extends ASMView {
         }
 
         // If we're using applet users, then it makes no sense to
-        // be able to create and delete users as it's handled
-        // externally
-        if (Global.appletUser != null) {
+        // be able to create and delete users as it should be handled
+        // externally - unless it's sheltermanager.com
+        if (Global.appletUser != null && masteruser.equals("")) {
             btnDelete.setEnabled(false);
             btnNew.setEnabled(false);
             btnPassword.setEnabled(false);
@@ -167,6 +174,14 @@ public class UserView extends ASMView {
 
     public void actionDelete() {
         // Delete the user represented by the selected list item
+        
+        // If it's sheltermanager.com and the master user, do nothing
+        if (masteruser.equals(getSelectedUser())) {
+            Dialog.showError("The master user account is not removable.");
+            return;
+        }
+
+
         try {
             if (!Dialog.showYesNo(UI.messageDeleteConfirm(),
                         UI.messageReallyDelete())) {
@@ -185,6 +200,13 @@ public class UserView extends ASMView {
     }
 
     public void actionEdit() {
+
+        // If it's sheltermanager.com and the master user, do nothing
+        if (masteruser.equals(getSelectedUser())) {
+            Dialog.showError("The master user account is not editable.");
+            return;
+        }
+
         try {
             Users u = new Users();
             u.openRecordset("UserName Like '" + getSelectedUser() + "'");
@@ -216,6 +238,14 @@ public class UserView extends ASMView {
     }
 
     public void actionPassword() {
+
+        // If it's sheltermanager.com and the master user, tell
+        // the user why they can't
+        if (masteruser.equals(getSelectedUser())) {
+            Dialog.showError("You can only change the master password through the My Account page.");
+            return;
+        }
+
         try {
             Users u = new Users();
             u.openRecordset("UserName Like '" + getSelectedUser() + "'");
