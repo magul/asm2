@@ -1,6 +1,8 @@
 2.8.9
 ================
 
+*. MySQL returns floats for SUM() which breaks reports trying to
+-  parse it to an int
 *. Some Java versions/implementations return null for 
 -  getTitledBorder.getTitleFont which breaks all forms with a TitledBorder
 
