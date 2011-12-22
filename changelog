@@ -1,6 +1,7 @@
 2.8.9
 ================
 
+*. Missing i18n keys for wordprocessor/animal/CurrentOwner 
 *. MySQL returns floats for SUM() which breaks reports trying to
 -  parse it to an int
 *. Some Java versions/implementations return null for 
