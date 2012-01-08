@@ -518,7 +518,7 @@ public class AnimalPrint extends Report {
 
         // Diary
         Diary di = new Diary();
-        di.openRecordset("LinkID = " + a.getID() + "AND LinkType = " +
+        di.openRecordset("LinkID = " + a.getID() + " AND LinkType = " +
             Diary.LINKTYPE_ANIMAL + " ORDER BY DiaryDateTime");
 
         boolean hasdiary = false;
