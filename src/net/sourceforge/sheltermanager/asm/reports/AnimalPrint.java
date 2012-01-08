@@ -440,7 +440,10 @@ public class AnimalPrint extends Report {
         double tb = 0;
 
         if (a.getArchived().intValue() == 0) {
-            tb = a.getDaysOnShelter() * a.getDailyBoardingCost().doubleValue();
+            double dbc = 0;
+            if (a.getDailyBoardingCost() != null)
+                dbc = a.getDailyBoardingCost().doubleValue();
+            tb = a.getDaysOnShelter() * dbc;
 
             String sboard = Global.i18n("uianimal",
                     "On_shelter_days_total_cost",
