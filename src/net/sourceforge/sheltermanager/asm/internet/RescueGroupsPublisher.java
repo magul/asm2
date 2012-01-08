@@ -194,7 +194,7 @@ public class RescueGroupsPublisher extends FTPPublisher {
                 dataFile.append("\"" + an.getShelterCode() + "\", ");
 
                 // name
-                dataFile.append("\"" + an.getAnimalName() + "\", ");
+                dataFile.append("\"" + an.getAnimalName().replaceAll("\"", "\"\"") + "\", ");
 
                 // summary TODO:
                 dataFile.append("\"\", ");

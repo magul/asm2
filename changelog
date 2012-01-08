@@ -1,6 +1,7 @@
 2.8.9
 ================
 
+*. Escape animal names with quotes in for third party publishers
 *. Print owner search results didn't take account of user defined columns
 *. When generating documents, tags that don't have a value are still
 -  blanked out so you don't see <<InvalidTag>> in the document

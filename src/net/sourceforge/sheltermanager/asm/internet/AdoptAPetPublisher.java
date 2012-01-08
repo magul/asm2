@@ -192,7 +192,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                 dataFile.append("\"" + ageName + "\",");
 
                 // Name
-                dataFile.append("\"" + an.getAnimalName() + "\",");
+                dataFile.append("\"" + an.getAnimalName().replaceAll("\"", "\"\"") + "\",");
 
                 // Size
                 // -- Enum of S M L XL

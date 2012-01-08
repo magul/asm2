@@ -279,7 +279,7 @@ public class SmartTagPublisher extends FTPPublisher {
                 dataFile.append("\"" + o.getMobileTelephone() + "\", ");
 
                 // petname
-                dataFile.append("\"" + an.getAnimalName() + "\", ");
+                dataFile.append("\"" + an.getAnimalName().replaceAll("\"", "\"\"") + "\", ");
 
                 // species
                 dataFile.append("\"" +
