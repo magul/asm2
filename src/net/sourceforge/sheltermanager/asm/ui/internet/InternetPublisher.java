@@ -245,6 +245,8 @@ public class InternetPublisher extends ASMForm {
                     false, false));
             l.add(new SelectableItem(i18n("Force_Reupload"), "ForceReupload",
                     false, false));
+            l.add(new SelectableItem("Don't upload import.cfg", "NoImportFile",
+                    false, false));
 
             // If we have debug enabled, allow disabling of direct upload
             if (Global.showDebug) {
@@ -443,6 +445,10 @@ public class InternetPublisher extends ASMForm {
 
             if (s[i].getValue().equals("IncludeColours")) {
                 pc.includeColours = s[i].isSelected();
+            }
+
+            if (s[i].getValue().equals("NoImportFile")) {
+                pc.noImportFile = s[i].isSelected();
             }
 
             if (s[i].getValue().equals("UploadAllImages")) {

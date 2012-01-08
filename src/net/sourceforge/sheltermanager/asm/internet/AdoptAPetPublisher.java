@@ -333,9 +333,14 @@ public class AdoptAPetPublisher extends FTPPublisher {
         upload("pets.csv");
         Global.logInfo("Data uploaded", "SaveAPetPublisher.run");
 
-        Global.logInfo("Uploading data map", "SaveAPetPublisher.run");
-        upload("import.cfg");
-        Global.logInfo("Data map uploaded.", "SaveAPetPublisher.run");
+        if (!publishCriteria.noImportFile) {
+            Global.logInfo("Uploading data map", "SaveAPetPublisher.run");
+            upload("import.cfg");
+            Global.logInfo("Data map uploaded.", "SaveAPetPublisher.run");
+        }
+        else {
+            Global.logInfo("Data map upload disabled.", "SaveAPetPublisher.run");
+        }
 
         if (parent != null) {
             Global.mainForm.resetStatusBar();
@@ -568,13 +573,9 @@ public class AdoptAPetPublisher extends FTPPublisher {
             "adoptapet_mappings.txt";
         File f = new File(ADOPT_A_PET_MAPPINGS);
 
-        // If the file doesn't exist, write the defaults to it and use
-        // those.
+        // If the file doesn't exist, use the defaults
         if (!f.exists()) {
             try {
-                Utils.writeFile(ADOPT_A_PET_MAPPINGS,
-                    defmap.getBytes(Global.CHAR_ENCODING));
-
                 return defmap;
             } catch (Exception e) {
                 Global.logException(e, AdoptAPetPublisher.class);

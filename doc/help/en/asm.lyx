@@ -10855,6 +10855,11 @@ uploadall: Upload all of the animal's images in the format sheltercode-X.jpg
 \end_layout
 
 \begin_layout Itemize
+noimportfile: For publishers supporting a separate import config/description, disables uploading of it so it can be uploaded separately (only applies to adoptapet.com at present)
+\end_layout
+
+
+\begin_layout Itemize
 forcereupload: Force reuploading of animal images
 \end_layout
 

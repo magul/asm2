@@ -42,6 +42,7 @@ import java.util.Vector;
  *              includefosters
  *              includecolors
  *              forcereupload
+ *              noimportfile
  *              excludeunder=<weeks>
  *              scaleimages=<1 to 5, where:
  *                              1 = No scaling
@@ -80,6 +81,8 @@ public class PublishSaveAPet {
                     pc.includeFosters = true;
                 } else if (args[i].equalsIgnoreCase("includecolors")) {
                     pc.includeColours = true;
+                } else if (args[i].equalsIgnoreCase("noimportfile")) {
+                    pc.noImportFile = true;
                 } else if (args[i].equalsIgnoreCase("includewithoutimage")) {
                     pc.includeWithoutImage = true;
                 } else if (args[i].equalsIgnoreCase("forcereupload")) {
