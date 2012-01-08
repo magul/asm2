@@ -27,6 +27,7 @@ import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.AnimalCost;
 import net.sourceforge.sheltermanager.asm.bo.AnimalDiet;
+import net.sourceforge.sheltermanager.asm.bo.AnimalMedical;
 import net.sourceforge.sheltermanager.asm.bo.AnimalVaccination;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.Diary;
@@ -329,6 +330,44 @@ public class AnimalPrint extends Report {
         av.free();
 
         // Medical
+        AnimalMedical am = new AnimalMedical();
+        am.openRecordset("AnimalID = " + a.getID() + " ORDER BY StartDate");
+
+        boolean hasmedical = false;
+        
+        if (!am.getEOF()) {
+            addLevelTwoHeader(Global.i18n("uianimal", "medical"));
+            tableNew(true);
+            tableAddRow();
+            tableAddBoldCell(Global.i18n("uimedical", "Start_Date"));
+            tableAddBoldCell(Global.i18n("uimedical", "Status"));
+            tableAddBoldCell(Global.i18n("uimedical", "Treatment_Name"));
+            tableAddBoldCell(Global.i18n("uimedical", "Dosage"));
+            tableAddBoldCell(Global.i18n("uimedical", "Frequency"));
+            tableAddBoldCell("");
+            tableFinishRow();
+            hasmedical = true;
+        }
+
+        while (!am.getEOF()) {
+            tableAddRow();
+            tableAddCell(date(am.getStartDate()));
+            tableAddCell(am.getNamedStatus());
+            tableAddCell(am.getTreatmentName());
+            tableAddCell(am.getDosage());
+            tableAddCell(am.getNamedFrequency());
+            tableAddCell(am.getTreatmentsGiven() + " / " + 
+                am.getTotalNumberOfTreatments());
+            tableFinishRow();
+            am.moveNext();
+        }
+
+        if (hasmedical) {
+            tableFinish();
+            addTable();
+        }
+
+        am.free();
 
         // Diet
         AnimalDiet ad = new AnimalDiet();
