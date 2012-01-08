@@ -1,6 +1,8 @@
 2.8.9
 ================
 
+*. When generating documents, tags that don't have a value are still
+-  blanked out so you don't see <<InvalidTag>> in the document
 *. Added noimportfile command line switch and option for adoptapet
 *. Missing i18n keys for wordprocessor/animal/CurrentOwner 
 *. MySQL returns floats for SUM() which breaks reports trying to

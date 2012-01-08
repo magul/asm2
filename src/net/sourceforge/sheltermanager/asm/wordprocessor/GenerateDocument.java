@@ -929,6 +929,7 @@ public abstract class GenerateDocument extends Thread
                     // Test it against each one of our available tags
                     SearchTag st = null;
                     String matchs = "";
+                    boolean matchedTag = false;
 
                     for (int z = 0; z < tags.length; z++) {
                         st = (SearchTag) tags[z];
@@ -938,12 +939,19 @@ public abstract class GenerateDocument extends Thread
                         if (matchTag.equalsIgnoreCase(matchs)) {
                             // Replace it
                             sb.replace(i, endMarker, st.replace);
+                            matchedTag = true;
 
                             // Break out now, happy in the knowledge we've done
                             // it
                             break;
                         }
                     }
+
+                    // If we didn't find a match for the tag, blank it anyway
+                    if (!matchedTag) {
+                        sb.replace(i, endMarker, "");
+                    }
+
                 }
             }
 
@@ -1028,6 +1036,7 @@ public abstract class GenerateDocument extends Thread
                     // Test it against each one of our available tags
                     SearchTag st = null;
                     String matchs = "";
+                    boolean matchedTag = false;
 
                     for (int z = 0; z < tags.length; z++) {
                         st = (SearchTag) tags[z];
@@ -1037,11 +1046,17 @@ public abstract class GenerateDocument extends Thread
                         if (matchTag.equalsIgnoreCase(matchs)) {
                             // Replace it
                             sb.replace(i, endMarker, st.replace);
+                            matchedTag = true;
 
                             // Break out now, happy in the knowledge we've done
                             // it
                             break;
                         }
+                    }
+
+                    // If we didn't find a match for the tag, blank it anyway
+                    if (!matchedTag) {
+                        sb.replace(i, endMarker, "");
                     }
                 }
             }
