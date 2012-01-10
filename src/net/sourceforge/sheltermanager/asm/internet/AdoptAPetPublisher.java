@@ -558,7 +558,58 @@ public class AdoptAPetPublisher extends FTPPublisher {
             "#16:Housetrained=Housetrained\n" + "#17:Declawed=Declawed\n" +
             "#18:SpecialNeeds=SpecialNeeds");
         } else {
-            defmap += ("#9:Color=Color\n" + "#10:Description=Description\n" +
+            defmap += ("#9:Color=Color\n" + 
+            "Amber=Red/Golden/Orange/Chestnut\n" +
+            "Black Tortie=Tortoiseshell\n" +
+            "Black and Brindle=Black - with Tan, Yellow or Fawn\n" +
+            "Black and Brown=Black - with Tan, Yellow or Fawn\n" +
+            "Black and Tan=Black - with Tan, Yellow or Fawn\n" +
+            "Black and White=Black - with White\n" +
+            "Blue=Gray or Blue\n" +
+            "Blue Tortie=Tortoiseshell\n" +
+            "Brindle and Black=Brindle\n" +
+            "Brindle and White=Brindle - with White\n" +
+            "Brown=Brown/Chocolate\n" +
+            "Brown and Black=Brown/Chocolate - with Black\n" +
+            "Brown and White=Brown/Chocolate - with White\n" +
+            "Chocolate=Brown/Chocolate\n" +
+            "Chocolate Tortie=Tortoiseshell\n" +
+            "Cinnamon=Red/Golden/Orange/Chestnut\n" +
+            "Cinnamon Tortoiseshell=Tortoiseshell\n" +
+            "Cream=White - with Tan, Yellow or Fawn\n" +
+            "Fawn=Tan/Yellow/Fawn\n" +
+            "Fawn Tortoise=Tortoiseshell\n" +
+            "Ginger=Red/Golden/Orange/Chestnut\n" +
+            "Ginger and White=Red/Golden/Orange/Chestnut - with White\n" +
+            "Golden=Tan/Yellow/Fawn\n" +
+            "Grey=Gray/Blue/Silver/Salt & Pepper\n" +
+            "Grey and White=Gray/Silver/Salt & Pepper - with White\n" +
+            "Light Amber=Tan/Yellow/Fawn\n" +
+            "Lilac=Gray/Blue/Silver/Salt & Pepper\n" +
+            "Lilac Tortie=Tortoiseshell\n" +
+            "Liver=Brown/Chocolate\n" +
+            "Liver and White=Brown/Chocolate - with White\n" +
+            "Red=Red/Golden/Orange/Chestnut\n" +
+            "Ruddy=Red/Golden/Orange/Chestnut\n" +
+            "Seal=Gray/Blue/Silver/Salt & Pepper\n" +
+            "Silver=Gray/Blue/Silver/Salt & Pepper\n" +
+            "Sorrel=Red/Golden/Orange/Chestnut\n" +
+            "Sorrel Tortoiseshell=Tortoiseshell\n" +
+            "Tabby=Brown Tabby\n" +
+            "Tabby and White=Brown Tabby\n" +
+            "Tan=Tan/Yellow/Fawn\n" +
+            "Tan and Black=Tan/Yellow/Fawn - with Black\n" +
+            "Tan and White=Tan/Yellow/Fawn - with White\n" +
+            "Tortie=Tortoiseshell\n" +
+            "Tortie and White=Tortoiseshell\n" +
+            "Tricolour=Tricolor (Tan/Brown & Black & White)\n" +
+            "Various=Tricolor (Tan/Brown & Black & White)\n" +
+            "White and Black=White - with Black\n" +
+            "White and Brindle=White - with Black\n" +
+            "White and Brown=White - with Brown or Chocolate\n" +
+            "White and Grey=White - with Gray or Silver\n" +
+            "White and Liver=White - with Brown or Chocolate\n" +
+            "#10:Description=Description\n" +
             "#11:Status=Status\n" + "#12:GoodWKids=GoodWKids\n" +
             "#13:GoodWCats=GoodWCats\n" + "#14:GoodWDogs=GoodWDogs\n" +
             "#15:SpayedNeutered=SpayedNeutered\n" +
