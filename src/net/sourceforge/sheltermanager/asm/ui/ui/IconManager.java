@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 
 import java.awt.Image;
@@ -811,9 +812,14 @@ public abstract class IconManager {
      */
     public static ImageIcon getThumbnail(String path, int width, int height) {
         Image inImage = new ImageIcon(path).getImage();
-        Image outImage = UI.scaleImage(inImage, width, height);
+        Image outImage = null;
+        if (Configuration.getBoolean("UseOldScaling")) {
+            outImage = UI.scaleImageOld(inImage, width, height);
+        }
+        else {
+            outImage = UI.scaleImage(inImage, width, height);
+        }
         inImage.flush();
-
         return new ImageIcon(outImage);
     }
 

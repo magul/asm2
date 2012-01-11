@@ -21,6 +21,8 @@
 */
 package net.sourceforge.sheltermanager.asm.ui.ui;
 
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
+
 import java.awt.Image;
 import java.awt.event.ActionListener;
 
@@ -45,6 +47,7 @@ public class FilePreviewPane extends UI.Panel implements PropertyChangeListener,
     private UI.Label lblPreview;
     private UI.Label lblImage;
     private UI.Label lblImageInfo;
+    private boolean useOldScaling = false;
 
     /** Creates new form BeanForm */
     public FilePreviewPane() {
@@ -98,7 +101,13 @@ public class FilePreviewPane extends UI.Panel implements PropertyChangeListener,
             lblImageInfo.setText(im.getWidth(null) + "x" + im.getHeight(null));
 
             // Scale it to fit neatly in our window
-            Image scaled = UI.scaleImage(im, 131, 103);
+            Image scaled = null;
+            if (Configuration.getBoolean("UseOldScaling")) {
+                scaled = UI.scaleImageOld(im, 131, 103);
+            }
+            else {
+                scaled = UI.scaleImage(im, 131, 103);
+            }
 
             // Dump the source image
             im.flush();

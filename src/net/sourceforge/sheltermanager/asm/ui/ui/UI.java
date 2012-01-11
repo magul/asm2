@@ -2124,6 +2124,24 @@ public final class UI {
         }
     }
 
+    public static boolean scaleImageOld(String inputfile, String outputfile,
+        int width, int height) {
+        try {
+            Image inImage = UI.loadImage(inputfile);
+            Image outImage = UI.scaleImageOld(inImage, width, height);
+            UI.saveImageAsJpeg(outputfile, outImage);
+            inImage.flush();
+            inImage = null;
+            outImage = null;
+
+            return true;
+        } catch (Exception e) {
+            Global.logException(e, UI.class);
+
+            return false;
+        }
+    }
+
     public static Image loadImage(String file) {
         return new ImageIcon(file).getImage();
     }

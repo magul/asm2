@@ -188,18 +188,34 @@ public class MediaAdd extends ASMForm {
                 int height = Integer.parseInt(scaling.substring(scaling.indexOf(
                                 "x") + 1));
 
-                // Scale and save the image, change our links to
-                // the scaled file instead.
-                if (UI.scaleImage(filename,
-                            Global.tempDirectory + File.separator +
-                            "scaled.jpg", width, height)) {
-                    filename = Global.tempDirectory + File.separator +
-                        "scaled.jpg";
-                    mf = new File(filename);
-                } else {
-                    // Failed scaling the image, the error will already have
-                    // been logged by UI.scaleImage so we just bail out now.
-                    return;
+                if (Configuration.getBoolean("UseOldScaling")) {
+                    // Old fast scaling technique
+                    if (UI.scaleImageOld(filename,
+                                Global.tempDirectory + File.separator +
+                                "scaled.jpg", width, height)) {
+                        filename = Global.tempDirectory + File.separator +
+                            "scaled.jpg";
+                        mf = new File(filename);
+                    } else {
+                        // Failed scaling the image, the error will already have
+                        // been logged by UI.scaleImage so we just bail out now.
+                        return;
+                    }
+                }
+                else {
+                    // Scale and save the image, change our links to
+                    // the scaled file instead.
+                    if (UI.scaleImage(filename,
+                                Global.tempDirectory + File.separator +
+                                "scaled.jpg", width, height)) {
+                        filename = Global.tempDirectory + File.separator +
+                            "scaled.jpg";
+                        mf = new File(filename);
+                    } else {
+                        // Failed scaling the image, the error will already have
+                        // been logged by UI.scaleImage so we just bail out now.
+                        return;
+                    }
                 }
             }
         }

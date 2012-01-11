@@ -23,6 +23,7 @@ package net.sourceforge.sheltermanager.asm.internet;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.internet.InternetPublisher;
 import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
@@ -378,7 +379,12 @@ public abstract class AbstractPublisher extends Thread {
             break;
         }
 
-        UI.scaleImage(pathToImage, pathToImage, width, height);
+        if (Configuration.getBoolean("UseOldScaling")) {
+            UI.scaleImageOld(pathToImage, pathToImage, width, height);
+        }
+        else {
+            UI.scaleImage(pathToImage, pathToImage, width, height);
+        }
     }
 
     protected void initStatusBarMax(int max) {

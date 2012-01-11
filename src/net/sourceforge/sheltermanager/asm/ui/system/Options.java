@@ -1546,6 +1546,13 @@ public class Options extends ASMForm {
                     Configuration.getString("NoPrintWidthScaling")
                                  .equalsIgnoreCase("Yes"), false));
 
+            l.add(new SelectableItem(Global.i18n("uisystem",
+                        "When_scaling_incoming_media_use_old_algorithm"),
+                    "UseOldScaling",
+                    Configuration.getString("UseOldScaling")
+                                 .equalsIgnoreCase("Yes"), false));
+
+
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",
                         "Database_and_System"), null, false, true));
