@@ -22,6 +22,7 @@
 package net.sourceforge.sheltermanager.asm.bo;
 
 import net.sourceforge.sheltermanager.asm.globals.Global;
+import net.sourceforge.sheltermanager.cursorengine.BOValidationException;
 import net.sourceforge.sheltermanager.cursorengine.CursorEngineException;
 import net.sourceforge.sheltermanager.cursorengine.SQLRecordset;
 import net.sourceforge.sheltermanager.cursorengine.UserInfoBO;
@@ -484,6 +485,18 @@ public class Owner extends UserInfoBO<Owner> {
     public void setEmailAddress(String newValue) throws CursorEngineException {
         rs.setField("EmailAddress", newValue);
     }
+
+    public void validate() throws BOValidationException {
+        try {
+            if (getOwnerName() == null || getOwnerName().toString().trim().equals("")) {
+                throw new BOValidationException(Global.i18n("bo",
+                        "owners_must_have_a_name"));
+            }
+        } catch (CursorEngineException e) {
+            throw new BOValidationException(e.getMessage());
+        }
+    }
+
 
     /**
      * Returns true if this owner has a valid media record with a picture
