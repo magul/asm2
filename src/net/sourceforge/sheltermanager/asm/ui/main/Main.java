@@ -1562,6 +1562,7 @@ public class Main extends ASMWindow {
         initToolbar();
         conformToMacOSXInterfaceGuidelines();
         refreshCustomReports();
+        setSecurity();
     }
 
     public void layoutForm() {
