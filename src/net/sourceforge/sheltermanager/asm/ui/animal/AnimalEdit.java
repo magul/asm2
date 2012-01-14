@@ -956,8 +956,7 @@ public class AnimalEdit extends ASMForm implements DateChangedListener,
                         (Configuration.getBoolean("FosterOnShelter") &&
                         ((animal.getActiveMovementType() != null) &&
                         (animal.getActiveMovementType().intValue() == Adoption.MOVETYPE_FOSTER)))) {
-                    cboLocation.addItem(animal.getAnimalLocationAtDateByName(
-                            new Date()));
+                    cboLocation.addItem(animal.fastGetAnimalLocationNowByName());                    
                     cboLocation.setSelectedIndex(cboLocation.getItemCount() -
                         1);
                     cboLocation.setEnabled(false);
