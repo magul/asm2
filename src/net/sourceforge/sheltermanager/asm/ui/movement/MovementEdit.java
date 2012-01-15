@@ -616,6 +616,7 @@ public class MovementEdit extends ASMForm implements DateChangedListener,
                 // as a result of this save.
                 animalID = movement.getAnimalID().intValue();
                 Animal.updateAnimalStatus(animalID);
+                Animal.updateAnimalStatus(animalID);
 
                 // See if we need to create a boarding cost record
                 // for this adoption (if it is an adoption)

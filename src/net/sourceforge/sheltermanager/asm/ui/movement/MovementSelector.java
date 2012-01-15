@@ -432,6 +432,7 @@ public class MovementSelector extends ASMSelector implements MovementParent {
 
             // Update the animal's denormalised fields
             Animal.updateAnimalStatus(anID);
+            Animal.updateAnimalStatus(anID);
         } catch (Exception e) {
             Dialog.showError(UI.messageDeleteError() + e.getMessage());
             Global.logException(e, getClass());
