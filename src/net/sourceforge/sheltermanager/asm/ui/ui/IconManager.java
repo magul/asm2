@@ -26,6 +26,8 @@ import net.sourceforge.sheltermanager.asm.globals.Global;
 
 import java.awt.Image;
 
+import java.io.File;
+
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -785,12 +787,16 @@ public abstract class IconManager {
      * This functionality may be extended at some point to include platform
      * specifics and allow different icon sets for each platform.
      *
+     * If an icon with the same name appears in .asm, use that instead.
+     *
      * @param icon
      *            The icon to load in
      * @return The icon, ready for use by the UI
      */
     public static ImageIcon getIcon(String icon) {
-        // Global.logDebug("ICON: " + icon, "IconManager.getIcon");
+        String override = Global.tempDirectory + File.separator + icon;
+        File f = new File(override);
+        if (f.exists()) return new ImageIcon(override);
         return new ImageIcon(IconManager.class.getResource(
                 "/net/sourceforge/sheltermanager/asm/ui/res/" + icon));
     }
