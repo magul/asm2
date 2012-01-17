@@ -120,6 +120,7 @@ public class Options extends ASMForm {
     private UI.ComboBox cboDefaultEntryReason;
     private UI.ComboBox cboDefaultInternalLocation;
     private UI.ComboBox cboDefaultLogFilter;
+    private UI.ComboBox cboDocumentLog;
     private UI.ComboBox cboDefaultCoatType;
     private UI.ComboBox cboDefaultReturn;
     private UI.ComboBox cboDefaultSize;
@@ -216,6 +217,7 @@ public class Options extends ASMForm {
         ctl.add(cboDefaultDonationType);
         ctl.add(cboDefaultVaccinationType);
         ctl.add(olDefaultBroughtInBy);
+        ctl.add(cboDocumentLog);
         ctl.add(dtAccountingPeriod);
         ctl.add(cboDonationTargetAccount);
         ctl.add(cboAccountView);
@@ -496,6 +498,10 @@ public class Options extends ASMForm {
             new Integer(Configuration.getInteger("AFDefaultLogFilter")),
             cboDefaultLogFilter);
 
+        Utils.setComboFromID(LookupCache.getLogTypeLookup(), "LogTypeName",
+            new Integer(Configuration.getInteger("GenerateDocumentLogType")),
+            cboDocumentLog);
+
         Utils.setComboFromID(LookupCache.getCoatTypeLookup(), "CoatType",
             new Integer(Configuration.getInteger("AFDefaultCoatType")),
             cboDefaultCoatType);
@@ -663,6 +669,10 @@ public class Options extends ASMForm {
             Configuration.setEntry("AFDefaultLogFilter",
                 Utils.getIDFromCombo(LookupCache.getLogTypeLookup(),
                     "LogTypeName", cboDefaultLogFilter).toString());
+
+            Configuration.setEntry("GenerateDocumentLogType",
+                Utils.getIDFromCombo(LookupCache.getLogTypeLookup(),
+                    "LogTypeName", cboDocumentLog).toString());
 
             Configuration.setEntry("AFDefaultCoatType",
                 Utils.getIDFromCombo(LookupCache.getCoatTypeLookup(),
@@ -1181,6 +1191,10 @@ public class Options extends ASMForm {
                 OwnerLink.FILTER_NONE, "");
         UI.addComponent(pr, i18n("Default_brought_in_by"), olDefaultBroughtInBy);
 
+        cboDocumentLog = UI.getCombo(LookupCache.getLogTypeLookup(),
+                "LogTypeName", i18n("(all)"));
+        UI.addComponent(pr, i18n("Generate_document_log_type"), cboDocumentLog);
+
         l = new ArrayList<SelectableItem>();
         l.add(new SelectableItem(Global.i18n("uisystem", "Defaults"), null,
                 false, true));
@@ -1229,6 +1243,12 @@ public class Options extends ASMForm {
                     "Default_media_notes_to_original_filename"),
                 "DefaultMediaNotesFromFile",
                 Configuration.getString("DefaultMediaNotesFromFile")
+                             .equalsIgnoreCase("Yes"), false));
+
+        l.add(new SelectableItem(Global.i18n("uisystem",
+                    "Generate_document_log"),
+                "GenerateDocumentLog",
+                Configuration.getString("GenerateDocumentLog")
                              .equalsIgnoreCase("Yes"), false));
 
         tblDefaultOptions = new SelectableList(l);

@@ -135,6 +135,10 @@ public abstract class GenerateDocument extends Thread
                 attachMedia();
             }
 
+            if (Configuration.getBoolean("GenerateDocumentLog")) {
+                writeLogEntry();
+            }
+
             // Start this code off again so that users can
             // pick another template
             setIsFinished(false);
@@ -1274,6 +1278,11 @@ public abstract class GenerateDocument extends Thread
      * Override in subclass - should attach media to the appropriate record.
      */
     public abstract void attachMedia();
+
+    /**
+     * Override in subclass - write a log entry for the generated template.
+     */
+    public abstract void writeLogEntry();
 
     /**
      * Override in subclass - downloads associated media file to temp

@@ -23,7 +23,9 @@ package net.sourceforge.sheltermanager.asm.wordprocessor;
 
 import net.sourceforge.sheltermanager.asm.bo.Adoption;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
+import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
+import net.sourceforge.sheltermanager.asm.bo.Log;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.globals.Global;
 import net.sourceforge.sheltermanager.asm.ui.animal.MediaSelector;
@@ -327,4 +329,32 @@ public class MovementDocument extends GenerateDocument {
             return;
         }
     }
+
+    /**
+     * Write a log history entry for the animal and owner
+     */
+    public void writeLogEntry() {
+        try {
+            Log l = new Log("ID=0");
+            l.addNew();
+            l.setLogTypeID(Configuration.getInteger("GenerateDocumentLogType"));
+            l.setLinkID(movement.getAnimalID());
+            l.setLinkType(Log.LINKTYPE_ANIMAL);
+            l.setDate(new Date());
+            l.setComments(templateName);
+            l.addNew();
+            l.setLogTypeID(Configuration.getInteger("GenerateDocumentLogType"));
+            l.setLinkID(movement.getOwnerID());
+            l.setLinkType(Log.LINKTYPE_OWNER);
+            l.setDate(new Date());
+            l.setComments(templateName);
+            l.save(Global.currentUserName);
+        }
+        catch (Exception e) {
+            Dialog.showError(e.getMessage());
+            Global.logException(e, getClass());
+            return;
+        }
+    }
+
 }
