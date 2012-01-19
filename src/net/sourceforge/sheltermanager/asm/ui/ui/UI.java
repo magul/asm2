@@ -3269,12 +3269,13 @@ public final class UI {
 
         public void setTitle(String title) {
             TitledBorder b = new TitledBorder(title);
+
             try {
                 b.setTitleFont(b.getTitleFont().deriveFont(Font.BOLD));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 // getTitleFont() returns null on some Java implementations
             }
+
             // Some Swing themes always default text to black
             b.setTitleColor(new JLabel().getForeground());
             setBorder(b);

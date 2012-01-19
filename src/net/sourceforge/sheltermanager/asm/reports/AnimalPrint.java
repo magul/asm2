@@ -334,7 +334,7 @@ public class AnimalPrint extends Report {
         am.openRecordset("AnimalID = " + a.getID() + " ORDER BY StartDate");
 
         boolean hasmedical = false;
-        
+
         if (!am.getEOF()) {
             addLevelTwoHeader(Global.i18n("uianimal", "medical"));
             tableNew(true);
@@ -356,7 +356,7 @@ public class AnimalPrint extends Report {
             tableAddCell(am.getTreatmentName());
             tableAddCell(am.getDosage());
             tableAddCell(am.getNamedFrequency());
-            tableAddCell(am.getTreatmentsGiven() + " / " + 
+            tableAddCell(am.getTreatmentsGiven() + " / " +
                 am.getTotalNumberOfTreatments());
             tableFinishRow();
             am.moveNext();
@@ -441,8 +441,11 @@ public class AnimalPrint extends Report {
 
         if (a.getArchived().intValue() == 0) {
             double dbc = 0;
-            if (a.getDailyBoardingCost() != null)
+
+            if (a.getDailyBoardingCost() != null) {
                 dbc = a.getDailyBoardingCost().doubleValue();
+            }
+
             tb = a.getDaysOnShelter() * dbc;
 
             String sboard = Global.i18n("uianimal",

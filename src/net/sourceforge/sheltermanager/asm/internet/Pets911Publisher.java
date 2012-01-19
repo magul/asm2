@@ -240,7 +240,8 @@ public class Pets911Publisher extends FTPPublisher {
                 dataFile.append("\"" + comm + "\",");
 
                 // Animal_Name
-                dataFile.append("\"" + an.getAnimalName().replaceAll("\"", "\"\"") + "\",");
+                dataFile.append("\"" +
+                    an.getAnimalName().replaceAll("\"", "\"\"") + "\",");
 
                 // Lost_Found
                 dataFile.append("\"False\",");

@@ -796,7 +796,11 @@ public abstract class IconManager {
     public static ImageIcon getIcon(String icon) {
         String override = Global.tempDirectory + File.separator + icon;
         File f = new File(override);
-        if (f.exists()) return new ImageIcon(override);
+
+        if (f.exists()) {
+            return new ImageIcon(override);
+        }
+
         return new ImageIcon(IconManager.class.getResource(
                 "/net/sourceforge/sheltermanager/asm/ui/res/" + icon));
     }
@@ -819,13 +823,15 @@ public abstract class IconManager {
     public static ImageIcon getThumbnail(String path, int width, int height) {
         Image inImage = new ImageIcon(path).getImage();
         Image outImage = null;
+
         if (Configuration.getBoolean("UseOldScaling")) {
             outImage = UI.scaleImageOld(inImage, width, height);
-        }
-        else {
+        } else {
             outImage = UI.scaleImage(inImage, width, height);
         }
+
         inImage.flush();
+
         return new ImageIcon(outImage);
     }
 

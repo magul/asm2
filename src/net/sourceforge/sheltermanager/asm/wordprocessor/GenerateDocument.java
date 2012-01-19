@@ -955,7 +955,6 @@ public abstract class GenerateDocument extends Thread
                     if (!matchedTag) {
                         sb.replace(i, endMarker, "");
                     }
-
                 }
             }
 

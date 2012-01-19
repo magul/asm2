@@ -1245,8 +1245,7 @@ public class Options extends ASMForm {
                 Configuration.getString("DefaultMediaNotesFromFile")
                              .equalsIgnoreCase("Yes"), false));
 
-        l.add(new SelectableItem(Global.i18n("uisystem",
-                    "Generate_document_log"),
+        l.add(new SelectableItem(Global.i18n("uisystem", "Generate_document_log"),
                 "GenerateDocumentLog",
                 Configuration.getString("GenerateDocumentLog")
                              .equalsIgnoreCase("Yes"), false));
@@ -1571,7 +1570,6 @@ public class Options extends ASMForm {
                     "UseOldScaling",
                     Configuration.getString("UseOldScaling")
                                  .equalsIgnoreCase("Yes"), false));
-
 
             // Database and System
             l.add(new SelectableItem(Global.i18n("uisystem",

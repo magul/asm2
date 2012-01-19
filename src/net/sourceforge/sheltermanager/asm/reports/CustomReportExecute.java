@@ -1616,7 +1616,11 @@ public class CustomReportExecute extends Report {
 
         if (CURRENCY_FIELDS.indexOf(fieldname.toUpperCase()) != -1) {
             String s = o.toString();
-            if (s.indexOf(".") != -1) s = s.substring(0, s.indexOf("."));
+
+            if (s.indexOf(".") != -1) {
+                s = s.substring(0, s.indexOf("."));
+            }
+
             return Utils.formatCurrency(Integer.parseInt(s));
         }
 

@@ -237,7 +237,8 @@ public class OwnerFind extends ASMFind {
 
     public void actionPrint() {
         new OwnerSearchResults(((SortableTableModel) getTable().getModel()).getData(),
-            getTable().getModel().getRowCount(), OwnerFindColumns.getColumnCount(), pt.toString());
+            getTable().getModel().getRowCount(),
+            OwnerFindColumns.getColumnCount(), pt.toString());
     }
 
     public void actionMailMerge() {

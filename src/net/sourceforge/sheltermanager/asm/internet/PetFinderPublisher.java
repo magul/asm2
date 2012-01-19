@@ -207,7 +207,8 @@ public class PetFinderPublisher extends FTPPublisher {
                 dataFile.append("\"" + ageName + "\",");
 
                 // Name
-                dataFile.append("\"" + an.getAnimalName().replaceAll("\"", "\"\"") + "\",");
+                dataFile.append("\"" +
+                    an.getAnimalName().replaceAll("\"", "\"\"") + "\",");
 
                 // Size
                 // -- Enum of S M L XL

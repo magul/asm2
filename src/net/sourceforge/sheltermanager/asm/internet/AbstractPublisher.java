@@ -381,8 +381,7 @@ public abstract class AbstractPublisher extends Thread {
 
         if (Configuration.getBoolean("UseOldScaling")) {
             UI.scaleImageOld(pathToImage, pathToImage, width, height);
-        }
-        else {
+        } else {
             UI.scaleImage(pathToImage, pathToImage, width, height);
         }
     }

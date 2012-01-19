@@ -23,8 +23,8 @@ package net.sourceforge.sheltermanager.asm.wordprocessor;
 
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
-import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Log;
+import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.bo.Media;
 import net.sourceforge.sheltermanager.asm.bo.Owner;
 import net.sourceforge.sheltermanager.asm.bo.OwnerDonation;
@@ -219,12 +219,11 @@ public class OwnerDonationDocument extends GenerateDocument {
             l.setDate(new Date());
             l.setComments(templateName);
             l.save(Global.currentUserName);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Dialog.showError(e.getMessage());
             Global.logException(e, getClass());
+
             return;
         }
     }
-
 }

@@ -113,8 +113,8 @@ public class UserEdit extends ASMForm {
         // to edit usernames as there will be a matching username
         // somewhere else - divorcing the two will break things
         // (does not apply to sheltermanager.com)
-        if (Global.appletUser != null && 
-            DBConnection.url.indexOf("sheltermanager.com") == -1) {
+        if ((Global.appletUser != null) &&
+                (DBConnection.url.indexOf("sheltermanager.com") == -1)) {
             txtUserName.setEnabled(false);
         }
     }

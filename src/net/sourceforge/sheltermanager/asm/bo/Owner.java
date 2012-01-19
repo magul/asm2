@@ -488,7 +488,8 @@ public class Owner extends UserInfoBO<Owner> {
 
     public void validate() throws BOValidationException {
         try {
-            if (getOwnerName() == null || getOwnerName().toString().trim().equals("")) {
+            if ((getOwnerName() == null) ||
+                    getOwnerName().toString().trim().equals("")) {
                 throw new BOValidationException(Global.i18n("bo",
                         "owners_must_have_a_name"));
             }
@@ -496,7 +497,6 @@ public class Owner extends UserInfoBO<Owner> {
             throw new BOValidationException(e.getMessage());
         }
     }
-
 
     /**
      * Returns true if this owner has a valid media record with a picture

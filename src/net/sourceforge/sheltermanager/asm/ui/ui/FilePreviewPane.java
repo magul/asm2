@@ -102,10 +102,10 @@ public class FilePreviewPane extends UI.Panel implements PropertyChangeListener,
 
             // Scale it to fit neatly in our window
             Image scaled = null;
+
             if (Configuration.getBoolean("UseOldScaling")) {
                 scaled = UI.scaleImageOld(im, 131, 103);
-            }
-            else {
+            } else {
                 scaled = UI.scaleImage(im, 131, 103);
             }
 

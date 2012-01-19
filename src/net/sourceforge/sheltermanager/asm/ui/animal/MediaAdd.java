@@ -201,8 +201,7 @@ public class MediaAdd extends ASMForm {
                         // been logged by UI.scaleImage so we just bail out now.
                         return;
                     }
-                }
-                else {
+                } else {
                     // Scale and save the image, change our links to
                     // the scaled file instead.
                     if (UI.scaleImage(filename,

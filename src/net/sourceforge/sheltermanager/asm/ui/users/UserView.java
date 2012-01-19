@@ -55,6 +55,7 @@ public class UserView extends ASMView {
             int epos = u.indexOf(":", spos);
             masteruser = u.substring(spos, epos);
         }
+
         init(Global.i18n("uiusers", "System_Users"),
             IconManager.getIcon(IconManager.SCREEN_VIEWUSERS), "uiusers");
         updateList();
@@ -111,7 +112,7 @@ public class UserView extends ASMView {
         // If we're using applet users, then it makes no sense to
         // be able to create and delete users as it should be handled
         // externally - unless it's sheltermanager.com
-        if (Global.appletUser != null && masteruser.equals("")) {
+        if ((Global.appletUser != null) && masteruser.equals("")) {
             btnDelete.setEnabled(false);
             btnNew.setEnabled(false);
             btnPassword.setEnabled(false);
@@ -174,13 +175,13 @@ public class UserView extends ASMView {
 
     public void actionDelete() {
         // Delete the user represented by the selected list item
-        
+
         // If it's sheltermanager.com and the master user, do nothing
         if (masteruser.equals(getSelectedUser())) {
             Dialog.showError("The master user account is not removable.");
+
             return;
         }
-
 
         try {
             if (!Dialog.showYesNo(UI.messageDeleteConfirm(),
@@ -200,10 +201,10 @@ public class UserView extends ASMView {
     }
 
     public void actionEdit() {
-
         // If it's sheltermanager.com and the master user, do nothing
         if (masteruser.equals(getSelectedUser())) {
             Dialog.showError("The master user account is not editable.");
+
             return;
         }
 
@@ -238,11 +239,12 @@ public class UserView extends ASMView {
     }
 
     public void actionPassword() {
-
         // If it's sheltermanager.com and the master user, tell
         // the user why they can't
         if (masteruser.equals(getSelectedUser())) {
-            Dialog.showError("You can only change the master password through the My Account page.");
+            Dialog.showError(
+                "You can only change the master password through the My Account page.");
+
             return;
         }
 

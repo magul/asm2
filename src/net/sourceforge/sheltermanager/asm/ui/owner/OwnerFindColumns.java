@@ -515,10 +515,11 @@ public class OwnerFindColumns {
         for (SQLRecordset a : add) {
             if ((a.getInt("LinkID") == r.getInt("ID")) &&
                     a.getString("FieldName").equalsIgnoreCase(colname)) {
-                if (a.getInt("FieldType") == AdditionalField.FIELDTYPE_YESNO)
+                if (a.getInt("FieldType") == AdditionalField.FIELDTYPE_YESNO) {
                     return yesNo(Integer.parseInt(a.getString("Value")));
-                else
+                } else {
                     return a.getString("Value");
+                }
             }
         }
 
