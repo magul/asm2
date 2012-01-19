@@ -579,6 +579,7 @@ public class OwnerFind extends ASMFind {
 
             // Grab the additional fields for these owners
             String addsql = "SELECT additionalfield.FieldName, " +
+                "additionalfield.FieldType, " +
                 "additional.Value, additional.LinkID FROM " +
                 "additional INNER JOIN " +
                 "additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +

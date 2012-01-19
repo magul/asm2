@@ -1094,6 +1094,7 @@ public class AnimalFind extends ASMFind {
 
             // Grab the additional fields for these animals
             String addsql = "SELECT additionalfield.FieldName, " +
+                "additionalfield.FieldType, " +
                 "additional.Value, additional.LinkID FROM " +
                 "additional INNER JOIN " +
                 "additionalfield ON additionalfield.ID = additional.AdditionalFieldID " +

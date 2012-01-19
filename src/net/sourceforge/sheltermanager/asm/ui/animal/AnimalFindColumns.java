@@ -21,6 +21,7 @@
  */
 package net.sourceforge.sheltermanager.asm.ui.animal;
 
+import net.sourceforge.sheltermanager.asm.bo.AdditionalField;
 import net.sourceforge.sheltermanager.asm.bo.Animal;
 import net.sourceforge.sheltermanager.asm.bo.Configuration;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
@@ -518,7 +519,10 @@ public class AnimalFindColumns {
         for (SQLRecordset a : add) {
             if ((a.getInt("LinkID") == r.getInt("ID")) &&
                     a.getString("FieldName").equalsIgnoreCase(colname)) {
-                return a.getString("Value");
+                if (a.getInt("FieldType") == AdditionalField.FIELDTYPE_YESNO)
+                    return yesNo(Integer.parseInt(a.getString("Value")));
+                else
+                    return a.getString("Value");
             }
         }
 
