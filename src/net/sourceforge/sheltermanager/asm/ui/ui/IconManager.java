@@ -708,6 +708,7 @@ public abstract class IconManager {
     public final static String MENU_SYSTEMDBDIAGNOSTIC = "animal-Basic-16.png";
     public final static String MENU_SYSTEMDBCONFIGURE = "system-Basic-16.png";
     public final static String MENU_SYSTEMDBCOPY = "actions-Copy-16.png";
+    public final static String MENU_SYSTEMDBLOCALCOPY = "actions-Copy-16.png";
     public final static String MENU_SYSTEMDBARCHIVE = "animal-Basic-16.png";
     public final static String MENU_SYSTEMDBIMPORT = "actions-Export-16.png";
     public final static String MENU_SYSTEMDBPFIMPORT = "actions-Export-16.png";

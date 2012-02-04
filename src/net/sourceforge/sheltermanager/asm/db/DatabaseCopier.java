@@ -82,6 +82,24 @@ public class DatabaseCopier {
             Global.logException(e, DatabaseCopier.class);
         }
     }
+
+    /**
+     * Initiates a copy of this database to a local database without
+     * asking any questions.
+     */
+    public void copyToLocal() {
+        try {
+            String target = "jdbc:hsqldb:file:" + Global.tempDirectory +
+                File.separator + "localdb";
+            Connection c= DBConnection.getConnection(target);
+            byte dbType = DBConnection.HSQLDB;
+            Copier cop = new Copier(target, c, dbType, true);
+            new Thread(cop).start();
+        }
+        catch (Exception e) {
+            Global.logException(e, DatabaseCopier.class);
+        }
+    }
 }
 
 

@@ -282,6 +282,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuSystemDBArchive;
     private UI.MenuItem mnuSystemDBConfigure;
     private UI.MenuItem mnuSystemDBCopy;
+    private UI.MenuItem mnuSystemDBLocalCopy;
     private UI.MenuItem mnuSystemDBImporter;
     private UI.MenuItem mnuSystemDBPFImporter;
     private UI.MenuItem mnuSystemDBSQL;
@@ -1124,6 +1125,10 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBCOPY),
                 UI.fp(this, "actionSystemDBCopy"));
 
+        mnuSystemDBLocalCopy = UI.getMenuItem(i18n("Copy_to_local_database"), 'l',
+                IconManager.getIcon(IconManager.MENU_SYSTEMDBLOCALCOPY),
+                UI.fp(this, "actionSystemDBLocalCopy"));
+
         mnuSystemDBImporter = UI.getMenuItem(i18n("Import_Database"), 'i',
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBIMPORT),
                 UI.fp(this, "actionSystemDBImport"));
@@ -1455,6 +1460,11 @@ public class Main extends ASMWindow {
         // Debug mode only - copy a database
         if (Global.showDebug) {
             mnuSystemDatabaseTools.add(mnuSystemDBCopy);
+        }
+
+        // Sheltermanager.com only - copy database to local
+        if (Startup.applet && (DBConnection.url.indexOf("sheltermanager.com") != -1)) {
+            mnuSystemDatabaseTools.add(mnuSystemDBLocalCopy);
         }
 
         // Applets can't import
@@ -2102,6 +2112,10 @@ public class Main extends ASMWindow {
 
     public void actionSystemDBCopy() {
         new DatabaseCopier().start();
+    }
+
+    public void actionSystemDBLocalCopy() {
+        new DatabaseCopier().copyToLocal();
     }
 
     public void actionSystemDBArchive() {
