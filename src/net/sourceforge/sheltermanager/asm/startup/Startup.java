@@ -194,7 +194,9 @@ public class Startup implements Runnable {
             } else {
                 // just the correct one for applets based on 
                 // JDBC URL supplied to us
-                if (jdbcurl.indexOf("postgres") != -1) {
+                if (jdbcurl.indexOf("sheltermanager.com") != -1) {
+                    DBConnection.loadJDBCDrivers(true, false, true);
+                } else if (jdbcurl.indexOf("postgres") != -1) {
                     DBConnection.loadJDBCDrivers(true, false, false);
                 } else if (jdbcurl.indexOf("mysql") != -1) {
                     DBConnection.loadJDBCDrivers(false, true, false);
