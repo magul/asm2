@@ -11,6 +11,8 @@ unzip ../../lib/charting-0.94.jar
 rm -rf META-INF
 unzip ../../lib/postgresql.jar
 rm -rf META-INF
+unzip ../../lib/hsqldb.jar
+rm -rf META-INF
 unzip ../../lib/edtftpj.jar
 rm -rf META-INF
 zip -r9 ../fatone.jar *
