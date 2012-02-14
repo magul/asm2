@@ -306,7 +306,7 @@ public class AnimalFindColumns {
             return Global.i18n("uiwordprocessor", "Negative");
 
         default:
-            return Global.i18n("uiwordprocessor", "Postive");
+            return Global.i18n("uiwordprocessor", "Positive");
         }
     }
 
