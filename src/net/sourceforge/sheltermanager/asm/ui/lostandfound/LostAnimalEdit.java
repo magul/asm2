@@ -475,6 +475,7 @@ public class LostAnimalEdit extends ASMForm implements OwnerLinkListener {
 
         cboAgeGroup = UI.getCombo(i18n("Age_Group:"),
                 LookupCache.getAgeGroupNames(), UI.fp(this, "dataChanged"));
+        cboAgeGroup.addItem(i18n("Unknown"));
         UI.addComponent(pnlLeftTop, i18n("Age_Group:"), cboAgeGroup);
 
         cboSex = UI.getCombo(i18n("Sex:"), LookupCache.getSexLookup(), "Sex",
