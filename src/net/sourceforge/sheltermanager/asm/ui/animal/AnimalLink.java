@@ -46,7 +46,7 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     private UI.Button btnClear;
     private UI.Button btnFind;
     private UI.Button btnOpen;
-    private UI.TextField txtName;
+    private UI.Label lblName;
 
     public AnimalLink() {
         super(true);
@@ -103,9 +103,8 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     public void initComponents() {
         setLayout(UI.getBorderLayout());
 
-        txtName = UI.getTextField();
-        txtName.setEnabled(false);
-        add(txtName, UI.BorderLayout.CENTER);
+        lblName = UI.getTitleLabel("");
+        add(lblName, UI.BorderLayout.CENTER);
 
         UI.ToolBar t = UI.getToolBar();
         btnOpen = (UI.Button) t.add(UI.getButton(null,
@@ -131,7 +130,7 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     }
 
     public void actionClear() {
-        txtName.setText("");
+        lblName.setText("");
         animalID = 0;
 
         if (parent != null) {
@@ -160,7 +159,7 @@ public class AnimalLink extends UI.Panel implements SearchListener {
     public void animalSelected(Animal theanimal) {
         try {
             animalID = theanimal.getID().intValue();
-            txtName.setText(theanimal.getCode() + " - " +
+            lblName.setText(theanimal.getCode() + " - " +
                 theanimal.getAnimalName());
 
             if (parent != null) {

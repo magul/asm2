@@ -55,11 +55,11 @@ public class OwnerLink extends UI.Panel implements SearchListener {
     private UI.Button btnFind;
     private UI.Button btnNew;
     private UI.Button btnOpen;
-    private UI.TextArea txtAddress;
-    private UI.TextField txtHomeTelephone;
-    private UI.TextField txtMobileTelephone;
-    private UI.TextField txtName;
-    private UI.TextField txtPostcode;
+    private UI.Label lblAddress;
+    private UI.Label lblHomeTelephone;
+    private UI.Label lblMobileTelephone;
+    private UI.Label lblName;
+    private UI.Label lblPostcode;
     private int filter = FILTER_NONE;
     private int mode = MODE_FULL;
     private String id = "LINK";
@@ -162,23 +162,18 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             UI.Panel postcode = UI.getPanel(UI.getGridLayout(2,
                         new int[] { 30, 70 }));
 
-            txtName = (UI.TextField) UI.addComponent(name, i18n("Name:"),
-                    UI.getTextField());
-            txtName.setEnabled(false);
+            lblName = (UI.Label) UI.addComponent(name, i18n("Name:"),
+                    UI.getTitleLabel(""));
 
-            txtAddress = (UI.TextArea) UI.addComponent(address,
-                    i18n("Address:"), UI.getTextArea());
-            txtAddress.setEnabled(false);
+            lblAddress = (UI.Label) UI.addComponent(address,
+                    i18n("Address:"), UI.getTitleLabel(""));
 
-            txtPostcode = (UI.TextField) UI.addComponent(postcode,
-                    i18n("Postcode:"), UI.getTextField());
-            txtPostcode.setEnabled(false);
-            txtHomeTelephone = (UI.TextField) UI.addComponent(postcode,
-                    i18n("Telephone:"), UI.getTextField());
-            txtHomeTelephone.setEnabled(false);
-            txtMobileTelephone = (UI.TextField) UI.addComponent(postcode,
-                    i18n("Mobile:"), UI.getTextField());
-            txtMobileTelephone.setEnabled(false);
+            lblPostcode = (UI.Label) UI.addComponent(postcode,
+                    i18n("Postcode:"), UI.getTitleLabel(""));
+            lblHomeTelephone = (UI.Label) UI.addComponent(postcode,
+                    i18n("Telephone:"), UI.getTitleLabel(""));
+            lblMobileTelephone = (UI.Label) UI.addComponent(postcode,
+                    i18n("Mobile:"), UI.getTitleLabel(""));
 
             UI.ToolBar t = UI.getToolBar(true);
             btnNew = (UI.Button) t.add(UI.getButton(null,
@@ -214,9 +209,8 @@ public class OwnerLink extends UI.Panel implements SearchListener {
         } else if (mode == MODE_ONELINE) {
             setLayout(UI.getBorderLayout());
 
-            txtName = UI.getTextField();
-            txtName.setEnabled(false);
-            add(txtName, UI.BorderLayout.CENTER);
+            lblName = UI.getTitleLabel("");
+            add(lblName, UI.BorderLayout.CENTER);
 
             //UI.Panel t = UI.getPanel(UI.getFlowLayout(UI.ALIGN_LEFT, true), true);
             UI.ToolBar t = UI.getToolBar();
@@ -255,13 +249,13 @@ public class OwnerLink extends UI.Panel implements SearchListener {
         ownerID = 0;
 
         if (mode == MODE_FULL) {
-            txtName.setText("");
-            txtAddress.setText("");
-            txtHomeTelephone.setText("");
-            txtMobileTelephone.setText("");
-            txtPostcode.setText("");
+            lblName.setText("");
+            lblAddress.setText("");
+            lblHomeTelephone.setText("");
+            lblMobileTelephone.setText("");
+            lblPostcode.setText("");
         } else if (mode == MODE_ONELINE) {
-            txtName.setText("");
+            lblName.setText("");
         }
 
         if (parent != null) {
@@ -385,17 +379,20 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
             // Load the data
             if ((mode == MODE_FULL) || (mode == MODE_ONELINE)) {
-                txtName.setText(Utils.nullToEmptyString(theowner.getOwnerName()));
+                lblName.setText(Utils.nullToEmptyString(theowner.getOwnerName()));
             }
 
             if (mode == MODE_FULL) {
-                txtAddress.setText(Utils.nullToEmptyString(
-                        theowner.getOwnerAddress()));
-                txtPostcode.setText(Utils.nullToEmptyString(
+                lblAddress.setText("<p>" +
+                    Utils.nullToEmptyString(theowner.getOwnerAddress()) + "<br/>" +
+                    Utils.nullToEmptyString(theowner.getOwnerTown()) + "<br/>" +
+                    Utils.nullToEmptyString(theowner.getOwnerCounty()) + "</p>"
+                    );
+                lblPostcode.setText(Utils.nullToEmptyString(
                         theowner.getOwnerPostcode()));
-                txtHomeTelephone.setText(Utils.nullToEmptyString(
+                lblHomeTelephone.setText(Utils.nullToEmptyString(
                         theowner.getHomeTelephone()));
-                txtMobileTelephone.setText(Utils.nullToEmptyString(
+                lblMobileTelephone.setText(Utils.nullToEmptyString(
                         theowner.getMobileTelephone()));
             }
 
