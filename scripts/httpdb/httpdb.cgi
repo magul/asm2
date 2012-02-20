@@ -283,13 +283,14 @@ else:
         colmap += c[0] + "\\type" + c[1]
     print colmap
     # Now do the rows
-    for row in d:
-        r = []
-        for v in row:
-            # Check the types now
-            if v == None:
-                r.append("\\null")
-            else:
-                r.append(tokenise(str(v)))
-        # Dump it out
-        print "ROW" + "\\fld".join(r)
+    if d != None:
+        for row in d:
+            r = []
+            for v in row:
+                # Check the types now
+                if v == None:
+                    r.append("\\null")
+                else:
+                    r.append(tokenise(str(v)))
+            # Dump it out
+            print "ROW" + "\\fld".join(r)
