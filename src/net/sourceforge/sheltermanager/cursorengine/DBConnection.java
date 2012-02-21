@@ -87,6 +87,9 @@ public abstract class DBConnection {
       */
     public static byte DBStoreType = MYSQL;
 
+    /** True if the database is in read only mode */
+    public static boolean readOnly = false;
+
     public static void loadJDBCDrivers() {
         loadJDBCDrivers(true, true, true);
     }
@@ -440,7 +443,8 @@ public abstract class DBConnection {
             Global.logDebug(query, "DBConnection.executeAction");
         }
 
-        stmt.execute(query);
+        if (!readOnly) 
+            stmt.execute(query);
     }
 
     /**
@@ -463,7 +467,8 @@ public abstract class DBConnection {
             stmt.addBatch(s);
         }
 
-        stmt.executeBatch();
+        if (!readOnly) 
+            stmt.executeBatch();
     }
 
     /**
@@ -483,7 +488,10 @@ public abstract class DBConnection {
             Global.logDebug(query, "DBConnection.executeAction");
         }
 
-        return stmt.executeUpdate(query);
+        if (!readOnly) 
+            return stmt.executeUpdate(query);
+        else
+            return 0;
     }
 
     public synchronized static void executeFile(File f)
