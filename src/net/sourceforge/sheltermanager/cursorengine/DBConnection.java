@@ -720,6 +720,23 @@ public abstract class DBConnection {
     }
 
     /**
+     * Writes INSERT statements to regenerate the named table
+     * and returns them as a string - the inserts are full with
+     * fieldnames reiterated.
+     */
+    public static String dumpTable(String tableName) {
+        try {
+            SQLRecordset r = new SQLRecordset();
+            r.openRecordset("SELECT * FROM "+ tableName, tableName);
+            return r.dump();
+        }
+        catch (Exception e) {
+            Global.logException(e, DBConnection.class);
+        }
+        return "";
+    }
+
+    /**
      * Given a target connection, dbType and tableName, deletes the contents of
      * the table in the target database then copies all the data from the
      * current db to the target table

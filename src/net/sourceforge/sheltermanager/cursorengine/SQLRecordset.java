@@ -323,6 +323,68 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
     }
 
     /**
+     * Writes INSERT statements to create this recordset
+     */
+    public String dump() throws CursorEngineException {
+        
+        StringBuffer S = new StringBuffer("");
+        int l = 0;
+        int i = 0;
+
+        // If there aren't any rows, don't do anything
+        if (mNoRows == 0) {
+            return "";
+        }
+
+        // Loop through our available rows 
+        l = 1;
+        ArrayList<String> batch = new ArrayList<String>();
+
+        while (l <= mNoRows) {
+            SQLRowData rd = (SQLRowData) mtheRows.get(l);
+
+            // Do INSERT script
+            S.append("INSERT INTO " + mTableName + " (");
+            // Loop through field names and put them in
+            i = 1;
+
+            while (i <= mNoFields) {
+                SQLFieldDescriptor fd = (SQLFieldDescriptor) mtheFields.get(i);
+                S.append(fd.name);
+
+                if (i < (mNoFields)) {
+                    S.append(",");
+                }
+
+                i++;
+            }
+
+            S.append(") VALUES (");
+            // Loop through our fields again and write the values
+            i = 1;
+
+            while (i <= mNoFields) {
+                SQLFieldDescriptor fd = (SQLFieldDescriptor) mtheFields.get(i);
+                S.append(getScriptVal(DBConnection.DBType, rd.theRowData[i],
+                        fd.type, fd.name));
+
+                if (i < (mNoFields)) {
+                    S.append(",");
+                }
+
+                i++;
+            }
+
+            // Close brackets and finish the query
+            S.append(");\n");
+
+            l++;
+        }
+        return S.toString();
+    }
+            
+
+    /**
      * Returns the absolute position of the cursor currently in the set
      */
     public int getAbsolutePosition() {

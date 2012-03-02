@@ -29,6 +29,7 @@ import net.sourceforge.sheltermanager.asm.bo.CustomReport;
 import net.sourceforge.sheltermanager.asm.bo.LookupCache;
 import net.sourceforge.sheltermanager.asm.db.DBUpdate;
 import net.sourceforge.sheltermanager.asm.db.DatabaseCopier;
+import net.sourceforge.sheltermanager.asm.db.DatabaseDumper;
 import net.sourceforge.sheltermanager.asm.db.DatabaseImporter;
 import net.sourceforge.sheltermanager.asm.db.Diagnostic;
 import net.sourceforge.sheltermanager.asm.db.LocateDatabase;
@@ -282,6 +283,7 @@ public class Main extends ASMWindow {
     private UI.MenuItem mnuSystemDBArchive;
     private UI.MenuItem mnuSystemDBConfigure;
     private UI.MenuItem mnuSystemDBCopy;
+    private UI.MenuItem mnuSystemDBDump;
     private UI.MenuItem mnuSystemDBLocalCopy;
     private UI.MenuItem mnuSystemDBImporter;
     private UI.MenuItem mnuSystemDBPFImporter;
@@ -1125,6 +1127,10 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBCOPY),
                 UI.fp(this, "actionSystemDBCopy"));
 
+        mnuSystemDBDump = UI.getMenuItem("Dump Database", 'd',
+                IconManager.getIcon(IconManager.MENU_SYSTEMDBCOPY),
+                UI.fp(this, "actionSystemDBDump"));
+
         mnuSystemDBLocalCopy = UI.getMenuItem(i18n("Copy_to_local_database"), 'l',
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBLOCALCOPY),
                 UI.fp(this, "actionSystemDBLocalCopy"));
@@ -1457,9 +1463,10 @@ public class Main extends ASMWindow {
         mnuSystemDatabaseTools.add(mnuSystemDBArchive);
         mnuSystemDatabaseTools.add(mnuSystemDBPFImporter);
 
-        // Debug mode only - copy a database
+        // Debug mode only - copy and dump a database
         if (Global.showDebug) {
             mnuSystemDatabaseTools.add(mnuSystemDBCopy);
+            mnuSystemDatabaseTools.add(mnuSystemDBDump);
         }
 
         // Sheltermanager.com only - copy database to local
@@ -2112,6 +2119,10 @@ public class Main extends ASMWindow {
 
     public void actionSystemDBCopy() {
         new DatabaseCopier().start();
+    }
+
+    public void actionSystemDBDump() {
+        new DatabaseDumper().start();
     }
 
     public void actionSystemDBLocalCopy() {
