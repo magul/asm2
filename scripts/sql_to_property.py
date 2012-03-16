@@ -36,6 +36,9 @@ if code == "et": code = "_et_EE"
 # Hebrew hack
 if code == "he": code = "_he_IL"
 
+# Greek hack
+if code == "el": code = "_el_GR"
+
 # No lang for English as it's the template
 if code == "en": code = ""
 

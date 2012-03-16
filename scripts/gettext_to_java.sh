@@ -18,6 +18,6 @@ for L in $LANGUAGES; do
         SUFFIX=_$L.properties
         OUT=po/$F$SUFFIX
         PONAME=`python $THISDIR/locale_to_po.py $L`
-        po2prop -t $LDIR/$F.properties -i $LDIR/po/$PONAME -o $LDIR/$OUT
+        po2prop --fuzzy -t $LDIR/$F.properties -i $LDIR/po/$PONAME -o $LDIR/$OUT
     done
 done

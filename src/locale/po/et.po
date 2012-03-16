@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sheltermanager\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-04-12 07:19+0100\n"
-"PO-Revision-Date: 2010-08-23 10:57+0000\n"
+"POT-Creation-Date: 2012-02-15 11:13+0100\n"
+"PO-Revision-Date: 2011-07-07 09:50+0000\n"
 "Last-Translator: lyyser <Unknown>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-13 04:51+0000\n"
-"X-Generator: Launchpad (build 12735)\n"
+"X-Launchpad-Export-Date: 2012-02-16 05:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. # bo/DiaryTaskHead
 #: You_must_give_the_diary_task_a_name.
@@ -178,10 +178,7 @@ msgstr "Sisesta looma leidmisest teadaandmise kuupäev."
 msgid "You must enter the date the animal was found."
 msgstr "Sisesta looma leidmise kuupäev."
 
-#. # ui/animal/AnimalFind
-#. # reports/AnimalFigures
-#: Stolen
-#: lksmovementtype_6
+#: src/dbupdate.py:1330 src/templates/animal_find.html:97
 msgid "Stolen"
 msgstr "Varastatud"
 
@@ -190,56 +187,30 @@ msgstr "Varastatud"
 msgid "You must enter a name for this animal."
 msgstr "Sisesta looma nimi."
 
-#. # reports/AnimalFigures
-#: Died
-#: deathreason_2
-#: entryreason_6
+#: src/animal.py:907 src/dbupdate.py:1277 src/dbupdate.py:1295
 msgid "Died"
 msgstr "Surnud"
 
-#. # bo/Animal
-#. # internet/AbstractPublisher
-#. # internet/Pets911Publisher
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/owner/OwnerFindColumns
-#. # ui/animalname/NamesEdit
-#. # ui/waitinglist/WaitingListViewColumns
-#. # wordprocessor/GenerateDocument
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#: Unknown
-#: lksex_2
-#: lksynun_2
-#: lksposneg_0
+#: src/animal.py:990 src/animal.py:997 src/dbupdate.py:1304
+#: src/dbupdate.py:1372 src/dbupdate.py:1373 src/i18n.py:202
 msgid "Unknown"
 msgstr "Tundmatu"
 
-#. # bo/Animal
-#. # ui/animal/AnimalFind
-#. # reports/AnimalFigures
-#: Adopted
+#: src/templates/animal_find.html:93
 msgid "Adopted"
 msgstr "Loovutatud"
 
-#. # bo/AnimalLost
-#. # bo/Animal
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalFindColumns
-#. # reports/AnimalFigures
-#: On_Shelter
+#: src/animal.py:941 src/animal.py:942 src/lostfound.py:309
+#: src/templates/animal_find.html:90
 msgid "On Shelter"
 msgstr "Varjupaigas"
 
-#. # bo/Animal
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalFindColumns
-#: Dead
+#: src/html.py:1116 src/html.py:1121 src/templates/animal_find.html:102
+#: src/templates/movements.html:162 src/templates/search.html:34
 msgid "Deceased"
 msgstr ""
 
-#. # ui/animal/AnimalFind
-#: Transferred
+#: src/templates/animal_find.html:95
 msgid "Transferred"
 msgstr "Edastatud"
 
@@ -253,10 +224,7 @@ msgstr "Sisesta looma sünnikuupäev."
 msgid "You must enter a date the animal was brought into the shelter."
 msgstr "Sisesta looma varjupaika saabumise kuupäev."
 
-#. # ui/animal/AnimalFind
-#. # reports/AnimalFigures
-#: Escaped
-#: lksmovementtype_4
+#: src/dbupdate.py:1328 src/templates/animal_find.html:96
 msgid "Escaped"
 msgstr "Lahti pääsenud"
 
@@ -289,28 +257,16 @@ msgstr "Sellel loomal on juba avatud liikumise kirje. Ei saa teist luua."
 msgid "You must select an animal."
 msgstr "Vali loom."
 
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/animal/MediaAdd
-#. # ui/internet/InternetPublisher
-#: None
-#: lksmovementtype_0
-#: lksdiarylink_0
+#: src/dbupdate.py:1324 src/dbupdate.py:1340
 msgid "None"
 msgstr "Puudub"
 
-#. # ui/animal/AnimalFind
-#. # bo/Animal
-#. # reports/ShelterInventory
-#: Fostered
-#: fostered
+#: src/templates/animal_find.html:94
 msgid "Fostered"
 msgstr "Kasuperesse antud"
 
-#. # ui/movement/MovementEdit
-#. # reports/AnimalPrint
-#: Reservation
-#: lksmovementtype_9
+#: src/dbupdate.py:1333 src/movement.py:42 src/movement.py:58
+#: src/movement.py:76 src/movement.py:94
 msgid "Reservation"
 msgstr "Broneeritud"
 
@@ -361,26 +317,18 @@ msgstr ""
 "Valitud omanik ei ole loomade edasimüüja ja tal ei saa olla edasimüüja "
 "liikumised."
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/animal/AnimalFind
-#: retailer
-#: lksmovementtype_8
-#: Retailer
+#: src/dbupdate.py:1332 src/html.py:1231 src/person.py:441
+#: src/templates/animal_find.html:100 src/templates/movements.html:53
+#: src/templates/movements.html:148 src/templates/person.html:197
+#: src/templates/person_find.html:105
 msgid "Retailer"
 msgstr "Edasimüüja"
 
-#. # bo/AnimalWaitingList
-#: auto_removed_due_to_owner_contact
+#: src/waitinglist.py:266
 msgid "Auto removed due to lack of owner contact."
 msgstr "Eemaldatud automaatselt omaniku kontaktandmete puudumise tõttu."
 
-#. # bo/LookupCache
-#. # internet/AdoptAPetPublisher
-#. # internet/AvidRegistration
-#. # ui/internet/PetFinderMapSpecies
-#: Cat
-#: species_2
+#: src/dbupdate.py:1387
 msgid "Cat"
 msgstr "Kass"
 
@@ -389,12 +337,7 @@ msgstr "Kass"
 msgid "Kittens"
 msgstr "Kassipojad"
 
-#. # bo/LookupCache
-#. # internet/AdoptAPetPublisher
-#. # internet/AvidRegistration
-#. # ui/internet/PetFinderMapSpecies
-#: Dog
-#: species_1
+#: src/dbupdate.py:1386
 msgid "Dog"
 msgstr "Koer"
 
@@ -499,10 +442,7 @@ msgstr "Vali vautsheritüüp."
 msgid "Non-Shelter Animal"
 msgstr "Mitte-varjupaiga loom."
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#: One_Off
-#: lksdonationfreq_0
+#: src/dbupdate.py:1347
 msgid "One-Off"
 msgstr "One-Off"
 
@@ -520,53 +460,33 @@ msgstr "ravi"
 msgid "treatments every"
 msgstr "ravid iga"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: days
+#: src/medical.py:112 src/medical.py:118 src/templates/animal_medical.html:53
+#: src/templates/animal_medical.html:77 src/templates/medical.html:59
+#: src/templates/medical.html:83
 msgid "days"
 msgstr "päev(a)"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/internet/InternetPublisher
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: weeks
+#: src/medical.py:121 src/templates/animal_medical.html:54
+#: src/templates/medical.html:60
 msgid "weeks"
 msgstr "nädal"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: years
+#: src/medical.py:127 src/templates/animal_medical.html:56
+#: src/templates/medical.html:62
 msgid "years"
 msgstr "aastad"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: months
+#: src/medical.py:124 src/templates/animal_medical.html:55
+#: src/templates/medical.html:61
 msgid "months"
 msgstr "kuud"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Unspecified
+#: src/medical.py:134 src/templates/animal_medical.html:71
+#: src/templates/medical.html:77
 msgid "Unspecified"
 msgstr "Määramata"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: treatments
+#: src/templates/animal_medical.html:78 src/templates/medical.html:84
 msgid "treatments"
 msgstr "ravid"
 
@@ -637,10 +557,7 @@ msgstr "Valmis."
 msgid "{0} years and {1} months"
 msgstr "{0} aastat ja {1} kuud"
 
-#. # bo/Adoption
-#. # bo/Animal
-#. # ui/internet/InternetPublisher
-#: x_weeks
+#: src/i18n.py:283
 msgid "{0} weeks."
 msgstr "{0} nädalat."
 
@@ -664,18 +581,15 @@ msgstr "Viide number {0} on juba andmebaasis kasutusel."
 msgid "Movement: {0} {1} to {2}"
 msgstr "Liikumine: {0} {1} to {2}"
 
-#. # bo/Diary
-#: waiting_list_link
+#: src/diary.py:139
 msgid "Waiting List: {0}"
 msgstr "Ootenimekiri: {0}"
 
-#. # bo/Diary
-#: found_animal_link
+#: src/diary.py:136
 msgid "Found Animal: {0}"
 msgstr "Leitud loom: {0}"
 
-#. # bo/Diary
-#: lost_animal_link
+#: src/diary.py:133
 msgid "Lost Animal: {0}"
 msgstr "Kaotatud loom: {0}"
 
@@ -684,8 +598,7 @@ msgstr "Kaotatud loom: {0}"
 msgid "Owner: {0}"
 msgstr "Omanik: {0}"
 
-#. # bo/Animal
-#: copy_of
+#: src/animal.py:1296
 msgid "Copy of {0}"
 msgstr "Koopia {0}"
 
@@ -752,6 +665,11 @@ msgstr ""
 #. # bo/Users
 #: duplicate_username
 msgid "The username {0} has already been used."
+msgstr ""
+
+#. # bo/Owner
+#: owners_must_have_a_name
+msgid "Owners must have a name."
 msgstr ""
 
 #. # charts/MonthlyDonations
@@ -1008,927 +926,923 @@ msgstr "Puuduvad andmed graafikus näitamiseks."
 msgid "Waiting List ("
 msgstr "Ootenimekiri ("
 
-#: accounts_1_5_1_code
+#: src/dbupdate.py:789
 msgid "Income::Donation"
 msgstr ""
 
-#: accounts_1_desc
+#: src/dbupdate.py:789
 msgid "Incoming donations (misc)"
 msgstr ""
 
-#: accounts_2_5_2_code
+#: src/dbupdate.py:790
 msgid "Income::Adoption"
 msgstr ""
 
-#: accounts_2_desc
+#: src/dbupdate.py:790
 msgid "Adoption fee donations"
 msgstr ""
 
-#: accounts_3_5_3_code
+#: src/dbupdate.py:791
 msgid "Income::WaitingList"
 msgstr ""
 
-#: accounts_3_desc
+#: src/dbupdate.py:791
 msgid "Waiting list donations"
 msgstr ""
 
-#: accounts_4_5_4_code
+#: src/dbupdate.py:792
 msgid "Income::EntryDonation"
 msgstr ""
 
-#: accounts_4_desc
+#: src/dbupdate.py:792
 msgid "Donations for animals entering the shelter"
 msgstr ""
 
-#: accounts_5_5_5_code
+#: src/dbupdate.py:793
 msgid "Income::Sponsorship"
 msgstr ""
 
-#: accounts_5_desc
+#: src/dbupdate.py:793
 msgid "Sponsorship donations"
 msgstr ""
 
-#: accounts_6_5_0_code
+#: src/dbupdate.py:794
 msgid "Income::Shop"
 msgstr ""
 
-#: accounts_6_desc
+#: src/dbupdate.py:794
 msgid "Income from an on-site shop"
 msgstr ""
 
-#: accounts_7_5_0_code
+#: src/dbupdate.py:795
 msgid "Income::Interest"
 msgstr ""
 
-#: accounts_7_desc
+#: src/dbupdate.py:795
 msgid "Bank account interest"
 msgstr ""
 
-#: accounts_8_5_0_code
+#: src/dbupdate.py:796
 msgid "Income::OpeningBalances"
 msgstr ""
 
-#: accounts_8_desc
+#: src/dbupdate.py:796
 msgid "Opening balances"
 msgstr ""
 
-#: accounts_9_1_0_code
+#: src/dbupdate.py:797
 msgid "Bank::Current"
 msgstr ""
 
-#: accounts_9_desc
+#: src/dbupdate.py:797
 msgid "Bank current account"
 msgstr ""
 
-#: accounts_10_1_0_code
+#: src/dbupdate.py:798
 msgid "Bank::Deposit"
 msgstr ""
 
-#: accounts_10_desc
+#: src/dbupdate.py:798
 msgid "Bank deposit account"
 msgstr ""
 
-#: accounts_11_1_0_code
+#: src/dbupdate.py:799
 msgid "Bank::Savings"
 msgstr ""
 
-#: accounts_11_desc
+#: src/dbupdate.py:799
 msgid "Bank savings account"
 msgstr ""
 
-#: accounts_12_8_0_code
+#: src/dbupdate.py:800
 msgid "Asset::Premises"
 msgstr ""
 
-#: accounts_12_desc
+#: src/dbupdate.py:800
 msgid "Premises"
 msgstr ""
 
-#: accounts_13_4_0_code
+#: src/dbupdate.py:801
 msgid "Expenses::Phone"
 msgstr ""
 
-#: accounts_13_desc
+#: src/dbupdate.py:801
 msgid "Telephone Bills"
 msgstr ""
 
-#: accounts_14_4_0_code
+#: src/dbupdate.py:802
 msgid "Expenses::Electricity"
 msgstr ""
 
-#: accounts_14_desc
+#: src/dbupdate.py:802
 msgid "Electricity Bills"
 msgstr ""
 
-#: accounts_15_4_0_code
+#: src/dbupdate.py:803
 msgid "Expenses::Water"
 msgstr ""
 
-#: accounts_15_desc
+#: src/dbupdate.py:803
 msgid "Water Bills"
 msgstr ""
 
-#: accounts_16_4_0_code
+#: src/dbupdate.py:804
 msgid "Expenses::Gas"
 msgstr ""
 
-#: accounts_16_desc
+#: src/dbupdate.py:804
 msgid "Gas Bills"
 msgstr ""
 
-#: accounts_17_4_0_code
+#: src/dbupdate.py:805
 msgid "Expenses::Postage"
 msgstr ""
 
-#: accounts_17_desc
+#: src/dbupdate.py:805
 msgid "Postage costs"
 msgstr ""
 
-#: accounts_18_4_0_code
+#: src/dbupdate.py:806
 msgid "Expenses::Stationary"
 msgstr ""
 
-#: accounts_18_desc
+#: src/dbupdate.py:806
 msgid "Stationary costs"
 msgstr ""
 
-#: accounts_19_4_0_code
+#: src/dbupdate.py:807
 msgid "Expenses::Food"
 msgstr ""
 
-#: accounts_19_desc
+#: src/dbupdate.py:807
 msgid "Animal food costs"
 msgstr ""
 
-#: animaltype_2
+#: src/dbupdate.py:808
 msgid "D (Dog)"
 msgstr "K (Koer)"
 
-#: animaltype_10
+#: src/dbupdate.py:809
 msgid "F (Stray Dog)"
 msgstr "H (Hulkuv koer)"
 
-#: animaltype_11
+#: src/dbupdate.py:810
 msgid "U (Unwanted Cat)"
 msgstr "S (Soovimatu kass)"
 
-#: animaltype_12
+#: src/dbupdate.py:811
 msgid "S (Stray Cat)"
 msgstr "T (Hulkuv kass)"
 
-#: animaltype_13
+#: src/dbupdate.py:812
 msgid "M (Miscellaneous)"
 msgstr "M (Muu)"
 
-#: animaltype_40
+#: src/dbupdate.py:813
 msgid "N (Non Shelter Animal)"
 msgstr "E (Mitte varjupaigaloom)"
 
-#: basecolour_1
+#: src/dbupdate.py:814
 msgid "Black"
 msgstr "Must"
 
-#: basecolour_2
+#: src/dbupdate.py:815
 msgid "White"
 msgstr "Valge"
 
-#: basecolour_3
+#: src/dbupdate.py:816
 msgid "Black and White"
 msgstr "Must ja Valge"
 
-#: basecolour_4
+#: src/dbupdate.py:817
 msgid "Ginger"
 msgstr "Punakaspruun"
 
-#: basecolour_5
+#: src/dbupdate.py:818
 msgid "White and Black"
 msgstr "Valge ja must"
 
-#: basecolour_6
+#: src/dbupdate.py:819
 msgid "Tortie"
 msgstr ""
 
-#: basecolour_7
+#: src/dbupdate.py:820
 msgid "Tabby"
 msgstr "Vöödiline"
 
-#: basecolour_8
-#: breed_356_7
+#: src/dbupdate.py:821 src/dbupdate.py:1189
 msgid "Tan"
 msgstr "Kollakaspruun"
 
-#: basecolour_9
+#: src/dbupdate.py:822
 msgid "Black and Tan"
 msgstr "Must pruuni markeeringuga"
 
-#: basecolour_10
+#: src/dbupdate.py:823
 msgid "Tan and Black"
 msgstr "Kollakaspruun mustaga"
 
-#: basecolour_11
+#: src/dbupdate.py:824
 msgid "Brown"
 msgstr "Pruun"
 
-#: basecolour_12
+#: src/dbupdate.py:825
 msgid "Brown and Black"
 msgstr "Pruun ja must"
 
-#: basecolour_13
+#: src/dbupdate.py:826
 msgid "Black and Brown"
 msgstr "Must ja pruun"
 
-#: basecolour_14
+#: src/dbupdate.py:827
 msgid "Brindle"
 msgstr "Hallikaspruun"
 
-#: basecolour_15
+#: src/dbupdate.py:828
 msgid "Brindle and Black"
 msgstr "Hallikaspruun ja must"
 
-#: basecolour_16
+#: src/dbupdate.py:829
 msgid "Brindle and White"
 msgstr "Hallikaspruun ja valge"
 
-#: basecolour_17
+#: src/dbupdate.py:830
 msgid "Black and Brindle"
 msgstr "Must ja hallikaspruun"
 
-#: basecolour_18
+#: src/dbupdate.py:831
 msgid "White and Brindle"
 msgstr "Valge ja hallikaspruun"
 
-#: basecolour_19
+#: src/dbupdate.py:832
 msgid "Tricolour"
 msgstr "Tricolour"
 
-#: basecolour_20
+#: src/dbupdate.py:833
 msgid "Liver"
 msgstr "Maksavärvi"
 
-#: basecolour_21
+#: src/dbupdate.py:834
 msgid "Liver and White"
 msgstr "Maksavärvi ja valge"
 
-#: basecolour_22
+#: src/dbupdate.py:835
 msgid "White and Liver"
 msgstr "Valge ja maksavärvi"
 
-#: basecolour_23
+#: src/dbupdate.py:836
 msgid "Cream"
 msgstr "Kreemikas"
 
-#: basecolour_24
+#: src/dbupdate.py:837
 msgid "Tan and White"
 msgstr "Kollakaspruun ja must"
 
-#: basecolour_26
+#: src/dbupdate.py:838
 msgid "White and Tan"
 msgstr "Valge ja kollakaspruun"
 
-#: basecolour_27
+#: src/dbupdate.py:839
 msgid "Tortie and White"
 msgstr ""
 
-#: basecolour_28
+#: src/dbupdate.py:840
 msgid "Tabby and White"
 msgstr "Vöödiline ja valge"
 
-#: basecolour_29
+#: src/dbupdate.py:841
 msgid "Ginger and White"
 msgstr "Punakaspruun ja valge"
 
-#: basecolour_30
+#: src/dbupdate.py:842
 msgid "Grey"
 msgstr "Hall"
 
-#: basecolour_31
+#: src/dbupdate.py:843
 msgid "Grey and White"
 msgstr "Hall ja valge"
 
-#: basecolour_32
+#: src/dbupdate.py:844
 msgid "White and Grey"
 msgstr "Valge ja hall"
 
-#: basecolour_33
+#: src/dbupdate.py:845
 msgid "White and Torti"
 msgstr "Valge ja kilpkonnavärvi"
 
-#: basecolour_35
+#: src/dbupdate.py:846
 msgid "Brown and White"
 msgstr "Pruun ja valge"
 
-#: basecolour_36
+#: src/dbupdate.py:847
 msgid "Blue"
 msgstr "Sinine"
 
-#: basecolour_37
+#: src/dbupdate.py:848
 msgid "White and Tabby"
 msgstr "Valge ja vöödiline"
 
-#: basecolour_38
+#: src/dbupdate.py:849
 msgid "Yellow and Grey"
 msgstr "Kollane ja hall"
 
-#: basecolour_39
+#: src/dbupdate.py:850
 msgid "Various"
 msgstr "Mitmesugune"
 
-#: basecolour_40
+#: src/dbupdate.py:851
 msgid "White and Brown"
 msgstr "Valge ja pruun"
 
-#: basecolour_41
+#: src/dbupdate.py:852
 msgid "Green"
 msgstr "Roheline"
 
-#: basecolour_42
+#: src/dbupdate.py:853
 msgid "Amber"
 msgstr ""
 
-#: basecolour_43
+#: src/dbupdate.py:854
 msgid "Black Tortie"
 msgstr ""
 
-#: basecolour_44
+#: src/dbupdate.py:855
 msgid "Blue Tortie"
 msgstr ""
 
-#: basecolour_45
+#: src/dbupdate.py:856
 msgid "Chocolate"
 msgstr ""
 
-#: basecolour_46
+#: src/dbupdate.py:857
 msgid "Chocolate Tortie"
 msgstr ""
 
-#: basecolour_47
-#: breed_326_7
+#: src/dbupdate.py:858 src/dbupdate.py:1159
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
-#: basecolour_48
+#: src/dbupdate.py:859
 msgid "Cinnamon Tortoiseshell"
 msgstr ""
 
-#: basecolour_49
+#: src/dbupdate.py:860
 msgid "Fawn"
 msgstr ""
 
-#: basecolour_50
+#: src/dbupdate.py:861
 msgid "Fawn Tortoiseshell"
 msgstr ""
 
-#: basecolour_51
+#: src/dbupdate.py:862
 msgid "Golden"
 msgstr ""
 
-#: basecolour_52
+#: src/dbupdate.py:863
 msgid "Light Amber"
 msgstr ""
 
-#: basecolour_53
-#: breed_342_7
+#: src/dbupdate.py:864 src/dbupdate.py:1175
 msgid "Lilac"
 msgstr "Lilac"
 
-#: basecolour_54
+#: src/dbupdate.py:865
 msgid "Lilac Tortie"
 msgstr ""
 
-#: basecolour_55
+#: src/dbupdate.py:866
 msgid "Ruddy"
 msgstr ""
 
-#: basecolour_56
+#: src/dbupdate.py:867
 msgid "Seal"
 msgstr ""
 
-#: basecolour_57
-#: breed_353_7
+#: src/dbupdate.py:868 src/dbupdate.py:1186
 msgid "Silver"
 msgstr "Silver"
 
-#: basecolour_58
+#: src/dbupdate.py:869
 msgid "Sorrel"
 msgstr ""
 
-#: basecolour_59
+#: src/dbupdate.py:870
 msgid "Sorrel Tortoiseshell"
 msgstr ""
 
-#: breed_1_1
+#: src/dbupdate.py:871
 msgid "Affenpinscher"
 msgstr "Affenpinscher"
 
-#: breed_2_1
+#: src/dbupdate.py:872
 msgid "Afghan Hound"
 msgstr "Afghan Hound"
 
-#: breed_3_1
+#: src/dbupdate.py:873
 msgid "Airedale Terrier"
 msgstr "Airedale Terrier"
 
-#: breed_4_1
+#: src/dbupdate.py:874
 msgid "Akbash"
 msgstr "Akbash"
 
-#: breed_5_1
+#: src/dbupdate.py:875
 msgid "Akita"
 msgstr "Akita"
 
-#: breed_6_1
+#: src/dbupdate.py:876
 msgid "Alaskan Malamute"
 msgstr "Alaskan Malamute"
 
-#: breed_7_1
+#: src/dbupdate.py:877
 msgid "American Bulldog"
 msgstr "American Bulldog"
 
-#: breed_8_1
+#: src/dbupdate.py:878
 msgid "American Eskimo Dog"
 msgstr "American Eskimo Dog"
 
-#: breed_9_1
+#: src/dbupdate.py:879
 msgid "American Staffordshire Terrier"
 msgstr "American Staffordshire Terrier"
 
-#: breed_10_1
+#: src/dbupdate.py:880
 msgid "American Water Spaniel"
 msgstr "American Water Spaniel"
 
-#: breed_11_1
+#: src/dbupdate.py:881
 msgid "Anatolian Shepherd"
 msgstr "Anatolian Shepherd"
 
-#: breed_12_1
+#: src/dbupdate.py:882
 msgid "Appenzell Mountain Dog"
 msgstr "Appenzell Mountain Dog"
 
-#: breed_13_1
+#: src/dbupdate.py:883
 msgid "Australian Cattle Dog/Blue Heeler"
 msgstr "Australian Cattle Dog/Blue Heeler"
 
-#: breed_14_1
+#: src/dbupdate.py:884
 msgid "Australian Kelpie"
 msgstr "Australian Kelpie"
 
-#: breed_15_1
+#: src/dbupdate.py:885
 msgid "Australian Shepherd"
 msgstr "Australian Shepherd"
 
-#: breed_16_1
+#: src/dbupdate.py:886
 msgid "Australian Terrier"
 msgstr "Australian Terrier"
 
-#: breed_17_1
+#: src/dbupdate.py:887
 msgid "Basenji"
 msgstr "Basenji"
 
-#: breed_18_1
+#: src/dbupdate.py:888
 msgid "Basset Hound"
 msgstr "Basset Hound"
 
-#: breed_19_1
+#: src/dbupdate.py:889
 msgid "Beagle"
 msgstr "Beagle"
 
-#: breed_20_1
+#: src/dbupdate.py:890
 msgid "Bearded Collie"
 msgstr "Bearded Collie"
 
-#: breed_21_1
+#: src/dbupdate.py:891
 msgid "Beauceron"
 msgstr "Beauceron"
 
-#: breed_22_1
+#: src/dbupdate.py:892
 msgid "Bedlington Terrier"
 msgstr "Bedlington Terrier"
 
-#: breed_23_1
+#: src/dbupdate.py:893
 msgid "Belgian Shepherd Dog Sheepdog"
 msgstr "Belgian Shepherd Dog Sheepdog"
 
-#: breed_24_1
+#: src/dbupdate.py:894
 msgid "Belgian Shepherd Laekenois"
 msgstr "Belgian Shepherd Laekenois"
 
-#: breed_25_1
+#: src/dbupdate.py:895
 msgid "Belgian Shepherd Malinois"
 msgstr "Belgian Shepherd Malinois"
 
-#: breed_26_1
+#: src/dbupdate.py:896
 msgid "Belgian Shepherd Tervuren"
 msgstr "Belgian Shepherd Tervuren"
 
-#: breed_27_1
+#: src/dbupdate.py:897
 msgid "Bernese Mountain Dog"
 msgstr "Bernese Mountain Dog"
 
-#: breed_28_1
+#: src/dbupdate.py:898
 msgid "Bichon Frise"
 msgstr "Bichon Frise"
 
-#: breed_29_1
+#: src/dbupdate.py:899
 msgid "Black and Tan Coonhound"
 msgstr "Black and Tan Coonhound"
 
-#: breed_30_1
+#: src/dbupdate.py:900
 msgid "Black Labrador Retriever"
 msgstr "Black Labrador Retriever"
 
-#: breed_31_1
+#: src/dbupdate.py:901
 msgid "Black Mouth Cur"
 msgstr "Black Mouth Cur"
 
-#: breed_32_1
+#: src/dbupdate.py:902
 msgid "Bloodhound"
 msgstr "Bloodhound"
 
-#: breed_33_1
+#: src/dbupdate.py:903
 msgid "Bluetick Coonhound"
 msgstr "Bluetick Coonhound"
 
-#: breed_34_1
+#: src/dbupdate.py:904
 msgid "Border Collie"
 msgstr "Border Collie"
 
-#: breed_35_1
+#: src/dbupdate.py:905
 msgid "Border Terrier"
 msgstr "Border Terrier"
 
-#: breed_36_1
+#: src/dbupdate.py:906
 msgid "Borzoi"
 msgstr "Borzoi"
 
-#: breed_37_1
+#: src/dbupdate.py:907
 msgid "Boston Terrier"
 msgstr "Boston Terrier"
 
-#: breed_38_1
+#: src/dbupdate.py:908
 msgid "Bouvier des Flanders"
 msgstr "Bouvier des Flanders"
 
-#: breed_39_1
+#: src/dbupdate.py:909
 msgid "Boykin Spaniel"
 msgstr "Boykin Spaniel"
 
-#: breed_40_1
+#: src/dbupdate.py:910
 msgid "Boxer"
 msgstr "Boxer"
 
-#: breed_41_1
+#: src/dbupdate.py:911
 msgid "Briard"
 msgstr "Briard"
 
-#: breed_42_1
+#: src/dbupdate.py:912
 msgid "Brittany Spaniel"
 msgstr "Brittany Spaniel"
 
-#: breed_43_1
+#: src/dbupdate.py:913
 msgid "Brussels Griffon"
 msgstr "Brussels Griffon"
 
-#: breed_44_1
+#: src/dbupdate.py:914
 msgid "Bull Terrier"
 msgstr "Bull Terrier"
 
-#: breed_45_1
+#: src/dbupdate.py:915
 msgid "Bullmastiff"
 msgstr "Bullmastiff"
 
-#: breed_46_1
+#: src/dbupdate.py:916
 msgid "Cairn Terrier"
 msgstr "Cairn Terrier"
 
-#: breed_47_1
+#: src/dbupdate.py:917
 msgid "Canaan Dog"
 msgstr "Canaan Dog"
 
-#: breed_48_1
+#: src/dbupdate.py:918
 msgid "Cane Corso Mastiff"
 msgstr "Cane Corso Mastiff"
 
-#: breed_49_1
+#: src/dbupdate.py:919
 msgid "Carolina Dog"
 msgstr "Carolina Dog"
 
-#: breed_50_1
+#: src/dbupdate.py:920
 msgid "Catahoula Leopard Dog"
 msgstr "Catahoula Leopard Dog"
 
-#: breed_51_1
+#: src/dbupdate.py:921
 msgid "Cattle Dog"
 msgstr "Cattle Dog"
 
-#: breed_52_1
+#: src/dbupdate.py:922
 msgid "Cavalier King Charles Spaniel"
 msgstr "Cavalier King Charles Spaniel"
 
-#: breed_53_1
+#: src/dbupdate.py:923
 msgid "Chesapeake Bay Retriever"
 msgstr "Chesapeake Bay Retriever"
 
-#: breed_54_1
+#: src/dbupdate.py:924
 msgid "Chihuahua"
 msgstr "Chihuahua"
 
-#: breed_55_1
+#: src/dbupdate.py:925
 msgid "Chinese Crested Dog"
 msgstr "Chinese Crested Dog"
 
-#: breed_56_1
+#: src/dbupdate.py:926
 msgid "Chinese Foo Dog"
 msgstr "Chinese Foo Dog"
 
-#: breed_57_1
+#: src/dbupdate.py:927
 msgid "Chocolate Labrador Retriever"
 msgstr "Chocolate Labrador Retriever"
 
-#: breed_58_1
+#: src/dbupdate.py:928
 msgid "Chow Chow"
 msgstr "Chow Chow"
 
-#: breed_59_1
+#: src/dbupdate.py:929
 msgid "Clumber Spaniel"
 msgstr "Clumber Spaniel"
 
-#: breed_60_1
+#: src/dbupdate.py:930
 msgid "Cockapoo"
 msgstr "Cockapoo"
 
-#: breed_61_1
+#: src/dbupdate.py:931
 msgid "Cocker Spaniel"
 msgstr "Cocker Spaniel"
 
-#: breed_62_1
+#: src/dbupdate.py:932
 msgid "Collie"
 msgstr "Collie"
 
-#: breed_63_1
+#: src/dbupdate.py:933
 msgid "Coonhound"
 msgstr "Coonhound"
 
-#: breed_64_1
+#: src/dbupdate.py:934
 msgid "Corgi"
 msgstr "Corgi"
 
-#: breed_65_1
+#: src/dbupdate.py:935
 msgid "Coton de Tulear"
 msgstr "Coton de Tulear"
 
-#: breed_66_1
+#: src/dbupdate.py:936
 msgid "Dachshund"
 msgstr "Dachshund"
 
-#: breed_67_1
+#: src/dbupdate.py:937
 msgid "Dalmatian"
 msgstr "Dalmatian"
 
-#: breed_68_1
+#: src/dbupdate.py:938
 msgid "Dandi Dinmont Terrier"
 msgstr "Dandi Dinmont Terrier"
 
-#: breed_69_1
+#: src/dbupdate.py:939
 msgid "Doberman Pinscher"
 msgstr "Doberman Pinscher"
 
-#: breed_70_1
+#: src/dbupdate.py:940
 msgid "Dogo Argentino"
 msgstr "Dogo Argentino"
 
-#: breed_71_1
+#: src/dbupdate.py:941
 msgid "Dogue de Bordeaux"
 msgstr "Dogue de Bordeaux"
 
-#: breed_72_1
+#: src/dbupdate.py:942
 msgid "Dutch Shepherd"
 msgstr "Dutch Shepherd"
 
-#: breed_73_1
+#: src/dbupdate.py:943
 msgid "English Bulldog"
 msgstr "English Bulldog"
 
-#: breed_74_1
+#: src/dbupdate.py:944
 msgid "English Cocker Spaniel"
 msgstr "English Cocker Spaniel"
 
-#: breed_75_1
+#: src/dbupdate.py:945
 msgid "English Coonhound"
 msgstr "English Coonhound"
 
-#: breed_76_1
+#: src/dbupdate.py:946
 msgid "English Pointer"
 msgstr "English Pointer"
 
-#: breed_77_1
+#: src/dbupdate.py:947
 msgid "English Setter"
 msgstr "English Setter"
 
-#: breed_78_1
+#: src/dbupdate.py:948
 msgid "English Shepherd"
 msgstr "English Shepherd"
 
-#: breed_79_1
+#: src/dbupdate.py:949
 msgid "English Springer Spaniel"
 msgstr "English Springer Spaniel"
 
-#: breed_80_1
+#: src/dbupdate.py:950
 msgid "English Toy Spaniel"
 msgstr "English Toy Spaniel"
 
-#: breed_81_1
+#: src/dbupdate.py:951
 msgid "Entlebucher"
 msgstr "Entlebucher"
 
-#: breed_82_1
+#: src/dbupdate.py:952
 msgid "Eskimo Dog"
 msgstr "Eskimo Dog"
 
-#: breed_83_1
+#: src/dbupdate.py:953
 msgid "Field Spaniel"
 msgstr "Field Spaniel"
 
-#: breed_84_1
+#: src/dbupdate.py:954
 msgid "Fila Brasileiro"
 msgstr "Fila Brasileiro"
 
-#: breed_85_1
+#: src/dbupdate.py:955
 msgid "Finnish Lapphund"
 msgstr "Finnish Lapphund"
 
-#: breed_86_1
+#: src/dbupdate.py:956
 msgid "Finnish Spitz"
 msgstr "Finnish Spitz"
 
-#: breed_87_1
+#: src/dbupdate.py:957
 msgid "Flat-coated Retriever"
 msgstr "Flat-coated Retriever"
 
-#: breed_88_1
+#: src/dbupdate.py:958
 msgid "Fox Terrier"
 msgstr "Fox Terrier"
 
-#: breed_89_1
+#: src/dbupdate.py:959
 msgid "Foxhound"
 msgstr "Foxhound"
 
-#: breed_90_1
+#: src/dbupdate.py:960
 msgid "French Bulldog"
 msgstr "French Bulldog"
 
-#: breed_91_1
+#: src/dbupdate.py:961
 msgid "German Pinscher"
 msgstr "German Pinscher"
 
-#: breed_92_1
+#: src/dbupdate.py:962
 msgid "German Shepherd Dog"
 msgstr "German Shepherd Dog"
 
-#: breed_93_1
+#: src/dbupdate.py:963
 msgid "German Shorthaired Pointer"
 msgstr "German Shorthaired Pointer"
 
-#: breed_94_1
+#: src/dbupdate.py:964
 msgid "German Wirehaired Pointer"
 msgstr "German Wirehaired Pointer"
 
-#: breed_95_1
+#: src/dbupdate.py:965
 msgid "Glen of Imaal Terrier"
 msgstr "Glen of Imaal Terrier"
 
-#: breed_96_1
+#: src/dbupdate.py:966
 msgid "Golden Retriever"
 msgstr "Golden Retriever"
 
-#: breed_97_1
+#: src/dbupdate.py:967
 msgid "Gordon Setter"
 msgstr "Gordon Setter"
 
-#: breed_98_1
+#: src/dbupdate.py:968
 msgid "Great Dane"
 msgstr "Great Dane"
 
-#: breed_99_1
+#: src/dbupdate.py:969
 msgid "Great Pyrenees"
 msgstr "Great Pyrenees"
 
-#: breed_100_1
+#: src/dbupdate.py:970
 msgid "Greater Swiss Mountain Dog"
 msgstr "Greater Swiss Mountain Dog"
 
-#: breed_101_1
+#: src/dbupdate.py:971
 msgid "Greyhound"
 msgstr "Greyhound"
 
-#: breed_102_1
+#: src/dbupdate.py:972
 msgid "Havanese"
 msgstr "Havanese"
 
-#: breed_103_1
+#: src/dbupdate.py:973
 msgid "Hound"
 msgstr "Hound"
 
-#: breed_104_1
+#: src/dbupdate.py:974
 msgid "Hovawart"
 msgstr "Hovawart"
 
-#: breed_105_1
+#: src/dbupdate.py:975
 msgid "Husky"
 msgstr "Husky"
 
-#: breed_106_1
+#: src/dbupdate.py:976
 msgid "Ibizan Hound"
 msgstr "Ibizan Hound"
 
-#: breed_107_1
+#: src/dbupdate.py:977
 msgid "Illyrian Sheepdog"
 msgstr "Illyrian Sheepdog"
 
-#: breed_108_1
+#: src/dbupdate.py:978
 msgid "Irish Setter"
 msgstr "Irish Setter"
 
-#: breed_109_1
+#: src/dbupdate.py:979
 msgid "Irish Terrier"
 msgstr "Irish Terrier"
 
-#: breed_110_1
+#: src/dbupdate.py:980
 msgid "Irish Water Spaniel"
 msgstr "Irish Water Spaniel"
 
-#: breed_111_1
+#: src/dbupdate.py:981
 msgid "Irish Wolfhound"
 msgstr "Irish Wolfhound"
 
-#: breed_112_1
+#: src/dbupdate.py:982
 msgid "Italian Greyhound"
 msgstr "Italian Greyhound"
 
-#: breed_113_1
+#: src/dbupdate.py:983
 msgid "Italian Spinone"
 msgstr "Italian Spinone"
 
-#: breed_114_1
+#: src/dbupdate.py:984
 msgid "Jack Russell Terrier"
 msgstr "Jack Russell Terrier"
 
-#: breed_115_1
+#: src/dbupdate.py:985
 msgid "Japanese Chin"
 msgstr "Japanese Chin"
 
-#: breed_116_1
+#: src/dbupdate.py:986
 msgid "Jindo"
 msgstr "Jindo"
 
-#: breed_117_1
+#: src/dbupdate.py:987
 msgid "Kai Dog"
 msgstr "Kai Dog"
 
-#: breed_118_1
+#: src/dbupdate.py:988
 msgid "Karelian Bear Dog"
 msgstr "Karelian Bear Dog"
 
-#: breed_119_1
+#: src/dbupdate.py:989
 msgid "Keeshond"
 msgstr "Keeshond"
 
-#: breed_120_1
+#: src/dbupdate.py:990
 msgid "Kerry Blue Terrier"
 msgstr "Kerry Blue Terrier"
 
-#: breed_121_1
+#: src/dbupdate.py:991
 msgid "Kishu"
 msgstr "Kishu"
 
-#: breed_122_1
+#: src/dbupdate.py:992
 msgid "Komondor"
 msgstr "Komondor"
 
-#: breed_123_1
+#: src/dbupdate.py:993
 msgid "Kuvasz"
 msgstr "Kuvasz"
 
-#: breed_124_1
+#: src/dbupdate.py:994
 msgid "Kyi Leo"
 msgstr "Kyi Leo"
 
-#: breed_125_1
+#: src/dbupdate.py:995
 msgid "Labrador Retriever"
 msgstr "Labrador Retriever"
 
-#: breed_126_1
+#: src/dbupdate.py:996
 msgid "Lakeland Terrier"
 msgstr "Lakeland Terrier"
 
-#: breed_127_1
+#: src/dbupdate.py:997
 msgid "Lancashire Heeler"
 msgstr "Lancashire Heeler"
 
-#: breed_128_1
+#: src/dbupdate.py:998
 msgid "Lhasa Apso"
 msgstr "Lhasa Apso"
 
-#: breed_129_1
+#: src/dbupdate.py:999
 msgid "Leonberger"
 msgstr "Leonberger"
 
@@ -1936,636 +1850,632 @@ msgstr "Leonberger"
 msgid "Löwchen"
 msgstr "Löwchen"
 
-#: breed_131_1
+#: src/dbupdate.py:1001
 msgid "Maltese"
 msgstr "Maltese"
 
-#: breed_132_1
+#: src/dbupdate.py:1002
 msgid "Manchester Terrier"
 msgstr "Manchester Terrier"
 
-#: breed_133_1
+#: src/dbupdate.py:1003
 msgid "Maremma Sheepdog"
 msgstr "Maremma Sheepdog"
 
-#: breed_134_1
+#: src/dbupdate.py:1004
 msgid "Mastiff"
 msgstr "Mastiff"
 
-#: breed_135_1
+#: src/dbupdate.py:1005
 msgid "McNab"
 msgstr "McNab"
 
-#: breed_136_1
+#: src/dbupdate.py:1006
 msgid "Miniature Pinscher"
 msgstr "Miniature Pinscher"
 
-#: breed_137_1
+#: src/dbupdate.py:1007
 msgid "Mountain Cur"
 msgstr "Mountain Cur"
 
-#: breed_138_1
+#: src/dbupdate.py:1008
 msgid "Mountain Dog"
 msgstr "Mountain Dog"
 
-#: breed_139_1
+#: src/dbupdate.py:1009
 msgid "Munsterlander"
 msgstr "Munsterlander"
 
-#: breed_140_1
+#: src/dbupdate.py:1010
 msgid "Neapolitan Mastiff"
 msgstr "Neapolitan Mastiff"
 
-#: breed_141_1
+#: src/dbupdate.py:1011
 msgid "New Guinea Singing Dog"
 msgstr "New Guinea Singing Dog"
 
-#: breed_142_1
+#: src/dbupdate.py:1012
 msgid "Newfoundland Dog"
 msgstr "Newfoundland Dog"
 
-#: breed_143_1
+#: src/dbupdate.py:1013
 msgid "Norfolk Terrier"
 msgstr "Norfolk Terrier"
 
-#: breed_144_1
+#: src/dbupdate.py:1014
 msgid "Norwich Terrier"
 msgstr "Norwich Terrier"
 
-#: breed_145_1
+#: src/dbupdate.py:1015
 msgid "Norwegian Buhund"
 msgstr "Norwegian Buhund"
 
-#: breed_146_1
+#: src/dbupdate.py:1016
 msgid "Norwegian Elkhound"
 msgstr "Norwegian Elkhound"
 
-#: breed_147_1
+#: src/dbupdate.py:1017
 msgid "Norwegian Lundehund"
 msgstr "Norwegian Lundehund"
 
-#: breed_148_1
+#: src/dbupdate.py:1018
 msgid "Nova Scotia Duck-Tolling Retriever"
 msgstr "Nova Scotia Duck-Tolling Retriever"
 
-#: breed_149_1
+#: src/dbupdate.py:1019
 msgid "Old English Sheepdog"
 msgstr "Old English Sheepdog"
 
-#: breed_150_1
+#: src/dbupdate.py:1020
 msgid "Otterhound"
 msgstr "Otterhound"
 
-#: breed_151_1
+#: src/dbupdate.py:1021
 msgid "Papillon"
 msgstr "Papillon"
 
-#: breed_152_1
+#: src/dbupdate.py:1022
 msgid "Patterdale Terrier (Fell Terrier)"
 msgstr "Patterdale Terrier (Fell Terrier)"
 
-#: breed_153_1
+#: src/dbupdate.py:1023
 msgid "Pekingese"
 msgstr "Pekingese"
 
-#: breed_154_1
+#: src/dbupdate.py:1024
 msgid "Peruvian Inca Orchid"
 msgstr "Peruvian Inca Orchid"
 
-#: breed_155_1
+#: src/dbupdate.py:1025
 msgid "Petit Basset Griffon Vendeen"
 msgstr "Petit Basset Griffon Vendeen"
 
-#: breed_156_1
+#: src/dbupdate.py:1026
 msgid "Pharaoh Hound"
 msgstr "Pharaoh Hound"
 
-#: breed_157_1
+#: src/dbupdate.py:1027
 msgid "Pit Bull Terrier"
 msgstr "Pit Bull Terrier"
 
-#: breed_158_1
+#: src/dbupdate.py:1028
 msgid "Plott Hound"
 msgstr "Plott Hound"
 
-#: breed_159_1
+#: src/dbupdate.py:1029
 msgid "Portugese Podengo"
 msgstr "Portugese Podengo"
 
-#: breed_160_1
+#: src/dbupdate.py:1030
 msgid "Pointer"
 msgstr "Pointer"
 
-#: breed_161_1
+#: src/dbupdate.py:1031
 msgid "Polish Lowland Sheepdog"
 msgstr "Polish Lowland Sheepdog"
 
-#: breed_162_1
+#: src/dbupdate.py:1032
 msgid "Pomeranian"
 msgstr "Pomeranian"
 
-#: breed_163_1
+#: src/dbupdate.py:1033
 msgid "Poodle"
 msgstr "Poodle"
 
-#: breed_164_1
+#: src/dbupdate.py:1034
 msgid "Portuguese Water Dog"
 msgstr "Portuguese Water Dog"
 
-#: breed_165_1
+#: src/dbupdate.py:1035
 msgid "Presa Canario"
 msgstr "Presa Canario"
 
-#: breed_166_1
+#: src/dbupdate.py:1036
 msgid "Pug"
 msgstr "Pug (Mops)"
 
-#: breed_167_1
+#: src/dbupdate.py:1037
 msgid "Puli"
 msgstr "Puli"
 
-#: breed_168_1
+#: src/dbupdate.py:1038
 msgid "Pumi"
 msgstr "Pumi"
 
-#: breed_169_1
+#: src/dbupdate.py:1039
 msgid "Rat Terrier"
 msgstr "Rat Terrier"
 
-#: breed_170_1
+#: src/dbupdate.py:1040
 msgid "Redbone Coonhound"
 msgstr "Redbone Coonhound"
 
-#: breed_171_1
+#: src/dbupdate.py:1041
 msgid "Retriever"
 msgstr "Retriever"
 
-#: breed_172_1
+#: src/dbupdate.py:1042
 msgid "Rhodesian Ridgeback"
 msgstr "Rhodesian Ridgeback"
 
-#: breed_173_1
+#: src/dbupdate.py:1043
 msgid "Rottweiler"
 msgstr "Rottweiler"
 
-#: breed_174_1
+#: src/dbupdate.py:1044
 msgid "Saluki"
 msgstr "Saluki"
 
-#: breed_175_1
+#: src/dbupdate.py:1045
 msgid "Saint Bernard St. Bernard"
 msgstr "Saint Bernard St. Bernard (Bernhardiin)"
 
-#: breed_176_1
+#: src/dbupdate.py:1046
 msgid "Samoyed"
 msgstr "Samoyed"
 
-#: breed_177_1
+#: src/dbupdate.py:1047
 msgid "Schipperke"
 msgstr "Schipperke"
 
-#: breed_178_1
+#: src/dbupdate.py:1048
 msgid "Schnauzer"
 msgstr "Schnauzer"
 
-#: breed_179_1
+#: src/dbupdate.py:1049
 msgid "Scottish Deerhound"
 msgstr "Scottish Deerhound"
 
-#: breed_180_1
+#: src/dbupdate.py:1050
 msgid "Scottish Terrier Scottie"
 msgstr "Scottish Terrier Scottie"
 
-#: breed_181_1
+#: src/dbupdate.py:1051
 msgid "Sealyham Terrier"
 msgstr "Sealyham Terrier"
 
-#: breed_182_1
+#: src/dbupdate.py:1052
 msgid "Setter"
 msgstr "Setter"
 
-#: breed_183_1
+#: src/dbupdate.py:1053
 msgid "Shar Pei"
 msgstr "Shar Pei"
 
-#: breed_184_1
+#: src/dbupdate.py:1054
 msgid "Sheep Dog"
 msgstr "Sheep Dog"
 
-#: breed_185_1
+#: src/dbupdate.py:1055
 msgid "Shepherd"
 msgstr "Shepherd"
 
-#: breed_186_1
+#: src/dbupdate.py:1056
 msgid "Shetland Sheepdog Sheltie"
 msgstr "Shetland Sheepdog Sheltie"
 
-#: breed_187_1
+#: src/dbupdate.py:1057
 msgid "Shiba Inu"
 msgstr "Shiba Inu"
 
-#: breed_188_1
+#: src/dbupdate.py:1058
 msgid "Shih Tzu"
 msgstr "Shih Tzu"
 
-#: breed_189_1
+#: src/dbupdate.py:1059
 msgid "Siberian Husky"
 msgstr "Siberian Husky"
 
-#: breed_190_1
+#: src/dbupdate.py:1060
 msgid "Silky Terrier"
 msgstr "Silky Terrier"
 
-#: breed_191_1
+#: src/dbupdate.py:1061
 msgid "Skye Terrier"
 msgstr "Skye Terrier"
 
-#: breed_192_1
+#: src/dbupdate.py:1062
 msgid "Sloughi"
 msgstr "Sloughi"
 
-#: breed_193_1
+#: src/dbupdate.py:1063
 msgid "Smooth Fox Terrier"
 msgstr "Smooth Fox Terrier"
 
-#: breed_194_1
+#: src/dbupdate.py:1064
 msgid "Spaniel"
 msgstr "Spaniel"
 
-#: breed_195_1
+#: src/dbupdate.py:1065
 msgid "Spitz"
 msgstr "Spitz"
 
-#: breed_196_1
+#: src/dbupdate.py:1066
 msgid "Staffordshire Bull Terrier"
 msgstr "Staffordshire Bull Terrier"
 
-#: breed_197_1
+#: src/dbupdate.py:1067
 msgid "South Russian Ovcharka"
 msgstr "South Russian Ovcharka"
 
-#: breed_198_1
+#: src/dbupdate.py:1068
 msgid "Swedish Vallhund"
 msgstr "Swedish Vallhund"
 
-#: breed_199_1
+#: src/dbupdate.py:1069
 msgid "Terrier"
 msgstr "Terrier"
 
-#: breed_200_1
+#: src/dbupdate.py:1070
 msgid "Thai Ridgeback"
 msgstr "Thai Ridgeback"
 
-#: breed_201_1
+#: src/dbupdate.py:1071
 msgid "Tibetan Mastiff"
 msgstr "Tibetan Mastiff"
 
-#: breed_202_1
+#: src/dbupdate.py:1072
 msgid "Tibetan Spaniel"
 msgstr "Tibetan Spaniel"
 
-#: breed_203_1
+#: src/dbupdate.py:1073
 msgid "Tibetan Terrier"
 msgstr "Tibetan Terrier"
 
-#: breed_204_1
+#: src/dbupdate.py:1074
 msgid "Tosa Inu"
 msgstr "Tosa Inu"
 
-#: breed_205_1
+#: src/dbupdate.py:1075
 msgid "Toy Fox Terrier"
 msgstr "Toy Fox Terrier"
 
-#: breed_206_1
+#: src/dbupdate.py:1076
 msgid "Treeing Walker Coonhound"
 msgstr "Treeing Walker Coonhound"
 
-#: breed_207_1
+#: src/dbupdate.py:1077
 msgid "Vizsla"
 msgstr "Vizsla"
 
-#: breed_208_1
+#: src/dbupdate.py:1078
 msgid "Weimaraner"
 msgstr "Weimaraner"
 
-#: breed_209_1
+#: src/dbupdate.py:1079
 msgid "Welsh Corgi"
 msgstr "Welsh Corgi"
 
-#: breed_210_1
+#: src/dbupdate.py:1080
 msgid "Welsh Terrier"
 msgstr "Welsh Terrier"
 
-#: breed_211_1
+#: src/dbupdate.py:1081
 msgid "Welsh Springer Spaniel"
 msgstr "Welsh Springer Spaniel"
 
-#: breed_212_1
+#: src/dbupdate.py:1082
 msgid "West Highland White Terrier Westie"
 msgstr "West Highland White Terrier Westie"
 
-#: breed_213_1
+#: src/dbupdate.py:1083
 msgid "Wheaten Terrier"
 msgstr "Wheaten Terrier"
 
-#: breed_214_1
+#: src/dbupdate.py:1084
 msgid "Whippet"
 msgstr "Whippet"
 
-#: breed_215_1
+#: src/dbupdate.py:1085
 msgid "White German Shepherd"
 msgstr "White German Shepherd (Valge saksa lambakoer)"
 
-#: breed_216_1
+#: src/dbupdate.py:1086
 msgid "Wire-haired Pointing Griffon"
 msgstr "Wire-haired Pointing Griffon"
 
-#: breed_217_1
+#: src/dbupdate.py:1087
 msgid "Wirehaired Terrier"
 msgstr "Wirehaired Terrier"
 
-#: breed_218_1
+#: src/dbupdate.py:1088
 msgid "Yellow Labrador Retriever"
 msgstr "Yellow Labrador Retriever"
 
-#: breed_219_1
+#: src/dbupdate.py:1089
 msgid "Yorkshire Terrier Yorkie"
 msgstr "Yorkshire Terrier Yorkie"
 
-#: breed_220_1
+#: src/dbupdate.py:1090
 msgid "Xoloitzcuintle/Mexican Hairless"
 msgstr "Xoloitzcuintle/Mexican Hairless"
 
-#: breed_221_2
+#: src/dbupdate.py:1091
 msgid "Abyssinian"
 msgstr "Abyssinian"
 
-#: breed_222_2
+#: src/dbupdate.py:1092
 msgid "American Curl"
 msgstr "American Curl"
 
-#: breed_223_2
+#: src/dbupdate.py:1093
 msgid "American Shorthair"
 msgstr "American Shorthair"
 
-#: breed_224_2
+#: src/dbupdate.py:1094
 msgid "American Wirehair"
 msgstr "American Wirehair"
 
-#: breed_225_2
+#: src/dbupdate.py:1095
 msgid "Applehead Siamese"
 msgstr "Applehead Siamese"
 
-#: breed_226_2
+#: src/dbupdate.py:1096
 msgid "Balinese"
 msgstr "Balinese"
 
-#: breed_227_2
+#: src/dbupdate.py:1097
 msgid "Bengal"
 msgstr "Bengal"
 
-#: breed_228_2
+#: src/dbupdate.py:1098
 msgid "Birman"
 msgstr "Birman"
 
-#: breed_229_2
+#: src/dbupdate.py:1099
 msgid "Bobtail"
 msgstr "Bobtail"
 
-#: breed_230_2
+#: src/dbupdate.py:1100
 msgid "Bombay"
 msgstr "Bombay"
 
-#: breed_231_2
+#: src/dbupdate.py:1101
 msgid "British Shorthair"
 msgstr "British Shorthair (Briti lühikarvaline)"
 
-#: breed_232_2
+#: src/dbupdate.py:1102
 msgid "Burmese"
 msgstr "Birma"
 
-#: breed_233_2
+#: src/dbupdate.py:1103
 msgid "Burmilla"
 msgstr "Burmilla"
 
-#: breed_234_2
+#: src/dbupdate.py:1104
 msgid "Calico"
 msgstr "Calico"
 
-#: breed_235_2
+#: src/dbupdate.py:1105
 msgid "Canadian Hairless"
 msgstr "Canadian Hairless"
 
-#: breed_236_2
+#: src/dbupdate.py:1106
 msgid "Chartreux"
 msgstr "Chartreux"
 
-#: breed_237_2
-#: breed_325_7
-#: breed_379_10
-#: species_10
+#: src/dbupdate.py:1107 src/dbupdate.py:1158 src/dbupdate.py:1212
+#: src/dbupdate.py:1395
 msgid "Chinchilla"
 msgstr "Chinchilla"
 
-#: breed_238_2
+#: src/dbupdate.py:1108
 msgid "Cornish Rex"
 msgstr "Cornish Rex"
 
-#: breed_239_2
+#: src/dbupdate.py:1109
 msgid "Cymric"
 msgstr "Cymric"
 
-#: breed_240_2
+#: src/dbupdate.py:1110
 msgid "Devon Rex"
 msgstr "Devon Rex"
 
-#: breed_243_2
+#: src/dbupdate.py:1111
 msgid "Domestic Long Hair"
 msgstr "Kodukass pikakarvaline"
 
-#: breed_252_2
+#: src/dbupdate.py:1112
 msgid "Domestic Medium Hair"
 msgstr "Kodukass keskmise pikkusega karvaga"
 
-#: breed_261_2
+#: src/dbupdate.py:1113
 msgid "Domestic Short Hair"
 msgstr "Kodukass lühikarvaline"
 
-#: breed_271_2
+#: src/dbupdate.py:1114
 msgid "Egyptian Mau"
 msgstr "Egyptian Mau"
 
-#: breed_272_2
+#: src/dbupdate.py:1115
 msgid "Exotic Shorthair"
 msgstr "Exotic Shorthair"
 
-#: breed_273_2
+#: src/dbupdate.py:1116
 msgid "Extra-Toes Cat (Hemingway Polydactyl)"
 msgstr "Extra-Toes Cat (Hemingway Polydactyl)"
 
-#: breed_274_2
-#: breed_337_7
+#: src/dbupdate.py:1117 src/dbupdate.py:1170
 msgid "Havana"
 msgstr "Havana"
 
-#: breed_275_2
-#: breed_338_7
+#: src/dbupdate.py:1118 src/dbupdate.py:1171
 msgid "Himalayan"
 msgstr "Himalayan"
 
-#: breed_276_2
+#: src/dbupdate.py:1119
 msgid "Japanese Bobtail"
 msgstr "Japanese Bobtail"
 
-#: breed_277_2
+#: src/dbupdate.py:1120
 msgid "Javanese"
 msgstr "Javanese"
 
-#: breed_278_2
+#: src/dbupdate.py:1121
 msgid "Korat"
 msgstr "Korat"
 
-#: breed_279_2
+#: src/dbupdate.py:1122
 msgid "Maine Coon"
 msgstr "Maine Coon"
 
-#: breed_280_2
+#: src/dbupdate.py:1123
 msgid "Manx"
 msgstr "Manx"
 
-#: breed_281_2
+#: src/dbupdate.py:1124
 msgid "Munchkin"
 msgstr "Munchkin"
 
-#: breed_282_2
+#: src/dbupdate.py:1125
 msgid "Norwegian Forest Cat"
 msgstr "Norwegian Forest Cat"
 
-#: breed_283_2
+#: src/dbupdate.py:1126
 msgid "Ocicat"
 msgstr "Ocicat"
 
-#: breed_284_2
+#: src/dbupdate.py:1127
 msgid "Oriental Long Hair"
 msgstr "Oriental Long Hair"
 
-#: breed_285_2
+#: src/dbupdate.py:1128
 msgid "Oriental Short Hair"
 msgstr "Oriental Short Hair"
 
-#: breed_286_2
+#: src/dbupdate.py:1129
 msgid "Oriental Tabby"
 msgstr "Oriental Tabby"
 
-#: breed_287_2
+#: src/dbupdate.py:1130
 msgid "Persian"
 msgstr "Pärsia"
 
-#: breed_288_2
+#: src/dbupdate.py:1131
 msgid "Pixie-Bob"
 msgstr "Pixie-Bob"
 
-#: breed_289_2
+#: src/dbupdate.py:1132
 msgid "Ragamuffin"
 msgstr "Ragamuffin"
 
-#: breed_290_2
+#: src/dbupdate.py:1133
 msgid "Ragdoll"
 msgstr "Ragdoll"
 
-#: breed_291_2
+#: src/dbupdate.py:1134
 msgid "Russian Blue"
 msgstr "Russian Blue (Vene sinine)"
 
-#: breed_292_2
+#: src/dbupdate.py:1135
 msgid "Scottish Fold"
 msgstr "Scottish Fold"
 
-#: breed_293_2
+#: src/dbupdate.py:1136
 msgid "Selkirk Rex"
 msgstr "Selkirk Rex"
 
-#: breed_294_2
+#: src/dbupdate.py:1137
 msgid "Siamese"
 msgstr "Siamese (Siiam)"
 
-#: breed_295_2
+#: src/dbupdate.py:1138
 msgid "Siberian"
 msgstr "Siberian"
 
-#: breed_296_2
+#: src/dbupdate.py:1139
 msgid "Singapura"
 msgstr "Singapura"
 
-#: breed_297_2
+#: src/dbupdate.py:1140
 msgid "Snowshoe"
 msgstr "Snowshoe"
 
-#: breed_298_2
+#: src/dbupdate.py:1141
 msgid "Somali"
 msgstr "Somali"
 
-#: breed_299_2
+#: src/dbupdate.py:1142
 msgid "Sphynx (hairless cat)"
 msgstr "Sphynx (hairless cat) (Sfinks)"
 
-#: breed_307_2
+#: src/dbupdate.py:1143
 msgid "Tiger"
 msgstr "Tiger"
 
-#: breed_308_2
+#: src/dbupdate.py:1144
 msgid "Tonkinese"
 msgstr "Tonkinese"
 
-#: breed_311_2
+#: src/dbupdate.py:1145
 msgid "Turkish Angora"
 msgstr "Turkish Angora"
 
-#: breed_312_2
+#: src/dbupdate.py:1146
 msgid "Turkish Van"
 msgstr "Turkish Van"
 
-#: breed_314_7
+#: src/dbupdate.py:1147
 msgid "American"
 msgstr "American"
 
-#: breed_315_7
+#: src/dbupdate.py:1148
 msgid "American Fuzzy Lop"
 msgstr "American Fuzzy Lop"
 
-#: breed_316_7
+#: src/dbupdate.py:1149
 msgid "American Sable"
 msgstr "American Sable"
 
-#: breed_317_7
+#: src/dbupdate.py:1150
 msgid "Angora Rabbit"
 msgstr "Angora Rabbit"
 
-#: breed_318_7
+#: src/dbupdate.py:1151
 msgid "Belgian Hare"
 msgstr "Belgian Hare"
 
-#: breed_319_7
+#: src/dbupdate.py:1152
 msgid "Beveren"
 msgstr "Beveren"
 
-#: breed_320_7
+#: src/dbupdate.py:1153
 msgid "Britannia Petite"
 msgstr "Britannia Petite"
 
-#: breed_321_7
+#: src/dbupdate.py:1154
 msgid "Bunny Rabbit"
 msgstr "Bunny Rabbit (küülik)"
 
-#: breed_322_7
+#: src/dbupdate.py:1155
 msgid "Californian"
 msgstr "Californian"
 
-#: breed_323_7
+#: src/dbupdate.py:1156
 msgid "Champagne DArgent"
 msgstr "Champagne DArgent"
 
-#: breed_324_7
+#: src/dbupdate.py:1157
 msgid "Checkered Giant"
 msgstr "Checkered Giant"
 
@@ -2573,471 +2483,455 @@ msgstr "Checkered Giant"
 msgid "Crème DArgent"
 msgstr "Crème DArgent"
 
-#: breed_328_7
+#: src/dbupdate.py:1161 src/templates/options.html:106
 msgid "Dutch"
 msgstr "Dutch"
 
-#: breed_329_7
+#: src/dbupdate.py:1162
 msgid "Dwarf"
 msgstr "Dwarf"
 
-#: breed_330_7
+#: src/dbupdate.py:1163
 msgid "Dwarf Eared"
 msgstr "Dwarf Eared"
 
-#: breed_331_7
+#: src/dbupdate.py:1164
 msgid "English Lop"
 msgstr "English Lop"
 
-#: breed_332_7
+#: src/dbupdate.py:1165
 msgid "English Spot"
 msgstr "English Spot"
 
-#: breed_333_7
+#: src/dbupdate.py:1166
 msgid "Flemish Giant"
 msgstr "Flemish Giant"
 
-#: breed_334_7
+#: src/dbupdate.py:1167
 msgid "Florida White"
 msgstr "Florida White"
 
-#: breed_335_7
+#: src/dbupdate.py:1168
 msgid "French-Lop"
 msgstr "French-Lop"
 
-#: breed_336_7
+#: src/dbupdate.py:1169
 msgid "Harlequin"
 msgstr "Harlequin"
 
-#: breed_339_7
+#: src/dbupdate.py:1172
 msgid "Holland Lop"
 msgstr "Holland Lop"
 
-#: breed_340_7
+#: src/dbupdate.py:1173
 msgid "Hotot"
 msgstr "Hotot"
 
-#: breed_341_7
+#: src/dbupdate.py:1174
 msgid "Jersey Wooly"
 msgstr "Jersey Wooly"
 
-#: breed_343_7
+#: src/dbupdate.py:1176
 msgid "Lop Eared"
 msgstr "Lop Eared"
 
-#: breed_344_7
+#: src/dbupdate.py:1177
 msgid "Mini-Lop"
 msgstr "Mini-Lop"
 
-#: breed_345_7
+#: src/dbupdate.py:1178
 msgid "Mini Rex"
 msgstr "Mini Rex"
 
-#: breed_346_7
+#: src/dbupdate.py:1179
 msgid "Netherland Dwarf"
 msgstr "Netherland Dwarf"
 
-#: breed_347_7
+#: src/dbupdate.py:1180
 msgid "New Zealand"
 msgstr "New Zealand"
 
-#: breed_348_7
-#: breed_368_24
+#: src/dbupdate.py:1181 src/dbupdate.py:1201
 msgid "Palomino"
 msgstr "Palomino"
 
-#: breed_349_7
+#: src/dbupdate.py:1182 src/templates/options.html:114
 msgid "Polish"
 msgstr "Polish"
 
-#: breed_350_7
+#: src/dbupdate.py:1183
 msgid "Rex"
 msgstr "Rex"
 
-#: breed_351_7
+#: src/dbupdate.py:1184
 msgid "Rhinelander"
 msgstr "Rhinelander"
 
-#: breed_352_7
+#: src/dbupdate.py:1185
 msgid "Satin"
 msgstr "Satin"
 
-#: breed_354_7
+#: src/dbupdate.py:1187
 msgid "Silver Fox"
 msgstr "Silver Fox"
 
-#: breed_355_7
+#: src/dbupdate.py:1188
 msgid "Silver Marten"
 msgstr "Silver Marten"
 
-#: breed_357_24
+#: src/dbupdate.py:1190
 msgid "Appaloosa"
 msgstr "Appaloosa"
 
-#: breed_358_24
+#: src/dbupdate.py:1191
 msgid "Arabian"
 msgstr "Arabian"
 
-#: breed_359_24
+#: src/dbupdate.py:1192
 msgid "Clydesdale"
 msgstr "Clydesdale"
 
-#: breed_360_26
+#: src/dbupdate.py:1193
 msgid "Donkey/Mule"
 msgstr "Donkey/Mule"
 
-#: breed_361_24
+#: src/dbupdate.py:1194
 msgid "Draft"
 msgstr "Draft (Mustand)"
 
-#: breed_362_24
+#: src/dbupdate.py:1195
 msgid "Gaited"
 msgstr "Gaited"
 
-#: breed_363_24
+#: src/dbupdate.py:1196
 msgid "Grade"
 msgstr "Grade"
 
-#: breed_364_24
+#: src/dbupdate.py:1197
 msgid "Missouri Foxtrotter"
 msgstr "Missouri Foxtrotter"
 
-#: breed_365_24
+#: src/dbupdate.py:1198
 msgid "Morgan"
 msgstr "Morgan"
 
-#: breed_366_24
+#: src/dbupdate.py:1199
 msgid "Mustang"
 msgstr "Mustang"
 
-#: breed_367_24
+#: src/dbupdate.py:1200
 msgid "Paint/Pinto"
 msgstr "Paint/Pinto"
 
-#: breed_369_24
+#: src/dbupdate.py:1202
 msgid "Paso Fino"
 msgstr "Paso Fino"
 
-#: breed_370_24
+#: src/dbupdate.py:1203
 msgid "Percheron"
 msgstr "Percheron"
 
-#: breed_371_24
+#: src/dbupdate.py:1204
 msgid "Peruvian Paso"
 msgstr "Peruvian Paso"
 
-#: breed_372_25
-#: species_25
+#: src/dbupdate.py:1205 src/dbupdate.py:1410
 msgid "Pony"
 msgstr "Pony"
 
-#: breed_373_25
+#: src/dbupdate.py:1206
 msgid "Quarterhorse"
 msgstr "Quarterhorse"
 
-#: breed_374_24
+#: src/dbupdate.py:1207
 msgid "Saddlebred"
 msgstr "Saddlebred"
 
-#: breed_375_24
+#: src/dbupdate.py:1208
 msgid "Standardbred"
 msgstr "Standardbred"
 
-#: breed_376_24
+#: src/dbupdate.py:1209
 msgid "Thoroughbred"
 msgstr "Thoroughbred"
 
-#: breed_377_24
+#: src/dbupdate.py:1210
 msgid "Tennessee Walker"
 msgstr "Tennessee Walker"
 
-#: breed_378_24
+#: src/dbupdate.py:1211
 msgid "Warmblood"
 msgstr "Warmblood"
 
-#: breed_380_3
-#: species_9
+#: src/dbupdate.py:1213 src/dbupdate.py:1394
 msgid "Ferret"
 msgstr "Tuhkur"
 
-#: breed_381_18
-#: species_18
+#: src/dbupdate.py:1214 src/dbupdate.py:1403
 msgid "Gerbil"
 msgstr "Liivahiir"
 
-#: breed_382_20
-#: species_20
+#: src/dbupdate.py:1215 src/dbupdate.py:1405
 msgid "Guinea Pig"
 msgstr "Merisiga"
 
-#: breed_383_22
-#: species_22
+#: src/dbupdate.py:1216 src/dbupdate.py:1407
 msgid "Hamster"
 msgstr "Hamster"
 
-#: breed_384_6
-#: species_6
+#: src/dbupdate.py:1217 src/dbupdate.py:1391
 msgid "Hedgehog"
 msgstr "Siil"
 
-#: breed_385_4
-#: species_4
+#: src/dbupdate.py:1218 src/dbupdate.py:1389
 msgid "Mouse"
 msgstr "Hiir"
 
-#: breed_386_5
+#: src/dbupdate.py:1219
 msgid "Prairie Dog"
 msgstr "Rohtlahaukur"
 
-#: breed_387_5
-#: species_5
+#: src/dbupdate.py:1220 src/dbupdate.py:1390
 msgid "Rat"
 msgstr "Rott"
 
-#: breed_388_5
+#: src/dbupdate.py:1221
 msgid "Skunk"
 msgstr "Skunk"
 
-#: breed_389_5
+#: src/dbupdate.py:1222
 msgid "Sugar Glider"
 msgstr "Liugurkuskus"
 
-#: breed_390_28
+#: src/dbupdate.py:1223
 msgid "Pot Bellied"
 msgstr "Pot Bellied (vatsakas)"
 
-#: breed_391_28
+#: src/dbupdate.py:1224
 msgid "Vietnamese Pot Bellied"
 msgstr "Vietnamese Pot Bellied"
 
-#: breed_392_13
+#: src/dbupdate.py:1225
 msgid "Gecko"
 msgstr "Geko"
 
-#: breed_393_13
+#: src/dbupdate.py:1226
 msgid "Iguana"
 msgstr "Iguaan"
 
-#: breed_394_13
+#: src/dbupdate.py:1227
 msgid "Lizard"
 msgstr "Sisalik"
 
-#: breed_395_13
-#: species_11
+#: src/dbupdate.py:1228 src/dbupdate.py:1396
 msgid "Snake"
 msgstr "Madu"
 
-#: breed_396_13
+#: src/dbupdate.py:1229
 msgid "Turtle"
 msgstr "Kilpkonn"
 
-#: breed_397_21
+#: src/dbupdate.py:1230
 msgid "Fish"
 msgstr "Kala"
 
-#: breed_398_3
+#: src/dbupdate.py:1231
 msgid "African Grey"
 msgstr "African Grey"
 
-#: breed_399_3
+#: src/dbupdate.py:1232
 msgid "Amazon"
 msgstr "Amazon"
 
-#: breed_400_3
+#: src/dbupdate.py:1233
 msgid "Brotogeris"
 msgstr "Brotogeris"
 
-#: breed_401_3
+#: src/dbupdate.py:1234
 msgid "Budgie/Budgerigar"
 msgstr "Viirpapagoi"
 
-#: breed_402_3
+#: src/dbupdate.py:1235
 msgid "Caique"
 msgstr "Caique"
 
-#: breed_403_3
+#: src/dbupdate.py:1236
 msgid "Canary"
 msgstr "Kanaarilind"
 
-#: breed_404_3
-#: species_14
+#: src/dbupdate.py:1237 src/dbupdate.py:1399
 msgid "Chicken"
 msgstr "Kana"
 
-#: breed_405_3
-#: species_19
+#: src/dbupdate.py:1238 src/dbupdate.py:1404
 msgid "Cockatiel"
 msgstr "Cockatiel"
 
-#: breed_406_3
+#: src/dbupdate.py:1239
 msgid "Cockatoo"
 msgstr "Kakaduu"
 
-#: breed_407_3
+#: src/dbupdate.py:1240
 msgid "Conure"
 msgstr "Conure"
 
-#: breed_408_3
-#: species_8
+#: src/dbupdate.py:1241 src/dbupdate.py:1393
 msgid "Dove"
 msgstr "Tuvi"
 
-#: breed_409_3
+#: src/dbupdate.py:1242
 msgid "Duck"
 msgstr "Part"
 
-#: breed_410_3
+#: src/dbupdate.py:1243
 msgid "Eclectus"
 msgstr "Eclectus"
 
-#: breed_411_3
+#: src/dbupdate.py:1244
 msgid "Emu"
 msgstr "Emu"
 
-#: breed_412_3
+#: src/dbupdate.py:1245
 msgid "Finch"
 msgstr "Vint, leevike"
 
-#: breed_413_3
-#: species_17
+#: src/dbupdate.py:1246 src/dbupdate.py:1402
 msgid "Goose"
 msgstr "Hani"
 
-#: breed_414_3
+#: src/dbupdate.py:1247
 msgid "Guinea fowl"
 msgstr "Pärlkana"
 
-#: breed_415_3
+#: src/dbupdate.py:1248
 msgid "Kakariki"
 msgstr "Kakariki"
 
-#: breed_416_3
+#: src/dbupdate.py:1249
 msgid "Lory/Lorikeet"
 msgstr "Lory/Lorikeet"
 
-#: breed_417_3
+#: src/dbupdate.py:1250
 msgid "Lovebird"
 msgstr "Lembelind"
 
-#: breed_418_3
+#: src/dbupdate.py:1251
 msgid "Macaw"
 msgstr "Aara"
 
-#: breed_419_3
+#: src/dbupdate.py:1252
 msgid "Mynah"
 msgstr "Acridotheres maina lind"
 
-#: breed_420_3
+#: src/dbupdate.py:1253
 msgid "Ostrich"
 msgstr "Jaanalind"
 
-#: breed_421_3
+#: src/dbupdate.py:1254
 msgid "Parakeet (Other)"
 msgstr "(Väike pika sabaga) papagoi"
 
-#: breed_422_3
+#: src/dbupdate.py:1255
 msgid "Parrot (Other)"
 msgstr "Papagoi (muu)"
 
-#: breed_423_3
+#: src/dbupdate.py:1256
 msgid "Parrotlet"
 msgstr "Parrotlet"
 
-#: breed_424_3
+#: src/dbupdate.py:1257
 msgid "Peacock/Pea fowl"
 msgstr "Paabulind"
 
-#: breed_425_3
+#: src/dbupdate.py:1258
 msgid "Pheasant"
 msgstr "Faasan"
 
-#: breed_426_3
+#: src/dbupdate.py:1259
 msgid "Pigeon"
 msgstr "Tuvi"
 
-#: breed_427_3
+#: src/dbupdate.py:1260
 msgid "Pionus"
 msgstr "Pionus"
 
-#: breed_428_3
+#: src/dbupdate.py:1261
 msgid "Poicephalus/Senegal"
 msgstr "Poicephalus/Senegal (turteltuvi)"
 
-#: breed_429_3
+#: src/dbupdate.py:1262
 msgid "Quaker Parakeet"
 msgstr "Quaker Parakeet"
 
-#: breed_430_3
+#: src/dbupdate.py:1263
 msgid "Rhea"
 msgstr "Nandu"
 
-#: breed_431_3
+#: src/dbupdate.py:1264
 msgid "Ringneck/Psittacula"
 msgstr "Ringneck/Psittacula"
 
-#: breed_432_3
+#: src/dbupdate.py:1265
 msgid "Rosella"
 msgstr "Rosella"
 
-#: breed_433_3
+#: src/dbupdate.py:1266
 msgid "Softbill (Other)"
 msgstr "Softbill (Other)"
 
-#: breed_434_3
+#: src/dbupdate.py:1267
 msgid "Swan"
 msgstr "Luik"
 
-#: breed_435_3
+#: src/dbupdate.py:1268
 msgid "Toucan"
 msgstr "Tuukan"
 
-#: breed_436_3
+#: src/dbupdate.py:1269
 msgid "Turkey"
 msgstr "Türgi"
 
-#: breed_437_16
+#: src/dbupdate.py:1270
 msgid "Cow"
 msgstr "Lehm"
 
-#: breed_438_16
-#: species_16
+#: src/dbupdate.py:1271 src/dbupdate.py:1401
 msgid "Goat"
 msgstr "Kits"
 
-#: breed_439_16
+#: src/dbupdate.py:1272
 msgid "Sheep"
 msgstr "Lammas"
 
-#: breed_440_16
-#: species_27
+#: src/dbupdate.py:1273 src/dbupdate.py:1412
 msgid "Llama"
 msgstr "Laama"
 
-#: breed_441_28
+#: src/dbupdate.py:1274
 msgid "Pig (Farm)"
 msgstr "Kodusiga"
 
-#: configuration_Organisation
+#: src/dbupdate.py:730
 msgid "Organisation"
 msgstr "Organisatsioon"
 
-#: configuration_AgeGroup1Name
+#: src/dbupdate.py:772
 msgid "Baby"
 msgstr "Beebi"
 
-#: configuration_AgeGroup2Name
+#: src/dbupdate.py:774
 msgid "Young Adult"
 msgstr "Nooruk"
 
-#: configuration_AgeGroup3Name
+#: src/dbupdate.py:776
 msgid "Adult"
 msgstr "Täiskasvanu"
 
-#: configuration_AgeGroup4Name
+#: src/dbupdate.py:778
 msgid "Senior"
 msgstr "Seenior"
 
-#: costtype_1
+#: src/dbupdate.py:1275
 msgid "Board and Food"
 msgstr ""
 
@@ -3106,10 +3000,7 @@ msgstr "Detailne varjupaiga inventarinimekiri"
 msgid "Animals Not Part Of A Litter"
 msgstr "Mitte pesakonnast päris loomad"
 
-#. # reports/AnimalFigures
-#. # db/AutoDBUpdates
-#: customreport_45_category
-#: Litters
+#: src/templates/roles.html:40
 msgid "Litters"
 msgstr "Pesakonnad"
 
@@ -3119,16 +3010,8 @@ msgstr "Pesakonnad"
 msgid "In/Out"
 msgstr "Sisse/välja"
 
-#. # ui/system/Options
-#. # ui/animal/AnimalEdit
-#. # ui/owner/OwnerEdit
-#. # reports/AnimalPrint
-#. # db/AutoDBUpdates
-#: customreport_46_category
-#: customreport_47_category
-#: customreport_48_category
-#: movements
-#: Movements
+#: src/html.py:1196 src/html.py:1315 src/templates/options.html:576
+#: src/templates/roles.html:78
 msgid "Movements"
 msgstr "Liikumised"
 
@@ -3265,588 +3148,441 @@ msgstr "Loomade tagastamise põhjused"
 msgid "Owner Criteria Matching"
 msgstr "Omanike sobivuskriteerium"
 
-#: deathreason_1
+#: src/dbupdate.py:1276
 msgid "Dead On Arrival"
 msgstr "Saabudes surnud"
 
-#: deathreason_3
+#: src/dbupdate.py:1278
 msgid "Healthy"
 msgstr "Terve"
 
-#: deathreason_4
-#: entryreason_8
+#: src/dbupdate.py:1279 src/dbupdate.py:1297
 msgid "Sick/Injured"
 msgstr "Haige/vigastatud"
 
-#: deathreason_5
+#: src/dbupdate.py:1280
 msgid "Requested"
 msgstr "Soovitud"
 
-#: deathreason_6
+#: src/dbupdate.py:1281
 msgid "Culling"
 msgstr "Väljapraakimine"
 
-#: deathreason_7
+#: src/dbupdate.py:1282
 msgid "Feral"
 msgstr "Metsik"
 
-#: deathreason_8
-#: entryreason_3
+#: src/dbupdate.py:1283 src/dbupdate.py:1292
 msgid "Biting"
 msgstr "Hammustamine"
 
-#: diet_1
+#: src/dbupdate.py:1284
 msgid "Standard"
 msgstr ""
 
-#. # bo/Adoption
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # reports/InOut
-#. # reports/Retailer
-#. # db/AutoDBUpdates
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#. # reports/AnimalPrint
-#: donationtype_1
-#: Donation
-#: donation
+#: src/dbupdate.py:1285 src/templates/move_adopt.html:65
+#: src/templates/move_reserve.html:60
 msgid "Donation"
 msgstr "Annetus"
 
-#: donationtype_2
+#: src/dbupdate.py:1286
 msgid "Adoption Fee"
 msgstr "Loovutustasu"
 
-#: donationtype_3
+#: src/dbupdate.py:1287
 msgid "Waiting List Donation"
 msgstr "Ootenimekirja annetus"
 
-#: donationtype_4
+#: src/dbupdate.py:1288
 msgid "Entry Donation"
 msgstr ""
 
-#: donationtype_5
+#: src/dbupdate.py:1289
 msgid "Animal Sponsorship"
 msgstr "Looma sponsoreerimine"
 
-#: entryreason_1
+#: src/dbupdate.py:1290
 msgid "Marriage/Relationship split"
 msgstr "Abielu/kooselu lahutus"
 
-#: entryreason_2
+#: src/dbupdate.py:1291
 msgid "Allergies"
 msgstr "Allergia"
 
-#: entryreason_4
+#: src/dbupdate.py:1293
 msgid "Unable to Cope"
 msgstr "Ei saa hakkama"
 
-#: entryreason_5
+#: src/dbupdate.py:1294
 msgid "Unsuitable Accomodation"
 msgstr "Ebasobivad tingimused"
 
-#: entryreason_7
+#: src/dbupdate.py:1296
 msgid "Stray"
 msgstr "Hulkuv"
 
-#: entryreason_9
+#: src/dbupdate.py:1298
 msgid "Unable to Afford"
 msgstr "Ei jõua ülal pidada"
 
-#: entryreason_10
+#: src/dbupdate.py:1299
 msgid "Abuse"
 msgstr "Väärkohtlemine"
 
-#: entryreason_11
+#: src/dbupdate.py:1300
 msgid "Abandoned"
 msgstr "Hüljatud"
 
-#: internallocation_1
+#: src/dbupdate.py:1301
 msgid "No Locations"
 msgstr "Asukoht puudub"
 
-#. # ui/animalname/NamesEdit
-#: lksex_0
-#: Female
+#: src/dbupdate.py:1302
 msgid "Female"
 msgstr "Emane"
 
-#. # ui/animalname/NamesEdit
-#: lksex_1
-#: Male
+#: src/dbupdate.py:1303
 msgid "Male"
 msgstr "Isane"
 
-#: lksize_0
+#: src/dbupdate.py:1305
 msgid "Very Large"
 msgstr "Väga suur"
 
-#. # internet/Pets911Publisher
-#. # ui/system/ConfigureLocal
-#: lksize_1
-#: Large
+#: src/dbupdate.py:1306
 msgid "Large"
 msgstr "Suur"
 
-#. # internet/Pets911Publisher
-#: lksize_2
-#: lkurgency_3
-#: Medium
+#: src/dbupdate.py:1307 src/dbupdate.py:1378
 msgid "Medium"
 msgstr "Keskmine"
 
-#. # internet/Pets911Publisher
-#: lksize_3
-#: Small
+#: src/dbupdate.py:1308
 msgid "Small"
 msgstr "Väike"
 
-#: lkcoattype_0
+#: src/dbupdate.py:1309
 msgid "Short"
 msgstr "Lühike"
 
-#: lkcoattype_1
+#: src/dbupdate.py:1310
 msgid "Long"
 msgstr "Pikk"
 
-#: lkcoattype_2
+#: src/dbupdate.py:1311
 msgid "Rough"
 msgstr "Karm"
 
-#: lkcoattype_3
+#: src/dbupdate.py:1312
 msgid "Curly"
 msgstr "Lokkis"
 
-#: lkcoattype_4
+#: src/dbupdate.py:1313
 msgid "Corded"
 msgstr "Nöörjas (corded)"
 
-#: lkcoattype_5
+#: src/dbupdate.py:1314
 msgid "Hairless"
 msgstr "Karvutu"
 
-#: lksaccounttype_1
+#: src/dbupdate.py:1315
 msgid "Bank"
 msgstr "Pank"
 
-#: lksaccounttype_2
+#: src/dbupdate.py:1316
 msgid "Credit Card"
 msgstr "Krediitkaart"
 
-#: lksaccounttype_3
+#: src/dbupdate.py:1317
 msgid "Loan"
 msgstr "Laen"
 
-#: lksaccounttype_4
+#: src/dbupdate.py:1318
 msgid "Expense"
 msgstr "Kulu"
 
-#: lksaccounttype_5
+#: src/dbupdate.py:1319
 msgid "Income"
 msgstr "Tulu"
 
-#: lksaccounttype_6
+#: src/dbupdate.py:1320
 msgid "Pension"
 msgstr "Pension"
 
-#: lksaccounttype_7
+#: src/dbupdate.py:1321
 msgid "Shares"
 msgstr ""
 
-#: lksaccounttype_8
+#: src/dbupdate.py:1322
 msgid "Asset"
 msgstr "Vara"
 
-#: lksaccounttype_9
+#: src/dbupdate.py:1323
 msgid "Liability"
 msgstr "Kohustus"
 
-#: lksmovementtype_1
+#: src/dbupdate.py:1325
 msgid "Adoption"
 msgstr "Loovutus"
 
-#: lksmovementtype_2
+#: src/dbupdate.py:1326 src/templates/move_foster.html:49
 msgid "Foster"
 msgstr "Kasupereks hakkamine"
 
-#: lksmovementtype_3
+#: src/dbupdate.py:1327
 msgid "Transfer"
 msgstr "Ülekanne"
 
-#: lksmovementtype_5
+#: src/dbupdate.py:1329 src/templates/animal_find.html:99
 msgid "Reclaimed"
 msgstr "Tagastatud"
 
-#. # ui/animal/AnimalFind
-#. # reports/AnimalFigures
-#: lksmovementtype_7
-#: Released_To_Wild
+#: src/dbupdate.py:1331 src/templates/animal_find.html:98
 msgid "Released To Wild"
 msgstr "Vabadusse lastud"
 
-#: lksmovementtype_10
+#: src/dbupdate.py:1334 src/movement.py:41 src/movement.py:75
+#: src/movement.py:93
 msgid "Cancelled Reservation"
 msgstr "Tühistatud broneering"
 
-#. # bo/Animal
-#. # bo/AnimalName
-#. # bo/LookupCache
-#. # charts/DonationsPerSpecies
-#. # charts/AdoptionsPerSpecies
-#. # charts/CommonReasonsEntry
-#. # charts/CustomChart
-#. # ui/customreport/CustomReportEdit
-#. # ui/customreport/CustomReportExport
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalEdit
-#. # ui/animal/CostSelector
-#. # ui/animal/AnimalFindText
-#. # ui/animal/NotAdoptionView
-#. # ui/ui/Dialog
-#. # ui/ui/JDBCDlg
-#. # ui/owner/OwnerEdit
-#. # ui/owner/DonationSelector
-#. # ui/lookups/LookupView
-#. # reports/Stats
-#. # reports/AnimalPrint
-#. # reports/AnimalFigures
-#. # reports/CustomReportExecute
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # startup/Startup
-#. # utility/Utils
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/owner/DonationEdit
-#. # ui/movement/MovementSelector
-#. # ui/main/Main
-#: lksmedialink_0
-#: lksdiarylink_1
-#: lksfieldlink_0
-#: lksloglink_0
-#: animal
-#: Animal
+#: src/dbupdate.py:1335 src/dbupdate.py:1341 src/dbupdate.py:1353
+#: src/dbupdate.py:1362 src/html.py:189 src/html.py:1188 src/html.py:1455
+#: src/mobile.py:60 src/mobile.py:130 src/mobile.py:172 src/mobile.py:220
+#: src/reports.py:123 src/templates/donations.html:60
+#: src/templates/donations.html:92 src/templates/medical.html:15
+#: src/templates/medical.html:107 src/templates/medical.html:161
+#: src/templates/move_adopt.html:31 src/templates/move_foster.html:20
+#: src/templates/move_reserve.html:32 src/templates/movements.html:41
+#: src/templates/movements.html:146 src/templates/vaccination.html:16
+#: src/templates/vaccination.html:66
 msgid "Animal"
 msgstr "Loom"
 
-#: lksmedialink_1
-#: lksdiarylink_3
-#: lksloglink_2
+#: src/dbupdate.py:1336 src/dbupdate.py:1343 src/dbupdate.py:1364
 msgid "Lost Animal"
 msgstr "Kaotatud loom"
 
-#: lksmedialink_2
-#: lksdiarylink_4
-#: lksloglink_3
+#: src/dbupdate.py:1337 src/dbupdate.py:1344 src/dbupdate.py:1365
 msgid "Found Animal"
 msgstr "Leitud loom"
 
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/DiaryTaskView
-#. # ui/owner/OwnerEdit
-#. # ui/owner/DonationEdit
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/main/Main
-#. # reports/AnimalPrint
-#. # reports/ReturnedAnimals
-#: lksmedialink_3
-#: lksdiarylink_2
-#: lksfieldlink_1
-#: lksloglink_1
-#: Owner
+#: src/dbupdate.py:1338 src/dbupdate.py:1342 src/dbupdate.py:1354
+#: src/dbupdate.py:1363
 msgid "Owner"
 msgstr "Omanik"
 
-#. # ui/movement/MovementEdit
-#. # reports/AnimalPrint
-#: lksmedialink_4
-#: lksdiarylink_6
-#: lksloglink_5
-#: Movement
+#: src/dbupdate.py:1339 src/dbupdate.py:1346 src/dbupdate.py:1367
 msgid "Movement"
 msgstr "Liikumine"
 
-#. # ui/main/Main
-#. # ui/waitinglist/WaitingListView
-#. # ui/system/Options
-#: lksdiarylink_5
-#: lksloglink_4
-#: Waiting_List
-#: waiting_list
+#: src/code.py:2655 src/dbupdate.py:1345 src/dbupdate.py:1366 src/html.py:206
+#: src/templates/options.html:636 src/templates/roles.html:105
+#: src/templates/waitinglist_results.html:7
 msgid "Waiting List"
 msgstr "Ootenimekiri"
 
-#: lksdonationfreq_1
+#: src/dbupdate.py:1348
 msgid "Weekly"
 msgstr "Iganädalane"
 
-#: lksdonationfreq_2
+#: src/dbupdate.py:1349
 msgid "Monthly"
 msgstr "Igakuine"
 
-#: lksdonationfreq_3
+#: src/dbupdate.py:1350
 msgid "Quarterly"
 msgstr "Kord kvartalis"
 
-#: lksdonationfreq_4
+#: src/dbupdate.py:1351
 msgid "Half-Yearly"
 msgstr "Poole aasta tagant"
 
-#: lksdonationfreq_5
+#: src/dbupdate.py:1352
 msgid "Annually"
 msgstr "Igal aastal"
 
-#: lksfieldtype_0
+#: src/dbupdate.py:1355
 msgid "Yes/No"
 msgstr "Jah/ei"
 
-#. # reports/DiaryNotesToday
-#: lksfieldtype_1
-#: Text
+#: src/dbupdate.py:1356
 msgid "Text"
 msgstr "Tekst"
 
-#. # ui/animal/MediaSelector
-#. # ui/animal/DietSelector
-#: lksfieldtype_2
-#: Notes
+#: src/dbupdate.py:1357 src/templates/animal.html:198
+#: src/templates/animal.html:575
 msgid "Notes"
 msgstr "Märkmed"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/VoucherSelector
-#. # ui/owner/OwnerFindColumns
-#. # reports/LostFoundMatch
-#. # reports/MedicalDiary
-#: lksfieldtype_3
-#: Number
+#: src/dbupdate.py:1358 src/lostfound.py:351 src/person.py:435
+#: src/templates/lostfound.html:35 src/templates/person_vouchers.html:56
 msgid "Number"
 msgstr "Number"
 
-#. # bo/AnimalLitter
-#. # bo/Log
-#. # bo/Media
-#. # bo/OwnerDonation
-#. # ui/animal/MediaSelector
-#. # ui/animal/CostSelector
-#. # ui/animal/LitterView
-#. # ui/animal/NotAdoptionView
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/LinkSelector
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # ui/log/LogSelector
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # reports/DiaryNotesToday
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#: lksfieldtype_4
-#: Date
+#: src/animal.py:910 src/dbupdate.py:1359 src/templates/animal.html:25
+#: src/templates/animal_costs.html:23 src/templates/animal_costs.html:55
+#: src/templates/diary.html:31 src/templates/diary.html:74
+#: src/templates/log.html:27 src/templates/log.html:55
+#: src/templates/move_adopt.html:48 src/templates/move_foster.html:38
+#: src/templates/move_reserve.html:50 src/templates/movements.html:144
+#: src/templates/person.html:34 src/templates/person_links.html:9
 msgid "Date"
 msgstr "Kuupäev"
 
-#: lksfieldtype_5
+#: src/dbupdate.py:1360
 msgid "Money"
 msgstr "Raha"
 
-#: lksfieldtype_6
+#: src/dbupdate.py:1361
 msgid "Lookup"
 msgstr "Päring"
 
-#. # internet/AbstractPublisher
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/HTMLPublisher
-#. # ui/system/ConfigureAdditional
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/animal/MediaSelector
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/ui/ASMConfigForm
-#. # ui/ui/UI
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindColumns
-#. # ui/main/Logout
-#. # ui/waitinglist/WaitingListViewColumns
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # reports/InOut
-#: lksyesno_0
-#: lksynun_1
-#: No
+#: src/animal.py:989 src/animal.py:992 src/animal.py:1006 src/dbupdate.py:1368
+#: src/dbupdate.py:1371 src/i18n.py:197 src/i18n.py:201 src/i18n.py:206
+#: src/person.py:477 src/person.py:486 src/waitinglist.py:90
+#: src/wordprocessor.py:295 src/templates/publish_options.html:17
+#: src/templates/publish_options.html:24 src/templates/publish_options.html:31
+#: src/templates/publish_options.html:38 src/templates/publish_options.html:91
+#: src/templates/publish_options.html:98
+#: src/templates/publish_options.html:135
+#: src/templates/publish_options.html:142
+#: src/templates/publish_options.html:149
+#: src/templates/publish_options.html:156
+#: src/templates/publish_options.html:176
+#: src/templates/publish_options.html:220
+#: src/templates/publish_options.html:343
+#: src/templates/publish_options.html:350 src/templates/users.html:100
 msgid "No"
 msgstr "Ei"
 
-#. # internet/AbstractPublisher
-#. # internet/Pets911Publisher
-#. # internet/RescueGroupsPublisher
-#. # internet/HTMLPublisher
-#. # ui/system/ConfigureAdditional
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/animal/MediaSelector
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/ui/ASMConfigForm
-#. # ui/ui/UI
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindColumns
-#. # ui/account/TrxView
-#. # ui/main/Logout
-#. # ui/waitinglist/WaitingListViewColumns
-#. # wordprocessor/GenerateDocument
-#. # wordprocessor/AnimalDocument
-#. # wordprocessor/OwnerDocument
-#. # wordprocessor/OwnerDonationDocument
-#. # reports/Report
-#. # reports/OwnerCriteriaSearch
-#. # reports/InOut
-#. # db/AutoDBUpdates
-#: lksyesno_1
-#: lksynun_0
-#: Yes
+#: src/animal.py:988 src/animal.py:993 src/animal.py:1004 src/dbupdate.py:1369
+#: src/dbupdate.py:1370 src/i18n.py:195 src/i18n.py:200 src/i18n.py:205
+#: src/person.py:478 src/person.py:484 src/waitinglist.py:91
+#: src/wordprocessor.py:295 src/templates/publish_options.html:18
+#: src/templates/publish_options.html:25 src/templates/publish_options.html:32
+#: src/templates/publish_options.html:39 src/templates/publish_options.html:92
+#: src/templates/publish_options.html:99
+#: src/templates/publish_options.html:136
+#: src/templates/publish_options.html:143
+#: src/templates/publish_options.html:150
+#: src/templates/publish_options.html:157
+#: src/templates/publish_options.html:177
+#: src/templates/publish_options.html:221
+#: src/templates/publish_options.html:344
+#: src/templates/publish_options.html:351 src/templates/users.html:100
 msgid "Yes"
 msgstr "Jah"
 
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/owner/OwnerFindColumns
-#. # ui/waitinglist/WaitingListViewColumns
-#. # wordprocessor/GenerateDocument
-#. # reports/Report
-#: lksposneg_1
-#: Negative
+#: src/dbupdate.py:1374
 msgid "Negative"
 msgstr "Negatiivne"
 
-#. # ui/animal/AnimalEdit
-#. # wordprocessor/GenerateDocument
-#. # reports/Report
-#: lksposneg_2
-#: Positive
+#: src/dbupdate.py:1375
 msgid "Positive"
 msgstr "Positiivne"
 
-#. # bo/AnimalWaitingList
-#: lkurgency_1
-#: Urgent
+#: src/dbupdate.py:1376
 msgid "Urgent"
 msgstr "Kiireloomuline"
 
-#: lkurgency_2
+#: src/dbupdate.py:1377
 msgid "High"
 msgstr "Kõrge"
 
-#: lkurgency_4
+#: src/dbupdate.py:1379
 msgid "Low"
 msgstr "Madal"
 
-#: lkurgency_5
+#: src/dbupdate.py:1380
 msgid "Lowest"
 msgstr "Madalaim"
 
-#: logtype_1
+#: src/dbupdate.py:1381
 msgid "Bite"
 msgstr "Hammustus/hammustama"
 
-#: logtype_2
+#: src/dbupdate.py:1382
 msgid "Complaint"
 msgstr "Kaebus"
 
-#: logtype_3
+#: src/dbupdate.py:1383
 msgid "History"
 msgstr "Ajalugu"
 
-#: logtype_4
+#: src/dbupdate.py:1384
 msgid "Weight"
 msgstr "Kaal"
 
-#: species_3
+#: src/dbupdate.py:1388
 msgid "Bird"
 msgstr "Lind"
 
-#: species_7
+#: src/dbupdate.py:1392
 msgid "Rabbit"
 msgstr "Jänes"
 
-#: species_12
+#: src/dbupdate.py:1397
 msgid "Tortoise"
 msgstr "Kilpkonn"
 
-#: species_13
+#: src/dbupdate.py:1398
 msgid "Terrapin"
 msgstr "Lamekilpkonn"
 
-#: species_15
+#: src/dbupdate.py:1400
 msgid "Owl"
 msgstr "Kakk"
 
-#: species_21
+#: src/dbupdate.py:1406
 msgid "Goldfish"
 msgstr "Kuldkala"
 
-#: species_23
+#: src/dbupdate.py:1408
 msgid "Camel"
 msgstr "Kaamel"
 
-#: species_24
+#: src/dbupdate.py:1409
 msgid "Horse"
 msgstr "Hobune"
 
-#: species_26
+#: src/dbupdate.py:1411
 msgid "Donkey"
 msgstr "Eesel"
 
-#: species_28
+#: src/dbupdate.py:1413
 msgid "Pig"
 msgstr "Siga"
 
-#: voucher_1
+#: src/dbupdate.py:1414
 msgid "Neuter/Spay"
 msgstr "Steriliseerima/kastreerima"
 
-#: vaccinationtype_1
+#: src/dbupdate.py:1415
 msgid "Temporary Vaccination"
 msgstr "Tähtajaline vaktsineerimine"
 
-#: vaccinationtype_2
+#: src/dbupdate.py:1416
 msgid "First Vaccination"
 msgstr "Esimene vaktsineerimine"
 
-#: vaccinationtype_3
+#: src/dbupdate.py:1417
 msgid "Second Vaccination"
 msgstr "Teine vaktsineerimine"
 
-#: vaccinationtype_4
+#: src/dbupdate.py:1418
 msgid "Booster"
 msgstr "Booster"
 
-#: vaccinationtype_5
+#: src/dbupdate.py:1419
 msgid "Leukaemia"
 msgstr "Leukeemia"
 
-#: vaccinationtype_6
+#: src/dbupdate.py:1420
 msgid "Kennel Cough"
 msgstr "Kennelköha"
 
-#: vaccinationtype_7
+#: src/dbupdate.py:1421
 msgid "Parvovirus"
 msgstr "Parvoviirus"
 
@@ -3967,6 +3703,7 @@ msgstr "Kasutaja:"
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #. # bo/Users
 #. # ui/login/Login
 #. # ui/system/Options
@@ -4238,65 +3975,31 @@ msgstr "Loen andmed, palun oota..."
 msgid "Colour"
 msgstr "Värv"
 
-#. # ui/animal/AnimalFindColumns
-#. # ui/internet/PetFinderMapBreed
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/lookups/BreedSpeciesMapping
-#. # reports/OwnerCriteriaSearch
-#: Breed
+#: src/animal.py:899 src/templates/animal.html:147
+#: src/templates/animal_find.html:62 src/templates/animal_new.html:96
+#: src/templates/lostfound.html:89 src/templates/lostfound_new.html:70
+#: src/templates/person.html:375
 msgid "Breed"
 msgstr "Tõug"
 
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/LitterView
-#. # ui/animal/NotAdoptionView
-#. # ui/internet/PetFinderMapSpecies
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/lookups/LookupView
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/main/Main
-#. # ui/waitinglist/WaitingListViewColumns
-#. # reports/TransferIn
-#. # reports/LongTermAnimals
-#. # reports/AnimalReturnedPreSix
-#. # reports/OwnerCriteriaSearch
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/CustomReportExecute
-#. # reports/AnimalReturnedPostSix
-#: Species
+#: src/animal.py:898 src/html.py:1475 src/reports.py:127 src/waitinglist.py:47
+#: src/templates/animal.html:142 src/templates/animal_find.html:56
+#: src/templates/animal_new.html:87 src/templates/lostfound.html:80
+#: src/templates/lostfound_new.html:61 src/templates/person.html:368
+#: src/templates/waitinglist.html:33 src/templates/waitinglist_new.html:11
+#: src/templates/waitinglist_results.html:31
 msgid "Species"
 msgstr "Liik"
 
-#. # ui/animal/AnimalFindColumns
-#. # wordprocessor/AnimalDocument
-#. # reports/UnCombiTestedCats
-#. # reports/OwnerCriteriaSearch
-#. # reports/InOut
-#. # reports/Vets
-#: Age
+#: src/animal.py:905 src/animal.py:906
 msgid "Age"
 msgstr "Vanus"
 
-#. # bo/Animal
-#. # ui/animal/AnimalFindColumns
-#. # wordprocessor/AnimalDocument
-#: Markings
+#: src/mobile.py:440 src/templates/animal.html:210
 msgid "Markings"
 msgstr "Märgistus"
 
-#. # bo/Animal
-#. # ui/animal/AnimalFindColumns
-#. # wordprocessor/AnimalDocument
-#: Neutered
+#: src/mobile.py:463
 msgid "Neutered"
 msgstr "Kastreeritud"
 
@@ -4306,78 +4009,30 @@ msgstr "Kastreeritud"
 msgid "Adoption Date"
 msgstr "Loovutamise kuupäev"
 
-#. # bo/AnimalLost
-#. # bo/Animal
-#. # bo/AnimalName
-#. # bo/LookupCache
-#. # bo/AnimalFound
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/AnimalAddMultiple
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/animalname/NamesView
-#. # wordprocessor/AnimalDocument
-#. # reports/OwnerCriteriaSearch
-#. # reports/InOut
-#: Sex
+#: src/animal.py:908 src/templates/animal.html:105
+#: src/templates/animal_find.html:70 src/templates/animal_new.html:70
+#: src/templates/lostfound.html:71 src/templates/lostfound_new.html:52
+#: src/templates/person.html:347
 msgid "Sex"
 msgstr "Sugu"
 
-#. # reports/TransferIn
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPreSix
-#. # reports/UnCombiTestedCats
-#. # reports/NotMicroChipped
-#. # reports/UnneuteredSixMonths
-#. # reports/UnderSixNotLitter
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/NoMediaAttached
-#. # reports/AnimalReturnedPostSix
-#. # reports/VaccinationDiary
-#. # reports/Retailer
-#: Animal_Name
+#: src/templates/publish_options.html:107
 msgid "Animal Name"
 msgstr "Looma nimi"
 
-#. # bo/DiaryTaskHead
-#. # bo/Animal
-#. # bo/AnimalName
-#. # ui/animal/VaccinationView
-#. # ui/animal/MediaSelector
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/NotAdoptionView
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryTaskView
-#. # ui/owner/OwnerCheck
-#. # ui/movement/MovementView
-#. # ui/animalname/NamesView
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # reports/Stats
-#. # reports/ShelterInventory
-#. # reports/OwnerSearchResults
-#. # reports/AnimalPrint
-#. # reports/OwnerCriteriaSearch
-#. # reports/Vets
-#. # reports/WaitingList
-#. # db/AutoDBUpdates
-#: Name
+#: src/animal.py:896 src/person.py:419 src/waitinglist.py:49
+#: src/templates/animal.html:94 src/templates/animal_find.html:30
+#: src/templates/animal_medical.html:15 src/templates/animal_medical.html:101
+#: src/templates/animal_medical.html:144 src/templates/animal_new.html:21
+#: src/templates/medical.html:21 src/templates/medical.html:111
+#: src/templates/medical.html:160 src/templates/roles.html:23
+#: src/templates/roles.html:167
 msgid "Name"
 msgstr "Nimi"
 
-#. # bo/CustomReport
-#. # ui/customreport/CustomReportView
-#. # ui/customreport/GetReports
-#. # ui/customreport/CustomReportExport
-#: Title
+#: src/html.py:875 src/person.py:415 src/templates/person.html:68
+#: src/templates/person_embed.html:74 src/templates/person_new.html:7
+#: src/templates/reports.html:61 src/templates/reports.html:118
 msgid "Title"
 msgstr "Pealkiri"
 
@@ -4453,15 +4108,9 @@ msgstr "ID"
 #. # ui/lostandfound/FoundAnimalFind
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
-#. # reports/OwnerSearchResults
 #: Postcode
 msgid "Postcode"
 msgstr "Indeks"
-
-#. # reports/OwnerSearchResults
-#: Surname
-msgid "Surname"
-msgstr "Perekonnanimi"
 
 #. # mailmerge/MailMerge
 #: how_to_merge
@@ -4488,25 +4137,12 @@ msgstr "Saada masspostitus"
 msgid "Bulk Email Complete"
 msgstr "Masspostitus valmis"
 
-#. # ui/owner/OwnerCheck
-#. # ui/movement/MovementSelector
-#. # ui/waitinglist/WaitingListViewColumns
-#. # reports/OwnerSearchResults
-#. # reports/WaitingList
-#. # db/AutoDBUpdates
-#: Address
+#: src/dbupdate.py:731 src/person.py:420 src/waitinglist.py:50
+#: src/templates/movements.html:149 src/templates/options.html:19
+#: src/templates/person.html:131 src/templates/person_embed.html:90
+#: src/templates/person_new.html:23
 msgid "Address"
 msgstr "Aadress"
-
-#. # reports/OwnerSearchResults
-#: Town
-msgid "Town"
-msgstr "Linn"
-
-#. # reports/OwnerSearchResults
-#: County
-msgid "County"
-msgstr "Maakond"
 
 #. # mailmerge/MailMerge
 #: error_occurred_sending_mail_to
@@ -4573,41 +4209,7 @@ msgstr "Sisse/välja aruanne"
 msgid "In/Out Summary Report"
 msgstr "Sisse/välja summaarne aruanne"
 
-#. # ui/system/ConfigureLocal
-#. # ui/system/FileTypeEdit
-#. # ui/system/ConfigureLookups
-#. # ui/system/AdditionalFieldEdit
-#. # ui/system/ConfigureDatabase
-#. # ui/animal/DietEdit
-#. # ui/animal/VaccinationEdit
-#. # ui/animal/MediaEdit
-#. # ui/animal/CostEdit
-#. # ui/animal/LitterEdit
-#. # ui/animal/MediaAdd
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiaryTaskExecute
-#. # ui/diary/DiaryTaskDetailEdit
-#. # ui/criteria/DiaryCriteria
-#. # ui/criteria/DateFromTo
-#. # ui/ui/InputListDialog
-#. # ui/ui/DateInputDlg
-#. # ui/ui/InputTextDialog
-#. # ui/ui/LocaleDialog
-#. # ui/ui/JDBCDlg
-#. # ui/ui/UI
-#. # ui/owner/VoucherEdit
-#. # ui/lookups/LookupEdit
-#. # ui/animalname/NamesEdit
-#. # ui/main/Logout
-#. # ui/main/ChangePassword
-#. # ui/log/LogEdit
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#. # ui/users/UserEdit
-#. # ui/internet/EmailForm
-#. # ui/owner/DonationEdit
-#: Cancel
-#: cancel
+#: src/i18n.py:320
 msgid "Cancel"
 msgstr "Loobu"
 
@@ -4636,14 +4238,8 @@ msgstr "Kaotatud/leitud sobivuste aruanne"
 msgid "Animal Species"
 msgstr "Loomaliigid"
 
-#. # bo/AnimalWaitingList
-#. # bo/LookupCache
-#. # ui/system/Options
-#. # ui/waitinglist/WaitingListViewColumns
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#. # reports/WaitingList
-#: Urgency
+#: src/waitinglist.py:61 src/templates/waitinglist.html:75
+#: src/templates/waitinglist_new.html:51
 msgid "Urgency"
 msgstr "Pakiline vajadus"
 
@@ -4653,9 +4249,8 @@ msgstr "Pakiline vajadus"
 msgid "Date Removed"
 msgstr "Eemaldamise kuupäev"
 
-#. # reports/WaitingList
-#. # db/AutoDBUpdates
-#: Telephone
+#: src/dbupdate.py:732 src/templates/options.html:23
+#: src/templates/options.html:27
 msgid "Telephone"
 msgstr "Telefon"
 
@@ -4664,8 +4259,7 @@ msgstr "Telefon"
 msgid "Waiting List (generated on {0}) "
 msgstr "Ootenimekiri (loodud {0}) "
 
-#. # reports/WaitingList
-#: Date_Put_On
+#: src/waitinglist.py:48
 msgid "Date Put On"
 msgstr "Date Put On"
 
@@ -4684,10 +4278,9 @@ msgstr "Mitte ükski päevik või vaktsineerimine ei sobinud kriteeriumitega."
 msgid "Vet Diary between {0} and {1}"
 msgstr "Veterinaarpäevik vahemikus {0} ja {1}"
 
-#. # ui/animal/VaccinationView
-#. # ui/diary/VetBookView
-#. # reports/Vets
-#: Location
+#: src/animal.py:938 src/html.py:1176 src/html.py:1485 src/mobile.py:433
+#: src/reports.py:129 src/templates/animal.html:158
+#: src/templates/animal_find.html:86
 msgid "Location"
 msgstr "Asukoht"
 
@@ -4696,25 +4289,11 @@ msgstr "Asukoht"
 msgid "Vet Diary upto {0} "
 msgstr "Veterinaarpäevik kuni {0} "
 
-#. # bo/Account
-#. # bo/CustomReport
-#. # bo/AnimalCost
-#. # bo/AccountTrx
-#. # ui/customreport/GetReports
-#. # ui/localcache/CacheView
-#. # ui/animal/CostSelector
-#. # ui/animal/DietSelector
-#. # ui/internet/PetFinderMapSpecies
-#. # ui/internet/PetFinderMapBreed
-#. # ui/lookups/BreedSpeciesMapping
-#. # ui/account/AccountView
-#. # ui/account/AccountEdit
-#. # ui/account/TrxEdit
-#. # ui/account/TrxView
-#. # reports/AnimalPrint
-#. # reports/LostFoundMatch
-#. # reports/Vets
-#: Description
+#: src/html.py:875 src/lostfound.py:346 src/waitinglist.py:58
+#: src/templates/animal_costs.html:31 src/templates/animal_costs.html:57
+#: src/templates/animal_diet.html:45 src/templates/reports.html:67
+#: src/templates/reports.html:119 src/templates/waitinglist.html:50
+#: src/templates/waitinglist_new.html:28
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -4839,19 +4418,18 @@ msgstr "Lisan mitmenädalased ja vanemad kassid?"
 msgid "10 weeks"
 msgstr "10 nädalat"
 
-#. # reports/UnCombiTestedCats
-#: 4_weeks
+#: src/templates/publish_options.html:47
+#: src/templates/publish_options.html:165
 msgid "4 weeks"
 msgstr "4 nädalat"
 
-#. # reports/UnCombiTestedCats
-#: 8_weeks
+#: src/templates/publish_options.html:48
+#: src/templates/publish_options.html:166
 msgid "8 weeks"
 msgstr "8 nädalat"
 
-#. # ui/internet/InternetPublisher
-#. # reports/UnCombiTestedCats
-#: 1_week
+#: src/templates/publish_options.html:45
+#: src/templates/publish_options.html:163
 msgid "1 week"
 msgstr "1 nädal"
 
@@ -4865,8 +4443,8 @@ msgstr "16 nädalat"
 msgid "No cats matching your criteria were found on the shelter."
 msgstr "Sinu kriteeriumitele vastavaid kasse ei leitud varjupaigast."
 
-#. # reports/UnCombiTestedCats
-#: 2_weeks
+#: src/templates/publish_options.html:46
+#: src/templates/publish_options.html:164
 msgid "2 weeks"
 msgstr "2 nädalat"
 
@@ -4950,10 +4528,7 @@ msgstr "Tühjad indeksid"
 msgid "Total "
 msgstr "Kokku "
 
-#. # ui/waitinglist/WaitingListViewColumns
-#. # reports/Stats
-#. # reports/WaitingList
-#: Rank
+#: src/html.py:1063 src/waitinglist.py:46
 msgid "Rank"
 msgstr "Koht"
 
@@ -4962,9 +4537,7 @@ msgstr "Koht"
 msgid "Deceased Reasons"
 msgstr "Suremise põhjused"
 
-#. # reports/Stats
-#. # reports/InOut
-#: Reason
+#: src/html.py:1065 src/waitinglist.py:59 src/templates/movements.html:122
 msgid "Reason"
 msgstr "Põhjus"
 
@@ -5083,29 +4656,16 @@ msgstr "Sissetuleku viis"
 msgid "Animal Search Results (generated on {0}) "
 msgstr "Looma otsingu tulemused (genereeritud {0}) "
 
-#. # ui/animal/AnimalFindColumns
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # reports/Vets
-#: Features
+#: src/animal.py:901 src/templates/animal_find.html:141
+#: src/templates/lostfound.html:108 src/templates/lostfound_new.html:89
 msgid "Features"
 msgstr "Omadused"
 
-#. # reports/NeverVaccinated
-#. # reports/UnCombiTestedCats
-#. # reports/NotMicroChipped
-#. # reports/UnneuteredSixMonths
-#. # reports/UnderSixNotLitter
-#. # reports/NoMediaAttached
-#. # reports/CustomReportExecute
-#: Internal_Location
+#: src/templates/animal_find.html:109 src/templates/animal_new.html:127
 msgid "Internal Location"
 msgstr "Sisemine asukoht"
 
-#. # ui/animal/AnimalFindColumns
-#. # reports/TransferIn
-#. # reports/InOut
-#: Date_Brought_In
+#: src/mobile.py:454 src/templates/animal.html:333
 msgid "Date Brought In"
 msgstr "Toomise kuupäev"
 
@@ -5115,17 +4675,9 @@ msgstr "Toomise kuupäev"
 msgid "Microchip No"
 msgstr ""
 
-#. # bo/Animal
-#. # bo/LookupCache
-#. # ui/system/Options
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindColumns
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # wordprocessor/AnimalDocument
-#. # reports/OwnerCriteriaSearch
-#: Size
+#: src/animal.py:939 src/mobile.py:436 src/templates/animal.html:137
+#: src/templates/animal_find.html:115 src/templates/animal_new.html:136
+#: src/templates/person.html:354
 msgid "Size"
 msgstr "Suurus"
 
@@ -5228,30 +4780,27 @@ msgstr "Kadunud/leitud loomade sobivusaruanne {0} "
 msgid "Percentage Match"
 msgstr "Sobivusprotsent"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # reports/LostFoundMatch
-#: Contact
+#: src/lostfound.py:350 src/templates/lostfound.html:164
+#: src/templates/lostfound_new.html:129 src/templates/waitinglist.html:88
+#: src/templates/waitinglist_new.html:64
 msgid "Contact"
 msgstr "Kontakt"
 
-#. # reports/LostFoundMatch
-#: Area_Found
+#: src/lostfound.py:347 src/templates/lostfound.html:123
+#: src/templates/lostfound_new.html:110
 msgid "Area Found"
 msgstr "Leidmise piirkond"
 
-#. # reports/LostFoundMatch
-#: Date_Found
+#: src/html.py:947 src/lostfound.py:349 src/templates/lostfound.html:49
+#: src/templates/lostfound.html:143 src/templates/lostfound_new.html:30
 msgid "Date Found"
 msgstr "Leidmise kuupäev"
 
-#. # reports/LostFoundMatch
-#: Area_Postcode
+#: src/lostfound.py:348
 msgid "Area Postcode"
 msgstr "Piirkonna indeks"
 
-#. # reports/LostFoundMatch
-#: No_matches_found.
+#: src/lostfound.py:367
 msgid "No matches found."
 msgstr "Vastavusi ei leitud."
 
@@ -5390,9 +4939,7 @@ msgstr "Vanale omanikule tagasi andmise kuupäev"
 msgid "Returned Date"
 msgstr "Tagasitoomise kuupäev"
 
-#. # reports/TransferIn
-#. # reports/InOut
-#: Brought_In_By
+#: src/mobile.py:453 src/person.py:155 src/templates/animal.html:317
 msgid "Brought In By"
 msgstr "Looma tooja"
 
@@ -5523,15 +5070,7 @@ msgstr "Põgenenud loomi kokku: {0}"
 msgid "Animals Died On The Shelter"
 msgstr "Varjupaigas surnud loomad"
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
-#. # ui/diary/DiarySelector
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/VetBookView
-#. # reports/AnimalPrint
-#. # reports/Vets
-#. # reports/DiaryNotesToday
-#: Subject
+#: src/mobile.py:256 src/templates/diary.html:43 src/templates/diary.html:79
 msgid "Subject"
 msgstr "Teema"
 
@@ -5540,8 +5079,7 @@ msgstr "Teema"
 msgid "No diary notes match your criteria."
 msgstr "Kriteeriumitega ei sobinud ükski päeviku sissekanne."
 
-#. # reports/DiaryNotesToday
-#: Diary_for_
+#: src/templates/main.html:43
 msgid "Diary for {0}"
 msgstr "Päevik {0}"
 
@@ -5571,35 +5109,8 @@ msgstr "Kuue kuu jooksul loovutusest tagastatud loomad {0} "
 msgid "No animals have been returned within 6 months of adoption."
 msgstr "Kuue kuu jooksul alates loovutusest pole ühtegi looma tagastatud."
 
-#. # bo/Account
-#. # ui/system/Options
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/NotAdoptionView
-#. # ui/movement/MovementView
-#. # ui/movement/MovementSelector
-#. # ui/account/AccountView
-#. # ui/account/AccountEdit
-#. # ui/account/TrxEdit
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # reports/TransferIn
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPreSix
-#. # reports/UnCombiTestedCats
-#. # reports/NotMicroChipped
-#. # reports/ShelterInventory
-#. # reports/UnneuteredSixMonths
-#. # reports/UnderSixNotLitter
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/NoMediaAttached
-#. # reports/Vets
-#. # reports/AnimalReturnedPostSix
-#. # reports/VaccinationDiary
-#. # reports/Retailer
-#: Code
+#: src/animal.py:902 src/templates/animal.html:73
+#: src/templates/animal_find.html:36
 msgid "Code"
 msgstr "Kood"
 
@@ -5644,41 +5155,22 @@ msgstr "Failis ei ole loovutusi."
 msgid "Internal Loc"
 msgstr "Asukoht"
 
-#. # ui/customreport/CustomReportView
-#. # ui/customreport/GetReports
-#. # ui/animal/VaccinationView
-#. # ui/animal/CostSelector
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/NotAdoptionView
-#. # ui/diary/DiaryTaskView
-#. # ui/diary/VetBookView
-#. # ui/movement/MovementView
-#. # ui/account/AccountView
-#. # ui/account/AccountEdit
-#. # ui/log/LogSelector
-#. # reports/TransferIn
-#. # reports/LongTermAnimals
-#. # reports/NeverVaccinated
-#. # reports/AnimalReturnedPreSix
-#. # reports/UnCombiTestedCats
-#. # reports/NotMicroChipped
-#. # reports/ShelterInventory
-#. # reports/AnimalPrint
-#. # reports/UnneuteredSixMonths
-#. # reports/UnderSixNotLitter
-#. # reports/InOut
-#. # reports/MedicalDiary
-#. # reports/NoMediaAttached
-#. # reports/Vets
-#. # reports/AnimalReturnedPostSix
-#. # reports/VaccinationDiary
-#. # ui/owner/OwnerEdit
-#. # ui/owner/DonationSelector
-#. # ui/owner/OwnerFindColumns
-#. # ui/owner/DonationEdit
-#: Type
-#: type
+#: src/animal.py:895 src/html.py:875 src/html.py:1495 src/mobile.py:432
+#: src/reports.py:131 src/templates/animal.html:110
+#: src/templates/animal_costs.html:16 src/templates/animal_costs.html:54
+#: src/templates/animal_diet.html:16 src/templates/animal_diet.html:44
+#: src/templates/animal_find.html:50 src/templates/animal_new.html:79
+#: src/templates/animal_vaccination.html:16
+#: src/templates/animal_vaccination.html:53
+#: src/templates/donation_receive.html:33 src/templates/donations.html:19
+#: src/templates/donations.html:84 src/templates/log.html:20
+#: src/templates/log.html:53 src/templates/move_adopt.html:69
+#: src/templates/move_reserve.html:65 src/templates/movements.html:143
+#: src/templates/person.html:175 src/templates/person.html:361
+#: src/templates/person_links.html:8 src/templates/person_vouchers.html:17
+#: src/templates/person_vouchers.html:55 src/templates/reports.html:41
+#: src/templates/reports.html:116 src/templates/users.html:28
+#: src/templates/vaccination.html:22 src/templates/vaccination.html:65
 msgid "Type"
 msgstr "Tüüp"
 
@@ -5707,8 +5199,7 @@ msgstr "aprill"
 msgid "To Fostering"
 msgstr "Kasuperesse"
 
-#. # ui/system/ConfigureLookups
-#: Cats
+#: src/mobile.py:445
 msgid "Cats"
 msgstr "Kassid"
 
@@ -5740,10 +5231,7 @@ msgstr "Kokku:"
 msgid "Which year is this report for?"
 msgstr "Millise aasta kohta see aruanne käib?"
 
-#. # ui/movement/MovementSelector
-#. # reports/AnimalPrint
-#. # reports/AnimalFigures
-#: Returned
+#: src/templates/lostfound.html:150 src/templates/movements.html:145
 msgid "Returned"
 msgstr "Tagastatud"
 
@@ -5757,8 +5245,7 @@ msgstr "Üleviidud"
 msgid "Avg"
 msgstr "Keskm"
 
-#. # ui/system/ConfigureLookups
-#: Dogs
+#: src/mobile.py:446
 msgid "Dogs"
 msgstr "Koerad"
 
@@ -5973,20 +5460,7 @@ msgstr ""
 "Internal reports cannot be redirected to stdout. Please select a custom "
 "report."
 
-#. # ui/animal/DietSelector
-#. # reports/CustomReportExecute
-#. # bo/Animal
-#. # bo/LookupCache
-#. # ui/customreport/CustomReportEdit
-#. # ui/animal/AnimalEdit
-#. # ui/ui/Dialog
-#. # ui/lookups/LookupView
-#. # reports/AnimalPrint
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#: Diet
-#: diet
+#: src/html.py:1191
 msgid "Diet"
 msgstr "Dieet"
 
@@ -6020,13 +5494,9 @@ msgstr "Dieet vahemikus {0} ja {1}"
 msgid "Treatment Type"
 msgstr "Ravi tüüp"
 
-#. # bo/MedicalProfile
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/ProfileView
-#. # reports/MedicalDiary
-#: Dosage
+#: src/templates/animal_medical.html:19 src/templates/animal_medical.html:105
+#: src/templates/animal_medical.html:145 src/templates/medical.html:25
+#: src/templates/medical.html:115 src/templates/medical.html:162
 msgid "Dosage"
 msgstr "Doos"
 
@@ -6040,8 +5510,7 @@ msgstr "Rezhiimi kommentaarid"
 msgid "N/A"
 msgstr "N/A (puudub)"
 
-#. # reports/LostFoundMatch
-#: Reference
+#: src/lostfound.py:345
 msgid "Reference"
 msgstr "Viide"
 
@@ -6078,82 +5547,40 @@ msgstr "Mitte ühtegi vastavust omaniku kriteeriumitele."
 msgid "Shelter Code"
 msgstr "Varjupaiga kood"
 
-#. # wordprocessor/AnimalDocument
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: GoodWithCats
-#: Good_with_cats
+#: src/templates/animal.html:244 src/templates/animal_find.html:232
+#: src/templates/person.html:397
 msgid "Good with cats"
 msgstr "Sobib kassidega"
 
-#. # wordprocessor/AnimalDocument
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: GoodWithDogs
-#: Good_with_dogs
+#: src/templates/animal.html:254 src/templates/animal_find.html:233
+#: src/templates/person.html:404
 msgid "Good with dogs"
 msgstr "Sobib koertega"
 
-#. # wordprocessor/AnimalDocument
-#. # reports/OwnerCriteriaSearch
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: GoodWithChildren
-#: Good_with_kids
-#: Good_with_children
+#: src/templates/animal_find.html:231 src/templates/person.html:411
 msgid "Good with children"
 msgstr "Sobib lastega"
 
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # reports/OwnerCriteriaSearch
-#: Housetrained
+#: src/animal.py:935 src/mobile.py:449 src/templates/animal.html:274
+#: src/templates/animal_find.html:234 src/templates/person.html:418
 msgid "Housetrained"
 msgstr "Puhtust pidav"
 
-#. # bo/MedicalProfile
-#. # bo/Owner
-#. # bo/Adoption
-#. # bo/AnimalLitter
-#. # bo/AnimalLost
-#. # bo/Log
-#. # bo/AnimalWaitingList
-#. # bo/OwnerVoucher
-#. # bo/AnimalMedicalTreatment
-#. # bo/AnimalMedical
-#. # bo/AnimalDiet
-#. # bo/AnimalVaccination
-#. # bo/AnimalFound
-#. # bo/OwnerDonation
-#. # ui/animal/VaccinationView
-#. # ui/animal/AnimalFindColumns
-#. # ui/animal/VaccinationSelector
-#. # ui/animal/LitterView
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/waitinglist/WaitingListViewColumns
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalEdit
-#. # ui/medical/ProfileView
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#. # reports/OwnerCriteriaSearch
-#. # reports/MedicalDiary
-#. # reports/VaccinationDiary
-#. # db/AutoDBUpdates
-#. # ui/owner/VoucherSelector
-#. # ui/owner/DonationSelector
-#. # ui/owner/DonationEdit
-#. # reports/AnimalPrint
-#: Comments
-#: comments
+#: src/animal.py:924 src/html.py:986 src/mobile.py:134 src/mobile.py:176
+#: src/mobile.py:300 src/mobile.py:442 src/person.py:429 src/waitinglist.py:64
+#: src/templates/animal.html:228 src/templates/animal_diet.html:27
+#: src/templates/animal_diet.html:47 src/templates/animal_medical.html:86
+#: src/templates/animal_medical.html:126 src/templates/animal_medical.html:154
+#: src/templates/animal_vaccination.html:35
+#: src/templates/animal_vaccination.html:57 src/templates/donations.html:66
+#: src/templates/donations.html:93 src/templates/lostfound.html:157
+#: src/templates/lostfound_new.html:122 src/templates/media.html:25
+#: src/templates/medical.html:92 src/templates/medical.html:136
+#: src/templates/medical.html:171 src/templates/movements.html:103
+#: src/templates/person.html:237 src/templates/person_vouchers.html:38
+#: src/templates/person_vouchers.html:60 src/templates/vaccination.html:41
+#: src/templates/vaccination.html:70 src/templates/waitinglist.html:81
+#: src/templates/waitinglist_new.html:57
 msgid "Comments"
 msgstr "Kommentaarid"
 
@@ -6192,8 +5619,7 @@ msgstr ""
 msgid "Filter Matches?"
 msgstr "Filtreerin sobivad?"
 
-#. # reports/LostFoundMatch
-#: lostfound_match_detail
+#: src/lostfound.py:340
 msgid ""
 "{0} - {1} {2} ({3}), contact {4} ({5}) - lost in {6}, postcode {7}, on {8}"
 msgstr ""
@@ -6246,10 +5672,7 @@ msgstr "Looma üksikasjad {0} - {1} kohas {2}"
 msgid "Graphs cannot be sent to stdout."
 msgstr "Graafikut ei saanud saata stdout."
 
-#. # reports/InOut
-#. # ui/animal/LitterView
-#: Litter_ID
-#: litterid
+#: src/animal.py:903
 msgid "Litter ID"
 msgstr "Pesakonna ID"
 
@@ -6411,10 +5834,7 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
-#. # ui/system/Options
-#. # ui/account/AccountView
-#. # ui/main/Main
-#: Accounts
+#: src/templates/options.html:138 src/templates/roles.html:115
 msgid "Accounts"
 msgstr ""
 
@@ -6646,25 +6066,14 @@ msgstr "Loovutus number: "
 msgid "Has Comments: "
 msgstr "Kommentaarid: "
 
-#. # ui/animal/AnimalFindText
-#. # ui/ui/UI
-#. # ui/owner/OwnerFindText
-#. # ui/system/Options
-#: Search
-#: search
+#: src/html.py:366 src/templates/animal_embed.html:32
+#: src/templates/animal_find.html:16 src/templates/animal_find.html:244
+#: src/templates/options.html:617 src/templates/person_embed.html:49
+#: src/templates/person_find.html:16 src/templates/person_find.html:119
 msgid "Search"
 msgstr "Otsi"
 
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalFindText
-#. # ui/animal/AnimalLink
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/owner/OwnerFindText
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerLink
-#: Clear
-#: clear
+#: src/templates/animal_embed.html:25 src/templates/person_embed.html:41
 msgid "Clear"
 msgstr "Puhasta"
 
@@ -6692,6 +6101,7 @@ msgstr "Tüüp: "
 
 #. # bo/Animal
 #. # bo/OwnerDonation
+#. # ui/animal/VaccinationView
 #. # ui/animal/AnimalFindColumns
 #. # ui/animal/NotAdoptionView
 #. # ui/owner/DonationSelector
@@ -6750,8 +6160,7 @@ msgstr "Vanusevahemik: "
 msgid "Open"
 msgstr "Ava"
 
-#. # ui/animal/AnimalFind
-#: Unreserved
+#: src/templates/animal_find.html:82
 msgid "Unreserved"
 msgstr "Broneerimata"
 
@@ -6786,15 +6195,15 @@ msgstr "Vahemikus: "
 msgid "Features: "
 msgstr "Omadused: "
 
-#. # ui/system/Options
-#. # ui/animal/AnimalFind
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#. # ui/ui/Dialog
-#. # ui/owner/OwnerEdit
-#. # ui/log/LogSelector
-#. # ui/waitinglist/WaitingListView
-#: (all)
+#: src/html.py:380 src/html.py:392 src/html.py:402 src/html.py:413
+#: src/html.py:424 src/html.py:435 src/html.py:458 src/html.py:469
+#: src/html.py:480 src/html.py:491 src/html.py:502 src/html.py:516
+#: src/html.py:528 src/html.py:540 src/html.py:551 src/html.py:562
+#: src/html.py:573 src/html.py:592 src/html.py:603 src/html.py:614
+#: src/html.py:625 src/html.py:636 src/html.py:647 src/html.py:658
+#: src/html.py:669 src/html.py:682 src/html.py:693 src/html.py:702
+#: src/html.py:711 src/html.py:722 src/html.py:733 src/html.py:744
+#: src/templates/animal_find.html:91 src/templates/person_find.html:96
 msgid "(all)"
 msgstr "(kõik)"
 
@@ -6803,15 +6212,12 @@ msgstr "(kõik)"
 msgid "Insurance No: "
 msgstr "Kindlustuse number: "
 
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalFindText
-#. # ui/main/Main
-#: Find_Animal
+#: src/code.py:614 src/templates/animal_find.html:3
 msgid "Find Animal"
 msgstr "Leia loom"
 
-#. # ui/animal/AnimalFind
-#: Reserved
+#: src/animal.py:943 src/html.py:1112 src/templates/animal_find.html:76
+#: src/templates/animal_find.html:81
 msgid "Reserved"
 msgstr "Broneeritud"
 
@@ -6835,8 +6241,7 @@ msgstr "Tagastatud omanikule"
 msgid "Code: "
 msgstr "Kood: "
 
-#. # ui/animal/AnimalFind
-#: (both)
+#: src/templates/animal_find.html:80
 msgid "(both)"
 msgstr "(mõlemad)"
 
@@ -6845,9 +6250,7 @@ msgstr "(mõlemad)"
 msgid "Microchip No: "
 msgstr ""
 
-#. # ui/animal/VaccinationView
-#. # ui/main/Main
-#: Vaccination_Book
+#: src/code.py:2429 src/templates/vaccination.html:47
 msgid "Vaccination Book"
 msgstr "Vaktsineerimisraamat"
 
@@ -6915,7 +6318,6 @@ msgid "Number:"
 msgstr "Number:"
 
 #. # charts/Chart
-#. # ui/animal/VaccinationView
 #. # ui/ui/ASMSelector
 #. # utility/Utils
 #: ...
@@ -6967,8 +6369,7 @@ msgstr "Hülga selle kirje muudatused"
 msgid "The date the animal was actually given this vaccination treatment"
 msgstr "Kuupäev, mil looma reaalselt vaktsineeriti"
 
-#. # ui/animal/VaccinationEdit
-#: New_Vaccination
+#: src/templates/animal_vaccination.html:44 src/templates/vaccination.html:56
 msgid "New Vaccination"
 msgstr "Uus vaktsineerimine"
 
@@ -7364,9 +6765,10 @@ msgstr "Põhivärv:"
 msgid "Unsaved Changes"
 msgstr "Salvestamata muudatused"
 
-#. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
-#: Given
+#: src/templates/animal_medical.html:151
+#: src/templates/animal_vaccination.html:27
+#: src/templates/animal_vaccination.html:55 src/templates/medical.html:168
+#: src/templates/vaccination.html:33 src/templates/vaccination.html:68
 msgid "Given"
 msgstr "Manustatud"
 
@@ -7451,9 +6853,10 @@ msgstr "Looma sünnikuupäev:"
 msgid "Any health problems the animal has"
 msgstr "Looma terviseprobeemid"
 
-#. # ui/animal/VaccinationView
-#. # ui/animal/VaccinationSelector
-#: Required
+#: src/templates/animal_medical.html:150
+#: src/templates/animal_vaccination.html:23
+#: src/templates/animal_vaccination.html:54 src/templates/medical.html:167
+#: src/templates/vaccination.html:29 src/templates/vaccination.html:67
 msgid "Required"
 msgstr "Nõutav"
 
@@ -7519,9 +6922,7 @@ msgstr "Kõlbmatu kuupäev"
 msgid "Validation Error"
 msgstr "Kinnitamise viga"
 
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalAddMultiple
-#: Generate_a_random_name_for_this_animal
+#: src/templates/animal.html:98 src/templates/animal_new.html:25
 msgid "Generate a random name for this animal"
 msgstr "Loo loomale suvaline nimi"
 
@@ -7607,8 +7008,7 @@ msgstr "Märgi see meediafail internetis esitlemiseks"
 msgid "View this media"
 msgstr "Vaata seda meediafaili"
 
-#. # ui/animal/MediaSelector
-#: Web_Preferred
+#: src/templates/media.html:50
 msgid "Web Preferred"
 msgstr ""
 
@@ -7788,9 +7188,7 @@ msgstr ""
 msgid "Find this animal's littermates"
 msgstr "Leia looma pesakonnakaaslased"
 
-#. # ui/animal/AnimalFind
-#. # reports/AnimalPrint
-#: Non-Shelter
+#: src/templates/animal.html:185 src/templates/animal_find.html:101
 msgid "Non-Shelter"
 msgstr "Mitte-varjupaiga"
 
@@ -7804,9 +7202,9 @@ msgstr "Mitte-varjupaiga:"
 msgid "Check this box if this animal is not a shelter animal"
 msgstr "Märgi see kastike kui loom ei asu varjupaigas"
 
-#. # ui/animal/DietSelector
-#. # ui/medical/MedicalRegimeSelector
-#: Start_Date
+#: src/templates/animal_diet.html:23 src/templates/animal_diet.html:46
+#: src/templates/animal_medical.html:27 src/templates/animal_medical.html:113
+#: src/templates/medical.html:33 src/templates/medical.html:123
 msgid "Start Date"
 msgstr "Alguskuupäev"
 
@@ -7838,8 +7236,7 @@ msgstr "Dieedi tüüp:"
 msgid "Start Date:"
 msgstr "Alguskuupäev:"
 
-#. # ui/animal/DietEdit
-#: New_Diet
+#: src/templates/animal_diet.html:37
 msgid "New Diet"
 msgstr "Uus dieet"
 
@@ -8034,8 +7431,7 @@ msgstr "Märgi see kastike kui loom sobib koertega"
 msgid "Tick this box to only show animals who are housetrained"
 msgstr "Märgi see kastike kui loom oskab toas puhtust pidada"
 
-#. # ui/animal/AnimalEdit
-#: generate_a_new_animal_code
+#: src/templates/animal.html:79
 msgid "Generate a new animal code"
 msgstr "Loo uus looma kood"
 
@@ -8095,11 +7491,7 @@ msgstr "Märgi se kastike kui looma ei saa mingil põhjusel loovutada"
 msgid "Not for adoption"
 msgstr "Loom ei ole loovutamiseks"
 
-#. # ui/animal/MediaAdd
-#. # ui/internet/InternetPublisher
-#. # ui/ui/ASMDesktop
-#. # ui/main/UpdateDialog
-#: Close
+#: src/i18n.py:321
 msgid "Close"
 msgstr "Sulge"
 
@@ -8108,8 +7500,7 @@ msgstr "Sulge"
 msgid "Video Capture"
 msgstr "Video tõmbamine"
 
-#. # ui/animal/AnimalFind
-#: Adoptable
+#: src/templates/animal_find.html:92
 msgid "Adoptable"
 msgstr "Loovutatav"
 
@@ -8135,12 +7526,8 @@ msgstr "Saabumise üksikasjad"
 msgid "Original owner information and how the animal came into the shelter"
 msgstr "Info algse omaniku kohta ja kuidas loom sattus varjupaika"
 
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: vet
-#: Vet
+#: src/html.py:1237 src/person.py:442 src/templates/person.html:201
+#: src/templates/person_find.html:110
 msgid "Vet"
 msgstr "Veterinaar"
 
@@ -8149,10 +7536,7 @@ msgstr "Veterinaar"
 msgid "Details of the animal's vet and any health problems"
 msgstr "Üksikasjad looma veterinaari ja terviseprobleemide kohta"
 
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
-#. # db/AutoDBUpdates
-#: death
+#: src/templates/animal.html:539
 msgid "Death"
 msgstr "Surm"
 
@@ -8161,9 +7545,7 @@ msgstr "Surm"
 msgid "Information if the animal is deceased"
 msgstr "Info looma surma kohta"
 
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
-#: Vaccination
+#: src/html.py:1189 src/mobile.py:132
 msgid "Vaccination"
 msgstr "Vaktsineerimine"
 
@@ -8172,8 +7554,7 @@ msgstr "Vaktsineerimine"
 msgid "Animal vaccination information"
 msgstr "Info looma vaktsineerimiste kohta"
 
-#. # ui/animal/AnimalEdit
-#: medical
+#: src/html.py:227 src/html.py:1190 src/templates/roles.html:51
 msgid "Medical"
 msgstr "Meditsiiniline"
 
@@ -8182,22 +7563,8 @@ msgstr "Meditsiiniline"
 msgid "Diet Information"
 msgstr "Info dieedi kohta"
 
-#. # bo/Media
-#. # ui/customreport/CustomReportEdit
-#. # ui/animal/MediaEdit
-#. # ui/animal/MediaSelector
-#. # ui/animal/AnimalEdit
-#. # ui/animal/MediaAdd
-#. # ui/owner/OwnerEdit
-#. # wordprocessor/GenerateDocument
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/waitinglist/WaitingListEdit
-#: media
-#: Media
+#: src/html.py:992 src/html.py:1072 src/html.py:1194 src/html.py:1313
+#: src/templates/roles.html:62
 msgid "Media"
 msgstr "Meedia"
 
@@ -8206,27 +7573,9 @@ msgstr "Meedia"
 msgid "Media associated with this animal"
 msgstr "Selle loomaga seotud meedia"
 
-#. # bo/Diary
-#. # ui/customreport/CustomReportEdit
-#. # ui/system/Options
-#. # ui/animal/AnimalEdit
-#. # ui/diary/DiaryEdit
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/ui/Dialog
-#. # ui/owner/OwnerEdit
-#. # reports/AnimalPrint
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#. # db/AutoDBUpdates
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/movement/MovementEdit
-#. # ui/main/Main
-#. # ui/waitinglist/WaitingListEdit
-#: diary
-#: Diary
+#: src/html.py:202 src/html.py:993 src/html.py:1073 src/html.py:1195
+#: src/html.py:1314 src/mobile.py:75 src/mobile.py:235
+#: src/templates/roles.html:88
 msgid "Diary"
 msgstr "Päevik"
 
@@ -8240,23 +7589,8 @@ msgstr "Selle loomaga seotud päeviku info"
 msgid "Details of animal movement transactions"
 msgstr "Looma liikumiste üksikasjad"
 
-#. # bo/Log
-#. # ui/customreport/CustomReportEdit
-#. # ui/animal/AnimalEdit
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/log/LogSelector
-#. # ui/log/LogEdit
-#. # reports/AnimalPrint
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/movement/MovementEdit
-#. # ui/waitinglist/WaitingListEdit
-#: log
-#: Log
+#: src/html.py:994 src/html.py:1074 src/html.py:1197 src/html.py:1317
+#: src/templates/roles.html:83
 msgid "Log"
 msgstr "Logi"
 
@@ -8389,20 +7723,7 @@ msgstr "Lisa lahkunud"
 msgid "Include Off Shelter"
 msgstr "Lisa mitte-varjupaiga"
 
-#. # bo/Additional
-#. # ui/customreport/CustomReportEdit
-#. # ui/system/ConfigureAdditional
-#. # ui/animal/AnimalFind
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalFindText
-#. # ui/owner/OwnerFindText
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFind
-#. # reports/AnimalPrint
-#. # db/DatabaseCopier
-#. # db/DatabaseImporter
-#. # db/Diagnostic
-#: additional
+#: src/templates/animal.html:292 src/templates/person.html:252
 msgid "Additional"
 msgstr "Täiendav"
 
@@ -8412,9 +7733,7 @@ msgstr "Täiendav"
 msgid "Additional information about the animal"
 msgstr "Lisainfo looma kohta"
 
-#. # ui/animal/AnimalEdit
-#. # ui/animal/AnimalAddMultiple
-#: Crossbreed
+#: src/templates/animal.html:152 src/templates/animal_new.html:106
 msgid "Crossbreed"
 msgstr "Segavereline"
 
@@ -8435,15 +7754,11 @@ msgstr "Kui loom on segavereline, siis mis on teine tõug"
 msgid "Your search term must be at least 2 letters long."
 msgstr "Otsingutingimus peab olema vähemalt 2 tähe pikkune."
 
-#. # ui/animal/AnimalFindText
-#. # ui/owner/OwnerFindText
-#: Advanced
+#: src/templates/animal_find.html:9 src/templates/person_find.html:9
 msgid "Advanced"
 msgstr "Laiendatud"
 
-#. # ui/animal/AnimalFind
-#. # ui/owner/OwnerFind
-#: Simple
+#: src/templates/animal_find.html:8 src/templates/person_find.html:8
 msgid "Simple"
 msgstr "Lihtne"
 
@@ -8475,8 +7790,7 @@ msgstr "Märgi see kastike kui loom on väärkoheldud"
 msgid "Current Vet:"
 msgstr "Praegune veterinaar:"
 
-#. # ui/animal/AnimalEdit
-#: Estimate
+#: src/templates/animal.html:169
 msgid "Estimate"
 msgstr "Hinnanguline"
 
@@ -8509,12 +7823,7 @@ msgstr "Aegub:"
 msgid "Complete and reschedule the selected vaccinations for next year"
 msgstr "Täida ja ajasta ümber valitud vaktsineerimised järgmiseks aastaks"
 
-#. # ui/animal/AnimalEdit
-#. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
-#. # ui/users/UserEdit
-#. # reports/AnimalPrint
-#: Donations
+#: src/html.py:1193 src/html.py:1311 src/templates/roles.html:126
 msgid "Donations"
 msgstr "Annetused"
 
@@ -8537,11 +7846,8 @@ msgstr ""
 msgid "Mark this media as preferred for use with documents"
 msgstr ""
 
-#. # ui/animal/AnimalEdit
-#. # reports/AnimalPrint
-#. # ui/system/Options
-#: Costs
-#: costs
+#: src/html.py:1192 src/templates/options.html:311
+#: src/templates/roles.html:121
 msgid "Costs"
 msgstr "Kulud"
 
@@ -8570,14 +7876,11 @@ msgstr "Päevase majutuse maksumus"
 msgid "The daily cost of food and board for this animal"
 msgstr "Selle looma päevane majutuse ja toidu maksumus"
 
-#. # ui/animal/CostSelector
-#. # reports/AnimalPrint
-#: On_shelter_days_total_cost
+#: src/i18n.py:319
 msgid "On shelter for {0} days. Total cost: {1}"
 msgstr "Varjupaigas {0} päeva. Maksumus kokku: {1}"
 
-#. # ui/animal/CostEdit
-#: New_Cost
+#: src/templates/animal_costs.html:41
 msgid "New Cost"
 msgstr "Uus maksumus"
 
@@ -8586,10 +7889,10 @@ msgstr "Uus maksumus"
 msgid "Edit Cost"
 msgstr "Muuda maksumust"
 
-#. # bo/AccountTrx
-#. # ui/animal/CostSelector
-#. # reports/AnimalPrint
-#: Amount
+#: src/templates/donation_receive.html:42 src/templates/donations.html:41
+#: src/templates/donations.html:89 src/templates/move_adopt.html:78
+#: src/templates/move_reserve.html:74 src/templates/person_vouchers.html:34
+#: src/templates/person_vouchers.html:59
 msgid "Amount"
 msgstr "Kogus"
 
@@ -8619,9 +7922,7 @@ msgstr ""
 msgid "Bonded With:"
 msgstr ""
 
-#. # ui/animal/AnimalLink
-#. # ui/ui/Dialog
-#: Select_an_animal
+#: src/templates/animal_embed.html:24
 msgid "Select an animal"
 msgstr "Vali loom"
 
@@ -8635,15 +7936,12 @@ msgstr ""
 msgid "Include Expired"
 msgstr ""
 
-#. # ui/animal/LitterView
-#: Expires
+#: src/templates/main.html:22 src/templates/person.html:319
+#: src/templates/person_vouchers.html:29 src/templates/person_vouchers.html:58
 msgid "Expires"
 msgstr ""
 
-#. # ui/animal/AnimalAddMultiple
-#. # ui/main/Main
-#. # ui/users/UserEdit
-#: Add_Animals
+#: src/templates/roles.html:33
 msgid "Add Animals"
 msgstr "Lisa loomi"
 
@@ -8699,6 +7997,27 @@ msgstr ""
 msgid "Out Between: "
 msgstr ""
 
+#: src/templates/animal.html:435
+msgid "SmartTag PETID"
+msgstr ""
+
+#. # ui/animal/AnimalEdit
+#: The_SmartTag_PETID
+msgid "The SmartTag PETID tag number"
+msgstr ""
+
+#: src/html.py:670
+msgid "Annual"
+msgstr ""
+
+#: src/html.py:671
+msgid "5 Year"
+msgstr ""
+
+#: src/html.py:672
+msgid "Lifetime"
+msgstr ""
+
 #. # ui/animalname/NamesView
 #: Add_a_new_animal_name
 msgid "Add a new animal name"
@@ -8740,14 +8059,12 @@ msgstr "Muuda nime"
 msgid "The currency figure you entered was invalid."
 msgstr "Sisetatud raha vääring on lubamatu."
 
-#. # ui/customreport/CustomReportView
-#. # ui/users/UserEdit
-#: Custom_Reports
+#: src/html.py:252 src/html.py:260 src/mobile.py:91
+#: src/templates/reports.html:105 src/templates/roles.html:146
 msgid "Reports"
 msgstr "Aruanded"
 
-#. # ui/customreport/CustomReportEdit
-#: SQL_is_syntactically_correct.
+#: src/i18n.py:366
 msgid "SQL is syntactically correct."
 msgstr ""
 
@@ -8791,11 +8108,8 @@ msgstr ""
 msgid "The HTML to format and present your custom report"
 msgstr ""
 
-#. # ui/customreport/CustomReportView
-#. # ui/customreport/CustomReportEdit
-#. # ui/customreport/GetReports
-#. # ui/customreport/CustomReportExport
-#: category
+#: src/html.py:875 src/templates/animal.html:553 src/templates/reports.html:55
+#: src/templates/reports.html:117
 msgid "Category"
 msgstr "Kategooria"
 
@@ -8841,14 +8155,11 @@ msgstr ""
 msgid "Install Additional Reports"
 msgstr "Lisa veel aruandeid"
 
-#. # ui/system/Options
-#: Database
+#: src/templates/options.html:663
 msgid "Database"
 msgstr "Andmebaas"
 
-#. # ui/customreport/GetReports
-#. # startup/Startup
-#: Locale
+#: src/html.py:875 src/templates/options.html:93
 msgid "Locale"
 msgstr ""
 
@@ -8857,8 +8168,8 @@ msgstr ""
 msgid "Graph"
 msgstr "Graafik"
 
-#. # bo/CustomReport
-#: Report
+#: src/reports.py:279 src/templates/reports.html:43
+#: src/templates/reports.html:131
 msgid "Report"
 msgstr "Aruanne"
 
@@ -8867,12 +8178,8 @@ msgstr "Aruanne"
 msgid "Install this report"
 msgstr "Lisa see aruanne"
 
-#. # bo/CustomReport
-#. # ui/owner/OwnerFindText
-#. # ui/owner/OwnerFind
-#. # ui/main/Main
-#: Mailmerge
-#: Mail_Merge
+#: src/reports.py:281 src/templates/reports.html:50
+#: src/templates/reports.html:129
 msgid "Mail Merge"
 msgstr "Kirjakooste"
 
@@ -8961,10 +8268,7 @@ msgstr "Palun pane uuele ülesandele nimi:"
 msgid "New Diary Task"
 msgstr "Uus päeviku ülesanne"
 
-#. # ui/diary/DiaryTaskView
-#. # ui/main/Main
-#. # ui/users/UserEdit
-#: Edit_Diary_Tasks
+#: src/templates/roles.html:94
 msgid "Edit Diary Tasks"
 msgstr "Muuda päeviku ülesandeid"
 
@@ -8994,20 +8298,11 @@ msgstr "Loo uus päeviku ülesanne"
 msgid "Add a new diary note"
 msgstr "Lisa uus päeviku märkus"
 
-#. # bo/DiaryTaskDetail
-#. # bo/Diary
-#. # ui/diary/DiarySelector
-#. # ui/diary/DiaryTaskHeadEdit
-#. # ui/diary/VetBookView
-#. # reports/AnimalPrint
-#: Note
+#: src/mobile.py:260 src/templates/diary.html:47 src/templates/diary.html:80
 msgid "Note"
 msgstr "Märkus"
 
-#. # ui/diary/DiarySelector
-#. # ui/diary/DiaryTaskHeadEdit
-#. # reports/AnimalPrint
-#: For
+#: src/templates/diary.html:24 src/templates/diary.html:73
 msgid "For"
 msgstr "Kellele"
 
@@ -9085,9 +8380,7 @@ msgstr "Salvesta päis"
 msgid "New task detail"
 msgstr "Uus ülesande detail"
 
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#: Link
+#: src/mobile.py:258 src/templates/diary.html:78
 msgid "Link"
 msgstr "Link"
 
@@ -9146,12 +8439,9 @@ msgstr "Näita tulevaid:"
 msgid "Show Completed:"
 msgstr "Näita tehtuid:"
 
-#. # bo/AnimalMedical
-#. # ui/diary/DiarySelector
-#. # ui/diary/VetBookView
-#. # ui/medical/MedicalEdit
-#. # reports/AnimalPrint
-#: Completed
+#: src/medical.py:141 src/mobile.py:386 src/templates/animal_medical.html:121
+#: src/templates/diary.html:39 src/templates/diary.html:76
+#: src/templates/medical.html:131
 msgid "Completed"
 msgstr "Täidetud"
 
@@ -9262,8 +8552,7 @@ msgstr ""
 msgid "Select Locale"
 msgstr ""
 
-#. # ui/ui/Dialog
-#: Information
+#: src/templates/main.html:17
 msgid "Information"
 msgstr "Info"
 
@@ -9324,6 +8613,7 @@ msgid "Publish Animals Available For Adoption"
 msgstr "Avalda adopteerimiseks sobilikud loomad"
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9374,6 +8664,7 @@ msgstr "Port:"
 #. # ui/internet/FTPSettings
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #. # ui/login/Login
 #. # ui/internet/Pets911Settings
 #: Username\:
@@ -9386,6 +8677,7 @@ msgstr "Kasutajanimi:"
 #. # ui/internet/SaveAPetSettings
 #. # ui/internet/PetFinderSettings
 #. # ui/internet/RescueGroupsSettings
+#. # ui/internet/SmartTagSettings
 #: Host_URL\:
 msgid "Host URL:"
 msgstr ""
@@ -9396,6 +8688,7 @@ msgid "Root:"
 msgstr ""
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9458,11 +8751,6 @@ msgstr ""
 #. # internet/PetFinderPublisher
 #: petfinder_publishing_complete
 msgid "Publishing to PetFinder.com is complete."
-msgstr ""
-
-#. # internet/PetFinderPublisher
-#: petfinder_upload_complete
-msgid "PetFinder.com Upload Complete"
 msgstr ""
 
 #. # ui/internet/PetFinderSettings
@@ -9562,11 +8850,6 @@ msgid "Pets911.com publishing complete."
 msgstr ""
 
 #. # internet/Pets911Publisher
-#: Pets911_upload_complete
-msgid "Pets911.com upload complete"
-msgstr ""
-
-#. # internet/Pets911Publisher
 #: You_need_to_set_your_Pets911_settings_before_publishing
 msgid "You need to configure your Pets911 settings before publishing."
 msgstr ""
@@ -9641,11 +8924,6 @@ msgstr ""
 msgid "RescueGroups.org Publishing Complete."
 msgstr ""
 
-#. # internet/RescueGroupsPublisher
-#: rescue_groups_upload_complete
-msgid "RescueGroups.org Upload Complete"
-msgstr ""
-
 #. # ui/internet/InternetPublisher
 #: Publish_Available_Animals_To_RescueGroups
 msgid "Publish Available Animals to RescueGroups.org"
@@ -9694,9 +8972,7 @@ msgstr ""
 msgid "Newest first"
 msgstr ""
 
-#. # ui/internet/EmailForm
-#. # wordprocessor/GenerateDocument
-#: HTML
+#: src/templates/reports.html:95
 msgid "HTML"
 msgstr ""
 
@@ -9733,6 +9009,7 @@ msgid "Generate thumbnail images"
 msgstr ""
 
 #. # internet/AdoptAPetPublisher
+#. # internet/SmartTagPublisher
 #. # internet/Pets911Publisher
 #. # internet/RescueGroupsPublisher
 #. # internet/PetFinderPublisher
@@ -9743,6 +9020,28 @@ msgstr ""
 #. # ui/internet/InternetPublisher
 #: alphabetical_by_name
 msgid "Alphabetical"
+msgstr ""
+
+#. # internet/SmartTagPublisher
+#: You_need_to_set_your_SmartTag_settings_before_publishing
+msgid "You need to configure your SmartTag PETID settings before publishing."
+msgstr ""
+
+#. # internet/SmartTagPublisher
+#: SmartTag_publishing_complete
+msgid "Publishing to SmartTag PETID is complete."
+msgstr ""
+
+#. # ui/internet/InternetPublisher
+#. # ui/main/Main
+#: Update_SmartTag
+msgid "Update SmartTag PETID"
+msgstr ""
+
+#. # ui/internet/SmartTagSettings
+#. # ui/main/Main
+#: SmartTag_Settings
+msgid "SmartTag PETID Settings"
 msgstr ""
 
 #. # ui/localcache/CacheView
@@ -9781,14 +9080,8 @@ msgstr "Kuupäev/kellaaeg"
 msgid "Warning: Local cache index not found."
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalEdit
-#. # ui/lostandfound/FoundAnimalEdit
-#. # ui/owner/OwnerEdit
-#. # ui/movement/MovementEdit
-#. # ui/log/LogSelector
-#. # ui/waitinglist/WaitingListEdit
-#. # reports/AnimalPrint
-#: Details
+#: src/html.py:991 src/html.py:1071 src/templates/animal.html:62
+#: src/templates/waitinglist.html:22
 msgid "Details"
 msgstr "Üksikasjad"
 
@@ -9808,8 +9101,7 @@ msgstr ""
 msgid "The text of the log entry"
 msgstr ""
 
-#. # ui/log/LogEdit
-#: New_Log
+#: src/templates/log.html:41
 msgid "New Log"
 msgstr ""
 
@@ -9865,13 +9157,13 @@ msgstr "Välju"
 msgid "Invalid Password"
 msgstr "Vale parool"
 
-#. # ui/login/Login
-#: Login
+#: src/templates/login.html:44 src/templates/mobile_login.html:6
+#: src/templates/mobile_login.html:17 src/templates/mobile_login.html:22
+#: src/templates/mobile_login.html:36
 msgid "Login"
 msgstr "Logi sisse"
 
-#. # ui/login/Login
-#: Animal_Shelter_Manager_Login
+#: src/code.py:329
 msgid "Animal Shelter Manager Login"
 msgstr "Animal Shelter Manager Login"
 
@@ -9922,10 +9214,16 @@ msgstr "Liigi nimi"
 msgid "Edit"
 msgstr "Muuda"
 
-#. # ui/system/ConfigureAdditional
-#. # ui/system/MediaFiles
-#. # ui/lookups/LookupView
-#: Delete
+#: src/i18n.py:325 src/templates/animal.html:53
+#: src/templates/animal_costs.html:42 src/templates/animal_diet.html:38
+#: src/templates/animal_vaccination.html:45 src/templates/diary.html:57
+#: src/templates/document_templates.html:27 src/templates/donations.html:77
+#: src/templates/log.html:42 src/templates/lostfound.html:18
+#: src/templates/media.html:49 src/templates/movements.html:137
+#: src/templates/person.html:48 src/templates/person_vouchers.html:49
+#: src/templates/reports.html:109 src/templates/roles.html:161
+#: src/templates/users.html:66 src/templates/vaccination.html:57
+#: src/templates/waitinglist.html:16 src/templates/waitinglist_results.html:67
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -9980,9 +9278,7 @@ msgstr "Vaktsineerimise kirjeldus"
 msgid "Location Name"
 msgstr "Asukoha nimi"
 
-#. # ui/system/ConfigureAdditional
-#. # ui/lookups/LookupView
-#: New
+#: src/templates/document_templates.html:26
 msgid "New"
 msgstr "Uus"
 
@@ -10038,9 +9334,7 @@ msgstr "Dieedi nimi"
 msgid "Diet Description"
 msgstr "Dieedi kirjeldus"
 
-#. # ui/lookups/LookupView
-#. # ui/main/Main
-#: Diets
+#: src/templates/roles.html:57
 msgid "Diets"
 msgstr "Dieedid"
 
@@ -10054,10 +9348,7 @@ msgstr "Vautšeri nimi"
 msgid "Voucher Description"
 msgstr "Vautšeri kirjeldus"
 
-#. # ui/owner/OwnerEdit
-#. # ui/lookups/LookupView
-#. # ui/main/Main
-#: Vouchers
+#: src/html.py:1312 src/templates/roles.html:131
 msgid "Vouchers"
 msgstr "Vautšerid"
 
@@ -10146,9 +9437,8 @@ msgstr "Leia kadunud loom"
 msgid "Area Contains:"
 msgstr "Piirkond sisaldab:"
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#: and
+#: src/templates/animal_find.html:135 src/templates/animal_find.html:155
+#: src/templates/animal_find.html:175 src/templates/person.html:329
 msgid "and"
 msgstr "ja"
 
@@ -10339,9 +9629,7 @@ msgstr "Kadumise piirkond:"
 msgid "Age Group:"
 msgstr ""
 
-#. # ui/lostandfound/LostAnimalFind
-#. # ui/lostandfound/FoundAnimalFind
-#: Age_Group
+#: src/templates/lostfound.html:62 src/templates/lostfound_new.html:43
 msgid "Age Group"
 msgstr ""
 
@@ -10382,9 +9670,7 @@ msgstr "&Valikud"
 msgid "Find a Lost Animal"
 msgstr "Leia kadunud loom"
 
-#. # ui/main/Main
-#. # ui/splash/About
-#: System
+#: src/html.py:256 src/templates/roles.html:136
 msgid "System"
 msgstr "Süsteem"
 
@@ -10409,8 +9695,7 @@ msgstr ""
 msgid "Find an Owner"
 msgstr "Leia omanik"
 
-#. # ui/main/Main
-#: Add_a_new_animal
+#: src/code.py:819 src/html.py:191 src/templates/animal_new.html:16
 msgid "Add a new animal"
 msgstr "Lisa uus loom"
 
@@ -10606,9 +9891,7 @@ msgstr "Looma &tüübid"
 msgid "&Add Lost Animal"
 msgstr "&Lisa kaotatud loom"
 
-#. # ui/movement/MovementView
-#. # ui/main/Main
-#: Reservation_Book
+#: src/code.py:1611
 msgid "Reservation Book"
 msgstr "Broneeringute raamat"
 
@@ -10898,8 +10181,7 @@ msgstr "Seda küsimust rohkem ei küsita."
 msgid "Logout or Close"
 msgstr "Logi välja või sulge"
 
-#. # ui/main/Logout
-#: Logout
+#: src/html.py:366 src/mobile.py:51
 msgid "Logout"
 msgstr "Logi välja"
 
@@ -11143,6 +10425,11 @@ msgstr ""
 msgid "Refresh Active Tab"
 msgstr ""
 
+#. # ui/main/Main
+#: Copy_to_local_database
+msgid "Copy to &Local Database"
+msgstr ""
+
 #. # ui/medical/ProfileView
 #: Profile_Name
 msgid "Profile Name"
@@ -11151,19 +10438,14 @@ msgstr "Profiili nimi"
 #. # ui/medical/MedicalTreatmentSelector
 #. # ui/medical/MedicalRegimeSelector
 #. # ui/medical/ProfileView
+#. # reports/AnimalPrint
 #: Treatment_Name
 msgid "Treatment Name"
 msgstr "Ravi nimi"
 
-#. # bo/LookupCache
-#. # bo/OwnerDonation
-#. # ui/owner/DonationEdit
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalRegimeSelector
-#. # ui/medical/MedicalEdit
-#. # ui/medical/ProfileView
-#. # db/AutoDBUpdates
-#: Frequency
+#: src/templates/animal_medical.html:31 src/templates/animal_medical.html:149
+#: src/templates/donations.html:26 src/templates/donations.html:85
+#: src/templates/medical.html:37 src/templates/medical.html:166
 msgid "Frequency"
 msgstr "Sagedus"
 
@@ -11209,9 +10491,7 @@ msgstr "Ravi nimi:"
 msgid "Dosage:"
 msgstr "Doos:"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: One-Off
+#: src/templates/animal_medical.html:33 src/templates/medical.html:39
 msgid "Single Treatment"
 msgstr "Ühekordne ravi"
 
@@ -11221,15 +10501,11 @@ msgstr "Ühekordne ravi"
 msgid "treatments, administered every"
 msgstr "ravi, manustatakse iga"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Duration
+#: src/templates/animal_medical.html:64 src/templates/medical.html:70
 msgid "Duration"
 msgstr "Kestus"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Multiple
+#: src/templates/animal_medical.html:34 src/templates/medical.html:40
 msgid "Multiple Treatments"
 msgstr "Mitmekordne ravi"
 
@@ -11238,30 +10514,23 @@ msgstr "Mitmekordne ravi"
 msgid "Create New Medical Profile"
 msgstr "Loo uus meditsiiniline profiil"
 
-#. # ui/medical/ProfileEdit
-#. # ui/medical/MedicalEdit
-#: Ends_after
+#: src/templates/animal_medical.html:70 src/templates/medical.html:76
 msgid "Ends after"
 msgstr "Lõppeb peale"
 
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#: Status
+#: src/templates/animal_medical.html:117 src/templates/animal_medical.html:147
+#: src/templates/medical.html:127 src/templates/medical.html:164
+#: src/templates/person.html:306
 msgid "Status"
 msgstr "Olek"
 
-#. # bo/AnimalMedical
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#. # ui/medical/MedicalEdit
-#: Active
+#: src/medical.py:139 src/templates/animal_medical.html:119
+#: src/templates/medical.html:129 src/templates/person.html:309
 msgid "Active"
 msgstr "Aktiivne"
 
-#. # bo/AnimalMedical
-#. # ui/medical/MedicalEdit
-#: Held
+#: src/medical.py:143 src/templates/animal_medical.html:120
+#: src/templates/medical.html:130
 msgid "Held"
 msgstr ""
 
@@ -11339,15 +10608,11 @@ msgstr "Manustaja:"
 msgid "Bring all treatments upto date"
 msgstr "Kaasjasta kõik ravid"
 
-#. # ui/main/Main
-#. # ui/medical/MedicalView
-#: Medical_Book
+#: src/code.py:1488 src/templates/medical.html:142
 msgid "Medical Book"
 msgstr "Meditsiiniline raamat"
 
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeTreatmentSelector
-#: Sequence
+#: src/templates/animal_medical.html:153 src/templates/medical.html:170
 msgid "Sequence"
 msgstr "Tsükkel"
 
@@ -11373,9 +10638,7 @@ msgstr "Kaasajasta valitud ravid"
 msgid "Finishes After"
 msgstr "Lõppeb peale"
 
-#. # ui/medical/MedicalTreatmentSelector
-#. # ui/medical/MedicalRegimeSelector
-#: Refresh
+#: src/templates/waitinglist_results.html:59
 msgid "Refresh"
 msgstr "Värskenda"
 
@@ -11600,8 +10863,7 @@ msgstr "Lisa uus liikumine"
 msgid "Adoption No"
 msgstr "Loovutuse number"
 
-#. # ui/movement/MovementSelector
-#: Movement_Type
+#: src/templates/movements.html:90
 msgid "Movement Type"
 msgstr "Liikumise tüüp"
 
@@ -11630,9 +10892,7 @@ msgstr "Loo selle liikumise kohta dokument"
 msgid "View the owner"
 msgstr "Vaata omanikku"
 
-#. # ui/movement/MovementView
-#. # ui/main/Main
-#: Foster_Book
+#: src/code.py:1574
 msgid "Foster Book"
 msgstr "Hoiukodude raamat"
 
@@ -11646,9 +10906,7 @@ msgstr "Tagasi toomise kategooria"
 msgid "[none]"
 msgstr "[puudub]"
 
-#. # ui/movement/MovementView
-#. # ui/main/Main
-#: Retailer_Book
+#: src/code.py:1648
 msgid "Retailer Book"
 msgstr "Vahendajate raamat"
 
@@ -11737,8 +10995,7 @@ msgstr "Sisesta tagasi toomise kuupäev"
 msgid "Return Movement"
 msgstr ""
 
-#. # ui/movement/MovementView
-#: return_date
+#: src/templates/movements.html:109
 msgid "Return Date"
 msgstr "Tagastamise kuupäev"
 
@@ -11762,8 +11019,7 @@ msgstr "Vaata looma"
 msgid "View owner"
 msgstr "Vaata omanikku"
 
-#. # ui/movement/MovementSelector
-#: Phone
+#: src/templates/movements.html:150
 msgid "Phone"
 msgstr "Telefon"
 
@@ -11810,7 +11066,6 @@ msgstr ""
 
 #. # ui/owner/OwnerFindColumns
 #. # ui/waitinglist/WaitingListViewColumns
-#. # reports/OwnerSearchResults
 #: Work_Tel
 msgid "Work Tel"
 msgstr "Telefon tööl"
@@ -11820,12 +11075,8 @@ msgstr "Telefon tööl"
 msgid "Address contains:"
 msgstr "Aadress sisaldab:"
 
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerFindColumns
-#. # reports/OwnerSearchResults
-#. # ui/owner/OwnerEdit
-#: Homechecked
-#: ID_Check
+#: src/html.py:1225 src/person.py:428 src/person.py:445
+#: src/templates/person.html:193 src/templates/person_find.html:101
 msgid "Homechecked"
 msgstr "Kodu on külastatud"
 
@@ -11844,8 +11095,7 @@ msgstr "Nimi sisaldab:"
 msgid "Comments contain. Use spaces to separate individual words"
 msgstr "Kommentaarid sisaldavad. Kasuta tühikuid sõnade eraldamiseks"
 
-#. # ui/ui/UI
-#: Select
+#: src/html.py:878 src/i18n.py:365
 msgid "Select"
 msgstr "Vali"
 
@@ -11860,11 +11110,6 @@ msgstr "Leia omanik"
 #: A_full,_or_part_email_address_for_the_owner
 msgid "A full, or part email address for the owner"
 msgstr "Terve või osa omaniku e-posti aadressist"
-
-#. # reports/OwnerSearchResults
-#: Home_Tel
-msgid "Home Tel"
-msgstr "Telefon kodus"
 
 #. # ui/owner/OwnerEdit
 #: Create_New_Owner
@@ -11886,9 +11131,8 @@ msgstr "Telefon kodus:"
 msgid "Check this box if this owner is a member of your organisation"
 msgstr "Märgi see kastike kui omanik on teie organisatsiooni liige"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: Member
+#: src/html.py:1229 src/person.py:433 src/templates/person.html:195
+#: src/templates/person_find.html:103
 msgid "Member"
 msgstr "Liige"
 
@@ -11941,9 +11185,8 @@ msgstr "Märgi see kastike kui omanik on kodude külastaja"
 msgid "Work Tel:"
 msgstr "Telefon tööl:"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: Volunteer
+#: src/html.py:1239 src/person.py:431 src/templates/person.html:202
+#: src/templates/person_find.html:111
 msgid "Volunteer"
 msgstr "Vabatahtlik"
 
@@ -11967,6 +11210,7 @@ msgstr ""
 #. # ui/owner/OwnerEdit
 #. # ui/owner/OwnerFind
 #. # ui/owner/OwnerFindColumns
+#. # ui/waitinglist/WaitingListViewColumns
 #: Email\:
 msgid "Email:"
 msgstr "E-post:"
@@ -11976,18 +11220,13 @@ msgstr "E-post:"
 msgid "Possible Matching Owners"
 msgstr "Võimalikud kattuvad omanikud"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFind
-#. # ui/owner/OwnerCheck
-#. # ui/owner/OwnerFindColumns
-#. # reports/OwnerSearchResults
-#: Banned
+#: src/html.py:1219 src/person.py:430 src/templates/person.html:190
+#: src/templates/person_find.html:98
 msgid "Banned"
 msgstr "Loomavõtmiskeeld"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: Homechecker
+#: src/html.py:1227 src/person.py:432 src/templates/person.html:194
+#: src/templates/person.html:257 src/templates/person_find.html:102
 msgid "Homechecker"
 msgstr "Kodude külastaja"
 
@@ -11996,9 +11235,8 @@ msgstr "Kodude külastaja"
 msgid "The date this owner was last homechecked"
 msgstr "Kuupäev, mil omaniku kodu viimati külastati"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: Donor
+#: src/html.py:1221 src/person.py:436 src/templates/person.html:191
+#: src/templates/person_find.html:99
 msgid "Donor"
 msgstr "Sponsor"
 
@@ -12012,8 +11250,7 @@ msgstr "Märgi see kastike kui omanik teeb annetusi"
 msgid "Unable to create new owner donation:"
 msgstr "Ei saa luua uut omaniku annetust:"
 
-#. # ui/owner/DonationEdit
-#: new_owner_donation
+#: src/templates/donations.html:76
 msgid "New Donation"
 msgstr "Uus annetus"
 
@@ -12055,11 +11292,9 @@ msgstr "Varjupaiga personal"
 msgid "Animal Care Officer"
 msgstr "Loomakaitse inspektor"
 
-#. # mailmerge/OwnerMailMerge
-#. # mailmerge/CustomMailMerge
-#. # internet/AvidRegistration
-#. # reports/OwnerSearchResults
-#: email
+#: src/person.py:427 src/waitinglist.py:57 src/templates/options.html:439
+#: src/templates/person.html:52 src/templates/person.html:96
+#: src/templates/person_find.html:78
 msgid "Email"
 msgstr "E-post"
 
@@ -12127,8 +11362,8 @@ msgstr "Varjupaigad"
 msgid "Animal Care Officers"
 msgstr "Loomakaitse inspektorid"
 
-#. # ui/owner/OwnerFind
-#: Staff
+#: src/html.py:1235 src/person.py:439 src/templates/person.html:198
+#: src/templates/person_find.html:106
 msgid "Staff"
 msgstr "Personal"
 
@@ -12299,8 +11534,7 @@ msgstr "Vautšeri väärtus"
 msgid "Any comments about the voucher"
 msgstr "Kommentaarid vautšeri kohta"
 
-#. # ui/owner/VoucherEdit
-#: New_Voucher
+#: src/templates/person_vouchers.html:48
 msgid "New Voucher"
 msgstr "Uus vautšer"
 
@@ -12322,8 +11556,8 @@ msgstr "Vaata seda linki"
 msgid "Link Type"
 msgstr "Lingi tüüp"
 
-#. # ui/owner/LinkSelector
-#: Original_Owner
+#: src/mobile.py:452 src/person.py:155 src/templates/animal.html:309
+#: src/templates/animal_find.html:209
 msgid "Original Owner"
 msgstr "Algne omanik"
 
@@ -12332,18 +11566,15 @@ msgstr "Algne omanik"
 msgid "Brought Animal In"
 msgstr ""
 
-#. # ui/owner/LinkSelector
-#: Waiting_List_Contact
+#: src/person.py:158
 msgid "Waiting List Contact"
 msgstr "Ootenimekirja kontakt"
 
-#. # ui/owner/LinkSelector
-#: Lost_Animal_Contact
+#: src/person.py:158
 msgid "Lost Animal Contact"
 msgstr "Kaotatud looma kontakt"
 
-#. # ui/owner/LinkSelector
-#: Found_Animal_Contact
+#: src/person.py:159
 msgid "Found Animal Contact"
 msgstr "Leitud looma kontakt"
 
@@ -12404,7 +11635,6 @@ msgid "Mobile Tel:"
 msgstr "Mobiiltelefoni number:"
 
 #. # ui/waitinglist/WaitingListViewColumns
-#. # reports/OwnerSearchResults
 #: Mobile_Te
 msgid "Mobile Tel"
 msgstr "Mobiiltelefoni number"
@@ -12421,9 +11651,7 @@ msgstr "Vanus alates"
 msgid "Age To"
 msgstr "Vanus kuni"
 
-#. # ui/owner/OwnerEdit
-#. # ui/owner/OwnerFindColumns
-#: Comments_contain
+#: src/templates/person_find.html:72
 msgid "Comments contain"
 msgstr "Kommentaarid sisaldavad"
 
@@ -12479,8 +11707,7 @@ msgstr "Vautšerite üksikasjad"
 msgid "Animal movements connected with this owner"
 msgstr "Selle omanikuga seotud loomade liikumised"
 
-#. # ui/owner/OwnerEdit
-#: links
+#: src/html.py:1316
 msgid "Links"
 msgstr "Lingid"
 
@@ -12496,9 +11723,7 @@ msgstr ""
 msgid "Owner's Vet"
 msgstr "Omaniku veterinaar"
 
-#. # ui/animal/AnimalEdit
-#. # ui/owner/LinkSelector
-#: Current_Vet
+#: src/mobile.py:470 src/person.py:157 src/templates/animal.html:517
 msgid "Current Vet"
 msgstr "Praegune veterinaar"
 
@@ -12623,9 +11848,8 @@ msgstr "Kui see omanik on liige, siis liikmenumber"
 msgid "Gift Aid Registered"
 msgstr ""
 
-#. # ui/owner/OwnerFindColumns
-#. # ui/owner/DonationEdit
-#: Gift_Aid
+#: src/templates/donation_receive.html:49 src/templates/donations.html:45
+#: src/templates/move_adopt.html:85 src/templates/move_reserve.html:81
 msgid "Gift Aid"
 msgstr ""
 
@@ -12701,8 +11925,7 @@ msgstr "Autorid"
 msgid "Word Processor:"
 msgstr ""
 
-#. # ui/system/Options
-#: System_Options
+#: src/templates/options.html:3
 msgid "System Options"
 msgstr ""
 
@@ -12853,8 +12076,7 @@ msgstr ""
 msgid "Start At:"
 msgstr "Algus:"
 
-#. # ui/system/Options
-#: Use_Automatic_Insurance_Numbers
+#: src/templates/options.html:486
 msgid "Use Automatic Insurance Numbers"
 msgstr ""
 
@@ -12935,11 +12157,7 @@ msgstr "Hoiukodus olevad loomad on varjupaiga omand"
 msgid "Default Waiting List Urgency:"
 msgstr ""
 
-#. # ui/system/Options
-#. # ui/system/ConfigureDatabase
-#. # ui/animal/MediaAdd
-#. # ui/internet/InternetPublisher
-#: None
+#: src/code.py:1743 src/code.py:1750
 msgid "[None]"
 msgstr "[Puudub]"
 
@@ -12980,8 +12198,7 @@ msgstr ""
 msgid "Coding System"
 msgstr ""
 
-#. # ui/system/Options
-#: Warnings
+#: src/templates/options.html:580
 msgid "Warnings"
 msgstr "Hoiatused"
 
@@ -12995,8 +12212,7 @@ msgstr ""
 msgid "Database and System"
 msgstr "Andmebaas ja süsteem"
 
-#. # ui/system/Options
-#: Defaults
+#: src/templates/options.html:334
 msgid "Defaults"
 msgstr "Vaikimisi"
 
@@ -13289,9 +12505,7 @@ msgstr ""
 msgid "Allow ASM clients to update the database if it is older than them."
 msgstr ""
 
-#. # ui/system/SQLInterface
-#. # reports/CustomReportExecute
-#: sql
+#: src/templates/reports.html:83
 msgid "SQL"
 msgstr "SQL"
 
@@ -13424,8 +12638,7 @@ msgstr ""
 msgid "Lazily load animal satellite data"
 msgstr ""
 
-#. # ui/system/Options
-#: Default_to_advanced_find_animal_screen
+#: src/templates/options.html:427
 msgid "Default to advanced find animal screen"
 msgstr ""
 
@@ -13480,13 +12693,11 @@ msgstr "Põllumajandusloomad"
 msgid "Finished removing unwanted breeds and species."
 msgstr "Soovimatute tõugude ja liikide eemaldamine valmis."
 
-#. # ui/system/Options
-#: mark_new_animals_not_for_adoption
+#: src/templates/options.html:421
 msgid "Mark new animals as not for adoption"
 msgstr "Märgi uued loomad kui mitteloovutatavad"
 
-#. # ui/system/Options
-#: shelter_info
+#: src/templates/options.html:11
 msgid "Shelter Details"
 msgstr "Varjupaiga üksikasjad"
 
@@ -13495,13 +12706,11 @@ msgstr "Varjupaiga üksikasjad"
 msgid "Word Processor"
 msgstr "Tekstitöötlus"
 
-#. # ui/system/Options
-#: animal_codes
+#: src/templates/options.html:269
 msgid "Animal Codes"
 msgstr "Loomade koodid"
 
-#. # ui/system/Options
-#: options
+#: src/code.py:1741 src/html.py:263 src/templates/options.html:661
 msgid "Options"
 msgstr "Valikud"
 
@@ -13560,8 +12769,7 @@ msgstr "Eemalda vahendaja võimalus"
 msgid "Group the animal figures report by species instead of type"
 msgstr "Grupeeri aruandes loomad liigiti mitte tüübiti"
 
-#. # ui/system/Options
-#: age_groups
+#: src/templates/options.html:233
 msgid "Age Groups"
 msgstr "Vanusegrupid"
 
@@ -13595,8 +12803,7 @@ msgstr "Vanusegrupp 5:"
 msgid "Don't show the startup page"
 msgstr "Ära näita sissejuhatavat lehekülge"
 
-#. # ui/system/Options
-#: mapping_service
+#: src/templates/options.html:554
 msgid "Mapping Service"
 msgstr ""
 
@@ -13664,8 +12871,7 @@ msgstr ""
 msgid "Default Vaccination Type:"
 msgstr "Vaktsineerimise tüüp vaikimisi:"
 
-#. # ui/system/Options
-#: Create_boarding_cost_on_adoption
+#: src/templates/options.html:321
 msgid "Create boarding cost record when animal is adopted"
 msgstr ""
 
@@ -13674,13 +12880,11 @@ msgstr ""
 msgid "Boarding Cost Type:"
 msgstr ""
 
-#. # ui/system/Options
-#: separate_the_ranks_by_species
+#: src/templates/options.html:640
 msgid "Separate waiting list rank by species"
 msgstr ""
 
-#. # ui/system/Options
-#: once_assigned_codes_cannot_be_changed
+#: src/templates/options.html:307
 msgid "Once assigned, codes cannot be changed"
 msgstr ""
 
@@ -13750,8 +12954,7 @@ msgstr ""
 msgid "Donation destination account:"
 msgstr ""
 
-#. # ui/system/Options
-#: creating_matching_trx
+#: src/templates/options.html:144
 msgid ""
 "Creating donations and donation types creates matching accounts and "
 "transactions"
@@ -13817,13 +13020,11 @@ msgstr ""
 msgid "Points given for found within 2 weeks of being lost:"
 msgstr ""
 
-#. # ui/system/Options
-#: lost_and_found
+#: src/templates/options.html:503 src/templates/roles.html:95
 msgid "Lost and Found"
 msgstr ""
 
-#. # ui/system/Options
-#: include_shelter
+#: src/templates/options.html:508
 msgid "When matching lost animals, include shelter animals"
 msgstr ""
 
@@ -13837,8 +13038,8 @@ msgstr ""
 msgid "Email signature:"
 msgstr ""
 
-#. # ui/system/Options
-#: Insurance
+#: src/templates/move_adopt.html:55 src/templates/movements.html:65
+#: src/templates/options.html:477
 msgid "Insurance"
 msgstr ""
 
@@ -14074,6 +13275,30 @@ msgstr ""
 msgid "Last 30 days"
 msgstr ""
 
+#. # ui/system/Options
+#: last_week
+msgid "Last week"
+msgstr ""
+
+#. # ui/system/Options
+#: When_scaling_incoming_media_use_old_algorithm
+msgid ""
+"When scaling incoming media, use old single pass technique (lower quality, "
+"faster)"
+msgstr ""
+
+#. # ui/system/Options
+#: Generate_document_log
+msgid ""
+"When I generate a document, mark it in the log with the Document Log Type "
+"above"
+msgstr ""
+
+#. # ui/system/Options
+#: Generate_document_log_type
+msgid "Document Log Type"
+msgstr ""
+
 #. # ui/users/UserView
 #: Add_a_new_user
 msgid "Add a new user"
@@ -14129,8 +13354,7 @@ msgstr ""
 msgid "Delete Animal Vaccinations"
 msgstr "Kustuta looma vaktsineerimised"
 
-#. # ui/users/UserEdit
-#: Clone_Animals
+#: src/templates/roles.html:38
 msgid "Clone Animals"
 msgstr "Klooni loomi"
 
@@ -14184,8 +13408,7 @@ msgstr "Kustuta leitud loomad"
 msgid "View Animal Movements"
 msgstr "Vaata looma liikumisi"
 
-#. # ui/users/UserEdit
-#: Modify_Lookups
+#: src/templates/roles.html:139
 msgid "Modify Lookups"
 msgstr ""
 
@@ -14270,8 +13493,7 @@ msgstr "Muuda lõpetatud päeviku märkusi"
 msgid "Add Animal Vaccinations"
 msgstr "Lisa looma vaktsineerimised"
 
-#. # ui/users/UserEdit
-#: Access_System_Menu
+#: src/templates/roles.html:137
 msgid "Access System Menu"
 msgstr ""
 
@@ -14311,8 +13533,7 @@ msgstr ""
 msgid "Change Animal Movements"
 msgstr "Muuda looma liikumisi"
 
-#. # ui/users/UserEdit
-#: View_Animals
+#: src/templates/roles.html:35
 msgid "View Animals"
 msgstr "Vaata loomi"
 
@@ -14342,8 +13563,7 @@ msgstr ""
 msgid "Delete Waiting List Entries"
 msgstr "Kustuta ootenimekirja sissekanded"
 
-#. # ui/users/UserEdit
-#: Use_SQL_Interface
+#: src/templates/roles.html:140
 msgid "Use SQL Interface"
 msgstr ""
 
@@ -14378,8 +13598,7 @@ msgstr "Muuda looma vaktsineerimisi"
 msgid "Delete Animal Media"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: View_Waiting_List
+#: src/templates/roles.html:107
 msgid "View Waiting List"
 msgstr "Vaata ootenimekirja"
 
@@ -14388,8 +13607,7 @@ msgstr "Vaata ootenimekirja"
 msgid "Delete Owners"
 msgstr "Kustuta omanikud"
 
-#. # ui/users/UserEdit
-#: Delete_Animals
+#: src/templates/roles.html:37
 msgid "Delete Animals"
 msgstr "Kustuta loomad"
 
@@ -14423,8 +13641,7 @@ msgstr ""
 msgid "Add to Waiting List"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: Change_Animals
+#: src/templates/roles.html:34
 msgid "Change Animals"
 msgstr "Muuda loomi"
 
@@ -14489,8 +13706,7 @@ msgstr ""
 msgid "Delete Custom Reports"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: clone
+#: src/templates/animal.html:52
 msgid "Clone"
 msgstr "Klooni"
 
@@ -14589,8 +13805,7 @@ msgstr ""
 msgid "Delete Log Entry"
 msgstr ""
 
-#. # ui/users/UserView
-#: Reset_Password
+#: src/templates/users.html:67
 msgid "Reset Password"
 msgstr ""
 
@@ -14604,8 +13819,7 @@ msgstr "Sisesta uus parool"
 msgid "Password updated."
 msgstr "Parool uuendatud."
 
-#. # ui/users/UserEdit
-#: View_Animal_Vet
+#: src/templates/roles.html:36
 msgid "View Animal Vet"
 msgstr "Vaata looma veterinaari"
 
@@ -14703,28 +13917,23 @@ msgstr ""
 msgid "Accounts:"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: Add_Accounts
+#: src/templates/roles.html:116
 msgid "Add Accounts"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: View_Accounts
+#: src/templates/roles.html:117
 msgid "View Accounts"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: Change_Accounts
+#: src/templates/roles.html:118
 msgid "Change Accounts"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: Change_Transactions
+#: src/templates/roles.html:119
 msgid "Change Transactions"
 msgstr ""
 
-#. # ui/users/UserEdit
-#: Delete_Accounts
+#: src/templates/roles.html:120
 msgid "Delete Accounts"
 msgstr ""
 
@@ -14822,15 +14031,11 @@ msgstr "liik"
 msgid "Date Removed:"
 msgstr "Eemaldamise kuupäev"
 
-#. # ui/waitinglist/WaitingListViewColumns
-#. # ui/waitinglist/WaitingListEdit
-#: Donation?
+#: src/waitinglist.py:60
 msgid "Donation?"
 msgstr "Annetus?"
 
-#. # ui/waitinglist/WaitingListEdit
-#. # ui/waitinglist/WaitingListView
-#: New_Waiting_List_Entry
+#: src/templates/waitinglist_results.html:66
 msgid "New Waiting List Entry"
 msgstr "Uus ootenimekirja sissekanne"
 
@@ -14883,8 +14088,7 @@ msgstr "Kirjeldus sisaldab:"
 msgid "Create an animal record from this record"
 msgstr ""
 
-#. # ui/waitinglist/WaitingListEdit
-#: Removal
+#: src/templates/waitinglist.html:101
 msgid "Removal"
 msgstr "Eemaldamine"
 
@@ -14924,423 +14128,5 @@ msgstr ""
 msgid "(estimated)"
 msgstr "(eeldatav)"
 
-#~ msgid "An error occurred accessing the object: "
-#~ msgstr "Tekkis tõrge sisenemisel: "
-
-#~ msgid "HealthProblems"
-#~ msgstr "Terviseprobleemid"
-
-#~ msgid "Dead"
-#~ msgstr "Surnud"
-
-#~ msgid "An error occurred while validating the object: "
-#~ msgstr "Kinnitamisel tekkis viga: "
-
-#~ msgid "monthly"
-#~ msgstr "igakuine"
-
-#~ msgid "Brought In ("
-#~ msgstr "Toodud ("
-
-#~ msgid "Adoptions ("
-#~ msgstr "Loovutused ("
-
-#~ msgid "Donations ("
-#~ msgstr "Annetused ("
-
-#~ msgid "Torti"
-#~ msgstr "Kilpkonnavärvi"
-
-#~ msgid "Torti and White"
-#~ msgstr "Kilpkonnavärvi ja valge"
-
-#~ msgid "Dilute Tortoiseshell"
-#~ msgstr "Dilute Tortoiseshell"
-
-#~ msgid "Dilute Calico"
-#~ msgstr "Dilute Calico"
-
-#~ msgid "Torbie"
-#~ msgstr "Torbie"
-
-#~ msgid "Tortoiseshell"
-#~ msgstr "Tortoiseshell"
-
-#~ msgid "Tuxedo"
-#~ msgstr "Tuxedo"
-
-#~ msgid "An error occurred running diagnostics: "
-#~ msgstr "Diagnostika valmimise käigus tekkis viga: "
-
-#~ msgid "An unexpected error occurred:\n"
-#~ msgstr "Ilmnes ootamatu viga:\n"
-
-#~ msgid "An error occurred reading the file:\n"
-#~ msgstr "Viga esines faili lugemise käigus:\n"
-
-#~ msgid ""
-#~ "You must have already created the database and loaded the database structure "
-#~ "from the {0} file in {1}. Select Yes if you have already done this, "
-#~ "otherwise select No to cancel the copy."
-#~ msgstr ""
-#~ "Oled juba loonud andmebaasi ja laadinud selle struktuuri kohast {0} failist "
-#~ "{1}. Valige Jah kui olete seda juba teinud, muul juhul Ei, et lõpetada "
-#~ "kopeerimine."
-
-#~ msgid ""
-#~ "ASM could not find its data structure in the database specfied. If you are "
-#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-#~ "{0} directory first."
-#~ msgstr ""
-#~ "ASM could not find its data structure in the database specfied. If you are "
-#~ "using PostgreSQL or MySQL, make sure you ran the appropriate script in the "
-#~ "{0} directory first."
-
-#~ msgid ""
-#~ "{0} corrupted tables repaired.\n"
-#~ "{1} orphaned movement records found and removed.\n"
-#~ "{2} orphaned media records found and removed.\n"
-#~ "{3} orphaned vaccination records found and removed.\n"
-#~ "{4} orphaned medical records found and removed.\n"
-#~ "{5} returns without a movement found and removed.\n"
-#~ "{6} mysql date columns repaired.\n"
-#~ "{7} invalid animal codes fixed for this year."
-#~ msgstr ""
-#~ "{0} corrupted tables repaired.\n"
-#~ "{1} orphaned movement records found and removed.\n"
-#~ "{2} orphaned media records found and removed.\n"
-#~ "{3} orphaned vaccination records found and removed.\n"
-#~ "{4} orphaned medical records found and removed.\n"
-#~ "{5} returns without a movement found and removed.\n"
-#~ "{6} mysql date columns repaired.\n"
-#~ "{7} invalid animal codes fixed for this year."
-
-#~ msgid "Mail Merge Source Generated"
-#~ msgstr "Mail Merge Source Generated"
-
-#~ msgid "An error occurred generating the mail merge source:\n"
-#~ msgstr "Viga ilmnes kirja algallika lisamisel\n"
-
-#~ msgid ""
-#~ "Please enter the end date you would like to prepare vaccination letters for"
-#~ msgstr "Sisesta valtsineerimisteadete lõppkuupäev"
-
-#~ msgid "Off-Shelter Vaccination Mail Merge"
-#~ msgstr "Off-Shelter Vaccination Mail Merge"
-
-#~ msgid "OffShelterVaccinations.csv"
-#~ msgstr "OffShelterVaccinations.csv"
-
-#~ msgid ""
-#~ "Please enter the start date you would like to prepare vaccination letters for"
-#~ msgstr "Palun sisesta vaktsineerimisteadete alguskuupäev"
-
-#~ msgid "There are no required vaccinations on that date."
-#~ msgstr "Sellel päeval ei ole nõutud vaktsineerimisi."
-
-#~ msgid "Unable to write output file "
-#~ msgstr "Unable to write output file "
-
-#~ msgid "mailmerge"
-#~ msgstr "mailmerge"
-
-#~ msgid "Chip Registration Mail Merge"
-#~ msgstr "Chip Registration Mail Merge"
-
-#~ msgid "ChipRegistrations.csv"
-#~ msgstr "ChipRegistrations.csv"
-
-#~ msgid "Successfully built mail merge source as file:"
-#~ msgstr "Successfully built mail merge source as file:"
-
-#~ msgid "There are no required chip registrations between those dates."
-#~ msgstr "Selles ajavahemikus ei ole nõutud kiibi registreerimisi."
-
-#~ msgid ""
-#~ "Please enter the start date you would like to prepare chip registration "
-#~ "letters for"
-#~ msgstr ""
-#~ "Please enter the start date you would like to prepare chip registration "
-#~ "letters for"
-
-#~ msgid "ChipCancellations.csv"
-#~ msgstr "ChipCancellations.csv"
-
-#~ msgid ""
-#~ "Please enter the start date you would like to prepare chip cancellation "
-#~ "letters for"
-#~ msgstr ""
-#~ "Please enter the start date you would like to prepare chip cancellation "
-#~ "letters for"
-
-#~ msgid "Home Telephone"
-#~ msgstr "Kodune telefon"
-
-#~ msgid "Work Telephone"
-#~ msgstr "Töötelefon"
-
-#~ msgid "Chip Cancellation Mail Merge"
-#~ msgstr "Chip Cancellation Mail Merge"
-
-#~ msgid ""
-#~ "Please enter the end date you would like to prepare chip registration "
-#~ "letters for"
-#~ msgstr ""
-#~ "Please enter the end date you would like to prepare chip registration "
-#~ "letters for"
-
-#~ msgid "Microchip Number"
-#~ msgstr "Mikrokiibi number"
-
-#~ msgid "There are no required chip cancellations between those dates."
-#~ msgstr "There are no required chip cancellations between those dates."
-
-#~ msgid "There are no adoptions matching your criteria."
-#~ msgstr "Neile kriteeriumitele ei vasta ükski loovutus."
-
-#~ msgid "Address 2"
-#~ msgstr "Aadress 2"
-
-#~ msgid "Forenames"
-#~ msgstr "Eesnimed"
-
-#~ msgid "AdoptedNoReturn.csv"
-#~ msgstr "AdoptedNoReturn.csv"
-
-#~ msgid "Address 3"
-#~ msgstr "Aadress 3"
-
-#~ msgid "Please enter the closing date of adoptions to include"
-#~ msgstr "Palun sisesta loovutuste viimane kuupäev"
-
-#~ msgid ""
-#~ "Please enter the end date you would like to prepare chip cancellation "
-#~ "letters for"
-#~ msgstr ""
-#~ "Please enter the end date you would like to prepare chip cancellation "
-#~ "letters for"
-
-#~ msgid "Date Of Birth"
-#~ msgstr "Sünnikuupäev"
-
-#~ msgid "Email Address"
-#~ msgstr "E-posti aadress"
-
-#~ msgid "Address 1"
-#~ msgstr "Aadress 1"
-
-#~ msgid "Initials"
-#~ msgstr "Initsiaalid"
-
-#~ msgid "Address 5"
-#~ msgstr "Aadress 5"
-
-#~ msgid "Address 4"
-#~ msgstr "Aadress 4"
-
-#~ msgid "Please enter the start date of adoptions to include"
-#~ msgstr "Palun lisage loovutuste alguskuupäev"
-
-#~ msgid "Non-Returned Adoptions"
-#~ msgstr "Mittetagastatud loovutused"
-
-#~ msgid "Create a CVS file on disk"
-#~ msgstr "Loo kettale CSV fail"
-
-#~ msgid "Do you want to create a CVS file or do a bulk email?"
-#~ msgstr "Kas soovid luua CSV faili või teha masspostitust?"
-
-#~ msgid "Members.csv"
-#~ msgstr "Liikmed.csv"
-
-#~ msgid "MembershipExpiry"
-#~ msgstr "Liikemelisuse aegumine"
-
-#~ msgid "ExpiringMembers.csv"
-#~ msgstr "AeguvadLiikmed.csv"
-
-#~ msgid "Show members expiring before"
-#~ msgstr "Näita, kellel aegub liikmelisus enne"
-
-#~ msgid "Expiring Members"
-#~ msgstr "Aeguvad liikmed"
-
-#~ msgid "An error occurred opening the report {0}"
-#~ msgstr "Selle aruande avamisel esines tõrge {0}"
-
-#~ msgid "Unknown Report"
-#~ msgstr "Tundmatu aruanne"
-
-#~ msgid "An invalid report handle was passed."
-#~ msgstr "An invalid report handle was passed."
-
-#~ msgid "animal"
-#~ msgstr "loom"
-
-#~ msgid "AnimalName"
-#~ msgstr "LoomaNimi"
-
-#~ msgid "Short Code"
-#~ msgstr "Lühikood"
-
-#~ msgid "Identichip No"
-#~ msgstr "Kiibinumber"
-
-#~ msgid "Unable to write temporary HTML file {0}: {1} "
-#~ msgstr "Unable to write temporary HTML file {0}: {1} "
-
-#~ msgid "Error occurred retrieving templates: {0} "
-#~ msgstr "Error occurred retrieving templates: {0} "
-
-#~ msgid "60%"
-#~ msgstr "60%"
-
-#~ msgid "80%"
-#~ msgstr "80%"
-
-#~ msgid "70%"
-#~ msgstr "70%"
-
-#~ msgid "90%"
-#~ msgstr "90%"
-
-#~ msgid "50%"
-#~ msgstr "50%"
-
-#~ msgid "30%"
-#~ msgstr "30%"
-
-#~ msgid "Set Match Floor"
-#~ msgstr "Määra sobivuse alampiir"
-
-#~ msgid "At what level should the report show matches?"
-#~ msgstr "Millisel tasemel peaks aruanne näitama sobivusi?"
-
-#~ msgid "An error occurred generating the report: {0}"
-#~ msgstr "Aruande lomisel tekkis viga: {0}"
-
-#~ msgid "Invalid standard report: {0}"
-#~ msgstr "Invalid standard report: {0}"
-
-#~ msgid "Identichip No: "
-#~ msgstr "Mikrokiibi nr: "
-
-#~ msgid "Select a mother from the shelter animals"
-#~ msgstr "Vali varjupaiga loomade hulgast ema"
-
-#~ msgid "Unable to save media entry to database: "
-#~ msgstr "Ei saa salvestada meediafaili andmebaasi: "
-
-#~ msgid "Unable to open find animal screen: "
-#~ msgstr "Ei saa avada looma otsingu akent: "
-
-#~ msgid "An error occurred reading the record:\n"
-#~ msgstr "Viga kirje lugemisel:\n"
-
-#~ msgid "SpeciesName"
-#~ msgstr "LiigiNimi"
-
-#~ msgid "Or date:"
-#~ msgstr "Või kuupäev:"
-
-#~ msgid "An error occurred creating the record:\n"
-#~ msgstr "Dokumendi loomisel tekkis viga:\n"
-
-#~ msgid "VaccinationType"
-#~ msgstr "VaktsineerimiseTüüp"
-
-#~ msgid "Unable to read vaccination record from the database: "
-#~ msgstr "Ei saa lugeda vaktsineerimiskirjet andmebaasist: "
-
-#~ msgid "Unable to open animal vaccination records: "
-#~ msgstr "Ei saa avada looma vaktsineerimiskirjeid: "
-
-#~ msgid "Identichipped:"
-#~ msgstr "Mikrokiibitud:"
-
-#~ msgid "An error occurred cloning the animal: "
-#~ msgstr "Viga tekkis looma kloonimisel: "
-
-#~ msgid "Unable to create new animal record: "
-#~ msgstr "Ei saa luua uut looma kirjet: "
-
-#~ msgid "The Identichip Number"
-#~ msgstr "Mikrokiibi number"
-
-#~ msgid "Unable to read vaccination records: "
-#~ msgstr "Ei suuda lugeda vaktsineerimise kirjet: "
-
-#~ msgid "Unable to create new vaccination record: "
-#~ msgstr "Ei suuda luua uut vaktsineermise kirjet: "
-
-#~ msgid "An error occurred scaling and displaying the preview image:\n"
-#~ msgstr "Eelvaate loomisel tekkis viga:\n"
-
-#~ msgid "Unable to read media records: "
-#~ msgstr "Ei suuda lugeda meedia faile: "
-
-#~ msgid "An error occurred retrieving the media file: "
-#~ msgstr "Meediafaili väljaotsimisel tekkis viga: "
-
-#~ msgid "An error occurred completing the vaccination treatment:"
-#~ msgstr "Vaktsineerimiste lõpetamisel esines viga:"
-
-#~ msgid "Unable to read diet records:"
-#~ msgstr "Ei suuda lugeda dieedi kirjeid:"
-
-#~ msgid "The date the animal was identichipped"
-#~ msgstr "Mikrokiipimise kuupäev"
-
-#~ msgid "{0} active litters ({1} cats, {2} dogs and {3} miscellaneous)"
-#~ msgstr "{0} aktiivset pesakonda ({1} kassi, {2} koera ja {3} muud)"
-
-#~ msgid "Tick this box if this date of birth is an estimate?"
-#~ msgstr "Märgi see kastike kui looma sünniaeg on hinnanguline."
-
-#~ msgid "Unable to create new animal name:\n"
-#~ msgstr "Ei suuda luua uut looma nime:\n"
-
-#~ msgid "An error occurred saving the data:\n"
-#~ msgstr "Andmete salvestamisel tekkis viga:\n"
-
-#~ msgid "Unable to create new custom report:\n"
-#~ msgstr "Ei suuda luua uut aruannet:\n"
-
-#~ msgid "Unable to generate HTML:\n"
-#~ msgstr "Ei suuda luua HTML-i:\n"
-
-#~ msgid "An error occurred reading the diary note: "
-#~ msgstr "Päeviku märkme lugemisel tekkis viga: "
-
-#~ msgid "An error occurred creating a new diary record: "
-#~ msgstr "Uue päeviku kande tegemisel ilmnes viga: "
-
-#~ msgid "{0} weeks"
-#~ msgstr "{0} nädalat"
-
-#~ msgid "Version "
-#~ msgstr "Versioon "
-
-#~ msgid "All Members"
-#~ msgstr "Kõik liikmed"
-
-#~ msgid "Microchip Re&gistration"
-#~ msgstr "Mikrokiibi regist&reerimine"
-
-#~ msgid "Contents (&Printable PDF)"
-#~ msgstr "Sisu (&prinditav PDF)"
-
-#~ msgid "&All Members"
-#~ msgstr "&Kõik liikmed"
-
-#~ msgid "&Expiring Members"
-#~ msgstr "&Aeguvad liikmed"
-
-#~ msgid "Vendor: "
-#~ msgstr "Edasimüüja, tarnija: "
-
-#~ msgid "User Name: "
-#~ msgstr "Kasutajanimi: "
-
-#~ msgid "LocationName"
-#~ msgstr "AsukohaNimi"
+#~ msgid "Surname"
+#~ msgstr "Perekonnanimi"

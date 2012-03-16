@@ -38,6 +38,9 @@ if code == "et_EE": code = "et"
 # Hebrew hack
 if code == "he_IL": code = "he"
 
+# Greek hack
+if code == "el_GR": code = "el"
+
 # Open the output file
 outfilename = "translate_" + code + ".sql"
 outfile = open(outputdir + "/" + outfilename, "w")
