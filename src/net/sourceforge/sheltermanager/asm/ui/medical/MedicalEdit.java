@@ -236,6 +236,7 @@ public class MedicalEdit extends ASMForm {
             }
 
             txtComments.setText(mp.getComments());
+            cboStatus.setEnabled(false);
 
             mp.free();
             mp = null;
