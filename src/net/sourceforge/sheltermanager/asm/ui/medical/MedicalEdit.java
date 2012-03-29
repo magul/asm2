@@ -185,6 +185,7 @@ public class MedicalEdit extends ASMForm {
             am.setMedicalProfileID(new Integer(0));
             this.setTitle(i18n("Create_New_Medical_Regime"));
             txtStartDate.setToToday();
+            cboStatus.setEnabled(false);
             isNew = true;
         } catch (Exception e) {
             Global.logException(e, getClass());
