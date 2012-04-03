@@ -540,7 +540,7 @@ public class InOut extends Report {
 
     private void genAnimalsAdopted() throws Exception {
         Adoption theAD = new Adoption();
-        double donations = 0;
+        int donations = 0;
         theAD.openRecordset("MovementDate >= '" + sqlFrom +
             "' AND MovementDate <= '" + sqlTo + "' AND MovementType = " +
             Adoption.MOVETYPE_ADOPTION + " ORDER BY MovementDate");
@@ -572,10 +572,11 @@ public class InOut extends Report {
             }
 
             while (!theAD.getEOF()) {
-                double thisdonation = 0;
+                String thisdonation = Global.currencySymbol + "0";
 
                 if (theAD.getDonation() != null) {
-                    thisdonation = theAD.getDonation().doubleValue();
+                    thisdonation = money(theAD.getDonation());
+                    donations += theAD.getDonation();
                 }
 
                 if (!summaryOnly) {
@@ -591,11 +592,10 @@ public class InOut extends Report {
                     tableAddCell(theAD.getAnimal().getSexName());
                     tableAddCell(theAD.getAnimal().getShelterLocationName());
                     tableAddCell(theAD.getOwner().getOwnerName());
-                    tableAddCell(Global.currencySymbol + thisdonation);
+                    tableAddCell(thisdonation);
                     tableFinishRow();
                 }
 
-                donations += thisdonation;
                 theAD.moveNext();
             }
 
@@ -607,7 +607,7 @@ public class InOut extends Report {
             addParagraph(bold(Global.i18n("reports", "Total_Animals_Adopted_",
                         Long.toString(theAD.getRecordCount())) + "<br />" +
                     bold(Global.i18n("reports", "Total_Donations_",
-                            Global.currencySymbol + Double.toString(donations)))));
+                            money(donations)))));
 
             totalAnimalsOut += (int) theAD.getRecordCount();
         }
