@@ -99,7 +99,7 @@ by users, however anyone who knows what they're doing could decode it.
 HTTPDB
 ======
 
-httpdb.cgi is a Python module which runs as a webpage. It allows a database
+httpdb.cgi is a Python CGI module which runs as a webpage. It allows a database
 to be exposed through a webpage to the ASM application. This means that
 the user never sees the database or its credentials and once their webserver
 access is revoked, they cannot attack the database (it alleviates the need
@@ -112,7 +112,7 @@ To use, put it on your webserver, edit it and uncomment the lines specific
 to your database. You should fill in the database credentials here as well.
 Make sure your webserver has execute CGI permissions set for that 
 directory. You can test it is working correctly by visiting 
-http://webserver/httpd.cgi?sql=SELECT * FROM configuration
+http://webserver/httpdb.cgi?sql=SELECT * FROM configuration
 in your web browser.
 
 You can then set the JDBC URL for ASM in the index.html page to 
