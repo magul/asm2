@@ -1494,9 +1494,9 @@ public class Main extends ASMWindow {
         mnuInternet.add(mnuInternetPublishAvailable);
         mnuInternet.add(mnuInternetFTPSettings);
 
-        // US-specific animal publishing services
-        // ===============================================================
-        if (Locale.getDefault().getCountry().equals("US")) {
+        // PetFinder is US and Canada
+        if (Locale.getDefault().getCountry().equals("US") ||
+            Locale.getDefault().getCountry().equals("CA")) {
             mnuInternet.add(UI.getSeparator());
             mnuInternetPetFinder.add(mnuInternetPetFinderPublish);
             mnuInternetPetFinder.add(UI.getSeparator());
@@ -1504,6 +1504,10 @@ public class Main extends ASMWindow {
             mnuInternetPetFinder.add(mnuInternetPetFinderMapping);
             mnuInternetPetFinder.add(mnuInternetPetFinderBreeds);
             mnuInternet.add(mnuInternetPetFinder);
+        }
+
+        // US specific publishing services
+        if (Locale.getDefault().getCountry().equals("US")) {
             mnuInternetRescueGroups.add(mnuInternetRescueGroupsPublish);
             mnuInternetRescueGroups.add(UI.getSeparator());
             mnuInternetRescueGroups.add(mnuInternetRescueGroupsSettings);
