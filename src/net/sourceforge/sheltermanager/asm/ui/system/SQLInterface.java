@@ -40,7 +40,10 @@ public class SQLInterface extends ASMForm {
 
     public SQLInterface() {
         // Don't allow opening if database is read only
-        if (DBConnection.readOnly) return;
+        if (DBConnection.readOnly) {
+            return;
+        }
+
         init(Global.i18n("uisystem", "sql"),
             IconManager.getIcon(IconManager.SCREEN_SQLINTERFACE), "uisystem");
     }

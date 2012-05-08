@@ -443,8 +443,9 @@ public abstract class DBConnection {
             Global.logDebug(query, "DBConnection.executeAction");
         }
 
-        if (!readOnly) 
+        if (!readOnly) {
             stmt.execute(query);
+        }
     }
 
     /**
@@ -467,8 +468,9 @@ public abstract class DBConnection {
             stmt.addBatch(s);
         }
 
-        if (!readOnly) 
+        if (!readOnly) {
             stmt.executeBatch();
+        }
     }
 
     /**
@@ -488,10 +490,11 @@ public abstract class DBConnection {
             Global.logDebug(query, "DBConnection.executeAction");
         }
 
-        if (!readOnly) 
+        if (!readOnly) {
             return stmt.executeUpdate(query);
-        else
+        } else {
             return 0;
+        }
     }
 
     public synchronized static void executeFile(File f)
@@ -727,12 +730,13 @@ public abstract class DBConnection {
     public static String dumpTable(String tableName) {
         try {
             SQLRecordset r = new SQLRecordset();
-            r.openRecordset("SELECT * FROM "+ tableName, tableName);
+            r.openRecordset("SELECT * FROM " + tableName, tableName);
+
             return r.dump();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, DBConnection.class);
         }
+
         return "";
     }
 

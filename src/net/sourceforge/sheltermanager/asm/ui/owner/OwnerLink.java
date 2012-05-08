@@ -165,8 +165,8 @@ public class OwnerLink extends UI.Panel implements SearchListener {
             lblName = (UI.Label) UI.addComponent(name, i18n("Name:"),
                     UI.getTitleLabel(""));
 
-            lblAddress = (UI.Label) UI.addComponent(address,
-                    i18n("Address:"), UI.getTitleLabel(""));
+            lblAddress = (UI.Label) UI.addComponent(address, i18n("Address:"),
+                    UI.getTitleLabel(""));
 
             lblPostcode = (UI.Label) UI.addComponent(postcode,
                     i18n("Postcode:"), UI.getTitleLabel(""));
@@ -384,10 +384,11 @@ public class OwnerLink extends UI.Panel implements SearchListener {
 
             if (mode == MODE_FULL) {
                 lblAddress.setText("<p>" +
-                    Utils.nullToEmptyString(theowner.getOwnerAddress()) + "<br/>" +
-                    Utils.nullToEmptyString(theowner.getOwnerTown()) + "<br/>" +
-                    Utils.nullToEmptyString(theowner.getOwnerCounty()) + "</p>"
-                    );
+                    Utils.nullToEmptyString(theowner.getOwnerAddress()) +
+                    "<br/>" + Utils.nullToEmptyString(theowner.getOwnerTown()) +
+                    "<br/>" +
+                    Utils.nullToEmptyString(theowner.getOwnerCounty()) +
+                    "</p>");
                 lblPostcode.setText(Utils.nullToEmptyString(
                         theowner.getOwnerPostcode()));
                 lblHomeTelephone.setText(Utils.nullToEmptyString(

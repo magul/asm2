@@ -457,8 +457,10 @@ public class Startup implements Runnable {
 
             // Do we need to set the database wide lock?
             DBConnection.readOnly = Configuration.getBoolean("SMDBLocked");
+
             if (DBConnection.readOnly) {
-                Global.logInfo("DATABASE LOCKED. GOING INTO READ-ONLY MODE...", "Startup.Startup");            
+                Global.logInfo("DATABASE LOCKED. GOING INTO READ-ONLY MODE...",
+                    "Startup.Startup");
             }
 
             // Login

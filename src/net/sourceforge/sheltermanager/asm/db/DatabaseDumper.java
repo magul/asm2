@@ -26,14 +26,13 @@ import net.sourceforge.sheltermanager.asm.ui.ui.Dialog;
 import net.sourceforge.sheltermanager.asm.utility.Utils;
 import net.sourceforge.sheltermanager.cursorengine.DBConnection;
 
-import java.sql.Connection;
-
 import java.io.File;
+
+import java.sql.Connection;
 
 
 public class DatabaseDumper {
     public void start() {
-
         boolean doDBFS = Dialog.showYesNo(Global.i18n("db",
                     "want_to_include_dbfs"), Global.i18n("db", "include_dbfs"));
 
@@ -45,7 +44,6 @@ public class DatabaseDumper {
             Global.logException(e, DatabaseCopier.class);
         }
     }
-
 }
 
 
@@ -123,13 +121,14 @@ class Dumper implements Runnable {
         Global.mainForm.setStatusText("");
 
         try {
-            Utils.writeFile(Global.tempDirectory + File.separator + "dump.sql", s.toString().getBytes());
-        }
-        catch (Exception e) {
+            Utils.writeFile(Global.tempDirectory + File.separator + "dump.sql",
+                s.toString().getBytes());
+        } catch (Exception e) {
             Global.logException(e, this.getClass());
         }
 
-        Dialog.showInformation("Data dump complete. Output file is at $HOME/.asm/dump.sql", "Finished");
+        Dialog.showInformation("Data dump complete. Output file is at $HOME/.asm/dump.sql",
+            "Finished");
     }
 
     public void dumpTable(String tableName) {

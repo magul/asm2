@@ -91,12 +91,11 @@ public class DatabaseCopier {
         try {
             String target = "jdbc:hsqldb:file:" + Global.tempDirectory +
                 File.separator + "localdb";
-            Connection c= DBConnection.getConnection(target);
+            Connection c = DBConnection.getConnection(target);
             byte dbType = DBConnection.HSQLDB;
             Copier cop = new Copier(target, c, dbType, true);
             new Thread(cop).start();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Global.logException(e, DatabaseCopier.class);
         }
     }

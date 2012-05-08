@@ -326,7 +326,6 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
      * Writes INSERT statements to create this recordset
      */
     public String dump() throws CursorEngineException {
-        
         StringBuffer S = new StringBuffer("");
         int l = 0;
         int i = 0;
@@ -338,6 +337,7 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
         // Loop through our available rows 
         l = 1;
+
         ArrayList<String> batch = new ArrayList<String>();
 
         while (l <= mNoRows) {
@@ -380,9 +380,9 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
             l++;
         }
+
         return S.toString();
     }
-            
 
     /**
      * Returns the absolute position of the cursor currently in the set

@@ -1131,8 +1131,8 @@ public class Main extends ASMWindow {
                 IconManager.getIcon(IconManager.MENU_SYSTEMDBCOPY),
                 UI.fp(this, "actionSystemDBDump"));
 
-        mnuSystemDBLocalCopy = UI.getMenuItem(i18n("Copy_to_local_database"), 'l',
-                IconManager.getIcon(IconManager.MENU_SYSTEMDBLOCALCOPY),
+        mnuSystemDBLocalCopy = UI.getMenuItem(i18n("Copy_to_local_database"),
+                'l', IconManager.getIcon(IconManager.MENU_SYSTEMDBLOCALCOPY),
                 UI.fp(this, "actionSystemDBLocalCopy"));
 
         mnuSystemDBImporter = UI.getMenuItem(i18n("Import_Database"), 'i',
@@ -1470,7 +1470,8 @@ public class Main extends ASMWindow {
         }
 
         // Sheltermanager.com only - copy database to local
-        if (Startup.applet && (DBConnection.url.indexOf("sheltermanager.com") != -1)) {
+        if (Startup.applet &&
+                (DBConnection.url.indexOf("sheltermanager.com") != -1)) {
             mnuSystemDatabaseTools.add(mnuSystemDBLocalCopy);
         }
 
@@ -1496,7 +1497,7 @@ public class Main extends ASMWindow {
 
         // PetFinder is US and Canada
         if (Locale.getDefault().getCountry().equals("US") ||
-            Locale.getDefault().getCountry().equals("CA")) {
+                Locale.getDefault().getCountry().equals("CA")) {
             mnuInternet.add(UI.getSeparator());
             mnuInternetPetFinder.add(mnuInternetPetFinderPublish);
             mnuInternetPetFinder.add(UI.getSeparator());
