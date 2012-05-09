@@ -142,7 +142,11 @@ public class SQLRecordset implements Iterator<SQLRecordset>,
 
             while (i <= mNoFields) {
                 fd = new SQLFieldDescriptor();
-                fd.name = rs.getMetaData().getColumnName(i);
+                fd.name = rs.getMetaData().getColumnLabel(i);
+
+                if ((fd.name == null) || fd.name.equals("")) {
+                    fd.name = rs.getMetaData().getColumnName(i);
+                }
 
                 // Work out what field type to use based on the JDBC types
                 // returned

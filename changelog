@@ -1,3 +1,9 @@
+2.8.11
+================
+
+*. Fixed database driver to use ColumnLabel to work around alias issue
+-  in new HSQLDB 2 driver.
+
 2.8.10
 ================
 

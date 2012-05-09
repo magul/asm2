@@ -1333,8 +1333,7 @@ class HttpResultSetMetaData implements ResultSetMetaData {
 
     @Override
     public String getColumnLabel(int column) throws SQLException {
-        // TODO Auto-generated method stub
-        return null;
+        return colnames.get(column - 1);
     }
 
     @Override
