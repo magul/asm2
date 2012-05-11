@@ -1,0 +1,14 @@
+This is a handy script to dump the contents of any ASM database to
+INSERT statements for applying to any other ASM database of the 
+same version (MySQL, HSQL or PostgreSQL)
+
+Edit the top of the dump.py file to set the JDBC driver and url to use.
+
+Requires Python, JPype, JayDeBeApi
+
+To get JayDeBeApi:
+
+bzr branch lp:jaydebeapi
+python setup.py install
+
+Python and JPype are in Debian - python-jpype
