@@ -1,5 +1,5 @@
-#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
 \textclass book
@@ -10,18 +10,26 @@
 \usepackage{geometry}
 \end_preamble
 \use_default_options false
+\maintain_unincluded_children false
 \language english
+\language_package default
 \inputencoding auto
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
+\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -38,9 +46,18 @@
 \use_geometry true
 \use_amsmath 1
 \use_esint 0
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
+\use_indices false
 \paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
 \leftmargin 1in
 \topmargin 1in
 \rightmargin 1in
@@ -48,15 +65,16 @@
 \secnumdepth 2
 \tocdepth 2
 \paragraph_separation indent
-\defskip medskip
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
 \tracking_changes false
 \output_changes false
-\author "" 
-\author "" 
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
 \end_header
 
 \begin_body
@@ -66,7 +84,7 @@ Animal Shelter Manager User Manual
 \end_layout
 
 \begin_layout Author
-Revision 67 (ASM 2.8.8)
+Revision 68 (ASM 2.8.11)
 \end_layout
 
 \begin_layout Chapter*
@@ -340,7 +358,7 @@ You open screens in ASM by navigating and clicking on menu items.
 
 \series bold
 Top-Level menus
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -385,7 +403,7 @@ Diary
 
 \series bold
 Sub-Menus
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -412,7 +430,7 @@ File->Animal
 
 \series bold
 Menu Commands
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -432,7 +450,7 @@ Menu Commands
 
 \begin_layout Section
 Shortcut Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -533,7 +551,7 @@ CTRL+W
 
 \begin_layout Section
 Toolbar
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -570,7 +588,7 @@ If you hover the mouse over a toolbar button, it will tell you what it is
 
 \begin_layout Section
 Status Bar
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -629,7 +647,7 @@ Locale information (the ISO two letter language code and country flag).
 
 \begin_layout Section
 Dates
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -694,7 +712,7 @@ E - Move to the end of the current month
 
 \begin_layout Section
 Tables
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -840,7 +858,7 @@ Animals
 
 \begin_layout Section
 Find Animal Screen
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1114,7 +1132,7 @@ For more information about what the criteria boxes expect, hover your mouse
 
 \begin_layout Section
 Printing Search Results
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1143,7 +1161,7 @@ It is possible to sort by the various columns by clicking on their names
 
 \begin_layout Section
 Animal Screen
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1187,7 +1205,7 @@ Below the toolbar, the animal screen is split into a number of different
 
 \begin_layout Subsection
 Animal Details
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1236,7 +1254,7 @@ When you create a new animal, a special option appears for
 \end_inset
 
 Non-Shelter Animal
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1277,7 +1295,7 @@ If the
 \end_inset
 
 Use Single Breed
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1305,7 +1323,7 @@ Crossbreed
 
 \begin_layout Subsection
 Entry Details
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1369,7 +1387,7 @@ Most importantly, the right hand side of the screen contains the animals
 
 \begin_layout Subsection
 Vet
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1417,7 +1435,7 @@ The vet tab is used for entering general information about the animal's
 
 \begin_layout Subsection
 Death
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1458,7 +1476,7 @@ Death
 The death tab is used for capturing information about the animal's death
  if it is deceased.
  The most important field is the deceased date
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1484,7 +1502,7 @@ A special field
 \end_inset
 
 Died Off Shelter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1505,7 +1523,7 @@ Died Off Shelter
 
 \begin_layout Subsection
 Diet
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1553,7 +1571,7 @@ System->Lookups->Diets
 
 \begin_layout Subsection
 Costs
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1619,7 +1637,7 @@ By default, when the animal is adopted, ASM will automatically convert the
 
 \begin_layout Subsection
 Vaccination
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1684,7 +1702,7 @@ Vaccinations can also have a cost attached for use with reporting.
 
 \begin_layout Subsection
 Medical
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1723,7 +1741,7 @@ Medical
 
 \begin_layout Standard
 The medical tab is used to track information about medical treatments
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1771,7 +1789,7 @@ Medical records can also have a cost associated with them for reporting.
 
 \begin_layout Subsection
 Media
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1812,7 +1830,7 @@ Media
 The media tab contains documents, images, videos and sounds (any type of
  file is allowed) that you may embed and store with the animal.
  The most common use is images
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1904,7 +1922,7 @@ Notice that when an animal has media, the tab displays a graphic, indicating
 
 \begin_layout Standard
 Note also that you can grab a still from a video source
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1919,7 +1937,7 @@ video source
 
 \begin_layout Itemize
 A Linux machine with a v4l compliant webcam and XawTV
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1934,7 +1952,7 @@ XawTV
 \begin_layout Itemize
 An IP camera that allows grabbing of stills via a URL (most Winbond based
  cameras
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -1955,7 +1973,7 @@ Any other kind of video source that can be accessed via a program or binary.
 
 \begin_layout Subsection
 Diary
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2010,7 +2028,7 @@ reference "cha:General-Diary"
 
 \begin_layout Subsection
 Movements
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2058,7 +2076,7 @@ The movement tab shows a summary of all movements that the animal has undergone.
 
 \begin_layout Subsection
 Log
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2140,7 +2158,7 @@ Moving and Reserving Animals
 \begin_layout Standard
 A large part of the administrative duties you will need to perform with
  Animal Shelter Manager revolve around the 
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2150,7 +2168,7 @@ movement
 \end_inset
 
 movement and reservation
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2185,7 +2203,7 @@ A special exception to this is reservations - since they are not actually
 
 \begin_layout Standard
 Any method by which an animal leaves your shelter requires a movement record
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2281,7 +2299,7 @@ Find the adoption movement and fill in the return date.
 
 \begin_layout Subsection
 Retailer Movements
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2369,7 +2387,7 @@ System->Options
 
 \begin_layout Section
 Documents
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2407,7 +2425,7 @@ real
 
  data when a document is generated.
  For a complete list of document keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2469,7 +2487,7 @@ On the main owner toolbar (creates documents with owner information)
 \begin_layout Standard
 However you choose to create the document, the process is the same.
  You will be prompted for the document template
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2503,7 +2521,7 @@ templates
 \begin_layout Standard
 Once you have selected the template, the document will be generated and
  opened in the appropriate word processor
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2523,7 +2541,7 @@ The document template selection screen will remain open, so you can generate
 
 \begin_layout Section
 Animal Name Database
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2548,7 +2566,7 @@ File->Animal
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2565,7 +2583,7 @@ In addition to animals, Animal Shelter Manager can track information about
  owners.
  Owners represent any person who has any contact with the shelter, be it
  staff member
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2575,7 +2593,7 @@ staff member
 \end_inset
 
 , volunteer
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2585,7 +2603,7 @@ volunteer
 \end_inset
 
 , care officer
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2600,7 +2618,7 @@ care officer
 
 \begin_layout Section
 Find Owner Screen
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2816,7 +2834,7 @@ Note the gift aid registered flag for people in the UK, setting this will
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2839,7 +2857,7 @@ When you create new owner records and adopt animals to owners, the system
 
 \series bold
 Name Check
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2862,7 +2880,7 @@ Name Check
 
 \series bold
 Address Check
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2885,7 +2903,7 @@ Address Check
 
 \series bold
 Postcode Check
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2906,7 +2924,7 @@ Postcode Check
 
 \series bold
 Previous Owner Check
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2928,7 +2946,7 @@ Previous Owner Check
 
 \series bold
 Non-Homechecked
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2949,7 +2967,7 @@ Non-Homechecked
 
 \series bold
 Banned
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2967,7 +2985,7 @@ Banned
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -2996,7 +3014,7 @@ Ticking the active flag causes this owner's criteria to be included in the
 \end_inset
 
 Owner Criteria Search
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3022,7 +3040,7 @@ Only one set of criteria can be held per owner.
 
 \begin_layout Subsection
 Home Checkers
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3089,7 +3107,7 @@ When marking an owner as homechecked, you can link to the owner record of
 
 \begin_layout Subsection
 Donations
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3124,7 +3142,7 @@ One-Off
 
 \begin_layout Subsection
 Vouchers
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3150,7 +3168,7 @@ The voucher tab allows you to log vouchers given to owners here.
 
 \begin_layout Subsection
 Links
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3169,7 +3187,7 @@ The links tab enables you to view every other record in the system that
 
 \begin_layout Subsection
 Merging Owners
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3204,7 +3222,7 @@ ASM will reparent all of the movements, links, media, etc from the duplicate
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3294,7 +3312,7 @@ To see your new reservation in the list, you must click the Refresh button
 
 \begin_layout Section
 Foster Book
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3304,7 +3322,7 @@ Foster Book
 \end_inset
 
  and Retailer Book
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3324,7 +3342,7 @@ There are also additional screens called the Foster Book and Retailer Book,
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3423,7 +3441,7 @@ The screen has its own toolbar, from which you can delete the current record,
 
 \begin_layout Standard
 The found animal
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3440,7 +3458,7 @@ found animal
 
 \begin_layout Section
 Matching Lost and Found Animals
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3476,7 +3494,7 @@ File->Lost And Found->Match Lost and Found Animals
 
 \begin_layout Subsection
 The Match Point System
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3616,7 +3634,7 @@ Original Owner postcode is used for Postcode area found.
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3766,7 +3784,7 @@ You may also print the current view of the waiting list by clicking the
 
 \begin_layout Standard
 As mentioned before, the urgency
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3833,7 +3851,7 @@ From this information, animal shelter manager keeps an internal diary of
 
 \begin_layout Section
 Print the Vaccination Diary
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3889,7 +3907,7 @@ Off Shelter:
 
 \begin_layout Section
 Print the Medical Diary
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -3923,7 +3941,7 @@ Diary->Medical Diary->Medical Book
 
 \begin_layout Chapter
 General Diary
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4081,7 +4099,7 @@ You will be shown a report of currently outstanding diary notes, grouped
 
 \begin_layout Section
 Printing the Vets Diary
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4157,7 +4175,7 @@ will
 
 \begin_layout Section
 Diary Tasks
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4214,7 +4232,7 @@ The solution is to create a diary task with two task items - one for the
  a day value relative to today, called a 
 \emph on
 day pivot
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4406,7 +4424,7 @@ Appropriate diary notes will be created in the general diary and attached
 
 \begin_layout Chapter
 Accounts
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4596,7 +4614,7 @@ Reports->Get more reports from sheltermanager.com
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4629,7 +4647,7 @@ Auditing
 
 \series bold
 Non-Neutered Animals
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4652,7 +4670,7 @@ Non-Neutered Animals
 
 \series bold
 Non-Microchipped Animals
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4673,7 +4691,7 @@ Non-Microchipped Animals
 
 \series bold
 Animals Without Photo Media
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4695,7 +4713,7 @@ Animals Without Photo Media
 
 \series bold
 Animals Never Vaccinated
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4716,7 +4734,7 @@ Animals Never Vaccinated
 
 \series bold
 Cats Not Combi-Tested
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4741,7 +4759,7 @@ Figures
 
 \series bold
 Long Term Animals
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4760,7 +4778,7 @@ Long Term Animals
 
 \begin_layout Subsection
 Animal Figures
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4890,7 +4908,7 @@ Inventories
 
 \series bold
 Shelter Inventory
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4911,7 +4929,7 @@ Shelter Inventory
 
 \series bold
 Detailed Shelter Inventory
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4932,7 +4950,7 @@ l animals as well.
 
 \series bold
 Owner Criteria Search
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4964,7 +4982,7 @@ Litters
 
 \series bold
 Animals Not Part of a Litter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -4993,7 +5011,7 @@ Movements
 In/Out
 \series default
 
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5019,7 +5037,7 @@ In/Out Summary:
 
 \series bold
 Transfer In
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5044,7 +5062,7 @@ Retailers
 
 \series bold
 Volume Of Adoptions Per Retailer
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5065,7 +5083,7 @@ Volume Of Adoptions Per Retailer
 
 \series bold
 Average Time At Retailer
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5086,7 +5104,7 @@ Average Time At Retailer
 
 \series bold
 Retailer Inventory
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5111,7 +5129,7 @@ Returns
 
 \series bold
 Animals Returned Within Six Months
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5133,7 +5151,7 @@ Animals Returned Within Six Months
 
 \series bold
 Animals Returned After Six Months
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5154,7 +5172,7 @@ Animals Returned After Six Months
 
 \series bold
 Returned Animals Report
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5179,7 +5197,7 @@ Statistics
 
 \series bold
 Most Common Name
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5200,7 +5218,7 @@ Most Common Name
 
 \series bold
 Animal Death Reasons
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5221,7 +5239,7 @@ Animal Death Reasons
 
 \series bold
 Common Animal Entry Areas
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5242,7 +5260,7 @@ Common Animal Entry Areas
 
 \series bold
 Common Animal Adoption Areas
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5263,7 +5281,7 @@ Common Animal Adoption Areas
 
 \series bold
 Average Time On Waiting List
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5292,7 +5310,7 @@ Financials
 
 \series bold
 Monthly Donations
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5326,7 +5344,7 @@ Movements
 
 \series bold
 Monthly Adoptions By Species
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5356,7 +5374,7 @@ Monthly Adoptions By Locations:
 
 \series bold
 Animal Entry Reasons
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5384,7 +5402,7 @@ Animal Return Reasons:
 
 \begin_layout Section
 Custom Reports
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5416,7 +5434,7 @@ Structured Query Language
 
 ).
  SQL
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5427,7 +5445,7 @@ SQL
 
  is a language for retrieving and formatting information - underneath, ASM
  uses this language to talk to its database (Either HSQLDB
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5437,7 +5455,7 @@ HSQLDB
 \end_inset
 
 , MySQL
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5447,7 +5465,7 @@ MySQL
 \end_inset
 
  or PostgreSQL
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5470,7 +5488,7 @@ The custom reports editing screen is located under the System menu, any
 In addition to just creating queries, you can then format how the data is
  transformed and displayed to you in the format of a report.
  Again, this is done through the use of another language - HTML
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5507,7 +5525,7 @@ target "http://www.w3schools.com"
 
 \begin_layout Subsection
 SQL Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5536,7 +5554,7 @@ ASM offers SQL preprocessor instructions to allow you to substitute system
 
 \series bold
 $USER$
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5560,7 +5578,7 @@ $USER$
 
 \series bold
 $CURRENT_DATE$
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5583,7 +5601,7 @@ $CURRENT_DATE$
 
 \series bold
 $PARENTKEY$
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5605,7 +5623,7 @@ $PARENTKEY$
 
 \begin_layout Subsection
 ASK
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5769,7 +5787,7 @@ $ASK STRING message$
 
 \begin_layout Subsection
 VAR
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5835,7 +5853,7 @@ AND DateBroughtIn >= '$@broughtinafter$'
 
 \begin_layout Subsection
 Report Grouping
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5952,7 +5970,7 @@ $$FOOTER
 
 \series bold
 {SUM
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5973,7 +5991,7 @@ SUM
 
 \series bold
 {COUNT
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -5993,7 +6011,7 @@ COUNT
 
 \series bold
 {AVG
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6015,7 +6033,7 @@ AVG
 
 \series bold
 {MIN
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6035,7 +6053,7 @@ MIN
 
 \series bold
 {MAX
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6055,7 +6073,7 @@ MAX
 
 \series bold
 {FIRST
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6075,7 +6093,7 @@ FIRST
 
 \series bold
 {IMAGE
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6106,7 +6124,7 @@ nopic.jpg
 
 \series bold
 {LAST
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6126,7 +6144,7 @@ LAST
 
 \series bold
 {PCT
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6150,7 +6168,7 @@ PCT
 
 \series bold
 {SQL
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6179,7 +6197,7 @@ $$BODY
 
 \series bold
 {SUBREPORT
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6364,7 +6382,7 @@ FOOTER$$
 
 \begin_layout Subsection
 Temporary tables
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6433,7 +6451,7 @@ Note the use of the $USER$ SQL tag to make sure the temporary table is unique
 
 \begin_layout Subsection
 Get more reports
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6467,7 +6485,7 @@ l custom reports.
 
 \begin_layout Section
 Custom Graphs
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6564,7 +6582,7 @@ Would produce data that might look something like:
 \begin_layout LyX-Code
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
-<features>
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <row>
@@ -6711,7 +6729,7 @@ Note that the graphs use a relative scale, interpreted from the data.
 
 \begin_layout Section
 The Local Cache
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6759,7 +6777,7 @@ The cache toolbar allows you to remove either individual or all documents
 
 \begin_layout Section
 Data Export
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6781,7 +6799,7 @@ Custom reports can also be used to export data.
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6988,7 +7006,7 @@ You may optionally specify a date at which the litter will automatically
 
 \begin_layout Subsection
 Automatically with Acceptance Numbers
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -6998,7 +7016,7 @@ Acceptance Numbers
 \end_inset
 
  and Litter IDs
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7059,7 +7077,7 @@ animals under 6 months old are automatically excluded
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7307,7 +7325,7 @@ ASM can support multiple templates when publishing.
 
 \begin_layout Section
 FTP
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7323,7 +7341,7 @@ FTP
 To take advantage of the automatic uploading facilities, you will need to
  know your FTP settings.
  These are issued to you by your ISP
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7344,7 +7362,7 @@ FTP Host
  If you cannot get hold of this, you may also use the FTP server's 
 \emph on
 IP Address
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7378,7 +7396,7 @@ FTP port
 
 \begin_layout Standard
 The final item is the webspace
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7422,7 +7440,7 @@ plain
 \end_inset
 
 rss
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7440,7 +7458,7 @@ rss
 \end_inset
 
 sm.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7468,7 +7486,7 @@ rss produces XML output for interpreting by an RSS feed reader.
 
 \begin_layout Standard
 sm.com is much more advanced, using CSS
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7493,7 +7511,7 @@ An internet template is split into three files:
 
 \begin_layout Itemize
 pih.dat
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7507,7 +7525,7 @@ pih.dat
 
 \begin_layout Itemize
 pif.dat
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7521,7 +7539,7 @@ pif.dat
 
 \begin_layout Itemize
 pib.dat
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7591,7 +7609,7 @@ $$TOTAL$$ - The number of animals output by the publisher
 
 \begin_layout Section
 PetFinder.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7674,7 +7692,7 @@ You have to let PetFinder know that you are using ASM to upload your data
 
 \begin_layout Section
 Pets911.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7704,7 +7722,7 @@ You will need to go to Internet->Pets911->Pets911 Settings first.
 
 \begin_layout Section
 1-800-Save-A-Pet.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7714,7 +7732,7 @@ status open
 \end_inset
 
 /AdoptAPet.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -7895,7 +7913,7 @@ Submit Registration
 
 \begin_layout Chapter
 Mail Merge
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8031,7 +8049,7 @@ You will be returned to the data source manager screen.
 
 \begin_layout Subsection
 Mail Merge Documents with OpenOffice
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8185,7 +8203,7 @@ File
 
 \begin_layout Section
 Merging With Microsoft Word
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8281,7 +8299,7 @@ The Word document you have created will always rely on your data source,
 
 \begin_layout Section
 Bulk Emailling
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8318,7 +8336,7 @@ At the end of mail merge source generation, you will be asked if you want
 \end_layout
 
 \begin_layout Chapter
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8338,7 +8356,7 @@ To configure all areas of the system, you need to look under the top-level
 
 \begin_layout Section
 Lookups
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8354,7 +8372,7 @@ Lookups
 The lookups menu expands a submenu of lookups.
  These are small, standard databases used throughout the system for values
  such as breeds
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8364,7 +8382,7 @@ breeds
 \end_inset
 
 , species
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8374,7 +8392,7 @@ species
 \end_inset
 
 , colours
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8393,7 +8411,7 @@ Normal Shelter Manager user interface rules apply (a list will appear with
 
 \begin_layout Subsection
 Breed Mappings
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8413,7 +8431,7 @@ The breed mappings option allows you to map breeds to different species.
 
 \begin_layout Subsection
 Unwanted Breeds and Species
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8486,7 +8504,7 @@ dogs
 
 \begin_layout Section
 Additional Fields
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8626,7 +8644,7 @@ additional
 
 \begin_layout Section
 Media Files
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8651,7 +8669,7 @@ System->Media Files
 
 \begin_layout Section
 Edit System Users
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8705,7 +8723,7 @@ Staff
 
 \begin_layout Section
 System Options
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8800,7 +8818,7 @@ The costs tab allows you to specify a default daily boarding cost for new
 
 \begin_layout Subsection
 Accounts
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8892,7 +8910,7 @@ If this option is set, when you view the main accounts screen, totals will
 
 \begin_layout Subsection
 Age Groups
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -8921,7 +8939,7 @@ This tab allows you to choose the threshold for each grouping, as well as
 
 \begin_layout Subsection
 Animal Codes
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9112,7 +9130,7 @@ Once assigned, codes cannot be changed:
 
 \begin_layout Subsection
 Authentication
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9133,7 +9151,7 @@ ASM offers a number of authentication methods (ways to allow users to log
 
 \begin_layout Subsubsection
 Operating System
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9176,7 +9194,7 @@ DELETE FROM configuration WHERE ItemName LIKE 'AutoLoginOSUsers';
 
 \begin_layout Subsubsection
 Database
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9198,7 +9216,7 @@ This is the default.
 
 \begin_layout Subsubsection
 LDAP
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9315,7 +9333,7 @@ name "sec:Configure-Reporting-and-Defaults"
 \end_inset
 
 
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -9419,7 +9437,7 @@ Default original filename as notes when attaching media:
 
 \begin_layout Subsection
 Automatic Insurance Numbers
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10513,7 +10531,7 @@ The options on this screen are as follows (NB: Wording may differ slightly
 
 \series bold
 System Locale
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10548,7 +10566,7 @@ Look and Feel:
 
 \series bold
 Video Capture Method
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10604,7 +10622,7 @@ Start Maximised:
 
 \series bold
 Use Internal Report Viewer
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10644,7 +10662,7 @@ If selected, ASM will check the website for new updates on startup and notify
 
 \series bold
 Auto-Logout
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10678,7 +10696,7 @@ ASM at the Command Line
 
 \begin_layout Section
 Command Line Interface
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10764,7 +10782,7 @@ asmcmd.bat <command> [options]
 
 \begin_layout Subsection
 publishwww
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -10855,9 +10873,10 @@ uploadall: Upload all of the animal's images in the format sheltercode-X.jpg
 \end_layout
 
 \begin_layout Itemize
-noimportfile: For publishers supporting a separate import config/description, disables uploading of it so it can be uploaded separately (only applies to adoptapet.com at present)
+noimportfile: For publishers supporting a separate import config/description,
+ disables uploading of it so it can be uploaded separately (only applies
+ to adoptapet.com at present)
 \end_layout
-
 
 \begin_layout Itemize
 forcereupload: Force reuploading of animal images
@@ -10979,7 +10998,7 @@ includecase includereserved includewithoutimage
 
 \begin_layout Subsection
 publishpf
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11002,7 +11021,7 @@ generatejavascriptdb, uploaddirectly, animalsperpage.
 
 \begin_layout Subsection
 publishpets911
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11025,7 +11044,7 @@ generatejavascriptdb, uploaddirectly, animalsperpage, uploadall.
 
 \begin_layout Subsection
 publish1800sap
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11035,7 +11054,7 @@ publish1800sap
 \end_inset
 
 /publishadoptapet
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11073,7 +11092,7 @@ includecolors
 
 \begin_layout Subsection
 publishrescuegroups
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11097,7 +11116,7 @@ genearatejavascriptdb, uploaddirectly, animalsperpage, uploadall.
 
 \begin_layout Subsection
 publishsmarttag
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11116,7 +11135,7 @@ This command causes ASM to send any outstanding animals that have been adopted
 
 \begin_layout Subsection
 runreport
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11172,7 +11191,7 @@ file.html
 
 \begin_layout Subsection
 getmediafile
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11205,7 +11224,7 @@ Retrieves the media file named in the media record with ID 28.
 
 \begin_layout Subsection
 dbfsdownload
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11260,7 +11279,7 @@ Note that you should put quotes around any directory or file names containing
 
 \begin_layout Subsection
 dbfsupload
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11312,7 +11331,7 @@ Note that you should put quotes around any directory or file names containing
 
 \begin_layout Subsection
 dbfsdelete
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11362,7 +11381,7 @@ name "sec:Adding-Custom-Buttons"
 
 \begin_layout Standard
 ASM allows you to add additional buttons
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11448,7 +11467,7 @@ button.
 
 \begin_layout Section
 dotasm
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11482,7 +11501,7 @@ dotasm
 
 \begin_layout Section
 Importing Data From PetFinder.com
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11519,7 +11538,7 @@ ASM can read these files and create basic animal records from them.
 
 \begin_layout Section
 Backing up
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11569,7 +11588,7 @@ You can restore by copying those files back to their original location.
 
 \begin_layout Section
 Networking
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11702,7 +11721,7 @@ target "http://www.sheltermanager.com"
 
 \begin_layout Section
 Wordkeys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -11730,7 +11749,7 @@ The following wordkeys are available in different areas of the system when
 
 \begin_layout Subsection
 Animal Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12446,7 +12465,7 @@ DietCommentsLastX - Any comments on the diet
 
 \begin_layout Subsection
 Movement Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12530,7 +12549,7 @@ InsuranceNumber - If your shelter insures animals as they are adopted, the
 
 \begin_layout Subsection
 Owner Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12646,7 +12665,7 @@ MembershipExpiryDate
 
 \begin_layout Subsection
 Donation Keys
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12715,7 +12734,7 @@ DonationLastChangedDate
 
 \begin_layout Section
 Using Images in Documents
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12741,7 +12760,7 @@ ASM can include the animal's main picture with any generated template if
 
 \begin_layout Subsection
 OpenOffice
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12766,7 +12785,7 @@ You can size the image as you want it to appear and add any effects.
 
 \begin_layout Subsection
 Abiword
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12810,7 +12829,7 @@ media
 
 \begin_layout Subsection
 Microsoft Office 2007
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12835,7 +12854,7 @@ Size the image as you want it to appear, add any effects necessary.
 
 \begin_layout Section
 System Properties
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12935,7 +12954,7 @@ Configure File Types
 
 \begin_layout Section
 Available Icons
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -12985,7 +13004,7 @@ reference "sec:Adding-Custom-Buttons"
 
 \begin_layout Section
 Database Tables/Columns
-\begin_inset Index
+\begin_inset Index idx
 status open
 
 \begin_layout Plain Layout
@@ -13011,7 +13030,7 @@ The animal table holds a row for each animal on the system.
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="83" columns="3">
-<features islongtable="true" headBottomDL="true">
+<features islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="2in">
 <column alignment="center" valignment="top" width="1in">
 <column alignment="center" valignment="top" width="3in">
@@ -15440,7 +15459,7 @@ The adoption table holds a row for each movement attached to an animal/owner.
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="22" columns="3">
-<features islongtable="true" headBottomDL="true">
+<features islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="2.1in">
 <column alignment="center" valignment="top" width="1in">
 <column alignment="center" valignment="top" width="3in">
@@ -16103,7 +16122,7 @@ The media table holds a row for each piece media attached to an animal,
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="17" columns="3">
-<features islongtable="true" headBottomDL="true">
+<features islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="2in">
 <column alignment="center" valignment="top" width="1in">
 <column alignment="center" valignment="top" width="3in">
@@ -16618,7 +16637,7 @@ The dbfs table holds a row for each file stored in ASM's database.
 \begin_layout Standard
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
-<features islongtable="true" headBottomDL="true">
+<features islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="2in">
 <column alignment="center" valignment="top" width="1in">
 <column alignment="center" valignment="top" width="3in">
@@ -16786,6 +16805,7 @@ The file contents.
 \begin_layout Standard
 \begin_inset CommandInset index_print
 LatexCommand printindex
+type "idx"
 
 \end_inset
 
