@@ -66,7 +66,7 @@ public class StartupPage extends ASMForm {
                         // Load the news after the report - still on a separate thread
                         // so there's no blocking if we can't get to the web
                         asmnews.setPage(System.getProperty("asm.news",
-                                "http://sheltermanager.sf.net/startpage.html"));
+                                "http://sheltermanager.com/repo/asm2_news.html"));
                     } catch (Exception e) {
                         Global.logException(e, getClass());
                     }

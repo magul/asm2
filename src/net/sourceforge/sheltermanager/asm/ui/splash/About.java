@@ -41,7 +41,7 @@ import java.util.Vector;
  */
 @SuppressWarnings("serial")
 public class About extends ASMDialog {
-    private final static String HOME_PAGE = "http://sheltermanager.sf.net";
+    private final static String HOME_PAGE = "http://sheltermanager.com";
     private UI.Label lblUrl;
     private UI.Button btnOk;
     private UI.HTMLBrowser edSys;

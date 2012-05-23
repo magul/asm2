@@ -39,7 +39,7 @@ cp ../../sql/*.sql sheltermanager/usr/share/asm/data/sql/ -rf
 cp menu/sheltermanager sheltermanager/usr/share/menu
 
 # Add our repository to the list file
-echo "deb http://sheltermanager.sourceforge.net/deb/binary/ ./" > sheltermanager/etc/apt/sources.list.d/sheltermanager.list
+echo "deb http://sheltermanager.com/deb/ ./" > sheltermanager/etc/apt/sources.list.d/sheltermanager.list
 
 # Generate the control file
 #echo "Generating control file..."

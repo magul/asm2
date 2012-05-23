@@ -2175,7 +2175,7 @@ public class Main extends ASMWindow {
 
     public void actionHelpContents() {
         cursorToWait();
-        addChild(new HTMLViewer("http://sheltermanager.sf.net/help/"));
+        addChild(new HTMLViewer("http://sheltermanager.com/repo/asm2_help/"));
     }
 
     public void actionPreferencesLocalCache() {
