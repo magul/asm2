@@ -102,8 +102,6 @@ class Dumper implements Runnable {
         dumpTable("logtype");
         dumpTable("media");
         dumpTable("medicalprofile");
-        dumpTable("medicalpayment");
-        dumpTable("medicalpaymenttype");
         dumpTable("ownerdonation");
         dumpTable("owner");
         dumpTable("ownervoucher");
@@ -134,6 +132,7 @@ class Dumper implements Runnable {
     public void dumpTable(String tableName) {
         Global.mainForm.setStatusText("Dumping table: " + tableName);
         Global.mainForm.incrementStatusBar();
+        s.append("DELETE FROM " + tableName + ";\n");
         s.append(DBConnection.dumpTable(tableName));
     }
 }

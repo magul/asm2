@@ -271,8 +271,8 @@ public class AnimalFigures extends Report {
         lastDayOfMonth.add(Calendar.DAY_OF_MONTH, -1);
         noDaysInMonth = lastDayOfMonth.get(Calendar.DAY_OF_MONTH);
 
-        String sqlFirstDayOfMonth = Utils.getSQLDateOnly(firstDayOfMonth);
-        String sqlLastDayOfMonth = Utils.getSQLDateOnly(lastDayOfMonth);
+        String sqlFirstDayOfMonth = Utils.getSQLDate(firstDayOfMonth);
+        String sqlLastDayOfMonth = Utils.getSQLDate(lastDayOfMonth);
 
         // Draw the day of the month table
         tableNew(false);
@@ -573,7 +573,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("SpeciesID = " + speciesID + " AND MovementDate = '" +
@@ -691,7 +691,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("SpeciesID = " + speciesID + " AND MovementDate = '" +
@@ -717,7 +717,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("SpeciesID = " + speciesID + " AND MovementDate = '" +
@@ -836,7 +836,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID WHERE ";
 
             sql += ("SpeciesID = " + speciesID + " AND MovementDate = '" +
@@ -1355,7 +1355,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
@@ -1473,7 +1473,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
@@ -1499,7 +1499,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID Where ";
 
             sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
@@ -1618,7 +1618,7 @@ public class AnimalFigures extends Report {
             Calendar atDate = (Calendar) firstDayOfMonth.clone();
             atDate.add(Calendar.DAY_OF_MONTH, i - 1);
 
-            String sqldate = Utils.getSQLDateOnly(atDate);
+            String sqldate = Utils.getSQLDate(atDate);
             String sql = "SELECT COUNT(adoption.ID) FROM adoption INNER JOIN animal On animal.ID = adoption.AnimalID WHERE ";
 
             sql += ("AnimalTypeID = " + animalTypeID + " AND MovementDate = '" +
