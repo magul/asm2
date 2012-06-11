@@ -1,6 +1,7 @@
 2.8.13
 ================
 
+*. Wrote our own prop2po since translate-toolkit is hopelessly broken
 *. getSQLDateOnly doesn't work with new HSQL, broke figures report
 *. Removed medicalpayment from dump utility
 *. Broken Yes/No for German in wordprocessor
