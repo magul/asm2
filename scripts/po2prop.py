@@ -58,6 +58,10 @@ for t in tlines:
 for k in sorted(temp.iterkeys()):
     v = temp[k]
     if po.has_key(v.strip()):
-        print k + "=" + po[v.strip()]
+        ov = po[v.strip()]
+        if ov.endswith("\\"): ov = ov[0:len(ov)-1]
+        print k + "=" + ov
     else:
-        print k + "=" + v.strip()
+        ov = v.strip()
+        if ov.endswith("\\"): ov = ov[0:len(ov)-1]
+        print k + "=" + ov
