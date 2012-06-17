@@ -98,10 +98,10 @@ public class VaccinationDiary extends Report implements DiaryCriteriaListener {
     public void generateReport() {
         try {
             String sql = "SELECT av.DateRequired, av.Comments, a.AnimalName, " +
-                "a.ShelterCode, a.ShortCode, at.AnimalType, il.LocationName, " +
+                "a.ShelterCode, a.ShortCode, atp.AnimalType, il.LocationName, " +
                 "vt.VaccinationType " + "FROM animalvaccination av " +
                 "INNER JOIN animal a ON a.ID = av.AnimalID " +
-                "INNER JOIN animaltype at ON at.ID = a.AnimalTypeID " +
+                "INNER JOIN animaltype atp ON atp.ID = a.AnimalTypeID " +
                 "INNER JOIN internallocation il ON il.ID = a.ShelterLocation " +
                 "INNER JOIN vaccinationtype vt ON vt.ID = av.VaccinationID " +
                 "WHERE ";

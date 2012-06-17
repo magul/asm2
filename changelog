@@ -1,6 +1,7 @@
 2.8.13
 ================
 
+*. Vaccination Diary using reserved HSQL word AT as alias
 *. Additional field display can break with unparseable dates
 *. Wrote our own prop2po since translate-toolkit is hopelessly broken
 *. getSQLDateOnly doesn't work with new HSQL, broke figures report
