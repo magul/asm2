@@ -418,7 +418,12 @@ public class AdditionalFieldView extends UI.Panel {
                 }
 
                 if (o instanceof DateField) {
-                    ((DateField) o).setDate(Utils.parseDate(af.value));
+                    try {
+                        ((DateField) o).setDate(Utils.parseDate(af.value));
+                    }
+                    catch (java.text.ParseException e) {
+                        // Do nothing if we don't have a date
+                    }
                 }
 
                 if (o instanceof CurrencyField) {
