@@ -216,7 +216,7 @@ public class AnimalLitter extends NormalBO<AnimalLitter> {
                 try {
                     DBConnection.executeAction(
                         "UPDATE animallitter SET InvalidDate = '" +
-                        SQLRecordset.getSQLRepresentationOfDateOnly(new Date()) +
+                        SQLRecordset.getSQLRepresentationOfDate(new Date()) +
                         "' WHERE ID = " + al.getID());
                 } catch (Exception e) {
                     throw new CursorEngineException(e.getMessage());
