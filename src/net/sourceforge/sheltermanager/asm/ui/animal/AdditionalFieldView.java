@@ -420,8 +420,7 @@ public class AdditionalFieldView extends UI.Panel {
                 if (o instanceof DateField) {
                     try {
                         ((DateField) o).setDate(Utils.parseDate(af.value));
-                    }
-                    catch (java.text.ParseException e) {
+                    } catch (java.text.ParseException e) {
                         // Do nothing if we don't have a date
                     }
                 }
