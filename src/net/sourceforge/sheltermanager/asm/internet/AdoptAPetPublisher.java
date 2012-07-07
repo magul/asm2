@@ -143,7 +143,7 @@ public class AdoptAPetPublisher extends FTPPublisher {
                     an.getAnimalName() + " (" + anCount + " of " + an.size() +
                     ")", "SaveAPetPublisher.run");
 
-                uploadImage(an, an.getShelterCode() + ".jpg");
+                uploadImages(an, false);
 
                 // Build the CSV file entry for this animal:
 
