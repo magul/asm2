@@ -112,7 +112,7 @@ class Dumper implements Runnable {
 
         if (doDBFS) {
             Global.mainForm.setStatusText("Dumping DBFS");
-            DBConnection.dumpTable("dbfs");
+            dumpTable("dbfs");
         }
 
         Global.mainForm.resetStatusBar();
