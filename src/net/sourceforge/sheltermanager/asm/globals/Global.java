@@ -432,6 +432,25 @@ public abstract class Global {
         return Configuration.getBoolean("CacheActiveAnimals");
     }
 
+    /** 
+     *  If this is an HSQL database, checks for a CACHED dbfs table
+     *  and switches it to MEMORY for improved reliability.
+     */
+    public static void checkCachedDBFS() {
+        if (DBConnection.DBType == DBConnection.HSQLDB) {
+            if (!Configuration.getBoolean("UsingMemoryDBFS")) {
+                try {
+                    DBConnection.executeAction("SET TABLE dbfs TYPE MEMORY");
+                    DBConnection.executeAction("CHECKPOINT DEFRAG");
+                    Configuration.setEntry("UsingMemoryDBFS", "Yes");
+                }
+                catch (Exception e) {
+                    logException(e, Global.class);
+                }
+            }
+        }
+    }
+
     /**
      * Sets any MySQL database to use a 16Mb packet size so we can cope with
     * larger media files.

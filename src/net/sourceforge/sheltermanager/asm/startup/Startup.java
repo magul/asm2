@@ -314,6 +314,11 @@ public class Startup implements Runnable {
             sp.setStatus("Switching to UTF8 input/output...");
             Global.setUTF8();
 
+            // If this is HSQL and we're still using a CACHED table
+            // for the DBFS, switch it.
+            sp.setStatus("Switching from broken CACHED DBFS...");
+            Global.checkCachedDBFS();
+
             // Check the screen resolution
             Global.screenResAbove1024 = UI.getScreenSize().width > 1024;
 
