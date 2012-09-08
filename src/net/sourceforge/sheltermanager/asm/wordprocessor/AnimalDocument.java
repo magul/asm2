@@ -482,6 +482,16 @@ public class AnimalDocument extends GenerateDocument {
                             : Global.i18n("uiwordprocessor", "No");
                     }
 
+                    if (af.fieldType == AdditionalField.FIELDTYPE_MONEY) {
+                        try {
+                            val = Utils.formatCurrency(Integer.parseInt(val));
+                        }
+                        catch (Exception e) {
+                            // Invalid currency amount
+                            val = "";
+                        }
+                    }
+
                     addTag(af.fieldName, val);
                     Global.logDebug(
                         "Added additional animal field tag, name: '" +
