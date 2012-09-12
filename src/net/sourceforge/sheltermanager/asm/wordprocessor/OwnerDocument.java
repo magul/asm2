@@ -161,8 +161,7 @@ public class OwnerDocument extends GenerateDocument {
                     if (af.fieldType == AdditionalField.FIELDTYPE_MONEY) {
                         try {
                             val = Utils.formatCurrency(Integer.parseInt(val));
-                        }
-                        catch (Exception e) {
+                        } catch (Exception e) {
                             // Invalid currency amount
                             val = "";
                         }
