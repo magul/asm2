@@ -1903,17 +1903,8 @@ public final class UI {
     }
 
     public static void osBrowse(String uri) throws Exception {
-        if (UI.osIsWindowsXP() || UI.osIsWindows2000()) {
-            // If we're on Windows XP or 2000, use 
-            // url.dll instead of the Java Desktop class as file URIs don't seem to 
-            // be recognised as openable URLs with Windows XP and java.awt.Desktop
-            Runtime.getRuntime()
-                   .exec("rundll32 url.dll,FileProtocolHandler \"" + uri +
-                "\"");
-        } else {
-            Desktop d = Desktop.getDesktop();
-            d.browse(new java.net.URI(uri));
-        }
+        Desktop d = Desktop.getDesktop();
+        d.browse(new java.net.URI(uri));
     }
 
     public static void osOpen(String file) throws Exception {
