@@ -1903,8 +1903,17 @@ public final class UI {
     }
 
     public static void osBrowse(String uri) throws Exception {
+        // 2000/XP don't seem to support Desktop.browse for files, use osOpen
+        // directly on the html file instead.
         Desktop d = Desktop.getDesktop();
-        d.browse(new java.net.URI(uri));
+        if (UI.osIsWindowsXP() || UI.osIsWindows2000() && uri.toLowerCase().startsWith("file")) {
+            int ns = uri.toLowerCase().indexOf("c:");
+            uri = uri.substring(ns);
+            d.open(new java.io.File(uri));
+        }
+        else {
+            d.browse(new java.net.URI(uri));
+        }
     }
 
     public static void osOpen(String file) throws Exception {
