@@ -28,6 +28,8 @@ tar -cjvf asm.tar.bz2 \
 	doc/help/en/asm.lyx \
 	doc/help/en/*.sh \
 	doc/help/en/Makefile \
+    logo \
+    media \
 	scripts \
     sql \
 	Makefile \
