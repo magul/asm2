@@ -12,8 +12,8 @@ tar -cjvf asm.tar.bz2 \
 	README \
 	AUTHORS \
 	COPYING \
-        changelog \
-        lib \
+    changelog \
+    lib \
 	src \
 	doxygen \
 	install/macosx/*.sh \
@@ -21,7 +21,7 @@ tar -cjvf asm.tar.bz2 \
 	install/unix/LICENSE \
 	install/unix/README \
 	install/unix/*.sh \
-    	install/win32/*.nsi \
+    install/win32/*.nsi \
 	install/win32/*.sh \
 	install/win32/*exe \
 	doc/help/en/README \
@@ -29,6 +29,7 @@ tar -cjvf asm.tar.bz2 \
 	doc/help/en/*.sh \
 	doc/help/en/Makefile \
 	scripts \
+    sql \
 	Makefile \
-        VERSION > /dev/null
+    VERSION > /dev/null
 	
