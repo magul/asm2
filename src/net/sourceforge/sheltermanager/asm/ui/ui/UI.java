@@ -1875,15 +1875,16 @@ public final class UI {
     }
 
     public static boolean osIsWindowsXP() {
-        return Utils.englishLower(System.getProperty("os.name")).indexOf("windows") != -1 && 
-            Utils.englishLower(System.getProperty("os.name")).indexOf("xp") != -1;
+        return (Utils.englishLower(System.getProperty("os.name"))
+                     .indexOf("windows") != -1) &&
+        (Utils.englishLower(System.getProperty("os.name")).indexOf("xp") != -1);
     }
 
     public static boolean osIsWindows2000() {
-        return Utils.englishLower(System.getProperty("os.name")).indexOf("windows") != -1 && 
-            Utils.englishLower(System.getProperty("os.name")).indexOf("2000") != -1;
+        return (Utils.englishLower(System.getProperty("os.name"))
+                     .indexOf("windows") != -1) &&
+        (Utils.englishLower(System.getProperty("os.name")).indexOf("2000") != -1);
     }
-
 
     /**
      * Returns true if java.awt.Desktop support is available
@@ -1906,12 +1907,13 @@ public final class UI {
         // 2000/XP don't seem to support Desktop.browse for files, use osOpen
         // directly on the html file instead.
         Desktop d = Desktop.getDesktop();
-        if (UI.osIsWindowsXP() || UI.osIsWindows2000() && uri.toLowerCase().startsWith("file")) {
+
+        if (UI.osIsWindowsXP() ||
+                (UI.osIsWindows2000() && uri.toLowerCase().startsWith("file"))) {
             int ns = uri.toLowerCase().indexOf("c:");
             uri = uri.substring(ns);
             d.open(new java.io.File(uri));
-        }
-        else {
+        } else {
             d.browse(new java.net.URI(uri));
         }
     }
